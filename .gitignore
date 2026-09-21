@@ -1,0 +1,21 @@
+# Local configuration / credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+# Build / tooling
+.gradle/
+**/build/
+**/node_modules/
+**/dist/
+**/coverage/
+**/.venv/
+**/__pycache__/
+**/.pytest_cache/
+**/.ruff_cache/
+*.egg-info/
+.idea/
+.vscode/
+*.iml
+.toolchains/
