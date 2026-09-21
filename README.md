@@ -76,4 +76,4 @@ CI는 backend/Frontend/Python 검사 후 Docker 이미지 build를 수행하며 
 
 호환성 근거: [Spring Boot 3.5 요구사항](https://docs.spring.io/spring-boot/3.5/system-requirements.html), [BOM](https://docs.spring.io/spring-boot/3.5/appendix/dependency-versions/coordinates.html), [jOOQ Java 지원](https://www.jooq.org/download/support-matrix-jdk). 버전 고정은 장기 보안 지원 보장이 아니며 배포 전 업데이트 검토가 필요합니다.
 
-기술 명세는 기존 작업 공간의 `docs/TECHNICAL_SPEC.md`를 기준으로 했습니다. 운영 문서 이동 등 기존 미커밋 변경은 이 환경 구성 commit에 포함하지 않습니다.
+기술 명세: [docs/TECHNICAL_SPEC.md](docs/TECHNICAL_SPEC.md). 운영 기준: [docs/solo-workflow/MULTI_SESSION_WORKFLOW.md](docs/solo-workflow/MULTI_SESSION_WORKFLOW.md).
