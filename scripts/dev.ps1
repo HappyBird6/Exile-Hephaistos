@@ -4,7 +4,7 @@ $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path $PSScriptRoot -Parent
 $envFile = Join-Path $projectRoot '.env'
 $composeFile = Join-Path $projectRoot 'infra/compose.yaml'
-$composeArgs = @('compose', '--project-name', 'exile-hephaistos', '--project-directory', $projectRoot,
+$composeArgs = @('compose', '--project-name', 'exile-hephaistos',
     '--env-file', $envFile, '-f', $composeFile)
 $exitCode = 0
 

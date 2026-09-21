@@ -66,7 +66,8 @@ function docker {
         for call in calls:
             if call[0] == "compose":
                 self.assertEqual(call[call.index("--project-name") + 1], "exile-hephaistos")
-                self.assertEqual(call[call.index("--project-directory") + 1], str(self.root))
+                self.assertEqual(Path(call[call.index("-f") + 1]), self.root / "infra/compose.yaml")
+                self.assertEqual(Path(call[call.index("--env-file") + 1]), self.env_file)
         self.assertTrue(any("up" in c and "--build" in c for c in calls))
 
     def test_existing_environment_and_volume_are_preserved(self):
