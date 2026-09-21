@@ -5,6 +5,15 @@ on:
 permissions:
   contents: read
 jobs:
+  windows-dev-script:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s scripts/tests -v
+        shell: powershell
   backend:
     runs-on: ubuntu-latest
     steps:
@@ -40,7 +49,7 @@ jobs:
       - run: uv sync --frozen && uv run --frozen ruff check . && uv run --frozen ruff format --check . && uv run --frozen python -m pytest
         working-directory: data-pipeline
   images:
-    needs: [backend, frontend, pipeline]
+    needs: [backend, frontend, pipeline, windows-dev-script]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

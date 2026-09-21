@@ -1,4 +1,5 @@
 # Local development only. No deployment or production account policy is implied.
+name: exile-hephaistos
 services:
   postgres:
     image: postgres:17.6-alpine
@@ -61,3 +62,5 @@ services:
     command: ["--status"]
 volumes:
   postgres-data:
+    external: true
+    name: ${POSTGRES_VOLUME_NAME:-exile-hephaistos_postgres-data}
