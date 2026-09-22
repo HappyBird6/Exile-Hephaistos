@@ -69,11 +69,15 @@ Backend `check`는 Spotless·JUnit·ArchUnit·`integrationTest`를 포함합니�
 ```powershell
 # 프로젝트 루트: 비밀 출력 없는 Compose 검증
  docker compose --env-file .env.example -f infra/compose.yaml --profile stack --profile batch config --quiet
-# ETL은 상태 출력만 제공하며 외부 수집/발행은 하지 않음
+# 상태 조회는 외부 요청 없이 raw 수집기의 준비 상태만 출력
  docker compose --env-file .env.example -f infra/compose.yaml --profile batch run --rm etl --status
 ```
 
 CI는 backend/Frontend/Python 검사 후 Docker 이미지 build를 수행하며 push·배포하지 않습니다.
+
+Python의 명시적 `crawl` 명령으로 poe2db 공개 목록 원본을 저장할 수 있습니다.
+실행 조건과 오프라인 검증은 [data-pipeline/README.md](data-pipeline/README.md)를 참고하세요.
+게임 데이터 정규화·검증·발행은 아직 지원하지 않습니다.
 
 ## 버전 및 범위
 
