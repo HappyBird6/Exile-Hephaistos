@@ -1,4 +1,12 @@
+import { AdminCrawlingPage } from '../features/admin-crawling/AdminCrawlingPage'
+
 export function App() {
+  if (
+    window.location.pathname === '/admin' ||
+    window.location.pathname === '/admin/crawling'
+  ) {
+    return <AdminCrawlingPage />
+  }
   return (
     <main>
       <p className="eyebrow">POE2 · 제작 의사결정 지원</p>
@@ -14,6 +22,11 @@ export function App() {
         </p>
         <p>AI 목표 초안, 가격 조회, 로그인 기능도 아직 지원하지 않습니다.</p>
       </section>
+      <p>
+        <a className="admin-link" href="/admin">
+          관리자 페이지
+        </a>
+      </p>
     </main>
   )
 }

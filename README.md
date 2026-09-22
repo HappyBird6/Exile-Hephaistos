@@ -1,6 +1,6 @@
 # Exile-Hephaistos
 
-PoE2 제작 의사결정 지원 프로젝트의 개발 환경입니다. 현재는 기반 scaffold이며 게임 계산·로그인·가격·AI API는 구현 전입니다.
+PoE2 제작 의사결정 지원 프로젝트입니다. 크롤링 관리자 기능을 제공하며, 게임 계산·일반 사용자 로그인·가격·AI API는 구현 전입니다.
 
 ## 빠른 시작 — Docker만 사용
 
@@ -39,8 +39,8 @@ Java 21 (`JAVA_HOME`), Node 24.18.1 / npm 11.16.0, Python 3.12, uv 0.9.7, Docker
 .\scripts\dev.ps1 frontend
 ```
 
-Vite: http://localhost:5173. `/api` 요청은 localhost:8080으로 proxy합니다. 아직 제품 endpoint는 없으며 기본 Security는 probe 외 요청을 거부하고 CSRF를 유지합니다.
-`APP_CORS_ALLOWED_ORIGINS` 등은 후속 계약이며 현재 개발은 same-origin proxy를 사용합니다. session cookie는 Secure/HttpOnly/SameSite=Lax입니다. 로그인 구현 시 로컬 HTTPS 개발을 구성해야 합니다.
+Vite: http://localhost:5173. `/api` 요청은 localhost:8080으로 proxy합니다. 제작 endpoint는 아직 없으며 관리자 API는 별도 로그인과 CSRF로 보호합니다.
+`APP_CORS_ALLOWED_ORIGINS` 등은 후속 계약이며 현재 개발은 same-origin proxy를 사용합니다. session cookie는 기본 Secure/HttpOnly/SameSite=Lax입니다. 관리자 로그인 개발 시 HTTPS 또는 운영 안내의 로컬 전용 설정을 사용하세요.
 
 Linux/macOS에서는 `.env.example`을 `.env`로 복사하고 비밀번호를 변경합니다. 최초 설치는 `docker volume create exile-hephaistos_postgres-data`로 volume을 준비한 뒤 `docker compose --env-file .env -f infra/compose.yaml --profile stack up -d --build`를 사용합니다. 호스트 Backend 실행에는 `.env`의 환경변수를 shell에 export하고 `cd backend && ./gradlew bootRun`을 실행합니다. Spring Boot가 `.env`를 자동 로딩한다고 가정하지 않습니다.
 
@@ -78,6 +78,11 @@ CI는 backend/Frontend/Python 검사 후 Docker 이미지 build를 수행하며 
 Python의 명시적 `crawl` 명령으로 poe2db 공개 목록 원본을 저장할 수 있습니다.
 실행 조건과 오프라인 검증은 [data-pipeline/README.md](data-pipeline/README.md)를 참고하세요.
 게임 데이터 정규화·검증·발행은 아직 지원하지 않습니다.
+
+관리자 페이지 `/admin`에서는 DB에 저장한 수집 대상을 수정하고 원본 수집을 요청할 수 있습니다.
+관리자 계정과 수집 실행기는 기본 비활성화이며, 환경변수·실행 환경·보관 위치는
+[관리자 크롤링 운영 안내](docs/admin-crawling.md)에 설명합니다.
+변경 비교와 데이터 최신화는 정제 단계 이후에 구현합니다.
 
 ## 버전 및 범위
 
