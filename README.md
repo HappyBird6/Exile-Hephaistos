@@ -96,3 +96,9 @@ Python의 명시적 `crawl` 명령으로 poe2db 공개 목록 원본을 저장�
 호환성 근거: [Spring Boot 3.5 요구사항](https://docs.spring.io/spring-boot/3.5/system-requirements.html), [BOM](https://docs.spring.io/spring-boot/3.5/appendix/dependency-versions/coordinates.html), [jOOQ Java 지원](https://www.jooq.org/download/support-matrix-jdk). 버전 고정은 장기 보안 지원 보장이 아니며 배포 전 업데이트 검토가 필요합니다.
 
 기술 명세: [docs/TECHNICAL_SPEC.md](docs/TECHNICAL_SPEC.md). 운영 기준: [docs/solo-workflow/MULTI_SESSION_WORKFLOW.md](docs/solo-workflow/MULTI_SESSION_WORKFLOW.md).
+
+## 제작 작업대 프리뷰
+
+`/`는 PoE2 화폐 창고를 참고한 제작 작업대입니다. 기본 태양의 목걸이를 배치하거나 게임 복사 텍스트를 입력할 수 있습니다. 현재 32종 화폐(조각 4종과 감정 주문서 제외)를 우클릭/클릭/키보드로 선택하고 중앙 아이템으로 사용 요청을 확인합니다. Esc 또는 선택 해제로 취소합니다. 복사 텍스트는 해석 없이 원문으로 유지하며 제작 효과·옵션 변경·화폐 소모·확률 계산은 수행하지 않습니다. `/admin`, `/admin/crawling`은 기존 관리자 기능입니다.
+
+이미지 출처와 미확보 자산은 [제작 화면 자산 기록](docs/crafting-ui.md)을 참고하세요.

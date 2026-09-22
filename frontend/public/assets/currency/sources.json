@@ -1,0 +1,127 @@
+{
+  "retrievedAt": "2026-09-22",
+  "page": "https://poe2db.tw/kr/Currency",
+  "pageSha256": "c7862d4ae9839488cd26e69dea5b099c144d8ab8db43a3187c0ad5a838772c75",
+  "assets": [
+    {
+      "file": "/assets/currency/CurrencyUpgradeToMagic.webp",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyUpgradeToMagic.webp",
+      "sha256": "7831effa019d1f3948d0760046801d57f38a9f0e1c500b15a622f94fba437cef"
+    },
+    {
+      "file": "/assets/currency/CurrencyAddModToMagic.webp",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyAddModToMagic.webp",
+      "sha256": "b83b03f455f31f26038b9738e0ea9e74471d33aa4f2788738bf6e1174e630703"
+    },
+    {
+      "file": "/assets/currency/CurrencyUpgradeToUnique.webp",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyUpgradeToUnique.webp",
+      "sha256": "6618c36eb5dcb6fc47ce02aa826626c9115786571de422c657247b96dc3d2779"
+    },
+    {
+      "file": "/assets/currency/AnnullOrb.webp",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AnnullOrb.webp",
+      "sha256": "f1d346c37e81ebe5344611bc8e6d72e89c8b12c239e3640312e691a5726ba579"
+    },
+    {
+      "file": "/assets/currency/CurrencyUpgradeToRare.webp",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyUpgradeToRare.webp",
+      "sha256": "c45cfe686e96d831634051fca8f29cfe9e804db5df92753df394ab35f3a39578"
+    },
+    {
+      "file": "/assets/currency/CurrencyUpgradeMagicToRare.webp",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyUpgradeMagicToRare.webp",
+      "sha256": "2134f6d9eb4116f7308cd5bb9231e033ee110cd74a44dd9fabf095d3a702a319"
+    },
+    {
+      "file": "/assets/currency/CurrencyAddModToRare.webp",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyAddModToRare.webp",
+      "sha256": "4d7620df0cf04dcf0068669d6c2ec3864441bdc33cdca8dfc45bef4711d2cf7b"
+    },
+    {
+      "file": "/assets/currency/CurrencyRerollRare.webp",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyRerollRare.webp",
+      "sha256": "410b1785d02b13a71fcdd8309ead23c40e70f0dee7a16c4b475c397459c2879b"
+    },
+    {
+      "file": "/assets/currency/CurrencyVaal.webp",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyVaal.webp",
+      "sha256": "2af419badfa4311fda3912f38dbf313f4cd00627cb20acdc115d0791aaad2ec6"
+    },
+    {
+      "file": "/assets/currency/FracturingOrb.webp",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/FracturingOrb.webp",
+      "sha256": "93d1cea46fba412aefe835be43d2410dbfcad044229e55b3e35e219ad59be180"
+    },
+    {
+      "file": "/assets/currency/CurrencyModValues.webp",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyModValues.webp",
+      "sha256": "c1131ed6363049c70acf72ca9d8c675bde90fd44b49344538afe615d3a49cdd9"
+    },
+    {
+      "file": "/assets/currency/CurrencyDuplicate.webp",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyDuplicate.webp",
+      "sha256": "2003748a74799193f7992bedbf49f3c18520fbdbac8ab94df37d8838be4bdf64"
+    },
+    {
+      "file": "/assets/currency/CurrencyWeaponMagicQuality.webp",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyWeaponMagicQuality.webp",
+      "sha256": "1b59e8a6335062434c8baa7479b0f96bcb8f8e21f63a84080b33d9045d0fc6ff"
+    },
+    {
+      "file": "/assets/currency/CurrencyArmourQuality.webp",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyArmourQuality.webp",
+      "sha256": "f13c79998b26c64e2e77a3c26a2c572b956dde7c8464a28072b81cfd4fdb9719"
+    },
+    {
+      "file": "/assets/currency/CurrencyWeaponQuality.webp",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyWeaponQuality.webp",
+      "sha256": "79a445e5367352476b2cda4f2a309fb9f247cbe47e7c9bfcb7067f9c8b789de5"
+    },
+    {
+      "file": "/assets/currency/CurrencyAddEquipmentSocket.webp",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyAddEquipmentSocket.webp",
+      "sha256": "9a1221dc37aa2b89d7bac921e08aeb9e4a1d5856c134a7644d6ed0b7c0c60e00"
+    },
+    {
+      "file": "/assets/currency/CurrencyRerollSocketNumbers01.webp",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyRerollSocketNumbers01.webp",
+      "sha256": "c08fbebcf0584c5f02a12987ed72a32c7b3ad9366f60e7eafa6b76df195cc803"
+    },
+    {
+      "file": "/assets/currency/CurrencyRerollSocketNumbers03.webp",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyRerollSocketNumbers03.webp",
+      "sha256": "f373a3e01661b4e4c029e5c8e1db75d7ae9fa6a5768bf59ba921caaffb2d81b8"
+    },
+    {
+      "file": "/assets/currency/CurrencyGemQuality.webp",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyGemQuality.webp",
+      "sha256": "62fb668da98e8d6cdd67e0b43c0b01ae4e857424d568f7a7557f248dc1c825ee"
+    },
+    {
+      "file": "/assets/currency/CurrencyFlaskQuality.webp",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyFlaskQuality.webp",
+      "sha256": "4adc250e2d204541d20ab7f312b71d0377258e73a6c26e81a48cd5fdaa7a2612"
+    },
+    {
+      "file": "/assets/currency/stash-background.webp",
+      "url": "https://cdn.poe2db.tw/image/art/textures/interface/2d/2dart/uiimages/ingame/mtx/currencystash/currencystashbg.webp",
+      "sha256": "cb03ca4a3e0fcab15d8d296d1a2c20064784f2dfb4a804cd7b06ebc22be787ee"
+    },
+    {
+      "file": "/assets/currency/solar-amulet.webp",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/SolarAmulet.webp",
+      "sha256": "185139604916df32a0bbaf851bf2af2e72badd8c4c9ec9cae94a570ba7287951"
+    }
+  ],
+  "unavailable": [
+    {
+      "file": "/assets/currency/CurrencyRerollSocketNumbers02.webp",
+      "reason": "Source CDN returned HTTP 403; no bypass attempted"
+    },
+    {
+      "file": "/assets/currency/HinekorasLock.webp",
+      "reason": "Source CDN returned HTTP 403; no bypass attempted"
+    }
+  ]
+}
