@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import type { FormEvent } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
+  AdminApiError,
   adminApi,
   errorMessage,
   type AdminSession,
@@ -159,6 +160,15 @@ function CrawlingDashboard({ session }: { session: AdminSession }) {
     retry: false,
     refetchInterval: 3000,
   })
+  const accessError = settings.error ?? runs.error
+  useEffect(() => {
+    if (
+      accessError instanceof AdminApiError &&
+      (accessError.status === 401 || accessError.status === 403)
+    ) {
+      void client.invalidateQueries({ queryKey: sessionKey })
+    }
+  }, [accessError, client])
   const logout = useMutation({
     mutationFn: () => adminApi.logout(session),
     onSuccess: async () => {
