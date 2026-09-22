@@ -12,7 +12,7 @@
 - `tasks/<task_id>/reports/<역할>-<번호>-<회차>.json`: 위임 결과.
 - `tasks/<task_id>/logs/`: 필요한 명령 결과. 비밀 제거.
 
-전체 이벤트 로그를 의무화하지 않는다. 작은 작업은 task.json 하나와 필요한 증거만 있으면 된다. 완료 작업의 상세 이력은 새 요청의 문맥에 넣지 않는다.
+전체 이벤트 로그를 의무화하지 않는다. 작은 작업도 기능 작업자 위임과 결과를 기록한다. 최소 task.json에 담당 실제 ID·소유 범위·결과 참조를 남기고 필요한 report·검증 증거를 보존한다. 완료 작업의 상세 이력은 새 요청의 문맥에 넣지 않는다.
 
 ## 상태 전이
 
@@ -35,9 +35,10 @@
 
 ```json
 {
-  "task_id": "실제 생성값", "workflow_version": "2.0",
+  "task_id": "실제 생성값", "workflow_version": "2.1",
   "request": "짧은 요청", "kind": "ordinary", "state": "RUNNING",
-  "manager_session_id": null, "worktree": "실제 절대 경로",
+  "manager_session_id": null, "execution_mode": "delegated",
+  "worker_session_ids": [], "worktree": "실제 절대 경로",
   "base_sha": null, "target_sha": null,
   "owners": [], "source_commits": [],
   "checks": [], "review": null, "findings": [], "fix_rounds": 0,
@@ -45,6 +46,8 @@
   "next_action": "다음 작업", "updated_at": "UTC 시각"
 }
 ```
+
+기존 config/task에 관리자 단독 구현을 뜻하는 실행 모드가 남아 있으면 다음 작업 시작 시 현재 정책과 대조해 갱신한다. 완료된 과거 기록을 소급 수정하지 않는다. 구현 요청은 실제 기능 작업자 ID가 배정되거나 위임 불가 원인이 기록되어야 한다.
 
 각 check: 명령, cwd, 시작·종료 SHA, 관련 입력 식별값, 실행 환경, 종료 코드, 성공/실패/미실행, 로그 경로, 재사용 근거. 해당 없는 필드는 null과 이유를 사용하며 SHA를 만들어내지 않는다.
 각 finding: ID, 관점, 심각도, 파일·근거, 원 대상 SHA, 담당, 수정 SHA, 재검증·재리뷰 참조, OPEN/CLOSED.
