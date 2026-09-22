@@ -1,0 +1,233 @@
+openapi: 3.0.3
+info:
+  title: Exile Hephaistos Admin Raw Capture
+  version: 1.0.0
+  description: Single environment-configured administrator; raw capture only, no publishing.
+security:
+  - session: []
+paths:
+  /api/v1/admin/session:
+    get:
+      operationId: getAdminSession
+      security: []
+      responses:
+        '200':
+          description: Configuration, authentication and current CSRF token. Never cache.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [configured, authenticated, csrfToken, csrfHeaderName]
+                properties:
+                  configured: {type: boolean}
+                  authenticated: {type: boolean}
+                  csrfToken: {type: string}
+                  csrfHeaderName: {type: string}
+  /api/v1/admin/login:
+    post:
+      operationId: loginAdmin
+      security: []
+      parameters:
+        - $ref: '#/components/parameters/Csrf'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [username, password]
+              properties:
+                username: {type: string}
+                password: {type: string, format: password}
+      responses:
+        '204': {description: Session established. Obtain a new CSRF token.}
+        '401': {$ref: '#/components/responses/Problem'}
+        '403': {$ref: '#/components/responses/Problem'}
+        '429': {$ref: '#/components/responses/Problem'}
+  /api/v1/admin/logout:
+    post:
+      operationId: logoutAdmin
+      parameters:
+        - $ref: '#/components/parameters/Csrf'
+      responses:
+        '204': {description: Session invalidated.}
+        '403': {$ref: '#/components/responses/Problem'}
+  /api/v1/admin/crawl-settings:
+    get:
+      operationId: getCrawlSettings
+      responses:
+        '200':
+          description: Current versioned target settings.
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Settings'}
+        '401': {$ref: '#/components/responses/Problem'}
+        '403': {$ref: '#/components/responses/Problem'}
+        '503': {$ref: '#/components/responses/Problem'}
+    put:
+      operationId: updateCrawlSettings
+      parameters:
+        - $ref: '#/components/parameters/Csrf'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [version, targets]
+              properties:
+                version: {type: integer, format: int64, minimum: 0}
+                targets:
+                  type: array
+                  maxItems: 20
+                  items: {$ref: '#/components/schemas/Target'}
+      responses:
+        '200':
+          description: Stored settings with incremented version.
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Settings'}
+        '400': {$ref: '#/components/responses/Problem'}
+        '401': {$ref: '#/components/responses/Problem'}
+        '403': {$ref: '#/components/responses/Problem'}
+        '409': {$ref: '#/components/responses/Problem'}
+        '422': {$ref: '#/components/responses/Problem'}
+        '503': {$ref: '#/components/responses/Problem'}
+  /api/v1/admin/crawl-runs:
+    get:
+      operationId: listCrawlRuns
+      responses:
+        '200':
+          description: Latest 50 runs, newest first.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [runs]
+                properties:
+                  runs:
+                    type: array
+                    maxItems: 50
+                    items: {$ref: '#/components/schemas/Run'}
+        '401': {$ref: '#/components/responses/Problem'}
+        '403': {$ref: '#/components/responses/Problem'}
+        '503': {$ref: '#/components/responses/Problem'}
+    post:
+      operationId: createCrawlRun
+      description: Snapshot enabled targets and enqueue one raw capture. No request body.
+      parameters:
+        - $ref: '#/components/parameters/Csrf'
+      responses:
+        '202':
+          description: Queued run; inspect detail for completion.
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Run'}
+        '401': {$ref: '#/components/responses/Problem'}
+        '403': {$ref: '#/components/responses/Problem'}
+        '409': {$ref: '#/components/responses/Problem'}
+        '422': {$ref: '#/components/responses/Problem'}
+        '503': {$ref: '#/components/responses/Problem'}
+  /api/v1/admin/crawl-runs/{id}:
+    get:
+      operationId: getCrawlRun
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      responses:
+        '200':
+          description: Run with source metadata. Raw HTML is never served.
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Run'}
+        '400': {$ref: '#/components/responses/Problem'}
+        '401': {$ref: '#/components/responses/Problem'}
+        '403': {$ref: '#/components/responses/Problem'}
+        '404': {$ref: '#/components/responses/Problem'}
+        '503': {$ref: '#/components/responses/Problem'}
+components:
+  securitySchemes:
+    session:
+      type: apiKey
+      in: cookie
+      name: JSESSIONID
+  parameters:
+    Csrf:
+      name: X-CSRF-TOKEN
+      in: header
+      required: true
+      description: Use the token and header name returned by getAdminSession.
+      schema: {type: string}
+  responses:
+    Problem:
+      description: Rejected request. code identifies the reason; no provider error or secret.
+      content:
+        application/problem+json:
+          schema: {$ref: '#/components/schemas/Problem'}
+  schemas:
+    Target:
+      type: object
+      required: [id, name, url, enabled]
+      properties:
+        id: {type: string, format: uuid}
+        name: {type: string, minLength: 1, maxLength: 80}
+        url:
+          type: string
+          maxLength: 1024
+          pattern: '^https://poe2db\.tw/(us|kr)/[A-Za-z0-9_-]+$'
+        enabled: {type: boolean}
+    Settings:
+      type: object
+      required: [version, targets, runnerEnabled, limits]
+      properties:
+        version: {type: integer, format: int64, minimum: 0}
+        targets:
+          type: array
+          maxItems: 20
+          items: {$ref: '#/components/schemas/Target'}
+        runnerEnabled: {type: boolean}
+        limits:
+          type: object
+          required: [maxTargets]
+          properties:
+            maxTargets: {type: integer, enum: [20]}
+    Source:
+      type: object
+      required: [url, status, sha256, bytes, fetchedAt]
+      properties:
+        url: {type: string, format: uri}
+        status: {type: integer, minimum: 100, maximum: 599}
+        sha256: {type: string, pattern: '^[0-9a-f]{64}$'}
+        bytes: {type: integer, format: int64, minimum: 0, maximum: 8388608}
+        fetchedAt: {type: string, format: date-time}
+    Run:
+      type: object
+      required: [id, status, createdAt, startedAt, finishedAt, targets, errorCode, sourceCount]
+      properties:
+        id: {type: string, format: uuid}
+        status: {type: string, enum: [QUEUED, RUNNING, RAW_CAPTURED, FAILED]}
+        createdAt: {type: string, format: date-time}
+        startedAt: {type: string, format: date-time, nullable: true}
+        finishedAt: {type: string, format: date-time, nullable: true}
+        targets:
+          type: array
+          maxItems: 20
+          items: {$ref: '#/components/schemas/Target'}
+        errorCode: {type: string, nullable: true}
+        sourceCount: {type: integer, nullable: true, minimum: 0}
+        sources:
+          type: array
+          items: {$ref: '#/components/schemas/Source'}
+    Problem:
+      type: object
+      required: [type, title, status, detail, code, traceId]
+      properties:
+        type: {type: string}
+        title: {type: string}
+        status: {type: integer}
+        detail: {type: string}
+        instance: {type: string}
+        code: {type: string}
+        traceId: {type: string}

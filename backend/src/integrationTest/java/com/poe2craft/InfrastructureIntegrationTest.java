@@ -66,7 +66,7 @@ class InfrastructureIntegrationTest {
 
   @Test
   void emptyDatabaseMigratesAndRestartDoesNotReapplyMigration() {
-    assertThat(flyway.info().applied()).hasSize(2);
+    assertThat(flyway.info().applied()).hasSize(3);
     assertThat(flyway.migrate().migrationsExecuted).isZero();
     assertThat(
             dsl.fetchCount(

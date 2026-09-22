@@ -26,7 +26,7 @@ server:
   servlet:
     session:
       cookie:
-        secure: true
+        secure: ${APP_SESSION_COOKIE_SECURE:true}
         http-only: true
         same-site: lax
   error:
@@ -50,5 +50,12 @@ logging:
     format:
       console: ecs
 app:
+  admin:
+    username: ${APP_ADMIN_USERNAME:}
+    password: ${APP_ADMIN_PASSWORD:}
+  crawl:
+    enabled: ${APP_CRAWL_ENABLED:false}
+    directory: ${APP_CRAWL_DIRECTORY:../data-pipeline/captures}
+    python: ${APP_CRAWL_PYTHON:python}
   ai:
     enabled: false

@@ -39,6 +39,12 @@ services:
       SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
       SPRING_DATA_REDIS_HOST: redis
       SPRING_DATA_REDIS_PORT: 6379
+      APP_ADMIN_USERNAME: ${APP_ADMIN_USERNAME:-}
+      APP_ADMIN_PASSWORD: ${APP_ADMIN_PASSWORD:-}
+      APP_CRAWL_ENABLED: ${APP_CRAWL_ENABLED:-false}
+      APP_SESSION_COOKIE_SECURE: ${APP_SESSION_COOKIE_SECURE:-true}
+    volumes:
+      - crawl-captures:/app/captures
     depends_on:
       postgres:
         condition: service_healthy
@@ -61,6 +67,7 @@ services:
       dockerfile: infra/docker/etl.Dockerfile
     command: ["--status"]
 volumes:
+  crawl-captures:
   postgres-data:
     external: true
     name: ${POSTGRES_VOLUME_NAME:-exile-hephaistos_postgres-data}
