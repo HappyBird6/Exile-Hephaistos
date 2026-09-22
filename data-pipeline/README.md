@@ -1,6 +1,6 @@
 # poe2db 원본 수집기
 
-현재 단계는 **수집 코드만 준비**한 상태다. 테스트는 네트워크를 차단한 synthetic 응답으로 실행한다.
+현재 단계는 **원본 수집 전용**이며 관리자 대상 snapshot 입력을 지원한다. 테스트는 네트워크를 차단한 synthetic 응답으로 실행한다.
 `--status`와 인수 없는 실행은 외부 요청을 보내지 않는다. 스케줄러·자동 실행·DB 쓰기는 없다.
 
 ## 실행 계약
@@ -22,7 +22,7 @@ uv run --frozen python -m poe2etl crawl --pages currency amulets --output captur
 
 ## 요청과 실패 처리
 
-- `https://poe2db.tw`의 robots, 이용 고지, 지정한 두 목록 페이지만 허용한다.
+- `https://poe2db.tw`의 robots, 이용 고지, 허용 형식의 지정 대상 페이지만 요청한다.
 - robots 확인 실패·접근 금지 시 중단한다. User-Agent는 `Exile-Hephaistos-Research/0.1`이다.
 - 최소 요청 간격은 2초이며 robots의 Crawl-delay/Request-rate가 더 길면 따른다.
 - HTTP 요청 timeout은 30초, 응답 크기는 8 MiB까지다.
@@ -60,3 +60,22 @@ uv run --frozen python -m pytest
 ```
 
 fixtures는 가상의 내용이며 실제 게임 데이터나 production seed가 아니다.
+
+## 관리자 대상 snapshot 계약
+
+관리자가 저장한 대상은 `python -m poe2etl crawl --targets-file ABS_JSON --output ABS_JOBDIR`로
+전달한다. `--pages`를 명시하면 `--targets-file`과 함께 사용할 수 없다. 기존 기본 두 페이지는 유지한다.
+JSON은 `{ "targets": [{ "id": "UUID", "name": "표시 이름", "url": "https://poe2db.tw/kr/Currency", "enabled": true }] }`다.
+64 KiB 이하의 절대 경로 일반 파일만 읽고, 대상 1~20개, 중복 없는 UUID/URL, 필수 boolean enabled를
+검사한다. 이름은 공백만으로 구성될 수 없고 최대 80자다. enabled 대상이 하나도 없으면 실패한다.
+
+URL은 정확히 `https://poe2db.tw/(us|kr)/[A-Za-z0-9_-]+` 형식만 허용한다.
+포트·userinfo·query·fragment·percent encoding·추가 경로는 거부한다. 대상 내용은 실행 명령이나
+출력 경로로 사용하지 않는다. 공통 robots와 `/us/General_disclaimer`를 먼저 확보하고
+모든 활성 대상의 robots 허용 여부를 검사한다. redirect는 계속 금지한다.
+
+manifest의 `targets`는 비활성 대상을 포함한 검증된 입력 snapshot이다. 각 source의 `targetId`는
+설정 대상 UUID이며 공통 정책 증거와 기존 `--pages`는 null이다. 입력 파일 검증 실패도 출력 아래
+단일 실행 폴더에 실패 manifest를 남긴다(출력 폴더 자체를 만들거나 쓸 수 없는 OS 오류는 예외).
+원본 비교·정규화·DB 최신화·게임 사실 검증은 실행하지 않는다. 이번 구현 검증은 네트워크 차단
+fixture만 사용하며 live 수집을 수행하지 않는다.

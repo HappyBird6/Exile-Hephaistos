@@ -13,7 +13,9 @@ def main() -> None:
     commands = parser.add_subparsers(dest="command")
     crawl = commands.add_parser("crawl", help="Capture selected poe2db pages (network access)")
     crawl.add_argument("--output", type=Path, default=Path("captures"))
-    crawl.add_argument("--pages", nargs="+", choices=sorted(PAGES), default=list(PAGES))
+    selection = crawl.add_mutually_exclusive_group()
+    selection.add_argument("--pages", nargs="+", choices=sorted(PAGES))
+    selection.add_argument("--targets-file", type=Path)
     crawl.add_argument("--target-patch", help="Operator label only; does not verify source patch")
     args = parser.parse_args()
     if args.status and args.command:
@@ -30,7 +32,14 @@ def main() -> None:
         )
     elif args.command == "crawl":
         try:
-            run = Collector().capture(args.output.resolve(), args.pages, args.target_patch)
+            run = Collector().capture(
+                args.output.resolve(),
+                args.pages
+                if args.pages is not None
+                else (None if args.targets_file else list(PAGES)),
+                args.target_patch,
+                targets_file=args.targets_file,
+            )
         except (CaptureError, OSError) as exc:
             parser.exit(1, f"Capture failed: {exc}\n")
         print(json.dumps({"status": "RAW_CAPTURED", "manifest": str(run / "manifest.json")}))

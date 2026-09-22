@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import re
 import time
 import uuid
 from dataclasses import dataclass
@@ -16,17 +17,74 @@ from urllib.robotparser import RobotFileParser
 
 ORIGIN = "https://poe2db.tw"
 USER_AGENT = "Exile-Hephaistos-Research/0.1"
-COLLECTOR_VERSION = "raw-1"
+COLLECTOR_VERSION = "raw-2"
 PAGES = {"currency": "/us/Currency", "amulets": "/us/Amulets"}
 ROBOTS = "/robots.txt"
 DISCLAIMER = "/us/General_disclaimer"
 MAX_BYTES = 8 * 1024 * 1024
 MAX_RETRY_WAIT = 60
-ALLOWED_PATHS = {ROBOTS, DISCLAIMER, *PAGES.values()}
+MAX_TARGETS = 20
+MAX_TARGET_FILE_BYTES = 64 * 1024
+TARGET_URL = re.compile(r"https://poe2db[.]tw/(?:us|kr)/[A-Za-z0-9_-]+", re.ASCII)
 
 
 class CaptureError(Exception):
     """Explicit capture failure with a stable, non-secret reason."""
+
+
+def validate_url(url: object, *, policy: bool = False) -> str:
+    if not isinstance(url, str) or not (
+        TARGET_URL.fullmatch(url) or (policy and url == ORIGIN + ROBOTS)
+    ):
+        raise CaptureError("URL_NOT_ALLOWED")
+    return url.removeprefix(ORIGIN)
+
+
+def load_targets(path: Path) -> list[dict]:
+    if not path.is_absolute() or not path.is_file() or path.is_symlink():
+        raise CaptureError("INVALID_TARGET_FILE_PATH")
+    with path.open("rb") as stream:
+        raw = stream.read(MAX_TARGET_FILE_BYTES + 1)
+    if len(raw) > MAX_TARGET_FILE_BYTES:
+        raise CaptureError("TARGET_FILE_TOO_LARGE")
+    try:
+        document = json.loads(raw)
+    except (ValueError, UnicodeError) as exc:
+        raise CaptureError("INVALID_TARGET_JSON") from exc
+    if not isinstance(document, dict) or set(document) != {"targets"}:
+        raise CaptureError("INVALID_TARGET_SCHEMA")
+    return validate_targets(document["targets"])
+
+
+def validate_targets(targets: object) -> list[dict]:
+    if not isinstance(targets, list) or not 1 <= len(targets) <= MAX_TARGETS:
+        raise CaptureError("INVALID_TARGET_COUNT")
+    ids, urls = set(), set()
+    result = []
+    for target in targets:
+        if not isinstance(target, dict) or set(target) != {"id", "name", "url", "enabled"}:
+            raise CaptureError("INVALID_TARGET_SCHEMA")
+        if (
+            not isinstance(target["id"], str)
+            or not isinstance(target["name"], str)
+            or not target["name"].strip()
+            or len(target["name"]) > 80
+            or type(target["enabled"]) is not bool
+        ):
+            raise CaptureError("INVALID_TARGET_SCHEMA")
+        try:
+            identity = str(uuid.UUID(target["id"]))
+        except ValueError as exc:
+            raise CaptureError("INVALID_TARGET_ID") from exc
+        validate_url(target["url"])
+        if identity in ids or target["url"] in urls:
+            raise CaptureError("DUPLICATE_TARGET")
+        ids.add(identity)
+        urls.add(target["url"])
+        result.append(dict(target))
+    if not any(target["enabled"] for target in result):
+        raise CaptureError("NO_ENABLED_TARGETS")
+    return result
 
 
 @dataclass(frozen=True)
@@ -48,8 +106,7 @@ class NoRedirect(HTTPRedirectHandler):
 
 def fetch(url: str) -> Response:
     """One GET, no redirects/cookies/auth/proxy-discovery beyond urllib defaults."""
-    if url not in {ORIGIN + path for path in ALLOWED_PATHS}:
-        raise CaptureError("URL_NOT_ALLOWED")
+    validate_url(url, policy=True)
     request = Request(url, headers={"User-Agent": USER_AGENT, "Accept-Encoding": "identity"})
     opener = build_opener(NoRedirect())
     try:
@@ -98,8 +155,11 @@ class Collector:
         self.interval = 2.0
         self.request_count = 0
 
-    def get(self, path: str, run: Path, sources: list[dict]) -> Response:
+    def get(
+        self, path: str, run: Path, sources: list[dict], target_id: str | None = None
+    ) -> Response:
         url = ORIGIN + path
+        validate_url(url, policy=True)
         for attempt in range(2):
             if self.request_count:
                 self.sleep(self.interval)
@@ -113,7 +173,8 @@ class Collector:
                 stream.write(response.body)
             metadata = {
                 "url": url,
-                "locale": "us" if path.startswith("/us/") else None,
+                "locale": path.split("/")[1] if path.startswith(("/us/", "/kr/")) else None,
+                "targetId": target_id,
                 "fetchedAt": datetime.now(UTC).isoformat(),
                 "status": response.status,
                 "sha256": digest,
@@ -137,13 +198,22 @@ class Collector:
             return response
         raise AssertionError("unreachable")
 
-    def capture(self, output: Path, pages: list[str], target_patch: str | None = None) -> Path:
-        """Capture at most two catalog pages plus robots and the policy notice."""
-        if not pages or any(page not in PAGES for page in pages):
+    def capture(
+        self,
+        output: Path,
+        pages: list[str] | None = None,
+        target_patch: str | None = None,
+        *,
+        targets_file: Path | None = None,
+    ) -> Path:
+        """Capture bounded configured pages plus robots and the policy notice."""
+        if targets_file is None and (not pages or any(page not in PAGES for page in pages)):
             raise ValueError("Select currency and/or amulets")
         self.request_count = 0
         self.interval = 2.0
-        selected = list(dict.fromkeys(pages))
+        if targets_file is not None and pages is not None:
+            raise CaptureError("CONFLICTING_TARGET_SELECTION")
+        selected = list(dict.fromkeys(pages or []))
         run_id = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ") + "-" + uuid.uuid4().hex[:12]
         run = output / run_id
         (run / "raw").mkdir(parents=True, exist_ok=False)
@@ -156,6 +226,7 @@ class Collector:
             "targetPatch": target_patch,
             "patchVerified": False,
             "pages": selected,
+            "targets": [],
             "status": "FAILED",
             "productionEligible": False,
             "sources": sources,
@@ -166,6 +237,16 @@ class Collector:
             ],
         }
         try:
+            if targets_file is not None:
+                targets = load_targets(targets_file)
+                manifest["targets"] = targets
+                entries = [
+                    (validate_url(target["url"]), target["id"])
+                    for target in targets
+                    if target["enabled"]
+                ]
+            else:
+                entries = [(PAGES[page], None) for page in selected]
             robots_response = self.get(ROBOTS, run, sources)
             if "text/plain" not in robots_response.headers.get("content-type", "").lower():
                 raise CaptureError("INVALID_ROBOTS_CONTENT_TYPE")
@@ -179,7 +260,8 @@ class Collector:
                 raise CaptureError("INVALID_ROBOTS")
             robots = RobotFileParser()
             robots.parse(robots_text.splitlines())
-            paths = [DISCLAIMER, *(PAGES[page] for page in selected)]
+            entries = [(DISCLAIMER, None), *entries]
+            paths = [path for path, _ in entries]
             if any(not robots.can_fetch(USER_AGENT, ORIGIN + path) for path in paths):
                 raise CaptureError("ROBOTS_DISALLOWED")
             delay = robots.crawl_delay(USER_AGENT)
@@ -187,15 +269,15 @@ class Collector:
             self.interval = max(2.0, delay or 0, rate.seconds / rate.requests if rate else 0)
             if self.interval > MAX_RETRY_WAIT:
                 raise CaptureError("ROBOTS_DELAY_EXCEEDS_BATCH_LIMIT")
-            for path in paths:
-                response = self.get(path, run, sources)
+            for path, target_id in entries:
+                response = self.get(path, run, sources, target_id)
                 if "text/html" not in response.headers.get("content-type", "").lower():
                     raise CaptureError("INVALID_HTML_CONTENT_TYPE")
                 if not response.body.strip():
                     raise CaptureError("EMPTY_HTML")
             manifest["status"] = "RAW_CAPTURED"
-        except CaptureError as exc:
-            manifest["errorCode"] = str(exc)
+        except (CaptureError, OSError) as exc:
+            manifest["errorCode"] = str(exc) if isinstance(exc, CaptureError) else "FILE_IO_ERROR"
             raise
         finally:
             manifest["requestCount"] = self.request_count
