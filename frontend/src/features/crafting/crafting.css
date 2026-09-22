@@ -608,3 +608,27 @@
   border: 1px solid #8c7950;
   font-size: 8px;
 }
+@media (max-width: 480px) {
+  .currency-missing {
+    font-size: 6px;
+    line-height: 1.1;
+  }
+  .item-slot {
+    padding: 2px;
+    overflow: hidden;
+    gap: 0;
+  }
+  .item-slot > span:last-child {
+    flex-shrink: 0;
+    line-height: 1.2;
+    font-size: 7px;
+  }
+  .text-item-symbol {
+    font-size: 25px;
+    line-height: 1;
+  }
+  .item-slot img {
+    height: 50%;
+    min-height: 0;
+  }
+}

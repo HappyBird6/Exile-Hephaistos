@@ -12,8 +12,6 @@ export function CurrencyImage({
   const [failed, setFailed] = useState(false)
   return unavailable.has(id) || failed ? (
     <span className="currency-missing" title={`${name} · 이미지 미확보`}>
-      {name}
-      <br />
       이미지 미확보
     </span>
   ) : (
