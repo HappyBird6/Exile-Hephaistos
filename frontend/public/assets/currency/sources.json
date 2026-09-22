@@ -112,16 +112,23 @@
       "file": "/assets/currency/solar-amulet.webp",
       "url": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/SolarAmulet.webp",
       "sha256": "185139604916df32a0bbaf851bf2af2e72badd8c4c9ec9cae94a570ba7287951"
-    }
-  ],
-  "unavailable": [
-    {
-      "file": "/assets/currency/CurrencyRerollSocketNumbers02.webp",
-      "reason": "Source CDN returned HTTP 403; no bypass attempted"
     },
     {
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyRerollSocketNumbers02.webp",
+      "sha256": "af652f578501144a11a4b37b8365daa4d5fb814aedd0f3b31f70df625a526bf3",
+      "file": "/assets/currency/CurrencyRerollSocketNumbers02.webp",
+      "validation": "RIFF/WEBP magic and successful image decode; HTTP Content-Type unavailable",
+      "mediaType": "image/webp",
+      "retrievedAt": "2026-09-22"
+    },
+    {
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/HinekorasLock.webp",
+      "sha256": "011a0245284f63e42dce20b546b3204dfa78161e8fc384615cd811b401a8dc4a",
       "file": "/assets/currency/HinekorasLock.webp",
-      "reason": "Source CDN returned HTTP 403; no bypass attempted"
+      "validation": "RIFF/WEBP magic and successful image decode; HTTP Content-Type unavailable",
+      "mediaType": "image/webp",
+      "retrievedAt": "2026-09-22"
     }
-  ]
+  ],
+  "unavailable": []
 }

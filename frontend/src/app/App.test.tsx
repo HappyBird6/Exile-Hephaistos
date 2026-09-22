@@ -42,15 +42,40 @@ describe('제작 작업대', () => {
       '먼저 창고에서 화폐를 선택하세요',
     )
   })
-  it('일반 클릭도 선택하고 미확보 이미지는 텍스트로 표시한다', () => {
+  it('확보한 이미지를 렌더하고 일반 클릭으로 선택·해제한다', () => {
     render(<App />)
     const currency = screen.getByRole('button', { name: '상위 쥬얼러 오브' })
     fireEvent.click(currency)
     expect(currency).toHaveAttribute('aria-pressed', 'true')
-    expect(currency.querySelector('img')).toBeNull()
-    expect(currency).toHaveTextContent('이미지 미확보')
+    expect(currency.querySelector('img')).toHaveAttribute(
+      'src',
+      '/assets/currency/CurrencyRerollSocketNumbers02.webp',
+    )
+    expect(
+      screen
+        .getByRole('button', { name: '히네코라의 머리카락' })
+        .querySelector('img'),
+    ).toHaveAttribute('src', '/assets/currency/HinekorasLock.webp')
     fireEvent.click(screen.getByRole('button', { name: /선택 해제/ }))
     expect(currency).toHaveAttribute('aria-pressed', 'false')
+  })
+  it('실제 로딩 오류가 발생하면 슬롯과 포인터 모두 폴백을 표시한다', () => {
+    render(<App />)
+    const currency = screen.getByRole('button', { name: '히네코라의 머리카락' })
+    fireEvent.contextMenu(currency, { clientX: 30, clientY: 40 })
+    const slotImage = currency.querySelector('img')
+    const cursorImage = document.querySelector('.currency-cursor img')
+    expect(slotImage).not.toBeNull()
+    expect(cursorImage).not.toBeNull()
+    if (!slotImage || !cursorImage)
+      throw new Error('Expected slot and cursor images')
+    fireEvent.error(slotImage)
+    fireEvent.error(cursorImage)
+    expect(currency.querySelector('img')).toBeNull()
+    expect(currency).toHaveTextContent('이미지 미확보')
+    expect(document.querySelector('.currency-cursor')).toHaveTextContent(
+      '이미지 미확보',
+    )
   })
   it('빈 입력을 거부하고 알 수 없는 옵션까지 원문 그대로 보존한다', () => {
     render(<App />)
