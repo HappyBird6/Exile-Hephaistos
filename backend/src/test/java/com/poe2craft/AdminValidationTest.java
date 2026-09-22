@@ -13,6 +13,38 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 class AdminValidationTest {
   @Test
+  void asciiPasswordBoundaryMatchesBcryptLimit() {
+    String accepted = "Aa1!" + "x".repeat(68);
+    assertThat(new AdminCredentials("operator", accepted).configured()).isTrue();
+    var encoder =
+        org.springframework.security.crypto.factory.PasswordEncoderFactories
+            .createDelegatingPasswordEncoder();
+    assertThat(encoder.matches(accepted, encoder.encode(accepted))).isTrue();
+    assertThatThrownBy(() -> new AdminCredentials("operator", accepted + "x"))
+        .isInstanceOf(IllegalArgumentException.class)
+        .hasMessageNotContaining(accepted);
+    assertThat(new AdminCredentials("operator", "Aa1!" + "x".repeat(12)).configured()).isTrue();
+    assertThatThrownBy(() -> new AdminCredentials("operator", "Aa1!" + "x".repeat(11)))
+        .isInstanceOf(IllegalArgumentException.class);
+  }
+
+  @Test
+  void multibytePasswordBoundaryCountsUtf8Bytes() {
+    String accepted = "Aa1!" + "가".repeat(22) + "xy";
+    assertThat(accepted.getBytes(java.nio.charset.StandardCharsets.UTF_8)).hasSize(72);
+    assertThat(new AdminCredentials("operator", accepted).configured()).isTrue();
+    var encoder =
+        org.springframework.security.crypto.factory.PasswordEncoderFactories
+            .createDelegatingPasswordEncoder();
+    assertThat(encoder.matches(accepted, encoder.encode(accepted))).isTrue();
+    assertThatThrownBy(() -> new AdminCredentials("operator", accepted + "x"))
+        .isInstanceOf(IllegalArgumentException.class)
+        .hasMessageNotContaining(accepted);
+    assertThatThrownBy(() -> new AdminCredentials("operator", "Aa1!" + "가".repeat(23)))
+        .isInstanceOf(IllegalArgumentException.class);
+  }
+
+  @Test
   void missingVersionAndEnabledCannotSilentlyBecomeDefaults() {
     var mapper = new com.fasterxml.jackson.databind.ObjectMapper();
     assertThatThrownBy(

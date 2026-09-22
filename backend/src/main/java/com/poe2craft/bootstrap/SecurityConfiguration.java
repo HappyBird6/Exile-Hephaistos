@@ -67,6 +67,7 @@ public class SecurityConfiguration {
       http.formLogin(
               login ->
                   login
+                      .loginPage("/api/v1/admin/session")
                       .loginProcessingUrl("/api/v1/admin/login")
                       .successHandler((request, response, auth) -> response.setStatus(204))
                       .failureHandler(

@@ -7,7 +7,7 @@
 `.env`에 `APP_ADMIN_USERNAME`, `APP_ADMIN_PASSWORD`를 함께 설정한다. 둘 다 비어 있으면 session 조회 외 관리자 API가 비활성이다. 한쪽만 있거나 아래 조건을 위반하면 시작에 실패한다.
 
 - Username: ASCII 영문·숫자·`_.-`, 3–64자.
-- Password: 16–128자, 영문 대문자·소문자·숫자 포함, 제어 문자 제외. Username과 `password`, `replace` 문자열을 포함하지 않는다.
+- Password: 최소 16자, UTF-8 인코딩 기준 최대 72바이트(BCrypt 제한). 영문 대문자·소문자·숫자를 포함하고 제어 문자는 제외한다. Username과 `password`, `replace` 문자열을 포함하지 않는다. 다국어 문자는 여러 바이트를 사용하므로 72자 이하라도 상한을 초과할 수 있다.
 - 한 프로세스에서 로그인 요청은 분당 최대 10회다. IP 헤더를 신뢰하지 않는 보수적 전체 제한이며 여러 인스턴스의 합산 제한은 제공하지 않는다. 로컬 Compose는 단일 Backend 인스턴스를 사용한다.
 
 로그인은 Spring Security 서버 session이다. session cookie는 Secure/HttpOnly/SameSite=Lax이며 CSRF가 로그인·로그아웃·설정 저장·수집 실행 모두에 적용된다. HTTP localhost 개발에서만 `APP_SESSION_COOKIE_SECURE=false`를 명시한다. 이 옵션을 외부 HTTP 서비스에 사용하지 않는다. 계정은 DB 사용자 계정이나 OAuth 공급자가 아니다.

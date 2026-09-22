@@ -1,5 +1,6 @@
 package com.poe2craft.bootstrap;
 
+import java.nio.charset.StandardCharsets;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +17,7 @@ public class AdminCredentials {
     if (username.isEmpty() && password.isEmpty()) return;
     if (!username.matches("[A-Za-z0-9_.-]{3,64}")
         || password.length() < 16
-        || password.length() > 128
+        || password.getBytes(StandardCharsets.UTF_8).length > 72
         || password.chars().anyMatch(Character::isISOControl)
         || !password.matches(".*[a-z].*")
         || !password.matches(".*[A-Z].*")
@@ -27,7 +28,7 @@ public class AdminCredentials {
         || password.toLowerCase(java.util.Locale.ROOT).contains("password")
         || password.toLowerCase(java.util.Locale.ROOT).contains("replace"))
       throw new IllegalArgumentException(
-          "Admin credentials must both be absent or a valid username and strong password of 16-128 characters");
+          "Admin credentials must both be absent or a valid username and strong password of at least 16 characters and at most 72 UTF-8 bytes");
   }
 
   public boolean configured() {

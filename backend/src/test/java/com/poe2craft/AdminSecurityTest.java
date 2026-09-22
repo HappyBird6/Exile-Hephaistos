@@ -20,6 +20,24 @@ class AdminSecurityTest {
   @Autowired MockMvc mvc;
 
   @Test
+  void generatedLoginPageIsNotExposedAndCustomPageOnlyReturnsSessionJson() throws Exception {
+    mvc.perform(get("/login")).andExpect(status().isForbidden());
+    mvc.perform(
+            get("/login")
+                .with(
+                    org.springframework.security.test.web.servlet.request
+                        .SecurityMockMvcRequestPostProcessors.user("operator")
+                        .roles("ADMIN")))
+        .andExpect(status().isForbidden());
+    mvc.perform(get("/api/v1/admin/session"))
+        .andExpect(status().isOk())
+        .andExpect(content().contentTypeCompatibleWith("application/json"))
+        .andExpect(jsonPath("$.authenticated").value(false))
+        .andExpect(jsonPath("$.csrfToken").isString());
+    mvc.perform(get("/api/v1/admin/login")).andExpect(status().isUnauthorized());
+  }
+
+  @Test
   void loginRequiresCsrfRotatesSessionAndLogoutClearsAuthentication() throws Exception {
     mvc.perform(get("/api/v1/admin/session"))
         .andExpect(status().isOk())
