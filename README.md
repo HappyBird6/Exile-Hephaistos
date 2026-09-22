@@ -8,6 +8,7 @@ Docker Desktop의 Linux container 모드를 실행합니다. Windows 기본 **Wi
 
 ```powershell
 .\scripts\dev.ps1 stack
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\dev.ps1 stack
 ```
 
 Compose 프로젝트 이름은 **`exile-hephaistos`**로 고정됩니다. 스크립트는 실행한 터미널의 현재 폴더와 무관하게 스크립트가 있는 프로젝트를 사용합니다. 현재 운영 기준 폴더는 원래 Git checkout이며 검증용 worktree에서 실행하지 않습니다. Docker Desktop에서는 `exile-hephaistos` 그룹을 사용하세요.
