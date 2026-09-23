@@ -10,9 +10,27 @@ export interface RawField {
   value: string
   source: TextLine
 }
+export type ModifierKind =
+  | 'IMPLICIT'
+  | 'ENCHANT'
+  | 'RUNE'
+  | 'DESECRATED'
+  | 'FRACTURED'
+  | 'CRAFTED'
+  | 'MUTATED'
+  | 'EXPLICIT'
+export interface ParsedModifier {
+  text: string
+  kind: ModifierKind
+  source: TextLine
+  metadata: TextLine | null
+  affix: 'PREFIX' | 'SUFFIX' | null
+  tier: number | null
+  affixName: string | null
+}
 export interface ParsedItemText {
   text: { originalText: string; lines: TextLine[] }
-  locale: 'en' | 'ko'
+  locale: 'en'
   itemClass: string
   rarity: 'NORMAL' | 'MAGIC' | 'RARE' | 'UNIQUE' | 'UNKNOWN'
   rarityText: string
@@ -23,6 +41,7 @@ export interface ParsedItemText {
   properties: RawField[]
   requirements: RawField[]
   markedModifiers: TextLine[]
+  modifiers: ParsedModifier[]
   flags: TextLine[]
   unparsedLines: TextLine[]
   warnings: { code: string; lineNumber: number }[]
@@ -76,12 +95,38 @@ function field(value: unknown): RawField {
     source: line(data.source),
   }
 }
+function modifier(value: unknown): ParsedModifier {
+  const data = object(value)
+  const kind = data.kind
+  if (
+    kind !== 'IMPLICIT' &&
+    kind !== 'ENCHANT' &&
+    kind !== 'RUNE' &&
+    kind !== 'DESECRATED' &&
+    kind !== 'FRACTURED' &&
+    kind !== 'CRAFTED' &&
+    kind !== 'MUTATED' &&
+    kind !== 'EXPLICIT'
+  )
+    return invalid()
+  if (data.affix !== null && data.affix !== 'PREFIX' && data.affix !== 'SUFFIX')
+    return invalid()
+  return {
+    text: string(data.text),
+    kind,
+    source: line(data.source),
+    metadata: data.metadata === null ? null : line(data.metadata),
+    affix: data.affix,
+    tier: data.tier === null ? null : integer(data.tier),
+    affixName: data.affixName === null ? null : string(data.affixName),
+  }
+}
 function parsedItem(value: unknown): ParsedItemText {
   const data = object(value)
   const text = object(data.text)
   const locale = data.locale
   const rarity = data.rarity
-  if (locale !== 'en' && locale !== 'ko') return invalid()
+  if (locale !== 'en') return invalid()
   if (
     rarity !== 'NORMAL' &&
     rarity !== 'MAGIC' &&
@@ -106,6 +151,7 @@ function parsedItem(value: unknown): ParsedItemText {
     properties: array(data.properties, field),
     requirements: array(data.requirements, field),
     markedModifiers: array(data.markedModifiers, line),
+    modifiers: array(data.modifiers, modifier),
     flags: array(data.flags, line),
     unparsedLines: array(data.unparsedLines, line),
     warnings: array(data.warnings, (value) => {

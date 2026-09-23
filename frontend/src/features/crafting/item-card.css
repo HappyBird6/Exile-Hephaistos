@@ -78,3 +78,19 @@
 .parsed-evidence {
   margin-top: 14px;
 }
+
+.item-card__line {
+  position: relative;
+}
+.item-card__affix {
+  float: left;
+  margin-right: 8px;
+  color: #c2c2c2;
+  font-size: 11px;
+}
+.item-card__line--mutated {
+  color: #d986e5;
+}
+.item-card__modifier-detail > span {
+  white-space: pre-wrap;
+}

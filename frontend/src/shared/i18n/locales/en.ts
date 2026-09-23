@@ -1,6 +1,4 @@
-import type { ko, koCurrencyNames } from './ko'
-
-export const en: Record<keyof typeof ko, string> = {
+export const en = {
   language: 'Language',
   home: 'Exile Hephaistos home',
   navigation: 'Main navigation',
@@ -49,7 +47,7 @@ export const en: Record<keyof typeof ko, string> = {
     'Hover over an item and press Ctrl+C\nPaste the copied text here.',
   analyze: 'Analyze item',
   analyzing: 'Analyzing item…',
-  inputLimit: 'English and Korean supported · Maximum 16 KiB (UTF-8)',
+  inputLimit: 'English clipboard text · Maximum 16 KiB (UTF-8)',
   engineTitle: 'Crafting effects are not connected yet',
   engineNote:
     'Selection and use interactions are available. No currency is spent, modifiers changed, or probabilities calculated.',
@@ -78,7 +76,7 @@ export const en: Record<keyof typeof ko, string> = {
   unknown: 'Unknown',
   properties: 'Raw properties',
   requirements: 'Raw requirements',
-  markedModifiers: 'Marked modifier text',
+  markedModifiers: 'Modifier source text',
   flags: 'Raw flags',
   unparsed: 'Unresolved lines',
   warnings: 'Review needed',
@@ -88,6 +86,7 @@ export const en: Record<keyof typeof ko, string> = {
   warningUnsupportedRarity: 'This rarity is not supported.',
   warningInvalidLevel: 'The item level could not be read.',
   warningDuplicateLevel: 'Multiple item levels were found.',
+  warningMissingClass: 'The item class is missing and requires catalog lookup.',
   warningMissingLevel: 'The item level is missing.',
   warningUnresolvedBase: 'The base name could not be resolved.',
   warningUnparsed: 'Unresolved lines have been preserved unchanged.',
@@ -95,7 +94,7 @@ export const en: Record<keyof typeof ko, string> = {
   errorBlank: 'Enter item text copied from the game.',
   errorTooLarge: 'Item text must be at most 16 KiB in UTF-8.',
   errorInvalidItem:
-    'Enter English or Korean game text containing the item class, rarity, and name.',
+    'Enter English game text containing rarity and an item name.',
   errorMalformed: 'The request format could not be read. Please try again.',
   errorNetwork:
     'Could not connect to the server or verify its response. Please try again shortly.',
@@ -182,7 +181,7 @@ export const en: Record<keyof typeof ko, string> = {
     'Admin features or the collection runner are not ready.',
 }
 
-export const enCurrencyNames: Record<keyof typeof koCurrencyNames, string> = {
+export const enCurrencyNames = {
   Orb_of_Transmutation: 'Orb of Transmutation',
   Orb_of_Augmentation: 'Orb of Augmentation',
   Orb_of_Chance: 'Orb of Chance',

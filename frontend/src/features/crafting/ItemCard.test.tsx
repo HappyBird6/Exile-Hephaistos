@@ -20,17 +20,69 @@ const base: ItemCardData = {
 }
 function card(item: ItemCardData) {
   return (
-    <LocaleProvider initialLanguage="ko">
+    <LocaleProvider initialLanguage="en">
       <LanguageSelector />
       <ItemCard item={item} />
     </LocaleProvider>
   )
 }
 describe('ItemCard', () => {
-  it('현재 상태 교체로 일반 → 매직 → 레어 이름·값·옵션·플래그를 함께 바꾼다', () => {
+  it('renders server metadata without guessing tiers from modifier sentences', () => {
+    const source = {
+      number: 10,
+      section: 3,
+      kind: 'CONTENT' as const,
+      raw: 'Synthetic +13 (implicit)',
+    }
+    const metadata = {
+      number: 9,
+      section: 3,
+      kind: 'CONTENT' as const,
+      raw: '{ Fractured Prefix Modifier "Test" (Tier: 1) — Life }',
+    }
+    const parsed: ParsedItemText = {
+      text: { originalText: 'source', lines: [metadata, source] },
+      locale: 'en',
+      itemClass: 'Synthetic',
+      rarity: 'RARE',
+      rarityText: 'Rare',
+      nameLines: [],
+      displayName: 'Synthetic',
+      displayBase: 'Base',
+      itemLevel: 42,
+      properties: [],
+      requirements: [],
+      markedModifiers: [],
+      flags: [],
+      warnings: [],
+      unparsedLines: [metadata],
+      modifiers: [
+        {
+          text: 'Synthetic +13',
+          kind: 'FRACTURED',
+          source,
+          metadata,
+          affix: 'PREFIX',
+          tier: 1,
+          affixName: 'Test',
+        },
+      ],
+    }
+    render(card(toItemCard(parsed)))
+    expect(screen.getByText('P1')).toBeVisible()
+    expect(
+      screen.getByText('Synthetic +13').closest('.item-card__line'),
+    ).toHaveClass('item-card__line--fractured')
+    expect(
+      screen.queryByText(metadata.raw, { selector: '.item-card__line' }),
+    ).not.toBeInTheDocument()
+    fireEvent.click(screen.getByText('Synthetic +13'))
+    expect(screen.getByText(/Tier: 1/)).toBeVisible()
+  })
+  it('updates rarity, names, values and flags together when props change', () => {
     const view = render(card(base))
     expect(screen.getByRole('article')).toHaveClass('item-card--normal')
-    expect(screen.getByText('확인 불가')).toBeVisible()
+    expect(screen.getByText('Unknown')).toBeVisible()
     view.rerender(
       card({
         ...base,
@@ -58,7 +110,7 @@ describe('ItemCard', () => {
             detail: 'Verified detail',
           },
         ],
-        flags: [{ id: 'corrupted', text: '타락' }],
+        flags: [{ id: 'corrupted', text: 'Corrupted' }],
       }),
     )
     expect(screen.getByRole('article')).toHaveClass('item-card--rare')
@@ -70,16 +122,17 @@ describe('ItemCard', () => {
     expect(screen.queryByText('42')).not.toBeInTheDocument()
     expect(screen.getByText('82')).toBeVisible()
     expect(screen.getByText('Quality: +20%')).toBeVisible()
-    expect(screen.getByText('타락')).toHaveClass('item-card__line--corrupted')
+    expect(screen.getByText('Corrupted')).toHaveClass(
+      'item-card__line--corrupted',
+    )
     fireEvent.click(screen.getByText('Synthetic +25'))
     expect(screen.getByText('Verified detail')).toBeVisible()
-    fireEvent.change(screen.getByLabelText('언어'), { target: { value: 'en' } })
     expect(
       screen.getByRole('article', { name: 'Item card' }),
     ).toHaveTextContent('Item level: 82')
-    expect(screen.getByText('타락')).toBeVisible()
+    expect(screen.getByText('Corrupted')).toBeVisible()
   })
-  it('판매 가격은 카드에서 제외하고 미해석 행과 원본 데이터는 보존한다', () => {
+  it('omits sale prices and preserves unresolved source text', () => {
     const input: ParsedItemText = {
       text: { originalText: '~b/o 888 mirror', lines: [] },
       locale: 'en',
@@ -94,6 +147,22 @@ describe('ItemCard', () => {
       requirements: [],
       flags: [],
       warnings: [],
+      modifiers: [
+        {
+          text: 'Synthetic +13',
+          kind: 'IMPLICIT',
+          source: {
+            number: 4,
+            section: 2,
+            kind: 'CONTENT',
+            raw: 'Synthetic +13 (implicit)',
+          },
+          metadata: null,
+          affix: null,
+          tier: null,
+          affixName: null,
+        },
+      ],
       markedModifiers: [
         {
           number: 4,
@@ -119,9 +188,9 @@ describe('ItemCard', () => {
     expect(displayed.getByText('<script>unknown</script>')).toHaveClass(
       'item-card__line--unknown',
     )
-    expect(displayed.getByText('Synthetic +13 (implicit)')).toHaveClass(
-      'item-card__line--implicit',
-    )
+    expect(
+      displayed.getByText('Synthetic +13').closest('.item-card__line'),
+    ).toHaveClass('item-card__line--implicit')
     expect(document.querySelector('script')).toBeNull()
     expect(input.unparsedLines).toHaveLength(3)
     expect(input.text.originalText).toBe('~b/o 888 mirror')

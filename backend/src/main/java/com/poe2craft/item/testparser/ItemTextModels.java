@@ -1,4 +1,4 @@
-package com.poe2craft.item.api;
+package com.poe2craft.item.testparser;
 
 import java.util.List;
 
@@ -34,6 +34,27 @@ public final class ItemTextModels {
   /** lineNumber 0은 문서 전체에 대한 경고다. */
   public record Warning(String code, int lineNumber) {}
 
+  public enum ModifierKind {
+    IMPLICIT,
+    ENCHANT,
+    RUNE,
+    DESECRATED,
+    FRACTURED,
+    CRAFTED,
+    MUTATED,
+    EXPLICIT
+  }
+
+  /** Display metadata from the clipboard, never a resolved catalog modifier. */
+  public record ParsedModifier(
+      String text,
+      ModifierKind kind,
+      TextLine source,
+      TextLine metadata,
+      String affix,
+      Integer tier,
+      String affixName) {}
+
   public record ParsedItemText(
       TokenizedText text,
       String locale,
@@ -47,6 +68,7 @@ public final class ItemTextModels {
       List<RawField> properties,
       List<RawField> requirements,
       List<TextLine> markedModifiers,
+      List<ParsedModifier> modifiers,
       List<TextLine> flags,
       List<TextLine> unparsedLines,
       List<Warning> warnings) {
@@ -55,6 +77,7 @@ public final class ItemTextModels {
       properties = List.copyOf(properties);
       requirements = List.copyOf(requirements);
       markedModifiers = List.copyOf(markedModifiers);
+      modifiers = List.copyOf(modifiers);
       flags = List.copyOf(flags);
       unparsedLines = List.copyOf(unparsedLines);
       warnings = List.copyOf(warnings);

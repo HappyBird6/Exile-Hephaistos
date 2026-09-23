@@ -17,8 +17,11 @@ function Lines({
       {visible.map((line) => (
         <div
           key={line.id}
-          className={`item-card__line item-card__line--${flags && /^(Corrupted|타락)$/.test(line.text.trim()) ? 'corrupted' : (line.kind ?? 'property')}`}
+          className={`item-card__line item-card__line--${flags && /^(Corrupted|Twice Corrupted)$/.test(line.text.trim()) ? 'corrupted' : (line.kind ?? 'property')}`}
         >
+          {line.affixLabel && (
+            <span className="item-card__affix">{line.affixLabel}</span>
+          )}
           {line.detail ? (
             <details className="item-card__modifier-detail">
               <summary>{line.text}</summary>
@@ -52,7 +55,7 @@ export function ItemCard({ item }: { item: ItemCardData }) {
         {doubleHeader && <div>{item.base}</div>}
       </header>
       <div className="item-card__content">
-        <div className="item-card__class">{item.itemClass}</div>
+        <div className="item-card__class">{item.itemClass || t('unknown')}</div>
         <Lines lines={item.properties} />
         <div className="item-card__section">
           <div>

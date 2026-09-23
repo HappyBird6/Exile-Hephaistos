@@ -1,45 +1,37 @@
-# ItemTextService 사용과 지원 범위
+# English item clipboard parser
 
-`new ItemTextService().parseText(text)`로 사용자 확인용 `ParsedItemText`를 얻는다.
-`tokenizeText(text)`는 원문, 행 번호(1부터), 구분선 기준 section(0부터), 빈 행을 보존한다.
-기존 빈 `tokenizerText` 메서드는 `tokenizeText`로 이름과 반환형을 변경했다.
-DB나 완성된 `ItemState`는 필요하지 않다. 서비스는 Spring bean이며 직접 생성도 가능하다.
-공개 응답 record는 `item.api.ItemTextModels`에 둔다. 계산용 모델 초안은 변경하지 않았다.
+## Scope and source
 
-- 영어/한국어 아이템 종류·희귀도·이름·표시 base·아이템 레벨·요구사항을 읽는다.
-- Rare/Unique 두 이름 행의 둘째 행과 Normal 한 이름 행만 표시 base 후보로 제공한다. Magic 이름, 미확인 한 줄 Rare/Unique 이름은 base를 추측하지 않는다.
-- 영어의 알려진 property key는 원래 단위와 값으로 보존한다. 다른 key(한국어 세부 property 포함)는 `unparsedLines`에서 보존한다.
-- 영어 suffix marker `(rune)` 등 명시된 행만 `markedModifiers`에 둔다. marker는 문자열 관찰이며 검증된 modifier 계약이 아니다.
-- `Corrupted`/`타락`, `Unidentified`/`미확인`은 표시된 행만 `flags`에 보존한다. 행이 없다고 게임 상태가 false인 것은 아니다.
-- 일반 옵션, 여러 줄 옵션, 고급 복사의 `{ ... }` metadata, flavour, 알 수 없는 행은 `unparsedLines`에 남긴다. 옵션 ID/tier/prefix/suffix/roll을 추측하지 않는다. 원문 전체는 항상 `text.originalText`에 남는다.
-- `properties`와 `requirements`는 중복을 잃지 않는 목록이다. Item Level 중복/문법 오류/정수 overflow는 null과 경고로 반환한다. 값의 게임상 유효 범위는 catalog 검증 단계 책임이다.
-- null/blank, UTF-8 16 KiB 초과, 필수 header/name 없음, header section의 중복 header, 지원하지 않는 언어 header는 `IllegalArgumentException`이다. 미지원 rarity는 UNKNOWN과 경고다.
-- 모든 결과에 `CATALOG_VALIDATION_REQUIRED` 경고가 있다. 이 결과를 바로 Crafting Engine 입력으로 사용하면 안 된다.
+`backend/src/main/java/com/poe2craft/item/testparser/` contains the service, immutable parser DTOs, REST controller and error advice. These are parser-specific contracts, not catalog ItemState. This flat package was explicitly requested on 2026-09-23.
 
-## 형식 관찰 근거
+The display parsing approach is adapted from Path of Building Community PoE2 `ItemClass:ParseRaw` at commit `ce566eac45ea8a86477f513c7ee65a1ebe60014e`:
 
-2026-09-23 확인. 아래 공개 게시물은 사용자가 붙여 넣은 clipboard 형식 관찰 근거이며 게임 규칙/확률의 권위가 아니다. 테스트 이름·능력치·숫자는 모두 synthetic이며 실제 아이템 fixture가 아니다.
+- https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/blob/ce566eac45ea8a86477f513c7ee65a1ebe60014e/src/Classes/Item.lua
+- SHA-256 of retrieved Item.lua: `0ca39961256eefc960da7b30b4e5cb6eb45d08037aa72bc751201cc0630af2a4`.
+- MIT copyright and permission notice: [PathOfBuilding-LICENSE.txt](third-party/PathOfBuilding-LICENSE.txt).
+- Actual advanced clipboard regression fixture: https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/issues/2117.
+- `backend/src/test/resources/item-text/pob-issue-2117.txt` SHA-256: `a8f674d8b3b2f4641eb6d9ee6eb5f58bcb8b18ca7e1c465e30b62009a698e457`. Retrieved 2026-09-23, original report's game patch/snapshot unspecified. It verifies text grammar only, never current item rules or production catalog facts.
 
-- [GGG 포럼 영문 Rare 복사 예시](https://www.pathofexile.com/forum/view-thread/3851605): header, 이름 두 줄, 구분선, properties, Requires, sockets, Item Level, rune/desecrated marker.
-- [PoB-PoE2 Unique clipboard issue](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/issues/1967): Unique, skill/설명문 보존 필요.
-- [PoB-PoE2 advanced clipboard issue](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/issues/2117): brace metadata와 roll range.
-- [한국어 게임 복사 게시](https://gall.dcinside.com/mgallery/board/view/?id=poe2&no=79471): 아이템 종류, 아이템 희귀도, 요구사항 및 레벨/지능, 아이템 레벨.
-- [한국어 고급 복사 게시](https://enter.dcinside.com/mgallery/board/view/?id=poe2&no=435278&page=1): 요구 사항 한 줄, 고급 속성 metadata.
-- [한국어 복사 기반 도구 문서](https://poe2tools.net/poe2-%EA%B1%B0%EB%9E%98%EC%86%8C-%EC%8B%9C%EC%84%B8-%EA%B2%80%EC%83%89%EA%B8%B0/): 고유/미확인/타락 표기.
-- [한국어 희귀도 검색 도구](https://reim.kr/poe2/tools/regex): 일반/마법/희귀 표기.
+Other tests use synthetic names/stats and do not assert game rules.
 
-TODO(domain): 텍스트 옵션의 catalog ID·tier·실제 roll 해석 / 검증된 snapshot과 locale별 modifier 문법 필요 / ItemState 변환 / 현재 미해석 행과 확인 경고로 보존.
+## Supported text
 
-## HTTP 연결
+English only. Rarity and an item name are required; Item Class is optional as in PoB. Missing class stays empty with `MISSING_ITEM_CLASS` and is displayed as Unknown. No Korean translation or Korean-header parser is active.
 
-`POST /api/v1/items/parse`, JSON `{ "text": "게임 복사 원문" }`으로 같은 파서를 호출한다.
-응답은 `ParsedItemText`이며 [OpenAPI 계약](openapi-item.yaml)에 모든 필드와 nullable 값을 기록한다.
-영문/한국어 자동 감지는 UI 언어와 독립적이다. 원문을 번역하거나 옵션/규칙을 새로 생성하지 않는다.
+The parser retains original UTF-8 text (16 KiB maximum), numbered lines, blank lines and sections. BOM and CRLF are handled. It extracts rarity, display names, optional item level, known raw properties including `Quality (Caster Modifiers)`, requirements with/without a colon and multiline requirements, exact flags, and modifier display records.
 
-- 익명 사용 가능. DB 조회·저장·session 생성 없이 입력만 파싱한다.
-- 정확히 이 POST만 CSRF 검사에서 제외한다. 관리자 login/logout/mutation 보호는 유지한다.
-- HTTP 400 `MALFORMED_REQUEST`: JSON 문법/형식 오류 또는 text에 문자열 이외의 값(숫자·boolean·배열·객체).
-- HTTP 422 `INVALID_ITEM_TEXT`: text 누락/null/blank 또는 지원되지 않는 텍스트 형식.
-- HTTP 413 `ITEM_TEXT_TOO_LARGE`: text 원문의 UTF-8 바이트가 16 KiB 초과. 한글은 글자 수로 계산하지 않는다.
-- 오류는 Problem Details와 고정 `code`, `traceId`를 반환하며 입력 원문·내부 예외를 포함하지 않는다.
-- UI는 오류/경고 code를 번역한다. 파서의 원문 필드는 그대로 표시하며, 미해석/확인 필요 정보를 숨기지 않는다.
+Trailing `(implicit)`, `(enchant)`, `(rune)`, `(desecrated)`, `(fractured)`, `(crafted)` and `(mutated)` markers classify modifier text. Advanced `{ ... Modifier ... }` and Enhancement headers apply to following lines until another header, a separator, a flag or malformed brace metadata. Explicit prefix/suffix names and `Tier: n` are exposed when actually present; tags and roll annotations remain in original metadata/text. Multiple lines can share one metadata block. Metadata is retained in evidence even if orphaned. The first eligible post-level modifier section supplies plain explicit candidates; later flavour sections remain unresolved. Unknown `Grants Skill:` lines remain unresolved because PoB needs a base catalog to identify implicit skills. Reminder text is preserved rather than discarded.
+
+`modifiers` is the structured display contract. `markedModifiers` remains as original trailing-marker evidence for compatibility. Frontend uses the structured kind/affix/tier, never independently infers them from sentences. Raw values and roll annotations are never scaled, normalized to newer rolls or silently replaced with default quality. Sale price lines are excluded from the card only; source text is untouched.
+
+## Deliberate differences from full PoB
+
+This is not a full Lua parser clone or a semantic modifier calculator. PoB additionally uses itemBases, affix catalogs, ModParser and numeric calculation code. This project has no validated catalog yet, so it does not resolve magic-name bases, affix IDs, implicit skills, modifier effects, weights, requirement recalculation, variants or wiki/build formats. Normal names are display bases only (including an unverified Superior prefix), not resolved base IDs. Unknown lines remain visible with warnings. All results include `CATALOG_VALIDATION_REQUIRED` and cannot be used directly for crafting calculations.
+
+TODO(domain): Verified versioned base/affix catalog and mapping evidence required / pinned source and game snapshot / semantic modifier parsing and ItemState conversion / currently unavailable.
+
+## HTTP and UI
+
+`POST /api/v1/items/parse` accepts `{ "text": "..." }`. OpenAPI: [openapi-item.yaml](openapi-item.yaml). Anonymous stateless read-only request, exact-route CSRF exemption, no input persistence. Errors: 400 malformed JSON, 413 size limit, 422 invalid English input; Problem Details preserve code/traceId without raw internals.
+
+ItemCard is stateless. Replacing its props updates rarity/name/values/modifiers together; a future verified simulation outcome uses the same display contract. No crafting engine or fake outcome was added. Query mutations retain cancellation/revision protection, input stays in Zustand, and parsed response data is not duplicated there.

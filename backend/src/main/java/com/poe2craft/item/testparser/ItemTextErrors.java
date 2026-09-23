@@ -1,4 +1,4 @@
-package com.poe2craft.item.presentation;
+package com.poe2craft.item.testparser;
 
 import jakarta.servlet.http.HttpServletRequest;
 import java.net.URI;
@@ -25,7 +25,7 @@ public final class ItemTextErrors {
     return problem(
         HttpStatus.UNPROCESSABLE_ENTITY,
         "INVALID_ITEM_TEXT",
-        "Provide English or Korean item text with item class, rarity and name headers.",
+        "Provide English item text with rarity and an item name.",
         request);
   }
 

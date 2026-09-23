@@ -136,7 +136,7 @@ afterEach(() => {
 function show() {
   return render(
     <QueryClientProvider client={client}>
-      <LocaleProvider initialLanguage="ko">
+      <LocaleProvider initialLanguage="en">
         <AdminCrawlingPage />
       </LocaleProvider>
     </QueryClientProvider>,
@@ -147,17 +147,18 @@ function mutations(method: string) {
   return requests.filter((entry) => entry.init.method === method)
 }
 
-describe('크롤링 관리자', () => {
-  it('언어 전환 시 상태·접근성 이름·검증 오류를 번역하고 대상 원문은 유지한다', async () => {
+describe('Crawling management', () => {
+  it('shows English status and validation while preserving user target names', async () => {
     backend.runs = [initialRun]
     show()
-    expect(await screen.findByText('원본 수집 완료')).toBeVisible()
-    fireEvent.change(screen.getByLabelText('페이지 주소'), {
+    expect(await screen.findByText('Raw collection completed')).toBeVisible()
+    fireEvent.change(screen.getByLabelText('Page URL'), {
       target: { value: 'https://example.invalid/private' },
     })
-    fireEvent.click(screen.getByRole('button', { name: '대상 설정 저장' }))
-    expect(await screen.findByRole('alert')).toHaveTextContent('공개 페이지')
-    fireEvent.change(screen.getByLabelText('언어'), { target: { value: 'en' } })
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Save target settings' }),
+    )
+    expect(await screen.findByRole('alert')).toHaveTextContent('public poe2db')
     expect(
       screen.getByRole('heading', { name: 'Crawling management' }),
     ).toBeVisible()
@@ -169,31 +170,33 @@ describe('크롤링 관리자', () => {
     expect(screen.getByLabelText('Name')).toHaveValue('화폐')
     expect(document.documentElement.lang).toBe('en')
   })
-  it('계정 미설정 시 설정과 실행 API에 접근하지 않는다', async () => {
+  it('does not access settings or run APIs without admin configuration', async () => {
     backend.configured = false
     backend.authenticated = false
     show()
     expect(
-      await screen.findByRole('heading', { name: '관리자 계정 미설정' }),
+      await screen.findByRole('heading', {
+        name: 'Admin account not configured',
+      }),
     ).toBeVisible()
     expect(requests.every((entry) => entry.path.endsWith('/session'))).toBe(
       true,
     )
     expect(
-      screen.queryByRole('button', { name: '크롤링 시작' }),
+      screen.queryByRole('button', { name: 'Start crawling' }),
     ).not.toBeInTheDocument()
   })
 
-  it('비밀번호를 저장하지 않고 CSRF와 함께 로그인한 뒤 관리 화면을 연다', async () => {
+  it('logs in using CSRF without storing a password', async () => {
     backend.authenticated = false
     show()
-    fireEvent.change(await screen.findByLabelText('아이디'), {
+    fireEvent.change(await screen.findByLabelText('Username'), {
       target: { value: 'operator' },
     })
-    fireEvent.change(screen.getByLabelText('비밀번호'), {
+    fireEvent.change(screen.getByLabelText('Password'), {
       target: { value: 'synthetic-secret' },
     })
-    fireEvent.click(screen.getByRole('button', { name: '로그인' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Log in' }))
     expect(await screen.findByDisplayValue('화폐')).toBeVisible()
     const login = mutations('POST').find((entry) =>
       entry.path.endsWith('/login'),
@@ -206,47 +209,49 @@ describe('크롤링 관리자', () => {
     expect(localStorage.length).toBe(0)
   })
 
-  it('로그인 실패를 표시하며 비밀번호 입력을 비운다', async () => {
+  it('clears the password after failed login', async () => {
     backend.authenticated = false
     backend.loginStatus = 401
     show()
-    fireEvent.change(await screen.findByLabelText('아이디'), {
+    fireEvent.change(await screen.findByLabelText('Username'), {
       target: { value: 'operator' },
     })
-    fireEvent.change(screen.getByLabelText('비밀번호'), {
+    fireEvent.change(screen.getByLabelText('Password'), {
       target: { value: 'incorrect' },
     })
-    fireEvent.click(screen.getByRole('button', { name: '로그인' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Log in' }))
     expect(await screen.findByRole('alert')).toHaveTextContent(
-      '로그인 정보가 올바르지 않습니다',
+      'login details are incorrect',
     )
-    expect(screen.getByLabelText('비밀번호')).toHaveValue('')
-    expect(screen.queryByLabelText('페이지 주소')).not.toBeInTheDocument()
+    expect(screen.getByLabelText('Password')).toHaveValue('')
+    expect(screen.queryByLabelText('Page URL')).not.toBeInTheDocument()
   })
 
-  it('페이지를 열기만 해서는 수집을 시작하지 않는다', async () => {
+  it('does not start collection on page load', async () => {
     show()
     expect(await screen.findByDisplayValue('화폐')).toBeVisible()
     expect(mutations('POST')).toHaveLength(0)
-    expect(
-      screen.getByText(/데이터 정제·변경 비교·최신화는 이후 단계/),
-    ).toBeVisible()
+    expect(screen.getByText(/Data cleanup, change comparison/)).toBeVisible()
   })
 
-  it('편집 중 실행을 막고 서버에 version과 변경 대상을 저장한다', async () => {
+  it('blocks runs while editing and saves versioned target changes', async () => {
     show()
-    fireEvent.change(await screen.findByLabelText('이름'), {
+    fireEvent.change(await screen.findByLabelText('Name'), {
       target: { value: '화폐 목록' },
     })
-    expect(screen.getByRole('button', { name: '크롤링 시작' })).toBeDisabled()
+    expect(
+      screen.getByRole('button', { name: 'Start crawling' }),
+    ).toBeDisabled()
     backend.settings.targets[0] = {
       ...initialSettings.targets[0]!,
       name: '화폐 목록',
     }
-    fireEvent.click(screen.getByRole('button', { name: '대상 설정 저장' }))
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Save target settings' }),
+    )
     await waitFor(() =>
       expect(
-        screen.getByText('대상 설정을 서버에 저장했습니다.'),
+        screen.getByText('Target settings saved to the server.'),
       ).toBeVisible(),
     )
     const saved = mutations('PUT')[0]
@@ -257,64 +262,74 @@ describe('크롤링 관리자', () => {
     expect(saved?.init.body).toBe(
       JSON.stringify({ version: 0, targets: backend.settings.targets }),
     )
-    expect(screen.getByRole('button', { name: '크롤링 시작' })).toBeEnabled()
+    expect(screen.getByRole('button', { name: 'Start crawling' })).toBeEnabled()
   })
 
-  it('버전 충돌 시 입력을 유지하고 명시적 새로고침으로 같은 버전의 입력도 취소한다', async () => {
+  it('preserves edits after conflicts and supports explicit reload', async () => {
     backend.saveStatus = 409
     show()
-    fireEvent.change(await screen.findByLabelText('이름'), {
+    fireEvent.change(await screen.findByLabelText('Name'), {
       target: { value: '미저장 값' },
     })
-    fireEvent.click(screen.getByRole('button', { name: '대상 설정 저장' }))
-    expect(await screen.findByRole('alert')).toHaveTextContent(
-      '다른 변경 또는 진행 중인 작업',
-    )
-    expect(screen.getByLabelText('이름')).toHaveValue('미저장 값')
     fireEvent.click(
-      screen.getByRole('button', { name: /서버 설정 다시 불러오기/ }),
+      screen.getByRole('button', { name: 'Save target settings' }),
+    )
+    expect(await screen.findByRole('alert')).toHaveTextContent(
+      'Another change or active run',
+    )
+    expect(screen.getByLabelText('Name')).toHaveValue('미저장 값')
+    fireEvent.click(
+      screen.getByRole('button', { name: /Reload server settings/ }),
     )
     await waitFor(() =>
-      expect(screen.getByLabelText('이름')).toHaveValue('화폐'),
+      expect(screen.getByLabelText('Name')).toHaveValue('화폐'),
     )
   })
 
-  it('허용되지 않은 주소와 중복 주소를 서버에 저장하지 않는다', async () => {
+  it('rejects unsupported and duplicate URLs before saving', async () => {
     show()
-    fireEvent.change(await screen.findByLabelText('페이지 주소'), {
+    fireEvent.change(await screen.findByLabelText('Page URL'), {
       target: { value: 'https://example.invalid/private' },
     })
-    fireEvent.click(screen.getByRole('button', { name: '대상 설정 저장' }))
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Save target settings' }),
+    )
     expect(await screen.findByRole('alert')).toHaveTextContent(
-      'poe2db 공개 페이지 주소',
+      'public poe2db page URL',
     )
     expect(mutations('PUT')).toHaveLength(0)
-    fireEvent.change(screen.getByLabelText('페이지 주소'), {
+    fireEvent.change(screen.getByLabelText('Page URL'), {
       target: { value: 'https://poe2db.tw/us/Currency' },
     })
-    fireEvent.click(screen.getByRole('button', { name: '대상 추가' }))
-    const row = screen.getByRole('group', { name: '대상 2' })
-    fireEvent.change(within(row).getByLabelText('이름'), {
+    fireEvent.click(screen.getByRole('button', { name: 'Add target' }))
+    const row = screen.getByRole('group', { name: 'Target 2' })
+    fireEvent.change(within(row).getByLabelText('Name'), {
       target: { value: '중복' },
     })
-    fireEvent.change(within(row).getByLabelText('페이지 주소'), {
+    fireEvent.change(within(row).getByLabelText('Page URL'), {
       target: { value: 'https://poe2db.tw/us/Currency' },
     })
-    fireEvent.click(screen.getByRole('button', { name: '대상 설정 저장' }))
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Save target settings' }),
+    )
     expect(await screen.findByRole('alert')).toHaveTextContent(
-      '중복으로 등록할 수 없습니다',
+      'cannot be registered twice',
     )
     expect(mutations('PUT')).toHaveLength(0)
   })
 
-  it('실행 요청 후 진행 상태를 보여주며 중복 실행을 막는다', async () => {
+  it('shows requested run status and prevents duplicate runs', async () => {
     show()
     await waitFor(() =>
-      expect(screen.getByRole('button', { name: '크롤링 시작' })).toBeEnabled(),
+      expect(
+        screen.getByRole('button', { name: 'Start crawling' }),
+      ).toBeEnabled(),
     )
-    fireEvent.click(screen.getByRole('button', { name: '크롤링 시작' }))
-    expect(await screen.findByText('실행 대기')).toBeVisible()
-    expect(screen.getByRole('button', { name: '수집 진행 중' })).toBeDisabled()
+    fireEvent.click(screen.getByRole('button', { name: 'Start crawling' }))
+    expect(await screen.findByText('Queued')).toBeVisible()
+    expect(
+      screen.getByRole('button', { name: 'Collection in progress' }),
+    ).toBeDisabled()
     const starts = mutations('POST').filter((entry) =>
       entry.path.endsWith('/crawl-runs'),
     )
@@ -324,16 +339,18 @@ describe('크롤링 관리자', () => {
     })
   })
 
-  it('실행기가 꺼져 있으면 크롤링 버튼을 비활성화한다', async () => {
+  it('disables collection when the runner is off', async () => {
     backend.settings.runnerEnabled = false
     show()
     expect(
-      await screen.findByText('서버의 수집 실행기가 비활성화되어 있습니다.'),
+      await screen.findByText('The server collection runner is disabled.'),
     ).toBeVisible()
-    expect(screen.getByRole('button', { name: '크롤링 시작' })).toBeDisabled()
+    expect(
+      screen.getByRole('button', { name: 'Start crawling' }),
+    ).toBeDisabled()
   })
 
-  it('원본 수집 성공과 실패를 구분하고 누락된 응답 수를 0으로 표시하지 않는다', async () => {
+  it('distinguishes raw collection outcomes and preserves missing counts', async () => {
     backend.runs = [
       initialRun,
       {
@@ -345,19 +362,19 @@ describe('크롤링 관리자', () => {
       },
     ]
     show()
-    expect(await screen.findByText('원본 수집 완료')).toBeVisible()
-    expect(screen.getByText('수집 실패')).toBeVisible()
-    expect(screen.getByText('오류 코드: HTTP_403')).toBeVisible()
-    expect(screen.getByText('3개')).toBeVisible()
+    expect(await screen.findByText('Raw collection completed')).toBeVisible()
+    expect(screen.getByText('Collection failed')).toBeVisible()
+    expect(screen.getByText('Error code: HTTP_403')).toBeVisible()
+    expect(screen.getByText('3 responses')).toBeVisible()
     expect(screen.getByText('—')).toBeVisible()
   })
 
-  it('로그아웃 후 관리자 데이터 캐시와 화면을 비운다', async () => {
+  it('clears private cache and UI on logout', async () => {
     show()
     expect(await screen.findByDisplayValue('화폐')).toBeVisible()
-    fireEvent.click(screen.getByRole('button', { name: '로그아웃' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Log out' }))
     expect(
-      await screen.findByRole('heading', { name: '관리자 로그인' }),
+      await screen.findByRole('heading', { name: 'Admin login' }),
     ).toBeVisible()
     expect(screen.queryByDisplayValue('화폐')).not.toBeInTheDocument()
     await waitFor(() =>

@@ -11,7 +11,7 @@ const client = new QueryClient({
 function show() {
   return render(
     <QueryClientProvider client={client}>
-      <LocaleProvider initialLanguage="ko">
+      <LocaleProvider initialLanguage="en">
         <App />
       </LocaleProvider>
     </QueryClientProvider>,
@@ -22,48 +22,54 @@ afterEach(() => {
   vi.unstubAllGlobals()
 })
 
-describe('제작 작업대', () => {
+describe('Crafting workbench', () => {
   beforeEach(() => {
     useItemDraft.getState().setBase()
     window.history.replaceState({}, '', '/')
   })
-  it('32종과 제작 효과 미연결을 안내한다', () => {
+  it('shows 32 currencies and unavailable crafting effects', () => {
     show()
     expect(
-      screen.getByRole('heading', { level: 1, name: '제작 작업대' }),
+      screen.getByRole('heading', { level: 1, name: 'Crafting workbench' }),
     ).toBeVisible()
-    expect(screen.getByText('32종')).toBeVisible()
+    expect(screen.getByText('32 currencies')).toBeVisible()
     expect(
-      screen.queryByRole('button', { name: '감정 주문서' }),
+      screen.queryByRole('button', { name: 'Scroll of Wisdom' }),
     ).not.toBeInTheDocument()
-    expect(
-      screen.getByText(/화폐 소모, 옵션 변경, 확률 계산은 수행하지 않습니다/),
-    ).toBeVisible()
+    expect(screen.getByText(/No currency is spent/)).toBeVisible()
   })
-  it('우클릭 선택과 사용 요청 후 아이템을 유지하고 Esc로 취소한다', () => {
+  it('preserves the item after a use request and clears selection with Escape', () => {
     show()
-    const currency = screen.getByRole('button', { name: '진화의 오브' })
+    const currency = screen.getByRole('button', {
+      name: 'Orb of Transmutation',
+    })
     fireEvent.contextMenu(currency, { clientX: 30, clientY: 40 })
     expect(currency).toHaveAttribute('aria-pressed', 'true')
     fireEvent.click(
-      screen.getByRole('button', { name: '중앙 아이템에 선택한 화폐 사용' }),
+      screen.getByRole('button', {
+        name: 'Use selected currency on the central item',
+      }),
     )
     expect(screen.getByRole('status')).toHaveTextContent(
-      '아이템은 변경되지 않았습니다',
+      'The item has not changed',
     )
     expect(useItemDraft.getState().source).toBe('base')
     fireEvent.keyDown(window, { key: 'Escape' })
     expect(currency).toHaveAttribute('aria-pressed', 'false')
     fireEvent.click(
-      screen.getByRole('button', { name: '중앙 아이템에 선택한 화폐 사용' }),
+      screen.getByRole('button', {
+        name: 'Use selected currency on the central item',
+      }),
     )
     expect(screen.getByRole('status')).toHaveTextContent(
-      '먼저 창고에서 화폐를 선택하세요',
+      'Select a currency from the stash first',
     )
   })
-  it('확보한 이미지를 렌더하고 일반 클릭으로 선택·해제한다', () => {
+  it('renders currency images and toggles selection', () => {
     show()
-    const currency = screen.getByRole('button', { name: '상위 쥬얼러 오브' })
+    const currency = screen.getByRole('button', {
+      name: "Greater Jeweller's Orb",
+    })
     fireEvent.click(currency)
     expect(currency).toHaveAttribute('aria-pressed', 'true')
     expect(currency.querySelector('img')).toHaveAttribute(
@@ -72,15 +78,15 @@ describe('제작 작업대', () => {
     )
     expect(
       screen
-        .getByRole('button', { name: '히네코라의 머리카락' })
+        .getByRole('button', { name: "Hinekora's Lock" })
         .querySelector('img'),
     ).toHaveAttribute('src', '/assets/currency/HinekorasLock.webp')
-    fireEvent.click(screen.getByRole('button', { name: /선택 해제/ }))
+    fireEvent.click(screen.getByRole('button', { name: /Clear selection/ }))
     expect(currency).toHaveAttribute('aria-pressed', 'false')
   })
-  it('실제 로딩 오류가 발생하면 슬롯과 포인터 모두 폴백을 표시한다', () => {
+  it('shows fallback for failed slot and cursor images', () => {
     show()
-    const currency = screen.getByRole('button', { name: '히네코라의 머리카락' })
+    const currency = screen.getByRole('button', { name: "Hinekora's Lock" })
     fireEvent.contextMenu(currency, { clientX: 30, clientY: 40 })
     const slotImage = currency.querySelector('img')
     const cursorImage = document.querySelector('.currency-cursor img')
@@ -91,9 +97,9 @@ describe('제작 작업대', () => {
     fireEvent.error(slotImage)
     fireEvent.error(cursorImage)
     expect(currency.querySelector('img')).toBeNull()
-    expect(currency).toHaveTextContent('이미지 미확보')
+    expect(currency).toHaveTextContent('Image unavailable')
     expect(document.querySelector('.currency-cursor')).toHaveTextContent(
-      '이미지 미확보',
+      'Image unavailable',
     )
   })
 })

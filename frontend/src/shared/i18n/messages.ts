@@ -1,12 +1,10 @@
 import { en, enCurrencyNames } from './locales/en'
-import { ko, koCurrencyNames } from './locales/ko'
 
 export const locales = {
   en: { label: 'English', messages: en, currencies: enCurrencyNames },
-  ko: { label: '한국어', messages: ko, currencies: koCurrencyNames },
 }
 export type Locale = keyof typeof locales
-export type MessageKey = keyof typeof ko
+export type MessageKey = keyof typeof en
 export type MessageParams = Record<string, string | number>
 export type Translate = (key: MessageKey, params?: MessageParams) => string
 export const localeStorageKey = 'exile-hephaistos.locale'

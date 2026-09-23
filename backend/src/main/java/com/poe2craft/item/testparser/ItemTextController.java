@@ -1,8 +1,7 @@
-package com.poe2craft.item.presentation;
+package com.poe2craft.item.testparser;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.poe2craft.item.ItemTextService;
-import com.poe2craft.item.api.ItemTextModels.ParsedItemText;
+import com.poe2craft.item.testparser.ItemTextModels.ParsedItemText;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import org.springframework.web.bind.annotation.*;

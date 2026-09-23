@@ -2,14 +2,14 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Item text parsing API",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "paths": {
     "/api/v1/items/parse": {
       "post": {
         "operationId": "parseItemText",
-        "summary": "Parse English or Korean game clipboard text into a review draft",
-        "description": "Anonymous read-only operation. Text language is detected from headers independently of UI locale. Unknown lines and original text are preserved. CSRF exemption applies to this exact POST only.",
+        "summary": "Parse English game clipboard text into a review draft",
+        "description": "Anonymous read-only operation. Original text and unknown lines are preserved. Optional Item Class; Rarity and name required. No catalog or crafting-rule validation. CSRF exemption applies to this exact POST only.",
         "security": [],
         "requestBody": {
           "required": true,
@@ -42,8 +42,8 @@
               }
             }
           },
-          "422": {
-            "description": "INVALID_ITEM_TEXT: missing/null/blank text, unsupported headers, or missing name.",
+          "413": {
+            "description": "ITEM_TEXT_TOO_LARGE: text exceeds 16384 UTF-8 bytes.",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -52,8 +52,8 @@
               }
             }
           },
-          "413": {
-            "description": "ITEM_TEXT_TOO_LARGE: text exceeds 16384 UTF-8 bytes.",
+          "422": {
+            "description": "INVALID_ITEM_TEXT: missing/null/blank text, unsupported headers, or missing name.",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -76,7 +76,7 @@
         "properties": {
           "text": {
             "type": "string",
-            "description": "English or Korean clipboard text. Maximum 16384 UTF-8 bytes. Missing, null or blank is INVALID_ITEM_TEXT (422)."
+            "description": "English clipboard text. Maximum 16384 UTF-8 bytes. Missing, null or blank is INVALID_ITEM_TEXT (422)."
           }
         }
       },
@@ -185,7 +185,8 @@
           "markedModifiers",
           "flags",
           "unparsedLines",
-          "warnings"
+          "warnings",
+          "modifiers"
         ],
         "properties": {
           "text": {
@@ -194,8 +195,7 @@
           "locale": {
             "type": "string",
             "enum": [
-              "en",
-              "ko"
+              "en"
             ]
           },
           "itemClass": {
@@ -267,6 +267,12 @@
             "items": {
               "$ref": "#/components/schemas/Warning"
             }
+          },
+          "modifiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParsedModifier"
+            }
           }
         }
       },
@@ -305,6 +311,66 @@
           },
           "traceId": {
             "type": "string"
+          }
+        }
+      },
+      "ParsedModifier": {
+        "type": "object",
+        "required": [
+          "text",
+          "kind",
+          "source",
+          "metadata",
+          "affix",
+          "tier",
+          "affixName"
+        ],
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Display text with explicit trailing marker removed; numeric roll annotations preserved."
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "IMPLICIT",
+              "ENCHANT",
+              "RUNE",
+              "DESECRATED",
+              "FRACTURED",
+              "CRAFTED",
+              "MUTATED",
+              "EXPLICIT"
+            ]
+          },
+          "source": {
+            "$ref": "#/components/schemas/TextLine"
+          },
+          "metadata": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextLine"
+              }
+            ],
+            "nullable": true
+          },
+          "affix": {
+            "type": "string",
+            "nullable": true,
+            "enum": [
+              "PREFIX",
+              "SUFFIX",
+              null
+            ]
+          },
+          "tier": {
+            "type": "integer",
+            "minimum": 0,
+            "nullable": true
+          },
+          "affixName": {
+            "type": "string",
+            "nullable": true
           }
         }
       }

@@ -6,6 +6,7 @@ import type { MessageKey } from '../../shared/i18n/messages'
 import type { ParsedItemText, TextLine } from './itemTextApi'
 
 const warningKeys: Record<string, MessageKey> = {
+  MISSING_ITEM_CLASS: 'warningMissingClass',
   UNSUPPORTED_RARITY: 'warningUnsupportedRarity',
   INVALID_ITEM_LEVEL: 'warningInvalidLevel',
   DUPLICATE_ITEM_LEVEL: 'warningDuplicateLevel',
@@ -26,7 +27,10 @@ export function ParsedItemDetails({ item }: { item: ParsedItemText }) {
       title: 'requirements',
       lines: item.requirements.map((field) => field.source),
     },
-    { title: 'markedModifiers', lines: item.markedModifiers },
+    {
+      title: 'markedModifiers',
+      lines: item.modifiers.map((mod) => mod.source),
+    },
     { title: 'flags', lines: item.flags },
     { title: 'unparsed', lines: item.unparsedLines },
   ]

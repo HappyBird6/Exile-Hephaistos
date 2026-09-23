@@ -1,11 +1,10 @@
-package com.poe2craft.item;
+package com.poe2craft.item.testparser;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import com.poe2craft.item.api.ItemTextModels;
-import com.poe2craft.item.api.ItemTextModels.LineKind;
-import com.poe2craft.item.api.ItemTextModels.Rarity;
+import com.poe2craft.item.testparser.ItemTextModels.LineKind;
+import com.poe2craft.item.testparser.ItemTextModels.Rarity;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
@@ -13,6 +12,28 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 class ItemTextServiceTest {
   private final ItemTextService service = new ItemTextService();
+
+  @Test
+  void upstreamAdvancedClipboardFixturePreservesLegacyRollsAndUnresolvedGrantSkill()
+      throws Exception {
+    try (var stream = getClass().getResourceAsStream("/item-text/pob-issue-2117.txt")) {
+      assertThat(stream).isNotNull();
+      String text = new String(stream.readAllBytes(), java.nio.charset.StandardCharsets.UTF_8);
+      var result = service.parseText(text);
+      assertThat(result.displayName()).isEqualTo("Prism Guardian");
+      assertThat(result.modifiers()).hasSize(6);
+      assertThat(result.modifiers().get(0).kind()).isEqualTo(ItemTextModels.ModifierKind.RUNE);
+      assertThat(result.modifiers().get(2).text())
+          .isEqualTo("144(150-200)% increased Armour and Energy Shield");
+      assertThat(result.modifiers().get(5).text())
+          .isEqualTo("+1 to Maximum Spirit per 25(50) Maximum Life");
+      assertThat(result.unparsedLines())
+          .extracting(ItemTextModels.TextLine::raw)
+          .contains("Grants Skill: Raise Shield", "When blood is paid, the weak think twice.");
+      assertThat(result.text().originalText()).isEqualTo(text);
+    }
+  }
+
   // Synthetic names/stats only: examples test clipboard grammar, not actual game rules.
   private static final String ENGLISH =
       """
@@ -63,10 +84,8 @@ class ItemTextServiceTest {
     assertThat(result.unparsedLines())
         .extracting(ItemTextModels.TextLine::raw)
         .containsExactly(
-            "12% increased Synthetic Power",
             "Grants Skill: Level 3 Synthetic Skill",
             "{ Unique Modifier — Synthetic metadata }",
-            "Continued unknown line",
             "Synthetic flavour text.");
     assertThat(result.flags())
         .extracting(ItemTextModels.TextLine::raw)
@@ -77,55 +96,9 @@ class ItemTextServiceTest {
   }
 
   @Test
-  void parsesKoreanHeadersAndMultilineRequirementsAndPreservesMetadata() {
-    var result =
-        service.parseText(
-            """
-        아이템 종류: 테스트 지팡이
-        아이템 희귀도: 희귀
-        가상 새벽
-        가상 베이스
-        --------
-        요구사항:
-        레벨: 10
-        지능: 20
-        --------
-        아이템 레벨: 42
-        --------
-        { 접두어 속성 부여 "가상" (등급: 1) — 출현 }
-        가상 능력치 +7
-        알 수 없는 속성: 보존
-        타락
-        """);
-    assertThat(result.locale()).isEqualTo("ko");
-    assertThat(result.rarity()).isEqualTo(Rarity.RARE);
-    assertThat(result.displayBase()).isEqualTo("가상 베이스");
-    assertThat(result.itemLevel()).isEqualTo(42);
-    assertThat(result.requirements())
-        .extracting(ItemTextModels.RawField::value)
-        .containsExactly("", "10", "20");
-    assertThat(result.unparsedLines()).hasSize(3);
-    assertThat(result.flags()).extracting(ItemTextModels.TextLine::raw).containsExactly("타락");
-  }
-
-  @Test
-  void parsesSingleLineKoreanRequirements() {
-    var result =
-        service.parseText(
-            """
-        아이템 종류: 테스트
-        아이템 희귀도: 고유
-        가상 이름
-        가상 베이스
-        --------
-        요구 사항: 레벨 64
-        --------
-        아이템 레벨: 81
-        """);
-    assertThat(result.requirements())
-        .extracting(ItemTextModels.RawField::value)
-        .containsExactly("레벨 64");
-    assertThat(result.rarity()).isEqualTo(Rarity.UNIQUE);
+  void rejectsKoreanUntilASeparateTranslationLayerIsProvided() {
+    assertThatThrownBy(() -> service.parseText("아이템 종류: 테스트\n아이템 희귀도: 일반\n테스트"))
+        .isInstanceOf(IllegalArgumentException.class);
   }
 
   @Test
@@ -242,11 +215,107 @@ class ItemTextServiceTest {
         .isInstanceOf(UnsupportedOperationException.class);
     assertThatThrownBy(() -> result.markedModifiers().clear())
         .isInstanceOf(UnsupportedOperationException.class);
+    assertThatThrownBy(() -> result.modifiers().clear())
+        .isInstanceOf(UnsupportedOperationException.class);
     assertThatThrownBy(() -> result.unparsedLines().clear())
         .isInstanceOf(UnsupportedOperationException.class);
     assertThatThrownBy(() -> result.flags().clear())
         .isInstanceOf(UnsupportedOperationException.class);
     assertThatThrownBy(() -> result.warnings().clear())
         .isInstanceOf(UnsupportedOperationException.class);
+  }
+
+  @Test
+  void advancedBlocksInheritMetadataAcrossLinesButNeverAcrossSeparators() {
+    var result =
+        service.parseText(
+            """
+        Item Class: Synthetic Amulets
+        Rarity: Rare
+        Synthetic Name
+        Synthetic Base
+        --------
+        Quality (Caster Modifiers): +47% (augmented)
+        --------
+        Requirements:
+        Level: 60
+        Int: 12
+        --------
+        Item Level: 82
+        --------
+        +13 to Synthetic Spirit (implicit)
+        --------
+        { Fractured Prefix Modifier "Synthetic" (Tier: 1) — Mana }
+        8(7-8)% increased Synthetic Mana
+        +10(10) to Synthetic Value
+        { Suffix Modifier "of Test" (Tier: 3) — Critical }
+        25(25-29)% increased Synthetic Critical
+        --------
+        Synthetic flavour.
+        Corrupted
+        ~b/o 888 mirror
+        """);
+    assertThat(result.modifiers()).hasSize(4);
+    var first = result.modifiers().get(1);
+    assertThat(first.kind()).isEqualTo(ItemTextModels.ModifierKind.FRACTURED);
+    assertThat(first.affix()).isEqualTo("PREFIX");
+    assertThat(first.affixName()).isEqualTo("Synthetic");
+    assertThat(first.tier()).isEqualTo(1);
+    assertThat(first.text()).isEqualTo("8(7-8)% increased Synthetic Mana");
+    assertThat(result.modifiers().get(2).metadata()).isEqualTo(first.metadata());
+    assertThat(result.modifiers().get(3).tier()).isEqualTo(3);
+    assertThat(result.properties())
+        .extracting(ItemTextModels.RawField::key)
+        .contains("Quality (Caster Modifiers)");
+    assertThat(result.requirements()).hasSize(3);
+    assertThat(result.unparsedLines())
+        .extracting(ItemTextModels.TextLine::raw)
+        .contains("Synthetic flavour.", "~b/o 888 mirror");
+  }
+
+  @Test
+  void parsesRarityFirstAndRequiresWithoutColonAndExactFlags() {
+    var result =
+        service.parseText(
+            "Rarity: Normal\nSynthetic Base\n--------\nRequires Level 10\n--------\nItem Level: 42\n--------\nMirrored\nTwice Corrupted\nSanctified");
+    assertThat(result.itemClass()).isEmpty();
+    assertThat(result.requirements().getFirst().value()).isEqualTo("Level 10");
+    assertThat(result.flags()).hasSize(3);
+    assertThat(result.warnings())
+        .extracting(ItemTextModels.Warning::code)
+        .contains("MISSING_ITEM_CLASS");
+  }
+
+  @Test
+  void preservesUnknownGrantSkillAndReminderWithoutGuessingCatalogSemantics() {
+    var result =
+        service.parseText(
+            "Rarity: Rare\nSynthetic\nSynthetic Base\n--------\nItem Level: 42\n--------\nSynthetic rune (rune)\n--------\nGrants Skill: Level 3 Synthetic Skill\n--------\n{ Unique Modifier — Test }\nSynthetic value +10\n(Reminder spanning\nmultiple lines)\n--------\nFlavour");
+    assertThat(result.modifiers()).hasSize(2);
+    assertThat(result.unparsedLines())
+        .extracting(ItemTextModels.TextLine::raw)
+        .contains(
+            "Grants Skill: Level 3 Synthetic Skill",
+            "(Reminder spanning",
+            "multiple lines)",
+            "Flavour");
+  }
+
+  @Test
+  void malformedOrOrphanMetadataAndOversizedTierRemainSafeAndDoNotLeak() {
+    var result =
+        service.parseText(
+            "Rarity: Rare\nSynthetic\nBase\n--------\nItem Level: 42\n--------\n{ Prefix Modifier \"Huge\" (Tier: 9999999999999999) }\nSynthetic +1\n{ malformed\nSynthetic +2\n--------\nSynthetic flavour\n{ Suffix Modifier \"Orphan\" (Tier: 2) }\n--------\nSynthetic footer");
+    assertThat(result.modifiers()).hasSize(2);
+    assertThat(result.modifiers().getFirst().tier()).isNull();
+    assertThat(result.modifiers().get(1).metadata()).isNull();
+    assertThat(result.modifiers().get(1).affix()).isNull();
+    assertThat(result.unparsedLines())
+        .extracting(ItemTextModels.TextLine::raw)
+        .contains(
+            "{ malformed",
+            "Synthetic flavour",
+            "{ Suffix Modifier \"Orphan\" (Tier: 2) }",
+            "Synthetic footer");
   }
 }

@@ -5,6 +5,7 @@ import { isLocale, locales } from './messages'
 export function LanguageSelector() {
   const id = useId()
   const { locale, setLocale, t } = useI18n()
+  if (Object.keys(locales).length < 2) return null
   return (
     <label className="language-selector" htmlFor={id}>
       <span>{t('language')}</span>

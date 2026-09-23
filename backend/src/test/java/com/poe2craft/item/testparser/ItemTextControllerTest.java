@@ -1,4 +1,4 @@
-package com.poe2craft.item;
+package com.poe2craft.item.testparser;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -7,8 +7,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.poe2craft.bootstrap.AdminCredentials;
 import com.poe2craft.bootstrap.SecurityConfiguration;
-import com.poe2craft.item.presentation.ItemTextController;
-import com.poe2craft.item.presentation.ItemTextErrors;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -29,8 +27,29 @@ class ItemTextControllerTest {
   @Autowired MockMvc mvc;
   @Autowired ObjectMapper mapper;
 
+  @Test
+  void exposesStructuredModifierMetadataAndRejectsKoreanHeaders() throws Exception {
+    String text =
+        "Rarity: Rare\nSynthetic\nSynthetic Base\n--------\nItem Level: 42\n--------\n{ Prefix Modifier \"Synthetic\" (Tier: 1) — Test }\n+7 to Synthetic Value";
+    mvc.perform(
+            post("/api/v1/items/parse")
+                .contentType("application/json")
+                .content(mapper.writeValueAsString(Map.of("text", text))))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.modifiers[0].kind").value("EXPLICIT"))
+        .andExpect(jsonPath("$.modifiers[0].affix").value("PREFIX"))
+        .andExpect(jsonPath("$.modifiers[0].tier").value(1))
+        .andExpect(jsonPath("$.modifiers[0].metadata.number").value(7));
+    mvc.perform(
+            post("/api/v1/items/parse")
+                .contentType("application/json")
+                .content(
+                    mapper.writeValueAsString(Map.of("text", "아이템 종류: 테스트\n아이템 희귀도: 일반\n테스트"))))
+        .andExpect(status().isUnprocessableEntity());
+  }
+
   @ParameterizedTest
-  @ValueSource(strings = {"en", "ko"})
+  @ValueSource(strings = {"en"})
   void anonymousParsePreservesTextWithoutCreatingSession(String locale) throws Exception {
     String text =
         locale.equals("en")

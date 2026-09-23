@@ -5,4 +5,4 @@
 
 TODO(domain): 첫 시즌과 snapshot 및 규칙 출처 검증 필요 / 승인된 원본·검토 기록 / 모든 제작 계산 / 현재 미지원.
 
-영문·한국어 아이템 복사 텍스트 확인용 파싱 API (`POST /api/v1/items/parse`)는 제공한다. 원문·미해석 행·경고를 보존하며 catalog 검증 및 계산용 ItemState 변환은 미지원이다.
+영문 아이템 복사 텍스트 확인용 구조화 파싱 API (`POST /api/v1/items/parse`)는 제공한다. 원문·미해석 행·경고를 보존하며 catalog 검증 및 계산용 ItemState 변환은 미지원이다.

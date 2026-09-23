@@ -36,6 +36,17 @@ function result(text = raw): ParsedItemText {
       { key: 'Item Level', value: '42', source: line(6, 'Item Level: 42') },
     ],
     requirements: [{ key: 'Level', value: '10', source: line(9, 'Level: 10') }],
+    modifiers: [
+      {
+        text: 'Synthetic effect',
+        kind: 'IMPLICIT',
+        source: line(10, 'Synthetic effect (implicit)'),
+        metadata: null,
+        affix: null,
+        tier: null,
+        affixName: null,
+      },
+    ],
     markedModifiers: [line(10, 'Synthetic effect (implicit)')],
     flags: [line(11, 'Unidentified')],
     unparsedLines: [line(7, '<script>alert(1)</script>')],
@@ -68,22 +79,40 @@ afterEach(() => {
 function show() {
   return render(
     <QueryClientProvider client={client}>
-      <LocaleProvider initialLanguage="ko">
+      <LocaleProvider initialLanguage="en">
         <CraftingPage />
       </LocaleProvider>
     </QueryClientProvider>,
   )
 }
 function enter(text = raw) {
-  fireEvent.click(screen.getByRole('button', { name: '아이템 텍스트' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Item text' }))
   fireEvent.change(screen.getByRole('textbox'), { target: { value: text } })
 }
 function submit() {
-  fireEvent.click(screen.getByRole('button', { name: /아이템 분석/ }))
+  fireEvent.click(screen.getByRole('button', { name: /Analyze item/ }))
 }
 
-describe('아이템 텍스트 가져오기', () => {
-  it('진행 상태·오류와 화폐 선택 알림이 언어를 바꾸면 즉시 번역된다', async () => {
+describe('Item text import', () => {
+  it.each([
+    { kind: 'FUTURE' },
+    { tier: '1' },
+    { affix: 'UNVERIFIED' },
+    { metadata: { number: 0, section: 0, kind: 'CONTENT', raw: 'invalid' } },
+  ])('rejects invalid structured modifier response %j', async (override) => {
+    const data = result()
+    fetchMock.mockResolvedValueOnce(
+      json({ ...data, modifiers: [{ ...data.modifiers[0], ...override }] }),
+    )
+    show()
+    enter()
+    submit()
+    expect(await screen.findByRole('alert')).toHaveTextContent(
+      'Could not connect',
+    )
+    expect(screen.queryByRole('article')).not.toBeInTheDocument()
+  })
+  it('shows English progress, failures and currency notices', async () => {
     let reject: (error: Error) => void = () => {
       throw new Error('not started')
     }
@@ -97,7 +126,6 @@ describe('아이템 텍스트 가져오기', () => {
     enter()
     submit()
     await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1))
-    fireEvent.change(screen.getByLabelText('언어'), { target: { value: 'en' } })
     expect(screen.getByRole('status')).toHaveTextContent('Analyzing item')
     await act(async () => {
       reject(new TypeError('offline'))
@@ -105,15 +133,13 @@ describe('아이템 텍스트 가져오기', () => {
     expect(await screen.findByRole('alert')).toHaveTextContent(
       'Could not connect',
     )
-    fireEvent.change(screen.getByLabelText('Language'), {
-      target: { value: 'ko' },
-    })
-    expect(screen.getByRole('alert')).toHaveTextContent('서버에 연결')
+    expect(screen.getByRole('alert')).toHaveTextContent('Could not connect')
     fireEvent.change(screen.getByRole('textbox'), {
       target: { value: raw + 'changed' },
     })
-    fireEvent.click(screen.getByRole('button', { name: '진화의 오브' }))
-    fireEvent.change(screen.getByLabelText('언어'), { target: { value: 'en' } })
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Orb of Transmutation' }),
+    )
     expect(screen.getByRole('status')).toHaveTextContent(
       'Orb of Transmutation selected',
     )
@@ -122,7 +148,7 @@ describe('아이템 텍스트 가져오기', () => {
       'Currency selection cleared',
     )
   })
-  it('API 정보를 보여주고 미해석 행·경고·원문을 보존하며 HTML은 실행하지 않는다', async () => {
+  it('shows API data and preserves evidence without executing HTML', async () => {
     show()
     enter()
     submit()
@@ -134,17 +160,15 @@ describe('아이템 텍스트 가져오기', () => {
       within(screen.getByRole('article')).getByText('Level: 10'),
     ).toBeVisible()
     expect(
-      within(screen.getByRole('article')).getByText(
-        'Synthetic effect (implicit)',
-      ),
+      within(screen.getByRole('article')).getByText('Synthetic effect'),
     ).toBeVisible()
     expect(
       within(screen.getByRole('article')).getByText('Unidentified'),
     ).toBeVisible()
     expect(screen.getByText(/FUTURE_WARNING/)).toBeVisible()
     expect(document.querySelector('.parsed-item script')).toBeNull()
-    fireEvent.click(screen.getByText('파싱 상세와 원문 보기'))
-    fireEvent.click(screen.getByText('전체 원문 보기'))
+    fireEvent.click(screen.getByText('Parsing details and source text'))
+    fireEvent.click(screen.getByText('View full original text'))
     expect(document.querySelector('.item-raw')?.textContent).toBe(raw)
     expect(useItemDraft.getState().text).toBe(raw)
     expect(fetchMock).toHaveBeenCalledWith(
@@ -155,19 +179,21 @@ describe('아이템 텍스트 가져오기', () => {
         headers: { 'Content-Type': 'application/json' },
       }),
     )
-    fireEvent.click(screen.getByRole('button', { name: '카오스 오브' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Chaos Orb' }))
     fireEvent.click(
-      screen.getByRole('button', { name: '중앙 아이템에 선택한 화폐 사용' }),
+      screen.getByRole('button', {
+        name: 'Use selected currency on the central item',
+      }),
     )
     expect(screen.getByRole('status')).toHaveTextContent(
-      '아이템은 변경되지 않았습니다',
+      'The item has not changed',
     )
   })
-  it('빈 값과 UTF-8 16KiB 초과를 서버 호출 없이 거부한다', () => {
+  it('rejects blank and oversized UTF-8 input before requests', () => {
     show()
     enter(' ')
     submit()
-    expect(screen.getByRole('alert')).toHaveTextContent('텍스트를 입력')
+    expect(screen.getByRole('alert')).toHaveTextContent('Enter item text')
     fireEvent.change(screen.getByRole('textbox'), {
       target: { value: '가'.repeat(5500) },
     })
@@ -176,44 +202,45 @@ describe('아이템 텍스트 가져오기', () => {
     expect(fetchMock).not.toHaveBeenCalled()
   })
   it.each([
-    ['INVALID_ITEM_TEXT', 422, '아이템 종류'],
+    ['INVALID_ITEM_TEXT', 422, 'rarity'],
     ['ITEM_TEXT_TOO_LARGE', 413, '16 KiB'],
-    ['MALFORMED_REQUEST', 400, '요청 형식'],
-    ['PRIVATE_SERVER_DETAIL', 500, '서버에 연결'],
-  ])(
-    '오류 %s를 번역된 안전한 안내로 표시하고 재시도할 수 있다',
-    async (code, status, expected) => {
-      fetchMock.mockResolvedValueOnce(
-        json({ code, detail: 'secret internal details' }, status),
-      )
-      show()
-      enter()
-      submit()
-      expect(await screen.findByRole('alert')).toHaveTextContent(expected)
-      expect(screen.queryByText(/secret internal/)).not.toBeInTheDocument()
-      expect(useItemDraft.getState().text).toBe(raw)
-      submit()
-      expect(
-        await screen.findByRole('heading', { name: 'Synthetic Name' }),
-      ).toBeVisible()
-    },
-  )
-  it('네트워크 실패와 잘못된 성공 응답을 성공처럼 표시하지 않는다', async () => {
+    ['MALFORMED_REQUEST', 400, 'request format'],
+    ['PRIVATE_SERVER_DETAIL', 500, 'Could not connect'],
+  ])('shows safe error %s and allows retry', async (code, status, expected) => {
+    fetchMock.mockResolvedValueOnce(
+      json({ code, detail: 'secret internal details' }, status),
+    )
+    show()
+    enter()
+    submit()
+    expect(await screen.findByRole('alert')).toHaveTextContent(expected)
+    expect(screen.queryByText(/secret internal/)).not.toBeInTheDocument()
+    expect(useItemDraft.getState().text).toBe(raw)
+    submit()
+    expect(
+      await screen.findByRole('heading', { name: 'Synthetic Name' }),
+    ).toBeVisible()
+  })
+  it('does not treat network failures or invalid responses as success', async () => {
     fetchMock
       .mockRejectedValueOnce(new TypeError('offline'))
       .mockResolvedValueOnce(json({ ...result(), itemLevel: '42' }))
     show()
     enter()
     submit()
-    expect(await screen.findByRole('alert')).toHaveTextContent('서버에 연결')
+    expect(await screen.findByRole('alert')).toHaveTextContent(
+      'Could not connect',
+    )
     submit()
     await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(2))
-    expect(await screen.findByRole('alert')).toHaveTextContent('서버에 연결')
+    expect(await screen.findByRole('alert')).toHaveTextContent(
+      'Could not connect',
+    )
     expect(
       screen.queryByRole('heading', { name: 'Synthetic Name' }),
     ).not.toBeInTheDocument()
   })
-  it('편집 중 이전 요청을 취소하고 더 늦게 도착한 결과도 무시한다', async () => {
+  it('aborts old requests and ignores late responses after edits', async () => {
     let resolveOld: (response: Response) => void = () => {
       throw new Error('not started')
     }
@@ -227,7 +254,7 @@ describe('아이템 텍스트 가져오기', () => {
     enter()
     submit()
     await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1))
-    expect(screen.getByRole('status')).toHaveTextContent('분석 중')
+    expect(screen.getByRole('status')).toHaveTextContent('Analyzing item')
     const signal = fetchMock.mock.calls[0]?.[1]?.signal
     const next = raw + 'new input'
     fireEvent.change(screen.getByRole('textbox'), { target: { value: next } })
@@ -247,7 +274,7 @@ describe('아이템 텍스트 가져오기', () => {
       screen.queryByRole('heading', { name: 'Synthetic Name' }),
     ).not.toBeInTheDocument()
   })
-  it('이전 성공 이후 새 입력이 실패하면 이전 결과를 현재 결과처럼 표시하지 않는다', async () => {
+  it('does not show old success after a new input fails', async () => {
     show()
     enter()
     submit()
@@ -260,16 +287,16 @@ describe('아이템 텍스트 가져오기', () => {
       screen.queryByRole('heading', { name: 'Synthetic Name' }),
     ).not.toBeInTheDocument()
   })
-  it('베이스 전환과 unmount가 진행 중인 요청을 취소한다', async () => {
+  it('aborts pending requests on base selection and unmount', async () => {
     fetchMock.mockImplementation(() => new Promise(() => {}))
     const view = show()
     enter()
     submit()
     await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1))
     const first = fetchMock.mock.calls[0]?.[1]?.signal
-    fireEvent.click(screen.getByRole('button', { name: '베이스 선택' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
     expect(first?.aborted).toBe(true)
-    fireEvent.click(screen.getByRole('button', { name: /베이스 배치/ }))
+    fireEvent.click(screen.getByRole('button', { name: /Place base/ }))
     expect(useItemDraft.getState().source).toBe('base')
     enter()
     submit()
@@ -278,34 +305,18 @@ describe('아이템 텍스트 가져오기', () => {
     view.unmount()
     expect(second?.aborted).toBe(true)
   })
-  it('언어를 바꿔도 원문은 유지하고 경고·label·상태만 즉시 번역한다', async () => {
-    const koreanText = '아이템 종류: 테스트\n아이템 희귀도: 일반\n테스트 이름'
-    fetchMock.mockResolvedValueOnce(
-      json({
-        ...result(koreanText),
-        locale: 'ko',
-        displayName: '테스트 이름',
-        displayBase: null,
-        itemLevel: null,
-      }),
-    )
+  it('uses English after a previous Korean locale was saved', async () => {
+    localStorage.setItem('exile-hephaistos.locale', 'ko')
     show()
-    enter(koreanText)
+    enter()
     submit()
-    await screen.findByRole('heading', { name: '테스트 이름' })
-    fireEvent.change(screen.getByLabelText('언어'), { target: { value: 'en' } })
-    expect(screen.getByRole('heading', { name: '테스트 이름' })).toBeVisible()
+    await screen.findByRole('heading', { name: 'Synthetic Name' })
     expect(screen.getByLabelText('Item text copied from the game')).toHaveValue(
-      koreanText,
-    )
-    expect(screen.getByRole('status')).toHaveTextContent(
-      'Item information loaded',
+      raw,
     )
     expect(
-      within(
-        screen.getByRole('complementary', { name: 'Item details' }),
-      ).getAllByText('Unknown'),
-    ).toHaveLength(2)
+      screen.queryByRole('combobox', { name: 'Language' }),
+    ).not.toBeInTheDocument()
     expect(document.documentElement.lang).toBe('en')
   })
 })
