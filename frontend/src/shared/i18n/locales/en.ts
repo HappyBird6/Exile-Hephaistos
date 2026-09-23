@@ -1,6 +1,7 @@
 export const en = {
   materialTabs: 'Material stash tabs',
   materialCount: '{count} items',
+  showTooltips: 'Show tooltips',
   favorites: 'Shared material favorites',
   favoriteEmpty: 'Favorite slot {slot}: empty',
   favoriteNamed: 'Favorite slot {slot}: {name}',

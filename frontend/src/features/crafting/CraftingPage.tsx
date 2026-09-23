@@ -32,6 +32,7 @@ export function CraftingPage() {
   const [searches, setSearches] = useState<
     Partial<Record<MaterialTab, string>>
   >({})
+  const [tooltipsEnabled, setTooltipsEnabled] = useState(true)
   const [activeTab, setActiveTab] = useState<MaterialTab>('Currency')
   const [selected, setSelected] = useState<Selection | null>(null)
   const [held, setHeld] = useState<Material | null>(null)
@@ -243,17 +244,14 @@ export function CraftingPage() {
                 </button>
               ))}
             </div>
-            <span>
-              {t('materialCount', {
-                count:
-                  activeTab === 'Currency'
-                    ? currencies.length
-                    : activeTab === 'Essence'
-                      ? matchingEssenceRows.flat().filter(Boolean).length +
-                        matchingSpecialEssences.length
-                      : currentMaterials.length,
-              })}
-            </span>
+            <label className="tooltip-toggle">
+              <input
+                type="checkbox"
+                checked={tooltipsEnabled}
+                onChange={(event) => setTooltipsEnabled(event.target.checked)}
+              />
+              {t('showTooltips')}
+            </label>
           </div>
           <div className="stash-board">
             <div className="stash-canvas" aria-label={t('stash')}>
@@ -561,7 +559,7 @@ export function CraftingPage() {
           {t('imageCredit')}
         </a>
       </footer>
-      <MaterialTooltip />
+      {tooltipsEnabled && !selected && <MaterialTooltip />}
       {cursor && pointer && (
         <span
           className="currency-cursor"

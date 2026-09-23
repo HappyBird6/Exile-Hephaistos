@@ -956,8 +956,8 @@ dialog.item-input-panel::backdrop {
 .material-tooltip {
   position: fixed;
   z-index: 40;
-  width: min(360px, calc(100vw - 16px));
-  max-height: 48vh;
+  width: min(420px, calc(100vw - 16px));
+  max-height: calc(100vh - 16px);
   overflow: auto;
   padding: 14px;
   background: #100f0ff5;
@@ -995,4 +995,19 @@ dialog.item-input-panel::backdrop {
   .item-input-content {
     padding: 16px;
   }
+}
+
+.tooltip-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  padding: 8px 0;
+  color: #c8c7b7;
+  font-size: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.tooltip-toggle input {
+  accent-color: #be9b55;
 }

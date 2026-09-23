@@ -32,7 +32,9 @@ describe('Crafting workbench', () => {
     expect(
       screen.getByRole('heading', { level: 1, name: 'Crafting workbench' }),
     ).toBeVisible()
-    expect(screen.getByText('21 items')).toBeVisible()
+    expect(
+      screen.getByRole('checkbox', { name: 'Show tooltips' }),
+    ).toBeChecked()
     expect(
       screen.queryByRole('button', { name: 'Scroll of Wisdom' }),
     ).not.toBeInTheDocument()

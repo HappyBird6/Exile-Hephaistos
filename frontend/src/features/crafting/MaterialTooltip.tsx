@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import descriptions from './materialTooltips.json'
 
 type TooltipData = { name: string; lines: string[]; sourceUrl: string }
 const catalog: Record<string, TooltipData> = descriptions
 export function MaterialTooltip() {
+  const tooltip = useRef<HTMLElement>(null)
   const [target, setTarget] = useState<{
     id: string
     x: number
@@ -27,8 +28,8 @@ export function MaterialTooltip() {
       setTarget({
         id,
         element: button,
-        x: Math.max(8, Math.min(rect.right + 8, window.innerWidth - 368)),
-        y: Math.max(8, Math.min(rect.top, window.innerHeight * 0.5 - 8)),
+        x: rect.right + 8,
+        y: rect.top,
       })
     }
     const escape = (event: KeyboardEvent) => {
@@ -62,19 +63,29 @@ export function MaterialTooltip() {
     target.element.setAttribute('aria-describedby', 'material-description')
     return () => target.element.removeAttribute('aria-describedby')
   }, [target])
+  useLayoutEffect(() => {
+    const element = tooltip.current
+    if (!target || !element) return
+    const rect = element.getBoundingClientRect()
+    element.style.left = `${Math.max(8, Math.min(target.x, window.innerWidth - rect.width - 8))}px`
+    element.style.top = `${Math.max(8, Math.min(target.y, window.innerHeight - rect.height - 8))}px`
+  }, [target])
   const data = target && catalog[target.id]
   if (!data || !target) return null
   return (
     <aside
+      ref={tooltip}
       className="material-tooltip"
       role="tooltip"
       id="material-description"
       style={{ left: target.x, top: target.y }}
     >
       <strong>{data.name}</strong>
-      {data.lines.map((line, i) => (
-        <p key={i}>{line}</p>
-      ))}
+      {data.lines
+        .filter((line) => !line.startsWith('Stack Size:'))
+        .map((line, i) => (
+          <p key={i}>{line}</p>
+        ))}
       <a href={data.sourceUrl} target="_blank" rel="noreferrer">
         PoE2DB
       </a>

@@ -97,6 +97,59 @@ describe('Material stash and shared favorites', () => {
     }
   })
 
+  it('toggles tooltips across tabs and removes stack size from display only', () => {
+    show()
+    const toggle = screen.getByRole('checkbox', { name: 'Show tooltips' })
+    expect(toggle).toBeChecked()
+    expect(screen.queryByText(/^\d+ items$/)).not.toBeInTheDocument()
+    const chaos = screen.getByRole('button', { name: 'Chaos Orb' })
+    fireEvent.pointerOver(chaos)
+    expect(screen.getByRole('tooltip')).not.toHaveTextContent('Stack Size')
+    expect(
+      tooltips.Chaos_Orb.lines.some((line) => line.startsWith('Stack Size:')),
+    ).toBe(true)
+    fireEvent.click(toggle)
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
+    expect(chaos).not.toHaveAttribute('aria-describedby')
+    fireEvent.pointerOver(chaos)
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
+    fireEvent.click(tab('Essence'))
+    const essence = screen.getByRole('button', { name: 'Essence of Hysteria' })
+    fireEvent.focus(essence)
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
+    fireEvent.click(toggle)
+    fireEvent.pointerOver(essence)
+    expect(screen.getByRole('tooltip')).toHaveTextContent(
+      'Energy Shield Recharge Rate',
+    )
+    expect(screen.getByRole('tooltip')).not.toHaveTextContent('Stack Size')
+  })
+
+  it('hides tooltips during use selection and restores them after cancellation', () => {
+    show()
+    const chaos = screen.getByRole('button', { name: 'Chaos Orb' })
+    fireEvent.pointerOver(chaos)
+    expect(screen.getByRole('tooltip')).toBeInTheDocument()
+    fireEvent.contextMenu(chaos)
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
+    fireEvent.pointerOver(screen.getByRole('button', { name: 'Divine Orb' }))
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
+    fireEvent.click(tab('Essence'))
+    const essence = screen.getByRole('button', {
+      name: 'Lesser Essence of the Body',
+    })
+    fireEvent.focus(essence)
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
+    fireEvent.keyDown(window, { key: 'Escape' })
+    fireEvent.pointerOver(essence)
+    expect(screen.getByRole('tooltip')).toBeInTheDocument()
+    fireEvent.click(essence)
+    expect(screen.getByRole('tooltip')).toBeInTheDocument()
+    fireEvent.click(favorite(1))
+    fireEvent.contextMenu(favorite(1))
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
+  })
+
   it('shows sourced descriptions on hover and focus, including favorites', () => {
     show()
     fireEvent.pointerOver(screen.getByRole('button', { name: 'Chaos Orb' }))
