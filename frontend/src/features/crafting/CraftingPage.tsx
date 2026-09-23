@@ -1,38 +1,49 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useI18n } from '../../shared/i18n/context'
 import { LanguageSelector } from '../../shared/i18n/LanguageSelector'
 import { locales } from '../../shared/i18n/messages'
-import type { MessageKey } from '../../shared/i18n/messages'
 import { ItemCard } from './ItemCard'
+import { toItemCard } from './itemCardData'
 import { ParsedItemDetails } from './ParsedItemDetails'
 import { useItemTextImport } from './useItemTextImport'
 import { CurrencyImage } from './CurrencyImage'
 import { currencies } from './currencies'
+import { materials, materialTabs } from './materials'
+import type { Material, MaterialTab } from './materials'
 import { useItemDraft } from './draft'
 import './crafting.css'
 
-type Currency = (typeof currencies)[number]
+type Selection = { id: string; name: string; image: string }
 
 export function CraftingPage() {
   const draft = useItemDraft()
   const { t, locale } = useI18n()
   const imported = useItemTextImport()
-  const currencyName = (currency: Currency) =>
-    locales[locale].currencies[currency.id]
-  const [selected, setSelected] = useState<Currency | null>(null)
-  const [hovered, setHovered] = useState<Currency | null>(null)
+  const [activeTab, setActiveTab] = useState<MaterialTab>('Currency')
+  const [selected, setSelected] = useState<Selection | null>(null)
+  const [held, setHeld] = useState<Material | null>(null)
+  const [favorites, setFavorites] = useState<(Material | null)[]>(
+    Array(15).fill(null),
+  )
   const [pointer, setPointer] = useState<{ x: number; y: number } | null>(null)
   const [inputMode, setInputMode] = useState<'base' | 'text'>('base')
-  const [notice, setNotice] = useState<MessageKey>('noticeInitial')
-  const [noticeCurrency, setNoticeCurrency] = useState<Currency | null>(null)
-  const [attempt, setAttempt] = useState(0)
+  const [inputOpen, setInputOpen] = useState(false)
+  const [announcement, setAnnouncement] = useState('')
+  const inputToggle = useRef<HTMLButtonElement>(null)
+  const inputClose = useRef<HTMLButtonElement>(null)
 
+  useEffect(() => {
+    if (inputOpen) inputClose.current?.focus()
+  }, [inputOpen])
   useEffect(() => {
     const cancel = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setSelected(null)
+        setHeld(null)
         setPointer(null)
-        setNotice('noticeCleared')
+        setInputOpen(false)
+        if (inputOpen) inputToggle.current?.focus()
+        setAnnouncement(t('noticeCleared'))
       }
     }
     const hide = () => setPointer(null)
@@ -42,28 +53,34 @@ export function CraftingPage() {
       window.removeEventListener('keydown', cancel)
       window.removeEventListener('blur', hide)
     }
-  }, [])
+  }, [inputOpen, t])
 
-  function choose(currency: Currency) {
-    setSelected(currency)
-    setNoticeCurrency(currency)
-    setNotice('noticeSelected')
+  function choose(resource: Selection) {
+    setSelected(resource)
+    setHeld(null)
+    setAnnouncement(t('noticeSelected', { name: resource.name }))
   }
-
   function apply() {
-    if (!selected) {
-      setNotice('noticeSelectFirst')
-      return
-    }
-    setAttempt((value) => value + 1)
-    setNoticeCurrency(selected)
-    setNotice('noticeApply')
+    setAnnouncement(t(selected ? 'noticePreview' : 'noticeSelectFirst'))
   }
-
   function importText() {
     imported.submit(draft.text)
-    setNotice('noticeParsed')
     setSelected(null)
+    setHeld(null)
+  }
+  function placeFavorite(index: number) {
+    if (!held) {
+      const resource = favorites[index]
+      if (resource) choose(resource)
+      return
+    }
+    setFavorites((current) =>
+      current.map((resource, position) =>
+        position === index ? held : resource,
+      ),
+    )
+    setAnnouncement(t('favoritePlaced', { name: held.name, slot: index + 1 }))
+    setHeld(null)
   }
 
   const item = draft.source === 'text' ? imported.data : undefined
@@ -71,7 +88,27 @@ export function CraftingPage() {
     draft.source === 'base'
       ? t('solarAmulet')
       : (item?.displayName ?? t('importedItem'))
-  const inspected = hovered ?? selected
+  const currentMaterials = materials.filter(
+    (material) => material.category === activeTab,
+  )
+  const cursor = held ?? selected
+  const card =
+    draft.source === 'base'
+      ? {
+          rarity: 'NORMAL' as const,
+          name: t('solarAmulet'),
+          base: t('solarAmulet'),
+          itemClass: t('amulet'),
+          itemLevel: null,
+          properties: [],
+          requirements: [],
+          modifiers: [],
+          flags: [],
+        }
+      : item
+        ? toItemCard(item)
+        : null
+
   return (
     <main
       className="craft-page"
@@ -110,141 +147,234 @@ export function CraftingPage() {
       </div>
       <div className="workbench-layout">
         <div className="stash-panel">
-          <div className="panel-heading">
-            <h2>
-              {t('stash')} <span>CURRENCY STASH</span>
-            </h2>
-            <span>{t('currencyCount', { count: currencies.length })}</span>
-          </div>
-          <div className="stash-canvas" aria-label={t('stash')}>
-            <div className="stash-tier-labels" aria-hidden="true">
-              <span>{t('normal')}</span>
-              <span>{t('greater')}</span>
-              <span>{t('perfect')}</span>
-            </div>
-            {currencies.map((currency) => (
-              <button
-                key={currency.id}
-                type="button"
-                className={`currency-slot ${selected?.id === currency.id ? 'is-selected' : ''}`}
-                style={{
-                  left: `${currency.x / 9.35}%`,
-                  top: `${currency.y / 9.35}%`,
-                }}
-                aria-label={currencyName(currency)}
-                aria-pressed={selected?.id === currency.id}
-                title={t('rightSelect', { name: currencyName(currency) })}
-                onContextMenu={(event) => {
-                  event.preventDefault()
-                  setPointer({ x: event.clientX, y: event.clientY })
-                  choose(currency)
-                }}
-                onClick={(event) => {
-                  if (event.detail === 0) setPointer(null)
-                  choose(currency)
-                }}
-                onPointerEnter={() => setHovered(currency)}
-                onPointerLeave={() => setHovered(null)}
-                onFocus={() => setHovered(currency)}
-                onBlur={() => setHovered(null)}
-              >
-                <CurrencyImage {...currency} name={currencyName(currency)} />
-                {currency.id.startsWith('Greater') && (
-                  <span className="currency-tier" aria-hidden="true">
-                    II
-                  </span>
-                )}
-                {currency.id.startsWith('Perfect') && (
-                  <span className="currency-tier" aria-hidden="true">
-                    III
-                  </span>
-                )}
-              </button>
-            ))}
-            <div className="item-placement">
-              <span className="placement-label">{t('craftingItem')}</span>
-              <button
-                className={`item-slot ${selected ? 'is-ready' : ''}`}
-                type="button"
-                aria-label={t('applyCurrency')}
-                onClick={apply}
-              >
-                {draft.source === 'base' ? (
-                  <img
-                    src="/assets/currency/solar-amulet.webp"
-                    alt={t('solarAmulet')}
-                    draggable="false"
-                  />
-                ) : (
-                  <span className="text-item-symbol" aria-hidden="true">
-                    ≡
-                  </span>
-                )}
-                <span>{displayedName}</span>
-              </button>
-              <span className="placement-hint">
-                {selected ? t('clickApply') : t('clickAfterSelect')}
-              </span>
-            </div>
-            <div className="stash-inspector">
-              <span className="inspector-rule" />
-              <strong>
-                {inspected ? currencyName(inspected) : t('nextMove')}
-              </strong>
-              <p>{inspected ? t('selectThenClick') : t('hoverCurrency')}</p>
-              <span className="inspector-rule" />
-            </div>
-          </div>
-          <div className="stash-controls">
-            <span>
-              <kbd>{t('rightClick')}</kbd> {t('selectCurrency')}
-            </span>
-            <span>
-              <kbd>{t('leftClick')}</kbd> {t('useOnItem')}
-            </span>
-            <button
-              type="button"
-              onClick={() => {
-                setSelected(null)
-                setPointer(null)
-                setNotice('noticeCleared')
-              }}
-              disabled={!selected}
+          <div className="panel-heading stash-heading">
+            <div
+              role="tablist"
+              aria-label={t('materialTabs')}
+              className="material-tabs"
             >
-              <kbd>Esc</kbd> {t('clearSelection')}
-            </button>
-          </div>
-        </div>
-        <aside className="item-panel" aria-label={t('itemDetails')}>
-          <div className="panel-heading">
-            <h2>{t('itemDetails')}</h2>
+              {materialTabs.map((tab, index) => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  role="tab"
+                  id={`tab-${tab.id}`}
+                  aria-selected={activeTab === tab.id}
+                  aria-controls="material-list"
+                  tabIndex={activeTab === tab.id ? 0 : -1}
+                  onClick={() => setActiveTab(tab.id)}
+                  onKeyDown={(event) => {
+                    const next =
+                      event.key === 'ArrowRight'
+                        ? (index + 1) % materialTabs.length
+                        : event.key === 'ArrowLeft'
+                          ? (index + materialTabs.length - 1) %
+                            materialTabs.length
+                          : event.key === 'Home'
+                            ? 0
+                            : event.key === 'End'
+                              ? materialTabs.length - 1
+                              : null
+                    if (next === null) return
+                    event.preventDefault()
+                    const target = materialTabs[next]!
+                    setActiveTab(target.id)
+                    document.getElementById(`tab-${target.id}`)?.focus()
+                  }}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
             <span>
-              {draft.source === 'base' ? t('amulet') : (item?.itemClass ?? '—')}
+              {t('materialCount', {
+                count:
+                  activeTab === 'Currency'
+                    ? currencies.length
+                    : currentMaterials.length,
+              })}
             </span>
           </div>
-          <div className="detail-body" aria-busy={imported.pending}>
-            {draft.source === 'base' ? (
-              <>
-                <ItemCard
-                  item={{
-                    rarity: 'NORMAL',
-                    name: t('solarAmulet'),
-                    base: t('solarAmulet'),
-                    itemClass: t('amulet'),
-                    itemLevel: null,
-                    properties: [],
-                    requirements: [],
-                    modifiers: [],
-                    flags: [],
-                  }}
-                />
-                <p className="detail-note">{t('baseUnset')}</p>
-              </>
-            ) : item ? (
-              <ParsedItemDetails item={item} />
-            ) : (
-              <p className="detail-note">{t('textNotAnalyzed')}</p>
-            )}
+          <div className="stash-board">
+            <div className="stash-canvas" aria-label={t('stash')}>
+              <div
+                id="material-list"
+                role="tabpanel"
+                aria-labelledby={`tab-${activeTab}`}
+                className={
+                  activeTab === 'Currency'
+                    ? 'currency-catalog'
+                    : 'material-catalog'
+                }
+              >
+                {activeTab === 'Currency'
+                  ? currencies.map((currency) => {
+                      const name = locales[locale].currencies[currency.id]
+                      return (
+                        <button
+                          key={currency.id}
+                          type="button"
+                          className={`currency-slot ${selected?.id === currency.id ? 'is-selected' : ''}`}
+                          style={{
+                            left: `${currency.x / 9.35}%`,
+                            top: `${currency.y / 5.5}%`,
+                          }}
+                          aria-label={name}
+                          aria-pressed={selected?.id === currency.id}
+                          title={t('rightSelect', { name })}
+                          onContextMenu={(event) => {
+                            event.preventDefault()
+                            setPointer({ x: event.clientX, y: event.clientY })
+                            choose({ ...currency, name })
+                          }}
+                          onClick={(event) => {
+                            if (event.detail === 0) setPointer(null)
+                            choose({ ...currency, name })
+                          }}
+                        >
+                          <CurrencyImage {...currency} name={name} />
+                          {currency.id.startsWith('Greater') && (
+                            <span className="currency-tier" aria-hidden="true">
+                              II
+                            </span>
+                          )}
+                          {currency.id.startsWith('Perfect') && (
+                            <span className="currency-tier" aria-hidden="true">
+                              III
+                            </span>
+                          )}
+                        </button>
+                      )
+                    })
+                  : currentMaterials.map((material) => (
+                      <button
+                        type="button"
+                        key={material.id}
+                        className={`material-entry ${held?.id === material.id ? 'is-held' : ''}`}
+                        aria-label={material.name}
+                        aria-pressed={held?.id === material.id}
+                        title={t('pickMaterial', { name: material.name })}
+                        onClick={(event) => {
+                          if (event.detail === 0) setPointer(null)
+                          setHeld(material)
+                          setSelected(null)
+                          setAnnouncement(
+                            t('materialHeld', { name: material.name }),
+                          )
+                        }}
+                      >
+                        <span className="material-entry__image">
+                          <CurrencyImage key={material.id} {...material} />
+                        </span>
+                        <span>{material.name}</span>
+                      </button>
+                    ))}
+              </div>
+              <div className="item-placement">
+                <span className="placement-label">{t('craftingItem')}</span>
+                <button
+                  className={`item-slot ${selected ? 'is-ready' : ''}`}
+                  type="button"
+                  aria-label={t('applyCurrency')}
+                  onClick={apply}
+                >
+                  {draft.source === 'base' ? (
+                    <img
+                      src="/assets/currency/solar-amulet.webp"
+                      alt={t('solarAmulet')}
+                      draggable="false"
+                    />
+                  ) : (
+                    <span className="text-item-symbol" aria-hidden="true">
+                      ≡
+                    </span>
+                  )}
+                  <span>{displayedName}</span>
+                </button>
+                <button
+                  type="button"
+                  ref={inputToggle}
+                  className="item-input-toggle"
+                  aria-expanded={inputOpen}
+                  aria-controls="item-input-panel"
+                  onClick={() => setInputOpen((open) => !open)}
+                >
+                  {t('editItem')}
+                </button>
+              </div>
+              <div
+                role="group"
+                aria-label={t('favorites')}
+                className={`favorite-slots ${held ? 'is-placing' : ''}`}
+              >
+                {favorites.map((resource, index) => (
+                  <button
+                    type="button"
+                    key={index}
+                    className={`currency-slot favorite-slot ${resource && selected?.id === resource.id ? 'is-selected' : ''}`}
+                    style={{
+                      left: `${(652 + (index % 3) * 90) / 9.35}%`,
+                      top: `${(40 + Math.floor(index / 3) * 100) / 5.5}%`,
+                    }}
+                    aria-label={t(
+                      resource ? 'favoriteNamed' : 'favoriteEmpty',
+                      { slot: index + 1, name: resource?.name ?? '' },
+                    )}
+                    aria-pressed={Boolean(
+                      resource && selected?.id === resource.id,
+                    )}
+                    title={t(
+                      held
+                        ? 'placeFavorite'
+                        : resource
+                          ? 'useFavorite'
+                          : 'emptyFavorite',
+                    )}
+                    onClick={() => placeFavorite(index)}
+                    onContextMenu={(event) => {
+                      event.preventDefault()
+                      if (resource) {
+                        setPointer({ x: event.clientX, y: event.clientY })
+                        choose(resource)
+                      }
+                    }}
+                  >
+                    {resource ? (
+                      <CurrencyImage key={resource.id} {...resource} />
+                    ) : (
+                      <span className="favorite-empty" aria-hidden="true">
+                        +
+                      </span>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="bench-lower">
+              <div className="bench-item-card">
+                {card && <ItemCard item={card} />}
+              </div>
+              <div aria-hidden="true" />
+            </div>
+          </div>
+          <section
+            id="item-input-panel"
+            className="item-input-panel detail-body"
+            hidden={!inputOpen}
+            aria-label={t('startItem')}
+            aria-busy={imported.pending}
+          >
+            <button
+              ref={inputClose}
+              type="button"
+              className="input-close"
+              onClick={() => {
+                setInputOpen(false)
+                inputToggle.current?.focus()
+              }}
+            >
+              {t('closeInput')}
+            </button>
             <div className="input-heading">
               <h3>{t('startItem')}</h3>
               <span>01</span>
@@ -285,7 +415,6 @@ export function CraftingPage() {
                     imported.invalidate()
                     draft.setBase()
                     setSelected(null)
-                    setNotice('noticeBase')
                   }}
                 >
                   {t('placeBase')} <span aria-hidden="true">↗</span>
@@ -300,7 +429,6 @@ export function CraftingPage() {
                   onChange={(event) => {
                     imported.invalidate()
                     draft.setText(event.target.value)
-                    setNotice('noticeEdited')
                   }}
                   placeholder={t('pastePlaceholder')}
                   aria-invalid={Boolean(imported.error)}
@@ -329,56 +457,34 @@ export function CraftingPage() {
                 </button>
               </div>
             )}
-          </div>
-          <div className="engine-note">
-            <span aria-hidden="true">◇</span>
-            <p>
-              <strong>{t('engineTitle')}</strong>
-              {t('engineNote')}
-            </p>
-          </div>
-        </aside>
+
+            {item && <ParsedItemDetails item={item} />}
+          </section>
+        </div>
       </div>
-      <div
-        className="craft-status"
-        role="status"
-        aria-live="polite"
-        key={attempt}
-      >
-        <span className="status-dot" />
-        {imported.pending
-          ? t('analyzing')
-          : imported.error
-            ? t('noticeParseFailed')
-            : t(
-                notice === 'noticeParsed' && !item ? 'textNotAnalyzed' : notice,
-                { name: noticeCurrency ? currencyName(noticeCurrency) : '' },
-              )}
-      </div>
+      <span className="sr-only" role="status">
+        {imported.pending ? t('analyzing') : announcement}
+      </span>
       <footer className="craft-footer">
         <span>
           EXILE HEPHAISTOS <span aria-hidden="true">/</span>{' '}
           {t('personalWorkbench')}
         </span>
         <a
-          href="https://poe2db.tw/kr/Currency"
+          href="https://poe2db.tw/us/Currency"
           target="_blank"
           rel="noreferrer"
         >
           {t('imageCredit')}
         </a>
       </footer>
-      {selected && pointer && (
+      {cursor && pointer && (
         <span
           className="currency-cursor"
           aria-hidden="true"
           style={{ left: pointer.x + 14, top: pointer.y + 14 }}
         >
-          <CurrencyImage
-            key={selected.id}
-            {...selected}
-            name={currencyName(selected)}
-          />
+          <CurrencyImage key={cursor.id} {...cursor} />
         </span>
       )}
     </main>

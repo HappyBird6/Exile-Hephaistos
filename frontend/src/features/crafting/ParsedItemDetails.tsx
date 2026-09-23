@@ -1,6 +1,4 @@
 import { useI18n } from '../../shared/i18n/context'
-import { ItemCard } from './ItemCard'
-import { toItemCard } from './itemCardData'
 import { locales } from '../../shared/i18n/messages'
 import type { MessageKey } from '../../shared/i18n/messages'
 import type { ParsedItemText, TextLine } from './itemTextApi'
@@ -37,7 +35,7 @@ export function ParsedItemDetails({ item }: { item: ParsedItemText }) {
   return (
     <div className="parsed-item">
       <p className="detail-note">{t('catalogDraft')}</p>
-      <ItemCard item={toItemCard(item)} />
+
       {item.warnings.length > 0 && (
         <div className="parsed-group item-warnings">
           <h3>{t('warnings')}</h3>

@@ -13,12 +13,6 @@ export const currencies = [
     image: '/assets/currency/CurrencyAddModToMagic.webp',
   },
   {
-    id: 'Orb_of_Chance',
-    x: 329,
-    y: 140,
-    image: '/assets/currency/CurrencyUpgradeToUnique.webp',
-  },
-  {
     id: 'Orb_of_Annulment',
     x: 529,
     y: 40,
@@ -65,66 +59,6 @@ export const currencies = [
     x: 529,
     y: 140,
     image: '/assets/currency/CurrencyModValues.webp',
-  },
-  {
-    id: 'Mirror_of_Kalandra',
-    x: 379,
-    y: 240,
-    image: '/assets/currency/CurrencyDuplicate.webp',
-  },
-  {
-    id: 'Arcanists_Etcher',
-    x: 629,
-    y: 270,
-    image: '/assets/currency/CurrencyWeaponMagicQuality.webp',
-  },
-  {
-    id: 'Armourers_Scrap',
-    x: 729,
-    y: 270,
-    image: '/assets/currency/CurrencyArmourQuality.webp',
-  },
-  {
-    id: 'Blacksmiths_Whetstone',
-    x: 829,
-    y: 270,
-    image: '/assets/currency/CurrencyWeaponQuality.webp',
-  },
-  {
-    id: 'Artificers_Orb',
-    x: 829,
-    y: 140,
-    image: '/assets/currency/CurrencyAddEquipmentSocket.webp',
-  },
-  {
-    id: 'Lesser_Jewellers_Orb',
-    x: 649,
-    y: 40,
-    image: '/assets/currency/CurrencyRerollSocketNumbers01.webp',
-  },
-  {
-    id: 'Greater_Jewellers_Orb',
-    x: 739,
-    y: 40,
-    image: '/assets/currency/CurrencyRerollSocketNumbers02.webp',
-  },
-  {
-    id: 'Perfect_Jewellers_Orb',
-    x: 829,
-    y: 40,
-    image: '/assets/currency/CurrencyRerollSocketNumbers03.webp',
-  },
-  {
-    id: 'Gemcutters_Prism',
-    x: 829,
-    y: 370,
-    image: '/assets/currency/CurrencyGemQuality.webp',
-  },
-  {
-    id: 'Glassblowers_Bauble',
-    x: 729,
-    y: 370,
-    image: '/assets/currency/CurrencyFlaskQuality.webp',
   },
   {
     id: 'Greater_Orb_of_Transmutation',
@@ -188,8 +122,8 @@ export const currencies = [
   },
   {
     id: 'Hinekoras_Lock',
-    x: 479,
-    y: 240,
+    x: 329,
+    y: 140,
     image: '/assets/currency/HinekorasLock.webp',
   },
 ] as const

@@ -29,3 +29,37 @@ TODO(domain): 파싱 초안의 catalog 검증·화폐 효과 계약 필요 / sup
 백엔드가 분류한 modifier kind와 명시된 advanced copy의 affix/tier를 표시한다. 프론트는 문장 정규식으로 옵션을 다시 분류하지 않는다. 상세 펼치기에서 원본 metadata와 roll 범위를 확인하고, 미해석 행은 중립색 원문으로 보존한다. 경고는 카드 밖에 계속 표시하고 줄 번호·파싱 정보·전체 원문은 접이식 영역에서 확인한다. 아이템 데이터는 번역하지 않으며 UI label은 현재 en 리소스만 사용한다.
 
 카드 회귀 테스트는 일반→매직→레어 props 변경 시 오래된 수치·옵션 제거, 가격 제외, 미해석 원문 보존, HTML 비실행, 상세 펼치기, UI 언어 전환을 확인한다.
+
+## 재료 탭과 공용 즐겨찾기 (2026-09-23)
+
+사용자 승인으로 오른쪽 상세 sidebar와 stash-inspector를 제거하고 같은 작업대 안에 Item Card만 왼쪽 아래로 옮겼다. 원문·미해석 경고·입력 오류는 중앙 아이템의 `Edit item` 버튼으로 여는 입력 패널에 남긴다. 오른쪽 아래는 설정용으로 비워둔다. 기존 사용자가 제거한 가시적 상태 안내·부가 라벨은 복원하지 않는다. 선택·등록·효과 미연결 안내는 screen reader용 live region으로 알린다.
+
+Currency에서 Mirror of Kalandra, Orb of Chance, 품질 화폐 5종, Artificer's Orb, Jeweller 3종을 제외해 21종을 표시한다. Hinekora's Lock은 기존 Chance 좌표로 옮겼다. 오른쪽 즐겨찾기 15칸은 **5행 × 3열**이며 왼쪽 Transmutation–Chaos의 5행과 동일한 슬롯 크기·열/행 간격이다. 중앙 아이템 슬롯 하단은 Chaos 행 하단에 맞춘다. 좁은 화면에서는 카드가 슬롯 아래 전체 폭으로 표시된다.
+
+- 기본 Currency 탭 외 Essence, Omen, Catalysts, Liquid Emotions를 단순 정렬 목록으로 제공한다. 탭 목록은 좌우/Home/End 키로 이동한다.
+- 새 네 탭에서 좌클릭/Enter/Space로 재료를 들고 공용 칸을 클릭하면 등록한다. 기존 재료가 있으면 덮어쓰고 든 상태를 해제한다. 원래 목록은 유지한다.
+- 탭을 바꿔도 든 재료·등록 목록·현재 아이템은 유지한다. Esc는 들기/사용 선택을 취소하고 열린 입력을 닫는다.
+- 등록된 칸은 클릭 또는 우클릭으로 제작용 선택을 한다. 사용 선택은 등록용 들기와 구분되므로 다른 빈 칸을 클릭해도 복제되지 않는다.
+- 즐겨찾기는 페이지 메모리에만 존재한다. 새로고침/페이지 이탈 후 복원하지 않는다. 실제 제작 효과는 연결하지 않는다.
+
+### 표시용 재료 출처
+
+사용자 제공 [Essence](https://poe2db.tw/kr/Essence), [Omen](https://poe2db.tw/kr/Omen), [Catalysts](https://poe2db.tw/kr/Catalysts), [Liquid Emotions](https://poe2db.tw/kr/Liquid_Emotions)의 영어 `/us/` 대응 페이지에서 **주 item 카탈로그**만 추출했다. Ref·passive·minimap·제작 recipe 결과는 제외한다. 수집일과 페이지 SHA-256, 아이콘 원본 URL·SHA-256·미확보 상태는 `frontend/public/assets/materials/sources.json`에 보존한다. `materials.ts`는 이름·표시용 ID(페이지 slug)·분류·로컬 이미지 경로만 포함한다. 게임용 catalog ID, 현재 획득 가능성, 효과·시즌 지원 여부를 뜻하지 않는다.
+
+| 페이지의 주 카탈로그 | 표시 수 |
+|---|---:|
+| Essence /95 | 95 |
+| Omen Item /50 | 50 |
+| Catalyst Item /26 | 26 |
+| Liquid Item /27 | 27 |
+
+Essence에는 해당 페이지가 함께 나열하는 Alloy 13종이 포함된다. Liquid에는 Ancient 계열·Liquid Verisium이 포함된다. 분류를 새로 추정하지 않고 원본 페이지의 카탈로그 구성을 보존한다. 추출한 주 영역에서 명시적 disabled/unobtainable/legacy 표시를 발견하지 않았으나 현재 게임에서 전부 사용 가능하다는 의미는 아니다.
+
+198개 항목 중 아이콘 196개를 확보했다. 다음 두 URL은 동일 URL 1회 재확인도 HTTP 403이므로 추가 재시도·우회를 하지 않았다. 이름/버튼은 유지하고 이미지 로딩 실패 시 `Image unavailable`로 표시한다.
+
+- Perfect Essence of the Mind: `https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/ManaEssencePerfect.webp`
+- Reaver Catalyst: `https://cdn.poe2db.tw/image/Art/2DItems/Currency/Breach/BreachCatalystAttack.webp`
+
+재료 효과 설명·확률·수량은 수집/구현하지 않았다. 게임 아트 권리는 원저작권자에게 있으며 출처 기록은 재배포 허가를 의미하지 않는다. 새로운 재료의 런타임 수집이나 관리자 crawling 기능을 추가하지 않았다.
+
+회귀 검증은 21종 제외/이동, 다섯 탭의 목록, 15개 공유 칸, 탭 간 들기·등록 유지, 덮어쓰기·취소·사용 분리, 새 페이지 초기화, 실패 아이콘 교체, 입력 포커스/닫기, 카드/파싱 회귀를 포함한다.

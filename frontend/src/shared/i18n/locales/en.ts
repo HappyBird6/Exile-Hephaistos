@@ -1,4 +1,20 @@
 export const en = {
+  materialTabs: 'Material stash tabs',
+  materialCount: '{count} items',
+  favorites: 'Shared material favorites',
+  favoriteEmpty: 'Favorite slot {slot}: empty',
+  favoriteNamed: 'Favorite slot {slot}: {name}',
+  favoritePlaced: '{name} registered in favorite slot {slot}.',
+  pickMaterial: '{name} · Click to pick up for favorites',
+  materialHeld:
+    '{name} picked up. Click a favorite slot to register; Escape to cancel.',
+  placeFavorite: 'Click to register the held material, replacing this slot',
+  useFavorite: 'Click or right-click to select for crafting',
+  emptyFavorite: 'Pick up a material from another tab, then click here',
+  editItem: 'Edit item',
+  closeInput: 'Close item input',
+  noticePreview:
+    'Crafting effects are not connected yet. The item has not changed.',
   language: 'Language',
   home: 'Exile Hephaistos home',
   navigation: 'Main navigation',

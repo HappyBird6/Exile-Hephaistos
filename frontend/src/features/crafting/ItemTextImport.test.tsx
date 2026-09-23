@@ -86,6 +86,13 @@ function show() {
   )
 }
 function enter(text = raw) {
+  if (
+    screen
+      .getByRole('button', { name: 'Edit item' })
+      .getAttribute('aria-expanded') === 'false'
+  ) {
+    fireEvent.click(screen.getByRole('button', { name: 'Edit item' }))
+  }
   fireEvent.click(screen.getByRole('button', { name: 'Item text' }))
   fireEvent.change(screen.getByRole('textbox'), { target: { value: text } })
 }

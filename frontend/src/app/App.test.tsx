@@ -27,16 +27,16 @@ describe('Crafting workbench', () => {
     useItemDraft.getState().setBase()
     window.history.replaceState({}, '', '/')
   })
-  it('shows 32 currencies and unavailable crafting effects', () => {
+  it('shows the reduced Currency tab', () => {
     show()
     expect(
       screen.getByRole('heading', { level: 1, name: 'Crafting workbench' }),
     ).toBeVisible()
-    expect(screen.getByText('32 currencies')).toBeVisible()
+    expect(screen.getByText('21 items')).toBeVisible()
     expect(
       screen.queryByRole('button', { name: 'Scroll of Wisdom' }),
     ).not.toBeInTheDocument()
-    expect(screen.getByText(/No currency is spent/)).toBeVisible()
+    expect(screen.getAllByRole('tab')).toHaveLength(5)
   })
   it('preserves the item after a use request and clears selection with Escape', () => {
     show()
@@ -68,20 +68,20 @@ describe('Crafting workbench', () => {
   it('renders currency images and toggles selection', () => {
     show()
     const currency = screen.getByRole('button', {
-      name: "Greater Jeweller's Orb",
+      name: "Hinekora's Lock",
     })
     fireEvent.click(currency)
     expect(currency).toHaveAttribute('aria-pressed', 'true')
     expect(currency.querySelector('img')).toHaveAttribute(
       'src',
-      '/assets/currency/CurrencyRerollSocketNumbers02.webp',
+      '/assets/currency/HinekorasLock.webp',
     )
     expect(
       screen
         .getByRole('button', { name: "Hinekora's Lock" })
         .querySelector('img'),
     ).toHaveAttribute('src', '/assets/currency/HinekorasLock.webp')
-    fireEvent.click(screen.getByRole('button', { name: /Clear selection/ }))
+    fireEvent.keyDown(window, { key: 'Escape' })
     expect(currency).toHaveAttribute('aria-pressed', 'false')
   })
   it('shows fallback for failed slot and cursor images', () => {
