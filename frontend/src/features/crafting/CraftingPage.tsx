@@ -124,10 +124,15 @@ export function CraftingPage() {
       <button
         type="button"
         key={material.id}
-        className={`material-entry ${held?.id === material.id ? 'is-held' : ''}`}
+        className={`material-entry ${held?.id === material.id ? 'is-held' : ''} ${selected?.id === material.id ? 'is-selected' : ''}`}
         aria-label={material.name}
-        aria-pressed={held?.id === material.id}
+        aria-pressed={held?.id === material.id || selected?.id === material.id}
         {...tooltipEvents(material.id)}
+        onContextMenu={(event) => {
+          event.preventDefault()
+          setPointer({ x: event.clientX, y: event.clientY })
+          choose(material)
+        }}
         onClick={(event) => {
           if (event.detail === 0) setPointer(null)
           setHeld(material)
@@ -143,9 +148,6 @@ export function CraftingPage() {
     )
   }
   const matchingEssenceRows = essenceRows(search)
-  const matchingSpecialEssences = specialEssences.filter((m) =>
-    m.name.toLowerCase().includes(search.trim().toLowerCase()),
-  )
   const cursor = held ?? selected
   const card =
     draft.source === 'base'
@@ -331,7 +333,9 @@ export function CraftingPage() {
                             </div>
                           ))
                         : currentMaterials.map(materialButton)}
-                      {currentMaterials.length === 0 && (
+                      {(activeTab === 'Essence'
+                        ? matchingEssenceRows.length === 0
+                        : currentMaterials.length === 0) && (
                         <p className="material-no-results">
                           No materials found
                         </p>
@@ -346,7 +350,7 @@ export function CraftingPage() {
                   role="group"
                   aria-label="Special essences"
                 >
-                  {matchingSpecialEssences.map(materialButton)}
+                  {specialEssences.map(materialButton)}
                 </div>
               )}
               <div className="item-placement">
@@ -401,13 +405,6 @@ export function CraftingPage() {
                     )}
                     aria-pressed={Boolean(
                       resource && selected?.id === resource.id,
-                    )}
-                    title={t(
-                      held
-                        ? 'placeFavorite'
-                        : resource
-                          ? 'useFavorite'
-                          : 'emptyFavorite',
                     )}
                     {...(resource ? tooltipEvents(resource.id) : {})}
                     onClick={() => placeFavorite(index)}

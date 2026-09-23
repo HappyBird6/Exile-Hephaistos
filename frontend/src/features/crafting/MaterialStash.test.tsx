@@ -76,6 +76,80 @@ describe('Material stash and shared favorites', () => {
     ).not.toBeInTheDocument()
   })
 
+  it('keeps all six special essences in place during matching and empty searches', () => {
+    show()
+    fireEvent.click(tab('Essence'))
+    const special = within(
+      screen.getByRole('group', { name: 'Special essences' }),
+    )
+    const buttons = special.getAllByRole('button')
+    for (const query of [
+      'greater essence of the body',
+      'hysteria',
+      'nonexistent',
+    ]) {
+      fireEvent.change(screen.getByRole('searchbox'), {
+        target: { value: query },
+      })
+      expect(special.getAllByRole('button')).toEqual(buttons)
+    }
+    expect(screen.getByText('No materials found')).toBeVisible()
+  })
+
+  it.each([
+    ['Essence', 'Lesser Essence of the Body'],
+    ['Essence', 'Essence of Hysteria'],
+    ['Alloy', 'Runic Alloy'],
+    ['Omen', 'Omen of Whittling'],
+    ['Catalysts', 'Flesh Catalyst'],
+    ['Liquid Emotions', 'Diluted Liquid Ire'],
+  ])(
+    'selects %s materials for use on right-click without registering them',
+    (label, name) => {
+      show()
+      fireEvent.click(tab('Essence'))
+      pick('Lesser Essence of the Mind')
+      fireEvent.click(tab(label))
+      const material = screen.getByRole('button', { name })
+      fireEvent.pointerOver(material)
+      expect(screen.getByRole('tooltip')).toBeVisible()
+      expect(fireEvent.contextMenu(material)).toBe(false)
+      expect(material).toHaveAttribute('aria-pressed', 'true')
+      expect(material).toHaveClass('is-selected')
+      expect(screen.getByRole('status')).toHaveTextContent(`${name} selected`)
+      expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
+      fireEvent.click(favorite(1))
+      expect(favorite(1)).toHaveAccessibleName('Favorite slot 1: empty')
+      fireEvent.click(
+        screen.getByRole('button', {
+          name: 'Use selected currency on the central item',
+        }),
+      )
+      expect(screen.getByRole('status')).toHaveTextContent(
+        'The item has not changed',
+      )
+      fireEvent.click(material)
+      expect(material).toHaveClass('is-held')
+      expect(material).not.toHaveClass('is-selected')
+      fireEvent.click(favorite(1))
+      expect(favorite(1)).toHaveAccessibleName(`Favorite slot 1: ${name}`)
+    },
+  )
+
+  it('does not display native hover titles on empty or occupied favorites', () => {
+    show()
+    expect(favorite(1)).not.toHaveAttribute('title')
+    fireEvent.click(tab('Essence'))
+    pick('Lesser Essence of the Body')
+    expect(favorite(1)).not.toHaveAttribute('title')
+    fireEvent.click(favorite(1))
+    expect(favorite(1)).not.toHaveAttribute('title')
+    fireEvent.pointerOver(favorite(1))
+    expect(screen.getByRole('tooltip')).toHaveTextContent(
+      'Lesser Essence of the Body',
+    )
+  })
+
   it('excludes every requested Omen and filters each material tab', () => {
     show()
     fireEvent.click(tab('Omen'))

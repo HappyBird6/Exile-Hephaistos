@@ -741,6 +741,7 @@
   gap: 12px 5px;
   padding: 0 5px 4px 0;
   scrollbar-color: #776640 #141a15;
+  scrollbar-gutter: stable;
 }
 .material-entry {
   display: flex;
@@ -771,7 +772,8 @@
   object-fit: contain;
 }
 .material-entry:hover,
-.material-entry.is-held {
+.material-entry.is-held,
+.material-entry.is-selected {
   background: #2c3425;
   border-color: #b49d62;
 }
