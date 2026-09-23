@@ -130,11 +130,21 @@ describe('아이템 텍스트 가져오기', () => {
       await screen.findByRole('heading', { name: 'Synthetic Name' }),
     ).toBeVisible()
     expect(screen.getByText('42')).toBeVisible()
-    expect(screen.getByText('Level: 10')).toBeVisible()
-    expect(screen.getByText('Synthetic effect (implicit)')).toBeVisible()
-    expect(screen.getByText('Unidentified')).toBeVisible()
+    expect(
+      within(screen.getByRole('article')).getByText('Level: 10'),
+    ).toBeVisible()
+    expect(
+      within(screen.getByRole('article')).getByText(
+        'Synthetic effect (implicit)',
+      ),
+    ).toBeVisible()
+    expect(
+      within(screen.getByRole('article')).getByText('Unidentified'),
+    ).toBeVisible()
     expect(screen.getByText(/FUTURE_WARNING/)).toBeVisible()
     expect(document.querySelector('.parsed-item script')).toBeNull()
+    fireEvent.click(screen.getByText('파싱 상세와 원문 보기'))
+    fireEvent.click(screen.getByText('전체 원문 보기'))
     expect(document.querySelector('.item-raw')?.textContent).toBe(raw)
     expect(useItemDraft.getState().text).toBe(raw)
     expect(fetchMock).toHaveBeenCalledWith(

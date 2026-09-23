@@ -29,6 +29,8 @@ export const en: Record<keyof typeof ko, string> = {
   selectCurrency: 'Select currency',
   useOnItem: 'Use on item',
   clearSelection: 'Clear selection',
+  itemCard: 'Item card',
+  parsingDetails: 'Parsing details and source text',
   itemDetails: 'Item details',
   amulet: 'Amulet',
   baseSummary: 'Amulet · Starting base',

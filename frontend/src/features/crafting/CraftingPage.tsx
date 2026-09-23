@@ -3,6 +3,7 @@ import { useI18n } from '../../shared/i18n/context'
 import { LanguageSelector } from '../../shared/i18n/LanguageSelector'
 import { locales } from '../../shared/i18n/messages'
 import type { MessageKey } from '../../shared/i18n/messages'
+import { ItemCard } from './ItemCard'
 import { ParsedItemDetails } from './ParsedItemDetails'
 import { useItemTextImport } from './useItemTextImport'
 import { CurrencyImage } from './CurrencyImage'
@@ -221,35 +222,22 @@ export function CraftingPage() {
               {draft.source === 'base' ? t('amulet') : (item?.itemClass ?? '—')}
             </span>
           </div>
-          <div className="item-summary">
-            <span className="craft-kicker">
-              {draft.source === 'base'
-                ? t('baseSummary')
-                : t('importedSummary')}
-            </span>
-            <h2>{displayedName}</h2>
-            <span className="item-subtitle">
-              {draft.source === 'base'
-                ? 'Solar Amulet'
-                : (item?.displayBase ?? '')}
-            </span>
-          </div>
           <div className="detail-body" aria-busy={imported.pending}>
             {draft.source === 'base' ? (
               <>
-                <div className="amulet-preview">
-                  <img src="/assets/currency/solar-amulet.webp" alt="" />
-                </div>
-                <dl>
-                  <div>
-                    <dt>{t('equipmentType')}</dt>
-                    <dd>{t('amulet')}</dd>
-                  </div>
-                  <div>
-                    <dt>{t('base')}</dt>
-                    <dd>{t('solarAmulet')}</dd>
-                  </div>
-                </dl>
+                <ItemCard
+                  item={{
+                    rarity: 'NORMAL',
+                    name: t('solarAmulet'),
+                    base: t('solarAmulet'),
+                    itemClass: t('amulet'),
+                    itemLevel: null,
+                    properties: [],
+                    requirements: [],
+                    modifiers: [],
+                    flags: [],
+                  }}
+                />
                 <p className="detail-note">{t('baseUnset')}</p>
               </>
             ) : item ? (

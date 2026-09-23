@@ -26,6 +26,8 @@ export const ko = {
   selectCurrency: '화폐 선택',
   useOnItem: '아이템에 사용',
   clearSelection: '선택 해제',
+  itemCard: '아이템 카드',
+  parsingDetails: '파싱 상세와 원문 보기',
   itemDetails: '아이템 상세정보',
   amulet: '목걸이',
   baseSummary: '목걸이 · 기본 베이스',

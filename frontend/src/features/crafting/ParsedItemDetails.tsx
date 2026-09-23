@@ -1,4 +1,6 @@
 import { useI18n } from '../../shared/i18n/context'
+import { ItemCard } from './ItemCard'
+import { toItemCard } from './itemCardData'
 import { locales } from '../../shared/i18n/messages'
 import type { MessageKey } from '../../shared/i18n/messages'
 import type { ParsedItemText, TextLine } from './itemTextApi'
@@ -31,45 +33,7 @@ export function ParsedItemDetails({ item }: { item: ParsedItemText }) {
   return (
     <div className="parsed-item">
       <p className="detail-note">{t('catalogDraft')}</p>
-      <dl>
-        <div>
-          <dt>{t('itemClass')}</dt>
-          <dd>{item.itemClass}</dd>
-        </div>
-        <div>
-          <dt>{t('rarity')}</dt>
-          <dd>{item.rarityText}</dd>
-        </div>
-        <div>
-          <dt>{t('base')}</dt>
-          <dd>{item.displayBase ?? t('unknown')}</dd>
-        </div>
-        <div>
-          <dt>{t('itemLevel')}</dt>
-          <dd>{item.itemLevel ?? t('unknown')}</dd>
-        </div>
-        <div>
-          <dt>{t('sourceLanguage')}</dt>
-          <dd>{locales[item.locale].label}</dd>
-        </div>
-      </dl>
-      {groups
-        .filter((group) => group.lines.length > 0)
-        .map((group) => (
-          <div className="parsed-group" key={group.title}>
-            <h3>{t(group.title)}</h3>
-            <ul>
-              {group.lines.map((line) => (
-                <li key={line.number}>
-                  <span className="source-line">
-                    {t('lineNumber', { line: line.number })}
-                  </span>{' '}
-                  {line.raw}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+      <ItemCard item={toItemCard(item)} />
       {item.warnings.length > 0 && (
         <div className="parsed-group item-warnings">
           <h3>{t('warnings')}</h3>
@@ -89,9 +53,43 @@ export function ParsedItemDetails({ item }: { item: ParsedItemText }) {
           </ul>
         </div>
       )}
-      <details>
-        <summary>{t('originalText')}</summary>
-        <pre className="item-raw">{item.text.originalText}</pre>
+      <details className="parsed-evidence">
+        <summary>{t('parsingDetails')}</summary>
+        <dl>
+          <div>
+            <dt>{t('base')}</dt>
+            <dd>{item.displayBase ?? t('unknown')}</dd>
+          </div>
+          <div>
+            <dt>{t('rarity')}</dt>
+            <dd>{item.rarityText}</dd>
+          </div>
+          <div>
+            <dt>{t('sourceLanguage')}</dt>
+            <dd>{locales[item.locale].label}</dd>
+          </div>
+        </dl>
+        {groups
+          .filter((group) => group.lines.length > 0)
+          .map((group) => (
+            <div className="parsed-group" key={group.title}>
+              <h3>{t(group.title)}</h3>
+              <ul>
+                {group.lines.map((line) => (
+                  <li key={line.number}>
+                    <span className="source-line">
+                      {t('lineNumber', { line: line.number })}
+                    </span>{' '}
+                    {line.raw}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        <details>
+          <summary>{t('originalText')}</summary>
+          <pre className="item-raw">{item.text.originalText}</pre>
+        </details>
       </details>
     </div>
   )

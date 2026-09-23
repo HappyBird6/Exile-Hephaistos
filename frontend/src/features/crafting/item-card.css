@@ -1,0 +1,80 @@
+.item-card {
+  --item-rarity: #c8c8c8;
+  background: #050505;
+  border: 1px solid var(--item-rarity);
+  color: #a7a7a7;
+  text-align: center;
+  overflow-wrap: anywhere;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.item-card--magic {
+  --item-rarity: #9292ff;
+}
+.item-card--rare {
+  --item-rarity: #e7d477;
+}
+.item-card--unique {
+  --item-rarity: #df9565;
+}
+.item-card--unknown {
+  --item-rarity: #a7a7a7;
+}
+.item-card__header {
+  color: var(--item-rarity);
+  background: color-mix(in srgb, var(--item-rarity) 9%, #050505);
+  border-bottom: 1px solid var(--item-rarity);
+  padding: 9px 12px;
+  font-size: 17px;
+  line-height: 1.4;
+}
+.item-card__header h2 {
+  font: inherit;
+  margin: 0;
+  color: inherit;
+}
+.item-card__content {
+  padding: 9px 12px 12px;
+}
+.item-card__section {
+  padding-top: 8px;
+  margin-top: 8px;
+  border-top: 1px solid #353329;
+}
+.item-card__value {
+  color: #ededed;
+}
+.item-card__line--implicit,
+.item-card__line--explicit,
+.item-card__line--enchant,
+.item-card__line--rune,
+.item-card__line--desecrated {
+  color: #9999ff;
+}
+.item-card__line--fractured {
+  color: #d4b572;
+}
+.item-card__line--crafted {
+  color: #b4d4ef;
+}
+.item-card__line--unknown {
+  color: #b8b8b8;
+}
+.item-card__line--corrupted {
+  color: #ff6868;
+}
+.item-card__modifier-detail summary {
+  cursor: pointer;
+}
+.item-card__modifier-detail summary:focus-visible {
+  outline: 2px solid var(--item-rarity);
+  outline-offset: 2px;
+}
+.item-card__modifier-detail > span {
+  display: block;
+  color: #bbb;
+  font-size: 11px;
+}
+.parsed-evidence {
+  margin-top: 14px;
+}
