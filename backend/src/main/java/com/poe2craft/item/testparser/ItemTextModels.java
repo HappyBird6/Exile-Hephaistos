@@ -2,7 +2,6 @@ package com.poe2craft.item.testparser;
 
 import java.util.List;
 
-/** 사용자 확인용 텍스트 초안 계약. 검증된 catalog 또는 계산용 ItemState가 아니다. */
 public final class ItemTextModels {
   private ItemTextModels() {}
 

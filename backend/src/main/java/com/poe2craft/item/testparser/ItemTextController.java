@@ -6,7 +6,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import org.springframework.web.bind.annotation.*;
 
-/** 저장이나 catalog 조회 없이 입력 텍스트를 확인용 초안으로 반환한다. */
 @RestController
 @RequestMapping("/api/v1/items")
 public final class ItemTextController {
