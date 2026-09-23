@@ -675,6 +675,10 @@
 }
 .currency-slot {
   width: calc(74 / 935 * 100%);
+  height: calc(74 / 550 * 100%);
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
 }
 .item-placement {
   left: calc(371 / 935 * 100%);
@@ -774,6 +778,7 @@
 .favorite-empty {
   color: #7b714d;
   font-size: 20px;
+  line-height: 1;
   opacity: 0.6;
 }
 .favorite-slots.is-placing .favorite-slot {
@@ -860,7 +865,6 @@
     font-size: 9px !important;
   }
   .placement-label {
-    font-size: 8px;
-    margin-bottom: 5px;
+    display: none;
   }
 }
