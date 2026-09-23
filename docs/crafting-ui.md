@@ -63,3 +63,13 @@ Essence에는 해당 페이지가 함께 나열하는 Alloy 13종이 포함된�
 재료 효과 설명·확률·수량은 수집/구현하지 않았다. 게임 아트 권리는 원저작권자에게 있으며 출처 기록은 재배포 허가를 의미하지 않는다. 새로운 재료의 런타임 수집이나 관리자 crawling 기능을 추가하지 않았다.
 
 회귀 검증은 21종 제외/이동, 다섯 탭의 목록, 15개 공유 칸, 탭 간 들기·등록 유지, 덮어쓰기·취소·사용 분리, 새 페이지 초기화, 실패 아이콘 교체, 입력 포커스/닫기, 카드/파싱 회귀를 포함한다.
+
+
+## 제작대 개선 (2026-09-23)
+
+- Currency 21개, Essence 82개(일반 76개와 특수 6개), Alloy 13개, Omen 32개, Catalysts 26개, Liquid Emotions 27개를 표시한다. Alloy는 독립 탭이며 사용자 지정 Saga 5개 및 Omen 13개를 표시 목록에서 제외했다. 기존 출처 이미지 기록은 보존한다.
+- 비화폐 탭은 스크롤 목록 위의 고정 검색창을 제공하고 검색어는 탭별 메모리 상태로 유지한다. Essence는 Lesser/기본/Greater/Perfect를 한 행으로 검색하며 특수 6개는 중앙 상단 2행×3열이다. 즐겨찾기 5행×3열은 모든 탭에서 공유한다.
+- 입력은 확대된 native dialog다. X/바깥 클릭/Escape로 닫고 포커스를 돌려준다. Analyze 성공 시에만 닫으며 실패 시 오류와 편집 중인 텍스트를 유지한다. 상세 진단 패널은 표시하지 않는다. 제작대 내부의 브라우저 기본 context menu는 차단한다.
+- 총 201개 표시 항목은 마우스 hover와 키보드 focus로 PoE2DB 설명과 출처 링크를 표시한다. 정적 출처는 `frontend/public/assets/materials/tooltip-sources.json`, 표시 데이터는 `frontend/src/features/crafting/materialTooltips.json`. 공개 영문 목록 5개 및 robots/General disclaimer를 확인했고 원문은 git 제외 `data-pipeline/captures/tooltip-20260923/`에 보존했다. 각 URL/수집 시각/SHA-256/parserVersion을 기록했다.
+- 설명은 출처 페이지의 게임 항목 표시 자료로, 검증된 patch/snapshot·weight·제작 handler 데이터가 아니다. 실제 제작 지원 범위를 넓히지 않는다. PoE2DB/GGG 권리 고지는 기존 정책대로 유지하며 공개 배포 허가를 추정하지 않는다.
+- 현재 아이템 원문과 편집 입력의 소유권·향후 checkpoint 확장 경계는 `item-text-parsing.md` 참조. 체크포인트 UI/영구 저장/제작 실행은 이번 변경에 포함되지 않는다.

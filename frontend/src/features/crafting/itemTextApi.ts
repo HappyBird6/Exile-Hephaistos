@@ -1,52 +1,4 @@
-// Manual DTO mirror of docs/openapi-item.yaml, shared by API validation and UI.
-export interface TextLine {
-  number: number
-  section: number
-  raw: string
-  kind: 'CONTENT' | 'SEPARATOR' | 'BLANK'
-}
-export interface RawField {
-  key: string
-  value: string
-  source: TextLine
-}
-export type ModifierKind =
-  | 'IMPLICIT'
-  | 'ENCHANT'
-  | 'RUNE'
-  | 'DESECRATED'
-  | 'FRACTURED'
-  | 'CRAFTED'
-  | 'MUTATED'
-  | 'EXPLICIT'
-export interface ParsedModifier {
-  text: string
-  kind: ModifierKind
-  source: TextLine
-  metadata: TextLine | null
-  affix: 'PREFIX' | 'SUFFIX' | null
-  tier: number | null
-  affixName: string | null
-}
-export interface ParsedItemText {
-  text: { originalText: string; lines: TextLine[] }
-  locale: 'en'
-  itemClass: string
-  rarity: 'NORMAL' | 'MAGIC' | 'RARE' | 'UNIQUE' | 'UNKNOWN'
-  rarityText: string
-  nameLines: TextLine[]
-  displayName: string
-  displayBase: string | null
-  itemLevel: number | null
-  properties: RawField[]
-  requirements: RawField[]
-  markedModifiers: TextLine[]
-  modifiers: ParsedModifier[]
-  flags: TextLine[]
-  unparsedLines: TextLine[]
-  warnings: { code: string; lineNumber: number }[]
-}
-
+import type { Item, Modifier, TextLine, RawField } from './itemModels'
 export const maxItemTextBytes = 16 * 1024
 export class ItemTextApiError extends Error {
   constructor(readonly code: string) {
@@ -95,25 +47,25 @@ function field(value: unknown): RawField {
     source: line(data.source),
   }
 }
-function modifier(value: unknown): ParsedModifier {
+function modifier(value: unknown): Modifier {
   const data = object(value)
-  const kind = data.kind
+  const type = data.type
   if (
-    kind !== 'IMPLICIT' &&
-    kind !== 'ENCHANT' &&
-    kind !== 'RUNE' &&
-    kind !== 'DESECRATED' &&
-    kind !== 'FRACTURED' &&
-    kind !== 'CRAFTED' &&
-    kind !== 'MUTATED' &&
-    kind !== 'EXPLICIT'
+    type !== 'IMPLICIT' &&
+    type !== 'ENCHANT' &&
+    type !== 'RUNE' &&
+    type !== 'DESECRATED' &&
+    type !== 'FRACTURED' &&
+    type !== 'CRAFTED' &&
+    type !== 'MUTATED' &&
+    type !== 'EXPLICIT'
   )
     return invalid()
   if (data.affix !== null && data.affix !== 'PREFIX' && data.affix !== 'SUFFIX')
     return invalid()
   return {
     text: string(data.text),
-    kind,
+    type,
     source: line(data.source),
     metadata: data.metadata === null ? null : line(data.metadata),
     affix: data.affix,
@@ -121,7 +73,7 @@ function modifier(value: unknown): ParsedModifier {
     affixName: data.affixName === null ? null : string(data.affixName),
   }
 }
-function parsedItem(value: unknown): ParsedItemText {
+function parsedItem(value: unknown): Item {
   const data = object(value)
   const text = object(data.text)
   const locale = data.locale
@@ -167,7 +119,7 @@ function parsedItem(value: unknown): ParsedItemText {
 export async function parseItemText(
   text: string,
   signal: AbortSignal,
-): Promise<ParsedItemText> {
+): Promise<Item> {
   const response = await fetch('/api/v1/items/parse', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

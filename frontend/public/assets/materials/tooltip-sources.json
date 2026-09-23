@@ -1,0 +1,48 @@
+{
+  "scope": "Display-only factual item descriptions. Not a validated crafting rules snapshot.",
+  "parserVersion": 1,
+  "pages": [
+    {
+      "url": "https://poe2db.tw/robots.txt",
+      "sha256": "16ceb5ee3e0dc13aa9adf31a3ebbe45a1d965b8c2b9f72eaf84e5911e140ed95",
+      "retrievedAt": "2026-09-23T07:20:24.144553+00:00",
+      "rawFile": "robots.txt.html"
+    },
+    {
+      "url": "https://poe2db.tw/us/General_disclaimer",
+      "sha256": "31b713a5f1c55af1f35cd4ef0209dab670e31513c91ba1c1012205bf9e5aaade",
+      "retrievedAt": "2026-09-23T07:20:29.787811+00:00",
+      "rawFile": "us_General_disclaimer.html"
+    },
+    {
+      "url": "https://poe2db.tw/us/Currency",
+      "sha256": "f439765285fe232e6e3f091adc1d062ca35f133c37e7ee6c56c529e19ce243ea",
+      "retrievedAt": "2026-09-23T07:20:30.890561+00:00",
+      "rawFile": "us_Currency.html"
+    },
+    {
+      "url": "https://poe2db.tw/us/Essence",
+      "sha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "retrievedAt": "2026-09-23T07:20:32.161799+00:00",
+      "rawFile": "us_Essence.html"
+    },
+    {
+      "url": "https://poe2db.tw/us/Omen",
+      "sha256": "745b50723b8e64b3ebf6cecaef7cbb585566402066869482c4d870d3d6d5d5b9",
+      "retrievedAt": "2026-09-23T07:20:33.142964+00:00",
+      "rawFile": "us_Omen.html"
+    },
+    {
+      "url": "https://poe2db.tw/us/Catalysts",
+      "sha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
+      "retrievedAt": "2026-09-23T07:20:33.921650+00:00",
+      "rawFile": "us_Catalysts.html"
+    },
+    {
+      "url": "https://poe2db.tw/us/Liquid_Emotions",
+      "sha256": "75bd5388d4b39ec2d9ae205866d4116696f3b9c259421b21309efd8edbfa8e1b",
+      "retrievedAt": "2026-09-23T07:20:35.589496+00:00",
+      "rawFile": "us_Liquid_Emotions.html"
+    }
+  ]
+}

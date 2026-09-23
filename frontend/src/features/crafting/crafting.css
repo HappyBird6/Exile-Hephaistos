@@ -868,3 +868,131 @@
     display: none;
   }
 }
+
+.material-panel {
+  position: absolute;
+  left: calc(29 / 935 * 100%);
+  top: calc(18 / 550 * 100%);
+  width: calc(294 / 935 * 100%);
+  height: calc(496 / 550 * 100%);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.material-search {
+  flex: none;
+  width: 100%;
+  min-width: 0;
+  height: 30px;
+  margin-bottom: 8px;
+  padding: 4px 8px;
+  background: #101710;
+  border: 1px solid #756643;
+  color: #e2d7bb;
+}
+.material-panel .material-catalog {
+  position: static;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  flex: 1;
+}
+.material-panel .essence-catalog {
+  display: block;
+}
+.essence-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 3px;
+  margin-bottom: 10px;
+}
+.special-essences {
+  position: absolute;
+  left: calc(370 / 935 * 100%);
+  top: calc(28 / 550 * 100%);
+  width: calc(194 / 935 * 100%);
+  height: calc(172 / 550 * 100%);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 5px;
+}
+.special-essences .material-entry {
+  overflow: hidden;
+}
+.special-essences .material-entry__image {
+  min-height: 0;
+  width: auto;
+  height: 65%;
+}
+.material-no-results {
+  grid-column: 1 / -1;
+  font-size: 12px;
+}
+dialog.item-input-panel {
+  position: fixed;
+  inset: 0;
+  transform: none;
+  margin: auto;
+  padding: 0;
+  width: min(900px, 94vw);
+  max-height: 90vh;
+  color: #d8d2bf;
+}
+dialog.item-input-panel::backdrop {
+  background: #000a;
+}
+.item-input-content {
+  padding: 24px;
+}
+.item-input-panel textarea {
+  min-height: min(440px, 48vh);
+  resize: vertical;
+}
+.input-close {
+  font-size: 24px !important;
+  line-height: 1;
+}
+.material-tooltip {
+  position: fixed;
+  z-index: 40;
+  width: min(360px, calc(100vw - 16px));
+  max-height: 48vh;
+  overflow: auto;
+  padding: 14px;
+  background: #100f0ff5;
+  border: 1px solid #b49b68;
+  box-shadow: 0 8px 30px #000a;
+  color: #9bafe0;
+  font-size: 13px;
+  white-space: pre-line;
+}
+.material-tooltip strong {
+  display: block;
+  color: #d7be8c;
+  font-size: 16px;
+}
+.material-tooltip p {
+  margin: 9px 0;
+}
+.material-tooltip a {
+  color: #bba77f;
+  font-size: 11px;
+}
+@media (max-width: 600px) {
+  .material-search {
+    height: 24px;
+    font-size: 10px;
+    padding: 2px;
+    margin-bottom: 4px;
+  }
+  .special-essences .material-entry > span:last-child {
+    display: none;
+  }
+  .special-essences .material-entry__image {
+    height: 100%;
+  }
+  .item-input-content {
+    padding: 16px;
+  }
+}

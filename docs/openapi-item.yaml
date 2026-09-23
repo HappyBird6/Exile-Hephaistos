@@ -27,7 +27,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ParsedItemText"
+                  "$ref": "#/components/schemas/Item"
                 }
               }
             }
@@ -168,7 +168,7 @@
           }
         }
       },
-      "ParsedItemText": {
+      "Item": {
         "type": "object",
         "required": [
           "text",
@@ -271,7 +271,7 @@
           "modifiers": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ParsedModifier"
+              "$ref": "#/components/schemas/Modifier"
             }
           }
         }
@@ -314,11 +314,11 @@
           }
         }
       },
-      "ParsedModifier": {
+      "Modifier": {
         "type": "object",
         "required": [
           "text",
-          "kind",
+          "type",
           "source",
           "metadata",
           "affix",
@@ -329,19 +329,6 @@
           "text": {
             "type": "string",
             "description": "Display text with explicit trailing marker removed; numeric roll annotations preserved."
-          },
-          "kind": {
-            "type": "string",
-            "enum": [
-              "IMPLICIT",
-              "ENCHANT",
-              "RUNE",
-              "DESECRATED",
-              "FRACTURED",
-              "CRAFTED",
-              "MUTATED",
-              "EXPLICIT"
-            ]
           },
           "source": {
             "$ref": "#/components/schemas/TextLine"
@@ -371,6 +358,19 @@
           "affixName": {
             "type": "string",
             "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "IMPLICIT",
+              "ENCHANT",
+              "RUNE",
+              "DESECRATED",
+              "FRACTURED",
+              "CRAFTED",
+              "MUTATED",
+              "EXPLICIT"
+            ]
           }
         }
       }

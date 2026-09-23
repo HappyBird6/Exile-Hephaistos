@@ -1,10 +1,10 @@
 import type {
-  ParsedItemText,
+  Item,
   TextLine,
-  ModifierKind as ParsedModifierKind,
-} from './itemTextApi'
+  ModifierType as ApiModifierType,
+} from './itemModels'
 
-export type ModifierKind = Lowercase<ParsedModifierKind> | 'unknown'
+export type ModifierKind = Lowercase<ApiModifierType> | 'unknown'
 export interface ItemCardLine {
   id: string
   text: string
@@ -13,7 +13,7 @@ export interface ItemCardLine {
   affixLabel?: string | undefined
 }
 export interface ItemCardData {
-  rarity: ParsedItemText['rarity']
+  rarity: Item['rarity']
   name: string
   base: string | null
   itemClass: string
@@ -31,7 +31,7 @@ export function isTradePrice(text: string): boolean {
 function fromLine(line: TextLine): ItemCardLine {
   return { id: `line-${line.number}`, text: line.raw }
 }
-const kinds: Record<ParsedModifierKind, ModifierKind> = {
+const kinds: Record<ApiModifierType, ModifierKind> = {
   IMPLICIT: 'implicit',
   ENCHANT: 'enchant',
   RUNE: 'rune',
@@ -41,7 +41,7 @@ const kinds: Record<ParsedModifierKind, ModifierKind> = {
   MUTATED: 'mutated',
   EXPLICIT: 'explicit',
 }
-export function toItemCard(item: ParsedItemText): ItemCardData {
+export function toItemCard(item: Item): ItemCardData {
   const metadataLines = new Set(
     item.modifiers.flatMap((mod) =>
       mod.metadata ? [mod.metadata.number] : [],
@@ -53,7 +53,7 @@ export function toItemCard(item: ParsedItemText): ItemCardData {
       line: {
         id: `line-${mod.source.number}`,
         text: mod.text,
-        kind: kinds[mod.kind],
+        kind: kinds[mod.type],
         detail: mod.metadata
           ? `${mod.metadata.raw}\n${mod.source.raw}`
           : mod.source.raw !== mod.text

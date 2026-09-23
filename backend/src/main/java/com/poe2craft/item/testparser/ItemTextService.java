@@ -1,6 +1,6 @@
 package com.poe2craft.item.testparser;
 
-import com.poe2craft.item.testparser.ItemTextModels.*;
+import com.poe2craft.item.ItemModels.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -93,7 +93,7 @@ public final class ItemTextService {
   }
 
   /** Returns reviewable display data, not catalog-validated ItemState or calculated stats. */
-  public ParsedItemText parseText(String text) {
+  public Item parseText(String text) {
     TokenizedText tokenized = tokenizeText(text);
     List<TextLine> content =
         tokenized.lines().stream().filter(line -> line.kind() == LineKind.CONTENT).toList();
@@ -121,7 +121,7 @@ public final class ItemTextService {
         unparsed = new ArrayList<>(),
         flags = new ArrayList<>();
     List<RawField> properties = new ArrayList<>(), requirements = new ArrayList<>();
-    List<ParsedModifier> modifiers = new ArrayList<>();
+    List<Modifier> modifiers = new ArrayList<>();
     Integer itemLevel = null;
     int levelCount = 0, levelSection = -1, requirementsSection = -1, previousSection = -1;
     boolean explicitFinished = false, explicitSection = false, reminder = false;
@@ -177,10 +177,10 @@ public final class ItemTextService {
         unparsed.add(line);
       } else {
         var marker = MARKER.matcher(value);
-        ModifierKind kind = null;
+        ModifierType kind = null;
         String display = value;
         if (marker.find()) {
-          kind = ModifierKind.valueOf(marker.group(1).toUpperCase(java.util.Locale.ROOT));
+          kind = ModifierType.valueOf(marker.group(1).toUpperCase(java.util.Locale.ROOT));
           display = value.substring(0, marker.start()).strip();
           marked.add(line);
         } else if (metadata != null) {
@@ -191,16 +191,16 @@ public final class ItemTextService {
             && !value.startsWith("Grants Skill:")
             && key.isEmpty()) {
           // PoB's first post-level modifier section; no semantic/affix identity is inferred.
-          kind = ModifierKind.EXPLICIT;
+          kind = ModifierType.EXPLICIT;
         }
         if (kind == null) {
           unparsed.add(line);
         } else {
-          if (kind == ModifierKind.EXPLICIT
-              || kind == ModifierKind.FRACTURED
-              || kind == ModifierKind.CRAFTED
-              || kind == ModifierKind.DESECRATED
-              || kind == ModifierKind.MUTATED) explicitSection = true;
+          if (kind == ModifierType.EXPLICIT
+              || kind == ModifierType.FRACTURED
+              || kind == ModifierType.CRAFTED
+              || kind == ModifierType.DESECRATED
+              || kind == ModifierType.MUTATED) explicitSection = true;
           String affix =
               metadata == null
                   ? null
@@ -209,7 +209,7 @@ public final class ItemTextService {
                       : metadata.raw().matches(".*\\bSuffix\\b.*") ? "SUFFIX" : null;
           Integer tier = metadata == null ? null : unsignedInteger(match(TIER, metadata.raw()));
           String affixName = metadata == null ? null : match(AFFIX_NAME, metadata.raw());
-          modifiers.add(new ParsedModifier(display, kind, line, metadata, affix, tier, affixName));
+          modifiers.add(new Modifier(display, kind, line, metadata, affix, tier, affixName));
         }
       }
     }
@@ -227,7 +227,7 @@ public final class ItemTextService {
     if (!unparsed.isEmpty())
       warnings.add(new Warning("UNPARSED_LINES", unparsed.getFirst().number()));
     warnings.add(new Warning("CATALOG_VALIDATION_REQUIRED", 0));
-    return new ParsedItemText(
+    return new Item(
         tokenized,
         "en",
         itemClass,
@@ -246,23 +246,23 @@ public final class ItemTextService {
         warnings);
   }
 
-  private static ModifierKind metadataKind(String text) {
+  private static ModifierType metadataKind(String text) {
     String description =
         text.substring(0, text.indexOf("Modifier") >= 0 ? text.indexOf("Modifier") : text.length());
-    for (ModifierKind kind :
+    for (ModifierType kind :
         List.of(
-            ModifierKind.FRACTURED,
-            ModifierKind.CRAFTED,
-            ModifierKind.DESECRATED,
-            ModifierKind.MUTATED,
-            ModifierKind.IMPLICIT,
-            ModifierKind.RUNE,
-            ModifierKind.ENCHANT)) {
+            ModifierType.FRACTURED,
+            ModifierType.CRAFTED,
+            ModifierType.DESECRATED,
+            ModifierType.MUTATED,
+            ModifierType.IMPLICIT,
+            ModifierType.RUNE,
+            ModifierType.ENCHANT)) {
       if (description.toUpperCase(java.util.Locale.ROOT).contains(kind.name())) return kind;
     }
     return description.contains("Enhancement")
-        ? ModifierKind.ENCHANT
-        : description.contains("Vaal Unique") ? ModifierKind.MUTATED : ModifierKind.EXPLICIT;
+        ? ModifierType.ENCHANT
+        : description.contains("Vaal Unique") ? ModifierType.MUTATED : ModifierType.EXPLICIT;
   }
 
   private static String match(Pattern pattern, String text) {

@@ -1,5 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
-import { useMutation } from '@tanstack/react-query'
+import {
+  skipToken,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from '@tanstack/react-query'
+import type { Item } from './itemModels'
+import { useItemDraft } from './draft'
 import type { MessageKey } from '../../shared/i18n/messages'
 import {
   ItemTextApiError,
@@ -18,6 +25,13 @@ function errorKey(error: Error): MessageKey {
 
 // Server results stay in TanStack Query; only input lives in the draft store.
 export function useItemTextImport() {
+  const client = useQueryClient()
+  const currentKey = ['workbench', 'current-item'] as const
+  const current = useQuery<Item>({
+    queryKey: currentKey,
+    queryFn: skipToken,
+    gcTime: Infinity,
+  })
   const [revision, setRevision] = useState(0)
   const currentRevision = useRef(0)
   const controller = useRef<AbortController | null>(null)
@@ -49,28 +63,39 @@ export function useItemTextImport() {
     setValidation(null)
     return currentRevision.current
   }
-  function submit(text: string) {
+  async function submit(text: string) {
     const nextRevision = invalidate()
     if (!text.trim()) {
       setValidation('errorBlank')
-      return
+      return false
     }
     if (new TextEncoder().encode(text).length > maxItemTextBytes) {
       setValidation('errorTooLarge')
-      return
+      return false
     }
     const request = new AbortController()
     controller.current = request
-    mutation.mutate({ text, revision: nextRevision, signal: request.signal })
+    try {
+      const result = await mutation.mutateAsync({
+        text,
+        revision: nextRevision,
+        signal: request.signal,
+      })
+      if (currentRevision.current !== nextRevision || request.signal.aborted)
+        return false
+      // Every accepted server replacement updates the card and its text together.
+      client.setQueryData(currentKey, result.item)
+      useItemDraft.getState().acceptText(result.item.text.originalText)
+      return true
+    } catch {
+      return false
+    }
   }
   const isCurrent = mutation.variables?.revision === revision
   return {
     submit,
     invalidate,
-    data:
-      isCurrent && mutation.data?.revision === revision
-        ? mutation.data.item
-        : undefined,
+    data: current.data,
     pending: isCurrent && mutation.isPending,
     error:
       validation ??

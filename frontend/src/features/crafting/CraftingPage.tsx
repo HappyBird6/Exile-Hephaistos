@@ -4,14 +4,23 @@ import { LanguageSelector } from '../../shared/i18n/LanguageSelector'
 import { locales } from '../../shared/i18n/messages'
 import { ItemCard } from './ItemCard'
 import { toItemCard } from './itemCardData'
-import { ParsedItemDetails } from './ParsedItemDetails'
+import { MaterialTooltip } from './MaterialTooltip'
 import { useItemTextImport } from './useItemTextImport'
 import { CurrencyImage } from './CurrencyImage'
 import { currencies } from './currencies'
-import { materials, materialTabs } from './materials'
+import {
+  materials,
+  materialTabs,
+  specialEssences,
+  essenceRows,
+} from './materials'
 import type { Material, MaterialTab } from './materials'
 import { useItemDraft } from './draft'
 import './crafting.css'
+
+function tooltipEvents(id: string) {
+  return { 'data-material-tooltip': id }
+}
 
 type Selection = { id: string; name: string; image: string }
 
@@ -19,6 +28,10 @@ export function CraftingPage() {
   const draft = useItemDraft()
   const { t, locale } = useI18n()
   const imported = useItemTextImport()
+  const dialog = useRef<HTMLDialogElement>(null)
+  const [searches, setSearches] = useState<
+    Partial<Record<MaterialTab, string>>
+  >({})
   const [activeTab, setActiveTab] = useState<MaterialTab>('Currency')
   const [selected, setSelected] = useState<Selection | null>(null)
   const [held, setHeld] = useState<Material | null>(null)
@@ -33,7 +46,10 @@ export function CraftingPage() {
   const inputClose = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
-    if (inputOpen) inputClose.current?.focus()
+    if (inputOpen) {
+      dialog.current?.showModal()
+      inputClose.current?.focus()
+    } else dialog.current?.close()
   }, [inputOpen])
   useEffect(() => {
     const cancel = (event: KeyboardEvent) => {
@@ -41,7 +57,10 @@ export function CraftingPage() {
         setSelected(null)
         setHeld(null)
         setPointer(null)
-        setInputOpen(false)
+        if (inputOpen)
+          dialog.current?.dispatchEvent(
+            new Event('cancel', { cancelable: true }),
+          )
         if (inputOpen) inputToggle.current?.focus()
         setAnnouncement(t('noticeCleared'))
       }
@@ -63,10 +82,15 @@ export function CraftingPage() {
   function apply() {
     setAnnouncement(t(selected ? 'noticePreview' : 'noticeSelectFirst'))
   }
-  function importText() {
-    imported.submit(draft.text)
+  async function importText() {
+    if (await imported.submit(draft.text)) closeInput()
     setSelected(null)
     setHeld(null)
+  }
+  function closeInput() {
+    imported.invalidate()
+    setInputOpen(false)
+    inputToggle.current?.focus()
   }
   function placeFavorite(index: number) {
     if (!held) {
@@ -88,8 +112,38 @@ export function CraftingPage() {
     draft.source === 'base'
       ? t('solarAmulet')
       : (item?.displayName ?? t('importedItem'))
+  const search = searches[activeTab] ?? ''
   const currentMaterials = materials.filter(
-    (material) => material.category === activeTab,
+    (m) =>
+      m.category === activeTab &&
+      m.name.toLowerCase().includes(search.trim().toLowerCase()),
+  )
+  function materialButton(material: Material) {
+    return (
+      <button
+        type="button"
+        key={material.id}
+        className={`material-entry ${held?.id === material.id ? 'is-held' : ''}`}
+        aria-label={material.name}
+        aria-pressed={held?.id === material.id}
+        {...tooltipEvents(material.id)}
+        onClick={(event) => {
+          if (event.detail === 0) setPointer(null)
+          setHeld(material)
+          setSelected(null)
+          setAnnouncement(t('materialHeld', { name: material.name }))
+        }}
+      >
+        <span className="material-entry__image">
+          <CurrencyImage key={material.id} {...material} />
+        </span>
+        <span>{material.name}</span>
+      </button>
+    )
+  }
+  const matchingEssenceRows = essenceRows(search)
+  const matchingSpecialEssences = specialEssences.filter((m) =>
+    m.name.toLowerCase().includes(search.trim().toLowerCase()),
   )
   const cursor = held ?? selected
   const card =
@@ -145,7 +199,10 @@ export function CraftingPage() {
           {t('preview')}
         </span>
       </div>
-      <div className="workbench-layout">
+      <div
+        className="workbench-layout"
+        onContextMenu={(event) => event.preventDefault()}
+      >
         <div className="stash-panel">
           <div className="panel-heading stash-heading">
             <div
@@ -191,7 +248,10 @@ export function CraftingPage() {
                 count:
                   activeTab === 'Currency'
                     ? currencies.length
-                    : currentMaterials.length,
+                    : activeTab === 'Essence'
+                      ? matchingEssenceRows.flat().filter(Boolean).length +
+                        matchingSpecialEssences.length
+                      : currentMaterials.length,
               })}
             </span>
           </div>
@@ -204,72 +264,93 @@ export function CraftingPage() {
                 className={
                   activeTab === 'Currency'
                     ? 'currency-catalog'
-                    : 'material-catalog'
+                    : 'material-panel'
                 }
               >
-                {activeTab === 'Currency'
-                  ? currencies.map((currency) => {
-                      const name = locales[locale].currencies[currency.id]
-                      return (
-                        <button
-                          key={currency.id}
-                          type="button"
-                          className={`currency-slot ${selected?.id === currency.id ? 'is-selected' : ''}`}
-                          style={{
-                            left: `${currency.x / 9.35}%`,
-                            top: `${currency.y / 5.5}%`,
-                          }}
-                          aria-label={name}
-                          aria-pressed={selected?.id === currency.id}
-                          title={t('rightSelect', { name })}
-                          onContextMenu={(event) => {
-                            event.preventDefault()
-                            setPointer({ x: event.clientX, y: event.clientY })
-                            choose({ ...currency, name })
-                          }}
-                          onClick={(event) => {
-                            if (event.detail === 0) setPointer(null)
-                            choose({ ...currency, name })
-                          }}
-                        >
-                          <CurrencyImage {...currency} name={name} />
-                          {currency.id.startsWith('Greater') && (
-                            <span className="currency-tier" aria-hidden="true">
-                              II
-                            </span>
-                          )}
-                          {currency.id.startsWith('Perfect') && (
-                            <span className="currency-tier" aria-hidden="true">
-                              III
-                            </span>
-                          )}
-                        </button>
-                      )
-                    })
-                  : currentMaterials.map((material) => (
+                {activeTab === 'Currency' ? (
+                  currencies.map((currency) => {
+                    const name = locales[locale].currencies[currency.id]
+                    return (
                       <button
+                        key={currency.id}
                         type="button"
-                        key={material.id}
-                        className={`material-entry ${held?.id === material.id ? 'is-held' : ''}`}
-                        aria-label={material.name}
-                        aria-pressed={held?.id === material.id}
-                        title={t('pickMaterial', { name: material.name })}
+                        className={`currency-slot ${selected?.id === currency.id ? 'is-selected' : ''}`}
+                        style={{
+                          left: `${currency.x / 9.35}%`,
+                          top: `${currency.y / 5.5}%`,
+                        }}
+                        aria-label={name}
+                        aria-pressed={selected?.id === currency.id}
+                        {...tooltipEvents(currency.id)}
+                        onContextMenu={(event) => {
+                          event.preventDefault()
+                          setPointer({ x: event.clientX, y: event.clientY })
+                          choose({ ...currency, name })
+                        }}
                         onClick={(event) => {
                           if (event.detail === 0) setPointer(null)
-                          setHeld(material)
-                          setSelected(null)
-                          setAnnouncement(
-                            t('materialHeld', { name: material.name }),
-                          )
+                          choose({ ...currency, name })
                         }}
                       >
-                        <span className="material-entry__image">
-                          <CurrencyImage key={material.id} {...material} />
-                        </span>
-                        <span>{material.name}</span>
+                        <CurrencyImage {...currency} name={name} />
+                        {currency.id.startsWith('Greater') && (
+                          <span className="currency-tier" aria-hidden="true">
+                            II
+                          </span>
+                        )}
+                        {currency.id.startsWith('Perfect') && (
+                          <span className="currency-tier" aria-hidden="true">
+                            III
+                          </span>
+                        )}
                       </button>
-                    ))}
+                    )
+                  })
+                ) : (
+                  <>
+                    <input
+                      type="search"
+                      className="material-search"
+                      aria-label={`Search ${activeTab.replaceAll('_', ' ')}`}
+                      placeholder="Search…"
+                      value={search}
+                      onChange={(event) =>
+                        setSearches((old) => ({
+                          ...old,
+                          [activeTab]: event.target.value,
+                        }))
+                      }
+                    />
+                    <div
+                      className={`material-catalog ${activeTab === 'Essence' ? 'essence-catalog' : ''}`}
+                    >
+                      {activeTab === 'Essence'
+                        ? matchingEssenceRows.map((row, i) => (
+                            <div className="essence-row" key={i}>
+                              {row.map((m, j) =>
+                                m ? materialButton(m) : <span key={j} />,
+                              )}
+                            </div>
+                          ))
+                        : currentMaterials.map(materialButton)}
+                      {currentMaterials.length === 0 && (
+                        <p className="material-no-results">
+                          No materials found
+                        </p>
+                      )}
+                    </div>
+                  </>
+                )}
               </div>
+              {activeTab === 'Essence' && (
+                <div
+                  className="special-essences"
+                  role="group"
+                  aria-label="Special essences"
+                >
+                  {matchingSpecialEssences.map(materialButton)}
+                </div>
+              )}
               <div className="item-placement">
                 <span className="placement-label">{t('craftingItem')}</span>
                 <button
@@ -330,6 +411,7 @@ export function CraftingPage() {
                           ? 'useFavorite'
                           : 'emptyFavorite',
                     )}
+                    {...(resource ? tooltipEvents(resource.id) : {})}
                     onClick={() => placeFavorite(index)}
                     onContextMenu={(event) => {
                       event.preventDefault()
@@ -357,109 +439,110 @@ export function CraftingPage() {
               <div aria-hidden="true" />
             </div>
           </div>
-          <section
+          <dialog
+            ref={dialog}
+            onCancel={(event) => {
+              event.preventDefault()
+              closeInput()
+            }}
+            onClick={(event) => {
+              if (event.target === event.currentTarget) closeInput()
+            }}
             id="item-input-panel"
             className="item-input-panel detail-body"
-            hidden={!inputOpen}
             aria-label={t('startItem')}
             aria-busy={imported.pending}
           >
-            <button
-              ref={inputClose}
-              type="button"
-              className="input-close"
-              onClick={() => {
-                setInputOpen(false)
-                inputToggle.current?.focus()
-              }}
-            >
-              {t('closeInput')}
-            </button>
-            <div className="input-heading">
-              <h3>{t('startItem')}</h3>
-              <span>01</span>
-            </div>
-            <div
-              className="input-tabs"
-              role="group"
-              aria-label={t('inputMethod')}
-            >
+            <div className="item-input-content">
               <button
+                ref={inputClose}
                 type="button"
-                aria-pressed={inputMode === 'base'}
-                onClick={() => {
-                  imported.invalidate()
-                  setInputMode('base')
-                }}
+                className="input-close"
+                aria-label={t('closeInput')}
+                onClick={closeInput}
               >
-                {t('baseSelect')}
+                ×
               </button>
-              <button
-                type="button"
-                aria-pressed={inputMode === 'text'}
-                onClick={() => setInputMode('text')}
+              <div className="input-heading">
+                <h3>{t('startItem')}</h3>
+                <span>01</span>
+              </div>
+              <div
+                className="input-tabs"
+                role="group"
+                aria-label={t('inputMethod')}
               >
-                {t('itemText')}
-              </button>
-            </div>
-            {inputMode === 'base' ? (
-              <div className="base-form">
-                <label htmlFor="base-select">{t('amuletBase')}</label>
-                <select id="base-select" defaultValue="solar">
-                  <option value="solar">{t('solarAmulet')}</option>
-                </select>
                 <button
                   type="button"
-                  className="primary-action"
+                  aria-pressed={inputMode === 'base'}
                   onClick={() => {
                     imported.invalidate()
-                    draft.setBase()
-                    setSelected(null)
+                    setInputMode('base')
                   }}
                 >
-                  {t('placeBase')} <span aria-hidden="true">↗</span>
+                  {t('baseSelect')}
                 </button>
-              </div>
-            ) : (
-              <div className="text-form">
-                <label htmlFor="item-text">{t('pasteLabel')}</label>
-                <textarea
-                  id="item-text"
-                  value={draft.text}
-                  onChange={(event) => {
-                    imported.invalidate()
-                    draft.setText(event.target.value)
-                  }}
-                  placeholder={t('pastePlaceholder')}
-                  aria-invalid={Boolean(imported.error)}
-                  aria-describedby={
-                    imported.error
-                      ? 'import-error item-text-help'
-                      : 'item-text-help'
-                  }
-                />
-                <p id="item-text-help" className="detail-note">
-                  {t('inputLimit')}
-                </p>
-                {imported.error && (
-                  <p id="import-error" role="alert">
-                    {t(imported.error)}
-                  </p>
-                )}
                 <button
                   type="button"
-                  className="primary-action"
-                  onClick={importText}
-                  disabled={imported.pending}
+                  aria-pressed={inputMode === 'text'}
+                  onClick={() => setInputMode('text')}
                 >
-                  {t(imported.pending ? 'analyzing' : 'analyze')}{' '}
-                  <span aria-hidden="true">↗</span>
+                  {t('itemText')}
                 </button>
               </div>
-            )}
-
-            {item && <ParsedItemDetails item={item} />}
-          </section>
+              {inputMode === 'base' ? (
+                <div className="base-form">
+                  <label htmlFor="base-select">{t('amuletBase')}</label>
+                  <select id="base-select" defaultValue="solar">
+                    <option value="solar">{t('solarAmulet')}</option>
+                  </select>
+                  <button
+                    type="button"
+                    className="primary-action"
+                    onClick={() => {
+                      imported.invalidate()
+                      draft.setBase()
+                      setSelected(null)
+                      closeInput()
+                    }}
+                  >
+                    {t('placeBase')} <span aria-hidden="true">↗</span>
+                  </button>
+                </div>
+              ) : (
+                <div className="text-form">
+                  <label htmlFor="item-text">{t('pasteLabel')}</label>
+                  <textarea
+                    id="item-text"
+                    value={draft.text}
+                    onChange={(event) => {
+                      imported.invalidate()
+                      draft.setText(event.target.value)
+                    }}
+                    placeholder={t('pastePlaceholder')}
+                    aria-invalid={Boolean(imported.error)}
+                    aria-describedby={
+                      imported.error ? 'import-error' : undefined
+                    }
+                  />
+                  {imported.error && (
+                    <p id="import-error" role="alert">
+                      {t(imported.error)}
+                    </p>
+                  )}
+                  <button
+                    type="button"
+                    className="primary-action"
+                    onClick={importText}
+                    disabled={imported.pending}
+                  >
+                    {t(imported.pending ? 'analyzing' : 'analyze')}{' '}
+                    <span aria-hidden="true">↗</span>
+                  </button>
+                </div>
+              )}
+            </div>
+          </dialog>
         </div>
       </div>
       <span className="sr-only" role="status">
@@ -478,6 +561,7 @@ export function CraftingPage() {
           {t('imageCredit')}
         </a>
       </footer>
+      <MaterialTooltip />
       {cursor && pointer && (
         <span
           className="currency-cursor"

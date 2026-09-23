@@ -1,7 +1,7 @@
 import { useI18n } from '../../shared/i18n/context'
 import { locales } from '../../shared/i18n/messages'
 import type { MessageKey } from '../../shared/i18n/messages'
-import type { ParsedItemText, TextLine } from './itemTextApi'
+import type { Item, TextLine } from './itemModels'
 
 const warningKeys: Record<string, MessageKey> = {
   MISSING_ITEM_CLASS: 'warningMissingClass',
@@ -14,7 +14,7 @@ const warningKeys: Record<string, MessageKey> = {
   CATALOG_VALIDATION_REQUIRED: 'warningCatalog',
 }
 
-export function ParsedItemDetails({ item }: { item: ParsedItemText }) {
+export function ParsedItemDetails({ item }: { item: Item }) {
   const { t } = useI18n()
   const groups: { title: MessageKey; lines: TextLine[] }[] = [
     {

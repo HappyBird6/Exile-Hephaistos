@@ -2,6 +2,7 @@
 export const materialTabs = [
   { id: 'Currency', label: 'Currency' },
   { id: 'Essence', label: 'Essence' },
+  { id: 'Alloy', label: 'Alloy' },
   { id: 'Omen', label: 'Omen' },
   { id: 'Catalysts', label: 'Catalysts' },
   { id: 'Liquid_Emotions', label: 'Liquid Emotions' },
@@ -509,128 +510,80 @@ export const materials: readonly Material[] = [
   {
     id: 'Runic_Alloy',
     name: 'Runic Alloy',
-    category: 'Essence',
+    category: 'Alloy',
     image: '/assets/materials/Runic_Alloy.webp',
   },
   {
     id: 'Adaptive_Alloy',
     name: 'Adaptive Alloy',
-    category: 'Essence',
+    category: 'Alloy',
     image: '/assets/materials/Adaptive_Alloy.webp',
   },
   {
     id: 'Protective_Alloy',
     name: 'Protective Alloy',
-    category: 'Essence',
+    category: 'Alloy',
     image: '/assets/materials/Protective_Alloy.webp',
   },
   {
     id: 'Expansive_Alloy',
     name: 'Expansive Alloy',
-    category: 'Essence',
+    category: 'Alloy',
     image: '/assets/materials/Expansive_Alloy.webp',
   },
   {
     id: 'Swift_Alloy',
     name: 'Swift Alloy',
-    category: 'Essence',
+    category: 'Alloy',
     image: '/assets/materials/Swift_Alloy.webp',
   },
   {
     id: 'Cyclonic_Alloy',
     name: 'Cyclonic Alloy',
-    category: 'Essence',
+    category: 'Alloy',
     image: '/assets/materials/Cyclonic_Alloy.webp',
   },
   {
     id: 'Prismatic_Alloy',
     name: 'Prismatic Alloy',
-    category: 'Essence',
+    category: 'Alloy',
     image: '/assets/materials/Prismatic_Alloy.webp',
   },
   {
     id: 'Mystic_Alloy',
     name: 'Mystic Alloy',
-    category: 'Essence',
+    category: 'Alloy',
     image: '/assets/materials/Mystic_Alloy.webp',
   },
   {
     id: 'Sovereign_Alloy',
     name: 'Sovereign Alloy',
-    category: 'Essence',
+    category: 'Alloy',
     image: '/assets/materials/Sovereign_Alloy.webp',
   },
   {
     id: 'Celestial_Alloy',
     name: 'Celestial Alloy',
-    category: 'Essence',
+    category: 'Alloy',
     image: '/assets/materials/Celestial_Alloy.webp',
   },
   {
     id: 'Transcendent_Alloy',
     name: 'Transcendent Alloy',
-    category: 'Essence',
+    category: 'Alloy',
     image: '/assets/materials/Transcendent_Alloy.webp',
   },
   {
     id: 'The_Runebinders_Alloy',
     name: "The Runebinder's Alloy",
-    category: 'Essence',
+    category: 'Alloy',
     image: '/assets/materials/The_Runebinders_Alloy.webp',
   },
   {
     id: 'The_Runefathers_Alloy',
     name: "The Runefather's Alloy",
-    category: 'Essence',
+    category: 'Alloy',
     image: '/assets/materials/The_Runefathers_Alloy.webp',
-  },
-  {
-    id: 'Aldurs_Saga',
-    name: "Aldur's Saga",
-    category: 'Omen',
-    image: '/assets/materials/Aldurs_Saga.webp',
-  },
-  {
-    id: 'Medveds_Saga',
-    name: "Medved's Saga",
-    category: 'Omen',
-    image: '/assets/materials/Medveds_Saga.webp',
-  },
-  {
-    id: 'Voranas_Saga',
-    name: "Vorana's Saga",
-    category: 'Omen',
-    image: '/assets/materials/Voranas_Saga.webp',
-  },
-  {
-    id: 'Uhtreds_Saga',
-    name: "Uhtred's Saga",
-    category: 'Omen',
-    image: '/assets/materials/Uhtreds_Saga.webp',
-  },
-  {
-    id: 'Olroths_Saga',
-    name: "Olroth's Saga",
-    category: 'Omen',
-    image: '/assets/materials/Olroths_Saga.webp',
-  },
-  {
-    id: 'Omen_of_Refreshment',
-    name: 'Omen of Refreshment',
-    category: 'Omen',
-    image: '/assets/materials/Omen_of_Refreshment.webp',
-  },
-  {
-    id: 'Omen_of_Resurgence',
-    name: 'Omen of Resurgence',
-    category: 'Omen',
-    image: '/assets/materials/Omen_of_Resurgence.webp',
-  },
-  {
-    id: 'Omen_of_Amelioration',
-    name: 'Omen of Amelioration',
-    category: 'Omen',
-    image: '/assets/materials/Omen_of_Amelioration.webp',
   },
   {
     id: 'Omen_of_Whittling',
@@ -753,64 +706,10 @@ export const materials: readonly Material[] = [
     image: '/assets/materials/Omen_of_Homogenising_Coronation.webp',
   },
   {
-    id: 'Omen_of_Gambling',
-    name: 'Omen of Gambling',
-    category: 'Omen',
-    image: '/assets/materials/Omen_of_Gambling.webp',
-  },
-  {
-    id: 'Omen_of_Bartering',
-    name: 'Omen of Bartering',
-    category: 'Omen',
-    image: '/assets/materials/Omen_of_Bartering.webp',
-  },
-  {
-    id: 'Omen_of_Recombination',
-    name: 'Omen of Recombination',
-    category: 'Omen',
-    image: '/assets/materials/Omen_of_Recombination.webp',
-  },
-  {
     id: 'Omen_of_the_Blessed',
     name: 'Omen of the Blessed',
     category: 'Omen',
     image: '/assets/materials/Omen_of_the_Blessed.webp',
-  },
-  {
-    id: 'Omen_of_Chaotic_Rarity',
-    name: 'Omen of Chaotic Rarity',
-    category: 'Omen',
-    image: '/assets/materials/Omen_of_Chaotic_Rarity.webp',
-  },
-  {
-    id: 'Omen_of_Chaotic_Quantity',
-    name: 'Omen of Chaotic Quantity',
-    category: 'Omen',
-    image: '/assets/materials/Omen_of_Chaotic_Quantity.webp',
-  },
-  {
-    id: 'Omen_of_Chaotic_Monsters',
-    name: 'Omen of Chaotic Monsters',
-    category: 'Omen',
-    image: '/assets/materials/Omen_of_Chaotic_Monsters.webp',
-  },
-  {
-    id: 'Omen_of_Chaotic_Effectiveness',
-    name: 'Omen of Chaotic Effectiveness',
-    category: 'Omen',
-    image: '/assets/materials/Omen_of_Chaotic_Effectiveness.webp',
-  },
-  {
-    id: 'Omen_of_Chance',
-    name: 'Omen of Chance',
-    category: 'Omen',
-    image: '/assets/materials/Omen_of_Chance.webp',
-  },
-  {
-    id: 'Omen_of_the_Ancients',
-    name: 'Omen of the Ancients',
-    category: 'Omen',
-    image: '/assets/materials/Omen_of_the_Ancients.webp',
   },
   {
     id: 'Omen_of_Sanctification',
@@ -835,12 +734,6 @@ export const materials: readonly Material[] = [
     name: 'Omen of Catalysing Exaltation',
     category: 'Omen',
     image: '/assets/materials/Omen_of_Catalysing_Exaltation.webp',
-  },
-  {
-    id: 'Omen_of_Abyssal_Echoes',
-    name: 'Omen of Abyssal Echoes',
-    category: 'Omen',
-    image: '/assets/materials/Omen_of_Abyssal_Echoes.webp',
   },
   {
     id: 'Omen_of_the_Sovereign',
@@ -1203,3 +1096,35 @@ export const materials: readonly Material[] = [
     image: '/assets/materials/Liquid_Verisium.webp',
   },
 ]
+
+export const specialEssences = materials.filter((m) =>
+  [
+    'Essence_of_Horror',
+    'Essence_of_Hysteria',
+    'Essence_of_Insanity',
+    'Essence_of_Delirium',
+    'Essence_of_the_Breach',
+    'Essence_of_the_Abyss',
+  ].includes(m.id),
+)
+export function essenceRows(query: string): (Material | null)[][] {
+  const regular = materials.filter(
+    (m) => m.category === 'Essence' && !specialEssences.includes(m),
+  )
+  const families = [
+    ...new Set(
+      regular.map((m) => m.id.replace(/^(Lesser_|Greater_|Perfect_)/, '')),
+    ),
+  ]
+  return families
+    .map((family) =>
+      ['Lesser_', '', 'Greater_', 'Perfect_'].map((prefix) => {
+        return regular.find((m) => m.id === prefix + family) ?? null
+      }),
+    )
+    .filter((row) =>
+      row.some((m) =>
+        m?.name.toLowerCase().includes(query.trim().toLowerCase()),
+      ),
+    )
+}

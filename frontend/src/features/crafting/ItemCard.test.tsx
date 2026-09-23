@@ -5,7 +5,7 @@ import { LanguageSelector } from '../../shared/i18n/LanguageSelector'
 import { ItemCard } from './ItemCard'
 import type { ItemCardData } from './itemCardData'
 import { toItemCard } from './itemCardData'
-import type { ParsedItemText } from './itemTextApi'
+import type { Item } from './itemModels'
 
 const base: ItemCardData = {
   rarity: 'NORMAL',
@@ -40,7 +40,7 @@ describe('ItemCard', () => {
       kind: 'CONTENT' as const,
       raw: '{ Fractured Prefix Modifier "Test" (Tier: 1) — Life }',
     }
-    const parsed: ParsedItemText = {
+    const parsed: Item = {
       text: { originalText: 'source', lines: [metadata, source] },
       locale: 'en',
       itemClass: 'Synthetic',
@@ -59,7 +59,7 @@ describe('ItemCard', () => {
       modifiers: [
         {
           text: 'Synthetic +13',
-          kind: 'FRACTURED',
+          type: 'FRACTURED',
           source,
           metadata,
           affix: 'PREFIX',
@@ -133,7 +133,7 @@ describe('ItemCard', () => {
     expect(screen.getByText('Corrupted')).toBeVisible()
   })
   it('omits sale prices and preserves unresolved source text', () => {
-    const input: ParsedItemText = {
+    const input: Item = {
       text: { originalText: '~b/o 888 mirror', lines: [] },
       locale: 'en',
       itemClass: 'Synthetic',
@@ -150,7 +150,7 @@ describe('ItemCard', () => {
       modifiers: [
         {
           text: 'Synthetic +13',
-          kind: 'IMPLICIT',
+          type: 'IMPLICIT',
           source: {
             number: 4,
             section: 2,

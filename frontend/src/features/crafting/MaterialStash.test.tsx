@@ -6,6 +6,7 @@ import { CraftingPage } from './CraftingPage'
 import { useItemDraft } from './draft'
 import { currencies } from './currencies'
 import { materials } from './materials'
+import tooltips from './materialTooltips.json'
 
 function show() {
   return render(
@@ -26,6 +27,112 @@ const pick = (name: string) =>
 beforeEach(() => useItemDraft.getState().setBase())
 
 describe('Material stash and shared favorites', () => {
+  it('has a sourced description for every visible currency and material', () => {
+    const descriptions: Record<
+      string,
+      { name: string; lines: string[]; sourceUrl: string }
+    > = tooltips
+    for (const entry of [...currencies, ...materials]) {
+      expect(descriptions[entry.id]?.lines.length).toBeGreaterThan(0)
+      expect(descriptions[entry.id]?.sourceUrl).toBe(
+        `https://poe2db.tw/us/${entry.id}`,
+      )
+    }
+  })
+  it('keeps search above scrolling rows and groups the four essence tiers', () => {
+    show()
+    fireEvent.click(tab('Essence'))
+    const search = screen.getByRole('searchbox', { name: 'Search Essence' })
+    expect(search.closest('.material-catalog')).toBeNull()
+    fireEvent.change(search, {
+      target: { value: '  greater essence of the body ' },
+    })
+    const row = document.querySelector('.essence-row')
+    expect(row).not.toBeNull()
+    expect(
+      [...row!.querySelectorAll('button')].map((b) =>
+        b.getAttribute('aria-label'),
+      ),
+    ).toEqual([
+      'Lesser Essence of the Body',
+      'Essence of the Body',
+      'Greater Essence of the Body',
+      'Perfect Essence of the Body',
+    ])
+    fireEvent.click(tab('Alloy'))
+    expect(screen.getByRole('button', { name: 'Runic Alloy' })).toBeVisible()
+    fireEvent.click(tab('Essence'))
+    expect(screen.getByRole('searchbox')).toHaveValue(
+      '  greater essence of the body ',
+    )
+    fireEvent.change(screen.getByRole('searchbox'), { target: { value: '' } })
+    expect(
+      within(
+        screen.getByRole('group', { name: 'Special essences' }),
+      ).getAllByRole('button'),
+    ).toHaveLength(6)
+    expect(
+      screen.queryByRole('button', { name: 'Runic Alloy' }),
+    ).not.toBeInTheDocument()
+  })
+
+  it('excludes every requested Omen and filters each material tab', () => {
+    show()
+    fireEvent.click(tab('Omen'))
+    expect(
+      materials
+        .filter((m) => m.category === 'Omen')
+        .some((m) =>
+          /Saga|Refreshment|Resurgence|Amelioration|Gambling|Bartering|Recombination|Chaotic|Chance|Ancients|Abyssal Echoes/.test(
+            m.name,
+          ),
+        ),
+    ).toBe(false)
+    for (const label of ['Omen', 'Alloy', 'Catalysts', 'Liquid Emotions']) {
+      fireEvent.click(tab(label))
+      fireEvent.change(screen.getByRole('searchbox'), {
+        target: { value: 'nonexistent synthetic material' },
+      })
+      expect(screen.getByText('No materials found')).toBeVisible()
+    }
+  })
+
+  it('shows sourced descriptions on hover and focus, including favorites', () => {
+    show()
+    fireEvent.pointerOver(screen.getByRole('button', { name: 'Chaos Orb' }))
+    expect(screen.getByRole('tooltip')).toHaveTextContent('Chaos Orb')
+    expect(screen.getByRole('button', { name: 'Chaos Orb' })).toHaveAttribute(
+      'aria-describedby',
+      'material-description',
+    )
+    expect(
+      within(screen.getByRole('tooltip')).getByRole('link'),
+    ).toHaveAttribute('href', 'https://poe2db.tw/us/Chaos_Orb')
+    fireEvent.keyDown(document, { key: 'Escape' })
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
+    fireEvent.click(tab('Omen'))
+    pick('Omen of Whittling')
+    fireEvent.click(favorite(1))
+    fireEvent.focus(favorite(1))
+    expect(screen.getByRole('tooltip')).toHaveTextContent(
+      'lowest level modifier',
+    )
+  })
+
+  it('closes the modal on its backdrop and cancels browser context menus only in the bench', () => {
+    show()
+    fireEvent.click(screen.getByRole('button', { name: 'Edit item' }))
+    fireEvent.click(screen.getByRole('dialog'))
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Edit item' })).toHaveFocus()
+    expect(
+      fireEvent.contextMenu(document.querySelector('.stash-canvas')!),
+    ).toBe(false)
+    expect(
+      fireEvent.contextMenu(document.querySelector('.craft-header')!),
+    ).toBe(true)
+  })
+
   it('removes all requested currencies and moves Hinekora to the former Chance position', () => {
     show()
     expect(screen.getByRole('tabpanel')).toHaveAccessibleName('Currency')
@@ -65,8 +172,9 @@ describe('Material stash and shared favorites', () => {
     show()
     const card = screen.getByRole('article')
     for (const [label, count] of [
-      ['Essence', 95],
-      ['Omen', 50],
+      ['Essence', 76],
+      ['Alloy', 13],
+      ['Omen', 32],
       ['Catalysts', 26],
       ['Liquid Emotions', 27],
     ] as const) {
@@ -85,7 +193,7 @@ describe('Material stash and shared favorites', () => {
         screen.queryByRole('button', { name: 'Chaos Orb' }),
       ).not.toBeInTheDocument()
     }
-    expect(materials).toHaveLength(198)
+    expect(materials).toHaveLength(180)
     expect(new Set(materials.map((item) => item.id)).size).toBe(
       materials.length,
     )

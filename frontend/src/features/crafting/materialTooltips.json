@@ -1,0 +1,2092 @@
+{
+  "Orb_of_Transmutation": {
+    "name": "Orb of Transmutation",
+    "lines": [
+      "Stack Size: 1 / 40",
+      "Upgrades a Normal item to a Magic item with 1 modifier"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Orb_of_Transmutation",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Orb_of_Augmentation": {
+    "name": "Orb of Augmentation",
+    "lines": [
+      "Stack Size: 1 / 30",
+      "Augments a Magic item with a new random modifier"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Orb_of_Augmentation",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Orb_of_Annulment": {
+    "name": "Orb of Annulment",
+    "lines": ["Stack Size: 1 / 20", "Removes a random modifier from an item"],
+    "sourceUrl": "https://poe2db.tw/us/Orb_of_Annulment",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Orb_of_Alchemy": {
+    "name": "Orb of Alchemy",
+    "lines": [
+      "Stack Size: 1 / 20",
+      "Upgrades a Normal or Magic item to a Rare item with 4 random modifiers"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Orb_of_Alchemy",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Regal_Orb": {
+    "name": "Regal Orb",
+    "lines": [
+      "Stack Size: 1 / 20",
+      "Upgrades a Magic item to a Rare item, adding 1 modifier"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Regal_Orb",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Exalted_Orb": {
+    "name": "Exalted Orb",
+    "lines": [
+      "Stack Size: 1 / 20",
+      "Augments a Rare item with a new random modifier"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Exalted_Orb",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Chaos_Orb": {
+    "name": "Chaos Orb",
+    "lines": [
+      "Stack Size: 1 / 20",
+      "Removes a random modifier and augments a Rare item with a new random modifier"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Chaos_Orb",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Vaal_Orb": {
+    "name": "Vaal Orb",
+    "lines": [
+      "Stack Size: 1 / 20",
+      "Modifies an item unpredictably and Corrupts it"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Vaal_Orb",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Fracturing_Orb": {
+    "name": "Fracturing Orb",
+    "lines": [
+      "Stack Size: 1 / 20",
+      "Fracture a random modifier on a rare item with at least 4 modifiers, locking it in place."
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Fracturing_Orb",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Divine_Orb": {
+    "name": "Divine Orb",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Randomises the numeric values of modifiers on an item"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Divine_Orb",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Greater_Orb_of_Transmutation": {
+    "name": "Greater Orb of Transmutation",
+    "lines": [
+      "Stack Size: 1 / 40",
+      "Minimum Modifier Level: 44",
+      "Upgrades a Normal item to a Magic item with 1 modifier"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Orb_of_Transmutation",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Perfect_Orb_of_Transmutation": {
+    "name": "Perfect Orb of Transmutation",
+    "lines": [
+      "Stack Size: 1 / 40",
+      "Minimum Modifier Level: 70",
+      "Upgrades a Normal item to a Magic item with 1 modifier"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Orb_of_Transmutation",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Greater_Orb_of_Augmentation": {
+    "name": "Greater Orb of Augmentation",
+    "lines": [
+      "Stack Size: 1 / 30",
+      "Minimum Modifier Level: 44",
+      "Augments a Magic item with a new random modifier"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Orb_of_Augmentation",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Perfect_Orb_of_Augmentation": {
+    "name": "Perfect Orb of Augmentation",
+    "lines": [
+      "Stack Size: 1 / 30",
+      "Minimum Modifier Level: 70",
+      "Augments a Magic item with a new random modifier"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Orb_of_Augmentation",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Greater_Regal_Orb": {
+    "name": "Greater Regal Orb",
+    "lines": [
+      "Stack Size: 1 / 20",
+      "Minimum Modifier Level: 35",
+      "Upgrades a Magic item to a Rare item, adding 1 modifier"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Regal_Orb",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Perfect_Regal_Orb": {
+    "name": "Perfect Regal Orb",
+    "lines": [
+      "Stack Size: 1 / 20",
+      "Minimum Modifier Level: 50",
+      "Upgrades a Magic item to a Rare item, adding 1 modifier"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Regal_Orb",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Greater_Exalted_Orb": {
+    "name": "Greater Exalted Orb",
+    "lines": [
+      "Stack Size: 1 / 20",
+      "Minimum Modifier Level: 35",
+      "Augments a Rare item with a new random modifier"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Exalted_Orb",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Perfect_Exalted_Orb": {
+    "name": "Perfect Exalted Orb",
+    "lines": [
+      "Stack Size: 1 / 20",
+      "Minimum Modifier Level: 50",
+      "Augments a Rare item with a new random modifier"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Exalted_Orb",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Greater_Chaos_Orb": {
+    "name": "Greater Chaos Orb",
+    "lines": [
+      "Stack Size: 1 / 20",
+      "Minimum Modifier Level: 35",
+      "Removes a random modifier and augments a Rare item with a new random modifier"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Chaos_Orb",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Perfect_Chaos_Orb": {
+    "name": "Perfect Chaos Orb",
+    "lines": [
+      "Stack Size: 1 / 20",
+      "Minimum Modifier Level: 50",
+      "Removes a random modifier and augments a Rare item with a new random modifier"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Chaos_Orb",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Hinekoras_Lock": {
+    "name": "Hinekora's Lock",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Allows an item to foresee the result of the next Currency item used on it\n\nModifying the item in any way removes the ability to foresee"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Hinekoras_Lock",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Lesser_Essence_of_the_Body": {
+    "name": "Lesser Essence of the Body",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Armour or Belt: +(30—39) to maximum Life",
+      "Jewellery: +(20—29) to maximum Life"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_the_Body",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_the_Mind": {
+    "name": "Lesser Essence of the Mind",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Belt, Boots, Gloves, Helmet or Jewellery: +(25—34) to maximum Mana"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_the_Mind",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Enhancement": {
+    "name": "Lesser Essence of Enhancement",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Armour: (27—42)% increased Armour, Evasion and Energy Shield"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Enhancement",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Abrasion": {
+    "name": "Lesser Essence of Abrasion",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "One Handed Melee Weapon or Bow: Adds (4—6) to (7—11) Physical Damage",
+      "Two Handed Melee Weapon or Crossbow: Adds (5—8) to (10—15) Physical Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Abrasion",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Flames": {
+    "name": "Lesser Essence of Flames",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "One Handed Melee Weapon or Bow: Adds (4—6) to (7—10) Fire Damage",
+      "Two Handed Melee Weapon or Crossbow: Adds (6—9) to (10—16) Fire Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Flames",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Ice": {
+    "name": "Lesser Essence of Ice",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "One Handed Melee Weapon or Bow: Adds (3—5) to (6—9) Cold Damage",
+      "Two Handed Melee Weapon or Crossbow: Adds (5—8) to (9—14) Cold Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Ice",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Electricity": {
+    "name": "Lesser Essence of Electricity",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "One Handed Melee Weapon or Bow: Adds 1 to (13—19) Lightning Damage",
+      "Two Handed Melee Weapon or Crossbow: Adds (1—2) to (19—27) Lightning Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Electricity",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Ruin": {
+    "name": "Lesser Essence of Ruin",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Armour, Belt or Jewellery: +(4—7)% to Chaos Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Ruin",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Battle": {
+    "name": "Lesser Essence of Battle",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Martial Weapon: +(61—84) to Accuracy Rating"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Battle",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Sorcery": {
+    "name": "Lesser Essence of Sorcery",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Focus or Wand: (35—44)% increased Spell Damage",
+      "Staff: (69—88)% increased Spell Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Sorcery",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Haste": {
+    "name": "Lesser Essence of Haste",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Melee Weapon: (11—13)% increased Attack Speed",
+      "Bow or Crossbow: (8—10)% increased Attack Speed"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Haste",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_the_Infinite": {
+    "name": "Lesser Essence of the Infinite",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Equipment: +(9—12) to Strength, Dexterity or Intelligence"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_the_Infinite",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_the_Body": {
+    "name": "Essence of the Body",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Belt, Body Armour, Helmet or Shield: +(85—99) to maximum Life",
+      "Amulet, Boots, Gloves or Ring: +(70—84) to maximum Life"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_the_Body",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_the_Mind": {
+    "name": "Essence of the Mind",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Belt, Boots, Gloves or Helmet: +(65—79) to maximum Mana",
+      "Jewellery: +(80—89) to maximum Mana"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_the_Mind",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Enhancement": {
+    "name": "Essence of Enhancement",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Armour: (56—67)% increased Armour, Evasion and Energy Shield"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Enhancement",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Abrasion": {
+    "name": "Essence of Abrasion",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "One Handed Melee Weapon or Bow: Adds (10—15) to (18—26) Physical Damage",
+      "Two Handed Melee Weapon or Crossbow: Adds (14—21) to (25—37) Physical Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Abrasion",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Flames": {
+    "name": "Essence of Flames",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "One Handed Melee Weapon or Bow: Adds (20—24) to (32—37) Fire Damage",
+      "Two Handed Melee Weapon or Crossbow: Adds (30—37) to (45—56) Fire Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Flames",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Ice": {
+    "name": "Essence of Ice",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "One Handed Melee Weapon or Bow: Adds (17—20) to (26—32) Cold Damage",
+      "Two Handed Melee Weapon or Crossbow: Adds (25—30) to (38—46) Cold Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Ice",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Electricity": {
+    "name": "Essence of Electricity",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "One Handed Melee Weapon or Bow: Adds (1—3) to (55—60) Lightning Damage",
+      "Two Handed Melee Weapon or Crossbow: Adds (1—4) to (80—88) Lightning Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Electricity",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Ruin": {
+    "name": "Essence of Ruin",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Armour, Belt or Jewellery: +(8—11)% to Chaos Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Ruin",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Battle": {
+    "name": "Essence of Battle",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Martial Weapon: +(124—167) to Accuracy Rating"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Battle",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Sorcery": {
+    "name": "Essence of Sorcery",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Focus or Wand: (55—64)% increased Spell Damage",
+      "Staff: (109—128)% increased Spell Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Sorcery",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Haste": {
+    "name": "Essence of Haste",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Melee Weapon: (17—19)% increased Attack Speed",
+      "Bow or Crossbow: (11—13)% increased Attack Speed"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Haste",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_the_Infinite": {
+    "name": "Essence of the Infinite",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Equipment: +(17—20) to Strength, Dexterity or Intelligence"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_the_Infinite",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_the_Body": {
+    "name": "Greater Essence of the Body",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Belt, Body Armour, Helmet or Shield: +(100—119) to maximum Life",
+      "Amulet, Boots or Gloves: +(85—99) to maximum Life"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_the_Body",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_the_Mind": {
+    "name": "Greater Essence of the Mind",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Belt, Boots, Gloves or Helmet: +(80—89) to maximum Mana",
+      "Jewellery: +(90—104) to maximum Mana"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_the_Mind",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Enhancement": {
+    "name": "Greater Essence of Enhancement",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Armour: (68—79)% increased Armour, Evasion and Energy Shield"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Enhancement",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Abrasion": {
+    "name": "Greater Essence of Abrasion",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "One Handed Melee Weapon or Bow: Adds (16—24) to (28—42) Physical Damage",
+      "Two Handed Melee Weapon or Crossbow: Adds (23—35) to (39—59) Physical Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Abrasion",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Flames": {
+    "name": "Greater Essence of Flames",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "One Handed Melee Weapon or Bow: Adds (35—44) to (56—71) Fire Damage",
+      "Two Handed Melee Weapon or Crossbow: Adds (56—70) to (84—107) Fire Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Flames",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Ice": {
+    "name": "Greater Essence of Ice",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "One Handed Melee Weapon or Bow: Adds (31—38) to (47—59) Cold Damage",
+      "Two Handed Melee Weapon or Crossbow: Adds (46—57) to (70—88) Cold Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Ice",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Electricity": {
+    "name": "Greater Essence of Electricity",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "One Handed Melee Weapon or Bow: Adds (1—6) to (85—107) Lightning Damage",
+      "Two Handed Melee Weapon or Crossbow: Adds (1—8) to (128—162) Lightning Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Electricity",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Ruin": {
+    "name": "Greater Essence of Ruin",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Armour, Belt or Jewellery: +(16—19)% to Chaos Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Ruin",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Battle": {
+    "name": "Greater Essence of Battle",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Martial Weapon, Gloves or Quiver: +(237—346) to Accuracy Rating"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Battle",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Sorcery": {
+    "name": "Greater Essence of Sorcery",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Focus or Wand: (75—89)% increased Spell Damage",
+      "Staff: (149—188)% increased Spell Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Sorcery",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Haste": {
+    "name": "Greater Essence of Haste",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Melee Weapon: (23—25)% increased Attack Speed",
+      "Bow or Crossbow: (14—16)% increased Attack Speed"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Haste",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_the_Infinite": {
+    "name": "Greater Essence of the Infinite",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Equipment: +(25—27) to Strength, Dexterity or Intelligence"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_the_Infinite",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_the_Body": {
+    "name": "Perfect Essence of the Body",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Body Armour: (8—10)% increased maximum Life"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_the_Body",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_the_Mind": {
+    "name": "Perfect Essence of the Mind",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Ring: (4—6)% increased maximum Mana"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_the_Mind",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Enhancement": {
+    "name": "Perfect Essence of Enhancement",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Amulet: (20—30)% increased Global Armour, Evasion and Energy Shield"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Enhancement",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Abrasion": {
+    "name": "Perfect Essence of Abrasion",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "One Handed Melee Weapon or Bow: Gain (15—20)% of Damage as Extra Physical Damage",
+      "Two Handed Melee Weapon or Crossbow: Gain (25—33)% of Damage as Extra Physical Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Abrasion",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Flames": {
+    "name": "Perfect Essence of Flames",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "One Handed Melee Weapon or Bow: Gain (15—20)% of Damage as Extra Fire Damage",
+      "Two Handed Melee Weapon or Crossbow: Gain (25—33)% of Damage as Extra Fire Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Flames",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Ice": {
+    "name": "Perfect Essence of Ice",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "One Handed Melee Weapon or Bow: Gain (15—20)% of Damage as Extra Cold Damage",
+      "Two Handed Melee Weapon or Crossbow: Gain (25—33)% of Damage as Extra Cold Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Ice",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Electricity": {
+    "name": "Perfect Essence of Electricity",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "One Handed Melee Weapon or Bow: Gain (15—20)% of Damage as Extra Lightning Damage",
+      "Two Handed Melee Weapon or Crossbow: Gain (25—33)% of Damage as Extra Lightning Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Electricity",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Ruin": {
+    "name": "Perfect Essence of Ruin",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Body Armour: (10—15)% of Physical Damage from Hits taken as Chaos Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Ruin",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Battle": {
+    "name": "Perfect Essence of Battle",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "One Handed Melee Weapon or Bow: +2 to Level of all Attack Skills",
+      "Two Handed Melee Weapon or Crossbow: +3 to Level of all Attack Skills"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Battle",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Sorcery": {
+    "name": "Perfect Essence of Sorcery",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Wand: +3 to Level of all Spell Skills",
+      "Staff: +5 to Level of all Spell Skills"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Sorcery",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Haste": {
+    "name": "Perfect Essence of Haste",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Martial Weapon: (20—25)% chance to gain Onslaught on Killing Hits with this Weapon"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Haste",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_the_Infinite": {
+    "name": "Perfect Essence of the Infinite",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Amulet: (7—10)% increased Strength, Dexterity or Intelligence"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_the_Infinite",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Seeking": {
+    "name": "Lesser Essence of Seeking",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Martial Weapon: +(1.51—2.1)% to Critical Hit Chance",
+      "Focus or Wand: (34—39)% increased Critical Hit Chance for Spells",
+      "Staff: (50—59)% increased Critical Hit Chance for Spells"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Seeking",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Seeking": {
+    "name": "Essence of Seeking",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Martial Weapon: +(2.11—2.7)% to Critical Hit Chance",
+      "Focus or Wand: (40—46)% increased Critical Hit Chance for Spells",
+      "Staff: (60—69)% increased Critical Hit Chance for Spells"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Seeking",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Seeking": {
+    "name": "Greater Essence of Seeking",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Martial Weapon: +(3.11—3.8)% to Critical Hit Chance",
+      "Focus or Wand: (47—53)% increased Critical Hit Chance for Spells",
+      "Staff: (70—79)% increased Critical Hit Chance for Spells"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Seeking",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Seeking": {
+    "name": "Perfect Essence of Seeking",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Body Armour: Hits against you have (40—50)% reduced Critical Damage Bonus"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Seeking",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Hysteria": {
+    "name": "Essence of Hysteria",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Helmet: +1 to Level of all Minion Skills",
+      "Body Armour: (64—97) to (98—145) Physical Thorns damage",
+      "Gloves: (25—29)% increased Critical Damage Bonus",
+      "Boots: 30% increased Movement Speed",
+      "Ring: (50—59)% increased Mana Regeneration Rate",
+      "Amulet: (19—21)% of Damage taken Recouped as Life",
+      "Belt: +(254—304) to Stun Threshold",
+      "Shield: (20—24)% increased Block chance",
+      "Quiver: (43—50)% increased Damage with Bow Skills",
+      "Focus: (20—23)% increased Energy Shield Recharge Rate"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Hysteria",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Delirium": {
+    "name": "Essence of Delirium",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Body Armour: Allocates a random Notable Passive Skill"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Delirium",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Horror": {
+    "name": "Essence of Horror",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Gloves or Boots: 60% increased effect of Socketed Augment Items"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Horror",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Insanity": {
+    "name": "Essence of Insanity",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Belt: On Corruption, Item gains two Enchantments"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Insanity",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_the_Abyss": {
+    "name": "Essence of the Abyss",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Equipment: Mark of the Abyssal Lord"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_the_Abyss",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_the_Breach": {
+    "name": "Essence of the Breach",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Jewellery: +20% to Maximum Quality"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_the_Breach",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Insulation": {
+    "name": "Lesser Essence of Insulation",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Armour, Belt or Jewellery: +(11—15)% to Fire Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Insulation",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Insulation": {
+    "name": "Essence of Insulation",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Armour, Belt or Jewellery: +(21—25)% to Fire Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Insulation",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Insulation": {
+    "name": "Greater Essence of Insulation",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Armour, Belt or Jewellery: +(31—35)% to Fire Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Insulation",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Insulation": {
+    "name": "Perfect Essence of Insulation",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Belt: (26—30)% of Fire Damage taken Recouped as Life"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Insulation",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Thawing": {
+    "name": "Lesser Essence of Thawing",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Armour, Belt or Jewellery: +(11—15)% to Cold Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Thawing",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Thawing": {
+    "name": "Essence of Thawing",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Armour, Belt or Jewellery: +(21—25)% to Cold Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Thawing",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Thawing": {
+    "name": "Greater Essence of Thawing",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Armour, Belt or Jewellery: +(31—35)% to Cold Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Thawing",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Thawing": {
+    "name": "Perfect Essence of Thawing",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Helmet: (26—30)% of Cold Damage taken Recouped as Life"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Thawing",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Grounding": {
+    "name": "Lesser Essence of Grounding",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Armour, Belt or Jewellery: +(11—15)% to Lightning Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Grounding",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Grounding": {
+    "name": "Essence of Grounding",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Armour, Belt or Jewellery: +(21—25)% to Lightning Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Grounding",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Grounding": {
+    "name": "Greater Essence of Grounding",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Armour, Belt or Jewellery: +(31—35)% to Lightning Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Grounding",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Grounding": {
+    "name": "Perfect Essence of Grounding",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Gloves: (26—30)% of Lightning Damage taken Recouped as Life"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Grounding",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Alacrity": {
+    "name": "Lesser Essence of Alacrity",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Focus or Wand: (13—16)% increased Cast Speed",
+      "Staff: (20—25)% increased Cast Speed"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Alacrity",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Alacrity": {
+    "name": "Essence of Alacrity",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Focus or Wand: (17—20)% increased Cast Speed",
+      "Staff: (26—31)% increased Cast Speed"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Alacrity",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Alacrity": {
+    "name": "Greater Essence of Alacrity",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Focus or Wand: (25—28)% increased Cast Speed",
+      "Staff: (38—43)% increased Cast Speed"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Alacrity",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Alacrity": {
+    "name": "Perfect Essence of Alacrity",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Focus or Wand: (18—20)% increased Mana Cost Efficiency",
+      "Staff: (28—32)% increased Mana Cost Efficiency"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Alacrity",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Opulence": {
+    "name": "Lesser Essence of Opulence",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Boots, Gloves, Helmet or Jewellery: (6—10)% increased Rarity of Items found"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Opulence",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Opulence": {
+    "name": "Essence of Opulence",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Boots, Gloves, Helmet or Jewellery: (11—14)% increased Rarity of Items found"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Opulence",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Opulence": {
+    "name": "Greater Essence of Opulence",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Boots, Gloves, Helmet or Jewellery: (15—18)% increased Rarity of Items found"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Opulence",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Opulence": {
+    "name": "Perfect Essence of Opulence",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Gloves: (10—15)% increased Quantity of Gold Dropped by Slain Enemies"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Opulence",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Command": {
+    "name": "Lesser Essence of Command",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Sceptre: Allies in your Presence deal (35—44)% increased Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Command",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Command": {
+    "name": "Essence of Command",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Sceptre: Allies in your Presence deal (55—64)% increased Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Command",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Command": {
+    "name": "Greater Essence of Command",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Upgrades a Magic item to a Rare item, adding a guaranteed modifier",
+      "Sceptre: Allies in your Presence deal (75—89)% increased Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Command",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Command": {
+    "name": "Perfect Essence of Command",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Sceptre: Aura Skills have (15—20)% increased Magnitudes"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Command",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Runic_Alloy": {
+    "name": "Runic Alloy",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Ring: +(37—49) to maximum Runic Ward",
+      "Amulet: (6—10)% increased maximum Runic Ward",
+      "Belt: (15—20)% increased Runic Ward Regeneration Rate"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Runic_Alloy",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Adaptive_Alloy": {
+    "name": "Adaptive Alloy",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Staff: Gain (42—52)% of Damage as Extra Fire Damage while you are missing Runic Ward",
+      "Wand: Gain (21—26)% of Damage as Extra Fire Damage while you are missing Runic Ward",
+      "Sceptre: (30—50)% Surpassing Chance to gain a Puppet Master stack whenever you use a Command Skill",
+      "Gloves: (10—15)% increased Attack Speed while missing Runic Ward"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Adaptive_Alloy",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Protective_Alloy": {
+    "name": "Protective Alloy",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Belt: Recover (32—45) Runic Ward when a Charm is used",
+      "Weapons: +(51—74) to maximum Runic Ward",
+      "Shield: Recover (10—15) Runic Ward when you Block"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Protective_Alloy",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Expansive_Alloy": {
+    "name": "Expansive Alloy",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Gloves: Remnants can be collected from (35—50)% further away",
+      "Body Armour: (35—50)% increased Presence Area of Effect",
+      "Helmet: (18—29)% increased Mana Cost Efficiency",
+      "Boots: Temporary Minion Skills have +(1—2) to Limit of Minions summoned"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Expansive_Alloy",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Swift_Alloy": {
+    "name": "Swift Alloy",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Gloves: (9—12)% increased Cast Speed",
+      "Ring: (7—9)% increased Attack Speed",
+      "Belt: Flasks gain (0.75—1) charges per Second",
+      "Shield or Focus: (30—49)% increased Totem Placement speed"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Swift_Alloy",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Cyclonic_Alloy": {
+    "name": "Cyclonic Alloy",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Body Armour: (15—30)% reduced Slowing Potency of Debuffs on You",
+      "Boots: (15—19)% increased Skill Effect Duration",
+      "Gloves: (20—25)% increased Duration of Damaging Ailments on Enemies",
+      "Helmet: (35—42)% increased Archon Buff duration"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Cyclonic_Alloy",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Prismatic_Alloy": {
+    "name": "Prismatic Alloy",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Gloves: Damage Penetrates (9—15)% Elemental Resistances",
+      "Martial Weapon: (20—30)% increased Magnitude of Ailments you inflict",
+      "Focus, Staff or Wand: (40—50)% increased Exposure Effect",
+      "Sceptre: Minions have (40—49)% increased Magnitude of Damaging Ailments"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Prismatic_Alloy",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Mystic_Alloy": {
+    "name": "Mystic Alloy",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Helmet: Spell Skills have (10—15)% increased Area of Effect",
+      "Gloves: (10—15)% increased Area of Effect for Attacks",
+      "Boots: +(10—15) to Spirit",
+      "Quiver: (25—35)% chance to Chain an additional time",
+      "Caster Weapon: +1 to maximum number of Elemental Infusions"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Mystic_Alloy",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Sovereign_Alloy": {
+    "name": "Sovereign Alloy",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Weapons: (20—30)% increased effect of Socketed Augment Items",
+      "Armour: (24—30)% increased Runic Ward",
+      "Jewellery or Belt: (20—30)% increased Explicit Resistance Modifier magnitudes"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Sovereign_Alloy",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Celestial_Alloy": {
+    "name": "Celestial Alloy",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Staff or Wand: +(142—188) to maximum Mana\n+1 to Level of all Spell Skills",
+      "Martial Weapon: +(327—427) to Accuracy Rating\n(5—8)% increased Attack Speed"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Celestial_Alloy",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Transcendent_Alloy": {
+    "name": "Transcendent Alloy",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Staff: (39—47)% increased Cast Speed\nGain (11—16)% of Elemental Damage as Extra Cold Damage",
+      "Focus or Wand: (26—31)% increased Cast Speed\nGain (7—11)% of Elemental Damage as Extra Cold Damage",
+      "Martial Weapon: (15—20)% increased Physical Damage\n+(7—10) to all Attributes"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Transcendent_Alloy",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "The_Runebinders_Alloy": {
+    "name": "The Runebinder's Alloy",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Staff: (25—50)% chance to gain Nature's Archon when your Plants Overgrow",
+      "Wand: +1 to Limit for Elemental Skills",
+      "Sceptre: +(4—5) maximum stacks of Puppet Master",
+      "Crossbow: +2 to maximum number of Summoned Ballista Totems",
+      "Bow: (40—50)% increased Effect of your Mark Skills"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/The_Runebinders_Alloy",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "The_Runefathers_Alloy": {
+    "name": "The Runefather's Alloy",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Mace: (60—75)% chance for Skills to retain 40% of Glory on use",
+      "Quarterstaff: Tempest Bells are destroyed after an additional (4—5) Hits",
+      "Spear: +(8—10) to Weapon Range",
+      "Talisman: Lightning Damage from Hits also Contributes to Flammability and Ignite Magnitudes"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/The_Runefathers_Alloy",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Omen_of_Dextral_Crystallisation": {
+    "name": "Omen of Dextral Crystallisation",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nPerfect or Corrupted Essence will remove only Suffix modifiers"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Dextral_Crystallisation",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Omen_of_Sinistral_Crystallisation": {
+    "name": "Omen of Sinistral Crystallisation",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nPerfect or Corrupted Essence will remove only Prefix modifiers"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Sinistral_Crystallisation",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Omen_of_Whittling": {
+    "name": "Omen of Whittling",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nChaos Orb will remove the lowest level modifier"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Whittling",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Sinistral_Erasure": {
+    "name": "Omen of Sinistral Erasure",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nChaos Orb will remove only prefix modifiers"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Sinistral_Erasure",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Dextral_Erasure": {
+    "name": "Omen of Dextral Erasure",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nChaos Orb will remove only suffix modifiers"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Dextral_Erasure",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Sinistral_Alchemy": {
+    "name": "Omen of Sinistral Alchemy",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nOrb of Alchemy will result in the maximum number of prefix modifiers"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Sinistral_Alchemy",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Dextral_Alchemy": {
+    "name": "Omen of Dextral Alchemy",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nOrb of Alchemy will result in the maximum number of suffix modifiers"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Dextral_Alchemy",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Sinistral_Coronation": {
+    "name": "Omen of Sinistral Coronation",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nRegal Orb will add only prefix modifiers"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Sinistral_Coronation",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Dextral_Coronation": {
+    "name": "Omen of Dextral Coronation",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nRegal Orb will add only suffix modifiers"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Dextral_Coronation",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Corruption": {
+    "name": "Omen of Corruption",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nVaal Orb will always result in change"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Corruption",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Greater_Exaltation": {
+    "name": "Omen of Greater Exaltation",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nExalted Orb will add two random modifiers"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Greater_Exaltation",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Sinistral_Exaltation": {
+    "name": "Omen of Sinistral Exaltation",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nExalted Orb will add only prefix modifiers"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Sinistral_Exaltation",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Dextral_Exaltation": {
+    "name": "Omen of Dextral Exaltation",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nExalted Orb will add only suffix modifiers"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Dextral_Exaltation",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Greater_Annulment": {
+    "name": "Omen of Greater Annulment",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nOrb of Annulment will remove two modifiers"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Greater_Annulment",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Sinistral_Annulment": {
+    "name": "Omen of Sinistral Annulment",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nOrb of Annulment will remove only prefix modifiers"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Sinistral_Annulment",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Dextral_Annulment": {
+    "name": "Omen of Dextral Annulment",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nOrb of Annulment will remove only suffix modifiers"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Dextral_Annulment",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Answered_Prayers": {
+    "name": "Omen of Answered Prayers",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory the next\n\nShrine you click on will grant an additional Effect"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Answered_Prayers",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Secret_Compartments": {
+    "name": "Omen of Secret Compartments",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory the next\n\nStrongbox you click on will be reopenable"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Secret_Compartments",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_the_Hunt": {
+    "name": "Omen of the Hunt",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory the next\n\nPossessed monster you kill will Release and manifest all Azmeri Spirits"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_the_Hunt",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Reinforcements": {
+    "name": "Omen of Reinforcements",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory the next\n\nRogue Exile you encounter will summon an ally"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Reinforcements",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Homogenising_Exaltation": {
+    "name": "Omen of Homogenising Exaltation",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nExalted Orb will add a Modifier of the same\n\ntype as an existing Modifier on the Item"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Homogenising_Exaltation",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Homogenising_Coronation": {
+    "name": "Omen of Homogenising Coronation",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nRegal Orb will add a Modifier of the same\n\ntype as an existing Modifier on the Item"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Homogenising_Coronation",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_the_Blessed": {
+    "name": "Omen of the Blessed",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nDivine Orb will only reroll Implicit Modifiers"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_the_Blessed",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Sanctification": {
+    "name": "Omen of Sanctification",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nDivine Orb used on a Rare item will Sanctify it"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Sanctification",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Catalysing_Exaltation": {
+    "name": "Omen of Catalysing Exaltation",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nExalted Orb will consume all Catalyst Quality to increase\n\nthe chance of the corresponding type of Modifier"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Catalysing_Exaltation",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_the_Sovereign": {
+    "name": "Omen of the Sovereign",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nWeapon or Jewellery Desecration attempt will guarantee a random Ulaman modifier"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_the_Sovereign",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_the_Liege": {
+    "name": "Omen of the Liege",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nWeapon or Jewellery Desecration attempt will guarantee a random Amanamu modifier"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_the_Liege",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_the_Blackblooded": {
+    "name": "Omen of the Blackblooded",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nWeapon or Jewellery Desecration attempt will guarantee a random Kurgal modifier"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_the_Blackblooded",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Putrefaction": {
+    "name": "Omen of Putrefaction",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nDesecration attempt will replace all modifiers on the item\n\ncreating an item with up to 6 Unrevealed modifiers and Corrupting the item"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Putrefaction",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Light": {
+    "name": "Omen of Light",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nOrb of Annulment will remove only Desecrated modifiers"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Light",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Sinistral_Necromancy": {
+    "name": "Omen of Sinistral Necromancy",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nDesecration attempt will add only prefix modifiers"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Sinistral_Necromancy",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Dextral_Necromancy": {
+    "name": "Omen of Dextral Necromancy",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "While this item is active in your inventory your next\n\nDesecration attempt will add only suffix modifiers"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Omen_of_Dextral_Necromancy",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Flesh_Catalyst": {
+    "name": "Flesh Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Life modifiers on a ring or amulet\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Flesh_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Neural_Catalyst": {
+    "name": "Neural Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Mana modifiers on a ring or amulet\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Neural_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Carapace_Catalyst": {
+    "name": "Carapace Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Armour, Evasion and Energy Shield modifiers on a ring or amulet\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Carapace_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Uul-Netols_Catalyst": {
+    "name": "Uul-Netol's Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Physical modifiers on a ring or amulet\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Uul-Netols_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Xophs_Catalyst": {
+    "name": "Xoph's Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Fire modifiers on a ring or amulet\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Xophs_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Tuls_Catalyst": {
+    "name": "Tul's Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Cold modifiers on a ring or amulet\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Tuls_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Eshs_Catalyst": {
+    "name": "Esh's Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Lightning modifiers on a ring or amulet\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Eshs_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Chayulas_Catalyst": {
+    "name": "Chayula's Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Chaos modifiers on a ring or amulet\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Chayulas_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Reaver_Catalyst": {
+    "name": "Reaver Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Attack modifiers on a ring or amulet\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Reaver_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Sibilant_Catalyst": {
+    "name": "Sibilant Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Caster modifiers on a ring or amulet\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Sibilant_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Skittering_Catalyst": {
+    "name": "Skittering Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Speed modifiers on a ring or amulet\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Skittering_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Adaptive_Catalyst": {
+    "name": "Adaptive Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Attribute modifiers on a ring or amulet\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Adaptive_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Necrotic_Catalyst": {
+    "name": "Necrotic Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Minion modifiers on a ring or amulet\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Necrotic_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Flesh_Catalyst": {
+    "name": "Refined Flesh Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Life modifiers on a jewel\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Refined_Flesh_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Neural_Catalyst": {
+    "name": "Refined Neural Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Mana modifiers on a jewel\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Refined_Neural_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Carapace_Catalyst": {
+    "name": "Refined Carapace Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Armour, Evasion and Energy Shield modifiers on a jewel\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Refined_Carapace_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Uul-Netols_Catalyst": {
+    "name": "Refined Uul-Netol's Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Physical modifiers on a jewel\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Refined_Uul-Netols_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Xophs_Catalyst": {
+    "name": "Refined Xoph's Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Fire modifiers on a jewel\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Refined_Xophs_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Tuls_Catalyst": {
+    "name": "Refined Tul's Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Cold modifiers on a jewel\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Refined_Tuls_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Eshs_Catalyst": {
+    "name": "Refined Esh's Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Lightning modifiers on a jewel\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Refined_Eshs_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Chayulas_Catalyst": {
+    "name": "Refined Chayula's Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Chaos modifiers on a jewel\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Refined_Chayulas_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Reaver_Catalyst": {
+    "name": "Refined Reaver Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Attack modifiers on a jewel\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Refined_Reaver_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Sibilant_Catalyst": {
+    "name": "Refined Sibilant Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Caster modifiers on a jewel\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Refined_Sibilant_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Skittering_Catalyst": {
+    "name": "Refined Skittering Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Speed modifiers on a jewel\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Refined_Skittering_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Adaptive_Catalyst": {
+    "name": "Refined Adaptive Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Attribute modifiers on a jewel\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Refined_Adaptive_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Necrotic_Catalyst": {
+    "name": "Refined Necrotic Catalyst",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Adds quality that enhances Minion modifiers on a jewel\n\nReplaces other quality types"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Refined_Necrotic_Catalyst",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Diluted_Liquid_Ire": {
+    "name": "Diluted Liquid Ire",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Prefix: (10—20)% increased Armour",
+      "Sapphire Prefix: (10—20)% increased maximum Energy Shield",
+      "Emerald Prefix: (10—20)% increased Evasion Rating"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Diluted_Liquid_Ire",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Diluted_Liquid_Guilt": {
+    "name": "Diluted Liquid Guilt",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Prefix: (5—15)% increased Fire Damage",
+      "Sapphire Prefix: (5—15)% increased Cold Damage",
+      "Emerald Prefix: (5—15)% increased Lightning Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Diluted_Liquid_Guilt",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Diluted_Liquid_Greed": {
+    "name": "Diluted Liquid Greed",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Prefix: (5—15)% increased Global Physical Damage",
+      "Sapphire Prefix: (7—13)% increased Chaos Damage",
+      "Emerald Prefix: (5—15)% increased Elemental Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Diluted_Liquid_Greed",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Liquid_Paranoia": {
+    "name": "Liquid Paranoia",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Prefix: (5—15)% increased Attack Damage",
+      "Sapphire Suffix: (2—4)% increased Cast Speed",
+      "Emerald Suffix: (2—4)% increased Attack Speed"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Liquid_Paranoia",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Liquid_Envy": {
+    "name": "Liquid Envy",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Suffix: (4—6)% of Skill Mana Costs Converted to Life Costs",
+      "Sapphire Prefix: (5—15)% increased Spell Damage",
+      "Emerald Suffix: (3—5)% increased Cooldown Recovery Rate"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Liquid_Envy",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Liquid_Disgust": {
+    "name": "Liquid Disgust",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Suffix: (5—10)% increased Life Regeneration rate",
+      "Sapphire Suffix: Recover (1—2)% of maximum Mana on Kill",
+      "Emerald Suffix: Recover (1—2)% of maximum Life on Kill"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Liquid_Disgust",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Liquid_Despair": {
+    "name": "Liquid Despair",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Suffix: Gain 1 Rage on Melee Hit",
+      "Sapphire Suffix: (5—15)% increased Critical Hit Chance for Spells",
+      "Emerald Suffix: (6—16)% increased Critical Hit Chance for Attacks"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Liquid_Despair",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Concentrated_Liquid_Fear": {
+    "name": "Concentrated Liquid Fear",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Suffix: (10—20)% increased Warcry Speed",
+      "Sapphire Suffix: (10—20)% increased Critical Spell Damage Bonus",
+      "Emerald Suffix: (10—20)% increased Critical Damage Bonus for Attack Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Concentrated_Liquid_Fear",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Concentrated_Liquid_Suffering": {
+    "name": "Concentrated Liquid Suffering",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Prefix: +(1—2) to Maximum Rage",
+      "Sapphire Prefix: (4—6)% increased Area of Effect",
+      "Emerald Suffix: (1—2)% increased Movement Speed"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Concentrated_Liquid_Suffering",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Concentrated_Liquid_Isolation": {
+    "name": "Concentrated Liquid Isolation",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Suffix: +1% to Maximum Fire Resistance",
+      "Sapphire Suffix: +1% to Maximum Cold Resistance",
+      "Emerald Suffix: +1% to Maximum Lightning Resistance",
+      "Diamond Suffix: +1% to Maximum Chaos Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Concentrated_Liquid_Isolation",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Diluted_Liquid_Ire": {
+    "name": "Ancient Diluted Liquid Ire",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Prefix: Small Passive Skills in Radius also grant (2—3)% increased Armour",
+      "Sapphire Prefix: Small Passive Skills in Radius also grant (2—3)% increased maximum Energy Shield",
+      "Emerald Prefix: Small Passive Skills in Radius also grant (2—3)% increased Evasion Rating"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Ire",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Diluted_Liquid_Guilt": {
+    "name": "Ancient Diluted Liquid Guilt",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Prefix: Small Passive Skills in Radius also grant (1—2)% increased Fire Damage",
+      "Sapphire Prefix: Small Passive Skills in Radius also grant (1—2)% increased Cold Damage",
+      "Emerald Prefix: Small Passive Skills in Radius also grant (1—2)% increased Lightning Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Guilt",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Diluted_Liquid_Greed": {
+    "name": "Ancient Diluted Liquid Greed",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Prefix: Small Passive Skills in Radius also grant (1—2)% increased Global Physical Damage",
+      "Sapphire Prefix: Small Passive Skills in Radius also grant (1—2)% increased Chaos Damage",
+      "Emerald Prefix: Small Passive Skills in Radius also grant (1—2)% increased Elemental Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Greed",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Liquid_Paranoia": {
+    "name": "Ancient Liquid Paranoia",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Prefix: Small Passive Skills in Radius also grant (1—2)% increased Attack Damage",
+      "Sapphire Suffix: Notable Passive Skills in Radius also grant (1—2)% increased Cast Speed",
+      "Emerald Suffix: Notable Passive Skills in Radius also grant (1—2)% increased Attack Speed"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Paranoia",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Liquid_Envy": {
+    "name": "Ancient Liquid Envy",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Suffix: Notable Passive Skills in Radius also grant (2—3)% of Skill Mana Costs Converted to Life Costs",
+      "Sapphire Prefix: Small Passive Skills in Radius also grant (1—2)% increased Spell Damage",
+      "Emerald Suffix: Notable Passive Skills in Radius also grant (1—3)% increased Cooldown Recovery Rate"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Envy",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Liquid_Disgust": {
+    "name": "Ancient Liquid Disgust",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Suffix: Notable Passive Skills in Radius also grant (3—5)% increased Life Regeneration rate",
+      "Sapphire Suffix: Notable Passive Skills in Radius also grant Recover 1% of maximum Mana on Kill",
+      "Emerald Suffix: Notable Passive Skills in Radius also grant Recover 1% of maximum Life on Kill"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Disgust",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Liquid_Despair": {
+    "name": "Ancient Liquid Despair",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Suffix: Notable Passive Skills in Radius also grant Gain 1 Rage on Melee Hit",
+      "Sapphire Suffix: Notable Passive Skills in Radius also grant (3—7)% increased Critical Hit Chance for Spells",
+      "Emerald Suffix: Notable Passive Skills in Radius also grant (3—7)% increased Critical Hit Chance for Attacks"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Despair",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Concentrated_Liquid_Fear": {
+    "name": "Ancient Concentrated Liquid Fear",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Suffix: Small Passive Skills in Radius also grant (2—3)% increased Warcry Speed",
+      "Sapphire Suffix: Notable Passive Skills in Radius also grant (5—10)% increased Critical Spell Damage Bonus",
+      "Emerald Suffix: Notable Passive Skills in Radius also grant (5—10)% increased Critical Damage Bonus for Attack Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Fear",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Concentrated_Liquid_Suffering": {
+    "name": "Ancient Concentrated Liquid Suffering",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Prefix: Notable Passive Skills in Radius also grant +1 to Maximum Rage",
+      "Sapphire Prefix: Notable Passive Skills in Radius also grant (2—3)% increased Area of Effect",
+      "Emerald Suffix: Notable Passive Skills in Radius also grant 1% increased Movement Speed"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Suffering",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Concentrated_Liquid_Isolation": {
+    "name": "Ancient Concentrated Liquid Isolation",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Prefix: Increases and Reductions to\n Cold and Lightning Damage in Radius are transformed to apply to Fire Damage",
+      "Sapphire Prefix: Increases and Reductions to\n Fire and Lightning Damage in Radius are transformed to apply to Cold Damage",
+      "Emerald Prefix: Increases and Reductions to\n Cold and Fire Damage in Radius are transformed to apply to Lightning Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Isolation",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Potent_Liquid_Melancholy": {
+    "name": "Potent Liquid Melancholy",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Suffix: Debilitate Enemies on Hit while you have an Emerald and a Sapphire socketed in your tree",
+      "Sapphire Suffix: Inflict Elemental Exposure on Hit while you have a Ruby and an Emerald socketed in your tree",
+      "Emerald Suffix: Blind Enemies on Hit while you have a Ruby and a Sapphire socketed in your tree"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Melancholy",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Potent_Liquid_Ferocity": {
+    "name": "Potent Liquid Ferocity",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Prefix: (40—60)% increased Effect of Suffixes",
+      "Ruby Suffix: (40—60)% increased Effect of Prefixes",
+      "Sapphire Prefix: (40—60)% increased Effect of Suffixes",
+      "Sapphire Suffix: (40—60)% increased Effect of Prefixes",
+      "Emerald Prefix: (40—60)% increased Effect of Suffixes",
+      "Emerald Suffix: (40—60)% increased Effect of Prefixes",
+      "Diamond Prefix: (40—60)% increased Effect of Suffixes",
+      "Diamond Suffix: (40—60)% increased Effect of Prefixes"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Ferocity",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Potent_Liquid_Contempt": {
+    "name": "Potent Liquid Contempt",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Prefix: +1 Suffix Modifier allowed",
+      "Ruby Suffix: +1 Prefix Modifier allowed",
+      "Sapphire Prefix: +1 Suffix Modifier allowed",
+      "Sapphire Suffix: +1 Prefix Modifier allowed",
+      "Emerald Prefix: +1 Suffix Modifier allowed",
+      "Emerald Suffix: +1 Prefix Modifier allowed",
+      "Diamond Prefix: +1 Suffix Modifier allowed",
+      "Diamond Suffix: +1 Prefix Modifier allowed"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Contempt",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Potent_Liquid_Melancholy": {
+    "name": "Ancient Potent Liquid Melancholy",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Prefix: Upgrades Radius to Very Large\nlocal jewel effect base radius [500]",
+      "Sapphire Prefix: Upgrades Radius to Very Large\nlocal jewel effect base radius [500]",
+      "Emerald Prefix: Upgrades Radius to Very Large\nlocal jewel effect base radius [500]",
+      "Diamond Prefix: Upgrades Radius to Very Large\nlocal jewel effect base radius [500]"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Potent_Liquid_Melancholy",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Potent_Liquid_Ferocity": {
+    "name": "Ancient Potent Liquid Ferocity",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Suffix: Notable Passive Skills in Radius also grant +(5—7)% to Fire Resistance",
+      "Sapphire Suffix: Notable Passive Skills in Radius also grant +(5—7)% to Cold Resistance",
+      "Emerald Suffix: Notable Passive Skills in Radius also grant +(5—7)% to Lightning Resistance",
+      "Diamond Suffix: Notable Passive Skills in Radius also grant +(4—5)% to Chaos Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Potent_Liquid_Ferocity",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Potent_Liquid_Contempt": {
+    "name": "Ancient Potent Liquid Contempt",
+    "lines": [
+      "Stack Size: 1 / 10",
+      "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+      "Ruby Prefix: +1 Suffix Modifier allowed",
+      "Ruby Suffix: +1 Prefix Modifier allowed",
+      "Sapphire Prefix: +1 Suffix Modifier allowed",
+      "Sapphire Suffix: +1 Prefix Modifier allowed",
+      "Emerald Prefix: +1 Suffix Modifier allowed",
+      "Emerald Suffix: +1 Prefix Modifier allowed",
+      "Diamond Prefix: +1 Suffix Modifier allowed",
+      "Diamond Suffix: +1 Prefix Modifier allowed"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Potent_Liquid_Contempt",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Liquid_Verisium": {
+    "name": "Liquid Verisium",
+    "lines": [
+      "Stack Size: 1 / 20",
+      "Immediately start a Runic Remnant Encounter with a random Runic Inscription"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Liquid_Verisium",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  }
+}

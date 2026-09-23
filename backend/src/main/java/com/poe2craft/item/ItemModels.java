@@ -1,7 +1,10 @@
 package com.poe2craft.item;
+
 import java.util.List;
+
 public final class ItemModels {
   private ItemModels() {}
+
   public record Item(
       TokenizedText text,
       String locale,
@@ -29,7 +32,8 @@ public final class ItemModels {
       unparsedLines = List.copyOf(unparsedLines);
       warnings = List.copyOf(warnings);
     }
-}
+  }
+
   public enum Rarity {
     NORMAL,
     MAGIC,
@@ -37,23 +41,27 @@ public final class ItemModels {
     UNIQUE,
     UNKNOWN
   }
+
   public enum LineKind {
     CONTENT,
     SEPARATOR,
     BLANK
   }
+
   public record TokenizedText(String originalText, List<TextLine> lines) {
     public TokenizedText {
       lines = List.copyOf(lines);
     }
   }
-  
+
   /** value는 단위, augmented 표기, 범위 등을 포함한 원문 문자열이다. */
   public record RawField(String key, String value, TextLine source) {}
 
   /** lineNumber 0은 문서 전체에 대한 경고다. */
   public record Warning(String code, int lineNumber) {}
+
   public record TextLine(int number, int section, String raw, LineKind kind) {}
+
   public enum ModifierType {
     IMPLICIT,
     ENCHANT,
@@ -64,9 +72,10 @@ public final class ItemModels {
     MUTATED,
     EXPLICIT
   }
-    public record Modifier(
+
+  public record Modifier(
       String text,
-      ModifierType Type,
+      ModifierType type,
       TextLine source,
       TextLine metadata,
       String affix,

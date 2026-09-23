@@ -3,8 +3,9 @@ package com.poe2craft.item.testparser;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import com.poe2craft.item.testparser.ItemTextModels.LineKind;
-import com.poe2craft.item.testparser.ItemTextModels.Rarity;
+import com.poe2craft.item.ItemModels;
+import com.poe2craft.item.ItemModels.LineKind;
+import com.poe2craft.item.ItemModels.Rarity;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
@@ -22,13 +23,13 @@ class ItemTextServiceTest {
       var result = service.parseText(text);
       assertThat(result.displayName()).isEqualTo("Prism Guardian");
       assertThat(result.modifiers()).hasSize(6);
-      assertThat(result.modifiers().get(0).kind()).isEqualTo(ItemTextModels.ModifierKind.RUNE);
+      assertThat(result.modifiers().get(0).type()).isEqualTo(ItemModels.ModifierType.RUNE);
       assertThat(result.modifiers().get(2).text())
           .isEqualTo("144(150-200)% increased Armour and Energy Shield");
       assertThat(result.modifiers().get(5).text())
           .isEqualTo("+1 to Maximum Spirit per 25(50) Maximum Life");
       assertThat(result.unparsedLines())
-          .extracting(ItemTextModels.TextLine::raw)
+          .extracting(ItemModels.TextLine::raw)
           .contains("Grants Skill: Raise Shield", "When blood is paid, the weak think twice.");
       assertThat(result.text().originalText()).isEqualTo(text);
     }
@@ -73,25 +74,23 @@ class ItemTextServiceTest {
     assertThat(result.displayBase()).isEqualTo("Synthetic Base");
     assertThat(result.itemLevel()).isEqualTo(42);
     assertThat(result.properties())
-        .extracting(ItemTextModels.RawField::value)
+        .extracting(ItemModels.RawField::value)
         .contains("+20% (augmented)", "11-22", "S S", "42");
     assertThat(result.requirements())
-        .extracting(ItemTextModels.RawField::value)
+        .extracting(ItemModels.RawField::value)
         .containsExactly("Level 10, 20 Dex, 30 Int");
     assertThat(result.markedModifiers())
-        .extracting(ItemTextModels.TextLine::raw)
+        .extracting(ItemModels.TextLine::raw)
         .containsExactly("+7 to Synthetic Value (rune)");
     assertThat(result.unparsedLines())
-        .extracting(ItemTextModels.TextLine::raw)
+        .extracting(ItemModels.TextLine::raw)
         .containsExactly(
             "Grants Skill: Level 3 Synthetic Skill",
             "{ Unique Modifier — Synthetic metadata }",
             "Synthetic flavour text.");
-    assertThat(result.flags())
-        .extracting(ItemTextModels.TextLine::raw)
-        .containsExactly("Corrupted");
+    assertThat(result.flags()).extracting(ItemModels.TextLine::raw).containsExactly("Corrupted");
     assertThat(result.warnings())
-        .extracting(ItemTextModels.Warning::code)
+        .extracting(ItemModels.Warning::code)
         .contains("UNPARSED_LINES", "CATALOG_VALIDATION_REQUIRED");
   }
 
@@ -110,7 +109,7 @@ class ItemTextServiceTest {
     assertThat(result.lines().get(1).kind()).isEqualTo(LineKind.BLANK);
     assertThat(result.lines().get(2).kind()).isEqualTo(LineKind.SEPARATOR);
     assertThat(result.lines().get(3))
-        .isEqualTo(new ItemTextModels.TextLine(4, 1, "  body  ", LineKind.CONTENT));
+        .isEqualTo(new ItemModels.TextLine(4, 1, "  body  ", LineKind.CONTENT));
     assertThat(service.parseText("\uFEFF" + ENGLISH.replace("\n", "\r\n")).itemLevel())
         .isEqualTo(42);
   }
@@ -137,9 +136,9 @@ class ItemTextServiceTest {
     var result = service.parseText(ENGLISH.replace("Item Level: 42", "Item Level: " + level));
     assertThat(result.itemLevel()).isNull();
     assertThat(result.warnings())
-        .extracting(ItemTextModels.Warning::code)
+        .extracting(ItemModels.Warning::code)
         .contains("INVALID_ITEM_LEVEL");
-    assertThat(result.properties()).extracting(ItemTextModels.RawField::value).contains(level);
+    assertThat(result.properties()).extracting(ItemModels.RawField::value).contains(level);
   }
 
   @Test
@@ -147,7 +146,7 @@ class ItemTextServiceTest {
     var result = service.parseText(ENGLISH + "\nItem Level: 43");
     assertThat(result.itemLevel()).isNull();
     assertThat(result.warnings())
-        .extracting(ItemTextModels.Warning::code)
+        .extracting(ItemModels.Warning::code)
         .contains("DUPLICATE_ITEM_LEVEL");
   }
 
@@ -177,7 +176,7 @@ class ItemTextServiceTest {
   void preservesBodyRarityPropertyWithoutConfusingItWithHeader() {
     var result = service.parseText(ENGLISH + "\n아이템 희귀도: +30% (augmented)");
     assertThat(result.unparsedLines())
-        .extracting(ItemTextModels.TextLine::raw)
+        .extracting(ItemModels.TextLine::raw)
         .contains("아이템 희귀도: +30% (augmented)");
   }
 
@@ -187,9 +186,7 @@ class ItemTextServiceTest {
         service.parseText(
             "Item Class: X\nRarity: Magic\nSynthetic of Foo\n--------\nItem Level: 1");
     assertThat(result.displayBase()).isNull();
-    assertThat(result.warnings())
-        .extracting(ItemTextModels.Warning::code)
-        .contains("UNRESOLVED_BASE");
+    assertThat(result.warnings()).extracting(ItemModels.Warning::code).contains("UNRESOLVED_BASE");
   }
 
   @Test
@@ -198,7 +195,7 @@ class ItemTextServiceTest {
     assertThat(result.rarity()).isEqualTo(Rarity.UNKNOWN);
     assertThat(result.itemLevel()).isNull();
     assertThat(result.warnings())
-        .extracting(ItemTextModels.Warning::code)
+        .extracting(ItemModels.Warning::code)
         .contains("UNSUPPORTED_RARITY", "MISSING_ITEM_LEVEL");
   }
 
@@ -257,7 +254,7 @@ class ItemTextServiceTest {
         """);
     assertThat(result.modifiers()).hasSize(4);
     var first = result.modifiers().get(1);
-    assertThat(first.kind()).isEqualTo(ItemTextModels.ModifierKind.FRACTURED);
+    assertThat(first.type()).isEqualTo(ItemModels.ModifierType.FRACTURED);
     assertThat(first.affix()).isEqualTo("PREFIX");
     assertThat(first.affixName()).isEqualTo("Synthetic");
     assertThat(first.tier()).isEqualTo(1);
@@ -265,11 +262,11 @@ class ItemTextServiceTest {
     assertThat(result.modifiers().get(2).metadata()).isEqualTo(first.metadata());
     assertThat(result.modifiers().get(3).tier()).isEqualTo(3);
     assertThat(result.properties())
-        .extracting(ItemTextModels.RawField::key)
+        .extracting(ItemModels.RawField::key)
         .contains("Quality (Caster Modifiers)");
     assertThat(result.requirements()).hasSize(3);
     assertThat(result.unparsedLines())
-        .extracting(ItemTextModels.TextLine::raw)
+        .extracting(ItemModels.TextLine::raw)
         .contains("Synthetic flavour.", "~b/o 888 mirror");
   }
 
@@ -282,7 +279,7 @@ class ItemTextServiceTest {
     assertThat(result.requirements().getFirst().value()).isEqualTo("Level 10");
     assertThat(result.flags()).hasSize(3);
     assertThat(result.warnings())
-        .extracting(ItemTextModels.Warning::code)
+        .extracting(ItemModels.Warning::code)
         .contains("MISSING_ITEM_CLASS");
   }
 
@@ -293,7 +290,7 @@ class ItemTextServiceTest {
             "Rarity: Rare\nSynthetic\nSynthetic Base\n--------\nItem Level: 42\n--------\nSynthetic rune (rune)\n--------\nGrants Skill: Level 3 Synthetic Skill\n--------\n{ Unique Modifier — Test }\nSynthetic value +10\n(Reminder spanning\nmultiple lines)\n--------\nFlavour");
     assertThat(result.modifiers()).hasSize(2);
     assertThat(result.unparsedLines())
-        .extracting(ItemTextModels.TextLine::raw)
+        .extracting(ItemModels.TextLine::raw)
         .contains(
             "Grants Skill: Level 3 Synthetic Skill",
             "(Reminder spanning",
@@ -311,7 +308,7 @@ class ItemTextServiceTest {
     assertThat(result.modifiers().get(1).metadata()).isNull();
     assertThat(result.modifiers().get(1).affix()).isNull();
     assertThat(result.unparsedLines())
-        .extracting(ItemTextModels.TextLine::raw)
+        .extracting(ItemModels.TextLine::raw)
         .contains(
             "{ malformed",
             "Synthetic flavour",

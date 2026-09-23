@@ -1,7 +1,7 @@
 package com.poe2craft.item.testparser;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.poe2craft.item.testparser.ItemTextModels.ParsedItemText;
+import com.poe2craft.item.ItemModels.Item;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +16,7 @@ public final class ItemTextController {
   }
 
   @PostMapping("/parse")
-  public ParsedItemText parse(@RequestBody ParseRequest request) {
+  public Item parse(@RequestBody ParseRequest request) {
     if (request.text() != null
         && request.text().getBytes(StandardCharsets.UTF_8).length
             > ItemTextService.MAX_TEXT_BYTES) {

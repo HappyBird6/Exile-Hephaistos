@@ -2,7 +2,7 @@
 
 ## Scope and source
 
-`backend/src/main/java/com/poe2craft/item/testparser/` contains the service, immutable parser DTOs, REST controller and error advice. These are parser-specific contracts, not catalog ItemState. This flat package was explicitly requested on 2026-09-23.
+`backend/src/main/java/com/poe2craft/item/testparser/` contains the service, REST controller and error advice. The shared frontend communication contract is now `item/ItemModels.java` (`ItemModels.Item`); `ItemTextModels` has been removed. This display model is still not catalog-validated ItemState. This flat package was explicitly requested on 2026-09-23.
 
 The display parsing approach is adapted from Path of Building Community PoE2 `ItemClass:ParseRaw` at commit `ce566eac45ea8a86477f513c7ee65a1ebe60014e`:
 
@@ -22,11 +22,11 @@ The parser retains original UTF-8 text (16 KiB maximum), numbered lines, blank l
 
 Trailing `(implicit)`, `(enchant)`, `(rune)`, `(desecrated)`, `(fractured)`, `(crafted)` and `(mutated)` markers classify modifier text. Advanced `{ ... Modifier ... }` and Enhancement headers apply to following lines until another header, a separator, a flag or malformed brace metadata. Explicit prefix/suffix names and `Tier: n` are exposed when actually present; tags and roll annotations remain in original metadata/text. Multiple lines can share one metadata block. Metadata is retained in evidence even if orphaned. The first eligible post-level modifier section supplies plain explicit candidates; later flavour sections remain unresolved. Unknown `Grants Skill:` lines remain unresolved because PoB needs a base catalog to identify implicit skills. Reminder text is preserved rather than discarded.
 
-`modifiers` is the structured display contract. `markedModifiers` remains as original trailing-marker evidence for compatibility. Frontend uses the structured kind/affix/tier, never independently infers them from sentences. Raw values and roll annotations are never scaled, normalized to newer rolls or silently replaced with default quality. Sale price lines are excluded from the card only; source text is untouched.
+`modifiers` is the structured display contract. `markedModifiers` remains as original trailing-marker evidence for compatibility. Frontend uses the structured type/affix/tier, never independently infers them from sentences. Raw values and roll annotations are never scaled, normalized to newer rolls or silently replaced with default quality. Sale price lines are excluded from the card only; source text is untouched.
 
 ## Deliberate differences from full PoB
 
-This is not a full Lua parser clone or a semantic modifier calculator. PoB additionally uses itemBases, affix catalogs, ModParser and numeric calculation code. This project has no validated catalog yet, so it does not resolve magic-name bases, affix IDs, implicit skills, modifier effects, weights, requirement recalculation, variants or wiki/build formats. Normal names are display bases only (including an unverified Superior prefix), not resolved base IDs. Unknown lines remain visible with warnings. All results include `CATALOG_VALIDATION_REQUIRED` and cannot be used directly for crafting calculations.
+This is not a full Lua parser clone or a semantic modifier calculator. PoB additionally uses itemBases, affix catalogs, ModParser and numeric calculation code. This project has no validated catalog yet, so it does not resolve magic-name bases, affix IDs, implicit skills, modifier effects, weights, requirement recalculation, variants or wiki/build formats. Normal names are display bases only (including an unverified Superior prefix), not resolved base IDs. Unknown lines and warnings remain in the response and original text; the input modal no longer renders diagnostic details. All results include `CATALOG_VALIDATION_REQUIRED` and cannot be used directly for crafting calculations.
 
 TODO(domain): Verified versioned base/affix catalog and mapping evidence required / pinned source and game snapshot / semantic modifier parsing and ItemState conversion / currently unavailable.
 
@@ -35,3 +35,10 @@ TODO(domain): Verified versioned base/affix catalog and mapping evidence require
 `POST /api/v1/items/parse` accepts `{ "text": "..." }`. OpenAPI: [openapi-item.yaml](openapi-item.yaml). Anonymous stateless read-only request, exact-route CSRF exemption, no input persistence. Errors: 400 malformed JSON, 413 size limit, 422 invalid English input; Problem Details preserve code/traceId without raw internals.
 
 ItemCard is stateless. Replacing its props updates rarity/name/values/modifiers together; a future verified simulation outcome uses the same display contract. No crafting engine or fake outcome was added. Query mutations retain cancellation/revision protection, input stays in Zustand, and parsed response data is not duplicated there.
+
+
+## Shared item model update (2026-09-23)
+
+The response uses `modifiers[].type` (formerly `kind`) with the shared `ItemModels.ModifierType` enum. Backend, OpenAPI, frontend validation and tests migrate together; deploy the frontend and backend together. Parser-only request/error classes remain in `testparser`; a duplicate response DTO is unnecessary.
+
+The current accepted item lives in TanStack Query. Zustand retains editable text and a replaceable `ItemTextDocument` for the placed item. Successful analysis replaces the item and its `text.originalText` together and closes the modal. Pending, failed or cancelled edits keep the placed item. Closing the modal invalidates pending requests. Raw text and unparsed evidence are retained, without showing internal diagnostics in the input form. Checkpoint persistence/selection and serialization of future engine outputs remain undecided; future replacements must supply a coherent Item plus text through the same acceptance path.

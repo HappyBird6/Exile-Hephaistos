@@ -11,7 +11,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { LocaleProvider } from '../../shared/i18n/LocaleProvider'
 import { CraftingPage } from './CraftingPage'
 import { useItemDraft } from './draft'
-import type { ParsedItemText, TextLine } from './itemTextApi'
+import type { Item, TextLine } from './itemModels'
 
 const raw =
   'Item Class: Synthetic Amulets\nRarity: Rare\nSynthetic Name\nSynthetic Base\n--------\nItem Level: 42\n<script>alert(1)</script>\n'
@@ -21,7 +21,7 @@ const line = (number: number, raw: string): TextLine => ({
   section: 1,
   kind: 'CONTENT',
 })
-function result(text = raw): ParsedItemText {
+function result(text = raw): Item {
   return {
     text: { originalText: text, lines: [line(1, text)] },
     locale: 'en',
@@ -39,7 +39,7 @@ function result(text = raw): ParsedItemText {
     modifiers: [
       {
         text: 'Synthetic effect',
-        kind: 'IMPLICIT',
+        type: 'IMPLICIT',
         source: line(10, 'Synthetic effect (implicit)'),
         metadata: null,
         affix: null,
@@ -102,7 +102,7 @@ function submit() {
 
 describe('Item text import', () => {
   it.each([
-    { kind: 'FUTURE' },
+    { type: 'FUTURE' },
     { tier: '1' },
     { affix: 'UNVERIFIED' },
     { metadata: { number: 0, section: 0, kind: 'CONTENT', raw: 'invalid' } },
@@ -117,7 +117,7 @@ describe('Item text import', () => {
     expect(await screen.findByRole('alert')).toHaveTextContent(
       'Could not connect',
     )
-    expect(screen.queryByRole('article')).not.toBeInTheDocument()
+    expect(screen.getByRole('article')).toHaveTextContent('Solar Amulet')
   })
   it('shows English progress, failures and currency notices', async () => {
     let reject: (error: Error) => void = () => {
@@ -172,11 +172,10 @@ describe('Item text import', () => {
     expect(
       within(screen.getByRole('article')).getByText('Unidentified'),
     ).toBeVisible()
-    expect(screen.getByText(/FUTURE_WARNING/)).toBeVisible()
-    expect(document.querySelector('.parsed-item script')).toBeNull()
-    fireEvent.click(screen.getByText('Parsing details and source text'))
-    fireEvent.click(screen.getByText('View full original text'))
-    expect(document.querySelector('.item-raw')?.textContent).toBe(raw)
+    expect(screen.queryByText(/FUTURE_WARNING/)).not.toBeInTheDocument()
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    expect(document.querySelector('.item-card script')).toBeNull()
+    expect(useItemDraft.getState().currentText.text).toBe(raw)
     expect(useItemDraft.getState().text).toBe(raw)
     expect(fetchMock).toHaveBeenCalledWith(
       '/api/v1/items/parse',
@@ -281,18 +280,19 @@ describe('Item text import', () => {
       screen.queryByRole('heading', { name: 'Synthetic Name' }),
     ).not.toBeInTheDocument()
   })
-  it('does not show old success after a new input fails', async () => {
+  it('preserves the placed item and current text when new input fails', async () => {
     show()
     enter()
     submit()
     await screen.findByRole('heading', { name: 'Synthetic Name' })
-    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'bad' } })
+    enter('bad')
     fetchMock.mockResolvedValueOnce(json({ code: 'INVALID_ITEM_TEXT' }, 422))
     submit()
     await screen.findByRole('alert')
     expect(
       screen.queryByRole('heading', { name: 'Synthetic Name' }),
-    ).not.toBeInTheDocument()
+    ).toBeVisible()
+    expect(useItemDraft.getState().currentText.text).toBe(raw)
   })
   it('aborts pending requests on base selection and unmount', async () => {
     fetchMock.mockImplementation(() => new Promise(() => {}))
@@ -318,6 +318,7 @@ describe('Item text import', () => {
     enter()
     submit()
     await screen.findByRole('heading', { name: 'Synthetic Name' })
+    fireEvent.click(screen.getByRole('button', { name: 'Edit item' }))
     expect(screen.getByLabelText('Item text copied from the game')).toHaveValue(
       raw,
     )

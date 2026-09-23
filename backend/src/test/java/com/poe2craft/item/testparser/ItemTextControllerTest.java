@@ -36,7 +36,7 @@ class ItemTextControllerTest {
                 .contentType("application/json")
                 .content(mapper.writeValueAsString(Map.of("text", text))))
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.modifiers[0].kind").value("EXPLICIT"))
+        .andExpect(jsonPath("$.modifiers[0].type").value("EXPLICIT"))
         .andExpect(jsonPath("$.modifiers[0].affix").value("PREFIX"))
         .andExpect(jsonPath("$.modifiers[0].tier").value(1))
         .andExpect(jsonPath("$.modifiers[0].metadata.number").value(7));
