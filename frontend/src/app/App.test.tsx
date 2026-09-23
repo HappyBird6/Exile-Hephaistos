@@ -1,7 +1,26 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { LocaleProvider } from '../shared/i18n/LocaleProvider'
 import { fireEvent, render, screen } from '@testing-library/react'
-import { beforeEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { App } from './App'
 import { useItemDraft } from '../features/crafting/draft'
+
+const client = new QueryClient({
+  defaultOptions: { mutations: { retry: false } },
+})
+function show() {
+  return render(
+    <QueryClientProvider client={client}>
+      <LocaleProvider initialLanguage="ko">
+        <App />
+      </LocaleProvider>
+    </QueryClientProvider>,
+  )
+}
+afterEach(() => {
+  client.clear()
+  vi.unstubAllGlobals()
+})
 
 describe('제작 작업대', () => {
   beforeEach(() => {
@@ -9,7 +28,7 @@ describe('제작 작업대', () => {
     window.history.replaceState({}, '', '/')
   })
   it('32종과 제작 효과 미연결을 안내한다', () => {
-    render(<App />)
+    show()
     expect(
       screen.getByRole('heading', { level: 1, name: '제작 작업대' }),
     ).toBeVisible()
@@ -22,7 +41,7 @@ describe('제작 작업대', () => {
     ).toBeVisible()
   })
   it('우클릭 선택과 사용 요청 후 아이템을 유지하고 Esc로 취소한다', () => {
-    render(<App />)
+    show()
     const currency = screen.getByRole('button', { name: '진화의 오브' })
     fireEvent.contextMenu(currency, { clientX: 30, clientY: 40 })
     expect(currency).toHaveAttribute('aria-pressed', 'true')
@@ -43,7 +62,7 @@ describe('제작 작업대', () => {
     )
   })
   it('확보한 이미지를 렌더하고 일반 클릭으로 선택·해제한다', () => {
-    render(<App />)
+    show()
     const currency = screen.getByRole('button', { name: '상위 쥬얼러 오브' })
     fireEvent.click(currency)
     expect(currency).toHaveAttribute('aria-pressed', 'true')
@@ -60,7 +79,7 @@ describe('제작 작업대', () => {
     expect(currency).toHaveAttribute('aria-pressed', 'false')
   })
   it('실제 로딩 오류가 발생하면 슬롯과 포인터 모두 폴백을 표시한다', () => {
-    render(<App />)
+    show()
     const currency = screen.getByRole('button', { name: '히네코라의 머리카락' })
     fireEvent.contextMenu(currency, { clientX: 30, clientY: 40 })
     const slotImage = currency.querySelector('img')
@@ -76,24 +95,5 @@ describe('제작 작업대', () => {
     expect(document.querySelector('.currency-cursor')).toHaveTextContent(
       '이미지 미확보',
     )
-  })
-  it('빈 입력을 거부하고 알 수 없는 옵션까지 원문 그대로 보존한다', () => {
-    render(<App />)
-    fireEvent.click(screen.getByRole('button', { name: '아이템 텍스트' }))
-    fireEvent.click(screen.getByRole('button', { name: /원문 배치/ }))
-    expect(screen.getByRole('alert')).toBeVisible()
-    const raw = '  미확인 아이템\n--------\n알 수 없는 옵션 +123\n'
-    fireEvent.change(screen.getByRole('textbox'), { target: { value: raw } })
-    fireEvent.click(screen.getByRole('button', { name: /원문 배치/ }))
-    expect(useItemDraft.getState().text).toBe(raw)
-    expect(document.querySelector('.item-raw')?.textContent).toBe(raw)
-    fireEvent.click(screen.getByRole('button', { name: '카오스 오브' }))
-    fireEvent.click(
-      screen.getByRole('button', { name: '중앙 아이템에 선택한 화폐 사용' }),
-    )
-    expect(useItemDraft.getState().text).toBe(raw)
-    fireEvent.click(screen.getByRole('button', { name: '베이스 선택' }))
-    fireEvent.click(screen.getByRole('button', { name: /베이스 배치/ }))
-    expect(useItemDraft.getState().source).toBe('base')
   })
 })

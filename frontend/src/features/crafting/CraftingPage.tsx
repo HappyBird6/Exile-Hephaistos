@@ -1,4 +1,10 @@
 import { useEffect, useState } from 'react'
+import { useI18n } from '../../shared/i18n/context'
+import { LanguageSelector } from '../../shared/i18n/LanguageSelector'
+import { locales } from '../../shared/i18n/messages'
+import type { MessageKey } from '../../shared/i18n/messages'
+import { ParsedItemDetails } from './ParsedItemDetails'
+import { useItemTextImport } from './useItemTextImport'
 import { CurrencyImage } from './CurrencyImage'
 import { currencies } from './currencies'
 import { useItemDraft } from './draft'
@@ -8,15 +14,16 @@ type Currency = (typeof currencies)[number]
 
 export function CraftingPage() {
   const draft = useItemDraft()
+  const { t, locale } = useI18n()
+  const imported = useItemTextImport()
+  const currencyName = (currency: Currency) =>
+    locales[locale].currencies[currency.id]
   const [selected, setSelected] = useState<Currency | null>(null)
   const [hovered, setHovered] = useState<Currency | null>(null)
   const [pointer, setPointer] = useState<{ x: number; y: number } | null>(null)
   const [inputMode, setInputMode] = useState<'base' | 'text'>('base')
-  const [text, setText] = useState('')
-  const [error, setError] = useState('')
-  const [notice, setNotice] = useState(
-    '화폐를 선택하고 중앙의 아이템을 클릭하세요.',
-  )
+  const [notice, setNotice] = useState<MessageKey>('noticeInitial')
+  const [noticeCurrency, setNoticeCurrency] = useState<Currency | null>(null)
   const [attempt, setAttempt] = useState(0)
 
   useEffect(() => {
@@ -24,7 +31,7 @@ export function CraftingPage() {
       if (event.key === 'Escape') {
         setSelected(null)
         setPointer(null)
-        setNotice('화폐 선택을 해제했습니다.')
+        setNotice('noticeCleared')
       }
     }
     const hide = () => setPointer(null)
@@ -38,33 +45,31 @@ export function CraftingPage() {
 
   function choose(currency: Currency) {
     setSelected(currency)
-    setNotice(`${currency.name} 선택 · 중앙 아이템을 클릭하세요.`)
+    setNoticeCurrency(currency)
+    setNotice('noticeSelected')
   }
 
   function apply() {
     if (!selected) {
-      setNotice('먼저 창고에서 화폐를 선택하세요.')
+      setNotice('noticeSelectFirst')
       return
     }
     setAttempt((value) => value + 1)
-    setNotice(
-      `${selected.name} 사용 요청 · 제작 효과 미연결. 아이템은 변경되지 않았습니다.`,
-    )
+    setNoticeCurrency(selected)
+    setNotice('noticeApply')
   }
 
   function importText() {
-    if (!text.trim()) {
-      setError('게임에서 복사한 아이템 텍스트를 입력해 주세요.')
-      return
-    }
-    draft.setText(text)
+    imported.submit(draft.text)
+    setNotice('noticeParsed')
     setSelected(null)
-    setError('')
-    setNotice(
-      '복사한 원문을 배치했습니다. 베이스와 옵션은 아직 검증되지 않았습니다.',
-    )
   }
 
+  const item = draft.source === 'text' ? imported.data : undefined
+  const displayedName =
+    draft.source === 'base'
+      ? t('solarAmulet')
+      : (item?.displayName ?? t('importedItem'))
   const inspected = hovered ?? selected
   return (
     <main
@@ -76,7 +81,7 @@ export function CraftingPage() {
       onPointerLeave={() => setPointer(null)}
     >
       <header className="craft-header">
-        <a className="craft-brand" href="/" aria-label="Exile Hephaistos 홈">
+        <a className="craft-brand" href="/" aria-label={t('home')}>
           <span className="brand-mark" aria-hidden="true">
             H
           </span>
@@ -85,35 +90,36 @@ export function CraftingPage() {
             <small>PATH OF EXILE 2 · CRAFTING WORKBENCH</small>
           </span>
         </a>
-        <nav aria-label="주 메뉴">
-          <span aria-current="page">제작 작업대</span>
-          <a href="/admin">관리자</a>
+        <nav aria-label={t('navigation')}>
+          <span aria-current="page">{t('workbench')}</span>
+          <LanguageSelector />
+          <a href="/admin">{t('admin')}</a>
         </nav>
       </header>
       <div className="craft-title">
         <div>
           <p className="craft-kicker">THE CRAFTING BENCH</p>
-          <h1>제작 작업대</h1>
-          <p>화폐를 고르고, 아이템의 다음 가능성을 준비하세요.</p>
+          <h1>{t('workbench')}</h1>
+          <p>{t('subtitle')}</p>
         </div>
         <span className="preview-badge">
           <i />
-          인터랙션 프리뷰
+          {t('preview')}
         </span>
       </div>
       <div className="workbench-layout">
         <div className="stash-panel">
           <div className="panel-heading">
             <h2>
-              화폐 창고 <span>CURRENCY STASH</span>
+              {t('stash')} <span>CURRENCY STASH</span>
             </h2>
-            <span>{currencies.length}종</span>
+            <span>{t('currencyCount', { count: currencies.length })}</span>
           </div>
-          <div className="stash-canvas" aria-label="화폐 창고">
+          <div className="stash-canvas" aria-label={t('stash')}>
             <div className="stash-tier-labels" aria-hidden="true">
-              <span>일반</span>
-              <span>상위</span>
-              <span>완벽</span>
+              <span>{t('normal')}</span>
+              <span>{t('greater')}</span>
+              <span>{t('perfect')}</span>
             </div>
             {currencies.map((currency) => (
               <button
@@ -124,9 +130,9 @@ export function CraftingPage() {
                   left: `${currency.x / 9.35}%`,
                   top: `${currency.y / 9.35}%`,
                 }}
-                aria-label={currency.name}
+                aria-label={currencyName(currency)}
                 aria-pressed={selected?.id === currency.id}
-                title={`${currency.name} · 우클릭으로 선택`}
+                title={t('rightSelect', { name: currencyName(currency) })}
                 onContextMenu={(event) => {
                   event.preventDefault()
                   setPointer({ x: event.clientX, y: event.clientY })
@@ -141,7 +147,7 @@ export function CraftingPage() {
                 onFocus={() => setHovered(currency)}
                 onBlur={() => setHovered(null)}
               >
-                <CurrencyImage {...currency} />
+                <CurrencyImage {...currency} name={currencyName(currency)} />
                 {currency.id.startsWith('Greater') && (
                   <span className="currency-tier" aria-hidden="true">
                     II
@@ -155,17 +161,17 @@ export function CraftingPage() {
               </button>
             ))}
             <div className="item-placement">
-              <span className="placement-label">제작 아이템</span>
+              <span className="placement-label">{t('craftingItem')}</span>
               <button
                 className={`item-slot ${selected ? 'is-ready' : ''}`}
                 type="button"
-                aria-label="중앙 아이템에 선택한 화폐 사용"
+                aria-label={t('applyCurrency')}
                 onClick={apply}
               >
                 {draft.source === 'base' ? (
                   <img
                     src="/assets/currency/solar-amulet.webp"
-                    alt="태양의 목걸이"
+                    alt={t('solarAmulet')}
                     draggable="false"
                   />
                 ) : (
@@ -173,64 +179,62 @@ export function CraftingPage() {
                     ≡
                   </span>
                 )}
-                <span>
-                  {draft.source === 'base' ? '태양의 목걸이' : '복사한 아이템'}
-                </span>
+                <span>{displayedName}</span>
               </button>
               <span className="placement-hint">
-                {selected ? '좌클릭으로 사용 요청' : '화폐 선택 후 클릭'}
+                {selected ? t('clickApply') : t('clickAfterSelect')}
               </span>
             </div>
             <div className="stash-inspector">
               <span className="inspector-rule" />
-              <strong>{inspected?.name ?? '당신의 다음 한 수'}</strong>
-              <p>
-                {inspected
-                  ? '선택 후 중앙 아이템을 클릭하세요.'
-                  : '화폐 위에 마우스를 올려 확인하세요.'}
-              </p>
+              <strong>
+                {inspected ? currencyName(inspected) : t('nextMove')}
+              </strong>
+              <p>{inspected ? t('selectThenClick') : t('hoverCurrency')}</p>
               <span className="inspector-rule" />
             </div>
           </div>
           <div className="stash-controls">
             <span>
-              <kbd>우클릭</kbd> 화폐 선택
+              <kbd>{t('rightClick')}</kbd> {t('selectCurrency')}
             </span>
             <span>
-              <kbd>좌클릭</kbd> 아이템에 사용
+              <kbd>{t('leftClick')}</kbd> {t('useOnItem')}
             </span>
             <button
               type="button"
               onClick={() => {
                 setSelected(null)
                 setPointer(null)
-                setNotice('화폐 선택을 해제했습니다.')
+                setNotice('noticeCleared')
               }}
               disabled={!selected}
             >
-              <kbd>Esc</kbd> 선택 해제
+              <kbd>Esc</kbd> {t('clearSelection')}
             </button>
           </div>
         </div>
-        <aside className="item-panel" aria-label="아이템 상세정보">
+        <aside className="item-panel" aria-label={t('itemDetails')}>
           <div className="panel-heading">
-            <h2>아이템 상세정보</h2>
-            <span>AMULET</span>
+            <h2>{t('itemDetails')}</h2>
+            <span>
+              {draft.source === 'base' ? t('amulet') : (item?.itemClass ?? '—')}
+            </span>
           </div>
           <div className="item-summary">
             <span className="craft-kicker">
               {draft.source === 'base'
-                ? '목걸이 · 기본 베이스'
-                : '가져온 원문 · 미검증'}
+                ? t('baseSummary')
+                : t('importedSummary')}
             </span>
-            <h2>
-              {draft.source === 'base' ? '태양의 목걸이' : '복사한 아이템'}
-            </h2>
+            <h2>{displayedName}</h2>
             <span className="item-subtitle">
-              {draft.source === 'base' ? 'Solar Amulet' : 'Imported item'}
+              {draft.source === 'base'
+                ? 'Solar Amulet'
+                : (item?.displayBase ?? '')}
             </span>
           </div>
-          <div className="detail-body">
+          <div className="detail-body" aria-busy={imported.pending}>
             {draft.source === 'base' ? (
               <>
                 <div className="amulet-preview">
@@ -238,93 +242,102 @@ export function CraftingPage() {
                 </div>
                 <dl>
                   <div>
-                    <dt>장비 유형</dt>
-                    <dd>목걸이</dd>
+                    <dt>{t('equipmentType')}</dt>
+                    <dd>{t('amulet')}</dd>
                   </div>
                   <div>
-                    <dt>베이스</dt>
-                    <dd>태양의 목걸이</dd>
+                    <dt>{t('base')}</dt>
+                    <dd>{t('solarAmulet')}</dd>
                   </div>
                 </dl>
-                <p className="detail-note">
-                  아이템 레벨과 옵션은 아직 설정되지 않았습니다.
-                </p>
+                <p className="detail-note">{t('baseUnset')}</p>
               </>
+            ) : item ? (
+              <ParsedItemDetails item={item} />
             ) : (
-              <>
-                <p className="detail-note">
-                  입력 원문을 그대로 보존합니다. 아이템 종류와 옵션 해석은 아직
-                  지원하지 않습니다.
-                </p>
-                <pre className="item-raw">{draft.text}</pre>
-              </>
+              <p className="detail-note">{t('textNotAnalyzed')}</p>
             )}
             <div className="input-heading">
-              <h3>시작 아이템</h3>
+              <h3>{t('startItem')}</h3>
               <span>01</span>
             </div>
             <div
               className="input-tabs"
               role="group"
-              aria-label="아이템 입력 방식"
+              aria-label={t('inputMethod')}
             >
               <button
                 type="button"
                 aria-pressed={inputMode === 'base'}
-                onClick={() => setInputMode('base')}
+                onClick={() => {
+                  imported.invalidate()
+                  setInputMode('base')
+                }}
               >
-                베이스 선택
+                {t('baseSelect')}
               </button>
               <button
                 type="button"
                 aria-pressed={inputMode === 'text'}
                 onClick={() => setInputMode('text')}
               >
-                아이템 텍스트
+                {t('itemText')}
               </button>
             </div>
             {inputMode === 'base' ? (
               <div className="base-form">
-                <label htmlFor="base-select">목걸이 베이스</label>
+                <label htmlFor="base-select">{t('amuletBase')}</label>
                 <select id="base-select" defaultValue="solar">
-                  <option value="solar">태양의 목걸이</option>
+                  <option value="solar">{t('solarAmulet')}</option>
                 </select>
                 <button
                   type="button"
                   className="primary-action"
                   onClick={() => {
+                    imported.invalidate()
                     draft.setBase()
                     setSelected(null)
-                    setNotice('태양의 목걸이 베이스를 배치했습니다.')
+                    setNotice('noticeBase')
                   }}
                 >
-                  베이스 배치 <span aria-hidden="true">↗</span>
+                  {t('placeBase')} <span aria-hidden="true">↗</span>
                 </button>
               </div>
             ) : (
               <div className="text-form">
-                <label htmlFor="item-text">게임에서 복사한 아이템 텍스트</label>
+                <label htmlFor="item-text">{t('pasteLabel')}</label>
                 <textarea
                   id="item-text"
-                  value={text}
-                  maxLength={20000}
-                  onChange={(event) => setText(event.target.value)}
-                  placeholder={
-                    '아이템에 마우스를 올리고 Ctrl+C\n복사한 텍스트를 여기에 붙여넣으세요.'
+                  value={draft.text}
+                  onChange={(event) => {
+                    imported.invalidate()
+                    draft.setText(event.target.value)
+                    setNotice('noticeEdited')
+                  }}
+                  placeholder={t('pastePlaceholder')}
+                  aria-invalid={Boolean(imported.error)}
+                  aria-describedby={
+                    imported.error
+                      ? 'import-error item-text-help'
+                      : 'item-text-help'
                   }
-                  aria-describedby={error ? 'import-error' : undefined}
                 />
-                {error && (
+                <p id="item-text-help" className="detail-note">
+                  {t('inputLimit')}
+                </p>
+                {imported.error && (
                   <p id="import-error" role="alert">
-                    {error}
+                    {t(imported.error)}
                   </p>
                 )}
                 <button
                   type="button"
                   className="primary-action"
                   onClick={importText}
+                  disabled={imported.pending}
                 >
-                  원문 배치 <span aria-hidden="true">↗</span>
+                  {t(imported.pending ? 'analyzing' : 'analyze')}{' '}
+                  <span aria-hidden="true">↗</span>
                 </button>
               </div>
             )}
@@ -332,9 +345,8 @@ export function CraftingPage() {
           <div className="engine-note">
             <span aria-hidden="true">◇</span>
             <p>
-              <strong>제작 효과 연결 준비 중</strong>현재는 선택과 사용
-              인터랙션만 제공합니다. 화폐 소모, 옵션 변경, 확률 계산은 수행하지
-              않습니다.
+              <strong>{t('engineTitle')}</strong>
+              {t('engineNote')}
             </p>
           </div>
         </aside>
@@ -346,18 +358,26 @@ export function CraftingPage() {
         key={attempt}
       >
         <span className="status-dot" />
-        {notice}
+        {imported.pending
+          ? t('analyzing')
+          : imported.error
+            ? t('noticeParseFailed')
+            : t(
+                notice === 'noticeParsed' && !item ? 'textNotAnalyzed' : notice,
+                { name: noticeCurrency ? currencyName(noticeCurrency) : '' },
+              )}
       </div>
       <footer className="craft-footer">
         <span>
-          EXILE HEPHAISTOS <span aria-hidden="true">/</span> 나만의 제작 작업대
+          EXILE HEPHAISTOS <span aria-hidden="true">/</span>{' '}
+          {t('personalWorkbench')}
         </span>
         <a
           href="https://poe2db.tw/kr/Currency"
           target="_blank"
           rel="noreferrer"
         >
-          화폐 이미지 · PoE2DB ↗
+          {t('imageCredit')}
         </a>
       </footer>
       {selected && pointer && (
@@ -366,7 +386,11 @@ export function CraftingPage() {
           aria-hidden="true"
           style={{ left: pointer.x + 14, top: pointer.y + 14 }}
         >
-          <CurrencyImage key={selected.id} {...selected} />
+          <CurrencyImage
+            key={selected.id}
+            {...selected}
+            name={currencyName(selected)}
+          />
         </span>
       )}
     </main>

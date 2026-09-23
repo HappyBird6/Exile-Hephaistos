@@ -7,7 +7,7 @@ type Draft = {
   setText: (text: string) => void
 }
 
-// Input only. A pasted item remains unvalidated until the item parser is connected.
+// Input only. Parsed server results belong to TanStack Query, not this store.
 export const useItemDraft = create<Draft>((set) => ({
   source: 'base',
   text: '',

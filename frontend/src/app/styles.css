@@ -48,3 +48,17 @@ section p {
   outline: 3px solid #e2bd7a;
   outline-offset: 4px;
 }
+.language-selector {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+.language-selector select {
+  width: auto;
+  padding: 5px 8px;
+  background: #141b16;
+  color: #d6d6c6;
+  border: 1px solid #505441;
+  font: inherit;
+}

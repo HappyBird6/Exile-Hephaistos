@@ -1,3 +1,4 @@
+import type { Translate } from '../../shared/i18n/messages'
 // Mirrors docs/openapi-admin.yaml. Validate server responses before using them.
 export interface AdminSession {
   configured: boolean
@@ -190,20 +191,14 @@ export const adminApi = {
   },
 }
 
-export function errorMessage(error: Error): string {
+export function errorMessage(error: Error, t: Translate): string {
   if (error instanceof AdminApiError) {
-    if (error.status === 401)
-      return '로그인이 필요하거나 로그인 정보가 올바르지 않습니다.'
-    if (error.status === 403)
-      return '권한 또는 세션을 확인할 수 없습니다. 다시 로그인해 주세요.'
-    if (error.status === 409)
-      return '다른 변경 또는 진행 중인 작업이 있습니다. 서버 상태를 다시 확인해 주세요.'
-    if (error.status === 422 || error.status === 400)
-      return '입력한 대상과 활성화 상태를 확인해 주세요.'
-    if (error.status === 429)
-      return '요청이 너무 많습니다. 잠시 후 다시 시도해 주세요.'
-    if (error.status === 503)
-      return '관리 기능 또는 수집 실행기가 준비되지 않았습니다.'
+    if (error.status === 401) return t('errorAuth')
+    if (error.status === 403) return t('errorForbidden')
+    if (error.status === 409) return t('errorConflict')
+    if (error.status === 422 || error.status === 400) return t('errorTarget')
+    if (error.status === 429) return t('errorRateLimit')
+    if (error.status === 503) return t('errorAdminUnavailable')
   }
-  return '서버에 연결하거나 응답을 확인하지 못했습니다. 잠시 후 다시 시도해 주세요.'
+  return t('errorNetwork')
 }

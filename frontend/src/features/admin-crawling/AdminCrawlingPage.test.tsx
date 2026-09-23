@@ -1,3 +1,4 @@
+import { LocaleProvider } from '../../shared/i18n/LocaleProvider'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import {
   fireEvent,
@@ -129,12 +130,15 @@ beforeEach(() => {
 afterEach(() => {
   client.clear()
   vi.unstubAllGlobals()
+  localStorage.clear()
 })
 
 function show() {
   return render(
     <QueryClientProvider client={client}>
-      <AdminCrawlingPage />
+      <LocaleProvider initialLanguage="ko">
+        <AdminCrawlingPage />
+      </LocaleProvider>
     </QueryClientProvider>,
   )
 }
@@ -144,6 +148,27 @@ function mutations(method: string) {
 }
 
 describe('크롤링 관리자', () => {
+  it('언어 전환 시 상태·접근성 이름·검증 오류를 번역하고 대상 원문은 유지한다', async () => {
+    backend.runs = [initialRun]
+    show()
+    expect(await screen.findByText('원본 수집 완료')).toBeVisible()
+    fireEvent.change(screen.getByLabelText('페이지 주소'), {
+      target: { value: 'https://example.invalid/private' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: '대상 설정 저장' }))
+    expect(await screen.findByRole('alert')).toHaveTextContent('공개 페이지')
+    fireEvent.change(screen.getByLabelText('언어'), { target: { value: 'en' } })
+    expect(
+      screen.getByRole('heading', { name: 'Crawling management' }),
+    ).toBeVisible()
+    expect(screen.getByText('Raw collection completed')).toBeVisible()
+    expect(screen.getByRole('alert')).toHaveTextContent('public poe2db')
+    expect(
+      screen.getByRole('button', { name: 'Delete target 1' }),
+    ).toBeVisible()
+    expect(screen.getByLabelText('Name')).toHaveValue('화폐')
+    expect(document.documentElement.lang).toBe('en')
+  })
   it('계정 미설정 시 설정과 실행 API에 접근하지 않는다', async () => {
     backend.configured = false
     backend.authenticated = false
