@@ -3,7 +3,8 @@
 `new ItemTextService().parseText(text)`로 사용자 확인용 `ParsedItemText`를 얻는다.
 `tokenizeText(text)`는 원문, 행 번호(1부터), 구분선 기준 section(0부터), 빈 행을 보존한다.
 기존 빈 `tokenizerText` 메서드는 `tokenizeText`로 이름과 반환형을 변경했다.
-DB/Spring 의존성이나 완성된 `ItemState`는 필요하지 않다.
+DB나 완성된 `ItemState`는 필요하지 않다. 서비스는 Spring bean이며 직접 생성도 가능하다.
+공개 응답 record는 `item.api.ItemTextModels`에 둔다. 계산용 모델 초안은 변경하지 않았다.
 
 - 영어/한국어 아이템 종류·희귀도·이름·표시 base·아이템 레벨·요구사항을 읽는다.
 - Rare/Unique 두 이름 행의 둘째 행과 Normal 한 이름 행만 표시 base 후보로 제공한다. Magic 이름, 미확인 한 줄 Rare/Unique 이름은 base를 추측하지 않는다.
@@ -28,3 +29,17 @@ DB/Spring 의존성이나 완성된 `ItemState`는 필요하지 않다.
 - [한국어 희귀도 검색 도구](https://reim.kr/poe2/tools/regex): 일반/마법/희귀 표기.
 
 TODO(domain): 텍스트 옵션의 catalog ID·tier·실제 roll 해석 / 검증된 snapshot과 locale별 modifier 문법 필요 / ItemState 변환 / 현재 미해석 행과 확인 경고로 보존.
+
+## HTTP 연결
+
+`POST /api/v1/items/parse`, JSON `{ "text": "게임 복사 원문" }`으로 같은 파서를 호출한다.
+응답은 `ParsedItemText`이며 [OpenAPI 계약](openapi-item.yaml)에 모든 필드와 nullable 값을 기록한다.
+영문/한국어 자동 감지는 UI 언어와 독립적이다. 원문을 번역하거나 옵션/규칙을 새로 생성하지 않는다.
+
+- 익명 사용 가능. DB 조회·저장·session 생성 없이 입력만 파싱한다.
+- 정확히 이 POST만 CSRF 검사에서 제외한다. 관리자 login/logout/mutation 보호는 유지한다.
+- HTTP 400 `MALFORMED_REQUEST`: JSON 문법/형식 오류 또는 text에 문자열 이외의 값(숫자·boolean·배열·객체).
+- HTTP 422 `INVALID_ITEM_TEXT`: text 누락/null/blank 또는 지원되지 않는 텍스트 형식.
+- HTTP 413 `ITEM_TEXT_TOO_LARGE`: text 원문의 UTF-8 바이트가 16 KiB 초과. 한글은 글자 수로 계산하지 않는다.
+- 오류는 Problem Details와 고정 `code`, `traceId`를 반환하며 입력 원문·내부 예외를 포함하지 않는다.
+- UI는 오류/경고 code를 번역한다. 파서의 원문 필드는 그대로 표시하며, 미해석/확인 필요 정보를 숨기지 않는다.

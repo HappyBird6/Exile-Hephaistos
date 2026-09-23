@@ -36,9 +36,16 @@ public class SecurityConfiguration {
   @Bean
   SecurityFilterChain securityFilterChain(HttpSecurity http, AdminCredentials credentials)
       throws Exception {
+    var parseRequest =
+        new org.springframework.security.web.util.matcher.AntPathRequestMatcher(
+            "/api/v1/items/parse", "POST");
+    // 읽기 전용 파싱은 세션을 사용하거나 상태를 변경하지 않는다. 관리자 CSRF는 유지한다.
+    http.csrf(csrf -> csrf.ignoringRequestMatchers(parseRequest));
     http.authorizeHttpRequests(
             auth ->
-                auth.requestMatchers("/actuator/health/liveness", "/actuator/health/readiness")
+                auth.requestMatchers(parseRequest)
+                    .permitAll()
+                    .requestMatchers("/actuator/health/liveness", "/actuator/health/readiness")
                     .permitAll()
                     .requestMatchers("/api/v1/admin/session")
                     .permitAll()

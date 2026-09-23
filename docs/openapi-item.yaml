@@ -1,0 +1,313 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Item text parsing API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/v1/items/parse": {
+      "post": {
+        "operationId": "parseItemText",
+        "summary": "Parse English or Korean game clipboard text into a review draft",
+        "description": "Anonymous read-only operation. Text language is detected from headers independently of UI locale. Unknown lines and original text are preserved. CSRF exemption applies to this exact POST only.",
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User-review draft, never a validated crafting state. No persistence or catalog lookup.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ParsedItemText"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "MALFORMED_REQUEST: invalid JSON or text is not a string/null.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_ITEM_TEXT: missing/null/blank text, unsupported headers, or missing name.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "ITEM_TEXT_TOO_LARGE: text exceeds 16384 UTF-8 bytes.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ParseRequest": {
+        "type": "object",
+        "required": [
+          "text"
+        ],
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "English or Korean clipboard text. Maximum 16384 UTF-8 bytes. Missing, null or blank is INVALID_ITEM_TEXT (422)."
+          }
+        }
+      },
+      "TextLine": {
+        "type": "object",
+        "required": [
+          "number",
+          "section",
+          "raw",
+          "kind"
+        ],
+        "properties": {
+          "number": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1
+          },
+          "section": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          "raw": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "CONTENT",
+              "SEPARATOR",
+              "BLANK"
+            ]
+          }
+        }
+      },
+      "TokenizedText": {
+        "type": "object",
+        "required": [
+          "originalText",
+          "lines"
+        ],
+        "properties": {
+          "originalText": {
+            "type": "string"
+          },
+          "lines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TextLine"
+            }
+          }
+        }
+      },
+      "RawField": {
+        "type": "object",
+        "required": [
+          "key",
+          "value",
+          "source"
+        ],
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/TextLine"
+          }
+        }
+      },
+      "Warning": {
+        "type": "object",
+        "required": [
+          "code",
+          "lineNumber"
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Stable extensible warning code. Unknown codes must remain visible."
+          },
+          "lineNumber": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0,
+            "description": "0 means the whole document."
+          }
+        }
+      },
+      "ParsedItemText": {
+        "type": "object",
+        "required": [
+          "text",
+          "locale",
+          "itemClass",
+          "rarity",
+          "rarityText",
+          "nameLines",
+          "displayName",
+          "displayBase",
+          "itemLevel",
+          "properties",
+          "requirements",
+          "markedModifiers",
+          "flags",
+          "unparsedLines",
+          "warnings"
+        ],
+        "properties": {
+          "text": {
+            "$ref": "#/components/schemas/TokenizedText"
+          },
+          "locale": {
+            "type": "string",
+            "enum": [
+              "en",
+              "ko"
+            ]
+          },
+          "itemClass": {
+            "type": "string"
+          },
+          "rarity": {
+            "type": "string",
+            "enum": [
+              "NORMAL",
+              "MAGIC",
+              "RARE",
+              "UNIQUE",
+              "UNKNOWN"
+            ]
+          },
+          "rarityText": {
+            "type": "string"
+          },
+          "nameLines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TextLine"
+            }
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "displayBase": {
+            "type": "string",
+            "nullable": true
+          },
+          "itemLevel": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "properties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RawField"
+            }
+          },
+          "requirements": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RawField"
+            }
+          },
+          "markedModifiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TextLine"
+            }
+          },
+          "flags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TextLine"
+            }
+          },
+          "unparsedLines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TextLine"
+            }
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Warning"
+            }
+          }
+        }
+      },
+      "Problem": {
+        "type": "object",
+        "required": [
+          "type",
+          "title",
+          "status",
+          "detail",
+          "instance",
+          "code",
+          "traceId"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "format": "uri-reference"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "instance": {
+            "type": "string",
+            "format": "uri-reference"
+          },
+          "code": {
+            "type": "string"
+          },
+          "traceId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

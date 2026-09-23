@@ -1,5 +1,6 @@
 package com.poe2craft.item;
 
+import com.poe2craft.item.api.ItemTextModels.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.Set;
 import java.util.regex.Pattern;
 
 /** 게임 복사 텍스트를 사용자 확인용 초안으로 읽는다. Catalog ID와 게임 규칙은 확정하지 않는다. */
+@org.springframework.stereotype.Service
 public final class ItemTextService {
   public static final int MAX_TEXT_BYTES = 16 * 1024;
   private static final Pattern SEPARATOR = Pattern.compile("-{8,}");
@@ -195,60 +197,5 @@ public final class ItemTextService {
 
   private static String valueAfterColon(String text) {
     return text.substring(text.indexOf(':') + 1).strip();
-  }
-
-  public enum LineKind {
-    CONTENT,
-    SEPARATOR,
-    BLANK
-  }
-
-  public enum Rarity {
-    NORMAL,
-    MAGIC,
-    RARE,
-    UNIQUE,
-    UNKNOWN
-  }
-
-  public record TextLine(int number, int section, String raw, LineKind kind) {}
-
-  public record TokenizedText(String originalText, List<TextLine> lines) {
-    public TokenizedText {
-      lines = List.copyOf(lines);
-    }
-  }
-
-  /** value는 단위, augmented 표기, 범위 등을 포함한 원문 문자열이다. */
-  public record RawField(String key, String value, TextLine source) {}
-
-  /** lineNumber 0은 문서 전체에 대한 경고다. */
-  public record Warning(String code, int lineNumber) {}
-
-  public record ParsedItemText(
-      TokenizedText text,
-      String locale,
-      String itemClass,
-      Rarity rarity,
-      String rarityText,
-      List<TextLine> nameLines,
-      String displayName,
-      String displayBase,
-      Integer itemLevel,
-      List<RawField> properties,
-      List<RawField> requirements,
-      List<TextLine> markedModifiers,
-      List<TextLine> flags,
-      List<TextLine> unparsedLines,
-      List<Warning> warnings) {
-    public ParsedItemText {
-      nameLines = List.copyOf(nameLines);
-      properties = List.copyOf(properties);
-      requirements = List.copyOf(requirements);
-      markedModifiers = List.copyOf(markedModifiers);
-      flags = List.copyOf(flags);
-      unparsedLines = List.copyOf(unparsedLines);
-      warnings = List.copyOf(warnings);
-    }
   }
 }
