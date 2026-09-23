@@ -1,0 +1,16 @@
+{
+  "name": "Exile-Hephaistos Java 21",
+  "image": "mcr.microsoft.com/devcontainers/java:21-bookworm",
+  "remoteUser": "vscode",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-gradle"
+      ],
+      "settings": {
+        "java.configuration.updateBuildConfiguration": "automatic"
+      }
+    }
+  }
+}
