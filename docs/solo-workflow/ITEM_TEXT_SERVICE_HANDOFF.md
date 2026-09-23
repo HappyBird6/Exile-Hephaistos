@@ -1,0 +1,21 @@
+# ItemTextService 작업 인계
+
+- 작업: PoE2 영문·한국어 게임 복사 텍스트를 분석하는 ItemTextService 구현.
+- 상태: 요청 범위 구현·분리 검증·독립 리뷰 완료. 원본 Backend 전체 빌드는 기존 사용자 작성 중 파일의 문법 오류로 차단.
+- 운영 예외: 사용자의 2026-09-23 명시 지시에 따라 원본 로컬 master에서 작업 및 로컬 commit. 별도 worktree/branch 이동과 push 없음.
+- 관리자: 현재 작업 / 작업자: item_text / 읽기 전용 독립 리뷰어: item_text_review.
+- 소유: ItemTextService.java, ItemTextServiceTest.java, docs/item-text-parsing.md. 관리자만 이 인계 기록 갱신.
+- 작업 경로: C:\SSAFY\PYJ\새 폴더\Exile-Hephaistos
+- 최초 기준 HEAD: 32afdbd24511777a4e9e76d1a2f601182ed8f9f0. 진행 중 외부 commit 59556ecaef743533a349b67631ac4189909c4af7은 .devcontainer/devcontainer.json만 추가하여 검증 소스 영향 없음.
+- 구현 commit: b17d54d (master). 자기 파일 3개만 포함.
+- 기존 사용자 변경 보존: item/api/ItemState.java 삭제 및 item/Item.java·ItemState.java·Modifier.java 신규 작성. 이 작업에서 변경/commit하지 않음.
+- 구현: tokenizeText 원문·행·section 보존; parseText 한/영 header, 이름, 등급, 레벨, 요구사항, 알려진 영문 property, 명시 marker 및 상태를 초안으로 추출. 일반 옵션·고급 metadata·미지원 행과 한국어 세부 property는 미해석으로 보존.
+- 한계: DB/catalog/ItemState 변환/HTTP 연동 없음. 옵션 ID·tier·접두/접미·게임 규칙 추정 없음. 모든 결과에 catalog 확인 경고.
+- JDK: C:\Users\SSAFY\.codex\visualizations\2026\09\21\01a0c22b-e82d-7df3-be69-bfbddafce945\toolchains\jdk-21.0.12.1+1
+- 검증 명령(프로젝트 루트, JAVA_HOME 위 경로): backend/gradlew.bat -p backend -I %TEMP%/item-text-validation.gradle spotlessCheck test --tests com.poe2craft.item.ItemTextServiceTest --tests com.poe2craft.ArchitectureTest --offline
+- 임시 init 설정: main에서 사용자 미완성 Item.java/Modifier.java만 제외; test source는 ItemTextServiceTest/ArchitectureTest만 포함; ASCII buildDir %TEMP%/poe2-item-text-targeted-build; Spotless 대상은 변경 Java 두 파일. 영구 build 설정 변경 없음.
+- 결과: 파서 JUnit 26건 + ArchUnit 1건 모두 통과(실패/skip 0); 대상 Spotless 통과; 관리자 XML 직접 확인 및 git diff --check 통과.
+- 전체 검사 제한: 원본 compile은 사용자 두 record 선언의 기존 문법 오류 7건으로 실패. 처음 임시 실행의 test worker classpath 실패 후 ASCII buildDir 사용. 기존 테스트 전부를 포함한 임시 실행은 AdminValidationTest가 ArchUnit에 import되는 문제 4건으로 실패하여 대상 test source를 제한. 전체 check/통합 테스트 통과로 해석하지 말 것.
+- 독립 리뷰: 고정 SHA256 서비스 ED133629E34C9D8B45462B6887509FFCB1855C30EBB19A6863061647AA9511FF, 테스트 5C0B2244C626E7D5814D9EFD229FF4BD0F5BD0C54A0F17DD32AEABC7AA886659. No findings. 관리자 최종 해시 일치 확인.
+- 남은 작업: 사용자 Item/Modifier 구현 후 원본 전체 build 재검증. catalog 근거 확보 후 옵션 해석/ItemState 연결. branch 이동은 후속 사용자 지시에 따름.
+- 리뷰 후 수정 횟수: 0.
