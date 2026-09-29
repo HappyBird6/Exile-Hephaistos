@@ -1,4 +1,4 @@
-package com.poe2craft.currencyrule.api;
+// package com.poe2craft.currencyrule.api;
 
 /*
  * CurrencyRuleDefinition: 적용 조건, 효과, 타입이 정해진 parameter, weight 정책을 선언한다.
