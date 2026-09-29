@@ -17,18 +17,9 @@ public final class GenerateJooq {
           .migrate();
       for (String module :
           new String[] {
-            "season",
-            "modifier",
-            "item",
-            "currency",
-            "currencyrule",
-            "price",
-            "crafting",
-            "preset",
-            "ai",
-            "app_user"
+            "season", "modifier", "item", "currency", "currencyrule", "price", "crafting", "preset"
           }) {
-        String packageModule = module.equals("app_user") ? "user" : module;
+        String packageModule = module;
         GenerationTool.generate(
             new Configuration()
                 .withJdbc(
@@ -42,6 +33,8 @@ public final class GenerateJooq {
                         .withDatabase(
                             new Database()
                                 .withName("org.jooq.meta.postgres.PostgresDatabase")
+                                // Kept only in migration history; no runtime collection feature.
+                                .withExcludes("crawl_.*")
                                 .withInputSchema(module))
                         .withTarget(
                             new Target()

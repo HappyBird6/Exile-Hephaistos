@@ -1,7 +1,6 @@
 # Local configuration / credentials
 .env
 .env.*
-!.env.example
 *.pem
 *.key
 # Build / tooling

@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vitest/config'
 
@@ -11,6 +12,11 @@ export default defineConfig({
   },
   test: {
     environment: 'jsdom',
+    environmentOptions: {
+      jsdom: {
+        html: readFileSync(new URL('./index.html', import.meta.url), 'utf8'),
+      },
+    },
     setupFiles: ['./src/shared/test/setup.ts'],
     clearMocks: true,
   },

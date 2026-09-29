@@ -9,7 +9,7 @@
       "post": {
         "operationId": "parseItemText",
         "summary": "Parse English game clipboard text into a review draft",
-        "description": "Anonymous read-only operation. Original text and unknown lines are preserved. Optional Item Class; Rarity and name required. No catalog or crafting-rule validation. CSRF exemption applies to this exact POST only.",
+        "description": "Anonymous read-only operation. Original text and unknown lines are preserved. Optional Item Class; Rarity and name required. No catalog or crafting-rule validation. No authentication or session is required.",
         "security": [],
         "requestBody": {
           "required": true,

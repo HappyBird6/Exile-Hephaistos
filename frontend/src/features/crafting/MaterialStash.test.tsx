@@ -1,7 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { fireEvent, render, screen, within } from '@testing-library/react'
 import { beforeEach, describe, expect, it } from 'vitest'
-import { LocaleProvider } from '../../shared/i18n/LocaleProvider'
 import { CraftingPage } from './CraftingPage'
 import { useItemDraft } from './draft'
 import { currencies } from './currencies'
@@ -11,9 +10,7 @@ import tooltips from './materialTooltips.json'
 function show() {
   return render(
     <QueryClientProvider client={new QueryClient()}>
-      <LocaleProvider initialLanguage="en">
-        <CraftingPage />
-      </LocaleProvider>
+      <CraftingPage />
     </QueryClientProvider>,
   )
 }

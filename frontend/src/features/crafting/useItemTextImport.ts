@@ -7,20 +7,22 @@ import {
 } from '@tanstack/react-query'
 import type { Item } from './itemModels'
 import { useItemDraft } from './draft'
-import type { MessageKey } from '../../shared/i18n/messages'
 import {
   ItemTextApiError,
   maxItemTextBytes,
   parseItemText,
 } from './itemTextApi'
 
-function errorKey(error: Error): MessageKey {
+function errorMessage(error: Error): string {
   if (error instanceof ItemTextApiError) {
-    if (error.code === 'INVALID_ITEM_TEXT') return 'errorInvalidItem'
-    if (error.code === 'ITEM_TEXT_TOO_LARGE') return 'errorTooLarge'
-    if (error.code === 'MALFORMED_REQUEST') return 'errorMalformed'
+    if (error.code === 'INVALID_ITEM_TEXT')
+      return 'Enter English game text containing rarity and an item name.'
+    if (error.code === 'ITEM_TEXT_TOO_LARGE')
+      return 'Item text must be at most 16 KiB in UTF-8.'
+    if (error.code === 'MALFORMED_REQUEST')
+      return 'The request format could not be read. Please try again.'
   }
-  return 'errorNetwork'
+  return 'Could not connect to the server or verify its response. Please try again shortly.'
 }
 
 // Server results stay in TanStack Query; only input lives in the draft store.
@@ -35,7 +37,7 @@ export function useItemTextImport() {
   const [revision, setRevision] = useState(0)
   const currentRevision = useRef(0)
   const controller = useRef<AbortController | null>(null)
-  const [validation, setValidation] = useState<MessageKey | null>(null)
+  const [validation, setValidation] = useState<string | null>(null)
   const mutation = useMutation({
     gcTime: 0,
     retry: false,
@@ -66,11 +68,11 @@ export function useItemTextImport() {
   async function submit(text: string) {
     const nextRevision = invalidate()
     if (!text.trim()) {
-      setValidation('errorBlank')
+      setValidation('Enter item text copied from the game.')
       return false
     }
     if (new TextEncoder().encode(text).length > maxItemTextBytes) {
-      setValidation('errorTooLarge')
+      setValidation('Item text must be at most 16 KiB in UTF-8.')
       return false
     }
     const request = new AbortController()
@@ -99,6 +101,6 @@ export function useItemTextImport() {
     pending: isCurrent && mutation.isPending,
     error:
       validation ??
-      (isCurrent && mutation.error ? errorKey(mutation.error) : null),
+      (isCurrent && mutation.error ? errorMessage(mutation.error) : null),
   }
 }

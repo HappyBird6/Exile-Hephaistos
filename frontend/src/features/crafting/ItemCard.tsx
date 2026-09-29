@@ -1,4 +1,3 @@
-import { useI18n } from '../../shared/i18n/context'
 import { isTradePrice } from './itemCardData'
 import type { ItemCardData, ItemCardLine } from './itemCardData'
 import './item-card.css'
@@ -38,7 +37,6 @@ function Lines({
 
 // Rendering has no item state: replacing props updates all fields together.
 export function ItemCard({ item }: { item: ItemCardData }) {
-  const { t } = useI18n()
   const implicit = item.modifiers.filter((line) => line.kind === 'implicit')
   const other = item.modifiers.filter((line) => line.kind !== 'implicit')
   const doubleHeader =
@@ -48,20 +46,20 @@ export function ItemCard({ item }: { item: ItemCardData }) {
   return (
     <article
       className={`item-card item-card--${item.rarity.toLowerCase()}`}
-      aria-label={t('itemCard')}
+      aria-label="Item card"
     >
       <header className="item-card__header">
         <h2>{item.name}</h2>
         {doubleHeader && <div>{item.base}</div>}
       </header>
       <div className="item-card__content">
-        <div className="item-card__class">{item.itemClass || t('unknown')}</div>
+        <div className="item-card__class">{item.itemClass || 'Unknown'}</div>
         <Lines lines={item.properties} />
         <div className="item-card__section">
           <div>
-            {t('itemLevel')}:{' '}
+            Item level:{' '}
             <span className="item-card__value">
-              {item.itemLevel ?? t('unknown')}
+              {item.itemLevel ?? 'Unknown'}
             </span>
           </div>
           {item.requirements

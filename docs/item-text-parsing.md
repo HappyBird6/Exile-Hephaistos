@@ -32,7 +32,7 @@ TODO(domain): Verified versioned base/affix catalog and mapping evidence require
 
 ## HTTP and UI
 
-`POST /api/v1/items/parse` accepts `{ "text": "..." }`. OpenAPI: [openapi-item.yaml](openapi-item.yaml). Anonymous stateless read-only request, exact-route CSRF exemption, no input persistence. Errors: 400 malformed JSON, 413 size limit, 422 invalid English input; Problem Details preserve code/traceId without raw internals.
+`POST /api/v1/items/parse` accepts `{ "text": "..." }`. OpenAPI: [openapi-item.yaml](openapi-item.yaml). Stateless read-only request without authentication or input persistence. Errors: 400 malformed JSON, 413 size limit, 422 invalid English input; Problem Details preserve code/traceId without raw internals.
 
 ItemCard is stateless. Replacing its props updates rarity/name/values/modifiers together; a future verified simulation outcome uses the same display contract. No crafting engine or fake outcome was added. Query mutations retain cancellation/revision protection, input stays in Zustand, and parsed response data is not duplicated there.
 

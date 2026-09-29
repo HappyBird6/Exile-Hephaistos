@@ -8,7 +8,6 @@ import {
   within,
 } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { LocaleProvider } from '../../shared/i18n/LocaleProvider'
 import { CraftingPage } from './CraftingPage'
 import { useItemDraft } from './draft'
 import type { Item, TextLine } from './itemModels'
@@ -79,9 +78,7 @@ afterEach(() => {
 function show() {
   return render(
     <QueryClientProvider client={client}>
-      <LocaleProvider initialLanguage="en">
-        <CraftingPage />
-      </LocaleProvider>
+      <CraftingPage />
     </QueryClientProvider>,
   )
 }

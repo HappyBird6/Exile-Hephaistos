@@ -23,7 +23,17 @@ try {
         $rng = [System.Security.Cryptography.RandomNumberGenerator]::Create()
         try { $rng.GetBytes($bytes) } finally { $rng.Dispose() }
         $password = [BitConverter]::ToString($bytes).Replace('-', '').ToLowerInvariant()
-        $template = [IO.File]::ReadAllText((Join-Path $projectRoot '.env.example'))
+        $template = @'
+POSTGRES_VOLUME_NAME=exile-hephaistos_postgres-data
+POSTGRES_DB=poe2craft
+POSTGRES_USER=poe2craft
+POSTGRES_PASSWORD=replace-with-local-password
+SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/poe2craft
+SPRING_DATASOURCE_USERNAME=poe2craft
+SPRING_DATASOURCE_PASSWORD=replace-with-local-password
+SPRING_DATA_REDIS_HOST=localhost
+SPRING_DATA_REDIS_PORT=6379
+'@
         [IO.File]::WriteAllText($envFile, $template.Replace('replace-with-local-password', $password),
             (New-Object System.Text.UTF8Encoding $false))
         Write-Host 'Created local .env with a random development password.'

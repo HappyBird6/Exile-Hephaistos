@@ -25,21 +25,11 @@ class ArchitectureTest {
             "jakarta.persistence..",
             "org.jooq..",
             "java.net..",
-            "java.sql..",
-            "com.openai..")
+            "java.sql..")
         .allowEmptyShould(true)
         .check(classes);
     String[] modules = {
-      "season",
-      "modifier",
-      "item",
-      "currency",
-      "currencyrule",
-      "price",
-      "crafting",
-      "preset",
-      "ai",
-      "user"
+      "season", "modifier", "item", "currency", "currencyrule", "price", "crafting", "preset"
     };
     var allowed =
         java.util.Map.of(
@@ -51,11 +41,7 @@ class ArchitectureTest {
             "price", java.util.Set.of("season", "currency"),
             "crafting",
                 java.util.Set.of("item", "modifier", "currency", "currencyrule", "season", "price"),
-            "preset", java.util.Set.of("item", "modifier", "season"),
-            "ai",
-                java.util.Set.of(
-                    "item", "modifier", "currency", "preset", "crafting", "season", "price"),
-            "user", java.util.Set.<String>of());
+            "preset", java.util.Set.of("item", "modifier", "season"));
     for (String source : modules) {
       for (String target : modules) {
         if (!source.equals(target) && !allowed.get(source).contains(target)) {

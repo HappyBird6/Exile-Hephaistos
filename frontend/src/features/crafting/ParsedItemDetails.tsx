@@ -1,87 +1,81 @@
-import { useI18n } from '../../shared/i18n/context'
-import { locales } from '../../shared/i18n/messages'
-import type { MessageKey } from '../../shared/i18n/messages'
 import type { Item, TextLine } from './itemModels'
 
-const warningKeys: Record<string, MessageKey> = {
-  MISSING_ITEM_CLASS: 'warningMissingClass',
-  UNSUPPORTED_RARITY: 'warningUnsupportedRarity',
-  INVALID_ITEM_LEVEL: 'warningInvalidLevel',
-  DUPLICATE_ITEM_LEVEL: 'warningDuplicateLevel',
-  MISSING_ITEM_LEVEL: 'warningMissingLevel',
-  UNRESOLVED_BASE: 'warningUnresolvedBase',
-  UNPARSED_LINES: 'warningUnparsed',
-  CATALOG_VALIDATION_REQUIRED: 'warningCatalog',
+const warningMessages: Record<string, string> = {
+  MISSING_ITEM_CLASS: 'The item class is missing and requires catalog lookup.',
+  UNSUPPORTED_RARITY: 'This rarity is not supported.',
+  INVALID_ITEM_LEVEL: 'The item level could not be read.',
+  DUPLICATE_ITEM_LEVEL: 'Multiple item levels were found.',
+  MISSING_ITEM_LEVEL: 'The item level is missing.',
+  UNRESOLVED_BASE: 'The base name could not be resolved.',
+  UNPARSED_LINES: 'Unresolved lines have been preserved unchanged.',
+  CATALOG_VALIDATION_REQUIRED:
+    'Verification against a validated catalog is required.',
 }
 
 export function ParsedItemDetails({ item }: { item: Item }) {
-  const { t } = useI18n()
-  const groups: { title: MessageKey; lines: TextLine[] }[] = [
+  const groups: { title: string; lines: TextLine[] }[] = [
     {
-      title: 'properties',
+      title: 'Raw properties',
       lines: item.properties.map((field) => field.source),
     },
     {
-      title: 'requirements',
+      title: 'Raw requirements',
       lines: item.requirements.map((field) => field.source),
     },
     {
-      title: 'markedModifiers',
+      title: 'Modifier source text',
       lines: item.modifiers.map((mod) => mod.source),
     },
-    { title: 'flags', lines: item.flags },
-    { title: 'unparsed', lines: item.unparsedLines },
+    { title: 'Raw flags', lines: item.flags },
+    { title: 'Unresolved lines', lines: item.unparsedLines },
   ]
   return (
     <div className="parsed-item">
-      <p className="detail-note">{t('catalogDraft')}</p>
+      <p className="detail-note">
+        This is a draft read from text. The base and modifiers have not been
+        verified against a catalog and cannot be used for crafting calculations.
+      </p>
 
       {item.warnings.length > 0 && (
         <div className="parsed-group item-warnings">
-          <h3>{t('warnings')}</h3>
+          <h3>Review needed</h3>
           <ul>
             {item.warnings.map((warning, index) => (
               <li key={`${warning.code}-${index}`}>
-                {warning.lineNumber > 0 &&
-                  `${t('lineNumber', { line: warning.lineNumber })}: `}
-                {t(
-                  Object.hasOwn(warningKeys, warning.code)
-                    ? warningKeys[warning.code]!
-                    : 'warningUnknown',
-                  { code: warning.code },
-                )}
+                {warning.lineNumber > 0 && `Line ${warning.lineNumber}: `}
+                {Object.hasOwn(warningMessages, warning.code)
+                  ? warningMessages[warning.code]
+                  : `Review required: ${warning.code}`}
               </li>
             ))}
           </ul>
         </div>
       )}
       <details className="parsed-evidence">
-        <summary>{t('parsingDetails')}</summary>
+        <summary>Parsing details and source text</summary>
         <dl>
           <div>
-            <dt>{t('base')}</dt>
-            <dd>{item.displayBase ?? t('unknown')}</dd>
+            <dt>Base</dt>
+            <dd>{item.displayBase ?? 'Unknown'}</dd>
           </div>
           <div>
-            <dt>{t('rarity')}</dt>
+            <dt>Rarity</dt>
             <dd>{item.rarityText}</dd>
           </div>
           <div>
-            <dt>{t('sourceLanguage')}</dt>
-            <dd>{locales[item.locale].label}</dd>
+            <dt>Text language</dt>
+            <dd>English</dd>
           </div>
         </dl>
         {groups
           .filter((group) => group.lines.length > 0)
           .map((group) => (
             <div className="parsed-group" key={group.title}>
-              <h3>{t(group.title)}</h3>
+              <h3>{group.title}</h3>
               <ul>
                 {group.lines.map((line) => (
                   <li key={line.number}>
-                    <span className="source-line">
-                      {t('lineNumber', { line: line.number })}
-                    </span>{' '}
+                    <span className="source-line">{`Line ${line.number}`}</span>{' '}
                     {line.raw}
                   </li>
                 ))}
@@ -89,7 +83,7 @@ export function ParsedItemDetails({ item }: { item: Item }) {
             </div>
           ))}
         <details>
-          <summary>{t('originalText')}</summary>
+          <summary>View full original text</summary>
           <pre className="item-raw">{item.text.originalText}</pre>
         </details>
       </details>

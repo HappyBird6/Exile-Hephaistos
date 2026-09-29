@@ -19,7 +19,6 @@ class DevScriptTests(unittest.TestCase):
         self.root = Path(self.temp.name)
         (self.root / "scripts").mkdir()
         shutil.copyfile(ROOT / "scripts/dev.ps1", self.root / "scripts/dev.ps1")
-        shutil.copyfile(ROOT / ".env.example", self.root / ".env.example")
         self.env_file = self.root / ".env"
         self.log = self.root / "calls.jsonl"
 

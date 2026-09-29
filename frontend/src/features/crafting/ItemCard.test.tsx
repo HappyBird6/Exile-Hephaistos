@@ -1,7 +1,5 @@
 import { fireEvent, render, screen, within } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import { LocaleProvider } from '../../shared/i18n/LocaleProvider'
-import { LanguageSelector } from '../../shared/i18n/LanguageSelector'
 import { ItemCard } from './ItemCard'
 import type { ItemCardData } from './itemCardData'
 import { toItemCard } from './itemCardData'
@@ -19,12 +17,7 @@ const base: ItemCardData = {
   flags: [],
 }
 function card(item: ItemCardData) {
-  return (
-    <LocaleProvider initialLanguage="en">
-      <LanguageSelector />
-      <ItemCard item={item} />
-    </LocaleProvider>
-  )
+  return <ItemCard item={item} />
 }
 describe('ItemCard', () => {
   it('renders server metadata without guessing tiers from modifier sentences', () => {
@@ -191,7 +184,7 @@ describe('ItemCard', () => {
     expect(
       displayed.getByText('Synthetic +13').closest('.item-card__line'),
     ).toHaveClass('item-card__line--implicit')
-    expect(document.querySelector('script')).toBeNull()
+    expect(screen.getByRole('article').querySelector('script')).toBeNull()
     expect(input.unparsedLines).toHaveLength(3)
     expect(input.text.originalText).toBe('~b/o 888 mirror')
   })

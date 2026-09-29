@@ -82,13 +82,28 @@ class InfrastructureIntegrationTest {
   }
 
   @Test
-  void probesDoNotExposeDetailsAndCatalogAbsenceBlocksReadiness() throws Exception {
+  void probesReflectAvailableInfrastructureWithoutExposingDetails() throws Exception {
     mvc.perform(get("/actuator/health/liveness"))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.status").value("UP"))
         .andExpect(jsonPath("$.components").doesNotExist());
-    mvc.perform(get("/actuator/health/readiness")).andExpect(status().isServiceUnavailable());
-    mvc.perform(get("/actuator/env")).andExpect(status().isForbidden());
-    mvc.perform(post("/api/v1/presets")).andExpect(status().isForbidden());
+    mvc.perform(get("/actuator/health/readiness")).andExpect(status().isOk());
+    mvc.perform(get("/actuator/env")).andExpect(status().isNotFound());
+    mvc.perform(post("/api/v1/presets")).andExpect(status().isNotFound());
+  }
+
+  @Test
+  void removedAdminEndpointsDoNotCreateSessionsOrExposeData() throws Exception {
+    for (String path :
+        new String[] {
+          "/api/v1/admin/session", "/api/v1/admin/crawl-runs", "/api/v1/admin/crawl-settings"
+        }) {
+      var result = mvc.perform(get(path)).andExpect(status().isNotFound()).andReturn();
+      assertThat(result.getRequest().getSession(false)).isNull();
+    }
+    for (String path :
+        new String[] {"/api/v1/admin/login", "/api/v1/admin/logout", "/api/v1/admin/crawl-runs"}) {
+      mvc.perform(post(path)).andExpect(status().isNotFound());
+    }
   }
 }

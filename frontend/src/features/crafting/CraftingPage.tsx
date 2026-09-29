@@ -1,7 +1,5 @@
+import { currencyNames } from './currencyNames'
 import { useEffect, useRef, useState } from 'react'
-import { useI18n } from '../../shared/i18n/context'
-import { LanguageSelector } from '../../shared/i18n/LanguageSelector'
-import { locales } from '../../shared/i18n/messages'
 import { ItemCard } from './ItemCard'
 import { toItemCard } from './itemCardData'
 import { MaterialTooltip } from './MaterialTooltip'
@@ -26,7 +24,6 @@ type Selection = { id: string; name: string; image: string }
 
 export function CraftingPage() {
   const draft = useItemDraft()
-  const { t, locale } = useI18n()
   const imported = useItemTextImport()
   const dialog = useRef<HTMLDialogElement>(null)
   const [searches, setSearches] = useState<
@@ -63,7 +60,7 @@ export function CraftingPage() {
             new Event('cancel', { cancelable: true }),
           )
         if (inputOpen) inputToggle.current?.focus()
-        setAnnouncement(t('noticeCleared'))
+        setAnnouncement('Currency selection cleared.')
       }
     }
     const hide = () => setPointer(null)
@@ -73,15 +70,19 @@ export function CraftingPage() {
       window.removeEventListener('keydown', cancel)
       window.removeEventListener('blur', hide)
     }
-  }, [inputOpen, t])
+  }, [inputOpen])
 
   function choose(resource: Selection) {
     setSelected(resource)
     setHeld(null)
-    setAnnouncement(t('noticeSelected', { name: resource.name }))
+    setAnnouncement(`${resource.name} selected · Click the central item.`)
   }
   function apply() {
-    setAnnouncement(t(selected ? 'noticePreview' : 'noticeSelectFirst'))
+    setAnnouncement(
+      selected
+        ? 'Crafting effects are not connected yet. The item has not changed.'
+        : 'Select a currency from the stash first.',
+    )
   }
   async function importText() {
     if (await imported.submit(draft.text)) closeInput()
@@ -104,15 +105,15 @@ export function CraftingPage() {
         position === index ? held : resource,
       ),
     )
-    setAnnouncement(t('favoritePlaced', { name: held.name, slot: index + 1 }))
+    setAnnouncement(`${held.name} registered in favorite slot ${index + 1}.`)
     setHeld(null)
   }
 
   const item = draft.source === 'text' ? imported.data : undefined
   const displayedName =
     draft.source === 'base'
-      ? t('solarAmulet')
-      : (item?.displayName ?? t('importedItem'))
+      ? 'Solar Amulet'
+      : (item?.displayName ?? 'Pasted item')
   const search = searches[activeTab] ?? ''
   const currentMaterials = materials.filter(
     (m) =>
@@ -137,7 +138,9 @@ export function CraftingPage() {
           if (event.detail === 0) setPointer(null)
           setHeld(material)
           setSelected(null)
-          setAnnouncement(t('materialHeld', { name: material.name }))
+          setAnnouncement(
+            `${material.name} picked up. Click a favorite slot to register; Escape to cancel.`,
+          )
         }}
       >
         <span className="material-entry__image">
@@ -153,9 +156,9 @@ export function CraftingPage() {
     draft.source === 'base'
       ? {
           rarity: 'NORMAL' as const,
-          name: t('solarAmulet'),
-          base: t('solarAmulet'),
-          itemClass: t('amulet'),
+          name: 'Solar Amulet',
+          base: 'Solar Amulet',
+          itemClass: 'Amulet',
           itemLevel: null,
           properties: [],
           requirements: [],
@@ -176,7 +179,7 @@ export function CraftingPage() {
       onPointerLeave={() => setPointer(null)}
     >
       <header className="craft-header">
-        <a className="craft-brand" href="/" aria-label={t('home')}>
+        <a className="craft-brand" href="/" aria-label="Exile Hephaistos home">
           <span className="brand-mark" aria-hidden="true">
             H
           </span>
@@ -185,21 +188,22 @@ export function CraftingPage() {
             <small>PATH OF EXILE 2 · CRAFTING WORKBENCH</small>
           </span>
         </a>
-        <nav aria-label={t('navigation')}>
-          <span aria-current="page">{t('workbench')}</span>
-          <LanguageSelector />
-          <a href="/admin">{t('admin')}</a>
+        <nav aria-label="Main navigation">
+          <span aria-current="page">Crafting workbench</span>
+          <a href="/admin">Admin</a>
         </nav>
       </header>
       <div className="craft-title">
         <div>
           <p className="craft-kicker">THE CRAFTING BENCH</p>
-          <h1>{t('workbench')}</h1>
-          <p>{t('subtitle')}</p>
+          <h1>Crafting workbench</h1>
+          <p>
+            Choose a currency and explore the next possibilities for your item.
+          </p>
         </div>
         <span className="preview-badge">
           <i />
-          {t('preview')}
+          Interaction preview
         </span>
       </div>
       <div
@@ -210,7 +214,7 @@ export function CraftingPage() {
           <div className="panel-heading stash-heading">
             <div
               role="tablist"
-              aria-label={t('materialTabs')}
+              aria-label="Material stash tabs"
               className="material-tabs"
             >
               {materialTabs.map((tab, index) => (
@@ -252,11 +256,11 @@ export function CraftingPage() {
                 checked={tooltipsEnabled}
                 onChange={(event) => setTooltipsEnabled(event.target.checked)}
               />
-              {t('showTooltips')}
+              Show tooltips
             </label>
           </div>
           <div className="stash-board">
-            <div className="stash-canvas" aria-label={t('stash')}>
+            <div className="stash-canvas" aria-label="Currency stash">
               <div
                 id="material-list"
                 role="tabpanel"
@@ -269,7 +273,7 @@ export function CraftingPage() {
               >
                 {activeTab === 'Currency' ? (
                   currencies.map((currency) => {
-                    const name = locales[locale].currencies[currency.id]
+                    const name = currencyNames[currency.id]
                     return (
                       <button
                         key={currency.id}
@@ -354,17 +358,17 @@ export function CraftingPage() {
                 </div>
               )}
               <div className="item-placement">
-                <span className="placement-label">{t('craftingItem')}</span>
+                <span className="placement-label">Crafting item</span>
                 <button
                   className={`item-slot ${selected ? 'is-ready' : ''}`}
                   type="button"
-                  aria-label={t('applyCurrency')}
+                  aria-label="Use selected currency on the central item"
                   onClick={apply}
                 >
                   {draft.source === 'base' ? (
                     <img
                       src="/assets/currency/solar-amulet.webp"
-                      alt={t('solarAmulet')}
+                      alt="Solar Amulet"
                       draggable="false"
                     />
                   ) : (
@@ -382,12 +386,12 @@ export function CraftingPage() {
                   aria-controls="item-input-panel"
                   onClick={() => setInputOpen((open) => !open)}
                 >
-                  {t('editItem')}
+                  Edit item
                 </button>
               </div>
               <div
                 role="group"
-                aria-label={t('favorites')}
+                aria-label="Shared material favorites"
                 className={`favorite-slots ${held ? 'is-placing' : ''}`}
               >
                 {favorites.map((resource, index) => (
@@ -399,10 +403,7 @@ export function CraftingPage() {
                       left: `${(652 + (index % 3) * 90) / 9.35}%`,
                       top: `${(40 + Math.floor(index / 3) * 100) / 5.5}%`,
                     }}
-                    aria-label={t(
-                      resource ? 'favoriteNamed' : 'favoriteEmpty',
-                      { slot: index + 1, name: resource?.name ?? '' },
-                    )}
+                    aria-label={`Favorite slot ${index + 1}: ${resource?.name ?? 'empty'}`}
                     aria-pressed={Boolean(
                       resource && selected?.id === resource.id,
                     )}
@@ -445,7 +446,7 @@ export function CraftingPage() {
             }}
             id="item-input-panel"
             className="item-input-panel detail-body"
-            aria-label={t('startItem')}
+            aria-label="Starting item"
             aria-busy={imported.pending}
           >
             <div className="item-input-content">
@@ -453,19 +454,19 @@ export function CraftingPage() {
                 ref={inputClose}
                 type="button"
                 className="input-close"
-                aria-label={t('closeInput')}
+                aria-label="Close item input"
                 onClick={closeInput}
               >
                 ×
               </button>
               <div className="input-heading">
-                <h3>{t('startItem')}</h3>
+                <h3>Starting item</h3>
                 <span>01</span>
               </div>
               <div
                 className="input-tabs"
                 role="group"
-                aria-label={t('inputMethod')}
+                aria-label="Item input method"
               >
                 <button
                   type="button"
@@ -475,21 +476,21 @@ export function CraftingPage() {
                     setInputMode('base')
                   }}
                 >
-                  {t('baseSelect')}
+                  Select base
                 </button>
                 <button
                   type="button"
                   aria-pressed={inputMode === 'text'}
                   onClick={() => setInputMode('text')}
                 >
-                  {t('itemText')}
+                  Item text
                 </button>
               </div>
               {inputMode === 'base' ? (
                 <div className="base-form">
-                  <label htmlFor="base-select">{t('amuletBase')}</label>
+                  <label htmlFor="base-select">Amulet base</label>
                   <select id="base-select" defaultValue="solar">
-                    <option value="solar">{t('solarAmulet')}</option>
+                    <option value="solar">Solar Amulet</option>
                   </select>
                   <button
                     type="button"
@@ -501,12 +502,14 @@ export function CraftingPage() {
                       closeInput()
                     }}
                   >
-                    {t('placeBase')} <span aria-hidden="true">↗</span>
+                    Place base <span aria-hidden="true">↗</span>
                   </button>
                 </div>
               ) : (
                 <div className="text-form">
-                  <label htmlFor="item-text">{t('pasteLabel')}</label>
+                  <label htmlFor="item-text">
+                    Item text copied from the game
+                  </label>
                   <textarea
                     id="item-text"
                     value={draft.text}
@@ -514,7 +517,9 @@ export function CraftingPage() {
                       imported.invalidate()
                       draft.setText(event.target.value)
                     }}
-                    placeholder={t('pastePlaceholder')}
+                    placeholder={
+                      'Hover over an item and press Ctrl+C\nPaste the copied text here.'
+                    }
                     aria-invalid={Boolean(imported.error)}
                     aria-describedby={
                       imported.error ? 'import-error' : undefined
@@ -522,7 +527,7 @@ export function CraftingPage() {
                   />
                   {imported.error && (
                     <p id="import-error" role="alert">
-                      {t(imported.error)}
+                      {imported.error}
                     </p>
                   )}
                   <button
@@ -531,7 +536,7 @@ export function CraftingPage() {
                     onClick={importText}
                     disabled={imported.pending}
                   >
-                    {t(imported.pending ? 'analyzing' : 'analyze')}{' '}
+                    {imported.pending ? 'Analyzing item…' : 'Analyze item'}{' '}
                     <span aria-hidden="true">↗</span>
                   </button>
                 </div>
@@ -541,19 +546,19 @@ export function CraftingPage() {
         </div>
       </div>
       <span className="sr-only" role="status">
-        {imported.pending ? t('analyzing') : announcement}
+        {imported.pending ? 'Analyzing item…' : announcement}
       </span>
       <footer className="craft-footer">
         <span>
-          EXILE HEPHAISTOS <span aria-hidden="true">/</span>{' '}
-          {t('personalWorkbench')}
+          EXILE HEPHAISTOS <span aria-hidden="true">/</span> Your personal
+          crafting workbench
         </span>
         <a
           href="https://poe2db.tw/us/Currency"
           target="_blank"
           rel="noreferrer"
         >
-          {t('imageCredit')}
+          Currency images · PoE2DB ↗
         </a>
       </footer>
       {tooltipsEnabled && !selected && <MaterialTooltip />}

@@ -1,8 +1,6 @@
 spring:
   application:
     name: poe2craft
-  autoconfigure:
-    exclude: org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration
   datasource:
     url: ${SPRING_DATASOURCE_URL}
     username: ${SPRING_DATASOURCE_USERNAME}
@@ -23,12 +21,6 @@ spring:
       connect-timeout: 2s
       timeout: 2s
 server:
-  servlet:
-    session:
-      cookie:
-        secure: ${APP_SESSION_COOKIE_SECURE:true}
-        http-only: true
-        same-site: lax
   error:
     include-message: never
     include-stacktrace: never
@@ -44,18 +36,8 @@ management:
         enabled: true
       group:
         readiness:
-          include: readinessState,db,catalog
+          include: readinessState,db,redis
 logging:
   structured:
     format:
       console: ecs
-app:
-  admin:
-    username: ${APP_ADMIN_USERNAME:}
-    password: ${APP_ADMIN_PASSWORD:}
-  crawl:
-    enabled: ${APP_CRAWL_ENABLED:false}
-    directory: ${APP_CRAWL_DIRECTORY:../data-pipeline/captures}
-    python: ${APP_CRAWL_PYTHON:python}
-  ai:
-    enabled: false

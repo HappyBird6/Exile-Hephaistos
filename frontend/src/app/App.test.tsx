@@ -1,5 +1,4 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { LocaleProvider } from '../shared/i18n/LocaleProvider'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { App } from './App'
@@ -11,15 +10,32 @@ const client = new QueryClient({
 function show() {
   return render(
     <QueryClientProvider client={client}>
-      <LocaleProvider initialLanguage="en">
-        <App />
-      </LocaleProvider>
+      <App />
     </QueryClientProvider>,
   )
 }
 afterEach(() => {
   client.clear()
   vi.unstubAllGlobals()
+})
+
+describe('Admin page', () => {
+  it.each(['/admin', '/admin/crawling'])(
+    'opens %s without credentials or a server request',
+    (path) => {
+      const fetch = vi.fn()
+      vi.stubGlobal('fetch', fetch)
+      window.history.replaceState({}, '', path)
+      show()
+      expect(screen.getByRole('heading', { name: 'Admin' })).toBeVisible()
+      expect(
+        screen.getByRole('link', { name: 'Crafting workbench' }),
+      ).toHaveAttribute('href', '/')
+      expect(screen.queryByRole('textbox')).not.toBeInTheDocument()
+      expect(window.location.pathname).toBe('/admin')
+      expect(fetch).not.toHaveBeenCalled()
+    },
+  )
 })
 
 describe('Crafting workbench', () => {

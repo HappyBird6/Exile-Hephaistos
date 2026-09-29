@@ -5,8 +5,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.poe2craft.bootstrap.AdminCredentials;
-import com.poe2craft.bootstrap.SecurityConfiguration;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -17,12 +15,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.test.web.servlet.MockMvc;
 
 @WebMvcTest(ItemTextController.class)
-@Import({
-  ItemTextService.class,
-  ItemTextErrors.class,
-  SecurityConfiguration.class,
-  AdminCredentials.class
-})
+@Import({ItemTextService.class, ItemTextErrors.class})
 class ItemTextControllerTest {
   @Autowired MockMvc mvc;
   @Autowired ObjectMapper mapper;
@@ -109,7 +102,7 @@ class ItemTextControllerTest {
   }
 
   @Test
-  void exactByteLimitIsAcceptedAndOnlyExactPostRouteIsPublic() throws Exception {
+  void exactByteLimitIsAcceptedAndUnknownRoutesAreAbsent() throws Exception {
     String prefix = "Item Class: Synthetic\nRarity: Normal\nBase\n--------\n";
     String text = prefix + "a".repeat(ItemTextService.MAX_TEXT_BYTES - prefix.length());
     mvc.perform(
@@ -117,8 +110,8 @@ class ItemTextControllerTest {
                 .contentType("application/json")
                 .content(mapper.writeValueAsString(Map.of("text", text))))
         .andExpect(status().isOk());
-    mvc.perform(get("/api/v1/items/parse")).andExpect(status().isForbidden());
-    mvc.perform(post("/api/v1/items/other")).andExpect(status().isForbidden());
-    mvc.perform(post("/api/v1/admin/crawl-runs")).andExpect(status().isForbidden());
+    mvc.perform(get("/api/v1/items/parse")).andExpect(status().isMethodNotAllowed());
+    mvc.perform(post("/api/v1/items/other")).andExpect(status().isNotFound());
+    mvc.perform(post("/api/v1/admin/crawl-runs")).andExpect(status().isNotFound());
   }
 }
