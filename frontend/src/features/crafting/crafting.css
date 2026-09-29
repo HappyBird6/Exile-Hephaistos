@@ -852,9 +852,6 @@
     grid-template-columns: 1fr;
     padding-top: 35px;
   }
-  .bench-lower > :last-child {
-    display: none;
-  }
   .material-entry {
     font-size: 8px !important;
     padding: 1px;

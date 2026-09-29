@@ -1,0 +1,121 @@
+.craft-explorer {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) minmax(300px, 1.4fr);
+  gap: 28px;
+  color: #d4d1c2;
+  min-width: 0;
+}
+.craft-explorer h2,
+.craft-explorer h3 {
+  color: #e1c387;
+  margin: 0 0 12px;
+}
+.craft-explorer p {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.craft-explorer button,
+.craft-explorer select {
+  color: #eee1c2;
+  background: #27312b;
+  border: 1px solid #655b43;
+  border-radius: 4px;
+  padding: 8px 10px;
+  font: inherit;
+  cursor: pointer;
+}
+.craft-explorer button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.craft-explorer button[aria-pressed='true'] {
+  background: #51452c;
+  border-color: #ddbc79;
+}
+.craft-explorer button:focus-visible,
+.craft-explorer select:focus-visible {
+  outline: 2px solid #ddbc79;
+  outline-offset: 3px;
+}
+.explorer-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.explorer-actions button {
+  width: 100%;
+  font-size: 12px;
+}
+.explorer-actions small {
+  display: block;
+  color: #aaa796;
+  font-size: 11px;
+  line-height: 1.4;
+  margin-top: 4px;
+}
+.transition-outcomes {
+  margin-top: 22px;
+}
+.craft-explorer ol {
+  list-style: none;
+  margin: 12px 0;
+  padding: 0;
+  max-height: 520px;
+  overflow: auto;
+}
+.craft-explorer li {
+  display: grid;
+  gap: 8px;
+  border-top: 1px solid #394034;
+  padding: 12px 2px;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.craft-explorer li strong {
+  color: #e1c387;
+}
+.craft-explorer li button {
+  justify-self: start;
+}
+.probability-source {
+  color: #aba896;
+  overflow-wrap: anywhere;
+}
+.probability-source a {
+  color: #d4bb87;
+}
+.future-plan {
+  border-top: 1px solid #655b43;
+  padding-top: 16px;
+  margin-top: 24px;
+}
+.future-plan summary {
+  cursor: pointer;
+  color: #e1c387;
+}
+.plan-inputs {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0;
+}
+.plan-inputs label {
+  display: grid;
+  gap: 5px;
+  font-size: 12px;
+}
+.exploration-summary dl {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px;
+  font-size: 12px;
+}
+.exploration-summary dd {
+  margin: 0;
+}
+@media (max-width: 760px) {
+  .craft-explorer {
+    grid-template-columns: 1fr;
+  }
+}

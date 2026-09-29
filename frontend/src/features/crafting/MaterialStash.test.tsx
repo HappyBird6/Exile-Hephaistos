@@ -283,13 +283,12 @@ describe('Material stash and shared favorites', () => {
     ).toMatchObject({ x: 329, y: 140 })
     expect(document.querySelector('.stash-inspector')).toBeNull()
     expect(document.querySelector('.item-panel')).toBeNull()
-    expect(document.querySelector('.bench-item-card')?.children).toHaveLength(1)
-    expect(document.querySelector('.bench-item-card')?.firstElementChild).toBe(
-      screen.getByRole('article'),
-    )
     expect(
-      document.querySelector('.bench-lower')?.lastElementChild,
-    ).toBeEmptyDOMElement()
+      screen.getByRole('region', { name: 'Crafting probability explorer' }),
+    ).toContainElement(screen.getByRole('article'))
+    expect(
+      screen.getByRole('heading', { name: 'Next possible states' }),
+    ).toBeVisible()
   })
 
   it('shows only the selected catalog while keeping fifteen favorites and the current card', () => {

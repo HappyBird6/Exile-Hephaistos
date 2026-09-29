@@ -6,7 +6,9 @@ type Draft = {
   source: 'base' | 'text'
   text: string
   currentText: ItemTextDocument
-  setBase: () => void
+  baseItemLevel: number
+  baseRevision: number
+  setBase: (itemLevel?: number) => void
   setText: (text: string) => void
   acceptText: (text: string) => void
 }
@@ -16,12 +18,16 @@ export const useItemDraft = create<Draft>((set) => ({
   source: 'base',
   text: baseText,
   currentText: { id: 'current', text: baseText },
-  setBase: () =>
-    set({
+  baseItemLevel: 82,
+  baseRevision: 0,
+  setBase: (itemLevel = 82) =>
+    set((old) => ({
       source: 'base',
       text: baseText,
       currentText: { id: 'current', text: baseText },
-    }),
+      baseItemLevel: itemLevel,
+      baseRevision: old.baseRevision + 1,
+    })),
   setText: (text) => set({ text }),
   acceptText: (text) =>
     set({ source: 'text', text, currentText: { id: 'current', text } }),

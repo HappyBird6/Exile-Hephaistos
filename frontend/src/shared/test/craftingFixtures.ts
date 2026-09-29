@@ -1,0 +1,150 @@
+import type {
+  Availability,
+  Bucket,
+  Initial,
+  Outcome,
+} from '../../features/crafting/craftingApi'
+import { actions } from '../../features/crafting/craftingApi'
+
+export const rootBucket: Bucket = {
+  snapshotId: 'fixture-v1',
+  baseItemId: 'solar',
+  itemLevel: 82,
+  rarity: 'NORMAL',
+  implicits: [
+    { modifierId: 'implicit', values: { base_spirit_from_equipment: 15 } },
+  ],
+  modifierIds: [],
+  conditions: [],
+}
+export function fixtureActions(state: Bucket): Availability[] {
+  return actions.map((action) => ({
+    action,
+    available:
+      state.rarity === 'NORMAL'
+        ? action === 'TRANSMUTATION'
+        : state.rarity === 'MAGIC'
+          ? (action === 'AUGMENTATION' && state.modifierIds.length < 2) ||
+            action === 'REGAL' ||
+            action === 'ANNULMENT'
+          : action === 'EXALTED' ||
+            action === 'CHAOS' ||
+            action === 'ANNULMENT',
+    reason: 'This currency is unavailable for this state.',
+  }))
+}
+export const initialFixture: Initial = {
+  ruleVersion: 'fixture-rules',
+  metadata: {
+    snapshotId: 'fixture-v1',
+    retrievedAt: '2026-09-29T00:00:00Z',
+    sourceUrl: 'https://poe2db.tw/us/Amulets#ModifiersCalc',
+  },
+  id: 'root',
+  state: rootBucket,
+  modifiers: {
+    implicit: {
+      id: 'implicit',
+      name: 'Spirit',
+      text: '+(10—15) to Spirit',
+      tier: 0,
+      affixType: 'NONE',
+      familyIds: ['Spirit'],
+    },
+    p: {
+      id: 'p',
+      name: 'Healthy',
+      text: '+(10—20) to maximum Life',
+      tier: 1,
+      affixType: 'PREFIX',
+      familyIds: ['Life'],
+    },
+    s: {
+      id: 's',
+      name: 'of Strength',
+      text: '+(5—8) to Strength',
+      tier: 1,
+      affixType: 'SUFFIX',
+      familyIds: ['Strength'],
+    },
+  },
+  actions: fixtureActions(rootBucket),
+}
+export const firstOutcomes: Outcome[] = [
+  {
+    id: 'magic-p',
+    state: { ...rootBucket, rarity: 'MAGIC', modifierIds: ['p'] },
+    probability: 0.6,
+  },
+  {
+    id: 'magic-s',
+    state: { ...rootBucket, rarity: 'MAGIC', modifierIds: ['s'] },
+    probability: 0.4,
+  },
+]
+export const jsonResponse = (value: unknown, status = 200) =>
+  new Response(JSON.stringify(value), {
+    status,
+    headers: { 'Content-Type': 'application/json' },
+  })
+export function fixtureFetch(
+  input: RequestInfo | URL,
+  init?: RequestInit,
+): Promise<Response> {
+  const url = String(input)
+  if (url.includes('/crafting/initial')) {
+    const level = Number(
+      new URL(url, 'http://localhost').searchParams.get('itemLevel') ?? 82,
+    )
+    return Promise.resolve(
+      jsonResponse({
+        ...initialFixture,
+        state: { ...rootBucket, itemLevel: level },
+      }),
+    )
+  }
+  const body = JSON.parse(String(init?.body ?? '{}')) as {
+    action: string
+    state: Bucket
+  }
+  if (url.endsWith('/actions'))
+    return Promise.resolve(
+      jsonResponse(fixtureActions(body as unknown as Bucket)),
+    )
+  if (url.endsWith('/transitions'))
+    return Promise.resolve(
+      jsonResponse({
+        fromId: 'root',
+        action: body.action,
+        available: true,
+        reason: '',
+        outcomes: body.state.modifierIds.length
+          ? [
+              {
+                id: 'magic-ps',
+                state: { ...body.state, modifierIds: ['p', 's'] },
+                probability: 1,
+              },
+            ]
+          : firstOutcomes.map((o) => ({
+              ...o,
+              state: { ...o.state, itemLevel: body.state.itemLevel },
+            })),
+      }),
+    )
+  if (url.endsWith('/explore'))
+    return Promise.resolve(
+      jsonResponse({
+        nodes: { root: body.state },
+        edges: [],
+        terminals: [
+          { id: 'root', step: 0, status: 'DEFERRED', probability: 1 },
+        ],
+        completedProbability: 0,
+        blockedProbability: 0,
+        unexploredProbability: 1,
+        complete: false,
+      }),
+    )
+  return Promise.reject(new Error(`Unexpected test request: ${url}`))
+}

@@ -1,6 +1,10 @@
 import '@testing-library/jest-dom/vitest'
 import { cleanup } from '@testing-library/react'
-import { afterEach } from 'vitest'
+import { afterEach, beforeEach, vi } from 'vitest'
+import { fixtureFetch } from './craftingFixtures'
+
+beforeEach(() => vi.stubGlobal('fetch', fixtureFetch))
+afterEach(() => vi.unstubAllGlobals())
 
 afterEach(cleanup)
 

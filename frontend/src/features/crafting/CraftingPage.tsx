@@ -14,6 +14,9 @@ import {
 } from './materials'
 import type { Material, MaterialTab } from './materials'
 import { useItemDraft } from './draft'
+import { CraftingExplorer } from './CraftingExplorer'
+import { currencyActions } from './craftingApi'
+import type { Action } from './craftingApi'
 import './crafting.css'
 
 function tooltipEvents(id: string) {
@@ -40,6 +43,11 @@ export function CraftingPage() {
   const [inputMode, setInputMode] = useState<'base' | 'text'>('base')
   const [inputOpen, setInputOpen] = useState(false)
   const [announcement, setAnnouncement] = useState('')
+  const [baseLevel, setBaseLevel] = useState('82')
+  const [previewRequest, setPreviewRequest] = useState<{
+    count: number
+    action: Action | null
+  }>({ count: 0, action: null })
   const inputToggle = useRef<HTMLButtonElement>(null)
   const inputClose = useRef<HTMLButtonElement>(null)
 
@@ -78,10 +86,26 @@ export function CraftingPage() {
     setAnnouncement(`${resource.name} selected · Click the central item.`)
   }
   function apply() {
+    if (!selected) {
+      setAnnouncement('Select a currency from the stash first.')
+      return
+    }
+    if (draft.source !== 'base') {
+      setAnnouncement(
+        'The item has not changed. Pasted items are display-only. Select the Solar Amulet base to explore probabilities.',
+      )
+      return
+    }
+    const action = currencyActions[selected.id]
+    if (!action) {
+      setAnnouncement(
+        'The item has not changed. This currency is not supported by the current probability explorer.',
+      )
+      return
+    }
+    setPreviewRequest((old) => ({ count: old.count + 1, action }))
     setAnnouncement(
-      selected
-        ? 'Crafting effects are not connected yet. The item has not changed.'
-        : 'Select a currency from the stash first.',
+      'Showing possible outcomes below. The item has not changed.',
     )
   }
   async function importText() {
@@ -152,22 +176,7 @@ export function CraftingPage() {
   }
   const matchingEssenceRows = essenceRows(search)
   const cursor = held ?? selected
-  const card =
-    draft.source === 'base'
-      ? {
-          rarity: 'NORMAL' as const,
-          name: 'Solar Amulet',
-          base: 'Solar Amulet',
-          itemClass: 'Amulet',
-          itemLevel: null,
-          properties: [],
-          requirements: [],
-          modifiers: [],
-          flags: [],
-        }
-      : item
-        ? toItemCard(item)
-        : null
+  const card = item ? toItemCard(item) : null
 
   return (
     <main
@@ -203,7 +212,7 @@ export function CraftingPage() {
         </div>
         <span className="preview-badge">
           <i />
-          Interaction preview
+          Solar Amulet · Base modifiers
         </span>
       </div>
       <div
@@ -429,10 +438,23 @@ export function CraftingPage() {
               </div>
             </div>
             <div className="bench-lower">
-              <div className="bench-item-card">
-                {card && <ItemCard item={card} />}
-              </div>
-              <div aria-hidden="true" />
+              {draft.source === 'base' ? (
+                <CraftingExplorer
+                  key={draft.baseRevision}
+                  level={draft.baseItemLevel}
+                  revision={draft.baseRevision}
+                  requestCount={previewRequest.count}
+                  requestedAction={previewRequest.action}
+                />
+              ) : (
+                <div className="bench-item-card">
+                  {card && <ItemCard item={card} />}
+                  <p>
+                    Pasted items are display-only. Select the Solar Amulet base
+                    to explore probabilities.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
           <dialog
@@ -492,12 +514,28 @@ export function CraftingPage() {
                   <select id="base-select" defaultValue="solar">
                     <option value="solar">Solar Amulet</option>
                   </select>
+                  <label htmlFor="base-level">Item level</label>
+                  <input
+                    id="base-level"
+                    type="number"
+                    min="1"
+                    max="100"
+                    step="1"
+                    value={baseLevel}
+                    onChange={(e) => setBaseLevel(e.target.value)}
+                  />
                   <button
                     type="button"
                     className="primary-action"
+                    disabled={
+                      !Number.isInteger(Number(baseLevel)) ||
+                      Number(baseLevel) < 1 ||
+                      Number(baseLevel) > 100
+                    }
                     onClick={() => {
                       imported.invalidate()
-                      draft.setBase()
+                      draft.setBase(Number(baseLevel))
+                      setPreviewRequest({ count: 0, action: null })
                       setSelected(null)
                       closeInput()
                     }}

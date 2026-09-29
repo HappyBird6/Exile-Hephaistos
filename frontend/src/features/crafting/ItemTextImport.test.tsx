@@ -10,6 +10,7 @@ import {
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { CraftingPage } from './CraftingPage'
 import { useItemDraft } from './draft'
+import { fixtureFetch } from '../../shared/test/craftingFixtures'
 import type { Item, TextLine } from './itemModels'
 
 const raw =
@@ -67,7 +68,11 @@ beforeEach(() => {
   useItemDraft.getState().setBase()
   client = new QueryClient({ defaultOptions: { mutations: { retry: false } } })
   fetchMock = vi.fn<typeof fetch>().mockResolvedValue(json(result()))
-  vi.stubGlobal('fetch', fetchMock)
+  vi.stubGlobal('fetch', (input: RequestInfo | URL, init?: RequestInit) =>
+    String(input).includes('/api/v1/crafting/')
+      ? fixtureFetch(input, init)
+      : fetchMock(input, init),
+  )
   localStorage.clear()
 })
 afterEach(() => {
