@@ -13,6 +13,7 @@
 - `/admin`: 인증 없이 접근하는 최소 페이지. 현재 관리 도구는 없다.
 - PostgreSQL·Redis 및 기존 JPA·jOOQ·Flyway 기반은 다음 작업을 위해 유지한다.
 - 주석만 있는 제작 관련 준비 파일은 사용자가 다음 작업에서 사용할 것이므로 유지한다.
+- Solar Amulet용 ItemState·modifier 모델·검증기와 PoE2DB Base 속성 스냅샷은 구현되어 있다. [ItemState 명세](docs/item-state.md)를 따른다. 표시용 파서와 API·UI 연결 및 확률 엔진은 아직 없다.
 
 요청 없이 미래 기능·추상화·외부 연동·의존성·CI를 추가하지 않는다. 새 기능은 실제 요청 시 명세와 필요한 구현을 함께 작성한다.
 상세 기준은 [기술 명세](docs/TECHNICAL_SPEC.md), [아이템 파싱](docs/item-text-parsing.md), [지원 범위](docs/supported-mechanics.md)를 따른다.

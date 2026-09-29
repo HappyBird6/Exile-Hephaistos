@@ -17,6 +17,21 @@ class ArchitectureTest {
     slices().matching("com.poe2craft.(*)..").should().beFreeOfCycles().check(classes);
     noClasses()
         .that()
+        .haveNameMatching(
+            "com\\.poe2craft\\.item\\.(ItemState|ModifierInstance|ModifierDefinition|ItemCatalog|ItemStateValidator|SolarAmulet)(\\$.*)?")
+        .should()
+        .dependOnClassesThat()
+        .resideInAnyPackage(
+            "org.springframework..",
+            "com.fasterxml.jackson..",
+            "jakarta.persistence..",
+            "org.jooq..",
+            "java.net..",
+            "java.sql..",
+            "com.poe2craft.item.infrastructure..")
+        .check(classes);
+    noClasses()
+        .that()
         .resideInAPackage("..domain..")
         .should()
         .dependOnClassesThat()

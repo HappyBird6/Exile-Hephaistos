@@ -24,7 +24,8 @@ Actuator는 health만 노출하며 상세 정보는 숨긴다. liveness는 프�
 사용자 요청으로 PostgreSQL 17.6·Redis 7.4.5, JPA·jOOQ·Flyway·codegen과 격리된 통합 테스트를 유지한다. 다음 기능을 위한 연결 기반이며 현재 아이템 분석 결과를 DB에 저장하지 않는다.
 Hibernate는 `ddl-auto=validate`, OSIV off다. jOOQ codegen은 임시 PostgreSQL에 migration을 적용해 생성한다.
 기존 migration 두 개는 변경하지 않는다. 과거 기능의 table과 사용하지 않는 schema가 남아 있지만 실행 코드·API는 없고, 관련 schema를 위한 새 codegen은 하지 않는다. 기존 설치와 Flyway 이력 호환을 위한 보존이며 데이터 삭제를 자동 수행하지 않는다.
-주석만 있는 ItemState·Modifier·CurrencyRuleDefinition·CraftingEngine·ExaltedAction 준비 파일은 유지한다.
+Solar Amulet용 불변 ItemState·ModifierDefinition·ModifierInstance·검증기와 PoE2DB Base 속성 JSON 스냅샷을 제공한다. 상세 기준은 [ItemState 명세](item-state.md)를 따른다. 스냅샷 로더는 번들 파일만 읽으며 런타임 외부 조회·DB 저장·확률 계산은 하지 않는다.
+Modifier·CurrencyRuleDefinition·CraftingEngine·ExaltedAction의 나머지 준비 파일은 유지한다.
 
 ## Frontend
 
