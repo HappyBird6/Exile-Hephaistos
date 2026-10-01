@@ -1,6 +1,6 @@
 # Exile-Hephaistos
 
-영어 PoE2 아이템 복사 텍스트를 분석하고 Solar Amulet의 제작 확률을 탐색하는 작업대입니다. PoE2DB Base 속성 가중치로 일반 화폐 6종의 다음 상태와 제한된 화폐 순서를 계산합니다. 화폐 소모나 무작위 수치 roll은 하지 않으며, 붙여넣은 아이템은 표시용입니다. [ItemState·확률 탐색 명세](docs/item-state.md).
+영어 PoE2 아이템 복사 텍스트를 분석하고 Solar Amulet을 제작하거나 확률을 탐색하는 작업대입니다. Workbench는 일반 화폐 6종을 현재 아이템에 적용하고 같은 탭에서 실제 결과를 표시합니다. 속성 선택은 PoE2DB Base 게시 가중치, 수치 roll과 제거는 명시한 균등 확률 가정을 사용합니다. 재료 수량·비용은 계산하지 않으며, 붙여넣은 아이템은 표시용입니다. [Workbench·registry·가정 ledger](docs/workbench-simulator.md), [ItemState·확률 탐색 명세](docs/item-state.md).
 
 - `/`: 재료 탭·검색·툴팁·즐겨찾기·아이템 입력과 카드.
 - `/admin`: 로그인 없이 접근하는 최소 관리 페이지. 현재 관리 도구는 없습니다.
@@ -83,3 +83,5 @@ GitHub Actions는 사용하지 않습니다. `.gitattributes`는 Windows/Linux �
 - 주석만 있는 제작 관련 준비 파일은 다음 작업을 위해 유지합니다.
 - [기술 명세](docs/TECHNICAL_SPEC.md), [아이템 분석](docs/item-text-parsing.md), [제작 자산 출처](docs/crafting-ui.md), [지원 범위](docs/supported-mechanics.md).
 - [Worker 운영 명세](docs/solo-workflow/MULTI_SESSION_WORKFLOW.md).
+
+Solar Workbench v2: 17 currencies and 8 omens. See [supported and blocked inventory](docs/workbench-support-v2.md) and [rules, assumptions, and Support preparation](docs/workbench-simulator.md).

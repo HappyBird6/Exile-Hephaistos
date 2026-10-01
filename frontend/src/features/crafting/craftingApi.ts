@@ -39,6 +39,9 @@ export interface Definition {
   tier: number
   affixType: 'NONE' | 'PREFIX' | 'SUFFIX'
   familyIds: string[]
+  layer?: string
+  stats?: { id: string; min: number; max: number }[]
+  tags?: string[]
 }
 export interface Availability {
   action: Action
@@ -181,6 +184,17 @@ export async function loadInitial(
         typeof d.name === 'string' &&
         Number.isInteger(d.tier) &&
         strings(d.familyIds) &&
+        (d.layer === undefined || typeof d.layer === 'string') &&
+        (d.tags === undefined || strings(d.tags)) &&
+        (d.stats === undefined ||
+          (Array.isArray(d.stats) &&
+            d.stats.every(
+              (s) =>
+                object(s) &&
+                typeof s.id === 'string' &&
+                Number.isFinite(s.min) &&
+                Number.isFinite(s.max),
+            ))) &&
         ['NONE', 'PREFIX', 'SUFFIX'].includes(String(d.affixType)),
     )
   )

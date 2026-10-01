@@ -40,6 +40,76 @@ function show(level = 82) {
 }
 
 describe('Crafting probability explorer', () => {
+  it('expands grouped tiers and follows the exact tier probability, then returns to a chosen step', async () => {
+    const p = {
+      ...initialFixture.modifiers.p!,
+      layer: 'EXPLICIT',
+      tags: ['life'],
+      stats: [{ id: 'life', min: 10, max: 20 }],
+    }
+    const p2 = {
+      ...p,
+      id: 'p2',
+      tier: 2,
+      text: '+(1?9) to maximum Life',
+      stats: [{ id: 'life', min: 1, max: 9 }],
+    }
+    vi.stubGlobal('fetch', (url: RequestInfo | URL, init?: RequestInit) => {
+      if (String(url).includes('/initial'))
+        return Promise.resolve(
+          jsonResponse({
+            ...initialFixture,
+            modifiers: { ...initialFixture.modifiers, p, p2 },
+          }),
+        )
+      if (String(url).endsWith('/transitions'))
+        return Promise.resolve(
+          jsonResponse({
+            fromId: 'root',
+            action: 'TRANSMUTATION',
+            available: true,
+            reason: '',
+            outcomes: [
+              firstOutcomes[0],
+              {
+                ...firstOutcomes[0],
+                id: 'tier-2',
+                probability: 0.4,
+                state: { ...firstOutcomes[0]!.state, modifierIds: ['p2'] },
+              },
+            ],
+          }),
+        )
+      return fixtureFetch(url, init)
+    })
+    show()
+    fireEvent.click(
+      await screen.findByRole('button', {
+        name: 'Preview Orb of Transmutation',
+      }),
+    )
+    const summary = await screen.findByText(/2 tier combinations/)
+    expect(summary.closest('details')).not.toHaveAttribute('open')
+    fireEvent.click(summary.closest('summary')!)
+    expect(summary.closest('details')).toHaveAttribute('open')
+    const buttons = screen.getAllByRole('button', {
+      name: 'Explore this state',
+    })
+    expect(buttons).toHaveLength(2)
+    fireEvent.click(buttons[1]!)
+    expect(screen.getByRole('article')).toHaveTextContent(
+      '+(1?9) to maximum Life',
+    )
+    expect(screen.getByText(/Selected path probability: 40%/)).toBeVisible()
+    expect(
+      screen.getByRole('list', { name: 'Selected crafting path' }),
+    ).toHaveTextContent('Orb of Transmutation')
+    fireEvent.click(screen.getByRole('button', { name: 'Return to step 1' }))
+    expect(screen.getByRole('article')).toHaveClass('item-card--normal')
+    expect(
+      screen.queryByRole('button', { name: 'Return to step 1' }),
+    ).not.toBeInTheDocument()
+  })
   it('loads the initial state and source, previews outcomes, follows a branch and returns', async () => {
     show()
     expect(
@@ -171,7 +241,7 @@ describe('Crafting probability explorer', () => {
     ).not.toBeInTheDocument()
   })
 
-  it('uses the chosen base level and connects central currency clicks', async () => {
+  it('applies to the chosen base in Workbench and preserves the independent explorer path', async () => {
     render(
       <QueryClientProvider client={client}>
         <CraftingPage />
@@ -185,6 +255,21 @@ describe('Crafting probability explorer', () => {
     await waitFor(() =>
       expect(screen.getByRole('article')).toHaveTextContent('70'),
     )
+    fireEvent.click(screen.getByRole('tab', { name: 'State explorer' }))
+    fireEvent.click(
+      await screen.findByRole('button', {
+        name: 'Preview Orb of Transmutation',
+      }),
+    )
+    fireEvent.click(
+      (
+        await screen.findAllByRole('button', { name: 'Explore this state' })
+      )[0]!,
+    )
+    expect(
+      screen.getByRole('button', { name: 'Return to step 1' }),
+    ).toBeVisible()
+    fireEvent.click(screen.getByRole('tab', { name: 'Crafting Workbench' }))
     fireEvent.click(
       screen.getByRole('button', { name: 'Orb of Transmutation' }),
     )
@@ -193,10 +278,35 @@ describe('Crafting probability explorer', () => {
         name: 'Use selected currency on the central item',
       }),
     )
+    await waitFor(() =>
+      expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
+    )
+    expect(screen.getByRole('article')).toHaveTextContent('+17 to maximum Life')
     expect(
-      (await screen.findAllByRole('button', { name: 'Explore this state' }))
-        .length,
-    ).toBe(2)
+      screen.getByRole('tab', { name: 'Crafting Workbench' }),
+    ).toHaveAttribute('aria-selected', 'true')
+    fireEvent.click(screen.getByText('Last craft and roll assumptions'))
+    expect(screen.getByText(/Uniform assumption: life, N = 11/)).toBeVisible()
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Orb of Transmutation' }),
+    )
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: 'Use selected currency on the central item',
+      }),
+    )
+    await waitFor(() =>
+      expect(screen.getByRole('status')).toHaveTextContent(
+        'cannot be used on this rarity',
+      ),
+    )
+    expect(screen.getByRole('article')).toHaveTextContent('+17 to maximum Life')
+    fireEvent.click(screen.getByRole('tab', { name: 'State explorer' }))
+    expect(
+      screen.getByRole('button', { name: 'Return to step 1' }),
+    ).toBeVisible()
+    fireEvent.click(screen.getByRole('tab', { name: 'Crafting Workbench' }))
+    expect(screen.getByRole('article')).toHaveClass('item-card--magic')
   })
 
   it('rejects a response for another snapshot', async () => {

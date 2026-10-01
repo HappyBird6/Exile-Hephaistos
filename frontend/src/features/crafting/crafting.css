@@ -1010,3 +1010,123 @@ dialog.item-input-panel::backdrop {
 .tooltip-toggle input {
   accent-color: #be9b55;
 }
+
+.craft-page {
+  max-width: 1800px;
+  width: 100%;
+  margin: 0 auto;
+}
+.workspace-nav {
+  border-bottom: 1px solid #494737;
+  padding-top: 12px;
+}
+.workspace-nav [role='tablist'] {
+  display: flex;
+  gap: 8px;
+}
+.workspace-nav button,
+.explorer-toolbar button {
+  background: #20251f;
+  color: #b6b7a9;
+  border: 1px solid #494737;
+  padding: 14px 20px;
+  border-radius: 8px 8px 0 0;
+}
+.workspace-nav button span {
+  margin-right: 12px;
+  color: #9e8960;
+}
+.workspace-nav button[aria-selected='true'] {
+  color: #efdcad;
+  background: #34382a;
+  border-bottom: 2px solid #d7bc82;
+}
+.workspace-nav button:focus-visible,
+.explorer-toolbar button:focus-visible {
+  outline: 2px solid #d7bc82;
+  outline-offset: 3px;
+}
+.admin-link {
+  color: #b6b7a9;
+  text-decoration: none;
+}
+.workbench-layout {
+  max-width: none;
+}
+[hidden] {
+  display: none !important;
+}
+.explorer-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.explorer-toolbar label {
+  display: grid;
+  gap: 8px;
+  color: #b6b7a9;
+}
+.explorer-toolbar input {
+  background: #191d1b;
+  color: #efdcad;
+  padding: 10px;
+  border: 1px solid #655b43;
+  border-radius: 6px;
+  width: 120px;
+}
+.explorer-toolbar button {
+  border-radius: 6px;
+}
+@media (max-width: 600px) {
+  .workspace-nav button {
+    padding: 12px 10px;
+    font-size: 12px;
+  }
+  .workspace-nav button span {
+    margin-right: 6px;
+  }
+  .craft-title {
+    flex-wrap: wrap;
+  }
+  .bench-bottom {
+    grid-template-columns: 1fr;
+  }
+}
+.workbench-feedback,
+.workbench-assumptions {
+  overflow-wrap: anywhere;
+}
+
+.workbench-omens {
+  border: 1px solid #75663a;
+  margin-bottom: 18px;
+  padding: 14px;
+  min-width: 0;
+}
+.workbench-omen-panel {
+  margin-bottom: 18px;
+}
+.workbench-omen-panel > summary {
+  cursor: pointer;
+  padding: 14px;
+  border: 1px solid #75663a;
+}
+.workbench-omen-panel[open] > summary {
+  margin-bottom: 12px;
+}
+.workbench-omens label {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  padding: 7px 0;
+  cursor: pointer;
+}
+.workbench-omens small {
+  display: block;
+  color: #b7b6a9;
+}
+.workbench-omens p {
+  margin-top: 0;
+}

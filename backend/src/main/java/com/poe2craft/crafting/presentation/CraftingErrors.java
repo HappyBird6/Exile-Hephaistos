@@ -7,7 +7,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
-@RestControllerAdvice(assignableTypes = CraftingController.class)
+@RestControllerAdvice(
+    assignableTypes = {
+      CraftingController.class,
+      WorkbenchController.class,
+      SupportController.class,
+      SupportRecommendationController.class
+    })
 public final class CraftingErrors {
   @ExceptionHandler(IllegalArgumentException.class)
   public ProblemDetail invalid() {

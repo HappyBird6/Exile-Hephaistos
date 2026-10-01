@@ -48,6 +48,46 @@ class InfrastructureIntegrationTest {
   @Autowired MockMvc mvc;
   @Autowired jakarta.persistence.EntityManager entityManager;
   @Autowired org.springframework.transaction.support.TransactionTemplate transaction;
+  @Autowired com.poe2craft.crafting.application.AdditionPoolStore supportPools;
+  @Autowired com.poe2craft.item.ItemCatalog itemCatalog;
+
+  @Test
+  void supportPoolSurvivesAColdCacheAndKeepsVersionNamespacesSeparate() {
+    var root =
+        com.poe2craft.crafting.domain.StateBucket.from(
+            com.poe2craft.item.SolarAmulet.initial(itemCatalog));
+    var first =
+        new com.poe2craft.crafting.application.AdditionPoolCache(
+            itemCatalog, supportPools, "integration-rule", "integration-ledger", 2);
+    var expected =
+        first.get(
+            root,
+            com.poe2craft.crafting.domain.WorkbenchCurrency.PERFECT_TRANSMUTATION,
+            java.util.Set.of());
+    var fresh =
+        new com.poe2craft.crafting.application.AdditionPoolCache(
+            itemCatalog, supportPools, "integration-rule", "integration-ledger", 2);
+    assertThat(
+            fresh.get(
+                root,
+                com.poe2craft.crafting.domain.WorkbenchCurrency.PERFECT_TRANSMUTATION,
+                java.util.Set.of()))
+        .isEqualTo(expected);
+    assertThat(fresh.stats().persistedHits()).isEqualTo(1);
+    var changed =
+        new com.poe2craft.crafting.application.AdditionPoolCache(
+            itemCatalog, supportPools, "integration-next-rule", "integration-ledger", 2);
+    changed.get(
+        root,
+        com.poe2craft.crafting.domain.WorkbenchCurrency.PERFECT_TRANSMUTATION,
+        java.util.Set.of());
+    assertThat(changed.stats().persistedHits()).isZero();
+    assertThat(changed.stats().computedPools()).isEqualTo(1);
+    assertThat(
+            dsl.fetchOne("select count(distinct namespace) from crafting.support_addition_pool")
+                .get(0, Long.class))
+        .isGreaterThanOrEqualTo(2);
+  }
 
   @Test
   void jpaFlushIsVisibleToJooqAndRollbackIsShared() {
@@ -66,7 +106,7 @@ class InfrastructureIntegrationTest {
 
   @Test
   void emptyDatabaseMigratesAndRestartDoesNotReapplyMigration() {
-    assertThat(flyway.info().applied()).hasSize(3);
+    assertThat(flyway.info().applied()).hasSize(4);
     assertThat(flyway.migrate().migrationsExecuted).isZero();
     assertThat(
             dsl.fetchCount(
