@@ -37,6 +37,47 @@ async function selectAndApply() {
   )
 }
 describe('Workbench actual application', () => {
+  it('labels user conjectures separately from verified probability and restores saved films', async () => {
+    vi.stubGlobal(
+      'fetch',
+      async (url: RequestInfo | URL, init?: RequestInit) => {
+        const response = await fixtureFetch(url, init)
+        if (!String(url).endsWith('/workbench/apply')) return response
+        const result = await response.json()
+        result.assumptions.push({
+          id: 'user-coupled-ratio-half-up-v1',
+          candidateUnit: 'assumed ratio ticks, not rounded outcomes',
+          n: 10001,
+          candidates: [],
+          min: 0,
+          max: 10000,
+          sourceUrl: 'https://poe2db.tw/us/Gloves_str',
+          reason: 'Unverified user conjecture; HALF_UP; ISSUES.md WB-001.',
+        })
+        return jsonResponse(result)
+      },
+    )
+    const mounted = show()
+    await selectAndApply()
+    await waitFor(() =>
+      expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
+    )
+    fireEvent.click(screen.getByText('Last craft and roll assumptions'))
+    expect(screen.getByText(/Unverified coupled roll model/)).toHaveTextContent(
+      'not rounded outcomes',
+    )
+    expect(screen.getByText(/Unverified coupled roll model/)).toHaveTextContent(
+      'WB-001',
+    )
+    const stored = window.localStorage.getItem(historyStorageKey)
+    expect(stored).not.toBeNull()
+    mounted.unmount()
+    show()
+    await waitFor(() =>
+      expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
+    )
+    expect(window.localStorage.getItem(historyStorageKey)).toBe(stored)
+  })
   it('preserves the original future when crafting from a prior step and restores films after remount', async () => {
     vi.stubGlobal('fetch', fixtureFetch)
     const mounted = show()

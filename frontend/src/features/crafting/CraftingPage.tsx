@@ -1058,10 +1058,13 @@ export function CraftingPage() {
                       {workbench.data.assumptions.length ? (
                         workbench.data.assumptions.map((a, i) => (
                           <p key={`${a.id}-${i}`}>
-                            Uniform assumption: {a.candidateUnit}, N = {a.n},
-                            each candidate = 1/{a.n}.{' '}
+                            {a.id === 'user-coupled-ratio-half-up-v1'
+                              ? 'Unverified coupled roll model'
+                              : 'Uniform assumption'}
+                            : {a.candidateUnit}, N = {a.n}, each candidate = 1/
+                            {a.n}.{' '}
                             {a.min !== null
-                              ? `Source range ${a.min} to ${a.max}. `
+                              ? `${a.id === 'user-coupled-ratio-half-up-v1' ? 'Assumed ratio tick range' : 'Source range'} ${a.min} to ${a.max}. `
                               : ''}
                             {a.reason}{' '}
                             <a

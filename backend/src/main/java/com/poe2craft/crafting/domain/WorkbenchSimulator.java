@@ -10,9 +10,25 @@ public final class WorkbenchSimulator {
   public static final String LEDGER_VERSION = "solar-uniform-assumptions-v10";
   private final ItemCatalog catalog;
   private final AdditionRules additionRules;
+  private final Set<String> coupledModifierIds;
 
   public WorkbenchSimulator(ItemCatalog catalog, CraftingEngine engine) {
+    this(catalog, engine, Set.of());
+  }
+
+  /** Explicit opt-in for source-proven multi-stat definitions; never prunes a catalog. */
+  public WorkbenchSimulator(
+      ItemCatalog catalog, CraftingEngine engine, Set<String> coupledModifierIds) {
     this.catalog = Objects.requireNonNull(catalog);
+    this.coupledModifierIds = Set.copyOf(coupledModifierIds);
+    for (var id : this.coupledModifierIds) {
+      var definition =
+          catalog
+              .find(id)
+              .orElseThrow(() -> new IllegalArgumentException("Unknown coupled modifier"));
+      if (definition.stats().size() < 2)
+        throw new IllegalArgumentException("Coupled opt-in requires multiple source stats");
+    }
     Objects.requireNonNull(engine);
     additionRules = new AdditionRules(catalog);
   }
@@ -453,6 +469,8 @@ public final class WorkbenchSimulator {
 
   private ModifierInstance roll(
       ModifierDefinition definition, RandomGenerator random, List<Assumption> assumptions) {
+    if (coupledModifierIds.contains(definition.id()))
+      return CoupledStatRollModel.roll(definition, random, assumptions);
     if (definition.stats().size() != 1)
       throw new IllegalArgumentException("Joint stat roll domain needs verification");
     var range = definition.stats().getFirst();
