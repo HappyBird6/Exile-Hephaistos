@@ -38,6 +38,7 @@ import {
   recordCraft,
   viewFrame,
   verifiedHistoryState,
+  verifiedFrameEvidence,
   upgradeCompatibleFilms,
 } from './workbenchHistory'
 import type { Films } from './workbenchHistory'
@@ -55,6 +56,10 @@ const workspaceNames = {
 }
 
 type Selection = { id: string; name: string; image: string }
+
+function filmId() {
+  return `${Date.now()}-${Math.random().toString(36).slice(2)}`
+}
 
 export function CraftingPage() {
   const client = useQueryClient()
@@ -99,7 +104,6 @@ export function CraftingPage() {
     }
     setFilmState({ ...filmState, history, revision, error })
   }
-  const filmId = () => `${Date.now()}-${Math.random().toString(36).slice(2)}`
   const [view, setView] = useState<(typeof workspaceTabs)[number]>('workbench')
   const imported = useItemTextImport()
   const dialog = useRef<HTMLDialogElement>(null)
@@ -118,7 +122,14 @@ export function CraftingPage() {
   const [inputOpen, setInputOpen] = useState(false)
   const [announcement, setAnnouncement] = useState('')
   const [altHeld, setAltHeld] = useState(false)
-  const [applying, setApplying] = useState<AbortController | null>(null)
+  const [pendingApplication, setApplying] = useState<{
+    controller: AbortController
+    revision: number
+  } | null>(null)
+  const applying =
+    pendingApplication?.revision === draft.baseRevision
+      ? pendingApplication.controller
+      : null
   const applyingRequest = useRef<AbortController | null>(null)
   const initial = useQuery({
     queryKey: ['crafting', 'initial', catalogLevel],
@@ -296,7 +307,7 @@ export function CraftingPage() {
     }
     const controller = new AbortController()
     applyingRequest.current = controller
-    setApplying(controller)
+    setApplying({ controller, revision: draft.baseRevision })
     const revision = draft.baseRevision
     const state =
       restoredState ??
@@ -375,7 +386,7 @@ export function CraftingPage() {
     const controller = new AbortController()
     const revision = draft.baseRevision
     applyingRequest.current = controller
-    setApplying(controller)
+    setApplying({ controller, revision: draft.baseRevision })
     try {
       const result = await mapSolarText(
         imported.data.text.originalText,
@@ -494,6 +505,15 @@ export function CraftingPage() {
   const matchingEssenceRows = essenceRows(search)
   const cursor = held ?? selected
   const concrete = restoredState ?? workbench.data?.state ?? mapping.data?.state
+  const craftEvidence =
+    storedFrame && initial.data
+      ? verifiedFrameEvidence(storedFrame, initial.data)
+      : workbench.data &&
+          JSON.stringify(concrete) === JSON.stringify(workbench.data.state)
+        ? workbench.data
+        : undefined
+  const evidenceInvalid =
+    storedFrame?.evidence !== undefined && restoredValid && !craftEvidence
   const card =
     item && !concrete
       ? toItemCard(item)
@@ -781,9 +801,7 @@ export function CraftingPage() {
                     className={`item-slot ${selected ? 'is-ready' : ''}`}
                     type="button"
                     aria-label="Use selected currency on the central item"
-                    disabled={
-                      applying !== null && applyingRequest.current !== null
-                    }
+                    disabled={applying !== null}
                     onClick={(event) => void apply(event.shiftKey)}
                   >
                     {draft.source === 'base' ? (
@@ -995,7 +1013,7 @@ export function CraftingPage() {
                   <button
                     type="button"
                     onClick={() => void enableCrafting()}
-                    disabled={applyingRequest.current !== null || !initial.data}
+                    disabled={applying !== null || !initial.data}
                   >
                     Enable Solar crafting
                   </button>
@@ -1024,66 +1042,70 @@ export function CraftingPage() {
                     </button>
                   </p>
                 )}
-                {applying && applyingRequest.current && <p>Updating item...</p>}
+                {applying && <p>Updating item...</p>}
                 {announcement && (
                   <p className="workbench-feedback">{announcement}</p>
                 )}
-                {workbench.data &&
-                  JSON.stringify(concrete) ===
-                    JSON.stringify(workbench.data.state) && (
-                    <details className="workbench-assumptions">
-                      <summary>Last craft and roll assumptions</summary>
+                {evidenceInvalid && (
+                  <p role="alert">
+                    Saved craft evidence could not be verified. Item history is
+                    preserved.
+                  </p>
+                )}
+                {craftEvidence && (
+                  <details className="workbench-assumptions">
+                    <summary>Last craft and roll assumptions</summary>
+                    <p>
+                      {workbenchActionNames[craftEvidence.action]} applied.{' '}
+                      {craftEvidence.events.some(
+                        (event) => event.kind === 'ADD',
+                      )
+                        ? 'New modifier selected using PoE2DB published modifier weights.'
+                        : craftEvidence.action === 'DIVINE'
+                          ? 'Numeric values rerolled within their current source ranges.'
+                          : 'Modifier removal uses the uniform assumption listed below.'}
+                    </p>
+                    <p>
+                      {craftEvidence.ruleVersion} /{' '}
+                      {craftEvidence.ledgerVersion}
+                    </p>
+                    {craftEvidence.consumedOmens.length > 0 && (
                       <p>
-                        {workbenchActionNames[workbench.data.action]} applied.{' '}
-                        {workbench.data.events.some(
-                          (event) => event.kind === 'ADD',
-                        )
-                          ? 'New modifier selected using PoE2DB published modifier weights.'
-                          : workbench.data.action === 'DIVINE'
-                            ? 'Numeric values rerolled within their current source ranges.'
-                            : 'Modifier removal uses the uniform assumption listed below.'}
+                        Consumed omens:{' '}
+                        {craftEvidence.consumedOmens
+                          .map((id) => id.replaceAll('_', ' '))
+                          .join(', ')}
                       </p>
-                      <p>
-                        {workbench.data.ruleVersion} /{' '}
-                        {workbench.data.ledgerVersion}
-                      </p>
-                      {workbench.data.consumedOmens.length > 0 && (
-                        <p>
-                          Consumed omens:{' '}
-                          {workbench.data.consumedOmens
-                            .map((id) => id.replaceAll('_', ' '))
-                            .join(', ')}
+                    )}
+                    {craftEvidence.assumptions.length ? (
+                      craftEvidence.assumptions.map((a, i) => (
+                        <p key={`${a.id}-${i}`}>
+                          {a.id === 'user-coupled-ratio-half-up-v1'
+                            ? 'Unverified coupled roll model'
+                            : 'Uniform assumption'}
+                          : {a.candidateUnit}, N = {a.n}, each candidate = 1/
+                          {a.n}.{' '}
+                          {a.min !== null
+                            ? `${a.id === 'user-coupled-ratio-half-up-v1' ? 'Assumed ratio tick range' : 'Source range'} ${a.min} to ${a.max}. `
+                            : ''}
+                          {a.reason}{' '}
+                          {a.ratioTick != null
+                            ? `Sampled ratio ${a.ratioTick}/10000. `
+                            : ''}
+                          <a
+                            href={a.sourceUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            Source
+                          </a>
                         </p>
-                      )}
-                      {workbench.data.assumptions.length ? (
-                        workbench.data.assumptions.map((a, i) => (
-                          <p key={`${a.id}-${i}`}>
-                            {a.id === 'user-coupled-ratio-half-up-v1'
-                              ? 'Unverified coupled roll model'
-                              : 'Uniform assumption'}
-                            : {a.candidateUnit}, N = {a.n}, each candidate = 1/
-                            {a.n}.{' '}
-                            {a.min !== null
-                              ? `${a.id === 'user-coupled-ratio-half-up-v1' ? 'Assumed ratio tick range' : 'Source range'} ${a.min} to ${a.max}. `
-                              : ''}
-                            {a.reason}{' '}
-                            {a.ratioTick != null
-                              ? `Sampled ratio ${a.ratioTick}/10000. `
-                              : ''}
-                            <a
-                              href={a.sourceUrl}
-                              target="_blank"
-                              rel="noreferrer"
-                            >
-                              Source
-                            </a>
-                          </p>
-                        ))
-                      ) : (
-                        <p>No uniform fallback was needed for this craft.</p>
-                      )}
-                    </details>
-                  )}
+                      ))
+                    ) : (
+                      <p>No uniform fallback was needed for this craft.</p>
+                    )}
+                  </details>
+                )}
               </div>
             </div>
           </div>

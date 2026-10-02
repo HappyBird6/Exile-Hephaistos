@@ -10,6 +10,12 @@ import {
 } from '../../shared/test/craftingFixtures'
 import { applyCurrency, concreteInitial, rolledText } from './workbenchApi'
 import { historyStorageKey } from './workbenchHistory'
+import {
+  emptyFilms,
+  startFilm,
+  recordCraft,
+  currentFrame,
+} from './workbenchHistory'
 import type { Films } from './workbenchHistory'
 
 let client: QueryClient
@@ -37,6 +43,36 @@ async function selectAndApply() {
   )
 }
 describe('Workbench actual application', () => {
+  it('preserves a valid saved item and bytes when optional evidence is invalid', async () => {
+    const root = concreteInitial(initialFixture)
+    const result = await (
+      await fixtureFetch('/api/v1/crafting/workbench/apply', {
+        body: JSON.stringify({ state: root, action: 'TRANSMUTATION' }),
+      })
+    ).json()
+    const films = recordCraft(
+      startFilm(emptyFilms(), root, 'saved'),
+      root,
+      result,
+      'unused',
+    )
+    currentFrame(films)!.evidence!.assumptions[0]!.sourceUrl =
+      'javascript:alert(1)'
+    const bytes = JSON.stringify(films)
+    localStorage.setItem(historyStorageKey, bytes)
+    vi.stubGlobal('fetch', fixtureFetch)
+    show()
+    await waitFor(() =>
+      expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
+    )
+    expect(screen.getByRole('alert')).toHaveTextContent(
+      'Saved craft evidence could not be verified',
+    )
+    expect(
+      screen.queryByText('Last craft and roll assumptions'),
+    ).not.toBeInTheDocument()
+    expect(localStorage.getItem(historyStorageKey)).toBe(bytes)
+  })
   it('labels user conjectures separately from verified probability and restores saved films', async () => {
     vi.stubGlobal(
       'fetch',
@@ -85,6 +121,10 @@ describe('Workbench actual application', () => {
       expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
     )
     expect(window.localStorage.getItem(historyStorageKey)).toBe(stored)
+    fireEvent.click(screen.getByText('Last craft and roll assumptions'))
+    expect(screen.getByText(/Unverified coupled roll model/)).toHaveTextContent(
+      'Sampled ratio 7000/10000',
+    )
   })
   it('preserves the original future when crafting from a prior step and restores films after remount', async () => {
     vi.stubGlobal('fetch', fixtureFetch)

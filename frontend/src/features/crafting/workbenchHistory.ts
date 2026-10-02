@@ -1,9 +1,24 @@
 import type { Initial } from './craftingApi'
 import type { AppliedItem, ConcreteItem } from './workbenchApi'
+import { coupledModelsMatch, workbenchActionNames } from './workbenchApi'
 
 export const historyStorageKey = 'hephaistos.workbench.films.v1'
 export const historyStorageLimit = 2_000_000
-export type Frame = { state: ConcreteItem; action: string | null }
+export type CraftEvidence = Pick<
+  AppliedItem,
+  | 'snapshotId'
+  | 'action'
+  | 'ruleVersion'
+  | 'ledgerVersion'
+  | 'events'
+  | 'assumptions'
+  | 'consumedOmens'
+>
+export type Frame = {
+  state: ConcreteItem
+  action: string | null
+  evidence?: CraftEvidence
+}
 export type Film = { id: string; createdAt: string; frames: Frame[] }
 export type Films = {
   version: 1
@@ -100,7 +115,19 @@ export function recordCraft(
   const active = currentFilm(next)!
   const frames = [
     ...active.frames,
-    { state: result.state, action: result.action },
+    {
+      state: result.state,
+      action: result.action,
+      evidence: structuredClone({
+        snapshotId: result.snapshotId,
+        action: result.action,
+        ruleVersion: result.ruleVersion,
+        ledgerVersion: result.ledgerVersion,
+        events: result.events,
+        assumptions: result.assumptions,
+        consumedOmens: result.consumedOmens,
+      }),
+    },
   ]
   return {
     ...next,
@@ -118,6 +145,86 @@ export function viewFrame(films: Films, cursor: number): Films {
     cursor < film.frames.length
     ? { ...films, cursor }
     : films
+}
+
+// Invalid optional evidence does not discard item frames or overwrite existing storage.
+export function verifiedFrameEvidence(
+  frame: Frame,
+  initial: Initial,
+): CraftEvidence | undefined {
+  try {
+    const e = frame.evidence
+    if (
+      !e ||
+      !verifiedHistoryState(frame.state, initial) ||
+      e.action !== frame.action ||
+      !Object.hasOwn(workbenchActionNames, e.action) ||
+      (e.snapshotId !== frame.state.snapshotId &&
+        !initial.compatibleSnapshotIds?.includes(e.snapshotId)) ||
+      typeof e.ruleVersion !== 'string' ||
+      !e.ruleVersion.trim() ||
+      typeof e.ledgerVersion !== 'string' ||
+      !e.ledgerVersion.trim() ||
+      !Array.isArray(e.consumedOmens) ||
+      !e.consumedOmens.every((id) => typeof id === 'string') ||
+      !Array.isArray(e.events) ||
+      !Array.isArray(e.assumptions)
+    )
+      return undefined
+    const instances = [...frame.state.implicits, ...frame.state.explicits]
+    if (
+      !e.events.every((event) => {
+        if (
+          ![
+            'ADD',
+            'REMOVE',
+            'REROLL_IMPLICIT',
+            'REROLL_EXPLICIT',
+            'FRACTURE',
+          ].includes(event.kind) ||
+          !initial.modifiers[event.modifierId] ||
+          !event.values ||
+          !Number.isFinite(event.selectionProbability) ||
+          event.selectionProbability < 0 ||
+          event.selectionProbability > 1 ||
+          !Object.values(event.values).every(Number.isSafeInteger)
+        )
+          return false
+        if (event.kind === 'REMOVE')
+          return Object.keys(event.values).length === 0
+        const item = instances.find((m) => m.modifierId === event.modifierId)
+        return (
+          !!item &&
+          Object.keys(event.values).length ===
+            Object.keys(item.values).length &&
+          Object.entries(item.values).every(
+            ([id, value]) => event.values[id] === value,
+          )
+        )
+      }) ||
+      !e.assumptions.every((a) => {
+        if (
+          typeof a.id !== 'string' ||
+          typeof a.candidateUnit !== 'string' ||
+          typeof a.reason !== 'string' ||
+          !Number.isSafeInteger(a.n) ||
+          a.n <= 0 ||
+          !Array.isArray(a.candidates) ||
+          !a.candidates.every((id) => typeof id === 'string') ||
+          !(a.min === null || Number.isSafeInteger(a.min)) ||
+          !(a.max === null || Number.isSafeInteger(a.max)) ||
+          typeof a.sourceUrl !== 'string'
+        )
+          return false
+        return ['https:', 'http:'].includes(new URL(a.sourceUrl).protocol)
+      }) ||
+      !coupledModelsMatch({ ...e, state: frame.state }, initial.modifiers)
+    )
+      return undefined
+    return e
+  } catch {
+    return undefined
+  }
 }
 
 // Stored concrete items are untrusted. Do not render or craft from them until the catalog agrees.

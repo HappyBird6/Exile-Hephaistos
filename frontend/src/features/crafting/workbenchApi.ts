@@ -345,8 +345,8 @@ export interface AppliedItem {
   assumptions: RollAssumption[]
 }
 
-function coupledModelsMatch(
-  result: AppliedItem,
+export function coupledModelsMatch(
+  result: Pick<AppliedItem, 'events' | 'assumptions' | 'state'>,
   definitions: Record<string, Definition>,
 ): boolean {
   const rolled = result.events.filter(

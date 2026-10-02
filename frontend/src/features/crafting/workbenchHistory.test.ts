@@ -17,6 +17,7 @@ import {
   historyStorageKey,
   historyStorageLimit,
   upgradeCompatibleFilms,
+  verifiedFrameEvidence,
 } from './workbenchHistory'
 
 const root = concreteInitial(initialFixture)
@@ -28,6 +29,103 @@ async function craft() {
   ).json()) as AppliedItem
 }
 describe('linear crafting films', () => {
+  it('persists detached craft evidence while legacy films remain readable without invented provenance', async () => {
+    const result = await craft()
+    const films = recordCraft(
+      startFilm(emptyFilms(), root, 'evidence'),
+      root,
+      result,
+      'unused',
+    )
+    result.assumptions[0]!.reason = 'changed after recording'
+    const repository = new LocalFilmRepository(localStorage)
+    repository.save(films)
+    const bytes = localStorage.getItem(historyStorageKey)
+    const restored = repository.load()
+    const evidence = verifiedFrameEvidence(
+      currentFrame(restored)!,
+      initialFixture,
+    )
+    expect(evidence?.ruleVersion).toBe(result.ruleVersion)
+    expect(evidence?.assumptions[0]?.reason).toBe(
+      'No published numeric roll weights.',
+    )
+    expect(localStorage.getItem(historyStorageKey)).toBe(bytes)
+    const legacy = structuredClone(restored)
+    for (const film of legacy.films)
+      for (const frame of film.frames) delete frame.evidence
+    repository.save(legacy)
+    const legacyBytes = localStorage.getItem(historyStorageKey)
+    expect(repository.load()).toEqual(legacy)
+    expect(
+      verifiedFrameEvidence(currentFrame(legacy)!, initialFixture),
+    ).toBeUndefined()
+    expect(localStorage.getItem(historyStorageKey)).toBe(legacyBytes)
+  })
+
+  it('keeps original evidence provenance when an explicitly compatible snapshot is upgraded', async () => {
+    const result = await craft()
+    const films = recordCraft(
+      startFilm(emptyFilms(), root, 'evidence'),
+      root,
+      result,
+      'unused',
+    )
+    const initial = {
+      ...initialFixture,
+      metadata: { ...initialFixture.metadata, snapshotId: 'new-snapshot' },
+      state: { ...initialFixture.state, snapshotId: 'new-snapshot' },
+      compatibleSnapshotIds: [root.snapshotId],
+    }
+    const upgraded = upgradeCompatibleFilms(films, initial)
+    const frame = currentFrame(upgraded)!
+    expect(frame.state.snapshotId).toBe('new-snapshot')
+    expect(frame.evidence?.snapshotId).toBe(root.snapshotId)
+    expect(verifiedFrameEvidence(frame, initial)).toEqual(
+      currentFrame(films)!.evidence,
+    )
+  })
+
+  it('rejects malformed optional evidence without discarding frames or rewriting storage', async () => {
+    const films = recordCraft(
+      startFilm(emptyFilms(), root, 'evidence'),
+      root,
+      await craft(),
+      'unused',
+    )
+    const evidence = currentFrame(films)!.evidence!
+    const malformed = [
+      null,
+      { ...evidence, events: null },
+      { ...evidence, snapshotId: 'unknown' },
+      { ...evidence, action: 'DIVINE' },
+      { ...evidence, assumptions: [{ ...evidence.assumptions[0]!, n: 0 }] },
+      {
+        ...evidence,
+        assumptions: [
+          { ...evidence.assumptions[0]!, sourceUrl: 'javascript:alert(1)' },
+        ],
+      },
+      {
+        ...evidence,
+        events: [{ ...evidence.events[0]!, values: { life: 19 } }],
+      },
+    ]
+    for (const bad of malformed) {
+      const saved = structuredClone(films)
+      Object.assign(currentFrame(saved)!, { evidence: bad })
+      const bytes = JSON.stringify(saved)
+      localStorage.setItem(historyStorageKey, bytes)
+      const loaded = new LocalFilmRepository(localStorage).load()
+      expect(
+        verifiedHistoryState(currentFrame(loaded)!.state, initialFixture),
+      ).toBe(true)
+      expect(
+        verifiedFrameEvidence(currentFrame(loaded)!, initialFixture),
+      ).toBeUndefined()
+      expect(localStorage.getItem(historyStorageKey)).toBe(bytes)
+    }
+  })
   it('upgrades only an explicitly compatible valid snapshot without changing films, rolls, locks or stored bytes', async () => {
     const result = await craft()
     const old = recordCraft(
