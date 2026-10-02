@@ -38,6 +38,7 @@ import {
   recordCraft,
   viewFrame,
   verifiedHistoryState,
+  upgradeCompatibleFilms,
 } from './workbenchHistory'
 import type { Films } from './workbenchHistory'
 import './crafting.css'
@@ -139,6 +140,10 @@ export function CraftingPage() {
     storedFrame && initial.data
       ? verifiedHistoryState(storedFrame.state, initial.data)
       : false
+  const restoredState =
+    restoredValid && initial.data && storedFrame
+      ? { ...storedFrame.state, snapshotId: initial.data.metadata.snapshotId }
+      : undefined
   const canCraft =
     (draft.source === 'base' || mapping.data?.mapped === true) &&
     (!storedFrame || restoredValid)
@@ -294,7 +299,7 @@ export function CraftingPage() {
     setApplying(controller)
     const revision = draft.baseRevision
     const state =
-      (restoredValid ? storedFrame?.state : undefined) ??
+      restoredState ??
       workbench.data?.state ??
       mapping.data?.state ??
       concreteInitial(initial.data)
@@ -318,7 +323,15 @@ export function CraftingPage() {
           filmState.revision === revision
             ? filmState.history
             : { ...filmState.history, active: null, cursor: 0 }
-        saveFilms(recordCraft(history, state, result, filmId()), revision)
+        saveFilms(
+          recordCraft(
+            upgradeCompatibleFilms(history, initial.data),
+            state,
+            result,
+            filmId(),
+          ),
+          revision,
+        )
         draft.setActiveOmens(result.remainingOmens)
         setAnnouncement(
           `${workbenchActionNames[action]} applied. Current item updated.${result.consumedOmens.length ? ` Consumed: ${result.consumedOmens.map((id) => id.replaceAll('_', ' ')).join(', ')}.` : ''}${result.assumptions.length ? ' Uniform probability assumptions were used; see the roll assumptions.' : ''}`,
@@ -480,10 +493,7 @@ export function CraftingPage() {
   }
   const matchingEssenceRows = essenceRows(search)
   const cursor = held ?? selected
-  const concrete =
-    (restoredValid ? storedFrame?.state : undefined) ??
-    workbench.data?.state ??
-    mapping.data?.state
+  const concrete = restoredState ?? workbench.data?.state ?? mapping.data?.state
   const card =
     item && !concrete
       ? toItemCard(item)

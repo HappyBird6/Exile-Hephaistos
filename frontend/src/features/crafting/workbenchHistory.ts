@@ -127,7 +127,8 @@ export function verifiedHistoryState(
 ): boolean {
   try {
     if (
-      state.snapshotId !== initial.metadata.snapshotId ||
+      (state.snapshotId !== initial.metadata.snapshotId &&
+        !initial.compatibleSnapshotIds?.includes(state.snapshotId)) ||
       state.baseItemId !== initial.state.baseItemId ||
       !Number.isInteger(state.itemLevel) ||
       state.itemLevel < 1 ||
@@ -185,5 +186,29 @@ export function verifiedHistoryState(
     return p <= capacity && s <= capacity
   } catch {
     return false
+  }
+}
+
+// Additive catalog updates may explicitly preserve earlier snapshots. Validate each concrete
+// frame before changing only its identity; unknown snapshots and invalid frames stay untouched.
+export function upgradeCompatibleFilms(films: Films, initial: Initial): Films {
+  return {
+    ...films,
+    films: films.films.map((film) => ({
+      ...film,
+      frames: film.frames.map((frame) =>
+        frame.state.snapshotId !== initial.metadata.snapshotId &&
+        initial.compatibleSnapshotIds?.includes(frame.state.snapshotId) &&
+        verifiedHistoryState(frame.state, initial)
+          ? {
+              ...frame,
+              state: {
+                ...frame.state,
+                snapshotId: initial.metadata.snapshotId,
+              },
+            }
+          : frame,
+      ),
+    })),
   }
 }

@@ -6,8 +6,8 @@ import java.util.random.RandomGenerator;
 
 /** Samples concrete elementary events; unchanged instances retain their actual values. */
 public final class WorkbenchSimulator {
-  public static final String RULE_VERSION = "solar-workbench-crystallisation-v11";
-  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v5";
+  public static final String RULE_VERSION = "solar-workbench-perfect-infinite-v12";
+  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v6";
   private final ItemCatalog catalog;
   private final AdditionRules additionRules;
 
@@ -47,6 +47,8 @@ public final class WorkbenchSimulator {
         .filter(
             o ->
                 o.trigger() == action
+                    || (o.trigger() == WorkbenchCurrency.ESSENCE_HYSTERIA
+                        && !action.replacementEssenceModifiers().isEmpty())
                     || (action.baseAction() != null
                         && o.trigger().baseAction() == action.baseAction()))
         .toList();
@@ -95,22 +97,26 @@ public final class WorkbenchSimulator {
     if (state.itemLevel() < action.minimumModifierLevel())
       return blocked(action, "Item level is below the currency's minimum modifier level.");
     var omen = matches.isEmpty() ? null : matches.getFirst();
-    if (action == WorkbenchCurrency.ESSENCE_HYSTERIA) {
+    if (!action.replacementEssenceModifiers().isEmpty()) {
       if (state.rarity() != ItemState.Rarity.RARE)
-        return blocked(action, "Hysteria requires a Rare item with a removable explicit modifier.");
-      var target = catalog.find("amulet:suffix:of-suturing").orElseThrow();
-      if (state.itemLevel() < target.requiredItemLevel())
-        return blocked(action, "Hysteria below the catalog modifier item level is unsupported.");
+        return blocked(
+            action, "This essence requires a Rare item with a removable explicit modifier.");
+      var targets =
+          action.replacementEssenceModifiers().stream()
+              .map(id -> catalog.find(id).orElseThrow())
+              .toList();
+      if (targets.stream().anyMatch(target -> state.itemLevel() < target.requiredItemLevel()))
+        return blocked(action, "Essence below the catalog modifier item level is unsupported.");
       var candidates = removalCandidates(state, omen);
       if (candidates.isEmpty()) return blocked(action, "No non-Fractured explicit can be removed.");
       for (var removed : candidates) {
         var rest = new ArrayList<>(state.explicits());
         rest.remove(removed);
-        if (!pool(copy(state, state.rarity(), state.implicits(), rest), action, null)
-            .contains(target))
+        var afterRemoval = copy(state, state.rarity(), state.implicits(), rest);
+        if (targets.stream().anyMatch(target -> !canAddFixed(afterRemoval, target)))
           return blocked(
               action,
-              "A Hysteria removal branch conflicts with its fixed suffix or available slots; this interaction is unsupported.");
+              "An essence removal branch conflicts with a guaranteed suffix or available slots; this interaction is unsupported.");
       }
       return new Availability(action, true, "");
     }
@@ -194,6 +200,19 @@ public final class WorkbenchSimulator {
     return new Availability(action, false, reason);
   }
 
+  private boolean canAddFixed(ItemState state, ModifierDefinition target) {
+    var existing =
+        state.explicits().stream().map(m -> catalog.find(m.modifierId()).orElseThrow()).toList();
+    int capacity =
+        target.affixType() == ModifierDefinition.AffixType.PREFIX
+            ? catalog.base().rarePrefixes()
+            : catalog.base().rareSuffixes();
+    return state.itemLevel() >= target.requiredItemLevel()
+        && existing.stream().filter(d -> d.affixType() == target.affixType()).count() < capacity
+        && existing.stream()
+            .noneMatch(d -> !Collections.disjoint(d.familyIds(), target.familyIds()));
+  }
+
   public List<ModifierDefinition> pool(
       ItemState state, WorkbenchCurrency currency, WorkbenchOmen omen) {
     return additionRules.pool(StateBucket.from(state), currency, omen);
@@ -257,7 +276,7 @@ public final class WorkbenchSimulator {
         action == WorkbenchCurrency.ALCHEMY || !action.essenceModifierIds().isEmpty()
             ? ItemState.Rarity.RARE
             : upgrade(state, action);
-    if (action == WorkbenchCurrency.ESSENCE_HYSTERIA) {
+    if (!action.replacementEssenceModifiers().isEmpty()) {
       var candidates = removalCandidates(state, omen);
       var removed = candidates.get(random.nextInt(candidates.size()));
       explicits.remove(removed);
@@ -270,12 +289,29 @@ public final class WorkbenchSimulator {
               candidates.stream().map(ModifierInstance::modifierId).toList(),
               null,
               null,
-              "https://poe2db.tw/us/" + (omen == null ? "Essence_of_Hysteria" : omen.id()),
-              "Uniform among non-Fractured explicit instances; every removal branch must accept the sourced fixed suffix. No published removal weights."));
-      var definition = catalog.find("amulet:suffix:of-suturing").orElseThrow();
+              omen == null
+                  ? action.replacementEssenceSource()
+                  : "https://poe2db.tw/us/" + omen.id(),
+              "Uniform among non-Fractured explicit instances; every removal branch must accept every sourced suffix outcome. No published removal weights."));
+      var targets = action.replacementEssenceModifiers();
+      var definition =
+          catalog
+              .find(targets.get(targets.size() == 1 ? 0 : random.nextInt(targets.size())))
+              .orElseThrow();
+      if (targets.size() > 1)
+        assumptions.add(
+            new Assumption(
+                "uniform-essence-choice-v1",
+                "fixed essence modifier outcome",
+                targets.size(),
+                targets,
+                null,
+                null,
+                action.replacementEssenceSource(),
+                "Uniform among the three sourced attribute outcomes; no published essence choice weights. Zero ordinary spawn weight is not an essence selection weight."));
       var rolled = roll(definition, random, assumptions);
       explicits.add(rolled);
-      events.add(new Event("ADD", definition.id(), rolled.values(), 1));
+      events.add(new Event("ADD", definition.id(), rolled.values(), 1.0 / targets.size()));
     } else if (!action.essenceModifierIds().isEmpty()) {
       var candidates = action.essenceModifierIds();
       var definition =
@@ -311,7 +347,7 @@ public final class WorkbenchSimulator {
               null,
               null,
               "https://poe2db.tw/us/Fractured_Modifiers",
-              "Uniform among ordinary explicit instances on supported Rare Solar; no published fracture selection weights."));
+              "Uniform among supported explicit instances on Rare Solar, including verified essence results; no published fracture selection weights."));
     } else if (action == WorkbenchCurrency.ALCHEMY) {
       for (var old : explicits) events.add(new Event("REMOVE", old.modifierId(), Map.of(), 1));
       explicits.clear();

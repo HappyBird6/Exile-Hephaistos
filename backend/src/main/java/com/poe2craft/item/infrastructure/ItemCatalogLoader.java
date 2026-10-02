@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.HexFormat;
 import java.util.List;
 
@@ -20,8 +21,10 @@ public final class ItemCatalogLoader {
   public static ItemCatalog loadDefault() {
     try (var catalog = resource("catalog.json");
         var raw = resource("base.raw.json");
-        var details = resource("details.raw.json")) {
-      return load(catalog, raw, details);
+        var details = resource("details.raw.json");
+        var special = resource("perfect-infinite.catalog.json");
+        var specialRaw = resource("perfect-infinite.raw.json")) {
+      return loadWithSpecial(catalog, raw, details, special, specialRaw);
     } catch (IOException e) {
       throw new IllegalStateException("Cannot load Solar Amulet catalog", e);
     }
@@ -30,18 +33,69 @@ public final class ItemCatalogLoader {
   /** Streams are owned by the caller. The same contract can receive a future collected snapshot. */
   public static ItemCatalog load(InputStream catalog, InputStream raw, InputStream details)
       throws IOException {
-    var mapper =
-        new ObjectMapper()
-            .enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-            .enable(DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES)
-            .enable(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES)
-            .enable(DeserializationFeature.FAIL_ON_TRAILING_TOKENS);
+    var mapper = mapper();
     var document = mapper.readValue(catalog, Document.class);
     if (!digest(raw).equals(document.metadata().rawSha256())
         || !digest(details).equals(document.metadata().detailsSha256())) {
       throw new IllegalArgumentException("Snapshot source checksum mismatch");
     }
     return new ItemCatalog(document.metadata(), document.base(), document.modifiers());
+  }
+
+  /**
+   * The ordinary snapshot remains intact; special zero-spawn results have their own source digest.
+   */
+  public static ItemCatalog loadWithSpecial(
+      InputStream catalog,
+      InputStream raw,
+      InputStream details,
+      InputStream special,
+      InputStream specialRaw)
+      throws IOException {
+    var ordinary = load(catalog, raw, details);
+    var extension = mapper().readValue(special, SpecialDocument.class);
+    var source = extension.metadata();
+    if (!source.rawSha256().matches("[0-9a-f]{64}")
+        || !digest(specialRaw).equals(source.rawSha256()))
+      throw new IllegalArgumentException("Special modifier source checksum mismatch");
+    if (source.snapshotId().isBlank()
+        || source.retrievedAt().isBlank()
+        || source.sourceUrl().isBlank()
+        || extension.modifiers().isEmpty()
+        || extension.modifiers().stream()
+            .anyMatch(d -> d.layer() != ModifierDefinition.Layer.EXPLICIT || d.weight() != 0))
+      throw new IllegalArgumentException(
+          "Special modifiers must be sourced explicit zero-spawn results");
+    var all = new ArrayList<>(ordinary.modifiers().values());
+    all.addAll(extension.modifiers());
+    var old = ordinary.metadata();
+    int extraPrefixes =
+        (int)
+            extension.modifiers().stream()
+                .filter(d -> d.affixType() == ModifierDefinition.AffixType.PREFIX)
+                .count();
+    int extraSuffixes = extension.modifiers().size() - extraPrefixes;
+    var combined =
+        new ItemCatalog.Metadata(
+            old.snapshotId() + "+" + source.snapshotId(),
+            source.retrievedAt(),
+            old.sourceUrl(),
+            old.weightPolicy(),
+            old.rawSha256(),
+            old.detailsSha256(),
+            old.prefixCount() + extraPrefixes,
+            old.suffixCount() + extraSuffixes,
+            old.prefixWeight(),
+            old.suffixWeight());
+    return new ItemCatalog(combined, ordinary.base(), all, List.of(old.snapshotId()));
+  }
+
+  private static ObjectMapper mapper() {
+    return new ObjectMapper()
+        .enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+        .enable(DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES)
+        .enable(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES)
+        .enable(DeserializationFeature.FAIL_ON_TRAILING_TOKENS);
   }
 
   private static InputStream resource(String name) throws IOException {
@@ -63,4 +117,9 @@ public final class ItemCatalogLoader {
       ItemCatalog.Metadata metadata,
       ItemCatalog.BaseItem base,
       List<ModifierDefinition> modifiers) {}
+
+  private record SpecialMetadata(
+      String snapshotId, String retrievedAt, String sourceUrl, String rawSha256) {}
+
+  private record SpecialDocument(SpecialMetadata metadata, List<ModifierDefinition> modifiers) {}
 }

@@ -16,6 +16,7 @@ import {
   verifiedHistoryState,
   historyStorageKey,
   historyStorageLimit,
+  upgradeCompatibleFilms,
 } from './workbenchHistory'
 
 const root = concreteInitial(initialFixture)
@@ -27,6 +28,58 @@ async function craft() {
   ).json()) as AppliedItem
 }
 describe('linear crafting films', () => {
+  it('upgrades only an explicitly compatible valid snapshot without changing films, rolls, locks or stored bytes', async () => {
+    const result = await craft()
+    const old = recordCraft(
+      startFilm(emptyFilms(), root, 'old'),
+      root,
+      result,
+      'unused',
+    )
+    const nextInitial = {
+      ...initialFixture,
+      metadata: { ...initialFixture.metadata, snapshotId: 'expanded' },
+      state: { ...initialFixture.state, snapshotId: 'expanded' },
+      compatibleSnapshotIds: [root.snapshotId],
+    }
+    const repository = new LocalFilmRepository(window.localStorage)
+    repository.save(old)
+    const bytes = window.localStorage.getItem(historyStorageKey)
+    const upgraded = upgradeCompatibleFilms(old, nextInitial)
+    expect(window.localStorage.getItem(historyStorageKey)).toBe(bytes)
+    expect(upgraded.active).toBe(old.active)
+    expect(upgraded.cursor).toBe(old.cursor)
+    expect(upgraded.films).toHaveLength(1)
+    for (const [index, frame] of upgraded.films[0]!.frames.entries()) {
+      expect(frame).toEqual({
+        ...old.films[0]!.frames[index],
+        state: {
+          ...old.films[0]!.frames[index]!.state,
+          snapshotId: 'expanded',
+        },
+      })
+      expect(verifiedHistoryState(frame.state, nextInitial)).toBe(true)
+    }
+    const before = currentFrame(upgraded)!.state
+    const continued = recordCraft(
+      upgraded,
+      before,
+      { ...result, state: before },
+      'must-not-fork',
+    )
+    expect(continued.films).toHaveLength(1)
+    expect(continued.films[0]!.frames).toHaveLength(3)
+    const unknown = { ...root, snapshotId: 'unknown' }
+    const invalid = {
+      ...root,
+      explicits: [{ modifierId: 'p', values: { life: 999999 } }],
+    }
+    for (const state of [unknown, invalid]) {
+      const preserved = startFilm(emptyFilms(), state, 'preserve')
+      expect(upgradeCompatibleFilms(preserved, nextInitial)).toEqual(preserved)
+      expect(verifiedHistoryState(state, nextInitial)).toBe(false)
+    }
+  })
   it('browses one film and forks only on successful crafting while preserving original future', async () => {
     const result = await craft()
     const original = recordCraft(

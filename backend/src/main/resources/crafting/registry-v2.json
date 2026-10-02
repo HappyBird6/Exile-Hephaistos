@@ -1,9 +1,9 @@
 {
   "version": "equipment-crafting-registry-v2",
-  "ledgerVersion": "solar-uniform-assumptions-v5",
+  "ledgerVersion": "solar-uniform-assumptions-v6",
   "scope": "Equipment crafting, excluding maps and skill gems. Inventory coverage is incomplete and pending a full source audit; registration is not implementation.",
   "inventoryComplete": false,
-  "ruleVersion": "solar-workbench-crystallisation-v11",
+  "ruleVersion": "solar-workbench-perfect-infinite-v12",
   "modifierWeightPolicy": "POE2DB_AS_PUBLISHED",
   "mixedKnownUnknownWeightPolicy": "BLOCK_UNTIL_POLICY_DECIDED",
   "entries": [
@@ -166,7 +166,7 @@
       "reason": "",
       "ruleSource": "https://poe2db.tw/us/Fractured_Modifiers",
       "ruleVerifiedAt": "2026-10-02",
-      "interactionScope": "Rare Solar with four or more ordinary explicit modifiers, no existing fracture. Uniform 1/N selection assumption. Locked option preserved by addition, Chaos, Annulment and Divine; Whittling plus fracture is blocked pending priority evidence."
+      "interactionScope": "Rare Solar with four or more supported explicit modifiers, including verified essence results, and no existing fracture. Uniform 1/N selection assumption. Locked option preserved by addition, Chaos, Annulment and Divine; Whittling plus fracture is blocked pending priority evidence."
     },
     {
       "id": "Divine_Orb",
@@ -1058,10 +1058,13 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "PERFECT_ESSENCE_INFINITE",
+      "reason": "",
+      "ruleSource": "https://poe2db.tw/us/Perfect_Essence_of_the_Infinite",
+      "ruleVerifiedAt": "2026-10-02",
+      "implementationScope": "Rare Solar, item level 72+, remove one unlocked explicit and add one sourced percentage attribute suffix. Crystallisation side restriction supported; every removal branch must permit all three outcomes. Uniform 1/3 choice is an explicit assumption, not ordinary spawn weighting."
     },
     {
       "id": "Lesser_Essence_of_Seeking",
@@ -3227,13 +3230,14 @@
     {
       "id": "uniform-essence-choice-v1",
       "candidateUnit": "fixed essence modifier outcome",
-      "eligibility": "Magic Solar, Lesser/ordinary/Greater Infinite, all three sourced Strength/Dexterity/Intelligence results eligible at the catalog item level; any attribute family overlap is blocked pending verification.",
+      "eligibility": "Magic Solar with Lesser/ordinary/Greater Infinite, or Rare Solar with Perfect Infinite at catalog item level 72+. All three sourced attribute outcomes must be eligible. Perfect replacement requires every unlocked, side-restricted removal branch to permit all three outcomes; otherwise block the whole action.",
       "n": "3 fixed modifier outcomes",
       "probability": "1/N",
       "sourceUrls": [
         "https://poe2db.tw/us/Lesser_Essence_of_the_Infinite",
         "https://poe2db.tw/us/Essence_of_the_Infinite",
-        "https://poe2db.tw/us/Greater_Essence_of_the_Infinite"
+        "https://poe2db.tw/us/Greater_Essence_of_the_Infinite",
+        "https://poe2db.tw/us/Perfect_Essence_of_the_Infinite"
       ],
       "reason": "Sourced effect defines three attribute results; no published essence choice weights. Ordinary affix weights are not treated as essence choice weights.",
       "scope": "MODELING_ASSUMPTION"
@@ -3241,7 +3245,7 @@
     {
       "id": "uniform-fracture-v1",
       "candidateUnit": "eligible explicit modifier instance",
-      "eligibility": "Validated Rare Solar with at least four ordinary explicit modifiers and no existing fracture; implicit modifiers are excluded. Only one explicit fracture is supported.",
+      "eligibility": "Validated Rare Solar with at least four supported explicit modifiers and no existing fracture, including verified essence results. Implicit modifiers are excluded. Only one explicit fracture is supported.",
       "n": "eligible explicit instance count",
       "probability": "1/N",
       "sourceUrls": [
@@ -3254,7 +3258,7 @@
     {
       "id": "uniform-removal-v1",
       "candidateUnit": "eligible explicit modifier instance",
-      "eligibility": "Validated Solar Amulet, Magic/Rare, no special conditions. Non-Fractured explicit instances after verified side restriction; Chaos requires Rare and replacement eligibility for every removal branch. Whittling with fracture is blocked pending priority verification. Hysteria requires Rare Solar at catalog item level 68 or above and a valid fixed suffix after every non-Fractured explicit removal; One Crystallisation omen restricts Hysteria removal to unlocked prefixes or suffixes before determining N; its paired combination is unsupported.",
+      "eligibility": "Validated Solar Amulet, Magic/Rare, no special conditions. Non-Fractured explicit instances after verified side restriction; Chaos requires Rare and replacement eligibility for every removal branch. Whittling with fracture is blocked pending priority verification. Hysteria requires Rare Solar at catalog item level 68 or above and a valid fixed suffix after every non-Fractured explicit removal; One Crystallisation omen restricts Hysteria removal to unlocked prefixes or suffixes before determining N; its paired combination is unsupported. Perfect Infinite requires Rare Solar at catalog item level 72+ and all three sourced percentage suffix outcomes valid after every eligible removal. Crystallisation restrictions also apply to this Perfect essence.",
       "n": "Current eligible explicit instance count",
       "probability": "1/N",
       "sourceUrls": [
@@ -3262,7 +3266,8 @@
         "https://poe2db.tw/us/Chaos_Orb",
         "https://poe2db.tw/us/Essence_of_Hysteria",
         "https://poe2db.tw/us/Omen_of_Sinistral_Crystallisation",
-        "https://poe2db.tw/us/Omen_of_Dextral_Crystallisation"
+        "https://poe2db.tw/us/Omen_of_Dextral_Crystallisation",
+        "https://poe2db.tw/us/Perfect_Essence_of_the_Infinite"
       ],
       "reason": "Random removal stated; no published per-instance removal weights.",
       "scope": "MODELING_ASSUMPTION"

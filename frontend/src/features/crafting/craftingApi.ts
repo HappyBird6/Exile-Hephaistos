@@ -53,6 +53,7 @@ export interface Availability {
   reason: string
 }
 export interface Initial {
+  compatibleSnapshotIds?: string[]
   ruleVersion: string
   metadata: { snapshotId: string; retrievedAt: string; sourceUrl: string }
   id: string
@@ -176,7 +177,8 @@ export async function loadInitial(
     typeof v.id !== 'string' ||
     typeof v.ruleVersion !== 'string' ||
     !object(v.modifiers) ||
-    !availability(v.actions)
+    !availability(v.actions) ||
+    (v.compatibleSnapshotIds !== undefined && !strings(v.compatibleSnapshotIds))
   )
     return invalid()
   if (

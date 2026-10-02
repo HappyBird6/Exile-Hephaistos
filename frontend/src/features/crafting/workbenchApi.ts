@@ -9,6 +9,7 @@ export type WorkbenchAction =
   | 'ALCHEMY'
   | 'FRACTURING'
   | 'ESSENCE_HYSTERIA'
+  | 'PERFECT_ESSENCE_INFINITE'
   | 'LESSER_ESSENCE_BODY'
   | 'ESSENCE_BODY'
   | 'GREATER_ESSENCE_BODY'
@@ -75,12 +76,23 @@ const choiceEssenceModifiers: Partial<
     'amulet:suffix:of-the-sage',
   ],
 }
+const replacementEssenceModifiers: Partial<
+  Record<WorkbenchAction, readonly string[]>
+> = {
+  ESSENCE_HYSTERIA: ['amulet:suffix:of-suturing'],
+  PERFECT_ESSENCE_INFINITE: [
+    'amulet:suffix:essence-percent-strength',
+    'amulet:suffix:essence-percent-dexterity',
+    'amulet:suffix:essence-percent-intelligence',
+  ],
+}
 export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   ...currencyActions,
   Divine_Orb: 'DIVINE',
   Orb_of_Alchemy: 'ALCHEMY',
   Fracturing_Orb: 'FRACTURING',
   Essence_of_Hysteria: 'ESSENCE_HYSTERIA',
+  Perfect_Essence_of_the_Infinite: 'PERFECT_ESSENCE_INFINITE',
   Lesser_Essence_of_the_Body: 'LESSER_ESSENCE_BODY',
   Essence_of_the_Body: 'ESSENCE_BODY',
   Greater_Essence_of_the_Body: 'GREATER_ESSENCE_BODY',
@@ -112,6 +124,7 @@ export const workbenchActionNames: Record<WorkbenchAction, string> = {
   ALCHEMY: 'Orb of Alchemy',
   FRACTURING: 'Fracturing Orb',
   ESSENCE_HYSTERIA: 'Essence of Hysteria',
+  PERFECT_ESSENCE_INFINITE: 'Perfect Essence of the Infinite',
   LESSER_ESSENCE_BODY: 'Lesser Essence of the Body',
   ESSENCE_BODY: 'Essence of the Body',
   GREATER_ESSENCE_BODY: 'Greater Essence of the Body',
@@ -150,13 +163,13 @@ export const workbenchOmens = [
     id: 'Omen_of_Sinistral_Crystallisation',
     trigger: 'ESSENCE_HYSTERIA',
     effect:
-      'Hysteria removes only prefixes; other Perfect/Corrupted essences unsupported',
+      'Hysteria / Perfect Infinite remove only prefixes; other replacement essences unsupported',
   },
   {
     id: 'Omen_of_Dextral_Crystallisation',
     trigger: 'ESSENCE_HYSTERIA',
     effect:
-      'Hysteria removes only suffixes; other Perfect/Corrupted essences unsupported',
+      'Hysteria / Perfect Infinite remove only suffixes; other replacement essences unsupported',
   },
   {
     id: 'Omen_of_Greater_Exaltation',
@@ -345,6 +358,7 @@ export async function applyCurrency(
   const essenceCandidates = fixedEssenceModifiers[action]
     ? [fixedEssenceModifiers[action]!]
     : (choiceEssenceModifiers[action] ?? [])
+  const replacementTargets = replacementEssenceModifiers[action] ?? []
   const sameModifiers = (
     a: ConcreteItem['explicits'],
     b: ConcreteItem['explicits'],
@@ -478,7 +492,7 @@ export async function applyCurrency(
           : baseAction === 'CHAOS' ||
               action === 'DIVINE' ||
               action === 'FRACTURING' ||
-              action === 'ESSENCE_HYSTERIA'
+              replacementTargets.length > 0
             ? 0
             : action === 'EXALTED' &&
                 activeOmens.includes('Omen_of_Greater_Exaltation')
@@ -511,7 +525,7 @@ export async function applyCurrency(
       'Could not verify the applied item. Your item is unchanged. Please retry.',
     )
   const locks = next.explicits.filter((m) => m.fractured)
-  if (v.applied && action === 'ESSENCE_HYSTERIA') {
+  if (v.applied && replacementTargets.length > 0) {
     const matching = workbenchOmens.filter(
       (o) => o.trigger === 'ESSENCE_HYSTERIA' && activeOmens.includes(o.id),
     )
@@ -530,7 +544,7 @@ export async function applyCurrency(
     const added = v.events[1]
     const old = candidates.find((m) => m.modifierId === removed?.modifierId)
     const target = next.explicits.find(
-      (m) => m.modifierId === 'amulet:suffix:of-suturing',
+      (m) => m.modifierId === added?.modifierId,
     )
     const preserved = state.explicits.filter(
       (m) => m.modifierId !== old?.modifierId,
@@ -543,8 +557,8 @@ export async function applyCurrency(
       removed.selectionProbability !== 1 / candidates.length ||
       Object.keys(removed.values).length !== 0 ||
       added?.kind !== 'ADD' ||
-      added.modifierId !== 'amulet:suffix:of-suturing' ||
-      added.selectionProbability !== 1 ||
+      !replacementTargets.includes(added.modifierId) ||
+      added.selectionProbability !== 1 / replacementTargets.length ||
       !target ||
       JSON.stringify(added.values) !== JSON.stringify(target.values) ||
       matching.length > 1 ||
@@ -556,6 +570,15 @@ export async function applyCurrency(
           preserved.some((p) => p.modifierId === m.modifierId),
         ),
       ) ||
+      (replacementTargets.length > 1 &&
+        !v.assumptions.some(
+          (a) =>
+            a.id === 'uniform-essence-choice-v1' &&
+            a.n === replacementTargets.length &&
+            a.candidates.length === replacementTargets.length &&
+            new Set(a.candidates).size === replacementTargets.length &&
+            a.candidates.every((id) => replacementTargets.includes(id)),
+        )) ||
       !v.assumptions.some(
         (a) =>
           a.id === 'uniform-removal-v1' &&
@@ -568,7 +591,7 @@ export async function applyCurrency(
       )
     )
       throw new Error(
-        'Could not verify the Hysteria replacement. Your item is unchanged. Please retry.',
+        'Could not verify the essence replacement. Your item is unchanged. Please retry.',
       )
   }
   if (

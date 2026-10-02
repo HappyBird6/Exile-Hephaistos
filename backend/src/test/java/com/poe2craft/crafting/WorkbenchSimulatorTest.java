@@ -173,12 +173,15 @@ class WorkbenchSimulatorTest {
   }
 
   @Test
-  void bundledRollDomainsAreSingleStatsAndEveryEntryHasPublishedPositiveWeight() {
+  void bundledRollDomainsAreSingleStatsAndOnlyVerifiedEssenceResultsHaveZeroSpawnWeight() {
     assertThat(catalog.modifiers().values())
         .allSatisfy(
             d -> {
               assertThat(d.stats()).hasSize(1);
-              if (d.layer() == ModifierDefinition.Layer.EXPLICIT)
+              if (WorkbenchCurrency.PERFECT_ESSENCE_INFINITE
+                  .replacementEssenceModifiers()
+                  .contains(d.id())) assertThat(d.weight()).isZero();
+              else if (d.layer() == ModifierDefinition.Layer.EXPLICIT)
                 assertThat(d.weight()).isPositive();
             });
   }

@@ -24,6 +24,7 @@ public enum WorkbenchCurrency {
   ALCHEMY(null, 0),
   FRACTURING(null, 0),
   ESSENCE_HYSTERIA(null, 0),
+  PERFECT_ESSENCE_INFINITE(null, 0),
   LESSER_ESSENCE_BODY("amulet:prefix:healthy"),
   ESSENCE_BODY("amulet:prefix:robust"),
   GREATER_ESSENCE_BODY("amulet:prefix:rotund"),
@@ -109,5 +110,25 @@ public enum WorkbenchCurrency {
 
   public int minimumModifierLevel() {
     return minimumModifierLevel;
+  }
+
+  public List<String> replacementEssenceModifiers() {
+    return switch (this) {
+      case ESSENCE_HYSTERIA -> List.of("amulet:suffix:of-suturing");
+      case PERFECT_ESSENCE_INFINITE ->
+          List.of(
+              "amulet:suffix:essence-percent-strength",
+              "amulet:suffix:essence-percent-dexterity",
+              "amulet:suffix:essence-percent-intelligence");
+      default -> List.of();
+    };
+  }
+
+  public String replacementEssenceSource() {
+    return switch (this) {
+      case ESSENCE_HYSTERIA -> "https://poe2db.tw/us/Essence_of_Hysteria";
+      case PERFECT_ESSENCE_INFINITE -> "https://poe2db.tw/us/Perfect_Essence_of_the_Infinite";
+      default -> throw new IllegalArgumentException("Not a supported replacement essence");
+    };
   }
 }

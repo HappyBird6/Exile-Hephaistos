@@ -12,10 +12,23 @@ public final class ItemCatalog {
   private final Metadata metadata;
   private final BaseItem base;
   private final Map<String, ModifierDefinition> modifiers;
+  private final List<String> compatibleSnapshotIds;
 
   public ItemCatalog(Metadata metadata, BaseItem base, List<ModifierDefinition> definitions) {
+    this(metadata, base, definitions, List.of());
+  }
+
+  public ItemCatalog(
+      Metadata metadata,
+      BaseItem base,
+      List<ModifierDefinition> definitions,
+      List<String> compatibleSnapshotIds) {
     this.metadata = Objects.requireNonNull(metadata);
     this.base = Objects.requireNonNull(base);
+    this.compatibleSnapshotIds = List.copyOf(compatibleSnapshotIds);
+    if (this.compatibleSnapshotIds.stream()
+        .anyMatch(id -> id.isBlank() || id.equals(metadata.snapshotId())))
+      throw new IllegalArgumentException("Invalid compatible snapshot identity");
     var indexed = new LinkedHashMap<String, ModifierDefinition>();
     for (var definition : definitions) {
       if (indexed.putIfAbsent(definition.id(), definition) != null) {
@@ -58,6 +71,11 @@ public final class ItemCatalog {
 
   public Map<String, ModifierDefinition> modifiers() {
     return modifiers;
+  }
+
+  /** Only snapshots whose existing base and every existing definition were preserved exactly. */
+  public List<String> compatibleSnapshotIds() {
+    return compatibleSnapshotIds;
   }
 
   public Optional<ModifierDefinition> find(String id) {
