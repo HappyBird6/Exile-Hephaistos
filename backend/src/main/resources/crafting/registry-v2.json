@@ -3,7 +3,7 @@
   "ledgerVersion": "solar-uniform-assumptions-v3",
   "scope": "Equipment crafting, excluding maps and skill gems. Inventory coverage is incomplete and pending a full source audit; registration is not implementation.",
   "inventoryComplete": false,
-  "ruleVersion": "solar-workbench-resistance-essence-v8",
+  "ruleVersion": "solar-workbench-opulence-essence-v9",
   "modifierWeightPolicy": "POE2DB_AS_PUBLISHED",
   "mixedKnownUnknownWeightPolicy": "BLOCK_UNTIL_POLICY_DECIDED",
   "entries": [
@@ -1436,10 +1436,10 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "LESSER_ESSENCE_OPULENCE",
+      "reason": "Magic Solar to Rare with one sourced fixed item-rarity suffix; supported catalog item level and no suffix family overlap. Separate rarity prefix may coexist. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
     },
     {
       "id": "Essence_of_Opulence",
@@ -1450,10 +1450,10 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "ESSENCE_OPULENCE",
+      "reason": "Magic Solar to Rare with one sourced fixed item-rarity suffix; supported catalog item level and no suffix family overlap. Separate rarity prefix may coexist. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
     },
     {
       "id": "Greater_Essence_of_Opulence",
@@ -1464,10 +1464,10 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "GREATER_ESSENCE_OPULENCE",
+      "reason": "Magic Solar to Rare with one sourced fixed item-rarity suffix; supported catalog item level and no suffix family overlap. Separate rarity prefix may coexist. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
     },
     {
       "id": "Perfect_Essence_of_Opulence",

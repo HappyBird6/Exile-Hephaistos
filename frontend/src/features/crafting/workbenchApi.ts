@@ -29,6 +29,9 @@ export type WorkbenchAction =
   | 'LESSER_ESSENCE_GROUNDING'
   | 'ESSENCE_GROUNDING'
   | 'GREATER_ESSENCE_GROUNDING'
+  | 'LESSER_ESSENCE_OPULENCE'
+  | 'ESSENCE_OPULENCE'
+  | 'GREATER_ESSENCE_OPULENCE'
 const fixedEssenceModifiers: Partial<Record<WorkbenchAction, string>> = {
   LESSER_ESSENCE_BODY: 'amulet:prefix:healthy',
   ESSENCE_BODY: 'amulet:prefix:robust',
@@ -48,6 +51,9 @@ const fixedEssenceModifiers: Partial<Record<WorkbenchAction, string>> = {
   LESSER_ESSENCE_GROUNDING: 'amulet:suffix:of-the-squall',
   ESSENCE_GROUNDING: 'amulet:suffix:of-the-thunderhead',
   GREATER_ESSENCE_GROUNDING: 'amulet:suffix:of-the-maelstrom',
+  LESSER_ESSENCE_OPULENCE: 'amulet:suffix:of-plunder',
+  ESSENCE_OPULENCE: 'amulet:suffix:of-raiding',
+  GREATER_ESSENCE_OPULENCE: 'amulet:suffix:of-archaeology',
 }
 const choiceEssenceModifiers: Partial<
   Record<WorkbenchAction, readonly string[]>
@@ -94,6 +100,9 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Lesser_Essence_of_Grounding: 'LESSER_ESSENCE_GROUNDING',
   Essence_of_Grounding: 'ESSENCE_GROUNDING',
   Greater_Essence_of_Grounding: 'GREATER_ESSENCE_GROUNDING',
+  Lesser_Essence_of_Opulence: 'LESSER_ESSENCE_OPULENCE',
+  Essence_of_Opulence: 'ESSENCE_OPULENCE',
+  Greater_Essence_of_Opulence: 'GREATER_ESSENCE_OPULENCE',
 }
 export const workbenchActionNames: Record<WorkbenchAction, string> = {
   ...actionNames,
@@ -121,6 +130,9 @@ export const workbenchActionNames: Record<WorkbenchAction, string> = {
   LESSER_ESSENCE_GROUNDING: 'Lesser Essence of Grounding',
   ESSENCE_GROUNDING: 'Essence of Grounding',
   GREATER_ESSENCE_GROUNDING: 'Greater Essence of Grounding',
+  LESSER_ESSENCE_OPULENCE: 'Lesser Essence of Opulence',
+  ESSENCE_OPULENCE: 'Essence of Opulence',
+  GREATER_ESSENCE_OPULENCE: 'Greater Essence of Opulence',
 } as Record<WorkbenchAction, string>
 for (const [id, base] of Object.entries(currencyActions)) {
   if (base === 'ANNULMENT') continue

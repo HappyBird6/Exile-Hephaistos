@@ -41,6 +41,9 @@ public enum WorkbenchCurrency {
   LESSER_ESSENCE_GROUNDING("amulet:suffix:of-the-squall"),
   ESSENCE_GROUNDING("amulet:suffix:of-the-thunderhead"),
   GREATER_ESSENCE_GROUNDING("amulet:suffix:of-the-maelstrom"),
+  LESSER_ESSENCE_OPULENCE("amulet:suffix:of-plunder"),
+  ESSENCE_OPULENCE("amulet:suffix:of-raiding"),
+  GREATER_ESSENCE_OPULENCE("amulet:suffix:of-archaeology"),
   LESSER_ESSENCE_INFINITE(
       "https://poe2db.tw/us/Lesser_Essence_of_the_Infinite",
       "amulet:suffix:of-the-wrestler",

@@ -169,3 +169,18 @@ The source Required Level is distinct from the catalog modifier item-level bound
 Rule `solar-workbench-resistance-essence-v8`, ledger v3 unchanged. Registry: 19 currencies, nine omens, 21 essences; 171 pending of 220 registered. Frontend lint/typecheck/format, 86 tests and production build passed. Chromium against v8 passed resistance essence 55 and general Workbench 30 checks with zero runtime errors. Desktop screenshot visually reviewed. Evidence: `resistance-essence-browser-results.json`, `resistance-essence-desktop.png` under `codex/qa-20261002`. Existing fixed 55/Infinite 19/Fracturing 20/Greater Exaltation 14 browser suites last ran against v7; their backend/frontend regressions are included in the mandatory v8 suites.
 
 Final Docker backend `spotlessApply check generateJooq bootJar` passed after preserving original source timestamp strings: 132 unit/API/architecture plus six integration tests (138 total, zero failures/errors). Evidence: `backend-resistance-essence-results`. Namespace `62cfb4a76510d6d26be209b58b5be30edc829f96484d015b95c92a4c415bacc2`: before one computed pool, after normal QA-app restart one persisted hit/nine memory hits/zero computations, identical comparisons and assessment. Evidence: `cache-before-v8.json` / `cache-after-v8.json`.
+
+## Opulence essence expansion
+
+The ordinary tiers upgrade Magic Solar to Rare with one fixed item-rarity suffix. All prior modifier/implicit values and unrelated supported omens are retained. Prefix and suffix item-rarity families are distinct in the catalog: a rarity prefix can coexist with the essence's suffix; a pre-existing rarity suffix is unsupported pending overlap verification. Modifier selection is deterministic, with uniform integer numeric rolls (N=5/4/4). Other bases, Perfect Opulence and low-level bypass remain unsupported.
+
+| Tier | Solar suffix ID (amulet:suffix:) | Item rarity % | Catalog minimum item level | Source Required Level | Source checked 2026-10-02 |
+| --- | --- | --- | --- | --- | --- |
+| Lesser | of-plunder | 6-10 | 3 | 2 | [source](https://poe2db.tw/us/Lesser_Essence_of_Opulence) |
+| Ordinary | of-raiding | 11-14 | 24 | 19 | [source](https://poe2db.tw/us/Essence_of_Opulence) |
+| Greater | of-archaeology | 15-18 | 40 | 32 | [source](https://poe2db.tw/us/Greater_Essence_of_Opulence) |
+
+Source Required Level is recorded separately from the supported catalog item level. Existing ordinary modifier pools/weights are unchanged. Backend checks cover 100 spaced seeds per tier on one/two-explicit Magic items including a separate rarity prefix, exact fixed suffix/range/probability/numeric ledger and preservation, each catalog level boundary, lower-level and same-suffix-family refusal.
+Docker mandatory backend checks passed: 134 unit/API/architecture plus six integration tests (140 total, zero failures/errors). Frontend lint/typecheck/format, 86 tests and build passed. Actual Chromium passed Opulence 19 and general Workbench 30 checks, zero runtime errors; desktop screenshot visually reviewed. Evidence: `backend-opulence-essence-results`, `opulence-essence-browser-results.json`, `opulence-essence-desktop.png` under `codex/qa-20261002`. Prior resistance 55 browser checks last ran against v8; other specialized suites last ran against v7. Their backend/frontend regressions remain in the mandatory suites.
+
+Rule `solar-workbench-opulence-essence-v9`, ledger v3. Registry: 19 currencies, nine omens, 24 essences; 168 pending of 220 registered. Namespace `573dbf0005bd4259581c7eca6cc3a8493b8f53765aebdc9ee532d01771715371`: one computed pool before normal QA-app restart, one persisted hit/nine memory hits/zero computations after restart, identical comparisons and assessment. Evidence: `cache-before-v9.json` / `cache-after-v9.json`.
