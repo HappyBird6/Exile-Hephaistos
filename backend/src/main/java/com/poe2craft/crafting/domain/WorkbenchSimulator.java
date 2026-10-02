@@ -74,6 +74,11 @@ public final class WorkbenchSimulator {
     if (state.itemLevel() < action.minimumModifierLevel())
       return blocked(action, "Item level is below the currency's minimum modifier level.");
     var omen = matches.isEmpty() ? null : matches.getFirst();
+    if (action == WorkbenchCurrency.ALCHEMY) {
+      if (state.rarity() != ItemState.Rarity.NORMAL && state.rarity() != ItemState.Rarity.MAGIC)
+        return blocked(action, "Alchemy requires a Normal or Magic item.");
+      return new Availability(action, true, "");
+    }
     if (action == WorkbenchCurrency.DIVINE) {
       var targets = new ArrayList<>(state.implicits());
       if (omen != WorkbenchOmen.BLESSED) targets.addAll(state.explicits());
@@ -177,8 +182,31 @@ public final class WorkbenchSimulator {
     var explicits = new ArrayList<>(state.explicits());
     var events = new ArrayList<Event>();
     var assumptions = new ArrayList<Assumption>();
-    var rarity = upgrade(state, action);
-    if (action == WorkbenchCurrency.DIVINE) {
+    var rarity =
+        action == WorkbenchCurrency.ALCHEMY ? ItemState.Rarity.RARE : upgrade(state, action);
+    if (action == WorkbenchCurrency.ALCHEMY) {
+      for (var old : explicits) events.add(new Event("REMOVE", old.modifierId(), Map.of(), 1));
+      explicits.clear();
+      for (int i = 0; i < 4; i++) {
+        var candidates = pool(copy(state, rarity, implicits, explicits), action, null);
+        if (candidates.isEmpty())
+          throw new IllegalArgumentException("Alchemy needs a complete four-modifier pool");
+        long total = candidates.stream().mapToLong(ModifierDefinition::weight).sum();
+        long draw = random.nextLong(total);
+        var chosen = candidates.getLast();
+        for (var candidate : candidates) {
+          draw -= candidate.weight();
+          if (draw < 0) {
+            chosen = candidate;
+            break;
+          }
+        }
+        var rolled = roll(chosen, random, assumptions);
+        explicits.add(rolled);
+        events.add(
+            new Event("ADD", chosen.id(), rolled.values(), (double) chosen.weight() / total));
+      }
+    } else if (action == WorkbenchCurrency.DIVINE) {
       for (int i = 0; i < implicits.size(); i++) {
         var current = implicits.get(i);
         var d = catalog.find(current.modifierId()).orElseThrow();

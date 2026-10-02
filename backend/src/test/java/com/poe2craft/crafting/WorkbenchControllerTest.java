@@ -92,6 +92,6 @@ class WorkbenchControllerTest {
                             "activeOmens",
                             java.util.List.of()))))
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.length()").value(17));
+        .andExpect(jsonPath("$.length()").value(18));
   }
 }

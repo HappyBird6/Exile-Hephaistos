@@ -73,10 +73,12 @@
       "sourceRetrievedAt": "2026-09-23T07:20:30.890561+00:00",
       "sourceSha256": "f439765285fe232e6e3f091adc1d062ca35f133c37e7ee6c56c529e19ce243ea",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "ALCHEMY",
+      "reason": "Solar Amulet only; Normal/Magic upgraded to Rare with four weighted random explicit modifiers. Magic modifiers are replaced. Alchemy omens remain unsupported.",
+      "ruleSource": "https://www.pathofexile.com/forum/view-thread/3862213",
+      "ruleVerifiedAt": "2026-10-02"
     },
     {
       "id": "Regal_Orb",

@@ -18,7 +18,8 @@ public enum WorkbenchCurrency {
   CHAOS(CraftingAction.CHAOS, 0),
   GREATER_CHAOS(CraftingAction.CHAOS, 35),
   PERFECT_CHAOS(CraftingAction.CHAOS, 50),
-  DIVINE(null, 0);
+  DIVINE(null, 0),
+  ALCHEMY(null, 0);
 
   private final CraftingAction baseAction;
   private final int minimumModifierLevel;

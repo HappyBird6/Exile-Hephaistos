@@ -16,6 +16,53 @@ class WorkbenchSimulatorTest {
   private final WorkbenchSimulator simulator = new WorkbenchSimulator(catalog, engine);
 
   @Test
+  void alchemyReplacesMagicAffixesWithFourWeightedRareAffixesAndPreservesImplicit() {
+    var root = SolarAmulet.initial(catalog);
+    var magic = simulator.apply(root, CraftingAction.TRANSMUTATION, new Random(3)).state();
+    for (int seed = 0; seed < 100; seed++) {
+      for (var input : List.of(root, magic)) {
+        var result =
+            simulator.apply(input, WorkbenchCurrency.ALCHEMY, java.util.Set.of(), new Random(seed));
+        assertThat(result.applied()).isTrue();
+        assertThat(result.state().rarity()).isEqualTo(ItemState.Rarity.RARE);
+        assertThat(result.state().explicits()).hasSize(4);
+        assertThat(result.state().implicits()).isEqualTo(input.implicits());
+        assertThat(new ItemStateValidator(catalog).validate(result.state())).isEmpty();
+        assertThat(result.events().stream().filter(e -> e.kind().equals("ADD"))).hasSize(4);
+        assertThat(result.events().stream().filter(e -> e.kind().equals("REMOVE")))
+            .hasSize(input.explicits().size());
+        var partial = new java.util.ArrayList<ModifierInstance>();
+        for (var event : result.events()) {
+          if (!event.kind().equals("ADD")) continue;
+          var empty =
+              new ItemState(
+                  root.snapshotId(),
+                  root.baseItemId(),
+                  root.itemLevel(),
+                  ItemState.Rarity.RARE,
+                  root.implicits(),
+                  partial,
+                  root.conditions());
+          var pool = simulator.pool(empty, WorkbenchCurrency.ALCHEMY, null);
+          var selected = catalog.find(event.modifierId()).orElseThrow();
+          assertThat(event.selectionProbability())
+              .isEqualTo(
+                  (double) selected.weight()
+                      / pool.stream().mapToLong(ModifierDefinition::weight).sum());
+          partial.add(new ModifierInstance(event.modifierId(), event.values()));
+        }
+        var blocked =
+            simulator.apply(
+                result.state(), WorkbenchCurrency.ALCHEMY, java.util.Set.of(), new Random(seed));
+        assertThat(blocked.applied()).isFalse();
+        assertThat(blocked.state()).isEqualTo(result.state());
+      }
+    }
+    assertThat(root.explicits()).isEmpty();
+    assertThat(magic.explicits()).hasSize(1);
+  }
+
+  @Test
   void allSixActionsChangeConcreteStateWithoutMutatingInputOrUnchangedRolls() {
     var root = SolarAmulet.initial(catalog);
     var state = root;
