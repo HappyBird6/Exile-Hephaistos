@@ -1,0 +1,31 @@
+[
+  {
+    "sourceUrl": "https://poe2db.tw/us/Amulets#ModifiersCalc",
+    "row": {
+      "type": "essence",
+      "Level": "13",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [],
+      "fossil_no": [
+        "runic_ward"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/60e5fcb880acd0d89eb66658b404681c23fe7ca6ac91ff4f75ec5914937e4a68\" href=\"Runic_Alloy\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ScrapVerisium.webp\" alt=\"ScrapVerisium\" height=\"16\" />Runic Alloy</a>",
+      "Code": "AlloyMaximumRunicWardPercent1",
+      "ModFamilyList": [
+        "RunicWardPercent"
+      ],
+      "str": "<span class='mod-value'>(6<span class=\"ndash\">—</span>10)</span>% increased maximum <a data-keyword=\"Ward\" href=\"Runic_Ward\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1547e196969812ca08cdcd4c7cbb6befaf15e8caa83eb77c59704c6452b4eb82\">Runic Ward</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "default"
+      ],
+      "reqlvl": 10,
+      "IsPerfect": "0",
+      "IsAlloy": true,
+      "Removes": true
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyMaximumRunicWardPercent1",
+    "detailHtml": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(6<span class=\"ndash\">—</span>10)</span>% increased maximum <a data-keyword=\"Ward\" href=\"Runic_Ward\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1547e196969812ca08cdcd4c7cbb6befaf15e8caa83eb77c59704c6452b4eb82\">Runic Ward</a></span></h5>   <span data-tabname=\"Verisium\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Verisium\n<tr><th>Family<td>RunicWardPercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>13 (Effective: 10)\n<tr><th>Gold Price<td>251\n<tr><th>Stats<td><li>maximum ward +% <span class=\"badge bg-primary\">6 <span class=\"ndash\">—</span> 10</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>runic_ward</i></span> </table>  </div></div>"
+  }
+]

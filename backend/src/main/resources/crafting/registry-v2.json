@@ -1,9 +1,9 @@
 {
   "version": "equipment-crafting-registry-v2",
-  "ledgerVersion": "solar-uniform-assumptions-v8",
+  "ledgerVersion": "solar-uniform-assumptions-v9",
   "scope": "Equipment crafting, excluding maps and skill gems. Inventory coverage is incomplete and pending a full source audit; registration is not implementation.",
   "inventoryComplete": false,
-  "ruleVersion": "solar-workbench-breach-essence-v14",
+  "ruleVersion": "solar-workbench-runic-alloy-v15",
   "modifierWeightPolicy": "POE2DB_AS_PUBLISHED",
   "mixedKnownUnknownWeightPolicy": "BLOCK_UNTIL_POLICY_DECIDED",
   "entries": [
@@ -1553,21 +1553,24 @@
     {
       "id": "Runic_Alloy",
       "name": "Runic Alloy",
-      "category": "ESSENCE",
+      "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/Runic_Alloy",
       "sourcePage": "https://poe2db.tw/us/Essence",
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "RUNIC_ALLOY",
+      "reason": "",
+      "ruleSource": "https://poe2db.tw/us/Runic_Alloy",
+      "ruleVerifiedAt": "2026-10-02",
+      "implementationScope": "Rare Solar at modifier item level 13+, remove one unlocked explicit and add a sourced 6-10% maximum Runic Ward prefix; every removal branch must permit the result. Fractures and unrelated omens preserved. Crystallisation is Essence-only and does not restrict or consume on Alloy. No character-stat calculation or armour Runeforging is implied."
     },
     {
       "id": "Adaptive_Alloy",
       "name": "Adaptive Alloy",
-      "category": "ESSENCE",
+      "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/Adaptive_Alloy",
       "sourcePage": "https://poe2db.tw/us/Essence",
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
@@ -1581,7 +1584,7 @@
     {
       "id": "Protective_Alloy",
       "name": "Protective Alloy",
-      "category": "ESSENCE",
+      "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/Protective_Alloy",
       "sourcePage": "https://poe2db.tw/us/Essence",
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
@@ -1595,7 +1598,7 @@
     {
       "id": "Expansive_Alloy",
       "name": "Expansive Alloy",
-      "category": "ESSENCE",
+      "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/Expansive_Alloy",
       "sourcePage": "https://poe2db.tw/us/Essence",
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
@@ -1609,7 +1612,7 @@
     {
       "id": "Swift_Alloy",
       "name": "Swift Alloy",
-      "category": "ESSENCE",
+      "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/Swift_Alloy",
       "sourcePage": "https://poe2db.tw/us/Essence",
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
@@ -1623,7 +1626,7 @@
     {
       "id": "Cyclonic_Alloy",
       "name": "Cyclonic Alloy",
-      "category": "ESSENCE",
+      "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/Cyclonic_Alloy",
       "sourcePage": "https://poe2db.tw/us/Essence",
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
@@ -1637,7 +1640,7 @@
     {
       "id": "Prismatic_Alloy",
       "name": "Prismatic Alloy",
-      "category": "ESSENCE",
+      "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/Prismatic_Alloy",
       "sourcePage": "https://poe2db.tw/us/Essence",
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
@@ -1651,7 +1654,7 @@
     {
       "id": "Mystic_Alloy",
       "name": "Mystic Alloy",
-      "category": "ESSENCE",
+      "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/Mystic_Alloy",
       "sourcePage": "https://poe2db.tw/us/Essence",
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
@@ -1665,7 +1668,7 @@
     {
       "id": "Sovereign_Alloy",
       "name": "Sovereign Alloy",
-      "category": "ESSENCE",
+      "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/Sovereign_Alloy",
       "sourcePage": "https://poe2db.tw/us/Essence",
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
@@ -1679,7 +1682,7 @@
     {
       "id": "Celestial_Alloy",
       "name": "Celestial Alloy",
-      "category": "ESSENCE",
+      "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/Celestial_Alloy",
       "sourcePage": "https://poe2db.tw/us/Essence",
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
@@ -1693,7 +1696,7 @@
     {
       "id": "Transcendent_Alloy",
       "name": "Transcendent Alloy",
-      "category": "ESSENCE",
+      "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/Transcendent_Alloy",
       "sourcePage": "https://poe2db.tw/us/Essence",
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
@@ -1707,7 +1710,7 @@
     {
       "id": "The_Runebinders_Alloy",
       "name": "The Runebinder's Alloy",
-      "category": "ESSENCE",
+      "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/The_Runebinders_Alloy",
       "sourcePage": "https://poe2db.tw/us/Essence",
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
@@ -1721,7 +1724,7 @@
     {
       "id": "The_Runefathers_Alloy",
       "name": "The Runefather's Alloy",
-      "category": "ESSENCE",
+      "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/The_Runefathers_Alloy",
       "sourcePage": "https://poe2db.tw/us/Essence",
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
@@ -3266,7 +3269,7 @@
     {
       "id": "uniform-removal-v1",
       "candidateUnit": "eligible explicit modifier instance",
-      "eligibility": "Validated Solar Amulet, Magic/Rare, no special conditions. Non-Fractured explicit instances after verified side restriction; Chaos requires Rare and replacement eligibility for every removal branch. Whittling with fracture is blocked pending priority verification. Hysteria requires Rare Solar at catalog item level 68 or above and a valid fixed suffix after every non-Fractured explicit removal; One Crystallisation omen restricts Hysteria removal to unlocked prefixes or suffixes before determining N; its paired combination is unsupported. Perfect Infinite requires Rare Solar at catalog item level 72+ and all three sourced percentage suffix outcomes valid after every eligible removal. Crystallisation restrictions also apply to this Perfect essence. Perfect Enhancement requires Rare Solar at modifier item level 72+ and its sourced global defences prefix valid after every eligible removal; the same Crystallisation restrictions apply. Essence of the Breach requires Rare Solar at modifier level 1+ and its fixed maximum-quality prefix valid after every eligible removal; Crystallisation restrictions apply.",
+      "eligibility": "Validated Solar Amulet, Magic/Rare, no special conditions. Non-Fractured explicit instances after verified side restriction; Chaos requires Rare and replacement eligibility for every removal branch. Whittling with fracture is blocked pending priority verification. Hysteria requires Rare Solar at catalog item level 68 or above and a valid fixed suffix after every non-Fractured explicit removal; One Crystallisation omen restricts Hysteria removal to unlocked prefixes or suffixes before determining N; its paired combination is unsupported. Perfect Infinite requires Rare Solar at catalog item level 72+ and all three sourced percentage suffix outcomes valid after every eligible removal. Crystallisation restrictions also apply to this Perfect essence. Perfect Enhancement requires Rare Solar at modifier item level 72+ and its sourced global defences prefix valid after every eligible removal; the same Crystallisation restrictions apply. Essence of the Breach requires Rare Solar at modifier level 1+ and its fixed maximum-quality prefix valid after every eligible removal; Crystallisation restrictions apply. Runic Alloy requires Rare Solar at modifier level 13+ and a valid sourced Runic Ward prefix after every unlocked explicit removal. Crystallisation does not apply to Alloy.",
       "n": "Current eligible explicit instance count",
       "probability": "1/N",
       "sourceUrls": [
@@ -3277,7 +3280,8 @@
         "https://poe2db.tw/us/Omen_of_Dextral_Crystallisation",
         "https://poe2db.tw/us/Perfect_Essence_of_the_Infinite",
         "https://poe2db.tw/us/Perfect_Essence_of_Enhancement",
-        "https://poe2db.tw/us/Essence_of_the_Breach"
+        "https://poe2db.tw/us/Essence_of_the_Breach",
+        "https://poe2db.tw/us/Runic_Alloy"
       ],
       "reason": "Random removal stated; no published per-instance removal weights.",
       "scope": "MODELING_ASSUMPTION"

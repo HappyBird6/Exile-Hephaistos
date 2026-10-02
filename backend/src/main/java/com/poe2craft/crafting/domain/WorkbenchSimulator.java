@@ -6,8 +6,8 @@ import java.util.random.RandomGenerator;
 
 /** Samples concrete elementary events; unchanged instances retain their actual values. */
 public final class WorkbenchSimulator {
-  public static final String RULE_VERSION = "solar-workbench-breach-essence-v14";
-  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v8";
+  public static final String RULE_VERSION = "solar-workbench-runic-alloy-v15";
+  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v9";
   private final ItemCatalog catalog;
   private final AdditionRules additionRules;
 
@@ -97,14 +97,12 @@ public final class WorkbenchSimulator {
     if (state.itemLevel() < action.minimumModifierLevel())
       return blocked(action, "Item level is below the currency's minimum modifier level.");
     var omen = matches.isEmpty() ? null : matches.getFirst();
-    if (!action.replacementEssenceModifiers().isEmpty()) {
+    if (!action.replacementModifiers().isEmpty()) {
       if (state.rarity() != ItemState.Rarity.RARE)
         return blocked(
-            action, "This essence requires a Rare item with a removable explicit modifier.");
+            action, "This material requires a Rare item with a removable explicit modifier.");
       var targets =
-          action.replacementEssenceModifiers().stream()
-              .map(id -> catalog.find(id).orElseThrow())
-              .toList();
+          action.replacementModifiers().stream().map(id -> catalog.find(id).orElseThrow()).toList();
       if (targets.stream().anyMatch(target -> state.itemLevel() < target.requiredItemLevel()))
         return blocked(action, "Essence below the catalog modifier item level is unsupported.");
       var candidates = removalCandidates(state, omen);
@@ -276,7 +274,7 @@ public final class WorkbenchSimulator {
         action == WorkbenchCurrency.ALCHEMY || !action.essenceModifierIds().isEmpty()
             ? ItemState.Rarity.RARE
             : upgrade(state, action);
-    if (!action.replacementEssenceModifiers().isEmpty()) {
+    if (!action.replacementModifiers().isEmpty()) {
       var candidates = removalCandidates(state, omen);
       var removed = candidates.get(random.nextInt(candidates.size()));
       explicits.remove(removed);
@@ -289,11 +287,9 @@ public final class WorkbenchSimulator {
               candidates.stream().map(ModifierInstance::modifierId).toList(),
               null,
               null,
-              omen == null
-                  ? action.replacementEssenceSource()
-                  : "https://poe2db.tw/us/" + omen.id(),
+              omen == null ? action.replacementSource() : "https://poe2db.tw/us/" + omen.id(),
               "Uniform among non-Fractured explicit instances; every removal branch must accept every sourced modifier outcome. No published removal weights."));
-      var targets = action.replacementEssenceModifiers();
+      var targets = action.replacementModifiers();
       var definition =
           catalog
               .find(targets.get(targets.size() == 1 ? 0 : random.nextInt(targets.size())))
@@ -307,7 +303,7 @@ public final class WorkbenchSimulator {
                 targets,
                 null,
                 null,
-                action.replacementEssenceSource(),
+                action.replacementSource(),
                 "Uniform among the three sourced attribute outcomes; no published essence choice weights. Zero ordinary spawn weight is not an essence selection weight."));
       var rolled = roll(definition, random, assumptions);
       explicits.add(rolled);

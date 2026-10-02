@@ -12,6 +12,7 @@ export type WorkbenchAction =
   | 'PERFECT_ESSENCE_INFINITE'
   | 'PERFECT_ESSENCE_ENHANCEMENT'
   | 'ESSENCE_BREACH'
+  | 'RUNIC_ALLOY'
   | 'LESSER_ESSENCE_BODY'
   | 'ESSENCE_BODY'
   | 'GREATER_ESSENCE_BODY'
@@ -84,6 +85,7 @@ const replacementEssenceModifiers: Partial<
   ESSENCE_HYSTERIA: ['amulet:suffix:of-suturing'],
   PERFECT_ESSENCE_ENHANCEMENT: ['amulet:prefix:essence-global-defences'],
   ESSENCE_BREACH: ['amulet:prefix:essence-maximum-quality'],
+  RUNIC_ALLOY: ['amulet:prefix:alloy-maximum-runic-ward'],
   PERFECT_ESSENCE_INFINITE: [
     'amulet:suffix:essence-percent-strength',
     'amulet:suffix:essence-percent-dexterity',
@@ -99,6 +101,7 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Perfect_Essence_of_the_Infinite: 'PERFECT_ESSENCE_INFINITE',
   Perfect_Essence_of_Enhancement: 'PERFECT_ESSENCE_ENHANCEMENT',
   Essence_of_the_Breach: 'ESSENCE_BREACH',
+  Runic_Alloy: 'RUNIC_ALLOY',
   Lesser_Essence_of_the_Body: 'LESSER_ESSENCE_BODY',
   Essence_of_the_Body: 'ESSENCE_BODY',
   Greater_Essence_of_the_Body: 'GREATER_ESSENCE_BODY',
@@ -133,6 +136,7 @@ export const workbenchActionNames: Record<WorkbenchAction, string> = {
   PERFECT_ESSENCE_INFINITE: 'Perfect Essence of the Infinite',
   PERFECT_ESSENCE_ENHANCEMENT: 'Perfect Essence of Enhancement',
   ESSENCE_BREACH: 'Essence of the Breach',
+  RUNIC_ALLOY: 'Runic Alloy',
   LESSER_ESSENCE_BODY: 'Lesser Essence of the Body',
   ESSENCE_BODY: 'Essence of the Body',
   GREATER_ESSENCE_BODY: 'Greater Essence of the Body',
@@ -535,7 +539,10 @@ export async function applyCurrency(
   const locks = next.explicits.filter((m) => m.fractured)
   if (v.applied && replacementTargets.length > 0) {
     const matching = workbenchOmens.filter(
-      (o) => o.trigger === 'ESSENCE_HYSTERIA' && activeOmens.includes(o.id),
+      (o) =>
+        action !== 'RUNIC_ALLOY' &&
+        o.trigger === 'ESSENCE_HYSTERIA' &&
+        activeOmens.includes(o.id),
     )
     const side =
       matching[0]?.id === 'Omen_of_Sinistral_Crystallisation'

@@ -67,7 +67,8 @@ class SpecialModifierCatalogTest {
         .containsExactly(
             "poe2db-amulets-base-2026-09-29-a4f439852790",
             "poe2db-amulets-base-2026-09-29-a4f439852790+perfect-infinite-2026-10-02-18dd1e515063",
-            "solar-special-1a52789b16483bb0d55aa5cbff59dc9ca4c582dea80ac8749251494c6020327c");
+            "solar-special-1a52789b16483bb0d55aa5cbff59dc9ca4c582dea80ac8749251494c6020327c",
+            "solar-special-ffd4f62c2195319ab608a1f6a97352d0bf57189adc5612d6e80465fea792f922");
     assertThat(catalog.metadata().snapshotId())
         .startsWith("solar-special-")
         .hasSizeLessThanOrEqualTo(120);
@@ -172,6 +173,53 @@ class SpecialModifierCatalogTest {
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("checksum");
       }
+    }
+  }
+
+  @Test
+  void runicProofMatchesOneSourcedWardStatAndPreservesAllExistingDefinitions() throws Exception {
+    var current = ItemCatalogLoader.loadDefault();
+    try (var input = resource("runic-alloy.raw.json")) {
+      var proofs = new ObjectMapper().readTree(input);
+      assertThat(proofs).hasSize(1);
+      var proof = proofs.get(0);
+      var d = current.find("amulet:prefix:alloy-maximum-runic-ward").orElseThrow();
+      assertThat(d.name()).isEqualTo("Verisium");
+      assertThat(d.affixType()).isEqualTo(ModifierDefinition.AffixType.PREFIX);
+      assertThat(d.familyIds()).containsExactly("RunicWardPercent");
+      assertThat(d.requiredItemLevel())
+          .isEqualTo(proof.get("row").get("Level").asInt())
+          .isEqualTo(13);
+      assertThat(proof.get("row").get("reqlvl").asInt()).isEqualTo(10);
+      assertThat(d.weight()).isZero();
+      assertThat(d.tags()).containsExactly("runic_ward");
+      assertThat(d.stats())
+          .containsExactly(new ModifierDefinition.StatRange("maximum_ward_+%", 6, 10));
+      assertThat(d.sourceUrl()).isEqualTo(proof.get("detailUrl").asText());
+      assertThat(proof.get("detailHtml").asText())
+          .contains("Stats<td><li>maximum ward +%", "Req. level<td>13 (Effective: 10)");
+    }
+    try (var ordinary = resource("catalog.json");
+        var raw = resource("base.raw.json");
+        var details = resource("details.raw.json");
+        var infinite = resource("perfect-infinite.catalog.json");
+        var infiniteRaw = resource("perfect-infinite.raw.json");
+        var enhancement = resource("perfect-enhancement.catalog.json");
+        var enhancementRaw = resource("perfect-enhancement.raw.json");
+        var breach = resource("breach-essence.catalog.json");
+        var breachRaw = resource("breach-essence.raw.json")) {
+      var previous =
+          ItemCatalogLoader.addSpecial(
+              ItemCatalogLoader.addSpecial(
+                  ItemCatalogLoader.loadWithSpecial(ordinary, raw, details, infinite, infiniteRaw),
+                  enhancement,
+                  enhancementRaw),
+              breach,
+              breachRaw);
+      assertThat(current.compatibleSnapshotIds()).contains(previous.metadata().snapshotId());
+      assertThat(previous.modifiers())
+          .allSatisfy((id, d) -> assertThat(current.find(id)).contains(d));
+      assertThat(current.base()).isEqualTo(previous.base());
     }
   }
 

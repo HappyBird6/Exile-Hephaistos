@@ -27,6 +27,7 @@ public enum WorkbenchCurrency {
   PERFECT_ESSENCE_INFINITE(null, 0),
   PERFECT_ESSENCE_ENHANCEMENT(null, 0),
   ESSENCE_BREACH(null, 0),
+  RUNIC_ALLOY(null, 0),
   LESSER_ESSENCE_BODY("amulet:prefix:healthy"),
   ESSENCE_BODY("amulet:prefix:robust"),
   GREATER_ESSENCE_BODY("amulet:prefix:rotund"),
@@ -115,7 +116,12 @@ public enum WorkbenchCurrency {
   }
 
   public List<String> replacementEssenceModifiers() {
+    return this == RUNIC_ALLOY ? List.of() : replacementModifiers();
+  }
+
+  public List<String> replacementModifiers() {
     return switch (this) {
+      case RUNIC_ALLOY -> List.of("amulet:prefix:alloy-maximum-runic-ward");
       case ESSENCE_HYSTERIA -> List.of("amulet:suffix:of-suturing");
       case ESSENCE_BREACH -> List.of("amulet:prefix:essence-maximum-quality");
       case PERFECT_ESSENCE_ENHANCEMENT -> List.of("amulet:prefix:essence-global-defences");
@@ -136,5 +142,9 @@ public enum WorkbenchCurrency {
       case PERFECT_ESSENCE_INFINITE -> "https://poe2db.tw/us/Perfect_Essence_of_the_Infinite";
       default -> throw new IllegalArgumentException("Not a supported replacement essence");
     };
+  }
+
+  public String replacementSource() {
+    return this == RUNIC_ALLOY ? "https://poe2db.tw/us/Runic_Alloy" : replacementEssenceSource();
   }
 }

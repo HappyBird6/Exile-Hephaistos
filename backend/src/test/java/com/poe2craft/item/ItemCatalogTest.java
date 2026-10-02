@@ -24,8 +24,8 @@ class ItemCatalogTest {
       raw = new ObjectMapper().readTree(input);
     }
     assertThat(raw).hasSize(209);
-    assertThat(catalog.modifiers()).hasSize(215);
-    assertThat(catalog.metadata().prefixCount()).isEqualTo(83);
+    assertThat(catalog.modifiers()).hasSize(216);
+    assertThat(catalog.metadata().prefixCount()).isEqualTo(84);
     assertThat(catalog.metadata().suffixCount()).isEqualTo(131);
     assertThat(catalog.metadata().prefixWeight()).isEqualTo(72200);
     assertThat(catalog.metadata().suffixWeight()).isEqualTo(96656);
