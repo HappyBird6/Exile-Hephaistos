@@ -30,7 +30,7 @@ public final class CoupledStatRollModel {
             ID,
             "assumed shared ratio ticks (not distinct item outcomes)",
             RESOLUTION + 1L,
-            List.of(),
+            List.of(definition.id()),
             0L,
             (long) RESOLUTION,
             definition.sourceUrl(),
@@ -38,7 +38,8 @@ public final class CoupledStatRollModel {
                 + "One shared ratio tick/10000 for all stats; 10001 equally sampled model ticks, "
                 + "not a game-verified permitted outcome set or uniform rounded outcomes. "
                 + "Interpolate each source min/max; integer HALF_UP rounding, ties away from zero. "
-                + "Different ticks may produce the same tuple; modifier selection weights are separate."));
+                + "Different ticks may produce the same tuple; modifier selection weights are separate.",
+            tick));
     return new ModifierInstance(definition.id(), values);
   }
 

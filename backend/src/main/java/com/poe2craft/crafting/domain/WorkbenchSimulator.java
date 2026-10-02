@@ -522,7 +522,20 @@ public final class WorkbenchSimulator {
       Long min,
       Long max,
       String sourceUrl,
-      String reason) {
+      String reason,
+      Integer ratioTick) {
+    public Assumption(
+        String id,
+        String candidateUnit,
+        long n,
+        List<String> candidates,
+        Long min,
+        Long max,
+        String sourceUrl,
+        String reason) {
+      this(id, candidateUnit, n, candidates, min, max, sourceUrl, reason, null);
+    }
+
     public Assumption {
       candidates = List.copyOf(candidates);
     }

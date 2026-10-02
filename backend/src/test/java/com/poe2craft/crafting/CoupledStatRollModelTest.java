@@ -48,6 +48,8 @@ class CoupledStatRollModelTest {
             a -> {
               assertThat(a.id()).isEqualTo(CoupledStatRollModel.ID);
               assertThat(a.n()).isEqualTo(10001);
+              assertThat(a.ratioTick()).isEqualTo(5000);
+              assertThat(a.candidates()).containsExactly(fixture().id());
               assertThat(a.reason())
                   .contains("Unverified user conjecture", "not a game-verified", "HALF_UP");
             });

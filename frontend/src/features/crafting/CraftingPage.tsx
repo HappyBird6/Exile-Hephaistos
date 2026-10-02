@@ -1067,6 +1067,9 @@ export function CraftingPage() {
                               ? `${a.id === 'user-coupled-ratio-half-up-v1' ? 'Assumed ratio tick range' : 'Source range'} ${a.min} to ${a.max}. `
                               : ''}
                             {a.reason}{' '}
+                            {a.ratioTick != null
+                              ? `Sampled ratio ${a.ratioTick}/10000. `
+                              : ''}
                             <a
                               href={a.sourceUrl}
                               target="_blank"

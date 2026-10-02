@@ -42,17 +42,25 @@ describe('Workbench actual application', () => {
       'fetch',
       async (url: RequestInfo | URL, init?: RequestInit) => {
         const response = await fixtureFetch(url, init)
+        if (String(url).includes('/crafting/initial')) {
+          const initial = await response.json()
+          initial.modifiers.p.stats.push({ id: 'mana', min: 1, max: 3 })
+          return jsonResponse(initial)
+        }
         if (!String(url).endsWith('/workbench/apply')) return response
         const result = await response.json()
+        result.state.explicits[0].values.mana = 2
+        result.events[0].values.mana = 2
         result.assumptions.push({
           id: 'user-coupled-ratio-half-up-v1',
           candidateUnit: 'assumed ratio ticks, not rounded outcomes',
           n: 10001,
-          candidates: [],
+          candidates: ['p'],
           min: 0,
           max: 10000,
           sourceUrl: 'https://poe2db.tw/us/Gloves_str',
           reason: 'Unverified user conjecture; HALF_UP; ISSUES.md WB-001.',
+          ratioTick: 7000,
         })
         return jsonResponse(result)
       },

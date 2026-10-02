@@ -324,6 +324,7 @@ export interface RollAssumption {
   max: number | null
   sourceUrl: string
   reason: string
+  ratioTick?: number | null
 }
 export interface AppliedItem {
   ruleVersion: string
@@ -342,6 +343,72 @@ export interface AppliedItem {
   consumedOmens: string[]
   remainingOmens: string[]
   assumptions: RollAssumption[]
+}
+
+function coupledModelsMatch(
+  result: AppliedItem,
+  definitions: Record<string, Definition>,
+): boolean {
+  const rolled = result.events.filter(
+    (event) =>
+      ['ADD', 'REROLL_IMPLICIT', 'REROLL_EXPLICIT'].includes(event.kind) &&
+      (definitions[event.modifierId]?.stats?.length ?? 0) > 1,
+  )
+  const models = result.assumptions.filter(
+    (a) => a.id === 'user-coupled-ratio-half-up-v1',
+  )
+  if (models.length !== rolled.length) return false
+  const bound = new Set<string>()
+  return models.every((a) => {
+    const id = a.candidates[0]
+    const tick = a.ratioTick
+    if (
+      !id ||
+      a.candidates.length !== 1 ||
+      bound.has(id) ||
+      a.n !== 10001 ||
+      a.min !== 0 ||
+      a.max !== 10000 ||
+      !Number.isSafeInteger(tick) ||
+      tick == null ||
+      tick < 0 ||
+      tick > 10000
+    )
+      return false
+    bound.add(id)
+    const event = rolled.find((e) => e.modifierId === id)
+    const instance = [
+      ...result.state.implicits,
+      ...result.state.explicits,
+    ].find((m) => m.modifierId === id)
+    const stats = definitions[id]?.stats
+    if (
+      !event ||
+      !instance ||
+      !stats ||
+      stats.length < 2 ||
+      Object.keys(event.values).length !== stats.length
+    )
+      return false
+    return stats.every((s) => {
+      if (
+        !Number.isSafeInteger(s.min) ||
+        !Number.isSafeInteger(s.max) ||
+        s.min > s.max
+      )
+        return false
+      const numerator =
+        BigInt(s.min) * BigInt(10000 - tick) + BigInt(s.max) * BigInt(tick)
+      const sign = numerator < 0n ? -1n : 1n
+      const absolute = numerator < 0n ? -numerator : numerator
+      const expected = Number(sign * ((absolute + 5000n) / 10000n))
+      return (
+        Number.isSafeInteger(expected) &&
+        event.values[s.id] === expected &&
+        instance.values[s.id] === expected
+      )
+    })
+  })
 }
 export function concreteInitial(initial: Initial): ConcreteItem {
   return {
@@ -478,6 +545,10 @@ export async function applyCurrency(
   )
     throw new Error(
       'Could not verify the applied item. Your item is unchanged. Please retry.',
+    )
+  if (!coupledModelsMatch(v, definitions))
+    throw new Error(
+      'Could not verify the coupled roll model. Your item is unchanged. Please retry.',
     )
   const families = new Set<string>()
   let prefixes = 0
