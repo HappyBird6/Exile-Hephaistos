@@ -50,6 +50,7 @@ export const initialFixture: Initial = {
       tier: 0,
       affixType: 'NONE',
       familyIds: ['Spirit'],
+      stats: [{ id: 'base_spirit_from_equipment', min: 10, max: 15 }],
     },
     p: {
       id: 'p',
@@ -58,6 +59,7 @@ export const initialFixture: Initial = {
       tier: 1,
       affixType: 'PREFIX',
       familyIds: ['Life'],
+      stats: [{ id: 'life', min: 10, max: 20 }],
     },
     s: {
       id: 's',
@@ -66,6 +68,7 @@ export const initialFixture: Initial = {
       tier: 1,
       affixType: 'SUFFIX',
       familyIds: ['Strength'],
+      stats: [{ id: 'strength', min: 5, max: 8 }],
     },
   },
   actions: fixtureActions(rootBucket),
@@ -106,6 +109,58 @@ export function fixtureFetch(
   const body = JSON.parse(String(init?.body ?? '{}')) as {
     action: string
     state: Bucket
+  }
+  if (url.endsWith('/workbench/apply')) {
+    const request = JSON.parse(String(init?.body)) as {
+      state: import('../../features/crafting/workbenchApi').ConcreteItem
+      action: string
+      activeOmens?: string[]
+    }
+    const applied =
+      request.action === 'TRANSMUTATION' && request.state.rarity === 'NORMAL'
+    return Promise.resolve(
+      jsonResponse({
+        ruleVersion: 'solar-workbench-six-v1',
+        ledgerVersion: 'solar-uniform-assumptions-v1',
+        snapshotId: request.state.snapshotId,
+        action: request.action,
+        applied,
+        consumedOmens: [],
+        remainingOmens: request.activeOmens ?? [],
+        reason: applied ? '' : 'This currency cannot be used on this rarity.',
+        state: applied
+          ? {
+              ...request.state,
+              rarity: 'MAGIC',
+              explicits: [{ modifierId: 'p', values: { life: 17 } }],
+            }
+          : request.state,
+        events: applied
+          ? [
+              {
+                kind: 'ADD',
+                modifierId: 'p',
+                values: { life: 17 },
+                selectionProbability: 0.6,
+              },
+            ]
+          : [],
+        assumptions: applied
+          ? [
+              {
+                id: 'uniform-integer-roll-v1',
+                candidateUnit: 'life',
+                n: 11,
+                candidates: [],
+                min: 10,
+                max: 20,
+                sourceUrl: 'https://poe2db.tw/us/Amulets#ModifiersCalc',
+                reason: 'No published numeric roll weights.',
+              },
+            ]
+          : [],
+      }),
+    )
   }
   if (url.endsWith('/actions'))
     return Promise.resolve(

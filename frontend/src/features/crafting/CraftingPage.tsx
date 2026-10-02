@@ -1,4 +1,5 @@
 import { currencyNames } from './currencyNames'
+import { skipToken, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useRef, useState } from 'react'
 import { ItemCard } from './ItemCard'
 import { toItemCard } from './itemCardData'
@@ -14,8 +15,19 @@ import {
 } from './materials'
 import type { Material, MaterialTab } from './materials'
 import { useItemDraft } from './draft'
+import { CraftSupport } from './CraftSupport'
 import { CraftingExplorer } from './CraftingExplorer'
-import { currencyActions } from './craftingApi'
+import { loadInitial } from './craftingApi'
+import {
+  applyCurrency,
+  concreteInitial,
+  rolledText,
+  workbenchCurrencyActions,
+  workbenchActionNames,
+  workbenchOmens,
+  mapSolarText,
+} from './workbenchApi'
+import type { AppliedItem, MappingResult } from './workbenchApi'
 import type { Action } from './craftingApi'
 import './crafting.css'
 
@@ -23,10 +35,19 @@ function tooltipEvents(id: string) {
   return { 'data-material-tooltip': id }
 }
 
+const workspaceTabs = ['workbench', 'support', 'explorer'] as const
+const workspaceNames = {
+  workbench: 'Crafting Workbench',
+  support: 'Craft Support',
+  explorer: 'State explorer',
+}
+
 type Selection = { id: string; name: string; image: string }
 
 export function CraftingPage() {
+  const client = useQueryClient()
   const draft = useItemDraft()
+  const [view, setView] = useState<(typeof workspaceTabs)[number]>('workbench')
   const imported = useItemTextImport()
   const dialog = useRef<HTMLDialogElement>(null)
   const [searches, setSearches] = useState<
@@ -43,6 +64,32 @@ export function CraftingPage() {
   const [inputMode, setInputMode] = useState<'base' | 'text'>('base')
   const [inputOpen, setInputOpen] = useState(false)
   const [announcement, setAnnouncement] = useState('')
+  const [applying, setApplying] = useState<AbortController | null>(null)
+  const applyingRequest = useRef<AbortController | null>(null)
+  const initial = useQuery({
+    queryKey: ['crafting', 'initial', draft.baseItemLevel],
+    queryFn: ({ signal }) => loadInitial(draft.baseItemLevel, signal),
+    staleTime: 60_000,
+    retry: false,
+  })
+  const workbenchKey = ['crafting', 'workbench', draft.baseRevision] as const
+  const workbench = useQuery<AppliedItem>({
+    queryKey: workbenchKey,
+    queryFn: skipToken,
+  })
+  const mappingKey = ['crafting', 'mapped', draft.baseRevision] as const
+  const mapping = useQuery<MappingResult>({
+    queryKey: mappingKey,
+    queryFn: skipToken,
+  })
+  const canCraft = draft.source === 'base' || mapping.data?.mapped === true
+  useEffect(
+    () => () => {
+      applyingRequest.current?.abort()
+      applyingRequest.current = null
+    },
+    [draft.baseRevision, draft.source],
+  )
   const [baseLevel, setBaseLevel] = useState('82')
   const [previewRequest, setPreviewRequest] = useState<{
     count: number
@@ -85,33 +132,142 @@ export function CraftingPage() {
     setHeld(null)
     setAnnouncement(`${resource.name} selected · Click the central item.`)
   }
-  function apply() {
+  async function apply() {
+    if (applyingRequest.current) return
     if (!selected) {
       setAnnouncement('Select a currency from the stash first.')
       return
     }
-    if (draft.source !== 'base') {
+    if (!canCraft) {
       setAnnouncement(
         'The item has not changed. Pasted items are display-only. Select the Solar Amulet base to explore probabilities.',
       )
       return
     }
-    const action = currencyActions[selected.id]
+    if (workbenchOmens.some((omen) => omen.id === selected.id)) {
+      const active = draft.activeOmens.includes(selected.id)
+      draft.setActiveOmens(
+        active
+          ? draft.activeOmens.filter((id) => id !== selected.id)
+          : [...draft.activeOmens, selected.id],
+      )
+      setAnnouncement(
+        `${selected.name} ${active ? 'deactivated' : 'activated. It is consumed only by a successful matching craft'}.`,
+      )
+      setSelected(null)
+      setHeld(null)
+      setPointer(null)
+      return
+    }
+    const action = workbenchCurrencyActions[selected.id]
     if (!action) {
       setAnnouncement(
-        'The item has not changed. This currency is not supported by the current probability explorer.',
+        'The item has not changed. This material has no verified crafting rule in the current Workbench.',
       )
       return
     }
-    setPreviewRequest((old) => ({ count: old.count + 1, action }))
-    setAnnouncement(
-      'Showing possible outcomes below. The item has not changed.',
-    )
+    if (!initial.data) {
+      setAnnouncement(
+        'The item has not changed. Wait for the crafting catalog or retry loading it.',
+      )
+      return
+    }
+    const controller = new AbortController()
+    applyingRequest.current = controller
+    setApplying(controller)
+    const revision = draft.baseRevision
+    const state =
+      workbench.data?.state ??
+      mapping.data?.state ??
+      concreteInitial(initial.data)
+    try {
+      const result = await applyCurrency(
+        state,
+        action,
+        initial.data.modifiers,
+        controller.signal,
+        draft.activeOmens,
+      )
+      if (
+        controller.signal.aborted ||
+        useItemDraft.getState().baseRevision !== revision ||
+        useItemDraft.getState().source !== draft.source
+      )
+        return
+      if (result.applied) {
+        client.setQueryData(workbenchKey, result)
+        draft.setActiveOmens(result.remainingOmens)
+        setAnnouncement(
+          `${workbenchActionNames[action]} applied. Current item updated.${result.consumedOmens.length ? ` Consumed: ${result.consumedOmens.map((id) => id.replaceAll('_', ' ')).join(', ')}.` : ''}${result.assumptions.length ? ' Uniform probability assumptions were used; see the roll assumptions.' : ''}`,
+        )
+        setSelected(null)
+        setHeld(null)
+        setPointer(null)
+      } else
+        setAnnouncement(
+          `Craft blocked by rule: ${result.reason} Your item is unchanged; active omens are preserved.`,
+        )
+    } catch (error) {
+      if (!controller.signal.aborted)
+        setAnnouncement(
+          error instanceof Error
+            ? error.message
+            : 'Could not apply currency. Your item is unchanged.',
+        )
+    } finally {
+      if (applyingRequest.current === controller) {
+        applyingRequest.current = null
+        setApplying(null)
+      }
+    }
   }
   async function importText() {
     if (await imported.submit(draft.text)) closeInput()
     setSelected(null)
     setHeld(null)
+  }
+  async function enableCrafting() {
+    if (applyingRequest.current || !imported.data || !initial.data) return
+    const controller = new AbortController()
+    const revision = draft.baseRevision
+    applyingRequest.current = controller
+    setApplying(controller)
+    try {
+      const result = await mapSolarText(
+        imported.data.text.originalText,
+        controller.signal,
+        initial.data.modifiers,
+      )
+      if (
+        controller.signal.aborted ||
+        useItemDraft.getState().baseRevision !== revision
+      )
+        return
+      if (
+        result.mapped &&
+        (result.state?.snapshotId !== initial.data.metadata.snapshotId ||
+          result.state?.baseItemId !== initial.data.state.baseItemId)
+      )
+        throw new Error(
+          'The item uses another catalog snapshot or base. Please reload the catalog.',
+        )
+      client.setQueryData(mappingKey, result)
+      setAnnouncement(
+        result.mapped
+          ? 'Solar Amulet catalog mapping verified. Crafting is enabled; original text remains in Edit item.'
+          : 'Crafting mapping is blocked. The original text and unresolved lines are preserved.',
+      )
+    } catch (error) {
+      if (!controller.signal.aborted)
+        setAnnouncement(
+          error instanceof Error ? error.message : 'Could not map this item.',
+        )
+    } finally {
+      if (applyingRequest.current === controller) {
+        applyingRequest.current = null
+        setApplying(null)
+      }
+    }
   }
   function closeInput() {
     imported.invalidate()
@@ -176,7 +332,42 @@ export function CraftingPage() {
   }
   const matchingEssenceRows = essenceRows(search)
   const cursor = held ?? selected
-  const card = item ? toItemCard(item) : null
+  const concrete = workbench.data?.state ?? mapping.data?.state
+  const card =
+    item && !concrete
+      ? toItemCard(item)
+      : concrete && initial.data
+        ? {
+            rarity: concrete.rarity,
+            name: item?.displayName ?? 'Solar Amulet',
+            base: 'Solar Amulet',
+            itemClass: 'Amulet',
+            itemLevel: concrete.itemLevel,
+            properties: [],
+            requirements: [],
+            flags: [],
+            modifiers: [...concrete.implicits, ...concrete.explicits].map(
+              (m, i) => {
+                const d = initial.data!.modifiers[m.modifierId]!
+                return {
+                  id: m.modifierId,
+                  text: rolledText(d, m.values),
+                  kind:
+                    i < concrete.implicits.length
+                      ? ('implicit' as const)
+                      : ('explicit' as const),
+                  affixLabel:
+                    d.affixType === 'NONE'
+                      ? undefined
+                      : `${d.affixType === 'PREFIX' ? 'P' : 'S'}${d.tier}`,
+                  detail: `Source range: ${d.text}\n${Object.entries(m.values)
+                    .map(([id, value]) => `${id} = ${value}`)
+                    .join('\n')}`,
+                }
+              },
+            ),
+          }
+        : null
 
   return (
     <main
@@ -197,17 +388,68 @@ export function CraftingPage() {
             <small>PATH OF EXILE 2 · CRAFTING WORKBENCH</small>
           </span>
         </a>
-        <nav aria-label="Main navigation">
-          <span aria-current="page">Crafting workbench</span>
-          <a href="/admin">Admin</a>
-        </nav>
+        <a className="admin-link" href="/admin">
+          Admin
+        </a>
       </header>
+      <nav className="workspace-nav" aria-label="Main navigation">
+        <div role="tablist" aria-label="Crafting workspace">
+          {workspaceTabs.map((tab, index) => (
+            <button
+              key={tab}
+              type="button"
+              role="tab"
+              id={`workspace-${tab}`}
+              aria-selected={view === tab}
+              aria-controls={`panel-${tab}`}
+              tabIndex={view === tab ? 0 : -1}
+              onClick={() => {
+                setView(tab)
+                setHeld(null)
+                setSelected(null)
+                setPointer(null)
+              }}
+              onKeyDown={(event) => {
+                if (
+                  !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(
+                    event.key,
+                  )
+                )
+                  return
+                event.preventDefault()
+                const next =
+                  event.key === 'Home'
+                    ? 'workbench'
+                    : event.key === 'End'
+                      ? 'explorer'
+                      : workspaceTabs[
+                          (index +
+                            (event.key === 'ArrowRight' ? 1 : -1) +
+                            workspaceTabs.length) %
+                            workspaceTabs.length
+                        ]!
+                setView(next)
+                setHeld(null)
+                setSelected(null)
+                setPointer(null)
+                document.getElementById(`workspace-${next}`)?.focus()
+              }}
+            >
+              <span aria-hidden="true">0{index + 1}</span>
+              {workspaceNames[tab]}
+            </button>
+          ))}
+        </div>
+      </nav>
       <div className="craft-title">
         <div>
           <p className="craft-kicker">THE CRAFTING BENCH</p>
-          <h1>Crafting workbench</h1>
+          <h1>
+            {view === 'workbench' ? 'Crafting workbench' : workspaceNames[view]}
+          </h1>
           <p>
-            Choose a currency and explore the next possibilities for your item.
+            Apply currency in the Workbench or inspect possibilities in State
+            explorer.
           </p>
         </div>
         <span className="preview-badge">
@@ -217,6 +459,10 @@ export function CraftingPage() {
       </div>
       <div
         className="workbench-layout"
+        id="panel-workbench"
+        role="tabpanel"
+        aria-labelledby="workspace-workbench"
+        hidden={view !== 'workbench'}
         onContextMenu={(event) => event.preventDefault()}
       >
         <div className="stash-panel">
@@ -367,11 +613,14 @@ export function CraftingPage() {
                 </div>
               )}
               <div className="item-placement">
-                <span className="placement-label">Crafting item</span>
+                <span className="placement-label">Current item</span>
                 <button
                   className={`item-slot ${selected ? 'is-ready' : ''}`}
                   type="button"
                   aria-label="Use selected currency on the central item"
+                  disabled={
+                    applying !== null && applyingRequest.current !== null
+                  }
                   onClick={apply}
                 >
                   {draft.source === 'base' ? (
@@ -438,23 +687,162 @@ export function CraftingPage() {
               </div>
             </div>
             <div className="bench-lower">
-              {draft.source === 'base' ? (
-                <CraftingExplorer
-                  key={draft.baseRevision}
-                  level={draft.baseItemLevel}
-                  revision={draft.baseRevision}
-                  requestCount={previewRequest.count}
-                  requestedAction={previewRequest.action}
-                />
-              ) : (
-                <div className="bench-item-card">
-                  {card && <ItemCard item={card} />}
+              <div className="bench-item-card">
+                <details className="workbench-omen-panel">
+                  <summary>Active omens ({draft.activeOmens.length})</summary>
+                  <fieldset
+                    className="workbench-omens"
+                    disabled={
+                      !canCraft ||
+                      (applying !== null && applyingRequest.current !== null)
+                    }
+                  >
+                    <legend>Active omens</legend>
+                    <p>
+                      One matching omen per craft. A matching omen is consumed
+                      after a successful application; unrelated omens stay
+                      active. Greater/Perfect interactions are awaiting
+                      verification.
+                    </p>
+                    {workbenchOmens.map((omen) => (
+                      <label key={omen.id}>
+                        <input
+                          type="checkbox"
+                          checked={draft.activeOmens.includes(omen.id)}
+                          onChange={(event) =>
+                            draft.setActiveOmens(
+                              event.target.checked
+                                ? [...draft.activeOmens, omen.id]
+                                : draft.activeOmens.filter(
+                                    (id) => id !== omen.id,
+                                  ),
+                            )
+                          }
+                        />
+                        <span>
+                          {omen.id.replaceAll('_', ' ')}
+                          <small>
+                            {workbenchActionNames[omen.trigger]}: {omen.effect}
+                          </small>
+                        </span>
+                      </label>
+                    ))}
+                  </fieldset>
+                </details>
+                {card ? (
+                  <ItemCard item={card} />
+                ) : (
+                  <ItemCard
+                    item={{
+                      rarity: 'NORMAL',
+                      name: 'Solar Amulet',
+                      base: 'Solar Amulet',
+                      itemClass: 'Amulet',
+                      itemLevel: draft.baseItemLevel,
+                      properties: [],
+                      requirements: [],
+                      modifiers: [
+                        {
+                          id: 'spirit',
+                          text: '+15 to Spirit',
+                          kind: 'implicit',
+                        },
+                      ],
+                      flags: [],
+                    }}
+                  />
+                )}
+                <p>
+                  {canCraft
+                    ? 'Select a currency, then click the central item to craft. The result stays in this Workbench.'
+                    : 'Pasted items are display-only. Select the Solar Amulet base to explore probabilities.'}
+                </p>
+                {draft.source === 'text' && !mapping.data?.mapped && (
+                  <button
+                    type="button"
+                    onClick={() => void enableCrafting()}
+                    disabled={applyingRequest.current !== null || !initial.data}
+                  >
+                    Enable Solar crafting
+                  </button>
+                )}
+                {mapping.data && (
                   <p>
-                    Pasted items are display-only. Select the Solar Amulet base
-                    to explore probabilities.
+                    {mapping.data.mapped
+                      ? 'Catalog mapping verified. Original clipboard text is retained in Edit item.'
+                      : 'Catalog mapping blocked:'}
                   </p>
-                </div>
-              )}
+                )}
+                {mapping.data?.issues.map((issue, index) => (
+                  <p key={index}>
+                    Line {issue.lineNumber || 'item'}: {issue.message}
+                  </p>
+                ))}
+                {initial.isPending && <p>Loading crafting catalog...</p>}
+                {initial.isError && (
+                  <p role="alert">
+                    Could not load crafting catalog.{' '}
+                    <button
+                      type="button"
+                      onClick={() => void initial.refetch()}
+                    >
+                      Retry catalog
+                    </button>
+                  </p>
+                )}
+                {applying && applyingRequest.current && <p>Updating item...</p>}
+                {announcement && (
+                  <p className="workbench-feedback">{announcement}</p>
+                )}
+                {workbench.data && (
+                  <details className="workbench-assumptions">
+                    <summary>Last craft and roll assumptions</summary>
+                    <p>
+                      {workbenchActionNames[workbench.data.action]} applied.{' '}
+                      {workbench.data.events.some(
+                        (event) => event.kind === 'ADD',
+                      )
+                        ? 'New modifier selected using PoE2DB published modifier weights.'
+                        : workbench.data.action === 'DIVINE'
+                          ? 'Numeric values rerolled within their current source ranges.'
+                          : 'Modifier removal uses the uniform assumption listed below.'}
+                    </p>
+                    <p>
+                      {workbench.data.ruleVersion} /{' '}
+                      {workbench.data.ledgerVersion}
+                    </p>
+                    {workbench.data.consumedOmens.length > 0 && (
+                      <p>
+                        Consumed omens:{' '}
+                        {workbench.data.consumedOmens
+                          .map((id) => id.replaceAll('_', ' '))
+                          .join(', ')}
+                      </p>
+                    )}
+                    {workbench.data.assumptions.length ? (
+                      workbench.data.assumptions.map((a, i) => (
+                        <p key={`${a.id}-${i}`}>
+                          Uniform assumption: {a.candidateUnit}, N = {a.n}, each
+                          candidate = 1/{a.n}.{' '}
+                          {a.min !== null
+                            ? `Source range ${a.min} to ${a.max}. `
+                            : ''}
+                          {a.reason}{' '}
+                          <a
+                            href={a.sourceUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            Source
+                          </a>
+                        </p>
+                      ))
+                    ) : (
+                      <p>No uniform fallback was needed for this craft.</p>
+                    )}
+                  </details>
+                )}
+              </div>
             </div>
           </div>
           <dialog
@@ -582,6 +970,61 @@ export function CraftingPage() {
             </div>
           </dialog>
         </div>
+      </div>
+      <div
+        id="panel-explorer"
+        role="tabpanel"
+        aria-labelledby="workspace-explorer"
+        hidden={view !== 'explorer'}
+      >
+        <div className="explorer-toolbar">
+          <label>
+            Starting item level
+            <input
+              type="number"
+              min="1"
+              max="100"
+              value={baseLevel}
+              onChange={(event) => setBaseLevel(event.target.value)}
+            />
+          </label>
+          <button
+            type="button"
+            disabled={
+              !Number.isInteger(Number(baseLevel)) ||
+              Number(baseLevel) < 1 ||
+              Number(baseLevel) > 100
+            }
+            onClick={() => {
+              draft.setBase(Number(baseLevel))
+              setPreviewRequest({ count: 0, action: null })
+            }}
+          >
+            Start new Solar Amulet
+          </button>
+        </div>
+        {draft.source === 'base' ? (
+          <CraftingExplorer
+            key={draft.baseRevision}
+            level={draft.baseItemLevel}
+            revision={draft.baseRevision}
+            requestCount={previewRequest.count}
+            requestedAction={previewRequest.action}
+          />
+        ) : (
+          <p>
+            Pasted items are display-only. Start a Solar Amulet to explore
+            probabilities.
+          </p>
+        )}
+      </div>
+      <div
+        id="panel-support"
+        role="tabpanel"
+        aria-labelledby="workspace-support"
+        hidden={view !== 'support'}
+      >
+        <CraftSupport active={view === 'support'} />
       </div>
       <span className="sr-only" role="status">
         {imported.pending ? 'Analyzing item…' : announcement}

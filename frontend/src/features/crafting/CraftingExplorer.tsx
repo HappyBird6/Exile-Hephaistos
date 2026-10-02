@@ -1,10 +1,14 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { CurrencyImage } from './CurrencyImage'
+import { currencies } from './currencies'
+import { groupOutcomes, modifierSummary } from './outcomeGroups'
 import { skipToken, useQuery, useQueryClient } from '@tanstack/react-query'
 import { ItemCard } from './ItemCard'
 import type { ItemCardData } from './itemCardData'
 import {
   actions,
   actionNames,
+  currencyActions,
   explore,
   loadActions,
   loadInitial,
@@ -53,6 +57,7 @@ export function CraftingExplorer({
   requestedAction: Action | null
 }) {
   const client = useQueryClient()
+  const currentHeading = useRef<HTMLDivElement>(null)
   const initial = useQuery({
     queryKey: ['crafting', 'initial', level],
     queryFn: ({ signal }) => loadInitial(level, signal),
@@ -63,7 +68,12 @@ export function CraftingExplorer({
   const current = useQuery<{
     id: string
     state: Bucket
-    history: { id: string; state: Bucket; chance: number }[]
+    history: {
+      id: string
+      state: Bucket
+      chance: number
+      action: Action | null
+    }[]
   }>({
     queryKey: currentKey,
     queryFn: skipToken,
@@ -150,26 +160,36 @@ export function CraftingExplorer({
       state,
       history: [
         ...history,
-        { id: position.id, state: position.state, chance: probability },
+        {
+          id: position.id,
+          state: position.state,
+          chance: probability,
+          action: selected,
+        },
       ],
     })
     setSelection({ count: requestCount, action: null })
     setVisible(20)
     setSearch(null)
+    requestAnimationFrame(() => currentHeading.current?.focus())
+  }
+  function returnTo(index: number) {
+    const previous = history[index]
+    if (!previous) return
+    client.setQueryData(currentKey, {
+      id: previous.id,
+      state: previous.state,
+      history: history.slice(0, index),
+    })
+    setSelection({ count: requestCount, action: null })
+    setSearch(null)
+    setVisible(20)
+    requestAnimationFrame(() => currentHeading.current?.focus())
   }
   function back() {
-    const previous = history.at(-1)
-    if (previous) {
-      client.setQueryData(currentKey, {
-        id: previous.id,
-        state: previous.state,
-        history: history.slice(0, -1),
-      })
-      setSelection({ count: requestCount, action: null })
-      setSearch(null)
-      setVisible(20)
-    }
+    returnTo(history.length - 1)
   }
+  const groups = groupOutcomes(transitions.data?.outcomes ?? [], definitions)
   const error =
     initial.error ?? available.error ?? transitions.error ?? exploration.error
   return (
@@ -177,33 +197,67 @@ export function CraftingExplorer({
       className="craft-explorer"
       aria-label="Crafting probability explorer"
     >
+      <ol className="selected-path" aria-label="Selected crafting path">
+        {history.map((entry, index) => (
+          <li key={`${entry.id}-${index}`}>
+            <span className="path-step">{index + 1}</span>
+            <div>
+              <strong>
+                {entry.state.rarity} · Item level {entry.state.itemLevel}
+              </strong>
+              <p>{describe(entry.state, definitions)}</p>
+              <button type="button" onClick={() => returnTo(index)}>
+                Return to step {index + 1}
+              </button>
+              <p className="path-action">
+                ↓{' '}
+                {entry.action ? actionNames[entry.action] : 'Selected outcome'}{' '}
+                · Conditional probability: {percent(entry.chance)}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ol>
       <div className="explorer-current">
-        <ItemCard item={card} />
-        <p>
-          Modifier ranges are shown for predicted states; numeric values have
-          not been rolled.
-        </p>
-        <p>
-          {history.length} steps · Selected path probability:{' '}
-          {percent(history.reduce((p, h) => p * h.chance, 1))}
-        </p>
-        <button type="button" onClick={back} disabled={!history.length}>
-          Previous state
-        </button>
-        {initial.data && (
-          <p className="probability-source">
-            Probabilities are calculated using{' '}
-            <a
-              href="https://poe2db.tw/us/Amulets#ModifiersCalc"
-              target="_blank"
-              rel="noreferrer"
-            >
-              PoE2DB modifier weights
-            </a>
-            .<br />
-            Data: {initial.data.metadata.retrievedAt.slice(0, 10)}
-          </p>
-        )}
+        <div
+          className="current-state-heading"
+          ref={currentHeading}
+          tabIndex={-1}
+        >
+          <span className="path-step">{history.length + 1}</span>
+          <h2>Current state</h2>
+          <span className="current-marker">You are here</span>
+        </div>
+        <div className="current-overview">
+          <ItemCard item={card} />
+          <div className="current-context">
+            <p>
+              Modifier ranges are shown for predicted states; numeric values
+              have not been rolled.
+            </p>
+            <p>
+              {history.length} steps · Selected path probability:{' '}
+              {percent(history.reduce((p, h) => p * h.chance, 1))}
+            </p>
+            <button type="button" onClick={back} disabled={!history.length}>
+              Previous state
+            </button>
+            {initial.data && (
+              <p className="probability-source">
+                Probabilities are calculated using{' '}
+                <a
+                  href="https://poe2db.tw/us/Amulets#ModifiersCalc"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  PoE2DB modifier weights
+                </a>
+                .<br />
+                Data: {initial.data.metadata.retrievedAt.slice(0, 10)}
+              </p>
+            )}
+          </div>
+        </div>
       </div>
       <div className="explorer-results">
         <h2>Next possible states</h2>
@@ -225,21 +279,38 @@ export function CraftingExplorer({
             </button>
           </p>
         )}
-        <div className="explorer-actions">
+        {available.isFetching && (
+          <p role="status">Loading available currencies…</p>
+        )}
+        <div className="explorer-actions" aria-busy={available.isFetching}>
           {(available.data ?? []).map((a) => (
-            <div key={a.action}>
+            <div key={a.action} className="explorer-action">
               <button
                 type="button"
                 disabled={!a.available}
                 aria-pressed={selected === a.action}
+                aria-label={`Preview ${actionNames[a.action]}`}
+                aria-describedby={
+                  !a.available ? `reason-${a.action}` : undefined
+                }
                 onClick={() => {
                   setSelection({ count: requestCount, action: a.action })
                   setVisible(20)
                 }}
               >
-                Preview {actionNames[a.action]}
+                <CurrencyImage
+                  image={
+                    currencies.find(
+                      (currency) => currencyActions[currency.id] === a.action,
+                    )!.image
+                  }
+                  name={actionNames[a.action]}
+                />
+                <span>{actionNames[a.action]}</span>
               </button>
-              {!a.available && <small>{a.reason}</small>}
+              {!a.available && (
+                <small id={`reason-${a.action}`}>{a.reason}</small>
+              )}
             </div>
           ))}
         </div>
@@ -274,28 +345,90 @@ export function CraftingExplorer({
                   )}
                 </p>
                 <ol>
-                  {transitions.data.outcomes.slice(0, visible).map((o) => (
-                    <li key={o.id}>
-                      <strong>{percent(o.probability)}</strong>{' '}
-                      <span>
-                        {o.state.rarity} · {describe(o.state, definitions)}
-                      </span>
-                      <button
-                        type="button"
-                        onClick={() => choose(o.id, o.state, o.probability)}
-                      >
-                        Explore this state
-                      </button>
+                  {groups.slice(0, visible).map((group) => (
+                    <li key={group.key}>
+                      {group.outcomes.length > 1 ? (
+                        <details className="outcome-group">
+                          <summary>
+                            <strong>{percent(group.probability)}</strong> ·{' '}
+                            {group.outcomes[0]!.state.rarity} ·{' '}
+                            {group.outcomes[0]!.state.modifierIds.map((id) =>
+                              definitions[id]
+                                ? modifierSummary(
+                                    definitions[id]!.text,
+                                    definitions[id]!.stats,
+                                  )
+                                : id,
+                            ).join(' · ')}{' '}
+                            <span>
+                              {group.outcomes.length} tier combinations · Expand
+                            </span>
+                          </summary>
+                          <p>
+                            Probabilities below are conditional on the same
+                            currency and starting state. Choose an individual
+                            tier outcome to continue.
+                          </p>
+                          <ol>
+                            {group.outcomes
+                              .slice()
+                              .sort((a, b) =>
+                                a.state.modifierIds
+                                  .map((id) => definitions[id]?.tier ?? 0)
+                                  .join(',')
+                                  .localeCompare(
+                                    b.state.modifierIds
+                                      .map((id) => definitions[id]?.tier ?? 0)
+                                      .join(','),
+                                    'en-US',
+                                    { numeric: true },
+                                  ),
+                              )
+                              .map((o) => (
+                                <li key={o.id}>
+                                  <strong>{percent(o.probability)}</strong>
+                                  <span>{describe(o.state, definitions)}</span>
+                                  <button
+                                    type="button"
+                                    onClick={() =>
+                                      choose(o.id, o.state, o.probability)
+                                    }
+                                  >
+                                    Explore this state
+                                  </button>
+                                </li>
+                              ))}
+                          </ol>
+                        </details>
+                      ) : (
+                        group.outcomes.map((o) => (
+                          <div key={o.id} className="single-outcome">
+                            <strong>{percent(o.probability)}</strong>
+                            <span>
+                              {o.state.rarity} ·{' '}
+                              {describe(o.state, definitions)}
+                            </span>
+                            <button
+                              type="button"
+                              onClick={() =>
+                                choose(o.id, o.state, o.probability)
+                              }
+                            >
+                              Explore this state
+                            </button>
+                          </div>
+                        ))
+                      )}
                     </li>
                   ))}
                 </ol>
-                {visible < transitions.data.outcomes.length && (
+                {visible < groups.length && (
                   <button
                     type="button"
                     onClick={() => setVisible((v) => v + 20)}
                   >
-                    Show more outcomes (
-                    {transitions.data.outcomes.length - visible} remaining)
+                    Show more outcomes ({groups.length - visible} groups
+                    remaining)
                   </button>
                 )}
               </>

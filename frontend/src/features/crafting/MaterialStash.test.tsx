@@ -19,7 +19,9 @@ const favorite = (slot: number) =>
   screen.getByRole('button', { name: new RegExp(`^Favorite slot ${slot}:`) })
 const pick = (name: string) =>
   fireEvent.click(
-    within(screen.getByRole('tabpanel')).getByRole('button', { name }),
+    within(document.getElementById('material-list')!).getByRole('button', {
+      name,
+    }),
   )
 beforeEach(() => useItemDraft.getState().setBase())
 
@@ -122,9 +124,15 @@ describe('Material stash and shared favorites', () => {
           name: 'Use selected currency on the central item',
         }),
       )
-      expect(screen.getByRole('status')).toHaveTextContent(
-        'The item has not changed',
-      )
+      if (label === 'Omen') {
+        expect(screen.getByRole('status')).toHaveTextContent('activated')
+        expect(useItemDraft.getState().activeOmens).toContain(
+          'Omen_of_Whittling',
+        )
+      } else
+        expect(screen.getByRole('status')).toHaveTextContent(
+          'The item has not changed',
+        )
       fireEvent.click(material)
       expect(material).toHaveClass('is-held')
       expect(material).not.toHaveClass('is-selected')
@@ -259,9 +267,11 @@ describe('Material stash and shared favorites', () => {
 
   it('removes all requested currencies and moves Hinekora to the former Chance position', () => {
     show()
-    expect(screen.getByRole('tabpanel')).toHaveAccessibleName('Currency')
+    expect(document.getElementById('material-list')!).toHaveAccessibleName(
+      'Currency',
+    )
     expect(
-      within(screen.getByRole('tabpanel')).getAllByRole('button'),
+      within(document.getElementById('material-list')!).getAllByRole('button'),
     ).toHaveLength(21)
     for (const name of [
       'Mirror of Kalandra',
@@ -284,6 +294,13 @@ describe('Material stash and shared favorites', () => {
     expect(document.querySelector('.stash-inspector')).toBeNull()
     expect(document.querySelector('.item-panel')).toBeNull()
     expect(
+      screen.getByRole('tabpanel', { name: 'Crafting Workbench' }),
+    ).toContainElement(screen.getByRole('article'))
+    expect(
+      screen.queryByRole('heading', { name: 'Next possible states' }),
+    ).not.toBeInTheDocument()
+    fireEvent.click(screen.getByRole('tab', { name: 'State explorer' }))
+    expect(
       screen.getByRole('region', { name: 'Crafting probability explorer' }),
     ).toContainElement(screen.getByRole('article'))
     expect(
@@ -304,7 +321,9 @@ describe('Material stash and shared favorites', () => {
       fireEvent.click(tab(label))
       expect(tab(label)).toHaveAttribute('aria-selected', 'true')
       expect(
-        within(screen.getByRole('tabpanel')).getAllByRole('button'),
+        within(document.getElementById('material-list')!).getAllByRole(
+          'button',
+        ),
       ).toHaveLength(count)
       expect(
         within(

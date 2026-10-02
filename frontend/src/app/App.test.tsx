@@ -54,7 +54,13 @@ describe('Crafting workbench', () => {
     expect(
       screen.queryByRole('button', { name: 'Scroll of Wisdom' }),
     ).not.toBeInTheDocument()
-    expect(screen.getAllByRole('tab')).toHaveLength(6)
+    expect(screen.getAllByRole('tab')).toHaveLength(9)
+    expect(
+      screen.getByRole('tab', { name: 'Crafting Workbench' }),
+    ).toHaveAttribute('aria-selected', 'true')
+    expect(
+      screen.queryByRole('heading', { name: 'Current state' }),
+    ).not.toBeInTheDocument()
   })
   it('preserves the item after a use request and clears selection with Escape', () => {
     show()
@@ -74,6 +80,7 @@ describe('Crafting workbench', () => {
     expect(useItemDraft.getState().source).toBe('base')
     fireEvent.keyDown(window, { key: 'Escape' })
     expect(currency).toHaveAttribute('aria-pressed', 'false')
+    fireEvent.click(screen.getByRole('tab', { name: 'Crafting Workbench' }))
     fireEvent.click(
       screen.getByRole('button', {
         name: 'Use selected currency on the central item',

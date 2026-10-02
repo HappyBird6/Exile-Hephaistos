@@ -1,8 +1,9 @@
 # Exile-Hephaistos
 
-영어 PoE2 아이템 복사 텍스트를 분석하고 Solar Amulet의 제작 확률을 탐색하는 작업대입니다. PoE2DB Base 속성 가중치로 일반 화폐 6종의 다음 상태와 제한된 화폐 순서를 계산합니다. 화폐 소모나 무작위 수치 roll은 하지 않으며, 붙여넣은 아이템은 표시용입니다. [ItemState·확률 탐색 명세](docs/item-state.md).
+영어 PoE2 아이템 복사 텍스트를 분석하고 Solar Amulet을 제작하거나 확률을 비교하는 작업대입니다. Workbench는 커런시 17종과 Omen 8종으로 실제 아이템 상태를 변경합니다. 독립 Craft Support는 시작 아이템과 필수 family AND 후보 N개·최소 tier 목표에 대해 정상 추가 화폐 순서를 비교하고 최초 목표 달성 확률을 합산합니다. 속성 선택은 PoE2DB Base 게시 가중치, 수치 roll과 제거는 명시한 균등 확률 가정을 사용합니다. 재료 수량·가격·비용은 계산하지 않습니다. 복사 텍스트는 catalog 검증을 통과한 경우에만 제작 상태로 사용할 수 있습니다. [Workbench·registry·가정 ledger](docs/workbench-simulator.md), [Support 계산·지원 한계](docs/support-transition-design.md), [ItemState·확률 탐색 명세](docs/item-state.md).
 
 - `/`: 재료 탭·검색·툴팁·즐겨찾기·아이템 입력과 카드.
+- Craft Support: 별도 시작 상태·목표, 최대 5개 정상 추가 순서 비교, 예산이 부족하면 미해결 질량과 임시 순위 표시. 복구 후 실제 상태를 새 root로 입력하며 이전 확률은 합치지 않습니다. 같은 family의 여러 스킬 효과 중 특정 효과만 고르는 목표는 아직 지원하지 않습니다.
 - `/admin`: 로그인 없이 접근하는 최소 관리 페이지. 현재 관리 도구는 없습니다.
 - Backend: `POST /api/v1/items/parse`로 영어 아이템 텍스트를 분석합니다.
 - PostgreSQL·Redis와 저장 기반은 다음 작업을 위해 유지합니다.
@@ -83,3 +84,5 @@ GitHub Actions는 사용하지 않습니다. `.gitattributes`는 Windows/Linux �
 - 주석만 있는 제작 관련 준비 파일은 다음 작업을 위해 유지합니다.
 - [기술 명세](docs/TECHNICAL_SPEC.md), [아이템 분석](docs/item-text-parsing.md), [제작 자산 출처](docs/crafting-ui.md), [지원 범위](docs/supported-mechanics.md).
 - [Worker 운영 명세](docs/solo-workflow/MULTI_SESSION_WORKFLOW.md).
+
+Solar Workbench v2: 17 currencies and 8 omens. See [supported and blocked inventory](docs/workbench-support-v2.md) and [rules, assumptions, and Support preparation](docs/workbench-simulator.md).

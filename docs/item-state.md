@@ -1,5 +1,7 @@
 # Solar Amulet ItemState
 
+2026-10-01 추가: 독립 Workbench에서 일반 화폐 6종의 실제 수치 roll과 적용을 지원한다. 아래 버킷 탐색 모델과 별도이며 [Workbench simulator 명세](workbench-simulator.md)를 따른다. 붙여넣기 catalog 매핑과 특수 제작은 아직 미지원이다.
+
 2026-09-29 · 개발 계획 1~9단계 구현 범위
 
 ## 범위
@@ -171,3 +173,9 @@ API 테스트는 번들 초기 상태, 전체 전이, 잘못된 요청·상태, 
 2026-09-29 최종 검증: backend에서 `./gradlew.bat check generateJooq bootJar` 성공, unit/ArchUnit/API와 격리된 PostgreSQL·Redis 통합 검사 합계 81개 통과(실패·skip 0). frontend에서 Node 24 기반 `npm ci`, `format:check`, `lint`, `typecheck`, `test -- --run`, `build` 성공, 테스트 54개 통과. 실제 데이터 Chaos 도메인 계산은 워밍업 후 20회에서 미캐시 p95 5.513ms / 캐시 p95 0.018ms였다.
 
 기존 서버와 별도인 임시 PostgreSQL·Redis·backend·frontend에 프로덕션 빌드를 연결하고 Chrome headless로 실제 6종 화폐, 209개 초기 결과·더 보기, 상태 이동·키보드 복귀, 레벨 변경, 그래프 한도·확률 합계와 390px 모바일을 확인했다. 브라우저 런타임 오류 0. 화면 확인에서 발견한 극소 확률 0% 반올림은 지수 표기로 수정하고 회귀 테스트를 추가했다. 이 검증은 단일 브라우저 smoke이며 부하 테스트나 게임 서버 확률 검증은 아니다.
+
+## 작업 화면과 티어 그룹
+
+기본 Crafting Workbench와 State explorer는 헤더 아래 별도 탭이다. 탭 전환은 탐색 경로를 유지한다. Workbench에서 시작 아이템에 화폐를 미리보면 표시된 시작 아이템에서 새 경로를 시작한다. 탐색 화면은 방문 상태를 세로로 표시하고 현재 상태를 구분하며, 이전 단계로 돌아가 다른 분기를 선택할 수 있다. 각 단계는 원래 조건부 확률을 보존하고 선택 경로의 확률은 그 곱이다.
+
+화폐 미리보기는 작업대 자산을 재사용하며 접근 가능한 이름·선택 상태·사용 불가 사유를 표시한다. 티어 결과는 단일 전이 응답 안에서 snapshot·base·level·rarity·implicit·condition과 속성 layer·affix·family ID·stat ID·tag·수치를 제외한 문구가 같을 때만 합산한다. 고정 수치는 문구의 모든 숫자가 선언된 고정 stat 값과 대응할 때만 정규화하고, 그 외 상수는 보존한다. 식별 자료가 없으면 개별 결과로 남긴다. 그룹은 원래 확률의 합을 표시하며 펼치면 티어 순서로 원래 수치·확률을 보여준다. 다음 상태로 이동할 때는 그룹 평균이 아닌 개별 결과를 선택한다. 순서 탐색의 terminal 총합과 API·엔진 의미는 유지한다.
