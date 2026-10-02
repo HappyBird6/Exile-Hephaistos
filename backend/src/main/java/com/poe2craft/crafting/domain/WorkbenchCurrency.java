@@ -23,6 +23,7 @@ public enum WorkbenchCurrency {
   DIVINE(null, 0),
   ALCHEMY(null, 0),
   FRACTURING(null, 0),
+  ESSENCE_HYSTERIA(null, 0),
   LESSER_ESSENCE_BODY("amulet:prefix:healthy"),
   ESSENCE_BODY("amulet:prefix:robust"),
   GREATER_ESSENCE_BODY("amulet:prefix:rotund"),

@@ -1,9 +1,9 @@
 {
   "version": "equipment-crafting-registry-v2",
-  "ledgerVersion": "solar-uniform-assumptions-v3",
+  "ledgerVersion": "solar-uniform-assumptions-v4",
   "scope": "Equipment crafting, excluding maps and skill gems. Inventory coverage is incomplete and pending a full source audit; registration is not implementation.",
   "inventoryComplete": false,
-  "ruleVersion": "solar-workbench-opulence-essence-v9",
+  "ruleVersion": "solar-workbench-hysteria-essence-v10",
   "modifierWeightPolicy": "POE2DB_AS_PUBLISHED",
   "mixedKnownUnknownWeightPolicy": "BLOCK_UNTIL_POLICY_DECIDED",
   "entries": [
@@ -1128,10 +1128,10 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "ESSENCE_HYSTERIA",
+      "reason": "Rare Solar item level at least 68: remove one non-Fractured explicit uniformly and add fixed 19-21% life recoup suffix. Every removal branch must allow that suffix; ambiguous family/slot interactions and Crystallisation omens unsupported. Existing other rolls/locks/implicit preserved."
     },
     {
       "id": "Essence_of_Delirium",
@@ -3254,12 +3254,13 @@
     {
       "id": "uniform-removal-v1",
       "candidateUnit": "eligible explicit modifier instance",
-      "eligibility": "Validated Solar Amulet, Magic/Rare, no special conditions. Non-Fractured explicit instances after verified side restriction; Chaos requires Rare and replacement eligibility for every removal branch. Whittling with fracture is blocked pending priority verification.",
+      "eligibility": "Validated Solar Amulet, Magic/Rare, no special conditions. Non-Fractured explicit instances after verified side restriction; Chaos requires Rare and replacement eligibility for every removal branch. Whittling with fracture is blocked pending priority verification. Hysteria requires Rare Solar at catalog item level 68 or above and a valid fixed suffix after every non-Fractured explicit removal; Crystallisation interaction is not yet implemented.",
       "n": "Current eligible explicit instance count",
       "probability": "1/N",
       "sourceUrls": [
         "https://poe2db.tw/us/Orb_of_Annulment",
-        "https://poe2db.tw/us/Chaos_Orb"
+        "https://poe2db.tw/us/Chaos_Orb",
+        "https://poe2db.tw/us/Essence_of_Hysteria"
       ],
       "reason": "Random removal stated; no published per-instance removal weights.",
       "scope": "MODELING_ASSUMPTION"

@@ -6,8 +6,8 @@ import java.util.random.RandomGenerator;
 
 /** Samples concrete elementary events; unchanged instances retain their actual values. */
 public final class WorkbenchSimulator {
-  public static final String RULE_VERSION = "solar-workbench-opulence-essence-v9";
-  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v3";
+  public static final String RULE_VERSION = "solar-workbench-hysteria-essence-v10";
+  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v4";
   private final ItemCatalog catalog;
   private final AdditionRules additionRules;
 
@@ -95,6 +95,25 @@ public final class WorkbenchSimulator {
     if (state.itemLevel() < action.minimumModifierLevel())
       return blocked(action, "Item level is below the currency's minimum modifier level.");
     var omen = matches.isEmpty() ? null : matches.getFirst();
+    if (action == WorkbenchCurrency.ESSENCE_HYSTERIA) {
+      if (state.rarity() != ItemState.Rarity.RARE)
+        return blocked(action, "Hysteria requires a Rare item with a removable explicit modifier.");
+      var target = catalog.find("amulet:suffix:of-suturing").orElseThrow();
+      if (state.itemLevel() < target.requiredItemLevel())
+        return blocked(action, "Hysteria below the catalog modifier item level is unsupported.");
+      var candidates = removalCandidates(state, null);
+      if (candidates.isEmpty()) return blocked(action, "No non-Fractured explicit can be removed.");
+      for (var removed : candidates) {
+        var rest = new ArrayList<>(state.explicits());
+        rest.remove(removed);
+        if (!pool(copy(state, state.rarity(), state.implicits(), rest), action, null)
+            .contains(target))
+          return blocked(
+              action,
+              "A Hysteria removal branch conflicts with its fixed suffix or available slots; this interaction is unsupported.");
+      }
+      return new Availability(action, true, "");
+    }
     if (!action.essenceModifierIds().isEmpty()) {
       if (state.rarity() != ItemState.Rarity.MAGIC)
         return blocked(
@@ -238,7 +257,26 @@ public final class WorkbenchSimulator {
         action == WorkbenchCurrency.ALCHEMY || !action.essenceModifierIds().isEmpty()
             ? ItemState.Rarity.RARE
             : upgrade(state, action);
-    if (!action.essenceModifierIds().isEmpty()) {
+    if (action == WorkbenchCurrency.ESSENCE_HYSTERIA) {
+      var candidates = removalCandidates(state, null);
+      var removed = candidates.get(random.nextInt(candidates.size()));
+      explicits.remove(removed);
+      events.add(new Event("REMOVE", removed.modifierId(), Map.of(), 1.0 / candidates.size()));
+      assumptions.add(
+          new Assumption(
+              "uniform-removal-v1",
+              "eligible explicit modifier instance",
+              candidates.size(),
+              candidates.stream().map(ModifierInstance::modifierId).toList(),
+              null,
+              null,
+              "https://poe2db.tw/us/Essence_of_Hysteria",
+              "Uniform among non-Fractured explicit instances; every removal branch must accept the sourced fixed suffix. No published removal weights."));
+      var definition = catalog.find("amulet:suffix:of-suturing").orElseThrow();
+      var rolled = roll(definition, random, assumptions);
+      explicits.add(rolled);
+      events.add(new Event("ADD", definition.id(), rolled.values(), 1));
+    } else if (!action.essenceModifierIds().isEmpty()) {
       var candidates = action.essenceModifierIds();
       var definition =
           catalog
