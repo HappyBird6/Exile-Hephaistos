@@ -966,6 +966,16 @@ export function CraftingPage() {
                     }}
                   />
                 )}
+                {(selected?.id === 'Essence_of_the_Breach' ||
+                  concrete?.explicits.some(
+                    (m) =>
+                      m.modifierId === 'amulet:prefix:essence-maximum-quality',
+                  )) && (
+                  <p className="workbench-feedback">
+                    Maximum Quality modifier supported. Applying Catalyst
+                    quality is not supported yet.
+                  </p>
+                )}
                 {!canCraft && (
                   <p>
                     Pasted items are display-only until catalog mapping is

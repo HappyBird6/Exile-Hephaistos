@@ -28,6 +28,27 @@ class SolarTextMapperTest {
   }
 
   @Test
+  void fixedMaximumQualityModifierMapsButActualCatalystQualityStillBlocks() {
+    var plain = text("+20% to Maximum Quality");
+    var result = mapper.map(parser.parseText(plain));
+    assertThat(result.mapped()).isTrue();
+    assertThat(result.state().explicits())
+        .containsExactly(
+            new ModifierInstance(
+                "amulet:prefix:essence-maximum-quality",
+                java.util.Map.of("local_maximum_quality_+", 20L)));
+    for (var property : java.util.List.of("Quality: +20%", "Quality (Life Modifiers): +20%")) {
+      var imported = plain.replace("Item Level: 82", property + "\nItem Level: 82");
+      var parsed = parser.parseText(imported);
+      var blocked = mapper.map(parsed);
+      assertThat(blocked.mapped()).isFalse();
+      assertThat(blocked.state()).isNull();
+      assertThat(blocked.issues()).anyMatch(i -> i.message().contains("property"));
+      assertThat(parsed.text().originalText()).isEqualTo(imported);
+    }
+  }
+
+  @Test
   void unknownAndSpecialLinesBlockMappingAndArePreserved() {
     String text = text("+17 to maximum Life\nGrants Skill: Unknown crafting effect\nCorrupted");
     var parsed = parser.parseText(text);

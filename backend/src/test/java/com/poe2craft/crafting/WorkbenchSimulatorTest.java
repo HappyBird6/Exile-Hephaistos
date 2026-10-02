@@ -183,6 +183,9 @@ class WorkbenchSimulatorTest {
                       .contains(d.id())
                   || WorkbenchCurrency.PERFECT_ESSENCE_ENHANCEMENT
                       .replacementEssenceModifiers()
+                      .contains(d.id())
+                  || WorkbenchCurrency.ESSENCE_BREACH
+                      .replacementEssenceModifiers()
                       .contains(d.id())) assertThat(d.weight()).isZero();
               else if (d.layer() == ModifierDefinition.Layer.EXPLICIT)
                 assertThat(d.weight()).isPositive();

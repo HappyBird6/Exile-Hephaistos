@@ -26,9 +26,16 @@ public final class ItemCatalogLoader {
         var special = resource("perfect-infinite.catalog.json");
         var specialRaw = resource("perfect-infinite.raw.json");
         var enhancement = resource("perfect-enhancement.catalog.json");
-        var enhancementRaw = resource("perfect-enhancement.raw.json")) {
+        var enhancementRaw = resource("perfect-enhancement.raw.json");
+        var breach = resource("breach-essence.catalog.json");
+        var breachRaw = resource("breach-essence.raw.json")) {
       return addSpecial(
-          loadWithSpecial(catalog, raw, details, special, specialRaw), enhancement, enhancementRaw);
+          addSpecial(
+              loadWithSpecial(catalog, raw, details, special, specialRaw),
+              enhancement,
+              enhancementRaw),
+          breach,
+          breachRaw);
     } catch (IOException e) {
       throw new IllegalStateException("Cannot load Solar Amulet catalog", e);
     }

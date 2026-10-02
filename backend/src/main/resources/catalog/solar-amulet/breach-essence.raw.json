@@ -1,0 +1,29 @@
+[
+  {
+    "sourceUrl": "https://poe2db.tw/us/Amulets#ModifiersCalc",
+    "row": {
+      "type": "essence",
+      "Level": "1",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [],
+      "fossil_no": [],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/abb483e480d7730a0b7a2a7a994adea678ca2810563c1d8090a88ef888b2678e\" href=\"Essence_of_the_Breach\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/BreachEssence.webp\" alt=\"BreachEssence\" height=\"16\" />Essence of the Breach</a>",
+      "Code": "EssenceBreach",
+      "ModFamilyList": [
+        "LocalMaximumQuality"
+      ],
+      "str": "<span class='mod-value'>+20</span>% to Maximum <a data-keyword=\"Quality\" href=\"Quality\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a8ee18c372988022e8f528113dc52847f58d183a00f6407f185dc4292c572b76\">Quality</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "default"
+      ],
+      "reqlvl": 0,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": true
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceBreach",
+    "detailHtml": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+20</span>% to Maximum <a data-keyword=\"Quality\" href=\"Quality\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a8ee18c372988022e8f528113dc52847f58d183a00f6407f185dc4292c572b76\">Quality</a></span></h5>   <span data-tabname=\"Breachlord's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Breachlord's\n<tr><th>Family<td>LocalMaximumQuality\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>1\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>local maximum quality + <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Local</span> <span class=\"badge bg-warning\"><span class=\"italic\"><span style=\"color:rgb(170,170,170)\"> — Unscalable Value</span></span></span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> </table>  </div></div>"
+  }
+]

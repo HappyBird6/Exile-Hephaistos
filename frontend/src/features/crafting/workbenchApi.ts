@@ -11,6 +11,7 @@ export type WorkbenchAction =
   | 'ESSENCE_HYSTERIA'
   | 'PERFECT_ESSENCE_INFINITE'
   | 'PERFECT_ESSENCE_ENHANCEMENT'
+  | 'ESSENCE_BREACH'
   | 'LESSER_ESSENCE_BODY'
   | 'ESSENCE_BODY'
   | 'GREATER_ESSENCE_BODY'
@@ -82,6 +83,7 @@ const replacementEssenceModifiers: Partial<
 > = {
   ESSENCE_HYSTERIA: ['amulet:suffix:of-suturing'],
   PERFECT_ESSENCE_ENHANCEMENT: ['amulet:prefix:essence-global-defences'],
+  ESSENCE_BREACH: ['amulet:prefix:essence-maximum-quality'],
   PERFECT_ESSENCE_INFINITE: [
     'amulet:suffix:essence-percent-strength',
     'amulet:suffix:essence-percent-dexterity',
@@ -96,6 +98,7 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Essence_of_Hysteria: 'ESSENCE_HYSTERIA',
   Perfect_Essence_of_the_Infinite: 'PERFECT_ESSENCE_INFINITE',
   Perfect_Essence_of_Enhancement: 'PERFECT_ESSENCE_ENHANCEMENT',
+  Essence_of_the_Breach: 'ESSENCE_BREACH',
   Lesser_Essence_of_the_Body: 'LESSER_ESSENCE_BODY',
   Essence_of_the_Body: 'ESSENCE_BODY',
   Greater_Essence_of_the_Body: 'GREATER_ESSENCE_BODY',
@@ -129,6 +132,7 @@ export const workbenchActionNames: Record<WorkbenchAction, string> = {
   ESSENCE_HYSTERIA: 'Essence of Hysteria',
   PERFECT_ESSENCE_INFINITE: 'Perfect Essence of the Infinite',
   PERFECT_ESSENCE_ENHANCEMENT: 'Perfect Essence of Enhancement',
+  ESSENCE_BREACH: 'Essence of the Breach',
   LESSER_ESSENCE_BODY: 'Lesser Essence of the Body',
   ESSENCE_BODY: 'Essence of the Body',
   GREATER_ESSENCE_BODY: 'Greater Essence of the Body',
@@ -167,13 +171,13 @@ export const workbenchOmens = [
     id: 'Omen_of_Sinistral_Crystallisation',
     trigger: 'ESSENCE_HYSTERIA',
     effect:
-      'Hysteria / Perfect Infinite / Perfect Enhancement remove only prefixes',
+      'Hysteria / Perfect Infinite / Perfect Enhancement / Breach remove only prefixes',
   },
   {
     id: 'Omen_of_Dextral_Crystallisation',
     trigger: 'ESSENCE_HYSTERIA',
     effect:
-      'Hysteria / Perfect Infinite / Perfect Enhancement remove only suffixes',
+      'Hysteria / Perfect Infinite / Perfect Enhancement / Breach remove only suffixes',
   },
   {
     id: 'Omen_of_Greater_Exaltation',
