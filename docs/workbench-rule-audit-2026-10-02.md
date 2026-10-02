@@ -75,6 +75,22 @@ Actual Chromium: existing Workbench 30 and Fracturing 20 regression checks passe
 
 ## Current verification
 
+### Body essence expansion
+
+[Official 0.3.0](https://www.pathofexile.com/forum/view-thread/3826682) replaced tag-selected essence generation with fixed modifiers; Lesser/Normal/Greater upgrade Magic to Rare, whereas Perfect/corrupted remove and replace on Rare. Current [Essence descriptions](https://poe2db.tw/us/Essence) agree. This prevents importing pre-0.3 tag-weighted outcomes or PoE1 reroll behavior.
+
+| Tier | Current Amulet outcome | Existing Solar definition | Supported catalog item level | Source |
+| --- | --- | --- | --- | --- |
+| Lesser Body | +20–29 maximum Life, prefix | `amulet:prefix:healthy`, `IncreasedLife` | 6+ | [Lesser Body](https://poe2db.tw/us/Lesser_Essence_of_the_Body) |
+| Body | +70–84 maximum Life, prefix | `amulet:prefix:robust`, `IncreasedLife` | 38+ | [Body](https://poe2db.tw/us/Essence_of_the_Body) |
+| Greater Body | +85–99 maximum Life, prefix | `amulet:prefix:rotund`, `IncreasedLife` | 46+ | [Greater Body](https://poe2db.tw/us/Greater_Essence_of_the_Body) |
+
+Scope: Magic Solar whose fixed result is valid in the existing catalog and does not overlap an occupied family. Existing explicit and implicit values remain. Fixed modifier selection probability is 1; only its numeric integer range uses the existing uniform ledger. Same-family overlap and lower-item-level essence bypass behavior remain explicitly unsupported rather than asserted impossible in the game. The essence page's Required Level values (4/30/36) differ from catalog generation item levels; they are not silently treated as equivalent. Perfect Body targets Body Armour and is not executable on Solar. No new modifier catalog, essence tag pool, other base, or Support/Explorer transition was introduced.
+
+Docker backend mandatory checks passed: 126 unit/API/architecture plus six integration tests (132 total, zero failures/errors). This includes 100 spaced seeds for each of three essence tiers on one/two-explicit Magic Solar inputs, fixed-ID/range/probability checks, preservation, ledger N, and unsupported rarity/overlap/low-level refusal. Frontend lint/typecheck/format, 86 tests and production build passed. Chromium passed 19 Body essence checks plus the existing 30 regression checks against v5, with zero runtime errors; desktop screenshot was visually reviewed. The previous Fracturing 20 and Greater Exaltation 14 browser checks last ran against v4; their backend/frontend regressions are included in the v5 mandatory suites. Evidence: `backend-body-essence-results`, `body-essence-browser-results.json`, `body-essence-desktop.png` under `codex/qa-20261002`.
+
+Registry now has 19 implemented currencies, 9 omens and 3 essences, leaving 189 pending registered entries. Rule version is `solar-workbench-body-essence-v5`; the ledger remains v2. Scope restrictions above remain real limitations. The 132/86 checks are not exhaustive game-state coverage.
+
 Backend Docker Java 21: `spotlessApply check generateJooq bootJar` passed; XML totals 117 unit/API/architecture tests plus 6 integration tests, zero failures and zero skips. Testcontainers used disposable databases, not the original project's DB/volume.
 
 Frontend Docker Node 24: `lint`, `typecheck`, `format:check`, 81 tests and production build passed. Includes favorite-based omen activation/conflict prevention, Shift repeat, empty/non-action cancellation, Alt-held inline ranges and keyup/blur restoration, per-session linear history with original future preservation, reload restoration and storage failure handling.
@@ -94,3 +110,5 @@ Current cache persistence was revalidated against the isolated QA app/DB. A boun
 Fracturing namespace cache recheck: `847b4c36c72b9c8353e52fed202f21df50f4c334f282739c39e2d41fe5028698`; before normal QA-app restart one computed pool, after restart one persisted hit and zero computations. Comparisons and assessment are exactly equal; evidence is `cache-before-v3.json` / `cache-after-v3.json`.
 
 Greater Exaltation namespace cache recheck: `2967cb61d8f7d2969f733f82f7c1f29e32d78ab92d56f5231108ef6015c67946`; before normal QA-app restart one computed pool, after restart one persisted hit, nine memory hits and zero computations. Comparisons and assessment are exactly equal; evidence is `cache-before-v4.json` / `cache-after-v4.json`.
+
+Body essence namespace cache recheck: `fcfafab62f6ee72aff130534fadab0eaf0bf2570ae3460332d3bcd5e5a00b025`; one computed pool before normal QA-app restart, one persisted hit/nine memory hits/zero computations afterwards; comparisons and assessment exactly equal. Evidence: `cache-before-v5.json` / `cache-after-v5.json`.

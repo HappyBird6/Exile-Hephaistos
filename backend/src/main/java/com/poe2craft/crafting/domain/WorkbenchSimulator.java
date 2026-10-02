@@ -6,7 +6,7 @@ import java.util.random.RandomGenerator;
 
 /** Samples concrete elementary events; unchanged instances retain their actual values. */
 public final class WorkbenchSimulator {
-  public static final String RULE_VERSION = "solar-workbench-double-exalt-v4";
+  public static final String RULE_VERSION = "solar-workbench-body-essence-v5";
   public static final String LEDGER_VERSION = "solar-uniform-assumptions-v2";
   private final ItemCatalog catalog;
   private final AdditionRules additionRules;
@@ -95,6 +95,22 @@ public final class WorkbenchSimulator {
     if (state.itemLevel() < action.minimumModifierLevel())
       return blocked(action, "Item level is below the currency's minimum modifier level.");
     var omen = matches.isEmpty() ? null : matches.getFirst();
+    if (action.fixedModifierId() != null) {
+      if (state.rarity() != ItemState.Rarity.MAGIC)
+        return blocked(
+            action, "This essence upgrades a Magic item to Rare with one guaranteed modifier.");
+      var target = catalog.find(action.fixedModifierId()).orElseThrow();
+      if (state.itemLevel() < target.requiredItemLevel())
+        return blocked(
+            action,
+            "Essence results below the catalog modifier's item level need verification; this low-level scope is unsupported.");
+      var rare = copy(state, ItemState.Rarity.RARE, state.implicits(), state.explicits());
+      if (!pool(rare, action, null).contains(target))
+        return blocked(
+            action,
+            "The guaranteed essence modifier conflicts with existing families or available prefix slots; the overlap interaction is unsupported.");
+      return new Availability(action, true, "");
+    }
     if (action == WorkbenchCurrency.FRACTURING) {
       if (state.rarity() != ItemState.Rarity.RARE || state.explicits().size() < 4)
         return blocked(
@@ -218,8 +234,15 @@ public final class WorkbenchSimulator {
     var events = new ArrayList<Event>();
     var assumptions = new ArrayList<Assumption>();
     var rarity =
-        action == WorkbenchCurrency.ALCHEMY ? ItemState.Rarity.RARE : upgrade(state, action);
-    if (action == WorkbenchCurrency.FRACTURING) {
+        action == WorkbenchCurrency.ALCHEMY || action.fixedModifierId() != null
+            ? ItemState.Rarity.RARE
+            : upgrade(state, action);
+    if (action.fixedModifierId() != null) {
+      var definition = catalog.find(action.fixedModifierId()).orElseThrow();
+      var rolled = roll(definition, random, assumptions);
+      explicits.add(rolled);
+      events.add(new Event("ADD", definition.id(), rolled.values(), 1));
+    } else if (action == WorkbenchCurrency.FRACTURING) {
       int index = random.nextInt(explicits.size());
       var chosen = explicits.get(index);
       explicits.set(index, new ModifierInstance(chosen.modifierId(), chosen.values(), true));

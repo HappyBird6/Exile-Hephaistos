@@ -3,7 +3,7 @@
   "ledgerVersion": "solar-uniform-assumptions-v2",
   "scope": "Equipment crafting, excluding maps and skill gems. Inventory coverage is incomplete and pending a full source audit; registration is not implementation.",
   "inventoryComplete": false,
-  "ruleVersion": "solar-workbench-double-exalt-v4",
+  "ruleVersion": "solar-workbench-body-essence-v5",
   "modifierWeightPolicy": "POE2DB_AS_PUBLISHED",
   "mixedKnownUnknownWeightPolicy": "BLOCK_UNTIL_POLICY_DECIDED",
   "entries": [
@@ -400,10 +400,10 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "LESSER_ESSENCE_BODY",
+      "reason": "Magic Solar becomes Rare with one fixed Life prefix. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported."
     },
     {
       "id": "Lesser_Essence_of_the_Mind",
@@ -568,10 +568,10 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "ESSENCE_BODY",
+      "reason": "Magic Solar becomes Rare with one fixed Life prefix. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported."
     },
     {
       "id": "Essence_of_the_Mind",
@@ -736,10 +736,10 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "GREATER_ESSENCE_BODY",
+      "reason": "Magic Solar becomes Rare with one fixed Life prefix. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported."
     },
     {
       "id": "Greater_Essence_of_the_Mind",

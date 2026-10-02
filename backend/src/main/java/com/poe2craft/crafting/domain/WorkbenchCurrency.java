@@ -20,14 +20,29 @@ public enum WorkbenchCurrency {
   PERFECT_CHAOS(CraftingAction.CHAOS, 50),
   DIVINE(null, 0),
   ALCHEMY(null, 0),
-  FRACTURING(null, 0);
+  FRACTURING(null, 0),
+  LESSER_ESSENCE_BODY("amulet:prefix:healthy"),
+  ESSENCE_BODY("amulet:prefix:robust"),
+  GREATER_ESSENCE_BODY("amulet:prefix:rotund");
 
   private final CraftingAction baseAction;
   private final int minimumModifierLevel;
+  private final String fixedModifierId;
 
   WorkbenchCurrency(CraftingAction baseAction, int minimumModifierLevel) {
     this.baseAction = baseAction;
     this.minimumModifierLevel = minimumModifierLevel;
+    this.fixedModifierId = null;
+  }
+
+  WorkbenchCurrency(String fixedModifierId) {
+    this.baseAction = null;
+    this.minimumModifierLevel = 0;
+    this.fixedModifierId = fixedModifierId;
+  }
+
+  public String fixedModifierId() {
+    return fixedModifierId;
   }
 
   public CraftingAction baseAction() {

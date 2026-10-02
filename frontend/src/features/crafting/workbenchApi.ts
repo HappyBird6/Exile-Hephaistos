@@ -8,17 +8,31 @@ export type WorkbenchAction =
   | 'DIVINE'
   | 'ALCHEMY'
   | 'FRACTURING'
+  | 'LESSER_ESSENCE_BODY'
+  | 'ESSENCE_BODY'
+  | 'GREATER_ESSENCE_BODY'
+const fixedEssenceModifiers: Partial<Record<WorkbenchAction, string>> = {
+  LESSER_ESSENCE_BODY: 'amulet:prefix:healthy',
+  ESSENCE_BODY: 'amulet:prefix:robust',
+  GREATER_ESSENCE_BODY: 'amulet:prefix:rotund',
+}
 export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   ...currencyActions,
   Divine_Orb: 'DIVINE',
   Orb_of_Alchemy: 'ALCHEMY',
   Fracturing_Orb: 'FRACTURING',
+  Lesser_Essence_of_the_Body: 'LESSER_ESSENCE_BODY',
+  Essence_of_the_Body: 'ESSENCE_BODY',
+  Greater_Essence_of_the_Body: 'GREATER_ESSENCE_BODY',
 }
 export const workbenchActionNames: Record<WorkbenchAction, string> = {
   ...actionNames,
   DIVINE: 'Divine Orb',
   ALCHEMY: 'Orb of Alchemy',
   FRACTURING: 'Fracturing Orb',
+  LESSER_ESSENCE_BODY: 'Lesser Essence of the Body',
+  ESSENCE_BODY: 'Essence of the Body',
+  GREATER_ESSENCE_BODY: 'Greater Essence of the Body',
 } as Record<WorkbenchAction, string>
 for (const [id, base] of Object.entries(currencyActions)) {
   if (base === 'ANNULMENT') continue
@@ -332,7 +346,9 @@ export async function applyCurrency(
   const expectedRarity =
     baseAction === 'TRANSMUTATION'
       ? 'MAGIC'
-      : baseAction === 'REGAL' || action === 'ALCHEMY'
+      : baseAction === 'REGAL' ||
+          action === 'ALCHEMY' ||
+          fixedEssenceModifiers[action]
         ? 'RARE'
         : state.rarity
   const expectedCount =
@@ -376,6 +392,33 @@ export async function applyCurrency(
       'Could not verify the applied item. Your item is unchanged. Please retry.',
     )
   const locks = next.explicits.filter((m) => m.fractured)
+  if (
+    v.applied &&
+    fixedEssenceModifiers[action] &&
+    (state.rarity !== 'MAGIC' ||
+      v.events.length !== 1 ||
+      v.events[0]?.kind !== 'ADD' ||
+      v.events[0]?.modifierId !== fixedEssenceModifiers[action] ||
+      v.events[0]?.selectionProbability !== 1 ||
+      v.consumedOmens.length !== 0 ||
+      !sameModifiers(
+        state.explicits
+          .map((old) =>
+            next.explicits.find((m) => m.modifierId === old.modifierId)!,
+          )
+          .filter(Boolean),
+        state.explicits,
+      ) ||
+      JSON.stringify(v.events[0]?.values) !==
+        JSON.stringify(
+          next.explicits.find(
+            (m) => m.modifierId === fixedEssenceModifiers[action],
+          )?.values,
+        ))
+  )
+    throw new Error(
+      'Could not verify the guaranteed essence modifier. Your item is unchanged. Please retry.',
+    )
   if (
     v.applied &&
     action === 'EXALTED' &&
