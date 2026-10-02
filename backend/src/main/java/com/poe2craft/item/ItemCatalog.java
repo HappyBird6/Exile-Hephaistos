@@ -36,9 +36,12 @@ public final class ItemCatalog {
       }
     }
     this.modifiers = Collections.unmodifiableMap(indexed);
-    var implicit = indexed.get(base.implicitModifierId());
-    if (implicit == null || implicit.layer() != ModifierDefinition.Layer.IMPLICIT) {
-      throw new IllegalArgumentException("Base implicit definition is missing");
+    var implicits =
+        definitions.stream().filter(d -> d.layer() == ModifierDefinition.Layer.IMPLICIT).toList();
+    if (base.hasImplicit()
+        ? implicits.size() != 1 || !implicits.getFirst().id().equals(base.implicitModifierId())
+        : !implicits.isEmpty()) {
+      throw new IllegalArgumentException("Implicit definitions must match the base exactly");
     }
     for (var type :
         List.of(ModifierDefinition.AffixType.PREFIX, ModifierDefinition.AffixType.SUFFIX)) {
@@ -120,12 +123,21 @@ public final class ItemCatalog {
       int rarePrefixes,
       int rareSuffixes) {
     public BaseItem {
-      for (String value : List.of(id, name, sourceUrl, implicitModifierId)) {
+      for (String value : List.of(id, name, sourceUrl)) {
         if (value.isBlank()) throw new IllegalArgumentException("Base identity is required");
+      }
+      Objects.requireNonNull(implicitModifierId, "implicitModifierId");
+      if (!implicitModifierId.isEmpty() && implicitModifierId.isBlank()) {
+        throw new IllegalArgumentException("Implicit identity must be empty or nonblank");
       }
       if (magicPrefixes < 0 || magicSuffixes < 0 || rarePrefixes < 0 || rareSuffixes < 0) {
         throw new IllegalArgumentException("Invalid base capacity");
       }
+    }
+
+    /** Empty identity denotes a sourced base with no implicit; base properties are separate. */
+    public boolean hasImplicit() {
+      return !implicitModifierId.isEmpty();
     }
   }
 }

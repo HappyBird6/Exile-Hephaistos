@@ -22,18 +22,22 @@ public final class ItemStateValidator {
     }
     if (!state.baseItemId().equals(catalog.base().id())) {
       errors.add(
-          new Violation(
-              Code.UNSUPPORTED_BASE, "", "Only this snapshot's Solar Amulet is supported"));
+          new Violation(Code.UNSUPPORTED_BASE, "", "Only this snapshot's base is supported"));
     }
     if (state.rarity() == ItemState.Rarity.UNIQUE || !state.conditions().isEmpty()) {
       errors.add(
           new Violation(
               Code.UNSUPPORTED_STATE, "", "Unique or special item conditions are not supported"));
     }
-    if (state.implicits().size() != 1
-        || !state.implicits().getFirst().modifierId().equals(catalog.base().implicitModifierId())) {
-      errors.add(
-          new Violation(Code.INVALID_IMPLICIT, "", "Solar Amulet requires its Spirit implicit"));
+    if (catalog.base().hasImplicit()
+        ? state.implicits().size() != 1
+            || !state
+                .implicits()
+                .getFirst()
+                .modifierId()
+                .equals(catalog.base().implicitModifierId())
+        : !state.implicits().isEmpty()) {
+      errors.add(new Violation(Code.INVALID_IMPLICIT, "", "Implicits must match the catalog base"));
     }
     validateModifiers(state.implicits(), Layer.IMPLICIT, errors);
     validateModifiers(state.explicits(), Layer.EXPLICIT, errors);
@@ -45,7 +49,7 @@ public final class ItemStateValidator {
           new Violation(
               Code.UNSUPPORTED_STATE,
               "",
-              "Only one fractured explicit on Rare Solar is supported"));
+              "Only one fractured explicit on a Rare item is supported"));
     }
     if (state.rarity() != ItemState.Rarity.UNIQUE
         && state.snapshotId().equals(catalog.metadata().snapshotId())
