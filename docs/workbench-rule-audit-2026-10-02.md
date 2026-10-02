@@ -131,3 +131,20 @@ Greater Exaltation namespace cache recheck: `2967cb61d8f7d2969f733f82f7c1f29e32d
 Body essence namespace cache recheck: `fcfafab62f6ee72aff130534fadab0eaf0bf2570ae3460332d3bcd5e5a00b025`; one computed pool before normal QA-app restart, one persisted hit/nine memory hits/zero computations afterwards; comparisons and assessment exactly equal. Evidence: `cache-before-v5.json` / `cache-after-v5.json`.
 
 Mind/Ruin namespace cache recheck: `f3281e63519be58c25dbcb9390177a695a5c48fdc19ab90fb36a0227ee024409`; one computed pool before normal QA-app restart, one persisted hit/nine memory hits/zero computations afterwards; comparisons and assessment exactly equal. Evidence: `cache-before-v6.json` / `cache-after-v6.json`.
+
+## Infinite essence: three explicitly sourced attribute outcomes
+
+Lesser/ordinary/Greater Infinite upgrade Magic Solar to Rare and add one suffix. The outcomes are Strength, Dexterity or Intelligence; supported ranges are respectively 9-12, 17-20 and 25-27. Existing rolls/implicits and unrelated supported omens remain unchanged. Sources checked 2026-10-02: [Lesser](https://poe2db.tw/us/Lesser_Essence_of_the_Infinite), [ordinary](https://poe2db.tw/us/Essence_of_the_Infinite), [Greater](https://poe2db.tw/us/Greater_Essence_of_the_Infinite); [official essence rework](https://www.pathofexile.com/forum/view-thread/3826682).
+
+| Tier | Strength / Dexterity / Intelligence suffix IDs (amulet:suffix:) | Catalog minimum item level | Source Required Level |
+| --- | --- | --- | --- |
+| Lesser | of-the-wrestler / of-the-lynx / of-the-student | 11 | 8 |
+| Ordinary | of-the-lion / of-the-falcon / of-the-augur | 33 | 26 |
+| Greater | of-the-goliath / of-the-leopard / of-the-sage | 55 | 44 |
+
+All three outcomes must be eligible. Any occupied attribute family or unsupported low item level blocks application without mutation; candidates are never silently reduced to two. No published essence-choice weights were verified. In accordance with the agreed missing-probability policy, the three sourced outcomes use uniform 1/3 and a separate `uniform-essence-choice-v1` assumption listing all three IDs and the source. Ordinary affix weights are not asserted to be essence-choice weights. Numeric rolls retain the uniform integer assumption. Perfect Infinite has a different effect and is not enabled by analogy.
+
+Current rule `solar-workbench-infinite-essence-v7`, ledger `solar-uniform-assumptions-v3`. Registry: 19 implemented currencies, nine omens, 12 essences; 180 pending of 220 registered, not a complete game inventory. Docker mandatory backend checks passed 130 unit/API/architecture and six integration tests (136 total, zero failures/errors); frontend lint/typecheck/format, 86 tests and build passed. An initial existing API assertion expected ledger v2 and was corrected to v3 before the passing rerun.
+
+Chromium against v7 passed Infinite 19, fixed Body/Mind/Ruin 55, general Workbench 30, Fracturing 20 and Greater Exaltation 14 checks (138 total, zero runtime errors). Infinite covers real right-click/Shift crafting, sourced outcomes/ranges, 1/3 and both assumptions, preserved rolls, blocked Normal/Rare repeats and reload. Backend also checks 100 spaced seeds per tier on one/two-explicit Magic inputs, all three outcomes reached, level boundaries and attribute-overlap refusal. Desktop screenshot visually reviewed. Evidence: `codex/qa-20261002/backend-infinite-essence-results`, `infinite-essence-browser-results.json`, `infinite-essence-desktop.png`; previous browser result files were refreshed against v7. These checks do not validate unsupported low-level bypasses, overlap outcomes or other bases.
+Infinite namespace cache recheck: `7261b8437ad82cd6e4ff3379283e15e582355dd15c73bcdde6f1cdd1e0ab67b6`; one computed pool before normal QA-app restart, one persisted hit/nine memory hits/zero computations afterwards. Comparisons and assessment exactly equal. Evidence: `cache-before-v7.json` / `cache-after-v7.json`.

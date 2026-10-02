@@ -6,8 +6,8 @@ import java.util.random.RandomGenerator;
 
 /** Samples concrete elementary events; unchanged instances retain their actual values. */
 public final class WorkbenchSimulator {
-  public static final String RULE_VERSION = "solar-workbench-fixed-essence-v6";
-  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v2";
+  public static final String RULE_VERSION = "solar-workbench-infinite-essence-v7";
+  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v3";
   private final ItemCatalog catalog;
   private final AdditionRules additionRules;
 
@@ -95,20 +95,21 @@ public final class WorkbenchSimulator {
     if (state.itemLevel() < action.minimumModifierLevel())
       return blocked(action, "Item level is below the currency's minimum modifier level.");
     var omen = matches.isEmpty() ? null : matches.getFirst();
-    if (action.fixedModifierId() != null) {
+    if (!action.essenceModifierIds().isEmpty()) {
       if (state.rarity() != ItemState.Rarity.MAGIC)
         return blocked(
             action, "This essence upgrades a Magic item to Rare with one guaranteed modifier.");
-      var target = catalog.find(action.fixedModifierId()).orElseThrow();
-      if (state.itemLevel() < target.requiredItemLevel())
+      var targets =
+          action.essenceModifierIds().stream().map(id -> catalog.find(id).orElseThrow()).toList();
+      if (targets.stream().anyMatch(target -> state.itemLevel() < target.requiredItemLevel()))
         return blocked(
             action,
             "Essence results below the catalog modifier's item level need verification; this low-level scope is unsupported.");
       var rare = copy(state, ItemState.Rarity.RARE, state.implicits(), state.explicits());
-      if (!pool(rare, action, null).contains(target))
+      if (!pool(rare, action, null).containsAll(targets))
         return blocked(
             action,
-            "The guaranteed essence modifier conflicts with existing families or available affix slots; the overlap interaction is unsupported.");
+            "An essence result conflicts with existing families or available affix slots; the overlap interaction is unsupported.");
       return new Availability(action, true, "");
     }
     if (action == WorkbenchCurrency.FRACTURING) {
@@ -234,14 +235,29 @@ public final class WorkbenchSimulator {
     var events = new ArrayList<Event>();
     var assumptions = new ArrayList<Assumption>();
     var rarity =
-        action == WorkbenchCurrency.ALCHEMY || action.fixedModifierId() != null
+        action == WorkbenchCurrency.ALCHEMY || !action.essenceModifierIds().isEmpty()
             ? ItemState.Rarity.RARE
             : upgrade(state, action);
-    if (action.fixedModifierId() != null) {
-      var definition = catalog.find(action.fixedModifierId()).orElseThrow();
+    if (!action.essenceModifierIds().isEmpty()) {
+      var candidates = action.essenceModifierIds();
+      var definition =
+          catalog
+              .find(candidates.get(candidates.size() == 1 ? 0 : random.nextInt(candidates.size())))
+              .orElseThrow();
+      if (candidates.size() > 1)
+        assumptions.add(
+            new Assumption(
+                "uniform-essence-choice-v1",
+                "fixed essence modifier outcome",
+                candidates.size(),
+                candidates,
+                null,
+                null,
+                action.essenceChoiceSource(),
+                "Uniform among the three sourced attribute outcomes; no published essence choice weights. Ordinary affix pool weights are not asserted to be essence choice weights."));
       var rolled = roll(definition, random, assumptions);
       explicits.add(rolled);
-      events.add(new Event("ADD", definition.id(), rolled.values(), 1));
+      events.add(new Event("ADD", definition.id(), rolled.values(), 1.0 / candidates.size()));
     } else if (action == WorkbenchCurrency.FRACTURING) {
       int index = random.nextInt(explicits.size());
       var chosen = explicits.get(index);

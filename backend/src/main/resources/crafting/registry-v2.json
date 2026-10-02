@@ -1,9 +1,9 @@
 {
   "version": "equipment-crafting-registry-v2",
-  "ledgerVersion": "solar-uniform-assumptions-v2",
+  "ledgerVersion": "solar-uniform-assumptions-v3",
   "scope": "Equipment crafting, excluding maps and skill gems. Inventory coverage is incomplete and pending a full source audit; registration is not implementation.",
   "inventoryComplete": false,
-  "ruleVersion": "solar-workbench-fixed-essence-v6",
+  "ruleVersion": "solar-workbench-infinite-essence-v7",
   "modifierWeightPolicy": "POE2DB_AS_PUBLISHED",
   "mixedKnownUnknownWeightPolicy": "BLOCK_UNTIL_POLICY_DECIDED",
   "entries": [
@@ -554,10 +554,10 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "LESSER_ESSENCE_INFINITE",
+      "reason": "Magic Solar becomes Rare with one sourced Strength/Dexterity/Intelligence suffix; uniform 1/3 choice assumption. All three catalog-level outcomes must be eligible. Any attribute overlap and low-level bypass remain unsupported."
     },
     {
       "id": "Essence_of_the_Body",
@@ -722,10 +722,10 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "ESSENCE_INFINITE",
+      "reason": "Magic Solar becomes Rare with one sourced Strength/Dexterity/Intelligence suffix; uniform 1/3 choice assumption. All three catalog-level outcomes must be eligible. Any attribute overlap and low-level bypass remain unsupported."
     },
     {
       "id": "Greater_Essence_of_the_Body",
@@ -890,10 +890,10 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "GREATER_ESSENCE_INFINITE",
+      "reason": "Magic Solar becomes Rare with one sourced Strength/Dexterity/Intelligence suffix; uniform 1/3 choice assumption. All three catalog-level outcomes must be eligible. Any attribute overlap and low-level bypass remain unsupported."
     },
     {
       "id": "Perfect_Essence_of_the_Body",
@@ -3225,6 +3225,16 @@
   ],
   "assumptionLedger": [
     {
+      "id": "uniform-essence-choice-v1",
+      "candidateUnit": "fixed essence modifier outcome",
+      "eligibility": "Magic Solar, Lesser/ordinary/Greater Infinite, all three sourced Strength/Dexterity/Intelligence results eligible at the catalog item level; any attribute family overlap is blocked pending verification.",
+      "n": "3 fixed modifier outcomes",
+      "probability": "1/N",
+      "sourceUrls": ["https://poe2db.tw/us/Lesser_Essence_of_the_Infinite", "https://poe2db.tw/us/Essence_of_the_Infinite", "https://poe2db.tw/us/Greater_Essence_of_the_Infinite"],
+      "reason": "Sourced effect defines three attribute results; no published essence choice weights. Ordinary affix weights are not treated as essence choice weights.",
+      "scope": "MODELING_ASSUMPTION"
+    },
+    {
       "id": "uniform-fracture-v1",
       "candidateUnit": "eligible explicit modifier instance",
       "eligibility": "Validated Rare Solar with at least four ordinary explicit modifiers and no existing fracture; implicit modifiers are excluded. Only one explicit fracture is supported.",
@@ -3250,7 +3260,7 @@
     {
       "id": "uniform-integer-roll-v1",
       "candidateUnit": "integer value in a single source stat range",
-      "eligibility": "Selected published-weight modifier with exactly one stat; all integers from min through max inclusive in source units. Joint-stat domains are rejected.",
+      "eligibility": "Supported modifier (published-weight draw or essence outcome) with exactly one stat; all integers from min through max inclusive in source units. Joint-stat domains are rejected.",
       "n": "max - min + 1",
       "probability": "1/N",
       "sourceUrls": [

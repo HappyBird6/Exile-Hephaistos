@@ -56,7 +56,7 @@ class WorkbenchControllerTest {
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.applied").value(true))
             .andExpect(jsonPath("$.events[0].kind").value("FRACTURE"))
-            .andExpect(jsonPath("$.ledgerVersion").value("solar-uniform-assumptions-v2"))
+            .andExpect(jsonPath("$.ledgerVersion").value("solar-uniform-assumptions-v3"))
             .andReturn();
     var state =
         mapper.treeToValue(
@@ -87,7 +87,7 @@ class WorkbenchControllerTest {
         .andExpect(jsonPath("$.version").value("equipment-crafting-registry-v2"))
         .andExpect(jsonPath("$.inventoryComplete").value(false))
         .andExpect(jsonPath("$.entries.length()").value(220))
-        .andExpect(jsonPath("$.assumptionLedger.length()").value(3));
+        .andExpect(jsonPath("$.assumptionLedger.length()").value(4));
   }
 
   @Test
@@ -103,7 +103,7 @@ class WorkbenchControllerTest {
         .andExpect(jsonPath("$.state.rarity").value("MAGIC"))
         .andExpect(jsonPath("$.state.explicits.length()").value(1))
         .andExpect(jsonPath("$.events[0].kind").value("ADD"))
-        .andExpect(jsonPath("$.ruleVersion").value("solar-workbench-fixed-essence-v6"));
+        .andExpect(jsonPath("$.ruleVersion").value("solar-workbench-infinite-essence-v7"));
     mvc.perform(
             post("/api/v1/crafting/workbench/apply")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -144,6 +144,6 @@ class WorkbenchControllerTest {
                             "activeOmens",
                             java.util.List.of()))))
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.length()").value(28));
+        .andExpect(jsonPath("$.length()").value(31));
   }
 }

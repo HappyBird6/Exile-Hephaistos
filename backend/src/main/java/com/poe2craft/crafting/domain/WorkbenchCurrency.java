@@ -1,5 +1,7 @@
 package com.poe2craft.crafting.domain;
 
+import java.util.List;
+
 /** Workbench rules are independent of the legacy six-action bucket explorer. */
 public enum WorkbenchCurrency {
   TRANSMUTATION(CraftingAction.TRANSMUTATION, 0),
@@ -29,22 +31,59 @@ public enum WorkbenchCurrency {
   GREATER_ESSENCE_MIND("amulet:prefix:gentian"),
   LESSER_ESSENCE_RUIN("amulet:suffix:of-the-lost"),
   ESSENCE_RUIN("amulet:suffix:of-banishment"),
-  GREATER_ESSENCE_RUIN("amulet:suffix:of-expulsion");
+  GREATER_ESSENCE_RUIN("amulet:suffix:of-expulsion"),
+  LESSER_ESSENCE_INFINITE(
+      "https://poe2db.tw/us/Lesser_Essence_of_the_Infinite",
+      "amulet:suffix:of-the-wrestler",
+      "amulet:suffix:of-the-lynx",
+      "amulet:suffix:of-the-student"),
+  ESSENCE_INFINITE(
+      "https://poe2db.tw/us/Essence_of_the_Infinite",
+      "amulet:suffix:of-the-lion",
+      "amulet:suffix:of-the-falcon",
+      "amulet:suffix:of-the-augur"),
+  GREATER_ESSENCE_INFINITE(
+      "https://poe2db.tw/us/Greater_Essence_of_the_Infinite",
+      "amulet:suffix:of-the-goliath",
+      "amulet:suffix:of-the-leopard",
+      "amulet:suffix:of-the-sage");
 
   private final CraftingAction baseAction;
   private final int minimumModifierLevel;
   private final String fixedModifierId;
+  private final List<String> essenceModifierIds;
+  private final String essenceChoiceSource;
 
   WorkbenchCurrency(CraftingAction baseAction, int minimumModifierLevel) {
     this.baseAction = baseAction;
     this.minimumModifierLevel = minimumModifierLevel;
     this.fixedModifierId = null;
+    this.essenceModifierIds = List.of();
+    this.essenceChoiceSource = null;
   }
 
   WorkbenchCurrency(String fixedModifierId) {
     this.baseAction = null;
     this.minimumModifierLevel = 0;
     this.fixedModifierId = fixedModifierId;
+    this.essenceModifierIds = List.of(fixedModifierId);
+    this.essenceChoiceSource = null;
+  }
+
+  WorkbenchCurrency(String sourceUrl, String... choiceIds) {
+    this.baseAction = null;
+    this.minimumModifierLevel = 0;
+    this.fixedModifierId = null;
+    this.essenceModifierIds = List.of(choiceIds);
+    this.essenceChoiceSource = sourceUrl;
+  }
+
+  public List<String> essenceModifierIds() {
+    return essenceModifierIds;
+  }
+
+  public String essenceChoiceSource() {
+    return essenceChoiceSource;
   }
 
   public String fixedModifierId() {

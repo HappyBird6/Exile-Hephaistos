@@ -17,6 +17,9 @@ export type WorkbenchAction =
   | 'LESSER_ESSENCE_RUIN'
   | 'ESSENCE_RUIN'
   | 'GREATER_ESSENCE_RUIN'
+  | 'LESSER_ESSENCE_INFINITE'
+  | 'ESSENCE_INFINITE'
+  | 'GREATER_ESSENCE_INFINITE'
 const fixedEssenceModifiers: Partial<Record<WorkbenchAction, string>> = {
   LESSER_ESSENCE_BODY: 'amulet:prefix:healthy',
   ESSENCE_BODY: 'amulet:prefix:robust',
@@ -27,6 +30,25 @@ const fixedEssenceModifiers: Partial<Record<WorkbenchAction, string>> = {
   LESSER_ESSENCE_RUIN: 'amulet:suffix:of-the-lost',
   ESSENCE_RUIN: 'amulet:suffix:of-banishment',
   GREATER_ESSENCE_RUIN: 'amulet:suffix:of-expulsion',
+}
+const choiceEssenceModifiers: Partial<
+  Record<WorkbenchAction, readonly string[]>
+> = {
+  LESSER_ESSENCE_INFINITE: [
+    'amulet:suffix:of-the-wrestler',
+    'amulet:suffix:of-the-lynx',
+    'amulet:suffix:of-the-student',
+  ],
+  ESSENCE_INFINITE: [
+    'amulet:suffix:of-the-lion',
+    'amulet:suffix:of-the-falcon',
+    'amulet:suffix:of-the-augur',
+  ],
+  GREATER_ESSENCE_INFINITE: [
+    'amulet:suffix:of-the-goliath',
+    'amulet:suffix:of-the-leopard',
+    'amulet:suffix:of-the-sage',
+  ],
 }
 export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   ...currencyActions,
@@ -42,6 +64,9 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Lesser_Essence_of_Ruin: 'LESSER_ESSENCE_RUIN',
   Essence_of_Ruin: 'ESSENCE_RUIN',
   Greater_Essence_of_Ruin: 'GREATER_ESSENCE_RUIN',
+  Lesser_Essence_of_the_Infinite: 'LESSER_ESSENCE_INFINITE',
+  Essence_of_the_Infinite: 'ESSENCE_INFINITE',
+  Greater_Essence_of_the_Infinite: 'GREATER_ESSENCE_INFINITE',
 }
 export const workbenchActionNames: Record<WorkbenchAction, string> = {
   ...actionNames,
@@ -57,6 +82,9 @@ export const workbenchActionNames: Record<WorkbenchAction, string> = {
   LESSER_ESSENCE_RUIN: 'Lesser Essence of Ruin',
   ESSENCE_RUIN: 'Essence of Ruin',
   GREATER_ESSENCE_RUIN: 'Greater Essence of Ruin',
+  LESSER_ESSENCE_INFINITE: 'Lesser Essence of the Infinite',
+  ESSENCE_INFINITE: 'Essence of the Infinite',
+  GREATER_ESSENCE_INFINITE: 'Greater Essence of the Infinite',
 } as Record<WorkbenchAction, string>
 for (const [id, base] of Object.entries(currencyActions)) {
   if (base === 'ANNULMENT') continue
@@ -251,6 +279,9 @@ export async function applyCurrency(
   const v = (await response.json()) as AppliedItem
   const next = v?.state
   const baseAction = baseWorkbenchAction(action)
+  const essenceCandidates = fixedEssenceModifiers[action]
+    ? [fixedEssenceModifiers[action]!]
+    : (choiceEssenceModifiers[action] ?? [])
   const sameModifiers = (
     a: ConcreteItem['explicits'],
     b: ConcreteItem['explicits'],
@@ -372,7 +403,7 @@ export async function applyCurrency(
       ? 'MAGIC'
       : baseAction === 'REGAL' ||
           action === 'ALCHEMY' ||
-          fixedEssenceModifiers[action]
+          essenceCandidates.length > 0
         ? 'RARE'
         : state.rarity
   const expectedCount =
@@ -418,12 +449,21 @@ export async function applyCurrency(
   const locks = next.explicits.filter((m) => m.fractured)
   if (
     v.applied &&
-    fixedEssenceModifiers[action] &&
+    essenceCandidates.length > 0 &&
     (state.rarity !== 'MAGIC' ||
       v.events.length !== 1 ||
       v.events[0]?.kind !== 'ADD' ||
-      v.events[0]?.modifierId !== fixedEssenceModifiers[action] ||
-      v.events[0]?.selectionProbability !== 1 ||
+      !essenceCandidates.includes(v.events[0]?.modifierId ?? '') ||
+      v.events[0]?.selectionProbability !== 1 / essenceCandidates.length ||
+      (essenceCandidates.length > 1 &&
+        !v.assumptions.some(
+          (a) =>
+            a.id === 'uniform-essence-choice-v1' &&
+            a.n === essenceCandidates.length &&
+            a.candidates.length === essenceCandidates.length &&
+            new Set(a.candidates).size === essenceCandidates.length &&
+            a.candidates.every((id) => essenceCandidates.includes(id)),
+        )) ||
       v.consumedOmens.length !== 0 ||
       !sameModifiers(
         state.explicits
@@ -435,9 +475,8 @@ export async function applyCurrency(
       ) ||
       JSON.stringify(v.events[0]?.values) !==
         JSON.stringify(
-          next.explicits.find(
-            (m) => m.modifierId === fixedEssenceModifiers[action],
-          )?.values,
+          next.explicits.find((m) => m.modifierId === v.events[0]?.modifierId)
+            ?.values,
         ))
   )
     throw new Error(
