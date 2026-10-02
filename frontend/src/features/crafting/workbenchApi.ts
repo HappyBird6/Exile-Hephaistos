@@ -10,6 +10,7 @@ export type WorkbenchAction =
   | 'FRACTURING'
   | 'ESSENCE_HYSTERIA'
   | 'PERFECT_ESSENCE_INFINITE'
+  | 'PERFECT_ESSENCE_ENHANCEMENT'
   | 'LESSER_ESSENCE_BODY'
   | 'ESSENCE_BODY'
   | 'GREATER_ESSENCE_BODY'
@@ -80,6 +81,7 @@ const replacementEssenceModifiers: Partial<
   Record<WorkbenchAction, readonly string[]>
 > = {
   ESSENCE_HYSTERIA: ['amulet:suffix:of-suturing'],
+  PERFECT_ESSENCE_ENHANCEMENT: ['amulet:prefix:essence-global-defences'],
   PERFECT_ESSENCE_INFINITE: [
     'amulet:suffix:essence-percent-strength',
     'amulet:suffix:essence-percent-dexterity',
@@ -93,6 +95,7 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Fracturing_Orb: 'FRACTURING',
   Essence_of_Hysteria: 'ESSENCE_HYSTERIA',
   Perfect_Essence_of_the_Infinite: 'PERFECT_ESSENCE_INFINITE',
+  Perfect_Essence_of_Enhancement: 'PERFECT_ESSENCE_ENHANCEMENT',
   Lesser_Essence_of_the_Body: 'LESSER_ESSENCE_BODY',
   Essence_of_the_Body: 'ESSENCE_BODY',
   Greater_Essence_of_the_Body: 'GREATER_ESSENCE_BODY',
@@ -125,6 +128,7 @@ export const workbenchActionNames: Record<WorkbenchAction, string> = {
   FRACTURING: 'Fracturing Orb',
   ESSENCE_HYSTERIA: 'Essence of Hysteria',
   PERFECT_ESSENCE_INFINITE: 'Perfect Essence of the Infinite',
+  PERFECT_ESSENCE_ENHANCEMENT: 'Perfect Essence of Enhancement',
   LESSER_ESSENCE_BODY: 'Lesser Essence of the Body',
   ESSENCE_BODY: 'Essence of the Body',
   GREATER_ESSENCE_BODY: 'Greater Essence of the Body',
@@ -163,13 +167,13 @@ export const workbenchOmens = [
     id: 'Omen_of_Sinistral_Crystallisation',
     trigger: 'ESSENCE_HYSTERIA',
     effect:
-      'Hysteria / Perfect Infinite remove only prefixes; other replacement essences unsupported',
+      'Hysteria / Perfect Infinite / Perfect Enhancement remove only prefixes',
   },
   {
     id: 'Omen_of_Dextral_Crystallisation',
     trigger: 'ESSENCE_HYSTERIA',
     effect:
-      'Hysteria / Perfect Infinite remove only suffixes; other replacement essences unsupported',
+      'Hysteria / Perfect Infinite / Perfect Enhancement remove only suffixes',
   },
   {
     id: 'Omen_of_Greater_Exaltation',

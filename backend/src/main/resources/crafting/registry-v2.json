@@ -1,9 +1,9 @@
 {
   "version": "equipment-crafting-registry-v2",
-  "ledgerVersion": "solar-uniform-assumptions-v6",
+  "ledgerVersion": "solar-uniform-assumptions-v7",
   "scope": "Equipment crafting, excluding maps and skill gems. Inventory coverage is incomplete and pending a full source audit; registration is not implementation.",
   "inventoryComplete": false,
-  "ruleVersion": "solar-workbench-perfect-infinite-v12",
+  "ruleVersion": "solar-workbench-perfect-enhancement-v13",
   "modifierWeightPolicy": "POE2DB_AS_PUBLISHED",
   "mixedKnownUnknownWeightPolicy": "BLOCK_UNTIL_POLICY_DECIDED",
   "entries": [
@@ -149,7 +149,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Excluded from the current Workbench implementation scope by user request on 2026-10-02; registered data is retained. This is not a completion blocker.",
+      "implementationScope": "USER_EXCLUDED_CURRENT_SCOPE"
     },
     {
       "id": "Fracturing_Orb",
@@ -389,7 +390,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Excluded from the current Workbench implementation scope by user request on 2026-10-02; registered data is retained. This is not a completion blocker.",
+      "implementationScope": "USER_EXCLUDED_CURRENT_SCOPE"
     },
     {
       "id": "Lesser_Essence_of_the_Body",
@@ -932,10 +934,13 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "PERFECT_ESSENCE_ENHANCEMENT",
+      "reason": "",
+      "ruleSource": "https://poe2db.tw/us/Perfect_Essence_of_Enhancement",
+      "ruleVerifiedAt": "2026-10-02",
+      "implementationScope": "Rare Solar, modifier item level 72+, remove one unlocked explicit and add the sourced global defences prefix. Every removal branch must permit the result. Crystallisation side restriction and fractured preservation supported. Single guaranteed result, uniform removal and integer 20-30 roll assumptions only."
     },
     {
       "id": "Perfect_Essence_of_Abrasion",
@@ -1736,7 +1741,7 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "DEXTRAL_CRYSTALLISATION",
-      "reason": "Hysteria on supported Rare Solar: remove only unlocked suffix instances. Consume once on success; unrelated omens remain. Matching pair conflicts; no eligible side and invalid replacement branches blocked. Other Perfect/Corrupted essences unsupported."
+      "reason": "Hysteria, Perfect Infinite and Perfect Enhancement on supported Rare Solar: remove only unlocked suffix instances. Consume once on success; unrelated omens remain. Matching pair conflicts; no eligible side and invalid replacement branches blocked. Other Perfect/Corrupted essences unsupported."
     },
     {
       "id": "Omen_of_Sinistral_Crystallisation",
@@ -1750,7 +1755,7 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "SINISTRAL_CRYSTALLISATION",
-      "reason": "Hysteria on supported Rare Solar: remove only unlocked prefix instances. Consume once on success; unrelated omens remain. Matching pair conflicts; no eligible side and invalid replacement branches blocked. Other Perfect/Corrupted essences unsupported."
+      "reason": "Hysteria, Perfect Infinite and Perfect Enhancement on supported Rare Solar: remove only unlocked prefix instances. Consume once on success; unrelated omens remain. Matching pair conflicts; no eligible side and invalid replacement branches blocked. Other Perfect/Corrupted essences unsupported."
     },
     {
       "id": "Omen_of_Whittling",
@@ -3258,7 +3263,7 @@
     {
       "id": "uniform-removal-v1",
       "candidateUnit": "eligible explicit modifier instance",
-      "eligibility": "Validated Solar Amulet, Magic/Rare, no special conditions. Non-Fractured explicit instances after verified side restriction; Chaos requires Rare and replacement eligibility for every removal branch. Whittling with fracture is blocked pending priority verification. Hysteria requires Rare Solar at catalog item level 68 or above and a valid fixed suffix after every non-Fractured explicit removal; One Crystallisation omen restricts Hysteria removal to unlocked prefixes or suffixes before determining N; its paired combination is unsupported. Perfect Infinite requires Rare Solar at catalog item level 72+ and all three sourced percentage suffix outcomes valid after every eligible removal. Crystallisation restrictions also apply to this Perfect essence.",
+      "eligibility": "Validated Solar Amulet, Magic/Rare, no special conditions. Non-Fractured explicit instances after verified side restriction; Chaos requires Rare and replacement eligibility for every removal branch. Whittling with fracture is blocked pending priority verification. Hysteria requires Rare Solar at catalog item level 68 or above and a valid fixed suffix after every non-Fractured explicit removal; One Crystallisation omen restricts Hysteria removal to unlocked prefixes or suffixes before determining N; its paired combination is unsupported. Perfect Infinite requires Rare Solar at catalog item level 72+ and all three sourced percentage suffix outcomes valid after every eligible removal. Crystallisation restrictions also apply to this Perfect essence. Perfect Enhancement requires Rare Solar at modifier item level 72+ and its sourced global defences prefix valid after every eligible removal; the same Crystallisation restrictions apply.",
       "n": "Current eligible explicit instance count",
       "probability": "1/N",
       "sourceUrls": [
@@ -3267,7 +3272,8 @@
         "https://poe2db.tw/us/Essence_of_Hysteria",
         "https://poe2db.tw/us/Omen_of_Sinistral_Crystallisation",
         "https://poe2db.tw/us/Omen_of_Dextral_Crystallisation",
-        "https://poe2db.tw/us/Perfect_Essence_of_the_Infinite"
+        "https://poe2db.tw/us/Perfect_Essence_of_the_Infinite",
+        "https://poe2db.tw/us/Perfect_Essence_of_Enhancement"
       ],
       "reason": "Random removal stated; no published per-instance removal weights.",
       "scope": "MODELING_ASSUMPTION"

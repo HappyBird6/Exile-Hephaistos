@@ -64,8 +64,62 @@ class SpecialModifierCatalogTest {
     assertThat(pool.candidates()).hasSize(209).allMatch(d -> d.weight() > 0);
     assertThat(pool.totalWeight()).isEqualTo(168856);
     assertThat(catalog.compatibleSnapshotIds())
-        .containsExactly("poe2db-amulets-base-2026-09-29-a4f439852790");
-    assertThat(catalog.metadata().snapshotId()).contains("+perfect-infinite-2026-10-02-");
+        .containsExactly(
+            "poe2db-amulets-base-2026-09-29-a4f439852790",
+            "poe2db-amulets-base-2026-09-29-a4f439852790+perfect-infinite-2026-10-02-18dd1e515063");
+    assertThat(catalog.metadata().snapshotId())
+        .startsWith("solar-special-")
+        .hasSizeLessThanOrEqualTo(120);
+  }
+
+  @Test
+  void enhancementProofRetainsOneCombinedStatAndEveryEarlierDefinitionExactly() throws Exception {
+    var current = ItemCatalogLoader.loadDefault();
+    try (var input = resource("perfect-enhancement.raw.json")) {
+      var proofs = new ObjectMapper().readTree(input);
+      assertThat(proofs).hasSize(1);
+      var proof = proofs.get(0);
+      var row = proof.get("row");
+      var d = current.find("amulet:prefix:essence-global-defences").orElseThrow();
+      assertThat(row.get("Code").asText()).isEqualTo("EssenceGlobalDefences1");
+      assertThat(d.name()).isEqualTo("Essences");
+      assertThat(d.affixType()).isEqualTo(ModifierDefinition.AffixType.PREFIX);
+      assertThat(row.get("ModGenerationTypeID").asInt()).isEqualTo(1);
+      assertThat(d.requiredItemLevel()).isEqualTo(row.get("Level").asInt()).isEqualTo(72);
+      assertThat(row.get("reqlvl").asInt()).isEqualTo(57);
+      assertThat(d.weight()).isEqualTo(row.get("DropChance").asInt()).isZero();
+      assertThat(d.familyIds()).containsExactly("AllDefences");
+      assertThat(d.tags()).containsExactly("defences");
+      assertThat(d.sourceUrl()).isEqualTo(proof.get("detailUrl").asText());
+      assertThat(d.stats())
+          .containsExactly(
+              new ModifierDefinition.StatRange("global_armour_evasion_energy_shield_+%", 20, 30));
+      assertThat(proof.get("detailHtml").asText())
+          .contains(
+              "<li>global armour evasion energy shield +%", "Family<td>AllDefences",
+              "GenerationType<td>Prefix (1)", "Req. level<td>72 (Effective: 57)");
+    }
+    try (var ordinary = resource("catalog.json");
+        var raw = resource("base.raw.json");
+        var details = resource("details.raw.json");
+        var special = resource("perfect-infinite.catalog.json");
+        var specialRaw = resource("perfect-infinite.raw.json")) {
+      var previous = ItemCatalogLoader.loadWithSpecial(ordinary, raw, details, special, specialRaw);
+      assertThat(previous.modifiers())
+          .allSatisfy((id, d) -> assertThat(current.find(id)).contains(d));
+      assertThat(current.base()).isEqualTo(previous.base());
+      assertThat(current.compatibleSnapshotIds()).contains(previous.metadata().snapshotId());
+      try (var enhancement = resource("perfect-enhancement.catalog.json")) {
+        assertThatThrownBy(
+                () ->
+                    ItemCatalogLoader.addSpecial(
+                        previous,
+                        enhancement,
+                        new ByteArrayInputStream("[]".getBytes(StandardCharsets.UTF_8))))
+            .isInstanceOf(IllegalArgumentException.class)
+            .hasMessageContaining("checksum");
+      }
+    }
   }
 
   @Test

@@ -6,6 +6,7 @@ import com.poe2craft.item.ItemCatalog;
 import com.poe2craft.item.ModifierDefinition;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -23,8 +24,11 @@ public final class ItemCatalogLoader {
         var raw = resource("base.raw.json");
         var details = resource("details.raw.json");
         var special = resource("perfect-infinite.catalog.json");
-        var specialRaw = resource("perfect-infinite.raw.json")) {
-      return loadWithSpecial(catalog, raw, details, special, specialRaw);
+        var specialRaw = resource("perfect-infinite.raw.json");
+        var enhancement = resource("perfect-enhancement.catalog.json");
+        var enhancementRaw = resource("perfect-enhancement.raw.json")) {
+      return addSpecial(
+          loadWithSpecial(catalog, raw, details, special, specialRaw), enhancement, enhancementRaw);
     } catch (IOException e) {
       throw new IllegalStateException("Cannot load Solar Amulet catalog", e);
     }
@@ -52,7 +56,12 @@ public final class ItemCatalogLoader {
       InputStream special,
       InputStream specialRaw)
       throws IOException {
-    var ordinary = load(catalog, raw, details);
+    return addSpecial(load(catalog, raw, details), special, specialRaw);
+  }
+
+  /** Extend only with reviewed definitions while retaining verified older frame identities. */
+  public static ItemCatalog addSpecial(
+      ItemCatalog ordinary, InputStream special, InputStream specialRaw) throws IOException {
     var extension = mapper().readValue(special, SpecialDocument.class);
     var source = extension.metadata();
     if (!source.rawSha256().matches("[0-9a-f]{64}")
@@ -75,9 +84,16 @@ public final class ItemCatalogLoader {
                 .filter(d -> d.affixType() == ModifierDefinition.AffixType.PREFIX)
                 .count();
     int extraSuffixes = extension.modifiers().size() - extraPrefixes;
+    String identity = old.snapshotId() + "+" + source.snapshotId();
+    // Retain the already published v12 identity; later additive snapshots use a bounded digest.
+    // State bucket identities are limited to 120 characters, irrespective of extension count.
+    if (!ordinary.compatibleSnapshotIds().isEmpty())
+      identity =
+          "solar-special-"
+              + digest(new java.io.ByteArrayInputStream(identity.getBytes(StandardCharsets.UTF_8)));
     var combined =
         new ItemCatalog.Metadata(
-            old.snapshotId() + "+" + source.snapshotId(),
+            identity,
             source.retrievedAt(),
             old.sourceUrl(),
             old.weightPolicy(),
@@ -87,7 +103,9 @@ public final class ItemCatalogLoader {
             old.suffixCount() + extraSuffixes,
             old.prefixWeight(),
             old.suffixWeight());
-    return new ItemCatalog(combined, ordinary.base(), all, List.of(old.snapshotId()));
+    var compatible = new ArrayList<>(ordinary.compatibleSnapshotIds());
+    compatible.add(old.snapshotId());
+    return new ItemCatalog(combined, ordinary.base(), all, compatible);
   }
 
   private static ObjectMapper mapper() {

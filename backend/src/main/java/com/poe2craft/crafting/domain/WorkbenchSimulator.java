@@ -6,8 +6,8 @@ import java.util.random.RandomGenerator;
 
 /** Samples concrete elementary events; unchanged instances retain their actual values. */
 public final class WorkbenchSimulator {
-  public static final String RULE_VERSION = "solar-workbench-perfect-infinite-v12";
-  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v6";
+  public static final String RULE_VERSION = "solar-workbench-perfect-enhancement-v13";
+  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v7";
   private final ItemCatalog catalog;
   private final AdditionRules additionRules;
 
@@ -116,7 +116,7 @@ public final class WorkbenchSimulator {
         if (targets.stream().anyMatch(target -> !canAddFixed(afterRemoval, target)))
           return blocked(
               action,
-              "An essence removal branch conflicts with a guaranteed suffix or available slots; this interaction is unsupported.");
+              "An essence removal branch conflicts with a guaranteed modifier or available slots; this interaction is unsupported.");
       }
       return new Availability(action, true, "");
     }
@@ -292,7 +292,7 @@ public final class WorkbenchSimulator {
               omen == null
                   ? action.replacementEssenceSource()
                   : "https://poe2db.tw/us/" + omen.id(),
-              "Uniform among non-Fractured explicit instances; every removal branch must accept every sourced suffix outcome. No published removal weights."));
+              "Uniform among non-Fractured explicit instances; every removal branch must accept every sourced modifier outcome. No published removal weights."));
       var targets = action.replacementEssenceModifiers();
       var definition =
           catalog
