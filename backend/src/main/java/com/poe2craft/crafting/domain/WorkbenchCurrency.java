@@ -28,6 +28,7 @@ public enum WorkbenchCurrency {
   PERFECT_ESSENCE_ENHANCEMENT(null, 0),
   ESSENCE_BREACH(null, 0),
   RUNIC_ALLOY(null, 0),
+  ESSENCE_ABYSS(null, 0),
   LESSER_ESSENCE_BODY("amulet:prefix:healthy"),
   ESSENCE_BODY("amulet:prefix:robust"),
   GREATER_ESSENCE_BODY("amulet:prefix:rotund"),
@@ -123,6 +124,8 @@ public enum WorkbenchCurrency {
     return switch (this) {
       case RUNIC_ALLOY -> List.of("amulet:prefix:alloy-maximum-runic-ward");
       case ESSENCE_HYSTERIA -> List.of("amulet:suffix:of-suturing");
+      case ESSENCE_ABYSS ->
+          List.of("amulet:prefix:essence-abyssal-mark", "amulet:suffix:essence-abyssal-mark");
       case ESSENCE_BREACH -> List.of("amulet:prefix:essence-maximum-quality");
       case PERFECT_ESSENCE_ENHANCEMENT -> List.of("amulet:prefix:essence-global-defences");
       case PERFECT_ESSENCE_INFINITE ->
@@ -137,6 +140,7 @@ public enum WorkbenchCurrency {
   public String replacementEssenceSource() {
     return switch (this) {
       case ESSENCE_HYSTERIA -> "https://poe2db.tw/us/Essence_of_Hysteria";
+      case ESSENCE_ABYSS -> "https://poe2db.tw/us/Essence_of_the_Abyss";
       case ESSENCE_BREACH -> "https://poe2db.tw/us/Essence_of_the_Breach";
       case PERFECT_ESSENCE_ENHANCEMENT -> "https://poe2db.tw/us/Perfect_Essence_of_Enhancement";
       case PERFECT_ESSENCE_INFINITE -> "https://poe2db.tw/us/Perfect_Essence_of_the_Infinite";

@@ -6,8 +6,8 @@ import java.util.random.RandomGenerator;
 
 /** Samples concrete elementary events; unchanged instances retain their actual values. */
 public final class WorkbenchSimulator {
-  public static final String RULE_VERSION = "solar-workbench-runic-alloy-v15";
-  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v9";
+  public static final String RULE_VERSION = "solar-workbench-abyss-essence-v16";
+  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v10";
   private final ItemCatalog catalog;
   private final AdditionRules additionRules;
 
@@ -304,7 +304,7 @@ public final class WorkbenchSimulator {
                 null,
                 null,
                 action.replacementSource(),
-                "Uniform among the three sourced attribute outcomes; no published essence choice weights. Zero ordinary spawn weight is not an essence selection weight."));
+                "Uniform among the sourced modifier outcomes; no published essence choice weights. Zero ordinary spawn weight is not an essence selection weight."));
       var rolled = roll(definition, random, assumptions);
       explicits.add(rolled);
       events.add(new Event("ADD", definition.id(), rolled.values(), 1.0 / targets.size()));
@@ -324,7 +324,7 @@ public final class WorkbenchSimulator {
                 null,
                 null,
                 action.essenceChoiceSource(),
-                "Uniform among the three sourced attribute outcomes; no published essence choice weights. Ordinary affix pool weights are not asserted to be essence choice weights."));
+                "Uniform among the sourced modifier outcomes; no published essence choice weights. Ordinary affix pool weights are not asserted to be essence choice weights."));
       var rolled = roll(definition, random, assumptions);
       explicits.add(rolled);
       events.add(new Event("ADD", definition.id(), rolled.values(), 1.0 / candidates.size()));

@@ -30,17 +30,22 @@ public final class ItemCatalogLoader {
         var breach = resource("breach-essence.catalog.json");
         var breachRaw = resource("breach-essence.raw.json");
         var runic = resource("runic-alloy.catalog.json");
-        var runicRaw = resource("runic-alloy.raw.json")) {
+        var runicRaw = resource("runic-alloy.raw.json");
+        var abyss = resource("abyss-essence.catalog.json");
+        var abyssRaw = resource("abyss-essence.raw.json")) {
       return addSpecial(
           addSpecial(
               addSpecial(
-                  loadWithSpecial(catalog, raw, details, special, specialRaw),
-                  enhancement,
-                  enhancementRaw),
-              breach,
-              breachRaw),
-          runic,
-          runicRaw);
+                  addSpecial(
+                      loadWithSpecial(catalog, raw, details, special, specialRaw),
+                      enhancement,
+                      enhancementRaw),
+                  breach,
+                  breachRaw),
+              runic,
+              runicRaw),
+          abyss,
+          abyssRaw);
     } catch (IOException e) {
       throw new IllegalStateException("Cannot load Solar Amulet catalog", e);
     }

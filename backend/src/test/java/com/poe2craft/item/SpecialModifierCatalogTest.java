@@ -13,6 +13,66 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class SpecialModifierCatalogTest {
+  @Test
+  void abyssProofHasExactlyTwoAffixesWithOneSharedFamilyAndFixedMarker() throws Exception {
+    var current = ItemCatalogLoader.loadDefault();
+    try (var input = resource("abyss-essence.raw.json")) {
+      var proofs = new ObjectMapper().readTree(input);
+      assertThat(proofs).hasSize(2);
+      for (var proof : proofs) {
+        var row = proof.get("row");
+        var affix =
+            row.get("ModGenerationTypeID").asInt() == 1
+                ? ModifierDefinition.AffixType.PREFIX
+                : ModifierDefinition.AffixType.SUFFIX;
+        var d =
+            current
+                .find(
+                    "amulet:"
+                        + affix.name().toLowerCase(java.util.Locale.ROOT)
+                        + ":essence-abyssal-mark")
+                .orElseThrow();
+        assertThat(d.affixType()).isEqualTo(affix);
+        assertThat(d.familyIds()).containsExactly("EssenceAbyss");
+        assertThat(d.requiredItemLevel()).isEqualTo(row.get("Level").asInt()).isEqualTo(1);
+        assertThat(d.weight()).isEqualTo(row.get("DropChance").asInt()).isZero();
+        assertThat(d.stats())
+            .containsExactly(
+                new ModifierDefinition.StatRange("essence_abyss_guaranteed_pick", 1, 1));
+        assertThat(d.text()).isEqualTo("Bears the Mark of the Abyssal Lord");
+        assertThat(proof.get("detailHtml").asText())
+            .contains("essence abyss guaranteed pick", "EssenceAbyss");
+      }
+    }
+    try (var catalog = resource("catalog.json");
+        var raw = resource("base.raw.json");
+        var details = resource("details.raw.json");
+        var infinite = resource("perfect-infinite.catalog.json");
+        var infiniteRaw = resource("perfect-infinite.raw.json");
+        var enhancement = resource("perfect-enhancement.catalog.json");
+        var enhancementRaw = resource("perfect-enhancement.raw.json");
+        var breach = resource("breach-essence.catalog.json");
+        var breachRaw = resource("breach-essence.raw.json");
+        var runic = resource("runic-alloy.catalog.json");
+        var runicRaw = resource("runic-alloy.raw.json")) {
+      var previous =
+          ItemCatalogLoader.addSpecial(
+              ItemCatalogLoader.addSpecial(
+                  ItemCatalogLoader.addSpecial(
+                      ItemCatalogLoader.loadWithSpecial(
+                          catalog, raw, details, infinite, infiniteRaw),
+                      enhancement,
+                      enhancementRaw),
+                  breach,
+                  breachRaw),
+              runic,
+              runicRaw);
+      assertThat(current.compatibleSnapshotIds()).contains(previous.metadata().snapshotId());
+      assertThat(current.base()).isEqualTo(previous.base());
+      previous.modifiers().forEach((id, d) -> assertThat(current.find(id)).contains(d));
+    }
+  }
+
   InputStream resource(String name) {
     return getClass().getResourceAsStream("/catalog/solar-amulet/" + name);
   }
@@ -68,7 +128,8 @@ class SpecialModifierCatalogTest {
             "poe2db-amulets-base-2026-09-29-a4f439852790",
             "poe2db-amulets-base-2026-09-29-a4f439852790+perfect-infinite-2026-10-02-18dd1e515063",
             "solar-special-1a52789b16483bb0d55aa5cbff59dc9ca4c582dea80ac8749251494c6020327c",
-            "solar-special-ffd4f62c2195319ab608a1f6a97352d0bf57189adc5612d6e80465fea792f922");
+            "solar-special-ffd4f62c2195319ab608a1f6a97352d0bf57189adc5612d6e80465fea792f922",
+            "solar-special-d04104e874a97324adf4da5f3ec733fb5ba13a7624f0679d7abce3facde84875");
     assertThat(catalog.metadata().snapshotId())
         .startsWith("solar-special-")
         .hasSizeLessThanOrEqualTo(120);

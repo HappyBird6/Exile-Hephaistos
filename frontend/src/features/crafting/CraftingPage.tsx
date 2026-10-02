@@ -976,6 +976,15 @@ export function CraftingPage() {
                     quality is not supported yet.
                   </p>
                 )}
+                {(selected?.id === 'Essence_of_the_Abyss' ||
+                  concrete?.explicits.some((m) =>
+                    m.modifierId.endsWith(':essence-abyssal-mark'),
+                  )) && (
+                  <p className="workbench-feedback">
+                    Mark modifier supported. Desecration and revealing its
+                    result are not supported yet.
+                  </p>
+                )}
                 {!canCraft && (
                   <p>
                     Pasted items are display-only until catalog mapping is
