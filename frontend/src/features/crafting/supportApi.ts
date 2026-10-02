@@ -13,6 +13,7 @@ export interface SupportGoal {
 export interface SupportFamily {
   id: string
   affix: 'PREFIX' | 'SUFFIX'
+  effectExamples: string[]
   tiers: {
     tier: number
     requiredItemLevel: number
@@ -205,6 +206,11 @@ export async function loadSupportFamilies(
       (f) =>
         typeof f.id === 'string' &&
         ['PREFIX', 'SUFFIX'].includes(f.affix) &&
+        Array.isArray(f.effectExamples) &&
+        f.effectExamples.length > 0 &&
+        f.effectExamples.every(
+          (example) => typeof example === 'string' && example.length > 0,
+        ) &&
         Array.isArray(f.tiers) &&
         f.tiers.length &&
         f.tiers.every(

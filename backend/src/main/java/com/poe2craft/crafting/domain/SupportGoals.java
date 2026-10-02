@@ -19,7 +19,8 @@ public final class SupportGoals {
     for (var ds : families.values()) {
       if (ds.stream().anyMatch(d -> d.affixType() != ds.getFirst().affixType()))
         throw new IllegalArgumentException("Cross-affix family projection needs verification");
-      ds.sort(Comparator.comparingInt(ModifierDefinition::tier));
+      ds.sort(
+          Comparator.comparingInt(ModifierDefinition::tier).thenComparing(ModifierDefinition::id));
       for (int i = 1; i < ds.size(); i++)
         if (ds.get(i - 1).requiredItemLevel() < ds.get(i).requiredItemLevel())
           throw new IllegalArgumentException("Catalog tier ranking needs verification");
@@ -29,13 +30,20 @@ public final class SupportGoals {
   public List<Family> families() {
     return families.entrySet().stream()
         .map(
-            e ->
-                new Family(
-                    e.getKey(),
-                    e.getValue().getFirst().affixType(),
-                    e.getValue().stream()
-                        .map(d -> new Tier(d.tier(), d.requiredItemLevel(), d.text(), d.id()))
-                        .toList()))
+            e -> {
+              var examples = new LinkedHashMap<List<String>, String>();
+              for (var d : e.getValue())
+                examples.putIfAbsent(
+                    d.stats().stream().map(ModifierDefinition.StatRange::id).sorted().toList(),
+                    d.text());
+              return new Family(
+                  e.getKey(),
+                  e.getValue().getFirst().affixType(),
+                  e.getValue().stream()
+                      .map(d -> new Tier(d.tier(), d.requiredItemLevel(), d.text(), d.id()))
+                      .toList(),
+                  List.copyOf(examples.values()));
+            })
         .toList();
   }
 
@@ -156,7 +164,11 @@ public final class SupportGoals {
 
   public record Goal(List<Condition> required, List<Condition> candidates, int candidateCount) {}
 
-  public record Family(String id, ModifierDefinition.AffixType affix, List<Tier> tiers) {}
+  public record Family(
+      String id,
+      ModifierDefinition.AffixType affix,
+      List<Tier> tiers,
+      List<String> effectExamples) {}
 
   public record Tier(int tier, int requiredItemLevel, String exampleText, String modifierId) {}
 

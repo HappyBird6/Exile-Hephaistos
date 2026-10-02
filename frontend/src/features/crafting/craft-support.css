@@ -45,6 +45,16 @@
 .support-route {
   margin-top: 24px;
 }
+.support-calculation-details {
+  margin-top: 20px;
+}
+.support-calculation-details summary {
+  cursor: pointer;
+  min-height: 44px;
+  box-sizing: border-box;
+  padding: 10px 0;
+  color: #e7ca71;
+}
 .support-route li {
   padding-bottom: 16px;
 }

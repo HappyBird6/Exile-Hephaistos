@@ -16,11 +16,17 @@ v1의 두 uniform ledger 항목을 그대로 사용한다. 추가 속성 선택�
 
 출처: [Currency](https://poe2db.tw/us/Currency), [Omen](https://poe2db.tw/us/Omen), [최소 modifier level](https://poe2db.tw/us/Minimum_Modifier_Level), [그룹 정의 JS](https://cdn.poe2db.tw/js/ModsView.f39fca410dd746d3.js), [GGG 0.3.0](https://www.pathofexile.com/forum/view-thread/3826682). GGG 문서는 웹 도구로 확인했으나 직접 다운로드는 403이어서 hash가 없다. 과거 삭제된 항목의 재도입과 현재 획득 가능성은 주장하지 않는다.
 
-## Support 구현 준비
+## Support 현재 구현과 이전 검증 기록
+
+2026-10-02 현재 독립 Support UI와 실제 추천 API가 구현되어 있다. 서버 Solar base, catalog 검증 텍스트, 수동 modifier tier로 시작 상태를 입력하고 필수 family AND 후보 중 N개·최소 tier 목표를 설정한다. 정상 추가 12종의 고정 순서별 first-hit 질량을 합산하며 성공 상태는 즉시 흡수한다. 목표 독립 pool은 PostgreSQL과 bounded memory cache에서 재사용한다. 실제 backend 프로세스 재시작 뒤 다른 목표로 PostgreSQL hit 3개·memory hit 0개·새 계산 0개를 확인하고 확률 일치도 검증했다. 자세한 현재 동작은 [Support 계산·저장](support-transition-design.md), 검증과 안전중단은 날짜별 STOP_CHECKPOINT를 따른다.
+
+`IncreaseSocketedGemLevel`의 Melee/Projectile/Minion/Spell은 같은 family의 대안이다. UI는 고유 tier만 선택하게 하고 어느 효과든 포함한다는 의미와 출처 예시를 표시한다. 특정 스킬 효과 필터는 미지원이다. 실제 modifier 입력의 각 대안은 보존한다.
+
+아래 준비 단계 검사 수는 이전 단계 기록이며 현재 검사 수를 뜻하지 않는다.
 
 검증 체크포인트: Docker Java 21에서 단위/API/아키텍처 93개와 통합 5개가 실패·skip 없이 통과했다. format check, jOOQ 생성, bootJar도 통과했다. Docker Node 24에서 프런트엔드 66개 테스트, lint, typecheck, format check와 production build를 통과했다. 실제 별도 QA 스택(18080/18081)과 Chrome에서 화면 검사 20개, API 불변식 5개, 런타임 오류 0개를 확인했다. 390px 화면의 Omen 목록은 활성 개수가 보이는 펼침 영역으로 수정하고 재검증했다. 브라우저 검사는 공개 fixture 텍스트만 사용하며 원본 프로젝트의 서비스·데이터를 사용하지 않았다.
 
-정상 유한 추가 경로는 Transmutation, Augmentation, Regal, Exalted와 각각 Greater/Perfect: 총 12 액션이다. `AdditionRules`로 Workbench와 슬롯·rarity·family·최소 레벨·weight 후보 규칙을 공유하고 `AdditionTransitions`에서 전부 열거하는 정확 분포를 구현했다. 기존 Explorer 화면은 일반 4종 추가를 사용하며 Support UI는 아직 후속 단계다. 일반 Exalted의 Sinistral/Dextral 단독 Omen 전이도 검증했으며 상위와의 조합은 제외한다. [전이 검증·정량 상태 수·저장 설계](support-transition-design.md)를 참고한다.
+정상 유한 추가 경로는 Transmutation, Augmentation, Regal, Exalted와 각각 Greater/Perfect: 총 12 액션이다. `AdditionRules`로 Workbench와 슬롯·rarity·family·최소 레벨·weight 후보 규칙을 공유하고 `AdditionTransitions`에서 전부 열거하는 정확 분포를 구현했다. 기존 Explorer 화면은 일반 4종 추가를 사용하며 Support는 12종을 계산 대상으로 사용한다. 일반 Exalted의 Sinistral/Dextral 단독 Omen 전이도 검증했으며 상위와의 조합은 제외한다. [전이 검증·정량 상태 수·저장 설계](support-transition-design.md)를 참고한다.
 
 Annulment와 세 Chaos는 복구 분류다. 제거·대체와 해당 Annulment/Erasure/Whittling Omen은 새 검증 상태로 점프하며 정상 추가 경로 성공 확률에 곱하지 않는다. Divine/Blessed는 수치 재굴림 분류로 최초 Support의 속성 ID 목표에서는 제외한다. Alchemy, Essence, 특수 규칙은 현재 계산 대상이 아니다.
 
@@ -54,6 +60,6 @@ Workbench는 현재 아이템에 일반 화폐 6종을 실제 적용하고 같�
 - 적용 불가·통신 오류·잘못된 응답이면 현재 아이템을 유지한다. 중복 클릭은 요청 중 차단하고, 베이스 교체나 페이지 이탈 시 요청을 취소하여 늦은 응답을 폐기한다.
 - 수량·가격·비용·재료 inventory는 아직 모델링하지 않는다. 제작 이벤트와 아이템 변화만 시뮬레이션한다. 랜덤 seed는 공개 API 입력으로 받지 않는다.
 
-## 다음 단계
+## 현재 남은 단계
 
-Greater/Perfect 화폐와 Solar에서 적격한 징조·보조 수단은 registry 상태와 규칙을 확인하면서 확장한다. Support는 추천 화폐 순서에서 최초 목표 도달을 흡수 상태로 처리하여 모든 성공 결과를 합산한다. 복구 안내 전이는 원래 확률을 이어 곱하지 않으며 검증된 복구 상태를 새 시작점으로 사용한다. 목표 티어·수치 조건과 계산 한도는 별도 확정한다.
+현재 17종/8종과 정상 추가 12종 밖의 제작 수단은 registry 상태·효과·적격 후보·출처를 확인한 뒤 확장한다. Support의 Annulment/Chaos 실행·복구 분기 선택은 남아 있으며 정상 추가 경로 확률에 복구 확률을 합치지 않는다. 특정 스킬 효과 목표, 수치 하한 목표, 다른 장비 확장도 미지원이다. 큰 Normal-root 결과는 예산 내 partial일 수 있으며 현재 continuation token이나 별도 goal-result cache는 없다. 재료 가격·다른 가치 아이템 추천·가격 예측은 범위 밖이다.

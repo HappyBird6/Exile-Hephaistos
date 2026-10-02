@@ -28,6 +28,29 @@ class SupportGoalsTest {
   }
 
   @Test
+  void skillFamilyPublishesAllEffectAlternativesAndCountsAnyVariantOnce() {
+    var family =
+        goals.families().stream()
+            .filter(f -> f.id().equals("IncreaseSocketedGemLevel"))
+            .findFirst()
+            .orElseThrow();
+    assertThat(family.tiers()).hasSize(12);
+    assertThat(family.effectExamples()).hasSize(4);
+    assertThat(family.effectExamples()).anyMatch(s -> s.contains("Melee"));
+    assertThat(family.effectExamples()).anyMatch(s -> s.contains("Projectile"));
+    assertThat(family.effectExamples()).anyMatch(s -> s.contains("Minion"));
+    assertThat(family.effectExamples()).anyMatch(s -> s.contains("Spell"));
+    var goal = new SupportGoals.Goal(List.of(c(family.id(), 2)), List.of(), 0);
+    for (var d : catalog.modifiers().values()) {
+      if (!d.familyIds().contains(family.id())) continue;
+      var root = state(82, null, 0).with(ItemState.Rarity.RARE, List.of(d.id()));
+      var assessment = goals.assess(root, goal);
+      assertThat(assessment.achieved()).as(d.text()).isEqualTo(d.tier() <= 2);
+      assertThat(assessment.requiredMatched()).isEqualTo(d.tier() <= 2 ? 1 : 0);
+    }
+  }
+
+  @Test
   void tierTwoOrBetterMeansTierOneAndTwoButNotThree() {
     var goal = new SupportGoals.Goal(List.of(c("IncreasedLife", 2)), List.of(), 0);
     assertThat(goals.assess(state(82, "IncreasedLife", 1), goal).achieved()).isTrue();

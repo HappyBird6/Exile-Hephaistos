@@ -106,13 +106,32 @@ export function CraftSupport({ active }: { active: boolean }) {
                     }))
                   }
                 >
-                  {family?.tiers.map((t) => (
-                    <option value={t.tier} key={t.tier}>
-                      T{t.tier} or better (T1{t.tier > 1 ? `–T${t.tier}` : ''})
-                    </option>
-                  ))}
+                  {[...new Set(family?.tiers.map((t) => t.tier))]
+                    .sort((a, b) => a - b)
+                    .map((tier) => (
+                      <option value={tier} key={tier}>
+                        T{tier} or better (T1{tier > 1 ? `–T${tier}` : ''})
+                      </option>
+                    ))}
                 </select>
-                <small>{family?.affix.toLowerCase()} family · Source example: {family?.tiers[0]?.exampleText}</small>
+                <small>
+                  {family?.affix.toLowerCase()} family · Source example:{' '}
+                  {family?.effectExamples[0]}
+                </small>
+                {family && family.effectExamples.length > 1 && (
+                  <div className="support-family-variants">
+                    <strong>Any effect in this family counts.</strong>
+                    <p>
+                      This goal does not select a specific gem or skill type.
+                      Source examples:
+                    </p>
+                    <ul>
+                      {family.effectExamples.map((example) => (
+                        <li key={example}>{example}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </label>
               <button
                 type="button"
@@ -579,22 +598,12 @@ export function CraftSupport({ active }: { active: boolean }) {
           </h2>
           <p>
             Compared {report.comparedSequences}/{report.totalSequences} eligible
-            currency-grade sequences. Expanded{' '}
-            {report.expandedStates.toLocaleString('en-US')} states and{' '}
-            {report.expandedEdges.toLocaleString('en-US')} edges in{' '}
-            {report.elapsedMillis.toFixed(1)} ms.
+            currency-grade sequences.
           </p>
           <p>
             {report.complete
               ? 'All listed sequences were fully calculated.'
               : `The calculation budget stopped before all work was complete. ${report.totalSequences - report.comparedSequences} unexamined sequences may have success probability anywhere from 0% to 100%. Unresolved mass is not failure.`}
-          </p>
-          <p>
-            Published Solar modifier weights; numeric rolls are marginalized.
-            Rule {report.ruleVersion}; ledger {report.ledgerVersion}. Computed
-            pools: {report.cache.computedPools}; reused from memory:{' '}
-            {report.cache.memoryHits}; reused from PostgreSQL:{' '}
-            {report.cache.persistedHits}.
           </p>
           {report.comparisons.length === 0 && (
             <p>
@@ -642,6 +651,21 @@ export function CraftSupport({ active }: { active: boolean }) {
               </article>
             ))}
           </div>
+          <details className="support-calculation-details">
+            <summary>Calculation details and sources</summary>
+            <p>
+              Published Solar modifier weights; numeric rolls are marginalized.
+              Rule {report.ruleVersion}; ledger {report.ledgerVersion}.
+            </p>
+            <p>
+              Expanded {report.expandedStates.toLocaleString('en-US')} states
+              and {report.expandedEdges.toLocaleString('en-US')} edges in{' '}
+              {report.elapsedMillis.toFixed(1)} ms. Computed pools:{' '}
+              {report.cache.computedPools}; reused from memory:{' '}
+              {report.cache.memoryHits}; reused from PostgreSQL:{' '}
+              {report.cache.persistedHits}.
+            </p>
+          </details>
           {chosen && (
             <section className="support-route">
               <h3>Chosen sequence — stop as soon as the goal is met</h3>

@@ -1,5 +1,11 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { fireEvent, render, screen, waitFor } from '@testing-library/react'
+import {
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  within,
+} from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { CraftingPage } from './CraftingPage'
 import { useItemDraft } from './draft'
@@ -12,6 +18,7 @@ const families = [
   {
     id: 'Life',
     affix: 'PREFIX',
+    effectExamples: ['+Life'],
     tiers: [
       { tier: 1, requiredItemLevel: 1, exampleText: '+Life', modifierId: 'p' },
     ],
@@ -19,12 +26,41 @@ const families = [
   {
     id: 'Strength',
     affix: 'SUFFIX',
+    effectExamples: ['+Strength'],
     tiers: [
       {
         tier: 1,
         requiredItemLevel: 1,
         exampleText: '+Strength',
         modifierId: 's',
+      },
+    ],
+  },
+  {
+    id: 'IncreaseSocketedGemLevel',
+    affix: 'SUFFIX',
+    effectExamples: [
+      '+2 to Level of all Melee Skills',
+      '+2 to Level of all Spell Skills',
+    ],
+    tiers: [
+      {
+        tier: 1,
+        requiredItemLevel: 1,
+        exampleText: '+2 to Level of all Melee Skills',
+        modifierId: 'melee',
+      },
+      {
+        tier: 1,
+        requiredItemLevel: 1,
+        exampleText: '+2 to Level of all Spell Skills',
+        modifierId: 'spell',
+      },
+      {
+        tier: 2,
+        requiredItemLevel: 1,
+        exampleText: '+1 to Level of all Melee Skills',
+        modifierId: 'melee-low',
       },
     ],
   },
@@ -118,6 +154,35 @@ function show() {
   )
 }
 describe('Independent Craft Support goal input', () => {
+  it('deduplicates goal tiers while naming every effect variant and retaining manual alternatives', async () => {
+    show()
+    fireEvent.click(screen.getByRole('tab', { name: 'Craft Support' }))
+    await screen.findAllByRole('option', {
+      name: 'IncreaseSocketedGemLevel · suffix',
+    })
+    fireEvent.change(screen.getByLabelText('Add required family'), {
+      target: { value: 'IncreaseSocketedGemLevel' },
+    })
+    const tiers = screen.getByLabelText(
+      'required IncreaseSocketedGemLevel minimum tier',
+    )
+    expect(within(tiers).getAllByRole('option')).toHaveLength(2)
+    expect(
+      within(tiers).getAllByRole('option', { name: 'T1 or better (T1)' }),
+    ).toHaveLength(1)
+    expect(screen.getByText('Any effect in this family counts.')).toBeVisible()
+    expect(screen.getByText('+2 to Level of all Spell Skills')).toBeVisible()
+    fireEvent.change(screen.getByLabelText('Support input source'), {
+      target: { value: 'manual' },
+    })
+    const manual = screen.getByLabelText('Add manual modifier')
+    expect(
+      within(manual).getAllByRole('option', { name: /Melee Skills/ }),
+    ).toHaveLength(2)
+    expect(
+      within(manual).getByRole('option', { name: /Spell Skills/ }),
+    ).toBeInTheDocument()
+  })
   it('shows actual-service comparison fields and chosen guide, then clears the old route for recovery input', async () => {
     show()
     fireEvent.click(screen.getByRole('tab', { name: 'Craft Support' }))
@@ -138,6 +203,9 @@ describe('Independent Craft Support goal input', () => {
     await screen.findByRole('heading', {
       name: 'Calculated sequence comparison',
     })
+    expect(
+      screen.getByText('Calculation details and sources').closest('details'),
+    ).not.toHaveAttribute('open')
     fireEvent.click(screen.getByRole('button', { name: 'Choose sequence 1' }))
     expect(
       screen.getByRole('heading', {
