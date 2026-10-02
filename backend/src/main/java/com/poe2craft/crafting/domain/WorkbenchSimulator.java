@@ -6,7 +6,7 @@ import java.util.random.RandomGenerator;
 
 /** Samples concrete elementary events; unchanged instances retain their actual values. */
 public final class WorkbenchSimulator {
-  public static final String RULE_VERSION = "solar-workbench-fracture-v3";
+  public static final String RULE_VERSION = "solar-workbench-double-exalt-v4";
   public static final String LEDGER_VERSION = "solar-uniform-assumptions-v2";
   private final ItemCatalog catalog;
   private final AdditionRules additionRules;
@@ -54,6 +54,28 @@ public final class WorkbenchSimulator {
 
   private Availability availability(
       ItemState state, WorkbenchCurrency action, List<WorkbenchOmen> omens) {
+    var matches = matching(action, omens);
+    if (matches.size() == 1 && matches.getFirst() == WorkbenchOmen.GREATER_EXALTATION) {
+      if (action != WorkbenchCurrency.EXALTED)
+        return blocked(action, "Greater Exaltation with Greater/Perfect currency is not verified.");
+      if (state.rarity() != ItemState.Rarity.RARE)
+        return blocked(action, "Exalted Orb requires a Rare item.");
+      if (state.explicits().size() > 4)
+        return blocked(
+            action,
+            "Greater Exaltation is supported only with at least two free explicit slots; the one-slot interaction needs verification.");
+      var first = pool(state, action, null);
+      if (first.isEmpty()) return blocked(action, "No verified first addition pool.");
+      for (var candidate : first) {
+        var next = new ArrayList<>(state.explicits());
+        var values = new HashMap<String, Long>();
+        for (var stat : candidate.stats()) values.put(stat.id(), stat.min());
+        next.add(new ModifierInstance(candidate.id(), values));
+        if (pool(copy(state, state.rarity(), state.implicits(), next), action, null).isEmpty())
+          return blocked(action, "A first addition branch has no verified second addition pool.");
+      }
+      return new Availability(action, true, "");
+    }
     if (AdditionRules.isAddition(action)) {
       var plan =
           additionRules.plan(
@@ -62,7 +84,6 @@ public final class WorkbenchSimulator {
               omens.stream().map(WorkbenchOmen::id).collect(java.util.stream.Collectors.toSet()));
       return new Availability(action, plan.available(), plan.reason());
     }
-    var matches = matching(action, omens);
     if (matches.size() > 1)
       return blocked(
           action,
@@ -281,23 +302,26 @@ public final class WorkbenchSimulator {
                 "Uniform among eligible removal instances, after affix or lowest modifier-level restriction; no published removal weights."));
       }
       if (action.baseAction() != CraftingAction.ANNULMENT) {
-        var intermediate = copy(state, rarity, implicits, explicits);
-        var candidates =
-            pool(intermediate, action, action.baseAction() == CraftingAction.CHAOS ? null : omen);
-        long total = candidates.stream().mapToLong(ModifierDefinition::weight).sum();
-        long draw = random.nextLong(total);
-        var chosen = candidates.getLast();
-        for (var candidate : candidates) {
-          draw -= candidate.weight();
-          if (draw < 0) {
-            chosen = candidate;
-            break;
+        int additions = omen == WorkbenchOmen.GREATER_EXALTATION ? 2 : 1;
+        for (int i = 0; i < additions; i++) {
+          var intermediate = copy(state, rarity, implicits, explicits);
+          var candidates =
+              pool(intermediate, action, action.baseAction() == CraftingAction.CHAOS ? null : omen);
+          long total = candidates.stream().mapToLong(ModifierDefinition::weight).sum();
+          long draw = random.nextLong(total);
+          var chosen = candidates.getLast();
+          for (var candidate : candidates) {
+            draw -= candidate.weight();
+            if (draw < 0) {
+              chosen = candidate;
+              break;
+            }
           }
+          var rolled = roll(chosen, random, assumptions);
+          explicits.add(rolled);
+          events.add(
+              new Event("ADD", chosen.id(), rolled.values(), (double) chosen.weight() / total));
         }
-        var rolled = roll(chosen, random, assumptions);
-        explicits.add(rolled);
-        events.add(
-            new Event("ADD", chosen.id(), rolled.values(), (double) chosen.weight() / total));
       }
     }
     var result = copy(state, rarity, implicits, explicits);

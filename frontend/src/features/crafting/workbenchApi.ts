@@ -30,6 +30,11 @@ for (const [id, base] of Object.entries(currencyActions)) {
 }
 export const workbenchOmens = [
   {
+    id: 'Omen_of_Greater_Exaltation',
+    trigger: 'EXALTED',
+    effect: 'Add two modifiers; requires two free slots in Workbench',
+  },
+  {
     id: 'Omen_of_Sinistral_Exaltation',
     trigger: 'EXALTED',
     effect: 'Add only prefixes',
@@ -340,7 +345,10 @@ export async function applyCurrency(
               action === 'DIVINE' ||
               action === 'FRACTURING'
             ? 0
-            : 1)
+            : action === 'EXALTED' &&
+                activeOmens.includes('Omen_of_Greater_Exaltation')
+              ? 2
+              : 1)
   if (
     prefixes > capacity ||
     suffixes > capacity ||
@@ -368,6 +376,37 @@ export async function applyCurrency(
       'Could not verify the applied item. Your item is unchanged. Please retry.',
     )
   const locks = next.explicits.filter((m) => m.fractured)
+  if (
+    v.applied &&
+    action === 'EXALTED' &&
+    activeOmens.includes('Omen_of_Greater_Exaltation') &&
+    (state.rarity !== 'RARE' ||
+      state.explicits.length > 4 ||
+      !sameModifiers(
+        state.explicits
+          .map((old) =>
+            next.explicits.find((m) => m.modifierId === old.modifierId)!,
+          )
+          .filter(Boolean),
+        state.explicits,
+      ) ||
+      v.events.length !== 2 ||
+      new Set(v.events.map((event) => event.modifierId)).size !== 2 ||
+      v.events.some(
+        (event) =>
+          event.kind !== 'ADD' ||
+          state.explicits.some((old) => old.modifierId === event.modifierId) ||
+          JSON.stringify(event.values) !==
+            JSON.stringify(
+              next.explicits.find((m) => m.modifierId === event.modifierId)
+                ?.values,
+            ),
+      ) ||
+      !v.consumedOmens.includes('Omen_of_Greater_Exaltation'))
+  )
+    throw new Error(
+      'Could not verify both added modifiers. Your item is unchanged. Please retry.',
+    )
   const previousLocks = state.explicits.filter((m) => m.fractured)
   if (
     locks.length > 1 ||

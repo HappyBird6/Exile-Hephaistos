@@ -494,7 +494,11 @@ export function CraftSupport({ active }: { active: boolean }) {
               unverified and blocked.
             </p>
             {workbenchOmens
-              .filter((o) => o.trigger === 'EXALTED')
+              .filter(
+                (o) =>
+                  o.trigger === 'EXALTED' &&
+                  o.id !== 'Omen_of_Greater_Exaltation',
+              )
               .map((o) => (
                 <label key={o.id}>
                   <input

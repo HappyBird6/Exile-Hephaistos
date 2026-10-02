@@ -103,7 +103,7 @@ class WorkbenchControllerTest {
         .andExpect(jsonPath("$.state.rarity").value("MAGIC"))
         .andExpect(jsonPath("$.state.explicits.length()").value(1))
         .andExpect(jsonPath("$.events[0].kind").value("ADD"))
-        .andExpect(jsonPath("$.ruleVersion").value("solar-workbench-fracture-v3"));
+        .andExpect(jsonPath("$.ruleVersion").value("solar-workbench-double-exalt-v4"));
     mvc.perform(
             post("/api/v1/crafting/workbench/apply")
                 .contentType(MediaType.APPLICATION_JSON)

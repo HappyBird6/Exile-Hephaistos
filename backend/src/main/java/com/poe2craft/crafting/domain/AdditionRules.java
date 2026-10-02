@@ -36,6 +36,8 @@ public final class AdditionRules {
           state,
           ids,
           "Multiple omens for the same operation need combination verification. Deactivate all but one.");
+    if (matching.contains(WorkbenchOmen.GREATER_EXALTATION))
+      return blocked(state, ids, "Two-modifier additions are outside the finite addition model.");
     if (!matching.isEmpty() && action.minimumModifierLevel() > 0)
       return blocked(
           state,
