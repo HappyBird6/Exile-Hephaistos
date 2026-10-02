@@ -64,9 +64,7 @@ describe('Workbench extensions', () => {
     fireEvent.contextMenu(dextral)
     expect(dextral).toHaveClass('is-active-omen')
     fireEvent.click(screen.getByRole('tab', { name: 'Omen' }))
-    fireEvent.click(
-      screen.getByRole('button', { name: 'Omen of the Blessed' }),
-    )
+    fireEvent.click(screen.getByRole('button', { name: 'Omen of the Blessed' }))
     fireEvent.click(dextral)
     expect(useItemDraft.getState().activeOmens).toEqual([])
     expect(

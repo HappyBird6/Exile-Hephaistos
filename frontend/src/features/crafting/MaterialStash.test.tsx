@@ -357,6 +357,7 @@ describe('Material stash and shared favorites', () => {
     )
     fireEvent.click(favorite(2))
     expect(favorite(2)).toHaveAccessibleName('Favorite slot 2: empty')
+    expect(favorite(1)).toHaveAttribute('aria-pressed', 'false')
     fireEvent.click(tab('Essence'))
     expect(
       screen.getByRole('button', { name: 'Lesser Essence of the Body' }),
@@ -393,7 +394,7 @@ describe('Material stash and shared favorites', () => {
     )
     expect(screen.getByRole('article').textContent).toBe(original)
     expect(screen.getByRole('status')).toHaveTextContent(
-      'The item has not changed',
+      'Select a currency from the stash first.',
     )
   })
 

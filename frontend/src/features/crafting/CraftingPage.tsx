@@ -29,6 +29,17 @@ import {
 } from './workbenchApi'
 import type { AppliedItem, MappingResult } from './workbenchApi'
 import type { Action } from './craftingApi'
+import {
+  LocalFilmRepository,
+  emptyFilms,
+  currentFilm,
+  currentFrame,
+  startFilm,
+  recordCraft,
+  viewFrame,
+  verifiedHistoryState,
+} from './workbenchHistory'
+import type { Films } from './workbenchHistory'
 import './crafting.css'
 
 function tooltipEvents(id: string) {
@@ -47,6 +58,47 @@ type Selection = { id: string; name: string; image: string }
 export function CraftingPage() {
   const client = useQueryClient()
   const draft = useItemDraft()
+  const [filmState, setFilmState] = useState(() => {
+    try {
+      return {
+        history: new LocalFilmRepository(window.localStorage).load(),
+        revision: draft.baseRevision,
+        error: '',
+        blockedSaving: false,
+      }
+    } catch {
+      return {
+        history: emptyFilms(),
+        revision: draft.baseRevision,
+        error:
+          'Saved history could not be loaded. Existing storage is preserved; new crafts remain available in this page only.',
+        blockedSaving: true,
+      }
+    }
+  })
+  const storedFrame =
+    filmState.revision === draft.baseRevision
+      ? currentFrame(filmState.history)
+      : undefined
+  const storedLevel = storedFrame?.state?.itemLevel
+  const catalogLevel =
+    Number.isInteger(storedLevel) && storedLevel! >= 1 && storedLevel! <= 100
+      ? storedLevel!
+      : draft.baseItemLevel
+  function saveFilms(history: Films, revision = draft.baseRevision) {
+    let error = filmState.error
+    if (!filmState.blockedSaving) {
+      try {
+        new LocalFilmRepository(window.localStorage).save(history)
+        error = ''
+      } catch {
+        error =
+          'History could not be saved. Current films remain available until this page closes.'
+      }
+    }
+    setFilmState({ ...filmState, history, revision, error })
+  }
+  const filmId = () => `${Date.now()}-${Math.random().toString(36).slice(2)}`
   const [view, setView] = useState<(typeof workspaceTabs)[number]>('workbench')
   const imported = useItemTextImport()
   const dialog = useRef<HTMLDialogElement>(null)
@@ -68,8 +120,8 @@ export function CraftingPage() {
   const [applying, setApplying] = useState<AbortController | null>(null)
   const applyingRequest = useRef<AbortController | null>(null)
   const initial = useQuery({
-    queryKey: ['crafting', 'initial', draft.baseItemLevel],
-    queryFn: ({ signal }) => loadInitial(draft.baseItemLevel, signal),
+    queryKey: ['crafting', 'initial', catalogLevel],
+    queryFn: ({ signal }) => loadInitial(catalogLevel, signal),
     staleTime: 60_000,
     retry: false,
   })
@@ -83,7 +135,38 @@ export function CraftingPage() {
     queryKey: mappingKey,
     queryFn: skipToken,
   })
-  const canCraft = draft.source === 'base' || mapping.data?.mapped === true
+  const restoredValid =
+    storedFrame && initial.data
+      ? verifiedHistoryState(storedFrame.state, initial.data)
+      : false
+  const canCraft =
+    (draft.source === 'base' || mapping.data?.mapped === true) &&
+    (!storedFrame || restoredValid)
+  const film =
+    filmState.revision === draft.baseRevision
+      ? currentFilm(filmState.history)
+      : undefined
+  function startBase(level: number) {
+    draft.setBase(level)
+    if (initial.data) {
+      const root = { ...concreteInitial(initial.data), itemLevel: level }
+      saveFilms(
+        startFilm(filmState.history, root, filmId()),
+        useItemDraft.getState().baseRevision,
+      )
+    } else
+      saveFilms(
+        { ...filmState.history, active: null, cursor: 0 },
+        useItemDraft.getState().baseRevision,
+      )
+  }
+  function browse(cursor: number) {
+    if (applyingRequest.current) return
+    saveFilms(viewFrame(filmState.history, cursor))
+    setSelected(null)
+    setHeld(null)
+    setPointer(null)
+  }
   useEffect(
     () => () => {
       applyingRequest.current?.abort()
@@ -210,6 +293,7 @@ export function CraftingPage() {
     setApplying(controller)
     const revision = draft.baseRevision
     const state =
+      (restoredValid ? storedFrame?.state : undefined) ??
       workbench.data?.state ??
       mapping.data?.state ??
       concreteInitial(initial.data)
@@ -229,6 +313,11 @@ export function CraftingPage() {
         return
       if (result.applied) {
         client.setQueryData(workbenchKey, result)
+        const history =
+          filmState.revision === revision
+            ? filmState.history
+            : { ...filmState.history, active: null, cursor: 0 }
+        saveFilms(recordCraft(history, state, result, filmId()), revision)
         draft.setActiveOmens(result.remainingOmens)
         setAnnouncement(
           `${workbenchActionNames[action]} applied. Current item updated.${result.consumedOmens.length ? ` Consumed: ${result.consumedOmens.map((id) => id.replaceAll('_', ' ')).join(', ')}.` : ''}${result.assumptions.length ? ' Uniform probability assumptions were used; see the roll assumptions.' : ''}`,
@@ -257,7 +346,13 @@ export function CraftingPage() {
     }
   }
   async function importText() {
-    if (await imported.submit(draft.text)) closeInput()
+    if (await imported.submit(draft.text)) {
+      saveFilms(
+        { ...filmState.history, active: null, cursor: 0 },
+        useItemDraft.getState().baseRevision,
+      )
+      closeInput()
+    }
     setSelected(null)
     setHeld(null)
   }
@@ -287,6 +382,11 @@ export function CraftingPage() {
           'The item uses another catalog snapshot or base. Please reload the catalog.',
         )
       client.setQueryData(mappingKey, result)
+      if (result.mapped && result.state)
+        saveFilms(
+          startFilm(filmState.history, result.state, filmId()),
+          revision,
+        )
       setAnnouncement(
         result.mapped
           ? 'Solar Amulet catalog mapping verified. Crafting is enabled; original text remains in Edit item.'
@@ -379,7 +479,10 @@ export function CraftingPage() {
   }
   const matchingEssenceRows = essenceRows(search)
   const cursor = held ?? selected
-  const concrete = workbench.data?.state ?? mapping.data?.state
+  const concrete =
+    (restoredValid ? storedFrame?.state : undefined) ??
+    workbench.data?.state ??
+    mapping.data?.state
   const card =
     item && !concrete
       ? toItemCard(item)
@@ -499,10 +602,6 @@ export function CraftingPage() {
           <h1>
             {view === 'workbench' ? 'Crafting workbench' : workspaceNames[view]}
           </h1>
-          <p>
-            Apply currency in the Workbench or inspect possibilities in State
-            explorer.
-          </p>
         </div>
         <span className="preview-badge">
           <i />
@@ -567,185 +666,271 @@ export function CraftingPage() {
             </label>
           </div>
           <div className="stash-board">
-            <div className="stash-canvas" aria-label="Currency stash">
-              <div
-                id="material-list"
-                role="tabpanel"
-                aria-labelledby={`tab-${activeTab}`}
-                className={
-                  activeTab === 'Currency'
-                    ? 'currency-catalog'
-                    : 'material-panel'
-                }
-              >
-                {activeTab === 'Currency' ? (
-                  currencies.map((currency) => {
-                    const name = currencyNames[currency.id]
-                    return (
-                      <button
-                        key={currency.id}
-                        type="button"
-                        className={`currency-slot ${selected?.id === currency.id ? 'is-selected' : ''}`}
-                        style={{
-                          left: `${currency.x / 9.35}%`,
-                          top: `${currency.y / 5.5}%`,
-                        }}
-                        aria-label={name}
-                        aria-pressed={selected?.id === currency.id}
-                        {...tooltipEvents(currency.id)}
-                        onContextMenu={(event) => {
-                          event.preventDefault()
-                          setPointer({ x: event.clientX, y: event.clientY })
-                          choose({ ...currency, name })
-                        }}
-                        onClick={(event) => {
-                          if (event.detail === 0) setPointer(null)
-                          choose({ ...currency, name })
-                        }}
-                      >
-                        <CurrencyImage {...currency} name={name} />
-                        {currency.id.startsWith('Greater') && (
-                          <span className="currency-tier" aria-hidden="true">
-                            II
-                          </span>
-                        )}
-                        {currency.id.startsWith('Perfect') && (
-                          <span className="currency-tier" aria-hidden="true">
-                            III
-                          </span>
-                        )}
-                      </button>
-                    )
-                  })
-                ) : (
-                  <>
-                    <input
-                      type="search"
-                      className="material-search"
-                      aria-label={`Search ${activeTab.replaceAll('_', ' ')}`}
-                      placeholder="Search…"
-                      value={search}
-                      onChange={(event) =>
-                        setSearches((old) => ({
-                          ...old,
-                          [activeTab]: event.target.value,
-                        }))
-                      }
-                    />
-                    <div
-                      className={`material-catalog ${activeTab === 'Essence' ? 'essence-catalog' : ''}`}
-                    >
-                      {activeTab === 'Essence'
-                        ? matchingEssenceRows.map((row, i) => (
-                            <div className="essence-row" key={i}>
-                              {row.map((m, j) =>
-                                m ? materialButton(m) : <span key={j} />,
-                              )}
-                            </div>
-                          ))
-                        : currentMaterials.map(materialButton)}
-                      {(activeTab === 'Essence'
-                        ? matchingEssenceRows.length === 0
-                        : currentMaterials.length === 0) && (
-                        <p className="material-no-results">
-                          No materials found
-                        </p>
-                      )}
-                    </div>
-                  </>
-                )}
-              </div>
-              {activeTab === 'Essence' && (
+            <div className="stash-viewport">
+              <div className="stash-canvas" aria-label="Currency stash">
                 <div
-                  className="special-essences"
-                  role="group"
-                  aria-label="Special essences"
-                >
-                  {specialEssences.map(materialButton)}
-                </div>
-              )}
-              <div className="item-placement">
-                <span className="placement-label">Current item</span>
-                <button
-                  className={`item-slot ${selected ? 'is-ready' : ''}`}
-                  type="button"
-                  aria-label="Use selected currency on the central item"
-                  disabled={
-                    applying !== null && applyingRequest.current !== null
+                  id="material-list"
+                  role="tabpanel"
+                  aria-labelledby={`tab-${activeTab}`}
+                  className={
+                    activeTab === 'Currency'
+                      ? 'currency-catalog'
+                      : 'material-panel'
                   }
-                  onClick={(event) => void apply(event.shiftKey)}
                 >
-                  {draft.source === 'base' ? (
-                    <img
-                      src="/assets/currency/solar-amulet.webp"
-                      alt="Solar Amulet"
-                      draggable="false"
-                    />
+                  {activeTab === 'Currency' ? (
+                    currencies.map((currency) => {
+                      const name = currencyNames[currency.id]
+                      return (
+                        <button
+                          key={currency.id}
+                          type="button"
+                          className={`currency-slot ${selected?.id === currency.id ? 'is-selected' : ''}`}
+                          style={{
+                            left: `${currency.x / 9.35}%`,
+                            top: `${currency.y / 5.5}%`,
+                          }}
+                          aria-label={name}
+                          aria-pressed={selected?.id === currency.id}
+                          {...tooltipEvents(currency.id)}
+                          onContextMenu={(event) => {
+                            event.preventDefault()
+                            setPointer({ x: event.clientX, y: event.clientY })
+                            choose({ ...currency, name })
+                          }}
+                          onClick={(event) => {
+                            if (event.detail === 0) setPointer(null)
+                            choose({ ...currency, name })
+                          }}
+                        >
+                          <CurrencyImage {...currency} name={name} />
+                          {currency.id.startsWith('Greater') && (
+                            <span className="currency-tier" aria-hidden="true">
+                              II
+                            </span>
+                          )}
+                          {currency.id.startsWith('Perfect') && (
+                            <span className="currency-tier" aria-hidden="true">
+                              III
+                            </span>
+                          )}
+                        </button>
+                      )
+                    })
                   ) : (
-                    <span className="text-item-symbol" aria-hidden="true">
-                      ≡
-                    </span>
-                  )}
-                  <span>{displayedName}</span>
-                </button>
-                <button
-                  type="button"
-                  ref={inputToggle}
-                  className="item-input-toggle"
-                  aria-expanded={inputOpen}
-                  aria-controls="item-input-panel"
-                  onClick={() => setInputOpen((open) => !open)}
-                >
-                  Edit item
-                </button>
-              </div>
-              <div
-                role="group"
-                aria-label="Shared material favorites"
-                className={`favorite-slots ${held ? 'is-placing' : ''}`}
-              >
-                {favorites.map((resource, index) => (
-                  <button
-                    type="button"
-                    key={index}
-                    className={`currency-slot favorite-slot ${resource && selected?.id === resource.id ? 'is-selected' : ''} ${resource && draft.activeOmens.includes(resource.id) ? 'is-active-omen' : ''}`}
-                    style={{
-                      left: `${(652 + (index % 3) * 90) / 9.35}%`,
-                      top: `${(40 + Math.floor(index / 3) * 100) / 5.5}%`,
-                    }}
-                    aria-label={`Favorite slot ${index + 1}: ${resource?.name ?? 'empty'}`}
-                    aria-pressed={Boolean(
-                      resource &&
-                      (selected?.id === resource.id ||
-                        draft.activeOmens.includes(resource.id)),
-                    )}
-                    {...(resource ? tooltipEvents(resource.id) : {})}
-                    onClick={() => placeFavorite(index)}
-                    onContextMenu={(event) => {
-                      event.preventDefault()
-                      if (resource) {
-                        if (resource.category === 'Omen') {
-                          toggleOmen(resource.id)
-                          return
+                    <>
+                      <input
+                        type="search"
+                        className="material-search"
+                        aria-label={`Search ${activeTab.replaceAll('_', ' ')}`}
+                        placeholder="Search…"
+                        value={search}
+                        onChange={(event) =>
+                          setSearches((old) => ({
+                            ...old,
+                            [activeTab]: event.target.value,
+                          }))
                         }
-                        setPointer({ x: event.clientX, y: event.clientY })
-                        choose(resource)
-                      }
-                    }}
+                      />
+                      <div
+                        className={`material-catalog ${activeTab === 'Essence' ? 'essence-catalog' : ''}`}
+                      >
+                        {activeTab === 'Essence'
+                          ? matchingEssenceRows.map((row, i) => (
+                              <div className="essence-row" key={i}>
+                                {row.map((m, j) =>
+                                  m ? materialButton(m) : <span key={j} />,
+                                )}
+                              </div>
+                            ))
+                          : currentMaterials.map(materialButton)}
+                        {(activeTab === 'Essence'
+                          ? matchingEssenceRows.length === 0
+                          : currentMaterials.length === 0) && (
+                          <p className="material-no-results">
+                            No materials found
+                          </p>
+                        )}
+                      </div>
+                    </>
+                  )}
+                </div>
+                {activeTab === 'Essence' && (
+                  <div
+                    className="special-essences"
+                    role="group"
+                    aria-label="Special essences"
                   >
-                    {resource ? (
-                      <CurrencyImage key={resource.id} {...resource} />
+                    {specialEssences.map(materialButton)}
+                  </div>
+                )}
+                <div className="item-placement">
+                  <span className="placement-label">Current item</span>
+                  <button
+                    className={`item-slot ${selected ? 'is-ready' : ''}`}
+                    type="button"
+                    aria-label="Use selected currency on the central item"
+                    disabled={
+                      applying !== null && applyingRequest.current !== null
+                    }
+                    onClick={(event) => void apply(event.shiftKey)}
+                  >
+                    {draft.source === 'base' ? (
+                      <img
+                        src="/assets/currency/solar-amulet.webp"
+                        alt="Solar Amulet"
+                        draggable="false"
+                      />
                     ) : (
-                      <span className="favorite-empty" aria-hidden="true">
-                        +
+                      <span className="text-item-symbol" aria-hidden="true">
+                        ≡
                       </span>
                     )}
+                    <span>{displayedName}</span>
                   </button>
-                ))}
+                  <button
+                    type="button"
+                    ref={inputToggle}
+                    className="item-input-toggle"
+                    aria-expanded={inputOpen}
+                    aria-controls="item-input-panel"
+                    onClick={() => setInputOpen((open) => !open)}
+                  >
+                    Edit item
+                  </button>
+                </div>
+                <div
+                  role="group"
+                  aria-label="Shared material favorites"
+                  className={`favorite-slots ${held ? 'is-placing' : ''}`}
+                >
+                  {favorites.map((resource, index) => (
+                    <button
+                      type="button"
+                      key={index}
+                      className={`currency-slot favorite-slot ${resource && selected?.id === resource.id ? 'is-selected' : ''} ${resource && draft.activeOmens.includes(resource.id) ? 'is-active-omen' : ''}`}
+                      style={{
+                        left: `${(652 + (index % 3) * 90) / 9.35}%`,
+                        top: `${(40 + Math.floor(index / 3) * 100) / 5.5}%`,
+                      }}
+                      aria-label={`Favorite slot ${index + 1}: ${resource?.name ?? 'empty'}`}
+                      aria-pressed={Boolean(
+                        resource &&
+                        (selected?.id === resource.id ||
+                          draft.activeOmens.includes(resource.id)),
+                      )}
+                      {...(resource ? tooltipEvents(resource.id) : {})}
+                      onClick={() => placeFavorite(index)}
+                      onContextMenu={(event) => {
+                        event.preventDefault()
+                        if (resource) {
+                          if (resource.category === 'Omen') {
+                            toggleOmen(resource.id)
+                            return
+                          }
+                          setPointer({ x: event.clientX, y: event.clientY })
+                          choose(resource)
+                        }
+                      }}
+                    >
+                      {resource ? (
+                        <CurrencyImage key={resource.id} {...resource} />
+                      ) : (
+                        <span className="favorite-empty" aria-hidden="true">
+                          +
+                        </span>
+                      )}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
             <div className="bench-lower">
               <div className="bench-item-card">
+                <div className="workbench-film-controls">
+                  <button
+                    type="button"
+                    aria-label="Previous crafting step"
+                    disabled={
+                      !film ||
+                      filmState.history.cursor === 0 ||
+                      applying !== null
+                    }
+                    onClick={() => browse(filmState.history.cursor - 1)}
+                  >
+                    ‹
+                  </button>
+                  <span>
+                    {film
+                      ? `Step ${filmState.history.cursor} / ${film.frames.length - 1}`
+                      : 'New craft'}
+                  </span>
+                  <button
+                    type="button"
+                    aria-label="Next crafting step"
+                    disabled={
+                      !film ||
+                      filmState.history.cursor === film.frames.length - 1 ||
+                      applying !== null
+                    }
+                    onClick={() => browse(filmState.history.cursor + 1)}
+                  >
+                    ›
+                  </button>
+                </div>
+                {filmState.history.films.length > 0 && (
+                  <label className="workbench-film-select">
+                    Crafting session
+                    <select
+                      aria-label="Crafting session"
+                      value={film?.id ?? ''}
+                      disabled={applying !== null}
+                      onChange={(event) => {
+                        const selectedFilm = filmState.history.films.find(
+                          (entry) => entry.id === event.target.value,
+                        )
+                        if (!selectedFilm) return
+                        const state = selectedFilm.frames.at(-1)!.state
+                        if (
+                          !initial.data ||
+                          !verifiedHistoryState(state, initial.data)
+                        ) {
+                          setAnnouncement(
+                            'This saved session does not match the current catalog. It has been preserved.',
+                          )
+                          return
+                        }
+                        draft.setBase(state.itemLevel)
+                        saveFilms(
+                          {
+                            ...filmState.history,
+                            active: selectedFilm.id,
+                            cursor: selectedFilm.frames.length - 1,
+                          },
+                          useItemDraft.getState().baseRevision,
+                        )
+                        setSelected(null)
+                        setHeld(null)
+                      }}
+                    >
+                      <option value="" disabled>
+                        New craft
+                      </option>
+                      {filmState.history.films.map((entry, index) => (
+                        <option key={entry.id} value={entry.id}>
+                          Session {index + 1} · {entry.frames.length - 1} crafts
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                )}
+                {filmState.error && <p role="alert">{filmState.error}</p>}
+                {storedFrame && initial.data && !restoredValid && (
+                  <p role="alert">
+                    Saved step does not match the current catalog. Start a new
+                    Solar Amulet; saved films are preserved.
+                  </p>
+                )}
                 {card ? (
                   <ItemCard item={card} />
                 ) : (
@@ -769,11 +954,12 @@ export function CraftingPage() {
                     }}
                   />
                 )}
-                <p>
-                  {canCraft
-                    ? 'Select a currency, then click the central item to craft. The result stays in this Workbench.'
-                    : 'Pasted items are display-only. Select the Solar Amulet base to explore probabilities.'}
-                </p>
+                {!canCraft && (
+                  <p>
+                    Pasted items are display-only until catalog mapping is
+                    verified.
+                  </p>
+                )}
                 {draft.source === 'text' && !mapping.data?.mapped && (
                   <button
                     type="button"
@@ -811,54 +997,56 @@ export function CraftingPage() {
                 {announcement && (
                   <p className="workbench-feedback">{announcement}</p>
                 )}
-                {workbench.data && (
-                  <details className="workbench-assumptions">
-                    <summary>Last craft and roll assumptions</summary>
-                    <p>
-                      {workbenchActionNames[workbench.data.action]} applied.{' '}
-                      {workbench.data.events.some(
-                        (event) => event.kind === 'ADD',
-                      )
-                        ? 'New modifier selected using PoE2DB published modifier weights.'
-                        : workbench.data.action === 'DIVINE'
-                          ? 'Numeric values rerolled within their current source ranges.'
-                          : 'Modifier removal uses the uniform assumption listed below.'}
-                    </p>
-                    <p>
-                      {workbench.data.ruleVersion} /{' '}
-                      {workbench.data.ledgerVersion}
-                    </p>
-                    {workbench.data.consumedOmens.length > 0 && (
+                {workbench.data &&
+                  JSON.stringify(concrete) ===
+                    JSON.stringify(workbench.data.state) && (
+                    <details className="workbench-assumptions">
+                      <summary>Last craft and roll assumptions</summary>
                       <p>
-                        Consumed omens:{' '}
-                        {workbench.data.consumedOmens
-                          .map((id) => id.replaceAll('_', ' '))
-                          .join(', ')}
+                        {workbenchActionNames[workbench.data.action]} applied.{' '}
+                        {workbench.data.events.some(
+                          (event) => event.kind === 'ADD',
+                        )
+                          ? 'New modifier selected using PoE2DB published modifier weights.'
+                          : workbench.data.action === 'DIVINE'
+                            ? 'Numeric values rerolled within their current source ranges.'
+                            : 'Modifier removal uses the uniform assumption listed below.'}
                       </p>
-                    )}
-                    {workbench.data.assumptions.length ? (
-                      workbench.data.assumptions.map((a, i) => (
-                        <p key={`${a.id}-${i}`}>
-                          Uniform assumption: {a.candidateUnit}, N = {a.n}, each
-                          candidate = 1/{a.n}.{' '}
-                          {a.min !== null
-                            ? `Source range ${a.min} to ${a.max}. `
-                            : ''}
-                          {a.reason}{' '}
-                          <a
-                            href={a.sourceUrl}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            Source
-                          </a>
+                      <p>
+                        {workbench.data.ruleVersion} /{' '}
+                        {workbench.data.ledgerVersion}
+                      </p>
+                      {workbench.data.consumedOmens.length > 0 && (
+                        <p>
+                          Consumed omens:{' '}
+                          {workbench.data.consumedOmens
+                            .map((id) => id.replaceAll('_', ' '))
+                            .join(', ')}
                         </p>
-                      ))
-                    ) : (
-                      <p>No uniform fallback was needed for this craft.</p>
-                    )}
-                  </details>
-                )}
+                      )}
+                      {workbench.data.assumptions.length ? (
+                        workbench.data.assumptions.map((a, i) => (
+                          <p key={`${a.id}-${i}`}>
+                            Uniform assumption: {a.candidateUnit}, N = {a.n},
+                            each candidate = 1/{a.n}.{' '}
+                            {a.min !== null
+                              ? `Source range ${a.min} to ${a.max}. `
+                              : ''}
+                            {a.reason}{' '}
+                            <a
+                              href={a.sourceUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              Source
+                            </a>
+                          </p>
+                        ))
+                      ) : (
+                        <p>No uniform fallback was needed for this craft.</p>
+                      )}
+                    </details>
+                  )}
               </div>
             </div>
           </div>
@@ -939,7 +1127,7 @@ export function CraftingPage() {
                     }
                     onClick={() => {
                       imported.invalidate()
-                      draft.setBase(Number(baseLevel))
+                      startBase(Number(baseLevel))
                       setPreviewRequest({ count: 0, action: null })
                       setSelected(null)
                       closeInput()
@@ -1013,7 +1201,7 @@ export function CraftingPage() {
               Number(baseLevel) > 100
             }
             onClick={() => {
-              draft.setBase(Number(baseLevel))
+              startBase(Number(baseLevel))
               setPreviewRequest({ count: 0, action: null })
             }}
           >

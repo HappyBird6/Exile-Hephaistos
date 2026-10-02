@@ -3,7 +3,10 @@ import { cleanup } from '@testing-library/react'
 import { afterEach, beforeEach, vi } from 'vitest'
 import { fixtureFetch } from './craftingFixtures'
 
-beforeEach(() => vi.stubGlobal('fetch', fixtureFetch))
+beforeEach(() => {
+  vi.stubGlobal('fetch', fixtureFetch)
+  window.localStorage.removeItem('hephaistos.workbench.films.v1')
+})
 afterEach(() => vi.unstubAllGlobals())
 
 afterEach(cleanup)

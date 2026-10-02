@@ -9,6 +9,8 @@ import {
   jsonResponse,
 } from '../../shared/test/craftingFixtures'
 import { applyCurrency, concreteInitial, rolledText } from './workbenchApi'
+import { historyStorageKey } from './workbenchHistory'
+import type { Films } from './workbenchHistory'
 
 let client: QueryClient
 beforeEach(() => {
@@ -35,6 +37,77 @@ async function selectAndApply() {
   )
 }
 describe('Workbench actual application', () => {
+  it('preserves the original future when crafting from a prior step and restores films after remount', async () => {
+    vi.stubGlobal('fetch', fixtureFetch)
+    const mounted = show()
+    await selectAndApply()
+    await waitFor(() =>
+      expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
+    )
+    const original = JSON.parse(
+      window.localStorage.getItem(historyStorageKey)!,
+    ) as Films
+    expect(original.films).toHaveLength(1)
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Previous crafting step' }),
+    )
+    expect(screen.getByRole('article')).toHaveClass('item-card--normal')
+    expect(
+      (JSON.parse(window.localStorage.getItem(historyStorageKey)!) as Films)
+        .films,
+    ).toHaveLength(1)
+    await selectAndApply()
+    await waitFor(() =>
+      expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
+    )
+    const fork = JSON.parse(
+      window.localStorage.getItem(historyStorageKey)!,
+    ) as Films
+    expect(fork.films).toHaveLength(2)
+    expect(fork.films[0]).toEqual(original.films[0])
+    mounted.unmount()
+    client.clear()
+    act(() => useItemDraft.getState().setBase())
+    show()
+    await waitFor(() =>
+      expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
+    )
+    fireEvent.change(
+      screen.getByRole('combobox', { name: 'Crafting session' }),
+      { target: { value: fork.films[0]!.id } },
+    )
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Previous crafting step' }),
+    )
+    expect(screen.getByRole('article')).toHaveClass('item-card--normal')
+    fireEvent.click(screen.getByRole('button', { name: 'Next crafting step' }))
+    expect(screen.getByRole('article')).toHaveClass('item-card--magic')
+  })
+
+  it('keeps a successful craft usable when localStorage refuses writes', async () => {
+    vi.stubGlobal('fetch', fixtureFetch)
+    const storage = vi
+      .spyOn(Storage.prototype, 'setItem')
+      .mockImplementation(() => {
+        throw new DOMException('Quota exceeded', 'QuotaExceededError')
+      })
+    try {
+      show()
+      await selectAndApply()
+      await waitFor(() =>
+        expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
+      )
+      expect(screen.getByRole('alert')).toHaveTextContent(
+        'History could not be saved',
+      )
+      fireEvent.click(
+        screen.getByRole('button', { name: 'Previous crafting step' }),
+      )
+      expect(screen.getByRole('article')).toHaveClass('item-card--normal')
+    } finally {
+      storage.mockRestore()
+    }
+  })
   it('keeps the currency for a Shift craft and clears it on an empty stash click', async () => {
     vi.stubGlobal('fetch', fixtureFetch)
     show()

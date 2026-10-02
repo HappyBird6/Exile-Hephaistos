@@ -1,0 +1,123 @@
+import { describe, expect, it } from 'vitest'
+import {
+  initialFixture,
+  fixtureFetch,
+} from '../../shared/test/craftingFixtures'
+import { concreteInitial } from './workbenchApi'
+import type { AppliedItem } from './workbenchApi'
+import {
+  LocalFilmRepository,
+  emptyFilms,
+  currentFrame,
+  currentFilm,
+  startFilm,
+  recordCraft,
+  viewFrame,
+  verifiedHistoryState,
+  historyStorageKey,
+  historyStorageLimit,
+} from './workbenchHistory'
+
+const root = concreteInitial(initialFixture)
+async function craft() {
+  return (await (
+    await fixtureFetch('/api/v1/crafting/workbench/apply', {
+      body: JSON.stringify({ state: root, action: 'TRANSMUTATION' }),
+    })
+  ).json()) as AppliedItem
+}
+describe('linear crafting films', () => {
+  it('browses one film and forks only on successful crafting while preserving original future', async () => {
+    const result = await craft()
+    const original = recordCraft(
+      startFilm(emptyFilms(), root, 'first'),
+      root,
+      result,
+      'unused',
+    )
+    const browsed = viewFrame(original, 0)
+    expect(browsed.films).toHaveLength(1)
+    expect(currentFrame(browsed)?.state).toEqual(root)
+    expect(
+      recordCraft(browsed, root, { ...result, applied: false }, 'failed'),
+    ).toBe(browsed)
+    const fork = recordCraft(browsed, root, result, 'second')
+    expect(fork.films).toHaveLength(2)
+    expect(fork.films[0]).toEqual(original.films[0])
+    expect(currentFilm(fork)?.id).toBe('second')
+    expect(currentFilm(fork)?.frames).toHaveLength(2)
+    expect(viewFrame(fork, 2)).toBe(fork)
+  })
+  it('archives the prior film when starting another item and restores the selected step', async () => {
+    const first = recordCraft(
+      startFilm(emptyFilms(), root, 'one'),
+      root,
+      await craft(),
+      'unused',
+    )
+    const second = startFilm(first, { ...root, itemLevel: 70 }, 'two')
+    const selected = viewFrame({ ...second, active: 'one' }, 0)
+    const repository = new LocalFilmRepository(window.localStorage)
+    repository.save(selected)
+    const restored = repository.load()
+    expect(restored).toEqual(selected)
+    expect(restored.films[0]).toEqual(first.films[0])
+    expect(restored.films[1]?.frames[0]?.state.itemLevel).toBe(70)
+    expect(currentFrame(restored)?.state).toEqual(root)
+  })
+  it('preserves existing bytes on quota failure and on invalid or oversized reads', () => {
+    const repository = new LocalFilmRepository(window.localStorage)
+    const valid = startFilm(emptyFilms(), root, 'one')
+    repository.save(valid)
+    const previous = window.localStorage.getItem(historyStorageKey)
+    const failing = new LocalFilmRepository({
+      getItem: () => previous,
+      setItem: () => {
+        throw new DOMException('Quota exceeded', 'QuotaExceededError')
+      },
+    })
+    expect(() => failing.save(startFilm(valid, root, 'two'))).toThrow('Quota')
+    expect(window.localStorage.getItem(historyStorageKey)).toBe(previous)
+    expect(() =>
+      new LocalFilmRepository({
+        getItem: () => '{broken',
+        setItem: () => {
+          throw Error('must not write')
+        },
+      }).load(),
+    ).toThrow()
+    expect(() =>
+      new LocalFilmRepository({
+        getItem: () => 'x'.repeat(historyStorageLimit),
+        setItem: () => {
+          throw Error('must not write')
+        },
+      }).load(),
+    ).toThrow('size')
+  })
+  it('requires current catalog identity, legal slots, families and numeric values on restored states', async () => {
+    const state = (await craft()).state
+    expect(verifiedHistoryState(state, initialFixture)).toBe(true)
+    expect(
+      verifiedHistoryState({ ...state, snapshotId: 'old' }, initialFixture),
+    ).toBe(false)
+    expect(
+      verifiedHistoryState(
+        { ...state, explicits: [...state.explicits, ...state.explicits] },
+        initialFixture,
+      ),
+    ).toBe(false)
+    expect(
+      verifiedHistoryState(
+        { ...state, explicits: [{ modifierId: 'p', values: { life: 9000 } }] },
+        initialFixture,
+      ),
+    ).toBe(false)
+    expect(
+      verifiedHistoryState(
+        { ...state, conditions: ['CORRUPTED'] },
+        initialFixture,
+      ),
+    ).toBe(false)
+  })
+})

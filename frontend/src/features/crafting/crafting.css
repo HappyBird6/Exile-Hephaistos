@@ -815,6 +815,33 @@
   border: 2px solid #e34b4b;
   box-shadow: 0 0 8px #e34b4b80;
 }
+.workbench-film-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.stash-viewport {
+  min-width: 0;
+  overflow-x: auto;
+}
+@media (max-width: 600px) {
+  .stash-viewport .stash-canvas {
+    min-width: 660px;
+  }
+}
+.workbench-film-controls button {
+  padding: 6px 14px;
+}
+.workbench-film-select {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.workbench-film-select select {
+  max-width: 100%;
+  min-width: 0;
+}
 @media (max-width: 1000px) {
   .stash-board {
     grid-template-columns: minmax(0, 1fr);
