@@ -3,7 +3,7 @@
   "ledgerVersion": "solar-uniform-assumptions-v3",
   "scope": "Equipment crafting, excluding maps and skill gems. Inventory coverage is incomplete and pending a full source audit; registration is not implementation.",
   "inventoryComplete": false,
-  "ruleVersion": "solar-workbench-infinite-essence-v7",
+  "ruleVersion": "solar-workbench-resistance-essence-v8",
   "modifierWeightPolicy": "POE2DB_AS_PUBLISHED",
   "mixedKnownUnknownWeightPolicy": "BLOCK_UNTIL_POLICY_DECIDED",
   "entries": [
@@ -1212,10 +1212,10 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "LESSER_ESSENCE_INSULATION",
+      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
     },
     {
       "id": "Essence_of_Insulation",
@@ -1226,10 +1226,10 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "ESSENCE_INSULATION",
+      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
     },
     {
       "id": "Greater_Essence_of_Insulation",
@@ -1240,10 +1240,10 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "GREATER_ESSENCE_INSULATION",
+      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
     },
     {
       "id": "Perfect_Essence_of_Insulation",
@@ -1268,10 +1268,10 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "LESSER_ESSENCE_THAWING",
+      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
     },
     {
       "id": "Essence_of_Thawing",
@@ -1282,10 +1282,10 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "ESSENCE_THAWING",
+      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
     },
     {
       "id": "Greater_Essence_of_Thawing",
@@ -1296,10 +1296,10 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "GREATER_ESSENCE_THAWING",
+      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
     },
     {
       "id": "Perfect_Essence_of_Thawing",
@@ -1324,10 +1324,10 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "LESSER_ESSENCE_GROUNDING",
+      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
     },
     {
       "id": "Essence_of_Grounding",
@@ -1338,10 +1338,10 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "ESSENCE_GROUNDING",
+      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
     },
     {
       "id": "Greater_Essence_of_Grounding",
@@ -1352,10 +1352,10 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "GREATER_ESSENCE_GROUNDING",
+      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
     },
     {
       "id": "Perfect_Essence_of_Grounding",
@@ -3230,7 +3230,11 @@
       "eligibility": "Magic Solar, Lesser/ordinary/Greater Infinite, all three sourced Strength/Dexterity/Intelligence results eligible at the catalog item level; any attribute family overlap is blocked pending verification.",
       "n": "3 fixed modifier outcomes",
       "probability": "1/N",
-      "sourceUrls": ["https://poe2db.tw/us/Lesser_Essence_of_the_Infinite", "https://poe2db.tw/us/Essence_of_the_Infinite", "https://poe2db.tw/us/Greater_Essence_of_the_Infinite"],
+      "sourceUrls": [
+        "https://poe2db.tw/us/Lesser_Essence_of_the_Infinite",
+        "https://poe2db.tw/us/Essence_of_the_Infinite",
+        "https://poe2db.tw/us/Greater_Essence_of_the_Infinite"
+      ],
       "reason": "Sourced effect defines three attribute results; no published essence choice weights. Ordinary affix weights are not treated as essence choice weights.",
       "scope": "MODELING_ASSUMPTION"
     },
@@ -3240,7 +3244,10 @@
       "eligibility": "Validated Rare Solar with at least four ordinary explicit modifiers and no existing fracture; implicit modifiers are excluded. Only one explicit fracture is supported.",
       "n": "eligible explicit instance count",
       "probability": "1/N",
-      "sourceUrls": ["https://poe2db.tw/us/Fractured_Modifiers", "https://www.pathofexile.com/forum/view-thread/3740562"],
+      "sourceUrls": [
+        "https://poe2db.tw/us/Fractured_Modifiers",
+        "https://www.pathofexile.com/forum/view-thread/3740562"
+      ],
       "reason": "Effect and ordinary explicit candidate set are sourced; published fracture selection weights are unavailable.",
       "scope": "MODELING_ASSUMPTION"
     },

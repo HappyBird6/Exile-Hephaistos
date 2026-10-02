@@ -103,7 +103,7 @@ class WorkbenchControllerTest {
         .andExpect(jsonPath("$.state.rarity").value("MAGIC"))
         .andExpect(jsonPath("$.state.explicits.length()").value(1))
         .andExpect(jsonPath("$.events[0].kind").value("ADD"))
-        .andExpect(jsonPath("$.ruleVersion").value("solar-workbench-infinite-essence-v7"));
+        .andExpect(jsonPath("$.ruleVersion").value("solar-workbench-resistance-essence-v8"));
     mvc.perform(
             post("/api/v1/crafting/workbench/apply")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -144,6 +144,6 @@ class WorkbenchControllerTest {
                             "activeOmens",
                             java.util.List.of()))))
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.length()").value(31));
+        .andExpect(jsonPath("$.length()").value(40));
   }
 }

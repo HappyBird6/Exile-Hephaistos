@@ -6,7 +6,7 @@ import java.util.random.RandomGenerator;
 
 /** Samples concrete elementary events; unchanged instances retain their actual values. */
 public final class WorkbenchSimulator {
-  public static final String RULE_VERSION = "solar-workbench-infinite-essence-v7";
+  public static final String RULE_VERSION = "solar-workbench-resistance-essence-v8";
   public static final String LEDGER_VERSION = "solar-uniform-assumptions-v3";
   private final ItemCatalog catalog;
   private final AdditionRules additionRules;

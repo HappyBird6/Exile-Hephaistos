@@ -148,3 +148,24 @@ Current rule `solar-workbench-infinite-essence-v7`, ledger `solar-uniform-assump
 
 Chromium against v7 passed Infinite 19, fixed Body/Mind/Ruin 55, general Workbench 30, Fracturing 20 and Greater Exaltation 14 checks (138 total, zero runtime errors). Infinite covers real right-click/Shift crafting, sourced outcomes/ranges, 1/3 and both assumptions, preserved rolls, blocked Normal/Rare repeats and reload. Backend also checks 100 spaced seeds per tier on one/two-explicit Magic inputs, all three outcomes reached, level boundaries and attribute-overlap refusal. Desktop screenshot visually reviewed. Evidence: `codex/qa-20261002/backend-infinite-essence-results`, `infinite-essence-browser-results.json`, `infinite-essence-desktop.png`; previous browser result files were refreshed against v7. These checks do not validate unsupported low-level bypasses, overlap outcomes or other bases.
 Infinite namespace cache recheck: `7261b8437ad82cd6e4ff3379283e15e582355dd15c73bcdde6f1cdd1e0ab67b6`; one computed pool before normal QA-app restart, one persisted hit/nine memory hits/zero computations afterwards. Comparisons and assessment exactly equal. Evidence: `cache-before-v7.json` / `cache-after-v7.json`.
+
+## Elemental resistance essence expansion
+
+Insulation (Fire), Thawing (Cold), and Grounding (Lightning) ordinary tiers upgrade Magic Solar to Rare with one fixed suffix. Deterministic modifier selection has probability 1; numeric values use uniform integer N=5. The existing fixed-essence path preserves all old rolls and implicits and leaves unrelated supported omens active. Other bases, Perfect variants, existing same-family overlap and unverified low-level bypass are unsupported.
+
+| Essence tier | Solar suffix ID (amulet:suffix:) | Range % | Catalog minimum item level | Source Required Level | Source checked 2026-10-02 |
+| --- | --- | --- | --- | --- | --- |
+| Lesser Insulation | of-the-salamander | 11-15 | 12 | 9 | [source](https://poe2db.tw/us/Lesser_Essence_of_Insulation) |
+| Insulation | of-the-kiln | 21-25 | 36 | 28 | [source](https://poe2db.tw/us/Essence_of_Insulation) |
+| Greater Insulation | of-the-volcano | 31-35 | 60 | 48 | [source](https://poe2db.tw/us/Greater_Essence_of_Insulation) |
+| Lesser Thawing | of-the-penguin | 11-15 | 14 | 11 | [source](https://poe2db.tw/us/Lesser_Essence_of_Thawing) |
+| Thawing | of-the-yeti | 21-25 | 38 | 30 | [source](https://poe2db.tw/us/Essence_of_Thawing) |
+| Greater Thawing | of-the-polar-bear | 31-35 | 60 | 48 | [source](https://poe2db.tw/us/Greater_Essence_of_Thawing) |
+| Lesser Grounding | of-the-squall | 11-15 | 13 | 10 | [source](https://poe2db.tw/us/Lesser_Essence_of_Grounding) |
+| Grounding | of-the-thunderhead | 21-25 | 37 | 29 | [source](https://poe2db.tw/us/Essence_of_Grounding) |
+| Greater Grounding | of-the-maelstrom | 31-35 | 60 | 48 | [source](https://poe2db.tw/us/Greater_Essence_of_Grounding) |
+
+The source Required Level is distinct from the catalog modifier item-level boundary; no lower-level behavior is inferred. None of these results changes ordinary modifier pools or weights. Backend tests exercise 100 spaced seeds for each tier on one/two-explicit Magic items, suffix/range/probability/ledger checks, preservation and unrelated omens, each level boundary, below-boundary and family-overlap refusal.
+Rule `solar-workbench-resistance-essence-v8`, ledger v3 unchanged. Registry: 19 currencies, nine omens, 21 essences; 171 pending of 220 registered. Frontend lint/typecheck/format, 86 tests and production build passed. Chromium against v8 passed resistance essence 55 and general Workbench 30 checks with zero runtime errors. Desktop screenshot visually reviewed. Evidence: `resistance-essence-browser-results.json`, `resistance-essence-desktop.png` under `codex/qa-20261002`. Existing fixed 55/Infinite 19/Fracturing 20/Greater Exaltation 14 browser suites last ran against v7; their backend/frontend regressions are included in the mandatory v8 suites.
+
+Final Docker backend `spotlessApply check generateJooq bootJar` passed after preserving original source timestamp strings: 132 unit/API/architecture plus six integration tests (138 total, zero failures/errors). Evidence: `backend-resistance-essence-results`. Namespace `62cfb4a76510d6d26be209b58b5be30edc829f96484d015b95c92a4c415bacc2`: before one computed pool, after normal QA-app restart one persisted hit/nine memory hits/zero computations, identical comparisons and assessment. Evidence: `cache-before-v8.json` / `cache-after-v8.json`.

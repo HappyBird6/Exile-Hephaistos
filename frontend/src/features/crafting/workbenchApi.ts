@@ -20,6 +20,15 @@ export type WorkbenchAction =
   | 'LESSER_ESSENCE_INFINITE'
   | 'ESSENCE_INFINITE'
   | 'GREATER_ESSENCE_INFINITE'
+  | 'LESSER_ESSENCE_INSULATION'
+  | 'ESSENCE_INSULATION'
+  | 'GREATER_ESSENCE_INSULATION'
+  | 'LESSER_ESSENCE_THAWING'
+  | 'ESSENCE_THAWING'
+  | 'GREATER_ESSENCE_THAWING'
+  | 'LESSER_ESSENCE_GROUNDING'
+  | 'ESSENCE_GROUNDING'
+  | 'GREATER_ESSENCE_GROUNDING'
 const fixedEssenceModifiers: Partial<Record<WorkbenchAction, string>> = {
   LESSER_ESSENCE_BODY: 'amulet:prefix:healthy',
   ESSENCE_BODY: 'amulet:prefix:robust',
@@ -30,6 +39,15 @@ const fixedEssenceModifiers: Partial<Record<WorkbenchAction, string>> = {
   LESSER_ESSENCE_RUIN: 'amulet:suffix:of-the-lost',
   ESSENCE_RUIN: 'amulet:suffix:of-banishment',
   GREATER_ESSENCE_RUIN: 'amulet:suffix:of-expulsion',
+  LESSER_ESSENCE_INSULATION: 'amulet:suffix:of-the-salamander',
+  ESSENCE_INSULATION: 'amulet:suffix:of-the-kiln',
+  GREATER_ESSENCE_INSULATION: 'amulet:suffix:of-the-volcano',
+  LESSER_ESSENCE_THAWING: 'amulet:suffix:of-the-penguin',
+  ESSENCE_THAWING: 'amulet:suffix:of-the-yeti',
+  GREATER_ESSENCE_THAWING: 'amulet:suffix:of-the-polar-bear',
+  LESSER_ESSENCE_GROUNDING: 'amulet:suffix:of-the-squall',
+  ESSENCE_GROUNDING: 'amulet:suffix:of-the-thunderhead',
+  GREATER_ESSENCE_GROUNDING: 'amulet:suffix:of-the-maelstrom',
 }
 const choiceEssenceModifiers: Partial<
   Record<WorkbenchAction, readonly string[]>
@@ -67,6 +85,15 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Lesser_Essence_of_the_Infinite: 'LESSER_ESSENCE_INFINITE',
   Essence_of_the_Infinite: 'ESSENCE_INFINITE',
   Greater_Essence_of_the_Infinite: 'GREATER_ESSENCE_INFINITE',
+  Lesser_Essence_of_Insulation: 'LESSER_ESSENCE_INSULATION',
+  Essence_of_Insulation: 'ESSENCE_INSULATION',
+  Greater_Essence_of_Insulation: 'GREATER_ESSENCE_INSULATION',
+  Lesser_Essence_of_Thawing: 'LESSER_ESSENCE_THAWING',
+  Essence_of_Thawing: 'ESSENCE_THAWING',
+  Greater_Essence_of_Thawing: 'GREATER_ESSENCE_THAWING',
+  Lesser_Essence_of_Grounding: 'LESSER_ESSENCE_GROUNDING',
+  Essence_of_Grounding: 'ESSENCE_GROUNDING',
+  Greater_Essence_of_Grounding: 'GREATER_ESSENCE_GROUNDING',
 }
 export const workbenchActionNames: Record<WorkbenchAction, string> = {
   ...actionNames,
@@ -85,6 +112,15 @@ export const workbenchActionNames: Record<WorkbenchAction, string> = {
   LESSER_ESSENCE_INFINITE: 'Lesser Essence of the Infinite',
   ESSENCE_INFINITE: 'Essence of the Infinite',
   GREATER_ESSENCE_INFINITE: 'Greater Essence of the Infinite',
+  LESSER_ESSENCE_INSULATION: 'Lesser Essence of Insulation',
+  ESSENCE_INSULATION: 'Essence of Insulation',
+  GREATER_ESSENCE_INSULATION: 'Greater Essence of Insulation',
+  LESSER_ESSENCE_THAWING: 'Lesser Essence of Thawing',
+  ESSENCE_THAWING: 'Essence of Thawing',
+  GREATER_ESSENCE_THAWING: 'Greater Essence of Thawing',
+  LESSER_ESSENCE_GROUNDING: 'Lesser Essence of Grounding',
+  ESSENCE_GROUNDING: 'Essence of Grounding',
+  GREATER_ESSENCE_GROUNDING: 'Greater Essence of Grounding',
 } as Record<WorkbenchAction, string>
 for (const [id, base] of Object.entries(currencyActions)) {
   if (base === 'ANNULMENT') continue
