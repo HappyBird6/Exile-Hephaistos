@@ -802,6 +802,24 @@
 .bench-item-card .item-card {
   margin: 0;
 }
+.stash-board {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 340px);
+  align-items: start;
+}
+.bench-lower {
+  display: block;
+  padding: 24px 16px;
+}
+.favorite-slot.is-active-omen {
+  border: 2px solid #e34b4b;
+  box-shadow: 0 0 8px #e34b4b80;
+}
+@media (max-width: 1000px) {
+  .stash-board {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
 .item-input-panel {
   position: absolute;
   z-index: 20;

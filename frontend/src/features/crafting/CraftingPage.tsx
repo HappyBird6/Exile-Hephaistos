@@ -64,6 +64,7 @@ export function CraftingPage() {
   const [inputMode, setInputMode] = useState<'base' | 'text'>('base')
   const [inputOpen, setInputOpen] = useState(false)
   const [announcement, setAnnouncement] = useState('')
+  const [altHeld, setAltHeld] = useState(false)
   const [applying, setApplying] = useState<AbortController | null>(null)
   const applyingRequest = useRef<AbortController | null>(null)
   const initial = useQuery({
@@ -106,6 +107,7 @@ export function CraftingPage() {
   }, [inputOpen])
   useEffect(() => {
     const cancel = (event: KeyboardEvent) => {
+      if (event.key === 'Alt') setAltHeld(true)
       if (event.key === 'Escape') {
         setSelected(null)
         setHeld(null)
@@ -118,11 +120,19 @@ export function CraftingPage() {
         setAnnouncement('Currency selection cleared.')
       }
     }
-    const hide = () => setPointer(null)
+    const release = (event: KeyboardEvent) => {
+      if (event.key === 'Alt') setAltHeld(false)
+    }
+    const hide = () => {
+      setPointer(null)
+      setAltHeld(false)
+    }
     window.addEventListener('keydown', cancel)
+    window.addEventListener('keyup', release)
     window.addEventListener('blur', hide)
     return () => {
       window.removeEventListener('keydown', cancel)
+      window.removeEventListener('keyup', release)
       window.removeEventListener('blur', hide)
     }
   }, [inputOpen])
@@ -132,7 +142,39 @@ export function CraftingPage() {
     setHeld(null)
     setAnnouncement(`${resource.name} selected · Click the central item.`)
   }
-  async function apply() {
+  function toggleOmen(id: string) {
+    if (applyingRequest.current) return
+    const omen = workbenchOmens.find((entry) => entry.id === id)
+    if (!omen) {
+      setAnnouncement('This omen has no verified Workbench rule yet.')
+      return
+    }
+    const active = draft.activeOmens.includes(id)
+    const conflict = workbenchOmens.find(
+      (entry) =>
+        entry.id !== id &&
+        entry.trigger === omen.trigger &&
+        draft.activeOmens.includes(entry.id),
+    )
+    if (!active && conflict) {
+      setAnnouncement(
+        `Deactivate ${conflict.id.replaceAll('_', ' ')} first. This combination has not been verified.`,
+      )
+      return
+    }
+    draft.setActiveOmens(
+      active
+        ? draft.activeOmens.filter((entry) => entry !== id)
+        : [...draft.activeOmens, id],
+    )
+    setSelected(null)
+    setHeld(null)
+    setPointer(null)
+    setAnnouncement(
+      `${id.replaceAll('_', ' ')} ${active ? 'deactivated' : 'activated'}.`,
+    )
+  }
+  async function apply(repeat = false) {
     if (applyingRequest.current) return
     if (!selected) {
       setAnnouncement('Select a currency from the stash first.')
@@ -145,18 +187,9 @@ export function CraftingPage() {
       return
     }
     if (workbenchOmens.some((omen) => omen.id === selected.id)) {
-      const active = draft.activeOmens.includes(selected.id)
-      draft.setActiveOmens(
-        active
-          ? draft.activeOmens.filter((id) => id !== selected.id)
-          : [...draft.activeOmens, selected.id],
-      )
       setAnnouncement(
-        `${selected.name} ${active ? 'deactivated' : 'activated. It is consumed only by a successful matching craft'}.`,
+        'Move this omen to a favorite slot, then right-click the favorite to activate it.',
       )
-      setSelected(null)
-      setHeld(null)
-      setPointer(null)
       return
     }
     const action = workbenchCurrencyActions[selected.id]
@@ -200,9 +233,11 @@ export function CraftingPage() {
         setAnnouncement(
           `${workbenchActionNames[action]} applied. Current item updated.${result.consumedOmens.length ? ` Consumed: ${result.consumedOmens.map((id) => id.replaceAll('_', ' ')).join(', ')}.` : ''}${result.assumptions.length ? ' Uniform probability assumptions were used; see the roll assumptions.' : ''}`,
         )
-        setSelected(null)
-        setHeld(null)
-        setPointer(null)
+        if (!repeat) {
+          setSelected(null)
+          setHeld(null)
+          setPointer(null)
+        }
       } else
         setAnnouncement(
           `Craft blocked by rule: ${result.reason} Your item is unchanged; active omens are preserved.`,
@@ -278,8 +313,20 @@ export function CraftingPage() {
     if (!held) {
       const resource = favorites[index]
       if (resource) choose(resource)
+      else {
+        setSelected(null)
+        setPointer(null)
+      }
       return
     }
+    const replaced = favorites[index]
+    if (
+      replaced &&
+      !favorites.some(
+        (entry, position) => position !== index && entry?.id === replaced.id,
+      )
+    )
+      draft.setActiveOmens(draft.activeOmens.filter((id) => id !== replaced.id))
     setFavorites((current) =>
       current.map((resource, position) =>
         position === index ? held : resource,
@@ -351,7 +398,7 @@ export function CraftingPage() {
                 const d = initial.data!.modifiers[m.modifierId]!
                 return {
                   id: m.modifierId,
-                  text: rolledText(d, m.values),
+                  text: altHeld ? d.text : rolledText(d, m.values),
                   kind:
                     i < concrete.implicits.length
                       ? ('implicit' as const)
@@ -360,9 +407,6 @@ export function CraftingPage() {
                     d.affixType === 'NONE'
                       ? undefined
                       : `${d.affixType === 'PREFIX' ? 'P' : 'S'}${d.tier}`,
-                  detail: `Source range: ${d.text}\n${Object.entries(m.values)
-                    .map(([id, value]) => `${id} = ${value}`)
-                    .join('\n')}`,
                 }
               },
             ),
@@ -372,6 +416,14 @@ export function CraftingPage() {
   return (
     <main
       className="craft-page"
+      onClick={(event) => {
+        const target = event.target as HTMLElement
+        if (!target.closest('button, input, label, dialog, a')) {
+          setSelected(null)
+          setHeld(null)
+          setPointer(null)
+        }
+      }}
       onPointerMove={(event) => {
         if (event.pointerType !== 'touch')
           setPointer({ x: event.clientX, y: event.clientY })
@@ -621,7 +673,7 @@ export function CraftingPage() {
                   disabled={
                     applying !== null && applyingRequest.current !== null
                   }
-                  onClick={apply}
+                  onClick={(event) => void apply(event.shiftKey)}
                 >
                   {draft.source === 'base' ? (
                     <img
@@ -656,20 +708,26 @@ export function CraftingPage() {
                   <button
                     type="button"
                     key={index}
-                    className={`currency-slot favorite-slot ${resource && selected?.id === resource.id ? 'is-selected' : ''}`}
+                    className={`currency-slot favorite-slot ${resource && selected?.id === resource.id ? 'is-selected' : ''} ${resource && draft.activeOmens.includes(resource.id) ? 'is-active-omen' : ''}`}
                     style={{
                       left: `${(652 + (index % 3) * 90) / 9.35}%`,
                       top: `${(40 + Math.floor(index / 3) * 100) / 5.5}%`,
                     }}
                     aria-label={`Favorite slot ${index + 1}: ${resource?.name ?? 'empty'}`}
                     aria-pressed={Boolean(
-                      resource && selected?.id === resource.id,
+                      resource &&
+                      (selected?.id === resource.id ||
+                        draft.activeOmens.includes(resource.id)),
                     )}
                     {...(resource ? tooltipEvents(resource.id) : {})}
                     onClick={() => placeFavorite(index)}
                     onContextMenu={(event) => {
                       event.preventDefault()
                       if (resource) {
+                        if (resource.category === 'Omen') {
+                          toggleOmen(resource.id)
+                          return
+                        }
                         setPointer({ x: event.clientX, y: event.clientY })
                         choose(resource)
                       }
@@ -688,47 +746,6 @@ export function CraftingPage() {
             </div>
             <div className="bench-lower">
               <div className="bench-item-card">
-                <details className="workbench-omen-panel">
-                  <summary>Active omens ({draft.activeOmens.length})</summary>
-                  <fieldset
-                    className="workbench-omens"
-                    disabled={
-                      !canCraft ||
-                      (applying !== null && applyingRequest.current !== null)
-                    }
-                  >
-                    <legend>Active omens</legend>
-                    <p>
-                      One matching omen per craft. A matching omen is consumed
-                      after a successful application; unrelated omens stay
-                      active. Greater/Perfect interactions are awaiting
-                      verification.
-                    </p>
-                    {workbenchOmens.map((omen) => (
-                      <label key={omen.id}>
-                        <input
-                          type="checkbox"
-                          checked={draft.activeOmens.includes(omen.id)}
-                          onChange={(event) =>
-                            draft.setActiveOmens(
-                              event.target.checked
-                                ? [...draft.activeOmens, omen.id]
-                                : draft.activeOmens.filter(
-                                    (id) => id !== omen.id,
-                                  ),
-                            )
-                          }
-                        />
-                        <span>
-                          {omen.id.replaceAll('_', ' ')}
-                          <small>
-                            {workbenchActionNames[omen.trigger]}: {omen.effect}
-                          </small>
-                        </span>
-                      </label>
-                    ))}
-                  </fieldset>
-                </details>
                 {card ? (
                   <ItemCard item={card} />
                 ) : (

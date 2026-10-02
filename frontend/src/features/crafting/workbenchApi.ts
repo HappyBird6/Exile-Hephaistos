@@ -6,13 +6,16 @@ export type WorkbenchAction =
   | `GREATER_${Exclude<Action, 'ANNULMENT'>}`
   | `PERFECT_${Exclude<Action, 'ANNULMENT'>}`
   | 'DIVINE'
+  | 'ALCHEMY'
 export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   ...currencyActions,
   Divine_Orb: 'DIVINE',
+  Orb_of_Alchemy: 'ALCHEMY',
 }
 export const workbenchActionNames: Record<WorkbenchAction, string> = {
   ...actionNames,
   DIVINE: 'Divine Orb',
+  ALCHEMY: 'Orb of Alchemy',
 } as Record<WorkbenchAction, string>
 for (const [id, base] of Object.entries(currencyActions)) {
   if (base === 'ANNULMENT') continue
@@ -65,7 +68,7 @@ export const workbenchOmens = [
   },
 ] as const
 export const baseWorkbenchAction = (action: WorkbenchAction) =>
-  action.replace(/^(GREATER|PERFECT)_/, '') as Action | 'DIVINE'
+  action.replace(/^(GREATER|PERFECT)_/, '') as Action | 'DIVINE' | 'ALCHEMY'
 
 export interface ConcreteItem extends Omit<Bucket, 'modifierIds'> {
   explicits: { modifierId: string; values: Record<string, number> }[]
@@ -298,16 +301,18 @@ export async function applyCurrency(
   const expectedRarity =
     baseAction === 'TRANSMUTATION'
       ? 'MAGIC'
-      : baseAction === 'REGAL'
+      : baseAction === 'REGAL' || action === 'ALCHEMY'
         ? 'RARE'
         : state.rarity
   const expectedCount =
-    state.explicits.length +
-    (baseAction === 'ANNULMENT'
-      ? -1
-      : baseAction === 'CHAOS' || action === 'DIVINE'
-        ? 0
-        : 1)
+    action === 'ALCHEMY'
+      ? 4
+      : state.explicits.length +
+        (baseAction === 'ANNULMENT'
+          ? -1
+          : baseAction === 'CHAOS' || action === 'DIVINE'
+            ? 0
+            : 1)
   if (
     prefixes > capacity ||
     suffixes > capacity ||

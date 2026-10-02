@@ -35,6 +35,58 @@ async function selectAndApply() {
   )
 }
 describe('Workbench actual application', () => {
+  it('keeps the currency for a Shift craft and clears it on an empty stash click', async () => {
+    vi.stubGlobal('fetch', fixtureFetch)
+    show()
+    await waitFor(() =>
+      expect(client.getQueryData(['crafting', 'initial', 82])).toBeDefined(),
+    )
+    const currency = screen.getByRole('button', {
+      name: 'Orb of Transmutation',
+    })
+    fireEvent.contextMenu(currency)
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: 'Use selected currency on the central item',
+      }),
+      { shiftKey: true },
+    )
+    await waitFor(() =>
+      expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
+    )
+    expect(currency).toHaveAttribute('aria-pressed', 'true')
+    fireEvent.click(screen.getByLabelText('Currency stash'))
+    expect(currency).toHaveAttribute('aria-pressed', 'false')
+    act(() => useItemDraft.getState().setBase())
+    fireEvent.click(currency)
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: 'Use selected currency on the central item',
+      }),
+    )
+    await waitFor(() =>
+      expect(currency).toHaveAttribute('aria-pressed', 'false'),
+    )
+  })
+
+  it('shows all verified modifier ranges while Alt is held and restores rolls on keyup or blur', async () => {
+    vi.stubGlobal('fetch', fixtureFetch)
+    show()
+    await selectAndApply()
+    await waitFor(() =>
+      expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
+    )
+    const card = screen.getByRole('article')
+    expect(card).toHaveTextContent('+17 to maximum Life')
+    fireEvent.keyDown(window, { key: 'Alt' })
+    expect(card).toHaveTextContent(initialFixture.modifiers.p!.text)
+    expect(card).not.toHaveTextContent('Source range:')
+    fireEvent.keyUp(window, { key: 'Alt' })
+    expect(card).toHaveTextContent('+17 to maximum Life')
+    fireEvent.keyDown(window, { key: 'Alt' })
+    fireEvent.blur(window)
+    expect(card).toHaveTextContent('+17 to maximum Life')
+  })
   it('preserves the current item and tab on a network failure, then retries the same selection', async () => {
     let fail = true
     vi.stubGlobal('fetch', (url: RequestInfo | URL, init?: RequestInit) =>

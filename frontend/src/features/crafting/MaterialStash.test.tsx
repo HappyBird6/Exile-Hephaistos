@@ -119,14 +119,16 @@ describe('Material stash and shared favorites', () => {
       expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
       fireEvent.click(favorite(1))
       expect(favorite(1)).toHaveAccessibleName('Favorite slot 1: empty')
+      expect(material).toHaveAttribute('aria-pressed', 'false')
+      fireEvent.contextMenu(material)
       fireEvent.click(
         screen.getByRole('button', {
           name: 'Use selected currency on the central item',
         }),
       )
       if (label === 'Omen') {
-        expect(screen.getByRole('status')).toHaveTextContent('activated')
-        expect(useItemDraft.getState().activeOmens).toContain(
+        expect(screen.getByRole('status')).toHaveTextContent('favorite slot')
+        expect(useItemDraft.getState().activeOmens).not.toContain(
           'Omen_of_Whittling',
         )
       } else
