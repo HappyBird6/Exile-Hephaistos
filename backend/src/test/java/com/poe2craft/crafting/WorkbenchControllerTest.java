@@ -29,13 +29,65 @@ class WorkbenchControllerTest {
   @Autowired ItemCatalog catalog;
 
   @Test
+  void legacyJsonDefaultsToUnlockedAndFractureRoundTripsWithoutLosingLockedValues()
+      throws Exception {
+    var simulator =
+        new com.poe2craft.crafting.domain.WorkbenchSimulator(
+            catalog, new com.poe2craft.crafting.domain.CraftingEngine(catalog));
+    var rare =
+        simulator
+            .apply(
+                SolarAmulet.initial(catalog),
+                com.poe2craft.crafting.domain.WorkbenchCurrency.ALCHEMY,
+                java.util.Set.of(),
+                new java.util.Random(42))
+            .state();
+    var legacy = mapper.valueToTree(rare);
+    for (String layer : java.util.List.of("implicits", "explicits"))
+      legacy
+          .get(layer)
+          .forEach(m -> ((com.fasterxml.jackson.databind.node.ObjectNode) m).remove("fractured"));
+    var response =
+        mvc.perform(
+                post("/api/v1/crafting/workbench/apply")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(
+                        mapper.writeValueAsBytes(Map.of("state", legacy, "action", "FRACTURING"))))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.applied").value(true))
+            .andExpect(jsonPath("$.events[0].kind").value("FRACTURE"))
+            .andExpect(jsonPath("$.ledgerVersion").value("solar-uniform-assumptions-v2"))
+            .andReturn();
+    var state =
+        mapper.treeToValue(
+            mapper.readTree(response.getResponse().getContentAsString()).get("state"),
+            com.poe2craft.item.ItemState.class);
+    var locked =
+        state.explicits().stream().filter(com.poe2craft.item.ModifierInstance::fractured).toList();
+    org.assertj.core.api.Assertions.assertThat(locked).hasSize(1);
+    var divine =
+        mvc.perform(
+                post("/api/v1/crafting/workbench/apply")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(mapper.writeValueAsBytes(Map.of("state", state, "action", "DIVINE"))))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.applied").value(true))
+            .andReturn();
+    var rerolled =
+        mapper.treeToValue(
+            mapper.readTree(divine.getResponse().getContentAsString()).get("state"),
+            com.poe2craft.item.ItemState.class);
+    org.assertj.core.api.Assertions.assertThat(rerolled.explicits()).contains(locked.getFirst());
+  }
+
+  @Test
   void registrySeparatesInventoryFromImplementedRulesAndPublishesTheLedger() throws Exception {
     mvc.perform(get("/api/v1/crafting/workbench/registry"))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.version").value("equipment-crafting-registry-v2"))
         .andExpect(jsonPath("$.inventoryComplete").value(false))
         .andExpect(jsonPath("$.entries.length()").value(220))
-        .andExpect(jsonPath("$.assumptionLedger.length()").value(2));
+        .andExpect(jsonPath("$.assumptionLedger.length()").value(3));
   }
 
   @Test
@@ -51,7 +103,7 @@ class WorkbenchControllerTest {
         .andExpect(jsonPath("$.state.rarity").value("MAGIC"))
         .andExpect(jsonPath("$.state.explicits.length()").value(1))
         .andExpect(jsonPath("$.events[0].kind").value("ADD"))
-        .andExpect(jsonPath("$.ruleVersion").value("solar-workbench-affix-v2"));
+        .andExpect(jsonPath("$.ruleVersion").value("solar-workbench-fracture-v3"));
     mvc.perform(
             post("/api/v1/crafting/workbench/apply")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -92,6 +144,6 @@ class WorkbenchControllerTest {
                             "activeOmens",
                             java.util.List.of()))))
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.length()").value(18));
+        .andExpect(jsonPath("$.length()").value(19));
   }
 }

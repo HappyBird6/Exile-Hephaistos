@@ -6,8 +6,8 @@ import java.util.random.RandomGenerator;
 
 /** Samples concrete elementary events; unchanged instances retain their actual values. */
 public final class WorkbenchSimulator {
-  public static final String RULE_VERSION = "solar-workbench-affix-v2";
-  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v1";
+  public static final String RULE_VERSION = "solar-workbench-fracture-v3";
+  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v2";
   private final ItemCatalog catalog;
   private final AdditionRules additionRules;
 
@@ -74,6 +74,19 @@ public final class WorkbenchSimulator {
     if (state.itemLevel() < action.minimumModifierLevel())
       return blocked(action, "Item level is below the currency's minimum modifier level.");
     var omen = matches.isEmpty() ? null : matches.getFirst();
+    if (action == WorkbenchCurrency.FRACTURING) {
+      if (state.rarity() != ItemState.Rarity.RARE || state.explicits().size() < 4)
+        return blocked(
+            action, "Fracturing requires a Rare item with at least four explicit modifiers.");
+      if (state.explicits().stream().anyMatch(ModifierInstance::fractured))
+        return blocked(action, "Cannot fracture an already Fractured item.");
+      return new Availability(action, true, "");
+    }
+    if (omen == WorkbenchOmen.WHITTLING
+        && state.explicits().stream().anyMatch(ModifierInstance::fractured))
+      return blocked(
+          action,
+          "Whittling priority with Fractured modifiers needs verification. Deactivate the omen.");
     if (action == WorkbenchCurrency.ALCHEMY) {
       if (state.rarity() != ItemState.Rarity.NORMAL && state.rarity() != ItemState.Rarity.MAGIC)
         return blocked(action, "Alchemy requires a Normal or Magic item.");
@@ -81,7 +94,8 @@ public final class WorkbenchSimulator {
     }
     if (action == WorkbenchCurrency.DIVINE) {
       var targets = new ArrayList<>(state.implicits());
-      if (omen != WorkbenchOmen.BLESSED) targets.addAll(state.explicits());
+      if (omen != WorkbenchOmen.BLESSED)
+        targets.addAll(state.explicits().stream().filter(m -> !m.fractured()).toList());
       if (targets.stream()
           .noneMatch(
               m ->
@@ -129,7 +143,7 @@ public final class WorkbenchSimulator {
   }
 
   private List<ModifierInstance> removalCandidates(ItemState state, WorkbenchOmen omen) {
-    var eligible = state.explicits();
+    var eligible = state.explicits().stream().filter(m -> !m.fractured()).toList();
     if (omen != null && omen.affix() != null)
       eligible =
           eligible.stream()
@@ -184,7 +198,23 @@ public final class WorkbenchSimulator {
     var assumptions = new ArrayList<Assumption>();
     var rarity =
         action == WorkbenchCurrency.ALCHEMY ? ItemState.Rarity.RARE : upgrade(state, action);
-    if (action == WorkbenchCurrency.ALCHEMY) {
+    if (action == WorkbenchCurrency.FRACTURING) {
+      int index = random.nextInt(explicits.size());
+      var chosen = explicits.get(index);
+      explicits.set(index, new ModifierInstance(chosen.modifierId(), chosen.values(), true));
+      events.add(
+          new Event("FRACTURE", chosen.modifierId(), chosen.values(), 1.0 / explicits.size()));
+      assumptions.add(
+          new Assumption(
+              "uniform-fracture-v1",
+              "eligible explicit modifier instance",
+              explicits.size(),
+              explicits.stream().map(ModifierInstance::modifierId).toList(),
+              null,
+              null,
+              "https://poe2db.tw/us/Fractured_Modifiers",
+              "Uniform among ordinary explicit instances on supported Rare Solar; no published fracture selection weights."));
+    } else if (action == WorkbenchCurrency.ALCHEMY) {
       for (var old : explicits) events.add(new Event("REMOVE", old.modifierId(), Map.of(), 1));
       explicits.clear();
       for (int i = 0; i < 4; i++) {
@@ -219,6 +249,7 @@ public final class WorkbenchSimulator {
       if (omen != WorkbenchOmen.BLESSED)
         for (int i = 0; i < explicits.size(); i++) {
           var current = explicits.get(i);
+          if (current.fractured()) continue;
           var d = catalog.find(current.modifierId()).orElseThrow();
           if (d.stats().getFirst().max() > d.stats().getFirst().min()) {
             var roll = roll(d, random, assumptions);

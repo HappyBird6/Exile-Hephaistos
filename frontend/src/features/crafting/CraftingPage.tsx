@@ -166,6 +166,7 @@ export function CraftingPage() {
     setSelected(null)
     setHeld(null)
     setPointer(null)
+    setAnnouncement('')
   }
   useEffect(
     () => () => {
@@ -501,7 +502,7 @@ export function CraftingPage() {
                 const d = initial.data!.modifiers[m.modifierId]!
                 return {
                   id: m.modifierId,
-                  text: altHeld ? d.text : rolledText(d, m.values),
+                  text: `${'fractured' in m && m.fractured ? '[Fractured] ' : ''}${altHeld ? d.text : rolledText(d, m.values)}`,
                   kind:
                     i < concrete.implicits.length
                       ? ('implicit' as const)
@@ -911,6 +912,7 @@ export function CraftingPage() {
                         )
                         setSelected(null)
                         setHeld(null)
+                        setAnnouncement('')
                       }}
                     >
                       <option value="" disabled>

@@ -1,9 +1,9 @@
 {
   "version": "equipment-crafting-registry-v2",
-  "ledgerVersion": "solar-uniform-assumptions-v1",
+  "ledgerVersion": "solar-uniform-assumptions-v2",
   "scope": "Equipment crafting, excluding maps and skill gems. Inventory coverage is incomplete and pending a full source audit; registration is not implementation.",
   "inventoryComplete": false,
-  "ruleVersion": "solar-workbench-affix-v2",
+  "ruleVersion": "solar-workbench-fracture-v3",
   "modifierWeightPolicy": "POE2DB_AS_PUBLISHED",
   "mixedKnownUnknownWeightPolicy": "BLOCK_UNTIL_POLICY_DECIDED",
   "entries": [
@@ -160,10 +160,13 @@
       "sourceRetrievedAt": "2026-09-23T07:20:30.890561+00:00",
       "sourceSha256": "f439765285fe232e6e3f091adc1d062ca35f133c37e7ee6c56c529e19ce243ea",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "FRACTURING",
+      "reason": "",
+      "ruleSource": "https://poe2db.tw/us/Fractured_Modifiers",
+      "ruleVerifiedAt": "2026-10-02",
+      "interactionScope": "Rare Solar with four or more ordinary explicit modifiers, no existing fracture. Uniform 1/N selection assumption. Locked option preserved by addition, Chaos, Annulment and Divine; Whittling plus fracture is blocked pending priority evidence."
     },
     {
       "id": "Divine_Orb",
@@ -3219,9 +3222,19 @@
   ],
   "assumptionLedger": [
     {
+      "id": "uniform-fracture-v1",
+      "candidateUnit": "eligible explicit modifier instance",
+      "eligibility": "Validated Rare Solar with at least four ordinary explicit modifiers and no existing fracture; implicit modifiers are excluded. Only one explicit fracture is supported.",
+      "n": "eligible explicit instance count",
+      "probability": "1/N",
+      "sourceUrls": ["https://poe2db.tw/us/Fractured_Modifiers", "https://www.pathofexile.com/forum/view-thread/3740562"],
+      "reason": "Effect and ordinary explicit candidate set are sourced; published fracture selection weights are unavailable.",
+      "scope": "MODELING_ASSUMPTION"
+    },
+    {
       "id": "uniform-removal-v1",
       "candidateUnit": "eligible explicit modifier instance",
-      "eligibility": "Validated Solar Amulet, ordinary Magic/Rare, no special conditions. All explicit instances; Chaos additionally requires Rare and replacement eligibility for every removal branch.",
+      "eligibility": "Validated Solar Amulet, Magic/Rare, no special conditions. Non-Fractured explicit instances after verified side restriction; Chaos requires Rare and replacement eligibility for every removal branch. Whittling with fracture is blocked pending priority verification.",
       "n": "Current eligible explicit instance count",
       "probability": "1/N",
       "sourceUrls": [

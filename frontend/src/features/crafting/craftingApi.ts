@@ -28,7 +28,11 @@ export interface Bucket {
   baseItemId: string
   itemLevel: number
   rarity: 'NORMAL' | 'MAGIC' | 'RARE'
-  implicits: { modifierId: string; values: Record<string, number> }[]
+  implicits: {
+    modifierId: string
+    values: Record<string, number>
+    fractured?: boolean
+  }[]
   modifierIds: string[]
   conditions: string[]
 }

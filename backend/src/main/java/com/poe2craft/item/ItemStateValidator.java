@@ -37,6 +37,16 @@ public final class ItemStateValidator {
     }
     validateModifiers(state.implicits(), Layer.IMPLICIT, errors);
     validateModifiers(state.explicits(), Layer.EXPLICIT, errors);
+    if (state.implicits().stream().anyMatch(ModifierInstance::fractured)
+        || state.explicits().stream().filter(ModifierInstance::fractured).count() > 1
+        || (state.explicits().stream().anyMatch(ModifierInstance::fractured)
+            && state.rarity() != ItemState.Rarity.RARE)) {
+      errors.add(
+          new Violation(
+              Code.UNSUPPORTED_STATE,
+              "",
+              "Only one fractured explicit on Rare Solar is supported"));
+    }
     if (state.rarity() != ItemState.Rarity.UNIQUE
         && state.snapshotId().equals(catalog.metadata().snapshotId())
         && state.baseItemId().equals(catalog.base().id())) {

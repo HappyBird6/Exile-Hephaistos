@@ -7,15 +7,18 @@ export type WorkbenchAction =
   | `PERFECT_${Exclude<Action, 'ANNULMENT'>}`
   | 'DIVINE'
   | 'ALCHEMY'
+  | 'FRACTURING'
 export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   ...currencyActions,
   Divine_Orb: 'DIVINE',
   Orb_of_Alchemy: 'ALCHEMY',
+  Fracturing_Orb: 'FRACTURING',
 }
 export const workbenchActionNames: Record<WorkbenchAction, string> = {
   ...actionNames,
   DIVINE: 'Divine Orb',
   ALCHEMY: 'Orb of Alchemy',
+  FRACTURING: 'Fracturing Orb',
 } as Record<WorkbenchAction, string>
 for (const [id, base] of Object.entries(currencyActions)) {
   if (base === 'ANNULMENT') continue
@@ -68,10 +71,15 @@ export const workbenchOmens = [
   },
 ] as const
 export const baseWorkbenchAction = (action: WorkbenchAction) =>
-  action.replace(/^(GREATER|PERFECT)_/, '') as Action | 'DIVINE' | 'ALCHEMY'
+  action.replace(/^(GREATER|PERFECT)_/, '') as
+    Action | 'DIVINE' | 'ALCHEMY' | 'FRACTURING'
 
 export interface ConcreteItem extends Omit<Bucket, 'modifierIds'> {
-  explicits: { modifierId: string; values: Record<string, number> }[]
+  explicits: {
+    modifierId: string
+    values: Record<string, number>
+    fractured?: boolean
+  }[]
 }
 export interface MappingResult {
   mapped: boolean
@@ -160,7 +168,7 @@ export interface AppliedItem {
   applied: boolean
   reason: string
   events: {
-    kind: 'ADD' | 'REMOVE' | 'REROLL_IMPLICIT' | 'REROLL_EXPLICIT'
+    kind: 'ADD' | 'REMOVE' | 'REROLL_IMPLICIT' | 'REROLL_EXPLICIT' | 'FRACTURE'
     modifierId: string
     values: Record<string, number>
     selectionProbability: number
@@ -200,6 +208,19 @@ export async function applyCurrency(
   const v = (await response.json()) as AppliedItem
   const next = v?.state
   const baseAction = baseWorkbenchAction(action)
+  const sameModifiers = (
+    a: ConcreteItem['explicits'],
+    b: ConcreteItem['explicits'],
+  ) =>
+    Array.isArray(a) &&
+    Array.isArray(b) &&
+    a.length === b.length &&
+    a.every(
+      (m, i) =>
+        m.modifierId === b[i]?.modifierId &&
+        Boolean(m.fractured) === Boolean(b[i]?.fractured) &&
+        JSON.stringify(m.values) === JSON.stringify(b[i]?.values),
+    )
   const validValues = (values: Record<string, number>) =>
     values &&
     typeof values === 'object' &&
@@ -216,10 +237,10 @@ export async function applyCurrency(
     next.baseItemId !== state.baseItemId ||
     next.itemLevel !== state.itemLevel ||
     !['NORMAL', 'MAGIC', 'RARE'].includes(next.rarity) ||
-    (action !== 'DIVINE' &&
-      JSON.stringify(next.implicits) !== JSON.stringify(state.implicits)) ||
+    (action !== 'DIVINE' && !sameModifiers(next.implicits, state.implicits)) ||
     !Array.isArray(next.implicits) ||
     next.implicits.length !== 1 ||
+    next.implicits.some((m) => m.fractured) ||
     next.implicits[0]?.modifierId !== state.implicits[0]?.modifierId ||
     !next.implicits.every((m) =>
       definitions[m.modifierId]?.stats?.every(
@@ -237,6 +258,7 @@ export async function applyCurrency(
       (m) =>
         definitions[m.modifierId] &&
         validValues(m.values) &&
+        (m.fractured === undefined || typeof m.fractured === 'boolean') &&
         definitions[m.modifierId]!.stats?.length ===
           Object.keys(m.values).length &&
         definitions[m.modifierId]!.stats?.every(
@@ -249,9 +271,13 @@ export async function applyCurrency(
     !Array.isArray(v.events) ||
     !v.events.every(
       (e) =>
-        ['ADD', 'REMOVE', 'REROLL_IMPLICIT', 'REROLL_EXPLICIT'].includes(
-          e.kind,
-        ) &&
+        [
+          'ADD',
+          'REMOVE',
+          'REROLL_IMPLICIT',
+          'REROLL_EXPLICIT',
+          'FRACTURE',
+        ].includes(e.kind) &&
         definitions[e.modifierId] &&
         validValues(e.values) &&
         Number.isFinite(e.selectionProbability) &&
@@ -310,7 +336,9 @@ export async function applyCurrency(
       : state.explicits.length +
         (baseAction === 'ANNULMENT'
           ? -1
-          : baseAction === 'CHAOS' || action === 'DIVINE'
+          : baseAction === 'CHAOS' ||
+              action === 'DIVINE' ||
+              action === 'FRACTURING'
             ? 0
             : 1)
   if (
@@ -320,9 +348,9 @@ export async function applyCurrency(
       (next.rarity !== expectedRarity ||
         next.explicits.length !== expectedCount)) ||
     (!v.applied &&
-      (JSON.stringify(next.explicits) !== JSON.stringify(state.explicits) ||
+      (!sameModifiers(next.explicits, state.explicits) ||
         next.rarity !== state.rarity ||
-        JSON.stringify(next.implicits) !== JSON.stringify(state.implicits) ||
+        !sameModifiers(next.implicits, state.implicits) ||
         v.events.length !== 0 ||
         v.assumptions.length !== 0))
   )
@@ -334,10 +362,45 @@ export async function applyCurrency(
     (next.explicits.map((m) => m.modifierId).join('|') !==
       state.explicits.map((m) => m.modifierId).join('|') ||
       (activeOmens.includes('Omen_of_the_Blessed') &&
-        JSON.stringify(next.explicits) !== JSON.stringify(state.explicits)))
+        !sameModifiers(next.explicits, state.explicits)))
   )
     throw new Error(
       'Could not verify the applied item. Your item is unchanged. Please retry.',
+    )
+  const locks = next.explicits.filter((m) => m.fractured)
+  const previousLocks = state.explicits.filter((m) => m.fractured)
+  if (
+    locks.length > 1 ||
+    (locks.length && next.rarity !== 'RARE') ||
+    previousLocks.some(
+      (locked) =>
+        !next.explicits.some(
+          (m) =>
+            m.modifierId === locked.modifierId &&
+            m.fractured &&
+            JSON.stringify(m.values) === JSON.stringify(locked.values),
+        ),
+    ) ||
+    (v.applied &&
+      action === 'FRACTURING' &&
+      (locks.length !== 1 ||
+        previousLocks.length !== 0 ||
+        state.rarity !== 'RARE' ||
+        state.explicits.length < 4 ||
+        next.explicits.some(
+          (m, i) =>
+            m.modifierId !== state.explicits[i]?.modifierId ||
+            JSON.stringify(m.values) !==
+              JSON.stringify(state.explicits[i]?.values),
+        ) ||
+        v.events.length !== 1 ||
+        v.events[0]?.kind !== 'FRACTURE' ||
+        v.events[0]?.modifierId !== locks[0]?.modifierId ||
+        v.events[0]?.selectionProbability !== 1 / state.explicits.length)) ||
+    (action !== 'FRACTURING' && locks.length !== previousLocks.length)
+  )
+    throw new Error(
+      'Could not verify the Fractured modifier. Your item is unchanged. Please retry.',
     )
   return v
 }

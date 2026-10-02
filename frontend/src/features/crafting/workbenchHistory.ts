@@ -137,10 +137,13 @@ export function verifiedHistoryState(
       state.conditions.length ||
       !Array.isArray(state.implicits) ||
       state.implicits.length !== 1 ||
+      state.implicits.some((m) => m.fractured) ||
       state.implicits[0]?.modifierId !==
         initial.state.implicits[0]?.modifierId ||
       !Array.isArray(state.explicits) ||
-      state.explicits.length > 6
+      state.explicits.length > 6 ||
+      state.explicits.filter((m) => m.fractured).length > 1 ||
+      (state.explicits.some((m) => m.fractured) && state.rarity !== 'RARE')
     )
       return false
     const families = new Set<string>()
@@ -153,6 +156,9 @@ export function verifiedHistoryState(
       const definition = initial.modifiers[instance.modifierId]
       if (
         !definition?.stats ||
+        (index > 0 &&
+          instance.fractured !== undefined &&
+          typeof instance.fractured !== 'boolean') ||
         !instance.values ||
         Object.keys(instance.values).length !== definition.stats.length ||
         !definition.stats.every(
