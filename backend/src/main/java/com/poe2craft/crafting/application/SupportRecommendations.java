@@ -117,6 +117,12 @@ public final class SupportRecommendations {
   }
 
   private void rejectMultiAddition(Set<String> omens) {
+    if (omens != null
+        && omens.stream()
+            .map(WorkbenchOmen::fromId)
+            .anyMatch(o -> o.trigger() == WorkbenchCurrency.ESSENCE_HYSTERIA))
+      throw new IllegalArgumentException(
+          "Crystallisation is outside the finite addition model. Deactivate it for Support.");
     if (omens != null && omens.contains(WorkbenchOmen.GREATER_EXALTATION.id()))
       throw new IllegalArgumentException(
           "Greater Exaltation is outside the finite addition model. Deactivate it for Support.");

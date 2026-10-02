@@ -64,6 +64,27 @@ class SupportRecommendationsTest {
   }
 
   @Test
+  void replacementOmensRemainOutsideTheSupportAdditionModel() {
+    var service = new SupportRecommendations(catalog, cache());
+    for (var omen :
+        List.of(WorkbenchOmen.SINISTRAL_CRYSTALLISATION, WorkbenchOmen.DEXTRAL_CRYSTALLISATION)) {
+      assertThatThrownBy(() -> service.recommend(root(), life(2), Set.of(omen.id()), generous))
+          .isInstanceOf(IllegalArgumentException.class)
+          .hasMessageContaining("finite addition model");
+      assertThatThrownBy(
+              () ->
+                  service.evaluate(
+                      root(),
+                      life(2),
+                      Set.of(omen.id()),
+                      List.of(WorkbenchCurrency.EXALTED),
+                      generous))
+          .isInstanceOf(IllegalArgumentException.class)
+          .hasMessageContaining("finite addition model");
+    }
+  }
+
+  @Test
   void snapshotAndSourceDigestChangesInvalidateTheNamespace() {
     var m = catalog.metadata();
     var updated =

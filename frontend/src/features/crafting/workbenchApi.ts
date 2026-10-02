@@ -147,6 +147,18 @@ for (const [id, base] of Object.entries(currencyActions)) {
 }
 export const workbenchOmens = [
   {
+    id: 'Omen_of_Sinistral_Crystallisation',
+    trigger: 'ESSENCE_HYSTERIA',
+    effect:
+      'Hysteria removes only prefixes; other Perfect/Corrupted essences unsupported',
+  },
+  {
+    id: 'Omen_of_Dextral_Crystallisation',
+    trigger: 'ESSENCE_HYSTERIA',
+    effect:
+      'Hysteria removes only suffixes; other Perfect/Corrupted essences unsupported',
+  },
+  {
     id: 'Omen_of_Greater_Exaltation',
     trigger: 'EXALTED',
     effect: 'Add two modifiers; requires two free slots in Workbench',
@@ -500,7 +512,20 @@ export async function applyCurrency(
     )
   const locks = next.explicits.filter((m) => m.fractured)
   if (v.applied && action === 'ESSENCE_HYSTERIA') {
-    const candidates = state.explicits.filter((m) => !m.fractured)
+    const matching = workbenchOmens.filter(
+      (o) => o.trigger === 'ESSENCE_HYSTERIA' && activeOmens.includes(o.id),
+    )
+    const side =
+      matching[0]?.id === 'Omen_of_Sinistral_Crystallisation'
+        ? 'PREFIX'
+        : matching[0]?.id === 'Omen_of_Dextral_Crystallisation'
+          ? 'SUFFIX'
+          : null
+    const candidates = state.explicits.filter(
+      (m) =>
+        !m.fractured &&
+        (!side || definitions[m.modifierId]?.affixType === side),
+    )
     const removed = v.events[0]
     const added = v.events[1]
     const old = candidates.find((m) => m.modifierId === removed?.modifierId)
@@ -522,7 +547,9 @@ export async function applyCurrency(
       added.selectionProbability !== 1 ||
       !target ||
       JSON.stringify(added.values) !== JSON.stringify(target.values) ||
-      v.consumedOmens.length !== 0 ||
+      matching.length > 1 ||
+      v.consumedOmens.length !== matching.length ||
+      !matching.every((o) => v.consumedOmens.includes(o.id)) ||
       !sameModifiers(
         preserved,
         next.explicits.filter((m) =>

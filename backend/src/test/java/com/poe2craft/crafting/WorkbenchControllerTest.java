@@ -56,7 +56,7 @@ class WorkbenchControllerTest {
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.applied").value(true))
             .andExpect(jsonPath("$.events[0].kind").value("FRACTURE"))
-            .andExpect(jsonPath("$.ledgerVersion").value("solar-uniform-assumptions-v4"))
+            .andExpect(jsonPath("$.ledgerVersion").value("solar-uniform-assumptions-v5"))
             .andReturn();
     var state =
         mapper.treeToValue(
@@ -103,7 +103,7 @@ class WorkbenchControllerTest {
         .andExpect(jsonPath("$.state.rarity").value("MAGIC"))
         .andExpect(jsonPath("$.state.explicits.length()").value(1))
         .andExpect(jsonPath("$.events[0].kind").value("ADD"))
-        .andExpect(jsonPath("$.ruleVersion").value("solar-workbench-hysteria-essence-v10"));
+        .andExpect(jsonPath("$.ruleVersion").value("solar-workbench-crystallisation-v11"));
     mvc.perform(
             post("/api/v1/crafting/workbench/apply")
                 .contentType(MediaType.APPLICATION_JSON)

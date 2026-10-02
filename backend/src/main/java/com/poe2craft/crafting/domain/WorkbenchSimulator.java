@@ -6,8 +6,8 @@ import java.util.random.RandomGenerator;
 
 /** Samples concrete elementary events; unchanged instances retain their actual values. */
 public final class WorkbenchSimulator {
-  public static final String RULE_VERSION = "solar-workbench-hysteria-essence-v10";
-  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v4";
+  public static final String RULE_VERSION = "solar-workbench-crystallisation-v11";
+  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v5";
   private final ItemCatalog catalog;
   private final AdditionRules additionRules;
 
@@ -101,7 +101,7 @@ public final class WorkbenchSimulator {
       var target = catalog.find("amulet:suffix:of-suturing").orElseThrow();
       if (state.itemLevel() < target.requiredItemLevel())
         return blocked(action, "Hysteria below the catalog modifier item level is unsupported.");
-      var candidates = removalCandidates(state, null);
+      var candidates = removalCandidates(state, omen);
       if (candidates.isEmpty()) return blocked(action, "No non-Fractured explicit can be removed.");
       for (var removed : candidates) {
         var rest = new ArrayList<>(state.explicits());
@@ -258,7 +258,7 @@ public final class WorkbenchSimulator {
             ? ItemState.Rarity.RARE
             : upgrade(state, action);
     if (action == WorkbenchCurrency.ESSENCE_HYSTERIA) {
-      var candidates = removalCandidates(state, null);
+      var candidates = removalCandidates(state, omen);
       var removed = candidates.get(random.nextInt(candidates.size()));
       explicits.remove(removed);
       events.add(new Event("REMOVE", removed.modifierId(), Map.of(), 1.0 / candidates.size()));
@@ -270,7 +270,7 @@ public final class WorkbenchSimulator {
               candidates.stream().map(ModifierInstance::modifierId).toList(),
               null,
               null,
-              "https://poe2db.tw/us/Essence_of_Hysteria",
+              "https://poe2db.tw/us/" + (omen == null ? "Essence_of_Hysteria" : omen.id()),
               "Uniform among non-Fractured explicit instances; every removal branch must accept the sourced fixed suffix. No published removal weights."));
       var definition = catalog.find("amulet:suffix:of-suturing").orElseThrow();
       var rolled = roll(definition, random, assumptions);
