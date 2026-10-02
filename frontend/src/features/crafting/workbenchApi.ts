@@ -11,10 +11,22 @@ export type WorkbenchAction =
   | 'LESSER_ESSENCE_BODY'
   | 'ESSENCE_BODY'
   | 'GREATER_ESSENCE_BODY'
+  | 'LESSER_ESSENCE_MIND'
+  | 'ESSENCE_MIND'
+  | 'GREATER_ESSENCE_MIND'
+  | 'LESSER_ESSENCE_RUIN'
+  | 'ESSENCE_RUIN'
+  | 'GREATER_ESSENCE_RUIN'
 const fixedEssenceModifiers: Partial<Record<WorkbenchAction, string>> = {
   LESSER_ESSENCE_BODY: 'amulet:prefix:healthy',
   ESSENCE_BODY: 'amulet:prefix:robust',
   GREATER_ESSENCE_BODY: 'amulet:prefix:rotund',
+  LESSER_ESSENCE_MIND: 'amulet:prefix:azure',
+  ESSENCE_MIND: 'amulet:prefix:opalescent',
+  GREATER_ESSENCE_MIND: 'amulet:prefix:gentian',
+  LESSER_ESSENCE_RUIN: 'amulet:suffix:of-the-lost',
+  ESSENCE_RUIN: 'amulet:suffix:of-banishment',
+  GREATER_ESSENCE_RUIN: 'amulet:suffix:of-expulsion',
 }
 export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   ...currencyActions,
@@ -24,6 +36,12 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Lesser_Essence_of_the_Body: 'LESSER_ESSENCE_BODY',
   Essence_of_the_Body: 'ESSENCE_BODY',
   Greater_Essence_of_the_Body: 'GREATER_ESSENCE_BODY',
+  Lesser_Essence_of_the_Mind: 'LESSER_ESSENCE_MIND',
+  Essence_of_the_Mind: 'ESSENCE_MIND',
+  Greater_Essence_of_the_Mind: 'GREATER_ESSENCE_MIND',
+  Lesser_Essence_of_Ruin: 'LESSER_ESSENCE_RUIN',
+  Essence_of_Ruin: 'ESSENCE_RUIN',
+  Greater_Essence_of_Ruin: 'GREATER_ESSENCE_RUIN',
 }
 export const workbenchActionNames: Record<WorkbenchAction, string> = {
   ...actionNames,
@@ -33,6 +51,12 @@ export const workbenchActionNames: Record<WorkbenchAction, string> = {
   LESSER_ESSENCE_BODY: 'Lesser Essence of the Body',
   ESSENCE_BODY: 'Essence of the Body',
   GREATER_ESSENCE_BODY: 'Greater Essence of the Body',
+  LESSER_ESSENCE_MIND: 'Lesser Essence of the Mind',
+  ESSENCE_MIND: 'Essence of the Mind',
+  GREATER_ESSENCE_MIND: 'Greater Essence of the Mind',
+  LESSER_ESSENCE_RUIN: 'Lesser Essence of Ruin',
+  ESSENCE_RUIN: 'Essence of Ruin',
+  GREATER_ESSENCE_RUIN: 'Greater Essence of Ruin',
 } as Record<WorkbenchAction, string>
 for (const [id, base] of Object.entries(currencyActions)) {
   if (base === 'ANNULMENT') continue

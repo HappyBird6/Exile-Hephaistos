@@ -6,7 +6,7 @@ import java.util.random.RandomGenerator;
 
 /** Samples concrete elementary events; unchanged instances retain their actual values. */
 public final class WorkbenchSimulator {
-  public static final String RULE_VERSION = "solar-workbench-body-essence-v5";
+  public static final String RULE_VERSION = "solar-workbench-fixed-essence-v6";
   public static final String LEDGER_VERSION = "solar-uniform-assumptions-v2";
   private final ItemCatalog catalog;
   private final AdditionRules additionRules;
@@ -108,7 +108,7 @@ public final class WorkbenchSimulator {
       if (!pool(rare, action, null).contains(target))
         return blocked(
             action,
-            "The guaranteed essence modifier conflicts with existing families or available prefix slots; the overlap interaction is unsupported.");
+            "The guaranteed essence modifier conflicts with existing families or available affix slots; the overlap interaction is unsupported.");
       return new Availability(action, true, "");
     }
     if (action == WorkbenchCurrency.FRACTURING) {

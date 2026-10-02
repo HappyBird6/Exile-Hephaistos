@@ -23,7 +23,13 @@ public enum WorkbenchCurrency {
   FRACTURING(null, 0),
   LESSER_ESSENCE_BODY("amulet:prefix:healthy"),
   ESSENCE_BODY("amulet:prefix:robust"),
-  GREATER_ESSENCE_BODY("amulet:prefix:rotund");
+  GREATER_ESSENCE_BODY("amulet:prefix:rotund"),
+  LESSER_ESSENCE_MIND("amulet:prefix:azure"),
+  ESSENCE_MIND("amulet:prefix:opalescent"),
+  GREATER_ESSENCE_MIND("amulet:prefix:gentian"),
+  LESSER_ESSENCE_RUIN("amulet:suffix:of-the-lost"),
+  ESSENCE_RUIN("amulet:suffix:of-banishment"),
+  GREATER_ESSENCE_RUIN("amulet:suffix:of-expulsion");
 
   private final CraftingAction baseAction;
   private final int minimumModifierLevel;

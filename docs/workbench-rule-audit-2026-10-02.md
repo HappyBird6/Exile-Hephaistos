@@ -101,6 +101,23 @@ History uses `hephaistos.workbench.films.v1` localStorage through a repository b
 
 ## Environment recovery and remaining validation
 
+### Mind and Ruin essence expansion
+
+The same fixed-result path is extended to six additional ordinary tiers. All require Magic Solar with the target result valid at its catalog item level and without family overlap. Fixed modifier selection is deterministic (probability 1); the single numeric range retains the uniform integer ledger. Mind adds a prefix; Ruin adds a suffix. Existing modifier/implicit values and unrelated supported omens remain. Source Required Level is recorded separately and is not substituted for catalog item level.
+
+| Essence | Fixed Solar result | Catalog modifier / minimum supported item level | Source Required Level | Source checked 2026-10-02 |
+| --- | --- | --- | --- | --- |
+| Lesser Mind | +25–34 maximum Mana | `amulet:prefix:azure` / 16 | 12 | [Lesser Mind](https://poe2db.tw/us/Lesser_Essence_of_the_Mind) |
+| Mind | +80–89 maximum Mana | `amulet:prefix:opalescent` / 46 | 36 | [Mind](https://poe2db.tw/us/Essence_of_the_Mind) |
+| Greater Mind | +90–104 maximum Mana | `amulet:prefix:gentian` / 54 | 43 | [Greater Mind](https://poe2db.tw/us/Greater_Essence_of_the_Mind) |
+| Lesser Ruin | +4–7% Chaos Resistance | `amulet:suffix:of-the-lost` / 16 | 12 | [Lesser Ruin](https://poe2db.tw/us/Lesser_Essence_of_Ruin) |
+| Ruin | +8–11% Chaos Resistance | `amulet:suffix:of-banishment` / 30 | 24 | [Ruin](https://poe2db.tw/us/Essence_of_Ruin) |
+| Greater Ruin | +16–19% Chaos Resistance | `amulet:suffix:of-expulsion` / 56 | 44 | [Greater Ruin](https://poe2db.tw/us/Greater_Essence_of_Ruin) |
+
+Docker mandatory checks passed: 128 unit/API/architecture plus six integration tests (134 total, zero failures/errors); frontend lint/typecheck/format, 86 tests and build. New backend tests cover 100 seeds across six tiers on one/two-explicit Magic input, fixed ranges/affix types, immutable existing rolls, unrelated omen preservation, numeric ledger, each catalog-level boundary and below-boundary refusal, family overlap and wrong rarity. Actual Chromium passed 55 checks across all nine Body/Mind/Ruin tiers, zero runtime errors: real effects and evidence, right-click use, blocked Normal/Rare repeats, preservation and reload. Screenshot visually reviewed. Evidence is `codex/qa-20261002/backend-fixed-essence-results`, `fixed-essence-browser-results.json`, `fixed-essence-desktop.png`.
+
+Current rule version is `solar-workbench-fixed-essence-v6`, ledger remains v2; registry now 19 implemented currencies, nine omens and nine essences (183 pending of 220 registered). No other equipment base or Perfect/corrupted essence is enabled by analogy. Existing 30 general browser regressions last ran against v5, 20 Fracturing/14 Greater Exaltation against v4; their backend/frontend regressions are included in the current mandatory suites. The 55 checks do not assert unverified low-level bypasses or family-overlap outcomes.
+
 Docker originally failed with read-only filesystem / I/O errors when C: had about 10.5 MiB free. Following explicit approval, the user moved Docker data to E: using Docker Desktop. The agent performed one authorized official Docker Desktop stop, without force, and read-only checks; no pruning, volume deletion, DB reset or destructive migration occurred. Docker is healthy after recovery. The actual data disk is under `E:/Docker/WSL/DockerDesktopWSL/DockerDesktopWSL/disk`.
 
 The original project's existing PostgreSQL volume was read-only checked against its two older successful migrations, then returned to its prior stopped state. Its older schema lacks the latest cache table; this is not evidence of data loss. Current runtime QA uses a separate project and volume. Existing-data full equivalence cannot be claimed from an incomplete pre-move inventory.
@@ -112,3 +129,5 @@ Fracturing namespace cache recheck: `847b4c36c72b9c8353e52fed202f21df50f4c334f28
 Greater Exaltation namespace cache recheck: `2967cb61d8f7d2969f733f82f7c1f29e32d78ab92d56f5231108ef6015c67946`; before normal QA-app restart one computed pool, after restart one persisted hit, nine memory hits and zero computations. Comparisons and assessment are exactly equal; evidence is `cache-before-v4.json` / `cache-after-v4.json`.
 
 Body essence namespace cache recheck: `fcfafab62f6ee72aff130534fadab0eaf0bf2570ae3460332d3bcd5e5a00b025`; one computed pool before normal QA-app restart, one persisted hit/nine memory hits/zero computations afterwards; comparisons and assessment exactly equal. Evidence: `cache-before-v5.json` / `cache-after-v5.json`.
+
+Mind/Ruin namespace cache recheck: `f3281e63519be58c25dbcb9390177a695a5c48fdc19ab90fb36a0227ee024409`; one computed pool before normal QA-app restart, one persisted hit/nine memory hits/zero computations afterwards; comparisons and assessment exactly equal. Evidence: `cache-before-v6.json` / `cache-after-v6.json`.
