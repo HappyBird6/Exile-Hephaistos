@@ -1350,12 +1350,13 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "ESSENCE_ABYSS",
-      "reason": "",
+      "reason": "Supported Rare Solar or Stocky Mitts: remove one eligible unlocked explicit and add one of two source-proven prefix/suffix Mark results. Every removal/target branch must fit slots and family. Special zero-ordinary-spawn definitions are excluded from normal currency pools. Unpublished outcome weights use explicit uniform 1/2 assumption; individual Crystallisation restricts removal only. Existing locks and unrelated omens are preserved.",
       "ruleSource": "https://poe2db.tw/us/Essence_of_the_Abyss",
       "ruleVerifiedAt": "2026-10-02",
       "implementationScope": "Rare Solar Amulet level 1+: random unlocked explicit replacement with either sourced Mark prefix or suffix. Every removal branch must permit both results; Crystallisation restricts removal only. Shared family prevents duplicate Marks. Desecration/reveal follow-up unsupported.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
@@ -1962,7 +1963,7 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "DEXTRAL_CRYSTALLISATION",
-      "reason": "Supported Solar replacement Essences or Stocky Mitts Hysteria: remove only unlocked suffix instances. Consume once on success; unrelated omens remain. Matching pair conflicts, no eligible suffix and any invalid replacement branch are blocked. Other glove replacement materials remain unsupported.",
+      "reason": "Supported Solar replacement Essences or Stocky Mitts Hysteria/Abyss: remove only unlocked suffix instances. Consume once on success; unrelated omens remain. Matching pair conflicts, no eligible suffix and any invalid replacement branch are blocked. Other glove replacement materials remain unsupported.",
       "supportedBases": [
         "solar",
         "stocky"
@@ -1980,7 +1981,7 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "SINISTRAL_CRYSTALLISATION",
-      "reason": "Supported Solar replacement Essences or Stocky Mitts Hysteria: remove only unlocked prefix instances. Consume once on success; unrelated omens remain. Matching pair conflicts, no eligible prefix and any invalid replacement branch are blocked. Other glove replacement materials remain unsupported.",
+      "reason": "Supported Solar replacement Essences or Stocky Mitts Hysteria/Abyss: remove only unlocked prefix instances. Consume once on success; unrelated omens remain. Matching pair conflicts, no eligible prefix and any invalid replacement branch are blocked. Other glove replacement materials remain unsupported.",
       "supportedBases": [
         "solar",
         "stocky"

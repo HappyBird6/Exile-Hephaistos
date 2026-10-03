@@ -32,8 +32,15 @@ public class CraftingConfiguration {
   WorkbenchService workbenchService(ItemCatalog catalog, WorkbenchSimulator simulator) {
     try (var data = getClass().getResourceAsStream("/catalog/stocky-mitts/catalog.json");
         var raw = getClass().getResourceAsStream("/catalog/stocky-mitts/base.raw.json");
-        var details = getClass().getResourceAsStream("/catalog/stocky-mitts/details.raw.json")) {
-      return new WorkbenchService(catalog, simulator, ItemCatalogLoader.load(data, raw, details));
+        var details = getClass().getResourceAsStream("/catalog/stocky-mitts/details.raw.json");
+        var special =
+            getClass().getResourceAsStream("/catalog/stocky-mitts/abyss-essence.catalog.json");
+        var specialRaw =
+            getClass().getResourceAsStream("/catalog/stocky-mitts/abyss-essence.raw.json")) {
+      return new WorkbenchService(
+          catalog,
+          simulator,
+          ItemCatalogLoader.loadWithSpecial(data, raw, details, special, specialRaw));
     } catch (java.io.IOException e) {
       throw new IllegalStateException("Cannot load Stocky Mitts catalog", e);
     }

@@ -13,8 +13,12 @@ class StockyWorkbenchTest {
   private ItemCatalog stocky() throws Exception {
     try (var data = getClass().getResourceAsStream("/catalog/stocky-mitts/catalog.json");
         var raw = getClass().getResourceAsStream("/catalog/stocky-mitts/base.raw.json");
-        var details = getClass().getResourceAsStream("/catalog/stocky-mitts/details.raw.json")) {
-      return ItemCatalogLoader.load(data, raw, details);
+        var details = getClass().getResourceAsStream("/catalog/stocky-mitts/details.raw.json");
+        var special =
+            getClass().getResourceAsStream("/catalog/stocky-mitts/abyss-essence.catalog.json");
+        var specialRaw =
+            getClass().getResourceAsStream("/catalog/stocky-mitts/abyss-essence.raw.json")) {
+      return ItemCatalogLoader.loadWithSpecial(data, raw, details, special, specialRaw);
     }
   }
 
@@ -46,7 +50,7 @@ class StockyWorkbenchTest {
       assertThat(rare.applied()).isTrue();
       assertThat(rare.state().implicits()).isEmpty();
       assertThat(rare.state().explicits()).hasSize(4);
-      assertThat(rare.ruleVersion()).isEqualTo("stocky-workbench-hysteria-v19");
+      assertThat(rare.ruleVersion()).isEqualTo("stocky-workbench-abyss-v20");
       var locked =
           service.apply(rare.state(), WorkbenchCurrency.FRACTURING, Set.of(), random).state();
       var fracture =
@@ -97,7 +101,7 @@ class StockyWorkbenchTest {
         List.of(
             WorkbenchCurrency.ESSENCE_INFINITE,
             WorkbenchCurrency.RUNIC_ALLOY,
-            WorkbenchCurrency.ESSENCE_ABYSS)) {
+            WorkbenchCurrency.PERFECT_ESSENCE_ENHANCEMENT)) {
       var result = service.apply(magic, action, Set.of(), new Random(1));
       assertThat(result.applied()).isFalse();
       assertThat(result.state()).isEqualTo(magic);
@@ -133,7 +137,7 @@ class StockyWorkbenchTest {
                   catalog.find(m.modifierId()).orElseThrow().affixType()
                       == ModifierDefinition.AffixType.PREFIX);
     }
-    assertThat(catalog.modifiers()).hasSize(182);
+    assertThat(catalog.modifiers()).hasSize(184);
     assertThat(
             service
                 .apply(
@@ -221,7 +225,7 @@ class StockyWorkbenchTest {
         }
       }
     }
-    assertThat(service.actions(root, Set.of())).hasSize(45);
+    assertThat(service.actions(root, Set.of())).hasSize(46);
     assertThat(
             service.actions(
                 new ItemState(
@@ -234,6 +238,6 @@ class StockyWorkbenchTest {
                     Set.of()),
                 Set.of()))
         .hasSize(49);
-    assertThat(catalog.modifiers()).hasSize(182);
+    assertThat(catalog.modifiers()).hasSize(184);
   }
 }

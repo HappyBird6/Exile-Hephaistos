@@ -152,3 +152,15 @@ Next bounded candidate: glove Hysteria's current CriticalMultiplier4 matches the
 - Evidence and completion checks: [current primary sources, detailed scope, Docker/backend/client/browser verification and next bounded candidate](docs/workbench-stocky-hysteria-2026-10-03.md).
 - Current unique-material count remains 64; Stocky 56 support records/45 actions (25 basic Essences + Hysteria, 11 omens, 19 currencies). No cross-base sum used as implementation count.
 Latest Hysteria verification: Docker BE 195 (189 unit/six integration), FE 114/21 files, actual Hysteria browser 51, Stocky regression 62/basic Essence 86, retained v17/v18 compatibility 4 each, Solar 30/cross-feature 22; all zero failures/page errors. Source collection for all 13 glove special-result rows is complete; next activation candidate is Abyss's two source-proven zero-spawn dedicated targets. [Execution evidence, unsupported scope and next step](docs/workbench-stocky-hysteria-2026-10-03.md).
+
+## WB-012 — DONE — Stocky Abyss special pool and additive snapshot
+
+- Scope: exactly two source-proven zero-spawn prefix/suffix Mark definitions on the existing glove base. Normal 182 definitions/weights unchanged; no downstream desecration/reveal.
+- Rules: Rare replacement; every eligible removal and both target branches must fit family/slots. No pruning. Individual Crystallisation affects removal only; matching pairs rejected. Fractured/untouched values and unrelated omens preserved; a sole unlocked Mark can replace itself.
+- Probability: explicit separate removal 1/N and unpublished two-outcome choice 1/2 assumptions. Fixed marker value has no numeric range. WB-003 remains unverified for other rolls.
+- Compatibility: separately checksum-validated special catalog; only the intact normal snapshot is compatible. Restore/view preserves stored bytes; actual craft may upgrade validated state identities only. Original evidence and future frames preserved; unknown snapshots retained untouched.
+- Evidence and verification: [source targets, loader integrity, actual runtime/browser/history and rollback boundary](docs/workbench-stocky-abyss-2026-10-03.md).
+- Current runtime: 184 definitions = 182 normal + two zero-spawn; unique implementation 64 unchanged; Stocky 57 support records/46 actions.
+
+Remaining special-target source review: [13 rows / 12 material identities, exact stat/family/locality and independently checked page conditions](docs/workbench-stocky-special-evidence-2026-10-03.md). Source capture is not implementation; Horror's fixed glove/boot effect is the next independent candidate. Root ISSUES.md remains the single issue list.
+Latest Abyss verification: Docker BE 201 (195 unit/six integration), FE 117/22 files; actual Abyss browser 50, snapshot/history compatibility 10, Stocky general 59/basic Essence 86/Hysteria 37, latest Solar 30/cross-feature 22; zero failures/page errors. Real API additionally reached and Fractured both zero-spawn Mark outcomes and preserved them through Divine/Chaos/Annul without ordinary-pool contamination. [Execution evidence and non-rerun limits](docs/workbench-stocky-abyss-2026-10-03.md).

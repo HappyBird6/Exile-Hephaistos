@@ -99,7 +99,7 @@ public final class WorkbenchSimulator {
   }
 
   public String ruleVersion() {
-    return coupledModifierIds.isEmpty() ? RULE_VERSION : "stocky-workbench-hysteria-v19";
+    return coupledModifierIds.isEmpty() ? RULE_VERSION : "stocky-workbench-abyss-v20";
   }
 
   public String ledgerVersion() {

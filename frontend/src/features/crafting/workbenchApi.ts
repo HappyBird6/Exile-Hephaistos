@@ -487,11 +487,20 @@ export async function applyCurrency(
   const essenceCandidates = fixedTarget
     ? [fixedTarget]
     : (choiceEssenceModifiers[action] ?? [])
+  const stockyReplacementTargets: Partial<
+    Record<WorkbenchAction, readonly string[]>
+  > = {
+    ESSENCE_HYSTERIA: ['stocky-mitts:suffix:of-fury'],
+    ESSENCE_ABYSS: [
+      'stocky-mitts:prefix:essence-abyssal-mark',
+      'stocky-mitts:suffix:essence-abyssal-mark',
+    ],
+  }
   const replacementTargets =
-    state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1' &&
-    action === 'ESSENCE_HYSTERIA'
-      ? ['stocky-mitts:suffix:of-fury']
-      : (replacementEssenceModifiers[action] ?? [])
+    (state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+      ? (stockyReplacementTargets[action] ??
+        replacementEssenceModifiers[action])
+      : replacementEssenceModifiers[action]) ?? []
   const sameModifiers = (
     a: ConcreteItem['explicits'],
     b: ConcreteItem['explicits'],

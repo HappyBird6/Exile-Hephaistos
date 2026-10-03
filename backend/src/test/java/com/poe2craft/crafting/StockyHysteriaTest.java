@@ -17,9 +17,14 @@ class StockyHysteriaTest {
         var raw =
             StockyHysteriaTest.class.getResourceAsStream("/catalog/stocky-mitts/base.raw.json");
         var details =
+            StockyHysteriaTest.class.getResourceAsStream("/catalog/stocky-mitts/details.raw.json");
+        var special =
             StockyHysteriaTest.class.getResourceAsStream(
-                "/catalog/stocky-mitts/details.raw.json")) {
-      return ItemCatalogLoader.load(data, raw, details);
+                "/catalog/stocky-mitts/abyss-essence.catalog.json");
+        var specialRaw =
+            StockyHysteriaTest.class.getResourceAsStream(
+                "/catalog/stocky-mitts/abyss-essence.raw.json")) {
+      return ItemCatalogLoader.loadWithSpecial(data, raw, details, special, specialRaw);
     } catch (Exception e) {
       throw new IllegalStateException(e);
     }
@@ -251,7 +256,7 @@ class StockyHysteriaTest {
       assertThat(definition.stats())
           .containsExactly(
               new ModifierDefinition.StatRange("base_critical_strike_multiplier_+", 25, 29));
-      assertThat(catalog.modifiers()).hasSize(182);
+      assertThat(catalog.modifiers()).hasSize(184);
     }
   }
 }

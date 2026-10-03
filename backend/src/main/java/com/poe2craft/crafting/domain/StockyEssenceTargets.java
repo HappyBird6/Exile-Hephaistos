@@ -53,5 +53,10 @@ public final class StockyEssenceTargets {
               List.of("stocky-mitts:suffix:of-archaeology")));
 
   public static final Map<WorkbenchCurrency, List<String>> REPLACEMENTS =
-      Map.of(WorkbenchCurrency.ESSENCE_HYSTERIA, List.of("stocky-mitts:suffix:of-fury"));
+      Map.of(
+          WorkbenchCurrency.ESSENCE_HYSTERIA, List.of("stocky-mitts:suffix:of-fury"),
+          WorkbenchCurrency.ESSENCE_ABYSS,
+              List.of(
+                  "stocky-mitts:prefix:essence-abyssal-mark",
+                  "stocky-mitts:suffix:essence-abyssal-mark"));
 }

@@ -77,6 +77,47 @@ class StockyMittsCatalogTest {
     }
   }
 
+  @Test
+  void abyssAddsOnlyTwoZeroSpawnDefinitionsAndRetainsExactOrdinarySnapshot() throws Exception {
+    var ordinary = load();
+    try (var special = resource("abyss-essence.catalog.json");
+        var raw = resource("abyss-essence.raw.json")) {
+      var extended = ItemCatalogLoader.addSpecial(ordinary, special, raw);
+      assertThat(extended.modifiers()).hasSize(184);
+      assertThat(extended.compatibleSnapshotIds())
+          .containsExactly(ordinary.metadata().snapshotId());
+      assertThat(extended.metadata().snapshotId()).hasSizeLessThanOrEqualTo(120);
+      assertThat(extended.metadata().prefixCount()).isEqualTo(84);
+      assertThat(extended.metadata().suffixCount()).isEqualTo(100);
+      assertThat(extended.metadata().prefixWeight()).isEqualTo(63700);
+      assertThat(extended.metadata().suffixWeight()).isEqualTo(84500);
+      assertThat(extended.base()).isEqualTo(ordinary.base());
+      ordinary
+          .modifiers()
+          .forEach((id, definition) -> assertThat(extended.find(id)).contains(definition));
+      assertThat(extended.modifiers().values().stream().filter(d -> d.weight() > 0).count())
+          .isEqualTo(182);
+      assertThat(extended.modifiers().values().stream().filter(d -> d.weight() == 0).toList())
+          .hasSize(2)
+          .allSatisfy(
+              d -> {
+                assertThat(d.familyIds()).containsExactly("EssenceAbyss");
+                assertThat(d.requiredItemLevel()).isEqualTo(1);
+                assertThat(d.stats())
+                    .containsExactly(
+                        new ModifierDefinition.StatRange("essence_abyss_guaranteed_pick", 1, 1));
+              });
+    }
+    try (var special = resource("abyss-essence.catalog.json")) {
+      assertThatThrownBy(
+              () ->
+                  ItemCatalogLoader.addSpecial(
+                      ordinary, special, new ByteArrayInputStream(new byte[0])))
+          .isInstanceOf(IllegalArgumentException.class)
+          .hasMessageContaining("checksum");
+    }
+  }
+
   private static ItemCatalog load() throws Exception {
     try (var data = resource("catalog.json");
         var raw = resource("base.raw.json");

@@ -92,3 +92,5 @@ Solar Workbench v2: 17 currencies and 8 omens. See [supported and blocked invent
 Stocky Mitts 기본 Essence 확장(v18): 기존 4종에 Body/Mind/Ruin/Insulation/Thawing/Grounding/Opulence 21종을 추가해 25종을 지원합니다. 두 베이스 전체 구현 목록은 64종으로 유지되며, 장갑 Infinite 결과 집합은 WB-010에서 근거 부족으로 차단합니다. [검증·효과 표·지원 경계](docs/workbench-stocky-basic-essences-2026-10-03.md).
 
 장갑 Hysteria(v19): Rare/lvl45+에서 전용 of Fury 치명타 피해 보너스로 교체하며, Crystallisation 방향·전체 제거 분기·Fractured 보존을 검증했습니다. 장갑 지원 56종/45액션, 구현 고유 재료는 64종 그대로입니다. [근거·검증·후속 후보](docs/workbench-stocky-hysteria-2026-10-03.md).
+
+장갑 Abyss(v20): 일반 모드 182개는 보존하고 zero-spawn 전용 접두/접미 2개만 별도 카탈로그로 추가했습니다. 이전 snapshot·필름의 수치/잠금/증거/미래 단계를 보존하며, 선택 1/2는 미공개 가중치에 대한 명시적 가정입니다. 구현 고유 재료 64종 유지, 장갑 지원 57종/46액션. [검증·호환 경계](docs/workbench-stocky-abyss-2026-10-03.md), [나머지 특수 결과 근거표](docs/workbench-stocky-special-evidence-2026-10-03.md).
