@@ -1,0 +1,1346 @@
+{
+  "registryVersion": "equipment-crafting-registry-v2",
+  "baselineCommit": "7794b7356ca8fa7e1861e6cbbebeec6d762e4479",
+  "registeredUnique": 220,
+  "implementedUnique": 74,
+  "pendingUnique": 146,
+  "supportRecords": {
+    "solar": 60,
+    "stocky": 67
+  },
+  "executableActions": {
+    "solar": 49,
+    "stocky": 56
+  },
+  "classificationPolicy": "One principal blocker per pending identity; secondary gaps remain in reasons. Public catalog presence does not assert current obtainability. Other-target records remain equipment crafting scope.",
+  "counts": {
+    "USER_EXCLUDED": 2,
+    "OTHER_TARGET_REQUIRED": 97,
+    "REINTRODUCTION_UNVERIFIED": 5,
+    "EXCLUDED_OPERATION_DEPENDENCY": 1,
+    "OUTSIDE_EQUIPMENT_SCOPE": 5,
+    "RULE_DATA_GAP": 32,
+    "ENGINE_STATE_GAP": 4
+  },
+  "records": [
+    {
+      "id": "Vaal_Orb",
+      "category": "CURRENCY",
+      "bucket": "USER_EXCLUDED",
+      "reason": "Explicitly excluded by the user; retained registry record is not a completion target.",
+      "sourceUrl": "https://poe2db.tw/us/Vaal_Orb",
+      "sourceRetrievedAt": "2026-10-03T09:56:23.660Z",
+      "sourceSha256": "5059867042737a3a94f37aad31fd21a184bdcd2ee0d831e920e55ac651561d96"
+    },
+    {
+      "id": "Hinekoras_Lock",
+      "category": "CURRENCY",
+      "bucket": "USER_EXCLUDED",
+      "reason": "Explicitly excluded by the user; retained registry record is not a completion target.",
+      "sourceUrl": "https://poe2db.tw/us/Hinekoras_Lock",
+      "sourceRetrievedAt": "2026-10-03T09:56:23.620Z",
+      "sourceSha256": "4fce7188bb270ab11989168713ab36fe9eb50255fd1eabc2e3ffc72046ca366e"
+    },
+    {
+      "id": "Lesser_Essence_of_Abrasion",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Abrasion",
+      "sourceRetrievedAt": "2026-10-03T09:56:23.729Z",
+      "sourceSha256": "b68288a6224fce7712634aba191074b67844213f68c6b6929fffc0413b65c5a0"
+    },
+    {
+      "id": "Lesser_Essence_of_Flames",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Flames",
+      "sourceRetrievedAt": "2026-10-03T09:56:25.512Z",
+      "sourceSha256": "a484313967fc581fc7b87acfaa0bfc062bb753ea82f61316a073b42c69453b78"
+    },
+    {
+      "id": "Lesser_Essence_of_Ice",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Ice",
+      "sourceRetrievedAt": "2026-10-03T09:56:24.686Z",
+      "sourceSha256": "43c090812d2da696910f8bcaba149c5d49040d0ebf33e8b132f6390c5b860c65"
+    },
+    {
+      "id": "Lesser_Essence_of_Electricity",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Electricity",
+      "sourceRetrievedAt": "2026-10-03T09:56:23.940Z",
+      "sourceSha256": "4035efb2785e6bba0673e38312742b35a79e9a0bd4919592daf0297914d26495"
+    },
+    {
+      "id": "Lesser_Essence_of_Battle",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Battle",
+      "sourceRetrievedAt": "2026-10-03T09:56:23.948Z",
+      "sourceSha256": "273302071c0362340282f38e174d7255cd80a41f1649a0d70978d5094f56940e"
+    },
+    {
+      "id": "Lesser_Essence_of_Sorcery",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Sorcery",
+      "sourceRetrievedAt": "2026-10-03T09:56:24.156Z",
+      "sourceSha256": "aaf10c00064ea3279609467125cca788c91248a5666d6f3dbc291c9f9b0c2fbc"
+    },
+    {
+      "id": "Lesser_Essence_of_Haste",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Haste",
+      "sourceRetrievedAt": "2026-10-03T09:56:24.227Z",
+      "sourceSha256": "a037e9a7be4afdea59b00c1b39274db4a9afd1806e646e0434d3aac57af09988"
+    },
+    {
+      "id": "Essence_of_Abrasion",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Essence_of_Abrasion",
+      "sourceRetrievedAt": "2026-10-03T09:56:24.234Z",
+      "sourceSha256": "9fa74d542739d25a9db8f63532cfa9ff9e06ea01701085f66cfb7b3f8cca67d3"
+    },
+    {
+      "id": "Essence_of_Flames",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Essence_of_Flames",
+      "sourceRetrievedAt": "2026-10-03T09:56:24.566Z",
+      "sourceSha256": "bbd90d6f7199da4ea5d3964e3560fc655e9dec0086b3c61b686ab51aae4807fb"
+    },
+    {
+      "id": "Essence_of_Ice",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Essence_of_Ice",
+      "sourceRetrievedAt": "2026-10-03T09:56:24.520Z",
+      "sourceSha256": "1887ecc99bb16b21b3f0be8a61eafc4200370cf21dfe2ac8877ff1df83ec76c0"
+    },
+    {
+      "id": "Essence_of_Electricity",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Essence_of_Electricity",
+      "sourceRetrievedAt": "2026-10-03T09:56:24.525Z",
+      "sourceSha256": "ce1081822c974efaf8e7823cf2f5c0f972ee67ce1081d10812c29e599e7466a6"
+    },
+    {
+      "id": "Essence_of_Battle",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Essence_of_Battle",
+      "sourceRetrievedAt": "2026-10-03T09:56:24.809Z",
+      "sourceSha256": "1fd366a835a6463caa2f69e63daec3850018b7d8e93655d14203a7ef5fd47d18"
+    },
+    {
+      "id": "Essence_of_Sorcery",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Essence_of_Sorcery",
+      "sourceRetrievedAt": "2026-10-03T09:56:24.814Z",
+      "sourceSha256": "22cb56a10b4cbd5ecaba373853b88841f7d6d18f6edb28b68efa657264771862"
+    },
+    {
+      "id": "Essence_of_Haste",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Essence_of_Haste",
+      "sourceRetrievedAt": "2026-10-03T09:56:25.320Z",
+      "sourceSha256": "55553223b48550d5e32303ef7e0f64583e81bc9c9417c044df39ff133dcaf7c3"
+    },
+    {
+      "id": "Greater_Essence_of_Abrasion",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Abrasion",
+      "sourceRetrievedAt": "2026-10-03T09:56:26.082Z",
+      "sourceSha256": "cfe8adc3aa6c253d06470d9741c433e3d03a6dc8328d642446743cc93a514346"
+    },
+    {
+      "id": "Greater_Essence_of_Flames",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Flames",
+      "sourceRetrievedAt": "2026-10-03T09:56:25.102Z",
+      "sourceSha256": "0d0632c654e7f33a9e1e4d396d603ed5d2c72b20ef304da7a6747daa17ac1cd7"
+    },
+    {
+      "id": "Greater_Essence_of_Ice",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Ice",
+      "sourceRetrievedAt": "2026-10-03T09:56:25.108Z",
+      "sourceSha256": "4f885e1499b301218ee97ec22d672dbdb9e9ed79d8a2cc362de9f22106a675bb"
+    },
+    {
+      "id": "Greater_Essence_of_Electricity",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Electricity",
+      "sourceRetrievedAt": "2026-10-03T09:56:25.397Z",
+      "sourceSha256": "b6790185e4c748823009ee7f6ae8cf1ecb439c476adf55cc7196b978336d9ed4"
+    },
+    {
+      "id": "Greater_Essence_of_Sorcery",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Sorcery",
+      "sourceRetrievedAt": "2026-10-03T09:56:25.402Z",
+      "sourceSha256": "1f3e0a3b6f766c7f2fe8cbb89ee321b43270cb000feb233a07a2cfa458fba7ae"
+    },
+    {
+      "id": "Greater_Essence_of_Haste",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Haste",
+      "sourceRetrievedAt": "2026-10-03T09:56:25.876Z",
+      "sourceSha256": "13f487897d16d7b1bf851e5b55a7bb3ef806801424d0d8ee5540a1037e7f06fe"
+    },
+    {
+      "id": "Perfect_Essence_of_the_Body",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_the_Body",
+      "sourceRetrievedAt": "2026-10-03T09:56:25.682Z",
+      "sourceSha256": "5280746ef1de6345e22cd88fb82cd7523ca761eaa71acb53433ffeebce913428"
+    },
+    {
+      "id": "Perfect_Essence_of_the_Mind",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_the_Mind",
+      "sourceRetrievedAt": "2026-10-03T09:56:25.694Z",
+      "sourceSha256": "6a06c2db6804e31880a91328fe8d99ba7b7dee71d581477fbef981b3ccb75947"
+    },
+    {
+      "id": "Perfect_Essence_of_Abrasion",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Abrasion",
+      "sourceRetrievedAt": "2026-10-03T09:56:26.107Z",
+      "sourceSha256": "1d7f4227d7e3d77d6a496931153bc0ec9e6116a83b1a62d73fc6ae1aa7aa4238"
+    },
+    {
+      "id": "Perfect_Essence_of_Flames",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Flames",
+      "sourceRetrievedAt": "2026-10-03T09:56:25.978Z",
+      "sourceSha256": "735f1629f24b32e232d7c9f8930905c054c27add4f38736a5d156059e1f0b178"
+    },
+    {
+      "id": "Perfect_Essence_of_Ice",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Ice",
+      "sourceRetrievedAt": "2026-10-03T09:56:25.985Z",
+      "sourceSha256": "4bfa1e09e08d0cd96bdd1fdba8127ea738feeda33b7045bad136ba58a10a2f27"
+    },
+    {
+      "id": "Perfect_Essence_of_Electricity",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Electricity",
+      "sourceRetrievedAt": "2026-10-03T09:56:26.283Z",
+      "sourceSha256": "930d07c6bfc5a8b53d9159dcb6fe6be69ff25d47e784264a843f38fb0bc088e6"
+    },
+    {
+      "id": "Perfect_Essence_of_Ruin",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Ruin",
+      "sourceRetrievedAt": "2026-10-03T09:56:26.261Z",
+      "sourceSha256": "d5f798deb5134d729ba3bb28326ca379f25d6546d8c915262928853bea7a8c4b"
+    },
+    {
+      "id": "Perfect_Essence_of_Battle",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Battle",
+      "sourceRetrievedAt": "2026-10-03T09:56:26.406Z",
+      "sourceSha256": "36c27aa30ecc91ee013bb5b2e13998f3e1bd9c295ef5ab6e4de261358ee8faee"
+    },
+    {
+      "id": "Perfect_Essence_of_Sorcery",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Sorcery",
+      "sourceRetrievedAt": "2026-10-03T09:56:27.861Z",
+      "sourceSha256": "0931fdb4a68d6c385e1520e580c6faef28536d80206aacb4f92855f5728d5bec"
+    },
+    {
+      "id": "Perfect_Essence_of_Haste",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Haste",
+      "sourceRetrievedAt": "2026-10-03T09:56:26.691Z",
+      "sourceSha256": "ced4c69d2a197ac09c83ea7067458a1daa4b27ff36d3b9182bea852df8c076fc"
+    },
+    {
+      "id": "Lesser_Essence_of_Seeking",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Seeking",
+      "sourceRetrievedAt": "2026-10-03T09:56:26.552Z",
+      "sourceSha256": "32fa8131b93538fae6fdc76de47fcf61787f7b6a0d30f6b3a48f6b7e8ba2c9d8"
+    },
+    {
+      "id": "Essence_of_Seeking",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Essence_of_Seeking",
+      "sourceRetrievedAt": "2026-10-03T09:56:26.737Z",
+      "sourceSha256": "8074e328a74491f56617d735831ad0f6b336ad46287219b939104761980e2f45"
+    },
+    {
+      "id": "Greater_Essence_of_Seeking",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Seeking",
+      "sourceRetrievedAt": "2026-10-03T09:56:26.836Z",
+      "sourceSha256": "8b3a049f041c8269464daf3d56ea8b6ee2e15cd725e74076b49dc164b276b5f9"
+    },
+    {
+      "id": "Perfect_Essence_of_Seeking",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Seeking",
+      "sourceRetrievedAt": "2026-10-03T09:56:26.844Z",
+      "sourceSha256": "ff0e152d873ff8889806cee1a95b10c71876516a225c145c373068e4b5accd5a"
+    },
+    {
+      "id": "Essence_of_Delirium",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Essence_of_Delirium",
+      "sourceRetrievedAt": "2026-10-03T09:56:27.275Z",
+      "sourceSha256": "8ac24bf21cbd847404b87c69fec007b87ca9a96a8f01181602cab5950bf93a3d"
+    },
+    {
+      "id": "Essence_of_Insanity",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Essence_of_Insanity",
+      "sourceRetrievedAt": "2026-10-03T09:56:27.150Z",
+      "sourceSha256": "6189a9fc0f533354ab7a71d65e71ae88255873697753816c60872de5f028d0ed"
+    },
+    {
+      "id": "Perfect_Essence_of_Insulation",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Insulation",
+      "sourceRetrievedAt": "2026-10-03T09:56:27.119Z",
+      "sourceSha256": "a363b675256411f2df41d36357afe9a40b9878a9989c94b8abb2f34218ca2cd0"
+    },
+    {
+      "id": "Perfect_Essence_of_Thawing",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Thawing",
+      "sourceRetrievedAt": "2026-10-03T09:56:27.133Z",
+      "sourceSha256": "a33837fd41b3c74d26fcdbd856297778bb6d035223ff32ea01ebdfffec39acae"
+    },
+    {
+      "id": "Lesser_Essence_of_Alacrity",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Alacrity",
+      "sourceRetrievedAt": "2026-10-03T09:56:27.404Z",
+      "sourceSha256": "6f063d89f11bb330a502e70b4959b5e43a2f645e6cb87a0228653eb3af1c890f"
+    },
+    {
+      "id": "Essence_of_Alacrity",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Essence_of_Alacrity",
+      "sourceRetrievedAt": "2026-10-03T09:56:27.423Z",
+      "sourceSha256": "86da259bc91a5241ebef50d67497a00452f36b8e315e2bd086c85dbe03980cf6"
+    },
+    {
+      "id": "Greater_Essence_of_Alacrity",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Alacrity",
+      "sourceRetrievedAt": "2026-10-03T09:56:28.093Z",
+      "sourceSha256": "7fe921533bfa2ef4608f063afee7298b4af345c1e6e00ff6f77e8a29a9687a46"
+    },
+    {
+      "id": "Perfect_Essence_of_Alacrity",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Alacrity",
+      "sourceRetrievedAt": "2026-10-03T09:56:28.696Z",
+      "sourceSha256": "3343bddd1192711c9706568e4f581ef52d8e5c206fa7e926d0868131fbbb81a3"
+    },
+    {
+      "id": "Lesser_Essence_of_Command",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Command",
+      "sourceRetrievedAt": "2026-10-03T09:56:27.690Z",
+      "sourceSha256": "d962191b7a34c9b5e9b7dd82f70284eb6e99c191b914e2e63dd63ea557d34dd3"
+    },
+    {
+      "id": "Essence_of_Command",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Essence_of_Command",
+      "sourceRetrievedAt": "2026-10-03T09:56:27.711Z",
+      "sourceSha256": "22f0408d9ac13b8b9ff47edd2182f6e978cbd9d2f763fbeab367f6158f2ea80c"
+    },
+    {
+      "id": "Greater_Essence_of_Command",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Command",
+      "sourceRetrievedAt": "2026-10-03T09:56:27.985Z",
+      "sourceSha256": "6e46fb129e98880a4e32a1a36f0c48845aefc8adb1db621cc8c1ef9241760167"
+    },
+    {
+      "id": "Perfect_Essence_of_Command",
+      "category": "ESSENCE",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Command",
+      "sourceRetrievedAt": "2026-10-03T09:56:28.003Z",
+      "sourceSha256": "0b879822ac527eeba2e28d22151cf70cd854ee2e3f8f70ad565446a58e44a166"
+    },
+    {
+      "id": "Protective_Alloy",
+      "category": "ALLOY",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Protective_Alloy",
+      "sourceRetrievedAt": "2026-10-03T09:56:29.231Z",
+      "sourceSha256": "b73b722abba749249df7c1e1f66b335a1c675e8dc0b7260324b4448529785622"
+    },
+    {
+      "id": "Celestial_Alloy",
+      "category": "ALLOY",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Celestial_Alloy",
+      "sourceRetrievedAt": "2026-10-03T09:56:28.414Z",
+      "sourceSha256": "f71892e321ac728b2c669359651aeff9d0394797748f56cba89e02468cfd03ae"
+    },
+    {
+      "id": "Transcendent_Alloy",
+      "category": "ALLOY",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/Transcendent_Alloy",
+      "sourceRetrievedAt": "2026-10-03T09:56:28.419Z",
+      "sourceSha256": "046e346c2bd21c88bf5a3338040352e176c2a0d86439edec9ef58883c793be84"
+    },
+    {
+      "id": "The_Runebinders_Alloy",
+      "category": "ALLOY",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/The_Runebinders_Alloy",
+      "sourceRetrievedAt": "2026-10-03T09:56:31.144Z",
+      "sourceSha256": "b631856ea508d20d2b9edc380f1c2fd7804e4283d5cabba6bad7856c91e5b68d"
+    },
+    {
+      "id": "The_Runefathers_Alloy",
+      "category": "ALLOY",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current item card lists no Amulet/Jewellery or Gloves target. Requires another complete base catalog; no base expansion authorized here.",
+      "sourceUrl": "https://poe2db.tw/us/The_Runefathers_Alloy",
+      "sourceRetrievedAt": "2026-10-03T09:56:28.710Z",
+      "sourceSha256": "81a77a72821cb409f1408e82108468817be2b5263b6bfd4abea3ff678bc23d55"
+    },
+    {
+      "id": "Omen_of_Sinistral_Alchemy",
+      "category": "OMEN",
+      "bucket": "REINTRODUCTION_UNVERIFIED",
+      "reason": "Official 0.3.0 explicitly discontinued obtainability; current item-card presence does not prove reintroduction. Legacy effect stays disabled.",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Sinistral_Alchemy",
+      "sourceRetrievedAt": "2026-10-03T09:56:28.699Z",
+      "sourceSha256": "1d8f43be9a63cc8ff713c23898df0c2ef58dbd4a87d05efd48730cee06ae9e51",
+      "availabilitySource": "https://www.pathofexile.com/forum/view-thread/3826682"
+    },
+    {
+      "id": "Omen_of_Dextral_Alchemy",
+      "category": "OMEN",
+      "bucket": "REINTRODUCTION_UNVERIFIED",
+      "reason": "Official 0.3.0 explicitly discontinued obtainability; current item-card presence does not prove reintroduction. Legacy effect stays disabled.",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Dextral_Alchemy",
+      "sourceRetrievedAt": "2026-10-03T09:56:29.125Z",
+      "sourceSha256": "23c348c3a1d2a80f7b03a32c5a3f73a309763eeb2fbe5837f34d010640a8f46d",
+      "availabilitySource": "https://www.pathofexile.com/forum/view-thread/3826682"
+    },
+    {
+      "id": "Omen_of_Sinistral_Coronation",
+      "category": "OMEN",
+      "bucket": "REINTRODUCTION_UNVERIFIED",
+      "reason": "Official 0.3.0 explicitly discontinued obtainability; current item-card presence does not prove reintroduction. Legacy effect stays disabled.",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Sinistral_Coronation",
+      "sourceRetrievedAt": "2026-10-03T09:56:28.981Z",
+      "sourceSha256": "b20f90aa0de9a9a3a4bc8d70ea1fabff075ea33d00cb99c8bc3b6e8ab9ba1b9b",
+      "availabilitySource": "https://www.pathofexile.com/forum/view-thread/3826682"
+    },
+    {
+      "id": "Omen_of_Dextral_Coronation",
+      "category": "OMEN",
+      "bucket": "REINTRODUCTION_UNVERIFIED",
+      "reason": "Official 0.3.0 explicitly discontinued obtainability; current item-card presence does not prove reintroduction. Legacy effect stays disabled.",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Dextral_Coronation",
+      "sourceRetrievedAt": "2026-10-03T09:56:28.988Z",
+      "sourceSha256": "815b39bb30c3c5ebc3337367c05348304b1bbf472276ef2187e2362dd288a671",
+      "availabilitySource": "https://www.pathofexile.com/forum/view-thread/3826682"
+    },
+    {
+      "id": "Omen_of_Corruption",
+      "category": "OMEN",
+      "bucket": "EXCLUDED_OPERATION_DEPENDENCY",
+      "reason": "Requires user-excluded Vaal Orb operation; this is a dependency, not an additional explicit user exclusion.",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Corruption",
+      "sourceRetrievedAt": "2026-10-03T09:56:29.261Z",
+      "sourceSha256": "22f365d8cd7b9a4a7b7af7db427f32543ddbc5257be455c09c6de527ec53d0f3"
+    },
+    {
+      "id": "Omen_of_Greater_Annulment",
+      "category": "OMEN",
+      "bucket": "REINTRODUCTION_UNVERIFIED",
+      "reason": "Official 0.3.0 explicitly discontinued obtainability; current item-card presence does not prove reintroduction. Legacy effect stays disabled.",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Greater_Annulment",
+      "sourceRetrievedAt": "2026-10-03T09:56:29.268Z",
+      "sourceSha256": "72f6d0c0cfc7c772a4d0c7bfea8e7a8baa55a1c94c6e1a0e38b650af7829d2bd",
+      "availabilitySource": "https://www.pathofexile.com/forum/view-thread/3826682"
+    },
+    {
+      "id": "Omen_of_Answered_Prayers",
+      "category": "OMEN",
+      "bucket": "OUTSIDE_EQUIPMENT_SCOPE",
+      "reason": "Encounter-only effect; no equipment crafting action.",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Answered_Prayers",
+      "sourceRetrievedAt": "2026-10-03T09:56:29.860Z",
+      "sourceSha256": "177328d2fc8f43d7460e00f1aa2df2167fcca9d70ef21dd698ee3fd41adcdd09"
+    },
+    {
+      "id": "Omen_of_Secret_Compartments",
+      "category": "OMEN",
+      "bucket": "OUTSIDE_EQUIPMENT_SCOPE",
+      "reason": "Encounter-only effect; no equipment crafting action.",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Secret_Compartments",
+      "sourceRetrievedAt": "2026-10-03T09:56:30.404Z",
+      "sourceSha256": "175e1d27dfcd136975dd905c1dc653ed9efda898a3b903530ed68cfb1ca01c73"
+    },
+    {
+      "id": "Omen_of_the_Hunt",
+      "category": "OMEN",
+      "bucket": "OUTSIDE_EQUIPMENT_SCOPE",
+      "reason": "Encounter-only effect; no equipment crafting action.",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_the_Hunt",
+      "sourceRetrievedAt": "2026-10-03T09:56:29.561Z",
+      "sourceSha256": "82e1614cf223b173b6be5b0695c200565d8c01843c13c4492cb18335a270f75d"
+    },
+    {
+      "id": "Omen_of_Reinforcements",
+      "category": "OMEN",
+      "bucket": "OUTSIDE_EQUIPMENT_SCOPE",
+      "reason": "Encounter-only effect; no equipment crafting action.",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Reinforcements",
+      "sourceRetrievedAt": "2026-10-03T09:56:29.555Z",
+      "sourceSha256": "c6388f004c7f4d690b36cf605ddeddc2381b8f75b408ca0a0439449c7a837cfa"
+    },
+    {
+      "id": "Omen_of_Homogenising_Exaltation",
+      "category": "OMEN",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Meaning of modifier type, eligible type set and selection distribution remain unverified.",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Homogenising_Exaltation",
+      "sourceRetrievedAt": "2026-10-03T09:56:29.836Z",
+      "sourceSha256": "887fa82b24cca3c7a88c6ca59dc374919455a992b7fcd2680516d65aeaad6b23"
+    },
+    {
+      "id": "Omen_of_Homogenising_Coronation",
+      "category": "OMEN",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Meaning of modifier type, eligible type set and selection distribution remain unverified.",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Homogenising_Coronation",
+      "sourceRetrievedAt": "2026-10-03T09:56:29.843Z",
+      "sourceSha256": "e3ae48cd1f920ed588aff56c3e53e06a2146a1fab0c93f49fb7b1d172d36f395"
+    },
+    {
+      "id": "Omen_of_Sanctification",
+      "category": "OMEN",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Desecration/reveal or Sanctification state, complete eligible outcomes, interactions and distribution unverified (WB-005).",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Sanctification",
+      "sourceRetrievedAt": "2026-10-03T09:56:30.267Z",
+      "sourceSha256": "a5826d0b04267b63119eb1435424587b7940e6f6fc0769914f612aeb0a246107"
+    },
+    {
+      "id": "Omen_of_Catalysing_Exaltation",
+      "category": "OMEN",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Quality-dependent eligible tags and probability formula unverified; quality engine also missing.",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Catalysing_Exaltation",
+      "sourceRetrievedAt": "2026-10-03T09:56:30.274Z",
+      "sourceSha256": "4ededbb39e2b8f9f61cdb9f9a19a961ada7985a578c9051125d7643c0650eb94"
+    },
+    {
+      "id": "Omen_of_the_Sovereign",
+      "category": "OMEN",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Desecration/reveal or Sanctification state, complete eligible outcomes, interactions and distribution unverified (WB-005).",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_the_Sovereign",
+      "sourceRetrievedAt": "2026-10-03T09:56:31.584Z",
+      "sourceSha256": "1797ec9a1cdfcbefae98f35a2467c00b5a8fcf88b32fd718eb7b13591e32bde8"
+    },
+    {
+      "id": "Omen_of_the_Liege",
+      "category": "OMEN",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Desecration/reveal or Sanctification state, complete eligible outcomes, interactions and distribution unverified (WB-005).",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_the_Liege",
+      "sourceRetrievedAt": "2026-10-03T09:56:30.694Z",
+      "sourceSha256": "b71e545c03ba273b7eea30e4c3544bf81dd524e62ef103e597652d764705805d"
+    },
+    {
+      "id": "Omen_of_the_Blackblooded",
+      "category": "OMEN",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Desecration/reveal or Sanctification state, complete eligible outcomes, interactions and distribution unverified (WB-005).",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_the_Blackblooded",
+      "sourceRetrievedAt": "2026-10-03T09:56:30.706Z",
+      "sourceSha256": "aa7b3610a1352ef55a6754cfab6ce5e9b6caa0e8ef05b8a9cb571ae2a35ee956"
+    },
+    {
+      "id": "Omen_of_Putrefaction",
+      "category": "OMEN",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Desecration/reveal or Sanctification state, complete eligible outcomes, interactions and distribution unverified (WB-005).",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Putrefaction",
+      "sourceRetrievedAt": "2026-10-03T09:56:31.577Z",
+      "sourceSha256": "e9e4f858a5383aebaec5f5288d93966c2038650f1f0a0b8cf579ea21b59a145b"
+    },
+    {
+      "id": "Omen_of_Light",
+      "category": "OMEN",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Desecration/reveal or Sanctification state, complete eligible outcomes, interactions and distribution unverified (WB-005).",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Light",
+      "sourceRetrievedAt": "2026-10-03T09:56:31.126Z",
+      "sourceSha256": "f71f5b18b7f47d7b6700c5763a2df23684a84d2e48eb79b7f05c9b9ed17ed2b9"
+    },
+    {
+      "id": "Omen_of_Sinistral_Necromancy",
+      "category": "OMEN",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Desecration/reveal or Sanctification state, complete eligible outcomes, interactions and distribution unverified (WB-005).",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Sinistral_Necromancy",
+      "sourceRetrievedAt": "2026-10-03T09:56:31.133Z",
+      "sourceSha256": "970fa24aa220d43bc80d2c35f5a1e0e70c808882e8bd75b45088a6bf4b85258a"
+    },
+    {
+      "id": "Omen_of_Dextral_Necromancy",
+      "category": "OMEN",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Desecration/reveal or Sanctification state, complete eligible outcomes, interactions and distribution unverified (WB-005).",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Dextral_Necromancy",
+      "sourceRetrievedAt": "2026-10-03T09:56:31.571Z",
+      "sourceSha256": "2f056417a6c3669596da6b946cf301f5340890e2bb06cce1c9f8af94f6aa9926"
+    },
+    {
+      "id": "Flesh_Catalyst",
+      "category": "CATALYST",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Solar eligible class; complete tag applicability, quality increments/caps and magnitude/rounding rules remain unresolved (WB-004).",
+      "sourceUrl": "https://poe2db.tw/us/Flesh_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:31.559Z",
+      "sourceSha256": "88f1c33c31bab3fa3d4b9c6441363abf790fb2e2b45f76436b8b05917526017a"
+    },
+    {
+      "id": "Neural_Catalyst",
+      "category": "CATALYST",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Solar eligible class; complete tag applicability, quality increments/caps and magnitude/rounding rules remain unresolved (WB-004).",
+      "sourceUrl": "https://poe2db.tw/us/Neural_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:33.227Z",
+      "sourceSha256": "695842aeb469786a16c691de63214e1dae9bc4efdbac831058a0941481514fd3"
+    },
+    {
+      "id": "Carapace_Catalyst",
+      "category": "CATALYST",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Solar eligible class; complete tag applicability, quality increments/caps and magnitude/rounding rules remain unresolved (WB-004).",
+      "sourceUrl": "https://poe2db.tw/us/Carapace_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:32.007Z",
+      "sourceSha256": "e01bbe3d7365707fa812efa0435c76fb5ec71aba52b67866e31bd6f8ea2ebd5e"
+    },
+    {
+      "id": "Uul-Netols_Catalyst",
+      "category": "CATALYST",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Solar eligible class; complete tag applicability, quality increments/caps and magnitude/rounding rules remain unresolved (WB-004).",
+      "sourceUrl": "https://poe2db.tw/us/Uul-Netols_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:32.012Z",
+      "sourceSha256": "79067b9723d67730e06d4a9b3a85bfc9c6ab4bd85268488c8ef2390cd561a17d"
+    },
+    {
+      "id": "Xophs_Catalyst",
+      "category": "CATALYST",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Solar eligible class; complete tag applicability, quality increments/caps and magnitude/rounding rules remain unresolved (WB-004).",
+      "sourceUrl": "https://poe2db.tw/us/Xophs_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:33.397Z",
+      "sourceSha256": "fbf8f2ddd23e92fab0fefb0cb6f00ef25cbe48ae572327c1a8598f948770f027"
+    },
+    {
+      "id": "Tuls_Catalyst",
+      "category": "CATALYST",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Solar eligible class; complete tag applicability, quality increments/caps and magnitude/rounding rules remain unresolved (WB-004).",
+      "sourceUrl": "https://poe2db.tw/us/Tuls_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:33.906Z",
+      "sourceSha256": "0022b5c63671e57b236eba3fbff4a7b46e5d944899c950136183c93066fb889b"
+    },
+    {
+      "id": "Eshs_Catalyst",
+      "category": "CATALYST",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Solar eligible class; complete tag applicability, quality increments/caps and magnitude/rounding rules remain unresolved (WB-004).",
+      "sourceUrl": "https://poe2db.tw/us/Eshs_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:32.464Z",
+      "sourceSha256": "03ea3a90aa9b1728e3eac81cda5f98c9e156ad01876d4c863e08e76ee33bb8a9"
+    },
+    {
+      "id": "Chayulas_Catalyst",
+      "category": "CATALYST",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Solar eligible class; complete tag applicability, quality increments/caps and magnitude/rounding rules remain unresolved (WB-004).",
+      "sourceUrl": "https://poe2db.tw/us/Chayulas_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:32.458Z",
+      "sourceSha256": "cf2f60e1f69e4195923d8342472e2c1274f285c3e5cc1b02bc1145272cd0c59a"
+    },
+    {
+      "id": "Reaver_Catalyst",
+      "category": "CATALYST",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Solar eligible class; complete tag applicability, quality increments/caps and magnitude/rounding rules remain unresolved (WB-004).",
+      "sourceUrl": "https://poe2db.tw/us/Reaver_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:32.913Z",
+      "sourceSha256": "9452f241fcae21882a66c3c746f66af7e3352a07425a48f9ee5d8af0e1fa3718"
+    },
+    {
+      "id": "Sibilant_Catalyst",
+      "category": "CATALYST",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Solar eligible class; complete tag applicability, quality increments/caps and magnitude/rounding rules remain unresolved (WB-004).",
+      "sourceUrl": "https://poe2db.tw/us/Sibilant_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:32.919Z",
+      "sourceSha256": "86258d25be4b6b457313e011ac5d440ebfe9736ce1cdcd1dfe538b22b30449ca"
+    },
+    {
+      "id": "Skittering_Catalyst",
+      "category": "CATALYST",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Solar eligible class; complete tag applicability, quality increments/caps and magnitude/rounding rules remain unresolved (WB-004).",
+      "sourceUrl": "https://poe2db.tw/us/Skittering_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:33.361Z",
+      "sourceSha256": "33089e568c2a26e84827c0a82370a152998801ce9a7ee2bdc126a0827c1ea7b6"
+    },
+    {
+      "id": "Adaptive_Catalyst",
+      "category": "CATALYST",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Solar eligible class; complete tag applicability, quality increments/caps and magnitude/rounding rules remain unresolved (WB-004).",
+      "sourceUrl": "https://poe2db.tw/us/Adaptive_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:33.367Z",
+      "sourceSha256": "44a18c383add79620c768929b61e6aba815e882982075f2dff28d54ea29e2008"
+    },
+    {
+      "id": "Necrotic_Catalyst",
+      "category": "CATALYST",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Solar eligible class; complete tag applicability, quality increments/caps and magnitude/rounding rules remain unresolved (WB-004).",
+      "sourceUrl": "https://poe2db.tw/us/Necrotic_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:35.662Z",
+      "sourceSha256": "822abc0384373d110b64a48773fcc1e9ef19fe69eca7dd964de686291213c61a"
+    },
+    {
+      "id": "Refined_Flesh_Catalyst",
+      "category": "CATALYST",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current Refined Catalyst card targets Jewel quality, not either supported base.",
+      "sourceUrl": "https://poe2db.tw/us/Refined_Flesh_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:33.667Z",
+      "sourceSha256": "2929cd2dfb8d1a424419b738a1de43a6f8b8aff78cb58ce894bc5380c68a81f2"
+    },
+    {
+      "id": "Refined_Neural_Catalyst",
+      "category": "CATALYST",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current Refined Catalyst card targets Jewel quality, not either supported base.",
+      "sourceUrl": "https://poe2db.tw/us/Refined_Neural_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:33.793Z",
+      "sourceSha256": "8e07abe0c46ec558b2aefcd1db04944adeaab9216f4a52fa03cd88c3d4c5fa99"
+    },
+    {
+      "id": "Refined_Carapace_Catalyst",
+      "category": "CATALYST",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current Refined Catalyst card targets Jewel quality, not either supported base.",
+      "sourceUrl": "https://poe2db.tw/us/Refined_Carapace_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:34.887Z",
+      "sourceSha256": "da0152d6d23f723305018046fdb10d0387f74b93288ba2e7734840f49b7430e6"
+    },
+    {
+      "id": "Refined_Uul-Netols_Catalyst",
+      "category": "CATALYST",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current Refined Catalyst card targets Jewel quality, not either supported base.",
+      "sourceUrl": "https://poe2db.tw/us/Refined_Uul-Netols_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:34.105Z",
+      "sourceSha256": "8fa2da51a46c8db512e112b0ef58ab50a5d13d520436a23bb6174d621d6881ac"
+    },
+    {
+      "id": "Refined_Xophs_Catalyst",
+      "category": "CATALYST",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current Refined Catalyst card targets Jewel quality, not either supported base.",
+      "sourceUrl": "https://poe2db.tw/us/Refined_Xophs_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:34.215Z",
+      "sourceSha256": "311e1d64495b0a894c53844b6352b9409b7f4e384b4b9b4af2639394b99fdb90"
+    },
+    {
+      "id": "Refined_Tuls_Catalyst",
+      "category": "CATALYST",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current Refined Catalyst card targets Jewel quality, not either supported base.",
+      "sourceUrl": "https://poe2db.tw/us/Refined_Tuls_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:36.197Z",
+      "sourceSha256": "e243294f8612ff3f064ee8a96900063695a862fa4495af6e9ec4921c89797c51"
+    },
+    {
+      "id": "Refined_Eshs_Catalyst",
+      "category": "CATALYST",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current Refined Catalyst card targets Jewel quality, not either supported base.",
+      "sourceUrl": "https://poe2db.tw/us/Refined_Eshs_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:34.548Z",
+      "sourceSha256": "16f1b0dfe22562f77344b14f8e2b31559f03a03555b9751752360a88eb00b3af"
+    },
+    {
+      "id": "Refined_Chayulas_Catalyst",
+      "category": "CATALYST",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current Refined Catalyst card targets Jewel quality, not either supported base.",
+      "sourceUrl": "https://poe2db.tw/us/Refined_Chayulas_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:34.647Z",
+      "sourceSha256": "28c6fb574d2eefdc0d347e4fb5401ff47871b07c6158965d0ce02ea3a8a6b0e2"
+    },
+    {
+      "id": "Refined_Reaver_Catalyst",
+      "category": "CATALYST",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current Refined Catalyst card targets Jewel quality, not either supported base.",
+      "sourceUrl": "https://poe2db.tw/us/Refined_Reaver_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:34.994Z",
+      "sourceSha256": "320a941fdc0fcf0bcf0a86bb73077b09e286533f9d8ebf5e93f6a9365fd7d013"
+    },
+    {
+      "id": "Refined_Sibilant_Catalyst",
+      "category": "CATALYST",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current Refined Catalyst card targets Jewel quality, not either supported base.",
+      "sourceUrl": "https://poe2db.tw/us/Refined_Sibilant_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:35.088Z",
+      "sourceSha256": "ba5fcf0d25c9b1eb309799e88126168ea3eb78806c67acf6649dc05cc8afa1ae"
+    },
+    {
+      "id": "Refined_Skittering_Catalyst",
+      "category": "CATALYST",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current Refined Catalyst card targets Jewel quality, not either supported base.",
+      "sourceUrl": "https://poe2db.tw/us/Refined_Skittering_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:44.519Z",
+      "sourceSha256": "c05cbe2426f0e9668bd4ab545a67bf056913f28af82bf0a35fe4e451da872dd0"
+    },
+    {
+      "id": "Refined_Adaptive_Catalyst",
+      "category": "CATALYST",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current Refined Catalyst card targets Jewel quality, not either supported base.",
+      "sourceUrl": "https://poe2db.tw/us/Refined_Adaptive_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:35.436Z",
+      "sourceSha256": "82fc51efee475c8d5cf72db2a987381d25e30a99728be9466a2875465969d78b"
+    },
+    {
+      "id": "Refined_Necrotic_Catalyst",
+      "category": "CATALYST",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current Refined Catalyst card targets Jewel quality, not either supported base.",
+      "sourceUrl": "https://poe2db.tw/us/Refined_Necrotic_Catalyst",
+      "sourceRetrievedAt": "2026-10-03T09:56:35.530Z",
+      "sourceSha256": "768ac9ba55a48c92a3d23f56c88386524aad1b793c99f15078160c183c6bf0ac"
+    },
+    {
+      "id": "Diluted_Liquid_Ire",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Basic Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Diluted_Liquid_Ire",
+      "sourceRetrievedAt": "2026-10-03T09:56:35.865Z",
+      "sourceSha256": "94acecd7115ad4a308ccd3b29e51573a89e230aa8a7de4e9fd3782807c3ca22b"
+    },
+    {
+      "id": "Diluted_Liquid_Guilt",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Basic Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Diluted_Liquid_Guilt",
+      "sourceRetrievedAt": "2026-10-03T09:56:35.815Z",
+      "sourceSha256": "131ed91ca61a4206bee97bcaaea7865c1484b55024958b2c853c22fc69045671"
+    },
+    {
+      "id": "Diluted_Liquid_Greed",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Basic Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Diluted_Liquid_Greed",
+      "sourceRetrievedAt": "2026-10-03T09:56:36.880Z",
+      "sourceSha256": "a7444137ae47d1c424db4f97fbfe37ea73a6c8dfcef646fdd5160aaedac7c486"
+    },
+    {
+      "id": "Liquid_Paranoia",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Basic Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Liquid_Paranoia",
+      "sourceRetrievedAt": "2026-10-03T09:56:36.251Z",
+      "sourceSha256": "83648637b6773c55909ace67cd51c4e83448088a869ed4ee317031bfd682899d"
+    },
+    {
+      "id": "Liquid_Envy",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Basic Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Liquid_Envy",
+      "sourceRetrievedAt": "2026-10-03T09:56:36.288Z",
+      "sourceSha256": "bf2661bad7dd6bb565b85a7635db632696f051d39f00fafa79c277069cfea648"
+    },
+    {
+      "id": "Liquid_Disgust",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Basic Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Liquid_Disgust",
+      "sourceRetrievedAt": "2026-10-03T09:56:38.296Z",
+      "sourceSha256": "9be0f205ca44790bc8b8b18b1db2704bef6c4482fd8f824e483da7591f05e776"
+    },
+    {
+      "id": "Liquid_Despair",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Basic Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Liquid_Despair",
+      "sourceRetrievedAt": "2026-10-03T09:56:36.689Z",
+      "sourceSha256": "7a520ee1a7138afe28f1ab85ab895185c1abcc75370737a08f3a5c1d472fbf12"
+    },
+    {
+      "id": "Concentrated_Liquid_Fear",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Basic Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Concentrated_Liquid_Fear",
+      "sourceRetrievedAt": "2026-10-03T09:56:36.714Z",
+      "sourceSha256": "a774238480dbb456e1711562dc741751d2990ed4529bd250c3e7c8b317d28c78"
+    },
+    {
+      "id": "Concentrated_Liquid_Suffering",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Basic Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Concentrated_Liquid_Suffering",
+      "sourceRetrievedAt": "2026-10-03T09:56:37.136Z",
+      "sourceSha256": "ad9faff3864a631faf7d12d3e828b7ae65feb9badf635a79cd1edbce29e2dfcc"
+    },
+    {
+      "id": "Concentrated_Liquid_Isolation",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Basic Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Concentrated_Liquid_Isolation",
+      "sourceRetrievedAt": "2026-10-03T09:56:37.141Z",
+      "sourceSha256": "dd8f46dc7a997a03e6a8e51c085a1cd366873e575815263b38ec4b6e6a1aa8c3"
+    },
+    {
+      "id": "Ancient_Diluted_Liquid_Ire",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Time-Lost Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Ire",
+      "sourceRetrievedAt": "2026-10-03T09:56:37.971Z",
+      "sourceSha256": "fc9b12a8474eda0b78bbe420357271ba558538c2fe648b613fa4e9b486a47b8a"
+    },
+    {
+      "id": "Ancient_Diluted_Liquid_Guilt",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Time-Lost Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Guilt",
+      "sourceRetrievedAt": "2026-10-03T09:56:37.425Z",
+      "sourceSha256": "37f62fad1178b59ce7ea2e5dac32d8f4ba586ddf5158e65a9794190bd1db0b22"
+    },
+    {
+      "id": "Ancient_Diluted_Liquid_Greed",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Time-Lost Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Greed",
+      "sourceRetrievedAt": "2026-10-03T09:56:37.429Z",
+      "sourceSha256": "ecabd2e32caddddf33f4781ea5efcbfa303fae9dd43138cbe70d9273361d71a7"
+    },
+    {
+      "id": "Ancient_Liquid_Paranoia",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Time-Lost Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Paranoia",
+      "sourceRetrievedAt": "2026-10-03T09:56:37.712Z",
+      "sourceSha256": "21659eff450be4cda9a09384e8987c2947b6d9b70baf6d3d926a388d2a0c8bd9"
+    },
+    {
+      "id": "Ancient_Liquid_Envy",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Time-Lost Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Envy",
+      "sourceRetrievedAt": "2026-10-03T09:56:37.726Z",
+      "sourceSha256": "069458ad419432b591d847ac611e211efae85d157db9e5b4790491364d48a479"
+    },
+    {
+      "id": "Ancient_Liquid_Disgust",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Time-Lost Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Disgust",
+      "sourceRetrievedAt": "2026-10-03T09:56:38.009Z",
+      "sourceSha256": "a1390adf67a53e356d9e290add7d8b1eae619aa24455976b31705b3a667ea2a5"
+    },
+    {
+      "id": "Ancient_Liquid_Despair",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Time-Lost Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Despair",
+      "sourceRetrievedAt": "2026-10-03T09:56:38.020Z",
+      "sourceSha256": "768bd9fe0d593fbdc4ec05f8282098af6378008f9b2f5784a3a322bdfdfe7d48"
+    },
+    {
+      "id": "Ancient_Concentrated_Liquid_Fear",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Time-Lost Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Fear",
+      "sourceRetrievedAt": "2026-10-03T09:56:39.401Z",
+      "sourceSha256": "aa1c31bb051b02e015f1ed3954b6a4477eb005df079a782558cb987f5477680c"
+    },
+    {
+      "id": "Ancient_Concentrated_Liquid_Suffering",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Time-Lost Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Suffering",
+      "sourceRetrievedAt": "2026-10-03T09:56:38.301Z",
+      "sourceSha256": "3c62beb6ae867f41c1fa23615299fd3304dab4306e6e00df70317b5fe02dea7a"
+    },
+    {
+      "id": "Ancient_Concentrated_Liquid_Isolation",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Time-Lost Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Isolation",
+      "sourceRetrievedAt": "2026-10-03T09:56:38.449Z",
+      "sourceSha256": "2f1df155c23b0d73df0ca49e850f73758104f556b1e2dac9fc04e23669e2b039"
+    },
+    {
+      "id": "Potent_Liquid_Melancholy",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Basic Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Melancholy",
+      "sourceRetrievedAt": "2026-10-03T09:56:40.432Z",
+      "sourceSha256": "839577f1cb23d7fbb8478839e3247b9755218702038da914ff8ed99e6aa36a10"
+    },
+    {
+      "id": "Potent_Liquid_Ferocity",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Basic Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Ferocity",
+      "sourceRetrievedAt": "2026-10-03T09:56:38.727Z",
+      "sourceSha256": "6e2059542fdc3ec725f29e2fa873495b069bcd3d1d9b2c6ea4dc608bbab464c1"
+    },
+    {
+      "id": "Potent_Liquid_Contempt",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Basic Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Contempt",
+      "sourceRetrievedAt": "2026-10-03T09:56:38.878Z",
+      "sourceSha256": "6deb5f54750d6d8ff752b83fea176507dcb64a1c1f78062b238848d15d0f36a1"
+    },
+    {
+      "id": "Ancient_Potent_Liquid_Melancholy",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Time-Lost Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Potent_Liquid_Melancholy",
+      "sourceRetrievedAt": "2026-10-03T09:56:39.171Z",
+      "sourceSha256": "f754bb5734870e56a6d84f7bfcf82589cf5cb8d2d15c43724d40fb50291987b6"
+    },
+    {
+      "id": "Ancient_Potent_Liquid_Ferocity",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Time-Lost Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Potent_Liquid_Ferocity",
+      "sourceRetrievedAt": "2026-10-03T09:56:39.177Z",
+      "sourceSha256": "01221d782da8909f73b0389c3b51d69353ff52d8c9437c8ad4c0f88e3c559238"
+    },
+    {
+      "id": "Ancient_Potent_Liquid_Contempt",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card targets Rare Time-Lost Jewel with a Crafted modifier. Not Amulet instilling.",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Potent_Liquid_Contempt",
+      "sourceRetrievedAt": "2026-10-03T09:56:39.613Z",
+      "sourceSha256": "8bc459b99363da7a6b4fbcc3a2a8151329da8b2ff5f2d7384804c5c885146cdf"
+    },
+    {
+      "id": "Liquid_Verisium",
+      "category": "LIQUID_EMOTION",
+      "bucket": "OUTSIDE_EQUIPMENT_SCOPE",
+      "reason": "Encounter-only effect; no equipment crafting action.",
+      "sourceUrl": "https://poe2db.tw/us/Liquid_Verisium",
+      "sourceRetrievedAt": "2026-10-03T09:56:39.608Z",
+      "sourceSha256": "b5002be0e8d91f20632bfe5ecf12c39d35d6d857e34ff0740324dbdb4605619f"
+    },
+    {
+      "id": "Blacksmiths_Whetstone",
+      "category": "CURRENCY",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card target is weapon/caster equipment or Jewel, not Solar Amulet/Stocky Mitts.",
+      "sourceUrl": "https://poe2db.tw/us/Blacksmiths_Whetstone",
+      "sourceRetrievedAt": "2026-10-03T10:01:19.366Z",
+      "sourceSha256": "2b5622ba1f9df13daefa003980aaf1153992f6ad6d74892f98a47cea60ff73d1"
+    },
+    {
+      "id": "Arcanists_Etcher",
+      "category": "CURRENCY",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card target is weapon/caster equipment or Jewel, not Solar Amulet/Stocky Mitts.",
+      "sourceUrl": "https://poe2db.tw/us/Arcanists_Etcher",
+      "sourceRetrievedAt": "2026-10-03T10:01:18.410Z",
+      "sourceSha256": "69c74b3c8b3e12fd7c2242fd07b9457eaccbedef747fe58c1f4ceebc05139cea"
+    },
+    {
+      "id": "Armourers_Scrap",
+      "category": "CURRENCY",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Quality, unique/corrupted item or sacrifice outcomes require complete eligible outcomes and numeric/state rules; missing engine alone does not establish correctness.",
+      "sourceUrl": "https://poe2db.tw/us/Armourers_Scrap",
+      "sourceRetrievedAt": "2026-10-03T10:01:18.706Z",
+      "sourceSha256": "c75fce997c49adddc69c249b530a7a9244dcb3b915ec93386322544be551c217"
+    },
+    {
+      "id": "Scroll_of_Wisdom",
+      "category": "CURRENCY",
+      "bucket": "ENGINE_STATE_GAP",
+      "reason": "Identification / unidentified state; identification is a utility, not an explicit-modifier crafting action.",
+      "sourceUrl": "https://poe2db.tw/us/Scroll_of_Wisdom",
+      "sourceRetrievedAt": "2026-10-03T10:01:18.435Z",
+      "sourceSha256": "23ce804795bb0288965e6b9492bb2da8a21f9959b7ec6c9f26fb8aee6fa96c9b"
+    },
+    {
+      "id": "Orb_of_Chance",
+      "category": "CURRENCY",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Quality, unique/corrupted item or sacrifice outcomes require complete eligible outcomes and numeric/state rules; missing engine alone does not establish correctness.",
+      "sourceUrl": "https://poe2db.tw/us/Orb_of_Chance",
+      "sourceRetrievedAt": "2026-10-03T10:01:18.685Z",
+      "sourceSha256": "d74ee407f06556bca3a49d8b6d833e8a7bf83df5184e637f788ec55dea8b6b14"
+    },
+    {
+      "id": "Mirror_of_Kalandra",
+      "category": "CURRENCY",
+      "bucket": "ENGINE_STATE_GAP",
+      "reason": "Mirrored copy, inventory identity and copy restrictions.",
+      "sourceUrl": "https://poe2db.tw/us/Mirror_of_Kalandra",
+      "sourceRetrievedAt": "2026-10-03T10:01:20.668Z",
+      "sourceSha256": "4b3fe88cccf4738e5031be123164b664e3d5354df63010537d99132422cd1c60"
+    },
+    {
+      "id": "Artificers_Orb",
+      "category": "CURRENCY",
+      "bucket": "ENGINE_STATE_GAP",
+      "reason": "Armour augment socket state, limits and socket-bound resource representation.",
+      "sourceUrl": "https://poe2db.tw/us/Artificers_Orb",
+      "sourceRetrievedAt": "2026-10-03T10:01:18.731Z",
+      "sourceSha256": "b92c584628f1a9f5bbadd2de1596a29c2439321261b3f4f364993e60fbc5f853"
+    },
+    {
+      "id": "Architects_Orb",
+      "category": "CURRENCY",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Quality, unique/corrupted item or sacrifice outcomes require complete eligible outcomes and numeric/state rules; missing engine alone does not establish correctness.",
+      "sourceUrl": "https://poe2db.tw/us/Architects_Orb",
+      "sourceRetrievedAt": "2026-10-03T10:01:18.882Z",
+      "sourceSha256": "fcf077edcbd0de912efda30e31eb497088d904eb525822a5dffa6d207a1956aa"
+    },
+    {
+      "id": "Core_Destabiliser",
+      "category": "CURRENCY",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Targets Soul Core resource, not an item of either supported base; augment crafting remains in equipment scope.",
+      "sourceUrl": "https://poe2db.tw/us/Core_Destabiliser",
+      "sourceRetrievedAt": "2026-10-03T10:01:19.161Z",
+      "sourceSha256": "67e1bfb9390c59749beedefb66eba7d42218817d2ca10623b7574812e6f76278"
+    },
+    {
+      "id": "Vaal_Cultivation_Orb",
+      "category": "CURRENCY",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Quality, unique/corrupted item or sacrifice outcomes require complete eligible outcomes and numeric/state rules; missing engine alone does not establish correctness.",
+      "sourceUrl": "https://poe2db.tw/us/Vaal_Cultivation_Orb",
+      "sourceRetrievedAt": "2026-10-03T10:01:21.920Z",
+      "sourceSha256": "010259e3242871aaa3962295d39bc5904e7b97b4bab9492a6d63d9e92a1935c3"
+    },
+    {
+      "id": "Yaomacs_Orb_of_Sacrifice",
+      "category": "CURRENCY",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card target is weapon/caster equipment or Jewel, not Solar Amulet/Stocky Mitts.",
+      "sourceUrl": "https://poe2db.tw/us/Yaomacs_Orb_of_Sacrifice",
+      "sourceRetrievedAt": "2026-10-03T10:01:19.345Z",
+      "sourceSha256": "1e2f085c16697e6d346f7f6fdc0575e57e31b86a353d3cb9c8966f6ce26d9873"
+    },
+    {
+      "id": "Kopecs_Orb_of_Sacrifice",
+      "category": "CURRENCY",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Quality, unique/corrupted item or sacrifice outcomes require complete eligible outcomes and numeric/state rules; missing engine alone does not establish correctness.",
+      "sourceUrl": "https://poe2db.tw/us/Kopecs_Orb_of_Sacrifice",
+      "sourceRetrievedAt": "2026-10-03T10:01:19.046Z",
+      "sourceSha256": "a27ae1b864054717519590cbb51bce21358a032610aa2db11446cad0f15478f3"
+    },
+    {
+      "id": "Kamasas_Orb_of_Sacrifice",
+      "category": "CURRENCY",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Quality, unique/corrupted item or sacrifice outcomes require complete eligible outcomes and numeric/state rules; missing engine alone does not establish correctness.",
+      "sourceUrl": "https://poe2db.tw/us/Kamasas_Orb_of_Sacrifice",
+      "sourceRetrievedAt": "2026-10-03T10:01:21.024Z",
+      "sourceSha256": "a47ebcce06dba0b5fe7b38e1fde5a0fc70b4112cd99cb1abb5d8eee1e17be5b2"
+    },
+    {
+      "id": "Yuguls_Orb_of_Sacrifice",
+      "category": "CURRENCY",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card target is weapon/caster equipment or Jewel, not Solar Amulet/Stocky Mitts.",
+      "sourceUrl": "https://poe2db.tw/us/Yuguls_Orb_of_Sacrifice",
+      "sourceRetrievedAt": "2026-10-03T10:01:19.790Z",
+      "sourceSha256": "a652eff8acac3aaf02b3f1f0d835273517080b4b31614090a01b5d6d236ce50e"
+    },
+    {
+      "id": "Vaal_Armourers_Infuser",
+      "category": "CURRENCY",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Quality, unique/corrupted item or sacrifice outcomes require complete eligible outcomes and numeric/state rules; missing engine alone does not establish correctness.",
+      "sourceUrl": "https://poe2db.tw/us/Vaal_Armourers_Infuser",
+      "sourceRetrievedAt": "2026-10-03T10:01:20.763Z",
+      "sourceSha256": "1632f57dcb2d27d355cb35ad43c4b541ead34d2c140c7bd050f5a7b24e763aa1"
+    },
+    {
+      "id": "Vaal_Blacksmiths_Infuser",
+      "category": "CURRENCY",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card target is weapon/caster equipment or Jewel, not Solar Amulet/Stocky Mitts.",
+      "sourceUrl": "https://poe2db.tw/us/Vaal_Blacksmiths_Infuser",
+      "sourceRetrievedAt": "2026-10-03T10:01:19.992Z",
+      "sourceSha256": "72f89af0b7bd3031fcd747fe4679e302715a66dabbf811e367061592b22477fa"
+    },
+    {
+      "id": "Vaal_Arcanists_Infuser",
+      "category": "CURRENCY",
+      "bucket": "OTHER_TARGET_REQUIRED",
+      "reason": "Current card target is weapon/caster equipment or Jewel, not Solar Amulet/Stocky Mitts.",
+      "sourceUrl": "https://poe2db.tw/us/Vaal_Arcanists_Infuser",
+      "sourceRetrievedAt": "2026-10-03T10:01:19.665Z",
+      "sourceSha256": "a432c8f2fca1f3612b2fb83f449a278bbd71ace795e4722d0bcae418eb2dfa7f"
+    },
+    {
+      "id": "Vaal_Catalysing_Infuser",
+      "category": "CURRENCY",
+      "bucket": "RULE_DATA_GAP",
+      "reason": "Quality, unique/corrupted item or sacrifice outcomes require complete eligible outcomes and numeric/state rules; missing engine alone does not establish correctness.",
+      "sourceUrl": "https://poe2db.tw/us/Vaal_Catalysing_Infuser",
+      "sourceRetrievedAt": "2026-10-03T10:01:20.229Z",
+      "sourceSha256": "4e125658d170829ec3d7ef61095c97e9e07264102e9c7d9b99a10fe2a97055cd"
+    },
+    {
+      "id": "Orb_of_Extraction",
+      "category": "CURRENCY",
+      "bucket": "ENGINE_STATE_GAP",
+      "reason": "Augment extraction, item destruction and returned-resource inventory.",
+      "sourceUrl": "https://poe2db.tw/us/Orb_of_Extraction",
+      "sourceRetrievedAt": "2026-10-03T10:01:20.315Z",
+      "sourceSha256": "f16339f6dfaa351cbe83b42273d9c852e492273109179ac39139b1fd1b653151"
+    }
+  ]
+}
