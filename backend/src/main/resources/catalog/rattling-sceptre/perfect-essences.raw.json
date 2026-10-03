@@ -1,0 +1,63 @@
+[
+  {
+    "id": "Perfect_Essence_of_Command",
+    "url": "https://poe2db.tw/us/Perfect_Essence_of_Command",
+    "retrievedAt": "2026-10-03T14:19:17.445Z",
+    "sha256": "ef32897f0404f3252382abb6178701af671c6f492a997e44b534394bb2419032",
+    "card": "Perfect Essence of Command Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierSceptre: Aura Skills have (15—20)% increased Magnitudes Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+    "row": {
+      "type": "essence",
+      "Level": "72",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [],
+      "fossil_no": [],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/e9a782ae7d3206e785b6fd9f952e0891dd162346b7f9e5dbe019c752d1912b9a\" href=\"Perfect_Essence_of_Command\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/AllyEssencePerfect.webp\" alt=\"AllyEssencePerfect\" height=\"16\" />Perfect Essence of Command</a>",
+      "Code": "EssenceAuraEffect1",
+      "ModFamilyList": [
+        "AuraEffect"
+      ],
+      "str": "<a data-keyword=\"Aura\" href=\"Auras\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9c33e23c455e029b1d437a71f978feba47c97fc78c293518c0554551040dbc59\">Aura</a> Skills have <span class='mod-value'>(15<span class=\"ndash\">—</span>20)</span>% increased <a data-keyword=\"BuffMagnitude\" href=\"Buff_Debuff_Magnitude\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6ddd7dbb8996529f934041ebd9ccc413104a06d1266ab7a3ec342dfdc4e3c6b4\">Magnitudes</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "default"
+      ],
+      "reqlvl": 57,
+      "IsPerfect": "1",
+      "IsAlloy": false,
+      "Removes": true
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAuraEffect1",
+    "detailRetrievedAt": "2026-10-03T16:10:55.119Z",
+    "detailSha256": "e2ce8fb18c49a4b00397c088be4f6d0cdef140060ce6ea98452c019c4a02dad4",
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Aura\" href=\"Auras\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9c33e23c455e029b1d437a71f978feba47c97fc78c293518c0554551040dbc59\">Aura</a> Skills have <span class='mod-value'>(15<span class=\"ndash\">—</span>20)</span>% increased <a data-keyword=\"BuffMagnitude\" href=\"Buff_Debuff_Magnitude\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6ddd7dbb8996529f934041ebd9ccc413104a06d1266ab7a3ec342dfdc4e3c6b4\">Magnitudes</a></span></h5>   <span data-tabname=\"of the Essence\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Essence\n<tr><th>Family<td>AuraEffect\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>aura effect +% <span class=\"badge bg-primary\">15 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+    "parsed": {
+      "fields": {
+        "Name": "of the Essence",
+        "Family": "AuraEffect",
+        "Domains": "Item (1)",
+        "GenerationType": "Suffix (2)",
+        "Req. level": "72 (Effective: 57)",
+        "Gold Price": "3266",
+        "Stats": "aura effect +% 15 — 20 Global",
+        "Spawn Tags": "default: 0"
+      },
+      "effect": "Aura Skills have (15—20)% increased Magnitudes",
+      "stats": [
+        {
+          "id": "aura_effect_+%",
+          "bounds": [
+            15,
+            20
+          ]
+        }
+      ],
+      "sameEffect": true
+    },
+    "minimumSupportedItemLevel": 72,
+    "requiredCharacterLevel": 57,
+    "matchedModifierIds": [
+      "rattling-sceptre:suffix:essence-aura-magnitude"
+    ]
+  }
+]

@@ -2,6 +2,7 @@ import type { AppliedItem } from './workbenchApi'
 
 export const modifierWeightSources = {
   solar: 'https://poe2db.tw/us/Amulets',
+  sceptre: 'https://poe2db.tw/us/Sceptres',
   body: 'https://poe2db.tw/us/Body_Armours_str',
   stocky: 'https://poe2db.tw/us/Gloves_str',
   bow: 'https://poe2db.tw/us/Bows',

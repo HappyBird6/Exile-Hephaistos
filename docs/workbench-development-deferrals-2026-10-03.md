@@ -1,3 +1,5 @@
+Latest checkpoint: [Rattling Sceptre and four Command Essences](workbench-rattling-sceptre-2026-10-03.md), overall116 / current-scope155: implemented108, pending47, excluded65. Earlier counts describe their dated checkpoints.
+
 # Current development deferrals (2026-10-03, second user scope update)
 
 This supersedes the Liquid-only development denominator. Registry entries, source facts, existing Alloy implementation/UI and archived item films are preserved. Deferral means future development priority, not data deletion or a game-obtainability assertion.

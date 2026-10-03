@@ -30,7 +30,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -56,7 +57,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -82,7 +84,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -105,7 +108,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -131,7 +135,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -157,7 +162,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -183,7 +189,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -222,7 +229,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -248,7 +256,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -274,7 +283,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -300,7 +310,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -326,7 +337,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -352,7 +364,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -378,7 +391,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -404,7 +418,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -430,7 +445,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -456,7 +472,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -482,7 +499,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -508,7 +526,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -2165,10 +2184,25 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED",
+      "action": "LESSER_ESSENCE_COMMAND",
+      "reason": "Verified Rattling Sceptre Command result only; source modifier level is a conservative simulator gate, not confirmed lower-level game applicability. Magic to Rare with one guaranteed addition. Source-integer numeric model UNVERIFIED.",
+      "supportedBases": [
+        "sceptre"
+      ],
+      "sceptreEvidence": {
+        "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Command",
+        "sourceSha256": "a18466b01d1b7739a71f637db5a7ae1f8c2c5cfb10b88a4aa1d37ee1f2fd8364",
+        "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAllDamage2",
+        "modifierSourceSha256": "fcdddeea8a317996c4620c0441476822f5c835593a74797c09fe939332363068",
+        "sourceModCode": "NearbyAlliesAllDamage2",
+        "minimumSupportedItemLevel": 8,
+        "requiredCharacterLevel": 6,
+        "modifierIds": [
+          "rattling-sceptre:prefix:agitative"
+        ]
+      }
     },
     {
       "id": "Essence_of_Command",
@@ -2179,10 +2213,25 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED",
+      "action": "ESSENCE_COMMAND",
+      "reason": "Verified Rattling Sceptre Command result only; source modifier level is a conservative simulator gate, not confirmed lower-level game applicability. Magic to Rare with one guaranteed addition. Source-integer numeric model UNVERIFIED.",
+      "supportedBases": [
+        "sceptre"
+      ],
+      "sceptreEvidence": {
+        "sourceUrl": "https://poe2db.tw/us/Essence_of_Command",
+        "sourceSha256": "fcf5a1f3dca6a63633013fb47ce192525613a279ffce6e36df7040c92f1d9079",
+        "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAllDamage4",
+        "modifierSourceSha256": "6b726f438888b1b19ff5e9f63ab5e50425ae3fec58710f8b22e90f6f01c5264a",
+        "sourceModCode": "NearbyAlliesAllDamage4",
+        "minimumSupportedItemLevel": 33,
+        "requiredCharacterLevel": 26,
+        "modifierIds": [
+          "rattling-sceptre:prefix:provocative"
+        ]
+      }
     },
     {
       "id": "Greater_Essence_of_Command",
@@ -2193,10 +2242,25 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED",
+      "action": "GREATER_ESSENCE_COMMAND",
+      "reason": "Verified Rattling Sceptre Command result only; source modifier level is a conservative simulator gate, not confirmed lower-level game applicability. Magic to Rare with one guaranteed addition. Source-integer numeric model UNVERIFIED.",
+      "supportedBases": [
+        "sceptre"
+      ],
+      "sceptreEvidence": {
+        "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Command",
+        "sourceSha256": "6e567597b7041e803e68cda5571de0f6d62210f3653b4f88d4bc6043a359abc4",
+        "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAllDamage6",
+        "modifierSourceSha256": "4ab6051c91962c0824cbb03374563cf7ca5821bf7ee2087ae9ef99a93517acc9",
+        "sourceModCode": "NearbyAlliesAllDamage6",
+        "minimumSupportedItemLevel": 60,
+        "requiredCharacterLevel": 48,
+        "modifierIds": [
+          "rattling-sceptre:prefix:motivating"
+        ]
+      }
     },
     {
       "id": "Perfect_Essence_of_Command",
@@ -2207,10 +2271,25 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED",
+      "action": "PERFECT_ESSENCE_COMMAND",
+      "reason": "Verified Rattling Sceptre Command result only; source modifier level is a conservative simulator gate, not confirmed lower-level game applicability. Uniform unlocked removal plus guaranteed Rare replacement. Source-integer numeric model UNVERIFIED.",
+      "supportedBases": [
+        "sceptre"
+      ],
+      "sceptreEvidence": {
+        "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Command",
+        "sourceSha256": "ef32897f0404f3252382abb6178701af671c6f492a997e44b534394bb2419032",
+        "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAuraEffect1",
+        "modifierSourceSha256": "e2ce8fb18c49a4b00397c088be4f6d0cdef140060ce6ea98452c019c4a02dad4",
+        "sourceModCode": "EssenceAuraEffect1",
+        "minimumSupportedItemLevel": 72,
+        "requiredCharacterLevel": 57,
+        "modifierIds": [
+          "rattling-sceptre:suffix:essence-aura-magnitude"
+        ]
+      }
     },
     {
       "id": "Runic_Alloy",
@@ -2460,7 +2539,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -2481,7 +2561,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -2506,7 +2587,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -2531,7 +2613,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -2556,7 +2639,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -2658,7 +2742,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -2683,7 +2768,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -2708,7 +2794,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -2749,7 +2836,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -2774,7 +2862,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -2883,7 +2972,8 @@
         "stocky",
         "bow",
         "wand",
-        "body"
+        "body",
+        "sceptre"
       ]
     },
     {
@@ -4147,6 +4237,12 @@
       "ledgerVersion": "body-unverified-numeric-assumptions-v1",
       "numericModelStatus": "UNVERIFIED",
       "source": "https://poe2db.tw/us/Body_Armours_str"
+    },
+    "sceptre": {
+      "ruleVersion": "sceptre-workbench-essence-v1",
+      "ledgerVersion": "sceptre-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Sceptres"
     }
   }
 }

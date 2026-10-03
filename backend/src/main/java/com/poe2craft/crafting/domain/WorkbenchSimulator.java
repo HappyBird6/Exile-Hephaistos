@@ -99,6 +99,8 @@ public final class WorkbenchSimulator {
   }
 
   public String ruleVersion() {
+    if (catalog.base().id().equals(SceptreEssenceTargets.BASE_ID))
+      return "sceptre-workbench-essence-v1";
     if (catalog.base().id().equals(BodyEssenceTargets.BASE_ID))
       return "body-workbench-perfect-essence-v1";
     if (catalog.base().id().equals(WandEssenceTargets.BASE_ID)) return "wand-workbench-essence-v1";
@@ -108,6 +110,8 @@ public final class WorkbenchSimulator {
   }
 
   public String ledgerVersion() {
+    if (catalog.base().id().equals(SceptreEssenceTargets.BASE_ID))
+      return "sceptre-unverified-numeric-assumptions-v1";
     if (catalog.base().id().equals(BodyEssenceTargets.BASE_ID))
       return "body-unverified-numeric-assumptions-v1";
     if (catalog.base().id().equals(WandEssenceTargets.BASE_ID))

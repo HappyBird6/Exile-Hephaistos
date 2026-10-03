@@ -17,7 +17,8 @@ public final class QualityLimitRules {
         && !state.baseItemId().equals("Metadata/Items/Armours/Gloves/FourGlovesStr1")
         && !state.baseItemId().equals(BowEssenceTargets.BASE_ID)
         && !state.baseItemId().equals(BodyEssenceTargets.BASE_ID)
-        && !state.baseItemId().equals(WandEssenceTargets.BASE_ID))
+        && !state.baseItemId().equals(WandEssenceTargets.BASE_ID)
+        && !state.baseItemId().equals(SceptreEssenceTargets.BASE_ID))
       return null; // Other catalogs do not inherit a reviewed cap.
     int maximum = 20;
     for (var instance : state.explicits()) {

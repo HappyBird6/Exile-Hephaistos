@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "snapshotId": "sceptre-perfect-20261003-4647324722e0",
+    "retrievedAt": "2026-10-03T16:10:11.072Z",
+    "sourceUrl": "https://poe2db.tw/us/Sceptres",
+    "rawSha256": "4647324722e0681e1bf41eabc300e69d959621b95ad5c750fd7cf73c2a381be2"
+  },
+  "modifiers": [
+    {
+      "id": "rattling-sceptre:suffix:essence-aura-magnitude",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AuraEffect"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "Aura Skills have (15—20)% increased Magnitudes",
+      "stats": [
+        {
+          "id": "aura_effect_+%",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAuraEffect1"
+    }
+  ]
+}

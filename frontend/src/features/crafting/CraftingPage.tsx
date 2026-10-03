@@ -107,9 +107,12 @@ export function CraftingPage() {
             : storedFrame?.state.baseItemId ===
                 'Metadata/Items/Armours/BodyArmours/FourBodyStr1'
               ? 'body'
-              : storedFrame
-                ? 'solar'
-                : draft.base
+              : storedFrame?.state.baseItemId ===
+                  'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
+                ? 'sceptre'
+                : storedFrame
+                  ? 'solar'
+                  : draft.base
   const baseName =
     catalogBase === 'stocky'
       ? 'Stocky Mitts'
@@ -119,7 +122,9 @@ export function CraftingPage() {
           ? 'Attuned Wand'
           : catalogBase === 'body'
             ? 'Rusted Cuirass'
-            : 'Solar Amulet'
+            : catalogBase === 'sceptre'
+              ? 'Rattling Sceptre'
+              : 'Solar Amulet'
   const catalogLevel =
     Number.isInteger(storedLevel) && storedLevel! >= 1 && storedLevel! <= 100
       ? storedLevel!
@@ -199,7 +204,7 @@ export function CraftingPage() {
       : undefined
   async function startBase(
     level: number,
-    base: 'solar' | 'stocky' | 'bow' | 'wand' | 'body' = 'solar',
+    base: 'solar' | 'stocky' | 'bow' | 'wand' | 'body' | 'sceptre' = 'solar',
   ) {
     const request = ++placementRequest.current
     const revision = useItemDraft.getState().baseRevision
@@ -304,7 +309,7 @@ export function CraftingPage() {
   )
   const [baseLevel, setBaseLevel] = useState('82')
   const [baseChoice, setBaseChoice] = useState<
-    'solar' | 'stocky' | 'bow' | 'wand' | 'body'
+    'solar' | 'stocky' | 'bow' | 'wand' | 'body' | 'sceptre'
   >('solar')
   const [previewRequest, setPreviewRequest] = useState<{
     count: number
@@ -647,9 +652,23 @@ export function CraftingPage() {
                     ? 'Wands'
                     : catalogBase === 'body'
                       ? 'Body Armours'
-                      : 'Amulet',
+                      : catalogBase === 'sceptre'
+                        ? 'Sceptres'
+                        : 'Amulet',
             itemLevel: concrete.itemLevel,
             properties: [
+              ...(catalogBase === 'sceptre'
+                ? [
+                    {
+                      id: 'base-spirit',
+                      text: 'Base Spirit: 100 (not computed)',
+                    },
+                    {
+                      id: 'innate-skill',
+                      text: 'Grants Skill: Skeletal Warrior (not simulated)',
+                    },
+                  ]
+                : []),
               ...(catalogBase === 'body'
                 ? [
                     {
@@ -1112,7 +1131,9 @@ export function CraftingPage() {
                               ? 'Wands'
                               : catalogBase === 'body'
                                 ? 'Body Armours'
-                                : 'Amulet',
+                                : catalogBase === 'sceptre'
+                                  ? 'Sceptres'
+                                  : 'Amulet',
                       itemLevel: draft.baseItemLevel,
                       properties: [],
                       requirements: [],
@@ -1284,6 +1305,14 @@ export function CraftingPage() {
                     preserved.
                   </p>
                 )}
+                {catalogBase === 'sceptre' && (
+                  <p className="workbench-feedback">
+                    Spirit and Skeletal Warrior are base facts; their totals,
+                    applied quality, sockets and pasted mapping are unsupported.
+                    Item-level gates use source modifier levels; lower-level
+                    game behavior is unverified.
+                  </p>
+                )}
                 {catalogBase === 'body' && (
                   <p className="workbench-feedback">
                     Computed Armour, movement speed, applied quality, sockets
@@ -1363,8 +1392,9 @@ export function CraftingPage() {
                               : 'Uniform assumption'}
                           : {a.candidateUnit}, N = {a.n}, each candidate = 1/
                           {a.n}.{' '}
-                          {a.min !== null
-                            ? `${a.id === 'user-coupled-ratio-half-up-v1' ? 'Assumed ratio tick range' : 'Source range'} ${a.min} to ${a.max}. `
+                          {a.id === 'user-coupled-ratio-half-up-v1' &&
+                          a.min !== null
+                            ? `Assumed ratio ticks ${a.min} to ${a.max}. `
                             : ''}
                           {a.reason}{' '}
                           {a.ratioTick != null
@@ -1447,7 +1477,12 @@ export function CraftingPage() {
                     onChange={(e) =>
                       setBaseChoice(
                         e.target.value as
-                          'solar' | 'stocky' | 'bow' | 'wand' | 'body',
+                          | 'solar'
+                          | 'stocky'
+                          | 'bow'
+                          | 'wand'
+                          | 'body'
+                          | 'sceptre',
                       )
                     }
                   >
@@ -1456,6 +1491,7 @@ export function CraftingPage() {
                     <option value="bow">Crude Bow</option>
                     <option value="wand">Attuned Wand</option>
                     <option value="body">Rusted Cuirass</option>
+                    <option value="sceptre">Rattling Sceptre</option>
                   </select>
                   <label htmlFor="base-level">Item level</label>
                   <input

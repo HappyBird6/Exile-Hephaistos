@@ -1,3 +1,5 @@
+Latest checkpoint: [Rattling Sceptre and four Command Essences](workbench-rattling-sceptre-2026-10-03.md), overall116 / current-scope155: implemented108, pending47, excluded65. Earlier counts describe their dated checkpoints.
+
 Latest checkpoint: [Rusted Cuirass](workbench-rusted-cuirass-2026-10-03.md) adds three Perfect results; current104/155 implemented,51 pending, exclusions65 unchanged. Counts below describe the earlier checkpoint.
 
 # Remaining Workbench materials and probability evidence — 2026-10-03

@@ -13,6 +13,8 @@ public final class WorkbenchService {
   private final WorkbenchSimulator solarSimulator;
   private final WorkbenchSimulator stockySimulator;
   private final ItemCatalog wand;
+  private final ItemCatalog sceptre;
+  private final WorkbenchSimulator sceptreSimulator;
   private final ItemCatalog body;
   private final WorkbenchSimulator bodySimulator;
   private final WorkbenchSimulator wandSimulator;
@@ -45,6 +47,29 @@ public final class WorkbenchService {
       ItemCatalog bow,
       ItemCatalog wand,
       ItemCatalog body) {
+    this(solar, solarSimulator, stocky, bow, wand, body, null);
+  }
+
+  public WorkbenchService(
+      ItemCatalog solar,
+      WorkbenchSimulator solarSimulator,
+      ItemCatalog stocky,
+      ItemCatalog bow,
+      ItemCatalog wand,
+      ItemCatalog body,
+      ItemCatalog sceptre) {
+    this.sceptre = sceptre;
+    this.sceptreSimulator =
+        sceptre == null
+            ? null
+            : new WorkbenchSimulator(
+                sceptre,
+                new CraftingEngine(sceptre),
+                sceptre.modifiers().values().stream()
+                    .filter(d -> d.stats().size() > 1)
+                    .map(ModifierDefinition::id)
+                    .collect(java.util.stream.Collectors.toSet()),
+                SceptreEssenceTargets.VERIFIED);
     this.body = body;
     this.bodySimulator =
         body == null
@@ -131,6 +156,10 @@ public final class WorkbenchService {
     return switch (base) {
       case "solar" -> solar;
       case "stocky" -> stocky;
+      case "sceptre" -> {
+        if (sceptre == null) throw new IllegalArgumentException("Sceptre catalog unavailable");
+        yield sceptre;
+      }
       case "body" -> {
         if (body == null) throw new IllegalArgumentException("Body Armour catalog unavailable");
         yield body;
@@ -151,6 +180,8 @@ public final class WorkbenchService {
     if (state == null) throw new IllegalArgumentException("State required");
     if (state.baseItemId().equals(SolarAmulet.BASE_ID)) return solarSimulator;
     if (state.baseItemId().equals(STOCKY_BASE_ID)) return stockySimulator;
+    if (state.baseItemId().equals(SceptreEssenceTargets.BASE_ID) && sceptreSimulator != null)
+      return sceptreSimulator;
     if (state.baseItemId().equals(BodyEssenceTargets.BASE_ID) && bodySimulator != null)
       return bodySimulator;
     if (state.baseItemId().equals(WandEssenceTargets.BASE_ID) && wandSimulator != null)

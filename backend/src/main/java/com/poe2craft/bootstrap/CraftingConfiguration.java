@@ -82,7 +82,8 @@ public class CraftingConfiguration {
               reviewedRaw),
           ItemCatalogLoader.loadBow(),
           ItemCatalogLoader.loadWand(),
-          ItemCatalogLoader.loadBody());
+          ItemCatalogLoader.loadBody(),
+          ItemCatalogLoader.loadSceptre());
     } catch (java.io.IOException e) {
       throw new IllegalStateException("Cannot load Stocky Mitts catalog", e);
     }
