@@ -94,3 +94,5 @@ Stocky Mitts 기본 Essence 확장(v18): 기존 4종에 Body/Mind/Ruin/Insulatio
 장갑 Hysteria(v19): Rare/lvl45+에서 전용 of Fury 치명타 피해 보너스로 교체하며, Crystallisation 방향·전체 제거 분기·Fractured 보존을 검증했습니다. 장갑 지원 56종/45액션, 구현 고유 재료는 64종 그대로입니다. [근거·검증·후속 후보](docs/workbench-stocky-hysteria-2026-10-03.md).
 
 장갑 Abyss(v20): 일반 모드 182개는 보존하고 zero-spawn 전용 접두/접미 2개만 별도 카탈로그로 추가했습니다. 이전 snapshot·필름의 수치/잠금/증거/미래 단계를 보존하며, 선택 1/2는 미공개 가중치에 대한 명시적 가정입니다. 구현 고유 재료 64종 유지, 장갑 지원 57종/46액션. [검증·호환 경계](docs/workbench-stocky-abyss-2026-10-03.md), [나머지 특수 결과 근거표](docs/workbench-stocky-special-evidence-2026-10-03.md).
+
+2026-10-03 Workbench 후속: Stocky Mitts Horror의 고정 Local 60% suffix 부여를 지원합니다. 소켓 장착과 Rune/Soul Core 효과 계산은 미지원이며 화면에 경계를 표시합니다. 일반 182모드의 가중치는 유지했고, 기존 normal/Abyss 제작 필름을 보존합니다. 실제 구현 범위는 등록 220개 중 65개, Stocky 58 지원항목/47액션, Solar 60/49입니다. [룰 근거·Docker/브라우저 검증·미실행 검사·다음 우선순위](docs/workbench-stocky-horror-2026-10-03.md). 390px 중앙 사용 버튼 잘림도 수정했습니다.

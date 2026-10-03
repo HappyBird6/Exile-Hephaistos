@@ -1315,14 +1315,18 @@
       "name": "Essence of Horror",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Horror",
-      "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourcePage": "https://poe2db.tw/us/Essence_of_Horror",
+      "sourceRetrievedAt": "2026-10-03T06:50:17.684Z",
+      "sourceSha256": "90f36fa3dbd88c7220982f62211fa323d339fd3bb7ced7fc1606f1c52624465d",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
+      "effectStatus": "IMPLEMENTED",
       "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "action": "ESSENCE_HORROR",
+      "reason": "Rare Stocky Mitts level 1+: replace one eligible unlocked explicit with the fixed 60% Local Socketed Augment Item effect suffix (SoulCore family). Source marks this value Unscalable. Crystallisation restricts removal only; every removal branch must fit. Ordinary spawn weight remains zero. Affix assignment supported; socketing and Rune/Soul Core effect calculations unsupported.",
+      "ruleSource": "https://poe2db.tw/us/Essence_of_Horror",
+      "ruleVerifiedAt": "2026-10-03",
+      "implementationScope": "Stocky Mitts affix assignment only; Solar unsupported; no socket effect simulation.",
+      "supportedBases": ["stocky"]
     },
     {
       "id": "Essence_of_Insanity",
@@ -1963,7 +1967,7 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "DEXTRAL_CRYSTALLISATION",
-      "reason": "Supported Solar replacement Essences or Stocky Mitts Hysteria/Abyss: remove only unlocked suffix instances. Consume once on success; unrelated omens remain. Matching pair conflicts, no eligible suffix and any invalid replacement branch are blocked. Other glove replacement materials remain unsupported.",
+      "reason": "Supported Solar replacement Essences or Stocky Mitts Hysteria/Abyss/Horror: remove only unlocked suffix instances. Consume once on success; unrelated omens remain. Matching pair conflicts, no eligible suffix and any invalid replacement branch are blocked. Other glove replacement materials remain unsupported.",
       "supportedBases": [
         "solar",
         "stocky"
@@ -1981,7 +1985,7 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "SINISTRAL_CRYSTALLISATION",
-      "reason": "Supported Solar replacement Essences or Stocky Mitts Hysteria/Abyss: remove only unlocked prefix instances. Consume once on success; unrelated omens remain. Matching pair conflicts, no eligible prefix and any invalid replacement branch are blocked. Other glove replacement materials remain unsupported.",
+      "reason": "Supported Solar replacement Essences or Stocky Mitts Hysteria/Abyss/Horror: remove only unlocked prefix instances. Consume once on success; unrelated omens remain. Matching pair conflicts, no eligible prefix and any invalid replacement branch are blocked. Other glove replacement materials remain unsupported.",
       "supportedBases": [
         "solar",
         "stocky"

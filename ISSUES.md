@@ -164,3 +164,23 @@ Latest Hysteria verification: Docker BE 195 (189 unit/six integration), FE 114/2
 
 Remaining special-target source review: [13 rows / 12 material identities, exact stat/family/locality and independently checked page conditions](docs/workbench-stocky-special-evidence-2026-10-03.md). Source capture is not implementation; Horror's fixed glove/boot effect is the next independent candidate. Root ISSUES.md remains the single issue list.
 Latest Abyss verification: Docker BE 201 (195 unit/six integration), FE 117/22 files; actual Abyss browser 50, snapshot/history compatibility 10, Stocky general 59/basic Essence 86/Hysteria 37, latest Solar 30/cross-feature 22; zero failures/page errors. Real API additionally reached and Fractured both zero-spawn Mark outcomes and preserved them through Divine/Chaos/Annul without ordinary-pool contamination. [Execution evidence and non-rerun limits](docs/workbench-stocky-abyss-2026-10-03.md).
+
+## WB-013 — DONE — Stocky Horror fixed Local Augment-effect affix
+
+- Exact current primary target: `EssenceLocalRuneAndSoulCoreEffect1`, level-one suffix, `SoulCore`, fixed Local 60%, source-marked Unscalable. Separate checksum-reviewed zero-spawn extension; all 182 normal definitions and weights preserved.
+- Rare replacement validates every eligible removal branch, suffix capacity/family and Fractures. Crystallisation restricts removal only, consumes only matching omen, and rejects the matching pair. Fixed value has no numeric/outcome-choice assumption; eligible removal retains explicit 1/N assumption.
+- Affix assignment only. Solar Horror unsupported; socketing and Rune/Soul Core effect calculations remain unsupported and are visibly labeled. This does not close WB-004/WB-005.
+- Old normal and Abyss snapshot identities remain compatible. Restore/view preserves stored bytes; real crafting upgrades only validated state identity while original evidence, future steps, inactive films and unknown archives survive.
+- Current unique scope: 65 implemented of 220 registered materials; Stocky 58 records/47 actions, Solar 60/49. Docker BE 208 (202 unit/six integration), FE 121/23 files; actual Horror 49, snapshot 11, Stocky 68, Solar 30/cross-feature 21, all zero failures/page errors. API probe additionally exercises actual Horror Fracture and Divine/Chaos/Annul lock preservation.
+- [Source meaning, probability/simulation limits, execution evidence and checks not rerun](docs/workbench-stocky-horror-2026-10-03.md).
+
+## WB-014 — DONE — 390px central-use button clipped at initial stash position
+
+- Found by visually reviewing the actual Horror screenshot. Reduced mobile canvas minimum from 660px to 600px while retaining local horizontal scrolling for off-screen inventory/favorites.
+- Actual 390px geometry verifies a completely visible central button, material icons at least 44px and no document overflow; final Horror/Solar/Stocky browser regressions pass. Narrower widths were not newly verified. Desktop coordinates remain intact.
+- [Visual evidence and scope](docs/workbench-stocky-horror-2026-10-03.md#wb-014-390px-central-item-visibility).
+
+## WB-015 — DONE — Git newline conversion changed checksum-bound Horror raw proof
+
+- Caught during staged-change review before checkpoint: generic LF normalization would change the reviewed raw proof bytes on another checkout and invalidate its SHA-256.
+- Added a narrowly scoped `-text` attribute for the checksum-bound Horror raw resource, preserving the already-tested bytes and snapshot identity. Unfiltered worktree blob and staged Git blob are compared before commit; other source/text normalization is unchanged.

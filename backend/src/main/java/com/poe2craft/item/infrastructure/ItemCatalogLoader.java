@@ -106,7 +106,7 @@ public final class ItemCatalogLoader {
     // State bucket identities are limited to 120 characters, irrespective of extension count.
     if (!ordinary.compatibleSnapshotIds().isEmpty())
       identity =
-          "solar-special-"
+          (old.sourceUrl().contains("Gloves_str") ? "stocky-special-" : "solar-special-")
               + digest(new java.io.ByteArrayInputStream(identity.getBytes(StandardCharsets.UTF_8)));
     var combined =
         new ItemCatalog.Metadata(

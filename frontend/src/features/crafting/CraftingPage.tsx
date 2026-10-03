@@ -1063,6 +1063,18 @@ export function CraftingPage() {
                     result are not supported yet.
                   </p>
                 )}
+                {((selected?.id === 'Essence_of_Horror' &&
+                  concrete?.baseItemId ===
+                    'Metadata/Items/Armours/Gloves/FourGlovesStr1') ||
+                  concrete?.explicits.some((m) =>
+                    m.modifierId.endsWith(':essence-socketed-augment-effect'),
+                  )) && (
+                  <p className="workbench-feedback">
+                    60% Socketed Augment Item effect modifier supported.
+                    Socketing and Rune/Soul Core effect calculations are not
+                    supported yet.
+                  </p>
+                )}
                 {!canCraft && (
                   <p>
                     Pasted items are display-only until catalog mapping is

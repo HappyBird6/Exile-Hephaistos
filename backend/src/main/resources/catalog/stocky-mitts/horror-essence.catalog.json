@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "sourceUrl": "https://poe2db.tw/us/Gloves_str#ModifiersCalc",
+    "retrievedAt": "2026-10-03T06:33:01.034Z",
+    "snapshotId": "stocky-horror-2026-10-03-871c235ca9af",
+    "rawSha256": "871c235ca9af82a1b4caccdfdcfe27ad28ba57c2946f35417dc270eb68e1d50f"
+  },
+  "modifiers": [
+    {
+      "affixType": "SUFFIX",
+      "text": "60% increased effect of Socketed Augment Items",
+      "id": "stocky-mitts:suffix:essence-socketed-augment-effect",
+      "layer": "EXPLICIT",
+      "weight": 0,
+      "requiredItemLevel": 1,
+      "stats": [
+        {
+          "max": 60,
+          "min": 60,
+          "id": "local_socketed_items_effect_+%"
+        }
+      ],
+      "name": "of the Essence",
+      "tags": [],
+      "tier": 1,
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceLocalRuneAndSoulCoreEffect1",
+      "familyIds": [
+        "SoulCore"
+      ]
+    }
+  ]
+}

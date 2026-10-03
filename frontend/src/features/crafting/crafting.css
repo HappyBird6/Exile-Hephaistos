@@ -827,7 +827,7 @@
 }
 @media (max-width: 600px) {
   .stash-viewport .stash-canvas {
-    min-width: 660px;
+    min-width: 600px;
   }
 }
 .workbench-film-controls button {

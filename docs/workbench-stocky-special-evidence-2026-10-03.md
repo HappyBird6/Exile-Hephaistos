@@ -9,7 +9,7 @@ Bounds below are **raw published source bounds**, not proof of integer step/disp
 | Current material | Exact source Code | Catalog modifier level | Affix | Family | Source stat caption and bounds | Current boundary |
 |---|---|---:|---|---|---|---|
 | [Essence_of_Hysteria](https://poe2db.tw/us/Essence_of_Hysteria) | `CriticalMultiplier4` | 45 | Suffix | `CriticalStrikeMultiplier` | `base critical strike multiplier +`: 25 — 29 (Global) | Active (v19; existing normal target) |
-| [Essence_of_Horror](https://poe2db.tw/us/Essence_of_Horror) | `EssenceLocalRuneAndSoulCoreEffect1` | 1 | Suffix | `SoulCore` | `local socketed items effect +%`: 60 — 60 (Local) | Next fixed single-target candidate |
+| [Essence_of_Horror](https://poe2db.tw/us/Essence_of_Horror) | `EssenceLocalRuneAndSoulCoreEffect1` | 1 | Suffix | `SoulCore` | `local socketed items effect +%`: 60 — 60 (Local) | Active affix assignment (v21); socket/augment-effect calculations unsupported |
 | [Essence_of_the_Abyss](https://poe2db.tw/us/Essence_of_the_Abyss) | `EssenceAbyssPrefix` | 1 | Prefix | `EssenceAbyss` | `essence abyss guaranteed pick`: 1 — 1 (Global) | Abyss extension (v20; dedicated zero-spawn) |
 | [Essence_of_the_Abyss](https://poe2db.tw/us/Essence_of_the_Abyss) | `EssenceAbyssSuffix` | 1 | Suffix | `EssenceAbyss` | `essence abyss guaranteed pick`: 1 — 1 (Global) | Abyss extension (v20; dedicated zero-spawn) |
 | [Perfect_Essence_of_Grounding](https://poe2db.tw/us/Perfect_Essence_of_Grounding) | `EssenceLightningRecoupLife1` | 72 | Suffix | `LightningDamageTakenRecoupedAsLife` | `lightning damage taken goes to life over 4 seconds %`: 26 — 30 (Global) | Exact target/source page captured; not activated |

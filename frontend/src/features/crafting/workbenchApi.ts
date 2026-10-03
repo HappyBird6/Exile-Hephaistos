@@ -16,6 +16,7 @@ export type WorkbenchAction =
   | 'PERFECT_ESSENCE_INFINITE'
   | 'PERFECT_ESSENCE_ENHANCEMENT'
   | 'ESSENCE_ABYSS'
+  | 'ESSENCE_HORROR'
   | 'ESSENCE_BREACH'
   | 'RUNIC_ALLOY'
   | 'LESSER_ESSENCE_BODY'
@@ -141,6 +142,7 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Perfect_Essence_of_the_Infinite: 'PERFECT_ESSENCE_INFINITE',
   Perfect_Essence_of_Enhancement: 'PERFECT_ESSENCE_ENHANCEMENT',
   Essence_of_the_Abyss: 'ESSENCE_ABYSS',
+  Essence_of_Horror: 'ESSENCE_HORROR',
   Essence_of_the_Breach: 'ESSENCE_BREACH',
   Runic_Alloy: 'RUNIC_ALLOY',
   Lesser_Essence_of_the_Body: 'LESSER_ESSENCE_BODY',
@@ -181,6 +183,7 @@ export const workbenchActionNames: Record<WorkbenchAction, string> = {
   PERFECT_ESSENCE_INFINITE: 'Perfect Essence of the Infinite',
   PERFECT_ESSENCE_ENHANCEMENT: 'Perfect Essence of Enhancement',
   ESSENCE_ABYSS: 'Essence of the Abyss',
+  ESSENCE_HORROR: 'Essence of Horror',
   ESSENCE_BREACH: 'Essence of the Breach',
   RUNIC_ALLOY: 'Runic Alloy',
   LESSER_ESSENCE_BODY: 'Lesser Essence of the Body',
@@ -491,6 +494,7 @@ export async function applyCurrency(
     Record<WorkbenchAction, readonly string[]>
   > = {
     ESSENCE_HYSTERIA: ['stocky-mitts:suffix:of-fury'],
+    ESSENCE_HORROR: ['stocky-mitts:suffix:essence-socketed-augment-effect'],
     ESSENCE_ABYSS: [
       'stocky-mitts:prefix:essence-abyssal-mark',
       'stocky-mitts:suffix:essence-abyssal-mark',
@@ -520,6 +524,9 @@ export async function applyCurrency(
     Object.values(values).every(Number.isSafeInteger)
   if (
     !next ||
+    (v.applied &&
+      action === 'ESSENCE_HORROR' &&
+      state.baseItemId !== 'Metadata/Items/Armours/Gloves/FourGlovesStr1') ||
     v.action !== action ||
     typeof v.applied !== 'boolean' ||
     typeof v.reason !== 'string' ||
