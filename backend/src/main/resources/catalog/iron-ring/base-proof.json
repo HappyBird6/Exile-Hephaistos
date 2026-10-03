@@ -1,0 +1,182 @@
+{
+  "selectedBase": {
+    "id": "Iron_Ring",
+    "url": "https://poe2db.tw/us/Iron_Ring",
+    "retrievedAt": "2026-10-03T17:38:30.042Z",
+    "sha256": "3ba496ecc871f22d4aa960dcb9ba364d830b25c1aab5f248ca3769b659fc93ff",
+    "fields": {
+      "Name": "Show Full Descriptions",
+      "DropLevel": "1",
+      "BaseType": "Iron Ring",
+      "Class": "Rings",
+      "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+      "Type": "Metadata/Items/Rings/FourRing1",
+      "Tags": "ring",
+      "Icon": "Art/2DItems/Rings/Basetypes/IronRing",
+      "Family": "PhysicalDamage",
+      "Domains": "Item (1)",
+      "GenerationType": "Unique (3)",
+      "Req. level": "1",
+      "Stats": "attack maximum added physical damage 4 — 4 Globalattack minimum added physical damage 1 — 1 Global",
+      "Craft Tags": "physical_damage Damage Physical Attack",
+      "key": "val",
+      "Base.base_level": "1",
+      "Base.tag": "default, ring",
+      "Base.x_size": "1",
+      "Base.y_size": "1",
+      "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+      "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+      "Mods.enable_rarity": "normal, magic, rare, unique",
+      "Mods.inventory_type": "Ring",
+      "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+    },
+    "card": "Iron Ring RingsAdds 1 to 4 Physical Damage to Attacks",
+    "modTables": []
+  },
+  "comparison": [
+    {
+      "id": "Rings",
+      "url": "https://poe2db.tw/us/Rings",
+      "retrievedAt": "2026-10-03T17:38:29.443Z",
+      "sha256": "a95e4378b42f02b92090e67cd5cb18e4ca12ae242925a538f5fdab4eb28645ad",
+      "fields": {
+        "1": "+(20—25) to maximum Mana Mana",
+        "Item Level": "Global"
+      },
+      "card": "Crafting Project Item Level:",
+      "modTables": []
+    },
+    {
+      "id": "Iron_Ring",
+      "url": "https://poe2db.tw/us/Iron_Ring",
+      "retrievedAt": "2026-10-03T17:38:30.042Z",
+      "sha256": "3ba496ecc871f22d4aa960dcb9ba364d830b25c1aab5f248ca3769b659fc93ff",
+      "fields": {
+        "Name": "Show Full Descriptions",
+        "DropLevel": "1",
+        "BaseType": "Iron Ring",
+        "Class": "Rings",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Rings/FourRing1",
+        "Tags": "ring",
+        "Icon": "Art/2DItems/Rings/Basetypes/IronRing",
+        "Family": "PhysicalDamage",
+        "Domains": "Item (1)",
+        "GenerationType": "Unique (3)",
+        "Req. level": "1",
+        "Stats": "attack maximum added physical damage 4 — 4 Globalattack minimum added physical damage 1 — 1 Global",
+        "Craft Tags": "physical_damage Damage Physical Attack",
+        "key": "val",
+        "Base.base_level": "1",
+        "Base.tag": "default, ring",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Ring",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      },
+      "card": "Iron Ring RingsAdds 1 to 4 Physical Damage to Attacks",
+      "modTables": []
+    },
+    {
+      "id": "Unset_Ring",
+      "url": "https://poe2db.tw/us/Unset_Ring",
+      "retrievedAt": "2026-10-03T17:38:31.950Z",
+      "sha256": "6737cb4fae771763821e8f35dec5c3265cb39924c24c3bde567c56c4bc879a95",
+      "fields": {
+        "Name": "Show Full Descriptions",
+        "DropLevel": "44",
+        "BaseType": "Unset Ring",
+        "Class": "Rings",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Rings/FourRing11",
+        "Tags": "ring",
+        "Icon": "Art/2DItems/Rings/Basetypes/UnsetRing",
+        "Family": "AdditionalSkillSlots",
+        "Domains": "Item (1)",
+        "GenerationType": "Unique (3)",
+        "Req. level": "56 (Effective: 44)",
+        "Stats": "local item additional skill slots 1 — 1 Local",
+        "key": "val",
+        "Base.base_level": "1",
+        "Base.tag": "default, ring",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Ring",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      },
+      "card": "Unset Ring RingsRequires: Level 44Grants 1 additional Skill Slots",
+      "modTables": []
+    },
+    {
+      "id": "Perfect_Essence_of_the_Mind",
+      "url": "https://poe2db.tw/us/Perfect_Essence_of_the_Mind",
+      "retrievedAt": "2026-10-03T17:38:32.957Z",
+      "sha256": "9741a4a2f8d180dd438b074bcf32ec679b5a5914aa8879e34ff5cc0ca1ab869d",
+      "fields": {
+        "Class": "Modifier",
+        "Rings": "(4—6)% increased maximum Mana",
+        "Name": "Show Full Descriptions",
+        "Currency Exchange": "1000 Gold",
+        "NoteCode": "perfect-essence-of-the-mind",
+        "DropLevel": "72",
+        "BaseType": "Perfect Essence of the Mind",
+        "Flags": "AlwaysAllocate",
+        "Type": "Metadata/Items/Currency/CurrencyPerfectEssenceMana",
+        "Sound": "Audio/Sound Effects/ItemSounds/4.0/Currency/Orbs/OrbUse.ogg",
+        "Tags": "essence, currency",
+        "Icon": "Art/2DItems/Currency/Essence/ManaEssencePerfect",
+        "MTX Tab Stacks": "5000",
+        "key": "val",
+        "Base.base_level": "1",
+        "Base.tag": "default, currency",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "24h Value": "24h volume traded",
+        "11.2 Exalted Orb  1 Perfect Essence of the Mind": "23",
+        "1 Divine Orb  10 Perfect Essence of the Mind": "10"
+      },
+      "card": "Perfect Essence of the Mind Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierRing: (4—6)% increased maximum Mana Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+      "modTables": []
+    }
+  ],
+  "primary": {
+    "id": "Rings",
+    "url": "https://poe2db.tw/us/Rings",
+    "retrievedAt": "2026-10-03T17:38:29.443Z",
+    "sha256": "a95e4378b42f02b92090e67cd5cb18e4ca12ae242925a538f5fdab4eb28645ad"
+  },
+  "selectionRationale": "Iron Ring DropLevel1 has a verified fixed two-stat implicit, avoiding variable implicit uncertainty. Complete203 ordinary rows uniquely match391 Code candidates;314 cached77 fresh public details.",
+  "sourceFacts": {
+    "dropLevel": 1,
+    "maximumQuality": null,
+    "fixedImplicitStats": [
+      {
+        "id": "attack_maximum_added_physical_damage",
+        "bounds": [
+          4,
+          4
+        ]
+      },
+      {
+        "id": "attack_minimum_added_physical_damage",
+        "bounds": [
+          1,
+          1
+        ]
+      }
+    ]
+  },
+  "simulationBoundary": "Explicit affix assignment with preserved fixed implicit physical damage endpoints1/4. Quality maximum unknown; quality application, sockets, paste mapping and combat unsupported; socket count unknown. Fixed implicit does not introduce random sampling.",
+  "excludedMaterial": null,
+  "publishedRowWeightPolicy": "POE2DB_AS_PUBLISHED_MODEL_NOT_VERIFIED_GAME_ODDS",
+  "detailSpawnUsedForEligibilityOnly": true,
+  "weightFieldsDiffer": 198,
+  "weightMismatchRootCause": "NOT_ESTABLISHED",
+  "coupledNumericModel": "Authorised UNVERIFIED shared-ratio tick/HALF_UP; scalar source-unit integers also UNVERIFIED"
+}

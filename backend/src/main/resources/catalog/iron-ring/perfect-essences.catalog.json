@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "snapshotId": "ring-perfect-20261003-f7ae1ed8c21a",
+    "retrievedAt": "2026-10-03T18:17:43.343Z",
+    "sourceUrl": "https://poe2db.tw/us/Rings",
+    "rawSha256": "f7ae1ed8c21ad12a5da60d2c466f84bd025bd77027619c5ccbe6cb25e73ae9e8"
+  },
+  "modifiers": [
+    {
+      "id": "iron-ring:prefix:essence-increased-maximum-mana",
+      "name": "Essences",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaximumManaIncreasePercent"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(4—6)% increased maximum Mana",
+      "stats": [
+        {
+          "id": "maximum_mana_+%",
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceIncreasedManaPercent1"
+    }
+  ]
+}

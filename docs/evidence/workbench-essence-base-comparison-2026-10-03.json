@@ -105,7 +105,7 @@
     "exactUniqueMatches": 150,
     "candidates": 346
   },
-  "interpretation": "Historical cost comparison before Sceptre expansion; original remainingEssence rows are not current support status. Sceptre, Rawhide Belt and Rusted Greathelm now implement their bounded targets. Ring remains a candidate; current45 pending are in the active ledger.",
+  "interpretation": "Historical cost comparison before Sceptre expansion; original remainingEssence rows are not current support status. Sceptre, Rawhide Belt, Rusted Greathelm and Iron Ring now implement their bounded targets. Current44 pending are recorded in the active and post-Ring gap ledgers.",
   "beltIntegration": {
     "base": "Rawhide Belt, FourBelt1",
     "normalRows": 135,
@@ -147,8 +147,23 @@
     "newDetailLookupsBeforeHelmet": 106,
     "implicit": "FIXED attack maximum added physical damage4 and minimum1",
     "qualityMaximum": null,
-    "status": "CANDIDATE_NOT_IMPLEMENTED",
+    "status": "HISTORICAL_CANDIDATE_NOW_INTEGRATED",
     "selectionRationale": "Iron Ring DropLevel1, fixed integer endpoints; Unset Ring DropLevel44 with skill-slot scope. Prefer Iron for the next complete pool review.",
     "newDetailLookupsAfterHelmet": 77
+  },
+  "ringIntegration": {
+    "base": "Iron Ring, FourRing1",
+    "normalRows": 203,
+    "exactUniqueMatches": 203,
+    "candidateCodes": 391,
+    "reusedDetailCodes": 314,
+    "newDetailLookups": 77,
+    "freshPrimarySha256": "a95e4378b42f02b92090e67cd5cb18e4ca12ae242925a538f5fdab4eb28645ad",
+    "sourceRetrievedAt": "2026-10-03T17:38:29.443Z",
+    "implementedMaterial": "Perfect_Essence_of_the_Mind",
+    "implicit": "FIXED_PHYSICAL_DAMAGE_1_TO_4",
+    "qualityMaximum": null,
+    "augmentSockets": null,
+    "numericModel": "UNVERIFIED"
   }
 }

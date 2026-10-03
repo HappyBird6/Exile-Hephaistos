@@ -172,7 +172,8 @@ export async function loadInitial(
     | 'body'
     | 'sceptre'
     | 'belt'
-    | 'helmet' = 'solar',
+    | 'helmet'
+    | 'ring' = 'solar',
 ): Promise<Initial> {
   const v = await request(
     base === 'solar'
@@ -187,18 +188,30 @@ export async function loadInitial(
       ? v.state.baseItemId !==
           (base === 'stocky'
             ? 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
-            : base === 'helmet'
-              ? 'Metadata/Items/Armours/Helmets/FourHelmetStr1'
-              : base === 'belt'
-                ? 'Metadata/Items/Belts/FourBelt1'
-                : base === 'sceptre'
-                  ? 'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
-                  : base === 'body'
-                    ? 'Metadata/Items/Armours/BodyArmours/FourBodyStr1'
-                    : base === 'wand'
-                      ? 'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
-                      : 'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1') ||
-        v.state.implicits.length !== 0
+            : base === 'ring'
+              ? 'Metadata/Items/Rings/FourRing1'
+              : base === 'helmet'
+                ? 'Metadata/Items/Armours/Helmets/FourHelmetStr1'
+                : base === 'belt'
+                  ? 'Metadata/Items/Belts/FourBelt1'
+                  : base === 'sceptre'
+                    ? 'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
+                    : base === 'body'
+                      ? 'Metadata/Items/Armours/BodyArmours/FourBodyStr1'
+                      : base === 'wand'
+                        ? 'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
+                        : 'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1') ||
+        (base === 'ring'
+          ? v.state.implicits.length !== 1 ||
+            v.state.implicits[0]?.modifierId !==
+              'iron-ring:implicit:added-physical-damage-to-attacks' ||
+            Object.keys(v.state.implicits[0].values).length !== 2 ||
+            v.state.implicits[0].values.attack_minimum_added_physical_damage !==
+              1 ||
+            v.state.implicits[0].values.attack_maximum_added_physical_damage !==
+              4 ||
+            v.state.implicits[0].fractured === true
+          : v.state.implicits.length !== 0)
       : v.state.implicits.length !== 1) ||
     v.state.itemLevel !== level ||
     !object(v.metadata) ||

@@ -5,6 +5,7 @@ import { currencyActions, actionNames } from './craftingApi'
 import type { Action, Bucket, Definition, Initial } from './craftingApi'
 
 export type WorkbenchAction =
+  | 'PERFECT_ESSENCE_MIND'
   | 'PERFECT_ESSENCE_THAWING'
   | 'PERFECT_ESSENCE_INSULATION'
   | 'LESSER_ESSENCE_COMMAND'
@@ -211,6 +212,7 @@ const sceptreFixedEssenceModifiers: Partial<Record<WorkbenchAction, string>> = {
 const replacementEssenceModifiers: Partial<
   Record<WorkbenchAction, readonly string[]>
 > = {
+  PERFECT_ESSENCE_MIND: ['iron-ring:prefix:essence-increased-maximum-mana'],
   PERFECT_ESSENCE_THAWING: [
     'rusted-greathelm:suffix:essence-cold-damage-recouped-as-life',
   ],
@@ -292,6 +294,7 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Lesser_Essence_of_Command: 'LESSER_ESSENCE_COMMAND',
   Essence_of_Command: 'ESSENCE_COMMAND',
   Greater_Essence_of_Command: 'GREATER_ESSENCE_COMMAND',
+  Perfect_Essence_of_the_Mind: 'PERFECT_ESSENCE_MIND',
   Perfect_Essence_of_Thawing: 'PERFECT_ESSENCE_THAWING',
   Perfect_Essence_of_Insulation: 'PERFECT_ESSENCE_INSULATION',
   Perfect_Essence_of_Command: 'PERFECT_ESSENCE_COMMAND',
@@ -346,6 +349,7 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Greater_Essence_of_Opulence: 'GREATER_ESSENCE_OPULENCE',
 }
 export const workbenchActionNames: Record<WorkbenchAction, string> = {
+  PERFECT_ESSENCE_MIND: 'Perfect Essence of the Mind',
   PERFECT_ESSENCE_THAWING: 'Perfect Essence of Thawing',
   PERFECT_ESSENCE_INSULATION: 'Perfect Essence of Insulation',
   LESSER_ESSENCE_COMMAND: 'Lesser Essence of Command',
@@ -791,9 +795,21 @@ export async function applyCurrency(
   if (
     !next ||
     !supportsConcreteStateShape(next) ||
+    (state.baseItemId === 'Metadata/Items/Rings/FourRing1' &&
+      (!sameModifiers(next.implicits, state.implicits) ||
+        next.implicits.length !== 1 ||
+        next.implicits[0]?.modifierId !==
+          'iron-ring:implicit:added-physical-damage-to-attacks' ||
+        Object.keys(next.implicits[0].values).length !== 2 ||
+        next.implicits[0].values.attack_minimum_added_physical_damage !== 1 ||
+        next.implicits[0].values.attack_maximum_added_physical_damage !== 4 ||
+        Boolean(next.implicits[0].fractured))) ||
     (v.qualityLimit !== undefined &&
       (v.qualityLimit === null
-        ? next.baseItemId !== 'Metadata/Items/Belts/FourBelt1' ||
+        ? ![
+            'Metadata/Items/Belts/FourBelt1',
+            'Metadata/Items/Rings/FourRing1',
+          ].includes(next.baseItemId) ||
           maximumQuality(next, definitions) !== null
         : !qualityLimitMatches(v.qualityLimit, next, definitions))) ||
     (v.applied &&
@@ -811,6 +827,9 @@ export async function applyCurrency(
     (v.applied &&
       action === 'DIVINE' &&
       state.baseItemId === 'Metadata/Items/Belts/FourBelt1') ||
+    (v.applied &&
+      action === 'PERFECT_ESSENCE_MIND' &&
+      state.baseItemId !== 'Metadata/Items/Rings/FourRing1') ||
     (v.applied &&
       action === 'PERFECT_ESSENCE_THAWING' &&
       state.baseItemId !== 'Metadata/Items/Armours/Helmets/FourHelmetStr1') ||
@@ -832,6 +851,7 @@ export async function applyCurrency(
       state.itemLevel < 45) ||
     (v.applied &&
       [
+        'PERFECT_ESSENCE_MIND',
         'PERFECT_ESSENCE_THAWING',
         'PERFECT_ESSENCE_INSULATION',
         'PERFECT_ESSENCE_COMMAND',
@@ -1119,6 +1139,7 @@ export async function applyCurrency(
       )
     if (
       [
+        'PERFECT_ESSENCE_MIND',
         'PERFECT_ESSENCE_THAWING',
         'PERFECT_ESSENCE_INSULATION',
         'PERFECT_ESSENCE_COMMAND',
@@ -1147,51 +1168,53 @@ export async function applyCurrency(
       const range = definitions[added!.modifierId]?.stats?.[0]
       const expectedSource =
         'https://poe2db.tw/us/hover?s=Data%5CMods%2F' +
-        (action === 'PERFECT_ESSENCE_THAWING'
-          ? 'EssenceColdRecoupLife1'
-          : action === 'PERFECT_ESSENCE_INSULATION'
-            ? 'EssenceFireRecoupLife1'
-            : action === 'PERFECT_ESSENCE_COMMAND'
-              ? 'EssenceAuraEffect1'
-              : action === 'PERFECT_ESSENCE_BODY'
-                ? 'EssenceIncreasedLifePercent1'
-                : action === 'PERFECT_ESSENCE_RUIN'
-                  ? 'EssencePhysicalDamageTakenAsChaos1'
-                  : action === 'PERFECT_ESSENCE_SEEKING'
-                    ? 'EssenceReducedCriticalDamageAgainstYou1'
-                    : action === 'PERFECT_ESSENCE_SORCERY'
-                      ? 'EssenceSpellSkillLevel1H1'
-                      : action === 'PERFECT_ESSENCE_ALACRITY'
-                        ? 'EssenceManaCostReduction'
-                        : action === 'PERFECT_ESSENCE_ABRASION'
-                          ? 'EssenceDamageasExtraPhysical1'
-                          : action === 'PERFECT_ESSENCE_FLAMES'
-                            ? 'EssenceDamageasExtraFire1'
-                            : action === 'PERFECT_ESSENCE_ICE'
-                              ? 'EssenceDamageasExtraCold1'
-                              : action === 'PERFECT_ESSENCE_ELECTRICITY'
-                                ? 'EssenceDamageasExtraLightning1'
-                                : action === 'PERFECT_ESSENCE_BATTLE'
-                                  ? 'EssenceAttackSkillLevel1H1'
-                                  : action === 'PERFECT_ESSENCE_HASTE'
-                                    ? 'EssenceOnslaughtonKill1'
-                                    : action === 'PERFECT_ESSENCE_GROUNDING'
-                                      ? 'EssenceLightningRecoupLife1'
-                                      : action === 'PERFECT_ESSENCE_OPULENCE'
-                                        ? 'EssenceGoldDropped1'
-                                        : action === 'ADAPTIVE_ALLOY'
-                                          ? 'AlloyAttackSpeedIfMissingWardRecently1'
-                                          : action === 'SWIFT_ALLOY'
-                                            ? 'AlloyCastSpeedGloves1'
-                                            : action === 'SOVEREIGN_ALLOY'
-                                              ? 'AlloyLocalWardIncreasePercent1'
-                                              : action === 'EXPANSIVE_ALLOY'
-                                                ? 'AlloyRemnantPickupRange1'
-                                                : action === 'CYCLONIC_ALLOY'
-                                                  ? 'AlloyDamagingAilmentDuration1'
-                                                  : action === 'MYSTIC_ALLOY'
-                                                    ? 'AlloyAttackAreaOfEffect1'
-                                                    : 'AlloyElementalPenetration1')
+        (action === 'PERFECT_ESSENCE_MIND'
+          ? 'EssenceIncreasedManaPercent1'
+          : action === 'PERFECT_ESSENCE_THAWING'
+            ? 'EssenceColdRecoupLife1'
+            : action === 'PERFECT_ESSENCE_INSULATION'
+              ? 'EssenceFireRecoupLife1'
+              : action === 'PERFECT_ESSENCE_COMMAND'
+                ? 'EssenceAuraEffect1'
+                : action === 'PERFECT_ESSENCE_BODY'
+                  ? 'EssenceIncreasedLifePercent1'
+                  : action === 'PERFECT_ESSENCE_RUIN'
+                    ? 'EssencePhysicalDamageTakenAsChaos1'
+                    : action === 'PERFECT_ESSENCE_SEEKING'
+                      ? 'EssenceReducedCriticalDamageAgainstYou1'
+                      : action === 'PERFECT_ESSENCE_SORCERY'
+                        ? 'EssenceSpellSkillLevel1H1'
+                        : action === 'PERFECT_ESSENCE_ALACRITY'
+                          ? 'EssenceManaCostReduction'
+                          : action === 'PERFECT_ESSENCE_ABRASION'
+                            ? 'EssenceDamageasExtraPhysical1'
+                            : action === 'PERFECT_ESSENCE_FLAMES'
+                              ? 'EssenceDamageasExtraFire1'
+                              : action === 'PERFECT_ESSENCE_ICE'
+                                ? 'EssenceDamageasExtraCold1'
+                                : action === 'PERFECT_ESSENCE_ELECTRICITY'
+                                  ? 'EssenceDamageasExtraLightning1'
+                                  : action === 'PERFECT_ESSENCE_BATTLE'
+                                    ? 'EssenceAttackSkillLevel1H1'
+                                    : action === 'PERFECT_ESSENCE_HASTE'
+                                      ? 'EssenceOnslaughtonKill1'
+                                      : action === 'PERFECT_ESSENCE_GROUNDING'
+                                        ? 'EssenceLightningRecoupLife1'
+                                        : action === 'PERFECT_ESSENCE_OPULENCE'
+                                          ? 'EssenceGoldDropped1'
+                                          : action === 'ADAPTIVE_ALLOY'
+                                            ? 'AlloyAttackSpeedIfMissingWardRecently1'
+                                            : action === 'SWIFT_ALLOY'
+                                              ? 'AlloyCastSpeedGloves1'
+                                              : action === 'SOVEREIGN_ALLOY'
+                                                ? 'AlloyLocalWardIncreasePercent1'
+                                                : action === 'EXPANSIVE_ALLOY'
+                                                  ? 'AlloyRemnantPickupRange1'
+                                                  : action === 'CYCLONIC_ALLOY'
+                                                    ? 'AlloyDamagingAilmentDuration1'
+                                                    : action === 'MYSTIC_ALLOY'
+                                                      ? 'AlloyAttackAreaOfEffect1'
+                                                      : 'AlloyElementalPenetration1')
       const models = v.assumptions.filter(
         (a) => a.id === 'assumed-source-integer-roll-v1',
       )
@@ -1373,6 +1396,13 @@ export function rolledText(
   definition: Definition,
   values: Record<string, number>,
 ): string {
+  if (
+    definition.stats &&
+    definition.stats.length > 1 &&
+    Object.keys(values).length === definition.stats.length &&
+    definition.stats.every((s) => s.min === s.max && values[s.id] === s.min)
+  )
+    return definition.text
   const stat = definition.stats?.length === 1 ? definition.stats[0] : undefined
   const range = /\((-?\d+(?:\.\d+)?)\s*[\u2014\u2013?-]\s*(-?\d+(?:\.\d+)?)\)/
   const match = definition.text.match(range)

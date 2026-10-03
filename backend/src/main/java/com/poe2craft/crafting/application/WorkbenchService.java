@@ -13,6 +13,8 @@ public final class WorkbenchService {
   private final WorkbenchSimulator solarSimulator;
   private final WorkbenchSimulator stockySimulator;
   private final ItemCatalog wand;
+  private final ItemCatalog ring;
+  private final WorkbenchSimulator ringSimulator;
   private final ItemCatalog helmet;
   private final WorkbenchSimulator helmetSimulator;
   private final ItemCatalog belt;
@@ -87,6 +89,33 @@ public final class WorkbenchService {
       ItemCatalog sceptre,
       ItemCatalog belt,
       ItemCatalog helmet) {
+    this(solar, solarSimulator, stocky, bow, wand, body, sceptre, belt, helmet, null);
+  }
+
+  public WorkbenchService(
+      ItemCatalog solar,
+      WorkbenchSimulator solarSimulator,
+      ItemCatalog stocky,
+      ItemCatalog bow,
+      ItemCatalog wand,
+      ItemCatalog body,
+      ItemCatalog sceptre,
+      ItemCatalog belt,
+      ItemCatalog helmet,
+      ItemCatalog ring) {
+    this.ring = ring;
+    this.ringSimulator =
+        ring == null
+            ? null
+            : new WorkbenchSimulator(
+                ring,
+                new CraftingEngine(ring),
+                ring.modifiers().values().stream()
+                    .filter(
+                        d -> d.layer() == ModifierDefinition.Layer.EXPLICIT && d.stats().size() > 1)
+                    .map(ModifierDefinition::id)
+                    .collect(java.util.stream.Collectors.toSet()),
+                Map.of());
     this.helmet = helmet;
     this.helmetSimulator =
         helmet == null
@@ -187,7 +216,16 @@ public final class WorkbenchService {
                 catalog.base().id(),
                 level,
                 ItemState.Rarity.NORMAL,
-                List.of(),
+                base.equals("ring")
+                    ? List.of(
+                        new ModifierInstance(
+                            RingEssenceTargets.IMPLICIT_ID,
+                            Map.of(
+                                "attack_minimum_added_physical_damage",
+                                1L,
+                                "attack_maximum_added_physical_damage",
+                                4L)))
+                    : List.of(),
                 List.of(),
                 Set.of());
     var bucket = StateBucket.from(state);
@@ -207,6 +245,10 @@ public final class WorkbenchService {
 
   private ItemCatalog catalog(String base) {
     return switch (base) {
+      case "ring" -> {
+        if (ring == null) throw new IllegalArgumentException("Ring catalog unavailable");
+        yield ring;
+      }
       case "helmet" -> {
         if (helmet == null) throw new IllegalArgumentException("Helmet catalog unavailable");
         yield helmet;
@@ -238,6 +280,9 @@ public final class WorkbenchService {
   }
 
   private WorkbenchSimulator simulator(ItemState state) {
+    if (state != null
+        && state.baseItemId().equals(RingEssenceTargets.BASE_ID)
+        && ringSimulator != null) return ringSimulator;
     if (state != null
         && state.baseItemId().equals(HelmetEssenceTargets.BASE_ID)
         && helmetSimulator != null) return helmetSimulator;

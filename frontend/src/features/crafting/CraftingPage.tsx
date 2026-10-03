@@ -114,11 +114,14 @@ export function CraftingPage() {
                     'Metadata/Items/Belts/FourBelt1'
                   ? 'belt'
                   : storedFrame?.state.baseItemId ===
-                      'Metadata/Items/Armours/Helmets/FourHelmetStr1'
-                    ? 'helmet'
-                    : storedFrame
-                      ? 'solar'
-                      : draft.base
+                      'Metadata/Items/Rings/FourRing1'
+                    ? 'ring'
+                    : storedFrame?.state.baseItemId ===
+                        'Metadata/Items/Armours/Helmets/FourHelmetStr1'
+                      ? 'helmet'
+                      : storedFrame
+                        ? 'solar'
+                        : draft.base
   const baseName =
     catalogBase === 'stocky'
       ? 'Stocky Mitts'
@@ -132,9 +135,11 @@ export function CraftingPage() {
               ? 'Rattling Sceptre'
               : catalogBase === 'belt'
                 ? 'Rawhide Belt'
-                : catalogBase === 'helmet'
-                  ? 'Rusted Greathelm'
-                  : 'Solar Amulet'
+                : catalogBase === 'ring'
+                  ? 'Iron Ring'
+                  : catalogBase === 'helmet'
+                    ? 'Rusted Greathelm'
+                    : 'Solar Amulet'
   const catalogLevel =
     Number.isInteger(storedLevel) && storedLevel! >= 1 && storedLevel! <= 100
       ? storedLevel!
@@ -222,7 +227,8 @@ export function CraftingPage() {
       | 'body'
       | 'sceptre'
       | 'belt'
-      | 'helmet' = 'solar',
+      | 'helmet'
+      | 'ring' = 'solar',
   ) {
     const request = ++placementRequest.current
     const revision = useItemDraft.getState().baseRevision
@@ -327,7 +333,15 @@ export function CraftingPage() {
   )
   const [baseLevel, setBaseLevel] = useState('82')
   const [baseChoice, setBaseChoice] = useState<
-    'solar' | 'stocky' | 'bow' | 'wand' | 'body' | 'sceptre' | 'belt' | 'helmet'
+    | 'solar'
+    | 'stocky'
+    | 'bow'
+    | 'wand'
+    | 'body'
+    | 'sceptre'
+    | 'belt'
+    | 'helmet'
+    | 'ring'
   >('solar')
   const [previewRequest, setPreviewRequest] = useState<{
     count: number
@@ -674,9 +688,11 @@ export function CraftingPage() {
                         ? 'Sceptres'
                         : catalogBase === 'belt'
                           ? 'Belts'
-                          : catalogBase === 'helmet'
-                            ? 'Helmets'
-                            : 'Amulet',
+                          : catalogBase === 'ring'
+                            ? 'Rings'
+                            : catalogBase === 'helmet'
+                              ? 'Helmets'
+                              : 'Amulet',
             itemLevel: concrete.itemLevel,
             properties: [
               ...(catalogBase === 'helmet'
@@ -1177,9 +1193,11 @@ export function CraftingPage() {
                                   ? 'Sceptres'
                                   : catalogBase === 'belt'
                                     ? 'Belts'
-                                    : catalogBase === 'helmet'
-                                      ? 'Helmets'
-                                      : 'Amulet',
+                                    : catalogBase === 'ring'
+                                      ? 'Rings'
+                                      : catalogBase === 'helmet'
+                                        ? 'Helmets'
+                                        : 'Amulet',
                       itemLevel: draft.baseItemLevel,
                       properties: [],
                       requirements: [],
@@ -1349,6 +1367,14 @@ export function CraftingPage() {
                   <p role="alert">
                     Saved craft evidence could not be verified. Item history is
                     preserved.
+                  </p>
+                )}
+                {catalogBase === 'ring' && (
+                  <p className="workbench-feedback">
+                    Implicit physical damage endpoints are fixed at 1 and 4.
+                    Quality maximum is unknown; applied quality, sockets and
+                    pasted mapping are unsupported. Blessed has no variable
+                    implicit target.
                   </p>
                 )}
                 {catalogBase === 'helmet' && (
@@ -1545,7 +1571,8 @@ export function CraftingPage() {
                           | 'body'
                           | 'sceptre'
                           | 'belt'
-                          | 'helmet',
+                          | 'helmet'
+                          | 'ring',
                       )
                     }
                   >
@@ -1557,6 +1584,7 @@ export function CraftingPage() {
                     <option value="sceptre">Rattling Sceptre</option>
                     <option value="belt">Rawhide Belt</option>
                     <option value="helmet">Rusted Greathelm</option>
+                    <option value="ring">Iron Ring</option>
                   </select>
                   <label htmlFor="base-level">Item level</label>
                   <input

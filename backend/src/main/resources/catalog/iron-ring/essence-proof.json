@@ -1,0 +1,69 @@
+[
+  {
+    "id": "Perfect_Essence_of_the_Mind",
+    "url": "https://poe2db.tw/us/Perfect_Essence_of_the_Mind",
+    "retrievedAt": "2026-10-03T17:38:32.957Z",
+    "sha256": "9741a4a2f8d180dd438b074bcf32ec679b5a5914aa8879e34ff5cc0ca1ab869d",
+    "card": "Perfect Essence of the Mind Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierRing: (4—6)% increased maximum Mana Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+    "row": {
+      "type": "essence",
+      "Level": "72",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+      ],
+      "fossil_no": [
+        "resource",
+        "mana"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/32cb5e150357214d6e86d62338ac9ceed2ecf1e8010828b5bf3b46195ee076ae\" href=\"Perfect_Essence_of_the_Mind\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/ManaEssencePerfect.webp\" alt=\"ManaEssencePerfect\" height=\"16\" />Perfect Essence of the Mind</a>",
+      "Code": "EssenceIncreasedManaPercent1",
+      "ModFamilyList": [
+        "MaximumManaIncreasePercent"
+      ],
+      "str": "<span class='mod-value'>(4<span class=\"ndash\">—</span>6)</span>% increased maximum Mana",
+      "adds_no": [],
+      "spawn_no": [
+        "default"
+      ],
+      "reqlvl": 57,
+      "IsPerfect": "1",
+      "IsAlloy": false,
+      "Removes": true
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceIncreasedManaPercent1",
+    "detailRetrievedAt": "2026-10-03T18:17:43.343Z",
+    "detailSha256": "fb6dbbc2b9d750fe8b9a729f8025c3274f61299bcbb8ad12532ca0af9146a2fa",
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(4<span class=\"ndash\">—</span>6)</span>% increased maximum Mana</span></h5>   <span data-tabname=\"Essences\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Essences\n<tr><th>Family<td>MaximumManaIncreasePercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>maximum mana +% <span class=\"badge bg-primary\">4 <span class=\"ndash\">—</span> 6</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> </table>  </div></div>",
+    "parsed": {
+      "fields": {
+        "Name": "Essences",
+        "Family": "MaximumManaIncreasePercent",
+        "Domains": "Item (1)",
+        "GenerationType": "Prefix (1)",
+        "Req. level": "72 (Effective: 57)",
+        "Gold Price": "3266",
+        "Stats": "maximum mana +% 4 — 6 Global",
+        "Spawn Tags": "default: 0",
+        "Craft Tags": "resource Mana"
+      },
+      "effect": "(4—6)% increased maximum Mana",
+      "stats": [
+        {
+          "id": "maximum_mana_+%",
+          "bounds": [
+            4,
+            6
+          ]
+        }
+      ],
+      "sameEffect": true
+    },
+    "minimumSupportedItemLevel": 72,
+    "requiredCharacterLevel": 57,
+    "matchedModifierIds": [
+      "iron-ring:prefix:essence-increased-maximum-mana"
+    ]
+  }
+]

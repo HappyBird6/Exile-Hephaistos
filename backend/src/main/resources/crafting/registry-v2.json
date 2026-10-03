@@ -33,7 +33,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -62,7 +63,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -91,7 +93,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -117,7 +120,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -146,7 +150,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -175,7 +180,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -204,7 +210,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -246,7 +253,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -274,7 +282,8 @@
         "wand",
         "body",
         "sceptre",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -303,7 +312,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -332,7 +342,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -361,7 +372,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -390,7 +402,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -419,7 +432,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -448,7 +462,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -477,7 +492,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -506,7 +522,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -535,7 +552,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -564,7 +582,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -1342,10 +1361,25 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED",
+      "action": "PERFECT_ESSENCE_MIND",
+      "reason": "Verified Iron Ring explicit-affix projection only. Conservative source modifier level72; lower-level game applicability unverified. Uniform unlocked removal plus guaranteed result; source-integer numeric model UNVERIFIED. Fixed implicit endpoints1/4 are preserved. Quality maximum unknown; applied quality and sockets unsupported.",
+      "supportedBases": [
+        "ring"
+      ],
+      "ringEvidence": {
+        "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_the_Mind",
+        "sourceSha256": "9741a4a2f8d180dd438b074bcf32ec679b5a5914aa8879e34ff5cc0ca1ab869d",
+        "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceIncreasedManaPercent1",
+        "modifierSourceSha256": "fb6dbbc2b9d750fe8b9a729f8025c3274f61299bcbb8ad12532ca0af9146a2fa",
+        "sourceModCode": "EssenceIncreasedManaPercent1",
+        "minimumSupportedItemLevel": 72,
+        "requiredCharacterLevel": 57,
+        "modifierIds": [
+          "iron-ring:prefix:essence-increased-maximum-mana"
+        ]
+      }
     },
     {
       "id": "Perfect_Essence_of_Enhancement",
@@ -2609,7 +2643,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -2633,7 +2668,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -2661,7 +2697,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -2689,7 +2726,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -2717,7 +2755,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -2822,7 +2861,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -2850,7 +2890,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -2878,7 +2919,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -2922,7 +2964,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -2950,7 +2993,8 @@
         "body",
         "sceptre",
         "belt",
-        "helmet"
+        "helmet",
+        "ring"
       ]
     },
     {
@@ -4359,6 +4403,23 @@
       "baseArmour": 29,
       "augmentSockets": null,
       "qualityMaximum": 20,
+      "unsupported": [
+        "BLESSED",
+        "ARTIFICER",
+        "QUALITY_APPLICATION",
+        "PASTED_MAPPING",
+        "COMBAT"
+      ]
+    },
+    "ring": {
+      "ruleVersion": "ring-workbench-perfect-essence-v1",
+      "ledgerVersion": "ring-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Rings",
+      "projection": "EXPLICIT_AFFIX_WITH_FIXED_IMPLICIT",
+      "implicit": "FIXED_PHYSICAL_DAMAGE_1_TO_4",
+      "augmentSockets": null,
+      "qualityMaximum": null,
       "unsupported": [
         "BLESSED",
         "ARTIFICER",
