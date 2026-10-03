@@ -1,0 +1,827 @@
+[
+  {
+    "id": "Lesser_Essence_of_Sorcery",
+    "url": "https://poe2db.tw/us/Lesser_Essence_of_Sorcery",
+    "retrievedAt": "2026-10-03T13:39:00.203Z",
+    "sha256": "4ab8a0ee3f21d9d277c51cb528032896e33ccd0773ca5f9b28e71d0491bd328d",
+    "row": {
+      "type": "essence",
+      "Level": "8",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>"
+      ],
+      "fossil_no": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/fa46859d5e7606b66d8f88ff333b7e37c7f34684cf29dea7c4cd617d7777bee2\" href=\"Lesser_Essence_of_Sorcery\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/CasterEssenceLesser.webp\" alt=\"CasterEssenceLesser\" height=\"16\" />Lesser Essence of Sorcery</a>",
+      "Code": "SpellDamageOnWeapon2",
+      "ModFamilyList": [
+        "WeaponCasterDamagePrefix"
+      ],
+      "str": "<span class='mod-value'>(35<span class=\"ndash\">—</span>44)</span>% increased <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Damage",
+      "adds_no": [],
+      "spawn_no": [
+        "focus",
+        "wand",
+        "default"
+      ],
+      "reqlvl": 6,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon2",
+    "detailHtml": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(35<span class=\"ndash\">—</span>44)</span>% increased <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Damage</span></h5>   <span data-tabname=\"Adept's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Adept's\n<tr><th>Family<td>WeaponCasterDamagePrefix\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>8 (Effective: 6)\n<tr><th>Gold Price<td>264\n<tr><th>Stats<td><li>spell damage +% <span class=\"badge bg-primary\">35 <span class=\"ndash\">—</span> 44</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Caster</span> </table>  </div></div>",
+    "parsed": {
+      "card": "Lesser Essence of Sorcery Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierFocus or Wand: (35—44)% increased Spell DamageStaff: (69—88)% increased Spell Damage Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+      "target": [
+        "Wands",
+        "(35—44)% increased Spell Damage",
+        "Prefix",
+        "6"
+      ],
+      "effect": "(35—44)% increased Spell Damage",
+      "poolEffect": "(35—44)% increased Spell Damage",
+      "fields": {
+        "Name": "Adept's",
+        "Family": "WeaponCasterDamagePrefix",
+        "Domains": "Item (1)",
+        "GenerationType": "Prefix (1)",
+        "Req. level": "8 (Effective: 6)",
+        "Gold Price": "264",
+        "Stats": "spell damage +% 35 — 44 Global",
+        "Spawn Tags": "focus: 1 wand: 1 default: 0",
+        "Craft Tags": "caster_damage Damage Caster"
+      },
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "bounds": [
+            35,
+            44
+          ],
+          "locality": "Global"
+        }
+      ]
+    },
+    "matchedModifierIds": [
+      "attuned-wand:prefix:adept-s"
+    ],
+    "minimumSupportedItemLevel": 8,
+    "requiredCharacterLevel": 6
+  },
+  {
+    "id": "Essence_of_Sorcery",
+    "url": "https://poe2db.tw/us/Essence_of_Sorcery",
+    "retrievedAt": "2026-10-03T13:39:00.788Z",
+    "sha256": "e969301e9efdf692332139d89c9a65e0f53e08144df9142900f12fd9fed753d9",
+    "row": {
+      "type": "essence",
+      "Level": "33",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>"
+      ],
+      "fossil_no": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/fa31ca31fdcfcd0d3a45189c18615fd855ecdf97a0d8b9cda6fdd4a95df35f12\" href=\"Essence_of_Sorcery\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/CasterEssence.webp\" alt=\"CasterEssence\" height=\"16\" />Essence of Sorcery</a>",
+      "Code": "SpellDamageOnWeapon4",
+      "ModFamilyList": [
+        "WeaponCasterDamagePrefix"
+      ],
+      "str": "<span class='mod-value'>(55<span class=\"ndash\">—</span>64)</span>% increased <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Damage",
+      "adds_no": [],
+      "spawn_no": [
+        "focus",
+        "wand",
+        "default"
+      ],
+      "reqlvl": 26,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon4",
+    "detailHtml": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(55<span class=\"ndash\">—</span>64)</span>% increased <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Damage</span></h5>   <span data-tabname=\"Professor's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Professor's\n<tr><th>Family<td>WeaponCasterDamagePrefix\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>33 (Effective: 26)\n<tr><th>Gold Price<td>830\n<tr><th>Stats<td><li>spell damage +% <span class=\"badge bg-primary\">55 <span class=\"ndash\">—</span> 64</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Caster</span> </table>  </div></div>",
+    "parsed": {
+      "card": "Essence of Sorcery Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierFocus or Wand: (55—64)% increased Spell DamageStaff: (109—128)% increased Spell Damage Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+      "target": [
+        "Wands",
+        "(55—64)% increased Spell Damage",
+        "Prefix",
+        "26"
+      ],
+      "effect": "(55—64)% increased Spell Damage",
+      "poolEffect": "(55—64)% increased Spell Damage",
+      "fields": {
+        "Name": "Professor's",
+        "Family": "WeaponCasterDamagePrefix",
+        "Domains": "Item (1)",
+        "GenerationType": "Prefix (1)",
+        "Req. level": "33 (Effective: 26)",
+        "Gold Price": "830",
+        "Stats": "spell damage +% 55 — 64 Global",
+        "Spawn Tags": "focus: 1 wand: 1 default: 0",
+        "Craft Tags": "caster_damage Damage Caster"
+      },
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "bounds": [
+            55,
+            64
+          ],
+          "locality": "Global"
+        }
+      ]
+    },
+    "matchedModifierIds": [
+      "attuned-wand:prefix:professor-s"
+    ],
+    "minimumSupportedItemLevel": 33,
+    "requiredCharacterLevel": 26
+  },
+  {
+    "id": "Greater_Essence_of_Sorcery",
+    "url": "https://poe2db.tw/us/Greater_Essence_of_Sorcery",
+    "retrievedAt": "2026-10-03T13:39:01.365Z",
+    "sha256": "97573474e78f219de29dbf87808576fa654c5364d3cddf32d58af5640e8e3ab7",
+    "row": {
+      "type": "essence",
+      "Level": "60",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>"
+      ],
+      "fossil_no": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/e4fac018bcce92b46435779d4a9653741996d37cc3cd7df5e76c4f34672dc25c\" href=\"Greater_Essence_of_Sorcery\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterCasterEssence.webp\" alt=\"GreaterCasterEssence\" height=\"16\" />Greater Essence of Sorcery</a>",
+      "Code": "SpellDamageOnWeapon6",
+      "ModFamilyList": [
+        "WeaponCasterDamagePrefix"
+      ],
+      "str": "<span class='mod-value'>(75<span class=\"ndash\">—</span>89)</span>% increased <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Damage",
+      "adds_no": [],
+      "spawn_no": [
+        "focus",
+        "wand",
+        "default"
+      ],
+      "reqlvl": 48,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon6",
+    "detailHtml": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(75<span class=\"ndash\">—</span>89)</span>% increased <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Damage</span></h5>   <span data-tabname=\"Incanter's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Incanter's\n<tr><th>Family<td>WeaponCasterDamagePrefix\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>2107\n<tr><th>Stats<td><li>spell damage +% <span class=\"badge bg-primary\">75 <span class=\"ndash\">—</span> 89</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Caster</span> </table>  </div></div>",
+    "parsed": {
+      "card": "Greater Essence of Sorcery Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierFocus or Wand: (75—89)% increased Spell DamageStaff: (149—188)% increased Spell Damage Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+      "target": [
+        "Wands",
+        "(75—89)% increased Spell Damage",
+        "Prefix",
+        "48"
+      ],
+      "effect": "(75—89)% increased Spell Damage",
+      "poolEffect": "(75—89)% increased Spell Damage",
+      "fields": {
+        "Name": "Incanter's",
+        "Family": "WeaponCasterDamagePrefix",
+        "Domains": "Item (1)",
+        "GenerationType": "Prefix (1)",
+        "Req. level": "60 (Effective: 48)",
+        "Gold Price": "2107",
+        "Stats": "spell damage +% 75 — 89 Global",
+        "Spawn Tags": "focus: 1 wand: 1 default: 0",
+        "Craft Tags": "caster_damage Damage Caster"
+      },
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "bounds": [
+            75,
+            89
+          ],
+          "locality": "Global"
+        }
+      ]
+    },
+    "matchedModifierIds": [
+      "attuned-wand:prefix:incanter-s"
+    ],
+    "minimumSupportedItemLevel": 60,
+    "requiredCharacterLevel": 48
+  },
+  {
+    "id": "Perfect_Essence_of_Sorcery",
+    "url": "https://poe2db.tw/us/Perfect_Essence_of_Sorcery",
+    "retrievedAt": "2026-10-03T13:39:02.085Z",
+    "sha256": "edb50bb8a7cb0a91666e62312de0013f3070f5708bf44775236bc35038ce9426",
+    "row": {
+      "type": "essence",
+      "Level": "72",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+        "<span class=\"badge bg-primary craftinggem\" data-tag=\"gem\">Gem</span>"
+      ],
+      "fossil_no": [
+        "caster",
+        "gem"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/570fe01916cb9d6c45b71ac59b974a1db41f0ce48a614d2553660a0b80aa9128\" href=\"Perfect_Essence_of_Sorcery\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/CasterEssencePerfect.webp\" alt=\"CasterEssencePerfect\" height=\"16\" />Perfect Essence of Sorcery</a>",
+      "Code": "EssenceSpellSkillLevel1H1",
+      "ModFamilyList": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "str": "<span class='mod-value'>+3</span> to Level of all <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Skills",
+      "adds_no": [],
+      "spawn_no": [
+        "default"
+      ],
+      "reqlvl": 57,
+      "IsPerfect": "1",
+      "IsAlloy": false,
+      "Removes": true
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceSpellSkillLevel1H1",
+    "detailHtml": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+3</span> to Level of all <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Skills</span></h5>   <span data-tabname=\"of the Essence\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Essence\n<tr><th>Family<td>IncreaseSocketedGemLevel\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>spell skill gem level + <span class=\"badge bg-primary\">3 <span class=\"ndash\">—</span> 3</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Caster</span> <span class='badge bg-primary'>Gem</span> </table>  </div></div>",
+    "parsed": {
+      "card": "Perfect Essence of Sorcery Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierWand: +3 to Level of all Spell SkillsStaff: +5 to Level of all Spell Skills Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+      "target": [
+        "Wands",
+        "+3 to Level of all Spell Skills",
+        "Suffix",
+        "57"
+      ],
+      "effect": "+3 to Level of all Spell Skills",
+      "poolEffect": "+3 to Level of all Spell Skills",
+      "fields": {
+        "Name": "of the Essence",
+        "Family": "IncreaseSocketedGemLevel",
+        "Domains": "Item (1)",
+        "GenerationType": "Suffix (2)",
+        "Req. level": "72 (Effective: 57)",
+        "Gold Price": "3266",
+        "Stats": "spell skill gem level + 3 — 3 Global",
+        "Spawn Tags": "default: 0",
+        "Craft Tags": "Caster Gem"
+      },
+      "stats": [
+        {
+          "id": "spell_skill_gem_level_+",
+          "bounds": [
+            3,
+            3
+          ],
+          "locality": "Global"
+        }
+      ]
+    },
+    "matchedModifierIds": [
+      "attuned-wand:suffix:essence-spell-skill-level"
+    ]
+  },
+  {
+    "id": "Lesser_Essence_of_Seeking",
+    "url": "https://poe2db.tw/us/Lesser_Essence_of_Seeking",
+    "retrievedAt": "2026-10-03T13:39:02.665Z",
+    "sha256": "67cce919b8e728938f5d884f99859d5378ad21ff33cea85aecf7b3bb9899adec",
+    "row": {
+      "type": "essence",
+      "Level": "21",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+        "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+      ],
+      "fossil_no": [
+        "caster_critical",
+        "caster",
+        "critical"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/7e688aea571e4f5bcfb0599b3700ff006fbc282c23c806e6fd8480e8f71cc7e8\" href=\"Lesser_Essence_of_Seeking\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/CriticalEssenceLesser.webp\" alt=\"CriticalEssenceLesser\" height=\"16\" />Lesser Essence of Seeking</a>",
+      "Code": "SpellCriticalStrikeChance2",
+      "ModFamilyList": [
+        "SpellCriticalStrikeChanceIncrease"
+      ],
+      "str": "<span class='mod-value'>(34<span class=\"ndash\">—</span>39)</span>% increased <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit Chance</a> for <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spells</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "focus",
+        "wand",
+        "default"
+      ],
+      "reqlvl": 16,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeChance2",
+    "detailHtml": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(34<span class=\"ndash\">—</span>39)</span>% increased <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit Chance</a> for <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spells</a></span></h5>   <span data-tabname=\"of Havoc\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Havoc\n<tr><th>Family<td>SpellCriticalStrikeChanceIncrease\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>21 (Effective: 16)\n<tr><th>Gold Price<td>381\n<tr><th>Stats<td><li>spell critical strike chance +% <span class=\"badge bg-primary\">34 <span class=\"ndash\">—</span> 39</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_critical</i></span> <span class='badge bg-primary'>Caster</span> <span class='badge bg-primary'>Critical</span> </table>  </div></div>",
+    "parsed": {
+      "card": "Lesser Essence of Seeking Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierMartial Weapon: +(1.51—2.1)% to Critical Hit ChanceFocus or Wand: (34—39)% increased Critical Hit Chance for SpellsStaff: (50—59)% increased Critical Hit Chance for Spells Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+      "target": [
+        "Wands",
+        "(34—39)% increased Critical Hit Chance for Spells",
+        "Suffix",
+        "16"
+      ],
+      "effect": "(34—39)% increased Critical Hit Chance for Spells",
+      "poolEffect": "(34—39)% increased Critical Hit Chance for Spells",
+      "fields": {
+        "Name": "of Havoc",
+        "Family": "SpellCriticalStrikeChanceIncrease",
+        "Domains": "Item (1)",
+        "GenerationType": "Suffix (2)",
+        "Req. level": "21 (Effective: 16)",
+        "Gold Price": "381",
+        "Stats": "spell critical strike chance +% 34 — 39 Global",
+        "Spawn Tags": "focus: 1 wand: 1 default: 0",
+        "Craft Tags": "caster_critical Caster Critical"
+      },
+      "stats": [
+        {
+          "id": "spell_critical_strike_chance_+%",
+          "bounds": [
+            34,
+            39
+          ],
+          "locality": "Global"
+        }
+      ]
+    },
+    "matchedModifierIds": [
+      "attuned-wand:suffix:of-havoc:spellcriticalstrikechance2"
+    ],
+    "minimumSupportedItemLevel": 21,
+    "requiredCharacterLevel": 16
+  },
+  {
+    "id": "Essence_of_Seeking",
+    "url": "https://poe2db.tw/us/Essence_of_Seeking",
+    "retrievedAt": "2026-10-03T13:39:03.239Z",
+    "sha256": "679867d7d0484d52ff0956d93287e2fef51c563d8330a0041c5f049362333042",
+    "row": {
+      "type": "essence",
+      "Level": "28",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+        "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+      ],
+      "fossil_no": [
+        "caster_critical",
+        "caster",
+        "critical"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/1ec7c44de949f30a9818a6b29499c3b0504de6f64c3355b7e01c719fa72667f6\" href=\"Essence_of_Seeking\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/CriticalEssence.webp\" alt=\"CriticalEssence\" height=\"16\" />Essence of Seeking</a>",
+      "Code": "SpellCriticalStrikeChance3",
+      "ModFamilyList": [
+        "SpellCriticalStrikeChanceIncrease"
+      ],
+      "str": "<span class='mod-value'>(40<span class=\"ndash\">—</span>46)</span>% increased <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit Chance</a> for <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spells</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "focus",
+        "wand",
+        "default"
+      ],
+      "reqlvl": 22,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeChance3",
+    "detailHtml": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(40<span class=\"ndash\">—</span>46)</span>% increased <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit Chance</a> for <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spells</a></span></h5>   <span data-tabname=\"of Disaster\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Disaster\n<tr><th>Family<td>SpellCriticalStrikeChanceIncrease\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>28 (Effective: 22)\n<tr><th>Gold Price<td>528\n<tr><th>Stats<td><li>spell critical strike chance +% <span class=\"badge bg-primary\">40 <span class=\"ndash\">—</span> 46</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_critical</i></span> <span class='badge bg-primary'>Caster</span> <span class='badge bg-primary'>Critical</span> </table>  </div></div>",
+    "parsed": {
+      "card": "Essence of Seeking Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierMartial Weapon: +(2.11—2.7)% to Critical Hit ChanceFocus or Wand: (40—46)% increased Critical Hit Chance for SpellsStaff: (60—69)% increased Critical Hit Chance for Spells Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+      "target": [
+        "Wands",
+        "(40—46)% increased Critical Hit Chance for Spells",
+        "Suffix",
+        "22"
+      ],
+      "effect": "(40—46)% increased Critical Hit Chance for Spells",
+      "poolEffect": "(40—46)% increased Critical Hit Chance for Spells",
+      "fields": {
+        "Name": "of Disaster",
+        "Family": "SpellCriticalStrikeChanceIncrease",
+        "Domains": "Item (1)",
+        "GenerationType": "Suffix (2)",
+        "Req. level": "28 (Effective: 22)",
+        "Gold Price": "528",
+        "Stats": "spell critical strike chance +% 40 — 46 Global",
+        "Spawn Tags": "focus: 1 wand: 1 default: 0",
+        "Craft Tags": "caster_critical Caster Critical"
+      },
+      "stats": [
+        {
+          "id": "spell_critical_strike_chance_+%",
+          "bounds": [
+            40,
+            46
+          ],
+          "locality": "Global"
+        }
+      ]
+    },
+    "matchedModifierIds": [
+      "attuned-wand:suffix:of-disaster"
+    ],
+    "minimumSupportedItemLevel": 28,
+    "requiredCharacterLevel": 22
+  },
+  {
+    "id": "Greater_Essence_of_Seeking",
+    "url": "https://poe2db.tw/us/Greater_Essence_of_Seeking",
+    "retrievedAt": "2026-10-03T13:39:03.978Z",
+    "sha256": "c1d1d37194b4e7eddb6042e5fbfdb26a21f195af15103a2084cf9077a92b026f",
+    "row": {
+      "type": "essence",
+      "Level": "41",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+        "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+      ],
+      "fossil_no": [
+        "caster_critical",
+        "caster",
+        "critical"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/6f447ea5a395329e6b05e3742260bd23b52027bcbac260ad501e31038b44ac83\" href=\"Greater_Essence_of_Seeking\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterCriticalEssence.webp\" alt=\"GreaterCriticalEssence\" height=\"16\" />Greater Essence of Seeking</a>",
+      "Code": "SpellCriticalStrikeChance4",
+      "ModFamilyList": [
+        "SpellCriticalStrikeChanceIncrease"
+      ],
+      "str": "<span class='mod-value'>(47<span class=\"ndash\">—</span>53)</span>% increased <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit Chance</a> for <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spells</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "focus",
+        "wand",
+        "default"
+      ],
+      "reqlvl": 32,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeChance4",
+    "detailHtml": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(47<span class=\"ndash\">—</span>53)</span>% increased <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit Chance</a> for <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spells</a></span></h5>   <span data-tabname=\"of Calamity\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Calamity\n<tr><th>Family<td>SpellCriticalStrikeChanceIncrease\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>41 (Effective: 32)\n<tr><th>Gold Price<td>921\n<tr><th>Stats<td><li>spell critical strike chance +% <span class=\"badge bg-primary\">47 <span class=\"ndash\">—</span> 53</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_critical</i></span> <span class='badge bg-primary'>Caster</span> <span class='badge bg-primary'>Critical</span> </table>  </div></div>",
+    "parsed": {
+      "card": "Greater Essence of Seeking Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierMartial Weapon: +(3.11—3.8)% to Critical Hit ChanceFocus or Wand: (47—53)% increased Critical Hit Chance for SpellsStaff: (70—79)% increased Critical Hit Chance for Spells Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+      "target": [
+        "Wands",
+        "(47—53)% increased Critical Hit Chance for Spells",
+        "Suffix",
+        "32"
+      ],
+      "effect": "(47—53)% increased Critical Hit Chance for Spells",
+      "poolEffect": "(47—53)% increased Critical Hit Chance for Spells",
+      "fields": {
+        "Name": "of Calamity",
+        "Family": "SpellCriticalStrikeChanceIncrease",
+        "Domains": "Item (1)",
+        "GenerationType": "Suffix (2)",
+        "Req. level": "41 (Effective: 32)",
+        "Gold Price": "921",
+        "Stats": "spell critical strike chance +% 47 — 53 Global",
+        "Spawn Tags": "focus: 1 wand: 1 default: 0",
+        "Craft Tags": "caster_critical Caster Critical"
+      },
+      "stats": [
+        {
+          "id": "spell_critical_strike_chance_+%",
+          "bounds": [
+            47,
+            53
+          ],
+          "locality": "Global"
+        }
+      ]
+    },
+    "matchedModifierIds": [
+      "attuned-wand:suffix:of-calamity"
+    ],
+    "minimumSupportedItemLevel": 41,
+    "requiredCharacterLevel": 32
+  },
+  {
+    "id": "Lesser_Essence_of_Alacrity",
+    "url": "https://poe2db.tw/us/Lesser_Essence_of_Alacrity",
+    "retrievedAt": "2026-10-03T13:39:04.554Z",
+    "sha256": "352f976e85e05b1c3361e3acb39764a9ad12686a5ebb63c542b20f1ce7ed3671",
+    "row": {
+      "type": "essence",
+      "Level": "15",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+        "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+      ],
+      "fossil_no": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/3e8d9fffaba2f269856369be45116081a5f1f8b8cc6de76ee41afe24381835a3\" href=\"Lesser_Essence_of_Alacrity\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/SpeedCasterEssenceLesser.webp\" alt=\"SpeedCasterEssenceLesser\" height=\"16\" />Lesser Essence of Alacrity</a>",
+      "Code": "IncreasedCastSpeed2",
+      "ModFamilyList": [
+        "IncreasedCastSpeed"
+      ],
+      "str": "<span class='mod-value'>(13<span class=\"ndash\">—</span>16)</span>% increased Cast Speed",
+      "adds_no": [],
+      "spawn_no": [
+        "focus",
+        "wand",
+        "default"
+      ],
+      "reqlvl": 12,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeed2",
+    "detailHtml": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(13<span class=\"ndash\">—</span>16)</span>% increased Cast Speed</span></h5>   <span data-tabname=\"of Nimbleness\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Nimbleness\n<tr><th>Family<td>IncreasedCastSpeed\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>15 (Effective: 12)\n<tr><th>Gold Price<td>282\n<tr><th>Stats<td><li>base cast speed +% <span class=\"badge bg-primary\">13 <span class=\"ndash\">—</span> 16</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_speed</i></span> <span class='badge bg-primary'>Caster</span> <span class='badge bg-primary'>Speed</span> </table>  </div></div>",
+    "parsed": {
+      "card": "Lesser Essence of Alacrity Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierFocus or Wand: (13—16)% increased Cast SpeedStaff: (20—25)% increased Cast Speed Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+      "target": [
+        "Wands",
+        "(13—16)% increased Cast Speed",
+        "Suffix",
+        "12"
+      ],
+      "effect": "(13—16)% increased Cast Speed",
+      "poolEffect": "(13—16)% increased Cast Speed",
+      "fields": {
+        "Name": "of Nimbleness",
+        "Family": "IncreasedCastSpeed",
+        "Domains": "Item (1)",
+        "GenerationType": "Suffix (2)",
+        "Req. level": "15 (Effective: 12)",
+        "Gold Price": "282",
+        "Stats": "base cast speed +% 13 — 16 Global",
+        "Spawn Tags": "focus: 1 wand: 1 default: 0",
+        "Craft Tags": "caster_speed Caster Speed"
+      },
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "bounds": [
+            13,
+            16
+          ],
+          "locality": "Global"
+        }
+      ]
+    },
+    "matchedModifierIds": [
+      "attuned-wand:suffix:of-nimbleness"
+    ],
+    "minimumSupportedItemLevel": 15,
+    "requiredCharacterLevel": 12
+  },
+  {
+    "id": "Essence_of_Alacrity",
+    "url": "https://poe2db.tw/us/Essence_of_Alacrity",
+    "retrievedAt": "2026-10-03T13:39:05.123Z",
+    "sha256": "ddbcdda8ce5fddea71f52cf596fd5dae04a26ff966dee33c9a0b178680ef5578",
+    "row": {
+      "type": "essence",
+      "Level": "30",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+        "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+      ],
+      "fossil_no": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/b766db5849a2ffe1cc2bbdbcd074c44c1e88480ccb7b2c018ed92683e10f7094\" href=\"Essence_of_Alacrity\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/SpeedCasterEssence.webp\" alt=\"SpeedCasterEssence\" height=\"16\" />Essence of Alacrity</a>",
+      "Code": "IncreasedCastSpeed3",
+      "ModFamilyList": [
+        "IncreasedCastSpeed"
+      ],
+      "str": "<span class='mod-value'>(17<span class=\"ndash\">—</span>20)</span>% increased Cast Speed",
+      "adds_no": [],
+      "spawn_no": [
+        "focus",
+        "wand",
+        "default"
+      ],
+      "reqlvl": 24,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeed3",
+    "detailHtml": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(17<span class=\"ndash\">—</span>20)</span>% increased Cast Speed</span></h5>   <span data-tabname=\"of Expertise\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Expertise\n<tr><th>Family<td>IncreasedCastSpeed\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>30 (Effective: 24)\n<tr><th>Gold Price<td>593\n<tr><th>Stats<td><li>base cast speed +% <span class=\"badge bg-primary\">17 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_speed</i></span> <span class='badge bg-primary'>Caster</span> <span class='badge bg-primary'>Speed</span> </table>  </div></div>",
+    "parsed": {
+      "card": "Essence of Alacrity Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierFocus or Wand: (17—20)% increased Cast SpeedStaff: (26—31)% increased Cast Speed Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+      "target": [
+        "Wands",
+        "(17—20)% increased Cast Speed",
+        "Suffix",
+        "24"
+      ],
+      "effect": "(17—20)% increased Cast Speed",
+      "poolEffect": "(17—20)% increased Cast Speed",
+      "fields": {
+        "Name": "of Expertise",
+        "Family": "IncreasedCastSpeed",
+        "Domains": "Item (1)",
+        "GenerationType": "Suffix (2)",
+        "Req. level": "30 (Effective: 24)",
+        "Gold Price": "593",
+        "Stats": "base cast speed +% 17 — 20 Global",
+        "Spawn Tags": "focus: 1 wand: 1 default: 0",
+        "Craft Tags": "caster_speed Caster Speed"
+      },
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "bounds": [
+            17,
+            20
+          ],
+          "locality": "Global"
+        }
+      ]
+    },
+    "matchedModifierIds": [
+      "attuned-wand:suffix:of-expertise"
+    ],
+    "minimumSupportedItemLevel": 30,
+    "requiredCharacterLevel": 24
+  },
+  {
+    "id": "Greater_Essence_of_Alacrity",
+    "url": "https://poe2db.tw/us/Greater_Essence_of_Alacrity",
+    "retrievedAt": "2026-10-03T13:39:05.705Z",
+    "sha256": "65a43db168bbe14ec18e753571ff609916d8d865deb6332e2a7af76e89676738",
+    "row": {
+      "type": "essence",
+      "Level": "60",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+        "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+      ],
+      "fossil_no": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/fc9127f4b3d41aa34c0f7e5d0c115e5f4fdc620327426aad5ef0f4ab0665536c\" href=\"Greater_Essence_of_Alacrity\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterSpeedCasterEssence.webp\" alt=\"GreaterSpeedCasterEssence\" height=\"16\" />Greater Essence of Alacrity</a>",
+      "Code": "IncreasedCastSpeed5",
+      "ModFamilyList": [
+        "IncreasedCastSpeed"
+      ],
+      "str": "<span class='mod-value'>(25<span class=\"ndash\">—</span>28)</span>% increased Cast Speed",
+      "adds_no": [],
+      "spawn_no": [
+        "focus",
+        "wand",
+        "default"
+      ],
+      "reqlvl": 48,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeed5",
+    "detailHtml": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(25<span class=\"ndash\">—</span>28)</span>% increased Cast Speed</span></h5>   <span data-tabname=\"of Legerdemain\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Legerdemain\n<tr><th>Family<td>IncreasedCastSpeed\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>1652\n<tr><th>Stats<td><li>base cast speed +% <span class=\"badge bg-primary\">25 <span class=\"ndash\">—</span> 28</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_speed</i></span> <span class='badge bg-primary'>Caster</span> <span class='badge bg-primary'>Speed</span> </table>  </div></div>",
+    "parsed": {
+      "card": "Greater Essence of Alacrity Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierFocus or Wand: (25—28)% increased Cast SpeedStaff: (38—43)% increased Cast Speed Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+      "target": [
+        "Wands",
+        "(25—28)% increased Cast Speed",
+        "Suffix",
+        "48"
+      ],
+      "effect": "(25—28)% increased Cast Speed",
+      "poolEffect": "(25—28)% increased Cast Speed",
+      "fields": {
+        "Name": "of Legerdemain",
+        "Family": "IncreasedCastSpeed",
+        "Domains": "Item (1)",
+        "GenerationType": "Suffix (2)",
+        "Req. level": "60 (Effective: 48)",
+        "Gold Price": "1652",
+        "Stats": "base cast speed +% 25 — 28 Global",
+        "Spawn Tags": "focus: 1 wand: 1 default: 0",
+        "Craft Tags": "caster_speed Caster Speed"
+      },
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "bounds": [
+            25,
+            28
+          ],
+          "locality": "Global"
+        }
+      ]
+    },
+    "matchedModifierIds": [
+      "attuned-wand:suffix:of-legerdemain"
+    ],
+    "minimumSupportedItemLevel": 60,
+    "requiredCharacterLevel": 48
+  },
+  {
+    "id": "Perfect_Essence_of_Alacrity",
+    "url": "https://poe2db.tw/us/Perfect_Essence_of_Alacrity",
+    "retrievedAt": "2026-10-03T13:39:06.294Z",
+    "sha256": "c16a12daf476124055065f773666cbb0246358009a9de47c9e2bc9b7b4390f1d",
+    "row": {
+      "type": "essence",
+      "Level": "72",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+      ],
+      "fossil_no": [
+        "resource",
+        "mana"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/ee31d4818bc019b9af86e06ca009a58954970a9e094c200add7c6a5623f78630\" href=\"Perfect_Essence_of_Alacrity\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/SpeedCasterEssencePerfect.webp\" alt=\"SpeedCasterEssencePerfect\" height=\"16\" />Perfect Essence of Alacrity</a>",
+      "Code": "EssenceManaCostReduction",
+      "ModFamilyList": [
+        "ManaCostEfficiency"
+      ],
+      "str": "<span class='mod-value'>(18<span class=\"ndash\">—</span>20)</span>% increased Mana Cost <a data-keyword=\"Efficiency\" href=\"Efficiency\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/70723d2a3bf2c663ac779e838411a5be7995f4854d76a354c23f3a7c61a556a3\">Efficiency</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "default"
+      ],
+      "reqlvl": 57,
+      "IsPerfect": "1",
+      "IsAlloy": false,
+      "Removes": true
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceManaCostReduction",
+    "detailHtml": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(18<span class=\"ndash\">—</span>20)</span>% increased Mana Cost <a data-keyword=\"Efficiency\" href=\"Efficiency\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/70723d2a3bf2c663ac779e838411a5be7995f4854d76a354c23f3a7c61a556a3\">Efficiency</a></span></h5>   <span data-tabname=\"of the Essence\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Essence\n<tr><th>Family<td>ManaCostEfficiency\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>base mana cost efficiency +% <span class=\"badge bg-primary\">18 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> </table>  </div></div>",
+    "parsed": {
+      "card": "Perfect Essence of Alacrity Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierFocus or Wand: (18—20)% increased Mana Cost EfficiencyStaff: (28—32)% increased Mana Cost Efficiency Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+      "target": [
+        "Wands",
+        "(18—20)% increased Mana Cost Efficiency",
+        "Suffix",
+        "57"
+      ],
+      "effect": "(18—20)% increased Mana Cost Efficiency",
+      "poolEffect": "(18—20)% increased Mana Cost Efficiency",
+      "fields": {
+        "Name": "of the Essence",
+        "Family": "ManaCostEfficiency",
+        "Domains": "Item (1)",
+        "GenerationType": "Suffix (2)",
+        "Req. level": "72 (Effective: 57)",
+        "Gold Price": "3266",
+        "Stats": "base mana cost efficiency +% 18 — 20 Global",
+        "Spawn Tags": "default: 0",
+        "Craft Tags": "resource Mana"
+      },
+      "stats": [
+        {
+          "id": "base_mana_cost_efficiency_+%",
+          "bounds": [
+            18,
+            20
+          ],
+          "locality": "Global"
+        }
+      ]
+    },
+    "matchedModifierIds": [
+      "attuned-wand:suffix:essence-mana-cost-efficiency"
+    ]
+  }
+]

@@ -16,7 +16,7 @@ public final class AugmentSocketRules {
 
   public static String refusal(ItemState state) {
     if (!state.baseItemId().equals(STOCKY_BASE_ID))
-      return "Artificer's Orb cannot add sockets to this Jewellery base.";
+      return "Artificer's Orb socket rules are not supported for this equipment base.";
     if (state.augmentSockets() == null)
       return "This saved item's socket count is unknown. Place a new Stocky Mitts base.";
     if (state.augmentSockets() >= 1)

@@ -37,6 +37,26 @@ public final class ItemCatalogLoader {
     }
   }
 
+  /** Complete ordinary Wand snapshot for Workbench dispatch only. */
+  public static ItemCatalog loadWand() {
+    try (var data =
+            ItemCatalogLoader.class.getResourceAsStream("/catalog/attuned-wand/catalog.json");
+        var raw =
+            ItemCatalogLoader.class.getResourceAsStream("/catalog/attuned-wand/base.raw.json");
+        var details =
+            ItemCatalogLoader.class.getResourceAsStream("/catalog/attuned-wand/details.raw.json");
+        var special =
+            ItemCatalogLoader.class.getResourceAsStream(
+                "/catalog/attuned-wand/perfect-essences.catalog.json");
+        var specialRaw =
+            ItemCatalogLoader.class.getResourceAsStream(
+                "/catalog/attuned-wand/perfect-essences.raw.json")) {
+      return loadWithSpecial(data, raw, details, special, specialRaw);
+    } catch (IOException e) {
+      throw new IllegalStateException("Cannot load Attuned Wand catalog", e);
+    }
+  }
+
   public static ItemCatalog loadDefault() {
     try (var catalog = resource("catalog.json");
         var raw = resource("base.raw.json");

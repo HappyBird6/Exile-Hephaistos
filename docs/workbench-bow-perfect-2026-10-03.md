@@ -1,3 +1,5 @@
+Latest checkpoint: [bounded Attuned Wand and11 Essence paths](workbench-attuned-wand-2026-10-03.md), overall109 / current-scope155: implemented101, pending54, excluded65. Prior counts below describe their dated checkpoints.
+
 # Crude Bow Perfect Essences
 
 Six individually verified Perfect Essences now use the shared Workbench replacement path on Crude Bow only. Ordinary Bow catalog/raw/detail files remain byte-for-byte unchanged: 140 positive-spawn definitions, prefix weight44755 + suffix52277 =97032. Six special results have zero natural-spawn weight. Bow now exposes146 definitions,46 material actions and57 implemented support records; Solar218/49/60 and Stocky194/57/68 remain unchanged. Craft Support and State Explorer remain Solar only.

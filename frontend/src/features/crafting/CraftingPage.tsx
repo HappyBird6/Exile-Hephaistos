@@ -97,15 +97,20 @@ export function CraftingPage() {
         : storedFrame?.state.baseItemId ===
             'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1'
           ? 'bow'
-          : storedFrame
-            ? 'solar'
-            : draft.base
+          : storedFrame?.state.baseItemId ===
+              'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
+            ? 'wand'
+            : storedFrame
+              ? 'solar'
+              : draft.base
   const baseName =
     catalogBase === 'stocky'
       ? 'Stocky Mitts'
       : catalogBase === 'bow'
         ? 'Crude Bow'
-        : 'Solar Amulet'
+        : catalogBase === 'wand'
+          ? 'Attuned Wand'
+          : 'Solar Amulet'
   const catalogLevel =
     Number.isInteger(storedLevel) && storedLevel! >= 1 && storedLevel! <= 100
       ? storedLevel!
@@ -185,7 +190,7 @@ export function CraftingPage() {
       : undefined
   async function startBase(
     level: number,
-    base: 'solar' | 'stocky' | 'bow' = 'solar',
+    base: 'solar' | 'stocky' | 'bow' | 'wand' = 'solar',
   ) {
     const request = ++placementRequest.current
     const revision = useItemDraft.getState().baseRevision
@@ -289,9 +294,9 @@ export function CraftingPage() {
     [draft.baseRevision, draft.source],
   )
   const [baseLevel, setBaseLevel] = useState('82')
-  const [baseChoice, setBaseChoice] = useState<'solar' | 'stocky' | 'bow'>(
-    'solar',
-  )
+  const [baseChoice, setBaseChoice] = useState<
+    'solar' | 'stocky' | 'bow' | 'wand'
+  >('solar')
   const [previewRequest, setPreviewRequest] = useState<{
     count: number
     action: Action | null
@@ -629,9 +634,19 @@ export function CraftingPage() {
                 ? 'Gloves'
                 : catalogBase === 'bow'
                   ? 'Bows'
-                  : 'Amulet',
+                  : catalogBase === 'wand'
+                    ? 'Wands'
+                    : 'Amulet',
             itemLevel: concrete.itemLevel,
             properties: [
+              ...(catalogBase === 'wand'
+                ? [
+                    {
+                      id: 'innate-skill',
+                      text: 'Grants Skill: Mana Drain (not simulated)',
+                    },
+                  ]
+                : []),
               ...(qualityMaximum === null
                 ? []
                 : [
@@ -1074,7 +1089,9 @@ export function CraftingPage() {
                           ? 'Gloves'
                           : catalogBase === 'bow'
                             ? 'Bows'
-                            : 'Amulet',
+                            : catalogBase === 'wand'
+                              ? 'Wands'
+                              : 'Amulet',
                       itemLevel: draft.baseItemLevel,
                       properties: [],
                       requirements: [],
@@ -1246,11 +1263,21 @@ export function CraftingPage() {
                     preserved.
                   </p>
                 )}
+                {catalogBase === 'wand' && (
+                  <p className="workbench-feedback">
+                    Innate Mana Drain, combat totals, applied quality, sockets
+                    and pasted Wand mapping are not simulated. Numeric rolls use
+                    unverified source-unit/shared-ratio models. Item-level gates
+                    use source modifier levels; lower-level game behavior is
+                    unverified.
+                  </p>
+                )}
                 {catalogBase === 'bow' && (
                   <p className="workbench-feedback">
                     Numeric rolls use unverified source-unit and shared-ratio
                     models. Computed weapon damage, quality, sockets and pasted
-                    bow mapping are not supported.
+                    bow mapping are not supported. Item-level gates use source
+                    modifier levels; lower-level game behavior is unverified.
                   </p>
                 )}
                 {catalogBase === 'stocky' && (
@@ -1379,13 +1406,14 @@ export function CraftingPage() {
                     value={baseChoice}
                     onChange={(e) =>
                       setBaseChoice(
-                        e.target.value as 'solar' | 'stocky' | 'bow',
+                        e.target.value as 'solar' | 'stocky' | 'bow' | 'wand',
                       )
                     }
                   >
                     <option value="solar">Solar Amulet</option>
                     <option value="stocky">Stocky Mitts</option>
                     <option value="bow">Crude Bow</option>
+                    <option value="wand">Attuned Wand</option>
                   </select>
                   <label htmlFor="base-level">Item level</label>
                   <input

@@ -15,7 +15,8 @@ public final class QualityLimitRules {
       throw new IllegalArgumentException("Unsupported state for quality limit");
     if (!state.baseItemId().equals(SolarAmulet.BASE_ID)
         && !state.baseItemId().equals("Metadata/Items/Armours/Gloves/FourGlovesStr1")
-        && !state.baseItemId().equals(BowEssenceTargets.BASE_ID))
+        && !state.baseItemId().equals(BowEssenceTargets.BASE_ID)
+        && !state.baseItemId().equals(WandEssenceTargets.BASE_ID))
       return null; // Other catalogs do not inherit a reviewed cap.
     int maximum = 20;
     for (var instance : state.explicits()) {

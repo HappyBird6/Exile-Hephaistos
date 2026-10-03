@@ -12,6 +12,8 @@ public final class WorkbenchService {
   private final ItemCatalog stocky;
   private final WorkbenchSimulator solarSimulator;
   private final WorkbenchSimulator stockySimulator;
+  private final ItemCatalog wand;
+  private final WorkbenchSimulator wandSimulator;
   private final ItemCatalog bow;
   private final WorkbenchSimulator bowSimulator;
 
@@ -22,6 +24,27 @@ public final class WorkbenchService {
 
   public WorkbenchService(
       ItemCatalog solar, WorkbenchSimulator solarSimulator, ItemCatalog stocky, ItemCatalog bow) {
+    this(solar, solarSimulator, stocky, bow, null);
+  }
+
+  public WorkbenchService(
+      ItemCatalog solar,
+      WorkbenchSimulator solarSimulator,
+      ItemCatalog stocky,
+      ItemCatalog bow,
+      ItemCatalog wand) {
+    this.wand = wand;
+    this.wandSimulator =
+        wand == null
+            ? null
+            : new WorkbenchSimulator(
+                wand,
+                new CraftingEngine(wand),
+                wand.modifiers().values().stream()
+                    .filter(d -> d.stats().size() > 1)
+                    .map(ModifierDefinition::id)
+                    .collect(java.util.stream.Collectors.toSet()),
+                WandEssenceTargets.VERIFIED);
     this.bow = bow;
     this.bowSimulator =
         bow == null
@@ -83,6 +106,10 @@ public final class WorkbenchService {
     return switch (base) {
       case "solar" -> solar;
       case "stocky" -> stocky;
+      case "wand" -> {
+        if (wand == null) throw new IllegalArgumentException("Wand catalog unavailable");
+        yield wand;
+      }
       case "bow" -> {
         if (bow == null) throw new IllegalArgumentException("Bow catalog unavailable");
         yield bow;
@@ -95,6 +122,8 @@ public final class WorkbenchService {
     if (state == null) throw new IllegalArgumentException("State required");
     if (state.baseItemId().equals(SolarAmulet.BASE_ID)) return solarSimulator;
     if (state.baseItemId().equals(STOCKY_BASE_ID)) return stockySimulator;
+    if (state.baseItemId().equals(WandEssenceTargets.BASE_ID) && wandSimulator != null)
+      return wandSimulator;
     if (state.baseItemId().equals(BowEssenceTargets.BASE_ID) && bowSimulator != null)
       return bowSimulator;
     throw new IllegalArgumentException("Unsupported Workbench base");

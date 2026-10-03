@@ -1,3 +1,5 @@
+Latest checkpoint: [bounded Attuned Wand and11 Essence paths](workbench-attuned-wand-2026-10-03.md), overall109 / current-scope155: implemented101, pending54, excluded65. Prior counts below describe their dated checkpoints.
+
 Latest checkpoint: [six Bow Perfect Essences](workbench-bow-perfect-2026-10-03.md), overall101 / current-scope155: implemented93, pending62, excluded65. Earlier counts and candidate statements below describe their dated checkpoints.
 
 Latest runtime: [Crude Bow v1 and three-base compatibility](workbench-crude-bow-2026-10-03.md); overall implemented95, current-scope155/87/68, same65 exclusions. The Artificer75 and earlier counts below are historical checkpoints.

@@ -4,7 +4,7 @@ Single issue list from 2026-10-02, explicitly requested by the user. Record new 
 
 ## WB-001 — ASSUMED — Coupled numeric rolls
 
-- Scope: source-proven multi-stat Workbench modifiers; Stocky Mitts and Crude Bow Workbench explicitly opt into the conjecture, while default Solar does not.
+- Scope: source-proven multi-stat Workbench modifiers; Stocky Mitts, Crude Bow and Attuned Wand Workbench explicitly opt into the conjecture, while default Solar does not.
 - User approval 2026-10-02: “독립적이지는 않고 비율에 맞게 나올거야. 소수점은 반올림하고 부정확한 판단이라고 이슈리스트에 추가해”. Shared ratio and rounding are the user's unverified conjecture, not an official rule.
 - Model: one tick sampled uniformly from 0..10000 inclusive, ratio=tick/10000; each stat=min+(max-min)*ratio; round integer HALF_UP (negative -1.5 -> -2, positive 1.5 -> 2). Resolution and tick distribution are explicit implementation assumptions. Preserve each source endpoint; fixed stats remain fixed. Exact decimal arithmetic avoids floating point/overflow changes. Rounded tuples may repeat and are not uniform; never use an independent Cartesian product.
 - Impact: permits opt-in modelling only for identified multi-stat ranges; API assumption ID user-coupled-ratio-half-up-v1 and UI distinguish conjecture. Existing 1/N agreement applies to established eligible outcome sets; the model tick domain is separately assumed, not a verified game set. Modifier selection weights are separate. Default Solar never opts in. Stocky activation uses the declared WB-003/WB-006 model boundary; stored films remain version 1.
@@ -269,3 +269,9 @@ Next independent review: Adaptive conditional effect, Swift two-family exclusion
 
 - DONE: six source-matched Bow special results, zero ordinary spawn weights, generic Rare replacement/Crystallisation path and three-base history compatibility. [Primary evidence, conditions and executed checks](docs/workbench-bow-perfect-2026-10-03.md). Same65 exclusions and retained Alloys preserved.
 - OPEN evidence: actual Essence applicability below source mod level72; character requirement57 is distinct. Simulator conservatively blocks below72. Source-unit integer increments/distribution remain explicitly UNVERIFIED (WB-003); fixed Battle +2 has no numeric lottery. Onslaught trigger/duration, resulting damage and skill-level calculations remain outside equipment-affix assignment. No invented engine rules or combat totals.
+
+## WB-029 - DONE / OPEN SOURCE BOUNDARY - bounded Attuned Wand
+
+- DONE: complete185-row ordinary pool,11 individually verified Essence paths (eight new identities; Seeking three already on Bow), two zero-spawn Perfect results, shared four-base dispatch, immutable Mana Drain base fact displayed without simulating its skill. [Primary evidence and verification](docs/workbench-attuned-wand-2026-10-03.md).
+- Source distinction: all185 detail Spawn Tag numbers differ from the main table weight fields. The existing user-selected POE2DB_AS_PUBLISHED policy consistently uses the complete main table values; detail ordered Spawn Tags establish eligibility only. No missing weights or mixed weight units. These source-published weights are not official game probability measurements, which remain unverified.
+- OPEN evidence: source-mod-level gates are conservative simulation boundaries, not confirmed lower-item-level game Essence requirements (WB-028). Source-unit precision/distribution and coupled ratios remain UNVERIFIED (WB-001/WB-003). Innate Mana Drain level/progression, combat, Wand applied quality, sockets/resource state and pasted Wand mapping are not simulated. Excluded65 and existing implemented Alloys remain preserved.

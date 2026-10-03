@@ -47,6 +47,8 @@ public enum WorkbenchCurrency {
   FRACTURING(null, 0),
   ESSENCE_HYSTERIA(null, 0),
   ESSENCE_HORROR(null, 0),
+  PERFECT_ESSENCE_SORCERY(null, 0),
+  PERFECT_ESSENCE_ALACRITY(null, 0),
   PERFECT_ESSENCE_ABRASION(null, 0),
   PERFECT_ESSENCE_FLAMES(null, 0),
   PERFECT_ESSENCE_ICE(null, 0),
@@ -67,6 +69,12 @@ public enum WorkbenchCurrency {
   CYCLONIC_ALLOY(null, 0),
   MYSTIC_ALLOY(null, 0),
   ESSENCE_ABYSS(null, 0),
+  LESSER_ESSENCE_SORCERY("attuned-wand:prefix:adept-s"),
+  ESSENCE_SORCERY("attuned-wand:prefix:professor-s"),
+  GREATER_ESSENCE_SORCERY("attuned-wand:prefix:incanter-s"),
+  LESSER_ESSENCE_ALACRITY("attuned-wand:suffix:of-nimbleness"),
+  ESSENCE_ALACRITY("attuned-wand:suffix:of-expertise"),
+  GREATER_ESSENCE_ALACRITY("attuned-wand:suffix:of-legerdemain"),
   LESSER_ESSENCE_ENHANCEMENT("stocky-mitts:prefix:layered"),
   ESSENCE_ENHANCEMENT("stocky-mitts:prefix:buttressed"),
   GREATER_ESSENCE_ENHANCEMENT("stocky-mitts:prefix:thickened"),
@@ -187,6 +195,8 @@ public enum WorkbenchCurrency {
       case PRISMATIC_ALLOY -> List.of("stocky-mitts:prefix:alloy-elemental-penetration");
       case ESSENCE_HYSTERIA -> List.of("amulet:suffix:of-suturing");
       case ESSENCE_HORROR -> List.of("stocky-mitts:suffix:essence-socketed-augment-effect");
+      case PERFECT_ESSENCE_SORCERY -> List.of("attuned-wand:suffix:essence-spell-skill-level");
+      case PERFECT_ESSENCE_ALACRITY -> List.of("attuned-wand:suffix:essence-mana-cost-efficiency");
       case PERFECT_ESSENCE_ABRASION -> List.of("crude-bow:prefix:essence-extra-physical-damage");
       case PERFECT_ESSENCE_FLAMES -> List.of("crude-bow:prefix:essence-extra-fire-damage");
       case PERFECT_ESSENCE_ICE -> List.of("crude-bow:prefix:essence-extra-cold-damage");
@@ -213,6 +223,8 @@ public enum WorkbenchCurrency {
     return switch (this) {
       case ESSENCE_HYSTERIA -> "https://poe2db.tw/us/Essence_of_Hysteria";
       case ESSENCE_HORROR -> "https://poe2db.tw/us/Essence_of_Horror";
+      case PERFECT_ESSENCE_SORCERY -> "https://poe2db.tw/us/Perfect_Essence_of_Sorcery";
+      case PERFECT_ESSENCE_ALACRITY -> "https://poe2db.tw/us/Perfect_Essence_of_Alacrity";
       case PERFECT_ESSENCE_ABRASION -> "https://poe2db.tw/us/Perfect_Essence_of_Abrasion";
       case PERFECT_ESSENCE_FLAMES -> "https://poe2db.tw/us/Perfect_Essence_of_Flames";
       case PERFECT_ESSENCE_ICE -> "https://poe2db.tw/us/Perfect_Essence_of_Ice";

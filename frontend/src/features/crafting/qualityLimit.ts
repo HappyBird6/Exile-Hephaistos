@@ -19,6 +19,7 @@ export function maximumQuality(
     ![
       solar,
       stocky,
+      'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3',
       'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1',
     ].includes(state.baseItemId)
   )

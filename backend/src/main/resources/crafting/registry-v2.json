@@ -28,7 +28,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -52,7 +53,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -76,7 +78,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -97,7 +100,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -121,7 +125,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -145,7 +150,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -169,7 +175,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -206,7 +213,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -230,7 +238,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -254,7 +263,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -278,7 +288,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -302,7 +313,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -326,7 +338,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -350,7 +363,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -374,7 +388,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -398,7 +413,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -422,7 +438,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -446,7 +463,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -470,7 +488,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -671,10 +690,25 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED_TARGET",
+      "action": "LESSER_ESSENCE_SORCERY",
+      "reason": "Attuned Wand only: source modifier level gate is a conservative simulator boundary; lower-level game behavior remains unverified. Basic Essences upgrade Magic to Rare with fixed target; Perfect replaces one eligible unlocked modifier on Rare, refuses any invalid random branch. No combat or innate-skill simulation.",
+      "supportedBases": [
+        "wand"
+      ],
+      "wandEvidence": {
+        "cardSource": "https://poe2db.tw/us/Lesser_Essence_of_Sorcery",
+        "cardSha256": "4ab8a0ee3f21d9d277c51cb528032896e33ccd0773ca5f9b28e71d0491bd328d",
+        "retrievedAt": "2026-10-03T13:39:00.203Z",
+        "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon2",
+        "modifierCode": "SpellDamageOnWeapon2",
+        "minimumSupportedItemLevel": 8,
+        "requiredCharacterLevel": 6,
+        "modifierIds": [
+          "attuned-wand:prefix:adept-s"
+        ]
+      }
     },
     {
       "id": "Lesser_Essence_of_Haste",
@@ -896,10 +930,25 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED_TARGET",
+      "action": "ESSENCE_SORCERY",
+      "reason": "Attuned Wand only: source modifier level gate is a conservative simulator boundary; lower-level game behavior remains unverified. Basic Essences upgrade Magic to Rare with fixed target; Perfect replaces one eligible unlocked modifier on Rare, refuses any invalid random branch. No combat or innate-skill simulation.",
+      "supportedBases": [
+        "wand"
+      ],
+      "wandEvidence": {
+        "cardSource": "https://poe2db.tw/us/Essence_of_Sorcery",
+        "cardSha256": "e969301e9efdf692332139d89c9a65e0f53e08144df9142900f12fd9fed753d9",
+        "retrievedAt": "2026-10-03T13:39:00.788Z",
+        "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon4",
+        "modifierCode": "SpellDamageOnWeapon4",
+        "minimumSupportedItemLevel": 33,
+        "requiredCharacterLevel": 26,
+        "modifierIds": [
+          "attuned-wand:prefix:professor-s"
+        ]
+      }
     },
     {
       "id": "Essence_of_Haste",
@@ -1123,10 +1172,25 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED_TARGET",
+      "action": "GREATER_ESSENCE_SORCERY",
+      "reason": "Attuned Wand only: source modifier level gate is a conservative simulator boundary; lower-level game behavior remains unverified. Basic Essences upgrade Magic to Rare with fixed target; Perfect replaces one eligible unlocked modifier on Rare, refuses any invalid random branch. No combat or innate-skill simulation.",
+      "supportedBases": [
+        "wand"
+      ],
+      "wandEvidence": {
+        "cardSource": "https://poe2db.tw/us/Greater_Essence_of_Sorcery",
+        "cardSha256": "97573474e78f219de29dbf87808576fa654c5364d3cddf32d58af5640e8e3ab7",
+        "retrievedAt": "2026-10-03T13:39:01.365Z",
+        "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon6",
+        "modifierCode": "SpellDamageOnWeapon6",
+        "minimumSupportedItemLevel": 60,
+        "requiredCharacterLevel": 48,
+        "modifierIds": [
+          "attuned-wand:prefix:incanter-s"
+        ]
+      }
     },
     {
       "id": "Greater_Essence_of_Haste",
@@ -1346,10 +1410,25 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED_TARGET",
+      "action": "PERFECT_ESSENCE_SORCERY",
+      "reason": "Attuned Wand only: source modifier level gate is a conservative simulator boundary; lower-level game behavior remains unverified. Basic Essences upgrade Magic to Rare with fixed target; Perfect replaces one eligible unlocked modifier on Rare, refuses any invalid random branch. No combat or innate-skill simulation.",
+      "supportedBases": [
+        "wand"
+      ],
+      "wandEvidence": {
+        "cardSource": "https://poe2db.tw/us/Perfect_Essence_of_Sorcery",
+        "cardSha256": "edb50bb8a7cb0a91666e62312de0013f3070f5708bf44775236bc35038ce9426",
+        "retrievedAt": "2026-10-03T13:39:02.085Z",
+        "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceSpellSkillLevel1H1",
+        "modifierCode": "EssenceSpellSkillLevel1H1",
+        "minimumSupportedItemLevel": 72,
+        "requiredCharacterLevel": 57,
+        "modifierIds": [
+          "attuned-wand:suffix:essence-spell-skill-level"
+        ]
+      }
     },
     {
       "id": "Perfect_Essence_of_Haste",
@@ -1407,11 +1486,24 @@
       "action": "LESSER_ESSENCE_SEEKING",
       "reason": "Crude Bow only; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
       "supportedBases": [
-        "bow"
+        "bow",
+        "wand"
       ],
       "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Seeking",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "wandEvidence": {
+        "cardSource": "https://poe2db.tw/us/Lesser_Essence_of_Seeking",
+        "cardSha256": "67cce919b8e728938f5d884f99859d5378ad21ff33cea85aecf7b3bb9899adec",
+        "retrievedAt": "2026-10-03T13:39:02.665Z",
+        "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeChance2",
+        "modifierCode": "SpellCriticalStrikeChance2",
+        "minimumSupportedItemLevel": 21,
+        "requiredCharacterLevel": 16,
+        "modifierIds": [
+          "attuned-wand:suffix:of-havoc:spellcriticalstrikechance2"
+        ]
+      }
     },
     {
       "id": "Essence_of_Seeking",
@@ -1427,11 +1519,24 @@
       "action": "ESSENCE_SEEKING",
       "reason": "Crude Bow only; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
       "supportedBases": [
-        "bow"
+        "bow",
+        "wand"
       ],
       "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "ruleSource": "https://poe2db.tw/us/Essence_of_Seeking",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "wandEvidence": {
+        "cardSource": "https://poe2db.tw/us/Essence_of_Seeking",
+        "cardSha256": "679867d7d0484d52ff0956d93287e2fef51c563d8330a0041c5f049362333042",
+        "retrievedAt": "2026-10-03T13:39:03.239Z",
+        "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeChance3",
+        "modifierCode": "SpellCriticalStrikeChance3",
+        "minimumSupportedItemLevel": 28,
+        "requiredCharacterLevel": 22,
+        "modifierIds": [
+          "attuned-wand:suffix:of-disaster"
+        ]
+      }
     },
     {
       "id": "Greater_Essence_of_Seeking",
@@ -1447,11 +1552,24 @@
       "action": "GREATER_ESSENCE_SEEKING",
       "reason": "Crude Bow only; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
       "supportedBases": [
-        "bow"
+        "bow",
+        "wand"
       ],
       "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Seeking",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "wandEvidence": {
+        "cardSource": "https://poe2db.tw/us/Greater_Essence_of_Seeking",
+        "cardSha256": "c1d1d37194b4e7eddb6042e5fbfdb26a21f195af15103a2084cf9077a92b026f",
+        "retrievedAt": "2026-10-03T13:39:03.978Z",
+        "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeChance4",
+        "modifierCode": "SpellCriticalStrikeChance4",
+        "minimumSupportedItemLevel": 41,
+        "requiredCharacterLevel": 32,
+        "modifierIds": [
+          "attuned-wand:suffix:of-calamity"
+        ]
+      }
     },
     {
       "id": "Perfect_Essence_of_Seeking",
@@ -1789,10 +1907,25 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED_TARGET",
+      "action": "LESSER_ESSENCE_ALACRITY",
+      "reason": "Attuned Wand only: source modifier level gate is a conservative simulator boundary; lower-level game behavior remains unverified. Basic Essences upgrade Magic to Rare with fixed target; Perfect replaces one eligible unlocked modifier on Rare, refuses any invalid random branch. No combat or innate-skill simulation.",
+      "supportedBases": [
+        "wand"
+      ],
+      "wandEvidence": {
+        "cardSource": "https://poe2db.tw/us/Lesser_Essence_of_Alacrity",
+        "cardSha256": "352f976e85e05b1c3361e3acb39764a9ad12686a5ebb63c542b20f1ce7ed3671",
+        "retrievedAt": "2026-10-03T13:39:04.554Z",
+        "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeed2",
+        "modifierCode": "IncreasedCastSpeed2",
+        "minimumSupportedItemLevel": 15,
+        "requiredCharacterLevel": 12,
+        "modifierIds": [
+          "attuned-wand:suffix:of-nimbleness"
+        ]
+      }
     },
     {
       "id": "Essence_of_Alacrity",
@@ -1803,10 +1936,25 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED_TARGET",
+      "action": "ESSENCE_ALACRITY",
+      "reason": "Attuned Wand only: source modifier level gate is a conservative simulator boundary; lower-level game behavior remains unverified. Basic Essences upgrade Magic to Rare with fixed target; Perfect replaces one eligible unlocked modifier on Rare, refuses any invalid random branch. No combat or innate-skill simulation.",
+      "supportedBases": [
+        "wand"
+      ],
+      "wandEvidence": {
+        "cardSource": "https://poe2db.tw/us/Essence_of_Alacrity",
+        "cardSha256": "ddbcdda8ce5fddea71f52cf596fd5dae04a26ff966dee33c9a0b178680ef5578",
+        "retrievedAt": "2026-10-03T13:39:05.123Z",
+        "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeed3",
+        "modifierCode": "IncreasedCastSpeed3",
+        "minimumSupportedItemLevel": 30,
+        "requiredCharacterLevel": 24,
+        "modifierIds": [
+          "attuned-wand:suffix:of-expertise"
+        ]
+      }
     },
     {
       "id": "Greater_Essence_of_Alacrity",
@@ -1817,10 +1965,25 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED_TARGET",
+      "action": "GREATER_ESSENCE_ALACRITY",
+      "reason": "Attuned Wand only: source modifier level gate is a conservative simulator boundary; lower-level game behavior remains unverified. Basic Essences upgrade Magic to Rare with fixed target; Perfect replaces one eligible unlocked modifier on Rare, refuses any invalid random branch. No combat or innate-skill simulation.",
+      "supportedBases": [
+        "wand"
+      ],
+      "wandEvidence": {
+        "cardSource": "https://poe2db.tw/us/Greater_Essence_of_Alacrity",
+        "cardSha256": "65a43db168bbe14ec18e753571ff609916d8d865deb6332e2a7af76e89676738",
+        "retrievedAt": "2026-10-03T13:39:05.705Z",
+        "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeed5",
+        "modifierCode": "IncreasedCastSpeed5",
+        "minimumSupportedItemLevel": 60,
+        "requiredCharacterLevel": 48,
+        "modifierIds": [
+          "attuned-wand:suffix:of-legerdemain"
+        ]
+      }
     },
     {
       "id": "Perfect_Essence_of_Alacrity",
@@ -1831,10 +1994,25 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED_TARGET",
+      "action": "PERFECT_ESSENCE_ALACRITY",
+      "reason": "Attuned Wand only: source modifier level gate is a conservative simulator boundary; lower-level game behavior remains unverified. Basic Essences upgrade Magic to Rare with fixed target; Perfect replaces one eligible unlocked modifier on Rare, refuses any invalid random branch. No combat or innate-skill simulation.",
+      "supportedBases": [
+        "wand"
+      ],
+      "wandEvidence": {
+        "cardSource": "https://poe2db.tw/us/Perfect_Essence_of_Alacrity",
+        "cardSha256": "c16a12daf476124055065f773666cbb0246358009a9de47c9e2bc9b7b4390f1d",
+        "retrievedAt": "2026-10-03T13:39:06.294Z",
+        "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceManaCostReduction",
+        "modifierCode": "EssenceManaCostReduction",
+        "minimumSupportedItemLevel": 72,
+        "requiredCharacterLevel": 57,
+        "modifierIds": [
+          "attuned-wand:suffix:essence-mana-cost-efficiency"
+        ]
+      }
     },
     {
       "id": "Lesser_Essence_of_Opulence",
@@ -2196,7 +2374,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -2215,7 +2394,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -2238,7 +2418,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -2261,7 +2442,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -2284,7 +2466,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -2384,7 +2567,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -2407,7 +2591,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -2430,7 +2615,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -2469,7 +2655,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -2492,7 +2679,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -2599,7 +2787,8 @@
       "supportedBases": [
         "solar",
         "stocky",
-        "bow"
+        "bow",
+        "wand"
       ]
     },
     {
@@ -3851,6 +4040,12 @@
       "ledgerVersion": "bow-unverified-numeric-assumptions-v1",
       "numericModelStatus": "UNVERIFIED",
       "source": "https://poe2db.tw/us/Bows"
+    },
+    "wand": {
+      "ruleVersion": "wand-workbench-essence-v1",
+      "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Wands"
     }
   }
 }
