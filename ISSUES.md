@@ -1,5 +1,13 @@
 # Project issues
 
+## WB-039 — DONE USER REVIEW — 최종 사용자 동선과 지원 경계
+
+- 검토 코드 HEAD `bbe608d1f673667269c26ab473bcb5194b38f103`, branch `workbench/20261002`. 최신 QA immutable JAR와 HTML bundle 일치 확인. 핵심 UX browser30 PASS/page errors0; Shift/빈곳 취소/Omen 우클릭 활성·충돌/Alt/좌우 stash/새 film/과거 제작 원본 미래/저장 실패·손상 보존 확인. 390px screenshot 자체 리뷰. 추가 표시 경계와 실행 실패는 [최종 증거](docs/evidence/workbench-final-user-review-2026-10-04.json)에 분리 기록.
+- 실제 product 결함을 확인하지 않아 executable code/catalog/lockfile/migration은 변경하지 않음. 오래된 README 시작 설명과 pending44 이력을 최신 완료 집계로 오독하지 않도록 [최종 사용자 보고서](docs/workbench-status-2026-10-04.md)를 README 상단에 연결함.
+- 추천/적용: 기본111·opt-in legacy2·미완료42·보류65와 보존 Alloy8을 분리 보고하고 legacy/current obtainability, typed quality foundation/per-use action, source weights/game odds 경계를 유지. 신규 scope나 조사 반복 없이 근거 확보 항목부터 진행. rollback은 문서 링크/향후 계획 변경이며 film/DB 삭제가 필요하지 않음.
+- 사용자 판단: 현재 미답 제품 결정 없음. WB-001/WB-008 추천은 이미 승인됨. 외부 게임 사실은 개발 조사 조건이며 사용자에게 추측 승인을 요구하지 않음. 향후 Vaal/보류65 해제·새베이스·서버 저장·원격 반영을 요청할 때만 scope 판단 필요.
+- 검증 비용: 변경 없는 BE/FE 전체 및 기존 API/browser matrix/cache 재시작은 반복하지 않음. 새 boundary probe는 첫 CSS locator timeout과 두 번째 재료 좌클릭/우클릭 계약 오류 timeout 후, 실제 품질 문구 locator도 교정하여 마지막 재실행12 PASS/page errors0. 총2회 복구이며 product 코드나 기존 기대값은 변경하지 않음. 원본 checkout/.env/DB volume 보존, 임시 browser 정상 종료/--rm, 원격 push/merge/deploy 없음.
+
 Single issue list from 2026-10-02, explicitly requested by the user. Record new bugs, uncertain rules and verification tasks here; audit documents retain supporting evidence, not competing issue lists. IDs are stable. OPEN = unresolved; ASSUMED = authorised conjecture requiring game verification; BLOCKED = missing required data; DONE requires linked verification. Vaal Orb/Hinekora are user scope exclusions, not bugs.
 
 ## WB-001 — ASSUMED — Coupled numeric rolls
