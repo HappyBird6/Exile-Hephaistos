@@ -232,3 +232,9 @@ Next independent review: Adaptive conditional effect, Swift two-family exclusion
 - 2026-10-03 primary Amulet target/detail now verified: AlloyEffectOfResistanceMods1; Prefix, EnchantmentHeistArmour, Level65/effective52, zero spawn, IsAlloy/Removes; stat heist enchantment resistance mod effect +%, 20..30, Local/Unscalable Value. Exact target discovery is complete. Solar remains unsupported while magnitude rules, eligible resistance stats, numeric grain and low-ilvl boundary are unresolved. [Captured source and remaining route](docs/workbench-remaining-triage-2026-10-03.md).
 - Resolve by capturing the current Amulet target/detail and eligible conditions, then defining whether a bounded magnitude-affix assignment can be represented independently or needs modifier-scaling state. Actual resistance magnitudes must not be labeled computed until the scaling rules/provenance and roll/lock behavior are verified. Existing WB-004/005 remain separate.
 - [Primary page and current unsupported boundary](docs/workbench-stocky-reviewed-alloys-2026-10-03.md#classification-and-primary-evidence).
+## WB-022 — DEFERRED BY USER — Liquid crafting materials
+
+- 2026-10-03 user explicitly deferred all 27 LIQUID_EMOTION registry identities. Retain every registry/source/catalog record; no Liquid implementation or current completion target.
+- 13 Basic-Jewel and 13 Time-Lost-Jewel current item-card operations, plus Liquid Verisium encounter. Historical v25 classification remains dated evidence; user scope supersedes it without rewriting source facts.
+- Registry remains220 / implemented74. Non-Liquid inventory193; unimplemented non-Liquid119. These inventory counts are not a current-two-base completion percentage. Basic currency exclusion in the requested Korean-name output is output-only, not implementation deferral.
+- Current quality work continues separately. [Updated scope and priorities](docs/workbench-scope-update-2026-10-03.md).
