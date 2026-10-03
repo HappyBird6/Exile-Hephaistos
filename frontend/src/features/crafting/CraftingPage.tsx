@@ -87,6 +87,16 @@ export function CraftingPage() {
       ? currentFrame(filmState.history)
       : undefined
   const storedLevel = storedFrame?.state?.itemLevel
+  const catalogBase =
+    draft.source === 'text'
+      ? 'solar'
+      : storedFrame?.state.baseItemId ===
+          'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+        ? 'stocky'
+        : storedFrame
+          ? 'solar'
+          : draft.base
+  const baseName = catalogBase === 'stocky' ? 'Stocky Mitts' : 'Solar Amulet'
   const catalogLevel =
     Number.isInteger(storedLevel) && storedLevel! >= 1 && storedLevel! <= 100
       ? storedLevel!
@@ -131,9 +141,11 @@ export function CraftingPage() {
       ? pendingApplication.controller
       : null
   const applyingRequest = useRef<AbortController | null>(null)
+  const placementRequest = useRef(0)
+  const placementPending = useRef(false)
   const initial = useQuery({
-    queryKey: ['crafting', 'initial', catalogLevel],
-    queryFn: ({ signal }) => loadInitial(catalogLevel, signal),
+    queryKey: ['crafting', 'initial', catalogBase, catalogLevel],
+    queryFn: ({ signal }) => loadInitial(catalogLevel, signal, catalogBase),
     staleTime: 60_000,
     retry: false,
   })
@@ -162,22 +174,93 @@ export function CraftingPage() {
     filmState.revision === draft.baseRevision
       ? currentFilm(filmState.history)
       : undefined
-  function startBase(level: number) {
-    draft.setBase(level)
-    if (initial.data) {
-      const root = { ...concreteInitial(initial.data), itemLevel: level }
+  async function startBase(level: number, base: 'solar' | 'stocky' = 'solar') {
+    const request = ++placementRequest.current
+    const revision = useItemDraft.getState().baseRevision
+    placementPending.current = true
+    applyingRequest.current?.abort()
+    applyingRequest.current = null
+    setApplying(null)
+    try {
+      const data = await client.fetchQuery({
+        queryKey: ['crafting', 'initial', base, level],
+        queryFn: ({ signal }) => loadInitial(level, signal, base),
+        staleTime: 60_000,
+      })
+      if (
+        request !== placementRequest.current ||
+        revision !== useItemDraft.getState().baseRevision
+      )
+        return
+      draft.setBase(level, base)
       saveFilms(
-        startFilm(filmState.history, root, filmId()),
+        startFilm(filmState.history, concreteInitial(data), filmId()),
         useItemDraft.getState().baseRevision,
       )
-    } else
+      setSelected(null)
+      setHeld(null)
+      setAnnouncement('')
+    } catch {
+      setAnnouncement(
+        'Could not load the selected base. Your item and saved films are preserved.',
+      )
+    } finally {
+      if (request === placementRequest.current) placementPending.current = false
+    }
+  }
+  async function restoreFilm(id: string) {
+    if (applyingRequest.current) return
+    const selectedFilm = filmState.history.films.find(
+      (entry) => entry.id === id,
+    )
+    if (!selectedFilm) return
+    const request = ++placementRequest.current
+    const revision = useItemDraft.getState().baseRevision
+    placementPending.current = true
+    const state = selectedFilm.frames.at(-1)!.state
+    const base =
+      state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+        ? 'stocky'
+        : 'solar'
+    try {
+      const data = await client.fetchQuery({
+        queryKey: ['crafting', 'initial', base, state.itemLevel],
+        queryFn: ({ signal }) => loadInitial(state.itemLevel, signal, base),
+        staleTime: 60_000,
+      })
+      if (
+        request !== placementRequest.current ||
+        revision !== useItemDraft.getState().baseRevision
+      )
+        return
+      if (!verifiedHistoryState(state, data)) {
+        setAnnouncement(
+          'This saved session does not match the current catalog. It has been preserved.',
+        )
+        return
+      }
+      draft.setBase(state.itemLevel, base)
       saveFilms(
-        { ...filmState.history, active: null, cursor: 0 },
+        {
+          ...filmState.history,
+          active: selectedFilm.id,
+          cursor: selectedFilm.frames.length - 1,
+        },
         useItemDraft.getState().baseRevision,
       )
+      setSelected(null)
+      setHeld(null)
+      setAnnouncement('')
+    } catch {
+      setAnnouncement(
+        'Could not load this saved session catalog. Saved films are preserved.',
+      )
+    } finally {
+      if (request === placementRequest.current) placementPending.current = false
+    }
   }
   function browse(cursor: number) {
-    if (applyingRequest.current) return
+    if (applyingRequest.current || placementPending.current) return
     saveFilms(viewFrame(filmState.history, cursor))
     setSelected(null)
     setHeld(null)
@@ -188,10 +271,13 @@ export function CraftingPage() {
     () => () => {
       applyingRequest.current?.abort()
       applyingRequest.current = null
+      placementRequest.current++
+      placementPending.current = false
     },
     [draft.baseRevision, draft.source],
   )
   const [baseLevel, setBaseLevel] = useState('82')
+  const [baseChoice, setBaseChoice] = useState<'solar' | 'stocky'>('solar')
   const [previewRequest, setPreviewRequest] = useState<{
     count: number
     action: Action | null
@@ -275,7 +361,7 @@ export function CraftingPage() {
     )
   }
   async function apply(repeat = false) {
-    if (applyingRequest.current) return
+    if (applyingRequest.current || placementPending.current) return
     if (!selected) {
       setAnnouncement('Select a currency from the stash first.')
       return
@@ -463,9 +549,7 @@ export function CraftingPage() {
 
   const item = draft.source === 'text' ? imported.data : undefined
   const displayedName =
-    draft.source === 'base'
-      ? 'Solar Amulet'
-      : (item?.displayName ?? 'Pasted item')
+    draft.source === 'base' ? baseName : (item?.displayName ?? 'Pasted item')
   const search = searches[activeTab] ?? ''
   const currentMaterials = materials.filter(
     (m) =>
@@ -520,9 +604,9 @@ export function CraftingPage() {
       : concrete && initial.data
         ? {
             rarity: concrete.rarity,
-            name: item?.displayName ?? 'Solar Amulet',
-            base: 'Solar Amulet',
-            itemClass: 'Amulet',
+            name: item?.displayName ?? baseName,
+            base: baseName,
+            itemClass: catalogBase === 'stocky' ? 'Gloves' : 'Amulet',
             itemLevel: concrete.itemLevel,
             properties: [],
             requirements: [],
@@ -636,7 +720,7 @@ export function CraftingPage() {
         </div>
         <span className="preview-badge">
           <i />
-          Solar Amulet · Base modifiers
+          {baseName} · Base modifiers
         </span>
       </div>
       <div
@@ -804,7 +888,7 @@ export function CraftingPage() {
                     disabled={applying !== null}
                     onClick={(event) => void apply(event.shiftKey)}
                   >
-                    {draft.source === 'base' ? (
+                    {draft.source === 'base' && catalogBase === 'solar' ? (
                       <img
                         src="/assets/currency/solar-amulet.webp"
                         alt="Solar Amulet"
@@ -914,34 +998,7 @@ export function CraftingPage() {
                       aria-label="Crafting session"
                       value={film?.id ?? ''}
                       disabled={applying !== null}
-                      onChange={(event) => {
-                        const selectedFilm = filmState.history.films.find(
-                          (entry) => entry.id === event.target.value,
-                        )
-                        if (!selectedFilm) return
-                        const state = selectedFilm.frames.at(-1)!.state
-                        if (
-                          !initial.data ||
-                          !verifiedHistoryState(state, initial.data)
-                        ) {
-                          setAnnouncement(
-                            'This saved session does not match the current catalog. It has been preserved.',
-                          )
-                          return
-                        }
-                        draft.setBase(state.itemLevel)
-                        saveFilms(
-                          {
-                            ...filmState.history,
-                            active: selectedFilm.id,
-                            cursor: selectedFilm.frames.length - 1,
-                          },
-                          useItemDraft.getState().baseRevision,
-                        )
-                        setSelected(null)
-                        setHeld(null)
-                        setAnnouncement('')
-                      }}
+                      onChange={(event) => void restoreFilm(event.target.value)}
                     >
                       <option value="" disabled>
                         New craft
@@ -967,19 +1024,22 @@ export function CraftingPage() {
                   <ItemCard
                     item={{
                       rarity: 'NORMAL',
-                      name: 'Solar Amulet',
-                      base: 'Solar Amulet',
-                      itemClass: 'Amulet',
+                      name: baseName,
+                      base: baseName,
+                      itemClass: catalogBase === 'stocky' ? 'Gloves' : 'Amulet',
                       itemLevel: draft.baseItemLevel,
                       properties: [],
                       requirements: [],
-                      modifiers: [
-                        {
-                          id: 'spirit',
-                          text: '+15 to Spirit',
-                          kind: 'implicit',
-                        },
-                      ],
+                      modifiers:
+                        catalogBase === 'stocky'
+                          ? []
+                          : [
+                              {
+                                id: 'spirit',
+                                text: '+15 to Spirit',
+                                kind: 'implicit',
+                              },
+                            ],
                       flags: [],
                     }}
                   />
@@ -1052,6 +1112,13 @@ export function CraftingPage() {
                     preserved.
                   </p>
                 )}
+                {catalogBase === 'stocky' && (
+                  <p className="workbench-feedback">
+                    Numeric rolls use unverified source-unit and shared-ratio
+                    models. Base Armour: 15; computed Armour, quality, sockets
+                    and pasted glove mapping are not supported.
+                  </p>
+                )}
                 {craftEvidence && (
                   <details className="workbench-assumptions">
                     <summary>Last craft and roll assumptions</summary>
@@ -1082,7 +1149,9 @@ export function CraftingPage() {
                         <p key={`${a.id}-${i}`}>
                           {a.id === 'user-coupled-ratio-half-up-v1'
                             ? 'Unverified coupled roll model'
-                            : 'Uniform assumption'}
+                            : a.id === 'assumed-source-integer-roll-v1'
+                              ? 'Unverified source-unit roll model'
+                              : 'Uniform assumption'}
                           : {a.candidateUnit}, N = {a.n}, each candidate = 1/
                           {a.n}.{' '}
                           {a.min !== null
@@ -1162,9 +1231,16 @@ export function CraftingPage() {
               </div>
               {inputMode === 'base' ? (
                 <div className="base-form">
-                  <label htmlFor="base-select">Amulet base</label>
-                  <select id="base-select" defaultValue="solar">
+                  <label htmlFor="base-select">Equipment base</label>
+                  <select
+                    id="base-select"
+                    value={baseChoice}
+                    onChange={(e) =>
+                      setBaseChoice(e.target.value as 'solar' | 'stocky')
+                    }
+                  >
                     <option value="solar">Solar Amulet</option>
+                    <option value="stocky">Stocky Mitts</option>
                   </select>
                   <label htmlFor="base-level">Item level</label>
                   <input
@@ -1186,7 +1262,7 @@ export function CraftingPage() {
                     }
                     onClick={() => {
                       imported.invalidate()
-                      startBase(Number(baseLevel))
+                      void startBase(Number(baseLevel), baseChoice)
                       setPreviewRequest({ count: 0, action: null })
                       setSelected(null)
                       closeInput()
@@ -1260,14 +1336,14 @@ export function CraftingPage() {
               Number(baseLevel) > 100
             }
             onClick={() => {
-              startBase(Number(baseLevel))
+              void startBase(Number(baseLevel))
               setPreviewRequest({ count: 0, action: null })
             }}
           >
             Start new Solar Amulet
           </button>
         </div>
-        {draft.source === 'base' ? (
+        {draft.source === 'base' && catalogBase === 'solar' ? (
           <CraftingExplorer
             key={draft.baseRevision}
             level={draft.baseItemLevel}
@@ -1288,7 +1364,14 @@ export function CraftingPage() {
         aria-labelledby="workspace-support"
         hidden={view !== 'support'}
       >
-        <CraftSupport active={view === 'support'} />
+        {catalogBase === 'solar' ? (
+          <CraftSupport active={view === 'support'} />
+        ) : (
+          <p>
+            Stocky Mitts is supported in Workbench only. Select Solar Amulet to
+            use Craft Support.
+          </p>
+        )}
       </div>
       <span className="sr-only" role="status">
         {imported.pending ? 'Analyzing item…' : announcement}

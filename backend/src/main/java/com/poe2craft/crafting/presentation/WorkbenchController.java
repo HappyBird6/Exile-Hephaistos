@@ -1,6 +1,7 @@
 package com.poe2craft.crafting.presentation;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.poe2craft.crafting.application.WorkbenchService;
 import com.poe2craft.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.crafting.domain.WorkbenchSimulator;
 import com.poe2craft.crafting.infrastructure.CraftingRegistryLoader;
@@ -15,14 +16,14 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/crafting/workbench")
 public final class WorkbenchController {
-  private final WorkbenchSimulator simulator;
+  private final WorkbenchService simulator;
   private final SolarTextMapper mapper;
   private final ItemTextService parser;
   private final SecureRandom random = new SecureRandom();
   private final JsonNode registry = CraftingRegistryLoader.load();
 
   public WorkbenchController(
-      WorkbenchSimulator simulator, SolarTextMapper mapper, ItemTextService parser) {
+      WorkbenchService simulator, SolarTextMapper mapper, ItemTextService parser) {
     this.simulator = simulator;
     this.mapper = mapper;
     this.parser = parser;
@@ -31,6 +32,13 @@ public final class WorkbenchController {
   @GetMapping("/registry")
   public JsonNode registry() {
     return registry.deepCopy();
+  }
+
+  @GetMapping("/initial")
+  public WorkbenchService.Initial initial(
+      @RequestParam(defaultValue = "solar") String base,
+      @RequestParam(defaultValue = "82") int itemLevel) {
+    return simulator.initial(base, itemLevel);
   }
 
   @PostMapping("/apply")

@@ -33,6 +33,16 @@ public final class WorkbenchSimulator {
     additionRules = new AdditionRules(catalog);
   }
 
+  public String ruleVersion() {
+    return coupledModifierIds.isEmpty() ? RULE_VERSION : "stocky-workbench-source-model-v17";
+  }
+
+  public String ledgerVersion() {
+    return coupledModifierIds.isEmpty()
+        ? LEDGER_VERSION
+        : "stocky-unverified-numeric-assumptions-v11";
+  }
+
   public Result apply(ItemState state, CraftingAction action, RandomGenerator random) {
     if (action == null) throw new IllegalArgumentException("Action required");
     return apply(state, WorkbenchCurrency.valueOf(action.name()), Set.of(), random);
@@ -42,6 +52,11 @@ public final class WorkbenchSimulator {
     validate(state);
     var omens = parseOmens(activeOmens);
     return Arrays.stream(WorkbenchCurrency.values())
+        .filter(
+            a ->
+                java.util.stream.Stream.concat(
+                        a.essenceModifierIds().stream(), a.replacementModifiers().stream())
+                    .allMatch(id -> catalog.find(id).isPresent()))
         .map(a -> availability(state, a, omens))
         .toList();
   }
@@ -72,6 +87,10 @@ public final class WorkbenchSimulator {
 
   private Availability availability(
       ItemState state, WorkbenchCurrency action, List<WorkbenchOmen> omens) {
+    if (java.util.stream.Stream.concat(
+            action.essenceModifierIds().stream(), action.replacementModifiers().stream())
+        .anyMatch(id -> catalog.find(id).isEmpty()))
+      return blocked(action, "This material's results are not verified for this base.");
     var matches = matching(action, omens);
     if (matches.size() == 1 && matches.getFirst() == WorkbenchOmen.GREATER_EXALTATION) {
       if (action != WorkbenchCurrency.EXALTED)
@@ -269,8 +288,8 @@ public final class WorkbenchSimulator {
     var allIds = omens.stream().map(WorkbenchOmen::id).toList();
     if (!available.available())
       return new Result(
-          RULE_VERSION,
-          LEDGER_VERSION,
+          ruleVersion(),
+          ledgerVersion(),
           state.snapshotId(),
           state,
           action,
@@ -359,7 +378,7 @@ public final class WorkbenchSimulator {
               null,
               null,
               "https://poe2db.tw/us/Fractured_Modifiers",
-              "Uniform among supported explicit instances on Rare Solar, including verified essence results; no published fracture selection weights."));
+              "Uniform among supported explicit instances on this supported Rare base, including verified essence results; no published fracture selection weights."));
     } else if (action == WorkbenchCurrency.ALCHEMY) {
       for (var old : explicits) events.add(new Event("REMOVE", old.modifierId(), Map.of(), 1));
       explicits.clear();
@@ -397,7 +416,7 @@ public final class WorkbenchSimulator {
           var current = explicits.get(i);
           if (current.fractured()) continue;
           var d = catalog.find(current.modifierId()).orElseThrow();
-          if (d.stats().getFirst().max() > d.stats().getFirst().min()) {
+          if (d.stats().stream().anyMatch(s -> s.max() > s.min())) {
             var roll = roll(d, random, assumptions);
             explicits.set(i, roll);
             events.add(new Event("REROLL_EXPLICIT", d.id(), roll.values(), 1));
@@ -454,8 +473,8 @@ public final class WorkbenchSimulator {
     var consumed = matched.stream().map(WorkbenchOmen::id).toList();
     var remaining = allIds.stream().filter(id -> !consumed.contains(id)).toList();
     return new Result(
-        RULE_VERSION,
-        LEDGER_VERSION,
+        ruleVersion(),
+        ledgerVersion(),
         state.snapshotId(),
         result,
         action,
@@ -479,14 +498,18 @@ public final class WorkbenchSimulator {
     if (n > 1)
       assumptions.add(
           new Assumption(
-              "uniform-integer-roll-v1",
+              coupledModifierIds.isEmpty()
+                  ? "uniform-integer-roll-v1"
+                  : "assumed-source-integer-roll-v1",
               range.id(),
               n,
               List.of(),
               range.min(),
               range.max(),
               definition.sourceUrl(),
-              "Each integer in this single-stat source range is a modeled candidate; no published roll weights."));
+              coupledModifierIds.isEmpty()
+                  ? "Each integer in this single-stat source range is a modeled candidate; no published roll weights."
+                  : "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain."));
     return new ModifierInstance(definition.id(), Map.of(range.id(), value));
   }
 

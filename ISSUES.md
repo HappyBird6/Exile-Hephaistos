@@ -4,10 +4,10 @@ Single issue list from 2026-10-02, explicitly requested by the user. Record new 
 
 ## WB-001 — ASSUMED — Coupled numeric rolls
 
-- Scope: source-proven multi-stat Workbench modifiers; glove runtime remains inactive.
+- Scope: source-proven multi-stat Workbench modifiers; Stocky Mitts Workbench now explicitly opts into the conjecture, while default Solar does not.
 - User approval 2026-10-02: “독립적이지는 않고 비율에 맞게 나올거야. 소수점은 반올림하고 부정확한 판단이라고 이슈리스트에 추가해”. Shared ratio and rounding are the user's unverified conjecture, not an official rule.
 - Model: one tick sampled uniformly from 0..10000 inclusive, ratio=tick/10000; each stat=min+(max-min)*ratio; round integer HALF_UP (negative -1.5 -> -2, positive 1.5 -> 2). Resolution and tick distribution are explicit implementation assumptions. Preserve each source endpoint; fixed stats remain fixed. Exact decimal arithmetic avoids floating point/overflow changes. Rounded tuples may repeat and are not uniform; never use an independent Cartesian product.
-- Impact: permits opt-in modelling only for identified multi-stat ranges; API assumption ID user-coupled-ratio-half-up-v1 and UI distinguish conjecture. Existing 1/N agreement applies to established eligible outcome sets; the model tick domain is separately assumed, not a verified game set. Modifier selection weights are separate. Default Solar never opts in; no new base activation or stored-history schema change.
+- Impact: permits opt-in modelling only for identified multi-stat ranges; API assumption ID user-coupled-ratio-half-up-v1 and UI distinguish conjecture. Existing 1/N agreement applies to established eligible outcome sets; the model tick domain is separately assumed, not a verified game set. Modifier selection weights are separate. Default Solar never opts in. Stocky activation uses the declared WB-003/WB-006 model boundary; stored films remain version 1.
 - Code/test: [model](backend/src/main/java/com/poe2craft/crafting/domain/CoupledStatRollModel.java), [simulator opt-in](backend/src/main/java/com/poe2craft/crafting/domain/WorkbenchSimulator.java), [boundary tests](backend/src/test/java/com/poe2craft/crafting/CoupledStatRollModelTest.java), [assumption UI](frontend/src/features/crafting/CraftingPage.tsx).
 - Evidence: [stat examples and 34 two-variable / 8 one-variable distinction](docs/workbench-stocky-mitts-preparation-2026-10-02.md). PoE2DB endpoints prove marginal stat bounds, not joint outcomes.
 - Done when: current PoE2 primary evidence or reproducible measured observations establish correlation, eligible tuples, resolution/distribution and rounding; replace/confirm the conjecture and regression-test observed boundary cases.
@@ -15,8 +15,8 @@ Single issue list from 2026-10-02, explicitly requested by the user. Record new 
 ## WB-002 — DONE — Six glove modifier details
 
 - Scope: Stocky Mitts full 182-row ordinary catalog. All six formerly missing exact details (Encased and Worthy/Apt/Talented/Skilled/Proficient) recovered on 2026-10-03.
-- Impact: full sourced catalog now bundled; runtime/catalog selection remains inactive pending WB-003/WB-006. No invented IDs, removed rows or renormalised weights.
-- Evidence: [coverage and alternate-source audit](docs/workbench-stocky-mitts-preparation-2026-10-02.md); codex/qa-20261002/stocky-mitts-normal-coverage.json (176/182 union; 110 fresh /82 retained comparison overlap).
+- Impact: full sourced catalog now bundled and activated in Workbench under the explicit WB-003/WB-006 model boundary. No invented IDs, removed rows or renormalised weights.
+- Evidence: [complete 182-row recovery](docs/workbench-stocky-mitts-catalog-2026-10-03.md), [verified activation](docs/workbench-stocky-mitts-runtime-2026-10-03.md). Previous 176/182 coverage is retained historical evidence, superseded by the complete snapshot.
 - Done when: all six exact source identities/ranges/locality/applicability match captured rows and full checksum/count/weight validation passes.
 
 ## WB-003 — OPEN — Source precision and display units
@@ -40,7 +40,7 @@ Single issue list from 2026-10-02, explicitly requested by the user. Record new 
 - Evidence: [per-item reasons and sources](docs/workbench-remaining-triage-2026-10-02.md). Four encounter omens are outside equipment scope; Vaal/Hinekora alone are user exclusions.
 - Done when: each item has current effect/applicability/state/result evidence and complete eligible pools, then independently implement and verify. Split this issue into stable child IDs when an item begins implementation.
 
-## WB-006 — BLOCKED — Glove activation regression gate
+## WB-006 — DONE — Glove activation regression gate
 
 - Scope: new Workbench-only base selection/ordinary crafting/basic Enhancement and Greater Battle; no Support/Explorer feature expansion.
 - Impact: depends on WB-002 plus accurate per-stat verified/assumed classification. Base Armour is a property, not implicit. Final local Armour rounding, quality/socket effects need separate proof before showing computed totals.
@@ -107,3 +107,25 @@ All six missing details now match current PoE2DB primary rows through exact publ
 ### Complete glove catalog validation (2026-10-03)
 
 Project Docker spotlessApply/check/integration/generateJooq/bootJar passed: 186 tests (180 unit, six integration), zero failure/error/skipped. Three new catalog tests cover full counts/weights/source rows, signed recovered bounds, checksum rejection and default Solar preservation. XML evidence: codex/qa-20261003/stocky-backend-artifacts/test-results; totals: stocky-backend-validation.json. Runtime activation and FE/browser were not changed or rerun. Prior FE 106 / Chromium 56 plus 21 cross-feature checks remain prior evidence. Original DB/volumes and remote state preserved.
+
+### WB-003 reversible numeric policy and WB-006 activation work (2026-10-03)
+
+Source boundaries and source-unit IDs are verified for all 182 glove rows. Neither the current public PoE2DB endpoint nor the pinned public PoB2 exporter establishes actual game interior increments/distribution. The decimal-rendered leech ranges establish displayed endpoints, not whether the game samples source-unit integers or larger steps. WB-003 remains OPEN for game verification.
+
+Under the user's instruction to proceed with reversible conservative recommendations, Stocky-only single-stat sampling uses assumed-source-integer-roll-v1: uniform raw source-unit integers inclusive of captured bounds. Candidate counts are model counts, not established game outcome counts. All 42 multi-stat definitions opt into the already approved 10001 shared ticks/HALF_UP conjecture, including fixed coordinates; no Cartesian product or pool pruning. Source units are displayed when source text cannot be substituted exactly. Published modifier-selection weights remain independent. Base Armour 15 is a labelled base property; no computed Armour, quality/socket transformation or pasted glove mapping. Impact: numeric values and their modeled probabilities can differ from the real game. Alternative: disable glove simulation pending measured/primary interior-domain evidence. Rollback: remove Stocky service dispatch/selector; existing films stay preserved and never silently migrate into Solar. Review next: replace models and ledger version when the actual domain/rounding is established.
+
+Workbench-only service dispatch, base selector, zero-implicit handling and catalog-aware film restore are being validated. Solar Support/Explorer do not receive the glove catalog. Four sourced essence prefixes are Lesser/regular/Greater Enhancement and Greater Battle; all other glove essences/special means remain unsupported. Effects are source-backed; numeric roll sampling is explicitly assumed. Initial validation exposed a leftover StateBucket implicit=1 restriction, Solar action count expansion, and a new FE mock tuple typing error; these were corrected without dropping coverage or changing expected game behavior.
+
+### WB-009 — DONE — Narrow viewport tooltip intercepts material selection (2026-10-03)
+
+Actual Chromium 420px pointer validation found that selecting an offscreen currency after horizontal stash scrolling reached the main background instead of the button, clearing selection before any API request. Minimal captured event proof: codex/qa-20261003/stocky-narrow-error-probe.json (zero requests, Alchemy aria-pressed false, main click). The fixed tooltip was clamped to the full viewport width at the trigger's vertical coordinate and could overlap its trigger. This is a Workbench usability regression, not a game-rule uncertainty. Correction in MaterialTooltip.tsx places the tooltip beside the trigger when space permits, otherwise above/below it with scrollable constrained height. Links and keyboard descriptions are preserved. Validation is pending actual narrow pointer selection/error/retry plus FE regression; prior Solar 30/special 22 and BE 189 results remain previous-to-this-FE-fix evidence.
+
+### WB-006/WB-009 verified activation checkpoint (2026-10-03)
+
+[Runtime scope, rule/model boundaries and rollback](docs/workbench-stocky-mitts-runtime-2026-10-03.md). WB-006 is DONE for this modelled Workbench-only scope; game numeric verification remains WB-001 ASSUMED / WB-003 OPEN. WB-009 is DONE: identical 420px pointer probe changed from selection false/request zero to selected Alchemy/request one/successful craft, then the complete glove browser suite passed.
+
+Docker full BE 189 (183 unit/six integration), zero failure/error/skipped, spotless/check/generateJooq/bootJar passed. Final Docker FE lint/typecheck/format/110 tests/20 files/build passed including post-unmount placement and wrong-base response rejection. Actual final Chromium: Stocky 60, Solar general 30, Solar special cross-feature 25; all zero page errors. Cross-feature check count includes bounded setup attempts; it is this run's count, not a fixed suite size. Glove checks include no invented implicit, ordinary crafting, Shift/cancel, fracture, no-target Blessed, all four guaranteed Essences, low-level/unsupported gates, source/model evidence, reload, past-step new film, original future preservation, cross-base archive/reload, Alt, narrow layout, actual network failure preservation/retry. Dedicated earlier migration/invalid-evidence suites were not rerun; FE regressions and actual archive/reload were. BE was not rerun after FE-only tooltip correction. QA evidence: codex/qa-20261003/stocky-runtime-backend-validation.json, stocky-runtime-backend-artifacts/test-results, stocky-frontend-tooltip-check.log, stocky-workbench-browser-results.json, workbench-browser-results.json, overnight-cross-feature-browser-results.json, stocky-workbench-narrow.png, stocky-narrow-error-before-tooltip-fix.json and stocky-narrow-error-probe.json.
+
+Actual registry remains 220 registered/incomplete inventory; implemented union 64 = 19 currency +11 omen +33 essence +1 alloy. Solar supports prior 60; Stocky supports 32 (19 currency, nine relevant omen, four essence). This is implementation scope with explicit numeric models, not all-game coverage or obtainability. No new Support/Explorer feature or login/DB schema/storage platform. Original DB/volumes preserved; no remote push/merge/deploy.
+
+Final self-review corrected the Stocky preset text header to Gloves/Stocky Mitts instead of Solar. Full FE 110 and actual Stocky 60 passed after this Stocky-only text correction; the immediately preceding Solar general 30 and special cross-feature 25 were not repeated after that text-only correction (Solar and tooltip behavior unchanged). Final FE log: codex/qa-20261003/stocky-frontend-final-check.log. Original checkout remains clean master e937ddccf7493ea0d114139142ff36224c3a672c.

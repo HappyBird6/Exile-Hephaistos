@@ -66,9 +66,27 @@ export function MaterialTooltip() {
   useLayoutEffect(() => {
     const element = tooltip.current
     if (!target || !element) return
+    element.style.maxHeight = ''
     const rect = element.getBoundingClientRect()
-    element.style.left = `${Math.max(8, Math.min(target.x, window.innerWidth - rect.width - 8))}px`
-    element.style.top = `${Math.max(8, Math.min(target.y, window.innerHeight - rect.height - 8))}px`
+    const anchor = target.element.getBoundingClientRect()
+    const right = anchor.right + 8
+    const left = anchor.left - rect.width - 8
+    if (right + rect.width <= window.innerWidth - 8 || left >= 8) {
+      element.style.left = `${right + rect.width <= window.innerWidth - 8 ? right : left}px`
+      element.style.top = `${Math.max(8, Math.min(anchor.top, window.innerHeight - rect.height - 8))}px`
+    } else {
+      // A full-width tooltip must sit above or below its trigger, never intercept its click.
+      const below = window.innerHeight - anchor.bottom - 16
+      const above = anchor.top - 16
+      const useBelow = below >= above
+      const height = Math.min(
+        rect.height,
+        Math.max(0, useBelow ? below : above),
+      )
+      element.style.maxHeight = `${height}px`
+      element.style.left = `${Math.max(8, Math.min(anchor.left, window.innerWidth - rect.width - 8))}px`
+      element.style.top = `${useBelow ? anchor.bottom + 8 : Math.max(8, anchor.top - height - 8)}px`
+    }
   }, [target])
   const data = target && catalog[target.id]
   if (!data || !target) return null

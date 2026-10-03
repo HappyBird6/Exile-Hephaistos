@@ -112,7 +112,7 @@ const bucket = (v: unknown): v is Bucket =>
   v.modifierIds.length <= 6 &&
   strings(v.conditions) &&
   Array.isArray(v.implicits) &&
-  v.implicits.length === 1 &&
+  v.implicits.length <= 1 &&
   v.implicits.every(
     (m) =>
       object(m) &&
@@ -163,11 +163,21 @@ function invalid(): never {
 export async function loadInitial(
   level: number,
   signal: AbortSignal,
+  base: 'solar' | 'stocky' = 'solar',
 ): Promise<Initial> {
-  const v = await request(`initial?itemLevel=${level}`, signal)
+  const v = await request(
+    base === 'solar'
+      ? `initial?itemLevel=${level}`
+      : `workbench/initial?base=stocky&itemLevel=${level}`,
+    signal,
+  )
   if (
     !object(v) ||
     !bucket(v.state) ||
+    (base === 'stocky'
+      ? v.state.baseItemId !== 'Metadata/Items/Armours/Gloves/FourGlovesStr1' ||
+        v.state.implicits.length !== 0
+      : v.state.implicits.length !== 1) ||
     v.state.itemLevel !== level ||
     !object(v.metadata) ||
     typeof v.metadata.sourceUrl !== 'string' ||

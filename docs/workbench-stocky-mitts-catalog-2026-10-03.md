@@ -22,3 +22,7 @@ Bundled catalog contains all 182 definitions, with 116 freshly matched details a
 Numeric boundaries alone do not prove interior roll increments or display rounding. roll-model-review.json records the inactive status, all multi-stat IDs, approved conjectural shared-ratio model, and unresolved single-stat precision review. In particular, permyriad source units must not silently become an asserted 91-value or ten-value game domain. Full runtime activation, action dispatch, numeric display and browser regression remain WB-003/WB-006 work. User approval of 10001 ticks/HALF_UP is a preference review, not game verification.
 
 Validation: StockyMittsCatalogTest checks complete row/weight/family/affix coverage, recovered signed bounds, checksum rejection, 42 multi-stat definitions and unchanged default Solar count. Full project Docker backend results are recorded after execution in ISSUES.md. FE/runtime/browser behavior has not changed in this catalog-only stage; prior checks remain prior.
+
+## Subsequent activation checkpoint
+
+The preparation boundary above records d480219. [The subsequent Workbench activation](workbench-stocky-mitts-runtime-2026-10-03.md) now dispatches this complete catalog with explicitly unverified numeric models; it does not upgrade numeric assumptions to game facts.

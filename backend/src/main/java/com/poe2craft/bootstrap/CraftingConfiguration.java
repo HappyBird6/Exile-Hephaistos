@@ -2,6 +2,7 @@ package com.poe2craft.bootstrap;
 
 import com.poe2craft.crafting.application.GraphExplorer;
 import com.poe2craft.crafting.application.TransitionCache;
+import com.poe2craft.crafting.application.WorkbenchService;
 import com.poe2craft.crafting.domain.CraftingEngine;
 import com.poe2craft.crafting.domain.WorkbenchSimulator;
 import com.poe2craft.item.ItemCatalog;
@@ -25,6 +26,17 @@ public class CraftingConfiguration {
   @Bean
   WorkbenchSimulator workbenchSimulator(ItemCatalog catalog, CraftingEngine engine) {
     return new WorkbenchSimulator(catalog, engine);
+  }
+
+  @Bean
+  WorkbenchService workbenchService(ItemCatalog catalog, WorkbenchSimulator simulator) {
+    try (var data = getClass().getResourceAsStream("/catalog/stocky-mitts/catalog.json");
+        var raw = getClass().getResourceAsStream("/catalog/stocky-mitts/base.raw.json");
+        var details = getClass().getResourceAsStream("/catalog/stocky-mitts/details.raw.json")) {
+      return new WorkbenchService(catalog, simulator, ItemCatalogLoader.load(data, raw, details));
+    } catch (java.io.IOException e) {
+      throw new IllegalStateException("Cannot load Stocky Mitts catalog", e);
+    }
   }
 
   @Bean

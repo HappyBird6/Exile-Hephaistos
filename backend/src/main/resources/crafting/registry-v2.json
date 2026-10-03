@@ -24,7 +24,11 @@
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "minimumModifierLevel": 0,
-      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group."
+      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Orb_of_Augmentation",
@@ -43,7 +47,11 @@
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "minimumModifierLevel": 0,
-      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group."
+      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Orb_of_Annulment",
@@ -62,7 +70,11 @@
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "minimumModifierLevel": 0,
-      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group."
+      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Orb_of_Alchemy",
@@ -78,7 +90,11 @@
       "action": "ALCHEMY",
       "reason": "Solar Amulet only; Normal/Magic upgraded to Rare with four weighted random explicit modifiers. Magic modifiers are replaced. Alchemy omens remain unsupported.",
       "ruleSource": "https://www.pathofexile.com/forum/view-thread/3862213",
-      "ruleVerifiedAt": "2026-10-02"
+      "ruleVerifiedAt": "2026-10-02",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Regal_Orb",
@@ -97,7 +113,11 @@
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "minimumModifierLevel": 0,
-      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group."
+      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Exalted_Orb",
@@ -116,7 +136,11 @@
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "minimumModifierLevel": 0,
-      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group."
+      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Chaos_Orb",
@@ -135,7 +159,11 @@
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "minimumModifierLevel": 0,
-      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group."
+      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Vaal_Orb",
@@ -167,7 +195,11 @@
       "reason": "",
       "ruleSource": "https://poe2db.tw/us/Fractured_Modifiers",
       "ruleVerifiedAt": "2026-10-02",
-      "interactionScope": "Rare Solar with four or more supported explicit modifiers, including verified essence results, and no existing fracture. Uniform 1/N selection assumption. Locked option preserved by addition, Chaos, Annulment and Divine; Whittling plus fracture is blocked pending priority evidence."
+      "interactionScope": "Rare Solar with four or more supported explicit modifiers, including verified essence results, and no existing fracture. Uniform 1/N selection assumption. Locked option preserved by addition, Chaos, Annulment and Divine; Whittling plus fracture is blocked pending priority evidence.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Divine_Orb",
@@ -186,7 +218,11 @@
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "minimumModifierLevel": 0,
-      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group."
+      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Greater_Orb_of_Transmutation",
@@ -205,7 +241,11 @@
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "minimumModifierLevel": 44,
-      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group."
+      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Perfect_Orb_of_Transmutation",
@@ -224,7 +264,11 @@
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "minimumModifierLevel": 70,
-      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group."
+      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Greater_Orb_of_Augmentation",
@@ -243,7 +287,11 @@
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "minimumModifierLevel": 44,
-      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group."
+      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Perfect_Orb_of_Augmentation",
@@ -262,7 +310,11 @@
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "minimumModifierLevel": 70,
-      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group."
+      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Greater_Regal_Orb",
@@ -281,7 +333,11 @@
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "minimumModifierLevel": 35,
-      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group."
+      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Perfect_Regal_Orb",
@@ -300,7 +356,11 @@
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "minimumModifierLevel": 50,
-      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group."
+      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Greater_Exalted_Orb",
@@ -319,7 +379,11 @@
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "minimumModifierLevel": 35,
-      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group."
+      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Perfect_Exalted_Orb",
@@ -338,7 +402,11 @@
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "minimumModifierLevel": 50,
-      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group."
+      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Greater_Chaos_Orb",
@@ -357,7 +425,11 @@
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "minimumModifierLevel": 35,
-      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group."
+      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Perfect_Chaos_Orb",
@@ -376,7 +448,11 @@
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "minimumModifierLevel": 50,
-      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group."
+      "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Hinekoras_Lock",
@@ -405,7 +481,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "LESSER_ESSENCE_BODY",
-      "reason": "Magic Solar becomes Rare with one fixed Life prefix. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported."
+      "reason": "Magic Solar becomes Rare with one fixed Life prefix. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Lesser_Essence_of_the_Mind",
@@ -419,7 +498,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "LESSER_ESSENCE_MIND",
-      "reason": "Magic Solar becomes Rare with one fixed modifier. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported."
+      "reason": "Magic Solar becomes Rare with one fixed modifier. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Lesser_Essence_of_Enhancement",
@@ -430,10 +512,16 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "LESSER_ESSENCE_ENHANCEMENT",
+      "reason": "Magic Stocky Mitts becomes Rare with one sourced prefix; modifier level, slot and family gates apply. Numeric source-integer sampling is explicitly unverified. Other bases and low-level/overlap results are not supported.",
+      "stockyStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "supportedBases": [
+        "stocky"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Enhancement",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Lesser_Essence_of_Abrasion",
@@ -503,7 +591,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "LESSER_ESSENCE_RUIN",
-      "reason": "Magic Solar becomes Rare with one fixed modifier. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported."
+      "reason": "Magic Solar becomes Rare with one fixed modifier. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Lesser_Essence_of_Battle",
@@ -559,7 +650,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "LESSER_ESSENCE_INFINITE",
-      "reason": "Magic Solar becomes Rare with one sourced Strength/Dexterity/Intelligence suffix; uniform 1/3 choice assumption. All three catalog-level outcomes must be eligible. Any attribute overlap and low-level bypass remain unsupported."
+      "reason": "Magic Solar becomes Rare with one sourced Strength/Dexterity/Intelligence suffix; uniform 1/3 choice assumption. All three catalog-level outcomes must be eligible. Any attribute overlap and low-level bypass remain unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Essence_of_the_Body",
@@ -573,7 +667,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "ESSENCE_BODY",
-      "reason": "Magic Solar becomes Rare with one fixed Life prefix. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported."
+      "reason": "Magic Solar becomes Rare with one fixed Life prefix. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Essence_of_the_Mind",
@@ -587,7 +684,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "ESSENCE_MIND",
-      "reason": "Magic Solar becomes Rare with one fixed modifier. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported."
+      "reason": "Magic Solar becomes Rare with one fixed modifier. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Essence_of_Enhancement",
@@ -598,10 +698,16 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "ESSENCE_ENHANCEMENT",
+      "reason": "Magic Stocky Mitts becomes Rare with one sourced prefix; modifier level, slot and family gates apply. Numeric source-integer sampling is explicitly unverified. Other bases and low-level/overlap results are not supported.",
+      "stockyStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "supportedBases": [
+        "stocky"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Essence_of_Enhancement",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Essence_of_Abrasion",
@@ -671,7 +777,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "ESSENCE_RUIN",
-      "reason": "Magic Solar becomes Rare with one fixed modifier. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported."
+      "reason": "Magic Solar becomes Rare with one fixed modifier. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Essence_of_Battle",
@@ -727,7 +836,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "ESSENCE_INFINITE",
-      "reason": "Magic Solar becomes Rare with one sourced Strength/Dexterity/Intelligence suffix; uniform 1/3 choice assumption. All three catalog-level outcomes must be eligible. Any attribute overlap and low-level bypass remain unsupported."
+      "reason": "Magic Solar becomes Rare with one sourced Strength/Dexterity/Intelligence suffix; uniform 1/3 choice assumption. All three catalog-level outcomes must be eligible. Any attribute overlap and low-level bypass remain unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Greater_Essence_of_the_Body",
@@ -741,7 +853,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "GREATER_ESSENCE_BODY",
-      "reason": "Magic Solar becomes Rare with one fixed Life prefix. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported."
+      "reason": "Magic Solar becomes Rare with one fixed Life prefix. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Greater_Essence_of_the_Mind",
@@ -755,7 +870,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "GREATER_ESSENCE_MIND",
-      "reason": "Magic Solar becomes Rare with one fixed modifier. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported."
+      "reason": "Magic Solar becomes Rare with one fixed modifier. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Greater_Essence_of_Enhancement",
@@ -766,10 +884,16 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "GREATER_ESSENCE_ENHANCEMENT",
+      "reason": "Magic Stocky Mitts becomes Rare with one sourced prefix; modifier level, slot and family gates apply. Numeric source-integer sampling is explicitly unverified. Other bases and low-level/overlap results are not supported.",
+      "stockyStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "supportedBases": [
+        "stocky"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Enhancement",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Greater_Essence_of_Abrasion",
@@ -839,7 +963,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "GREATER_ESSENCE_RUIN",
-      "reason": "Magic Solar becomes Rare with one fixed modifier. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported."
+      "reason": "Magic Solar becomes Rare with one fixed modifier. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Greater_Essence_of_Battle",
@@ -850,10 +977,16 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "GREATER_ESSENCE_BATTLE",
+      "reason": "Magic Stocky Mitts becomes Rare with one sourced prefix; modifier level, slot and family gates apply. Numeric source-integer sampling is explicitly unverified. Other bases and low-level/overlap results are not supported.",
+      "stockyStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "supportedBases": [
+        "stocky"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Battle",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Greater_Essence_of_Sorcery",
@@ -895,7 +1028,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "GREATER_ESSENCE_INFINITE",
-      "reason": "Magic Solar becomes Rare with one sourced Strength/Dexterity/Intelligence suffix; uniform 1/3 choice assumption. All three catalog-level outcomes must be eligible. Any attribute overlap and low-level bypass remain unsupported."
+      "reason": "Magic Solar becomes Rare with one sourced Strength/Dexterity/Intelligence suffix; uniform 1/3 choice assumption. All three catalog-level outcomes must be eligible. Any attribute overlap and low-level bypass remain unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Perfect_Essence_of_the_Body",
@@ -940,7 +1076,10 @@
       "reason": "",
       "ruleSource": "https://poe2db.tw/us/Perfect_Essence_of_Enhancement",
       "ruleVerifiedAt": "2026-10-02",
-      "implementationScope": "Rare Solar, modifier item level 72+, remove one unlocked explicit and add the sourced global defences prefix. Every removal branch must permit the result. Crystallisation side restriction and fractured preservation supported. Single guaranteed result, uniform removal and integer 20-30 roll assumptions only."
+      "implementationScope": "Rare Solar, modifier item level 72+, remove one unlocked explicit and add the sourced global defences prefix. Every removal branch must permit the result. Crystallisation side restriction and fractured preservation supported. Single guaranteed result, uniform removal and integer 20-30 roll assumptions only.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Perfect_Essence_of_Abrasion",
@@ -1069,7 +1208,10 @@
       "reason": "",
       "ruleSource": "https://poe2db.tw/us/Perfect_Essence_of_the_Infinite",
       "ruleVerifiedAt": "2026-10-02",
-      "implementationScope": "Rare Solar, item level 72+, remove one unlocked explicit and add one sourced percentage attribute suffix. Crystallisation side restriction supported; every removal branch must permit all three outcomes. Uniform 1/3 choice is an explicit assumption, not ordinary spawn weighting."
+      "implementationScope": "Rare Solar, item level 72+, remove one unlocked explicit and add one sourced percentage attribute suffix. Crystallisation side restriction supported; every removal branch must permit all three outcomes. Uniform 1/3 choice is an explicit assumption, not ordinary spawn weighting.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Lesser_Essence_of_Seeking",
@@ -1139,7 +1281,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "ESSENCE_HYSTERIA",
-      "reason": "Rare Solar item level at least 68: remove one non-Fractured explicit uniformly and add fixed 19-21% life recoup suffix. Every removal branch must allow that suffix; ambiguous family/slot interactions and Crystallisation omens unsupported. Existing other rolls/locks/implicit preserved."
+      "reason": "Rare Solar item level at least 68: remove one non-Fractured explicit uniformly and add fixed 19-21% life recoup suffix. Every removal branch must allow that suffix; ambiguous family/slot interactions and Crystallisation omens unsupported. Existing other rolls/locks/implicit preserved.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Essence_of_Delirium",
@@ -1198,7 +1343,10 @@
       "reason": "",
       "ruleSource": "https://poe2db.tw/us/Essence_of_the_Abyss",
       "ruleVerifiedAt": "2026-10-02",
-      "implementationScope": "Rare Solar Amulet level 1+: random unlocked explicit replacement with either sourced Mark prefix or suffix. Every removal branch must permit both results; Crystallisation restricts removal only. Shared family prevents duplicate Marks. Desecration/reveal follow-up unsupported."
+      "implementationScope": "Rare Solar Amulet level 1+: random unlocked explicit replacement with either sourced Mark prefix or suffix. Every removal branch must permit both results; Crystallisation restricts removal only. Shared family prevents duplicate Marks. Desecration/reveal follow-up unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Essence_of_the_Breach",
@@ -1215,7 +1363,10 @@
       "reason": "Fixed +20% Maximum Quality prefix only. Applying Catalyst quality and its numerical scaling/weighting effects remain unsupported.",
       "ruleSource": "https://poe2db.tw/us/Essence_of_the_Breach",
       "ruleVerifiedAt": "2026-10-02",
-      "implementationScope": "Rare Solar, modifier level 1+, remove one unlocked explicit and add the sourced fixed maximum-quality prefix. Every removal branch must permit the result. Crystallisation restrictions and fracture preservation supported. Single fixed value: no essence-choice or numeric-roll assumption. No Catalyst application, scaling or weighting is implemented."
+      "implementationScope": "Rare Solar, modifier level 1+, remove one unlocked explicit and add the sourced fixed maximum-quality prefix. Every removal branch must permit the result. Crystallisation restrictions and fracture preservation supported. Single fixed value: no essence-choice or numeric-roll assumption. No Catalyst application, scaling or weighting is implemented.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Lesser_Essence_of_Insulation",
@@ -1229,7 +1380,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "LESSER_ESSENCE_INSULATION",
-      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
+      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Essence_of_Insulation",
@@ -1243,7 +1397,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "ESSENCE_INSULATION",
-      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
+      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Greater_Essence_of_Insulation",
@@ -1257,7 +1414,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "GREATER_ESSENCE_INSULATION",
-      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
+      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Perfect_Essence_of_Insulation",
@@ -1285,7 +1445,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "LESSER_ESSENCE_THAWING",
-      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
+      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Essence_of_Thawing",
@@ -1299,7 +1462,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "ESSENCE_THAWING",
-      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
+      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Greater_Essence_of_Thawing",
@@ -1313,7 +1479,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "GREATER_ESSENCE_THAWING",
-      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
+      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Perfect_Essence_of_Thawing",
@@ -1341,7 +1510,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "LESSER_ESSENCE_GROUNDING",
-      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
+      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Essence_of_Grounding",
@@ -1355,7 +1527,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "ESSENCE_GROUNDING",
-      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
+      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Greater_Essence_of_Grounding",
@@ -1369,7 +1544,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "GREATER_ESSENCE_GROUNDING",
-      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
+      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Perfect_Essence_of_Grounding",
@@ -1453,7 +1631,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "LESSER_ESSENCE_OPULENCE",
-      "reason": "Magic Solar to Rare with one sourced fixed item-rarity suffix; supported catalog item level and no suffix family overlap. Separate rarity prefix may coexist. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
+      "reason": "Magic Solar to Rare with one sourced fixed item-rarity suffix; supported catalog item level and no suffix family overlap. Separate rarity prefix may coexist. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Essence_of_Opulence",
@@ -1467,7 +1648,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "ESSENCE_OPULENCE",
-      "reason": "Magic Solar to Rare with one sourced fixed item-rarity suffix; supported catalog item level and no suffix family overlap. Separate rarity prefix may coexist. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
+      "reason": "Magic Solar to Rare with one sourced fixed item-rarity suffix; supported catalog item level and no suffix family overlap. Separate rarity prefix may coexist. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Greater_Essence_of_Opulence",
@@ -1481,7 +1665,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "GREATER_ESSENCE_OPULENCE",
-      "reason": "Magic Solar to Rare with one sourced fixed item-rarity suffix; supported catalog item level and no suffix family overlap. Separate rarity prefix may coexist. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported."
+      "reason": "Magic Solar to Rare with one sourced fixed item-rarity suffix; supported catalog item level and no suffix family overlap. Separate rarity prefix may coexist. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Perfect_Essence_of_Opulence",
@@ -1568,7 +1755,10 @@
       "reason": "",
       "ruleSource": "https://poe2db.tw/us/Runic_Alloy",
       "ruleVerifiedAt": "2026-10-02",
-      "implementationScope": "Rare Solar at modifier item level 13+, remove one unlocked explicit and add a sourced 6-10% maximum Runic Ward prefix; every removal branch must permit the result. Fractures and unrelated omens preserved. Crystallisation is Essence-only and does not restrict or consume on Alloy. No character-stat calculation or armour Runeforging is implied."
+      "implementationScope": "Rare Solar at modifier item level 13+, remove one unlocked explicit and add a sourced 6-10% maximum Runic Ward prefix; every removal branch must permit the result. Fractures and unrelated omens preserved. Crystallisation is Essence-only and does not restrict or consume on Alloy. No character-stat calculation or armour Runeforging is implied.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Adaptive_Alloy",
@@ -1750,7 +1940,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "DEXTRAL_CRYSTALLISATION",
-      "reason": "Hysteria, Perfect Infinite and Perfect Enhancement and Breach on supported Rare Solar: remove only unlocked suffix instances. Consume once on success; unrelated omens remain. Matching pair conflicts; no eligible side and invalid replacement branches blocked. Other Perfect/Corrupted essences unsupported."
+      "reason": "Hysteria, Perfect Infinite and Perfect Enhancement and Breach on supported Rare Solar: remove only unlocked suffix instances. Consume once on success; unrelated omens remain. Matching pair conflicts; no eligible side and invalid replacement branches blocked. Other Perfect/Corrupted essences unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Omen_of_Sinistral_Crystallisation",
@@ -1764,7 +1957,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "SINISTRAL_CRYSTALLISATION",
-      "reason": "Hysteria, Perfect Infinite and Perfect Enhancement and Breach on supported Rare Solar: remove only unlocked prefix instances. Consume once on success; unrelated omens remain. Matching pair conflicts; no eligible side and invalid replacement branches blocked. Other Perfect/Corrupted essences unsupported."
+      "reason": "Hysteria, Perfect Infinite and Perfect Enhancement and Breach on supported Rare Solar: remove only unlocked prefix instances. Consume once on success; unrelated omens remain. Matching pair conflicts; no eligible side and invalid replacement branches blocked. Other Perfect/Corrupted essences unsupported.",
+      "supportedBases": [
+        "solar"
+      ]
     },
     {
       "id": "Omen_of_Whittling",
@@ -1782,7 +1978,11 @@
       "ruleSource": "https://poe2db.tw/us/Omen",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending."
+      "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Omen_of_Sinistral_Erasure",
@@ -1800,7 +2000,11 @@
       "ruleSource": "https://poe2db.tw/us/Omen",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending."
+      "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Omen_of_Dextral_Erasure",
@@ -1818,7 +2022,11 @@
       "ruleSource": "https://poe2db.tw/us/Omen",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending."
+      "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Omen_of_Sinistral_Alchemy",
@@ -1913,7 +2121,11 @@
       "reason": "Solar Rare with at least two free explicit slots; ordinary Exalted only. Two conditional PoE2DB-weighted additions. One-slot and same-trigger omen combinations are unsupported. Finite Support does not model multi-additions.",
       "ruleSource": "https://poe2db.tw/us/Omen",
       "ruleVerifiedAt": "2026-10-02",
-      "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED"
+      "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Omen_of_Sinistral_Exaltation",
@@ -1931,7 +2143,11 @@
       "ruleSource": "https://poe2db.tw/us/Omen",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending."
+      "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Omen_of_Dextral_Exaltation",
@@ -1949,7 +2165,11 @@
       "ruleSource": "https://poe2db.tw/us/Omen",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending."
+      "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Omen_of_Greater_Annulment",
@@ -1983,7 +2203,11 @@
       "ruleSource": "https://poe2db.tw/us/Omen",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending."
+      "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Omen_of_Dextral_Annulment",
@@ -2001,7 +2225,11 @@
       "ruleSource": "https://poe2db.tw/us/Omen",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending."
+      "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Omen_of_Answered_Prayers",
@@ -2103,7 +2331,11 @@
       "ruleSource": "https://poe2db.tw/us/Omen",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending."
+      "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
+      "supportedBases": [
+        "solar",
+        "stocky"
+      ]
     },
     {
       "id": "Omen_of_Sanctification",
@@ -3331,5 +3563,17 @@
       "sha256": null,
       "error": "HTTPError"
     }
-  ]
+  ],
+  "workbenchBases": {
+    "solar": {
+      "ruleVersion": "solar-workbench-abyss-essence-v16",
+      "ledgerVersion": "solar-uniform-assumptions-v10"
+    },
+    "stocky": {
+      "ruleVersion": "stocky-workbench-source-model-v17",
+      "ledgerVersion": "stocky-unverified-numeric-assumptions-v11",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Gloves_str"
+    }
+  }
 }

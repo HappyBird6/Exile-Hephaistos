@@ -5,6 +5,10 @@ export type WorkbenchAction =
   | Action
   | `GREATER_${Exclude<Action, 'ANNULMENT'>}`
   | `PERFECT_${Exclude<Action, 'ANNULMENT'>}`
+  | 'LESSER_ESSENCE_ENHANCEMENT'
+  | 'ESSENCE_ENHANCEMENT'
+  | 'GREATER_ESSENCE_ENHANCEMENT'
+  | 'GREATER_ESSENCE_BATTLE'
   | 'DIVINE'
   | 'ALCHEMY'
   | 'FRACTURING'
@@ -39,6 +43,10 @@ export type WorkbenchAction =
   | 'ESSENCE_OPULENCE'
   | 'GREATER_ESSENCE_OPULENCE'
 const fixedEssenceModifiers: Partial<Record<WorkbenchAction, string>> = {
+  LESSER_ESSENCE_ENHANCEMENT: 'stocky-mitts:prefix:layered',
+  ESSENCE_ENHANCEMENT: 'stocky-mitts:prefix:buttressed',
+  GREATER_ESSENCE_ENHANCEMENT: 'stocky-mitts:prefix:thickened',
+  GREATER_ESSENCE_BATTLE: 'stocky-mitts:prefix:hunter-s',
   LESSER_ESSENCE_BODY: 'amulet:prefix:healthy',
   ESSENCE_BODY: 'amulet:prefix:robust',
   GREATER_ESSENCE_BODY: 'amulet:prefix:rotund',
@@ -99,6 +107,10 @@ const replacementEssenceModifiers: Partial<
 }
 export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   ...currencyActions,
+  Lesser_Essence_of_Enhancement: 'LESSER_ESSENCE_ENHANCEMENT',
+  Essence_of_Enhancement: 'ESSENCE_ENHANCEMENT',
+  Greater_Essence_of_Enhancement: 'GREATER_ESSENCE_ENHANCEMENT',
+  Greater_Essence_of_Battle: 'GREATER_ESSENCE_BATTLE',
   Divine_Orb: 'DIVINE',
   Orb_of_Alchemy: 'ALCHEMY',
   Fracturing_Orb: 'FRACTURING',
@@ -135,6 +147,10 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
 }
 export const workbenchActionNames: Record<WorkbenchAction, string> = {
   ...actionNames,
+  LESSER_ESSENCE_ENHANCEMENT: 'Lesser Essence of Enhancement',
+  ESSENCE_ENHANCEMENT: 'Essence of Enhancement',
+  GREATER_ESSENCE_ENHANCEMENT: 'Greater Essence of Enhancement',
+  GREATER_ESSENCE_BATTLE: 'Greater Essence of Battle',
   DIVINE: 'Divine Orb',
   ALCHEMY: 'Orb of Alchemy',
   FRACTURING: 'Fracturing Orb',
@@ -476,7 +492,7 @@ export async function applyCurrency(
     !['NORMAL', 'MAGIC', 'RARE'].includes(next.rarity) ||
     (action !== 'DIVINE' && !sameModifiers(next.implicits, state.implicits)) ||
     !Array.isArray(next.implicits) ||
-    next.implicits.length !== 1 ||
+    next.implicits.length !== state.implicits.length ||
     next.implicits.some((m) => m.fractured) ||
     next.implicits[0]?.modifierId !== state.implicits[0]?.modifierId ||
     !next.implicits.every((m) =>

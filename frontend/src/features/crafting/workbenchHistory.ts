@@ -244,7 +244,7 @@ export function verifiedHistoryState(
       !Array.isArray(state.conditions) ||
       state.conditions.length ||
       !Array.isArray(state.implicits) ||
-      state.implicits.length !== 1 ||
+      state.implicits.length !== initial.state.implicits.length ||
       state.implicits.some((m) => m.fractured) ||
       state.implicits[0]?.modifierId !==
         initial.state.implicits[0]?.modifierId ||
@@ -264,7 +264,7 @@ export function verifiedHistoryState(
       const definition = initial.modifiers[instance.modifierId]
       if (
         !definition?.stats ||
-        (index > 0 &&
+        (index >= state.implicits.length &&
           instance.fractured !== undefined &&
           typeof instance.fractured !== 'boolean') ||
         !instance.values ||
@@ -277,7 +277,7 @@ export function verifiedHistoryState(
         )
       )
         return false
-      if (index) {
+      if (index >= state.implicits.length) {
         if (
           definition.affixType === 'NONE' ||
           definition.familyIds.some((id) => families.has(id))

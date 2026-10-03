@@ -43,6 +43,43 @@ async function selectAndApply() {
   )
 }
 describe('Workbench actual application', () => {
+  it('does not replace the draft or saved films when a base response arrives after unmount', async () => {
+    let release: ((value: Response) => void) | undefined
+    vi.stubGlobal('fetch', (input: RequestInfo | URL, init?: RequestInit) =>
+      String(input).includes('workbench/initial')
+        ? new Promise<Response>((resolve) => {
+            release = resolve
+          })
+        : fixtureFetch(input, init),
+    )
+    const mounted = show()
+    await waitFor(() =>
+      expect(screen.getByRole('article')).toHaveClass('item-card--normal'),
+    )
+    fireEvent.click(screen.getByRole('button', { name: 'Edit item' }))
+    fireEvent.change(screen.getByLabelText('Equipment base'), {
+      target: { value: 'stocky' },
+    })
+    fireEvent.change(screen.getByLabelText('Item level'), {
+      target: { value: '83' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: /Place base/ }))
+    await waitFor(() => expect(release).toBeDefined())
+    const revision = useItemDraft.getState().baseRevision
+    const bytes = localStorage.getItem(historyStorageKey)
+    mounted.unmount()
+    const response = structuredClone(initialFixture)
+    response.state.baseItemId = 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+    response.state.itemLevel = 83
+    response.state.implicits = []
+    await act(async () => {
+      release!(jsonResponse(response))
+    })
+    expect(useItemDraft.getState().baseRevision).toBe(revision)
+    expect(useItemDraft.getState().base).toBe('solar')
+    expect(localStorage.getItem(historyStorageKey)).toBe(bytes)
+  })
+
   it('preserves a valid saved item and bytes when optional evidence is invalid', async () => {
     const root = concreteInitial(initialFixture)
     const result = await (
@@ -164,6 +201,12 @@ describe('Workbench actual application', () => {
     fireEvent.change(
       screen.getByRole('combobox', { name: 'Crafting session' }),
       { target: { value: fork.films[0]!.id } },
+    )
+    await waitFor(() =>
+      expect(
+        (JSON.parse(window.localStorage.getItem(historyStorageKey)!) as Films)
+          .active,
+      ).toBe(fork.films[0]!.id),
     )
     fireEvent.click(
       screen.getByRole('button', { name: 'Previous crafting step' }),

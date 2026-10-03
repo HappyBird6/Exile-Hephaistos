@@ -1,5 +1,5 @@
 {
-  "status": "INACTIVE_CATALOG_PREPARATION",
+  "status": "WORKBENCH_ONLY_EXPLICITLY_MODELLED_NUMERICS",
   "coupledModelId": "user-coupled-ratio-half-up-v1",
   "coupledModifierIds": [
     "stocky-mitts:prefix:oyster-s",
@@ -52,5 +52,7 @@
   },
   "catalogRows": 182,
   "primaryDetailRows": 116,
-  "retainedExactComparisonRows": 66
+  "retainedExactComparisonRows": 66,
+  "singleStatModelId": "assumed-source-integer-roll-v1",
+  "singleStatModel": "Uniform source-unit integers between captured bounds; game interior increments/distribution and display conversion unverified. Source-unit fallback only; no computed local Armour."
 }

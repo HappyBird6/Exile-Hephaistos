@@ -86,3 +86,5 @@ GitHub Actions는 사용하지 않습니다. `.gitattributes`는 Windows/Linux �
 - [Worker 운영 명세](docs/solo-workflow/MULTI_SESSION_WORKFLOW.md).
 
 Solar Workbench v2: 17 currencies and 8 omens. See [supported and blocked inventory](docs/workbench-support-v2.md) and [rules, assumptions, and Support preparation](docs/workbench-simulator.md).
+
+최신 Workbench 확장(2026-10-03): Solar Amulet과 Stocky Mitts를 베이스별로 지원합니다. Stocky Mitts는 일반 화폐 19종과 확인된 Enhancement 3종·Greater Battle, 관련 징조·분열을 지원하며 일반 모드 182개와 PoE2DB 게시 가중치를 보존합니다. 장갑의 수치 롤은 원자료 단위 정수·공통 비율/HALF_UP **미검증 모델**로 명시하고 제작 단계별 가정을 복원합니다. 최종 Armour·품질·소켓·장갑 텍스트 매핑과 다른 장갑 특수 수단은 미지원입니다. Craft Support/State Explorer는 Solar 범위입니다. [최신 범위·검증·되돌리기](docs/workbench-stocky-mitts-runtime-2026-10-03.md), [단일 이슈 목록](ISSUES.md).
