@@ -119,6 +119,27 @@ public final class ItemCatalogLoader {
     }
   }
 
+  /** Complete ordinary Helmet snapshot for Workbench dispatch only. */
+  public static ItemCatalog loadHelmet() {
+    try (var data =
+            ItemCatalogLoader.class.getResourceAsStream("/catalog/rusted-greathelm/catalog.json");
+        var raw =
+            ItemCatalogLoader.class.getResourceAsStream("/catalog/rusted-greathelm/base.raw.json");
+        var details =
+            ItemCatalogLoader.class.getResourceAsStream(
+                "/catalog/rusted-greathelm/details.raw.json");
+        var special =
+            ItemCatalogLoader.class.getResourceAsStream(
+                "/catalog/rusted-greathelm/perfect-essences.catalog.json");
+        var specialRaw =
+            ItemCatalogLoader.class.getResourceAsStream(
+                "/catalog/rusted-greathelm/perfect-essences.raw.json")) {
+      return loadWithSpecial(data, raw, details, special, specialRaw);
+    } catch (IOException e) {
+      throw new IllegalStateException("Cannot load Rusted Greathelm catalog", e);
+    }
+  }
+
   public static ItemCatalog loadDefault() {
     try (var catalog = resource("catalog.json");
         var raw = resource("base.raw.json");

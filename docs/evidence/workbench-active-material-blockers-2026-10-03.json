@@ -1,14 +1,14 @@
 {
-  "version": "active-material-blockers-20261003-v4-belt",
-  "reviewedAt": "2026-10-03T17:13:58.238Z",
+  "version": "active-material-blockers-20261003-v5-helmet",
+  "reviewedAt": "2026-10-03T17:46:07.290Z",
   "currentInventory": 155,
-  "implemented": 109,
-  "pending": 46,
+  "implemented": 110,
+  "pending": 45,
   "excluded": 65,
-  "interpretation": "Rawhide Belt now supports one verified Perfect Insulation path within an explicit-affix projection. Variable implicit and Charm-slot behavior remain unknown; Divine and quality assumptions are unsupported. Remaining46 records keep unresolved barriers; Ring/Helmet remain candidates. Registered inventory is not complete game inventory.",
+  "interpretation": "Rusted Greathelm implements Perfect Thawing using the reviewed complete ordinary pool. Armour and quality maximum are source facts only. Ring remains a candidate; current45 pending keep unresolved barriers. Registered inventory is not complete game inventory.",
   "principalBlockers": {
     "ENGINE_STATE_GAP": 2,
-    "OTHER_TARGET_REQUIRED": 17,
+    "OTHER_TARGET_REQUIRED": 16,
     "REINTRODUCTION_UNVERIFIED": 5,
     "RULE_DATA_GAP": 22
   },
@@ -47,18 +47,6 @@
       "freshlyReviewed": true,
       "verifiedTargetClasses": "Belts",
       "additionalBlockers": "Vaal corruption operation is user-deferred; enchantment eligibility and paired outcomes unverified",
-      "implemented": false
-    },
-    {
-      "id": "Perfect_Essence_of_Thawing",
-      "category": "ESSENCE",
-      "principalBlocker": "OTHER_TARGET_REQUIRED",
-      "reason": "Verified card targets Helmets. Additional base and complete ordinary/special catalog required.",
-      "registryReason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Thawing",
-      "freshlyReviewed": true,
-      "verifiedTargetClasses": "Helmets",
-      "additionalBlockers": null,
       "implemented": false
     },
     {

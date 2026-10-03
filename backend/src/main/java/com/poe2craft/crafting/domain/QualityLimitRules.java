@@ -16,6 +16,7 @@ public final class QualityLimitRules {
     if (!state.baseItemId().equals(SolarAmulet.BASE_ID)
         && !state.baseItemId().equals("Metadata/Items/Armours/Gloves/FourGlovesStr1")
         && !state.baseItemId().equals(BowEssenceTargets.BASE_ID)
+        && !state.baseItemId().equals(HelmetEssenceTargets.BASE_ID)
         && !state.baseItemId().equals(BodyEssenceTargets.BASE_ID)
         && !state.baseItemId().equals(WandEssenceTargets.BASE_ID)
         && !state.baseItemId().equals(SceptreEssenceTargets.BASE_ID))

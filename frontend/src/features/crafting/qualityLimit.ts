@@ -19,6 +19,7 @@ export function maximumQuality(
     ![
       solar,
       stocky,
+      'Metadata/Items/Armours/Helmets/FourHelmetStr1',
       'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1',
       'Metadata/Items/Armours/BodyArmours/FourBodyStr1',
       'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3',

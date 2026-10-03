@@ -13,6 +13,8 @@ public final class WorkbenchService {
   private final WorkbenchSimulator solarSimulator;
   private final WorkbenchSimulator stockySimulator;
   private final ItemCatalog wand;
+  private final ItemCatalog helmet;
+  private final WorkbenchSimulator helmetSimulator;
   private final ItemCatalog belt;
   private final WorkbenchSimulator beltSimulator;
   private final ItemCatalog sceptre;
@@ -72,6 +74,31 @@ public final class WorkbenchService {
       ItemCatalog body,
       ItemCatalog sceptre,
       ItemCatalog belt) {
+    this(solar, solarSimulator, stocky, bow, wand, body, sceptre, belt, null);
+  }
+
+  public WorkbenchService(
+      ItemCatalog solar,
+      WorkbenchSimulator solarSimulator,
+      ItemCatalog stocky,
+      ItemCatalog bow,
+      ItemCatalog wand,
+      ItemCatalog body,
+      ItemCatalog sceptre,
+      ItemCatalog belt,
+      ItemCatalog helmet) {
+    this.helmet = helmet;
+    this.helmetSimulator =
+        helmet == null
+            ? null
+            : new WorkbenchSimulator(
+                helmet,
+                new CraftingEngine(helmet),
+                helmet.modifiers().values().stream()
+                    .filter(d -> d.stats().size() > 1)
+                    .map(ModifierDefinition::id)
+                    .collect(java.util.stream.Collectors.toSet()),
+                Map.of());
     this.belt = belt;
     this.beltSimulator =
         belt == null
@@ -180,6 +207,10 @@ public final class WorkbenchService {
 
   private ItemCatalog catalog(String base) {
     return switch (base) {
+      case "helmet" -> {
+        if (helmet == null) throw new IllegalArgumentException("Helmet catalog unavailable");
+        yield helmet;
+      }
       case "belt" -> {
         if (belt == null) throw new IllegalArgumentException("Belt catalog unavailable");
         yield belt;
@@ -207,6 +238,9 @@ public final class WorkbenchService {
   }
 
   private WorkbenchSimulator simulator(ItemState state) {
+    if (state != null
+        && state.baseItemId().equals(HelmetEssenceTargets.BASE_ID)
+        && helmetSimulator != null) return helmetSimulator;
     if (state != null
         && state.baseItemId().equals(BeltEssenceTargets.BASE_ID)
         && beltSimulator != null) return beltSimulator;

@@ -99,6 +99,8 @@ public final class WorkbenchSimulator {
   }
 
   public String ruleVersion() {
+    if (catalog.base().id().equals(HelmetEssenceTargets.BASE_ID))
+      return "helmet-workbench-perfect-essence-v1";
     if (catalog.base().id().equals(BeltEssenceTargets.BASE_ID))
       return "belt-workbench-perfect-essence-v1";
     if (catalog.base().id().equals(SceptreEssenceTargets.BASE_ID))
@@ -112,6 +114,8 @@ public final class WorkbenchSimulator {
   }
 
   public String ledgerVersion() {
+    if (catalog.base().id().equals(HelmetEssenceTargets.BASE_ID))
+      return "helmet-unverified-numeric-assumptions-v1";
     if (catalog.base().id().equals(BeltEssenceTargets.BASE_ID))
       return "belt-unverified-numeric-assumptions-v1";
     if (catalog.base().id().equals(SceptreEssenceTargets.BASE_ID))

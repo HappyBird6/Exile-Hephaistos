@@ -32,7 +32,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -60,7 +61,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -88,7 +90,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -113,7 +116,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -141,7 +145,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -169,7 +174,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -197,7 +203,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -238,7 +245,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -265,7 +273,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "helmet"
       ]
     },
     {
@@ -293,7 +302,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -321,7 +331,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -349,7 +360,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -377,7 +389,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -405,7 +418,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -433,7 +447,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -461,7 +476,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -489,7 +505,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -517,7 +534,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -545,7 +563,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -1939,10 +1958,25 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED",
+      "action": "PERFECT_ESSENCE_THAWING",
+      "reason": "Verified Rusted Greathelm explicit-affix projection only. Conservative source modifier level72; lower-level game applicability unverified. Uniform unlocked removal plus guaranteed result; source-integer numeric model UNVERIFIED. Armour29 and quality maximum20 are source facts only; applied quality, computed Armour and sockets unsupported.",
+      "supportedBases": [
+        "helmet"
+      ],
+      "helmetEvidence": {
+        "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Thawing",
+        "sourceSha256": "406590f10ba47a6cb4d108331f4457c67bf8fad8e2f9fee3dd051d7e5c4117f6",
+        "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceColdRecoupLife1",
+        "modifierSourceSha256": "9cbbab1dc8112c8c1adf2f2f3a7df5610fb364a59bfa7300531a1eb76c85d4aa",
+        "sourceModCode": "EssenceColdRecoupLife1",
+        "minimumSupportedItemLevel": 72,
+        "requiredCharacterLevel": 57,
+        "modifierIds": [
+          "rusted-greathelm:suffix:essence-cold-damage-recouped-as-life"
+        ]
+      }
     },
     {
       "id": "Lesser_Essence_of_Grounding",
@@ -2574,7 +2608,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -2597,7 +2632,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -2624,7 +2660,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -2651,7 +2688,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -2678,7 +2716,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -2782,7 +2821,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -2809,7 +2849,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -2836,7 +2877,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -2879,7 +2921,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -2906,7 +2949,8 @@
         "wand",
         "body",
         "sceptre",
-        "belt"
+        "belt",
+        "helmet"
       ]
     },
     {
@@ -4298,6 +4342,24 @@
       "qualityMaximum": null,
       "unsupported": [
         "DIVINE",
+        "BLESSED",
+        "ARTIFICER",
+        "QUALITY_APPLICATION",
+        "PASTED_MAPPING",
+        "COMBAT"
+      ]
+    },
+    "helmet": {
+      "ruleVersion": "helmet-workbench-perfect-essence-v1",
+      "ledgerVersion": "helmet-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Helmets_str",
+      "projection": "EXPLICIT_AFFIX_ONLY",
+      "implicit": "NONE_IN_REVIEWED_BASE",
+      "baseArmour": 29,
+      "augmentSockets": null,
+      "qualityMaximum": 20,
+      "unsupported": [
         "BLESSED",
         "ARTIFICER",
         "QUALITY_APPLICATION",

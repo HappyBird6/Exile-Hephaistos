@@ -105,7 +105,7 @@
     "exactUniqueMatches": 150,
     "candidates": 346
   },
-  "interpretation": "Historical comparison before Sceptre expansion; remainingEssence rows are original cost-review inputs, not current support status. Sceptre now implements four Command identities; Rawhide Belt implements Perfect Insulation as an explicit-affix projection. Ring and Helmet remain candidates. Current pending46 are in the active ledger.",
+  "interpretation": "Historical cost comparison before Sceptre expansion; original remainingEssence rows are not current support status. Sceptre, Rawhide Belt and Rusted Greathelm now implement their bounded targets. Ring remains a candidate; current45 pending are in the active ledger.",
   "beltIntegration": {
     "base": "Rawhide Belt, FourBelt1",
     "normalRows": 135,
@@ -121,5 +121,34 @@
     "charmSlots": "UNKNOWN_UNMODELED",
     "qualityMaximum": null,
     "divine": "UNSUPPORTED_MODEL_INCOMPLETE"
+  },
+  "helmetIntegration": {
+    "base": "Rusted Greathelm, FourHelmetStr1",
+    "normalRows": 137,
+    "exactUniqueMatches": 137,
+    "candidateCodes": 200,
+    "reusedDetailCodes": 141,
+    "newDetailLookups": 59,
+    "freshPrimarySha256": "5ffa7e69dfeb94d16b76c194f83bedde83c88d5b82f107be0d6979f1b507e2d9",
+    "sourceRetrievedAt": "2026-10-03T17:38:07.186Z",
+    "implementedMaterial": "Perfect_Essence_of_Thawing",
+    "baseArmour": 29,
+    "qualityMaximum": 20,
+    "augmentSockets": null,
+    "numericModel": "UNVERIFIED"
+  },
+  "ringCandidateReview": {
+    "base": "Iron Ring, FourRing1",
+    "source": "https://poe2db.tw/us/Iron_Ring",
+    "sourceSha256": "3ba496ecc871f22d4aa960dcb9ba364d830b25c1aab5f248ca3769b659fc93ff",
+    "sourceRetrievedAt": "2026-10-03T17:38:30.042Z",
+    "normalRows": 203,
+    "candidateCodes": 391,
+    "newDetailLookupsBeforeHelmet": 106,
+    "implicit": "FIXED attack maximum added physical damage4 and minimum1",
+    "qualityMaximum": null,
+    "status": "CANDIDATE_NOT_IMPLEMENTED",
+    "selectionRationale": "Iron Ring DropLevel1, fixed integer endpoints; Unset Ring DropLevel44 with skill-slot scope. Prefer Iron for the next complete pool review.",
+    "newDetailLookupsAfterHelmet": 77
   }
 }
