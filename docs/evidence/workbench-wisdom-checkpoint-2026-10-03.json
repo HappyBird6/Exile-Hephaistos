@@ -1,0 +1,150 @@
+{
+  "date": "2026-10-03",
+  "baselineHead": "f13c9a2554a2feff559b6c64d16454bc8ef75eed",
+  "status": "BLOCKED_EVIDENCE_AND_INPUT",
+  "implemented": false,
+  "counts": {
+    "bases": 9,
+    "registry": 220,
+    "implemented": 119,
+    "development": 155,
+    "developmentImplemented": 111,
+    "pending": 44,
+    "deferred": 65
+  },
+  "api": {
+    "passed": 18,
+    "failed": 0,
+    "rows": [
+      {
+        "base": "solar",
+        "endpoint": "actions",
+        "status": 422,
+        "code": "INVALID_CRAFTING_REQUEST"
+      },
+      {
+        "base": "solar",
+        "endpoint": "apply",
+        "status": 422,
+        "code": "INVALID_CRAFTING_REQUEST"
+      },
+      {
+        "base": "stocky",
+        "endpoint": "actions",
+        "status": 422,
+        "code": "INVALID_CRAFTING_REQUEST"
+      },
+      {
+        "base": "stocky",
+        "endpoint": "apply",
+        "status": 422,
+        "code": "INVALID_CRAFTING_REQUEST"
+      },
+      {
+        "base": "bow",
+        "endpoint": "actions",
+        "status": 422,
+        "code": "INVALID_CRAFTING_REQUEST"
+      },
+      {
+        "base": "bow",
+        "endpoint": "apply",
+        "status": 422,
+        "code": "INVALID_CRAFTING_REQUEST"
+      },
+      {
+        "base": "wand",
+        "endpoint": "actions",
+        "status": 422,
+        "code": "INVALID_CRAFTING_REQUEST"
+      },
+      {
+        "base": "wand",
+        "endpoint": "apply",
+        "status": 422,
+        "code": "INVALID_CRAFTING_REQUEST"
+      },
+      {
+        "base": "body",
+        "endpoint": "actions",
+        "status": 422,
+        "code": "INVALID_CRAFTING_REQUEST"
+      },
+      {
+        "base": "body",
+        "endpoint": "apply",
+        "status": 422,
+        "code": "INVALID_CRAFTING_REQUEST"
+      },
+      {
+        "base": "sceptre",
+        "endpoint": "actions",
+        "status": 422,
+        "code": "INVALID_CRAFTING_REQUEST"
+      },
+      {
+        "base": "sceptre",
+        "endpoint": "apply",
+        "status": 422,
+        "code": "INVALID_CRAFTING_REQUEST"
+      },
+      {
+        "base": "belt",
+        "endpoint": "actions",
+        "status": 422,
+        "code": "INVALID_CRAFTING_REQUEST"
+      },
+      {
+        "base": "belt",
+        "endpoint": "apply",
+        "status": 422,
+        "code": "INVALID_CRAFTING_REQUEST"
+      },
+      {
+        "base": "helmet",
+        "endpoint": "actions",
+        "status": 422,
+        "code": "INVALID_CRAFTING_REQUEST"
+      },
+      {
+        "base": "helmet",
+        "endpoint": "apply",
+        "status": 422,
+        "code": "INVALID_CRAFTING_REQUEST"
+      },
+      {
+        "base": "ring",
+        "endpoint": "actions",
+        "status": 422,
+        "code": "INVALID_CRAFTING_REQUEST"
+      },
+      {
+        "base": "ring",
+        "endpoint": "apply",
+        "status": 422,
+        "code": "INVALID_CRAFTING_REQUEST"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "file": "wisdom.html",
+      "sha256": "b1a6736c17c613a1e76ebb9caaa6a84acb0ee3246756071ff288108f5670b48d"
+    },
+    {
+      "file": "currency.html",
+      "sha256": "c8a3a70cdbaf8b5767eca03493aa8ca10bbb9f974f6b30f0761731fa049b4dda"
+    },
+    {
+      "file": "official-item-changes.html",
+      "sha256": "6438f3109fba966417fc668046241cd0007346258161c1406a3195db2e090425"
+    }
+  ],
+  "notRun": [
+    "feature unit tests",
+    "feature browser tests",
+    "full BE check",
+    "full FE checks"
+  ],
+  "reason": "No justified reveal implementation; executable code unchanged"
+}
