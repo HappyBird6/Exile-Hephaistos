@@ -25,6 +25,8 @@ public enum WorkbenchCurrency {
   FRACTURING(null, 0),
   ESSENCE_HYSTERIA(null, 0),
   ESSENCE_HORROR(null, 0),
+  PERFECT_ESSENCE_GROUNDING(null, 0),
+  PERFECT_ESSENCE_OPULENCE(null, 0),
   PERFECT_ESSENCE_INFINITE(null, 0),
   PERFECT_ESSENCE_ENHANCEMENT(null, 0),
   ESSENCE_BREACH(null, 0),
@@ -130,6 +132,8 @@ public enum WorkbenchCurrency {
       case RUNIC_ALLOY -> List.of("amulet:prefix:alloy-maximum-runic-ward");
       case ESSENCE_HYSTERIA -> List.of("amulet:suffix:of-suturing");
       case ESSENCE_HORROR -> List.of("stocky-mitts:suffix:essence-socketed-augment-effect");
+      case PERFECT_ESSENCE_GROUNDING -> List.of("stocky-mitts:suffix:essence-lightning-recoup");
+      case PERFECT_ESSENCE_OPULENCE -> List.of("stocky-mitts:suffix:essence-gold-quantity");
       case ESSENCE_ABYSS ->
           List.of("amulet:prefix:essence-abyssal-mark", "amulet:suffix:essence-abyssal-mark");
       case ESSENCE_BREACH -> List.of("amulet:prefix:essence-maximum-quality");
@@ -147,6 +151,8 @@ public enum WorkbenchCurrency {
     return switch (this) {
       case ESSENCE_HYSTERIA -> "https://poe2db.tw/us/Essence_of_Hysteria";
       case ESSENCE_HORROR -> "https://poe2db.tw/us/Essence_of_Horror";
+      case PERFECT_ESSENCE_GROUNDING -> "https://poe2db.tw/us/Perfect_Essence_of_Grounding";
+      case PERFECT_ESSENCE_OPULENCE -> "https://poe2db.tw/us/Perfect_Essence_of_Opulence";
       case ESSENCE_ABYSS -> "https://poe2db.tw/us/Essence_of_the_Abyss";
       case ESSENCE_BREACH -> "https://poe2db.tw/us/Essence_of_the_Breach";
       case PERFECT_ESSENCE_ENHANCEMENT -> "https://poe2db.tw/us/Perfect_Essence_of_Enhancement";

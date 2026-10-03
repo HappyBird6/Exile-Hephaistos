@@ -40,14 +40,24 @@ public class CraftingConfiguration {
         var horror =
             getClass().getResourceAsStream("/catalog/stocky-mitts/horror-essence.catalog.json");
         var horrorRaw =
-            getClass().getResourceAsStream("/catalog/stocky-mitts/horror-essence.raw.json")) {
+            getClass().getResourceAsStream("/catalog/stocky-mitts/horror-essence.raw.json");
+        var perfect =
+            getClass()
+                .getResourceAsStream(
+                    "/catalog/stocky-mitts/perfect-grounding-opulence.catalog.json");
+        var perfectRaw =
+            getClass()
+                .getResourceAsStream("/catalog/stocky-mitts/perfect-grounding-opulence.raw.json")) {
       return new WorkbenchService(
           catalog,
           simulator,
           ItemCatalogLoader.addSpecial(
-              ItemCatalogLoader.loadWithSpecial(data, raw, details, special, specialRaw),
-              horror,
-              horrorRaw));
+              ItemCatalogLoader.addSpecial(
+                  ItemCatalogLoader.loadWithSpecial(data, raw, details, special, specialRaw),
+                  horror,
+                  horrorRaw),
+              perfect,
+              perfectRaw));
     } catch (java.io.IOException e) {
       throw new IllegalStateException("Cannot load Stocky Mitts catalog", e);
     }

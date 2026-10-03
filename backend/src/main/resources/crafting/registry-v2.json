@@ -1578,14 +1578,18 @@
       "name": "Perfect Essence of Grounding",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Grounding",
-      "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourcePage": "https://poe2db.tw/us/Perfect_Essence_of_Grounding",
+      "sourceRetrievedAt": "2026-10-03T06:50:18.15Z",
+      "sourceSha256": "cd685832df957b98c29c3128bdcd4c5929fc5382c2787e392fca219c19cf91f5",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
+      "effectStatus": "IMPLEMENTED",
       "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "action": "PERFECT_ESSENCE_GROUNDING",
+      "reason": "Supported Rare Stocky Mitts item level 72+: replace one eligible unlocked explicit with the dedicated 26-30% Lightning Damage taken Recouped as Life suffix (LightningDamageTakenRecoupedAsLife). Mod Level 72 is distinct from published effective requirement 57; lower item-level use is unverified. Every removal branch must fit; only matching Crystallisation is consumed, locks/other omens preserved. Ordinary weight zero; variable source-unit integer rolls remain an explicit unverified model. Affix assignment only, no combat recovery or Gold drop simulation.",
+      "ruleSource": "https://poe2db.tw/us/Perfect_Essence_of_Grounding",
+      "ruleVerifiedAt": "2026-10-03",
+      "implementationScope": "Stocky affix assignment at supported item level 72+ only; Solar unsupported, lower item levels unverified.",
+      "supportedBases": ["stocky"]
     },
     {
       "id": "Lesser_Essence_of_Alacrity",
@@ -1702,14 +1706,18 @@
       "name": "Perfect Essence of Opulence",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Opulence",
-      "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourcePage": "https://poe2db.tw/us/Perfect_Essence_of_Opulence",
+      "sourceRetrievedAt": "2026-10-03T06:50:18.998Z",
+      "sourceSha256": "d77a1e278df18a391766a24f8ef748558063ffc28f4083e4192cc95293afe8fb",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
+      "effectStatus": "IMPLEMENTED",
       "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "action": "PERFECT_ESSENCE_OPULENCE",
+      "reason": "Supported Rare Stocky Mitts item level 72+: replace one eligible unlocked explicit with the dedicated 10-15% increased Quantity of Gold Dropped by Slain Enemies suffix (EssenceGoldDropped). Mod Level 72 is distinct from published effective requirement 57; lower item-level use is unverified. Every removal branch must fit; only matching Crystallisation is consumed, locks/other omens preserved. Ordinary weight zero; variable source-unit integer rolls remain an explicit unverified model. Affix assignment only, no combat recovery or Gold drop simulation.",
+      "ruleSource": "https://poe2db.tw/us/Perfect_Essence_of_Opulence",
+      "ruleVerifiedAt": "2026-10-03",
+      "implementationScope": "Stocky affix assignment at supported item level 72+ only; Solar unsupported, lower item levels unverified.",
+      "supportedBases": ["stocky"]
     },
     {
       "id": "Lesser_Essence_of_Command",
@@ -1967,7 +1975,7 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "DEXTRAL_CRYSTALLISATION",
-      "reason": "Supported Solar replacement Essences or Stocky Mitts Hysteria/Abyss/Horror: remove only unlocked suffix instances. Consume once on success; unrelated omens remain. Matching pair conflicts, no eligible suffix and any invalid replacement branch are blocked. Other glove replacement materials remain unsupported.",
+      "reason": "Supported Solar replacement Essences or Stocky Mitts Hysteria/Abyss/Horror/Perfect Grounding/Perfect Opulence: remove only unlocked suffix instances. Consume once on success; unrelated omens remain. Matching pair conflicts, no eligible suffix and any invalid replacement branch are blocked. Other glove replacement materials remain unsupported.",
       "supportedBases": [
         "solar",
         "stocky"
@@ -1985,7 +1993,7 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "SINISTRAL_CRYSTALLISATION",
-      "reason": "Supported Solar replacement Essences or Stocky Mitts Hysteria/Abyss/Horror: remove only unlocked prefix instances. Consume once on success; unrelated omens remain. Matching pair conflicts, no eligible prefix and any invalid replacement branch are blocked. Other glove replacement materials remain unsupported.",
+      "reason": "Supported Solar replacement Essences or Stocky Mitts Hysteria/Abyss/Horror/Perfect Grounding/Perfect Opulence: remove only unlocked prefix instances. Consume once on success; unrelated omens remain. Matching pair conflicts, no eligible prefix and any invalid replacement branch are blocked. Other glove replacement materials remain unsupported.",
       "supportedBases": [
         "solar",
         "stocky"

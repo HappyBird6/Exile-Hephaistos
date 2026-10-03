@@ -184,3 +184,17 @@ Latest Abyss verification: Docker BE 201 (195 unit/six integration), FE 117/22 f
 
 - Caught during staged-change review before checkpoint: generic LF normalization would change the reviewed raw proof bytes on another checkout and invalidate its SHA-256.
 - Added a narrowly scoped `-text` attribute for the checksum-bound Horror raw resource, preserving the already-tested bytes and snapshot identity. Unfiltered worktree blob and staged Git blob are compared before commit; other source/text normalization is unchanged.
+
+## WB-016 — DONE — Stocky Perfect Grounding/Opulence affix assignment at supported ilvl 72+
+
+- Two primary glove targets: Global suffixes `EssenceLightningRecoupLife1` (Lightning Recoup 26..30) and `EssenceGoldDropped1` (Gold quantity 10..15), distinct families, modifier Level 72/effective requirement 57. Rare replacement follows complete removal-branch/family/slot/Fracture rules and Crystallisation matching/conflict handling.
+- Dedicated zero-spawn extension preserves all 182 positive-weight definitions and normal 63,700/84,500 weight totals. Current 187 definitions = 182 normal + five special; compatible snapshots retain normal, Abyss and Horror. Source-byte regression extracts the staged Git tree and validates original Horror/new proof checksum and provenance in Docker.
+- Scalar integer domains remain WB-003 UNVERIFIED models; client acceptance requires source/range/stat/count/label evidence. No Recoup timing/recovery or Gold-drop calculation; Solar unsupported. Lower-ilvl eligibility remains WB-017, not a proven game prohibition.
+- Actual unique scope 67 of 220 registered, Stocky 60 support records/49 actions, Solar 60/49. Docker BE 215 (209 unit/six integration), FE 129/24 files; actual new-material browser 107, history 11, Stocky 60, previous Horror 49, Solar 30/cross-feature 21, zero failures/page errors. API also reaches/Fractures both targets and checks Divine/Chaos/Annul locks and ordinary pool separation.
+- [Primary sources, level distinction, implementation scope, checks and non-rerun limits](docs/workbench-stocky-perfect-glove-essences-2026-10-03.md).
+
+## WB-017 — OPEN — Lower-ilvl Perfect glove Essence eligibility is not established
+
+- Detailed modifier Level 72 and effective/Required Level 57 are distinct published fields. Neither by itself establishes the material's actual minimum eligible item level; do not promote 57 into the item-level rule or call lower levels illegal in the game.
+- Current implementation conservatively supports Stocky ilvl 72+ under the existing catalog convention; ilvl 1..71 remains unsupported with visible boundary and safe refusal. This is a bounded implementation scope, not a claimed complete eligibility rule.
+- Resolve with current primary/official evidence for forced Essence modifier eligibility at lower item levels. Independently supported higher-level crafting and other material work may continue. See [source/eligibility boundary](docs/workbench-stocky-perfect-glove-essences-2026-10-03.md#source-evidence-and-eligibility-boundary).

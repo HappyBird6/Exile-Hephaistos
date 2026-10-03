@@ -17,6 +17,8 @@ export type WorkbenchAction =
   | 'PERFECT_ESSENCE_ENHANCEMENT'
   | 'ESSENCE_ABYSS'
   | 'ESSENCE_HORROR'
+  | 'PERFECT_ESSENCE_GROUNDING'
+  | 'PERFECT_ESSENCE_OPULENCE'
   | 'ESSENCE_BREACH'
   | 'RUNIC_ALLOY'
   | 'LESSER_ESSENCE_BODY'
@@ -143,6 +145,8 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Perfect_Essence_of_Enhancement: 'PERFECT_ESSENCE_ENHANCEMENT',
   Essence_of_the_Abyss: 'ESSENCE_ABYSS',
   Essence_of_Horror: 'ESSENCE_HORROR',
+  Perfect_Essence_of_Grounding: 'PERFECT_ESSENCE_GROUNDING',
+  Perfect_Essence_of_Opulence: 'PERFECT_ESSENCE_OPULENCE',
   Essence_of_the_Breach: 'ESSENCE_BREACH',
   Runic_Alloy: 'RUNIC_ALLOY',
   Lesser_Essence_of_the_Body: 'LESSER_ESSENCE_BODY',
@@ -184,6 +188,8 @@ export const workbenchActionNames: Record<WorkbenchAction, string> = {
   PERFECT_ESSENCE_ENHANCEMENT: 'Perfect Essence of Enhancement',
   ESSENCE_ABYSS: 'Essence of the Abyss',
   ESSENCE_HORROR: 'Essence of Horror',
+  PERFECT_ESSENCE_GROUNDING: 'Perfect Essence of Grounding',
+  PERFECT_ESSENCE_OPULENCE: 'Perfect Essence of Opulence',
   ESSENCE_BREACH: 'Essence of the Breach',
   RUNIC_ALLOY: 'Runic Alloy',
   LESSER_ESSENCE_BODY: 'Lesser Essence of the Body',
@@ -495,6 +501,8 @@ export async function applyCurrency(
   > = {
     ESSENCE_HYSTERIA: ['stocky-mitts:suffix:of-fury'],
     ESSENCE_HORROR: ['stocky-mitts:suffix:essence-socketed-augment-effect'],
+    PERFECT_ESSENCE_GROUNDING: ['stocky-mitts:suffix:essence-lightning-recoup'],
+    PERFECT_ESSENCE_OPULENCE: ['stocky-mitts:suffix:essence-gold-quantity'],
     ESSENCE_ABYSS: [
       'stocky-mitts:prefix:essence-abyssal-mark',
       'stocky-mitts:suffix:essence-abyssal-mark',
@@ -525,7 +533,16 @@ export async function applyCurrency(
   if (
     !next ||
     (v.applied &&
-      action === 'ESSENCE_HORROR' &&
+      ['PERFECT_ESSENCE_GROUNDING', 'PERFECT_ESSENCE_OPULENCE'].includes(
+        action,
+      ) &&
+      state.itemLevel < 72) ||
+    (v.applied &&
+      [
+        'ESSENCE_HORROR',
+        'PERFECT_ESSENCE_GROUNDING',
+        'PERFECT_ESSENCE_OPULENCE',
+      ].includes(action) &&
       state.baseItemId !== 'Metadata/Items/Armours/Gloves/FourGlovesStr1') ||
     v.action !== action ||
     typeof v.applied !== 'boolean' ||
@@ -749,6 +766,37 @@ export async function applyCurrency(
       throw new Error(
         'Could not verify the essence replacement. Your item is unchanged. Please retry.',
       )
+    if (
+      ['PERFECT_ESSENCE_GROUNDING', 'PERFECT_ESSENCE_OPULENCE'].includes(action)
+    ) {
+      const range = definitions[added!.modifierId]?.stats?.[0]
+      const expectedSource =
+        'https://poe2db.tw/us/hover?s=Data%5CMods%2F' +
+        (action === 'PERFECT_ESSENCE_GROUNDING'
+          ? 'EssenceLightningRecoupLife1'
+          : 'EssenceGoldDropped1')
+      const models = v.assumptions.filter(
+        (a) => a.id === 'assumed-source-integer-roll-v1',
+      )
+      if (
+        !range ||
+        models.length !== 1 ||
+        !models.every(
+          (a) =>
+            a.candidateUnit === range.id &&
+            a.min === range.min &&
+            a.max === range.max &&
+            a.n === range.max - range.min + 1 &&
+            a.candidates.length === 0 &&
+            a.sourceUrl === expectedSource &&
+            a.reason.includes('UNVERIFIED'),
+        )
+      ) {
+        throw new Error(
+          'Could not verify the numeric model. Your item is unchanged. Please retry.',
+        )
+      }
+    }
   }
   if (
     v.applied &&

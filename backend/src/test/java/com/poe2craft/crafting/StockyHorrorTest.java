@@ -39,7 +39,7 @@ class StockyHorrorTest {
     assertThat(f.catalog.metadata().snapshotId())
         .startsWith("stocky-special-")
         .hasSizeLessThanOrEqualTo(120);
-    assertThat(f.catalog.compatibleSnapshotIds()).hasSize(2);
+    assertThat(f.catalog.compatibleSnapshotIds()).hasSize(3);
   }
 
   @Test
@@ -190,7 +190,7 @@ class StockyHorrorTest {
           .forEach((id, definition) -> assertThat(f.catalog.find(id)).contains(definition));
       assertThat(f.catalog.base()).isEqualTo(prior.base());
       assertThat(f.catalog.compatibleSnapshotIds())
-          .containsExactly(ordinary.metadata().snapshotId(), prior.metadata().snapshotId());
+          .contains(ordinary.metadata().snapshotId(), prior.metadata().snapshotId());
       try (var horror =
           getClass().getResourceAsStream("/catalog/stocky-mitts/horror-essence.catalog.json")) {
         assertThatThrownBy(

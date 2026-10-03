@@ -1075,6 +1075,23 @@ export function CraftingPage() {
                     supported yet.
                   </p>
                 )}
+                {(([
+                  'Perfect_Essence_of_Grounding',
+                  'Perfect_Essence_of_Opulence',
+                ].includes(selected?.id ?? '') &&
+                  concrete?.baseItemId ===
+                    'Metadata/Items/Armours/Gloves/FourGlovesStr1') ||
+                  concrete?.explicits.some(
+                    (m) =>
+                      m.modifierId.endsWith(':essence-lightning-recoup') ||
+                      m.modifierId.endsWith(':essence-gold-quantity'),
+                  )) && (
+                  <p className="workbench-feedback">
+                    Supported gloves: item level 72+. Lower item-level use is
+                    not verified. Modifier assignment only; Recoup recovery and
+                    Gold drop totals are not calculated.
+                  </p>
+                )}
                 {!canCraft && (
                   <p>
                     Pasted items are display-only until catalog mapping is
