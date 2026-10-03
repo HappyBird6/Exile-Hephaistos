@@ -1,6 +1,7 @@
 package com.poe2craft.crafting.domain;
 
 import java.util.List;
+import java.util.Set;
 
 /** Workbench rules are independent of the legacy six-action bucket explorer. */
 public enum WorkbenchCurrency {
@@ -32,6 +33,9 @@ public enum WorkbenchCurrency {
   ESSENCE_BREACH(null, 0),
   RUNIC_ALLOY(null, 0),
   PRISMATIC_ALLOY(null, 0),
+  EXPANSIVE_ALLOY(null, 0),
+  CYCLONIC_ALLOY(null, 0),
+  MYSTIC_ALLOY(null, 0),
   ESSENCE_ABYSS(null, 0),
   LESSER_ESSENCE_ENHANCEMENT("stocky-mitts:prefix:layered"),
   ESSENCE_ENHANCEMENT("stocky-mitts:prefix:buttressed"),
@@ -129,11 +133,15 @@ public enum WorkbenchCurrency {
   }
 
   public boolean isAlloy() {
-    return this == RUNIC_ALLOY || this == PRISMATIC_ALLOY;
+    return Set.of(RUNIC_ALLOY, PRISMATIC_ALLOY, EXPANSIVE_ALLOY, CYCLONIC_ALLOY, MYSTIC_ALLOY)
+        .contains(this);
   }
 
   public List<String> replacementModifiers() {
     return switch (this) {
+      case EXPANSIVE_ALLOY -> List.of("stocky-mitts:suffix:alloy-remnant-pickup-range");
+      case CYCLONIC_ALLOY -> List.of("stocky-mitts:suffix:alloy-damaging-ailment-duration");
+      case MYSTIC_ALLOY -> List.of("stocky-mitts:suffix:alloy-attack-area-of-effect");
       case RUNIC_ALLOY -> List.of("amulet:prefix:alloy-maximum-runic-ward");
       case PRISMATIC_ALLOY -> List.of("stocky-mitts:prefix:alloy-elemental-penetration");
       case ESSENCE_HYSTERIA -> List.of("amulet:suffix:of-suturing");
@@ -169,6 +177,9 @@ public enum WorkbenchCurrency {
 
   public String replacementSource() {
     return switch (this) {
+      case EXPANSIVE_ALLOY -> "https://poe2db.tw/us/Expansive_Alloy";
+      case CYCLONIC_ALLOY -> "https://poe2db.tw/us/Cyclonic_Alloy";
+      case MYSTIC_ALLOY -> "https://poe2db.tw/us/Mystic_Alloy";
       case RUNIC_ALLOY -> "https://poe2db.tw/us/Runic_Alloy";
       case PRISMATIC_ALLOY -> "https://poe2db.tw/us/Prismatic_Alloy";
       default -> replacementEssenceSource();

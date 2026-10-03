@@ -7,29 +7,27 @@ import com.poe2craft.item.*;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
-class StockyPrismaticAlloyTest {
+class StockyExpansiveAlloyTest {
   final StockyHysteriaTest f = new StockyHysteriaTest();
-  final WorkbenchCurrency action = WorkbenchCurrency.PRISMATIC_ALLOY;
-  final String target = "stocky-mitts:prefix:alloy-elemental-penetration";
+  final WorkbenchCurrency action = WorkbenchCurrency.EXPANSIVE_ALLOY;
+  final String target = "stocky-mitts:suffix:alloy-remnant-pickup-range";
 
   @Test
-  void sourcedAlloyHasSingleZeroWeightPrefixAndKeepsOrdinaryPool() throws Exception {
+  void sourcedAlloyHasSingleZeroWeightSuffixAndKeepsOrdinaryPool() throws Exception {
     var d = f.catalog.find(target).orElseThrow();
-    assertThat(d.affixType()).isEqualTo(ModifierDefinition.AffixType.PREFIX);
-    assertThat(d.requiredItemLevel()).isEqualTo(45);
+    assertThat(d.affixType()).isEqualTo(ModifierDefinition.AffixType.SUFFIX);
+    assertThat(d.requiredItemLevel()).isEqualTo(25);
     assertThat(d.weight()).isZero();
-    assertThat(d.familyIds()).containsExactly("ElementalPenetration");
+    assertThat(d.familyIds()).containsExactly("RemnantPickupRadius");
     assertThat(d.stats())
-        .containsExactly(
-            new ModifierDefinition.StatRange("reduce_enemy_elemental_resistance_%", 9, 15));
+        .containsExactly(new ModifierDefinition.StatRange("remnant_pickup_range_+%", 35, 50));
     assertThat(action.isAlloy()).isTrue();
     assertThat(action.replacementEssenceModifiers()).isEmpty();
-    try (var raw =
-        getClass().getResourceAsStream("/catalog/stocky-mitts/prismatic-alloy.raw.json")) {
-      var proof = new com.fasterxml.jackson.databind.ObjectMapper().readTree(raw);
-      assertThat(proof.path("row").path("Code").asText()).isEqualTo("AlloyElementalPenetration1");
+    try (var raw = getClass().getResourceAsStream("/catalog/stocky-mitts/scalar-alloys.raw.json")) {
+      var proof = new com.fasterxml.jackson.databind.ObjectMapper().readTree(raw).get(0);
+      assertThat(proof.path("row").path("Code").asText()).isEqualTo("AlloyRemnantPickupRange1");
       assertThat(proof.path("row").path("IsAlloy").asBoolean()).isTrue();
-      assertThat(proof.path("row").path("reqlvl").asInt()).isEqualTo(36);
+      assertThat(proof.path("row").path("reqlvl").asInt()).isEqualTo(20);
     }
     assertThat(f.catalog.modifiers()).hasSize(191);
     assertThat(f.catalog.modifiers().values().stream().filter(m -> m.weight() > 0)).hasSize(182);
@@ -40,7 +38,7 @@ class StockyPrismaticAlloyTest {
 
   @Test
   void unrelatedCrystallisationIncludingPairRemainsUnconsumedAndAllRemovalOutcomesReachable() {
-    var before = f.rare(45, "", "stocky-mitts:prefix:sanguine", "stocky-mitts:suffix:of-the-brute");
+    var before = f.rare(25, "", "stocky-mitts:prefix:sanguine", "stocky-mitts:suffix:of-the-brute");
     var omens =
         Set.of(
             WorkbenchOmen.SINISTRAL_CRYSTALLISATION.id(),
@@ -57,41 +55,43 @@ class StockyPrismaticAlloyTest {
       assertThat(r.events().getFirst().selectionProbability()).isEqualTo(.5);
       assertThat(r.events().getLast().selectionProbability()).isEqualTo(1);
       assertThat(r.events().getLast().modifierId()).isEqualTo(target);
-      values.add(r.events().getLast().values().get("reduce_enemy_elemental_resistance_%"));
+      values.add(r.events().getLast().values().get("remnant_pickup_range_+%"));
       removed.add(r.events().getFirst().modifierId());
       assertThat(r.assumptions())
           .extracting(WorkbenchSimulator.Assumption::id)
           .containsExactly("uniform-removal-v1", "assumed-source-integer-roll-v1");
-      assertThat(r.assumptions().getLast().n()).isEqualTo(7);
+      assertThat(r.assumptions().getLast().n()).isEqualTo(16);
       assertThat(r.assumptions().getLast().reason()).contains("UNVERIFIED");
       assertThat(new ItemStateValidator(f.catalog).validate(r.state())).isEmpty();
     }
-    assertThat(values).containsExactlyInAnyOrder(9L, 10L, 11L, 12L, 13L, 14L, 15L);
+    assertThat(values)
+        .containsExactlyInAnyOrder(
+            35L, 36L, 37L, 38L, 39L, 40L, 41L, 42L, 43L, 44L, 45L, 46L, 47L, 48L, 49L, 50L);
     assertThat(removed).hasSize(2);
   }
 
   @Test
-  void lowerLevelLocksFamilyAndAnyImpossiblePrefixBranchBlockWithoutPruning() {
+  void lowerLevelLocksFamilyAndAnyImpossibleSuffixBranchBlockWithoutPruning() {
     for (var before :
         List.of(
             f.root,
-            f.rare(44, "", "stocky-mitts:prefix:sanguine"),
-            f.rare(36, "", "stocky-mitts:prefix:sanguine"),
+            f.rare(24, "", "stocky-mitts:prefix:sanguine"),
+            f.rare(20, "", "stocky-mitts:prefix:sanguine"),
             f.rare(82, target, target),
             f.rare(82, "", target, "stocky-mitts:suffix:of-the-brute"),
             f.rare(
                 82,
                 "",
                 "stocky-mitts:prefix:sanguine",
-                "stocky-mitts:prefix:hunter-s",
-                "stocky-mitts:prefix:azure",
+                "stocky-mitts:suffix:of-the-penguin",
+                "stocky-mitts:suffix:of-the-salamander",
                 "stocky-mitts:suffix:of-the-brute"))) {
       var r = f.simulator.apply(before, action, Set.of(), new Random());
       assertThat(r.applied()).isFalse();
       assertThat(r.state()).isEqualTo(before);
       assertThat(r.events()).isEmpty();
     }
-    assertThat(f.simulator.apply(f.rare(45, "", target), action, Set.of(), new Random()).applied())
+    assertThat(f.simulator.apply(f.rare(25, "", target), action, Set.of(), new Random()).applied())
         .isTrue();
   }
 

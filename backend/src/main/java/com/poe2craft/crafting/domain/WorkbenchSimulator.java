@@ -99,7 +99,7 @@ public final class WorkbenchSimulator {
   }
 
   public String ruleVersion() {
-    return coupledModifierIds.isEmpty() ? RULE_VERSION : "stocky-workbench-prismatic-v23";
+    return coupledModifierIds.isEmpty() ? RULE_VERSION : "stocky-workbench-scalar-alloys-v24";
   }
 
   public String ledgerVersion() {

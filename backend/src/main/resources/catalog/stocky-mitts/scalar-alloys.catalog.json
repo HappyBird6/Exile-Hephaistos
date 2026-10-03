@@ -1,0 +1,80 @@
+{
+  "modifiers": [
+    {
+      "stats": [
+        {
+          "max": 50,
+          "id": "remnant_pickup_range_+%",
+          "min": 35
+        }
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyRemnantPickupRange1",
+      "tags": [],
+      "id": "stocky-mitts:suffix:alloy-remnant-pickup-range",
+      "name": "of the Stars",
+      "requiredItemLevel": 25,
+      "weight": 0,
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "RemnantPickupRadius"
+      ],
+      "text": "Remnants can be collected from (35—50)% further away",
+      "layer": "EXPLICIT",
+      "tier": 1
+    },
+    {
+      "stats": [
+        {
+          "max": 25,
+          "id": "damaging_ailment_duration_+%",
+          "min": 20
+        }
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyDamagingAilmentDuration1",
+      "tags": [
+        "ailment"
+      ],
+      "id": "stocky-mitts:suffix:alloy-damaging-ailment-duration",
+      "name": "of the Stars",
+      "requiredItemLevel": 45,
+      "weight": 0,
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "DamagingAilmentDuration"
+      ],
+      "text": "(20—25)% increased Duration of Damaging Ailments on Enemies",
+      "layer": "EXPLICIT",
+      "tier": 1
+    },
+    {
+      "stats": [
+        {
+          "max": 15,
+          "id": "attack_area_of_effect_+%",
+          "min": 10
+        }
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyAttackAreaOfEffect1",
+      "tags": [
+        "attack"
+      ],
+      "id": "stocky-mitts:suffix:alloy-attack-area-of-effect",
+      "name": "of the Stars",
+      "requiredItemLevel": 45,
+      "weight": 0,
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedAttackAreaOfEffect"
+      ],
+      "text": "(10—15)% increased Area of Effect for Attacks",
+      "layer": "EXPLICIT",
+      "tier": 1
+    }
+  ],
+  "metadata": {
+    "retrievedAt": "2026-10-03T06:33:08.936Z",
+    "sourceUrl": "https://poe2db.tw/us/Gloves_str#ModifiersCalc",
+    "rawSha256": "1d0316cd396eee84f10d662c3b7ea220fbd93b56b66adbf332fd6a81a46d436b",
+    "snapshotId": "stocky-scalar-alloys-2026-10-03-1d0316cd396e"
+  }
+}

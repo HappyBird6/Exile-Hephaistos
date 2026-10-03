@@ -21,6 +21,9 @@ export type WorkbenchAction =
   | 'PERFECT_ESSENCE_OPULENCE'
   | 'ESSENCE_BREACH'
   | 'RUNIC_ALLOY'
+  | 'EXPANSIVE_ALLOY'
+  | 'CYCLONIC_ALLOY'
+  | 'MYSTIC_ALLOY'
   | 'PRISMATIC_ALLOY'
   | 'LESSER_ESSENCE_BODY'
   | 'ESSENCE_BODY'
@@ -150,6 +153,9 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Perfect_Essence_of_Opulence: 'PERFECT_ESSENCE_OPULENCE',
   Essence_of_the_Breach: 'ESSENCE_BREACH',
   Runic_Alloy: 'RUNIC_ALLOY',
+  Expansive_Alloy: 'EXPANSIVE_ALLOY',
+  Cyclonic_Alloy: 'CYCLONIC_ALLOY',
+  Mystic_Alloy: 'MYSTIC_ALLOY',
   Prismatic_Alloy: 'PRISMATIC_ALLOY',
   Lesser_Essence_of_the_Body: 'LESSER_ESSENCE_BODY',
   Essence_of_the_Body: 'ESSENCE_BODY',
@@ -194,6 +200,9 @@ export const workbenchActionNames: Record<WorkbenchAction, string> = {
   PERFECT_ESSENCE_OPULENCE: 'Perfect Essence of Opulence',
   ESSENCE_BREACH: 'Essence of the Breach',
   RUNIC_ALLOY: 'Runic Alloy',
+  EXPANSIVE_ALLOY: 'Expansive Alloy',
+  CYCLONIC_ALLOY: 'Cyclonic Alloy',
+  MYSTIC_ALLOY: 'Mystic Alloy',
   PRISMATIC_ALLOY: 'Prismatic Alloy',
   LESSER_ESSENCE_BODY: 'Lesser Essence of the Body',
   ESSENCE_BODY: 'Essence of the Body',
@@ -504,6 +513,9 @@ export async function applyCurrency(
   > = {
     ESSENCE_HYSTERIA: ['stocky-mitts:suffix:of-fury'],
     ESSENCE_HORROR: ['stocky-mitts:suffix:essence-socketed-augment-effect'],
+    EXPANSIVE_ALLOY: ['stocky-mitts:suffix:alloy-remnant-pickup-range'],
+    CYCLONIC_ALLOY: ['stocky-mitts:suffix:alloy-damaging-ailment-duration'],
+    MYSTIC_ALLOY: ['stocky-mitts:suffix:alloy-attack-area-of-effect'],
     PRISMATIC_ALLOY: ['stocky-mitts:prefix:alloy-elemental-penetration'],
     PERFECT_ESSENCE_GROUNDING: ['stocky-mitts:suffix:essence-lightning-recoup'],
     PERFECT_ESSENCE_OPULENCE: ['stocky-mitts:suffix:essence-gold-quantity'],
@@ -537,6 +549,10 @@ export async function applyCurrency(
   if (
     !next ||
     (v.applied && action === 'PRISMATIC_ALLOY' && state.itemLevel < 45) ||
+    (v.applied && action === 'EXPANSIVE_ALLOY' && state.itemLevel < 25) ||
+    (v.applied &&
+      ['CYCLONIC_ALLOY', 'MYSTIC_ALLOY'].includes(action) &&
+      state.itemLevel < 45) ||
     (v.applied &&
       ['PERFECT_ESSENCE_GROUNDING', 'PERFECT_ESSENCE_OPULENCE'].includes(
         action,
@@ -545,6 +561,9 @@ export async function applyCurrency(
     (v.applied &&
       [
         'ESSENCE_HORROR',
+        'EXPANSIVE_ALLOY',
+        'CYCLONIC_ALLOY',
+        'MYSTIC_ALLOY',
         'PRISMATIC_ALLOY',
         'PERFECT_ESSENCE_GROUNDING',
         'PERFECT_ESSENCE_OPULENCE',
@@ -704,7 +723,13 @@ export async function applyCurrency(
   if (v.applied && replacementTargets.length > 0) {
     const matching = workbenchOmens.filter(
       (o) =>
-        !['RUNIC_ALLOY', 'PRISMATIC_ALLOY'].includes(action) &&
+        ![
+          'RUNIC_ALLOY',
+          'PRISMATIC_ALLOY',
+          'EXPANSIVE_ALLOY',
+          'CYCLONIC_ALLOY',
+          'MYSTIC_ALLOY',
+        ].includes(action) &&
         o.trigger === 'ESSENCE_HYSTERIA' &&
         activeOmens.includes(o.id),
     )
@@ -776,6 +801,9 @@ export async function applyCurrency(
       [
         'PERFECT_ESSENCE_GROUNDING',
         'PERFECT_ESSENCE_OPULENCE',
+        'EXPANSIVE_ALLOY',
+        'CYCLONIC_ALLOY',
+        'MYSTIC_ALLOY',
         'PRISMATIC_ALLOY',
       ].includes(action)
     ) {
@@ -786,7 +814,13 @@ export async function applyCurrency(
           ? 'EssenceLightningRecoupLife1'
           : action === 'PERFECT_ESSENCE_OPULENCE'
             ? 'EssenceGoldDropped1'
-            : 'AlloyElementalPenetration1')
+            : action === 'EXPANSIVE_ALLOY'
+              ? 'AlloyRemnantPickupRange1'
+              : action === 'CYCLONIC_ALLOY'
+                ? 'AlloyDamagingAilmentDuration1'
+                : action === 'MYSTIC_ALLOY'
+                  ? 'AlloyAttackAreaOfEffect1'
+                  : 'AlloyElementalPenetration1')
       const models = v.assumptions.filter(
         (a) => a.id === 'assumed-source-integer-roll-v1',
       )

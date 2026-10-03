@@ -39,19 +39,28 @@ class StockyHysteriaTest {
         var prismatic =
             StockyHysteriaTest.class.getResourceAsStream(
                 "/catalog/stocky-mitts/prismatic-alloy.catalog.json");
+        var scalar =
+            StockyHysteriaTest.class.getResourceAsStream(
+                "/catalog/stocky-mitts/scalar-alloys.catalog.json");
+        var scalarRaw =
+            StockyHysteriaTest.class.getResourceAsStream(
+                "/catalog/stocky-mitts/scalar-alloys.raw.json");
         var prismaticRaw =
             StockyHysteriaTest.class.getResourceAsStream(
                 "/catalog/stocky-mitts/prismatic-alloy.raw.json")) {
       return ItemCatalogLoader.addSpecial(
           ItemCatalogLoader.addSpecial(
               ItemCatalogLoader.addSpecial(
-                  ItemCatalogLoader.loadWithSpecial(data, raw, details, special, specialRaw),
-                  horror,
-                  horrorRaw),
-              perfect,
-              perfectRaw),
-          prismatic,
-          prismaticRaw);
+                  ItemCatalogLoader.addSpecial(
+                      ItemCatalogLoader.loadWithSpecial(data, raw, details, special, specialRaw),
+                      horror,
+                      horrorRaw),
+                  perfect,
+                  perfectRaw),
+              prismatic,
+              prismaticRaw),
+          scalar,
+          scalarRaw);
     } catch (Exception e) {
       throw new IllegalStateException(e);
     }
@@ -283,7 +292,7 @@ class StockyHysteriaTest {
       assertThat(definition.stats())
           .containsExactly(
               new ModifierDefinition.StatRange("base_critical_strike_multiplier_+", 25, 29));
-      assertThat(catalog.modifiers()).hasSize(188);
+      assertThat(catalog.modifiers()).hasSize(191);
     }
   }
 }

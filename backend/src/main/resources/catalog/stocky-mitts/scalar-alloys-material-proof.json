@@ -1,0 +1,70 @@
+[
+  {
+    "slug": "Expansive_Alloy",
+    "url": "https://poe2db.tw/us/Expansive_Alloy",
+    "retrievedAt": "2026-10-03T06:50:20.34Z",
+    "sha256": "b93441dcbfac1f17505244da08b0f4cff9c8458cd51ca3c024e49615c0284dcb",
+    "blocks": [
+      "Expansive Alloy",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Gloves: Remnants can be collected from (35—50)% further away",
+      "Body Armour: (35—50)% increased Presence Area of Effect",
+      "Helmet: (18—29)% increased Mana Cost Efficiency",
+      "Boots: Temporary Minion Skills have +(1—2) to Limit of Minions summoned"
+    ],
+    "materialBlocks": [
+      "Expansive Alloy",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Gloves: Remnants can be collected from (35—50)% further away",
+      "Body Armour: (35—50)% increased Presence Area of Effect",
+      "Helmet: (18—29)% increased Mana Cost Efficiency",
+      "Boots: Temporary Minion Skills have +(1—2) to Limit of Minions summoned"
+    ]
+  },
+  {
+    "slug": "Cyclonic_Alloy",
+    "url": "https://poe2db.tw/us/Cyclonic_Alloy",
+    "retrievedAt": "2026-10-03T06:50:21.665Z",
+    "sha256": "2c49951737beb4cc700dfce08c8a83cdacbf773410cb0cf66041f27e1940fb9f",
+    "blocks": [
+      "Cyclonic Alloy",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Body Armour: (15—30)% reduced Slowing Potency of Debuffs on You",
+      "Boots: (15—19)% increased Skill Effect Duration",
+      "Gloves: (20—25)% increased Duration of Damaging Ailments on Enemies",
+      "Helmet: (35—42)% increased Archon Buff duration"
+    ],
+    "materialBlocks": [
+      "Cyclonic Alloy",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Body Armour: (15—30)% reduced Slowing Potency of Debuffs on You",
+      "Boots: (15—19)% increased Skill Effect Duration",
+      "Gloves: (20—25)% increased Duration of Damaging Ailments on Enemies",
+      "Helmet: (35—42)% increased Archon Buff duration"
+    ]
+  },
+  {
+    "slug": "Mystic_Alloy",
+    "url": "https://poe2db.tw/us/Mystic_Alloy",
+    "retrievedAt": "2026-10-03T06:50:26.315Z",
+    "sha256": "3f0f5449b13e9bd43b322990f9c37485ba27c8319fc5539f972af369a5f83729",
+    "blocks": [
+      "Mystic Alloy",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Helmet: Spell Skills have (10—15)% increased Area of Effect",
+      "Gloves: (10—15)% increased Area of Effect for Attacks",
+      "Boots: +(10—15) to Spirit",
+      "Quiver: (25—35)% chance to Chain an additional time",
+      "Caster Weapon: +1 to maximum number of Elemental Infusions"
+    ],
+    "materialBlocks": [
+      "Mystic Alloy",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Helmet: Spell Skills have (10—15)% increased Area of Effect",
+      "Gloves: (10—15)% increased Area of Effect for Attacks",
+      "Boots: +(10—15) to Spirit",
+      "Quiver: (25—35)% chance to Chain an additional time",
+      "Caster Weapon: +1 to maximum number of Elemental Infusions"
+    ]
+  }
+]

@@ -208,3 +208,12 @@ Latest Abyss verification: Docker BE 201 (195 unit/six integration), FE 117/22 f
 - [Primary evidence, exact limits, executed/non-rerun checks, observed costs and next data batch](docs/workbench-stocky-prismatic-alloy-2026-10-03.md).
 
 Next independent data batch: source-backed single-effect Expansive/Cyclonic/Mystic Alloys through the same engine, with per-material automated proof/invariant tests and one shared browser regression. Conditional/multiple-family/Local-Ward candidates follow their own boundaries; WB-003/004/005/010/017 remain unresolved. Broad unchanged-screen regressions are not repeated per material.
+## WB-019 — DONE — Expansive/Cyclonic/Mystic Alloy data batch
+
+- Three exact current PoE2 glove results share the existing Rare Alloy replacement engine: Global suffix RemnantPickupRadius35..50/level25, DamagingAilmentDuration20..25/level45, IncreasedAttackAreaOfEffect10..15/level45. One checksum-reviewed extension; other equipment/Fists of Stone outcomes excluded.
+- Whole removal-branch/family/capacity checks, Fracture/unaffected value preservation and Alloy-specific Crystallisation non-consumption retained. Numeric integers remain WB-003 UNVERIFIED; lower ilvl remains WB-017 (Expansive25 vs20 and Cyclonic/Mystic45 vs36). Computed collection/timing/area absent and labeled.
+- Registry unique implemented71/registered220; Stocky64 support records/53 actions/191 definitions, Solar60/49 unchanged. Ordinary182 positive-weight definitions and63,700/84,500 totals unchanged; nine zero-spawn special definitions. Five old snapshot identities retained.
+- Docker final BE231/FE145 pass; one combined actual Alloy browser70 and old v23 film11 assertions, zero page errors; actual per-target API locks/pools and staged source checks pass. Earlier full browser matrices/cachepersist were not rerun for this data batch.
+- [Exact evidence, count definitions, execution limits and next invariant review](docs/workbench-stocky-scalar-alloys-2026-10-03.md).
+
+Next independent review: Adaptive conditional effect, Swift two-family exclusion and Sovereign Local Ward property boundary. Source capture alone is not implementation. WB-003/004/005/010/017 remain unresolved.

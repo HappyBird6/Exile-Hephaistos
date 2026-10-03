@@ -51,7 +51,7 @@ class StockyPerfectGloveEssenceTest {
             .isEqualTo("Global");
       }
     }
-    assertThat(f.catalog.modifiers()).hasSize(188);
+    assertThat(f.catalog.modifiers()).hasSize(191);
     assertThat(f.catalog.modifiers().values().stream().filter(d -> d.weight() > 0)).hasSize(182);
     assertThat(f.catalog.metadata().prefixWeight()).isEqualTo(63700);
     assertThat(f.catalog.metadata().suffixWeight()).isEqualTo(84500);
@@ -243,6 +243,8 @@ class StockyPerfectGloveEssenceTest {
       identities.add(prior.metadata().snapshotId());
       identities.add(
           "stocky-special-f8caf300c834d9cf59ae1e889cc5100a000f3966025ddb55ac07f58529d79111");
+      identities.add(
+          "stocky-special-cd0fbb24fa8e73d482b4baab53fd1b0d058197cc4b7766be9646c03ebc6cfdca");
       assertThat(f.catalog.compatibleSnapshotIds()).containsExactlyElementsOf(identities);
       assertThat(f.catalog.metadata().snapshotId())
           .startsWith("stocky-special-")

@@ -1092,6 +1092,28 @@ export function CraftingPage() {
                     Gold drop totals are not calculated.
                   </p>
                 )}
+                {(([
+                  'Expansive_Alloy',
+                  'Cyclonic_Alloy',
+                  'Mystic_Alloy',
+                ].includes(selected?.id ?? '') &&
+                  concrete?.baseItemId ===
+                    'Metadata/Items/Armours/Gloves/FourGlovesStr1') ||
+                  concrete?.explicits.some((m) =>
+                    [
+                      ':alloy-remnant-pickup-range',
+                      ':alloy-damaging-ailment-duration',
+                      ':alloy-attack-area-of-effect',
+                    ].some((id) => m.modifierId.endsWith(id)),
+                  )) && (
+                  <p className="workbench-feedback">
+                    Supported gloves: Expansive item level 25+; Cyclonic and
+                    Mystic 45+. Lower item-level use is not verified. Modifier
+                    assignment only; Remnant collection, ailment duration and
+                    attack area are not calculated. Crystallisation omens do not
+                    apply to Alloys.
+                  </p>
+                )}
                 {((selected?.id === 'Prismatic_Alloy' &&
                   concrete?.baseItemId ===
                     'Metadata/Items/Armours/Gloves/FourGlovesStr1') ||
