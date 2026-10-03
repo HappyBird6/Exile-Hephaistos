@@ -164,19 +164,22 @@ function invalid(): never {
 export async function loadInitial(
   level: number,
   signal: AbortSignal,
-  base: 'solar' | 'stocky' = 'solar',
+  base: 'solar' | 'stocky' | 'bow' = 'solar',
 ): Promise<Initial> {
   const v = await request(
     base === 'solar'
       ? `initial?itemLevel=${level}`
-      : `workbench/initial?base=stocky&itemLevel=${level}`,
+      : `workbench/initial?base=${base}&itemLevel=${level}`,
     signal,
   )
   if (
     !object(v) ||
     !bucket(v.state) ||
-    (base === 'stocky'
-      ? v.state.baseItemId !== 'Metadata/Items/Armours/Gloves/FourGlovesStr1' ||
+    (base !== 'solar'
+      ? v.state.baseItemId !==
+          (base === 'stocky'
+            ? 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+            : 'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1') ||
         v.state.implicits.length !== 0
       : v.state.implicits.length !== 1) ||
     v.state.itemLevel !== level ||

@@ -4,7 +4,7 @@ Single issue list from 2026-10-02, explicitly requested by the user. Record new 
 
 ## WB-001 — ASSUMED — Coupled numeric rolls
 
-- Scope: source-proven multi-stat Workbench modifiers; Stocky Mitts Workbench now explicitly opts into the conjecture, while default Solar does not.
+- Scope: source-proven multi-stat Workbench modifiers; Stocky Mitts and Crude Bow Workbench explicitly opt into the conjecture, while default Solar does not.
 - User approval 2026-10-02: “독립적이지는 않고 비율에 맞게 나올거야. 소수점은 반올림하고 부정확한 판단이라고 이슈리스트에 추가해”. Shared ratio and rounding are the user's unverified conjecture, not an official rule.
 - Model: one tick sampled uniformly from 0..10000 inclusive, ratio=tick/10000; each stat=min+(max-min)*ratio; round integer HALF_UP (negative -1.5 -> -2, positive 1.5 -> 2). Resolution and tick distribution are explicit implementation assumptions. Preserve each source endpoint; fixed stats remain fixed. Exact decimal arithmetic avoids floating point/overflow changes. Rounded tuples may repeat and are not uniform; never use an independent Cartesian product.
 - Impact: permits opt-in modelling only for identified multi-stat ranges; API assumption ID user-coupled-ratio-half-up-v1 and UI distinguish conjecture. Existing 1/N agreement applies to established eligible outcome sets; the model tick domain is separately assumed, not a verified game set. Modifier selection weights are separate. Default Solar never opts in. Stocky activation uses the declared WB-003/WB-006 model boundary; stored films remain version 1.
@@ -253,3 +253,14 @@ Next independent review: Adaptive conditional effect, Swift two-family exclusion
 - Future development only: exact mapping65 effective exclusions (64 direct, one Vaal-operation dependency), including retained Liquid27/Hinekora, all Alloy13, Vaal-related11 including Architects Orb, Mirror/Core and10 specified Omens. Existing8 implemented Alloys/code/UI are preserved. No deletion or unnecessary disablement.
 - Omen of Putrefaction and Omen of Corruption are distinct names/IDs; the latter is separately dependent on deferred Vaal Orb. Crystallisation for current Essences remains supported. WB-021 Solar Sovereign and additional Alloy work are deferred; WB-005 Vaal-related outcomes and Sanctification are future work. The existing nine-family route is overridden by these deferrals.
 - Registry220/overall implemented75 remains separate from current development inventory155/implemented67/unimplemented88. The new count75 includes bounded Stocky Artificer. No complete-game or two-base completion claim. [Full Korean/ID mapping and counts](docs/workbench-development-deferrals-2026-10-03.md).
+## WB-026 - DONE - Crude Bow bounded Workbench and basic Essences
+
+- Scope: user-authorised limited equipment base expansion, compared against Wand/body armour and existing rule/state candidates. One complete140-row Bow catalog enables21 basic Essence paths,20 new registry implementations. No combat totals, full-base crawl, socket resource engine or Perfect Bow result claim.
+- Evidence: [selection, primary sources, local/global Spawn Tag disambiguation and item/character level distinction](docs/workbench-crude-bow-2026-10-03.md). Same65 current-development exclusions and eight implemented deferred Alloys retained.
+- Regression: shared ordinary crafting, exact guaranteed targets, level/family refusals, Fracture retention and old Solar/Stocky catalogs; final Bow browser120, Artificer browser26, API121+42, full BE289/FE192 passed; details in the linked document. Numeric precision/correlation remains explicitly ASSUMED/OPEN (WB-001/WB-003).
+
+## WB-027 - DONE - JSON stat key order rejected valid crafts
+
+- Trigger: actual Lesser Essence of Ice on Crude Bow. Server event values and final modifier values contained identical two-stat data with different JSON property order. FE's JSON.stringify equality rejected the valid response and preserved the old Magic film.
+- Fix: compare exact stat-key sets and values independently of serialization order, also for preserved/replacement/Greater Exaltation/Fractured instances. Forged extra keys or changed values still refuse. No archived film rewriting.
+- Evidence: actual QA response fixture, positive reorder/Fracture refusal and negative forged-data contracts in BowWorkbenchContract.test.ts; final Bow browser120/Artificer browser26 and full FE192 passed on index-ChEgnTIJ.js; no page errors.

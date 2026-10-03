@@ -5,6 +5,26 @@ import { currencyActions, actionNames } from './craftingApi'
 import type { Action, Bucket, Definition, Initial } from './craftingApi'
 
 export type WorkbenchAction =
+  | 'LESSER_ESSENCE_ABRASION'
+  | 'ESSENCE_ABRASION'
+  | 'GREATER_ESSENCE_ABRASION'
+  | 'LESSER_ESSENCE_FLAMES'
+  | 'ESSENCE_FLAMES'
+  | 'GREATER_ESSENCE_FLAMES'
+  | 'LESSER_ESSENCE_ICE'
+  | 'ESSENCE_ICE'
+  | 'GREATER_ESSENCE_ICE'
+  | 'LESSER_ESSENCE_ELECTRICITY'
+  | 'ESSENCE_ELECTRICITY'
+  | 'GREATER_ESSENCE_ELECTRICITY'
+  | 'LESSER_ESSENCE_BATTLE'
+  | 'ESSENCE_BATTLE'
+  | 'LESSER_ESSENCE_HASTE'
+  | 'ESSENCE_HASTE'
+  | 'GREATER_ESSENCE_HASTE'
+  | 'LESSER_ESSENCE_SEEKING'
+  | 'ESSENCE_SEEKING'
+  | 'GREATER_ESSENCE_SEEKING'
   | 'ARTIFICER'
   | Action
   | `GREATER_${Exclude<Action, 'ANNULMENT'>}`
@@ -56,6 +76,29 @@ export type WorkbenchAction =
   | 'LESSER_ESSENCE_OPULENCE'
   | 'ESSENCE_OPULENCE'
   | 'GREATER_ESSENCE_OPULENCE'
+const bowFixedEssenceModifiers: Partial<Record<WorkbenchAction, string>> = {
+  LESSER_ESSENCE_ABRASION: 'crude-bow:prefix:burnished',
+  ESSENCE_ABRASION: 'crude-bow:prefix:gleaming',
+  GREATER_ESSENCE_ABRASION: 'crude-bow:prefix:razor-sharp',
+  LESSER_ESSENCE_FLAMES: 'crude-bow:prefix:smouldering',
+  ESSENCE_FLAMES: 'crude-bow:prefix:flaming',
+  GREATER_ESSENCE_FLAMES: 'crude-bow:prefix:incinerating',
+  LESSER_ESSENCE_ICE: 'crude-bow:prefix:chilled',
+  ESSENCE_ICE: 'crude-bow:prefix:freezing',
+  GREATER_ESSENCE_ICE: 'crude-bow:prefix:glaciated',
+  LESSER_ESSENCE_ELECTRICITY: 'crude-bow:prefix:buzzing',
+  ESSENCE_ELECTRICITY: 'crude-bow:prefix:sparking',
+  GREATER_ESSENCE_ELECTRICITY: 'crude-bow:prefix:shocking',
+  LESSER_ESSENCE_BATTLE: 'crude-bow:prefix:focused',
+  ESSENCE_BATTLE: 'crude-bow:prefix:consistent',
+  GREATER_ESSENCE_BATTLE: 'crude-bow:prefix:hunter-s',
+  LESSER_ESSENCE_HASTE: 'crude-bow:suffix:of-ease',
+  ESSENCE_HASTE: 'crude-bow:suffix:of-mastery',
+  GREATER_ESSENCE_HASTE: 'crude-bow:suffix:of-renown',
+  LESSER_ESSENCE_SEEKING: 'crude-bow:suffix:of-havoc',
+  ESSENCE_SEEKING: 'crude-bow:suffix:of-disaster',
+  GREATER_ESSENCE_SEEKING: 'crude-bow:suffix:of-calamity',
+}
 const fixedEssenceModifiers: Partial<Record<WorkbenchAction, string>> = {
   LESSER_ESSENCE_ENHANCEMENT: 'stocky-mitts:prefix:layered',
   ESSENCE_ENHANCEMENT: 'stocky-mitts:prefix:buttressed',
@@ -143,6 +186,26 @@ const replacementEssenceModifiers: Partial<
   ],
 }
 export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
+  Lesser_Essence_of_Abrasion: 'LESSER_ESSENCE_ABRASION',
+  Essence_of_Abrasion: 'ESSENCE_ABRASION',
+  Greater_Essence_of_Abrasion: 'GREATER_ESSENCE_ABRASION',
+  Lesser_Essence_of_Flames: 'LESSER_ESSENCE_FLAMES',
+  Essence_of_Flames: 'ESSENCE_FLAMES',
+  Greater_Essence_of_Flames: 'GREATER_ESSENCE_FLAMES',
+  Lesser_Essence_of_Ice: 'LESSER_ESSENCE_ICE',
+  Essence_of_Ice: 'ESSENCE_ICE',
+  Greater_Essence_of_Ice: 'GREATER_ESSENCE_ICE',
+  Lesser_Essence_of_Electricity: 'LESSER_ESSENCE_ELECTRICITY',
+  Essence_of_Electricity: 'ESSENCE_ELECTRICITY',
+  Greater_Essence_of_Electricity: 'GREATER_ESSENCE_ELECTRICITY',
+  Lesser_Essence_of_Battle: 'LESSER_ESSENCE_BATTLE',
+  Essence_of_Battle: 'ESSENCE_BATTLE',
+  Lesser_Essence_of_Haste: 'LESSER_ESSENCE_HASTE',
+  Essence_of_Haste: 'ESSENCE_HASTE',
+  Greater_Essence_of_Haste: 'GREATER_ESSENCE_HASTE',
+  Lesser_Essence_of_Seeking: 'LESSER_ESSENCE_SEEKING',
+  Essence_of_Seeking: 'ESSENCE_SEEKING',
+  Greater_Essence_of_Seeking: 'GREATER_ESSENCE_SEEKING',
   Artificers_Orb: 'ARTIFICER',
   ...currencyActions,
   Lesser_Essence_of_Enhancement: 'LESSER_ESSENCE_ENHANCEMENT',
@@ -194,6 +257,26 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Greater_Essence_of_Opulence: 'GREATER_ESSENCE_OPULENCE',
 }
 export const workbenchActionNames: Record<WorkbenchAction, string> = {
+  LESSER_ESSENCE_ABRASION: 'Lesser Essence of Abrasion',
+  ESSENCE_ABRASION: 'Essence of Abrasion',
+  GREATER_ESSENCE_ABRASION: 'Greater Essence of Abrasion',
+  LESSER_ESSENCE_FLAMES: 'Lesser Essence of Flames',
+  ESSENCE_FLAMES: 'Essence of Flames',
+  GREATER_ESSENCE_FLAMES: 'Greater Essence of Flames',
+  LESSER_ESSENCE_ICE: 'Lesser Essence of Ice',
+  ESSENCE_ICE: 'Essence of Ice',
+  GREATER_ESSENCE_ICE: 'Greater Essence of Ice',
+  LESSER_ESSENCE_ELECTRICITY: 'Lesser Essence of Electricity',
+  ESSENCE_ELECTRICITY: 'Essence of Electricity',
+  GREATER_ESSENCE_ELECTRICITY: 'Greater Essence of Electricity',
+  LESSER_ESSENCE_BATTLE: 'Lesser Essence of Battle',
+  ESSENCE_BATTLE: 'Essence of Battle',
+  LESSER_ESSENCE_HASTE: 'Lesser Essence of Haste',
+  ESSENCE_HASTE: 'Essence of Haste',
+  GREATER_ESSENCE_HASTE: 'Greater Essence of Haste',
+  LESSER_ESSENCE_SEEKING: 'Lesser Essence of Seeking',
+  ESSENCE_SEEKING: 'Essence of Seeking',
+  GREATER_ESSENCE_SEEKING: 'Greater Essence of Seeking',
   ARTIFICER: "Artificer's Orb",
   ...actionNames,
   LESSER_ESSENCE_ENHANCEMENT: 'Lesser Essence of Enhancement',
@@ -526,10 +609,21 @@ export async function applyCurrency(
   const v = (await response.json()) as AppliedItem
   const next = v?.state
   const baseAction = baseWorkbenchAction(action)
+  const sameValues = (
+    a: Record<string, number> | undefined,
+    b: Record<string, number> | undefined,
+  ) =>
+    Boolean(a && b) &&
+    Object.keys(a!).length === Object.keys(b!).length &&
+    Object.entries(a!).every(
+      ([key, value]) => Object.hasOwn(b!, key) && b![key] === value,
+    )
   const fixedTarget =
-    state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
-      ? (stockyFixedEssenceModifiers[action] ?? fixedEssenceModifiers[action])
-      : fixedEssenceModifiers[action]
+    state.baseItemId === 'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1'
+      ? bowFixedEssenceModifiers[action]
+      : state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+        ? (stockyFixedEssenceModifiers[action] ?? fixedEssenceModifiers[action])
+        : fixedEssenceModifiers[action]
   const essenceCandidates = fixedTarget
     ? [fixedTarget]
     : (choiceEssenceModifiers[action] ?? [])
@@ -568,7 +662,7 @@ export async function applyCurrency(
       (m, i) =>
         m.modifierId === b[i]?.modifierId &&
         Boolean(m.fractured) === Boolean(b[i]?.fractured) &&
-        JSON.stringify(m.values) === JSON.stringify(b[i]?.values),
+        sameValues(m.values, b[i]?.values),
     )
   const validValues = (values: Record<string, number>) =>
     values &&
@@ -606,7 +700,9 @@ export async function applyCurrency(
         'PERFECT_ESSENCE_GROUNDING',
         'PERFECT_ESSENCE_OPULENCE',
       ].includes(action) &&
-      state.baseItemId !== 'Metadata/Items/Armours/Gloves/FourGlovesStr1') ||
+      state.baseItemId !== 'Metadata/Items/Armours/Gloves/FourGlovesStr1' &&
+      state.baseItemId !==
+        'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1') ||
     v.action !== action ||
     typeof v.applied !== 'boolean' ||
     typeof v.reason !== 'string' ||
@@ -825,7 +921,7 @@ export async function applyCurrency(
       !replacementTargets.includes(added.modifierId) ||
       added.selectionProbability !== 1 / replacementTargets.length ||
       !target ||
-      JSON.stringify(added.values) !== JSON.stringify(target.values) ||
+      !sameValues(added.values, target.values) ||
       matching.length > 1 ||
       v.consumedOmens.length !== matching.length ||
       !matching.every((o) => v.consumedOmens.includes(o.id)) ||
@@ -940,11 +1036,11 @@ export async function applyCurrency(
           .filter(Boolean),
         state.explicits,
       ) ||
-      JSON.stringify(v.events[0]?.values) !==
-        JSON.stringify(
-          next.explicits.find((m) => m.modifierId === v.events[0]?.modifierId)
-            ?.values,
-        ))
+      !sameValues(
+        v.events[0]?.values,
+        next.explicits.find((m) => m.modifierId === v.events[0]?.modifierId)
+          ?.values,
+      ))
   )
     throw new Error(
       'Could not verify the guaranteed essence modifier. Your item is unchanged. Please retry.',
@@ -969,11 +1065,11 @@ export async function applyCurrency(
         (event) =>
           event.kind !== 'ADD' ||
           state.explicits.some((old) => old.modifierId === event.modifierId) ||
-          JSON.stringify(event.values) !==
-            JSON.stringify(
-              next.explicits.find((m) => m.modifierId === event.modifierId)
-                ?.values,
-            ),
+          !sameValues(
+            event.values,
+            next.explicits.find((m) => m.modifierId === event.modifierId)
+              ?.values,
+          ),
       ) ||
       !v.consumedOmens.includes('Omen_of_Greater_Exaltation'))
   )
@@ -990,7 +1086,7 @@ export async function applyCurrency(
           (m) =>
             m.modifierId === locked.modifierId &&
             m.fractured &&
-            JSON.stringify(m.values) === JSON.stringify(locked.values),
+            sameValues(m.values, locked.values),
         ),
     ) ||
     (v.applied &&
@@ -1002,8 +1098,7 @@ export async function applyCurrency(
         next.explicits.some(
           (m, i) =>
             m.modifierId !== state.explicits[i]?.modifierId ||
-            JSON.stringify(m.values) !==
-              JSON.stringify(state.explicits[i]?.values),
+            !sameValues(m.values, state.explicits[i]?.values),
         ) ||
         v.events.length !== 1 ||
         v.events[0]?.kind !== 'FRACTURE' ||

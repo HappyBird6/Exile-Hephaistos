@@ -5,17 +5,18 @@ const baseText = 'Item Class: Amulets\nRarity: Normal\nSolar Amulet'
 const baseTexts = {
   solar: baseText,
   stocky: 'Item Class: Gloves\nRarity: Normal\nStocky Mitts',
+  bow: 'Item Class: Bows\nRarity: Normal\nCrude Bow',
 }
 type Draft = {
   source: 'base' | 'text'
   text: string
   currentText: ItemTextDocument
-  base: 'solar' | 'stocky'
+  base: 'solar' | 'stocky' | 'bow'
   baseItemLevel: number
   baseRevision: number
   activeOmens: string[]
   setActiveOmens: (ids: string[]) => void
-  setBase: (itemLevel?: number, base?: 'solar' | 'stocky') => void
+  setBase: (itemLevel?: number, base?: 'solar' | 'stocky' | 'bow') => void
   setText: (text: string) => void
   acceptText: (text: string) => void
 }

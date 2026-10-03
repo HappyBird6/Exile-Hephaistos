@@ -99,10 +99,14 @@ public final class WorkbenchSimulator {
   }
 
   public String ruleVersion() {
+    if (catalog.base().id().equals(BowEssenceTargets.BASE_ID))
+      return "bow-workbench-basic-essence-v1";
     return coupledModifierIds.isEmpty() ? RULE_VERSION : "stocky-workbench-artificer-v26";
   }
 
   public String ledgerVersion() {
+    if (catalog.base().id().equals(BowEssenceTargets.BASE_ID))
+      return "bow-unverified-numeric-assumptions-v1";
     return coupledModifierIds.isEmpty()
         ? LEDGER_VERSION
         : "stocky-unverified-numeric-assumptions-v11";

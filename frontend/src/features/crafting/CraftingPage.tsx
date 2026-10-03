@@ -94,10 +94,18 @@ export function CraftingPage() {
       : storedFrame?.state.baseItemId ===
           'Metadata/Items/Armours/Gloves/FourGlovesStr1'
         ? 'stocky'
-        : storedFrame
-          ? 'solar'
-          : draft.base
-  const baseName = catalogBase === 'stocky' ? 'Stocky Mitts' : 'Solar Amulet'
+        : storedFrame?.state.baseItemId ===
+            'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1'
+          ? 'bow'
+          : storedFrame
+            ? 'solar'
+            : draft.base
+  const baseName =
+    catalogBase === 'stocky'
+      ? 'Stocky Mitts'
+      : catalogBase === 'bow'
+        ? 'Crude Bow'
+        : 'Solar Amulet'
   const catalogLevel =
     Number.isInteger(storedLevel) && storedLevel! >= 1 && storedLevel! <= 100
       ? storedLevel!
@@ -175,7 +183,10 @@ export function CraftingPage() {
     filmState.revision === draft.baseRevision
       ? currentFilm(filmState.history)
       : undefined
-  async function startBase(level: number, base: 'solar' | 'stocky' = 'solar') {
+  async function startBase(
+    level: number,
+    base: 'solar' | 'stocky' | 'bow' = 'solar',
+  ) {
     const request = ++placementRequest.current
     const revision = useItemDraft.getState().baseRevision
     placementPending.current = true
@@ -278,7 +289,9 @@ export function CraftingPage() {
     [draft.baseRevision, draft.source],
   )
   const [baseLevel, setBaseLevel] = useState('82')
-  const [baseChoice, setBaseChoice] = useState<'solar' | 'stocky'>('solar')
+  const [baseChoice, setBaseChoice] = useState<'solar' | 'stocky' | 'bow'>(
+    'solar',
+  )
   const [previewRequest, setPreviewRequest] = useState<{
     count: number
     action: Action | null
@@ -611,7 +624,12 @@ export function CraftingPage() {
             rarity: concrete.rarity,
             name: item?.displayName ?? baseName,
             base: baseName,
-            itemClass: catalogBase === 'stocky' ? 'Gloves' : 'Amulet',
+            itemClass:
+              catalogBase === 'stocky'
+                ? 'Gloves'
+                : catalogBase === 'bow'
+                  ? 'Bows'
+                  : 'Amulet',
             itemLevel: concrete.itemLevel,
             properties: [
               ...(qualityMaximum === null
@@ -1040,7 +1058,7 @@ export function CraftingPage() {
                 {storedFrame && initial.data && !restoredValid && (
                   <p role="alert">
                     Saved step does not match the current catalog. Start a new
-                    Solar Amulet; saved films are preserved.
+                    equipment base; saved films are preserved.
                   </p>
                 )}
                 {card ? (
@@ -1051,12 +1069,17 @@ export function CraftingPage() {
                       rarity: 'NORMAL',
                       name: baseName,
                       base: baseName,
-                      itemClass: catalogBase === 'stocky' ? 'Gloves' : 'Amulet',
+                      itemClass:
+                        catalogBase === 'stocky'
+                          ? 'Gloves'
+                          : catalogBase === 'bow'
+                            ? 'Bows'
+                            : 'Amulet',
                       itemLevel: draft.baseItemLevel,
                       properties: [],
                       requirements: [],
                       modifiers:
-                        catalogBase === 'stocky'
+                        catalogBase !== 'solar'
                           ? []
                           : [
                               {
@@ -1223,6 +1246,13 @@ export function CraftingPage() {
                     preserved.
                   </p>
                 )}
+                {catalogBase === 'bow' && (
+                  <p className="workbench-feedback">
+                    Numeric rolls use unverified source-unit and shared-ratio
+                    models. Computed weapon damage, quality, sockets and pasted
+                    bow mapping are not supported.
+                  </p>
+                )}
                 {catalogBase === 'stocky' && (
                   <p className="workbench-feedback">
                     Numeric rolls use unverified source-unit and shared-ratio
@@ -1348,11 +1378,14 @@ export function CraftingPage() {
                     id="base-select"
                     value={baseChoice}
                     onChange={(e) =>
-                      setBaseChoice(e.target.value as 'solar' | 'stocky')
+                      setBaseChoice(
+                        e.target.value as 'solar' | 'stocky' | 'bow',
+                      )
                     }
                   >
                     <option value="solar">Solar Amulet</option>
                     <option value="stocky">Stocky Mitts</option>
+                    <option value="bow">Crude Bow</option>
                   </select>
                   <label htmlFor="base-level">Item level</label>
                   <input
@@ -1480,7 +1513,7 @@ export function CraftingPage() {
           <CraftSupport active={view === 'support'} />
         ) : (
           <p>
-            Stocky Mitts is supported in Workbench only. Select Solar Amulet to
+            {baseName} is supported in Workbench only. Select Solar Amulet to
             use Craft Support.
           </p>
         )}

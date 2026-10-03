@@ -19,6 +19,18 @@ public final class ItemCatalogLoader {
 
   private ItemCatalogLoader() {}
 
+  /** Complete ordinary Bow snapshot for Workbench dispatch only. */
+  public static ItemCatalog loadBow() {
+    try (var data = ItemCatalogLoader.class.getResourceAsStream("/catalog/crude-bow/catalog.json");
+        var raw = ItemCatalogLoader.class.getResourceAsStream("/catalog/crude-bow/base.raw.json");
+        var details =
+            ItemCatalogLoader.class.getResourceAsStream("/catalog/crude-bow/details.raw.json")) {
+      return load(data, raw, details);
+    } catch (IOException e) {
+      throw new IllegalStateException("Cannot load Crude Bow catalog", e);
+    }
+  }
+
   public static ItemCatalog loadDefault() {
     try (var catalog = resource("catalog.json");
         var raw = resource("base.raw.json");

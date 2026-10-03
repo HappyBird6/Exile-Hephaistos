@@ -15,7 +15,14 @@ export function maximumQuality(
   state: ConcreteItem,
   definitions: Record<string, Definition>,
 ): number | null {
-  if (![solar, stocky].includes(state.baseItemId)) return null
+  if (
+    ![
+      solar,
+      stocky,
+      'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1',
+    ].includes(state.baseItemId)
+  )
+    return null
   let maximum = 20
   for (const instance of state.explicits) {
     if (!Object.hasOwn(instance.values, stat)) continue

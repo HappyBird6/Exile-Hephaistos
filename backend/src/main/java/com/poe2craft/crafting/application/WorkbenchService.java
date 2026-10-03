@@ -12,9 +12,28 @@ public final class WorkbenchService {
   private final ItemCatalog stocky;
   private final WorkbenchSimulator solarSimulator;
   private final WorkbenchSimulator stockySimulator;
+  private final ItemCatalog bow;
+  private final WorkbenchSimulator bowSimulator;
 
   public WorkbenchService(
       ItemCatalog solar, WorkbenchSimulator solarSimulator, ItemCatalog stocky) {
+    this(solar, solarSimulator, stocky, null);
+  }
+
+  public WorkbenchService(
+      ItemCatalog solar, WorkbenchSimulator solarSimulator, ItemCatalog stocky, ItemCatalog bow) {
+    this.bow = bow;
+    this.bowSimulator =
+        bow == null
+            ? null
+            : new WorkbenchSimulator(
+                bow,
+                new CraftingEngine(bow),
+                bow.modifiers().values().stream()
+                    .filter(d -> d.stats().size() > 1)
+                    .map(ModifierDefinition::id)
+                    .collect(java.util.stream.Collectors.toSet()),
+                BowEssenceTargets.VERIFIED);
     this.solar = solar;
     this.solarSimulator = solarSimulator;
     this.stocky = stocky;
@@ -39,7 +58,7 @@ public final class WorkbenchService {
             ? SolarAmulet.initial(catalog, level, 15)
             : new ItemState(
                 catalog.metadata().snapshotId(),
-                STOCKY_BASE_ID,
+                catalog.base().id(),
                 level,
                 ItemState.Rarity.NORMAL,
                 List.of(),
@@ -49,7 +68,7 @@ public final class WorkbenchService {
     var engine = new CraftingEngine(catalog);
     engine.validate(bucket);
     return new Initial(
-        (base.equals("solar") ? solarSimulator : stockySimulator).ruleVersion(),
+        simulator(state).ruleVersion(),
         catalog.metadata(),
         bucket.id(),
         bucket,
@@ -64,6 +83,10 @@ public final class WorkbenchService {
     return switch (base) {
       case "solar" -> solar;
       case "stocky" -> stocky;
+      case "bow" -> {
+        if (bow == null) throw new IllegalArgumentException("Bow catalog unavailable");
+        yield bow;
+      }
       default -> throw new IllegalArgumentException("Unsupported Workbench base");
     };
   }
@@ -72,6 +95,8 @@ public final class WorkbenchService {
     if (state == null) throw new IllegalArgumentException("State required");
     if (state.baseItemId().equals(SolarAmulet.BASE_ID)) return solarSimulator;
     if (state.baseItemId().equals(STOCKY_BASE_ID)) return stockySimulator;
+    if (state.baseItemId().equals(BowEssenceTargets.BASE_ID) && bowSimulator != null)
+      return bowSimulator;
     throw new IllegalArgumentException("Unsupported Workbench base");
   }
 

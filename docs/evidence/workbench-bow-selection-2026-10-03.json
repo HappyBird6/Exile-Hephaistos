@@ -1,0 +1,56 @@
+{
+  "baselineCommit": "317d3456f127f1faef5dd112afa8573c011cbdc9",
+  "baselineCurrentPending": 88,
+  "candidatePendingEssenceTargets": {
+    "bow": 26,
+    "wand": 11,
+    "strengthBodyArmour": 4
+  },
+  "selectedBase": "Crude Bow",
+  "selectedBasicEssencePaths": 21,
+  "newGlobalImplementations": 20,
+  "selectedOrdinaryRows": 140,
+  "missingPublishedWeights": 0,
+  "primaryDetailMatches": 140,
+  "localGlobalAmbiguitiesResolved": 11,
+  "capturedSources": [
+    {
+      "id": "Bows",
+      "url": "https://poe2db.tw/us/Bows",
+      "retrievedAt": "2026-10-03T12:12:54.888Z",
+      "sha256": "e10d1ffd0f4041399aad32469c1241025bbc65cf69f5325e02611afcafc5d3ec",
+      "normalRows": 140,
+      "missingWeight": []
+    },
+    {
+      "id": "Wands",
+      "url": "https://poe2db.tw/us/Wands",
+      "retrievedAt": "2026-10-03T12:12:56.109Z",
+      "sha256": "7bc4c3915ab45f569d267c0146f10fb52e22e06f99b965f46bf678bf8dec944a",
+      "normalRows": 185,
+      "missingWeight": []
+    },
+    {
+      "id": "Body_Armours_str",
+      "url": "https://poe2db.tw/us/Body_Armours_str",
+      "retrievedAt": "2026-10-03T12:12:56.842Z",
+      "sha256": "dda13ff7cfde6334b37f1393aa5c7765d8ccdf2cb2404ee086f1c789a0cd1240",
+      "normalRows": 144,
+      "missingWeight": []
+    },
+    {
+      "id": "Crude_Bow",
+      "url": "https://poe2db.tw/us/Crude_Bow",
+      "retrievedAt": "2026-10-03T12:12:57.270Z",
+      "sha256": "5f6391428d6a7bfac2e9eb75e0dc42541b237d2e6e94a4f50e23e2409475c747"
+    }
+  ],
+  "remainingPrincipalBlockers": {
+    "OTHER_TARGET_REQUIRED": 41,
+    "RULE_DATA_GAP": 20,
+    "ENGINE_STATE_GAP": 2,
+    "REINTRODUCTION_UNVERIFIED": 5
+  },
+  "scopeExclusionsRetained": 65,
+  "limitations": "Card-target opportunities are not implementation or complete game inventory. Character reqlvl is separated from modifier Level. Perfect Bow6, sockets/resources, combat totals and pasted Bow mapping remain unsupported."
+}

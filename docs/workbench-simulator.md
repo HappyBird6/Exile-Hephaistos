@@ -1,3 +1,5 @@
+Latest runtime: [Crude Bow v1 and three-base compatibility](workbench-crude-bow-2026-10-03.md); overall implemented95, current-scope155/87/68, same65 exclusions. The Artificer75 and earlier counts below are historical checkpoints.
+
 > Current 2026-10-03 checkpoint: Solar rules v16, Stocky `stocky-workbench-artificer-v26`; registered220 / implemented75. Ordinary Stocky Artificer adds one empty socket, legacy count unknown stays unknown. [Delivery and executed checks](workbench-stocky-artificer-2026-10-03.md), [current user development scope155/67/88](workbench-development-deferrals-2026-10-03.md). Historical v1/v2 sections below are not current implementation counts.
 # Solar Amulet Workbench simulator
 

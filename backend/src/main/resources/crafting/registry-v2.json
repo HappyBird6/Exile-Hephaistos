@@ -27,7 +27,8 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -50,7 +51,8 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -73,7 +75,8 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -93,7 +96,8 @@
       "ruleVerifiedAt": "2026-10-02",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -116,7 +120,8 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -139,7 +144,8 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -162,7 +168,8 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -198,7 +205,8 @@
       "interactionScope": "Rare Solar with four or more supported explicit modifiers, including verified essence results, and no existing fracture. Uniform 1/N selection assumption. Locked option preserved by addition, Chaos, Annulment and Divine; Whittling plus fracture is blocked pending priority evidence.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -221,7 +229,8 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -244,7 +253,8 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -267,7 +277,8 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -290,7 +301,8 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -313,7 +325,8 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -336,7 +349,8 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -359,7 +373,8 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -382,7 +397,8 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -405,7 +421,8 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -428,7 +445,8 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -451,7 +469,8 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -531,13 +550,19 @@
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Abrasion",
       "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourceRetrievedAt": "2026-10-03T12:19:44.870Z",
+      "sourceSha256": "810f71cde02fc7d65a70ad09c6dc40294a9392c9dc2e830f3de58fd267c17271",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "LESSER_ESSENCE_ABRASION",
+      "reason": "Crude Bow only; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
+      "supportedBases": [
+        "bow"
+      ],
+      "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Abrasion",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Lesser_Essence_of_Flames",
@@ -545,13 +570,19 @@
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Flames",
       "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourceRetrievedAt": "2026-10-03T12:19:46.409Z",
+      "sourceSha256": "d096f179e1f478e78578a21cb086ea4014578165f982b22a7183cb095b1facdb",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "LESSER_ESSENCE_FLAMES",
+      "reason": "Crude Bow only; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
+      "supportedBases": [
+        "bow"
+      ],
+      "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Flames",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Lesser_Essence_of_Ice",
@@ -559,13 +590,19 @@
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Ice",
       "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourceRetrievedAt": "2026-10-03T12:19:55.406Z",
+      "sourceSha256": "5fca46681deb39882376254c437356936b53740e8e24fa212ea2e7ef74af99b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "LESSER_ESSENCE_ICE",
+      "reason": "Crude Bow only; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
+      "supportedBases": [
+        "bow"
+      ],
+      "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Ice",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Lesser_Essence_of_Electricity",
@@ -573,13 +610,19 @@
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Electricity",
       "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourceRetrievedAt": "2026-10-03T12:20:01.318Z",
+      "sourceSha256": "73391a86012e620c8980d8561eca1769ee230de7b43da0f3b3fd3e67c96e57eb",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "LESSER_ESSENCE_ELECTRICITY",
+      "reason": "Crude Bow only; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
+      "supportedBases": [
+        "bow"
+      ],
+      "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Electricity",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Lesser_Essence_of_Ruin",
@@ -605,13 +648,19 @@
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Battle",
       "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourceRetrievedAt": "2026-10-03T12:20:03.603Z",
+      "sourceSha256": "ea4604bdb483336b155719ea8d40f45942884b636b2718a7be8965ebde88fd03",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "LESSER_ESSENCE_BATTLE",
+      "reason": "Crude Bow only; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
+      "supportedBases": [
+        "bow"
+      ],
+      "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Battle",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Lesser_Essence_of_Sorcery",
@@ -633,13 +682,19 @@
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Haste",
       "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourceRetrievedAt": "2026-10-03T12:20:07.345Z",
+      "sourceSha256": "ad1b3eb09be356630a8a9a8a7640203538121757f8a12e2eaddbb9485d33035e",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "LESSER_ESSENCE_HASTE",
+      "reason": "Crude Bow only; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
+      "supportedBases": [
+        "bow"
+      ],
+      "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Haste",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Lesser_Essence_of_the_Infinite",
@@ -720,13 +775,19 @@
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Abrasion",
       "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourceRetrievedAt": "2026-10-03T12:19:45.342Z",
+      "sourceSha256": "50f8f43c79fb9816a089139ee31473ee16e0f557483b56f94ceca07038500e6a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "ESSENCE_ABRASION",
+      "reason": "Crude Bow only; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
+      "supportedBases": [
+        "bow"
+      ],
+      "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "ruleSource": "https://poe2db.tw/us/Essence_of_Abrasion",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Essence_of_Flames",
@@ -734,13 +795,19 @@
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Flames",
       "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourceRetrievedAt": "2026-10-03T12:19:47.169Z",
+      "sourceSha256": "70864eab1474345edd77b06b6674cb2c9709f99b49d2fcdd9cb99fb34e80424f",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "ESSENCE_FLAMES",
+      "reason": "Crude Bow only; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
+      "supportedBases": [
+        "bow"
+      ],
+      "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "ruleSource": "https://poe2db.tw/us/Essence_of_Flames",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Essence_of_Ice",
@@ -748,13 +815,19 @@
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Ice",
       "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourceRetrievedAt": "2026-10-03T12:19:55.860Z",
+      "sourceSha256": "3fdfe6fb4c7cf532cfcd3d8c3189d52ce92ba2d19bea28dc6139635c542e8ecf",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "ESSENCE_ICE",
+      "reason": "Crude Bow only; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
+      "supportedBases": [
+        "bow"
+      ],
+      "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "ruleSource": "https://poe2db.tw/us/Essence_of_Ice",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Essence_of_Electricity",
@@ -762,13 +835,19 @@
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Electricity",
       "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourceRetrievedAt": "2026-10-03T12:20:01.780Z",
+      "sourceSha256": "7944d5986e51cbe6a44d8285864bdac61250a539d706ea36d7bf2f44fbafdf57",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "ESSENCE_ELECTRICITY",
+      "reason": "Crude Bow only; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
+      "supportedBases": [
+        "bow"
+      ],
+      "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "ruleSource": "https://poe2db.tw/us/Essence_of_Electricity",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Essence_of_Ruin",
@@ -794,13 +873,19 @@
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Battle",
       "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourceRetrievedAt": "2026-10-03T12:20:04.042Z",
+      "sourceSha256": "a7281b8d16a2fe1697926d37459025a581b1742b58b2719a9015876e79ca6864",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "ESSENCE_BATTLE",
+      "reason": "Crude Bow only; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
+      "supportedBases": [
+        "bow"
+      ],
+      "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "ruleSource": "https://poe2db.tw/us/Essence_of_Battle",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Essence_of_Sorcery",
@@ -822,13 +907,19 @@
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Haste",
       "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourceRetrievedAt": "2026-10-03T12:20:09.645Z",
+      "sourceSha256": "f36f9ecc98ac57164eeab280a6523aa3234ba97467bef40abd2b0e37e857bf88",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "ESSENCE_HASTE",
+      "reason": "Crude Bow only; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
+      "supportedBases": [
+        "bow"
+      ],
+      "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "ruleSource": "https://poe2db.tw/us/Essence_of_Haste",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Essence_of_the_Infinite",
@@ -909,13 +1000,19 @@
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Abrasion",
       "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourceRetrievedAt": "2026-10-03T12:19:45.960Z",
+      "sourceSha256": "a439ba176fd3ab563083506bcaebf5d400a7bdae87dfc76c86cfc556f3cb0803",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "GREATER_ESSENCE_ABRASION",
+      "reason": "Crude Bow only; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
+      "supportedBases": [
+        "bow"
+      ],
+      "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Abrasion",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Greater_Essence_of_Flames",
@@ -923,13 +1020,19 @@
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Flames",
       "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourceRetrievedAt": "2026-10-03T12:19:51.309Z",
+      "sourceSha256": "964e0b8054a428a3a97922c8a021357fc3ba70454e05368595480a47191f1409",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "GREATER_ESSENCE_FLAMES",
+      "reason": "Crude Bow only; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
+      "supportedBases": [
+        "bow"
+      ],
+      "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Flames",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Greater_Essence_of_Ice",
@@ -937,13 +1040,19 @@
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Ice",
       "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourceRetrievedAt": "2026-10-03T12:20:00.907Z",
+      "sourceSha256": "f1ed959964a7fe7176498f6dbdb7e5b235476d4d88a59354f406947a0443fced",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "GREATER_ESSENCE_ICE",
+      "reason": "Crude Bow only; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
+      "supportedBases": [
+        "bow"
+      ],
+      "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Ice",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Greater_Essence_of_Electricity",
@@ -951,13 +1060,19 @@
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Electricity",
       "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourceRetrievedAt": "2026-10-03T12:20:03.159Z",
+      "sourceSha256": "e897c2a9532ac653c83c9121e32a8cee67af0dcd38c9b6bec37c6e52dfd55cf3",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "GREATER_ESSENCE_ELECTRICITY",
+      "reason": "Crude Bow only; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
+      "supportedBases": [
+        "bow"
+      ],
+      "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Electricity",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Greater_Essence_of_Ruin",
@@ -983,19 +1098,21 @@
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Battle",
       "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourceRetrievedAt": "2026-10-03T12:20:06.633Z",
+      "sourceSha256": "2266b3062592a33a15984e85bda9cb11d85a0ebf987e3f6f7f86fd08b4f81535",
       "registrationStatus": "REGISTERED",
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "NOT_SUPPORTED",
       "action": "GREATER_ESSENCE_BATTLE",
-      "reason": "Magic Stocky Mitts becomes Rare with one sourced prefix; modifier level, slot and family gates apply. Numeric source-integer sampling is explicitly unverified. Other bases and low-level/overlap results are not supported.",
+      "reason": "Stocky Mitts and Crude Bow; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
       "stockyStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "supportedBases": [
-        "stocky"
+        "stocky",
+        "bow"
       ],
       "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Battle",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL"
     },
     {
       "id": "Greater_Essence_of_Sorcery",
@@ -1017,13 +1134,19 @@
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Haste",
       "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourceRetrievedAt": "2026-10-03T12:20:13.174Z",
+      "sourceSha256": "eb866c8173f0bcc4bbf81d974b7f08257142f35d57daa8463240fabb9901489a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "GREATER_ESSENCE_HASTE",
+      "reason": "Crude Bow only; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
+      "supportedBases": [
+        "bow"
+      ],
+      "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Haste",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Greater_Essence_of_the_Infinite",
@@ -1228,13 +1351,19 @@
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Seeking",
       "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourceRetrievedAt": "2026-10-03T12:20:13.948Z",
+      "sourceSha256": "499ce6d53b6c269a1f023f05f6816c217fc4ddfa8015adbf0b2ca08a9f1628ae",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "LESSER_ESSENCE_SEEKING",
+      "reason": "Crude Bow only; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
+      "supportedBases": [
+        "bow"
+      ],
+      "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Seeking",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Essence_of_Seeking",
@@ -1242,13 +1371,19 @@
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Seeking",
       "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourceRetrievedAt": "2026-10-03T12:20:15.144Z",
+      "sourceSha256": "b0dc7680d22120bea609c27ae111da0f4c7aae42c9e584be2c1bc9e817f64333",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "ESSENCE_SEEKING",
+      "reason": "Crude Bow only; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
+      "supportedBases": [
+        "bow"
+      ],
+      "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "ruleSource": "https://poe2db.tw/us/Essence_of_Seeking",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Greater_Essence_of_Seeking",
@@ -1256,13 +1391,19 @@
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Seeking",
       "sourcePage": "https://poe2db.tw/us/Essence",
-      "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
-      "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
+      "sourceRetrievedAt": "2026-10-03T12:20:16.469Z",
+      "sourceSha256": "e3224024c41fe5d2501b4ad6d35e72c492b81bf6c469fd0e2224ac9300283039",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_SUPPORTED",
+      "action": "GREATER_ESSENCE_SEEKING",
+      "reason": "Crude Bow only; Magic becomes Rare with one source-verified fixed modifier. Catalog item-level, family and slot gates apply; low-level/overlap results unsupported. Numeric models explicitly unverified.",
+      "supportedBases": [
+        "bow"
+      ],
+      "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Seeking",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Perfect_Essence_of_Seeking",
@@ -2046,7 +2187,8 @@
       "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -2068,7 +2210,8 @@
       "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -2090,7 +2233,8 @@
       "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -2189,7 +2333,8 @@
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -2211,7 +2356,8 @@
       "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -2233,7 +2379,8 @@
       "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -2271,7 +2418,8 @@
       "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -2293,7 +2441,8 @@
       "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -2399,7 +2548,8 @@
       "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "bow"
       ]
     },
     {
@@ -3645,6 +3795,12 @@
       "ledgerVersion": "stocky-unverified-numeric-assumptions-v11",
       "numericModelStatus": "UNVERIFIED",
       "source": "https://poe2db.tw/us/Gloves_str"
+    },
+    "bow": {
+      "ruleVersion": "bow-workbench-basic-essence-v1",
+      "ledgerVersion": "bow-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Bows"
     }
   }
 }
