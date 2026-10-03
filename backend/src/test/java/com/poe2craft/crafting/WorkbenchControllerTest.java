@@ -27,6 +27,80 @@ class WorkbenchControllerTest {
   @Autowired MockMvc mvc;
   @Autowired ObjectMapper mapper;
   @Autowired ItemCatalog catalog;
+  @Autowired com.poe2craft.crafting.application.WorkbenchService service;
+
+  @Test
+  void legacyHomogenisingWorksAcrossNineBasesAndPreservesUnmatchedOmen() throws Exception {
+    for (String base :
+        java.util.List.of(
+            "solar", "stocky", "bow", "wand", "body", "sceptre", "belt", "helmet", "ring")) {
+      var initial = service.initial(base, 82);
+      var bucket = initial.state();
+      var normal =
+          new com.poe2craft.item.ItemState(
+              bucket.snapshotId(),
+              bucket.baseItemId(),
+              bucket.itemLevel(),
+              bucket.rarity(),
+              bucket.implicits(),
+              java.util.List.of(),
+              bucket.conditions());
+      var seed =
+          initial.modifiers().values().stream()
+              .filter(
+                  d ->
+                      d.layer() == com.poe2craft.item.ModifierDefinition.Layer.EXPLICIT
+                          && d.weight() > 0
+                          && d.requiredItemLevel() <= 82)
+              .filter(
+                  d ->
+                      initial.modifiers().values().stream()
+                          .anyMatch(
+                              other ->
+                                  other.layer()
+                                          == com.poe2craft.item.ModifierDefinition.Layer.EXPLICIT
+                                      && other.weight() > 0
+                                      && other.requiredItemLevel() <= 82
+                                      && java.util.Collections.disjoint(
+                                          d.familyIds(), other.familyIds())
+                                      && !java.util.Collections.disjoint(d.tags(), other.tags())))
+              .findFirst()
+              .orElseThrow();
+      var values = new java.util.HashMap<String, Long>();
+      seed.stats().forEach(stat -> values.put(stat.id(), stat.min()));
+      var magic =
+          new com.poe2craft.item.ItemState(
+              normal.snapshotId(),
+              normal.baseItemId(),
+              82,
+              com.poe2craft.item.ItemState.Rarity.MAGIC,
+              normal.implicits(),
+              java.util.List.of(new com.poe2craft.item.ModifierInstance(seed.id(), values)),
+              normal.conditions());
+      var omens =
+          java.util.Set.of("Omen_of_Homogenising_Coronation", "Omen_of_Homogenising_Exaltation");
+      mvc.perform(
+              post("/api/v1/crafting/workbench/apply")
+                  .contentType(MediaType.APPLICATION_JSON)
+                  .content(
+                      mapper.writeValueAsBytes(
+                          Map.of("state", magic, "action", "REGAL", "activeOmens", omens))))
+          .andExpect(status().isOk())
+          .andExpect(jsonPath("$.applied").value(true))
+          .andExpect(jsonPath("$.state.rarity").value("RARE"))
+          .andExpect(jsonPath("$.consumedOmens[0]").value("Omen_of_Homogenising_Coronation"))
+          .andExpect(jsonPath("$.remainingOmens[0]").value("Omen_of_Homogenising_Exaltation"));
+      mvc.perform(
+              post("/api/v1/crafting/workbench/apply")
+                  .contentType(MediaType.APPLICATION_JSON)
+                  .content(
+                      mapper.writeValueAsBytes(
+                          Map.of("state", magic, "action", "GREATER_REGAL", "activeOmens", omens))))
+          .andExpect(status().isOk())
+          .andExpect(jsonPath("$.applied").value(false))
+          .andExpect(jsonPath("$.consumedOmens").isEmpty());
+    }
+  }
 
   @Test
   void typedQualityInspectionPreservesRollsAndRejectsLossyOrCoercedProperties() throws Exception {
@@ -145,7 +219,9 @@ class WorkbenchControllerTest {
         .andExpect(jsonPath("$.state.rarity").value("MAGIC"))
         .andExpect(jsonPath("$.state.explicits.length()").value(1))
         .andExpect(jsonPath("$.events[0].kind").value("ADD"))
-        .andExpect(jsonPath("$.ruleVersion").value("solar-workbench-abyss-essence-v16"));
+        .andExpect(
+            jsonPath("$.ruleVersion")
+                .value("solar-workbench-abyss-essence-v16-homogenising-legacy-v1"));
     mvc.perform(
             post("/api/v1/crafting/workbench/apply")
                 .contentType(MediaType.APPLICATION_JSON)

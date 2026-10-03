@@ -99,6 +99,10 @@ public final class WorkbenchSimulator {
   }
 
   public String ruleVersion() {
+    return baseRuleVersion() + "-homogenising-legacy-v1";
+  }
+
+  private String baseRuleVersion() {
     if (catalog.base().id().equals(RingEssenceTargets.BASE_ID))
       return "ring-workbench-perfect-essence-v1";
     if (catalog.base().id().equals(HelmetEssenceTargets.BASE_ID))
@@ -204,7 +208,7 @@ public final class WorkbenchSimulator {
         .anyMatch(id -> catalog.find(id).isEmpty()))
       return blocked(action, "This material's results are not verified for this base.");
     var matches = matching(action, omens);
-    if (matches.size() == 1 && matches.getFirst() == WorkbenchOmen.GREATER_EXALTATION) {
+    if (WorkbenchOmen.verifiedDoubleAddition(matches)) {
       if (action != WorkbenchCurrency.EXALTED)
         return blocked(action, "Greater Exaltation with Greater/Perfect currency is not verified.");
       if (state.rarity() != ItemState.Rarity.RARE)
@@ -213,14 +217,21 @@ public final class WorkbenchSimulator {
         return blocked(
             action,
             "Greater Exaltation is supported only with at least two free explicit slots; the one-slot interaction needs verification.");
-      var first = pool(state, action, null);
+      var originalTags =
+          matches.contains(WorkbenchOmen.HOMOGENISING_EXALTATION)
+              ? additionRules.existingTags(StateBucket.from(state))
+              : Set.<String>of();
+      var first = AdditionRules.matchingTags(pool(state, action, null), originalTags);
       if (first.isEmpty()) return blocked(action, "No verified first addition pool.");
       for (var candidate : first) {
         var next = new ArrayList<>(state.explicits());
         var values = new HashMap<String, Long>();
         for (var stat : candidate.stats()) values.put(stat.id(), stat.min());
         next.add(new ModifierInstance(candidate.id(), values));
-        if (pool(copy(state, state.rarity(), state.implicits(), next), action, null).isEmpty())
+        if (AdditionRules.matchingTags(
+                pool(copy(state, state.rarity(), state.implicits(), next), action, null),
+                originalTags)
+            .isEmpty())
           return blocked(action, "A first addition branch has no verified second addition pool.");
       }
       return new Availability(action, true, "");
@@ -584,11 +595,18 @@ public final class WorkbenchSimulator {
                 "Uniform among eligible removal instances, after affix or lowest modifier-level restriction; no published removal weights."));
       }
       if (action.baseAction() != CraftingAction.ANNULMENT) {
-        int additions = omen == WorkbenchOmen.GREATER_EXALTATION ? 2 : 1;
+        int additions = WorkbenchOmen.verifiedDoubleAddition(matched) ? 2 : 1;
+        var homogenising = matched.stream().anyMatch(WorkbenchOmen::homogenising);
+        var originalTags =
+            homogenising ? additionRules.existingTags(StateBucket.from(state)) : Set.<String>of();
         for (int i = 0; i < additions; i++) {
           var intermediate = copy(state, rarity, implicits, explicits);
           var candidates =
-              pool(intermediate, action, action.baseAction() == CraftingAction.CHAOS ? null : omen);
+              pool(
+                  intermediate,
+                  action,
+                  action.baseAction() == CraftingAction.CHAOS || homogenising ? null : omen);
+          if (homogenising) candidates = AdditionRules.matchingTags(candidates, originalTags);
           long total = candidates.stream().mapToLong(ModifierDefinition::weight).sum();
           long draw = random.nextLong(total);
           var chosen = candidates.getLast();

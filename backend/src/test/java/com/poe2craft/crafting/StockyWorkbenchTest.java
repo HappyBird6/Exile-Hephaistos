@@ -89,7 +89,8 @@ class StockyWorkbenchTest {
       assertThat(rare.applied()).isTrue();
       assertThat(rare.state().implicits()).isEmpty();
       assertThat(rare.state().explicits()).hasSize(4);
-      assertThat(rare.ruleVersion()).isEqualTo("stocky-workbench-artificer-v26");
+      assertThat(rare.ruleVersion())
+          .isEqualTo("stocky-workbench-artificer-v26-homogenising-legacy-v1");
       var locked =
           service.apply(rare.state(), WorkbenchCurrency.FRACTURING, Set.of(), random).state();
       var fracture =

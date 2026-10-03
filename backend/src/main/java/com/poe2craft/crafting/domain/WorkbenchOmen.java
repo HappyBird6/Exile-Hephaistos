@@ -10,6 +10,8 @@ public enum WorkbenchOmen {
   DEXTRAL_CRYSTALLISATION(
       "Omen_of_Dextral_Crystallisation", WorkbenchCurrency.ESSENCE_HYSTERIA, AffixType.SUFFIX),
   GREATER_EXALTATION("Omen_of_Greater_Exaltation", WorkbenchCurrency.EXALTED, null),
+  HOMOGENISING_EXALTATION("Omen_of_Homogenising_Exaltation", WorkbenchCurrency.EXALTED, null),
+  HOMOGENISING_CORONATION("Omen_of_Homogenising_Coronation", WorkbenchCurrency.REGAL, null),
   SINISTRAL_EXALTATION("Omen_of_Sinistral_Exaltation", WorkbenchCurrency.EXALTED, AffixType.PREFIX),
   DEXTRAL_EXALTATION("Omen_of_Dextral_Exaltation", WorkbenchCurrency.EXALTED, AffixType.SUFFIX),
   SINISTRAL_ANNULMENT("Omen_of_Sinistral_Annulment", WorkbenchCurrency.ANNULMENT, AffixType.PREFIX),
@@ -39,6 +41,17 @@ public enum WorkbenchOmen {
 
   public AffixType affix() {
     return affix;
+  }
+
+  public boolean homogenising() {
+    return this == HOMOGENISING_EXALTATION || this == HOMOGENISING_CORONATION;
+  }
+
+  /** Only this same-trigger pair has a reviewed combined effect. */
+  public static boolean verifiedDoubleAddition(java.util.List<WorkbenchOmen> matching) {
+    return matching.contains(GREATER_EXALTATION)
+        && (matching.size() == 1
+            || (matching.size() == 2 && matching.contains(HOMOGENISING_EXALTATION)));
   }
 
   public static WorkbenchOmen fromId(String id) {

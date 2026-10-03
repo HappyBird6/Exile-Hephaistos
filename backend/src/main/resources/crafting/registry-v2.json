@@ -3062,10 +3062,14 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.142964+00:00",
       "sourceSha256": "745b50723b8e64b3ebf6cecaef7cbb585566402066869482c4d870d3d6d5d5b9",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
       "action": null,
-      "reason": "Effect text registered; candidate tag weighting, type-selection distribution, multi-add edge cases or interactions require verification."
+      "reason": "Legacy narrow support: ordinary currency; existing modifier tag intersection; frozen pre-craft tags with Greater Exaltation. Other same-trigger combinations and actual failure consumption unverified. Published PoE2DB weights are a source model.",
+      "availabilityStatus": "DROP_DISABLED_EXISTING_FUNCTIONAL",
+      "availabilitySource": "https://www.pathofexile.com/forum/view-thread/3883495/filter-account-type/staff",
+      "ruleSource": "https://www.poe2wiki.net/wiki/Omen_of_Homogenising_Exaltation",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Omen_of_Homogenising_Coronation",
@@ -3076,10 +3080,14 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.142964+00:00",
       "sourceSha256": "745b50723b8e64b3ebf6cecaef7cbb585566402066869482c4d870d3d6d5d5b9",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
       "action": null,
-      "reason": "Effect text registered; candidate tag weighting, type-selection distribution, multi-add edge cases or interactions require verification."
+      "reason": "Legacy narrow support: ordinary currency; existing modifier tag intersection; frozen pre-craft tags with Greater Exaltation. Other same-trigger combinations and actual failure consumption unverified. Published PoE2DB weights are a source model.",
+      "availabilityStatus": "DROP_DISABLED_EXISTING_FUNCTIONAL",
+      "availabilitySource": "https://www.pathofexile.com/forum/view-thread/3883495/filter-account-type/staff",
+      "ruleSource": "https://www.poe2wiki.net/wiki/Omen_of_Homogenising_Coronation",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Omen_of_the_Blessed",

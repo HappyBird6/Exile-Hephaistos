@@ -454,6 +454,17 @@ for (const [id, base] of Object.entries(currencyActions)) {
 }
 export const workbenchOmens = [
   {
+    id: 'Omen_of_Homogenising_Exaltation',
+    trigger: 'EXALTED',
+    effect:
+      'Legacy: match existing modifier tags; compatible with Greater Exaltation only',
+  },
+  {
+    id: 'Omen_of_Homogenising_Coronation',
+    trigger: 'REGAL',
+    effect: 'Legacy: match existing modifier tags on ordinary Regal Orb',
+  },
+  {
     id: 'Omen_of_Sinistral_Crystallisation',
     trigger: 'ESSENCE_HYSTERIA',
     effect:
@@ -511,6 +522,21 @@ export const workbenchOmens = [
     effect: 'Reroll only implicit values',
   },
 ] as const
+export const legacyHomogenisingIds: readonly string[] = [
+  'Omen_of_Homogenising_Exaltation',
+  'Omen_of_Homogenising_Coronation',
+]
+export function compatibleOmenPair(first: string, second: string): boolean {
+  return (
+    new Set([first, second]).size === 2 &&
+    [first, second].every((id) =>
+      [
+        'Omen_of_Homogenising_Exaltation',
+        'Omen_of_Greater_Exaltation',
+      ].includes(id),
+    )
+  )
+}
 export const baseWorkbenchAction = (action: WorkbenchAction) =>
   action.replace(/^(GREATER|PERFECT)_/, '') as
     Action | 'DIVINE' | 'ALCHEMY' | 'FRACTURING'
@@ -1363,6 +1389,74 @@ export async function applyCurrency(
     throw new Error(
       'Could not verify both added modifiers. Your item is unchanged. Please retry.',
     )
+  const homogenising = legacyHomogenisingIds.find(
+    (id) =>
+      activeOmens.includes(id) &&
+      baseAction === (id.endsWith('Coronation') ? 'REGAL' : 'EXALTED'),
+  )
+  if (v.applied && homogenising) {
+    const matching = workbenchOmens.filter(
+      (o) => o.trigger === baseAction && activeOmens.includes(o.id),
+    )
+    const originalTags = new Set(
+      [...state.implicits, ...state.explicits].flatMap(
+        (m) => definitions[m.modifierId]?.tags ?? [],
+      ),
+    )
+    let intermediate = [...state.explicits]
+    const valid =
+      action === baseAction &&
+      matching.every(
+        (o) => o.id === homogenising || compatibleOmenPair(o.id, homogenising),
+      ) &&
+      v.consumedOmens.length === matching.length &&
+      matching.every((o) => v.consumedOmens.includes(o.id)) &&
+      v.events.length === expectedCount - state.explicits.length &&
+      sameModifiers(
+        state.explicits,
+        next.explicits.filter((m) =>
+          state.explicits.some((old) => old.modifierId === m.modifierId),
+        ),
+      ) &&
+      v.events.every((event) => {
+        const existingFamilies = new Set(
+          intermediate.flatMap((m) => definitions[m.modifierId]!.familyIds),
+        )
+        const pool = Object.values(definitions).filter(
+          (d) =>
+            d.layer === 'EXPLICIT' &&
+            (d.weight ?? 0) > 0 &&
+            // requiredItemLevel is preserved by the initial API definition contract.
+            d.requiredItemLevel != null &&
+            d.requiredItemLevel <= state.itemLevel &&
+            !d.familyIds.some((family) => existingFamilies.has(family)) &&
+            intermediate.filter(
+              (m) => definitions[m.modifierId]!.affixType === d.affixType,
+            ).length < 3 &&
+            (originalTags.size === 0 ||
+              d.tags?.some((tag) => originalTags.has(tag))),
+        )
+        const chosen = pool.find((d) => d.id === event.modifierId)
+        const added = next.explicits.find(
+          (m) => m.modifierId === event.modifierId,
+        )
+        if (
+          !chosen ||
+          !added ||
+          event.kind !== 'ADD' ||
+          !sameValues(event.values, added.values) ||
+          event.selectionProbability !==
+            chosen.weight! / pool.reduce((sum, d) => sum + d.weight!, 0)
+        )
+          return false
+        intermediate = [...intermediate, added]
+        return true
+      })
+    if (!valid)
+      throw new Error(
+        'Could not verify the legacy tag-restricted additions. Your item is unchanged. Please retry.',
+      )
+  }
   const previousLocks = state.explicits.filter((m) => m.fractured)
   if (
     locks.length > 1 ||

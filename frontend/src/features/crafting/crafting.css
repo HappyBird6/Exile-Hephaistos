@@ -934,6 +934,17 @@
   border: 1px solid #756643;
   color: #e2d7bb;
 }
+.legacy-omen-info {
+  flex: none;
+  max-height: 110px;
+  overflow-y: auto;
+  margin-bottom: 6px;
+  font-size: 11px;
+  line-height: 1.4;
+}
+.legacy-omen-info p {
+  margin: 6px 0;
+}
 .material-panel .material-catalog {
   position: static;
   width: 100%;
@@ -1144,15 +1155,19 @@ dialog.item-input-panel::backdrop {
   overflow-wrap: anywhere;
 }
 .workbench-feedback a,
+.legacy-omen-info a,
 .workbench-assumptions a {
   color: #cabb91;
   text-underline-offset: 0.15em;
 }
 .workbench-feedback a:hover,
+.legacy-omen-info a:hover,
+.legacy-omen-info a:focus-visible,
 .workbench-feedback a:focus-visible,
 .workbench-assumptions a:hover,
 .workbench-feedback a:focus-visible,
-.workbench-assumptions a:focus-visible {
+.workbench-assumptions a:focus-visible,
+.legacy-omen-info a:focus-visible {
   color: #f4e5b5;
 }
 .workbench-assumptions a:focus-visible {

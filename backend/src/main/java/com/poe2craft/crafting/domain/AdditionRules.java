@@ -86,6 +86,7 @@ public final class AdditionRules {
     var eligible = resolver.resolve(state).candidates();
     if (omen != null && omen.affix() != null)
       eligible = eligible.stream().filter(d -> d.affixType() == omen.affix()).toList();
+    if (omen != null && omen.homogenising()) eligible = matchingTags(eligible, existingTags(state));
     if (currency.minimumModifierLevel() == 0) return eligible;
     var highest = new HashMap<String, Integer>();
     for (var d : eligible) highest.merge(group(d), d.requiredItemLevel(), Math::max);
@@ -101,6 +102,23 @@ public final class AdditionRules {
     if (d.familyIds().size() != 1)
       throw new IllegalArgumentException("Modifier-type grouping needs verification");
     return d.affixType() + ":" + d.familyIds().iterator().next();
+  }
+
+  /** Modifier tags, not spawn tags or families; the caller freezes this set before a multi-add. */
+  public Set<String> existingTags(StateBucket state) {
+    var tags = new HashSet<String>();
+    java.util.stream.Stream.concat(
+            state.modifierIds().stream(),
+            state.implicits().stream().map(com.poe2craft.item.ModifierInstance::modifierId))
+        .forEach(id -> tags.addAll(catalog.find(id).orElseThrow().tags()));
+    return Set.copyOf(tags);
+  }
+
+  public static List<ModifierDefinition> matchingTags(
+      List<ModifierDefinition> eligible, Set<String> originalTags) {
+    return originalTags.isEmpty()
+        ? eligible
+        : eligible.stream().filter(d -> !Collections.disjoint(d.tags(), originalTags)).toList();
   }
 
   public record Plan(

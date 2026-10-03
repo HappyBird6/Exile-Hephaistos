@@ -1,5 +1,7 @@
 # Workbench remaining gaps after Ring — 2026-10-03
 
+Latest verified Homogenising update: [bounded legacy support](workbench-homogenising-legacy-2026-10-03.md) completes two opt-in legacy Omen rules across nine bases. Scope113/155 = default current111 + legacy2; pending42; registry121/220; exclusions65 unchanged. Official0.4 disables drops but preserves existing functionality; current obtainability is not asserted. Historical111/44 and44-row audits below remain dated evidence, superseded for these two entries only. Other retired5 remain pending.
+
 2026-10-04 KST update: [typed catalyst quality foundation](workbench-catalyst-quality-2026-10-04.md) now represents already present quality, original rolls, bounded integer display and film persistence for Solar/Iron. The older statements that all applied-quality state is absent are superseded for this subset. Per-use application and interactions remain unverified; all29 quality actions and Catalysing Exaltation remain pending, and current111/155, pending44 and exclusions65 do not change. Iron Ring's cap20 is now verified; Belt remains unknown.
 
 This is an exact registered-inventory gap report, not a complete game inventory or a claim that Workbench is complete. Nine reviewed bases support bounded operations. Registry220:119 implemented and101 unimplemented. Current user scope155:111 implemented and44 pending. Established exclusions65 contain57 pending and8 previously implemented Alloys preserved. No new base is selected by this report.

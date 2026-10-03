@@ -318,7 +318,7 @@ describe('Material stash and shared favorites', () => {
     for (const [label, count] of [
       ['Essence', 76],
       ['Alloy', 13],
-      ['Omen', 32],
+      ['Omen', 30],
       ['Catalysts', 26],
       ['Liquid Emotions', 27],
     ] as const) {
@@ -329,6 +329,34 @@ describe('Material stash and shared favorites', () => {
           'button',
         ),
       ).toHaveLength(count)
+      if (label === 'Omen') {
+        const legacy = screen.getByRole('checkbox', {
+          name: 'Show legacy Homogenising Omens',
+        })
+        expect(legacy).not.toBeChecked()
+        fireEvent.click(legacy)
+        expect(
+          within(document.getElementById('material-list')!).getAllByRole(
+            'button',
+          ),
+        ).toHaveLength(32)
+        expect(
+          screen.getByRole('button', {
+            name: 'Omen of Homogenising Exaltation',
+          }),
+        ).toHaveTextContent('(Legacy)')
+        expect(
+          screen.getByRole('button', {
+            name: 'Omen of Homogenising Coronation',
+          }),
+        ).toHaveTextContent('(Legacy)')
+        fireEvent.click(legacy)
+        expect(
+          within(document.getElementById('material-list')!).getAllByRole(
+            'button',
+          ),
+        ).toHaveLength(30)
+      }
       expect(
         within(
           screen.getByRole('group', { name: 'Shared material favorites' }),

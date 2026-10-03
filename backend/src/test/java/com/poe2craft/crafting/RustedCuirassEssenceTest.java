@@ -211,7 +211,7 @@ class RustedCuirassEssenceTest {
     assertThat(service.initial("body", 82).augmentSockets()).isNull();
     assertThat(service.initial("body", 82).qualityLimit().maximumQuality()).isEqualTo(20);
     assertThat(service.initial("body", 82).ruleVersion())
-        .isEqualTo("body-workbench-perfect-essence-v1");
+        .isEqualTo("body-workbench-perfect-essence-v1-homogenising-legacy-v1");
     assertThat(service.initial("bow", 82).modifiers()).hasSize(146);
     assertThat(service.initial("wand", 82).modifiers()).hasSize(187);
     assertThat(service.initial("stocky", 82).modifiers()).hasSize(194);

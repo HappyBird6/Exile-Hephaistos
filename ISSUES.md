@@ -333,3 +333,19 @@ Next independent review: Adaptive conditional effect, Swift two-family exclusion
 - PoE2DB current card confirms identification and unidentified target instruction; official Item API documents identified/unidentifiedTier but no hidden-payload or reveal contract. Complete retained fields, special-condition eligibility and same-item payload provenance remain unresolved. [Sources, exact limits and resume gates](docs/workbench-wisdom-evidence-2026-10-03.md). No new material/base or random hidden affix generation; current111/155 and pending44 unchanged.
 - Reason: existing concrete ItemState has no operational hidden payload, and unknown pasted modifiers cannot be reconstructed from ordinary currency pools. Effect text alone does not supply the missing game facts/input. Actual Docker nine-base actions/apply refusal probes18 passed; feature unit/API/browser tests were not run because no justified executable path was added.
 - Recommended design: Workbench-specific known/unknown visibility envelope with source-bound payload; deterministic reveal preserves all concrete attributes and film branches/reload, refuses unknown/repeated/unverified-condition uses without consumption. Impact would span state/API/UI/film contracts, not Support/Explorer. Apply only after documented source/input gates; no placeholder or visibility demo counted as implemented. Rollback now is documentation-only; later implementation must preserve old validated films and unsupported archives.
+# WB-038 - BOUNDED LEGACY SUPPORT / OPEN INTERACTIONS - Homogenising Omens
+
+- 최종 검증 완료: Backend359, FE 정적검사/build 및 고유333개(전체331 + 관련30), runtime API269, 원문 catalog1487, browser83 PASS. 아래 중단 체크포인트는 재개 전 이력이며 완료 상태로 대체한다. 기본111 + legacy2 = scope113/155, pending42, registry121/220; 보류65와 기존 retired5 유지.
+- UI 가역 추천 추가: 좁은 화면에서 긴 안내가 재료 목록을 가리는 문제를 실제 screenshot에서 확인했다. 안내 높이110px/내부 스크롤과 기존 출처 링크 스타일을 적용해 내용·검색·목록을 보존한다. rollback은 legacy-omen-info CSS/class만 되돌린다. 범위 제한 정적검사/관련30개/build/layout 추가 검증 비용을 기록한다.
+
+- 제한적 재개: 최신 사용자 지시 “자리비울테니 … 작업 계속 … 이슈는 … 기록 … 추천사항대로 작업”와 후속 위임의 명시 재개 승인에 따라 이번 fixtureFetch 최소 수정, FE 필수 검사 및 미실행 API/browser, 안전한 로컬 commit을 진행한다. 기존2회 정책 자체를 바꾸지 않으며 비용 한도의 이번 복구 예외만 기록한다. 원격금지/DB보존/무거운검사 순차는 유지한다. 반복 복구 실패는 정확한 시도·원인을 보고한다.
+- 재개 후 전체 FE333 중331 PASS/2 UI 계약 불일치: 새 legacy opt-in과 기본 목록30이 과거 “Omen checkbox 없음/32개” 기대값에 걸렸다. per-Omen activation checkbox 부재와 legacy visibility checkbox를 구분하며 기본30/opt-in32/다시30 및 두 Legacy 이름을 추가 검증한다. 원래 활성 해제/충돌/즐겨찾기15/원본재료180/카드 보존 검증 유지. product 코드 변경 없이 해당 두 테스트와 새4 테스트30개만 재검증하고 build를 완료한다. 넓은 성공331을 또 실행하지 않는다.
+
+- 검증 체크포인트: Backend359 PASS, Frontend npm ci/lint PASS/typecheck TS2554(new fixtureFetch call) 실패. 작업 전체 수정·재검증2회 한도로 재개 승인 요청. 아직 전체 묶음 완료·commit·clean 아님. 아래113은 staged 구현 집계; 최종 검증된111/155 완료 집계 유지. [실행/미실행 기록](docs/evidence/workbench-homogenising-validation-2026-10-03.json).
+
+- 추천/적용: 공식0.4의 drop 중단·기존 개체 작동 근거에 따라 Homogenising Exaltation/Coronation만 legacy 지원으로 연결. 기본 Omen 목록에서 숨기고 명시적 opt-in과 Legacy 이름으로 현재 재료와 구분. 사용자의 가역적 제품 추천안 적용 승인에 따른 결정이며 다른 legacy5를 활성화하지 않는다.
+- 영향: 9베이스 ordinary pool/weight 공유, tag 교집합, tagless 성공 소비, Greater Exaltation 병용의 시전 전 tag 고정, 성공 시 matching trigger만 소비. 기존 원문 catalog/film v1/보류65/typed quality 경계 유지. 현재 개발 구현113/155는 기존111+legacy2; 기본111, legacy2, pending42; 전체121/220. 현재 drop 가능 개수 주장 없음.
+- 미확인: 실제 실패 소비, 다른 same-trigger 병용, 강화 화폐, typed quality 상호작용. Workbench는 원자적 거부로 보존하며 UI에 게임 사실과 구별. Necromancy의 ordinary+exclusive 후보와 공개/분포/포화/특수 상태 및 Catalysing의 bias 함수는 문서 조사만, 미구현 유지.
+- rollback: 이 묶음의 enum/규칙/UI/registry 변경을 되돌림. saved film/raw values를 삭제·재작성하지 않음. [근거·범위·검증](docs/workbench-homogenising-legacy-2026-10-03.md).
+
+최종 UI 보정 검증: 기존 node:24-alpine에서 lint/typecheck/format:check, 관련3파일30개, build PASS. 최종 build layout10개(390px/1440px)와 screenshot 자체 리뷰 PASS. 추가 node:22-bookworm 선택 오류는 test startup 이전 native binding 실패로 기록하며, lockfile/의존성은 바꾸지 않았다.

@@ -37,6 +37,7 @@ export interface Bucket {
   conditions: string[]
 }
 export interface Definition {
+  requiredItemLevel?: number
   weight?: number
   id: string
   name: string

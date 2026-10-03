@@ -68,8 +68,11 @@ describe('Workbench extensions', () => {
     fireEvent.click(dextral)
     expect(useItemDraft.getState().activeOmens).toEqual([])
     expect(
-      screen.queryByRole('checkbox', { name: /Omen/ }),
+      screen.queryByRole('checkbox', { name: /^Omen of / }),
     ).not.toBeInTheDocument()
+    expect(
+      screen.getByRole('checkbox', { name: 'Show legacy Homogenising Omens' }),
+    ).not.toBeChecked()
   })
   it('consumes the matching affix omen and preserves the unrelated Blessed omen until Divine', async () => {
     const bodies: {

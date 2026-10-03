@@ -32,6 +32,8 @@ import {
   workbenchCurrencyActions,
   workbenchActionNames,
   workbenchOmens,
+  legacyHomogenisingIds,
+  compatibleOmenPair,
   mapSolarText,
 } from './workbenchApi'
 import type { AppliedItem, MappingResult } from './workbenchApi'
@@ -167,6 +169,7 @@ export function CraftingPage() {
   >({})
   const [tooltipsEnabled, setTooltipsEnabled] = useState(true)
   const [activeTab, setActiveTab] = useState<MaterialTab>('Currency')
+  const [showLegacyOmens, setShowLegacyOmens] = useState(false)
   const [selected, setSelected] = useState<Selection | null>(null)
   const [held, setHeld] = useState<Material | null>(null)
   const [favorites, setFavorites] = useState<(Material | null)[]>(
@@ -436,6 +439,7 @@ export function CraftingPage() {
       (entry) =>
         entry.id !== id &&
         entry.trigger === omen.trigger &&
+        !compatibleOmenPair(entry.id, id) &&
         draft.activeOmens.includes(entry.id),
     )
     if (!active && conflict) {
@@ -650,6 +654,7 @@ export function CraftingPage() {
   const currentMaterials = materials.filter(
     (m) =>
       m.category === activeTab &&
+      (showLegacyOmens || !legacyHomogenisingIds.includes(m.id)) &&
       m.name.toLowerCase().includes(search.trim().toLowerCase()),
   )
   function materialButton(material: Material) {
@@ -678,7 +683,10 @@ export function CraftingPage() {
         <span className="material-entry__image">
           <CurrencyImage key={material.id} {...material} />
         </span>
-        <span>{material.name}</span>
+        <span>
+          {material.name}
+          {legacyHomogenisingIds.includes(material.id) ? ' (Legacy)' : ''}
+        </span>
       </button>
     )
   }
@@ -1040,6 +1048,38 @@ export function CraftingPage() {
                     })
                   ) : (
                     <>
+                      {activeTab === 'Omen' && (
+                        <div className="legacy-omen-info">
+                          <label>
+                            <input
+                              type="checkbox"
+                              checked={showLegacyOmens}
+                              onChange={(event) =>
+                                setShowLegacyOmens(event.target.checked)
+                              }
+                            />{' '}
+                            Show legacy Homogenising Omens
+                          </label>
+                          {showLegacyOmens && (
+                            <p>
+                              Drop disabled in 0.4; existing items work.
+                              Ordinary Exalted / Regal only. Greater Exaltation
+                              uses pre-craft tags for both additions. Other
+                              same-trigger combinations and catalyst quality are
+                              unsupported. Failed requests preserve resources
+                              here; actual game failure consumption is
+                              unverified.{' '}
+                              <a
+                                href="https://www.pathofexile.com/forum/view-thread/3883495/filter-account-type/staff"
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                Official availability source
+                              </a>
+                            </p>
+                          )}
+                        </div>
+                      )}
                       <input
                         type="search"
                         className="material-search"

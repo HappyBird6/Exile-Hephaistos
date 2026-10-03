@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import descriptions from './materialTooltips.json'
+import { legacyHomogenisingIds } from './workbenchApi'
 
 type TooltipData = { name: string; lines: string[]; sourceUrl: string }
 const catalog: Record<string, TooltipData> = descriptions
@@ -99,6 +100,13 @@ export function MaterialTooltip() {
       style={{ left: target.x, top: target.y }}
     >
       <strong>{data.name}</strong>
+      {legacyHomogenisingIds.includes(target.id) && (
+        <p>
+          Legacy: drop disabled in 0.4; existing items work. Ordinary currency
+          only; other combinations and actual failure consumption remain
+          unverified.
+        </p>
+      )}
       {data.lines
         .filter((line) => !line.startsWith('Stack Size:'))
         .map((line, i) => (
@@ -107,6 +115,15 @@ export function MaterialTooltip() {
       <a href={data.sourceUrl} target="_blank" rel="noreferrer">
         PoE2DB
       </a>
+      {legacyHomogenisingIds.includes(target.id) && (
+        <a
+          href="https://www.pathofexile.com/forum/view-thread/3883495/filter-account-type/staff"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Official legacy availability
+        </a>
+      )}
     </aside>
   )
 }
