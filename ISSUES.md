@@ -12,10 +12,10 @@ Single issue list from 2026-10-02, explicitly requested by the user. Record new 
 - Evidence: [stat examples and 34 two-variable / 8 one-variable distinction](docs/workbench-stocky-mitts-preparation-2026-10-02.md). PoE2DB endpoints prove marginal stat bounds, not joint outcomes.
 - Done when: current PoE2 primary evidence or reproducible measured observations establish correlation, eligible tuples, resolution/distribution and rounding; replace/confirm the conjecture and regression-test observed boundary cases.
 
-## WB-002 — BLOCKED — Six glove modifier details
+## WB-002 — DONE — Six glove modifier details
 
-- Scope: Stocky Mitts full 182-row ordinary catalog. Missing exact internal stat details: Encased and five LocalAttributeRequirements tiers (Worthy/Apt/Talented/Skilled/Proficient).
-- Impact: keep new glove runtime/catalog selection inactive; do not invent IDs, remove rows or renormalise weights.
+- Scope: Stocky Mitts full 182-row ordinary catalog. All six formerly missing exact details (Encased and Worthy/Apt/Talented/Skilled/Proficient) recovered on 2026-10-03.
+- Impact: full sourced catalog now bundled; runtime/catalog selection remains inactive pending WB-003/WB-006. No invented IDs, removed rows or renormalised weights.
 - Evidence: [coverage and alternate-source audit](docs/workbench-stocky-mitts-preparation-2026-10-02.md); codex/qa-20261002/stocky-mitts-normal-coverage.json (176/182 union; 110 fresh /82 retained comparison overlap).
 - Done when: all six exact source identities/ranges/locality/applicability match captured rows and full checksum/count/weight validation passes.
 
@@ -94,3 +94,16 @@ Tomorrow's concise decision list: review WB-001 common-ratio conjecture, tick re
 ### Final integration handoff (2026-10-02)
 
 Current code HEAD 20851fd added no backend change after the full BE 183 run at 1e5aa54. FE 106 and Chromium 56 remain the current full relevant results. A focused 21-check cross-feature Chromium run additionally passed Alchemy/Fracturing/Hysteria+Crystallisation/Runic Alloy/Blessed and Shift Divine with persisted frame evidence, locks, past crafting, archived futures, reload, Alt and narrow viewport, zero page errors. No failure justified another code change. [Concise overnight handoff](docs/overnight-summary-2026-10-02.md) records baseline, active scope, unverified assumptions, remaining blockers, tomorrow priorities and resume commands. Only four intended QA test-server services remain running; anonymous browser/Node checks self-removed and the successful BE check container is stopped. Original DB/volumes and remote state remain untouched.
+
+
+### User review completed (2026-10-03)
+
+User selected the recommendation for both reviewed choices (1. 추천대로, 2. 추천대로) and requested continued work. WB-008 retains full optional per-step crafting evidence. WB-001 retains 10001 equally sampled ratio ticks and HALF_UP with explicit unverified-model labelling. This completes the user preference review, not verification of the game's numeric rules: WB-001 remains ASSUMED and WB-008 remains DONE. Missing source details, precision, Catalyst and special-state evidence remain developer investigation tasks; they do not require the user to invent rules or reapprove prior scope exclusions. Current model/speed settings are retained.
+
+### WB-002 complete source recovery (2026-10-03)
+
+All six missing details now match current PoE2DB primary rows through exact public Codes located in pinned public PoB2 data. Full 182-row pool is bundled without pruning: 116 fresh details and 66 labelled retained exact matches, 83/99 prefix/suffix, published weights 63700/84500. [Complete evidence and inactive catalog boundary](docs/workbench-stocky-mitts-catalog-2026-10-03.md). Earlier 176/182 and failed URL observations above are historical. WB-003 precision and WB-006 runtime activation remain unresolved; no unsupported base was exposed.
+
+### Complete glove catalog validation (2026-10-03)
+
+Project Docker spotlessApply/check/integration/generateJooq/bootJar passed: 186 tests (180 unit, six integration), zero failure/error/skipped. Three new catalog tests cover full counts/weights/source rows, signed recovered bounds, checksum rejection and default Solar preservation. XML evidence: codex/qa-20261003/stocky-backend-artifacts/test-results; totals: stocky-backend-validation.json. Runtime activation and FE/browser were not changed or rerun. Prior FE 106 / Chromium 56 plus 21 cross-feature checks remain prior evidence. Original DB/volumes and remote state preserved.
