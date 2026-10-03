@@ -1114,6 +1114,28 @@ export function CraftingPage() {
                     apply to Alloys.
                   </p>
                 )}
+                {(([
+                  'Adaptive_Alloy',
+                  'Swift_Alloy',
+                  'Sovereign_Alloy',
+                ].includes(selected?.id ?? '') &&
+                  concrete?.baseItemId ===
+                    'Metadata/Items/Armours/Gloves/FourGlovesStr1') ||
+                  concrete?.explicits.some((m) =>
+                    [
+                      ':alloy-attack-speed-missing-ward',
+                      ':alloy-cast-speed',
+                      ':alloy-local-runic-ward',
+                    ].some((id) => m.modifierId.endsWith(id)),
+                  )) && (
+                  <p className="workbench-feedback">
+                    Supported gloves: Adaptive and Sovereign item level 25+;
+                    Swift 45+. Lower item-level use is not verified. Modifier
+                    assignment only; missing-Ward conditions, attack/cast speed
+                    and Local Ward totals are not calculated. Crystallisation
+                    omens do not apply to Alloys.
+                  </p>
+                )}
                 {((selected?.id === 'Prismatic_Alloy' &&
                   concrete?.baseItemId ===
                     'Metadata/Items/Armours/Gloves/FourGlovesStr1') ||

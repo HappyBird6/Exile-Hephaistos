@@ -217,3 +217,18 @@ Next independent data batch: source-backed single-effect Expansive/Cyclonic/Myst
 - [Exact evidence, count definitions, execution limits and next invariant review](docs/workbench-stocky-scalar-alloys-2026-10-03.md).
 
 Next independent review: Adaptive conditional effect, Swift two-family exclusion and Sovereign Local Ward property boundary. Source capture alone is not implementation. WB-003/004/005/010/017 remain unresolved.
+## WB-020 — DONE — Adaptive/Swift/Sovereign bounded Stocky Alloy assignment
+
+- Current primary glove targets: Adaptive conditional Attack Speed10..15 suffix/level25; Swift Cast Speed9..12 suffix/level45 with both IncreasedCastSpeed and IncreasedAttackSpeed families; Sovereign Local Ward24..30 prefix/level25, name Verisium. One source-checked data extension, existing replacement engine unchanged.
+- Conditions remain source text, not evaluated state or invented currency prerequisites. No speed or Local Ward total/quality/socket calculation. Every removal branch and each family is checked; ordinary speed/Adaptive/Swift clashes and Fractures refuse safely. Alloy omens unconsumed, including pair. UI labels bounded assignment.
+- Numeric model remains WB-003; lower-ilvl25 vs20/45 vs36 remains WB-017. Solar unsupported for these targets; Sovereign's separate Solar effect is WB-021.
+- Unique implemented74/registered220; Stocky67 support records/56 actions/194 definitions, Solar60/49 unchanged. Ordinary182 positive weights63,700/84,500 preserved;12 zero-spawn special definitions; six compatible snapshots.
+- Docker BE246/FE160 pass; combined actual browser70 and v24 history11, zero page errors. Per-target API locks and real family/condition/Solar refusal probes pass; staged source-byte checks pass. Unchanged individual browser matrices/cachepersist not rerun.
+- [Classification, exact source/eligibility/calculation boundaries and execution evidence](docs/workbench-stocky-reviewed-alloys-2026-10-03.md).
+
+## WB-021 — OPEN — Solar Sovereign exact target and resistance-magnitude boundary
+
+- Current primary Sovereign item page explicitly gives Amulets/Jewellery +20..30% Explicit Resistance Modifier magnitudes, different from the source-proven Local Ward glove Code.
+- The current source collection identifies the exact strength-glove target, not the exact Solar magnitude modifier's Code/families/stats/level. Do not reuse LocalRunicWardPercent or invent a resistance target/eligible set. Solar remains safely unsupported; confirmed glove work proceeds independently.
+- Resolve by capturing the current Amulet target/detail and eligible conditions, then defining whether a bounded magnitude-affix assignment can be represented independently or needs modifier-scaling state. Actual resistance magnitudes must not be labeled computed until the scaling rules/provenance and roll/lock behavior are verified. Existing WB-004/005 remain separate.
+- [Primary page and current unsupported boundary](docs/workbench-stocky-reviewed-alloys-2026-10-03.md#classification-and-primary-evidence).

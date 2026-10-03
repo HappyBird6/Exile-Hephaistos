@@ -35,21 +35,29 @@ class StockyWorkbenchTest {
             getClass().getResourceAsStream("/catalog/stocky-mitts/scalar-alloys.catalog.json");
         var scalarRaw =
             getClass().getResourceAsStream("/catalog/stocky-mitts/scalar-alloys.raw.json");
+        var reviewed =
+            getClass().getResourceAsStream("/catalog/stocky-mitts/reviewed-alloys.catalog.json");
+        var reviewedRaw =
+            getClass().getResourceAsStream("/catalog/stocky-mitts/reviewed-alloys.raw.json");
         var prismaticRaw =
             getClass().getResourceAsStream("/catalog/stocky-mitts/prismatic-alloy.raw.json")) {
       return ItemCatalogLoader.addSpecial(
           ItemCatalogLoader.addSpecial(
               ItemCatalogLoader.addSpecial(
                   ItemCatalogLoader.addSpecial(
-                      ItemCatalogLoader.loadWithSpecial(data, raw, details, special, specialRaw),
-                      horror,
-                      horrorRaw),
-                  perfect,
-                  perfectRaw),
-              prismatic,
-              prismaticRaw),
-          scalar,
-          scalarRaw);
+                      ItemCatalogLoader.addSpecial(
+                          ItemCatalogLoader.loadWithSpecial(
+                              data, raw, details, special, specialRaw),
+                          horror,
+                          horrorRaw),
+                      perfect,
+                      perfectRaw),
+                  prismatic,
+                  prismaticRaw),
+              scalar,
+              scalarRaw),
+          reviewed,
+          reviewedRaw);
     }
   }
 
@@ -81,7 +89,7 @@ class StockyWorkbenchTest {
       assertThat(rare.applied()).isTrue();
       assertThat(rare.state().implicits()).isEmpty();
       assertThat(rare.state().explicits()).hasSize(4);
-      assertThat(rare.ruleVersion()).isEqualTo("stocky-workbench-scalar-alloys-v24");
+      assertThat(rare.ruleVersion()).isEqualTo("stocky-workbench-reviewed-alloys-v25");
       var locked =
           service.apply(rare.state(), WorkbenchCurrency.FRACTURING, Set.of(), random).state();
       var fracture =
@@ -168,7 +176,7 @@ class StockyWorkbenchTest {
                   catalog.find(m.modifierId()).orElseThrow().affixType()
                       == ModifierDefinition.AffixType.PREFIX);
     }
-    assertThat(catalog.modifiers()).hasSize(191);
+    assertThat(catalog.modifiers()).hasSize(194);
     assertThat(
             service
                 .apply(
@@ -256,7 +264,7 @@ class StockyWorkbenchTest {
         }
       }
     }
-    assertThat(service.actions(root, Set.of())).hasSize(53);
+    assertThat(service.actions(root, Set.of())).hasSize(56);
     assertThat(
             service.actions(
                 new ItemState(
@@ -269,6 +277,6 @@ class StockyWorkbenchTest {
                     Set.of()),
                 Set.of()))
         .hasSize(49);
-    assertThat(catalog.modifiers()).hasSize(191);
+    assertThat(catalog.modifiers()).hasSize(194);
   }
 }

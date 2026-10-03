@@ -45,6 +45,12 @@ class StockyHysteriaTest {
         var scalarRaw =
             StockyHysteriaTest.class.getResourceAsStream(
                 "/catalog/stocky-mitts/scalar-alloys.raw.json");
+        var reviewed =
+            StockyHysteriaTest.class.getResourceAsStream(
+                "/catalog/stocky-mitts/reviewed-alloys.catalog.json");
+        var reviewedRaw =
+            StockyHysteriaTest.class.getResourceAsStream(
+                "/catalog/stocky-mitts/reviewed-alloys.raw.json");
         var prismaticRaw =
             StockyHysteriaTest.class.getResourceAsStream(
                 "/catalog/stocky-mitts/prismatic-alloy.raw.json")) {
@@ -52,15 +58,19 @@ class StockyHysteriaTest {
           ItemCatalogLoader.addSpecial(
               ItemCatalogLoader.addSpecial(
                   ItemCatalogLoader.addSpecial(
-                      ItemCatalogLoader.loadWithSpecial(data, raw, details, special, specialRaw),
-                      horror,
-                      horrorRaw),
-                  perfect,
-                  perfectRaw),
-              prismatic,
-              prismaticRaw),
-          scalar,
-          scalarRaw);
+                      ItemCatalogLoader.addSpecial(
+                          ItemCatalogLoader.loadWithSpecial(
+                              data, raw, details, special, specialRaw),
+                          horror,
+                          horrorRaw),
+                      perfect,
+                      perfectRaw),
+                  prismatic,
+                  prismaticRaw),
+              scalar,
+              scalarRaw),
+          reviewed,
+          reviewedRaw);
     } catch (Exception e) {
       throw new IllegalStateException(e);
     }
@@ -292,7 +302,7 @@ class StockyHysteriaTest {
       assertThat(definition.stats())
           .containsExactly(
               new ModifierDefinition.StatRange("base_critical_strike_multiplier_+", 25, 29));
-      assertThat(catalog.modifiers()).hasSize(191);
+      assertThat(catalog.modifiers()).hasSize(194);
     }
   }
 }

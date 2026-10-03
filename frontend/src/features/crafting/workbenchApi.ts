@@ -24,6 +24,9 @@ export type WorkbenchAction =
   | 'EXPANSIVE_ALLOY'
   | 'CYCLONIC_ALLOY'
   | 'MYSTIC_ALLOY'
+  | 'ADAPTIVE_ALLOY'
+  | 'SWIFT_ALLOY'
+  | 'SOVEREIGN_ALLOY'
   | 'PRISMATIC_ALLOY'
   | 'LESSER_ESSENCE_BODY'
   | 'ESSENCE_BODY'
@@ -156,6 +159,9 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Expansive_Alloy: 'EXPANSIVE_ALLOY',
   Cyclonic_Alloy: 'CYCLONIC_ALLOY',
   Mystic_Alloy: 'MYSTIC_ALLOY',
+  Adaptive_Alloy: 'ADAPTIVE_ALLOY',
+  Swift_Alloy: 'SWIFT_ALLOY',
+  Sovereign_Alloy: 'SOVEREIGN_ALLOY',
   Prismatic_Alloy: 'PRISMATIC_ALLOY',
   Lesser_Essence_of_the_Body: 'LESSER_ESSENCE_BODY',
   Essence_of_the_Body: 'ESSENCE_BODY',
@@ -203,6 +209,9 @@ export const workbenchActionNames: Record<WorkbenchAction, string> = {
   EXPANSIVE_ALLOY: 'Expansive Alloy',
   CYCLONIC_ALLOY: 'Cyclonic Alloy',
   MYSTIC_ALLOY: 'Mystic Alloy',
+  ADAPTIVE_ALLOY: 'Adaptive Alloy',
+  SWIFT_ALLOY: 'Swift Alloy',
+  SOVEREIGN_ALLOY: 'Sovereign Alloy',
   PRISMATIC_ALLOY: 'Prismatic Alloy',
   LESSER_ESSENCE_BODY: 'Lesser Essence of the Body',
   ESSENCE_BODY: 'Essence of the Body',
@@ -516,6 +525,9 @@ export async function applyCurrency(
     EXPANSIVE_ALLOY: ['stocky-mitts:suffix:alloy-remnant-pickup-range'],
     CYCLONIC_ALLOY: ['stocky-mitts:suffix:alloy-damaging-ailment-duration'],
     MYSTIC_ALLOY: ['stocky-mitts:suffix:alloy-attack-area-of-effect'],
+    ADAPTIVE_ALLOY: ['stocky-mitts:suffix:alloy-attack-speed-missing-ward'],
+    SWIFT_ALLOY: ['stocky-mitts:suffix:alloy-cast-speed'],
+    SOVEREIGN_ALLOY: ['stocky-mitts:prefix:alloy-local-runic-ward'],
     PRISMATIC_ALLOY: ['stocky-mitts:prefix:alloy-elemental-penetration'],
     PERFECT_ESSENCE_GROUNDING: ['stocky-mitts:suffix:essence-lightning-recoup'],
     PERFECT_ESSENCE_OPULENCE: ['stocky-mitts:suffix:essence-gold-quantity'],
@@ -549,9 +561,13 @@ export async function applyCurrency(
   if (
     !next ||
     (v.applied && action === 'PRISMATIC_ALLOY' && state.itemLevel < 45) ||
-    (v.applied && action === 'EXPANSIVE_ALLOY' && state.itemLevel < 25) ||
     (v.applied &&
-      ['CYCLONIC_ALLOY', 'MYSTIC_ALLOY'].includes(action) &&
+      ['EXPANSIVE_ALLOY', 'ADAPTIVE_ALLOY', 'SOVEREIGN_ALLOY'].includes(
+        action,
+      ) &&
+      state.itemLevel < 25) ||
+    (v.applied &&
+      ['CYCLONIC_ALLOY', 'MYSTIC_ALLOY', 'SWIFT_ALLOY'].includes(action) &&
       state.itemLevel < 45) ||
     (v.applied &&
       ['PERFECT_ESSENCE_GROUNDING', 'PERFECT_ESSENCE_OPULENCE'].includes(
@@ -564,6 +580,9 @@ export async function applyCurrency(
         'EXPANSIVE_ALLOY',
         'CYCLONIC_ALLOY',
         'MYSTIC_ALLOY',
+        'ADAPTIVE_ALLOY',
+        'SWIFT_ALLOY',
+        'SOVEREIGN_ALLOY',
         'PRISMATIC_ALLOY',
         'PERFECT_ESSENCE_GROUNDING',
         'PERFECT_ESSENCE_OPULENCE',
@@ -725,6 +744,9 @@ export async function applyCurrency(
       (o) =>
         ![
           'RUNIC_ALLOY',
+          'ADAPTIVE_ALLOY',
+          'SWIFT_ALLOY',
+          'SOVEREIGN_ALLOY',
           'PRISMATIC_ALLOY',
           'EXPANSIVE_ALLOY',
           'CYCLONIC_ALLOY',
@@ -804,6 +826,9 @@ export async function applyCurrency(
         'EXPANSIVE_ALLOY',
         'CYCLONIC_ALLOY',
         'MYSTIC_ALLOY',
+        'ADAPTIVE_ALLOY',
+        'SWIFT_ALLOY',
+        'SOVEREIGN_ALLOY',
         'PRISMATIC_ALLOY',
       ].includes(action)
     ) {
@@ -814,13 +839,19 @@ export async function applyCurrency(
           ? 'EssenceLightningRecoupLife1'
           : action === 'PERFECT_ESSENCE_OPULENCE'
             ? 'EssenceGoldDropped1'
-            : action === 'EXPANSIVE_ALLOY'
-              ? 'AlloyRemnantPickupRange1'
-              : action === 'CYCLONIC_ALLOY'
-                ? 'AlloyDamagingAilmentDuration1'
-                : action === 'MYSTIC_ALLOY'
-                  ? 'AlloyAttackAreaOfEffect1'
-                  : 'AlloyElementalPenetration1')
+            : action === 'ADAPTIVE_ALLOY'
+              ? 'AlloyAttackSpeedIfMissingWardRecently1'
+              : action === 'SWIFT_ALLOY'
+                ? 'AlloyCastSpeedGloves1'
+                : action === 'SOVEREIGN_ALLOY'
+                  ? 'AlloyLocalWardIncreasePercent1'
+                  : action === 'EXPANSIVE_ALLOY'
+                    ? 'AlloyRemnantPickupRange1'
+                    : action === 'CYCLONIC_ALLOY'
+                      ? 'AlloyDamagingAilmentDuration1'
+                      : action === 'MYSTIC_ALLOY'
+                        ? 'AlloyAttackAreaOfEffect1'
+                        : 'AlloyElementalPenetration1')
       const models = v.assumptions.filter(
         (a) => a.id === 'assumed-source-integer-roll-v1',
       )

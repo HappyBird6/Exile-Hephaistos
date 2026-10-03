@@ -30,11 +30,11 @@ class StockyCyclonicAlloyTest {
       assertThat(proof.path("row").path("IsAlloy").asBoolean()).isTrue();
       assertThat(proof.path("row").path("reqlvl").asInt()).isEqualTo(36);
     }
-    assertThat(f.catalog.modifiers()).hasSize(191);
+    assertThat(f.catalog.modifiers()).hasSize(194);
     assertThat(f.catalog.modifiers().values().stream().filter(m -> m.weight() > 0)).hasSize(182);
     assertThat(f.catalog.metadata().prefixWeight()).isEqualTo(63700);
     assertThat(f.catalog.metadata().suffixWeight()).isEqualTo(84500);
-    assertThat(f.catalog.compatibleSnapshotIds()).hasSize(5);
+    assertThat(f.catalog.compatibleSnapshotIds()).hasSize(6);
   }
 
   @Test
