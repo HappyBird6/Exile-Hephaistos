@@ -47,17 +47,24 @@ public class CraftingConfiguration {
                     "/catalog/stocky-mitts/perfect-grounding-opulence.catalog.json");
         var perfectRaw =
             getClass()
-                .getResourceAsStream("/catalog/stocky-mitts/perfect-grounding-opulence.raw.json")) {
+                .getResourceAsStream("/catalog/stocky-mitts/perfect-grounding-opulence.raw.json");
+        var prismatic =
+            getClass().getResourceAsStream("/catalog/stocky-mitts/prismatic-alloy.catalog.json");
+        var prismaticRaw =
+            getClass().getResourceAsStream("/catalog/stocky-mitts/prismatic-alloy.raw.json")) {
       return new WorkbenchService(
           catalog,
           simulator,
           ItemCatalogLoader.addSpecial(
               ItemCatalogLoader.addSpecial(
-                  ItemCatalogLoader.loadWithSpecial(data, raw, details, special, specialRaw),
-                  horror,
-                  horrorRaw),
-              perfect,
-              perfectRaw));
+                  ItemCatalogLoader.addSpecial(
+                      ItemCatalogLoader.loadWithSpecial(data, raw, details, special, specialRaw),
+                      horror,
+                      horrorRaw),
+                  perfect,
+                  perfectRaw),
+              prismatic,
+              prismaticRaw));
     } catch (java.io.IOException e) {
       throw new IllegalStateException("Cannot load Stocky Mitts catalog", e);
     }

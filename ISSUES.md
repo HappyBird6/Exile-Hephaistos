@@ -198,3 +198,13 @@ Latest Abyss verification: Docker BE 201 (195 unit/six integration), FE 117/22 f
 - Detailed modifier Level 72 and effective/Required Level 57 are distinct published fields. Neither by itself establishes the material's actual minimum eligible item level; do not promote 57 into the item-level rule or call lower levels illegal in the game.
 - Current implementation conservatively supports Stocky ilvl 72+ under the existing catalog convention; ilvl 1..71 remains unsupported with visible boundary and safe refusal. This is a bounded implementation scope, not a claimed complete eligibility rule.
 - Resolve with current primary/official evidence for forced Essence modifier eligibility at lower item levels. Independently supported higher-level crafting and other material work may continue. See [source/eligibility boundary](docs/workbench-stocky-perfect-glove-essences-2026-10-03.md#source-evidence-and-eligibility-boundary).
+
+## WB-018 — DONE — Stocky Prismatic Alloy through shared Rare replacement
+
+- Source-proven zero-spawn Global ElementalPenetration prefix 9..15, Code AlloyElementalPenetration1; conservative supported ilvl45+, lower levels remain WB-017. Effect assignment only; resistance/damage calculation absent and labeled.
+- Alloy classification excludes Crystallisation matching/consumption, including its pair; all eligible branches must fit family/capacity. Ordinary 182 definitions/weights intact; 188 total/six zero-spawn. Four prior snapshots remain compatible.
+- Current unique implementation 68/220 registered; Stocky61 support records/50 actions, Solar60/49. Docker BE219/FE133 pass; actual new Alloy54/shared Runic48, old v21/v22 history11 each, zero page errors; actual API lock/pool and staged source-byte checks pass.
+- WB-017 also covers Prismatic modifier Level45 versus effective requirement36: low-ilvl forced-Alloy eligibility is not established. No game prohibition inferred.
+- [Primary evidence, exact limits, executed/non-rerun checks, observed costs and next data batch](docs/workbench-stocky-prismatic-alloy-2026-10-03.md).
+
+Next independent data batch: source-backed single-effect Expansive/Cyclonic/Mystic Alloys through the same engine, with per-material automated proof/invariant tests and one shared browser regression. Conditional/multiple-family/Local-Ward candidates follow their own boundaries; WB-003/004/005/010/017 remain unresolved. Broad unchanged-screen regressions are not repeated per material.

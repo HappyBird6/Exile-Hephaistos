@@ -1092,6 +1092,19 @@ export function CraftingPage() {
                     Gold drop totals are not calculated.
                   </p>
                 )}
+                {((selected?.id === 'Prismatic_Alloy' &&
+                  concrete?.baseItemId ===
+                    'Metadata/Items/Armours/Gloves/FourGlovesStr1') ||
+                  concrete?.explicits.some((m) =>
+                    m.modifierId.endsWith(':alloy-elemental-penetration'),
+                  )) && (
+                  <p className="workbench-feedback">
+                    Supported gloves: item level 45+. Lower item-level use is
+                    not verified. Penetration modifier only; enemy resistances
+                    and damage are not calculated. Crystallisation omens do not
+                    apply to Alloys.
+                  </p>
+                )}
                 {!canCraft && (
                   <p>
                     Pasted items are display-only until catalog mapping is

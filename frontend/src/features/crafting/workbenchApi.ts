@@ -21,6 +21,7 @@ export type WorkbenchAction =
   | 'PERFECT_ESSENCE_OPULENCE'
   | 'ESSENCE_BREACH'
   | 'RUNIC_ALLOY'
+  | 'PRISMATIC_ALLOY'
   | 'LESSER_ESSENCE_BODY'
   | 'ESSENCE_BODY'
   | 'GREATER_ESSENCE_BODY'
@@ -149,6 +150,7 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Perfect_Essence_of_Opulence: 'PERFECT_ESSENCE_OPULENCE',
   Essence_of_the_Breach: 'ESSENCE_BREACH',
   Runic_Alloy: 'RUNIC_ALLOY',
+  Prismatic_Alloy: 'PRISMATIC_ALLOY',
   Lesser_Essence_of_the_Body: 'LESSER_ESSENCE_BODY',
   Essence_of_the_Body: 'ESSENCE_BODY',
   Greater_Essence_of_the_Body: 'GREATER_ESSENCE_BODY',
@@ -192,6 +194,7 @@ export const workbenchActionNames: Record<WorkbenchAction, string> = {
   PERFECT_ESSENCE_OPULENCE: 'Perfect Essence of Opulence',
   ESSENCE_BREACH: 'Essence of the Breach',
   RUNIC_ALLOY: 'Runic Alloy',
+  PRISMATIC_ALLOY: 'Prismatic Alloy',
   LESSER_ESSENCE_BODY: 'Lesser Essence of the Body',
   ESSENCE_BODY: 'Essence of the Body',
   GREATER_ESSENCE_BODY: 'Greater Essence of the Body',
@@ -501,6 +504,7 @@ export async function applyCurrency(
   > = {
     ESSENCE_HYSTERIA: ['stocky-mitts:suffix:of-fury'],
     ESSENCE_HORROR: ['stocky-mitts:suffix:essence-socketed-augment-effect'],
+    PRISMATIC_ALLOY: ['stocky-mitts:prefix:alloy-elemental-penetration'],
     PERFECT_ESSENCE_GROUNDING: ['stocky-mitts:suffix:essence-lightning-recoup'],
     PERFECT_ESSENCE_OPULENCE: ['stocky-mitts:suffix:essence-gold-quantity'],
     ESSENCE_ABYSS: [
@@ -532,6 +536,7 @@ export async function applyCurrency(
     Object.values(values).every(Number.isSafeInteger)
   if (
     !next ||
+    (v.applied && action === 'PRISMATIC_ALLOY' && state.itemLevel < 45) ||
     (v.applied &&
       ['PERFECT_ESSENCE_GROUNDING', 'PERFECT_ESSENCE_OPULENCE'].includes(
         action,
@@ -540,6 +545,7 @@ export async function applyCurrency(
     (v.applied &&
       [
         'ESSENCE_HORROR',
+        'PRISMATIC_ALLOY',
         'PERFECT_ESSENCE_GROUNDING',
         'PERFECT_ESSENCE_OPULENCE',
       ].includes(action) &&
@@ -698,7 +704,7 @@ export async function applyCurrency(
   if (v.applied && replacementTargets.length > 0) {
     const matching = workbenchOmens.filter(
       (o) =>
-        action !== 'RUNIC_ALLOY' &&
+        !['RUNIC_ALLOY', 'PRISMATIC_ALLOY'].includes(action) &&
         o.trigger === 'ESSENCE_HYSTERIA' &&
         activeOmens.includes(o.id),
     )
@@ -767,14 +773,20 @@ export async function applyCurrency(
         'Could not verify the essence replacement. Your item is unchanged. Please retry.',
       )
     if (
-      ['PERFECT_ESSENCE_GROUNDING', 'PERFECT_ESSENCE_OPULENCE'].includes(action)
+      [
+        'PERFECT_ESSENCE_GROUNDING',
+        'PERFECT_ESSENCE_OPULENCE',
+        'PRISMATIC_ALLOY',
+      ].includes(action)
     ) {
       const range = definitions[added!.modifierId]?.stats?.[0]
       const expectedSource =
         'https://poe2db.tw/us/hover?s=Data%5CMods%2F' +
         (action === 'PERFECT_ESSENCE_GROUNDING'
           ? 'EssenceLightningRecoupLife1'
-          : 'EssenceGoldDropped1')
+          : action === 'PERFECT_ESSENCE_OPULENCE'
+            ? 'EssenceGoldDropped1'
+            : 'AlloyElementalPenetration1')
       const models = v.assumptions.filter(
         (a) => a.id === 'assumed-source-integer-roll-v1',
       )

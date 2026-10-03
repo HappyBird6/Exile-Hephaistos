@@ -35,14 +35,23 @@ class StockyHysteriaTest {
                 "/catalog/stocky-mitts/perfect-grounding-opulence.catalog.json");
         var perfectRaw =
             StockyHysteriaTest.class.getResourceAsStream(
-                "/catalog/stocky-mitts/perfect-grounding-opulence.raw.json")) {
+                "/catalog/stocky-mitts/perfect-grounding-opulence.raw.json");
+        var prismatic =
+            StockyHysteriaTest.class.getResourceAsStream(
+                "/catalog/stocky-mitts/prismatic-alloy.catalog.json");
+        var prismaticRaw =
+            StockyHysteriaTest.class.getResourceAsStream(
+                "/catalog/stocky-mitts/prismatic-alloy.raw.json")) {
       return ItemCatalogLoader.addSpecial(
           ItemCatalogLoader.addSpecial(
-              ItemCatalogLoader.loadWithSpecial(data, raw, details, special, specialRaw),
-              horror,
-              horrorRaw),
-          perfect,
-          perfectRaw);
+              ItemCatalogLoader.addSpecial(
+                  ItemCatalogLoader.loadWithSpecial(data, raw, details, special, specialRaw),
+                  horror,
+                  horrorRaw),
+              perfect,
+              perfectRaw),
+          prismatic,
+          prismaticRaw);
     } catch (Exception e) {
       throw new IllegalStateException(e);
     }
@@ -274,7 +283,7 @@ class StockyHysteriaTest {
       assertThat(definition.stats())
           .containsExactly(
               new ModifierDefinition.StatRange("base_critical_strike_multiplier_+", 25, 29));
-      assertThat(catalog.modifiers()).hasSize(187);
+      assertThat(catalog.modifiers()).hasSize(188);
     }
   }
 }

@@ -31,6 +31,7 @@ public enum WorkbenchCurrency {
   PERFECT_ESSENCE_ENHANCEMENT(null, 0),
   ESSENCE_BREACH(null, 0),
   RUNIC_ALLOY(null, 0),
+  PRISMATIC_ALLOY(null, 0),
   ESSENCE_ABYSS(null, 0),
   LESSER_ESSENCE_ENHANCEMENT("stocky-mitts:prefix:layered"),
   ESSENCE_ENHANCEMENT("stocky-mitts:prefix:buttressed"),
@@ -124,12 +125,17 @@ public enum WorkbenchCurrency {
   }
 
   public List<String> replacementEssenceModifiers() {
-    return this == RUNIC_ALLOY ? List.of() : replacementModifiers();
+    return isAlloy() ? List.of() : replacementModifiers();
+  }
+
+  public boolean isAlloy() {
+    return this == RUNIC_ALLOY || this == PRISMATIC_ALLOY;
   }
 
   public List<String> replacementModifiers() {
     return switch (this) {
       case RUNIC_ALLOY -> List.of("amulet:prefix:alloy-maximum-runic-ward");
+      case PRISMATIC_ALLOY -> List.of("stocky-mitts:prefix:alloy-elemental-penetration");
       case ESSENCE_HYSTERIA -> List.of("amulet:suffix:of-suturing");
       case ESSENCE_HORROR -> List.of("stocky-mitts:suffix:essence-socketed-augment-effect");
       case PERFECT_ESSENCE_GROUNDING -> List.of("stocky-mitts:suffix:essence-lightning-recoup");
@@ -162,6 +168,10 @@ public enum WorkbenchCurrency {
   }
 
   public String replacementSource() {
-    return this == RUNIC_ALLOY ? "https://poe2db.tw/us/Runic_Alloy" : replacementEssenceSource();
+    return switch (this) {
+      case RUNIC_ALLOY -> "https://poe2db.tw/us/Runic_Alloy";
+      case PRISMATIC_ALLOY -> "https://poe2db.tw/us/Prismatic_Alloy";
+      default -> replacementEssenceSource();
+    };
   }
 }

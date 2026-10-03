@@ -18,7 +18,7 @@ Bounds below are **raw published source bounds**, not proof of integer step/disp
 | [Expansive_Alloy](https://poe2db.tw/us/Expansive_Alloy) | `AlloyRemnantPickupRange1` | 25 | Suffix | `RemnantPickupRadius` | `remnant pickup range +%`: 35 — 50 (Global) | Exact target/source page captured; not activated |
 | [Swift_Alloy](https://poe2db.tw/us/Swift_Alloy) | `AlloyCastSpeedGloves1` | 45 | Suffix | `IncreasedCastSpeed`, `IncreasedAttackSpeed` | `base cast speed +%`: 9 — 12 (Global) | Exact target/source page captured; not activated |
 | [Cyclonic_Alloy](https://poe2db.tw/us/Cyclonic_Alloy) | `AlloyDamagingAilmentDuration1` | 45 | Suffix | `DamagingAilmentDuration` | `damaging ailment duration +%`: 20 — 25 (Global) | Exact target/source page captured; not activated |
-| [Prismatic_Alloy](https://poe2db.tw/us/Prismatic_Alloy) | `AlloyElementalPenetration1` | 45 | Prefix | `ElementalPenetration` | `reduce enemy elemental resistance %`: 9 — 15 (Global) | Exact target/source page captured; not activated |
+| [Prismatic_Alloy](https://poe2db.tw/us/Prismatic_Alloy) | `AlloyElementalPenetration1` | 45 | Prefix | `ElementalPenetration` | `reduce enemy elemental resistance %`: 9 — 15 (Global) | Active affix assignment (v23); supported ilvl 45+, lower use unverified; no resistance/damage calculation |
 | [Mystic_Alloy](https://poe2db.tw/us/Mystic_Alloy) | `AlloyAttackAreaOfEffect1` | 45 | Suffix | `IncreasedAttackAreaOfEffect` | `attack area of effect +%`: 10 — 15 (Global) | Exact target/source page captured; not activated |
 | [Sovereign_Alloy](https://poe2db.tw/us/Sovereign_Alloy) | `AlloyLocalWardIncreasePercent1` | 25 | Prefix | `LocalRunicWardPercent` | `local ward +%`: 24 — 30 (Local) | Exact target/source page captured; not activated |
 

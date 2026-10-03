@@ -39,7 +39,7 @@ class StockyHorrorTest {
     assertThat(f.catalog.metadata().snapshotId())
         .startsWith("stocky-special-")
         .hasSizeLessThanOrEqualTo(120);
-    assertThat(f.catalog.compatibleSnapshotIds()).hasSize(3);
+    assertThat(f.catalog.compatibleSnapshotIds()).hasSize(4);
   }
 
   @Test
