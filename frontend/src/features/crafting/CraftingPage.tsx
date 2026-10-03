@@ -1,5 +1,9 @@
 import { maximumQuality } from './qualityLimit'
 import { currencyNames } from './currencyNames'
+import {
+  craftProbabilityEvidence,
+  modifierWeightSources,
+} from './craftProbabilityEvidence'
 import { skipToken, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useRef, useState } from 'react'
 import { ItemCard } from './ItemCard'
@@ -1293,14 +1297,23 @@ export function CraftingPage() {
                     <summary>Last craft and roll assumptions</summary>
                     <p>
                       {workbenchActionNames[craftEvidence.action]} applied.{' '}
-                      {craftEvidence.events.some(
-                        (event) => event.kind === 'ADD',
-                      )
-                        ? 'New modifier selected using PoE2DB published modifier weights.'
-                        : craftEvidence.action === 'DIVINE'
-                          ? 'Numeric values rerolled within their current source ranges.'
-                          : 'Modifier removal uses the uniform assumption listed below.'}
+                      {craftProbabilityEvidence(craftEvidence).text}
                     </p>
+                    {craftProbabilityEvidence(craftEvidence).weighted && (
+                      <p>
+                        <a
+                          href={modifierWeightSources[catalogBase]}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          PoE2DB modifier table
+                        </a>
+                        : published DropChance values supply model weights;
+                        ordered Spawn Tags establish eligibility only. The
+                        difference between these source fields remains
+                        unresolved.
+                      </p>
+                    )}
                     <p>
                       {craftEvidence.ruleVersion} /{' '}
                       {craftEvidence.ledgerVersion}

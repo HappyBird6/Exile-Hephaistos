@@ -43,6 +43,22 @@ async function selectAndApply() {
   )
 }
 describe('Workbench actual application', () => {
+  it('shows source model weights separately from verified game odds', async () => {
+    vi.stubGlobal('fetch', fixtureFetch)
+    show()
+    await selectAndApply()
+    await screen.findByText(
+      /Model probability uses published PoE2DB table weights/,
+    )
+    fireEvent.click(screen.getByText('Last craft and roll assumptions'))
+    expect(screen.getByText(/not verified game odds/)).toBeVisible()
+    expect(
+      screen.getByRole('link', { name: 'PoE2DB modifier table' }),
+    ).toHaveAttribute('href', 'https://poe2db.tw/us/Amulets')
+    expect(
+      screen.getByText(/ordered Spawn Tags establish eligibility only/),
+    ).toBeVisible()
+  })
   it('does not replace the draft or saved films when a base response arrives after unmount', async () => {
     let release: ((value: Response) => void) | undefined
     vi.stubGlobal('fetch', (input: RequestInfo | URL, init?: RequestInit) =>

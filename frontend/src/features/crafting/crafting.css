@@ -1143,6 +1143,18 @@ dialog.item-input-panel::backdrop {
 .workbench-assumptions {
   overflow-wrap: anywhere;
 }
+.workbench-assumptions a {
+  color: #cabb91;
+  text-underline-offset: 0.15em;
+}
+.workbench-assumptions a:hover,
+.workbench-assumptions a:focus-visible {
+  color: #f4e5b5;
+}
+.workbench-assumptions a:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 3px;
+}
 
 .workbench-omens {
   border: 1px solid #75663a;
