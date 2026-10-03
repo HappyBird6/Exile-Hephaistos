@@ -1,3 +1,4 @@
+import { supportsConcreteStateShape } from './workbenchStateShape'
 import { qualityLimitMatches } from './qualityLimit'
 import type { Initial } from './craftingApi'
 import type { AppliedItem, ConcreteItem } from './workbenchApi'
@@ -239,6 +240,7 @@ export function verifiedHistoryState(
 ): boolean {
   try {
     if (
+      !supportsConcreteStateShape(state) ||
       (state.snapshotId !== initial.metadata.snapshotId &&
         !initial.compatibleSnapshotIds?.includes(state.snapshotId)) ||
       state.baseItemId !== initial.state.baseItemId ||

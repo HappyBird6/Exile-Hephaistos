@@ -146,4 +146,48 @@ class WorkbenchControllerTest {
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.length()").value(49));
   }
+
+  @org.junit.jupiter.params.ParameterizedTest
+  @org.junit.jupiter.params.provider.ValueSource(
+      strings = {"quality", "qualityType", "socketCount", "sockets", "augments"})
+  void rejectsUnsupportedPropertiesBeforeApplyAndAvailability(String field) throws Exception {
+    var state =
+        (com.fasterxml.jackson.databind.node.ObjectNode)
+            mapper.valueToTree(SolarAmulet.initial(catalog));
+    state.put(field, 1);
+    for (String route : java.util.List.of("apply", "actions"))
+      mvc.perform(
+              post("/api/v1/crafting/workbench/" + route)
+                  .contentType(MediaType.APPLICATION_JSON)
+                  .content(
+                      mapper.writeValueAsBytes(Map.of("state", state, "action", "TRANSMUTATION"))))
+          .andExpect(status().isUnprocessableEntity())
+          .andExpect(jsonPath("$.code").value("UNSUPPORTED_ITEM_PROPERTIES"));
+  }
+
+  @Test
+  void rejectsUnknownModifierPropertiesButPreservesLegacyDerivedMetadata() throws Exception {
+    var state =
+        (com.fasterxml.jackson.databind.node.ObjectNode)
+            mapper.valueToTree(SolarAmulet.initial(catalog));
+    ((com.fasterxml.jackson.databind.node.ObjectNode) state.path("implicits").get(0))
+        .put("socketBound", true);
+    mvc.perform(
+            post("/api/v1/crafting/workbench/apply")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(
+                    mapper.writeValueAsBytes(Map.of("state", state, "action", "TRANSMUTATION"))))
+        .andExpect(status().isUnprocessableEntity())
+        .andExpect(jsonPath("$.code").value("UNSUPPORTED_ITEM_PROPERTIES"));
+    ((com.fasterxml.jackson.databind.node.ObjectNode) state.path("implicits").get(0))
+        .remove("socketBound");
+    state.putArray("modifierIds");
+    mvc.perform(
+            post("/api/v1/crafting/workbench/apply")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(
+                    mapper.writeValueAsBytes(Map.of("state", state, "action", "TRANSMUTATION"))))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.applied").value(true));
+  }
 }

@@ -15,6 +15,14 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
       SupportRecommendationController.class
     })
 public final class CraftingErrors {
+  @ExceptionHandler(WorkbenchController.UnsupportedItemProperties.class)
+  public ProblemDetail unsupportedItemProperties() {
+    return problem(
+        HttpStatus.UNPROCESSABLE_ENTITY,
+        "UNSUPPORTED_ITEM_PROPERTIES",
+        "This item contains unsupported properties. Its state has not been changed.");
+  }
+
   @ExceptionHandler(IllegalArgumentException.class)
   public ProblemDetail invalid() {
     return problem(

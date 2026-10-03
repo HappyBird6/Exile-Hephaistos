@@ -1,3 +1,4 @@
+import { supportsConcreteStateShape } from './workbenchStateShape'
 import { qualityLimitMatches } from './qualityLimit'
 import type { QualityLimit } from './qualityLimit'
 import { currencyActions, actionNames } from './craftingApi'
@@ -354,7 +355,8 @@ export async function mapSolarText(
     )
   if (
     v.state &&
-    (typeof v.state.snapshotId !== 'string' ||
+    (!supportsConcreteStateShape(v.state) ||
+      typeof v.state.snapshotId !== 'string' ||
       typeof v.state.baseItemId !== 'string' ||
       !Number.isInteger(v.state.itemLevel) ||
       v.state.itemLevel < 1 ||
@@ -500,6 +502,10 @@ export async function applyCurrency(
   signal: AbortSignal,
   activeOmens: string[] = [],
 ): Promise<AppliedItem> {
+  if (!supportsConcreteStateShape(state))
+    throw new Error(
+      'This item contains unsupported properties. Its state has not been changed.',
+    )
   const response = await fetch('/api/v1/crafting/workbench/apply', {
     method: 'POST',
     signal,
@@ -563,6 +569,7 @@ export async function applyCurrency(
     Object.values(values).every(Number.isSafeInteger)
   if (
     !next ||
+    !supportsConcreteStateShape(next) ||
     (v.qualityLimit !== undefined &&
       !qualityLimitMatches(v.qualityLimit, next, definitions)) ||
     (v.applied && action === 'PRISMATIC_ALLOY' && state.itemLevel < 45) ||

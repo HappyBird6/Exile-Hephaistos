@@ -1,0 +1,37 @@
+[
+  {
+    "id": "Armourers_Scrap",
+    "url": "https://poe2db.tw/us/Armourers_Scrap",
+    "status": 200,
+    "retrievedAt": "2026-10-03T10:58:26.797Z",
+    "sha256": "67a12c4e8fa3571d4cf833d4baf19d79489eb732605f1655760f9b864b5b22a8"
+  },
+  {
+    "id": "Artificers_Orb",
+    "url": "https://poe2db.tw/us/Artificers_Orb",
+    "status": 200,
+    "retrievedAt": "2026-10-03T10:58:27.273Z",
+    "sha256": "6b06ebeec3a40d334172eaabe1832ab6ed2e3cbb8ac7387f57aaf197dd415f7c"
+  },
+  {
+    "id": "Stocky_Mitts",
+    "url": "https://poe2db.tw/us/Stocky_Mitts",
+    "status": 200,
+    "retrievedAt": "2026-10-03T10:58:27.562Z",
+    "sha256": "7116247ac32a232241f08819833e9e1ca5c81fa5fd27892f9ed95a0daf4e2e19"
+  },
+  {
+    "id": "Equipment",
+    "url": "https://poe2db.tw/us/Equipment",
+    "status": 200,
+    "retrievedAt": "2026-10-03T10:58:27.852Z",
+    "sha256": "06bcae1518a89a5daebb931220cb2b95662ae2622f87860451b6be450fd890e2"
+  },
+  {
+    "id": "Augment",
+    "url": "https://poe2db.tw/us/Augment",
+    "status": 200,
+    "retrievedAt": "2026-10-03T10:58:28.589Z",
+    "sha256": "5df97dac7ff1b28d96fb5c146485c6e2d6e0924cb816e109ee0e3b4c3bcd1d2d"
+  }
+]

@@ -238,3 +238,13 @@ Next independent review: Adaptive conditional effect, Swift two-family exclusion
 - 13 Basic-Jewel and 13 Time-Lost-Jewel current item-card operations, plus Liquid Verisium encounter. Historical v25 classification remains dated evidence; user scope supersedes it without rewriting source facts.
 - Registry remains220 / implemented74. Non-Liquid inventory193; unimplemented non-Liquid119. These inventory counts are not a current-two-base completion percentage. Basic currency exclusion in the requested Korean-name output is output-only, not implementation deferral.
 - Current quality work continues separately. [Updated scope and priorities](docs/workbench-scope-update-2026-10-03.md).
+
+## WB-023 - OPEN - Artificer socket eligibility and exceptional state
+
+- Current full primary card confirms one Augment Socket and eligible equipment classes; Stocky is Armour, Solar is outside those classes. The Stocky `socket_info=1:5:100` tuple does not establish a use cap or minimum level without its semantics. Exceptional dropped sockets and Socket-bound augments require explicit state preservation.
+- Keep Artificer unsupported until complete current cap/conditions and legacy unknown-state migration are reviewed. [Source gap and boundary](docs/workbench-quality-socket-boundary-2026-10-03.md).
+
+## WB-024 - DONE - Unsupported item properties were silently erased by crafting
+
+- Actual prior Docker API reproduced200/applied while discarding supplied quality/socket state. Apply/actions now reject unsupported root/modifier fields with422 `UNSUPPORTED_ITEM_PROPERTIES` before conversion.
+- Frontend rejects unsupported requests/responses/restored frames without rewriting saved archives. Existing ordinary crafting and legacy derived `modifierIds` remain supported. No newly implemented material is counted; quality and socket engine work stays open. [Repair and verification](docs/workbench-quality-socket-boundary-2026-10-03.md).
