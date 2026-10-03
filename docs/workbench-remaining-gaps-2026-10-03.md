@@ -13,7 +13,7 @@ The inherited principal ledger has RULE_DATA_GAP22, OTHER_TARGET_REQUIRED15, ENG
 | Insanity enchantment/corruption |1|Complete enchantments and paired corruption rules/results; Vaal dependency remains user-deferred.|
 | Omen pool/interactions |5|Exact type/tag pools, distribution, multi-add and multi-Omen conflicts.|
 | Availability/reintroduction |5|Current positive official availability evidence. Historical0.3.0 retirement does not prove current availability or justify enabling a legacy effect.|
-| Identification |1|Use/input rules and unknown-item preservation; identification state is absent.|
+| Identification |1|Use/input rules and unknown-item preservation; raw UNIDENTIFIED marker exists, executable identification/reveal path is absent.|
 | Unique/destruction outcomes |1|Complete base-specific unique eligibility, destruction/results and distribution; current state supports Normal/Magic/Rare affixes.|
 | Augment extraction |1|Extractable targets, resulting Augment inventory and retention/conflicts; extraction state is absent.|
 
@@ -73,6 +73,20 @@ These evidence gaps are not solved by approving a guessed effect or eligible poo
 Primary routing of all44 pending identities:42 external-evidence gates (quality29, Notable1, enchantment/corruption1, Omen interactions5, availability5, Chance1), two state/design gates (Wisdom identification and Extraction inventory), zero confirmed code-only omissions. These are routing counts, not independent dimensions: the42 also require state/interaction work, and the two state gates still need exact use/retention evidence. Neither state gate is ready merely because a reversible product decision is authorised. Exact IDs and overlapping source/engine/user gates remain in the machine inventory above.
 
 Design choices that can be applied now are bounded UX and validation choices, not invented game effects. The known code/asset defect WB-034 is outside those44 identities: canonical Perfect Mind art recovery does not implement another material or change119/111 counts. No new base or probability formula is required for this batch.
+
+### Exact external-fact versus implementation audit
+
+The42+2 above is a primary routing convention, **not**42 fact-blocked versus two fact-complete implementations. Reviewing every recorded source/engine gate gives the following disjoint prerequisite classes; [all44 IDs and both dimensions](evidence/workbench-pending44-fact-implementation-audit-2026-10-03.json) are recorded separately from support status.
+
+| Prerequisites still missing | Count | Exact groups |
+|---|---:|---|
+| External facts **and** confirmed operational-state implementation |35|Quality29, Delirium1, Insanity1, Catalysing Exaltation1, Wisdom1, Chance1, Extraction1|
+| External facts and material-rule extension; no additional state model established by this audit |9|Availability/reintroduction5, Homogenising Exaltation/Coronation2, Sinistral/Dextral Necromancy2|
+| Code/design-only, with complete external facts |0|No pending material meets this condition|
+
+All44 have unresolved external facts and an unimplemented material action. The35 count means an identified missing operational representation, not that a blank enum or parser flag is absent. `ItemState.Condition.UNIDENTIFIED` and lossless parser flags already exist; `ItemStateValidator`, `SolarTextMapper` and film restoration reject special conditions. Wisdom lacks an executable identification/reveal path and provenance of hidden modifiers, not the English word or raw flag. Catalysing Exaltation additionally depends on the missing applied-quality state. The13 Refined Catalysts have an already reviewed Jewel target boundary: none of the nine equipment bases is a Jewel; precise quality rules and a supported target/state are still missing. Do not repeatedly rediscover those known class facts.
+
+No full new material operation among44 is currently confirmed ready without further external evidence. The narrowest next candidate is Wisdom's identification/revealed-state path using the existing marker, contingent on authoritative unidentified-to-identified input/reveal and retention evidence. Existing simulation states are already fully known; inventing unseen modifiers or merely showing a read-only flag would not implement Scroll of Wisdom. This is a fact/provenance dependency, not an unanswered user product decision. Do not ask the user to approve fabricated outcomes, add an unrequested placeholder engine, or count preparatory representation as a completed material.
 
 No unanswered user choice blocks the finished Ring step. Existing numeric assumptions remain explicitly UNVERIFIED under prior authorisation. Lower-level Perfect use, true game odds and the table/detail weight discrepancy remain evidence questions, not user preference questions.
 

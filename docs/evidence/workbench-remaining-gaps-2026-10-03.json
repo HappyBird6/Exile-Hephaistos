@@ -622,9 +622,9 @@
       "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
       "sourceFreshlyReviewed": false,
       "sourceDataNeeded": "Current identification input/use rules and lossless unknown modifier handling.",
-      "engineGap": "Identified/unidentified state is not modeled.",
+      "engineGap": "UNIDENTIFIED enum and parser flags already exist. Executable identification/revealed-modifier provenance is absent; special-condition validation and film restoration remain unsupported.",
       "userDecisionGate": null,
-      "reason": "Identification state/input rules are not modeled."
+      "reason": "The preserved UNIDENTIFIED marker is not an operational identification/reveal model; exact input and retention rules remain incomplete."
     },
     {
       "id": "Orb_of_Chance",
