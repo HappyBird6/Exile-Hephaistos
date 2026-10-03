@@ -264,3 +264,8 @@ Next independent review: Adaptive conditional effect, Swift two-family exclusion
 - Trigger: actual Lesser Essence of Ice on Crude Bow. Server event values and final modifier values contained identical two-stat data with different JSON property order. FE's JSON.stringify equality rejected the valid response and preserved the old Magic film.
 - Fix: compare exact stat-key sets and values independently of serialization order, also for preserved/replacement/Greater Exaltation/Fractured instances. Forged extra keys or changed values still refuse. No archived film rewriting.
 - Evidence: actual QA response fixture, positive reorder/Fracture refusal and negative forged-data contracts in BowWorkbenchContract.test.ts; final Bow browser120/Artificer browser26 and full FE192 passed on index-ChEgnTIJ.js; no page errors.
+
+## WB-028 - DONE / OPEN EVIDENCE - Bow Perfect Essence assignment
+
+- DONE: six source-matched Bow special results, zero ordinary spawn weights, generic Rare replacement/Crystallisation path and three-base history compatibility. [Primary evidence, conditions and executed checks](docs/workbench-bow-perfect-2026-10-03.md). Same65 exclusions and retained Alloys preserved.
+- OPEN evidence: actual Essence applicability below source mod level72; character requirement57 is distinct. Simulator conservatively blocks below72. Source-unit integer increments/distribution remain explicitly UNVERIFIED (WB-003); fixed Battle +2 has no numeric lottery. Onslaught trigger/duration, resulting damage and skill-level calculations remain outside equipment-affix assignment. No invented engine rules or combat totals.

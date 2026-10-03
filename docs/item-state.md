@@ -1,3 +1,5 @@
+Latest checkpoint: [six Bow Perfect Essences](workbench-bow-perfect-2026-10-03.md), overall101 / current-scope155: implemented93, pending62, excluded65. Earlier counts and candidate statements below describe their dated checkpoints.
+
 Current bounded Workbench extension: [Crude Bow ordinary catalog and basic Essences](workbench-crude-bow-2026-10-03.md), without computed weapon totals or socket/resource state. Existing Solar/Stocky films retain their format.
 
 > 2026-10-03 Workbench extension: optional nullable `augmentSockets` preserves a reviewed ordinary Stocky empty-socket count0/1. Missing/null on old items means unknown; only fresh Stocky placement supplies zero. All ordinary Workbench copies/crafts/refusals retain it. Support/Explorer bucket projection remains affix-only and does not create socket state. [Delivered Artificer path, compatibility and evidence](workbench-stocky-artificer-2026-10-03.md).

@@ -47,6 +47,12 @@ public enum WorkbenchCurrency {
   FRACTURING(null, 0),
   ESSENCE_HYSTERIA(null, 0),
   ESSENCE_HORROR(null, 0),
+  PERFECT_ESSENCE_ABRASION(null, 0),
+  PERFECT_ESSENCE_FLAMES(null, 0),
+  PERFECT_ESSENCE_ICE(null, 0),
+  PERFECT_ESSENCE_ELECTRICITY(null, 0),
+  PERFECT_ESSENCE_BATTLE(null, 0),
+  PERFECT_ESSENCE_HASTE(null, 0),
   PERFECT_ESSENCE_GROUNDING(null, 0),
   PERFECT_ESSENCE_OPULENCE(null, 0),
   PERFECT_ESSENCE_INFINITE(null, 0),
@@ -181,6 +187,13 @@ public enum WorkbenchCurrency {
       case PRISMATIC_ALLOY -> List.of("stocky-mitts:prefix:alloy-elemental-penetration");
       case ESSENCE_HYSTERIA -> List.of("amulet:suffix:of-suturing");
       case ESSENCE_HORROR -> List.of("stocky-mitts:suffix:essence-socketed-augment-effect");
+      case PERFECT_ESSENCE_ABRASION -> List.of("crude-bow:prefix:essence-extra-physical-damage");
+      case PERFECT_ESSENCE_FLAMES -> List.of("crude-bow:prefix:essence-extra-fire-damage");
+      case PERFECT_ESSENCE_ICE -> List.of("crude-bow:prefix:essence-extra-cold-damage");
+      case PERFECT_ESSENCE_ELECTRICITY ->
+          List.of("crude-bow:prefix:essence-extra-lightning-damage");
+      case PERFECT_ESSENCE_BATTLE -> List.of("crude-bow:suffix:essence-attack-skill-level");
+      case PERFECT_ESSENCE_HASTE -> List.of("crude-bow:suffix:essence-onslaught-on-kill");
       case PERFECT_ESSENCE_GROUNDING -> List.of("stocky-mitts:suffix:essence-lightning-recoup");
       case PERFECT_ESSENCE_OPULENCE -> List.of("stocky-mitts:suffix:essence-gold-quantity");
       case ESSENCE_ABYSS ->
@@ -200,6 +213,12 @@ public enum WorkbenchCurrency {
     return switch (this) {
       case ESSENCE_HYSTERIA -> "https://poe2db.tw/us/Essence_of_Hysteria";
       case ESSENCE_HORROR -> "https://poe2db.tw/us/Essence_of_Horror";
+      case PERFECT_ESSENCE_ABRASION -> "https://poe2db.tw/us/Perfect_Essence_of_Abrasion";
+      case PERFECT_ESSENCE_FLAMES -> "https://poe2db.tw/us/Perfect_Essence_of_Flames";
+      case PERFECT_ESSENCE_ICE -> "https://poe2db.tw/us/Perfect_Essence_of_Ice";
+      case PERFECT_ESSENCE_ELECTRICITY -> "https://poe2db.tw/us/Perfect_Essence_of_Electricity";
+      case PERFECT_ESSENCE_BATTLE -> "https://poe2db.tw/us/Perfect_Essence_of_Battle";
+      case PERFECT_ESSENCE_HASTE -> "https://poe2db.tw/us/Perfect_Essence_of_Haste";
       case PERFECT_ESSENCE_GROUNDING -> "https://poe2db.tw/us/Perfect_Essence_of_Grounding";
       case PERFECT_ESSENCE_OPULENCE -> "https://poe2db.tw/us/Perfect_Essence_of_Opulence";
       case ESSENCE_ABYSS -> "https://poe2db.tw/us/Essence_of_the_Abyss";

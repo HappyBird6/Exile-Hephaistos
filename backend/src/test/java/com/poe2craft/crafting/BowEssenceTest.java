@@ -81,10 +81,12 @@ class BowEssenceTest {
 
   @Test
   void ordinaryPoolIsCompleteAndDefaultSolarIsUnchanged() {
-    assertThat(catalog.modifiers()).hasSize(140);
+    assertThat(catalog.modifiers()).hasSize(146);
+    assertThat(catalog.modifiers().values().stream().filter(d -> d.weight() > 0).count())
+        .isEqualTo(140);
     assertThat(catalog.base().hasImplicit()).isFalse();
-    assertThat(catalog.metadata().prefixCount()).isEqualTo(71);
-    assertThat(catalog.metadata().suffixCount()).isEqualTo(69);
+    assertThat(catalog.metadata().prefixCount()).isEqualTo(75);
+    assertThat(catalog.metadata().suffixCount()).isEqualTo(71);
     assertThat(catalog.metadata().prefixWeight()).isEqualTo(44755);
     assertThat(catalog.metadata().suffixWeight()).isEqualTo(52277);
     assertThat(catalog.modifiers().values().stream().filter(d -> d.stats().size() > 1).count())
@@ -124,7 +126,7 @@ class BowEssenceTest {
       assertThat(new ItemStateValidator(catalog).validate(result.state())).isEmpty();
     }
     assertThat(simulator.actions(state(82, ItemState.Rarity.NORMAL, List.of()), Set.of()))
-        .hasSize(40);
+        .hasSize(46);
     var solar = ItemCatalogLoader.loadDefault();
     var old = new WorkbenchSimulator(solar, new CraftingEngine(solar));
     assertThat(old.actions(SolarAmulet.initial(solar, 82, 15), Set.of())).hasSize(49);

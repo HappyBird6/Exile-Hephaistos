@@ -1,3 +1,5 @@
+Latest checkpoint: [six Bow Perfect Essences](workbench-bow-perfect-2026-10-03.md), overall101 / current-scope155: implemented93, pending62, excluded65. Earlier counts and candidate statements below describe their dated checkpoints.
+
 # Crude Bow: bounded Workbench base and basic Essence batch
 
 Current implementation: one additional equipment base, shared Workbench crafting engine, 19 ordinary currencies and 21 fixed basic Essences. This completes 20 previously pending registry identities; Greater Essence of Battle already worked on Stocky and is counted once globally. Six Perfect Bow Essences remain candidates, not implemented results. Support/Explorer remain Solar only.

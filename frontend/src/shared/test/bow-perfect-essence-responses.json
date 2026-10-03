@@ -1,0 +1,815 @@
+{
+  "captures": [
+    {
+      "action": "PERFECT_ESSENCE_ABRASION",
+      "before": {
+        "snapshotId": "poe2db-crude-bow-normal-2026-10-03-417390c5ebe4+bow-perfect-20261003-dd984fc65df0",
+        "baseItemId": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "implicits": [],
+        "conditions": [],
+        "explicits": [
+          {
+            "modifierId": "crude-bow:prefix:focused",
+            "values": {
+              "local_accuracy_rating": 61
+            },
+            "fractured": false
+          },
+          {
+            "modifierId": "crude-bow:suffix:of-ease",
+            "values": {
+              "local_attack_speed_+%": 8
+            },
+            "fractured": false
+          }
+        ],
+        "augmentSockets": null
+      },
+      "result": {
+        "ruleVersion": "bow-workbench-perfect-essence-v2",
+        "ledgerVersion": "bow-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-crude-bow-normal-2026-10-03-417390c5ebe4+bow-perfect-20261003-dd984fc65df0",
+        "state": {
+          "snapshotId": "poe2db-crude-bow-normal-2026-10-03-417390c5ebe4+bow-perfect-20261003-dd984fc65df0",
+          "baseItemId": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [],
+          "explicits": [
+            {
+              "modifierId": "crude-bow:prefix:essence-extra-physical-damage",
+              "values": {
+                "non_skill_base_all_damage_%_to_gain_as_physical": 20
+              },
+              "fractured": false
+            },
+            {
+              "modifierId": "crude-bow:suffix:of-ease",
+              "values": {
+                "local_attack_speed_+%": 8
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null
+        },
+        "action": "PERFECT_ESSENCE_ABRASION",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "REMOVE",
+            "modifierId": "crude-bow:prefix:focused",
+            "values": {},
+            "selectionProbability": 0.5
+          },
+          {
+            "kind": "ADD",
+            "modifierId": "crude-bow:prefix:essence-extra-physical-damage",
+            "values": {
+              "non_skill_base_all_damage_%_to_gain_as_physical": 20
+            },
+            "selectionProbability": 1
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "uniform-removal-v1",
+            "candidateUnit": "eligible explicit modifier instance",
+            "n": 2,
+            "candidates": [
+              "crude-bow:prefix:focused",
+              "crude-bow:suffix:of-ease"
+            ],
+            "min": null,
+            "max": null,
+            "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Abrasion",
+            "reason": "Uniform among non-Fractured explicit instances; every removal branch must accept every sourced modifier outcome. No published removal weights.",
+            "ratioTick": null
+          },
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "non_skill_base_all_damage_%_to_gain_as_physical",
+            "n": 6,
+            "candidates": [],
+            "min": 15,
+            "max": 20,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraPhysical1",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": ["Omen_of_the_Blessed"],
+        "qualityLimit": {
+          "ruleVersion": "quality-limit-v1",
+          "maximumQuality": 20
+        }
+      }
+    },
+    {
+      "action": "PERFECT_ESSENCE_FLAMES",
+      "before": {
+        "snapshotId": "poe2db-crude-bow-normal-2026-10-03-417390c5ebe4+bow-perfect-20261003-dd984fc65df0",
+        "baseItemId": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "implicits": [],
+        "conditions": [],
+        "explicits": [
+          {
+            "modifierId": "crude-bow:prefix:focused",
+            "values": {
+              "local_accuracy_rating": 61
+            },
+            "fractured": false
+          },
+          {
+            "modifierId": "crude-bow:suffix:of-ease",
+            "values": {
+              "local_attack_speed_+%": 8
+            },
+            "fractured": false
+          }
+        ],
+        "augmentSockets": null
+      },
+      "result": {
+        "ruleVersion": "bow-workbench-perfect-essence-v2",
+        "ledgerVersion": "bow-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-crude-bow-normal-2026-10-03-417390c5ebe4+bow-perfect-20261003-dd984fc65df0",
+        "state": {
+          "snapshotId": "poe2db-crude-bow-normal-2026-10-03-417390c5ebe4+bow-perfect-20261003-dd984fc65df0",
+          "baseItemId": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [],
+          "explicits": [
+            {
+              "modifierId": "crude-bow:prefix:essence-extra-fire-damage",
+              "values": {
+                "non_skill_base_all_damage_%_to_gain_as_fire": 15
+              },
+              "fractured": false
+            },
+            {
+              "modifierId": "crude-bow:prefix:focused",
+              "values": {
+                "local_accuracy_rating": 61
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null
+        },
+        "action": "PERFECT_ESSENCE_FLAMES",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "REMOVE",
+            "modifierId": "crude-bow:suffix:of-ease",
+            "values": {},
+            "selectionProbability": 0.5
+          },
+          {
+            "kind": "ADD",
+            "modifierId": "crude-bow:prefix:essence-extra-fire-damage",
+            "values": {
+              "non_skill_base_all_damage_%_to_gain_as_fire": 15
+            },
+            "selectionProbability": 1
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "uniform-removal-v1",
+            "candidateUnit": "eligible explicit modifier instance",
+            "n": 2,
+            "candidates": [
+              "crude-bow:prefix:focused",
+              "crude-bow:suffix:of-ease"
+            ],
+            "min": null,
+            "max": null,
+            "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Flames",
+            "reason": "Uniform among non-Fractured explicit instances; every removal branch must accept every sourced modifier outcome. No published removal weights.",
+            "ratioTick": null
+          },
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "non_skill_base_all_damage_%_to_gain_as_fire",
+            "n": 6,
+            "candidates": [],
+            "min": 15,
+            "max": 20,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraFire1",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": ["Omen_of_the_Blessed"],
+        "qualityLimit": {
+          "ruleVersion": "quality-limit-v1",
+          "maximumQuality": 20
+        }
+      }
+    },
+    {
+      "action": "PERFECT_ESSENCE_ICE",
+      "before": {
+        "snapshotId": "poe2db-crude-bow-normal-2026-10-03-417390c5ebe4+bow-perfect-20261003-dd984fc65df0",
+        "baseItemId": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "implicits": [],
+        "conditions": [],
+        "explicits": [
+          {
+            "modifierId": "crude-bow:prefix:focused",
+            "values": {
+              "local_accuracy_rating": 61
+            },
+            "fractured": false
+          },
+          {
+            "modifierId": "crude-bow:suffix:of-ease",
+            "values": {
+              "local_attack_speed_+%": 8
+            },
+            "fractured": false
+          }
+        ],
+        "augmentSockets": null
+      },
+      "result": {
+        "ruleVersion": "bow-workbench-perfect-essence-v2",
+        "ledgerVersion": "bow-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-crude-bow-normal-2026-10-03-417390c5ebe4+bow-perfect-20261003-dd984fc65df0",
+        "state": {
+          "snapshotId": "poe2db-crude-bow-normal-2026-10-03-417390c5ebe4+bow-perfect-20261003-dd984fc65df0",
+          "baseItemId": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [],
+          "explicits": [
+            {
+              "modifierId": "crude-bow:prefix:essence-extra-cold-damage",
+              "values": {
+                "non_skill_base_all_damage_%_to_gain_as_cold": 20
+              },
+              "fractured": false
+            },
+            {
+              "modifierId": "crude-bow:suffix:of-ease",
+              "values": {
+                "local_attack_speed_+%": 8
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null
+        },
+        "action": "PERFECT_ESSENCE_ICE",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "REMOVE",
+            "modifierId": "crude-bow:prefix:focused",
+            "values": {},
+            "selectionProbability": 0.5
+          },
+          {
+            "kind": "ADD",
+            "modifierId": "crude-bow:prefix:essence-extra-cold-damage",
+            "values": {
+              "non_skill_base_all_damage_%_to_gain_as_cold": 20
+            },
+            "selectionProbability": 1
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "uniform-removal-v1",
+            "candidateUnit": "eligible explicit modifier instance",
+            "n": 2,
+            "candidates": [
+              "crude-bow:prefix:focused",
+              "crude-bow:suffix:of-ease"
+            ],
+            "min": null,
+            "max": null,
+            "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Ice",
+            "reason": "Uniform among non-Fractured explicit instances; every removal branch must accept every sourced modifier outcome. No published removal weights.",
+            "ratioTick": null
+          },
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "non_skill_base_all_damage_%_to_gain_as_cold",
+            "n": 6,
+            "candidates": [],
+            "min": 15,
+            "max": 20,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraCold1",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": ["Omen_of_the_Blessed"],
+        "qualityLimit": {
+          "ruleVersion": "quality-limit-v1",
+          "maximumQuality": 20
+        }
+      }
+    },
+    {
+      "action": "PERFECT_ESSENCE_ELECTRICITY",
+      "before": {
+        "snapshotId": "poe2db-crude-bow-normal-2026-10-03-417390c5ebe4+bow-perfect-20261003-dd984fc65df0",
+        "baseItemId": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "implicits": [],
+        "conditions": [],
+        "explicits": [
+          {
+            "modifierId": "crude-bow:prefix:focused",
+            "values": {
+              "local_accuracy_rating": 61
+            },
+            "fractured": false
+          },
+          {
+            "modifierId": "crude-bow:suffix:of-ease",
+            "values": {
+              "local_attack_speed_+%": 8
+            },
+            "fractured": false
+          }
+        ],
+        "augmentSockets": null
+      },
+      "result": {
+        "ruleVersion": "bow-workbench-perfect-essence-v2",
+        "ledgerVersion": "bow-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-crude-bow-normal-2026-10-03-417390c5ebe4+bow-perfect-20261003-dd984fc65df0",
+        "state": {
+          "snapshotId": "poe2db-crude-bow-normal-2026-10-03-417390c5ebe4+bow-perfect-20261003-dd984fc65df0",
+          "baseItemId": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [],
+          "explicits": [
+            {
+              "modifierId": "crude-bow:prefix:essence-extra-lightning-damage",
+              "values": {
+                "non_skill_base_all_damage_%_to_gain_as_lightning": 19
+              },
+              "fractured": false
+            },
+            {
+              "modifierId": "crude-bow:suffix:of-ease",
+              "values": {
+                "local_attack_speed_+%": 8
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null
+        },
+        "action": "PERFECT_ESSENCE_ELECTRICITY",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "REMOVE",
+            "modifierId": "crude-bow:prefix:focused",
+            "values": {},
+            "selectionProbability": 0.5
+          },
+          {
+            "kind": "ADD",
+            "modifierId": "crude-bow:prefix:essence-extra-lightning-damage",
+            "values": {
+              "non_skill_base_all_damage_%_to_gain_as_lightning": 19
+            },
+            "selectionProbability": 1
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "uniform-removal-v1",
+            "candidateUnit": "eligible explicit modifier instance",
+            "n": 2,
+            "candidates": [
+              "crude-bow:prefix:focused",
+              "crude-bow:suffix:of-ease"
+            ],
+            "min": null,
+            "max": null,
+            "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Electricity",
+            "reason": "Uniform among non-Fractured explicit instances; every removal branch must accept every sourced modifier outcome. No published removal weights.",
+            "ratioTick": null
+          },
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "non_skill_base_all_damage_%_to_gain_as_lightning",
+            "n": 6,
+            "candidates": [],
+            "min": 15,
+            "max": 20,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraLightning1",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": ["Omen_of_the_Blessed"],
+        "qualityLimit": {
+          "ruleVersion": "quality-limit-v1",
+          "maximumQuality": 20
+        }
+      }
+    },
+    {
+      "action": "PERFECT_ESSENCE_BATTLE",
+      "before": {
+        "snapshotId": "poe2db-crude-bow-normal-2026-10-03-417390c5ebe4+bow-perfect-20261003-dd984fc65df0",
+        "baseItemId": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "implicits": [],
+        "conditions": [],
+        "explicits": [
+          {
+            "modifierId": "crude-bow:prefix:focused",
+            "values": {
+              "local_accuracy_rating": 61
+            },
+            "fractured": false
+          },
+          {
+            "modifierId": "crude-bow:suffix:of-ease",
+            "values": {
+              "local_attack_speed_+%": 8
+            },
+            "fractured": false
+          }
+        ],
+        "augmentSockets": null
+      },
+      "result": {
+        "ruleVersion": "bow-workbench-perfect-essence-v2",
+        "ledgerVersion": "bow-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-crude-bow-normal-2026-10-03-417390c5ebe4+bow-perfect-20261003-dd984fc65df0",
+        "state": {
+          "snapshotId": "poe2db-crude-bow-normal-2026-10-03-417390c5ebe4+bow-perfect-20261003-dd984fc65df0",
+          "baseItemId": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [],
+          "explicits": [
+            {
+              "modifierId": "crude-bow:suffix:essence-attack-skill-level",
+              "values": {
+                "attack_skill_gem_level_+": 2
+              },
+              "fractured": false
+            },
+            {
+              "modifierId": "crude-bow:suffix:of-ease",
+              "values": {
+                "local_attack_speed_+%": 8
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null
+        },
+        "action": "PERFECT_ESSENCE_BATTLE",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "REMOVE",
+            "modifierId": "crude-bow:prefix:focused",
+            "values": {},
+            "selectionProbability": 0.5
+          },
+          {
+            "kind": "ADD",
+            "modifierId": "crude-bow:suffix:essence-attack-skill-level",
+            "values": {
+              "attack_skill_gem_level_+": 2
+            },
+            "selectionProbability": 1
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "uniform-removal-v1",
+            "candidateUnit": "eligible explicit modifier instance",
+            "n": 2,
+            "candidates": [
+              "crude-bow:prefix:focused",
+              "crude-bow:suffix:of-ease"
+            ],
+            "min": null,
+            "max": null,
+            "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Battle",
+            "reason": "Uniform among non-Fractured explicit instances; every removal branch must accept every sourced modifier outcome. No published removal weights.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": ["Omen_of_the_Blessed"],
+        "qualityLimit": {
+          "ruleVersion": "quality-limit-v1",
+          "maximumQuality": 20
+        }
+      }
+    },
+    {
+      "action": "PERFECT_ESSENCE_HASTE",
+      "before": {
+        "snapshotId": "poe2db-crude-bow-normal-2026-10-03-417390c5ebe4+bow-perfect-20261003-dd984fc65df0",
+        "baseItemId": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "implicits": [],
+        "conditions": [],
+        "explicits": [
+          {
+            "modifierId": "crude-bow:prefix:focused",
+            "values": {
+              "local_accuracy_rating": 61
+            },
+            "fractured": false
+          },
+          {
+            "modifierId": "crude-bow:suffix:of-ease",
+            "values": {
+              "local_attack_speed_+%": 8
+            },
+            "fractured": false
+          }
+        ],
+        "augmentSockets": null
+      },
+      "result": {
+        "ruleVersion": "bow-workbench-perfect-essence-v2",
+        "ledgerVersion": "bow-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-crude-bow-normal-2026-10-03-417390c5ebe4+bow-perfect-20261003-dd984fc65df0",
+        "state": {
+          "snapshotId": "poe2db-crude-bow-normal-2026-10-03-417390c5ebe4+bow-perfect-20261003-dd984fc65df0",
+          "baseItemId": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [],
+          "explicits": [
+            {
+              "modifierId": "crude-bow:suffix:essence-onslaught-on-kill",
+              "values": {
+                "local_chance_to_gain_onslaught_on_killing_blow_%": 23
+              },
+              "fractured": false
+            },
+            {
+              "modifierId": "crude-bow:suffix:of-ease",
+              "values": {
+                "local_attack_speed_+%": 8
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null
+        },
+        "action": "PERFECT_ESSENCE_HASTE",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "REMOVE",
+            "modifierId": "crude-bow:prefix:focused",
+            "values": {},
+            "selectionProbability": 0.5
+          },
+          {
+            "kind": "ADD",
+            "modifierId": "crude-bow:suffix:essence-onslaught-on-kill",
+            "values": {
+              "local_chance_to_gain_onslaught_on_killing_blow_%": 23
+            },
+            "selectionProbability": 1
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "uniform-removal-v1",
+            "candidateUnit": "eligible explicit modifier instance",
+            "n": 2,
+            "candidates": [
+              "crude-bow:prefix:focused",
+              "crude-bow:suffix:of-ease"
+            ],
+            "min": null,
+            "max": null,
+            "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Haste",
+            "reason": "Uniform among non-Fractured explicit instances; every removal branch must accept every sourced modifier outcome. No published removal weights.",
+            "ratioTick": null
+          },
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "local_chance_to_gain_onslaught_on_killing_blow_%",
+            "n": 6,
+            "candidates": [],
+            "min": 20,
+            "max": 25,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceOnslaughtonKill1",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": ["Omen_of_the_Blessed"],
+        "qualityLimit": {
+          "ruleVersion": "quality-limit-v1",
+          "maximumQuality": 20
+        }
+      }
+    }
+  ],
+  "definitions": {
+    "crude-bow:suffix:of-ease": {
+      "id": "crude-bow:suffix:of-ease",
+      "name": "of Ease",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["IncreasedAttackSpeed"],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(8—10)% increased Attack Speed",
+      "stats": [
+        {
+          "id": "local_attack_speed_+%",
+          "min": 8,
+          "max": 10
+        }
+      ],
+      "tags": ["attack", "speed"],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedAttackSpeed2"
+    },
+    "crude-bow:prefix:focused": {
+      "id": "crude-bow:prefix:focused",
+      "name": "Focused",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["IncreasedAccuracy"],
+      "requiredItemLevel": 18,
+      "weight": 800,
+      "tier": 8,
+      "text": "+(61—84) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "local_accuracy_rating",
+          "min": 61,
+          "max": 84
+        }
+      ],
+      "tags": ["attack"],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedAccuracy3"
+    },
+    "crude-bow:prefix:essence-extra-physical-damage": {
+      "id": "crude-bow:prefix:essence-extra-physical-damage",
+      "name": "Essences",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["MartialWeaponGainedDamage"],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "Gain (15—20)% of Damage as Extra Physical Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_physical",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": ["physical_damage", "damage", "physical"],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraPhysical1"
+    },
+    "crude-bow:prefix:essence-extra-fire-damage": {
+      "id": "crude-bow:prefix:essence-extra-fire-damage",
+      "name": "Essences",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["MartialWeaponGainedDamage"],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "Gain (15—20)% of Damage as Extra Fire Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_fire",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": ["elemental_damage", "damage", "elemental", "fire"],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraFire1"
+    },
+    "crude-bow:prefix:essence-extra-cold-damage": {
+      "id": "crude-bow:prefix:essence-extra-cold-damage",
+      "name": "Essences",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["MartialWeaponGainedDamage"],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "Gain (15—20)% of Damage as Extra Cold Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_cold",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": ["elemental_damage", "damage", "elemental", "cold"],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraCold1"
+    },
+    "crude-bow:prefix:essence-extra-lightning-damage": {
+      "id": "crude-bow:prefix:essence-extra-lightning-damage",
+      "name": "Essences",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["MartialWeaponGainedDamage"],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "Gain (15—20)% of Damage as Extra Lightning Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": ["elemental_damage", "damage", "elemental", "lightning"],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraLightning1"
+    },
+    "crude-bow:suffix:essence-attack-skill-level": {
+      "id": "crude-bow:suffix:essence-attack-skill-level",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["IncreaseSocketedGemLevel"],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "+2 to Level of all Attack Skills",
+      "stats": [
+        {
+          "id": "attack_skill_gem_level_+",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "tags": ["attack"],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAttackSkillLevel1H1"
+    },
+    "crude-bow:suffix:essence-onslaught-on-kill": {
+      "id": "crude-bow:suffix:essence-onslaught-on-kill",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["Onslaught"],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(20—25)% chance to gain Onslaught on Killing Hits with this Weapon",
+      "stats": [
+        {
+          "id": "local_chance_to_gain_onslaught_on_killing_blow_%",
+          "min": 20,
+          "max": 25
+        }
+      ],
+      "tags": ["speed"],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceOnslaughtonKill1"
+    }
+  }
+}

@@ -40,14 +40,18 @@ it('accepts actual multi-stat Essence values when event JSON key order differs',
   ).resolves.toMatchObject({ applied: true })
 })
 
-it.each(['changed', 'extra'])(
+it.each(['changed', 'extra', 'missing', 'out-of-range'])(
   'rejects %s event stat data while accepting key reordering',
   async (kind) => {
     const response = structuredClone(result)
     const key = Object.keys(response.events[0]!.values)[0]!
     if (kind === 'changed')
       response.events[0]!.values[key] = response.events[0]!.values[key]! + 1
-    else response.events[0]!.values['forged_stat'] = 1
+    else if (kind === 'extra') response.events[0]!.values['forged_stat'] = 1
+    else if (kind === 'missing') delete response.events[0]!.values[key]
+    else
+      response.events[0]!.values[key] =
+        actual.definition.stats.find((s) => s.id === key)!.max + 1
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue(jsonResponse(response)))
     await expect(
       applyCurrency(

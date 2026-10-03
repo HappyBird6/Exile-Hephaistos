@@ -41,6 +41,12 @@ export type WorkbenchAction =
   | 'PERFECT_ESSENCE_ENHANCEMENT'
   | 'ESSENCE_ABYSS'
   | 'ESSENCE_HORROR'
+  | 'PERFECT_ESSENCE_ABRASION'
+  | 'PERFECT_ESSENCE_FLAMES'
+  | 'PERFECT_ESSENCE_ICE'
+  | 'PERFECT_ESSENCE_ELECTRICITY'
+  | 'PERFECT_ESSENCE_BATTLE'
+  | 'PERFECT_ESSENCE_HASTE'
   | 'PERFECT_ESSENCE_GROUNDING'
   | 'PERFECT_ESSENCE_OPULENCE'
   | 'ESSENCE_BREACH'
@@ -171,6 +177,14 @@ const choiceEssenceModifiers: Partial<
 const replacementEssenceModifiers: Partial<
   Record<WorkbenchAction, readonly string[]>
 > = {
+  PERFECT_ESSENCE_ABRASION: ['crude-bow:prefix:essence-extra-physical-damage'],
+  PERFECT_ESSENCE_FLAMES: ['crude-bow:prefix:essence-extra-fire-damage'],
+  PERFECT_ESSENCE_ICE: ['crude-bow:prefix:essence-extra-cold-damage'],
+  PERFECT_ESSENCE_ELECTRICITY: [
+    'crude-bow:prefix:essence-extra-lightning-damage',
+  ],
+  PERFECT_ESSENCE_BATTLE: ['crude-bow:suffix:essence-attack-skill-level'],
+  PERFECT_ESSENCE_HASTE: ['crude-bow:suffix:essence-onslaught-on-kill'],
   ESSENCE_HYSTERIA: ['amulet:suffix:of-suturing'],
   PERFECT_ESSENCE_ENHANCEMENT: ['amulet:prefix:essence-global-defences'],
   ESSENCE_ABYSS: [
@@ -220,6 +234,12 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Perfect_Essence_of_Enhancement: 'PERFECT_ESSENCE_ENHANCEMENT',
   Essence_of_the_Abyss: 'ESSENCE_ABYSS',
   Essence_of_Horror: 'ESSENCE_HORROR',
+  Perfect_Essence_of_Abrasion: 'PERFECT_ESSENCE_ABRASION',
+  Perfect_Essence_of_Flames: 'PERFECT_ESSENCE_FLAMES',
+  Perfect_Essence_of_Ice: 'PERFECT_ESSENCE_ICE',
+  Perfect_Essence_of_Electricity: 'PERFECT_ESSENCE_ELECTRICITY',
+  Perfect_Essence_of_Battle: 'PERFECT_ESSENCE_BATTLE',
+  Perfect_Essence_of_Haste: 'PERFECT_ESSENCE_HASTE',
   Perfect_Essence_of_Grounding: 'PERFECT_ESSENCE_GROUNDING',
   Perfect_Essence_of_Opulence: 'PERFECT_ESSENCE_OPULENCE',
   Essence_of_the_Breach: 'ESSENCE_BREACH',
@@ -291,6 +311,12 @@ export const workbenchActionNames: Record<WorkbenchAction, string> = {
   PERFECT_ESSENCE_ENHANCEMENT: 'Perfect Essence of Enhancement',
   ESSENCE_ABYSS: 'Essence of the Abyss',
   ESSENCE_HORROR: 'Essence of Horror',
+  PERFECT_ESSENCE_ABRASION: 'Perfect Essence of Abrasion',
+  PERFECT_ESSENCE_FLAMES: 'Perfect Essence of Flames',
+  PERFECT_ESSENCE_ICE: 'Perfect Essence of Ice',
+  PERFECT_ESSENCE_ELECTRICITY: 'Perfect Essence of Electricity',
+  PERFECT_ESSENCE_BATTLE: 'Perfect Essence of Battle',
+  PERFECT_ESSENCE_HASTE: 'Perfect Essence of Haste',
   PERFECT_ESSENCE_GROUNDING: 'Perfect Essence of Grounding',
   PERFECT_ESSENCE_OPULENCE: 'Perfect Essence of Opulence',
   ESSENCE_BREACH: 'Essence of the Breach',
@@ -683,9 +709,16 @@ export async function applyCurrency(
       ['CYCLONIC_ALLOY', 'MYSTIC_ALLOY', 'SWIFT_ALLOY'].includes(action) &&
       state.itemLevel < 45) ||
     (v.applied &&
-      ['PERFECT_ESSENCE_GROUNDING', 'PERFECT_ESSENCE_OPULENCE'].includes(
-        action,
-      ) &&
+      [
+        'PERFECT_ESSENCE_ABRASION',
+        'PERFECT_ESSENCE_FLAMES',
+        'PERFECT_ESSENCE_ICE',
+        'PERFECT_ESSENCE_ELECTRICITY',
+        'PERFECT_ESSENCE_BATTLE',
+        'PERFECT_ESSENCE_HASTE',
+        'PERFECT_ESSENCE_GROUNDING',
+        'PERFECT_ESSENCE_OPULENCE',
+      ].includes(action) &&
       state.itemLevel < 72) ||
     (v.applied &&
       [
@@ -956,6 +989,12 @@ export async function applyCurrency(
       )
     if (
       [
+        'PERFECT_ESSENCE_ABRASION',
+        'PERFECT_ESSENCE_FLAMES',
+        'PERFECT_ESSENCE_ICE',
+        'PERFECT_ESSENCE_ELECTRICITY',
+        'PERFECT_ESSENCE_BATTLE',
+        'PERFECT_ESSENCE_HASTE',
         'PERFECT_ESSENCE_GROUNDING',
         'PERFECT_ESSENCE_OPULENCE',
         'EXPANSIVE_ALLOY',
@@ -970,29 +1009,41 @@ export async function applyCurrency(
       const range = definitions[added!.modifierId]?.stats?.[0]
       const expectedSource =
         'https://poe2db.tw/us/hover?s=Data%5CMods%2F' +
-        (action === 'PERFECT_ESSENCE_GROUNDING'
-          ? 'EssenceLightningRecoupLife1'
-          : action === 'PERFECT_ESSENCE_OPULENCE'
-            ? 'EssenceGoldDropped1'
-            : action === 'ADAPTIVE_ALLOY'
-              ? 'AlloyAttackSpeedIfMissingWardRecently1'
-              : action === 'SWIFT_ALLOY'
-                ? 'AlloyCastSpeedGloves1'
-                : action === 'SOVEREIGN_ALLOY'
-                  ? 'AlloyLocalWardIncreasePercent1'
-                  : action === 'EXPANSIVE_ALLOY'
-                    ? 'AlloyRemnantPickupRange1'
-                    : action === 'CYCLONIC_ALLOY'
-                      ? 'AlloyDamagingAilmentDuration1'
-                      : action === 'MYSTIC_ALLOY'
-                        ? 'AlloyAttackAreaOfEffect1'
-                        : 'AlloyElementalPenetration1')
+        (action === 'PERFECT_ESSENCE_ABRASION'
+          ? 'EssenceDamageasExtraPhysical1'
+          : action === 'PERFECT_ESSENCE_FLAMES'
+            ? 'EssenceDamageasExtraFire1'
+            : action === 'PERFECT_ESSENCE_ICE'
+              ? 'EssenceDamageasExtraCold1'
+              : action === 'PERFECT_ESSENCE_ELECTRICITY'
+                ? 'EssenceDamageasExtraLightning1'
+                : action === 'PERFECT_ESSENCE_BATTLE'
+                  ? 'EssenceAttackSkillLevel1H1'
+                  : action === 'PERFECT_ESSENCE_HASTE'
+                    ? 'EssenceOnslaughtonKill1'
+                    : action === 'PERFECT_ESSENCE_GROUNDING'
+                      ? 'EssenceLightningRecoupLife1'
+                      : action === 'PERFECT_ESSENCE_OPULENCE'
+                        ? 'EssenceGoldDropped1'
+                        : action === 'ADAPTIVE_ALLOY'
+                          ? 'AlloyAttackSpeedIfMissingWardRecently1'
+                          : action === 'SWIFT_ALLOY'
+                            ? 'AlloyCastSpeedGloves1'
+                            : action === 'SOVEREIGN_ALLOY'
+                              ? 'AlloyLocalWardIncreasePercent1'
+                              : action === 'EXPANSIVE_ALLOY'
+                                ? 'AlloyRemnantPickupRange1'
+                                : action === 'CYCLONIC_ALLOY'
+                                  ? 'AlloyDamagingAilmentDuration1'
+                                  : action === 'MYSTIC_ALLOY'
+                                    ? 'AlloyAttackAreaOfEffect1'
+                                    : 'AlloyElementalPenetration1')
       const models = v.assumptions.filter(
         (a) => a.id === 'assumed-source-integer-roll-v1',
       )
       if (
         !range ||
-        models.length !== 1 ||
+        models.length !== (range.min === range.max ? 0 : 1) ||
         !models.every(
           (a) =>
             a.candidateUnit === range.id &&

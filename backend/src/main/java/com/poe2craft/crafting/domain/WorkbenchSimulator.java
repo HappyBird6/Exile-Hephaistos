@@ -100,7 +100,7 @@ public final class WorkbenchSimulator {
 
   public String ruleVersion() {
     if (catalog.base().id().equals(BowEssenceTargets.BASE_ID))
-      return "bow-workbench-basic-essence-v1";
+      return "bow-workbench-perfect-essence-v2";
     return coupledModifierIds.isEmpty() ? RULE_VERSION : "stocky-workbench-artificer-v26";
   }
 
