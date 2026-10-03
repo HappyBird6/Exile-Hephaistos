@@ -1,16 +1,16 @@
 {
-  "version": "active-material-blockers-20261003-v3-sceptre",
-  "reviewedAt": "2026-10-03T16:14:43.5937961Z",
+  "version": "active-material-blockers-20261003-v4-belt",
+  "reviewedAt": "2026-10-03T17:13:58.238Z",
   "currentInventory": 155,
-  "implemented": 108,
-  "pending": 47,
+  "implemented": 109,
+  "pending": 46,
   "excluded": 65,
-  "interpretation": "Sceptre checkpoint implements all four Command Essences. Remaining47 records retain unresolved barriers; Ring/Belt/Helmet require complete reviewed catalog plus their one confirmed Perfect target. Delirium Notable outcomes remain unknown; Insanity depends on deferred Vaal. Registered inventory is not complete game inventory.",
+  "interpretation": "Rawhide Belt now supports one verified Perfect Insulation path within an explicit-affix projection. Variable implicit and Charm-slot behavior remain unknown; Divine and quality assumptions are unsupported. Remaining46 records keep unresolved barriers; Ring/Helmet remain candidates. Registered inventory is not complete game inventory.",
   "principalBlockers": {
     "ENGINE_STATE_GAP": 2,
-    "OTHER_TARGET_REQUIRED": 19,
+    "OTHER_TARGET_REQUIRED": 17,
     "REINTRODUCTION_UNVERIFIED": 5,
-    "RULE_DATA_GAP": 21
+    "RULE_DATA_GAP": 22
   },
   "records": [
     {
@@ -40,25 +40,13 @@
     {
       "id": "Essence_of_Insanity",
       "category": "ESSENCE",
-      "principalBlocker": "OTHER_TARGET_REQUIRED",
-      "reason": "Verified card targets Belts. Additional base and complete ordinary/special catalog required.",
+      "principalBlocker": "RULE_DATA_GAP",
+      "reason": "Rawhide Belt ordinary catalog is available. Eligible enchantment outcomes and corruption interactions remain unverified, and the required Vaal operation is user-deferred. Insanity is not implemented or newly excluded.",
       "registryReason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Insanity",
       "freshlyReviewed": true,
       "verifiedTargetClasses": "Belts",
       "additionalBlockers": "Vaal corruption operation is user-deferred; enchantment eligibility and paired outcomes unverified",
-      "implemented": false
-    },
-    {
-      "id": "Perfect_Essence_of_Insulation",
-      "category": "ESSENCE",
-      "principalBlocker": "OTHER_TARGET_REQUIRED",
-      "reason": "Verified card targets Belts. Additional base and complete ordinary/special catalog required.",
-      "registryReason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Insulation",
-      "freshlyReviewed": true,
-      "verifiedTargetClasses": "Belts",
-      "additionalBlockers": null,
       "implemented": false
     },
     {

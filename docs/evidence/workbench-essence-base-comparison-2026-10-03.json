@@ -105,5 +105,21 @@
     "exactUniqueMatches": 150,
     "candidates": 346
   },
-  "interpretation": "Pre-expansion comparison at Body checkpoint: listed remainingEssence candidates are cost-review inputs. Current Sceptre checkpoint implements the four Command identities; Ring/Belt/Helmet remain unsupported. See active ledger for current47."
+  "interpretation": "Historical comparison before Sceptre expansion; remainingEssence rows are original cost-review inputs, not current support status. Sceptre now implements four Command identities; Rawhide Belt implements Perfect Insulation as an explicit-affix projection. Ring and Helmet remain candidates. Current pending46 are in the active ledger.",
+  "beltIntegration": {
+    "base": "Rawhide Belt, FourBelt1",
+    "normalRows": 135,
+    "exactUniqueMatches": 135,
+    "candidateCodes": 165,
+    "reusedDetailCodes": 119,
+    "newDetailLookups": 46,
+    "freshPrimarySha256": "1b3f70ffed129eaa76147f6b9ada273810d5f93da24e45fbf34943b50206191b",
+    "sourceRetrievedAt": "2026-10-03T16:47:38.798Z",
+    "implementedMaterial": "Perfect_Essence_of_Insulation",
+    "projection": "EXPLICIT_AFFIX_ONLY",
+    "variableImplicit": "UNKNOWN_UNMODELED",
+    "charmSlots": "UNKNOWN_UNMODELED",
+    "qualityMaximum": null,
+    "divine": "UNSUPPORTED_MODEL_INCOMPLETE"
+  }
 }

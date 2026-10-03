@@ -13,6 +13,8 @@ public final class WorkbenchService {
   private final WorkbenchSimulator solarSimulator;
   private final WorkbenchSimulator stockySimulator;
   private final ItemCatalog wand;
+  private final ItemCatalog belt;
+  private final WorkbenchSimulator beltSimulator;
   private final ItemCatalog sceptre;
   private final WorkbenchSimulator sceptreSimulator;
   private final ItemCatalog body;
@@ -58,6 +60,30 @@ public final class WorkbenchService {
       ItemCatalog wand,
       ItemCatalog body,
       ItemCatalog sceptre) {
+    this(solar, solarSimulator, stocky, bow, wand, body, sceptre, null);
+  }
+
+  public WorkbenchService(
+      ItemCatalog solar,
+      WorkbenchSimulator solarSimulator,
+      ItemCatalog stocky,
+      ItemCatalog bow,
+      ItemCatalog wand,
+      ItemCatalog body,
+      ItemCatalog sceptre,
+      ItemCatalog belt) {
+    this.belt = belt;
+    this.beltSimulator =
+        belt == null
+            ? null
+            : new WorkbenchSimulator(
+                belt,
+                new CraftingEngine(belt),
+                belt.modifiers().values().stream()
+                    .filter(d -> d.stats().size() > 1)
+                    .map(ModifierDefinition::id)
+                    .collect(java.util.stream.Collectors.toSet()),
+                Map.of());
     this.sceptre = sceptre;
     this.sceptreSimulator =
         sceptre == null
@@ -154,6 +180,10 @@ public final class WorkbenchService {
 
   private ItemCatalog catalog(String base) {
     return switch (base) {
+      case "belt" -> {
+        if (belt == null) throw new IllegalArgumentException("Belt catalog unavailable");
+        yield belt;
+      }
       case "solar" -> solar;
       case "stocky" -> stocky;
       case "sceptre" -> {
@@ -177,6 +207,9 @@ public final class WorkbenchService {
   }
 
   private WorkbenchSimulator simulator(ItemState state) {
+    if (state != null
+        && state.baseItemId().equals(BeltEssenceTargets.BASE_ID)
+        && beltSimulator != null) return beltSimulator;
     if (state == null) throw new IllegalArgumentException("State required");
     if (state.baseItemId().equals(SolarAmulet.BASE_ID)) return solarSimulator;
     if (state.baseItemId().equals(STOCKY_BASE_ID)) return stockySimulator;

@@ -5,6 +5,7 @@ import java.util.Set;
 
 /** Workbench rules are independent of the legacy six-action bucket explorer. */
 public enum WorkbenchCurrency {
+  PERFECT_ESSENCE_INSULATION(null, 0),
   PERFECT_ESSENCE_COMMAND(null, 0),
   LESSER_ESSENCE_COMMAND("rattling-sceptre:prefix:agitative"),
   ESSENCE_COMMAND("rattling-sceptre:prefix:provocative"),
@@ -192,6 +193,8 @@ public enum WorkbenchCurrency {
 
   public List<String> replacementModifiers() {
     return switch (this) {
+      case PERFECT_ESSENCE_INSULATION ->
+          List.of("rawhide-belt:suffix:essence-fire-damage-recouped-as-life");
       case PERFECT_ESSENCE_COMMAND -> List.of("rattling-sceptre:suffix:essence-aura-magnitude");
       case PERFECT_ESSENCE_BODY -> List.of("rusted-cuirass:prefix:essence-maximum-life-percent");
       case PERFECT_ESSENCE_RUIN -> List.of("rusted-cuirass:prefix:essence-physical-taken-as-chaos");
@@ -233,6 +236,7 @@ public enum WorkbenchCurrency {
 
   public String replacementEssenceSource() {
     return switch (this) {
+      case PERFECT_ESSENCE_INSULATION -> "https://poe2db.tw/us/Perfect_Essence_of_Insulation";
       case PERFECT_ESSENCE_COMMAND -> "https://poe2db.tw/us/Perfect_Essence_of_Command";
       case PERFECT_ESSENCE_BODY -> "https://poe2db.tw/us/Perfect_Essence_of_the_Body";
       case PERFECT_ESSENCE_RUIN -> "https://poe2db.tw/us/Perfect_Essence_of_Ruin";

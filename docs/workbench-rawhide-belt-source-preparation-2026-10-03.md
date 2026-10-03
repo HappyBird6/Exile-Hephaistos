@@ -1,6 +1,6 @@
 # Rawhide Belt source preparation — 2026-10-03
 
-This is source preparation, not an implemented Workbench base. No service dispatch, registry status, current-scope count, browser selector or runtime was changed. The six existing base catalogs and registry/scope/blocker ledgers are byte-preserved. Current inventory remains 116 implemented overall and 108/155 within scope, with 47 pending and 65 excluded.
+This records source preparation checkpoint548ae261, before Workbench integration. Current runtime support is documented in [Belt integration](workbench-rawhide-belt-2026-10-03.md). No service dispatch, registry status, current-scope count, browser selector or runtime was changed. The six existing base catalogs and registry/scope/blocker ledgers are byte-preserved. At that preparation checkpoint, inventory remained 116 implemented overall and 108/155 within scope, with 47 pending and 65 excluded.
 
 ## Complete ordinary pool
 

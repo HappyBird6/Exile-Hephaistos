@@ -110,9 +110,12 @@ export function CraftingPage() {
               : storedFrame?.state.baseItemId ===
                   'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
                 ? 'sceptre'
-                : storedFrame
-                  ? 'solar'
-                  : draft.base
+                : storedFrame?.state.baseItemId ===
+                    'Metadata/Items/Belts/FourBelt1'
+                  ? 'belt'
+                  : storedFrame
+                    ? 'solar'
+                    : draft.base
   const baseName =
     catalogBase === 'stocky'
       ? 'Stocky Mitts'
@@ -124,7 +127,9 @@ export function CraftingPage() {
             ? 'Rusted Cuirass'
             : catalogBase === 'sceptre'
               ? 'Rattling Sceptre'
-              : 'Solar Amulet'
+              : catalogBase === 'belt'
+                ? 'Rawhide Belt'
+                : 'Solar Amulet'
   const catalogLevel =
     Number.isInteger(storedLevel) && storedLevel! >= 1 && storedLevel! <= 100
       ? storedLevel!
@@ -204,7 +209,14 @@ export function CraftingPage() {
       : undefined
   async function startBase(
     level: number,
-    base: 'solar' | 'stocky' | 'bow' | 'wand' | 'body' | 'sceptre' = 'solar',
+    base:
+      | 'solar'
+      | 'stocky'
+      | 'bow'
+      | 'wand'
+      | 'body'
+      | 'sceptre'
+      | 'belt' = 'solar',
   ) {
     const request = ++placementRequest.current
     const revision = useItemDraft.getState().baseRevision
@@ -309,7 +321,7 @@ export function CraftingPage() {
   )
   const [baseLevel, setBaseLevel] = useState('82')
   const [baseChoice, setBaseChoice] = useState<
-    'solar' | 'stocky' | 'bow' | 'wand' | 'body' | 'sceptre'
+    'solar' | 'stocky' | 'bow' | 'wand' | 'body' | 'sceptre' | 'belt'
   >('solar')
   const [previewRequest, setPreviewRequest] = useState<{
     count: number
@@ -654,9 +666,23 @@ export function CraftingPage() {
                       ? 'Body Armours'
                       : catalogBase === 'sceptre'
                         ? 'Sceptres'
-                        : 'Amulet',
+                        : catalogBase === 'belt'
+                          ? 'Belts'
+                          : 'Amulet',
             itemLevel: concrete.itemLevel,
             properties: [
+              ...(catalogBase === 'belt'
+                ? [
+                    {
+                      id: 'belt-implicit',
+                      text: 'Flask life recovery: unknown (20–30% base range)',
+                    },
+                    {
+                      id: 'belt-charm',
+                      text: 'Charm slots: unknown (not modeled)',
+                    },
+                  ]
+                : []),
               ...(catalogBase === 'sceptre'
                 ? [
                     {
@@ -1133,7 +1159,9 @@ export function CraftingPage() {
                                 ? 'Body Armours'
                                 : catalogBase === 'sceptre'
                                   ? 'Sceptres'
-                                  : 'Amulet',
+                                  : catalogBase === 'belt'
+                                    ? 'Belts'
+                                    : 'Amulet',
                       itemLevel: draft.baseItemLevel,
                       properties: [],
                       requirements: [],
@@ -1303,6 +1331,14 @@ export function CraftingPage() {
                   <p role="alert">
                     Saved craft evidence could not be verified. Item history is
                     preserved.
+                  </p>
+                )}
+                {catalogBase === 'belt' && (
+                  <p className="workbench-feedback">
+                    Explicit affix crafting only. Variable flask implicit and
+                    Charm slots are unknown; Divine, Blessed, applied quality,
+                    sockets and pasted mapping are unsupported. Quality maximum
+                    is unknown.
                   </p>
                 )}
                 {catalogBase === 'sceptre' && (
@@ -1482,7 +1518,8 @@ export function CraftingPage() {
                           | 'bow'
                           | 'wand'
                           | 'body'
-                          | 'sceptre',
+                          | 'sceptre'
+                          | 'belt',
                       )
                     }
                   >
@@ -1492,6 +1529,7 @@ export function CraftingPage() {
                     <option value="wand">Attuned Wand</option>
                     <option value="body">Rusted Cuirass</option>
                     <option value="sceptre">Rattling Sceptre</option>
+                    <option value="belt">Rawhide Belt</option>
                   </select>
                   <label htmlFor="base-level">Item level</label>
                   <input

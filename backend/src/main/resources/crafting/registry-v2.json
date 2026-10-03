@@ -31,7 +31,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -58,7 +59,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -85,7 +87,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -109,7 +112,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -136,7 +140,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -163,7 +168,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -190,7 +196,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -230,7 +237,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -284,7 +292,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -311,7 +320,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -338,7 +348,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -365,7 +376,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -392,7 +404,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -419,7 +432,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -446,7 +460,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -473,7 +488,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -500,7 +516,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -527,7 +544,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -1838,10 +1856,25 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED",
+      "action": "PERFECT_ESSENCE_INSULATION",
+      "reason": "Verified Rawhide Belt explicit-affix projection only. Conservative source modifier level72; lower-level game applicability unverified. Uniform unlocked removal plus guaranteed result; source-integer numeric model UNVERIFIED. Variable flask implicit and Charm slots unknown, no Divine, no assumed quality cap.",
+      "supportedBases": [
+        "belt"
+      ],
+      "beltEvidence": {
+        "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Insulation",
+        "sourceSha256": "82fe756c7136b641039b29543c8487845ca42d8ec9659f08bbfdd6d8a5069f58",
+        "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceFireRecoupLife1",
+        "modifierSourceSha256": "091ef8d74ba80e9f8ecfb082c69b7aa18434b2a9fede355f249aeaa69b4df122",
+        "sourceModCode": "EssenceFireRecoupLife1",
+        "minimumSupportedItemLevel": 72,
+        "requiredCharacterLevel": 57,
+        "modifierIds": [
+          "rawhide-belt:suffix:essence-fire-damage-recouped-as-life"
+        ]
+      }
     },
     {
       "id": "Lesser_Essence_of_Thawing",
@@ -2540,7 +2573,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -2562,7 +2596,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -2588,7 +2623,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -2614,7 +2650,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -2640,7 +2677,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -2743,7 +2781,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -2769,7 +2808,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -2795,7 +2835,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -2837,7 +2878,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -2863,7 +2905,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "belt"
       ]
     },
     {
@@ -4243,6 +4286,24 @@
       "ledgerVersion": "sceptre-unverified-numeric-assumptions-v1",
       "numericModelStatus": "UNVERIFIED",
       "source": "https://poe2db.tw/us/Sceptres"
+    },
+    "belt": {
+      "ruleVersion": "belt-workbench-perfect-essence-v1",
+      "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Belts",
+      "projection": "EXPLICIT_AFFIX_ONLY",
+      "variableImplicit": "UNKNOWN_UNMODELED",
+      "charmSlots": "UNKNOWN_UNMODELED",
+      "qualityMaximum": null,
+      "unsupported": [
+        "DIVINE",
+        "BLESSED",
+        "ARTIFICER",
+        "QUALITY_APPLICATION",
+        "PASTED_MAPPING",
+        "COMBAT"
+      ]
     }
   }
 }

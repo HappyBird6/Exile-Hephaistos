@@ -4,6 +4,7 @@ export type ItemTextDocument = { id: string; text: string }
 const baseText = 'Item Class: Amulets\nRarity: Normal\nSolar Amulet'
 const baseTexts = {
   solar: baseText,
+  belt: 'Item Class: Belts\nRarity: Normal\nRawhide Belt',
   sceptre: 'Item Class: Sceptres\nRarity: Normal\nRattling Sceptre',
   body: 'Item Class: Body Armours\nRarity: Normal\nRusted Cuirass',
   stocky: 'Item Class: Gloves\nRarity: Normal\nStocky Mitts',
@@ -14,14 +15,14 @@ type Draft = {
   source: 'base' | 'text'
   text: string
   currentText: ItemTextDocument
-  base: 'solar' | 'stocky' | 'bow' | 'wand' | 'body' | 'sceptre'
+  base: 'solar' | 'stocky' | 'bow' | 'wand' | 'body' | 'sceptre' | 'belt'
   baseItemLevel: number
   baseRevision: number
   activeOmens: string[]
   setActiveOmens: (ids: string[]) => void
   setBase: (
     itemLevel?: number,
-    base?: 'solar' | 'stocky' | 'bow' | 'wand' | 'body' | 'sceptre',
+    base?: 'solar' | 'stocky' | 'bow' | 'wand' | 'body' | 'sceptre' | 'belt',
   ) => void
   setText: (text: string) => void
   acceptText: (text: string) => void

@@ -99,6 +99,8 @@ public final class WorkbenchSimulator {
   }
 
   public String ruleVersion() {
+    if (catalog.base().id().equals(BeltEssenceTargets.BASE_ID))
+      return "belt-workbench-perfect-essence-v1";
     if (catalog.base().id().equals(SceptreEssenceTargets.BASE_ID))
       return "sceptre-workbench-essence-v1";
     if (catalog.base().id().equals(BodyEssenceTargets.BASE_ID))
@@ -110,6 +112,8 @@ public final class WorkbenchSimulator {
   }
 
   public String ledgerVersion() {
+    if (catalog.base().id().equals(BeltEssenceTargets.BASE_ID))
+      return "belt-unverified-numeric-assumptions-v1";
     if (catalog.base().id().equals(SceptreEssenceTargets.BASE_ID))
       return "sceptre-unverified-numeric-assumptions-v1";
     if (catalog.base().id().equals(BodyEssenceTargets.BASE_ID))
@@ -132,6 +136,10 @@ public final class WorkbenchSimulator {
     validate(state);
     var omens = parseOmens(activeOmens);
     return Arrays.stream(WorkbenchCurrency.values())
+        .filter(
+            a ->
+                a != WorkbenchCurrency.DIVINE
+                    || !state.baseItemId().equals(BeltEssenceTargets.BASE_ID))
         .filter(
             a ->
                 (a != WorkbenchCurrency.ARTIFICER
@@ -171,6 +179,10 @@ public final class WorkbenchSimulator {
 
   private Availability availability(
       ItemState state, WorkbenchCurrency action, List<WorkbenchOmen> omens) {
+    if (action == WorkbenchCurrency.DIVINE && state.baseItemId().equals(BeltEssenceTargets.BASE_ID))
+      return blocked(
+          action,
+          "Belt variable implicits and Charm-slot rolls are not modeled; Divine is unsupported.");
     if (action == WorkbenchCurrency.ARTIFICER) {
       var reason = AugmentSocketRules.refusal(state);
       return reason.isEmpty() ? new Availability(action, true, "") : blocked(action, reason);

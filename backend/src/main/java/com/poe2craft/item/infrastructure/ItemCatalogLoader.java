@@ -99,6 +99,26 @@ public final class ItemCatalogLoader {
     }
   }
 
+  /** Complete ordinary Belt snapshot for Workbench dispatch only. */
+  public static ItemCatalog loadBelt() {
+    try (var data =
+            ItemCatalogLoader.class.getResourceAsStream("/catalog/rawhide-belt/catalog.json");
+        var raw =
+            ItemCatalogLoader.class.getResourceAsStream("/catalog/rawhide-belt/base.raw.json");
+        var details =
+            ItemCatalogLoader.class.getResourceAsStream("/catalog/rawhide-belt/details.raw.json");
+        var special =
+            ItemCatalogLoader.class.getResourceAsStream(
+                "/catalog/rawhide-belt/perfect-essences.catalog.json");
+        var specialRaw =
+            ItemCatalogLoader.class.getResourceAsStream(
+                "/catalog/rawhide-belt/perfect-essences.raw.json")) {
+      return loadWithSpecial(data, raw, details, special, specialRaw);
+    } catch (IOException e) {
+      throw new IllegalStateException("Cannot load Rawhide Belt catalog", e);
+    }
+  }
+
   public static ItemCatalog loadDefault() {
     try (var catalog = resource("catalog.json");
         var raw = resource("base.raw.json");
