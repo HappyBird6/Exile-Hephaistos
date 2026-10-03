@@ -35,7 +35,7 @@ Single issue list from 2026-10-02, explicitly requested by the user. Record new 
 
 ## WB-005 — OPEN — Other Solar special-state rules
 
-- Scope: Homogenising, Sanctification, desecration/reveal, instilling, Chance, Mirror, identification and other special-state means.
+- Scope: Homogenising, Sanctification, desecration/reveal, instilling, Chance, Mirror, identification and other special-state means on the current Solar/Stocky Workbench. Glove-specific special Essence/Alloy targets require separate complete source/result validation; copying Solar targets is unsupported.
 - Impact: current ordinary Solar state does not represent all required state/results; availability/type-selection/roll/replacement evidence remains incomplete. Registration does not imply implementation or obtainability.
 - Evidence: [per-item reasons and sources](docs/workbench-remaining-triage-2026-10-02.md). Four encounter omens are outside equipment scope; Vaal/Hinekora alone are user exclusions.
 - Done when: each item has current effect/applicability/state/result evidence and complete eligible pools, then independently implement and verify. Split this issue into stable child IDs when an item begins implementation.
@@ -129,3 +129,17 @@ Docker full BE 189 (183 unit/six integration), zero failure/error/skipped, spotl
 Actual registry remains 220 registered/incomplete inventory; implemented union 64 = 19 currency +11 omen +33 essence +1 alloy. Solar supports prior 60; Stocky supports 32 (19 currency, nine relevant omen, four essence). This is implementation scope with explicit numeric models, not all-game coverage or obtainability. No new Support/Explorer feature or login/DB schema/storage platform. Original DB/volumes preserved; no remote push/merge/deploy.
 
 Final self-review corrected the Stocky preset text header to Gloves/Stocky Mitts instead of Solar. Full FE 110 and actual Stocky 60 passed after this Stocky-only text correction; the immediately preceding Solar general 30 and special cross-feature 25 were not repeated after that text-only correction (Solar and tooltip behavior unchanged). Final FE log: codex/qa-20261003/stocky-frontend-final-check.log. Original checkout remains clean master e937ddccf7493ea0d114139142ff36224c3a672c.
+
+## WB-010 — BLOCKED — Stocky Infinite Essence eligible outcomes
+
+- Scope: Lesser/ordinary/Greater Essence of the Infinite on the existing strength-glove base; Solar's verified three-target mapping is unchanged.
+- Primary source: current PoE2DB Gloves_str lists Strength/Dexterity/Intelligence Codes for each tier. Strength normal spawn tags include str_armour; Dexterity includes gloves; Intelligence includes helmet/int_armour and lacks an applicable Stocky tag.
+- Unknown: whether the Essence can force otherwise ineligible Intelligence or filters the result set. Ordinary spawn tags alone are insufficient proof of Essence filtering or forcing. Do not prune a candidate, invent an extra definition or apply 1/2 or 1/3 probabilities.
+- Impact: all three glove Infinite actions stay safely unsupported; independent fixed basic Essences proceed.
+- Evidence: [basic Essence scope and exact source-backed targets](docs/workbench-stocky-basic-essences-2026-10-03.md); raw candidate rows retained at codex/qa-20261003/stocky-basic-essence-candidates.json.
+- Done when: current primary evidence or reproducible game observation establishes the complete eligible outcome set on strength gloves and exact target identity/ranges. Only then use sourced weights or explicitly agreed uniform 1/N if weights alone are missing.
+## Latest fixed-Essence verification (2026-10-03, v18)
+
+Stocky basic Essences increase 4 -> 25; full normal pool and explicit numeric model boundary are preserved. Docker BE 190 (184 unit/six integration), FE 111, actual new-Essence browser 86, Stocky regression 63, retained-v17 compatibility 4, latest Solar 30/cross-feature 21 all pass with zero failures/page errors. Registry union remains 64; Stocky support is 53 records/44 actions. [Primary evidence, exact effect/level/slot/target table, execution evidence and remaining triage](docs/workbench-stocky-basic-essences-2026-10-03.md). WB-001/WB-003 remain unverified models, WB-004/WB-005 remain open, WB-010 blocks only the unresolved Infinite outcome set. No remote or original database mutation.
+
+Next bounded candidate: glove Hysteria's current CriticalMultiplier4 matches the already complete of Fury ordinary target; source proof is collected, but v18 has not enabled its replacement override. Current glove perfect_essence has 13 rows/12 materials, including dedicated targets and distinct Alloys. [Fresh item applicability and next-target audit](docs/workbench-stocky-basic-essences-2026-10-03.md).

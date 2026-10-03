@@ -11,6 +11,7 @@ public final class WorkbenchSimulator {
   private final ItemCatalog catalog;
   private final AdditionRules additionRules;
   private final Set<String> coupledModifierIds;
+  private final Map<WorkbenchCurrency, List<String>> essenceTargetOverrides;
 
   public WorkbenchSimulator(ItemCatalog catalog, CraftingEngine engine) {
     this(catalog, engine, Set.of());
@@ -19,7 +20,34 @@ public final class WorkbenchSimulator {
   /** Explicit opt-in for source-proven multi-stat definitions; never prunes a catalog. */
   public WorkbenchSimulator(
       ItemCatalog catalog, CraftingEngine engine, Set<String> coupledModifierIds) {
+    this(catalog, engine, coupledModifierIds, Map.of());
+  }
+
+  public WorkbenchSimulator(
+      ItemCatalog catalog,
+      CraftingEngine engine,
+      Set<String> coupledModifierIds,
+      Map<WorkbenchCurrency, List<String>> essenceTargetOverrides) {
     this.catalog = Objects.requireNonNull(catalog);
+    var reviewed = new EnumMap<WorkbenchCurrency, List<String>>(WorkbenchCurrency.class);
+    essenceTargetOverrides.forEach(
+        (action, ids) -> {
+          if (action.essenceModifierIds().isEmpty()
+              || !action.replacementModifiers().isEmpty()
+              || ids.size() != 1)
+            throw new IllegalArgumentException(
+                "Only source-proven fixed basic essence overrides are supported");
+          var id = ids.getFirst();
+          var definition =
+              catalog
+                  .find(id)
+                  .orElseThrow(() -> new IllegalArgumentException("Unknown essence target"));
+          if (definition.layer() != ModifierDefinition.Layer.EXPLICIT || definition.weight() <= 0)
+            throw new IllegalArgumentException(
+                "Basic essence target requires a verified ordinary explicit");
+          reviewed.put(action, List.copyOf(ids));
+        });
+    this.essenceTargetOverrides = Map.copyOf(reviewed);
     this.coupledModifierIds = Set.copyOf(coupledModifierIds);
     for (var id : this.coupledModifierIds) {
       var definition =
@@ -33,8 +61,12 @@ public final class WorkbenchSimulator {
     additionRules = new AdditionRules(catalog);
   }
 
+  private List<String> essenceTargets(WorkbenchCurrency action) {
+    return essenceTargetOverrides.getOrDefault(action, action.essenceModifierIds());
+  }
+
   public String ruleVersion() {
-    return coupledModifierIds.isEmpty() ? RULE_VERSION : "stocky-workbench-source-model-v17";
+    return coupledModifierIds.isEmpty() ? RULE_VERSION : "stocky-workbench-basic-essence-v18";
   }
 
   public String ledgerVersion() {
@@ -55,7 +87,7 @@ public final class WorkbenchSimulator {
         .filter(
             a ->
                 java.util.stream.Stream.concat(
-                        a.essenceModifierIds().stream(), a.replacementModifiers().stream())
+                        essenceTargets(a).stream(), a.replacementModifiers().stream())
                     .allMatch(id -> catalog.find(id).isPresent()))
         .map(a -> availability(state, a, omens))
         .toList();
@@ -88,7 +120,7 @@ public final class WorkbenchSimulator {
   private Availability availability(
       ItemState state, WorkbenchCurrency action, List<WorkbenchOmen> omens) {
     if (java.util.stream.Stream.concat(
-            action.essenceModifierIds().stream(), action.replacementModifiers().stream())
+            essenceTargets(action).stream(), action.replacementModifiers().stream())
         .anyMatch(id -> catalog.find(id).isEmpty()))
       return blocked(action, "This material's results are not verified for this base.");
     var matches = matching(action, omens);
@@ -153,12 +185,12 @@ public final class WorkbenchSimulator {
       }
       return new Availability(action, true, "");
     }
-    if (!action.essenceModifierIds().isEmpty()) {
+    if (!essenceTargets(action).isEmpty()) {
       if (state.rarity() != ItemState.Rarity.MAGIC)
         return blocked(
             action, "This essence upgrades a Magic item to Rare with one guaranteed modifier.");
       var targets =
-          action.essenceModifierIds().stream().map(id -> catalog.find(id).orElseThrow()).toList();
+          essenceTargets(action).stream().map(id -> catalog.find(id).orElseThrow()).toList();
       if (targets.stream().anyMatch(target -> state.itemLevel() < target.requiredItemLevel()))
         return blocked(
             action,
@@ -306,7 +338,7 @@ public final class WorkbenchSimulator {
     var events = new ArrayList<Event>();
     var assumptions = new ArrayList<Assumption>();
     var rarity =
-        action == WorkbenchCurrency.ALCHEMY || !action.essenceModifierIds().isEmpty()
+        action == WorkbenchCurrency.ALCHEMY || !essenceTargets(action).isEmpty()
             ? ItemState.Rarity.RARE
             : upgrade(state, action);
     if (!action.replacementModifiers().isEmpty()) {
@@ -343,8 +375,8 @@ public final class WorkbenchSimulator {
       var rolled = roll(definition, random, assumptions);
       explicits.add(rolled);
       events.add(new Event("ADD", definition.id(), rolled.values(), 1.0 / targets.size()));
-    } else if (!action.essenceModifierIds().isEmpty()) {
-      var candidates = action.essenceModifierIds();
+    } else if (!essenceTargets(action).isEmpty()) {
+      var candidates = essenceTargets(action);
       var definition =
           catalog
               .find(candidates.get(candidates.size() == 1 ? 0 : random.nextInt(candidates.size())))

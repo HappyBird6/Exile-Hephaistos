@@ -23,7 +23,9 @@ public final class WorkbenchService {
             .filter(d -> d.stats().size() > 1)
             .map(ModifierDefinition::id)
             .collect(java.util.stream.Collectors.toSet());
-    stockySimulator = new WorkbenchSimulator(stocky, new CraftingEngine(stocky), coupled);
+    stockySimulator =
+        new WorkbenchSimulator(
+            stocky, new CraftingEngine(stocky), coupled, StockyEssenceTargets.VERIFIED);
   }
 
   public Initial initial(String base, int level) {

@@ -46,7 +46,7 @@ class StockyWorkbenchTest {
       assertThat(rare.applied()).isTrue();
       assertThat(rare.state().implicits()).isEmpty();
       assertThat(rare.state().explicits()).hasSize(4);
-      assertThat(rare.ruleVersion()).isEqualTo("stocky-workbench-source-model-v17");
+      assertThat(rare.ruleVersion()).isEqualTo("stocky-workbench-basic-essence-v18");
       var locked =
           service.apply(rare.state(), WorkbenchCurrency.FRACTURING, Set.of(), random).state();
       var fracture =
@@ -95,7 +95,7 @@ class StockyWorkbenchTest {
     }
     for (var action :
         List.of(
-            WorkbenchCurrency.ESSENCE_BODY,
+            WorkbenchCurrency.ESSENCE_INFINITE,
             WorkbenchCurrency.RUNIC_ALLOY,
             WorkbenchCurrency.ESSENCE_ABYSS)) {
       var result = service.apply(magic, action, Set.of(), new Random(1));
@@ -143,5 +143,97 @@ class StockyWorkbenchTest {
                     new Random(1))
                 .applied())
         .isFalse();
+  }
+
+  @Test
+  void additionalBasicEssencesMatchSourceAndPreserveBlockedInputs() throws Exception {
+    var catalog = stocky();
+    var service = service();
+    var root = initial(service);
+    try (var source =
+        getClass().getResourceAsStream("/catalog/stocky-mitts/basic-essence-proof.json")) {
+      var proofs = new com.fasterxml.jackson.databind.ObjectMapper().readTree(source);
+      assertThat(proofs.size()).isEqualTo(21);
+      assertThat(StockyEssenceTargets.VERIFIED).hasSize(21);
+      for (var proof : proofs) {
+        var action = WorkbenchCurrency.valueOf(proof.get("action").asText());
+        var target = StockyEssenceTargets.VERIFIED.get(action).getFirst();
+        var definition = catalog.find(target).orElseThrow();
+        assertThat(target).isEqualTo(proof.get("definition").get("id").asText());
+        assertThat(definition.requiredItemLevel())
+            .isEqualTo(proof.get("sourceRow").get("Level").asInt());
+        assertThat(definition.familyIds())
+            .containsExactly(proof.get("sourceRow").get("ModFamilyList").get(0).asText());
+        assertThat(proof.get("matched").asBoolean()).isTrue();
+        for (var sourceStat : proof.get("parsed").get("stats")) {
+          var stat =
+              definition.stats().stream()
+                  .filter(x -> x.id().equals(sourceStat.get("id").asText()))
+                  .findFirst()
+                  .orElseThrow();
+          assertThat(stat.min()).isEqualTo(sourceStat.get("min").asLong());
+          assertThat(stat.max()).isEqualTo(sourceStat.get("max").asLong());
+        }
+        var magic =
+            new ItemState(
+                root.snapshotId(),
+                root.baseItemId(),
+                82,
+                ItemState.Rarity.MAGIC,
+                List.of(),
+                List.of(),
+                Set.of());
+        var result =
+            service.apply(magic, action, Set.of("Omen_of_Sinistral_Exaltation"), new Random(1));
+        assertThat(result.applied()).isTrue();
+        assertThat(result.state().rarity()).isEqualTo(ItemState.Rarity.RARE);
+        assertThat(result.state().explicits())
+            .extracting(ModifierInstance::modifierId)
+            .containsExactly(target);
+        assertThat(result.state().implicits()).isEmpty();
+        assertThat(result.events()).hasSize(1);
+        assertThat(result.events().getFirst().selectionProbability()).isEqualTo(1);
+        assertThat(result.remainingOmens()).containsExactly("Omen_of_Sinistral_Exaltation");
+        assertThat(result.consumedOmens()).isEmpty();
+        var overlap =
+            new ItemState(
+                root.snapshotId(),
+                root.baseItemId(),
+                82,
+                ItemState.Rarity.MAGIC,
+                List.of(),
+                result.state().explicits(),
+                Set.of());
+        var low =
+            new ItemState(
+                root.snapshotId(),
+                root.baseItemId(),
+                definition.requiredItemLevel() - 1,
+                ItemState.Rarity.MAGIC,
+                List.of(),
+                List.of(),
+                Set.of());
+        for (var blocked : List.of(root, result.state(), overlap, low)) {
+          var denied = service.apply(blocked, action, Set.of(), new Random(1));
+          assertThat(denied.applied()).isFalse();
+          assertThat(denied.state()).isEqualTo(blocked);
+          assertThat(denied.events()).isEmpty();
+        }
+      }
+    }
+    assertThat(service.actions(root, Set.of())).hasSize(44);
+    assertThat(
+            service.actions(
+                new ItemState(
+                    service.initial("solar", 82).state().snapshotId(),
+                    SolarAmulet.BASE_ID,
+                    82,
+                    ItemState.Rarity.NORMAL,
+                    SolarAmulet.initial(ItemCatalogLoader.loadDefault(), 82, 15).implicits(),
+                    List.of(),
+                    Set.of()),
+                Set.of()))
+        .hasSize(49);
+    assertThat(catalog.modifiers()).hasSize(182);
   }
 }

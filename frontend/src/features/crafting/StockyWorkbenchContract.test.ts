@@ -108,3 +108,58 @@ it('accepts a guaranteed glove essence result and rejects an invented implicit',
     ),
   ).rejects.toThrow('unchanged')
 })
+
+it('uses the source-proven glove Life target and rejects a Solar target on gloves', async () => {
+  const id = 'stocky-mitts:prefix:sanguine'
+  const definition = {
+    ...initial.modifiers.p!,
+    id,
+    stats: [{ id: 'base_maximum_life', min: 30, max: 39 }],
+  }
+  const solarId = 'amulet:prefix:healthy'
+  const input = { ...root, rarity: 'MAGIC' as const }
+  const values = { base_maximum_life: 35 }
+  const result: AppliedItem = {
+    ruleVersion: 'stocky-workbench-basic-essence-v18',
+    ledgerVersion: 'fixture',
+    snapshotId: root.snapshotId,
+    state: {
+      ...input,
+      rarity: 'RARE',
+      explicits: [{ modifierId: id, values }],
+    },
+    action: 'LESSER_ESSENCE_BODY',
+    applied: true,
+    reason: '',
+    events: [{ kind: 'ADD', modifierId: id, values, selectionProbability: 1 }],
+    consumedOmens: [],
+    remainingOmens: [],
+    assumptions: [],
+  }
+  const definitions = {
+    [id]: definition,
+    [solarId]: { ...definition, id: solarId },
+  }
+  vi.stubGlobal('fetch', () => Promise.resolve(jsonResponse(result)))
+  expect(
+    (
+      await applyCurrency(
+        input,
+        result.action,
+        definitions,
+        new AbortController().signal,
+      )
+    ).state.explicits[0]?.modifierId,
+  ).toBe(id)
+  result.state.explicits = [{ modifierId: solarId, values }]
+  result.events[0]!.modifierId = solarId
+  await expect(
+    applyCurrency(
+      input,
+      result.action,
+      definitions,
+      new AbortController().signal,
+    ),
+  ).rejects.toThrow('unchanged')
+  expect(input.explicits).toEqual([])
+})

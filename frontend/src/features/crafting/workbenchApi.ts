@@ -69,6 +69,29 @@ const fixedEssenceModifiers: Partial<Record<WorkbenchAction, string>> = {
   ESSENCE_OPULENCE: 'amulet:suffix:of-raiding',
   GREATER_ESSENCE_OPULENCE: 'amulet:suffix:of-archaeology',
 }
+const stockyFixedEssenceModifiers: Partial<Record<WorkbenchAction, string>> = {
+  LESSER_ESSENCE_BODY: 'stocky-mitts:prefix:sanguine',
+  ESSENCE_BODY: 'stocky-mitts:prefix:robust',
+  GREATER_ESSENCE_BODY: 'stocky-mitts:prefix:rotund',
+  LESSER_ESSENCE_MIND: 'stocky-mitts:prefix:azure',
+  ESSENCE_MIND: 'stocky-mitts:prefix:aqua',
+  GREATER_ESSENCE_MIND: 'stocky-mitts:prefix:opalescent',
+  LESSER_ESSENCE_RUIN: 'stocky-mitts:suffix:of-the-lost',
+  ESSENCE_RUIN: 'stocky-mitts:suffix:of-banishment',
+  GREATER_ESSENCE_RUIN: 'stocky-mitts:suffix:of-expulsion',
+  LESSER_ESSENCE_INSULATION: 'stocky-mitts:suffix:of-the-salamander',
+  ESSENCE_INSULATION: 'stocky-mitts:suffix:of-the-kiln',
+  GREATER_ESSENCE_INSULATION: 'stocky-mitts:suffix:of-the-volcano',
+  LESSER_ESSENCE_THAWING: 'stocky-mitts:suffix:of-the-penguin',
+  ESSENCE_THAWING: 'stocky-mitts:suffix:of-the-yeti',
+  GREATER_ESSENCE_THAWING: 'stocky-mitts:suffix:of-the-polar-bear',
+  LESSER_ESSENCE_GROUNDING: 'stocky-mitts:suffix:of-the-squall',
+  ESSENCE_GROUNDING: 'stocky-mitts:suffix:of-the-thunderhead',
+  GREATER_ESSENCE_GROUNDING: 'stocky-mitts:suffix:of-the-maelstrom',
+  LESSER_ESSENCE_OPULENCE: 'stocky-mitts:suffix:of-plunder',
+  ESSENCE_OPULENCE: 'stocky-mitts:suffix:of-raiding',
+  GREATER_ESSENCE_OPULENCE: 'stocky-mitts:suffix:of-archaeology',
+}
 const choiceEssenceModifiers: Partial<
   Record<WorkbenchAction, readonly string[]>
 > = {
@@ -457,8 +480,12 @@ export async function applyCurrency(
   const v = (await response.json()) as AppliedItem
   const next = v?.state
   const baseAction = baseWorkbenchAction(action)
-  const essenceCandidates = fixedEssenceModifiers[action]
-    ? [fixedEssenceModifiers[action]!]
+  const fixedTarget =
+    state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+      ? (stockyFixedEssenceModifiers[action] ?? fixedEssenceModifiers[action])
+      : fixedEssenceModifiers[action]
+  const essenceCandidates = fixedTarget
+    ? [fixedTarget]
     : (choiceEssenceModifiers[action] ?? [])
   const replacementTargets = replacementEssenceModifiers[action] ?? []
   const sameModifiers = (

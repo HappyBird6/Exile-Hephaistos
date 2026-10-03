@@ -481,9 +481,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "LESSER_ESSENCE_BODY",
-      "reason": "Magic Solar becomes Rare with one fixed Life prefix. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported.",
+      "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
@@ -498,9 +499,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "LESSER_ESSENCE_MIND",
-      "reason": "Magic Solar becomes Rare with one fixed modifier. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported.",
+      "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
@@ -591,9 +593,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "LESSER_ESSENCE_RUIN",
-      "reason": "Magic Solar becomes Rare with one fixed modifier. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported.",
+      "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
@@ -667,9 +670,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "ESSENCE_BODY",
-      "reason": "Magic Solar becomes Rare with one fixed Life prefix. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported.",
+      "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
@@ -684,9 +688,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "ESSENCE_MIND",
-      "reason": "Magic Solar becomes Rare with one fixed modifier. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported.",
+      "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
@@ -777,9 +782,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "ESSENCE_RUIN",
-      "reason": "Magic Solar becomes Rare with one fixed modifier. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported.",
+      "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
@@ -853,9 +859,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "GREATER_ESSENCE_BODY",
-      "reason": "Magic Solar becomes Rare with one fixed Life prefix. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported.",
+      "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
@@ -870,9 +877,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "GREATER_ESSENCE_MIND",
-      "reason": "Magic Solar becomes Rare with one fixed modifier. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported.",
+      "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
@@ -963,9 +971,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "GREATER_ESSENCE_RUIN",
-      "reason": "Magic Solar becomes Rare with one fixed modifier. Only catalog-level eligible results without family overlap are supported; low-level and overlapping-family interactions need verification. Other equipment types remain unsupported.",
+      "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
@@ -1380,9 +1389,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "LESSER_ESSENCE_INSULATION",
-      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
@@ -1397,9 +1407,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "ESSENCE_INSULATION",
-      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
@@ -1414,9 +1425,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "GREATER_ESSENCE_INSULATION",
-      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
@@ -1445,9 +1457,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "LESSER_ESSENCE_THAWING",
-      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
@@ -1462,9 +1475,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "ESSENCE_THAWING",
-      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
@@ -1479,9 +1493,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "GREATER_ESSENCE_THAWING",
-      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
@@ -1510,9 +1525,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "LESSER_ESSENCE_GROUNDING",
-      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
@@ -1527,9 +1543,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "ESSENCE_GROUNDING",
-      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
@@ -1544,9 +1561,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "GREATER_ESSENCE_GROUNDING",
-      "reason": "Magic Solar to Rare with one sourced fixed resistance suffix; supported catalog item level and no existing family overlap. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
@@ -1631,9 +1649,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "LESSER_ESSENCE_OPULENCE",
-      "reason": "Magic Solar to Rare with one sourced fixed item-rarity suffix; supported catalog item level and no suffix family overlap. Separate rarity prefix may coexist. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
@@ -1648,9 +1667,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "ESSENCE_OPULENCE",
-      "reason": "Magic Solar to Rare with one sourced fixed item-rarity suffix; supported catalog item level and no suffix family overlap. Separate rarity prefix may coexist. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
@@ -1665,9 +1685,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "GREATER_ESSENCE_OPULENCE",
-      "reason": "Magic Solar to Rare with one sourced fixed item-rarity suffix; supported catalog item level and no suffix family overlap. Separate rarity prefix may coexist. Existing rolls preserved; numeric uniform integer assumption. Low-level bypass/overlap and other bases unsupported.",
+      "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
