@@ -1,3 +1,4 @@
+import { maximumQuality } from './qualityLimit'
 import { currencyNames } from './currencyNames'
 import { skipToken, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useRef, useState } from 'react'
@@ -598,6 +599,10 @@ export function CraftingPage() {
         : undefined
   const evidenceInvalid =
     storedFrame?.evidence !== undefined && restoredValid && !craftEvidence
+  const qualityMaximum =
+    concrete && initial.data
+      ? maximumQuality(concrete, initial.data.modifiers)
+      : null
   const card =
     item && !concrete
       ? toItemCard(item)
@@ -608,7 +613,15 @@ export function CraftingPage() {
             base: baseName,
             itemClass: catalogBase === 'stocky' ? 'Gloves' : 'Amulet',
             itemLevel: concrete.itemLevel,
-            properties: [],
+            properties:
+              qualityMaximum === null
+                ? []
+                : [
+                    {
+                      id: 'maximum-quality',
+                      text: `Maximum Quality: ${qualityMaximum}%`,
+                    },
+                  ],
             requirements: [],
             flags: [],
             modifiers: [...concrete.implicits, ...concrete.explicits].map(

@@ -1,3 +1,4 @@
+import { qualityLimitMatches } from './qualityLimit'
 import type { Initial } from './craftingApi'
 import type { AppliedItem, ConcreteItem } from './workbenchApi'
 import { coupledModelsMatch, workbenchActionNames } from './workbenchApi'
@@ -13,6 +14,7 @@ export type CraftEvidence = Pick<
   | 'events'
   | 'assumptions'
   | 'consumedOmens'
+  | 'qualityLimit'
 >
 export type Frame = {
   state: ConcreteItem
@@ -126,6 +128,7 @@ export function recordCraft(
         events: result.events,
         assumptions: result.assumptions,
         consumedOmens: result.consumedOmens,
+        ...(result.qualityLimit ? { qualityLimit: result.qualityLimit } : {}),
       }),
     },
   ]
@@ -156,6 +159,8 @@ export function verifiedFrameEvidence(
     const e = frame.evidence
     if (
       !e ||
+      (e.qualityLimit !== undefined &&
+        !qualityLimitMatches(e.qualityLimit, frame.state, initial.modifiers)) ||
       !verifiedHistoryState(frame.state, initial) ||
       e.action !== frame.action ||
       !Object.hasOwn(workbenchActionNames, e.action) ||

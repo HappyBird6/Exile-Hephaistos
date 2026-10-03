@@ -1,0 +1,47 @@
+{
+  "ruleVersion": "quality-limit-v1",
+  "reviewedAt": "2026-10-03",
+  "sourcePages": [
+    {
+      "id": "Quality",
+      "url": "https://poe2db.tw/us/Quality",
+      "status": 200,
+      "retrievedAt": "2026-10-03T10:30:01.941Z",
+      "sha256": "8fd37da1c9ddaa15bb7b48fd3d48e3ddcc905f22b2ef31e57819a7fe0ecb4a66"
+    },
+    {
+      "id": "Maximum_Quality",
+      "url": "https://poe2db.tw/us/Maximum_Quality",
+      "status": 200,
+      "retrievedAt": "2026-10-03T10:30:02.232Z",
+      "sha256": "8c55f7e93fe46c5a92f673dfca8b46646448cb6131df150188b7ea056a1aa099"
+    },
+    {
+      "id": "Catalysts",
+      "url": "https://poe2db.tw/us/Catalysts",
+      "status": 200,
+      "retrievedAt": "2026-10-03T10:30:02.527Z",
+      "sha256": "02303ac9d41e8b0b8e21a26638f8825464719a1ded28c1100c135222505acbab"
+    },
+    {
+      "id": "Essence_of_the_Breach",
+      "url": "https://poe2db.tw/us/Essence_of_the_Breach",
+      "status": 200,
+      "retrievedAt": "2026-10-03T10:30:02.960Z",
+      "sha256": "d37e7b71c5ae3da5ba043171a4c07551d44259b0004514b9c9c6ebb284524f23"
+    }
+  ],
+  "verifiedRules": [
+    "Default maximum quality20 for supported non-Unique Solar/Stocky states.",
+    "Solar known Breach explicit local_maximum_quality_+20 increases maximum to40."
+  ],
+  "notImplemented": [
+    "Applied quality",
+    "Per-use increments",
+    "Catalyst scaling and rounding",
+    "Armour property totals",
+    "Infuser outcomes",
+    "Catalysing Exaltation weights"
+  ],
+  "versionBoundary": "Current public PoE2DB glossary/item-card review. GGG0.3.0/0.3.1 checked; no per-use increment confirmation. No game-obtainability assertion."
+}

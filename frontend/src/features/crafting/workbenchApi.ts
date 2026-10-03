@@ -1,3 +1,5 @@
+import { qualityLimitMatches } from './qualityLimit'
+import type { QualityLimit } from './qualityLimit'
 import { currencyActions, actionNames } from './craftingApi'
 import type { Action, Bucket, Definition, Initial } from './craftingApi'
 
@@ -396,6 +398,7 @@ export interface RollAssumption {
   ratioTick?: number | null
 }
 export interface AppliedItem {
+  qualityLimit?: QualityLimit
   ruleVersion: string
   ledgerVersion: string
   snapshotId: string
@@ -560,6 +563,8 @@ export async function applyCurrency(
     Object.values(values).every(Number.isSafeInteger)
   if (
     !next ||
+    (v.qualityLimit !== undefined &&
+      !qualityLimitMatches(v.qualityLimit, next, definitions)) ||
     (v.applied && action === 'PRISMATIC_ALLOY' && state.itemLevel < 45) ||
     (v.applied &&
       ['EXPANSIVE_ALLOY', 'ADAPTIVE_ALLOY', 'SOVEREIGN_ALLOY'].includes(

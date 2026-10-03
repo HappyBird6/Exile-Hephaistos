@@ -28,8 +28,8 @@ Single issue list from 2026-10-02, explicitly requested by the user. Record new 
 
 ## WB-004 — OPEN — Catalyst amount, scaling and weighting
 
-- Scope: jewellery quality, catalyst types/refined variants and Catalysing Exaltation.
-- Impact: rarity-dependent increment, type replacement/cap, stat precision/rounding, tag applicability and selection-weight transform/order are unresolved; no catalyst activation.
+- Scope: current-base quality: Stocky Armourer/Infuser, Solar13 ordinary Catalysts/Infuser/Catalysing Exaltation. Refined variants require Jewels. Liquid27 deferred (WB-022).
+- Impact: per-use increment and any rarity/ilvl dependence, type replacement amounts, stat precision/rounding, tag applicability and selection-weight transform/order remain unverified; no quality currency activation. Source-reviewed maximum20/40 is independently implemented (quality-limit-v1), not applied quality or computed defense/jewellery magnitudes. [Source table, minimum activation boundary and next route](docs/workbench-quality-review-2026-10-03.md).
 - Evidence: [existing rule audit](docs/workbench-rule-audit-2026-10-02.md), [per-item triage](docs/workbench-remaining-triage-2026-10-02.md).
 - Done when: current source confirms increments/state transitions and every affected stat/tag/weight rule; verify quality history and ordinary crafting/omen interactions without mixing incomplete weights.
 

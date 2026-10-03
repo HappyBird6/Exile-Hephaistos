@@ -363,7 +363,8 @@ public final class WorkbenchSimulator {
           List.of(),
           List.of(),
           List.of(),
-          allIds);
+          allIds,
+          QualityLimitRules.describe(state, catalog));
     var matched = matching(action, omens);
     var omen = matched.isEmpty() ? null : matched.getFirst();
     var implicits = new ArrayList<>(state.implicits());
@@ -548,7 +549,8 @@ public final class WorkbenchSimulator {
         events,
         assumptions,
         consumed,
-        remaining);
+        remaining,
+        QualityLimitRules.describe(result, catalog));
   }
 
   private ModifierInstance roll(
@@ -640,7 +642,8 @@ public final class WorkbenchSimulator {
       List<Event> events,
       List<Assumption> assumptions,
       List<String> consumedOmens,
-      List<String> remainingOmens) {
+      List<String> remainingOmens,
+      QualityLimitRules.Limit qualityLimit) {
     public Result {
       events = List.copyOf(events);
       assumptions = List.copyOf(assumptions);
