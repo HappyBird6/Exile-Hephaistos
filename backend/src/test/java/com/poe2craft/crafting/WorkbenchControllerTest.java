@@ -29,6 +29,48 @@ class WorkbenchControllerTest {
   @Autowired ItemCatalog catalog;
 
   @Test
+  void typedQualityInspectionPreservesRollsAndRejectsLossyOrCoercedProperties() throws Exception {
+    var state =
+        (com.fasterxml.jackson.databind.node.ObjectNode)
+            mapper.valueToTree(SolarAmulet.initial(catalog));
+    state.put("rarity", "RARE");
+    state.set(
+        "explicits",
+        mapper.readTree(
+            "[{\"modifierId\":\"amulet:prefix:healthy\",\"values\":{\"base_maximum_life\":29},\"fractured\":true}]"));
+    state.set("catalystQuality", mapper.readTree("{\"type\":\"FLESH\",\"amount\":20}"));
+    mvc.perform(
+            post("/api/v1/crafting/workbench/quality-display")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(mapper.writeValueAsBytes(Map.of("state", state))))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.state.catalystQuality.type").value("FLESH"))
+        .andExpect(jsonPath("$.state.explicits[0].values.base_maximum_life").value(29))
+        .andExpect(jsonPath("$.state.explicits[0].fractured").value(true))
+        .andExpect(jsonPath("$.modifiers[1].displayedValues.base_maximum_life").value(34));
+    mvc.perform(
+            post("/api/v1/crafting/workbench/apply")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(mapper.writeValueAsBytes(Map.of("state", state, "action", "DIVINE"))))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.applied").value(false))
+        .andExpect(jsonPath("$.state.catalystQuality.amount").value(20))
+        .andExpect(jsonPath("$.state.explicits[0].values.base_maximum_life").value(29));
+    for (String bad :
+        java.util.List.of(
+            "{\"type\":\"FLESH\",\"amount\":20.5}",
+            "{\"type\":\"FLESH\",\"amount\":\"20\"}",
+            "{\"type\":\"FLESH\",\"amount\":20,\"extra\":1}")) {
+      state.set("catalystQuality", mapper.readTree(bad));
+      mvc.perform(
+              post("/api/v1/crafting/workbench/quality-display")
+                  .contentType(MediaType.APPLICATION_JSON)
+                  .content(mapper.writeValueAsBytes(Map.of("state", state))))
+          .andExpect(status().isUnprocessableEntity());
+    }
+  }
+
+  @Test
   void legacyJsonDefaultsToUnlockedAndFractureRoundTripsWithoutLosingLockedValues()
       throws Exception {
     var simulator =

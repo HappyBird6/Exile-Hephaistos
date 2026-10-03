@@ -62,6 +62,11 @@ public final class WorkbenchController {
 
   public record ActionRequest(JsonNode state, Set<String> activeOmens) {}
 
+  @PostMapping("/quality-display")
+  public WorkbenchService.QualityDisplay qualityDisplay(@RequestBody ActionRequest request) {
+    return simulator.qualityDisplay(concreteState(request.state()));
+  }
+
   public static final class UnsupportedItemProperties extends IllegalArgumentException {}
 
   /** Unknown item properties must never vanish during Jackson conversion or crafting. */
@@ -76,6 +81,7 @@ public final class WorkbenchController {
             "explicits",
             "conditions",
             "augmentSockets",
+            "catalystQuality",
             "modifierIds");
     if (input == null || !input.isObject())
       throw new IllegalArgumentException("Concrete item state required");
@@ -91,6 +97,16 @@ public final class WorkbenchController {
         && (!sockets.isIntegralNumber() || !sockets.canConvertToInt()))
       throw new IllegalArgumentException("Integral socket count required");
     var modifierFields = Set.of("modifierId", "values", "fractured");
+    var quality = input.get("catalystQuality");
+    if (quality != null && !quality.isNull()) {
+      if (!quality.isObject()
+          || quality.size() != 2
+          || !quality.has("type")
+          || !quality.has("amount")
+          || !quality.get("type").isTextual()
+          || !quality.get("amount").isIntegralNumber()
+          || !quality.get("amount").canConvertToInt()) throw new UnsupportedItemProperties();
+    }
     for (String layer : List.of("implicits", "explicits")) {
       var modifiers = input.get(layer);
       if (modifiers == null || !modifiers.isArray())
@@ -102,6 +118,15 @@ public final class WorkbenchController {
             .forEachRemaining(
                 name -> {
                   if (!modifierFields.contains(name)) throw new UnsupportedItemProperties();
+                });
+        var values = instance.get("values");
+        if (values == null || !values.isObject()) throw new UnsupportedItemProperties();
+        values
+            .elements()
+            .forEachRemaining(
+                value -> {
+                  if (!value.isIntegralNumber() || !value.canConvertToLong())
+                    throw new UnsupportedItemProperties();
                 });
       }
     }

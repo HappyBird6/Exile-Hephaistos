@@ -18,6 +18,7 @@ export function maximumQuality(
   if (
     ![
       solar,
+      'Metadata/Items/Rings/FourRing1',
       stocky,
       'Metadata/Items/Armours/Helmets/FourHelmetStr1',
       'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1',

@@ -187,6 +187,10 @@ public final class WorkbenchSimulator {
 
   private Availability availability(
       ItemState state, WorkbenchCurrency action, List<WorkbenchOmen> omens) {
+    if (state.catalystQuality() != null)
+      return blocked(
+          action,
+          "Currency interactions with catalyst quality are not verified. Existing quality and rolls are preserved.");
     if (action == WorkbenchCurrency.DIVINE && state.baseItemId().equals(BeltEssenceTargets.BASE_ID))
       return blocked(
           action,
@@ -661,7 +665,8 @@ public final class WorkbenchSimulator {
         implicits,
         explicits,
         s.conditions(),
-        s.augmentSockets());
+        s.augmentSockets(),
+        s.catalystQuality());
   }
 
   public record Availability(WorkbenchCurrency action, boolean available, String reason) {}

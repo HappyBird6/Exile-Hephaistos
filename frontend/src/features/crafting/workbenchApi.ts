@@ -1,4 +1,5 @@
 import { supportsConcreteStateShape } from './workbenchStateShape'
+import type { CatalystQuality } from './catalystQuality'
 import { maximumQuality, qualityLimitMatches } from './qualityLimit'
 import type { QualityLimit } from './qualityLimit'
 import { currencyActions, actionNames } from './craftingApi'
@@ -515,6 +516,7 @@ export const baseWorkbenchAction = (action: WorkbenchAction) =>
     Action | 'DIVINE' | 'ALCHEMY' | 'FRACTURING'
 
 export interface ConcreteItem extends Omit<Bucket, 'modifierIds'> {
+  catalystQuality?: CatalystQuality | null | undefined
   augmentSockets?: number | null | undefined
   explicits: {
     modifierId: string
@@ -712,6 +714,10 @@ export async function applyCurrency(
     throw new Error(
       'This item contains unsupported properties. Its state has not been changed.',
     )
+  if (state.catalystQuality != null)
+    throw new Error(
+      'Currency interactions with catalyst quality are not verified. Existing quality and rolls are preserved.',
+    )
   const response = await fetch('/api/v1/crafting/workbench/apply', {
     method: 'POST',
     signal,
@@ -795,6 +801,7 @@ export async function applyCurrency(
   if (
     !next ||
     !supportsConcreteStateShape(next) ||
+    next.catalystQuality != null ||
     (state.baseItemId === 'Metadata/Items/Rings/FourRing1' &&
       (!sameModifiers(next.implicits, state.implicits) ||
         next.implicits.length !== 1 ||

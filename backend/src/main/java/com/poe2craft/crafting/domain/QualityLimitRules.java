@@ -2,7 +2,7 @@ package com.poe2craft.crafting.domain;
 
 import com.poe2craft.item.*;
 
-/** Source-verified maximum only; neither applied quality nor scaled item stats are modeled. */
+/** Source-verified maximum only; applied quality and derived display use separate item models. */
 public final class QualityLimitRules {
   public static final String VERSION = "quality-limit-v1";
   public static final String BREACH_ID = "amulet:prefix:essence-maximum-quality";
@@ -19,7 +19,8 @@ public final class QualityLimitRules {
         && !state.baseItemId().equals(HelmetEssenceTargets.BASE_ID)
         && !state.baseItemId().equals(BodyEssenceTargets.BASE_ID)
         && !state.baseItemId().equals(WandEssenceTargets.BASE_ID)
-        && !state.baseItemId().equals(SceptreEssenceTargets.BASE_ID))
+        && !state.baseItemId().equals(SceptreEssenceTargets.BASE_ID)
+        && !state.baseItemId().equals(RingEssenceTargets.BASE_ID))
       return null; // Other catalogs do not inherit a reviewed cap.
     int maximum = 20;
     for (var instance : state.explicits()) {

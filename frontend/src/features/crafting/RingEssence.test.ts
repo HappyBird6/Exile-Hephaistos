@@ -11,11 +11,19 @@ import { craftProbabilityEvidence } from './craftProbabilityEvidence'
 
 afterEach(() => vi.unstubAllGlobals())
 const definitions = actual.initial.modifiers as Record<string, Definition>
+// Historical captures remain intact; current responses add the newly reviewed Ring cap.
+const currentResponse = (value: unknown) => ({
+  ...(value as object),
+  qualityLimit: { ruleVersion: 'quality-limit-v1', maximumQuality: 20 },
+})
 
 it.each(actual.captures)(
   'accepts actual $action with exact Ring targets and numeric source',
   async ({ action, before, result }) => {
-    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(jsonResponse(result)))
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue(jsonResponse(currentResponse(result))),
+    )
     const verified = await applyCurrency(
       before as ConcreteItem,
       action as WorkbenchAction,
@@ -32,6 +40,10 @@ it.each(actual.captures)(
   'rejects forged numeric provenance for $action',
   async ({ action, before, result }) => {
     const forged = structuredClone(result) as AppliedItem
+    forged.qualityLimit = {
+      ruleVersion: 'quality-limit-v1',
+      maximumQuality: 20,
+    }
     forged.assumptions.find(
       (a) => a.id === 'assumed-source-integer-roll-v1',
     )!.sourceUrl = 'https://poe2db.tw/us/Rings_str'
@@ -129,7 +141,7 @@ it('selects the actual ninth-base initial endpoint and refuses a substituted old
 
 it('keeps the source cap separate from unmodeled quality, Armour and sockets', () => {
   const state = actual.captures[0]!.before as ConcreteItem
-  expect(maximumQuality(state, definitions)).toBeNull()
+  expect(maximumQuality(state, definitions)).toBe(20)
   expect(supportsConcreteStateShape(state)).toBe(true)
   for (const extension of [
     { augmentSockets: 0 },
@@ -143,7 +155,7 @@ it('accepts actual Ring Divine while preserving the fixed-implicit projection', 
   const capture = actual.divineCapture
   vi.stubGlobal(
     'fetch',
-    vi.fn().mockResolvedValue(jsonResponse(capture.result)),
+    vi.fn().mockResolvedValue(jsonResponse(currentResponse(capture.result))),
   )
   const r = await applyCurrency(
     capture.before as ConcreteItem,
@@ -153,26 +165,28 @@ it('accepts actual Ring Divine while preserving the fixed-implicit projection', 
   )
   expect(r.applied).toBe(true)
   expect(r.state.implicits).toEqual(capture.before.implicits)
-  expect(r.qualityLimit).toBeNull()
+  expect(r.qualityLimit?.maximumQuality).toBe(20)
 })
-it.each([
-  { ruleVersion: 'quality-limit-v1', maximumQuality: 20 },
-  { ruleVersion: 'quality-limit-v1', maximumQuality: 40 },
-])('refuses a forged Ring quality limit %s', async (limit) => {
-  const capture = actual.captures[0]!,
-    forged = structuredClone(capture.result) as AppliedItem
-  forged.qualityLimit = limit as NonNullable<AppliedItem['qualityLimit']> | null
-  vi.stubGlobal('fetch', vi.fn().mockResolvedValue(jsonResponse(forged)))
-  await expect(
-    applyCurrency(
-      capture.before as ConcreteItem,
-      capture.action as WorkbenchAction,
-      definitions,
-      new AbortController().signal,
-      ['Omen_of_the_Blessed'],
-    ),
-  ).rejects.toThrow('verify')
-})
+it.each([null, { ruleVersion: 'quality-limit-v1', maximumQuality: 40 }])(
+  'refuses a forged Ring quality limit %s',
+  async (limit) => {
+    const capture = actual.captures[0]!,
+      forged = structuredClone(capture.result) as AppliedItem
+    forged.qualityLimit = limit as NonNullable<
+      AppliedItem['qualityLimit']
+    > | null
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(jsonResponse(forged)))
+    await expect(
+      applyCurrency(
+        capture.before as ConcreteItem,
+        capture.action as WorkbenchAction,
+        definitions,
+        new AbortController().signal,
+        ['Omen_of_the_Blessed'],
+      ),
+    ).rejects.toThrow('verify')
+  },
+)
 
 it.each([
   'missing',

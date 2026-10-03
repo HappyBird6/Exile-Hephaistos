@@ -1,4 +1,5 @@
 import { supportsConcreteStateShape } from './workbenchStateShape'
+import { verifiedCatalystQuality } from './catalystQuality'
 import { qualityLimitMatches } from './qualityLimit'
 import type { Initial } from './craftingApi'
 import type { AppliedItem, ConcreteItem } from './workbenchApi'
@@ -241,6 +242,7 @@ export function verifiedHistoryState(
   try {
     if (
       !supportsConcreteStateShape(state) ||
+      !verifiedCatalystQuality(state, initial.modifiers) ||
       (state.snapshotId !== initial.metadata.snapshotId &&
         !initial.compatibleSnapshotIds?.includes(state.snapshotId)) ||
       state.baseItemId !== initial.state.baseItemId ||

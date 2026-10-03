@@ -1,4 +1,6 @@
 import { maximumQuality } from './qualityLimit'
+import { catalystTypes, catalystProjection } from './catalystQuality'
+import type { CatalystQuality } from './catalystQuality'
 import { currencyNames } from './currencyNames'
 import {
   craftProbabilityEvidence,
@@ -229,6 +231,7 @@ export function CraftingPage() {
       | 'belt'
       | 'helmet'
       | 'ring' = 'solar',
+    catalystQuality: CatalystQuality | null = null,
   ) {
     const request = ++placementRequest.current
     const revision = useItemDraft.getState().baseRevision
@@ -247,9 +250,15 @@ export function CraftingPage() {
         revision !== useItemDraft.getState().baseRevision
       )
         return
+      const root = {
+        ...concreteInitial(data),
+        ...(catalystQuality ? { catalystQuality } : {}),
+      }
+      if (!verifiedHistoryState(root, data))
+        throw new Error('Unsupported starting quality')
       draft.setBase(level, base)
       saveFilms(
-        startFilm(filmState.history, concreteInitial(data), filmId()),
+        startFilm(filmState.history, root, filmId()),
         useItemDraft.getState().baseRevision,
       )
       setSelected(null)
@@ -276,7 +285,25 @@ export function CraftingPage() {
     const base =
       state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
         ? 'stocky'
-        : 'solar'
+        : state.baseItemId === 'Metadata/Items/Rings/FourRing1'
+          ? 'ring'
+          : state.baseItemId === 'Metadata/Items/Armours/Helmets/FourHelmetStr1'
+            ? 'helmet'
+            : state.baseItemId === 'Metadata/Items/Belts/FourBelt1'
+              ? 'belt'
+              : state.baseItemId ===
+                  'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
+                ? 'sceptre'
+                : state.baseItemId ===
+                    'Metadata/Items/Armours/BodyArmours/FourBodyStr1'
+                  ? 'body'
+                  : state.baseItemId ===
+                      'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
+                    ? 'wand'
+                    : state.baseItemId ===
+                        'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1'
+                      ? 'bow'
+                      : 'solar'
     try {
       const data = await client.fetchQuery({
         queryKey: ['crafting', 'initial', base, state.itemLevel],
@@ -332,6 +359,10 @@ export function CraftingPage() {
     [draft.baseRevision, draft.source],
   )
   const [baseLevel, setBaseLevel] = useState('82')
+  const [qualityType, setQualityType] = useState<'' | CatalystQuality['type']>(
+    '',
+  )
+  const [qualityAmount, setQualityAmount] = useState('0')
   const [baseChoice, setBaseChoice] = useState<
     | 'solar'
     | 'stocky'
@@ -751,6 +782,14 @@ export function CraftingPage() {
                       text: `Maximum Quality: ${qualityMaximum}%`,
                     },
                   ]),
+              ...(concrete.catalystQuality
+                ? [
+                    {
+                      id: 'catalyst-quality',
+                      text: `Quality (${catalystTypes[concrete.catalystQuality.type].name}): +${concrete.catalystQuality.amount}%`,
+                    },
+                  ]
+                : []),
               ...(catalogBase === 'stocky'
                 ? [
                     {
@@ -768,9 +807,22 @@ export function CraftingPage() {
             modifiers: [...concrete.implicits, ...concrete.explicits].map(
               (m, i) => {
                 const d = initial.data!.modifiers[m.modifierId]!
+                const projection = catalystProjection(
+                  d,
+                  m.values,
+                  concrete.catalystQuality,
+                )
+                const displayText =
+                  projection.status === 'SCALED_INTEGER' &&
+                  d.id === 'iron-ring:implicit:added-physical-damage-to-attacks'
+                    ? `Adds ${projection.values.attack_minimum_added_physical_damage} to ${projection.values.attack_maximum_added_physical_damage} Physical Damage to Attacks`
+                    : rolledText(d, projection.values)
                 return {
                   id: m.modifierId,
-                  text: `${'fractured' in m && m.fractured ? '[Fractured] ' : ''}${altHeld ? d.text : rolledText(d, m.values)}`,
+                  text: `${'fractured' in m && m.fractured ? '[Fractured] ' : ''}${altHeld ? d.text : displayText}`,
+                  detail: concrete.catalystQuality
+                    ? `Original roll: ${rolledText(d, m.values)}\nQuality display: ${projection.status}. Secondary source model; game engine precision is not guaranteed.`
+                    : undefined,
                   kind:
                     i < concrete.implicits.length
                       ? ('implicit' as const)
@@ -1372,9 +1424,25 @@ export function CraftingPage() {
                 {catalogBase === 'ring' && (
                   <p className="workbench-feedback">
                     Implicit physical damage endpoints are fixed at 1 and 4.
-                    Quality maximum is unknown; applied quality, sockets and
-                    pasted mapping are unsupported. Blessed has no variable
-                    implicit target.
+                    Maximum Quality is 20%. Existing typed catalyst quality is
+                    retained; catalyst use, sockets and pasted mapping are
+                    unsupported. Blessed has no variable implicit target.
+                  </p>
+                )}
+                {concrete?.catalystQuality && (
+                  <p className="workbench-feedback">
+                    Existing catalyst quality is retained. Matching reviewed
+                    integer stats use a separate quality multiplier and
+                    truncation. Original rolls remain in modifier details; other
+                    stats stay unscaled. Currency interactions and catalyst
+                    application are not verified, so crafting is blocked.{' '}
+                    <a
+                      href="https://www.poe2wiki.net/wiki/Quality"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Quality source
+                    </a>
                   </p>
                 )}
                 {catalogBase === 'helmet' && (
@@ -1596,17 +1664,74 @@ export function CraftingPage() {
                     value={baseLevel}
                     onChange={(e) => setBaseLevel(e.target.value)}
                   />
+                  {(baseChoice === 'solar' || baseChoice === 'ring') && (
+                    <>
+                      <label htmlFor="starting-quality-type">
+                        Existing catalyst quality
+                      </label>
+                      <select
+                        id="starting-quality-type"
+                        value={qualityType}
+                        onChange={(e) =>
+                          setQualityType(
+                            e.target.value as '' | CatalystQuality['type'],
+                          )
+                        }
+                      >
+                        <option value="">No typed quality supplied</option>
+                        {Object.entries(catalystTypes).map(([type, info]) => (
+                          <option key={type} value={type}>
+                            {info.name} Catalyst
+                          </option>
+                        ))}
+                      </select>
+                      {qualityType !== '' && (
+                        <>
+                          <label htmlFor="starting-quality-amount">
+                            Current quality (%)
+                          </label>
+                          <input
+                            id="starting-quality-amount"
+                            type="number"
+                            min="0"
+                            max="20"
+                            step="1"
+                            value={qualityAmount}
+                            onChange={(e) => setQualityAmount(e.target.value)}
+                          />
+                          <p>
+                            Enter quality already on the starting item. This
+                            does not use a catalyst. Currency interactions
+                            remain unverified.
+                          </p>
+                        </>
+                      )}
+                    </>
+                  )}
                   <button
                     type="button"
                     className="primary-action"
                     disabled={
                       !Number.isInteger(Number(baseLevel)) ||
                       Number(baseLevel) < 1 ||
-                      Number(baseLevel) > 100
+                      Number(baseLevel) > 100 ||
+                      ((baseChoice === 'solar' || baseChoice === 'ring') &&
+                        qualityType !== '' &&
+                        (qualityAmount.trim() === '' ||
+                          !Number.isInteger(Number(qualityAmount)) ||
+                          Number(qualityAmount) < 0 ||
+                          Number(qualityAmount) > 20))
                     }
                     onClick={() => {
                       imported.invalidate()
-                      void startBase(Number(baseLevel), baseChoice)
+                      void startBase(
+                        Number(baseLevel),
+                        baseChoice,
+                        (baseChoice === 'solar' || baseChoice === 'ring') &&
+                          qualityType !== ''
+                          ? { type: qualityType, amount: Number(qualityAmount) }
+                          : null,
+                      )
                       setPreviewRequest({ count: 0, action: null })
                       setSelected(null)
                       closeInput()

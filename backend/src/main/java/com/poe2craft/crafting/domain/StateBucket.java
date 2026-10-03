@@ -38,6 +38,9 @@ public record StateBucket(
   }
 
   public static StateBucket from(ItemState item) {
+    if (item.catalystQuality() != null)
+      throw new IllegalArgumentException(
+          "Catalyst quality cannot be projected into an affix-only bucket");
     return new StateBucket(
         item.snapshotId(),
         item.baseItemId(),

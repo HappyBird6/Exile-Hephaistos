@@ -1,4 +1,5 @@
 // Preserve future/unsupported item data instead of accepting a lossy affix-only projection.
+import { catalystBase, qualityShape } from './catalystQuality'
 const itemFields = new Set([
   'snapshotId',
   'baseItemId',
@@ -9,6 +10,7 @@ const itemFields = new Set([
   'conditions',
   'modifierIds',
   'augmentSockets',
+  'catalystQuality',
 ])
 const modifierFields = new Set(['modifierId', 'values', 'fractured'])
 export function supportsConcreteStateShape(value: unknown): boolean {
@@ -20,6 +22,12 @@ export function supportsConcreteStateShape(value: unknown): boolean {
   )
     return false
   const item = value as Record<string, unknown>
+  if (
+    !qualityShape(item.catalystQuality) ||
+    (item.catalystQuality != null &&
+      (typeof item.baseItemId !== 'string' || !catalystBase(item.baseItemId)))
+  )
+    return false
   if (
     item.augmentSockets !== undefined &&
     item.augmentSockets !== null &&

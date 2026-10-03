@@ -216,7 +216,7 @@ class IronRingEssenceTest {
     assertThat(service.initial("ring", 82).state().baseItemId())
         .isEqualTo(RingEssenceTargets.BASE_ID);
     assertThat(service.initial("ring", 82).augmentSockets()).isNull();
-    assertThat(service.initial("ring", 82).qualityLimit()).isNull();
+    assertThat(service.initial("ring", 82).qualityLimit().maximumQuality()).isEqualTo(20);
     assertThat(service.initial("ring", 82).ruleVersion())
         .isEqualTo("ring-workbench-perfect-essence-v1");
     assertThat(service.initial("bow", 82).modifiers()).hasSize(146);
@@ -247,7 +247,7 @@ class IronRingEssenceTest {
     assertThat(r.events()).isEmpty();
     assertThat(r.consumedOmens()).isEmpty();
     assertThat(r.remainingOmens()).containsExactlyElementsOf(omens);
-    assertThat(QualityLimitRules.describe(before, catalog)).isNull();
+    assertThat(QualityLimitRules.describe(before, catalog).maximumQuality()).isEqualTo(20);
     assertThat(simulator.actions(before, Set.of()))
         .anyMatch(a -> a.action() == WorkbenchCurrency.DIVINE);
     var rolled = simulator.apply(before, WorkbenchCurrency.DIVINE, Set.of(), new Random(17));

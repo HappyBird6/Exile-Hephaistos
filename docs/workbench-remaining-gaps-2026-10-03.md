@@ -1,5 +1,7 @@
 # Workbench remaining gaps after Ring — 2026-10-03
 
+2026-10-04 KST update: [typed catalyst quality foundation](workbench-catalyst-quality-2026-10-04.md) now represents already present quality, original rolls, bounded integer display and film persistence for Solar/Iron. The older statements that all applied-quality state is absent are superseded for this subset. Per-use application and interactions remain unverified; all29 quality actions and Catalysing Exaltation remain pending, and current111/155, pending44 and exclusions65 do not change. Iron Ring's cap20 is now verified; Belt remains unknown.
+
 This is an exact registered-inventory gap report, not a complete game inventory or a claim that Workbench is complete. Nine reviewed bases support bounded operations. Registry220:119 implemented and101 unimplemented. Current user scope155:111 implemented and44 pending. Established exclusions65 contain57 pending and8 previously implemented Alloys preserved. No new base is selected by this report.
 
 The inherited principal ledger has RULE_DATA_GAP22, OTHER_TARGET_REQUIRED15, ENGINE_STATE_GAP2 and REINTRODUCTION_UNVERIFIED5. The old target label must not be interpreted as a request to add15 bases:26 Catalysts and three ordinary quality currencies need precise applicability and applied-quality rules/state. Their old “four bases” wording has been replaced. Practical group counts below separate source evidence from implementation work without changing support status.

@@ -312,6 +312,26 @@ public final class WorkbenchService {
     return simulator(state).actions(state, omens);
   }
 
+  public QualityDisplay qualityDisplay(ItemState state) {
+    var selected =
+        java.util.stream.Stream.of(solar, stocky, bow, wand, body, sceptre, belt, helmet, ring)
+            .filter(java.util.Objects::nonNull)
+            .filter(c -> c.base().id().equals(state.baseItemId()))
+            .findFirst()
+            .orElseThrow(() -> new IllegalArgumentException("Unsupported base"));
+    return new QualityDisplay(
+        com.poe2craft.item.CatalystQualityDisplay.VERSION,
+        state,
+        QualityLimitRules.describe(state, selected),
+        com.poe2craft.item.CatalystQualityDisplay.describe(state, selected));
+  }
+
+  public record QualityDisplay(
+      String ruleVersion,
+      ItemState state,
+      QualityLimitRules.Limit qualityLimit,
+      List<com.poe2craft.item.CatalystQualityDisplay.Projection> modifiers) {}
+
   public record Initial(
       String ruleVersion,
       ItemCatalog.Metadata metadata,

@@ -1143,11 +1143,15 @@ dialog.item-input-panel::backdrop {
 .workbench-assumptions {
   overflow-wrap: anywhere;
 }
+.workbench-feedback a,
 .workbench-assumptions a {
   color: #cabb91;
   text-underline-offset: 0.15em;
 }
+.workbench-feedback a:hover,
+.workbench-feedback a:focus-visible,
 .workbench-assumptions a:hover,
+.workbench-feedback a:focus-visible,
 .workbench-assumptions a:focus-visible {
   color: #f4e5b5;
 }
