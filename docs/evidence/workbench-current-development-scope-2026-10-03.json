@@ -1,14 +1,14 @@
 {
-  "version": "user-development-scope-20261003-v5-wand",
+  "version": "user-development-scope-20261003-v6-body",
   "registryRows": 220,
   "directDeferred": 64,
   "dependencyDeferred": 1,
   "totalExcludedFromCurrentDevelopment": 65,
-  "implementedOverall": 109,
+  "implementedOverall": 112,
   "implementedDeferredPreserved": 8,
   "currentDevelopmentInventory": 155,
-  "implementedWithinCurrentScope": 101,
-  "unimplementedWithinCurrentScope": 54,
+  "implementedWithinCurrentScope": 104,
+  "unimplementedWithinCurrentScope": 51,
   "inventoryComplete": false,
   "interpretation": "All ALLOY identities; Architects Orb included with Vaal-related corrupted-equipment currency. Omen of Corruption separately excluded by its deferred Vaal operation. No records/code deleted; existing implemented deferred functionality remains available.",
   "records": [
@@ -730,8 +730,8 @@
   ],
   "currentPendingPrincipalBlockers": {
     "ENGINE_STATE_GAP": 2,
-    "OTHER_TARGET_REQUIRED": 27,
+    "OTHER_TARGET_REQUIRED": 23,
     "REINTRODUCTION_UNVERIFIED": 5,
-    "RULE_DATA_GAP": 20
+    "RULE_DATA_GAP": 21
   }
 }

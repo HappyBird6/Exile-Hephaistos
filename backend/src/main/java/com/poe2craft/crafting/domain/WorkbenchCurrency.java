@@ -5,6 +5,9 @@ import java.util.Set;
 
 /** Workbench rules are independent of the legacy six-action bucket explorer. */
 public enum WorkbenchCurrency {
+  PERFECT_ESSENCE_BODY(null, 0),
+  PERFECT_ESSENCE_RUIN(null, 0),
+  PERFECT_ESSENCE_SEEKING(null, 0),
   LESSER_ESSENCE_ABRASION("crude-bow:prefix:burnished"),
   ESSENCE_ABRASION("crude-bow:prefix:gleaming"),
   GREATER_ESSENCE_ABRASION("crude-bow:prefix:razor-sharp"),
@@ -185,6 +188,10 @@ public enum WorkbenchCurrency {
 
   public List<String> replacementModifiers() {
     return switch (this) {
+      case PERFECT_ESSENCE_BODY -> List.of("rusted-cuirass:prefix:essence-maximum-life-percent");
+      case PERFECT_ESSENCE_RUIN -> List.of("rusted-cuirass:prefix:essence-physical-taken-as-chaos");
+      case PERFECT_ESSENCE_SEEKING ->
+          List.of("rusted-cuirass:suffix:essence-reduced-incoming-critical-damage");
       case EXPANSIVE_ALLOY -> List.of("stocky-mitts:suffix:alloy-remnant-pickup-range");
       case CYCLONIC_ALLOY -> List.of("stocky-mitts:suffix:alloy-damaging-ailment-duration");
       case MYSTIC_ALLOY -> List.of("stocky-mitts:suffix:alloy-attack-area-of-effect");
@@ -221,6 +228,9 @@ public enum WorkbenchCurrency {
 
   public String replacementEssenceSource() {
     return switch (this) {
+      case PERFECT_ESSENCE_BODY -> "https://poe2db.tw/us/Perfect_Essence_of_the_Body";
+      case PERFECT_ESSENCE_RUIN -> "https://poe2db.tw/us/Perfect_Essence_of_Ruin";
+      case PERFECT_ESSENCE_SEEKING -> "https://poe2db.tw/us/Perfect_Essence_of_Seeking";
       case ESSENCE_HYSTERIA -> "https://poe2db.tw/us/Essence_of_Hysteria";
       case ESSENCE_HORROR -> "https://poe2db.tw/us/Essence_of_Horror";
       case PERFECT_ESSENCE_SORCERY -> "https://poe2db.tw/us/Perfect_Essence_of_Sorcery";

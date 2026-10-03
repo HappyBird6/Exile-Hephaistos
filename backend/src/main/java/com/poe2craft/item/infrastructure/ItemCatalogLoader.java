@@ -57,6 +57,27 @@ public final class ItemCatalogLoader {
     }
   }
 
+  /** Complete ordinary Body Armour snapshot for Workbench dispatch only. */
+  public static ItemCatalog loadBody() {
+    try (var data =
+            ItemCatalogLoader.class.getResourceAsStream("/catalog/rusted-cuirass/catalog.json");
+        var raw =
+            ItemCatalogLoader.class.getResourceAsStream("/catalog/rusted-cuirass/base.raw.json");
+        var details =
+            ItemCatalogLoader.class.getResourceAsStream(
+                "/catalog/rusted-cuirass/details.raw.json");
+        var special =
+            ItemCatalogLoader.class.getResourceAsStream(
+                "/catalog/rusted-cuirass/perfect-essences.catalog.json");
+        var specialRaw =
+            ItemCatalogLoader.class.getResourceAsStream(
+                "/catalog/rusted-cuirass/perfect-essences.raw.json")) {
+      return loadWithSpecial(data, raw, details, special, specialRaw);
+    } catch (IOException e) {
+      throw new IllegalStateException("Cannot load Rusted Cuirass catalog", e);
+    }
+  }
+
   public static ItemCatalog loadDefault() {
     try (var catalog = resource("catalog.json");
         var raw = resource("base.raw.json");

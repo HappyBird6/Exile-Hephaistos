@@ -13,6 +13,8 @@ public final class WorkbenchService {
   private final WorkbenchSimulator solarSimulator;
   private final WorkbenchSimulator stockySimulator;
   private final ItemCatalog wand;
+  private final ItemCatalog body;
+  private final WorkbenchSimulator bodySimulator;
   private final WorkbenchSimulator wandSimulator;
   private final ItemCatalog bow;
   private final WorkbenchSimulator bowSimulator;
@@ -33,6 +35,29 @@ public final class WorkbenchService {
       ItemCatalog stocky,
       ItemCatalog bow,
       ItemCatalog wand) {
+    this(solar, solarSimulator, stocky, bow, wand, null);
+  }
+
+  public WorkbenchService(
+      ItemCatalog solar,
+      WorkbenchSimulator solarSimulator,
+      ItemCatalog stocky,
+      ItemCatalog bow,
+      ItemCatalog wand,
+      ItemCatalog body) {
+    this.body = body;
+    this.bodySimulator =
+        body == null
+            ? null
+            : new WorkbenchSimulator(
+                body,
+                new CraftingEngine(body),
+                body.modifiers().values().stream()
+                    .filter(d -> d.stats().size() > 1)
+                    .map(ModifierDefinition::id)
+                    .collect(java.util.stream.Collectors.toSet()),
+                Map.of(),
+                BodyEssenceTargets.REPLACEMENTS);
     this.wand = wand;
     this.wandSimulator =
         wand == null
@@ -106,6 +131,10 @@ public final class WorkbenchService {
     return switch (base) {
       case "solar" -> solar;
       case "stocky" -> stocky;
+      case "body" -> {
+        if (body == null) throw new IllegalArgumentException("Body Armour catalog unavailable");
+        yield body;
+      }
       case "wand" -> {
         if (wand == null) throw new IllegalArgumentException("Wand catalog unavailable");
         yield wand;
@@ -122,6 +151,8 @@ public final class WorkbenchService {
     if (state == null) throw new IllegalArgumentException("State required");
     if (state.baseItemId().equals(SolarAmulet.BASE_ID)) return solarSimulator;
     if (state.baseItemId().equals(STOCKY_BASE_ID)) return stockySimulator;
+    if (state.baseItemId().equals(BodyEssenceTargets.BASE_ID) && bodySimulator != null)
+      return bodySimulator;
     if (state.baseItemId().equals(WandEssenceTargets.BASE_ID) && wandSimulator != null)
       return wandSimulator;
     if (state.baseItemId().equals(BowEssenceTargets.BASE_ID) && bowSimulator != null)

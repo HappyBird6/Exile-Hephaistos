@@ -1,3 +1,5 @@
+Latest checkpoint: [Rusted Cuirass](workbench-rusted-cuirass-2026-10-03.md) adds three Perfect results; current104/155 implemented,51 pending, exclusions65 unchanged. Counts below describe the earlier checkpoint.
+
 # Remaining Workbench materials and probability evidence — 2026-10-03
 
 This is an evidence and UI correction checkpoint after `7ea00574`, not a material implementation or completion claim. Registry220, current inventory155, current implemented101/pending54, overall implemented109 and effective exclusions65 remain unchanged. All backend catalog bytes, rule/snapshot versions and the four-base film schema are preserved.

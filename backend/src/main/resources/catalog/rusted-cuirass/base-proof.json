@@ -1,0 +1,128 @@
+{
+  "selectedBase": {
+    "id": "Rusted_Cuirass",
+    "url": "https://poe2db.tw/us/Rusted_Cuirass",
+    "retrievedAt": "2026-10-03T15:05:28.316Z",
+    "sha256": "a807c69782a5ffa6b713498854ef08c054fc17af0b64f74b2defd7ae3f18faf5",
+    "fields": {
+      "Name": "Show Full Descriptions",
+      "DropLevel": "1",
+      "BaseType": "Rusted Cuirass",
+      "Class": "Body Armours",
+      "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+      "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStr1",
+      "Tags": "str_armour, ezomyte_basetype, body_armour, armour",
+      "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyStr01",
+      "key": "val",
+      "Base.base_level": "1",
+      "Base.tag": "default, armour, body_armour",
+      "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+      "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+      "Mods.enable_rarity": "normal, magic, rare, unique",
+      "Mods.inventory_type": "BodyArmour",
+      "Quality.max_quality": "20",
+      "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+    },
+    "card": "Rusted Cuirass Body ArmoursArmour: 45Base Movement Speed: -0.05"
+  },
+  "comparison": [
+    {
+      "id": "Rusted_Cuirass",
+      "url": "https://poe2db.tw/us/Rusted_Cuirass",
+      "retrievedAt": "2026-10-03T15:05:28.316Z",
+      "sha256": "a807c69782a5ffa6b713498854ef08c054fc17af0b64f74b2defd7ae3f18faf5",
+      "fields": {
+        "Name": "Show Full Descriptions",
+        "DropLevel": "1",
+        "BaseType": "Rusted Cuirass",
+        "Class": "Body Armours",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStr1",
+        "Tags": "str_armour, ezomyte_basetype, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyStr01",
+        "key": "val",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      },
+      "card": "Rusted Cuirass Body ArmoursArmour: 45Base Movement Speed: -0.05"
+    },
+    {
+      "id": "Fur_Plate",
+      "url": "https://poe2db.tw/us/Fur_Plate",
+      "retrievedAt": "2026-10-03T14:59:08.528Z",
+      "sha256": "717177de0ec34b86de49f6c777e855342c6b02d76fae31b258a5749578610cdb",
+      "fields": {
+        "Name": "Show Full Descriptions",
+        "DropLevel": "4",
+        "BaseType": "Fur Plate",
+        "Class": "Body Armours",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStr2",
+        "Tags": "str_armour, ezomyte_basetype, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyStr02",
+        "key": "val",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      },
+      "card": "Fur Plate Body ArmoursArmour: 66Base Movement Speed: -0.05Requires: Level 4, 10 Str"
+    },
+    {
+      "id": "Rattling_Sceptre",
+      "url": "https://poe2db.tw/us/Rattling_Sceptre",
+      "retrievedAt": "2026-10-03T14:59:13.231Z",
+      "sha256": "8da8fa62e6c760407e0420bfad26aed53fd852fdb1691a8954b256d1501ef022",
+      "fields": {
+        "Name": "Show Full Descriptions",
+        "DropLevel": "1",
+        "BaseType": "Rattling Sceptre",
+        "Class": "Sceptres",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1",
+        "Tags": "physical_implicit_skill, sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre01",
+        "key": "val",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "card": "Rattling Sceptre SceptresSpirit: 100 Grants Skill: Skeletal Warrior"
+    }
+  ],
+  "primary": {
+    "id": "Body_Armours_str",
+    "url": "https://poe2db.tw/us/Body_Armours_str",
+    "retrievedAt": "2026-10-03T14:55:06.681Z",
+    "sha256": "8985f5210942909f426bb61329066764828824f27061fb2287b0622999c5f2e7"
+  },
+  "selectionRationale": "Lowest class-index Rusted Cuirass, DropLevel1; same144 exact unique eligible definitions. Body144/171 lookup codes versus Sceptre150/346. Only three bounded Perfect results; Delirium unsupported.",
+  "sourceFacts": {
+    "armour": 45,
+    "movementSpeedSource": -0.05,
+    "dropLevel": 1,
+    "maximumQuality": 20
+  },
+  "simulationBoundary": "Affix assignment only; fixed base Armour45 shown without computed Armour or movement/combat/quality-application/socket/pasted mapping model. Source max-quality20 is display-only, not a Scrap rule.",
+  "excludedMaterial": "Essence_of_Delirium: complete Notable outcomes unverified",
+  "publishedRowWeightPolicy": "POE2DB_AS_PUBLISHED_MODEL_NOT_VERIFIED_GAME_ODDS",
+  "detailSpawnUsedForEligibilityOnly": true,
+  "weightFieldsDiffer": 144,
+  "weightMismatchRootCause": "NOT_ESTABLISHED",
+  "coupledNumericModel": "Authorised UNVERIFIED shared-ratio tick/HALF_UP; scalar source-unit integers also UNVERIFIED"
+}

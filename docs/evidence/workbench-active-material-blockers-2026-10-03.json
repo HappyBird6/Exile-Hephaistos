@@ -1,30 +1,18 @@
 {
-  "version": "active-material-blockers-20261003-v1",
-  "reviewedAt": "2026-10-03T14:43:04.3331800Z",
+  "version": "active-material-blockers-20261003-v2-body",
+  "reviewedAt": "2026-10-03T15:29:06.7189748Z",
   "currentInventory": 155,
-  "implemented": 101,
-  "pending": 54,
+  "implemented": 104,
+  "pending": 51,
   "excluded": 65,
-  "interpretation": "Only Essence12 effects/targets freshly source-reviewed; other entries carry unresolved roadmap barriers, not fresh verification. Registry inventory is not complete game inventory.",
+  "interpretation": "Body checkpoint implements three previously other-target Perfect Essences. Remaining51 records retain unresolved barriers; target card review remains source evidence only, not completed support. Delirium needs unverified Notable outcomes; Insanity depends on deferred Vaal. Registered inventory is not complete game inventory.",
   "principalBlockers": {
     "ENGINE_STATE_GAP": 2,
-    "OTHER_TARGET_REQUIRED": 27,
+    "OTHER_TARGET_REQUIRED": 23,
     "REINTRODUCTION_UNVERIFIED": 5,
-    "RULE_DATA_GAP": 20
+    "RULE_DATA_GAP": 21
   },
   "records": [
-    {
-      "id": "Perfect_Essence_of_the_Body",
-      "category": "ESSENCE",
-      "principalBlocker": "OTHER_TARGET_REQUIRED",
-      "reason": "Verified card targets Body Armours. Additional base and complete ordinary/special catalog required.",
-      "registryReason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_the_Body",
-      "freshlyReviewed": true,
-      "verifiedTargetClasses": "Body Armours",
-      "additionalBlockers": null,
-      "implemented": false
-    },
     {
       "id": "Perfect_Essence_of_the_Mind",
       "category": "ESSENCE",
@@ -38,34 +26,10 @@
       "implemented": false
     },
     {
-      "id": "Perfect_Essence_of_Ruin",
-      "category": "ESSENCE",
-      "principalBlocker": "OTHER_TARGET_REQUIRED",
-      "reason": "Verified card targets Body Armours. Additional base and complete ordinary/special catalog required.",
-      "registryReason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Ruin",
-      "freshlyReviewed": true,
-      "verifiedTargetClasses": "Body Armours",
-      "additionalBlockers": null,
-      "implemented": false
-    },
-    {
-      "id": "Perfect_Essence_of_Seeking",
-      "category": "ESSENCE",
-      "principalBlocker": "OTHER_TARGET_REQUIRED",
-      "reason": "Verified card targets Body Armours. Additional base and complete ordinary/special catalog required.",
-      "registryReason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Seeking",
-      "freshlyReviewed": true,
-      "verifiedTargetClasses": "Body Armours",
-      "additionalBlockers": null,
-      "implemented": false
-    },
-    {
       "id": "Essence_of_Delirium",
       "category": "ESSENCE",
-      "principalBlocker": "OTHER_TARGET_REQUIRED",
-      "reason": "Verified card targets Body Armours. Additional base and complete ordinary/special catalog required.",
+      "principalBlocker": "RULE_DATA_GAP",
+      "reason": "Rusted Cuirass is now reviewed; complete eligible Notable outcomes, allocation interactions and representation remain unverified. Effect is not implemented.",
       "registryReason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Delirium",
       "freshlyReviewed": true,

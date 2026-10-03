@@ -1,3 +1,5 @@
+Latest checkpoint: [Rusted Cuirass](workbench-rusted-cuirass-2026-10-03.md) adds three Perfect results; current104/155 implemented,51 pending, exclusions65 unchanged. Counts below describe the earlier checkpoint.
+
 # Attuned Wand bounded Workbench
 
 One Wand base now uses the shared Workbench engine: nine basic fixed Essences and two Perfect replacement Essences. Eleven paths are supported, but only eight registry implementations are new: Seeking's three identities already worked on Bow. Overall registry220 now has109 implemented identities, while the current development inventory155 has101 implemented and54 pending. The same65 exclusions and eight implemented deferred Alloys remain intact. This is bounded equipment-affix support, not complete game inventory or obtainability coverage. Craft Support/State Explorer remain Solar only.

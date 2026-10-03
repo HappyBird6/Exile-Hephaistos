@@ -104,9 +104,12 @@ export function CraftingPage() {
           : storedFrame?.state.baseItemId ===
               'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
             ? 'wand'
-            : storedFrame
-              ? 'solar'
-              : draft.base
+            : storedFrame?.state.baseItemId ===
+                'Metadata/Items/Armours/BodyArmours/FourBodyStr1'
+              ? 'body'
+              : storedFrame
+                ? 'solar'
+                : draft.base
   const baseName =
     catalogBase === 'stocky'
       ? 'Stocky Mitts'
@@ -114,7 +117,9 @@ export function CraftingPage() {
         ? 'Crude Bow'
         : catalogBase === 'wand'
           ? 'Attuned Wand'
-          : 'Solar Amulet'
+          : catalogBase === 'body'
+            ? 'Rusted Cuirass'
+            : 'Solar Amulet'
   const catalogLevel =
     Number.isInteger(storedLevel) && storedLevel! >= 1 && storedLevel! <= 100
       ? storedLevel!
@@ -194,7 +199,7 @@ export function CraftingPage() {
       : undefined
   async function startBase(
     level: number,
-    base: 'solar' | 'stocky' | 'bow' | 'wand' = 'solar',
+    base: 'solar' | 'stocky' | 'bow' | 'wand' | 'body' = 'solar',
   ) {
     const request = ++placementRequest.current
     const revision = useItemDraft.getState().baseRevision
@@ -299,7 +304,7 @@ export function CraftingPage() {
   )
   const [baseLevel, setBaseLevel] = useState('82')
   const [baseChoice, setBaseChoice] = useState<
-    'solar' | 'stocky' | 'bow' | 'wand'
+    'solar' | 'stocky' | 'bow' | 'wand' | 'body'
   >('solar')
   const [previewRequest, setPreviewRequest] = useState<{
     count: number
@@ -640,9 +645,19 @@ export function CraftingPage() {
                   ? 'Bows'
                   : catalogBase === 'wand'
                     ? 'Wands'
-                    : 'Amulet',
+                    : catalogBase === 'body'
+                      ? 'Body Armours'
+                      : 'Amulet',
             itemLevel: concrete.itemLevel,
             properties: [
+              ...(catalogBase === 'body'
+                ? [
+                    {
+                      id: 'base-armour',
+                      text: 'Base Armour: 45 (not computed)',
+                    },
+                  ]
+                : []),
               ...(catalogBase === 'wand'
                 ? [
                     {
@@ -1095,7 +1110,9 @@ export function CraftingPage() {
                             ? 'Bows'
                             : catalogBase === 'wand'
                               ? 'Wands'
-                              : 'Amulet',
+                              : catalogBase === 'body'
+                                ? 'Body Armours'
+                                : 'Amulet',
                       itemLevel: draft.baseItemLevel,
                       properties: [],
                       requirements: [],
@@ -1267,6 +1284,16 @@ export function CraftingPage() {
                     preserved.
                   </p>
                 )}
+                {catalogBase === 'body' && (
+                  <p className="workbench-feedback">
+                    Computed Armour, movement speed, applied quality, sockets
+                    and pasted Body Armour mapping are not simulated. Numeric
+                    rolls use unverified source-unit/shared-ratio models.
+                    Item-level gates use source modifier levels; lower-level
+                    game behavior is unverified. Delirium Notable outcomes are
+                    not supported.
+                  </p>
+                )}
                 {catalogBase === 'wand' && (
                   <p className="workbench-feedback">
                     Innate Mana Drain, combat totals, applied quality, sockets
@@ -1419,7 +1446,8 @@ export function CraftingPage() {
                     value={baseChoice}
                     onChange={(e) =>
                       setBaseChoice(
-                        e.target.value as 'solar' | 'stocky' | 'bow' | 'wand',
+                        e.target.value as
+                          'solar' | 'stocky' | 'bow' | 'wand' | 'body',
                       )
                     }
                   >
@@ -1427,6 +1455,7 @@ export function CraftingPage() {
                     <option value="stocky">Stocky Mitts</option>
                     <option value="bow">Crude Bow</option>
                     <option value="wand">Attuned Wand</option>
+                    <option value="body">Rusted Cuirass</option>
                   </select>
                   <label htmlFor="base-level">Item level</label>
                   <input

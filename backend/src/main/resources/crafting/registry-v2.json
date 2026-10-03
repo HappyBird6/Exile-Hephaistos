@@ -29,7 +29,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -54,7 +55,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -79,7 +81,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -101,7 +104,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -126,7 +130,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -151,7 +156,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -176,7 +182,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -214,7 +221,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -239,7 +247,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -264,7 +273,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -289,7 +299,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -314,7 +325,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -339,7 +351,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -364,7 +377,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -389,7 +403,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -414,7 +429,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -439,7 +455,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -464,7 +481,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -489,7 +507,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -1238,10 +1257,25 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED",
+      "action": "PERFECT_ESSENCE_BODY",
+      "reason": "Verified Rusted Cuirass Perfect result only; source modifier level72 is a conservative simulation gate, not confirmed lower-level game applicability. Uniform unlocked removal plus guaranteed result; source-integer numeric model UNVERIFIED.",
+      "supportedBases": [
+        "body"
+      ],
+      "bodyEvidence": {
+        "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_the_Body",
+        "sourceSha256": "1890aaaf60baa466923cb5cbe2f59b7c7c943a2deb62943da5ad982ec4fc6354",
+        "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceIncreasedLifePercent1",
+        "modifierSourceSha256": "a0cdccdc0a5d59f819b9b22abc167ec5e994f7762964ac84af62d761241c8fb7",
+        "sourceModCode": "EssenceIncreasedLifePercent1",
+        "minimumSupportedItemLevel": 72,
+        "requiredCharacterLevel": 57,
+        "modifierIds": [
+          "rusted-cuirass:prefix:essence-maximum-life-percent"
+        ]
+      }
     },
     {
       "id": "Perfect_Essence_of_the_Mind",
@@ -1374,10 +1408,25 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED",
+      "action": "PERFECT_ESSENCE_RUIN",
+      "reason": "Verified Rusted Cuirass Perfect result only; source modifier level72 is a conservative simulation gate, not confirmed lower-level game applicability. Uniform unlocked removal plus guaranteed result; source-integer numeric model UNVERIFIED.",
+      "supportedBases": [
+        "body"
+      ],
+      "bodyEvidence": {
+        "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Ruin",
+        "sourceSha256": "5ee33e5625fb584b9c11fa843cad3e2be37e81f21ffa69d68a8f48515ef158d6",
+        "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssencePhysicalDamageTakenAsChaos1",
+        "modifierSourceSha256": "be66498b2a50241253af0e7d769b1f777ea2bc4b82816ac5b4a99fbd4db50d58",
+        "sourceModCode": "EssencePhysicalDamageTakenAsChaos1",
+        "minimumSupportedItemLevel": 72,
+        "requiredCharacterLevel": 57,
+        "modifierIds": [
+          "rusted-cuirass:prefix:essence-physical-taken-as-chaos"
+        ]
+      }
     },
     {
       "id": "Perfect_Essence_of_Battle",
@@ -1580,10 +1629,25 @@
       "sourceRetrievedAt": "2026-09-23T07:20:32.161799+00:00",
       "sourceSha256": "87a5fc91a258063c401057c68f43da4f0cbe032fc98e2e4e1e3047b833f9058a",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED",
+      "action": "PERFECT_ESSENCE_SEEKING",
+      "reason": "Verified Rusted Cuirass Perfect result only; source modifier level72 is a conservative simulation gate, not confirmed lower-level game applicability. Uniform unlocked removal plus guaranteed result; source-integer numeric model UNVERIFIED.",
+      "supportedBases": [
+        "body"
+      ],
+      "bodyEvidence": {
+        "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Seeking",
+        "sourceSha256": "9b63ceb0ef996bdd1baee13f5e6e929ce7879e6c962744ddc42e12d903f26b15",
+        "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceReducedCriticalDamageAgainstYou1",
+        "modifierSourceSha256": "4ba91538f9858367763f49bcd7a5059f5f6004c0bfe44bc82dec8e30482dbc82",
+        "sourceModCode": "EssenceReducedCriticalDamageAgainstYou1",
+        "minimumSupportedItemLevel": 72,
+        "requiredCharacterLevel": 57,
+        "modifierIds": [
+          "rusted-cuirass:suffix:essence-reduced-incoming-critical-damage"
+        ]
+      }
     },
     {
       "id": "Essence_of_Hysteria",
@@ -1633,7 +1697,9 @@
       "ruleSource": "https://poe2db.tw/us/Essence_of_Horror",
       "ruleVerifiedAt": "2026-10-03",
       "implementationScope": "Stocky Mitts affix assignment only; Solar unsupported; no socket effect simulation.",
-      "supportedBases": ["stocky"]
+      "supportedBases": [
+        "stocky"
+      ]
     },
     {
       "id": "Essence_of_Insanity",
@@ -1896,7 +1962,9 @@
       "ruleSource": "https://poe2db.tw/us/Perfect_Essence_of_Grounding",
       "ruleVerifiedAt": "2026-10-03",
       "implementationScope": "Stocky affix assignment at supported item level 72+ only; Solar unsupported, lower item levels unverified.",
-      "supportedBases": ["stocky"]
+      "supportedBases": [
+        "stocky"
+      ]
     },
     {
       "id": "Lesser_Essence_of_Alacrity",
@@ -2084,7 +2152,9 @@
       "ruleSource": "https://poe2db.tw/us/Perfect_Essence_of_Opulence",
       "ruleVerifiedAt": "2026-10-03",
       "implementationScope": "Stocky affix assignment at supported item level 72+ only; Solar unsupported, lower item levels unverified.",
-      "supportedBases": ["stocky"]
+      "supportedBases": [
+        "stocky"
+      ]
     },
     {
       "id": "Lesser_Essence_of_Command",
@@ -2178,7 +2248,9 @@
       "ruleSource": "https://poe2db.tw/us/Adaptive_Alloy",
       "ruleVerifiedAt": "2026-10-03",
       "implementationScope": "Stocky sourced modifier at conservative supported ilvl 25+ only; Solar outcomes unsupported",
-      "supportedBases": ["stocky"]
+      "supportedBases": [
+        "stocky"
+      ]
     },
     {
       "id": "Protective_Alloy",
@@ -2210,7 +2282,9 @@
       "ruleSource": "https://poe2db.tw/us/Expansive_Alloy",
       "ruleVerifiedAt": "2026-10-03",
       "implementationScope": "Stocky sourced suffix at conservative supported ilvl 25+ only",
-      "supportedBases": ["stocky"]
+      "supportedBases": [
+        "stocky"
+      ]
     },
     {
       "id": "Swift_Alloy",
@@ -2228,7 +2302,9 @@
       "ruleSource": "https://poe2db.tw/us/Swift_Alloy",
       "ruleVerifiedAt": "2026-10-03",
       "implementationScope": "Stocky sourced modifier at conservative supported ilvl 45+ only; Solar outcomes unsupported",
-      "supportedBases": ["stocky"]
+      "supportedBases": [
+        "stocky"
+      ]
     },
     {
       "id": "Cyclonic_Alloy",
@@ -2246,7 +2322,9 @@
       "ruleSource": "https://poe2db.tw/us/Cyclonic_Alloy",
       "ruleVerifiedAt": "2026-10-03",
       "implementationScope": "Stocky sourced suffix at conservative supported ilvl 45+ only",
-      "supportedBases": ["stocky"]
+      "supportedBases": [
+        "stocky"
+      ]
     },
     {
       "id": "Prismatic_Alloy",
@@ -2264,7 +2342,9 @@
       "ruleSource": "https://poe2db.tw/us/Prismatic_Alloy",
       "ruleVerifiedAt": "2026-10-03",
       "implementationScope": "Stocky prefix assignment at supported ilvl 45+ only; Solar and lower ilvl unsupported.",
-      "supportedBases": ["stocky"]
+      "supportedBases": [
+        "stocky"
+      ]
     },
     {
       "id": "Mystic_Alloy",
@@ -2282,7 +2362,9 @@
       "ruleSource": "https://poe2db.tw/us/Mystic_Alloy",
       "ruleVerifiedAt": "2026-10-03",
       "implementationScope": "Stocky sourced suffix at conservative supported ilvl 45+ only",
-      "supportedBases": ["stocky"]
+      "supportedBases": [
+        "stocky"
+      ]
     },
     {
       "id": "Sovereign_Alloy",
@@ -2300,7 +2382,9 @@
       "ruleSource": "https://poe2db.tw/us/Sovereign_Alloy",
       "ruleVerifiedAt": "2026-10-03",
       "implementationScope": "Stocky sourced modifier at conservative supported ilvl 25+ only; Solar outcomes unsupported",
-      "supportedBases": ["stocky"]
+      "supportedBases": [
+        "stocky"
+      ]
     },
     {
       "id": "Celestial_Alloy",
@@ -2375,7 +2459,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -2395,7 +2480,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -2419,7 +2505,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -2443,7 +2530,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -2467,7 +2555,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -2568,7 +2657,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -2592,7 +2682,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -2616,7 +2707,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -2656,7 +2748,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -2680,7 +2773,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -2788,7 +2882,8 @@
         "solar",
         "stocky",
         "bow",
-        "wand"
+        "wand",
+        "body"
       ]
     },
     {
@@ -4046,6 +4141,12 @@
       "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
       "numericModelStatus": "UNVERIFIED",
       "source": "https://poe2db.tw/us/Wands"
+    },
+    "body": {
+      "ruleVersion": "body-workbench-perfect-essence-v1",
+      "ledgerVersion": "body-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Body_Armours_str"
     }
   }
 }

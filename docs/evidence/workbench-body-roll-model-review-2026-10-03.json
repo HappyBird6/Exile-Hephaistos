@@ -1,0 +1,410 @@
+{
+  "version": "body-roll-model-source-review-20261003-v1",
+  "source": "https://poe2db.tw/us/Body_Armours_str",
+  "ordinaryRows": 144,
+  "coupledDefinitions": 19,
+  "allSourceMatched": true,
+  "policy": "Source main DropChance only for model weights; ordered detail Spawn Tags for eligibility. Neither weights nor numeric sampler establishes game distribution.",
+  "numericModel": "UNVERIFIED authorised shared ratio tick0..10000 / HALF_UP; source integer scalar sampling UNVERIFIED; no independent Cartesian product",
+  "definitions": [
+    {
+      "id": "rusted-cuirass:prefix:oyster-s",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndLife1",
+      "code": "LocalIncreasedArmourAndLife1",
+      "effect": "(6—13)% increased Armour+(7—10) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 7,
+          "max": 10
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 6,
+          "max": 13
+        }
+      ],
+      "sourceDetailsLevel": "8 (Effective: 6)",
+      "publishedTableWeight": 1000,
+      "firstApplicableDetailNumber": 1
+    },
+    {
+      "id": "rusted-cuirass:prefix:lobster-s",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndLife2",
+      "code": "LocalIncreasedArmourAndLife2",
+      "effect": "(14—20)% increased Armour+(11—19) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 11,
+          "max": 19
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 14,
+          "max": 20
+        }
+      ],
+      "sourceDetailsLevel": "16 (Effective: 12)",
+      "publishedTableWeight": 1000,
+      "firstApplicableDetailNumber": 1
+    },
+    {
+      "id": "rusted-cuirass:prefix:urchin-s",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndLife3",
+      "code": "LocalIncreasedArmourAndLife3",
+      "effect": "(21—26)% increased Armour+(20—25) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 20,
+          "max": 25
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "sourceDetailsLevel": "33 (Effective: 26)",
+      "publishedTableWeight": 1000,
+      "firstApplicableDetailNumber": 1
+    },
+    {
+      "id": "rusted-cuirass:prefix:nautilus",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndLife4",
+      "code": "LocalIncreasedArmourAndLife4",
+      "effect": "(27—32)% increased Armour+(26—32) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 26,
+          "max": 32
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "sourceDetailsLevel": "46 (Effective: 36)",
+      "publishedTableWeight": 1000,
+      "firstApplicableDetailNumber": 1
+    },
+    {
+      "id": "rusted-cuirass:prefix:octopus",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndLife5",
+      "code": "LocalIncreasedArmourAndLife5",
+      "effect": "(33—38)% increased Armour+(33—41) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 33,
+          "max": 41
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "sourceDetailsLevel": "60 (Effective: 48)",
+      "publishedTableWeight": 1000,
+      "firstApplicableDetailNumber": 1
+    },
+    {
+      "id": "rusted-cuirass:prefix:crocodile-s",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndLife6",
+      "code": "LocalIncreasedArmourAndLife6",
+      "effect": "(39—42)% increased Armour+(42—49) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 42,
+          "max": 49
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 39,
+          "max": 42
+        }
+      ],
+      "sourceDetailsLevel": "78 (Effective: 62)",
+      "publishedTableWeight": 1000,
+      "firstApplicableDetailNumber": 1
+    },
+    {
+      "id": "rusted-cuirass:prefix:abalone-s",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndBase1",
+      "code": "LocalIncreasedArmourAndBase1",
+      "effect": "+(5—9) to Armour(6—13)% increased Armour",
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 6,
+          "max": 13
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 5,
+          "max": 9
+        }
+      ],
+      "sourceDetailsLevel": "8 (Effective: 6)",
+      "publishedTableWeight": 1000,
+      "firstApplicableDetailNumber": 1
+    },
+    {
+      "id": "rusted-cuirass:prefix:snail-s",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndBase2",
+      "code": "LocalIncreasedArmourAndBase2",
+      "effect": "+(10—29) to Armour(14—20)% increased Armour",
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 14,
+          "max": 20
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 10,
+          "max": 29
+        }
+      ],
+      "sourceDetailsLevel": "16 (Effective: 12)",
+      "publishedTableWeight": 1000,
+      "firstApplicableDetailNumber": 1
+    },
+    {
+      "id": "rusted-cuirass:prefix:tortoise-s",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndBase3",
+      "code": "LocalIncreasedArmourAndBase3",
+      "effect": "+(30—41) to Armour(21—26)% increased Armour",
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 21,
+          "max": 26
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 30,
+          "max": 41
+        }
+      ],
+      "sourceDetailsLevel": "33 (Effective: 26)",
+      "publishedTableWeight": 1000,
+      "firstApplicableDetailNumber": 1
+    },
+    {
+      "id": "rusted-cuirass:prefix:pangolin-s",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndBase4",
+      "code": "LocalIncreasedArmourAndBase4",
+      "effect": "+(42—57) to Armour(27—32)% increased Armour",
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 27,
+          "max": 32
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 42,
+          "max": 57
+        }
+      ],
+      "sourceDetailsLevel": "46 (Effective: 36)",
+      "publishedTableWeight": 1000,
+      "firstApplicableDetailNumber": 1
+    },
+    {
+      "id": "rusted-cuirass:prefix:shelled",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndBase5",
+      "code": "LocalIncreasedArmourAndBase5",
+      "effect": "+(58—75) to Armour(33—38)% increased Armour",
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 33,
+          "max": 38
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 58,
+          "max": 75
+        }
+      ],
+      "sourceDetailsLevel": "60 (Effective: 48)",
+      "publishedTableWeight": 1000,
+      "firstApplicableDetailNumber": 1
+    },
+    {
+      "id": "rusted-cuirass:prefix:hardened",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndBase6",
+      "code": "LocalIncreasedArmourAndBase6",
+      "effect": "+(76—95) to Armour(39—42)% increased Armour",
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 39,
+          "max": 42
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 76,
+          "max": 95
+        }
+      ],
+      "sourceDetailsLevel": "78 (Effective: 62)",
+      "publishedTableWeight": 1000,
+      "firstApplicableDetailNumber": 1
+    },
+    {
+      "id": "rusted-cuirass:prefix:thorny",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage1",
+      "code": "AttackerTakesDamage1",
+      "effect": "(1—2) to (3—4) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 3,
+          "max": 4
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "sourceDetailsLevel": "1",
+      "publishedTableWeight": 1000,
+      "firstApplicableDetailNumber": 1
+    },
+    {
+      "id": "rusted-cuirass:prefix:spiny",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage2",
+      "code": "AttackerTakesDamage2",
+      "effect": "(5—7) to (7—10) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 7,
+          "max": 10
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 5,
+          "max": 7
+        }
+      ],
+      "sourceDetailsLevel": "10 (Effective: 8)",
+      "publishedTableWeight": 1000,
+      "firstApplicableDetailNumber": 1
+    },
+    {
+      "id": "rusted-cuirass:prefix:barbed",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage3",
+      "code": "AttackerTakesDamage3",
+      "effect": "(11—16) to (17—23) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 17,
+          "max": 23
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 11,
+          "max": 16
+        }
+      ],
+      "sourceDetailsLevel": "19 (Effective: 15)",
+      "publishedTableWeight": 1000,
+      "firstApplicableDetailNumber": 1
+    },
+    {
+      "id": "rusted-cuirass:prefix:pointed",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage4",
+      "code": "AttackerTakesDamage4",
+      "effect": "(24—35) to (36—53) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 36,
+          "max": 53
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 24,
+          "max": 35
+        }
+      ],
+      "sourceDetailsLevel": "38 (Effective: 30)",
+      "publishedTableWeight": 1000,
+      "firstApplicableDetailNumber": 1
+    },
+    {
+      "id": "rusted-cuirass:prefix:spiked",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage5",
+      "code": "AttackerTakesDamage5",
+      "effect": "(40—60) to (61—92) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 61,
+          "max": 92
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 40,
+          "max": 60
+        }
+      ],
+      "sourceDetailsLevel": "48 (Effective: 38)",
+      "publishedTableWeight": 1000,
+      "firstApplicableDetailNumber": 1
+    },
+    {
+      "id": "rusted-cuirass:prefix:edged",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage6",
+      "code": "AttackerTakesDamage6",
+      "effect": "(64—97) to (98—145) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 98,
+          "max": 145
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 64,
+          "max": 97
+        }
+      ],
+      "sourceDetailsLevel": "63 (Effective: 50)",
+      "publishedTableWeight": 1000,
+      "firstApplicableDetailNumber": 1
+    },
+    {
+      "id": "rusted-cuirass:prefix:jagged",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage7",
+      "code": "AttackerTakesDamage7",
+      "effect": "(101—151) to (152—220) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 152,
+          "max": 220
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 101,
+          "max": 151
+        }
+      ],
+      "sourceDetailsLevel": "74 (Effective: 59)",
+      "publishedTableWeight": 1000,
+      "firstApplicableDetailNumber": 1
+    }
+  ]
+}
