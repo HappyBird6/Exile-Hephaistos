@@ -1,0 +1,79 @@
+{
+  "status": "SOURCE_PREPARATION_ONLY_NOT_RUNTIME_IMPLEMENTED",
+  "base": "Metadata/Items/Belts/FourBelt1",
+  "normalDefinitions": 135,
+  "specialDefinitions": 1,
+  "normalSlotTotals": {
+    "SUFFIX": {
+      "count": 82,
+      "weight": 70700
+    },
+    "PREFIX": {
+      "count": 53,
+      "weight": 49600
+    }
+  },
+  "totalPublishedWeight": 120300,
+  "coupledDefinitions": 7,
+  "uniquelyMatchedPublicDetails": 135,
+  "mainDetailWeightDifferences": 135,
+  "weightPolicy": "COMPLETE_MAIN_DROPCHANCE_MODEL_NOT_VERIFIED_GAME_ODDS",
+  "detailSpawnPolicy": "ORDERED_ELIGIBILITY_ONLY",
+  "probabilityOrigin": "NOT_ESTABLISHED",
+  "specialCode": "EssenceFireRecoupLife1",
+  "specialMinimumSupportedItemLevel": 72,
+  "specialRequiredCharacterLevel": 57,
+  "specialModifier": {
+    "id": "rawhide-belt:suffix:essence-fire-damage-recouped-as-life",
+    "name": "of the Essence",
+    "layer": "EXPLICIT",
+    "affixType": "SUFFIX",
+    "familyIds": [
+      "FireDamageTakenRecoupedAsLife"
+    ],
+    "requiredItemLevel": 72,
+    "weight": 0,
+    "tier": 1,
+    "text": "(26—30)% of Fire Damage taken Recouped as Life",
+    "stats": [
+      {
+        "id": "fire_damage_taken_goes_to_life_over_4_seconds_%",
+        "min": 26,
+        "max": 30
+      }
+    ],
+    "tags": [
+      "resource",
+      "life",
+      "elemental",
+      "fire"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceFireRecoupLife1"
+  },
+  "qualityCap": null,
+  "unmodeled": [
+    "variable numeric implicit",
+    "Charm slot rolls",
+    "Divine",
+    "Blessed",
+    "quality application",
+    "socket operations",
+    "pasted Belt mapping",
+    "combat"
+  ],
+  "existingCatalogFilesBytePreserved": 64,
+  "registryAndScopeBytePreserved": true,
+  "runtimeTests": "NOT_RUN_SOURCE_PREPARATION_ONLY",
+  "frontendTests": "NOT_RUN_SOURCE_PREPARATION_ONLY",
+  "browserTests": "NOT_RUN_SOURCE_PREPARATION_ONLY",
+  "sourceHashes": {
+    "base-proof.json": "a7a18b1d7b570bbffc9506ceb0bc4470a7eb2e6b1a1f56ae031b4641c7a69146",
+    "base.raw.json": "2ee4229e650b26a3bf08c3c22ba33a847a5359b647c24c6694bf25679fa4f990",
+    "catalog.json": "6f3888ca9f8110ab1894ebdba4f0bf764c9372155922124567b44f606d2e81f5",
+    "details.raw.json": "f122833551ab451f269d991f6f9a0ea470da0813b25603afb930feff21f7d226",
+    "essence-proof.json": "46792dfd05dcb1e6fd8b4fd9be9af5258345a5aac9bfe1cc6b2ff5878c851358",
+    "perfect-essences.catalog.json": "103360c3613dfece140b7d868b9af79200afba8a4a083eeedc7d7c8c456eedd3",
+    "perfect-essences.raw.json": "46792dfd05dcb1e6fd8b4fd9be9af5258345a5aac9bfe1cc6b2ff5878c851358"
+  },
+  "validatedAt": "2026-10-03T17:03:46.517Z"
+}

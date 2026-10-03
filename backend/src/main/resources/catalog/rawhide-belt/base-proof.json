@@ -1,0 +1,186 @@
+{
+  "selectedBase": {
+    "id": "Rawhide_Belt",
+    "url": "https://poe2db.tw/us/Rawhide_Belt",
+    "retrievedAt": "2026-10-03T16:47:39.204Z",
+    "sha256": "10205fa0b984ce8b625e52ac0a31800ddb5b093e03e2aa7a16f2a595959b85fe",
+    "fields": {
+      "Name": "Show Full Descriptions",
+      "DropLevel": "1",
+      "BaseType": "Rawhide Belt",
+      "Class": "Belts",
+      "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+      "Type": "Metadata/Items/Belts/FourBelt1",
+      "Tags": "belt",
+      "Icon": "Art/2DItems/Belts/Basetypes/Belt01",
+      "Family": "BeltFlaskRecovery",
+      "Domains": "Item (1)",
+      "GenerationType": "Unique (3)",
+      "Req. level": "1",
+      "Stats": "flask life to recover +% 20 — 30 Global",
+      "Craft Tags": "flask resource Life",
+      "key": "val",
+      "Base.base_level": "1",
+      "Base.tag": "default, belt",
+      "Base.x_size": "2",
+      "Base.y_size": "1",
+      "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+      "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+      "Mods.enable_rarity": "normal, magic, rare, unique",
+      "Mods.inventory_type": "Belt",
+      "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+    },
+    "card": "Rawhide Belt BeltsHas (1—3) Charm Slots(20—30)% increased Life Recovery from Flasks",
+    "modTables": [
+      {
+        "text": "FamilyBeltFlaskRecovery",
+        "links": []
+      }
+    ]
+  },
+  "comparison": [
+    {
+      "id": "Belts",
+      "url": "https://poe2db.tw/us/Belts",
+      "retrievedAt": "2026-10-03T16:47:38.798Z",
+      "sha256": "1b3f70ffed129eaa76147f6b9ada273810d5f93da24e45fbf34943b50206191b",
+      "fields": {},
+      "card": "Crafting Project Item Level:",
+      "modTables": []
+    },
+    {
+      "id": "Rawhide_Belt",
+      "url": "https://poe2db.tw/us/Rawhide_Belt",
+      "retrievedAt": "2026-10-03T16:47:39.204Z",
+      "sha256": "10205fa0b984ce8b625e52ac0a31800ddb5b093e03e2aa7a16f2a595959b85fe",
+      "fields": {
+        "Name": "Show Full Descriptions",
+        "DropLevel": "1",
+        "BaseType": "Rawhide Belt",
+        "Class": "Belts",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt1",
+        "Tags": "belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt01",
+        "Family": "BeltFlaskRecovery",
+        "Domains": "Item (1)",
+        "GenerationType": "Unique (3)",
+        "Req. level": "1",
+        "Stats": "flask life to recover +% 20 — 30 Global",
+        "Craft Tags": "flask resource Life",
+        "key": "val",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      },
+      "card": "Rawhide Belt BeltsHas (1—3) Charm Slots(20—30)% increased Life Recovery from Flasks",
+      "modTables": [
+        {
+          "text": "FamilyBeltFlaskRecovery",
+          "links": []
+        }
+      ]
+    },
+    {
+      "id": "Linen_Belt",
+      "url": "https://poe2db.tw/us/Linen_Belt",
+      "retrievedAt": "2026-10-03T16:47:39.499Z",
+      "sha256": "04e1b697001877f3671fdc7d612ebceb75082ffe1017a1338ac8100dcbc708cc",
+      "fields": {
+        "Name": "Show Full Descriptions",
+        "DropLevel": "1",
+        "BaseType": "Linen Belt",
+        "Class": "Belts",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt2",
+        "Tags": "belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt02",
+        "Family": "BeltFlaskRecovery",
+        "Domains": "Item (1)",
+        "GenerationType": "Unique (3)",
+        "Req. level": "1",
+        "Stats": "flask mana to recover +% 20 — 30 Global",
+        "Craft Tags": "flask resource Mana",
+        "key": "val",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      },
+      "card": "Linen Belt BeltsHas (1—3) Charm Slots(20—30)% increased Mana Recovery from Flasks",
+      "modTables": [
+        {
+          "text": "FamilyBeltFlaskRecovery",
+          "links": []
+        }
+      ]
+    },
+    {
+      "id": "Perfect_Essence_of_Insulation",
+      "url": "https://poe2db.tw/us/Perfect_Essence_of_Insulation",
+      "retrievedAt": "2026-10-03T16:47:39.795Z",
+      "sha256": "82fe756c7136b641039b29543c8487845ca42d8ec9659f08bbfdd6d8a5069f58",
+      "fields": {
+        "Class": "Modifier",
+        "Belts": "(26—30)% of Fire Damage taken Recouped as Life",
+        "Name": "Show Full Descriptions",
+        "Currency Exchange": "1000 Gold",
+        "NoteCode": "perfect-essence-of-insulation",
+        "DropLevel": "1",
+        "BaseType": "Perfect Essence of Insulation",
+        "Flags": "AlwaysAllocate",
+        "Type": "Metadata/Items/Currency/CurrencyPerfectEssenceFireResist",
+        "Sound": "Audio/Sound Effects/ItemSounds/4.0/Currency/Orbs/OrbUse.ogg",
+        "Tags": "essence, currency",
+        "Icon": "Art/2DItems/Currency/Essence/FireResistanceEssencePerfect",
+        "MTX Tab Stacks": "5000",
+        "key": "val",
+        "Base.base_level": "1",
+        "Base.tag": "default, currency",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "24h Value": "24h volume traded",
+        "5.45 Exalted Orb  1 Perfect Essence of Insulation": "11"
+      },
+      "card": "Perfect Essence of Insulation Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierBelt: (26—30)% of Fire Damage taken Recouped as Life Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+      "modTables": []
+    }
+  ],
+  "primary": {
+    "id": "Belts",
+    "url": "https://poe2db.tw/us/Belts",
+    "retrievedAt": "2026-10-03T16:47:38.798Z",
+    "sha256": "1b3f70ffed129eaa76147f6b9ada273810d5f93da24e45fbf34943b50206191b"
+  },
+  "selectionRationale": "Rawhide Belt is the lowest class-index base at drop level 1; all 135 ordinary rows have unique eligible public details. One bounded Perfect Insulation result.",
+  "sourceFacts": {
+    "dropLevel": 1,
+    "implicitFlaskLifeRecoveryRange": [
+      20,
+      30
+    ],
+    "sourceCharmSlotAggregateRange": [
+      1,
+      3
+    ],
+    "qualityCap": null
+  },
+  "simulationBoundary": "Explicit affix assignment only; variable flask recovery and Charm slots are source facts, not rolled. Divine, Blessed, quality application, sockets, paste mapping and combat unsupported; quality cap unknown.",
+  "excludedMaterial": "Essence_of_Insanity: existing Vaal dependency remains unresolved",
+  "publishedRowWeightPolicy": "POE2DB_AS_PUBLISHED_MODEL_NOT_VERIFIED_GAME_ODDS",
+  "detailSpawnUsedForEligibilityOnly": true,
+  "weightFieldsDiffer": 135,
+  "weightMismatchRootCause": "NOT_ESTABLISHED",
+  "coupledNumericModel": "Authorised UNVERIFIED shared-ratio tick/HALF_UP; scalar source-unit integers also UNVERIFIED"
+}
