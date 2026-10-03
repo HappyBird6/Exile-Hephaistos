@@ -68,6 +68,12 @@ These evidence gaps are not solved by approving a guessed effect or eligible poo
 
 ## User decisions and external data are separate
 
+### Implementation triage after handoff
+
+Primary routing of all44 pending identities:42 external-evidence gates (quality29, Notable1, enchantment/corruption1, Omen interactions5, availability5, Chance1), two state/design gates (Wisdom identification and Extraction inventory), zero confirmed code-only omissions. These are routing counts, not independent dimensions: the42 also require state/interaction work, and the two state gates still need exact use/retention evidence. Neither state gate is ready merely because a reversible product decision is authorised. Exact IDs and overlapping source/engine/user gates remain in the machine inventory above.
+
+Design choices that can be applied now are bounded UX and validation choices, not invented game effects. The known code/asset defect WB-034 is outside those44 identities: canonical Perfect Mind art recovery does not implement another material or change119/111 counts. No new base or probability formula is required for this batch.
+
 No unanswered user choice blocks the finished Ring step. Existing numeric assumptions remain explicitly UNVERIFIED under prior authorisation. Lower-level Perfect use, true game odds and the table/detail weight discrepancy remain evidence questions, not user preference questions.
 
 The65 exclusions are existing user decisions and remain binding. Insanity is still one of the44 current pending entries, not a newly excluded item: its Vaal dependency can only be enabled if the user later changes that deferral. No such change is requested or assumed here. Login/database storage and a branch-tree UI are outside this task; the current linear film/localStorage boundary is retained.

@@ -401,10 +401,8 @@
       "source": "https://poe2db.tw/us/Essence",
       "imageUrl": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/ManaEssencePerfect.webp",
       "image": "/assets/materials/Perfect_Essence_of_the_Mind.webp",
-      "sha256": null,
-      "status": "unavailable",
-      "httpStatus": 403,
-      "failure": "Response status code does not indicate success: 403 (Forbidden)."
+      "sha256": "0f7f33951fb9436ad90ab782900156970f4d8e57e4d0af57d0f9a8fc2863e6cd",
+      "status": "downloaded"
     },
     {
       "id": "Perfect_Essence_of_Enhancement",
