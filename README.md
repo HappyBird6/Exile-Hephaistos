@@ -90,3 +90,5 @@ Solar Workbench v2: 17 currencies and 8 omens. See [supported and blocked invent
 최신 Workbench 확장(2026-10-03): Solar Amulet과 Stocky Mitts를 베이스별로 지원합니다. Stocky Mitts는 일반 화폐 19종과 확인된 Enhancement 3종·Greater Battle, 관련 징조·분열을 지원하며 일반 모드 182개와 PoE2DB 게시 가중치를 보존합니다. 장갑의 수치 롤은 원자료 단위 정수·공통 비율/HALF_UP **미검증 모델**로 명시하고 제작 단계별 가정을 복원합니다. 최종 Armour·품질·소켓·장갑 텍스트 매핑과 다른 장갑 특수 수단은 미지원입니다. Craft Support/State Explorer는 Solar 범위입니다. [최신 범위·검증·되돌리기](docs/workbench-stocky-mitts-runtime-2026-10-03.md), [단일 이슈 목록](ISSUES.md).
 
 Stocky Mitts 기본 Essence 확장(v18): 기존 4종에 Body/Mind/Ruin/Insulation/Thawing/Grounding/Opulence 21종을 추가해 25종을 지원합니다. 두 베이스 전체 구현 목록은 64종으로 유지되며, 장갑 Infinite 결과 집합은 WB-010에서 근거 부족으로 차단합니다. [검증·효과 표·지원 경계](docs/workbench-stocky-basic-essences-2026-10-03.md).
+
+장갑 Hysteria(v19): Rare/lvl45+에서 전용 of Fury 치명타 피해 보너스로 교체하며, Crystallisation 방향·전체 제거 분기·Fractured 보존을 검증했습니다. 장갑 지원 56종/45액션, 구현 고유 재료는 64종 그대로입니다. [근거·검증·후속 후보](docs/workbench-stocky-hysteria-2026-10-03.md).

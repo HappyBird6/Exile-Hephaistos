@@ -1290,9 +1290,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "ESSENCE_HYSTERIA",
-      "reason": "Rare Solar item level at least 68: remove one non-Fractured explicit uniformly and add fixed 19-21% life recoup suffix. Every removal branch must allow that suffix; ambiguous family/slot interactions and Crystallisation omens unsupported. Existing other rolls/locks/implicit preserved.",
+      "reason": "Rare Solar (catalog level 68+, 19-21% life recoup suffix) or Stocky Mitts (45+, 25-29% Critical Damage Bonus suffix): remove one non-Fractured explicit and add the base-specific fixed target. All eligible removal branches must permit addition; unsupported level/family/slot cases preserve input. Individually verified Crystallisation omens restrict the removal side; matching pairs are blocked. Other rolls, locks, implicits and unrelated omens are preserved.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
@@ -1961,9 +1962,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "DEXTRAL_CRYSTALLISATION",
-      "reason": "Hysteria, Perfect Infinite and Perfect Enhancement and Breach on supported Rare Solar: remove only unlocked suffix instances. Consume once on success; unrelated omens remain. Matching pair conflicts; no eligible side and invalid replacement branches blocked. Other Perfect/Corrupted essences unsupported.",
+      "reason": "Supported Solar replacement Essences or Stocky Mitts Hysteria: remove only unlocked suffix instances. Consume once on success; unrelated omens remain. Matching pair conflicts, no eligible suffix and any invalid replacement branch are blocked. Other glove replacement materials remain unsupported.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {
@@ -1978,9 +1980,10 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "SINISTRAL_CRYSTALLISATION",
-      "reason": "Hysteria, Perfect Infinite and Perfect Enhancement and Breach on supported Rare Solar: remove only unlocked prefix instances. Consume once on success; unrelated omens remain. Matching pair conflicts; no eligible side and invalid replacement branches blocked. Other Perfect/Corrupted essences unsupported.",
+      "reason": "Supported Solar replacement Essences or Stocky Mitts Hysteria: remove only unlocked prefix instances. Consume once on success; unrelated omens remain. Matching pair conflicts, no eligible prefix and any invalid replacement branch are blocked. Other glove replacement materials remain unsupported.",
       "supportedBases": [
-        "solar"
+        "solar",
+        "stocky"
       ]
     },
     {

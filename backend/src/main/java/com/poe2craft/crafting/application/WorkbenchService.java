@@ -25,7 +25,11 @@ public final class WorkbenchService {
             .collect(java.util.stream.Collectors.toSet());
     stockySimulator =
         new WorkbenchSimulator(
-            stocky, new CraftingEngine(stocky), coupled, StockyEssenceTargets.VERIFIED);
+            stocky,
+            new CraftingEngine(stocky),
+            coupled,
+            StockyEssenceTargets.VERIFIED,
+            StockyEssenceTargets.REPLACEMENTS);
   }
 
   public Initial initial(String base, int level) {

@@ -12,6 +12,7 @@ public final class WorkbenchSimulator {
   private final AdditionRules additionRules;
   private final Set<String> coupledModifierIds;
   private final Map<WorkbenchCurrency, List<String>> essenceTargetOverrides;
+  private final Map<WorkbenchCurrency, List<String>> replacementTargetOverrides;
 
   public WorkbenchSimulator(ItemCatalog catalog, CraftingEngine engine) {
     this(catalog, engine, Set.of());
@@ -28,7 +29,35 @@ public final class WorkbenchSimulator {
       CraftingEngine engine,
       Set<String> coupledModifierIds,
       Map<WorkbenchCurrency, List<String>> essenceTargetOverrides) {
+    this(catalog, engine, coupledModifierIds, essenceTargetOverrides, Map.of());
+  }
+
+  public WorkbenchSimulator(
+      ItemCatalog catalog,
+      CraftingEngine engine,
+      Set<String> coupledModifierIds,
+      Map<WorkbenchCurrency, List<String>> essenceTargetOverrides,
+      Map<WorkbenchCurrency, List<String>> replacementTargetOverrides) {
     this.catalog = Objects.requireNonNull(catalog);
+    var replacements = new EnumMap<WorkbenchCurrency, List<String>>(WorkbenchCurrency.class);
+    replacementTargetOverrides.forEach(
+        (action, ids) -> {
+          if (action.replacementModifiers().isEmpty()
+              || ids.isEmpty()
+              || new HashSet<>(ids).size() != ids.size())
+            throw new IllegalArgumentException(
+                "Replacement override requires a complete distinct target set");
+          for (var id : ids) {
+            var definition =
+                catalog
+                    .find(id)
+                    .orElseThrow(() -> new IllegalArgumentException("Unknown replacement target"));
+            if (definition.layer() != ModifierDefinition.Layer.EXPLICIT)
+              throw new IllegalArgumentException("Replacement target must be explicit");
+          }
+          replacements.put(action, List.copyOf(ids));
+        });
+    this.replacementTargetOverrides = Map.copyOf(replacements);
     var reviewed = new EnumMap<WorkbenchCurrency, List<String>>(WorkbenchCurrency.class);
     essenceTargetOverrides.forEach(
         (action, ids) -> {
@@ -65,8 +94,12 @@ public final class WorkbenchSimulator {
     return essenceTargetOverrides.getOrDefault(action, action.essenceModifierIds());
   }
 
+  private List<String> replacementTargets(WorkbenchCurrency action) {
+    return replacementTargetOverrides.getOrDefault(action, action.replacementModifiers());
+  }
+
   public String ruleVersion() {
-    return coupledModifierIds.isEmpty() ? RULE_VERSION : "stocky-workbench-basic-essence-v18";
+    return coupledModifierIds.isEmpty() ? RULE_VERSION : "stocky-workbench-hysteria-v19";
   }
 
   public String ledgerVersion() {
@@ -87,7 +120,7 @@ public final class WorkbenchSimulator {
         .filter(
             a ->
                 java.util.stream.Stream.concat(
-                        essenceTargets(a).stream(), a.replacementModifiers().stream())
+                        essenceTargets(a).stream(), replacementTargets(a).stream())
                     .allMatch(id -> catalog.find(id).isPresent()))
         .map(a -> availability(state, a, omens))
         .toList();
@@ -120,7 +153,7 @@ public final class WorkbenchSimulator {
   private Availability availability(
       ItemState state, WorkbenchCurrency action, List<WorkbenchOmen> omens) {
     if (java.util.stream.Stream.concat(
-            essenceTargets(action).stream(), action.replacementModifiers().stream())
+            essenceTargets(action).stream(), replacementTargets(action).stream())
         .anyMatch(id -> catalog.find(id).isEmpty()))
       return blocked(action, "This material's results are not verified for this base.");
     var matches = matching(action, omens);
@@ -164,12 +197,12 @@ public final class WorkbenchSimulator {
     if (state.itemLevel() < action.minimumModifierLevel())
       return blocked(action, "Item level is below the currency's minimum modifier level.");
     var omen = matches.isEmpty() ? null : matches.getFirst();
-    if (!action.replacementModifiers().isEmpty()) {
+    if (!replacementTargets(action).isEmpty()) {
       if (state.rarity() != ItemState.Rarity.RARE)
         return blocked(
             action, "This material requires a Rare item with a removable explicit modifier.");
       var targets =
-          action.replacementModifiers().stream().map(id -> catalog.find(id).orElseThrow()).toList();
+          replacementTargets(action).stream().map(id -> catalog.find(id).orElseThrow()).toList();
       if (targets.stream().anyMatch(target -> state.itemLevel() < target.requiredItemLevel()))
         return blocked(action, "Essence below the catalog modifier item level is unsupported.");
       var candidates = removalCandidates(state, omen);
@@ -341,7 +374,7 @@ public final class WorkbenchSimulator {
         action == WorkbenchCurrency.ALCHEMY || !essenceTargets(action).isEmpty()
             ? ItemState.Rarity.RARE
             : upgrade(state, action);
-    if (!action.replacementModifiers().isEmpty()) {
+    if (!replacementTargets(action).isEmpty()) {
       var candidates = removalCandidates(state, omen);
       var removed = candidates.get(random.nextInt(candidates.size()));
       explicits.remove(removed);
@@ -356,7 +389,7 @@ public final class WorkbenchSimulator {
               null,
               omen == null ? action.replacementSource() : "https://poe2db.tw/us/" + omen.id(),
               "Uniform among non-Fractured explicit instances; every removal branch must accept every sourced modifier outcome. No published removal weights."));
-      var targets = action.replacementModifiers();
+      var targets = replacementTargets(action);
       var definition =
           catalog
               .find(targets.get(targets.size() == 1 ? 0 : random.nextInt(targets.size())))
