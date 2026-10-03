@@ -3358,15 +3358,21 @@
       "id": "Artificers_Orb",
       "name": "Artificer's Orb",
       "category": "CURRENCY",
-      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
-      "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
-      "sourceRetrievedAt": null,
-      "sourceSha256": null,
-      "registrationStatus": "DISCOVERED_PENDING_CANONICAL_ID",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
+      "sourceUrl": "https://poe2db.tw/us/Artificers_Orb",
+      "sourcePage": "https://poe2db.tw/us/Artificers_Orb",
+      "sourceRetrievedAt": "2026-10-03T10:58:27.273Z",
+      "sourceSha256": "6b06ebeec3a40d334172eaabe1832ab6ed2e3cbb8ac7387f57aaf197dd415f7c",
+      "registrationStatus": "REGISTERED",
+      "effectStatus": "IMPLEMENTED",
       "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification."
+      "action": "ARTIFICER",
+      "reason": "Ordinary Stocky Mitts with an explicitly known zero empty Augment Sockets: add exactly one. Existing one-socket and legacy unknown counts refuse. Solar unsupported. Exceptional, Corrupted, Mirrored, unidentified/Unique, socketed Augments and Extraction remain unsupported; no minimum item level is inferred from metadata.",
+      "supportedBases": [
+        "stocky"
+      ],
+      "implementationScope": "Ordinary empty socket count only; no Augment socketing/effect or exceptional generation.",
+      "ruleSource": "https://www.poe2wiki.net/wiki/Item_socket",
+      "ruleVerifiedAt": "2026-10-03"
     },
     {
       "id": "Architects_Orb",

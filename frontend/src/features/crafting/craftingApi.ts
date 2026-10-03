@@ -53,6 +53,7 @@ export interface Availability {
   reason: string
 }
 export interface Initial {
+  augmentSockets?: number | null | undefined
   compatibleSnapshotIds?: string[]
   ruleVersion: string
   metadata: { snapshotId: string; retrievedAt: string; sourceUrl: string }
@@ -186,6 +187,9 @@ export async function loadInitial(
     v.state.snapshotId !== v.metadata.snapshotId ||
     typeof v.id !== 'string' ||
     typeof v.ruleVersion !== 'string' ||
+    (v.augmentSockets !== undefined &&
+      v.augmentSockets !== null &&
+      (base !== 'stocky' || v.augmentSockets !== 0)) ||
     !object(v.modifiers) ||
     !availability(v.actions) ||
     (v.compatibleSnapshotIds !== undefined && !strings(v.compatibleSnapshotIds))

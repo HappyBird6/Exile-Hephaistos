@@ -613,15 +613,27 @@ export function CraftingPage() {
             base: baseName,
             itemClass: catalogBase === 'stocky' ? 'Gloves' : 'Amulet',
             itemLevel: concrete.itemLevel,
-            properties:
-              qualityMaximum === null
+            properties: [
+              ...(qualityMaximum === null
                 ? []
                 : [
                     {
                       id: 'maximum-quality',
                       text: `Maximum Quality: ${qualityMaximum}%`,
                     },
-                  ],
+                  ]),
+              ...(catalogBase === 'stocky'
+                ? [
+                    {
+                      id: 'augment-sockets',
+                      text:
+                        concrete.augmentSockets == null
+                          ? 'Augment Sockets: unknown'
+                          : `Augment Sockets: ${concrete.augmentSockets} / 1`,
+                    },
+                  ]
+                : []),
+            ],
             requirements: [],
             flags: [],
             modifiers: [...concrete.implicits, ...concrete.explicits].map(
@@ -1214,8 +1226,9 @@ export function CraftingPage() {
                 {catalogBase === 'stocky' && (
                   <p className="workbench-feedback">
                     Numeric rolls use unverified source-unit and shared-ratio
-                    models. Base Armour: 15; computed Armour, quality, sockets
-                    and pasted glove mapping are not supported.
+                    models. Base Armour: 15; computed Armour, applied quality,
+                    socketed Augment effects and pasted glove mapping are not
+                    supported.
                   </p>
                 )}
                 {craftEvidence && (

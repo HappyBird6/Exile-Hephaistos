@@ -49,7 +49,7 @@ class QualityLimitTest {
     assertThat(QualityLimitRules.describe(rare, f.catalog).maximumQuality()).isEqualTo(20);
     var result = f.simulator.apply(rare, WorkbenchCurrency.DIVINE, Set.of(), new Random(7));
     assertThat(result.qualityLimit().maximumQuality()).isEqualTo(20);
-    assertThat(f.simulator.actions(f.root, Set.of())).hasSize(56);
+    assertThat(f.simulator.actions(f.root, Set.of())).hasSize(57);
   }
 
   @Test

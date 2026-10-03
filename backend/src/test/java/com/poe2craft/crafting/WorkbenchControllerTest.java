@@ -190,4 +190,51 @@ class WorkbenchControllerTest {
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.applied").value(true));
   }
+
+  @Test
+  void ordinarySocketCountIsExplicitOnFreshBaseAndLegacyUnknownIsNotZero() throws Exception {
+    mvc.perform(
+            get("/api/v1/crafting/workbench/initial")
+                .param("base", "stocky")
+                .param("itemLevel", "1"))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.augmentSockets").value(0));
+    var f = new StockyHysteriaTest();
+    var state = (com.fasterxml.jackson.databind.node.ObjectNode) mapper.valueToTree(f.root);
+    state.remove("augmentSockets");
+    mvc.perform(
+            post("/api/v1/crafting/workbench/apply")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(mapper.writeValueAsBytes(Map.of("state", state, "action", "ARTIFICER"))))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.applied").value(false));
+    state.put("augmentSockets", 0);
+    mvc.perform(
+            post("/api/v1/crafting/workbench/apply")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(mapper.writeValueAsBytes(Map.of("state", state, "action", "ARTIFICER"))))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.applied").value(true))
+        .andExpect(jsonPath("$.state.augmentSockets").value(1));
+  }
+
+  @Test
+  void numericSocketCountMustNotBeCoercedOrAcceptExceptionalState() throws Exception {
+    var f = new StockyHysteriaTest();
+    for (var value :
+        java.util.List.<com.fasterxml.jackson.databind.JsonNode>of(
+            mapper.valueToTree(1.5),
+            mapper.valueToTree("1"),
+            mapper.valueToTree(-1),
+            mapper.valueToTree(2),
+            mapper.valueToTree(2147483648L))) {
+      var state = (com.fasterxml.jackson.databind.node.ObjectNode) mapper.valueToTree(f.root);
+      state.set("augmentSockets", value);
+      mvc.perform(
+              post("/api/v1/crafting/workbench/apply")
+                  .contentType(MediaType.APPLICATION_JSON)
+                  .content(mapper.writeValueAsBytes(Map.of("state", state, "action", "ARTIFICER"))))
+          .andExpect(status().isUnprocessableEntity());
+    }
+  }
 }

@@ -35,9 +35,9 @@ Single issue list from 2026-10-02, explicitly requested by the user. Record new 
 
 ## WB-005 — OPEN — Other Solar special-state rules
 
-- Scope: Homogenising, Sanctification, desecration/reveal, instilling, Chance, Mirror, identification and other special-state means on the current Solar/Stocky Workbench. Glove-specific special Essence/Alloy targets require separate complete source/result validation; copying Solar targets is unsupported.
+- Current scope: Homogenising, Chance and identification. Sanctification, Mirror and the specifically listed desecration Omens are deferred by the latest user instruction (WB-025); Liquid instilling was already deferred (WB-022). Glove-specific special Essence/Alloy targets require separate complete source/result validation; copying Solar targets is unsupported.
 - Impact: current ordinary Solar state does not represent all required state/results; availability/type-selection/roll/replacement evidence remains incomplete. Registration does not imply implementation or obtainability.
-- Evidence: [per-item reasons and sources](docs/workbench-remaining-triage-2026-10-02.md). Four encounter omens are outside equipment scope; Vaal/Hinekora alone are user exclusions.
+- Evidence: [per-item reasons and sources](docs/workbench-remaining-triage-2026-10-02.md). Current development deferrals follow WB-025; dated source classification is historical and catalog presence does not establish current obtainability.
 - Done when: each item has current effect/applicability/state/result evidence and complete eligible pools, then independently implement and verify. Split this issue into stable child IDs when an item begins implementation.
 
 ## WB-006 — DONE — Glove activation regression gate
@@ -226,7 +226,7 @@ Next independent review: Adaptive conditional effect, Swift two-family exclusion
 - Docker BE246/FE160 pass; combined actual browser70 and v24 history11, zero page errors. Per-target API locks and real family/condition/Solar refusal probes pass; staged source-byte checks pass. Unchanged individual browser matrices/cachepersist not rerun.
 - [Classification, exact source/eligibility/calculation boundaries and execution evidence](docs/workbench-stocky-reviewed-alloys-2026-10-03.md).
 
-## WB-021 — OPEN — Solar Sovereign exact target and resistance-magnitude boundary
+## WB-021 — DEFERRED BY USER — Solar Sovereign exact target and resistance-magnitude boundary
 
 - Current primary Sovereign item page explicitly gives Amulets/Jewellery +20..30% Explicit Resistance Modifier magnitudes, different from the source-proven Local Ward glove Code.
 - 2026-10-03 primary Amulet target/detail now verified: AlloyEffectOfResistanceMods1; Prefix, EnchantmentHeistArmour, Level65/effective52, zero spawn, IsAlloy/Removes; stat heist enchantment resistance mod effect +%, 20..30, Local/Unscalable Value. Exact target discovery is complete. Solar remains unsupported while magnitude rules, eligible resistance stats, numeric grain and low-ilvl boundary are unresolved. [Captured source and remaining route](docs/workbench-remaining-triage-2026-10-03.md).
@@ -239,12 +239,17 @@ Next independent review: Adaptive conditional effect, Swift two-family exclusion
 - Registry remains220 / implemented74. Non-Liquid inventory193; unimplemented non-Liquid119. These inventory counts are not a current-two-base completion percentage. Basic currency exclusion in the requested Korean-name output is output-only, not implementation deferral.
 - Current quality work continues separately. [Updated scope and priorities](docs/workbench-scope-update-2026-10-03.md).
 
-## WB-023 - OPEN - Artificer socket eligibility and exceptional state
+## WB-023 - PARTIAL - Ordinary Stocky Artificer implemented; exceptional/resource state pending
 
 - Current full primary card confirms one Augment Socket and eligible equipment classes; Stocky is Armour, Solar is outside those classes. The Stocky `socket_info=1:5:100` tuple does not establish a use cap or minimum level without its semantics. Exceptional dropped sockets and Socket-bound augments require explicit state preservation.
-- Keep Artificer unsupported until complete current cap/conditions and legacy unknown-state migration are reviewed. [Source gap and boundary](docs/workbench-quality-socket-boundary-2026-10-03.md).
+- Ordinary Stocky0→1 is now implemented through reviewed secondary cap/class evidence. Fresh states know zero; legacy unknown stays unknown and Artificer-refused while ordinary crafting remains available. Exceptional/socketed Augment states and Extraction remain unsupported. [Delivered path, source boundaries and checks](docs/workbench-stocky-artificer-2026-10-03.md).
 
 ## WB-024 - DONE - Unsupported item properties were silently erased by crafting
 
 - Actual prior Docker API reproduced200/applied while discarding supplied quality/socket state. Apply/actions now reject unsupported root/modifier fields with422 `UNSUPPORTED_ITEM_PROPERTIES` before conversion.
 - Frontend rejects unsupported requests/responses/restored frames without rewriting saved archives. Existing ordinary crafting and legacy derived `modifierIds` remain supported. No newly implemented material is counted; quality and socket engine work stays open. [Repair and verification](docs/workbench-quality-socket-boundary-2026-10-03.md).
+## WB-025 - DEFERRED BY USER - Vaal, Mirror, Core, specified Omens and all Alloys
+
+- Future development only: exact mapping65 effective exclusions (64 direct, one Vaal-operation dependency), including retained Liquid27/Hinekora, all Alloy13, Vaal-related11 including Architects Orb, Mirror/Core and10 specified Omens. Existing8 implemented Alloys/code/UI are preserved. No deletion or unnecessary disablement.
+- Omen of Putrefaction and Omen of Corruption are distinct names/IDs; the latter is separately dependent on deferred Vaal Orb. Crystallisation for current Essences remains supported. WB-021 Solar Sovereign and additional Alloy work are deferred; WB-005 Vaal-related outcomes and Sanctification are future work. The existing nine-family route is overridden by these deferrals.
+- Registry220/overall implemented75 remains separate from current development inventory155/implemented67/unimplemented88. The new count75 includes bounded Stocky Artificer. No complete-game or two-base completion claim. [Full Korean/ID mapping and counts](docs/workbench-development-deferrals-2026-10-03.md).

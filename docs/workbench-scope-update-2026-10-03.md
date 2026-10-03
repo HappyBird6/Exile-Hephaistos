@@ -1,3 +1,5 @@
+> Historical Liquid-only update. Superseded for current priority/counts by [the second user scope update](workbench-development-deferrals-2026-10-03.md).
+
 # Workbench scope update after Liquid deferral (2026-10-03)
 
 The user's latest instruction defers all 27 registered `LIQUID_EMOTION` identities for future development. Preserve source HTML, registry records, catalogs and historical classification. No effects or source facts are deleted or relabeled as implemented.

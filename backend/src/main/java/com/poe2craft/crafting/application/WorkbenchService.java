@@ -56,7 +56,8 @@ public final class WorkbenchService {
         catalog.modifiers(),
         engine.actions(bucket),
         catalog.compatibleSnapshotIds(),
-        QualityLimitRules.describe(state, catalog));
+        QualityLimitRules.describe(state, catalog),
+        base.equals("stocky") ? 0 : null);
   }
 
   private ItemCatalog catalog(String base) {
@@ -91,5 +92,6 @@ public final class WorkbenchService {
       Map<String, ModifierDefinition> modifiers,
       List<CraftingEngine.Availability> actions,
       List<String> compatibleSnapshotIds,
-      QualityLimitRules.Limit qualityLimit) {}
+      QualityLimitRules.Limit qualityLimit,
+      Integer augmentSockets) {}
 }

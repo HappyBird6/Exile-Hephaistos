@@ -1,3 +1,4 @@
+> Current 2026-10-03 checkpoint: Solar rules v16, Stocky `stocky-workbench-artificer-v26`; registered220 / implemented75. Ordinary Stocky Artificer adds one empty socket, legacy count unknown stays unknown. [Delivery and executed checks](workbench-stocky-artificer-2026-10-03.md), [current user development scope155/67/88](workbench-development-deferrals-2026-10-03.md). Historical v1/v2 sections below are not current implementation counts.
 # Solar Amulet Workbench simulator
 
 현재 활성 규칙은 `solar-workbench-affix-v2`, registry는 `equipment-crafting-registry-v2`다. 아래의 첫 구현 단계 설명은 v1 기록이며, 현재 지원 범위는 이 절과 [전체 목록](workbench-support-v2.md)을 따른다.

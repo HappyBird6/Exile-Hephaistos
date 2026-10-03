@@ -75,6 +75,7 @@ public final class WorkbenchController {
             "implicits",
             "explicits",
             "conditions",
+            "augmentSockets",
             "modifierIds");
     if (input == null || !input.isObject())
       throw new IllegalArgumentException("Concrete item state required");
@@ -84,6 +85,11 @@ public final class WorkbenchController {
             name -> {
               if (!fields.contains(name)) throw new UnsupportedItemProperties();
             });
+    var sockets = input.get("augmentSockets");
+    if (sockets != null
+        && !sockets.isNull()
+        && (!sockets.isIntegralNumber() || !sockets.canConvertToInt()))
+      throw new IllegalArgumentException("Integral socket count required");
     var modifierFields = Set.of("modifierId", "values", "fractured");
     for (String layer : List.of("implicits", "explicits")) {
       var modifiers = input.get(layer);

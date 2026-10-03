@@ -8,6 +8,7 @@ const itemFields = new Set([
   'explicits',
   'conditions',
   'modifierIds',
+  'augmentSockets',
 ])
 const modifierFields = new Set(['modifierId', 'values', 'fractured'])
 export function supportsConcreteStateShape(value: unknown): boolean {
@@ -19,6 +20,13 @@ export function supportsConcreteStateShape(value: unknown): boolean {
   )
     return false
   const item = value as Record<string, unknown>
+  if (
+    item.augmentSockets !== undefined &&
+    item.augmentSockets !== null &&
+    (item.baseItemId !== 'Metadata/Items/Armours/Gloves/FourGlovesStr1' ||
+      ![0, 1].includes(item.augmentSockets as number))
+  )
+    return false
   for (const layer of ['implicits', 'explicits'] as const) {
     if (!(layer in item)) return false
     const instances = item[layer]

@@ -267,14 +267,14 @@ describe('Material stash and shared favorites', () => {
     ).toBe(true)
   })
 
-  it('removes all requested currencies and moves Hinekora to the former Chance position', () => {
+  it('keeps prior removals, restores the supported Artificer slot and keeps Hinekora positioned', () => {
     show()
     expect(document.getElementById('material-list')!).toHaveAccessibleName(
       'Currency',
     )
     expect(
       within(document.getElementById('material-list')!).getAllByRole('button'),
-    ).toHaveLength(21)
+    ).toHaveLength(22)
     for (const name of [
       'Mirror of Kalandra',
       'Orb of Chance',
@@ -283,7 +283,6 @@ describe('Material stash and shared favorites', () => {
       "Blacksmith's Whetstone",
       "Glassblower's Bauble",
       "Gemcutter's Prism",
-      "Artificer's Orb",
       "Lesser Jeweller's Orb",
       "Greater Jeweller's Orb",
       "Perfect Jeweller's Orb",
@@ -293,6 +292,9 @@ describe('Material stash and shared favorites', () => {
     expect(
       currencies.find((item) => item.id === 'Hinekoras_Lock'),
     ).toMatchObject({ x: 329, y: 140 })
+    expect(
+      currencies.find((item) => item.id === 'Artificers_Orb'),
+    ).toMatchObject({ x: 574, y: 240 })
     expect(document.querySelector('.stash-inspector')).toBeNull()
     expect(document.querySelector('.item-panel')).toBeNull()
     expect(

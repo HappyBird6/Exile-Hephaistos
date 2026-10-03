@@ -5,6 +5,7 @@ import java.util.Set;
 
 /** Workbench rules are independent of the legacy six-action bucket explorer. */
 public enum WorkbenchCurrency {
+  ARTIFICER(null, 0),
   TRANSMUTATION(CraftingAction.TRANSMUTATION, 0),
   GREATER_TRANSMUTATION(CraftingAction.TRANSMUTATION, 44),
   PERFECT_TRANSMUTATION(CraftingAction.TRANSMUTATION, 70),

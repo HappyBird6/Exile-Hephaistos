@@ -99,7 +99,7 @@ public final class WorkbenchSimulator {
   }
 
   public String ruleVersion() {
-    return coupledModifierIds.isEmpty() ? RULE_VERSION : "stocky-workbench-reviewed-alloys-v25";
+    return coupledModifierIds.isEmpty() ? RULE_VERSION : "stocky-workbench-artificer-v26";
   }
 
   public String ledgerVersion() {
@@ -119,15 +119,19 @@ public final class WorkbenchSimulator {
     return Arrays.stream(WorkbenchCurrency.values())
         .filter(
             a ->
-                java.util.stream.Stream.concat(
-                        essenceTargets(a).stream(), replacementTargets(a).stream())
-                    .allMatch(id -> catalog.find(id).isPresent()))
+                (a != WorkbenchCurrency.ARTIFICER
+                        || state.baseItemId().equals(AugmentSocketRules.STOCKY_BASE_ID))
+                    && java.util.stream.Stream.concat(
+                            essenceTargets(a).stream(), replacementTargets(a).stream())
+                        .allMatch(id -> catalog.find(id).isPresent()))
         .map(a -> availability(state, a, omens))
         .toList();
   }
 
   private void validate(ItemState state) {
-    if (state == null || !new ItemStateValidator(catalog).validate(state).isEmpty())
+    if (state == null
+        || !AugmentSocketRules.supportedState(state)
+        || !new ItemStateValidator(catalog).validate(state).isEmpty())
       throw new IllegalArgumentException("Unsupported concrete item state");
   }
 
@@ -152,6 +156,10 @@ public final class WorkbenchSimulator {
 
   private Availability availability(
       ItemState state, WorkbenchCurrency action, List<WorkbenchOmen> omens) {
+    if (action == WorkbenchCurrency.ARTIFICER) {
+      var reason = AugmentSocketRules.refusal(state);
+      return reason.isEmpty() ? new Availability(action, true, "") : blocked(action, reason);
+    }
     if (java.util.stream.Stream.concat(
             essenceTargets(action).stream(), replacementTargets(action).stream())
         .anyMatch(id -> catalog.find(id).isEmpty()))
@@ -366,6 +374,31 @@ public final class WorkbenchSimulator {
           allIds,
           QualityLimitRules.describe(state, catalog));
     var matched = matching(action, omens);
+    if (action == WorkbenchCurrency.ARTIFICER) {
+      var next =
+          new ItemState(
+              state.snapshotId(),
+              state.baseItemId(),
+              state.itemLevel(),
+              state.rarity(),
+              state.implicits(),
+              state.explicits(),
+              state.conditions(),
+              1);
+      return new Result(
+          ruleVersion(),
+          ledgerVersion(),
+          state.snapshotId(),
+          next,
+          action,
+          true,
+          "",
+          List.of(),
+          List.of(),
+          List.of(),
+          allIds,
+          QualityLimitRules.describe(next, catalog));
+    }
     var omen = matched.isEmpty() ? null : matched.getFirst();
     var implicits = new ArrayList<>(state.implicits());
     var explicits = new ArrayList<>(state.explicits());
@@ -592,7 +625,8 @@ public final class WorkbenchSimulator {
         rarity,
         implicits,
         explicits,
-        s.conditions());
+        s.conditions(),
+        s.augmentSockets());
   }
 
   public record Availability(WorkbenchCurrency action, boolean available, String reason) {}

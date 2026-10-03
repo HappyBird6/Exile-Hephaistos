@@ -5,6 +5,7 @@ import { currencyActions, actionNames } from './craftingApi'
 import type { Action, Bucket, Definition, Initial } from './craftingApi'
 
 export type WorkbenchAction =
+  | 'ARTIFICER'
   | Action
   | `GREATER_${Exclude<Action, 'ANNULMENT'>}`
   | `PERFECT_${Exclude<Action, 'ANNULMENT'>}`
@@ -142,6 +143,7 @@ const replacementEssenceModifiers: Partial<
   ],
 }
 export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
+  Artificers_Orb: 'ARTIFICER',
   ...currencyActions,
   Lesser_Essence_of_Enhancement: 'LESSER_ESSENCE_ENHANCEMENT',
   Essence_of_Enhancement: 'ESSENCE_ENHANCEMENT',
@@ -192,6 +194,7 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Greater_Essence_of_Opulence: 'GREATER_ESSENCE_OPULENCE',
 }
 export const workbenchActionNames: Record<WorkbenchAction, string> = {
+  ARTIFICER: "Artificer's Orb",
   ...actionNames,
   LESSER_ESSENCE_ENHANCEMENT: 'Lesser Essence of Enhancement',
   ESSENCE_ENHANCEMENT: 'Essence of Enhancement',
@@ -313,6 +316,7 @@ export const baseWorkbenchAction = (action: WorkbenchAction) =>
     Action | 'DIVINE' | 'ALCHEMY' | 'FRACTURING'
 
 export interface ConcreteItem extends Omit<Bucket, 'modifierIds'> {
+  augmentSockets?: number | null | undefined
   explicits: {
     modifierId: string
     values: Record<string, number>
@@ -493,6 +497,9 @@ export function concreteInitial(initial: Initial): ConcreteItem {
     implicits: initial.state.implicits,
     conditions: initial.state.conditions,
     explicits: [],
+    ...(initial.augmentSockets === undefined
+      ? {}
+      : { augmentSockets: initial.augmentSockets }),
   }
 }
 export async function applyCurrency(
@@ -686,6 +693,25 @@ export async function applyCurrency(
     throw new Error(
       'Could not verify the coupled roll model. Your item is unchanged. Please retry.',
     )
+  const oldSockets = state.augmentSockets ?? null
+  const newSockets = next.augmentSockets ?? null
+  if (
+    (action === 'ARTIFICER' &&
+      v.applied &&
+      (state.baseItemId !== 'Metadata/Items/Armours/Gloves/FourGlovesStr1' ||
+        oldSockets !== 0 ||
+        newSockets !== 1 ||
+        next.rarity !== state.rarity ||
+        !sameModifiers(next.explicits, state.explicits) ||
+        !sameModifiers(next.implicits, state.implicits) ||
+        v.events.length !== 0 ||
+        v.assumptions.length !== 0 ||
+        v.consumedOmens.length !== 0)) ||
+    ((action !== 'ARTIFICER' || !v.applied) && newSockets !== oldSockets)
+  )
+    throw new Error(
+      'Could not verify the Augment Sockets. Your item is unchanged. Please retry.',
+    )
   const families = new Set<string>()
   let prefixes = 0
   let suffixes = 0
@@ -717,6 +743,7 @@ export async function applyCurrency(
           ? -1
           : baseAction === 'CHAOS' ||
               action === 'DIVINE' ||
+              action === 'ARTIFICER' ||
               action === 'FRACTURING' ||
               replacementTargets.length > 0
             ? 0

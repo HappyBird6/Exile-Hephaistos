@@ -1,3 +1,4 @@
+> 2026-10-03 Workbench extension: optional nullable `augmentSockets` preserves a reviewed ordinary Stocky empty-socket count0/1. Missing/null on old items means unknown; only fresh Stocky placement supplies zero. All ordinary Workbench copies/crafts/refusals retain it. Support/Explorer bucket projection remains affix-only and does not create socket state. [Delivered Artificer path, compatibility and evidence](workbench-stocky-artificer-2026-10-03.md).
 # Solar Amulet ItemState
 
 2026-10-01 추가: 독립 Workbench에서 일반 화폐 6종의 실제 수치 roll과 적용을 지원한다. 아래 버킷 탐색 모델과 별도이며 [Workbench simulator 명세](workbench-simulator.md)를 따른다. 붙여넣기 catalog 매핑과 특수 제작은 아직 미지원이다.

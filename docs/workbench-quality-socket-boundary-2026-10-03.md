@@ -1,3 +1,5 @@
+> Historical guard checkpoint. The ordinary Artificer gap is subsequently resolved by [the Stocky delivery](workbench-stocky-artificer-2026-10-03.md); exceptional/resource states and Scrap remain unresolved.
+
 # Quality/socket source gaps and lossless Workbench boundary (2026-10-03)
 
 ## Source decision

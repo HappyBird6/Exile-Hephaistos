@@ -89,7 +89,7 @@ class StockyWorkbenchTest {
       assertThat(rare.applied()).isTrue();
       assertThat(rare.state().implicits()).isEmpty();
       assertThat(rare.state().explicits()).hasSize(4);
-      assertThat(rare.ruleVersion()).isEqualTo("stocky-workbench-reviewed-alloys-v25");
+      assertThat(rare.ruleVersion()).isEqualTo("stocky-workbench-artificer-v26");
       var locked =
           service.apply(rare.state(), WorkbenchCurrency.FRACTURING, Set.of(), random).state();
       var fracture =
@@ -264,7 +264,7 @@ class StockyWorkbenchTest {
         }
       }
     }
-    assertThat(service.actions(root, Set.of())).hasSize(56);
+    assertThat(service.actions(root, Set.of())).hasSize(57);
     assertThat(
             service.actions(
                 new ItemState(
