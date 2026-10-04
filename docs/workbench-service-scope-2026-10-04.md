@@ -1,3 +1,5 @@
+> 최신 완료 집계 (2026-10-04): registry220 = active170(implemented170 = default163 + opt-in legacy7, pending0) + deferred50(보존 구현8 + 미구현42). Catalyst26는 검증된 제한 base만 IMPLEMENTED로 정리했다. 전체 구현178은 deferred8을 포함하므로 현재 사용 가능 수가 아니다. 아래의 이전 집계는 checkpoint 이력이다. [정의·base 제한·검증](workbench-catalyst-registry-2026-10-04.md).
+
 > 현재 후속 구현: [Catalyst 및 UX 정책](workbench-catalyst-ux-2026-10-04.md). 서비스 선택144/registry220/제외76은 유지한다. ordinary catalyst13의 최대 품질 적용을 추가해 실행 가능한 종류는131이며, refined13은 Jewel 전용이나 현재 Jewel catalog가 없어 명시적으로 거절한다. 아래118/26 및 중단 문구는 이전 checkpoint 이력이다. 최종 검증은 후속 문서와 evidence를 따른다.
 
 # Workbench 최신 범위와 legacy 징조 5종 — 2026-10-04

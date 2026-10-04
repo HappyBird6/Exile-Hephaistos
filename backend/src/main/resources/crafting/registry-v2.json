@@ -3615,11 +3615,30 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "CATALYST_FLESH",
+      "reason": "Reviewed Solar Amulet and Iron Ring only; other item classes and all Jewels remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "solar",
+        "ring"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Flesh_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Neural_Catalyst",
@@ -3630,11 +3649,30 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "CATALYST_NEURAL",
+      "reason": "Reviewed Solar Amulet and Iron Ring only; other item classes and all Jewels remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "solar",
+        "ring"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Neural_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Carapace_Catalyst",
@@ -3645,11 +3683,30 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "CATALYST_CARAPACE",
+      "reason": "Reviewed Solar Amulet and Iron Ring only; other item classes and all Jewels remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "solar",
+        "ring"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Carapace_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Uul-Netols_Catalyst",
@@ -3660,11 +3717,30 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "CATALYST_UUL_NETOL",
+      "reason": "Reviewed Solar Amulet and Iron Ring only; other item classes and all Jewels remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "solar",
+        "ring"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Uul-Netols_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Xophs_Catalyst",
@@ -3675,11 +3751,30 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "CATALYST_XOPH",
+      "reason": "Reviewed Solar Amulet and Iron Ring only; other item classes and all Jewels remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "solar",
+        "ring"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Xophs_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Tuls_Catalyst",
@@ -3690,11 +3785,30 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "CATALYST_TUL",
+      "reason": "Reviewed Solar Amulet and Iron Ring only; other item classes and all Jewels remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "solar",
+        "ring"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Tuls_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Eshs_Catalyst",
@@ -3705,11 +3819,30 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "CATALYST_ESH",
+      "reason": "Reviewed Solar Amulet and Iron Ring only; other item classes and all Jewels remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "solar",
+        "ring"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Eshs_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Chayulas_Catalyst",
@@ -3720,11 +3853,30 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "CATALYST_CHAYULA",
+      "reason": "Reviewed Solar Amulet and Iron Ring only; other item classes and all Jewels remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "solar",
+        "ring"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Chayulas_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Reaver_Catalyst",
@@ -3735,11 +3887,30 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "CATALYST_REAVER",
+      "reason": "Reviewed Solar Amulet and Iron Ring only; other item classes and all Jewels remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "solar",
+        "ring"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Reaver_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Sibilant_Catalyst",
@@ -3750,11 +3921,30 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "CATALYST_SIBILANT",
+      "reason": "Reviewed Solar Amulet and Iron Ring only; other item classes and all Jewels remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "solar",
+        "ring"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Sibilant_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Skittering_Catalyst",
@@ -3765,11 +3955,30 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "CATALYST_SKITTERING",
+      "reason": "Reviewed Solar Amulet and Iron Ring only; other item classes and all Jewels remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "solar",
+        "ring"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Skittering_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Adaptive_Catalyst",
@@ -3780,11 +3989,30 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "CATALYST_ADAPTIVE",
+      "reason": "Reviewed Solar Amulet and Iron Ring only; other item classes and all Jewels remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "solar",
+        "ring"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Adaptive_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Necrotic_Catalyst",
@@ -3795,11 +4023,30 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
+      "action": "CATALYST_NECROTIC",
+      "reason": "Reviewed Solar Amulet and Iron Ring only; other item classes and all Jewels remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "solar",
+        "ring"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Necrotic_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Refined_Flesh_Catalyst",
@@ -3810,11 +4057,32 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED_BASE",
+      "action": "REFINED_CATALYST_FLESH",
+      "reason": "Reviewed Basic Jewels only; Time-Lost source lacks jewel_catalyst. Ordinary Catalyst targets remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "ruby",
+        "emerald",
+        "sapphire",
+        "diamond"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Refined_Flesh_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Refined_Neural_Catalyst",
@@ -3825,11 +4093,32 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED_BASE",
+      "action": "REFINED_CATALYST_NEURAL",
+      "reason": "Reviewed Basic Jewels only; Time-Lost source lacks jewel_catalyst. Ordinary Catalyst targets remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "ruby",
+        "emerald",
+        "sapphire",
+        "diamond"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Refined_Neural_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Refined_Carapace_Catalyst",
@@ -3840,11 +4129,32 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED_BASE",
+      "action": "REFINED_CATALYST_CARAPACE",
+      "reason": "Reviewed Basic Jewels only; Time-Lost source lacks jewel_catalyst. Ordinary Catalyst targets remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "ruby",
+        "emerald",
+        "sapphire",
+        "diamond"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Refined_Carapace_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Refined_Uul-Netols_Catalyst",
@@ -3855,11 +4165,32 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED_BASE",
+      "action": "REFINED_CATALYST_UUL_NETOL",
+      "reason": "Reviewed Basic Jewels only; Time-Lost source lacks jewel_catalyst. Ordinary Catalyst targets remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "ruby",
+        "emerald",
+        "sapphire",
+        "diamond"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Refined_Uul-Netols_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Refined_Xophs_Catalyst",
@@ -3870,11 +4201,32 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED_BASE",
+      "action": "REFINED_CATALYST_XOPH",
+      "reason": "Reviewed Basic Jewels only; Time-Lost source lacks jewel_catalyst. Ordinary Catalyst targets remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "ruby",
+        "emerald",
+        "sapphire",
+        "diamond"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Refined_Xophs_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Refined_Tuls_Catalyst",
@@ -3885,11 +4237,32 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED_BASE",
+      "action": "REFINED_CATALYST_TUL",
+      "reason": "Reviewed Basic Jewels only; Time-Lost source lacks jewel_catalyst. Ordinary Catalyst targets remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "ruby",
+        "emerald",
+        "sapphire",
+        "diamond"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Refined_Tuls_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Refined_Eshs_Catalyst",
@@ -3900,11 +4273,32 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED_BASE",
+      "action": "REFINED_CATALYST_ESH",
+      "reason": "Reviewed Basic Jewels only; Time-Lost source lacks jewel_catalyst. Ordinary Catalyst targets remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "ruby",
+        "emerald",
+        "sapphire",
+        "diamond"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Refined_Eshs_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Refined_Chayulas_Catalyst",
@@ -3915,11 +4309,32 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED_BASE",
+      "action": "REFINED_CATALYST_CHAYULA",
+      "reason": "Reviewed Basic Jewels only; Time-Lost source lacks jewel_catalyst. Ordinary Catalyst targets remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "ruby",
+        "emerald",
+        "sapphire",
+        "diamond"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Refined_Chayulas_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Refined_Reaver_Catalyst",
@@ -3930,11 +4345,32 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED_BASE",
+      "action": "REFINED_CATALYST_REAVER",
+      "reason": "Reviewed Basic Jewels only; Time-Lost source lacks jewel_catalyst. Ordinary Catalyst targets remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "ruby",
+        "emerald",
+        "sapphire",
+        "diamond"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Refined_Reaver_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Refined_Sibilant_Catalyst",
@@ -3945,11 +4381,32 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED_BASE",
+      "action": "REFINED_CATALYST_SIBILANT",
+      "reason": "Reviewed Basic Jewels only; Time-Lost source lacks jewel_catalyst. Ordinary Catalyst targets remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "ruby",
+        "emerald",
+        "sapphire",
+        "diamond"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Refined_Sibilant_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Refined_Skittering_Catalyst",
@@ -3960,11 +4417,32 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED_BASE",
+      "action": "REFINED_CATALYST_SKITTERING",
+      "reason": "Reviewed Basic Jewels only; Time-Lost source lacks jewel_catalyst. Ordinary Catalyst targets remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "ruby",
+        "emerald",
+        "sapphire",
+        "diamond"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Refined_Skittering_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Refined_Adaptive_Catalyst",
@@ -3975,11 +4453,32 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED_BASE",
+      "action": "REFINED_CATALYST_ADAPTIVE",
+      "reason": "Reviewed Basic Jewels only; Time-Lost source lacks jewel_catalyst. Ordinary Catalyst targets remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "ruby",
+        "emerald",
+        "sapphire",
+        "diamond"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Refined_Adaptive_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Refined_Necrotic_Catalyst",
@@ -3990,11 +4489,32 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.921650+00:00",
       "sourceSha256": "9473c88b8e18d2bf247e3cd391c3d6fd4b604dbf2686a70dfae467cab2fe93b1",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "UNSUPPORTED_BASE",
+      "action": "REFINED_CATALYST_NECROTIC",
+      "reason": "Reviewed Basic Jewels only; Time-Lost source lacks jewel_catalyst. Ordinary Catalyst targets remain excluded.",
+      "serviceScope": "ACTIVE",
+      "registrationHistory": {
+        "effectStatus": "PENDING_RULE_VERIFICATION",
+        "solarStatus": "NOT_VALIDATED",
+        "action": null,
+        "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+        "sourceCheckpoint": "2026-09-23 display inventory",
+        "supersededBy": "2026-10-04 verified Catalyst application"
+      },
+      "supportedBases": [
+        "ruby",
+        "emerald",
+        "sapphire",
+        "diamond"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Refined_Necrotic_Catalyst",
+      "ruleVerifiedAt": "2026-10-04",
+      "verificationEvidence": [
+        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
+        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
+      ],
+      "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality."
     },
     {
       "id": "Diluted_Liquid_Ire",
@@ -5140,43 +5660,16 @@
     "date": "2026-10-04",
     "registered": 220,
     "active": 170,
-    "implementedActive": 144,
-    "defaultImplemented": 137,
+    "implementedActive": 170,
+    "defaultImplemented": 163,
     "optInLegacyImplemented": 7,
-    "pending": 26,
+    "pending": 0,
     "deferred": 50,
     "previousDeferred": 65,
     "newDeferred": 11,
-    "catalystService": "EXISTING_FOUNDATION_PRESERVED_APPLICATION_PENDING",
+    "catalystService": "VERIFIED_RESTRICTED_BASE_APPLICATION",
     "qualityArchive": "RETAINED_WITH_EXISTING_REVIEWED_DISPLAY",
-    "pendingIds": [
-      "Flesh_Catalyst",
-      "Neural_Catalyst",
-      "Carapace_Catalyst",
-      "Uul-Netols_Catalyst",
-      "Xophs_Catalyst",
-      "Tuls_Catalyst",
-      "Eshs_Catalyst",
-      "Chayulas_Catalyst",
-      "Reaver_Catalyst",
-      "Sibilant_Catalyst",
-      "Skittering_Catalyst",
-      "Adaptive_Catalyst",
-      "Necrotic_Catalyst",
-      "Refined_Flesh_Catalyst",
-      "Refined_Neural_Catalyst",
-      "Refined_Carapace_Catalyst",
-      "Refined_Uul-Netols_Catalyst",
-      "Refined_Xophs_Catalyst",
-      "Refined_Tuls_Catalyst",
-      "Refined_Eshs_Catalyst",
-      "Refined_Chayulas_Catalyst",
-      "Refined_Reaver_Catalyst",
-      "Refined_Sibilant_Catalyst",
-      "Refined_Skittering_Catalyst",
-      "Refined_Adaptive_Catalyst",
-      "Refined_Necrotic_Catalyst"
-    ],
+    "pendingIds": [],
     "completedLegacyFiveIds": [
       "Omen_of_Sinistral_Alchemy",
       "Omen_of_Dextral_Alchemy",
@@ -5198,5 +5691,22 @@
       "time-lost-sapphire": 14,
       "time-lost-diamond": 4
     }
+  },
+  "catalystRegistryCheckpoint": {
+    "date": "2026-10-04",
+    "ordinary": 13,
+    "refined": 13,
+    "ordinaryBases": [
+      "solar",
+      "ring"
+    ],
+    "refinedBases": [
+      "ruby",
+      "emerald",
+      "sapphire",
+      "diamond"
+    ],
+    "excluded": "Time-Lost Jewels and all other reviewed bases; no blanket item-class support",
+    "countsDefinition": "IMPLEMENTED means at least one verified positive execution path on supportedBases, not every base or established game odds."
   }
 }

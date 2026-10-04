@@ -1,3 +1,5 @@
+> 최신 완료 집계 (2026-10-04): registry220 = active170(implemented170 = default163 + opt-in legacy7, pending0) + deferred50(보존 구현8 + 미구현42). Catalyst26는 검증된 제한 base만 IMPLEMENTED로 정리했다. 전체 구현178은 deferred8을 포함하므로 현재 사용 가능 수가 아니다. 아래의 이전 집계는 checkpoint 이력이다. [정의·base 제한·검증](workbench-catalyst-registry-2026-10-04.md).
+
 # Ancient Liquid와 Time-Lost Jewel
 
 기준 SHA `d36ef9a6a8a5b4371d59c09cf5d295eb1b2f0833`. 이번 묶음은 Ancient Liquid 13종과 Time-Lost Ruby/Emerald/Sapphire/Diamond의 실제 제작 경로를 추가한다. live 18080/18081, 사용자 browser/storage, 기존 DB volume은 변경하지 않는다. 로컬 commit만 허용하며 push·merge·deploy·release는 하지 않는다.
