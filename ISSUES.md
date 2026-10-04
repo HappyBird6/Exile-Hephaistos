@@ -365,14 +365,19 @@ Next independent review: Adaptive conditional effect, Swift two-family exclusion
 
 기폭제26의 보류 취소를 반영했다. 이전 메뉴숨김·입력비활성·quality-display API 차단은 이번 작업 변경만 되돌렸고 모델·테스트·원문·film을 보존한다. active144/pending26/deferred76/registry220, 구현체118/전체126. 신규 보류11은 품질화폐3·특수Essence2·Wisdom/Chance/Extraction3·Catalysing1·Necromancy2다. 기존보류65 유지. 기폭제 실제 적용과 새UX는 피드백 수집 완료 후 조정한다. 훼손 신규 조사/개발은 하지 않는다.
 
-# WB-041 — IMPLEMENTATION CHECKPOINT / VALIDATION PENDING — legacy5
+# WB-041 — COMPLETE / GAME EVIDENCE GAPS OPEN — legacy5
+
+최종 검증은 WB-042에서 완료했다: Backend362+6, FE 고유344/정적검사/build,9-base API640, browser95 PASS. 아래 중단 기록은 이전 checkpoint 이력이며 실패·복구 횟수를 보존한다. 현재 범위 구현/검증118, catalyst pending26; 사용자 live server에는 미반영이다. legacy Alchemy 내부 joint odds와 실제 실패소모 근거 gap은 유지한다.
 
 Sinistral/Dextral Alchemy·Coronation과 Greater Annulment 기본 효과는 현재 PoE2DB Omen에 명확하다. 공식0.3 획득중단을 효과삭제와 구분하고 일반 경로를 구현했다. 기존 engine/base/slots/family/ilvl을 공유하며 same-trigger 조합·tiered currency·one-removal GreaterAnnulment만 안전하게 거부한다. fractured Magic은 기존 validator가 거부한다. GreaterAnnulment는 unlocked2개 순차 비복원 제거로 fracture를 보존한다.
 
 Alchemy 최대방향3개 먼저/반대1개 후 conditional published weight draw는 가역적 제품 모델이며 실제 게임 내부순서·joint odds를 확인한 사실이 아니다. legacy-alchemy-order-v1 UNVERIFIED assumption으로 film에 남긴다. 실제 실패소모·제거가능1개·same-trigger 조합·tieredRegal은 미확인 게임사실로 좁게 유지한다. 서비스 실패 자원보존은 승인된 제품선택이다. rollback은 새enum/분기/metadata/UI만 되돌리고 기존film/원문/DB를 보존한다.
 
 검증: scope복귀 전 BE check/generateJooq/bootJar PASS(357unit+6integration), legacy5 4tests PASS. FE 격리복사 npmci/lint/typecheck PASS 뒤 변경link label format 중단; unit/build/runtimeAPI/browser 미실행. 운영명세 작업전체복구2회를 사용해 추가재시도 중단. 사용자 테스트서버/실제localStorage는 변경하지 않았다. [최신 근거·재개](docs/workbench-service-scope-2026-10-04.md).
-# WB-042 — IMPLEMENTED / VALIDATION BLOCKED — Omen composition and local removal preview (2026-10-04)
+# WB-042 — COMPLETE / BOUNDED GAME GAPS OPEN — Omen composition and local removal preview (2026-10-04)
+
+- **최종 완료**: 사용자 명시 continuous 지시에 따른 한정 harness 복구1묶음에서 FE fixture22 PASS, 이전 변경 없는322와 합쳐 고유344 PASS. Backend362 unit/ArchUnit +6integration 및 check/generateJooq/bootJar, FE npmci/lint/type/format/build PASS.9-base API640, browser95/page errors0,390px/1440px 후보 카드 visual QA와 film reload PASS. source537개 SHA 일치. 이전2회·최초API/browser 실패 이력은 아래 보존한다. 구현118/검증113 pending 구분은 최종 로컬 검증118로 대체하며 live 반영 아님. 모든 substantive assertions 유지; FE/계약 타입·browser 대기 fixture만 복구했고 제품 코드 추가 변경 없음.
+- isolated project18280/18281 정상 stop, 사용자18080/18081·기존4 container·DB/storage 보존, shared heavy slot 반환. 별도 i18n `242954aa0822e572cb999a439d0b7a1abfb5f24a` 통합하지 않음. 다음 catalyst 실제 적용/UX와 이후 i18n 통합검증을 위한 clean checkpoint다.390px document overflow는 없고 orange 후보/안내는 보이나 기존 고정 currency canvas 일부가 panel 내부에 잘리는 모습은 다음 UX 검토 항목으로 기록한다. 신규 responsive 기능 범위 추가 없음.
 
 - 사용자 명시 구현 승인으로 omen bundle과 legacy5 최종 검증을 재개했다. 기준 `0c044759`, `workbench/20261002`, 단독 writer. 이전 bundle의 복구2회 이력은 보존하며 이번 승인 이후의 결함 수정·재검증도 최대2회로 제한한다. 사용자 서버18080/18081과 실제 browser/localStorage는 보존한다.
 - 확정 제품 규칙: Sinistral Erasure + Whittling은 unlocked prefix 후보를 먼저 제한한 뒤 그 안에서 `requiredItemLevel` 최솟값을 선택한다. 동률은1/N. 이는 명시 사용자 규칙이며 독립적으로 확인된 실제 게임 순서/확률로 표현하지 않는다. frontend는 현재 catalog/state에서 후보 전체를 계산하고 orange 표시한다. hover별 API 요청 없음.

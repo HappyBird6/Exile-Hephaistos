@@ -1,6 +1,6 @@
 # Omen 조합과 로컬 후보 미리보기 — 2026-10-04
 
-기준 `0c044759`, branch `workbench/20261002`. 기존 legacy5의 검증 마무리와 사용자 요청한 omen 조합/후보 미리보기 묶음이다. 구현은 완료했지만 최종 검증은 복구2회 한도에서 중단된 checkpoint다. 구현118과 기존 검증완료113을 구분하며 사용자 서버18080/18081은 이번 묶음 반영 대상이 아니다.
+기준 `0c044759`, branch `workbench/20261002`. 기존 legacy5와 사용자 요청한 omen 조합/후보 미리보기 묶음의 구현·최종 검증을 완료했다. 기존 검증113에서5종을 추가 검증해 현재 범위 구현/검증118, pending26, deferred76이다. 사용자 서버18080/18081은 갱신하지 않았으므로 로컬 검증 완료와 live 제공을 구분한다. 게임 엔진 내부 joint odds/실패 소모까지 확인했다는 뜻은 아니다.
 
 ## 제거 순서와 미리보기
 
@@ -33,18 +33,18 @@ modifier level 없는 special affix와 Fractured Whittling은 사용자 인게�
 
 `codex/omen-bundle-20261004`의 전용 복사본과 Compose18280/18281을 사용한다. PostgreSQL tmpfs와 전용 Redis, synthetic fixtures, 새 headless browser context를 사용하며 기존 volumes·DB·환경설정·사용자 storage를 보존한다. frontend 원본은 read-only mount로 읽고 `frontend-check`에서 npm/build를 실행한다. 이전 원본 출력 덮어쓰기 auto-review 거부를 우회하지 않는다. Backend/Frontend/API/browser는 공유 QA slot 승인 후 순차 실행한다.
 
-실행 결과와 원본 실패는 [검증 근거](evidence/workbench-omen-composition-validation-2026-10-04.json)에 기록했다. Backend362+6 및 check/jooq/jar, FE 정적검사/build PASS. 전체 unit343/344 PASS 뒤 관련22 재검사21/22 PASS. 마지막 literal 순서 정정 후 unit 재검사는 미실행이다. API18, browser8 Solar 검사 PASS 후 각각 raw-array atomic 비교와 film 전환 대기에서 중단했다. 이를 전체9-base/legacy5/layout 완료로 집계하지 않는다. 격리 services는 정상 stop했고 사용자4 services는 보존했다.
+실행 결과와 원본 실패는 [검증 근거](evidence/workbench-omen-composition-validation-2026-10-04.json)에 기록했다. 최종 Backend362 unit/ArchUnit +6integration 및 check/jooq/jar, FE npmci/lint/type/format/build PASS. FE는 전체 실행의 변경 없는322개 통과와 최종 MaterialStash22개 통과를 합쳐 고유344개를 검증했다. 소스537개 SHA 일치; 제품 소스 변화가 없어서 성공한 전체 검사를 반복하지 않았다. API640/9base, browser95/page errors0,390px/1440px candidate-card visual QA와 film reload PASS. 기존 full343/344와 관련21/22, 최초API18/browser8 후 harness 실패를 이력으로 보존한다. 격리 services는 최종 검사 후 정상 stop했고 사용자4 services·기존DB/storage는 보존했다.
 
-## 다음 재개 범위
+## 완료한 한정 복구 이력
 
-운영명세의 기본 복구2회를 모두 사용했다. 이후 부모가 제시한 사용자 명시 `중단없이 진행` 지시와 사용자 지시 우선 조항을 대조해, 기존 세 harness 결함만 고치는 추가 bounded 복구1묶음으로 재개하기로 했다. 새 action-time 승인 요구는 운영명세에 없으며 기존 승인 범위를 다시 묻지 않는다. 기존2회 횟수·실패를 삭제하거나 stage/session으로 초기화하지 않는다. i18n이 shared QA slot을 사용 중이므로 repaired script는 준비/구문 확인만 하고 runtime 재검증은 slot 반환 후 진행한다. 반복 실패 시 캡처와 원인을 보고하며 임의 추가 반복하지 않는다.
+운영명세의 기본 복구2회 후 부모가 제시한 사용자 명시 `중단없이 진행` 지시와 사용자 지시 우선 조항을 대조해 기존 세 harness 결함만 추가 bounded1묶음으로 복구했다. 기존2회 횟수·실패를 삭제하거나 stage/session으로 초기화하지 않았다. repaired scripts를 먼저 commit한 뒤 i18n standalone QA가 slot을 반환할 때까지 heavy 검사를 하지 않았다. slot 승인 후 FE22→API→browser 순차 재검증이 모두 통과했다. 아래는 완료한 복구 내용이다.
 
-1. 최종 정정된 `MaterialStash.test.tsx`22개를 검증한다. 기존 ordinary Essence19×4=76, 별도 special4와 Delirium/Insanity 제외를 유지한다. 마지막 failure는 추가한 special ID 순서의 fixture 오류였으며 실제 목록은 변경하지 않았다.
+1. 최종 정정된 `MaterialStash.test.tsx`22개 PASS. 기존 ordinary Essence19×4=76, 별도 special4와 Delirium/Insanity 제외를 유지했다. 마지막 failure는 추가한 special ID 순서의 fixture 오류였으며 실제 목록은 변경하지 않았다.
 2. API 읽기 전용 재진단으로 Solar fixture의 배열은 이미 canonical 순서였음을 확인했다. 이전 배열순서 추론을 정정한다. initial.state는 `StateBucket`이라 optional `augmentSockets/catalystQuality`가 없고 apply.state는 `ItemState`라 null 필드가 생기는 계약 차이가 raw equality의 구체적인 원인이다. fixture에 기존 nullable defaults를 명시하고 기존 정렬 계약만 적용한다. 다른 모든 필드와 각 roll·fractured flag를 보존하며 원자적 events/assumptions/소모 검사는 유지한다. 실패 request/raw response/parsed response를 새 파일에 캡처하고 나머지9-base/legacy5 검사를 완료한다. repaired 실행 전까지 최초 실패를 PASS로 재표시하지 않는다.
 3. browser restore에서 선택한 film의 active ID/cursor와 DOM step이 반영될 때까지 기다린 뒤 Previous를 조작한다. 같은 active film은 비동기 재선택을 생략한다. 각 Previous 후 cursor와 DOM 감소를 기다린다. Solar 성공8개는 보존하고 나머지9-base, legacy5, Greater+Homogenising tiered 실제 동작, 390px screenshot, reload 검사를 완료한다. 실패 시 마지막 request/response/film/DOM 상태를 새 파일로 캡처한다.
 
-준비된 재현 script는 [QA harness](../scripts/qa/omen-composition-20261004/README.md)에 commit했다. product code 변경이나 assertion 삭제 없음. Node `--check`3개 PASS는 syntax 확인이고 API/browser runtime 검증이 아니다.
+재현 script는 [QA harness](../scripts/qa/omen-composition-20261004/README.md)에 commit했다. 복구 중 product code 변경이나 assertion 삭제 없음. Node syntax3개 PASS와 API640/browser95 runtime PASS를 별도로 기록한다.390px에서 candidate 카드/안내와 document overflow 검사는 통과했지만 기존 고정 화폐 canvas 일부가 panel 내부에 잘리는 모습은 다음 요청된 UX bundle 검토 항목이다. 이번에 responsive redesign을 추가하지 않았다.
 
-`codex/omen-bundle-20261004`의 실패 scripts/logs와 source-equivalence를 보존했다. Runtime jar와 frontend dist는 격리 폴더에만 있다. 병행 i18n worker `db78a7b`와의 통합은 별도 권한과 통합검증이 필요하다. 이 checkpoint는 push/merge/deploy 완료를 의미하지 않는다.
+`codex/omen-bundle-20261004`의 최초 실패 scripts/logs와 최종 결과·screenshots·source-equivalence를 보존했다. Runtime jar와 frontend dist는 격리 폴더에만 있다. 병행 i18n 최종 branch `242954aa0822e572cb999a439d0b7a1abfb5f24a`는 부모 보고 기준351FE/224browser standalone PASS이며 이번 branch에 통합하지 않았다. 이후 통합 소스의 별도 검증이 필요하다. 이 로컬 완료는 push/merge/deploy 완료를 의미하지 않는다.
 
 근거: 기존 `codex/omen-audit-20261004/OMEN_RULE_AUDIT_20261004.md`, `all-32-omens.json`; [서비스 범위](workbench-service-scope-2026-10-04.md); [WB-042](../ISSUES.md). broad research 재수행 없음. 다음 묶음은 catalyst 실제 적용과 UX, 이후 Korean-first i18n 통합이며 이번 bundle은 기존 영어 UI를 유지한다.

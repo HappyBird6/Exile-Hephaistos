@@ -1,8 +1,8 @@
 # Workbench 최신 범위와 legacy 징조 5종 — 2026-10-04
 
-**최종 검증 재개가 필요한 로컬 구현 checkpoint**다. 최신 사용자 지시로 기폭제 서비스 제외가 취소됐으므로 기존 메뉴·typed 품질 입력·품질 미리보기 API를 보존한다. 실제 기폭제 적용과 새 UX는 피드백 수집 완료 후 조정한다. 사용자 테스트 중인 서버와 실제 브라우저 저장소는 변경하지 않았다.
+**최종 검증 완료된 로컬 구현**이다. 최신 사용자 지시로 기폭제 서비스 제외가 취소됐으므로 기존 메뉴·typed 품질 입력·품질 미리보기 API를 보존한다. 실제 기폭제 적용과 새 UX는 다음 묶음이다. 사용자 테스트 중인 서버와 실제 브라우저 저장소는 변경하지 않았다.
 
-최신 후속 checkpoint: [Omen composition](workbench-omen-composition-2026-10-04.md), [실행 근거](evidence/workbench-omen-composition-validation-2026-10-04.json), WB-042. 명시 승인 후 tiered currency와 한정된 병용·로컬 후보 표시를 구현했고 Backend362+6/필수 검사 및 FE 정적검사/build를 통과했다. 전체 FE343/344, 마지막 관련21/22, API18/browser8 이후 harness failure와 복구2회 한도로 중단했다. 최종 legacy5/9-base 실행완료 집계는 여전히 미완료이며 구현118/검증113을 유지한다. 아래 검증 절은 이전 checkpoint 이력이다. 같은-trigger 전체·Greater/Perfect 전체 거부는 최신 allowlist로 대체했고 미확인 게임 의미는 WB-042에 구체적으로 남겼다.
+최신 완료: [Omen composition](workbench-omen-composition-2026-10-04.md), [실행 근거](evidence/workbench-omen-composition-validation-2026-10-04.json), WB-042. tiered currency와 한정된 병용·로컬 후보 표시, legacy5 검증을 완료했다. Backend362+6/필수 검사, FE 정적검사/build와 고유344 unit, API640/9base, browser95/page error0 및390px/1440px 후보-card visual QA PASS. 기존 검증113에 legacy5를 추가해 현재 구현/검증118이다. live server 반영은 하지 않았다. 아래 검증 절은 이전 checkpoint 이력이며 최초 실패와 복구2회+사용자 명시 지시에 따른 bounded 추가1묶음을 보존한다. 같은-trigger 전체·Greater/Perfect 전체 거부는 최신 allowlist로 대체했고 미확인 게임 의미는 WB-042에 구체적으로 남겼다.
 
 ## 범위 검산
 
@@ -12,13 +12,13 @@
 |---|---:|---|
 | 등록 inventory |220|현재 획득 가능·서비스 제공을 의미하지 않음|
 | 현재 개발 범위 |144|기본111 + opt-in legacy7 + 기폭제 미구현26|
-| 현재 범위 구현체 |118|기본111 + legacy7; 이번5의 전체 runtime 검증은 미완료|
+| 현재 범위 구현/검증 |118|기본111 + opt-in legacy7; 최종 로컬 runtime 검증 완료, live server 갱신 아님|
 | 현재 범위 미구현 |26|일반/제련 Catalyst13+13 실제 적용|
 | 보류 |76|기존65 + 신규11; 기존 구현 Alloy8 포함|
 | registry 전체 구현체 |126|현재118 + 보존 Alloy8|
 | registry 전체 미구현 |94|현재26 + 보류 미구현68|
 
-9base·source modifier1487·기본 제작용 일반 품질 표시는 유지한다. 범위 상태는 registry `serviceScope`로 효과 구현 상태와 분리한다. 118은 전체 검증 완료 숫자가 아니다.
+9base·source modifier1487·기본 제작용 일반 품질 표시는 유지한다. 범위 상태는 registry `serviceScope`로 효과 구현 상태와 분리한다.118은 승인된 모델의 구현 검증이며 현재 획득 가능 재료 수나 실제 게임 joint odds 보증이 아니다.
 
 ## 기폭제와 보존 경계
 
@@ -42,7 +42,7 @@ Catalysing Exaltation과 Necromancy2는 계속 보류한다. 훼손(Desecration)
 
 별도 기폭제나 훼손 시스템 의존이 없다. 공통 base·slot·family·화폐 엔진을 재사용한다. 기존 Homogenising2와 이번5는 `Show legacy Omens` opt-in이다. 획득 가능 재료로 표시하지 않는다.
 
-게임 사실 gap은 Alchemy 내부 추첨 순서·정확한 joint odds, Greater Annulment의 제거 가능1개 동작, 같은 trigger 조합, Greater/Perfect Regal, 실제 실패 소모다. 해당 예외만 원자적으로 거부한다. fractured Magic은 기존 validator가 거부하며 경계를 완화하지 않는다. 실패 자원 보존은 서비스 정책이고 실제 게임 실패 소모의 증거가 아니다.
+게임 사실 gap은 Alchemy 내부 추첨 순서·정확한 joint odds, Greater Annulment의 제거 가능1개 동작, allowlist 밖의 같은 trigger 조합, 실제 실패 소모다. Greater/Perfect Regal은 directional/Homogenising 효과와 기존 minimum-added-level pool의 명시적 UNVERIFIED 합성 모델로 지원한다. fractured Magic은 기존 validator가 거부하며 경계를 완화하지 않는다. 실패 자원 보존은 서비스 정책이고 실제 게임 실패 소모의 증거가 아니다.
 
 사용자 승인된 가역적 모델 선택: Alchemy 최대방향3개 먼저·반대1개 후 conditional published weight draw. 내부 순서를 확인했다고 하지 않고 `legacy-alchemy-order-v1` UNVERIFIED assumption과 film evidence에 남긴다. 정확한 game odds로 표시하지 않는다. WB-041에 gap과 rollback을 기록했다.
 

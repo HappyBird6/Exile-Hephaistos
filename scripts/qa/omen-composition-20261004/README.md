@@ -10,6 +10,6 @@
 
 StateBucket→ItemState 비교는 이미 정해진 nullable `augmentSockets/catalystQuality`와 canonical list order만 맞춘다. 다른 필드·각 original roll·fractured flag는 유지하고 deep equality와 events/assumptions/소모 없음 검사를 그대로 적용한다. Browser restore는 다른 session의 catalog loading 뒤 active ID·DOM step 반영을 기다리고, 같은 active session은 재선택 없이 이전 frame으로 이동한다. 각 클릭 후 저장 cursor·DOM step 감소를 확인한다.
 
-이 파일들은 한정 재개를 위해 준비됐고 아직 repaired runtime QA PASS를 의미하지 않는다. 원래 복구2회는 보존한다. 사용자의 명시 `중단없이 진행` 지시를 우선한 추가 bounded harness 복구1묶음으로 기록하며, stage/session으로 기존 횟수를 초기화하지 않는다. 반복 실패 시 캡처와 원인을 보고하고 임의 추가 반복하지 않는다. i18n slot 반환 전 heavy command는 실행하지 않는다.
+최종 한정 복구에서 FE22/API640/browser95 PASS. 원래 복구2회와 최초 실패는 보존했다. 사용자의 명시 `중단없이 진행` 지시를 우선한 추가 bounded harness 복구1묶음으로 기록하며 stage/session으로 기존 횟수를 초기화하지 않았다. i18n slot 반환과 부모 grant 후 heavy command를 순차 실행했다. 결과는 특정 최종 소스·격리 catalog의 검증이며 미래 source에 자동 적용하지 않는다.
 
 관련 계약·이력: [모델과 checkpoint](../../../docs/workbench-omen-composition-2026-10-04.md), [검증 근거](../../../docs/evidence/workbench-omen-composition-validation-2026-10-04.json), [Worker 운영 명세](../../../docs/solo-workflow/MULTI_SESSION_WORKFLOW.md).
