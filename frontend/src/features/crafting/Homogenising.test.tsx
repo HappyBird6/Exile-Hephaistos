@@ -183,7 +183,7 @@ it('default stash hides legacy; explicit opt-in names availability and unverifie
     screen.queryByRole('button', { name: 'Omen of Homogenising Exaltation' }),
   ).toBeNull()
   fireEvent.click(
-    screen.getByRole('checkbox', { name: 'Show legacy Homogenising Omens' }),
+    screen.getByRole('checkbox', { name: 'Show legacy Omens' }),
   )
   expect(
     screen.getByRole('button', { name: 'Omen of Homogenising Exaltation' }),
@@ -192,7 +192,9 @@ it('default stash hides legacy; explicit opt-in names availability and unverifie
     screen.getByText(/actual game failure consumption is unverified/),
   ).toBeVisible()
   expect(
-    screen.getByRole('link', { name: 'Official availability source' }),
+    screen.getByRole('link', {
+      name: 'Official Homogenising source',
+    }),
   ).toHaveAttribute(
     'href',
     'https://www.pathofexile.com/forum/view-thread/3883495/filter-account-type/staff',

@@ -1,5 +1,8 @@
 # Project issues
 
+> 최신 사용자 지시 (2026-10-04): 기폭제 서비스 제외 취소. 현재144 = 기본111 + legacy7 + 기폭제 미구현26, 보류76 = 기존65 + 신규11, registry220/구현체126. 기존 기폭제 메뉴·typed 품질 입력/API·film·모델·테스트 보존. 실제 적용과 UX는 사용자 피드백 수집 후 조정. Catalysing 및 Necromancy2·훼손 신규 개발은 계속 보류. 이번5는 구현 checkpoint이며 최종 FE/API/browser 검증 미완료. [최신 범위](docs/workbench-service-scope-2026-10-04.md).
+
+
 ## WB-039 — DONE USER REVIEW — 최종 사용자 동선과 지원 경계
 
 - 검토 코드 HEAD `bbe608d1f673667269c26ab473bcb5194b38f103`, branch `workbench/20261002`. 최신 QA immutable JAR와 HTML bundle 일치 확인. 핵심 UX browser30 PASS/page errors0; Shift/빈곳 취소/Omen 우클릭 활성·충돌/Alt/좌우 stash/새 film/과거 제작 원본 미래/저장 실패·손상 보존 확인. 390px screenshot 자체 리뷰. 추가 표시 경계와 실행 실패는 [최종 증거](docs/evidence/workbench-final-user-review-2026-10-04.json)에 분리 기록.
@@ -357,3 +360,15 @@ Next independent review: Adaptive conditional effect, Swift two-family exclusion
 - rollback: 이 묶음의 enum/규칙/UI/registry 변경을 되돌림. saved film/raw values를 삭제·재작성하지 않음. [근거·범위·검증](docs/workbench-homogenising-legacy-2026-10-03.md).
 
 최종 UI 보정 검증: 기존 node:24-alpine에서 lint/typecheck/format:check, 관련3파일30개, build PASS. 최종 build layout10개(390px/1440px)와 screenshot 자체 리뷰 PASS. 추가 node:22-bookworm 선택 오류는 test startup 이전 native binding 실패로 기록하며, lockfile/의존성은 바꾸지 않았다.
+
+# WB-040 — REVISED / CHECKPOINT — 최신 사용자 범위
+
+기폭제26의 보류 취소를 반영했다. 이전 메뉴숨김·입력비활성·quality-display API 차단은 이번 작업 변경만 되돌렸고 모델·테스트·원문·film을 보존한다. active144/pending26/deferred76/registry220, 구현체118/전체126. 신규 보류11은 품질화폐3·특수Essence2·Wisdom/Chance/Extraction3·Catalysing1·Necromancy2다. 기존보류65 유지. 기폭제 실제 적용과 새UX는 피드백 수집 완료 후 조정한다. 훼손 신규 조사/개발은 하지 않는다.
+
+# WB-041 — IMPLEMENTATION CHECKPOINT / VALIDATION PENDING — legacy5
+
+Sinistral/Dextral Alchemy·Coronation과 Greater Annulment 기본 효과는 현재 PoE2DB Omen에 명확하다. 공식0.3 획득중단을 효과삭제와 구분하고 일반 경로를 구현했다. 기존 engine/base/slots/family/ilvl을 공유하며 same-trigger 조합·tiered currency·one-removal GreaterAnnulment만 안전하게 거부한다. fractured Magic은 기존 validator가 거부한다. GreaterAnnulment는 unlocked2개 순차 비복원 제거로 fracture를 보존한다.
+
+Alchemy 최대방향3개 먼저/반대1개 후 conditional published weight draw는 가역적 제품 모델이며 실제 게임 내부순서·joint odds를 확인한 사실이 아니다. legacy-alchemy-order-v1 UNVERIFIED assumption으로 film에 남긴다. 실제 실패소모·제거가능1개·same-trigger 조합·tieredRegal은 미확인 게임사실로 좁게 유지한다. 서비스 실패 자원보존은 승인된 제품선택이다. rollback은 새enum/분기/metadata/UI만 되돌리고 기존film/원문/DB를 보존한다.
+
+검증: scope복귀 전 BE check/generateJooq/bootJar PASS(357unit+6integration), legacy5 4tests PASS. FE 격리복사 npmci/lint/typecheck PASS 뒤 변경link label format 중단; unit/build/runtimeAPI/browser 미실행. 운영명세 작업전체복구2회를 사용해 추가재시도 중단. 사용자 테스트서버/실제localStorage는 변경하지 않았다. [최신 근거·재개](docs/workbench-service-scope-2026-10-04.md).

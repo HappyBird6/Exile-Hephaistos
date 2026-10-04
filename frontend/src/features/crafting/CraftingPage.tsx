@@ -1,3 +1,4 @@
+import { inServiceScope } from './serviceScope'
 import { maximumQuality } from './qualityLimit'
 import { catalystTypes, catalystProjection } from './catalystQuality'
 import type { CatalystQuality } from './catalystQuality'
@@ -32,7 +33,7 @@ import {
   workbenchCurrencyActions,
   workbenchActionNames,
   workbenchOmens,
-  legacyHomogenisingIds,
+  legacyOmenIds,
   compatibleOmenPair,
   mapSolarText,
 } from './workbenchApi'
@@ -653,8 +654,9 @@ export function CraftingPage() {
   const search = searches[activeTab] ?? ''
   const currentMaterials = materials.filter(
     (m) =>
+      inServiceScope(m.id) &&
       m.category === activeTab &&
-      (showLegacyOmens || !legacyHomogenisingIds.includes(m.id)) &&
+      (showLegacyOmens || !legacyOmenIds.includes(m.id)) &&
       m.name.toLowerCase().includes(search.trim().toLowerCase()),
   )
   function materialButton(material: Material) {
@@ -685,7 +687,7 @@ export function CraftingPage() {
         </span>
         <span>
           {material.name}
-          {legacyHomogenisingIds.includes(material.id) ? ' (Legacy)' : ''}
+          {legacyOmenIds.includes(material.id) ? ' (Legacy)' : ''}
         </span>
       </button>
     )
@@ -1008,7 +1010,7 @@ export function CraftingPage() {
                   }
                 >
                   {activeTab === 'Currency' ? (
-                    currencies.map((currency) => {
+                    currencies.filter((currency) => inServiceScope(currency.id)).map((currency) => {
                       const name = currencyNames[currency.id]
                       return (
                         <button
@@ -1058,12 +1060,17 @@ export function CraftingPage() {
                                 setShowLegacyOmens(event.target.checked)
                               }
                             />{' '}
-                            Show legacy Homogenising Omens
+                            Show legacy Omens
                           </label>
                           {showLegacyOmens && (
                             <p>
-                              Drop disabled in 0.4; existing items work.
-                              Ordinary Exalted / Regal only. Greater Exaltation
+                              Homogenising: drops disabled in 0.4; existing items
+                              work.
+                              Alchemy, Coronation and Greater Annulment: no longer
+                              obtainable in 0.3. Legacy effects are modeled on
+                              ordinary currency; current acquisition is not
+                              asserted.
+                              Ordinary currency only. Greater Exaltation
                               uses pre-craft tags for both additions. Other
                               same-trigger combinations and catalyst quality are
                               unsupported. Failed requests preserve resources
@@ -1074,7 +1081,14 @@ export function CraftingPage() {
                                 target="_blank"
                                 rel="noreferrer"
                               >
-                                Official availability source
+                                Official Homogenising source
+                              </a>{' '}
+                              <a
+                                href="https://www.pathofexile.com/forum/view-thread/3826682"
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                Official 0.3 availability
                               </a>
                             </p>
                           )}

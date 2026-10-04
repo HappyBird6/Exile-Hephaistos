@@ -1,3 +1,4 @@
+import { inServiceScope } from './serviceScope'
 // Display catalog only. Source pages, retrieval date and hashes: public/assets/materials/sources.json.
 export const materialTabs = [
   { id: 'Currency', label: 'Currency' },
@@ -1097,19 +1098,24 @@ export const materials: readonly Material[] = [
   },
 ]
 
-export const specialEssences = materials.filter((m) =>
-  [
-    'Essence_of_Horror',
-    'Essence_of_Hysteria',
-    'Essence_of_Insanity',
-    'Essence_of_Delirium',
-    'Essence_of_the_Breach',
-    'Essence_of_the_Abyss',
-  ].includes(m.id),
+export const specialEssences = materials.filter(
+  (m) =>
+    inServiceScope(m.id) &&
+    [
+      'Essence_of_Horror',
+      'Essence_of_Hysteria',
+      'Essence_of_Insanity',
+      'Essence_of_Delirium',
+      'Essence_of_the_Breach',
+      'Essence_of_the_Abyss',
+    ].includes(m.id),
 )
 export function essenceRows(query: string): (Material | null)[][] {
   const regular = materials.filter(
-    (m) => m.category === 'Essence' && !specialEssences.includes(m),
+    (m) =>
+      inServiceScope(m.id) &&
+      m.category === 'Essence' &&
+      !specialEssences.includes(m),
   )
   const families = [
     ...new Set(

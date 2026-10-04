@@ -221,7 +221,7 @@ class WorkbenchControllerTest {
         .andExpect(jsonPath("$.events[0].kind").value("ADD"))
         .andExpect(
             jsonPath("$.ruleVersion")
-                .value("solar-workbench-abyss-essence-v16-homogenising-legacy-v1"));
+                .value("solar-workbench-abyss-essence-v16-homogenising-legacy-v1-legacy-five-v1"));
     mvc.perform(
             post("/api/v1/crafting/workbench/apply")
                 .contentType(MediaType.APPLICATION_JSON)

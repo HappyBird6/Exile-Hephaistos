@@ -99,7 +99,7 @@ public final class WorkbenchSimulator {
   }
 
   public String ruleVersion() {
-    return baseRuleVersion() + "-homogenising-legacy-v1";
+    return baseRuleVersion() + "-homogenising-legacy-v1-legacy-five-v1";
   }
 
   private String baseRuleVersion() {
@@ -309,6 +309,16 @@ public final class WorkbenchSimulator {
     if (action == WorkbenchCurrency.ALCHEMY) {
       if (state.rarity() != ItemState.Rarity.NORMAL && state.rarity() != ItemState.Rarity.MAGIC)
         return blocked(action, "Alchemy requires a Normal or Magic item.");
+      if (omen != null) {
+        if (state.explicits().stream().anyMatch(ModifierInstance::fractured))
+          return blocked(action, "Legacy Alchemy with Fractured modifiers is not verified.");
+        if (!completeLegacyAlchemy(
+            copy(state, ItemState.Rarity.RARE, state.implicits(), List.of()),
+            omen,
+            new HashMap<>()))
+          return blocked(
+              action, "Legacy Alchemy needs a complete maximum-affix four-modifier pool.");
+      }
       return new Availability(action, true, "");
     }
     if (action == WorkbenchCurrency.DIVINE) {
@@ -337,6 +347,10 @@ public final class WorkbenchSimulator {
       var removals = removalCandidates(state, omen);
       if (removals.isEmpty())
         return blocked(action, "No eligible explicit modifier can be removed with this omen.");
+      if (omen == WorkbenchOmen.GREATER_ANNULMENT && removals.size() < 2)
+        return blocked(
+            action,
+            "Greater Annulment needs two removable modifiers; one-removal behavior is not verified.");
       if (kind == CraftingAction.CHAOS)
         for (var removed : removals) {
           var rest = new ArrayList<>(state.explicits());
@@ -354,6 +368,56 @@ public final class WorkbenchSimulator {
 
   private Availability blocked(WorkbenchCurrency action, String reason) {
     return new Availability(action, false, reason);
+  }
+
+  private WorkbenchOmen alchemySide(ItemState state, WorkbenchOmen omen) {
+    int maximum =
+        omen.affix() == ModifierDefinition.AffixType.PREFIX
+            ? catalog.base().rarePrefixes()
+            : catalog.base().rareSuffixes();
+    return state.explicits().size() < maximum
+        ? omen
+        : omen == WorkbenchOmen.SINISTRAL_ALCHEMY
+            ? WorkbenchOmen.DEXTRAL_ALCHEMY
+            : WorkbenchOmen.SINISTRAL_ALCHEMY;
+  }
+
+  /**
+   * Verify every family branch before drawing; tiers with identical families have identical future
+   * eligibility.
+   */
+  private boolean completeLegacyAlchemy(
+      ItemState state, WorkbenchOmen omen, Map<String, Boolean> memo) {
+    if (state.explicits().size() == 4) return true;
+    var key =
+        state.explicits().stream()
+                .flatMap(m -> catalog.find(m.modifierId()).orElseThrow().familyIds().stream())
+                .sorted()
+                .toList()
+                .toString()
+            + ":"
+            + state.explicits().size();
+    if (memo.containsKey(key)) return memo.get(key);
+    var candidates = pool(state, WorkbenchCurrency.ALCHEMY, alchemySide(state, omen));
+    if (candidates.isEmpty()) {
+      memo.put(key, false);
+      return false;
+    }
+    var families = new HashSet<Set<String>>();
+    for (var d : candidates) {
+      if (!families.add(d.familyIds())) continue;
+      var next = new ArrayList<>(state.explicits());
+      var values = new HashMap<String, Long>();
+      for (var stat : d.stats()) values.put(stat.id(), stat.min());
+      next.add(new ModifierInstance(d.id(), values));
+      if (!completeLegacyAlchemy(
+          copy(state, state.rarity(), state.implicits(), next), omen, memo)) {
+        memo.put(key, false);
+        return false;
+      }
+    }
+    memo.put(key, true);
+    return true;
   }
 
   private boolean canAddFixed(ItemState state, ModifierDefinition target) {
@@ -529,10 +593,23 @@ public final class WorkbenchSimulator {
               "https://poe2db.tw/us/Fractured_Modifiers",
               "Uniform among supported explicit instances on this supported Rare base, including verified essence results; no published fracture selection weights."));
     } else if (action == WorkbenchCurrency.ALCHEMY) {
+      if (omen != null)
+        assumptions.add(
+            new Assumption(
+                "legacy-alchemy-order-v1",
+                "affix draw order",
+                4,
+                List.of(),
+                null,
+                null,
+                "https://poe2db.tw/us/Omen",
+                "UNVERIFIED model order: fill the guaranteed maximum affix side first, then the other side, using published conditional weights. The card confirms maximum count, not game draw order or exact odds."));
       for (var old : explicits) events.add(new Event("REMOVE", old.modifierId(), Map.of(), 1));
       explicits.clear();
       for (int i = 0; i < 4; i++) {
-        var candidates = pool(copy(state, rarity, implicits, explicits), action, null);
+        var intermediate = copy(state, rarity, implicits, explicits);
+        var candidates =
+            pool(intermediate, action, omen == null ? null : alchemySide(intermediate, omen));
         if (candidates.isEmpty())
           throw new IllegalArgumentException("Alchemy needs a complete four-modifier pool");
         long total = candidates.stream().mapToLong(ModifierDefinition::weight).sum();
@@ -574,25 +651,28 @@ public final class WorkbenchSimulator {
     } else {
       if (action.baseAction() == CraftingAction.ANNULMENT
           || action.baseAction() == CraftingAction.CHAOS) {
-        var candidates = removalCandidates(state, omen);
-        var removed = candidates.get(random.nextInt(candidates.size()));
-        explicits.remove(removed);
-        events.add(new Event("REMOVE", removed.modifierId(), Map.of(), 1.0 / candidates.size()));
-        assumptions.add(
-            new Assumption(
-                "uniform-removal-v1",
-                "eligible explicit modifier instance",
-                candidates.size(),
-                candidates.stream().map(ModifierInstance::modifierId).toList(),
-                null,
-                null,
-                omen == null
-                    ? "https://poe2db.tw/us/"
-                        + (action.baseAction() == CraftingAction.CHAOS
-                            ? "Chaos_Orb"
-                            : "Orb_of_Annulment")
-                    : "https://poe2db.tw/us/" + omen.id(),
-                "Uniform among eligible removal instances, after affix or lowest modifier-level restriction; no published removal weights."));
+        int removals = omen == WorkbenchOmen.GREATER_ANNULMENT ? 2 : 1;
+        for (int removal = 0; removal < removals; removal++) {
+          var candidates = removalCandidates(copy(state, rarity, implicits, explicits), omen);
+          var removed = candidates.get(random.nextInt(candidates.size()));
+          explicits.remove(removed);
+          events.add(new Event("REMOVE", removed.modifierId(), Map.of(), 1.0 / candidates.size()));
+          assumptions.add(
+              new Assumption(
+                  "uniform-removal-v1",
+                  "eligible explicit modifier instance",
+                  candidates.size(),
+                  candidates.stream().map(ModifierInstance::modifierId).toList(),
+                  null,
+                  null,
+                  omen == null
+                      ? "https://poe2db.tw/us/"
+                          + (action.baseAction() == CraftingAction.CHAOS
+                              ? "Chaos_Orb"
+                              : "Orb_of_Annulment")
+                      : "https://poe2db.tw/us/" + omen.id(),
+                  "Uniform among eligible removal instances, after affix or lowest modifier-level restriction; no published removal weights."));
+        }
       }
       if (action.baseAction() != CraftingAction.ANNULMENT) {
         int additions = WorkbenchOmen.verifiedDoubleAddition(matched) ? 2 : 1;

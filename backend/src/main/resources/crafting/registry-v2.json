@@ -35,7 +35,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Orb_of_Augmentation",
@@ -65,7 +66,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Orb_of_Annulment",
@@ -95,7 +97,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Orb_of_Alchemy",
@@ -122,7 +125,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Regal_Orb",
@@ -152,7 +156,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Exalted_Orb",
@@ -182,7 +187,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Chaos_Orb",
@@ -212,7 +218,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Vaal_Orb",
@@ -227,7 +234,8 @@
       "solarStatus": "NOT_VALIDATED",
       "action": null,
       "reason": "Excluded from the current Workbench implementation scope by user request on 2026-10-02; registered data is retained. This is not a completion blocker.",
-      "implementationScope": "USER_EXCLUDED_CURRENT_SCOPE"
+      "implementationScope": "USER_EXCLUDED_CURRENT_SCOPE",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Fracturing_Orb",
@@ -255,7 +263,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Divine_Orb",
@@ -284,7 +293,8 @@
         "sceptre",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Orb_of_Transmutation",
@@ -314,7 +324,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Orb_of_Transmutation",
@@ -344,7 +355,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Orb_of_Augmentation",
@@ -374,7 +386,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Orb_of_Augmentation",
@@ -404,7 +417,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Regal_Orb",
@@ -434,7 +448,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Regal_Orb",
@@ -464,7 +479,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Exalted_Orb",
@@ -494,7 +510,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Exalted_Orb",
@@ -524,7 +541,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Chaos_Orb",
@@ -554,7 +572,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Chaos_Orb",
@@ -584,7 +603,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Hinekoras_Lock",
@@ -599,7 +619,8 @@
       "solarStatus": "NOT_VALIDATED",
       "action": null,
       "reason": "Excluded from the current Workbench implementation scope by user request on 2026-10-02; registered data is retained. This is not a completion blocker.",
-      "implementationScope": "USER_EXCLUDED_CURRENT_SCOPE"
+      "implementationScope": "USER_EXCLUDED_CURRENT_SCOPE",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Lesser_Essence_of_the_Body",
@@ -617,7 +638,8 @@
       "supportedBases": [
         "solar",
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Lesser_Essence_of_the_Mind",
@@ -635,7 +657,8 @@
       "supportedBases": [
         "solar",
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Lesser_Essence_of_Enhancement",
@@ -655,7 +678,8 @@
         "stocky"
       ],
       "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Enhancement",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Lesser_Essence_of_Abrasion",
@@ -675,7 +699,8 @@
       ],
       "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Abrasion",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Lesser_Essence_of_Flames",
@@ -695,7 +720,8 @@
       ],
       "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Flames",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Lesser_Essence_of_Ice",
@@ -715,7 +741,8 @@
       ],
       "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Ice",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Lesser_Essence_of_Electricity",
@@ -735,7 +762,8 @@
       ],
       "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Electricity",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Lesser_Essence_of_Ruin",
@@ -753,7 +781,8 @@
       "supportedBases": [
         "solar",
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Lesser_Essence_of_Battle",
@@ -773,7 +802,8 @@
       ],
       "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Battle",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Lesser_Essence_of_Sorcery",
@@ -802,7 +832,8 @@
         "modifierIds": [
           "attuned-wand:prefix:adept-s"
         ]
-      }
+      },
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Lesser_Essence_of_Haste",
@@ -822,7 +853,8 @@
       ],
       "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Haste",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Lesser_Essence_of_the_Infinite",
@@ -839,7 +871,8 @@
       "reason": "Magic Solar becomes Rare with one sourced Strength/Dexterity/Intelligence suffix; uniform 1/3 choice assumption. All three catalog-level outcomes must be eligible. Any attribute overlap and low-level bypass remain unsupported.",
       "supportedBases": [
         "solar"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Essence_of_the_Body",
@@ -857,7 +890,8 @@
       "supportedBases": [
         "solar",
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Essence_of_the_Mind",
@@ -875,7 +909,8 @@
       "supportedBases": [
         "solar",
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Essence_of_Enhancement",
@@ -895,7 +930,8 @@
         "stocky"
       ],
       "ruleSource": "https://poe2db.tw/us/Essence_of_Enhancement",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Essence_of_Abrasion",
@@ -915,7 +951,8 @@
       ],
       "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "ruleSource": "https://poe2db.tw/us/Essence_of_Abrasion",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Essence_of_Flames",
@@ -935,7 +972,8 @@
       ],
       "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "ruleSource": "https://poe2db.tw/us/Essence_of_Flames",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Essence_of_Ice",
@@ -955,7 +993,8 @@
       ],
       "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "ruleSource": "https://poe2db.tw/us/Essence_of_Ice",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Essence_of_Electricity",
@@ -975,7 +1014,8 @@
       ],
       "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "ruleSource": "https://poe2db.tw/us/Essence_of_Electricity",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Essence_of_Ruin",
@@ -993,7 +1033,8 @@
       "supportedBases": [
         "solar",
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Essence_of_Battle",
@@ -1013,7 +1054,8 @@
       ],
       "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "ruleSource": "https://poe2db.tw/us/Essence_of_Battle",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Essence_of_Sorcery",
@@ -1042,7 +1084,8 @@
         "modifierIds": [
           "attuned-wand:prefix:professor-s"
         ]
-      }
+      },
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Essence_of_Haste",
@@ -1062,7 +1105,8 @@
       ],
       "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "ruleSource": "https://poe2db.tw/us/Essence_of_Haste",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Essence_of_the_Infinite",
@@ -1079,7 +1123,8 @@
       "reason": "Magic Solar becomes Rare with one sourced Strength/Dexterity/Intelligence suffix; uniform 1/3 choice assumption. All three catalog-level outcomes must be eligible. Any attribute overlap and low-level bypass remain unsupported.",
       "supportedBases": [
         "solar"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Essence_of_the_Body",
@@ -1097,7 +1142,8 @@
       "supportedBases": [
         "solar",
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Essence_of_the_Mind",
@@ -1115,7 +1161,8 @@
       "supportedBases": [
         "solar",
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Essence_of_Enhancement",
@@ -1135,7 +1182,8 @@
         "stocky"
       ],
       "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Enhancement",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Essence_of_Abrasion",
@@ -1155,7 +1203,8 @@
       ],
       "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Abrasion",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Essence_of_Flames",
@@ -1175,7 +1224,8 @@
       ],
       "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Flames",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Essence_of_Ice",
@@ -1195,7 +1245,8 @@
       ],
       "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Ice",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Essence_of_Electricity",
@@ -1215,7 +1266,8 @@
       ],
       "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Electricity",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Essence_of_Ruin",
@@ -1233,7 +1285,8 @@
       "supportedBases": [
         "solar",
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Essence_of_Battle",
@@ -1255,7 +1308,8 @@
       ],
       "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Battle",
       "ruleVerifiedAt": "2026-10-03",
-      "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL"
+      "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Essence_of_Sorcery",
@@ -1284,7 +1338,8 @@
         "modifierIds": [
           "attuned-wand:prefix:incanter-s"
         ]
-      }
+      },
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Essence_of_Haste",
@@ -1304,7 +1359,8 @@
       ],
       "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Haste",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Essence_of_the_Infinite",
@@ -1321,7 +1377,8 @@
       "reason": "Magic Solar becomes Rare with one sourced Strength/Dexterity/Intelligence suffix; uniform 1/3 choice assumption. All three catalog-level outcomes must be eligible. Any attribute overlap and low-level bypass remain unsupported.",
       "supportedBases": [
         "solar"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Essence_of_the_Body",
@@ -1350,7 +1407,8 @@
         "modifierIds": [
           "rusted-cuirass:prefix:essence-maximum-life-percent"
         ]
-      }
+      },
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Essence_of_the_Mind",
@@ -1379,7 +1437,8 @@
         "modifierIds": [
           "iron-ring:prefix:essence-increased-maximum-mana"
         ]
-      }
+      },
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Essence_of_Enhancement",
@@ -1399,7 +1458,8 @@
       "implementationScope": "Rare Solar, modifier item level 72+, remove one unlocked explicit and add the sourced global defences prefix. Every removal branch must permit the result. Crystallisation side restriction and fractured preservation supported. Single guaranteed result, uniform removal and integer 20-30 roll assumptions only.",
       "supportedBases": [
         "solar"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Essence_of_Abrasion",
@@ -1421,7 +1481,8 @@
       "ruleVerifiedAt": "2026-10-03",
       "ruleSourceSha256": "07c55ce7bec49d6f833bc37b0919ab13fe806280444a105f292f892fb253703d",
       "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraPhysical1",
-      "minimumSupportedItemLevel": 72
+      "minimumSupportedItemLevel": 72,
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Essence_of_Flames",
@@ -1443,7 +1504,8 @@
       "ruleVerifiedAt": "2026-10-03",
       "ruleSourceSha256": "583af851285e28472cb8a60d111c48aedb7b117d8c5257206c810276104fe9be",
       "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraFire1",
-      "minimumSupportedItemLevel": 72
+      "minimumSupportedItemLevel": 72,
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Essence_of_Ice",
@@ -1465,7 +1527,8 @@
       "ruleVerifiedAt": "2026-10-03",
       "ruleSourceSha256": "d46fa5db000413838715715e3905af99b68af6913bab038ec3bbda7f40ed1cef",
       "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraCold1",
-      "minimumSupportedItemLevel": 72
+      "minimumSupportedItemLevel": 72,
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Essence_of_Electricity",
@@ -1487,7 +1550,8 @@
       "ruleVerifiedAt": "2026-10-03",
       "ruleSourceSha256": "7fee407fc36dcc4432e66fd02af8397c4b76a2e5fcd124298dfd9fc3a694923e",
       "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraLightning1",
-      "minimumSupportedItemLevel": 72
+      "minimumSupportedItemLevel": 72,
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Essence_of_Ruin",
@@ -1516,7 +1580,8 @@
         "modifierIds": [
           "rusted-cuirass:prefix:essence-physical-taken-as-chaos"
         ]
-      }
+      },
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Essence_of_Battle",
@@ -1538,7 +1603,8 @@
       "ruleVerifiedAt": "2026-10-03",
       "ruleSourceSha256": "8d5835057fc21d420517d90d2023b1caf2bd46b46ccc919e3cc939e35bf911e3",
       "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAttackSkillLevel1H1",
-      "minimumSupportedItemLevel": 72
+      "minimumSupportedItemLevel": 72,
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Essence_of_Sorcery",
@@ -1567,7 +1633,8 @@
         "modifierIds": [
           "attuned-wand:suffix:essence-spell-skill-level"
         ]
-      }
+      },
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Essence_of_Haste",
@@ -1589,7 +1656,8 @@
       "ruleVerifiedAt": "2026-10-03",
       "ruleSourceSha256": "a1e05c331c7e4aec314c8dc235c58a2a112303da76eaf46a5597ac6e0737909f",
       "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceOnslaughtonKill1",
-      "minimumSupportedItemLevel": 72
+      "minimumSupportedItemLevel": 72,
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Essence_of_the_Infinite",
@@ -1609,7 +1677,8 @@
       "implementationScope": "Rare Solar, item level 72+, remove one unlocked explicit and add one sourced percentage attribute suffix. Crystallisation side restriction supported; every removal branch must permit all three outcomes. Uniform 1/3 choice is an explicit assumption, not ordinary spawn weighting.",
       "supportedBases": [
         "solar"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Lesser_Essence_of_Seeking",
@@ -1642,7 +1711,8 @@
         "modifierIds": [
           "attuned-wand:suffix:of-havoc:spellcriticalstrikechance2"
         ]
-      }
+      },
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Essence_of_Seeking",
@@ -1675,7 +1745,8 @@
         "modifierIds": [
           "attuned-wand:suffix:of-disaster"
         ]
-      }
+      },
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Essence_of_Seeking",
@@ -1708,7 +1779,8 @@
         "modifierIds": [
           "attuned-wand:suffix:of-calamity"
         ]
-      }
+      },
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Essence_of_Seeking",
@@ -1737,7 +1809,8 @@
         "modifierIds": [
           "rusted-cuirass:suffix:essence-reduced-incoming-critical-damage"
         ]
-      }
+      },
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Essence_of_Hysteria",
@@ -1755,7 +1828,8 @@
       "supportedBases": [
         "solar",
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Essence_of_Delirium",
@@ -1769,7 +1843,9 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED",
+      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability."
     },
     {
       "id": "Essence_of_Horror",
@@ -1789,7 +1865,8 @@
       "implementationScope": "Stocky Mitts affix assignment only; Solar unsupported; no socket effect simulation.",
       "supportedBases": [
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Essence_of_Insanity",
@@ -1803,7 +1880,9 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED",
+      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability."
     },
     {
       "id": "Essence_of_the_Abyss",
@@ -1824,7 +1903,8 @@
       "supportedBases": [
         "solar",
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Essence_of_the_Breach",
@@ -1844,7 +1924,8 @@
       "implementationScope": "Rare Solar, modifier level 1+, remove one unlocked explicit and add the sourced fixed maximum-quality prefix. Every removal branch must permit the result. Crystallisation restrictions and fracture preservation supported. Single fixed value: no essence-choice or numeric-roll assumption. No Catalyst application, scaling or weighting is implemented.",
       "supportedBases": [
         "solar"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Lesser_Essence_of_Insulation",
@@ -1862,7 +1943,8 @@
       "supportedBases": [
         "solar",
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Essence_of_Insulation",
@@ -1880,7 +1962,8 @@
       "supportedBases": [
         "solar",
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Essence_of_Insulation",
@@ -1898,7 +1981,8 @@
       "supportedBases": [
         "solar",
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Essence_of_Insulation",
@@ -1927,7 +2011,8 @@
         "modifierIds": [
           "rawhide-belt:suffix:essence-fire-damage-recouped-as-life"
         ]
-      }
+      },
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Lesser_Essence_of_Thawing",
@@ -1945,7 +2030,8 @@
       "supportedBases": [
         "solar",
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Essence_of_Thawing",
@@ -1963,7 +2049,8 @@
       "supportedBases": [
         "solar",
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Essence_of_Thawing",
@@ -1981,7 +2068,8 @@
       "supportedBases": [
         "solar",
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Essence_of_Thawing",
@@ -2010,7 +2098,8 @@
         "modifierIds": [
           "rusted-greathelm:suffix:essence-cold-damage-recouped-as-life"
         ]
-      }
+      },
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Lesser_Essence_of_Grounding",
@@ -2028,7 +2117,8 @@
       "supportedBases": [
         "solar",
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Essence_of_Grounding",
@@ -2046,7 +2136,8 @@
       "supportedBases": [
         "solar",
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Essence_of_Grounding",
@@ -2064,7 +2155,8 @@
       "supportedBases": [
         "solar",
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Essence_of_Grounding",
@@ -2084,7 +2176,8 @@
       "implementationScope": "Stocky affix assignment at supported item level 72+ only; Solar unsupported, lower item levels unverified.",
       "supportedBases": [
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Lesser_Essence_of_Alacrity",
@@ -2113,7 +2206,8 @@
         "modifierIds": [
           "attuned-wand:suffix:of-nimbleness"
         ]
-      }
+      },
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Essence_of_Alacrity",
@@ -2142,7 +2236,8 @@
         "modifierIds": [
           "attuned-wand:suffix:of-expertise"
         ]
-      }
+      },
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Essence_of_Alacrity",
@@ -2171,7 +2266,8 @@
         "modifierIds": [
           "attuned-wand:suffix:of-legerdemain"
         ]
-      }
+      },
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Essence_of_Alacrity",
@@ -2200,7 +2296,8 @@
         "modifierIds": [
           "attuned-wand:suffix:essence-mana-cost-efficiency"
         ]
-      }
+      },
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Lesser_Essence_of_Opulence",
@@ -2218,7 +2315,8 @@
       "supportedBases": [
         "solar",
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Essence_of_Opulence",
@@ -2236,7 +2334,8 @@
       "supportedBases": [
         "solar",
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Essence_of_Opulence",
@@ -2254,7 +2353,8 @@
       "supportedBases": [
         "solar",
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Essence_of_Opulence",
@@ -2274,7 +2374,8 @@
       "implementationScope": "Stocky affix assignment at supported item level 72+ only; Solar unsupported, lower item levels unverified.",
       "supportedBases": [
         "stocky"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Lesser_Essence_of_Command",
@@ -2303,7 +2404,8 @@
         "modifierIds": [
           "rattling-sceptre:prefix:agitative"
         ]
-      }
+      },
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Essence_of_Command",
@@ -2332,7 +2434,8 @@
         "modifierIds": [
           "rattling-sceptre:prefix:provocative"
         ]
-      }
+      },
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Greater_Essence_of_Command",
@@ -2361,7 +2464,8 @@
         "modifierIds": [
           "rattling-sceptre:prefix:motivating"
         ]
-      }
+      },
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Perfect_Essence_of_Command",
@@ -2390,7 +2494,8 @@
         "modifierIds": [
           "rattling-sceptre:suffix:essence-aura-magnitude"
         ]
-      }
+      },
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Runic_Alloy",
@@ -2410,7 +2515,8 @@
       "implementationScope": "Rare Solar at modifier item level 13+, remove one unlocked explicit and add a sourced 6-10% maximum Runic Ward prefix; every removal branch must permit the result. Fractures and unrelated omens preserved. Crystallisation is Essence-only and does not restrict or consume on Alloy. No character-stat calculation or armour Runeforging is implied.",
       "supportedBases": [
         "solar"
-      ]
+      ],
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Adaptive_Alloy",
@@ -2430,7 +2536,8 @@
       "implementationScope": "Stocky sourced modifier at conservative supported ilvl 25+ only; Solar outcomes unsupported",
       "supportedBases": [
         "stocky"
-      ]
+      ],
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Protective_Alloy",
@@ -2444,7 +2551,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Expansive_Alloy",
@@ -2464,7 +2572,8 @@
       "implementationScope": "Stocky sourced suffix at conservative supported ilvl 25+ only",
       "supportedBases": [
         "stocky"
-      ]
+      ],
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Swift_Alloy",
@@ -2484,7 +2593,8 @@
       "implementationScope": "Stocky sourced modifier at conservative supported ilvl 45+ only; Solar outcomes unsupported",
       "supportedBases": [
         "stocky"
-      ]
+      ],
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Cyclonic_Alloy",
@@ -2504,7 +2614,8 @@
       "implementationScope": "Stocky sourced suffix at conservative supported ilvl 45+ only",
       "supportedBases": [
         "stocky"
-      ]
+      ],
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Prismatic_Alloy",
@@ -2524,7 +2635,8 @@
       "implementationScope": "Stocky prefix assignment at supported ilvl 45+ only; Solar and lower ilvl unsupported.",
       "supportedBases": [
         "stocky"
-      ]
+      ],
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Mystic_Alloy",
@@ -2544,7 +2656,8 @@
       "implementationScope": "Stocky sourced suffix at conservative supported ilvl 45+ only",
       "supportedBases": [
         "stocky"
-      ]
+      ],
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Sovereign_Alloy",
@@ -2564,7 +2677,8 @@
       "implementationScope": "Stocky sourced modifier at conservative supported ilvl 25+ only; Solar outcomes unsupported",
       "supportedBases": [
         "stocky"
-      ]
+      ],
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Celestial_Alloy",
@@ -2578,7 +2692,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Transcendent_Alloy",
@@ -2592,7 +2707,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "The_Runebinders_Alloy",
@@ -2606,7 +2722,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "The_Runefathers_Alloy",
@@ -2620,7 +2737,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Omen_of_Dextral_Crystallisation",
@@ -2645,7 +2763,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Omen_of_Sinistral_Crystallisation",
@@ -2670,7 +2789,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Omen_of_Whittling",
@@ -2699,7 +2819,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Omen_of_Sinistral_Erasure",
@@ -2728,7 +2849,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Omen_of_Dextral_Erasure",
@@ -2757,7 +2879,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Omen_of_Sinistral_Alchemy",
@@ -2768,12 +2891,26 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.142964+00:00",
       "sourceSha256": "745b50723b8e64b3ebf6cecaef7cbb585566402066869482c4d870d3d6d5d5b9",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
       "action": null,
-      "reason": "GGG 0.3.0 states this omen can no longer be obtained. Subsequent reintroduction is not verified; legacy rule is not enabled.",
+      "reason": "Bounded legacy ordinary-currency support; acquisition stopped in 0.3, current acquisition not asserted. Same-trigger combinations, tiered currency, one-removal Greater Annulment and Fractured Alchemy refused atomically; actual game failure consumption unverified.",
       "availabilityStatus": "NO_LONGER_OBTAINABLE_IN_0_3_0_PATCH",
-      "availabilitySource": "https://www.pathofexile.com/forum/view-thread/3826682"
+      "availabilitySource": "https://www.pathofexile.com/forum/view-thread/3826682",
+      "serviceScope": "ACTIVE",
+      "ruleSource": "https://poe2db.tw/us/Omen",
+      "ruleVerifiedAt": "2026-10-04",
+      "supportedBases": [
+        "solar",
+        "stocky",
+        "bow",
+        "wand",
+        "body",
+        "sceptre",
+        "belt",
+        "helmet",
+        "ring"
+      ]
     },
     {
       "id": "Omen_of_Dextral_Alchemy",
@@ -2784,12 +2921,26 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.142964+00:00",
       "sourceSha256": "745b50723b8e64b3ebf6cecaef7cbb585566402066869482c4d870d3d6d5d5b9",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
       "action": null,
-      "reason": "GGG 0.3.0 states this omen can no longer be obtained. Subsequent reintroduction is not verified; legacy rule is not enabled.",
+      "reason": "Bounded legacy ordinary-currency support; acquisition stopped in 0.3, current acquisition not asserted. Same-trigger combinations, tiered currency, one-removal Greater Annulment and Fractured Alchemy refused atomically; actual game failure consumption unverified.",
       "availabilityStatus": "NO_LONGER_OBTAINABLE_IN_0_3_0_PATCH",
-      "availabilitySource": "https://www.pathofexile.com/forum/view-thread/3826682"
+      "availabilitySource": "https://www.pathofexile.com/forum/view-thread/3826682",
+      "serviceScope": "ACTIVE",
+      "ruleSource": "https://poe2db.tw/us/Omen",
+      "ruleVerifiedAt": "2026-10-04",
+      "supportedBases": [
+        "solar",
+        "stocky",
+        "bow",
+        "wand",
+        "body",
+        "sceptre",
+        "belt",
+        "helmet",
+        "ring"
+      ]
     },
     {
       "id": "Omen_of_Sinistral_Coronation",
@@ -2800,12 +2951,26 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.142964+00:00",
       "sourceSha256": "745b50723b8e64b3ebf6cecaef7cbb585566402066869482c4d870d3d6d5d5b9",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
       "action": null,
-      "reason": "GGG 0.3.0 states this omen can no longer be obtained. Subsequent reintroduction is not verified; legacy rule is not enabled.",
+      "reason": "Bounded legacy ordinary-currency support; acquisition stopped in 0.3, current acquisition not asserted. Same-trigger combinations, tiered currency, one-removal Greater Annulment and Fractured Alchemy refused atomically; actual game failure consumption unverified.",
       "availabilityStatus": "NO_LONGER_OBTAINABLE_IN_0_3_0_PATCH",
-      "availabilitySource": "https://www.pathofexile.com/forum/view-thread/3826682"
+      "availabilitySource": "https://www.pathofexile.com/forum/view-thread/3826682",
+      "serviceScope": "ACTIVE",
+      "ruleSource": "https://poe2db.tw/us/Omen",
+      "ruleVerifiedAt": "2026-10-04",
+      "supportedBases": [
+        "solar",
+        "stocky",
+        "bow",
+        "wand",
+        "body",
+        "sceptre",
+        "belt",
+        "helmet",
+        "ring"
+      ]
     },
     {
       "id": "Omen_of_Dextral_Coronation",
@@ -2816,12 +2981,26 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.142964+00:00",
       "sourceSha256": "745b50723b8e64b3ebf6cecaef7cbb585566402066869482c4d870d3d6d5d5b9",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
       "action": null,
-      "reason": "GGG 0.3.0 states this omen can no longer be obtained. Subsequent reintroduction is not verified; legacy rule is not enabled.",
+      "reason": "Bounded legacy ordinary-currency support; acquisition stopped in 0.3, current acquisition not asserted. Same-trigger combinations, tiered currency, one-removal Greater Annulment and Fractured Alchemy refused atomically; actual game failure consumption unverified.",
       "availabilityStatus": "NO_LONGER_OBTAINABLE_IN_0_3_0_PATCH",
-      "availabilitySource": "https://www.pathofexile.com/forum/view-thread/3826682"
+      "availabilitySource": "https://www.pathofexile.com/forum/view-thread/3826682",
+      "serviceScope": "ACTIVE",
+      "ruleSource": "https://poe2db.tw/us/Omen",
+      "ruleVerifiedAt": "2026-10-04",
+      "supportedBases": [
+        "solar",
+        "stocky",
+        "bow",
+        "wand",
+        "body",
+        "sceptre",
+        "belt",
+        "helmet",
+        "ring"
+      ]
     },
     {
       "id": "Omen_of_Corruption",
@@ -2835,7 +3014,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Omen_of_Greater_Exaltation",
@@ -2863,7 +3043,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Omen_of_Sinistral_Exaltation",
@@ -2892,7 +3073,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Omen_of_Dextral_Exaltation",
@@ -2921,7 +3103,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Omen_of_Greater_Annulment",
@@ -2932,12 +3115,26 @@
       "sourceRetrievedAt": "2026-09-23T07:20:33.142964+00:00",
       "sourceSha256": "745b50723b8e64b3ebf6cecaef7cbb585566402066869482c4d870d3d6d5d5b9",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED",
       "action": null,
-      "reason": "GGG 0.3.0 states this omen can no longer be obtained. Subsequent reintroduction is not verified; legacy rule is not enabled.",
+      "reason": "Bounded legacy ordinary-currency support; acquisition stopped in 0.3, current acquisition not asserted. Same-trigger combinations, tiered currency, one-removal Greater Annulment and Fractured Alchemy refused atomically; actual game failure consumption unverified.",
       "availabilityStatus": "NO_LONGER_OBTAINABLE_IN_0_3_0_PATCH",
-      "availabilitySource": "https://www.pathofexile.com/forum/view-thread/3826682"
+      "availabilitySource": "https://www.pathofexile.com/forum/view-thread/3826682",
+      "serviceScope": "ACTIVE",
+      "ruleSource": "https://poe2db.tw/us/Omen",
+      "ruleVerifiedAt": "2026-10-04",
+      "supportedBases": [
+        "solar",
+        "stocky",
+        "bow",
+        "wand",
+        "body",
+        "sceptre",
+        "belt",
+        "helmet",
+        "ring"
+      ]
     },
     {
       "id": "Omen_of_Sinistral_Annulment",
@@ -2966,7 +3163,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Omen_of_Dextral_Annulment",
@@ -2995,7 +3193,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Omen_of_Answered_Prayers",
@@ -3009,7 +3208,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Omen_of_Secret_Compartments",
@@ -3023,7 +3223,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Omen_of_the_Hunt",
@@ -3037,7 +3238,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Omen_of_Reinforcements",
@@ -3051,7 +3253,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Omen_of_Homogenising_Exaltation",
@@ -3069,7 +3272,8 @@
       "availabilityStatus": "DROP_DISABLED_EXISTING_FUNCTIONAL",
       "availabilitySource": "https://www.pathofexile.com/forum/view-thread/3883495/filter-account-type/staff",
       "ruleSource": "https://www.poe2wiki.net/wiki/Omen_of_Homogenising_Exaltation",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Omen_of_Homogenising_Coronation",
@@ -3087,7 +3291,8 @@
       "availabilityStatus": "DROP_DISABLED_EXISTING_FUNCTIONAL",
       "availabilitySource": "https://www.pathofexile.com/forum/view-thread/3883495/filter-account-type/staff",
       "ruleSource": "https://www.poe2wiki.net/wiki/Omen_of_Homogenising_Coronation",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Omen_of_the_Blessed",
@@ -3113,7 +3318,8 @@
         "wand",
         "body",
         "sceptre"
-      ]
+      ],
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Omen_of_Sanctification",
@@ -3127,7 +3333,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Omen_of_Catalysing_Exaltation",
@@ -3141,7 +3348,9 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Effect text registered; candidate tag weighting, type-selection distribution, multi-add edge cases or interactions require verification."
+      "reason": "Effect text registered; candidate tag weighting, type-selection distribution, multi-add edge cases or interactions require verification.",
+      "serviceScope": "DEFERRED",
+      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability."
     },
     {
       "id": "Omen_of_the_Sovereign",
@@ -3155,7 +3364,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Omen_of_the_Liege",
@@ -3169,7 +3379,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Omen_of_the_Blackblooded",
@@ -3183,7 +3394,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Omen_of_Putrefaction",
@@ -3197,7 +3409,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Omen_of_Light",
@@ -3211,7 +3424,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Omen_of_Sinistral_Necromancy",
@@ -3225,7 +3439,9 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED",
+      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability."
     },
     {
       "id": "Omen_of_Dextral_Necromancy",
@@ -3239,7 +3455,9 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED",
+      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability."
     },
     {
       "id": "Flesh_Catalyst",
@@ -3253,7 +3471,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Neural_Catalyst",
@@ -3267,7 +3486,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Carapace_Catalyst",
@@ -3281,7 +3501,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Uul-Netols_Catalyst",
@@ -3295,7 +3516,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Xophs_Catalyst",
@@ -3309,7 +3531,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Tuls_Catalyst",
@@ -3323,7 +3546,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Eshs_Catalyst",
@@ -3337,7 +3561,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Chayulas_Catalyst",
@@ -3351,7 +3576,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Reaver_Catalyst",
@@ -3365,7 +3591,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Sibilant_Catalyst",
@@ -3379,7 +3606,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Skittering_Catalyst",
@@ -3393,7 +3621,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Adaptive_Catalyst",
@@ -3407,7 +3636,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Necrotic_Catalyst",
@@ -3421,7 +3651,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Refined_Flesh_Catalyst",
@@ -3435,7 +3666,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Refined_Neural_Catalyst",
@@ -3449,7 +3681,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Refined_Carapace_Catalyst",
@@ -3463,7 +3696,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Refined_Uul-Netols_Catalyst",
@@ -3477,7 +3711,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Refined_Xophs_Catalyst",
@@ -3491,7 +3726,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Refined_Tuls_Catalyst",
@@ -3505,7 +3741,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Refined_Eshs_Catalyst",
@@ -3519,7 +3756,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Refined_Chayulas_Catalyst",
@@ -3533,7 +3771,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Refined_Reaver_Catalyst",
@@ -3547,7 +3786,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Refined_Sibilant_Catalyst",
@@ -3561,7 +3801,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Refined_Skittering_Catalyst",
@@ -3575,7 +3816,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Refined_Adaptive_Catalyst",
@@ -3589,7 +3831,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Refined_Necrotic_Catalyst",
@@ -3603,7 +3846,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Diluted_Liquid_Ire",
@@ -3617,7 +3861,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Diluted_Liquid_Guilt",
@@ -3631,7 +3876,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Diluted_Liquid_Greed",
@@ -3645,7 +3891,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Liquid_Paranoia",
@@ -3659,7 +3906,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Liquid_Envy",
@@ -3673,7 +3921,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Liquid_Disgust",
@@ -3687,7 +3936,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Liquid_Despair",
@@ -3701,7 +3951,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Concentrated_Liquid_Fear",
@@ -3715,7 +3966,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Concentrated_Liquid_Suffering",
@@ -3729,7 +3981,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Concentrated_Liquid_Isolation",
@@ -3743,7 +3996,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Ancient_Diluted_Liquid_Ire",
@@ -3757,7 +4011,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Ancient_Diluted_Liquid_Guilt",
@@ -3771,7 +4026,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Ancient_Diluted_Liquid_Greed",
@@ -3785,7 +4041,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Ancient_Liquid_Paranoia",
@@ -3799,7 +4056,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Ancient_Liquid_Envy",
@@ -3813,7 +4071,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Ancient_Liquid_Disgust",
@@ -3827,7 +4086,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Ancient_Liquid_Despair",
@@ -3841,7 +4101,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Ancient_Concentrated_Liquid_Fear",
@@ -3855,7 +4116,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Ancient_Concentrated_Liquid_Suffering",
@@ -3869,7 +4131,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Ancient_Concentrated_Liquid_Isolation",
@@ -3883,7 +4146,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Potent_Liquid_Melancholy",
@@ -3897,7 +4161,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Potent_Liquid_Ferocity",
@@ -3911,7 +4176,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Potent_Liquid_Contempt",
@@ -3925,7 +4191,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Ancient_Potent_Liquid_Melancholy",
@@ -3939,7 +4206,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Ancient_Potent_Liquid_Ferocity",
@@ -3953,7 +4221,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Ancient_Potent_Liquid_Contempt",
@@ -3967,7 +4236,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Liquid_Verisium",
@@ -3981,7 +4251,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application."
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Blacksmiths_Whetstone",
@@ -3995,7 +4266,9 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification."
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED",
+      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability."
     },
     {
       "id": "Arcanists_Etcher",
@@ -4009,7 +4282,9 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification."
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED",
+      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability."
     },
     {
       "id": "Armourers_Scrap",
@@ -4023,7 +4298,9 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification."
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED",
+      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability."
     },
     {
       "id": "Scroll_of_Wisdom",
@@ -4037,7 +4314,9 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification."
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED",
+      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability."
     },
     {
       "id": "Orb_of_Chance",
@@ -4051,7 +4330,9 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification."
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED",
+      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability."
     },
     {
       "id": "Mirror_of_Kalandra",
@@ -4065,7 +4346,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification."
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Artificers_Orb",
@@ -4085,7 +4367,8 @@
       ],
       "implementationScope": "Ordinary empty socket count only; no Augment socketing/effect or exceptional generation.",
       "ruleSource": "https://www.poe2wiki.net/wiki/Item_socket",
-      "ruleVerifiedAt": "2026-10-03"
+      "ruleVerifiedAt": "2026-10-03",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Architects_Orb",
@@ -4099,7 +4382,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification."
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Core_Destabiliser",
@@ -4113,7 +4397,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification."
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Vaal_Cultivation_Orb",
@@ -4127,7 +4412,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification."
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Yaomacs_Orb_of_Sacrifice",
@@ -4141,7 +4427,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification."
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Kopecs_Orb_of_Sacrifice",
@@ -4155,7 +4442,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification."
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Kamasas_Orb_of_Sacrifice",
@@ -4169,7 +4457,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification."
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Yuguls_Orb_of_Sacrifice",
@@ -4183,7 +4472,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification."
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Vaal_Armourers_Infuser",
@@ -4197,7 +4487,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification."
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Vaal_Blacksmiths_Infuser",
@@ -4211,7 +4502,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification."
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Vaal_Arcanists_Infuser",
@@ -4225,7 +4517,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification."
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Vaal_Catalysing_Infuser",
@@ -4239,7 +4532,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification."
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED"
     },
     {
       "id": "Orb_of_Extraction",
@@ -4253,7 +4547,9 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification."
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED",
+      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability."
     }
   ],
   "assumptionLedger": [
@@ -4436,5 +4732,54 @@
         "COMBAT"
       ]
     }
+  },
+  "serviceScope": {
+    "date": "2026-10-04",
+    "registered": 220,
+    "active": 144,
+    "implementedActive": 118,
+    "defaultImplemented": 111,
+    "optInLegacyImplemented": 7,
+    "pending": 26,
+    "deferred": 76,
+    "previousDeferred": 65,
+    "newDeferred": 11,
+    "catalystService": "EXISTING_FOUNDATION_PRESERVED_APPLICATION_PENDING",
+    "qualityArchive": "RETAINED_WITH_EXISTING_REVIEWED_DISPLAY",
+    "pendingIds": [
+      "Flesh_Catalyst",
+      "Neural_Catalyst",
+      "Carapace_Catalyst",
+      "Uul-Netols_Catalyst",
+      "Xophs_Catalyst",
+      "Tuls_Catalyst",
+      "Eshs_Catalyst",
+      "Chayulas_Catalyst",
+      "Reaver_Catalyst",
+      "Sibilant_Catalyst",
+      "Skittering_Catalyst",
+      "Adaptive_Catalyst",
+      "Necrotic_Catalyst",
+      "Refined_Flesh_Catalyst",
+      "Refined_Neural_Catalyst",
+      "Refined_Carapace_Catalyst",
+      "Refined_Uul-Netols_Catalyst",
+      "Refined_Xophs_Catalyst",
+      "Refined_Tuls_Catalyst",
+      "Refined_Eshs_Catalyst",
+      "Refined_Chayulas_Catalyst",
+      "Refined_Reaver_Catalyst",
+      "Refined_Sibilant_Catalyst",
+      "Refined_Skittering_Catalyst",
+      "Refined_Adaptive_Catalyst",
+      "Refined_Necrotic_Catalyst"
+    ],
+    "completedLegacyFiveIds": [
+      "Omen_of_Sinistral_Alchemy",
+      "Omen_of_Dextral_Alchemy",
+      "Omen_of_Sinistral_Coronation",
+      "Omen_of_Dextral_Coronation",
+      "Omen_of_Greater_Annulment"
+    ]
   }
 }

@@ -454,6 +454,31 @@ for (const [id, base] of Object.entries(currencyActions)) {
 }
 export const workbenchOmens = [
   {
+    id: 'Omen_of_Sinistral_Alchemy',
+    trigger: 'ALCHEMY',
+    effect: 'Legacy: maximum prefixes on ordinary Alchemy',
+  },
+  {
+    id: 'Omen_of_Dextral_Alchemy',
+    trigger: 'ALCHEMY',
+    effect: 'Legacy: maximum suffixes on ordinary Alchemy',
+  },
+  {
+    id: 'Omen_of_Sinistral_Coronation',
+    trigger: 'REGAL',
+    effect: 'Legacy: add only a prefix on ordinary Regal',
+  },
+  {
+    id: 'Omen_of_Dextral_Coronation',
+    trigger: 'REGAL',
+    effect: 'Legacy: add only a suffix on ordinary Regal',
+  },
+  {
+    id: 'Omen_of_Greater_Annulment',
+    trigger: 'ANNULMENT',
+    effect: 'Legacy: remove two unlocked explicit modifiers',
+  },
+  {
     id: 'Omen_of_Homogenising_Exaltation',
     trigger: 'EXALTED',
     effect:
@@ -526,6 +551,14 @@ export const legacyHomogenisingIds: readonly string[] = [
   'Omen_of_Homogenising_Exaltation',
   'Omen_of_Homogenising_Coronation',
 ]
+export const legacyFiveIds: readonly string[] = [
+  'Omen_of_Sinistral_Alchemy',
+  'Omen_of_Dextral_Alchemy',
+  'Omen_of_Sinistral_Coronation',
+  'Omen_of_Dextral_Coronation',
+  'Omen_of_Greater_Annulment',
+]
+export const legacyOmenIds = [...legacyHomogenisingIds, ...legacyFiveIds]
 export function compatibleOmenPair(first: string, second: string): boolean {
   return (
     new Set([first, second]).size === 2 &&
@@ -1052,7 +1085,9 @@ export async function applyCurrency(
       ? 4
       : state.explicits.length +
         (baseAction === 'ANNULMENT'
-          ? -1
+          ? activeOmens.includes('Omen_of_Greater_Annulment')
+            ? -2
+            : -1
           : baseAction === 'CHAOS' ||
               action === 'DIVINE' ||
               action === 'ARTIFICER' ||
@@ -1389,6 +1424,77 @@ export async function applyCurrency(
     throw new Error(
       'Could not verify both added modifiers. Your item is unchanged. Please retry.',
     )
+  const legacyFive = legacyFiveIds.filter(
+    (id) =>
+      activeOmens.includes(id) &&
+      (id.endsWith('Alchemy')
+        ? action === 'ALCHEMY'
+        : id.endsWith('Coronation')
+          ? baseAction === 'REGAL'
+          : baseAction === 'ANNULMENT'),
+  )
+  if (v.applied && legacyFive.length > 0) {
+    const id = legacyFive[0]!
+    const trigger = id.endsWith('Alchemy')
+      ? 'ALCHEMY'
+      : id.endsWith('Coronation')
+        ? 'REGAL'
+        : 'ANNULMENT'
+    const matches = workbenchOmens.filter(
+      (o) => o.trigger === trigger && activeOmens.includes(o.id),
+    )
+    const side = id.includes('Sinistral') ? 'PREFIX' : 'SUFFIX'
+    const added = v.events.filter((e) => e.kind === 'ADD')
+    const removed = v.events.filter((e) => e.kind === 'REMOVE')
+    let valid =
+      action === trigger &&
+      matches.length === 1 &&
+      v.consumedOmens.length === 1 &&
+      v.consumedOmens[0] === id
+    if (trigger === 'ALCHEMY') {
+      valid &&=
+        !state.explicits.some((m) => m.fractured) &&
+        added.length === 4 &&
+        removed.length === state.explicits.length &&
+        next.explicits.filter(
+          (m) => definitions[m.modifierId]?.affixType === side,
+        ).length === 3
+    } else if (trigger === 'REGAL') {
+      valid &&=
+        added.length === 1 &&
+        removed.length === 0 &&
+        definitions[added[0]!.modifierId]?.affixType === side &&
+        sameModifiers(
+          state.explicits,
+          next.explicits.filter((m) =>
+            state.explicits.some((old) => old.modifierId === m.modifierId),
+          ),
+        )
+    } else {
+      const candidates = state.explicits.filter((m) => !m.fractured)
+      valid &&=
+        candidates.length >= 2 &&
+        added.length === 0 &&
+        removed.length === 2 &&
+        new Set(removed.map((e) => e.modifierId)).size === 2 &&
+        removed.every(
+          (e, i) =>
+            candidates.some((m) => m.modifierId === e.modifierId) &&
+            Object.keys(e.values).length === 0 &&
+            e.selectionProbability === 1 / (candidates.length - i),
+        ) &&
+        sameModifiers(
+          state.explicits.filter(
+            (m) => !removed.some((e) => e.modifierId === m.modifierId),
+          ),
+          next.explicits,
+        )
+    }
+    if (!valid)
+      throw new Error(
+        'Could not verify the legacy omen result. Your item is unchanged. Please retry.',
+      )
+  }
   const homogenising = legacyHomogenisingIds.find(
     (id) =>
       activeOmens.includes(id) &&

@@ -1,5 +1,8 @@
 # Workbench 최종 사용자 상태 — 2026-10-04
 
+> 최신 사용자 지시 (2026-10-04): 기폭제 서비스 제외 취소. 현재144 = 기본111 + legacy7 + 기폭제 미구현26, 보류76 = 기존65 + 신규11, registry220/구현체126. 기존 기폭제 메뉴·typed 품질 입력/API·film·모델·테스트 보존. 실제 적용과 UX는 사용자 피드백 수집 후 조정. Catalysing 및 Necromancy2·훼손 신규 개발은 계속 보류. 이번5는 구현 checkpoint이며 최종 FE/API/browser 검증 미완료. [최신 범위](workbench-service-scope-2026-10-04.md).
+
+
 Workbench의 요청된 핵심 UX와 제한된 제작 모델은 검증됐지만, 전체 게임 제작기가 완성된 상태는 아니다. 기본 지원111개와 명시적으로 켜는 legacy2개를 제공하며 개발 범위155개 중42개는 미완료다. typed Catalyst 품질은 기존 값 입력·보존·제한된 표시를 지원하지만 기폭제 사용과 화폐 상호작용은 구현하지 않았다.
 
 문서 날짜는 요청한 보고서 이름을 따른다. 시작 기준 및 검토한 실행 코드 HEAD는 `bbe608d1f673667269c26ab473bcb5194b38f103`, branch는 `workbench/20261002`다. 이번 묶음은 문서·검토 증거만 변경하며 executable code/catalog/lockfile/migration은 변경하지 않는다. 보고서 자체의 로컬 commit은 `git log -1 --format=%H -- docs/workbench-status-2026-10-04.md`로 확인한다. 최종 commit SHA는 상위 codex의 재시작 인계에도 기록한다. 원격 push/merge/deploy는 수행하지 않았다.

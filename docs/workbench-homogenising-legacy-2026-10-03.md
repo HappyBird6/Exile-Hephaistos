@@ -1,5 +1,8 @@
 # Homogenising legacy 징조 — 2026-10-03
 
+> 최신 사용자 지시 (2026-10-04): 기폭제 서비스 제외 취소. 현재144 = 기본111 + legacy7 + 기폭제 미구현26, 보류76 = 기존65 + 신규11, registry220/구현체126. 기존 기폭제 메뉴·typed 품질 입력/API·film·모델·테스트 보존. 실제 적용과 UX는 사용자 피드백 수집 후 조정. Catalysing 및 Necromancy2·훼손 신규 개발은 계속 보류. 이번5는 구현 checkpoint이며 최종 FE/API/browser 검증 미완료. [최신 범위](workbench-service-scope-2026-10-04.md).
+
+
 현재 체크포인트: **단위/API/browser 검증 완료, 로컬 commit 대상**. 기본 현재 재료111과 opt-in legacy2를 구분한다. 이전 중단과 사용자 승인에 따른 제한 재개 이력은 검증 기록과 WB-038에 보존한다.
 
 ## 근거와 가용성

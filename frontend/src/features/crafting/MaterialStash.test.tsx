@@ -69,13 +69,13 @@ describe('Material stash and shared favorites', () => {
       within(
         screen.getByRole('group', { name: 'Special essences' }),
       ).getAllByRole('button'),
-    ).toHaveLength(6)
+    ).toHaveLength(4)
     expect(
       screen.queryByRole('button', { name: 'Runic Alloy' }),
     ).not.toBeInTheDocument()
   })
 
-  it('keeps all six special essences in place during matching and empty searches', () => {
+  it('keeps all four in-scope special essences in place during matching and empty searches', () => {
     show()
     fireEvent.click(tab('Essence'))
     const special = within(
@@ -316,9 +316,9 @@ describe('Material stash and shared favorites', () => {
     show()
     const card = screen.getByRole('article')
     for (const [label, count] of [
-      ['Essence', 76],
+      ['Essence', 74],
       ['Alloy', 13],
-      ['Omen', 30],
+      ['Omen', 22],
       ['Catalysts', 26],
       ['Liquid Emotions', 27],
     ] as const) {
@@ -331,7 +331,7 @@ describe('Material stash and shared favorites', () => {
       ).toHaveLength(count)
       if (label === 'Omen') {
         const legacy = screen.getByRole('checkbox', {
-          name: 'Show legacy Homogenising Omens',
+          name: 'Show legacy Omens',
         })
         expect(legacy).not.toBeChecked()
         fireEvent.click(legacy)
@@ -339,7 +339,7 @@ describe('Material stash and shared favorites', () => {
           within(document.getElementById('material-list')!).getAllByRole(
             'button',
           ),
-        ).toHaveLength(32)
+        ).toHaveLength(29)
         expect(
           screen.getByRole('button', {
             name: 'Omen of Homogenising Exaltation',
@@ -355,7 +355,7 @@ describe('Material stash and shared favorites', () => {
           within(document.getElementById('material-list')!).getAllByRole(
             'button',
           ),
-        ).toHaveLength(30)
+        ).toHaveLength(22)
       }
       expect(
         within(

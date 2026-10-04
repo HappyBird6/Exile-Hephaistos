@@ -5,6 +5,11 @@ import java.util.Arrays;
 
 /** Only individually verified effects. Combination order is deliberately unsupported. */
 public enum WorkbenchOmen {
+  SINISTRAL_ALCHEMY("Omen_of_Sinistral_Alchemy", WorkbenchCurrency.ALCHEMY, AffixType.PREFIX),
+  DEXTRAL_ALCHEMY("Omen_of_Dextral_Alchemy", WorkbenchCurrency.ALCHEMY, AffixType.SUFFIX),
+  SINISTRAL_CORONATION("Omen_of_Sinistral_Coronation", WorkbenchCurrency.REGAL, AffixType.PREFIX),
+  DEXTRAL_CORONATION("Omen_of_Dextral_Coronation", WorkbenchCurrency.REGAL, AffixType.SUFFIX),
+  GREATER_ANNULMENT("Omen_of_Greater_Annulment", WorkbenchCurrency.ANNULMENT, null),
   SINISTRAL_CRYSTALLISATION(
       "Omen_of_Sinistral_Crystallisation", WorkbenchCurrency.ESSENCE_HYSTERIA, AffixType.PREFIX),
   DEXTRAL_CRYSTALLISATION(

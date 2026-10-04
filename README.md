@@ -1,5 +1,8 @@
 # Exile-Hephaistos
 
+> 최신 사용자 지시 (2026-10-04): 기폭제 서비스 제외 취소. 현재144 = 기본111 + legacy7 + 기폭제 미구현26, 보류76 = 기존65 + 신규11, registry220/구현체126. 기존 기폭제 메뉴·typed 품질 입력/API·film·모델·테스트 보존. 실제 적용과 UX는 사용자 피드백 수집 후 조정. Catalysing 및 Necromancy2·훼손 신규 개발은 계속 보류. 이번5는 구현 checkpoint이며 최종 FE/API/browser 검증 미완료. [최신 범위](docs/workbench-service-scope-2026-10-04.md).
+
+
 최신 Workbench 사용자 상태는 [2026-10-04 보고서](docs/workbench-status-2026-10-04.md)를 기준으로 확인하세요. 9베이스, 기본 지원111 + opt-in legacy2, 미완료42이며 아래 단계별 설명은 이전 개발 이력을 포함합니다. 확률은 출처 snapshot 모델·명시된 가정이며 실제 게임 odds 검증을 뜻하지 않습니다.
 
 영어 PoE2 아이템 복사 텍스트를 분석하고 Solar Amulet을 제작하거나 확률을 비교하는 작업대입니다. Workbench는 커런시 17종과 Omen 8종으로 실제 아이템 상태를 변경합니다. 독립 Craft Support는 시작 아이템과 필수 family AND 후보 N개·최소 tier 목표에 대해 정상 추가 화폐 순서를 비교하고 최초 목표 달성 확률을 합산합니다. 속성 선택은 PoE2DB Base 게시 가중치, 수치 roll과 제거는 명시한 균등 확률 가정을 사용합니다. 재료 수량·가격·비용은 계산하지 않습니다. 복사 텍스트는 catalog 검증을 통과한 경우에만 제작 상태로 사용할 수 있습니다. [Workbench·registry·가정 ledger](docs/workbench-simulator.md), [Support 계산·지원 한계](docs/support-transition-design.md), [ItemState·확률 탐색 명세](docs/item-state.md).

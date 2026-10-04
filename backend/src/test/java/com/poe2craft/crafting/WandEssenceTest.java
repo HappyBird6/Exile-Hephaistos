@@ -207,7 +207,7 @@ class WandEssenceTest {
     assertThat(service.initial("wand", 82).augmentSockets()).isNull();
     assertThat(service.initial("wand", 82).qualityLimit().maximumQuality()).isEqualTo(20);
     assertThat(service.initial("wand", 82).ruleVersion())
-        .isEqualTo("wand-workbench-essence-v1-homogenising-legacy-v1");
+        .isEqualTo("wand-workbench-essence-v1-homogenising-legacy-v1-legacy-five-v1");
     assertThat(service.initial("bow", 82).modifiers()).hasSize(146);
     assertThat(service.initial("solar", 82).modifiers()).hasSize(218);
     assertThat(

@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import descriptions from './materialTooltips.json'
-import { legacyHomogenisingIds } from './workbenchApi'
+import { legacyHomogenisingIds, legacyFiveIds } from './workbenchApi'
 
 type TooltipData = { name: string; lines: string[]; sourceUrl: string }
 const catalog: Record<string, TooltipData> = descriptions
@@ -100,6 +100,22 @@ export function MaterialTooltip() {
       style={{ left: target.x, top: target.y }}
     >
       <strong>{data.name}</strong>
+      {legacyFiveIds.includes(target.id) && (
+        <p>
+          Legacy: no longer obtainable in 0.3. Ordinary currency effects are
+          modeled; current acquisition is not asserted. Unverified combinations
+          and failures are refused without spending resources.
+        </p>
+      )}
+      {legacyFiveIds.includes(target.id) && (
+        <a
+          href="https://www.pathofexile.com/forum/view-thread/3826682"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Official legacy availability
+        </a>
+      )}
       {legacyHomogenisingIds.includes(target.id) && (
         <p>
           Legacy: drop disabled in 0.4; existing items work. Ordinary currency
