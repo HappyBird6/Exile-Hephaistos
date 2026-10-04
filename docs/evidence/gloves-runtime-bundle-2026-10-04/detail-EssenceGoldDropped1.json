@@ -1,0 +1,34 @@
+{
+  "code": "EssenceGoldDropped1",
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceGoldDropped1",
+  "retrievedAt": "2026-10-04T15:58:50.906Z",
+  "sha256": "af673a637182ad5e3ed27f14dd561d8a9bdb39287f25a8a16b0a83428f330005",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(10<span class=\"ndash\">—</span>15)</span>% increased Quantity of Gold Dropped by Slain Enemies</span></h5>   <span data-tabname=\"of the Essence\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Essence\n<tr><th>Family<td>EssenceGoldDropped\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>gold +% from enemies <span class=\"badge bg-primary\">10 <span class=\"ndash\">—</span> 15</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><td>Fists of Stone<td>[Charm|Charms] gain <span class='mod-value'>(0.13<span class=\"ndash\">—</span>0.27)</span> charges per Second</table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "of the Essence",
+      "Family": "EssenceGoldDropped",
+      "Domains": "Item (1)",
+      "GenerationType": "Suffix (2)",
+      "Req. level": "72 (Effective: 57)",
+      "Gold Price": "3266",
+      "Stats": "gold +% from enemies 10 — 15 Global",
+      "Spawn Tags": "default: 0"
+    },
+    "stats": [
+      {
+        "id": "gold_+%_from_enemies",
+        "min": 10,
+        "max": 15,
+        "locality": "Global"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "(10—15)% increased Quantity of Gold Dropped by Slain Enemies"
+  }
+}

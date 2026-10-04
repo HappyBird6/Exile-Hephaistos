@@ -1,5 +1,7 @@
 # 최상위 베이스 확장 — 첫 묶음
 
+후속 실제 구현: [Armour/ES/Armour-ES Gloves 묶음](workbench-gloves-bundle-2026-10-04.md). 기존 19개에 Massive Mitts, Sirenscale Gloves, Adherent Cuffs를 추가하며, 아래 첫 묶음의 identity와 검증 이력은 유지한다.
+
 기준 SHA는 `2aac292d7a393a4c1f9b97086edf62e068c2e3d8`이며 전용 branch는 `workbench/top-bases-20261004`다. 기존 17개 베이스를 유지하면서 Soldier Cuirass와 Imperial Greathelm을 추가한다. Workbench만 확장하며 CraftSupport/Explorer는 Solar 전용으로 유지한다. 원격 push, master 반영, 기존 서비스 배포는 이 작업 범위에 없다.
 
 ## 선택 기준과 현재 후보

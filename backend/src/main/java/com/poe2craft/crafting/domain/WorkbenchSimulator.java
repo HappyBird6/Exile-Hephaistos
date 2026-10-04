@@ -81,17 +81,20 @@ public final class WorkbenchSimulator {
         (action, ids) -> {
           if (action.essenceModifierIds().isEmpty()
               || !action.replacementModifiers().isEmpty()
-              || ids.size() != 1)
+              || ids.isEmpty()
+              || new HashSet<>(ids).size() != ids.size()
+              || (ids.size() > 1 && action.essenceModifierIds().size() == 1))
             throw new IllegalArgumentException(
                 "Only source-proven fixed basic essence overrides are supported");
-          var id = ids.getFirst();
-          var definition =
-              catalog
-                  .find(id)
-                  .orElseThrow(() -> new IllegalArgumentException("Unknown essence target"));
-          if (definition.layer() != ModifierDefinition.Layer.EXPLICIT || definition.weight() <= 0)
-            throw new IllegalArgumentException(
-                "Basic essence target requires a verified ordinary explicit");
+          for (var id : ids) {
+            var definition =
+                catalog
+                    .find(id)
+                    .orElseThrow(() -> new IllegalArgumentException("Unknown essence target"));
+            if (definition.layer() != ModifierDefinition.Layer.EXPLICIT || definition.weight() <= 0)
+              throw new IllegalArgumentException(
+                  "Basic essence target requires a verified ordinary explicit");
+          }
           reviewed.put(action, List.copyOf(ids));
         });
     this.essenceTargetOverrides = Map.copyOf(reviewed);
@@ -131,6 +134,7 @@ public final class WorkbenchSimulator {
   }
 
   private String baseRuleVersion() {
+    if (ReviewedGloves.supports(catalog.base().id())) return "gloves-workbench-uniform-v1";
     if (BasicJewel.supportedCrafting(catalog.base().id()))
       return BasicJewel.timeLost(catalog.base().id())
           ? "time-lost-ancient-v1"
@@ -152,6 +156,8 @@ public final class WorkbenchSimulator {
   }
 
   public String ledgerVersion() {
+    if (ReviewedGloves.supports(catalog.base().id()))
+      return "gloves-uniform-candidates-unverified-rolls-v1";
     if (BasicJewel.supportedCrafting(catalog.base().id()))
       return "sapphire-uniform-candidates-and-rolls-v1";
     if (catalog.base().id().equals(RingEssenceTargets.BASE_ID))
@@ -920,17 +926,24 @@ public final class WorkbenchSimulator {
 
   private void recordSapphireSelection(
       List<ModifierDefinition> candidates, List<Assumption> assumptions) {
-    if (BasicJewel.supportedCrafting(catalog.base().id()))
+    if (BasicJewel.supportedCrafting(catalog.base().id())
+        || ReviewedGloves.supports(catalog.base().id()))
       assumptions.add(
           new Assumption(
-              "sapphire-uniform-candidates-v1",
-              "eligible per-base Jewel ordinary modifier",
+              ReviewedGloves.supports(catalog.base().id())
+                  ? "gloves-uniform-candidates-v1"
+                  : "sapphire-uniform-candidates-v1",
+              ReviewedGloves.supports(catalog.base().id())
+                  ? "eligible per-base Gloves ordinary modifier"
+                  : "eligible per-base Jewel ordinary modifier",
               candidates.size(),
               candidates.stream().map(ModifierDefinition::id).toList(),
               null,
               null,
               catalog.metadata().sourceUrl(),
-              "USER-APPROVED SIMULATOR MODEL: equal 1/N among the eligible normal-section candidates after family, side and level restrictions. Actual game spawn weights are unavailable; DropChance=1 is not a verified weight."));
+              ReviewedGloves.supports(catalog.base().id())
+                  ? "USER-APPROVED SIMULATOR MODEL: equal 1/N among eligible Gloves modifiers after family, side and level restrictions. Actual game spawn weights are unavailable; published DropChance is not a verified game weight."
+                  : "USER-APPROVED SIMULATOR MODEL: equal 1/N among the eligible normal-section candidates after family, side and level restrictions. Actual game spawn weights are unavailable; DropChance=1 is not a verified weight."));
   }
 
   private ModifierInstance roll(

@@ -1,0 +1,55 @@
+{
+  "code": "EnergyShieldRechargeRate4",
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEnergyShieldRechargeRate4",
+  "retrievedAt": "2026-10-04T16:00:35.340Z",
+  "sha256": "2a79030631907714d9be4ce98a2cbca69ee73364db3fe9ff8aaecf37fae8a162",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(16<span class=\"ndash\">—</span>19)</span>% increased <a data-keyword=\"ESRechargeRate\" href=\"Energy_Shield_Recharge_Rate\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a4c99c6b7e4fe2fd74d32f45f9deb2aebe477c44de9077e90c8cc915cc4c61e9\">Energy Shield Recharge Rate</a></span></h5>   <span data-tabname=\"of Buffering\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Buffering\n<tr><th>Family<td>EnergyShieldRegeneration\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>48 (Effective: 38)\n<tr><th>Gold Price<td>1918\n<tr><th>Stats<td><li>energy shield recharge rate +% <span class=\"badge bg-primary\">16 <span class=\"ndash\">—</span> 19</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>str_int_armour: 1</span> <span class='badge bg-primary'>dex_int_armour: 1</span> <span class='badge bg-primary'>int_armour: 1</span> <span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Energy Shield</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(41<span class=\"ndash\">—</span>45)</span>% [FasterESRechargeStart|faster start of Energy Shield Recharge]</table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "of Buffering",
+      "Family": "EnergyShieldRegeneration",
+      "Domains": "Item (1)",
+      "GenerationType": "Suffix (2)",
+      "Req. level": "48 (Effective: 38)",
+      "Gold Price": "1918",
+      "Stats": "energy shield recharge rate +% 16 — 19 Global",
+      "Spawn Tags": "str_dex_int_armour: 1 str_int_armour: 1 dex_int_armour: 1 int_armour: 1 focus: 1 default: 0",
+      "Craft Tags": "defences Energy Shield"
+    },
+    "stats": [
+      {
+        "id": "energy_shield_recharge_rate_+%",
+        "min": 16,
+        "max": 19,
+        "locality": "Global"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "str_dex_int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "str_int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "dex_int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "focus",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "(16—19)% increased Energy Shield Recharge Rate"
+  }
+}

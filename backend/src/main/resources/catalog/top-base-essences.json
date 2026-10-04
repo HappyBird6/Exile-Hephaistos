@@ -1,0 +1,293 @@
+{
+  "massive": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "stocky-mitts:prefix:sanguine"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "stocky-mitts:prefix:azure"
+      ],
+      "LESSER_ESSENCE_ENHANCEMENT": [
+        "stocky-mitts:prefix:layered"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "stocky-mitts:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-wrestler",
+        "stocky-mitts:suffix:of-the-lynx"
+      ],
+      "ESSENCE_BODY": [
+        "stocky-mitts:prefix:robust"
+      ],
+      "ESSENCE_MIND": [
+        "stocky-mitts:prefix:aqua"
+      ],
+      "ESSENCE_ENHANCEMENT": [
+        "stocky-mitts:prefix:buttressed"
+      ],
+      "ESSENCE_RUIN": [
+        "stocky-mitts:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-lion",
+        "stocky-mitts:suffix:of-the-falcon"
+      ],
+      "GREATER_ESSENCE_BODY": [
+        "stocky-mitts:prefix:rotund"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "stocky-mitts:prefix:opalescent"
+      ],
+      "GREATER_ESSENCE_ENHANCEMENT": [
+        "stocky-mitts:prefix:thickened"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "stocky-mitts:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_BATTLE": [
+        "stocky-mitts:prefix:hunter-s"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-goliath",
+        "stocky-mitts:suffix:of-the-leopard"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "stocky-mitts:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "stocky-mitts:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "stocky-mitts:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "stocky-mitts:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "stocky-mitts:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "stocky-mitts:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "stocky-mitts:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "stocky-mitts:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "stocky-mitts:suffix:of-the-maelstrom"
+      ],
+      "LESSER_ESSENCE_OPULENCE": [
+        "stocky-mitts:suffix:of-plunder"
+      ],
+      "ESSENCE_OPULENCE": [
+        "stocky-mitts:suffix:of-raiding"
+      ],
+      "GREATER_ESSENCE_OPULENCE": [
+        "stocky-mitts:suffix:of-archaeology"
+      ]
+    },
+    "replacements": {
+      "ESSENCE_HYSTERIA": [
+        "stocky-mitts:suffix:of-fury"
+      ]
+    }
+  },
+  "sirenscale": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "stocky-mitts:prefix:sanguine"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "stocky-mitts:prefix:azure"
+      ],
+      "LESSER_ESSENCE_ENHANCEMENT": [
+        "sirenscale-gloves:prefix:strong-willed"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "stocky-mitts:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-lynx",
+        "amulet:suffix:of-the-student"
+      ],
+      "ESSENCE_BODY": [
+        "stocky-mitts:prefix:robust"
+      ],
+      "ESSENCE_MIND": [
+        "stocky-mitts:prefix:aqua"
+      ],
+      "ESSENCE_ENHANCEMENT": [
+        "sirenscale-gloves:prefix:fearless"
+      ],
+      "ESSENCE_RUIN": [
+        "stocky-mitts:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-falcon",
+        "amulet:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_BODY": [
+        "stocky-mitts:prefix:rotund"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "stocky-mitts:prefix:opalescent"
+      ],
+      "GREATER_ESSENCE_ENHANCEMENT": [
+        "sirenscale-gloves:prefix:dauntless"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "stocky-mitts:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_BATTLE": [
+        "stocky-mitts:prefix:hunter-s"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-leopard",
+        "amulet:suffix:of-the-sage"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "stocky-mitts:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "stocky-mitts:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "stocky-mitts:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "stocky-mitts:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "stocky-mitts:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "stocky-mitts:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "stocky-mitts:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "stocky-mitts:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "stocky-mitts:suffix:of-the-maelstrom"
+      ],
+      "LESSER_ESSENCE_OPULENCE": [
+        "stocky-mitts:suffix:of-plunder"
+      ],
+      "ESSENCE_OPULENCE": [
+        "stocky-mitts:suffix:of-raiding"
+      ],
+      "GREATER_ESSENCE_OPULENCE": [
+        "stocky-mitts:suffix:of-archaeology"
+      ]
+    },
+    "replacements": {
+      "ESSENCE_HYSTERIA": [
+        "stocky-mitts:suffix:of-fury"
+      ]
+    }
+  },
+  "adherent": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "stocky-mitts:prefix:sanguine"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "stocky-mitts:prefix:azure"
+      ],
+      "LESSER_ESSENCE_ENHANCEMENT": [
+        "adherent-cuffs:prefix:ingrained"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "stocky-mitts:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-wrestler",
+        "stocky-mitts:suffix:of-the-lynx",
+        "amulet:suffix:of-the-student"
+      ],
+      "ESSENCE_BODY": [
+        "stocky-mitts:prefix:robust"
+      ],
+      "ESSENCE_MIND": [
+        "stocky-mitts:prefix:aqua"
+      ],
+      "ESSENCE_ENHANCEMENT": [
+        "adherent-cuffs:prefix:infused"
+      ],
+      "ESSENCE_RUIN": [
+        "stocky-mitts:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-lion",
+        "stocky-mitts:suffix:of-the-falcon",
+        "amulet:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_BODY": [
+        "stocky-mitts:prefix:rotund"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "stocky-mitts:prefix:opalescent"
+      ],
+      "GREATER_ESSENCE_ENHANCEMENT": [
+        "adherent-cuffs:prefix:inculcated"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "stocky-mitts:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_BATTLE": [
+        "stocky-mitts:prefix:hunter-s"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-goliath",
+        "stocky-mitts:suffix:of-the-leopard",
+        "amulet:suffix:of-the-sage"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "stocky-mitts:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "stocky-mitts:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "stocky-mitts:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "stocky-mitts:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "stocky-mitts:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "stocky-mitts:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "stocky-mitts:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "stocky-mitts:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "stocky-mitts:suffix:of-the-maelstrom"
+      ],
+      "LESSER_ESSENCE_OPULENCE": [
+        "stocky-mitts:suffix:of-plunder"
+      ],
+      "ESSENCE_OPULENCE": [
+        "stocky-mitts:suffix:of-raiding"
+      ],
+      "GREATER_ESSENCE_OPULENCE": [
+        "stocky-mitts:suffix:of-archaeology"
+      ]
+    },
+    "replacements": {
+      "ESSENCE_HYSTERIA": [
+        "stocky-mitts:suffix:of-fury"
+      ]
+    }
+  }
+}

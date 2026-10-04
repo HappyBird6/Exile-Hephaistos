@@ -1,3 +1,5 @@
+import { topBase, topBaseKey } from './topBases'
+import reviewedEssenceTargets from './topBaseEssences.json'
 import { supportsConcreteStateShape } from './workbenchStateShape'
 import displayBindings from '../../shared/i18n/modifierTemplates.json'
 import liquidTargets from './basicJewelLiquidTargets.json'
@@ -984,9 +986,24 @@ export async function applyCurrency(
             ? (stockyFixedEssenceModifiers[action] ??
               fixedEssenceModifiers[action])
             : fixedEssenceModifiers[action]
-  const essenceCandidates = fixedTarget
-    ? [fixedTarget]
-    : (choiceEssenceModifiers[action] ?? [])
+  const reviewedKey = topBaseKey(state.baseItemId)
+  const reviewedTargets =
+    reviewedKey && topBase(reviewedKey)?.family === 'gloves'
+      ? (
+          reviewedEssenceTargets as Record<
+            string,
+            {
+              fixed: Record<string, string[]>
+              replacements: Record<string, string[]>
+            }
+          >
+        )[reviewedKey]
+      : undefined
+  const essenceCandidates = reviewedTargets
+    ? (reviewedTargets.fixed[action] ?? [])
+    : fixedTarget
+      ? [fixedTarget]
+      : (choiceEssenceModifiers[action] ?? [])
   const stockyReplacementTargets: Partial<
     Record<WorkbenchAction, readonly string[]>
   > = {
@@ -1016,10 +1033,20 @@ export async function applyCurrency(
           baseName
         ]?.[action] ?? [])
       : []
-    : ((state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
-        ? (stockyReplacementTargets[action] ??
-          replacementEssenceModifiers[action])
-        : replacementEssenceModifiers[action]) ?? [])
+    : reviewedTargets
+      ? (reviewedTargets.replacements[action] ??
+        ([
+          'PERFECT_ESSENCE_GROUNDING',
+          'PERFECT_ESSENCE_OPULENCE',
+          'ESSENCE_ABYSS',
+        ].includes(action)
+          ? stockyReplacementTargets[action]
+          : []) ??
+        [])
+      : ((state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+          ? (stockyReplacementTargets[action] ??
+            replacementEssenceModifiers[action])
+          : replacementEssenceModifiers[action]) ?? [])
   const sameModifiers = (
     a: ConcreteItem['explicits'],
     b: ConcreteItem['explicits'],

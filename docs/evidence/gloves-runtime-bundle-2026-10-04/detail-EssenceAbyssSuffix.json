@@ -1,0 +1,34 @@
+{
+  "code": "EssenceAbyssSuffix",
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssSuffix",
+  "retrievedAt": "2026-10-04T15:58:50.005Z",
+  "sha256": "12c0238c1a227d5345c6654fef083da709f4f16222ca969f296fe9a2e91e0715",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Bears the <a data-keyword=\"MarkofAbyssalLord\" href=\"Mark_of_the_Abyssal_Lord\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ce176c5011d7d3439bcf0a18e8d4580c5b80a08e4dfd8377a54d431e8c27162f\">Mark of the Abyssal Lord</a></span></h5>   <span data-tabname=\"of the Abyss\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Abyss\n<tr><th>Family<td>EssenceAbyss\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>1\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>essence abyss guaranteed pick <span class=\"badge bg-primary\">1 <span class=\"ndash\">—</span> 1</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "of the Abyss",
+      "Family": "EssenceAbyss",
+      "Domains": "Item (1)",
+      "GenerationType": "Suffix (2)",
+      "Req. level": "1",
+      "Gold Price": "3266",
+      "Stats": "essence abyss guaranteed pick 1 — 1 Global",
+      "Spawn Tags": "default: 0"
+    },
+    "stats": [
+      {
+        "id": "essence_abyss_guaranteed_pick",
+        "min": 1,
+        "max": 1,
+        "locality": "Global"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "Bears the Mark of the Abyssal Lord"
+  }
+}

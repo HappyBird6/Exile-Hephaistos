@@ -53,5 +53,98 @@
       "zh-TW": "需求:  等級 80, 115 力量",
       "es": "Requiere:  Nivel 80, 115 Fue"
     }
+  },
+  "massive": {
+    "key": "massive",
+    "slug": "Massive_Mitts",
+    "archetype": "str",
+    "pool": "massive-mitts",
+    "family": "gloves",
+    "id": "Metadata/Items/Armours/Gloves/FourGlovesStr6Endgame",
+    "name": "Massive Mitts",
+    "sourceUrl": "https://poe2db.tw/us/Massive_Mitts",
+    "sourceSha256": "c102af998daee85b5188fb4bfed16c9b5ea101d815f8e21f306e5433882615ab",
+    "sourceTags": [
+      "str_armour",
+      "karui_basetype",
+      "gloves",
+      "armour"
+    ],
+    "armour": 187,
+    "energyShield": 0,
+    "requiredLevel": 80,
+    "strength": 101,
+    "intelligence": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 101 Str",
+      "ko": "요구 사항:  레벨 80, 101 힘",
+      "ja": "装備条件： レベル 80, 101 筋力",
+      "zh-CN": "需求：  等级 80, 101 力量",
+      "zh-TW": "需求:  等級 80, 101 力量",
+      "es": "Requiere:  Nivel 80, 101 Fue"
+    }
+  },
+  "sirenscale": {
+    "key": "sirenscale",
+    "slug": "Sirenscale_Gloves",
+    "archetype": "int",
+    "pool": "sirenscale-gloves",
+    "family": "gloves",
+    "id": "Metadata/Items/Armours/Gloves/FourGlovesInt6Endgame",
+    "name": "Sirenscale Gloves",
+    "sourceUrl": "https://poe2db.tw/us/Sirenscale_Gloves",
+    "sourceSha256": "4e8523b4d55098dee45af0c93e02d0d148d93cae6f186913be40df9778eacfd7",
+    "sourceTags": [
+      "int_armour",
+      "karui_basetype",
+      "gloves",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 54,
+    "requiredLevel": 80,
+    "strength": 0,
+    "intelligence": 101,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 101 Int",
+      "ko": "요구 사항:  레벨 80, 101 지능",
+      "ja": "装備条件： レベル 80, 101 知性",
+      "zh-CN": "需求：  等级 80, 101 智慧",
+      "zh-TW": "需求:  等級 80, 101 智慧",
+      "es": "Requiere:  Nivel 80, 101 Int"
+    }
+  },
+  "adherent": {
+    "key": "adherent",
+    "slug": "Adherent_Cuffs",
+    "archetype": "str_int",
+    "pool": "adherent-cuffs",
+    "family": "gloves",
+    "id": "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame",
+    "name": "Adherent Cuffs",
+    "sourceUrl": "https://poe2db.tw/us/Adherent_Cuffs",
+    "sourceSha256": "457b9029485796021429f387bd261309a21a5561202903b70463b7e2dd0a3812",
+    "sourceTags": [
+      "str_int_armour",
+      "karui_basetype",
+      "gloves",
+      "armour"
+    ],
+    "armour": 98,
+    "energyShield": 27,
+    "requiredLevel": 80,
+    "strength": 55,
+    "intelligence": 55,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 55 Str, 55 Int",
+      "ko": "요구 사항:  레벨 80, 55 힘, 55 지능",
+      "ja": "装備条件： レベル 80, 55 筋力, 55 知性",
+      "zh-CN": "需求：  等级 80, 55 力量, 55 智慧",
+      "zh-TW": "需求:  等級 80, 55 力量, 55 智慧",
+      "es": "Requiere:  Nivel 80, 55 Fue, 55 Int"
+    }
   }
 }

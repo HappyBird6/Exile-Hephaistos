@@ -1,0 +1,52 @@
+{
+  "code": "FireResist6",
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist6",
+  "retrievedAt": "2026-10-04T15:59:54.000Z",
+  "sha256": "5d75d013cd619918dfc6668e410aebdbf2edddbf0ec8681e7870f011263281d2",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(31<span class=\"ndash\">—</span>35)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Fire Resistance</a></span></h5>   <span data-tabname=\"of the Volcano\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Volcano\n<tr><th>Family<td>FireResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>1398\n<tr><th>Stats<td><li>base fire damage resistance % <span class=\"badge bg-primary\">31 <span class=\"ndash\">—</span> 35</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>armour: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>fire_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Fire</span> <span class='badge bg-primary'>Resistance</span> \n<tr><th>Horticrafting<td>Can change Element modifier\n<tr><td>Fists of Stone<td><span class='mod-value'>+2</span>% to [MaximumResistances|Maximum Fire Resistance]<br><span class='mod-value'>+(31<span class=\"ndash\">—</span>35)</span>% to [Resistances|Fire Resistance]</table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "of the Volcano",
+      "Family": "FireResistance",
+      "Domains": "Item (1)",
+      "GenerationType": "Suffix (2)",
+      "Req. level": "60 (Effective: 48)",
+      "Gold Price": "1398",
+      "Stats": "base fire damage resistance % 31 — 35 Global",
+      "Spawn Tags": "armour: 1 ring: 1 amulet: 1 belt: 1 default: 0",
+      "Craft Tags": "elemental_resistance fire_resistance Elemental Fire Resistance",
+      "Horticrafting": "Can change Element modifier"
+    },
+    "stats": [
+      {
+        "id": "base_fire_damage_resistance_%",
+        "min": 31,
+        "max": 35,
+        "locality": "Global"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "armour",
+        "weight": 1
+      },
+      {
+        "tag": "ring",
+        "weight": 1
+      },
+      {
+        "tag": "amulet",
+        "weight": 1
+      },
+      {
+        "tag": "belt",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "+(31—35)% to Fire Resistance"
+  }
+}

@@ -15,6 +15,7 @@ public final class QualityLimitRules {
       throw new IllegalArgumentException("Unsupported state for quality limit");
     if (!state.baseItemId().equals(SolarAmulet.BASE_ID)
         && !state.baseItemId().equals("Metadata/Items/Armours/Gloves/FourGlovesStr1")
+        && !ReviewedGloves.supports(state.baseItemId())
         && !state.baseItemId().equals(BowEssenceTargets.BASE_ID)
         && !HelmetEssenceTargets.supports(state.baseItemId())
         && !BodyEssenceTargets.supports(state.baseItemId())

@@ -44,7 +44,10 @@
         "time-lost-sapphire",
         "time-lost-diamond",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -85,7 +88,10 @@
         "time-lost-sapphire",
         "time-lost-diamond",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -126,7 +132,10 @@
         "time-lost-sapphire",
         "time-lost-diamond",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -164,7 +173,10 @@
         "time-lost-sapphire",
         "time-lost-diamond",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -205,7 +217,10 @@
         "time-lost-sapphire",
         "time-lost-diamond",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -246,7 +261,10 @@
         "time-lost-sapphire",
         "time-lost-diamond",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -287,7 +305,10 @@
         "time-lost-sapphire",
         "time-lost-diamond",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -334,7 +355,10 @@
         "helmet",
         "ring",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -374,7 +398,10 @@
         "time-lost-sapphire",
         "time-lost-diamond",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -415,7 +442,10 @@
         "time-lost-sapphire",
         "time-lost-diamond",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -456,7 +486,10 @@
         "time-lost-sapphire",
         "time-lost-diamond",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -497,7 +530,10 @@
         "time-lost-sapphire",
         "time-lost-diamond",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -538,7 +574,10 @@
         "time-lost-sapphire",
         "time-lost-diamond",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -579,7 +618,10 @@
         "time-lost-sapphire",
         "time-lost-diamond",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -620,7 +662,10 @@
         "time-lost-sapphire",
         "time-lost-diamond",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -661,7 +706,10 @@
         "time-lost-sapphire",
         "time-lost-diamond",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -702,7 +750,10 @@
         "time-lost-sapphire",
         "time-lost-diamond",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -743,7 +794,10 @@
         "time-lost-sapphire",
         "time-lost-diamond",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -784,7 +838,10 @@
         "time-lost-sapphire",
         "time-lost-diamond",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -819,7 +876,10 @@
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -838,7 +898,10 @@
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -857,7 +920,10 @@
       "reason": "Magic Stocky Mitts becomes Rare with one sourced prefix; modifier level, slot and family gates apply. Numeric source-integer sampling is explicitly unverified. Other bases and low-level/overlap results are not supported.",
       "stockyStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "supportedBases": [
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Enhancement",
       "ruleVerifiedAt": "2026-10-03",
@@ -962,7 +1028,10 @@
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -1071,7 +1140,10 @@
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -1090,7 +1162,10 @@
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -1109,7 +1184,10 @@
       "reason": "Magic Stocky Mitts becomes Rare with one sourced prefix; modifier level, slot and family gates apply. Numeric source-integer sampling is explicitly unverified. Other bases and low-level/overlap results are not supported.",
       "stockyStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "supportedBases": [
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "ruleSource": "https://poe2db.tw/us/Essence_of_Enhancement",
       "ruleVerifiedAt": "2026-10-03",
@@ -1214,7 +1292,10 @@
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -1323,7 +1404,10 @@
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -1342,7 +1426,10 @@
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -1361,7 +1448,10 @@
       "reason": "Magic Stocky Mitts becomes Rare with one sourced prefix; modifier level, slot and family gates apply. Numeric source-integer sampling is explicitly unverified. Other bases and low-level/overlap results are not supported.",
       "stockyStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "supportedBases": [
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Enhancement",
       "ruleVerifiedAt": "2026-10-03",
@@ -1466,7 +1556,10 @@
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -1486,7 +1579,10 @@
       "stockyStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "supportedBases": [
         "stocky",
-        "bow"
+        "bow",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Battle",
       "ruleVerifiedAt": "2026-10-03",
@@ -2012,7 +2108,10 @@
       "reason": "Rare Solar (catalog level 68+, 19-21% life recoup suffix) or Stocky Mitts (45+, 25-29% Critical Damage Bonus suffix): remove one non-Fractured explicit and add the base-specific fixed target. All eligible removal branches must permit addition; unsupported level/family/slot cases preserve input. Individually verified Crystallisation omens restrict the removal side; matching pairs are blocked. Other rolls, locks, implicits and unrelated omens are preserved.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -2087,7 +2186,10 @@
       "implementationScope": "Rare Solar Amulet level 1+: random unlocked explicit replacement with either sourced Mark prefix or suffix. Every removal branch must permit both results; Crystallisation restricts removal only. Shared family prevents duplicate Marks. Desecration/reveal follow-up unsupported.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -2127,7 +2229,10 @@
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -2146,7 +2251,10 @@
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -2165,7 +2273,10 @@
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -2214,7 +2325,10 @@
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -2233,7 +2347,10 @@
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -2252,7 +2369,10 @@
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -2302,7 +2422,10 @@
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -2321,7 +2444,10 @@
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -2340,7 +2466,10 @@
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -2361,7 +2490,10 @@
       "ruleVerifiedAt": "2026-10-03",
       "implementationScope": "Stocky affix assignment at supported item level 72+ only; Solar unsupported, lower item levels unverified.",
       "supportedBases": [
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -2500,7 +2632,10 @@
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -2519,7 +2654,10 @@
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -2538,7 +2676,10 @@
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "supportedBases": [
         "solar",
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -2559,7 +2700,10 @@
       "ruleVerifiedAt": "2026-10-03",
       "implementationScope": "Stocky affix assignment at supported item level 72+ only; Solar unsupported, lower item levels unverified.",
       "supportedBases": [
-        "stocky"
+        "stocky",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -2950,7 +3094,10 @@
         "helmet",
         "ring",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -2978,7 +3125,10 @@
         "helmet",
         "ring",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -3010,7 +3160,10 @@
         "helmet",
         "ring",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -3042,7 +3195,10 @@
         "helmet",
         "ring",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -3074,7 +3230,10 @@
         "helmet",
         "ring",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -3107,7 +3266,10 @@
         "helmet",
         "ring",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ]
     },
     {
@@ -3139,7 +3301,10 @@
         "helmet",
         "ring",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ]
     },
     {
@@ -3171,7 +3336,10 @@
         "helmet",
         "ring",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "interactionScope": "Single directional omen with ordinary/Greater/Perfect matching currency. Affix eligibility precedes the existing minimum-added-level group fallback. Other same-trigger combinations remain unverified."
     },
@@ -3204,7 +3372,10 @@
         "helmet",
         "ring",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "interactionScope": "Single directional omen with ordinary/Greater/Perfect matching currency. Affix eligibility precedes the existing minimum-added-level group fallback. Other same-trigger combinations remain unverified."
     },
@@ -3250,7 +3421,10 @@
         "helmet",
         "ring",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -3282,7 +3456,10 @@
         "helmet",
         "ring",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -3314,7 +3491,10 @@
         "helmet",
         "ring",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -3347,7 +3527,10 @@
         "helmet",
         "ring",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "interactionScope": "Greater Annulment + Sinistral Annulment supports two distinct unlocked prefixes, based on the audited community example; Dextral uses the symmetric suffix composition model. Requires at least two eligible modifiers on the chosen side; both matching omens consumed on success. Other combinations and one-target behavior remain unverified."
     },
@@ -3379,7 +3562,10 @@
         "helmet",
         "ring",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -3411,7 +3597,10 @@
         "helmet",
         "ring",
         "soldier",
-        "imperial"
+        "imperial",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -3537,7 +3726,10 @@
         "wand",
         "body",
         "sceptre",
-        "soldier"
+        "soldier",
+        "massive",
+        "sirenscale",
+        "adherent"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -5764,6 +5956,60 @@
       "sourceSha256": "ba2a8bab50eca40058823c3e5c00c96401bb0433ee87295718c2f7b88386be63",
       "requiredCharacterLevel": 80,
       "requiredStrength": 115
+    },
+    "massive": {
+      "ruleVersion": "gloves-workbench-uniform-v1",
+      "ledgerVersion": "gloves-uniform-candidates-unverified-rolls-v1",
+      "numericModelStatus": "USER_APPROVED_UNIFORM_CANDIDATES_UNVERIFIED_NUMERIC_ROLLS",
+      "source": "https://poe2db.tw/us/Massive_Mitts",
+      "baseItemId": "Metadata/Items/Armours/Gloves/FourGlovesStr6Endgame",
+      "sourceSha256": "c102af998daee85b5188fb4bfed16c9b5ea101d815f8e21f306e5433882615ab",
+      "baseArmour": 187,
+      "baseEnergyShield": 0,
+      "requiredCharacterLevel": 80,
+      "requiredStrength": 101,
+      "requiredIntelligence": 0,
+      "qualityMaximum": 20,
+      "implicit": "NONE_IN_REVIEWED_BASE",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_ONLY",
+      "weightPolicy": "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES"
+    },
+    "sirenscale": {
+      "ruleVersion": "gloves-workbench-uniform-v1",
+      "ledgerVersion": "gloves-uniform-candidates-unverified-rolls-v1",
+      "numericModelStatus": "USER_APPROVED_UNIFORM_CANDIDATES_UNVERIFIED_NUMERIC_ROLLS",
+      "source": "https://poe2db.tw/us/Sirenscale_Gloves",
+      "baseItemId": "Metadata/Items/Armours/Gloves/FourGlovesInt6Endgame",
+      "sourceSha256": "4e8523b4d55098dee45af0c93e02d0d148d93cae6f186913be40df9778eacfd7",
+      "baseArmour": 0,
+      "baseEnergyShield": 54,
+      "requiredCharacterLevel": 80,
+      "requiredStrength": 0,
+      "requiredIntelligence": 101,
+      "qualityMaximum": 20,
+      "implicit": "NONE_IN_REVIEWED_BASE",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_ONLY",
+      "weightPolicy": "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES"
+    },
+    "adherent": {
+      "ruleVersion": "gloves-workbench-uniform-v1",
+      "ledgerVersion": "gloves-uniform-candidates-unverified-rolls-v1",
+      "numericModelStatus": "USER_APPROVED_UNIFORM_CANDIDATES_UNVERIFIED_NUMERIC_ROLLS",
+      "source": "https://poe2db.tw/us/Adherent_Cuffs",
+      "baseItemId": "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame",
+      "sourceSha256": "457b9029485796021429f387bd261309a21a5561202903b70463b7e2dd0a3812",
+      "baseArmour": 98,
+      "baseEnergyShield": 27,
+      "requiredCharacterLevel": 80,
+      "requiredStrength": 55,
+      "requiredIntelligence": 55,
+      "qualityMaximum": 20,
+      "implicit": "NONE_IN_REVIEWED_BASE",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_ONLY",
+      "weightPolicy": "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES"
     }
   },
   "serviceScope": {

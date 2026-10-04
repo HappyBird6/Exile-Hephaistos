@@ -60,46 +60,78 @@ public class CraftingConfiguration {
             getClass().getResourceAsStream("/catalog/stocky-mitts/reviewed-alloys.raw.json");
         var prismaticRaw =
             getClass().getResourceAsStream("/catalog/stocky-mitts/prismatic-alloy.raw.json")) {
-      return new WorkbenchService(
-          catalog,
-          simulator,
-          ItemCatalogLoader.addSpecial(
+      var service =
+          new WorkbenchService(
+              catalog,
+              simulator,
               ItemCatalogLoader.addSpecial(
                   ItemCatalogLoader.addSpecial(
                       ItemCatalogLoader.addSpecial(
                           ItemCatalogLoader.addSpecial(
-                              ItemCatalogLoader.loadWithSpecial(
-                                  data, raw, details, special, specialRaw),
-                              horror,
-                              horrorRaw),
-                          perfect,
-                          perfectRaw),
-                      prismatic,
-                      prismaticRaw),
-                  scalar,
-                  scalarRaw),
-              reviewed,
-              reviewedRaw),
-          ItemCatalogLoader.loadBow(),
-          ItemCatalogLoader.loadWand(),
-          ItemCatalogLoader.loadBody(),
-          ItemCatalogLoader.loadSceptre(),
-          ItemCatalogLoader.loadBelt(),
-          ItemCatalogLoader.loadHelmet(),
-          ItemCatalogLoader.loadRing(),
-          ItemCatalogLoader.loadSapphire(),
-          ItemCatalogLoader.loadBasicJewel("ruby"),
-          ItemCatalogLoader.loadBasicJewel("emerald"),
-          ItemCatalogLoader.loadBasicJewel("diamond"),
-          ItemCatalogLoader.loadBasicJewel("time-lost-ruby"),
-          ItemCatalogLoader.loadBasicJewel("time-lost-emerald"),
-          ItemCatalogLoader.loadBasicJewel("time-lost-sapphire"),
-          ItemCatalogLoader.loadBasicJewel("time-lost-diamond"),
-          ItemCatalogLoader.loadTopBase("soldier"),
-          ItemCatalogLoader.loadTopBase("imperial"));
+                              ItemCatalogLoader.addSpecial(
+                                  ItemCatalogLoader.loadWithSpecial(
+                                      data, raw, details, special, specialRaw),
+                                  horror,
+                                  horrorRaw),
+                              perfect,
+                              perfectRaw),
+                          prismatic,
+                          prismaticRaw),
+                      scalar,
+                      scalarRaw),
+                  reviewed,
+                  reviewedRaw),
+              ItemCatalogLoader.loadBow(),
+              ItemCatalogLoader.loadWand(),
+              ItemCatalogLoader.loadBody(),
+              ItemCatalogLoader.loadSceptre(),
+              ItemCatalogLoader.loadBelt(),
+              ItemCatalogLoader.loadHelmet(),
+              ItemCatalogLoader.loadRing(),
+              ItemCatalogLoader.loadSapphire(),
+              ItemCatalogLoader.loadBasicJewel("ruby"),
+              ItemCatalogLoader.loadBasicJewel("emerald"),
+              ItemCatalogLoader.loadBasicJewel("diamond"),
+              ItemCatalogLoader.loadBasicJewel("time-lost-ruby"),
+              ItemCatalogLoader.loadBasicJewel("time-lost-emerald"),
+              ItemCatalogLoader.loadBasicJewel("time-lost-sapphire"),
+              ItemCatalogLoader.loadBasicJewel("time-lost-diamond"),
+              ItemCatalogLoader.loadTopBase("soldier"),
+              ItemCatalogLoader.loadTopBase("imperial"));
+      try (var source = getClass().getResourceAsStream("/catalog/top-base-essences.json")) {
+        var manifest = new com.fasterxml.jackson.databind.ObjectMapper().readTree(source);
+        for (var key : com.poe2craft.item.ReviewedGloves.BASES.keySet()) {
+          service.registerReviewedGloves(
+              key,
+              ItemCatalogLoader.loadTopBase(key),
+              reviewedEssences(manifest.get(key).get("fixed")),
+              reviewedEssences(manifest.get(key).get("replacements")));
+        }
+      }
+      return service;
     } catch (java.io.IOException e) {
       throw new IllegalStateException("Cannot load Stocky Mitts catalog", e);
     }
+  }
+
+  private static java.util.Map<
+          com.poe2craft.crafting.domain.WorkbenchCurrency, java.util.List<String>>
+      reviewedEssences(com.fasterxml.jackson.databind.JsonNode source) {
+    var result =
+        new java.util.EnumMap<
+            com.poe2craft.crafting.domain.WorkbenchCurrency, java.util.List<String>>(
+            com.poe2craft.crafting.domain.WorkbenchCurrency.class);
+    source
+        .fields()
+        .forEachRemaining(
+            entry -> {
+              var ids = new java.util.ArrayList<String>();
+              entry.getValue().forEach(id -> ids.add(id.asText()));
+              result.put(
+                  com.poe2craft.crafting.domain.WorkbenchCurrency.valueOf(entry.getKey()),
+                  java.util.List.copyOf(ids));
+            });
+    return result;
   }
 
   @Bean

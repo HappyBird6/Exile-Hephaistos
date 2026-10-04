@@ -1,0 +1,57 @@
+{
+  "code": "LocalIncreasedEnergyShieldAndLife2",
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedEnergyShieldAndLife2",
+  "retrievedAt": "2026-10-04T16:00:20.937Z",
+  "sha256": "1d4a6a0f88505600050985fc33783302dcc89625580805b1d5ac3878074b5577",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(14<span class=\"ndash\">—</span>20)</span>% increased <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a><br><span class='mod-value'>+(11<span class=\"ndash\">—</span>19)</span> to maximum Life</span></h5>   <span data-tabname=\"Prior's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Prior's\n<tr><th>Family<td>BaseLocalDefencesAndLife\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>16 (Effective: 12)\n<tr><th>Gold Price<td>305\n<tr><th>Stats<td><li>base maximum life <span class=\"badge bg-primary\">11 <span class=\"ndash\">—</span> 19</span> <span class=\"badge bg-secondary\">Global</span></li><li>local energy shield +% <span class=\"badge bg-primary\">14 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>boots: 0</span> <span class='badge bg-primary'>shield: 0</span> <span class='badge bg-primary'>focus: 0</span> <span class='badge bg-primary'>int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> <span class='badge bg-primary'>Energy Shield</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>4</span>% of Damage Taken [Recoup|Recouped] as Life, Mana and [EnergyShield|Energy Shield]</table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Prior's",
+      "Family": "BaseLocalDefencesAndLife",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "16 (Effective: 12)",
+      "Gold Price": "305",
+      "Stats": "base maximum life 11 — 19 Globallocal energy shield +% 14 — 20 Local",
+      "Spawn Tags": "boots: 0 shield: 0 focus: 0 int_armour: 1 default: 0",
+      "Craft Tags": "defences resource Life Energy Shield"
+    },
+    "stats": [
+      {
+        "id": "base_maximum_life",
+        "min": 11,
+        "max": 19,
+        "locality": "Global"
+      },
+      {
+        "id": "local_energy_shield_+%",
+        "min": 14,
+        "max": 20,
+        "locality": "Local"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "boots",
+        "weight": 0
+      },
+      {
+        "tag": "shield",
+        "weight": 0
+      },
+      {
+        "tag": "focus",
+        "weight": 0
+      },
+      {
+        "tag": "int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "(14—20)% increased Energy Shield\n+(11—19) to maximum Life"
+  }
+}

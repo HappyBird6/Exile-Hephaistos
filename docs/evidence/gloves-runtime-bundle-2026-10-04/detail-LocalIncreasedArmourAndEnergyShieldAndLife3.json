@@ -1,0 +1,53 @@
+{
+  "code": "LocalIncreasedArmourAndEnergyShieldAndLife3",
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndEnergyShieldAndLife3",
+  "retrievedAt": "2026-10-04T16:01:02.606Z",
+  "sha256": "95dd824a66fe7a5ed36d6dfab1585ef0c0c31d1f107a85f936cc2d6f77d77b48",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(21<span class=\"ndash\">—</span>26)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a><br><span class='mod-value'>+(20<span class=\"ndash\">—</span>25)</span> to maximum Life</span></h5>   <span data-tabname=\"Druid's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Druid's\n<tr><th>Family<td>BaseLocalDefencesAndLife\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>33 (Effective: 26)\n<tr><th>Gold Price<td>490\n<tr><th>Stats<td><li>base maximum life <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Global</span></li><li>local armour and energy shield +% <span class=\"badge bg-primary\">21 <span class=\"ndash\">—</span> 26</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>boots: 0</span> <span class='badge bg-primary'>shield: 0</span> <span class='badge bg-primary'>str_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> <span class='badge bg-primary'>Armour</span> <span class='badge bg-primary'>Energy Shield</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>5</span>% of Damage Taken [Recoup|Recouped] as Life, Mana and [EnergyShield|Energy Shield]</table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Druid's",
+      "Family": "BaseLocalDefencesAndLife",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "33 (Effective: 26)",
+      "Gold Price": "490",
+      "Stats": "base maximum life 20 — 25 Globallocal armour and energy shield +% 21 — 26 Local",
+      "Spawn Tags": "boots: 0 shield: 0 str_int_armour: 1 default: 0",
+      "Craft Tags": "defences resource Life Armour Energy Shield"
+    },
+    "stats": [
+      {
+        "id": "base_maximum_life",
+        "min": 20,
+        "max": 25,
+        "locality": "Global"
+      },
+      {
+        "id": "local_armour_and_energy_shield_+%",
+        "min": 21,
+        "max": 26,
+        "locality": "Local"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "boots",
+        "weight": 0
+      },
+      {
+        "tag": "shield",
+        "weight": 0
+      },
+      {
+        "tag": "str_int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "(21—26)% increased Armour and Energy Shield\n+(20—25) to maximum Life"
+  }
+}

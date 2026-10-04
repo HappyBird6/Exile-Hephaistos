@@ -1,4 +1,4 @@
-import { topBase, topBaseKey } from './topBases'
+import { topBase, topBaseKey, reviewedGloveKeys } from './topBases'
 import { ServiceMessage } from './ServiceMessage'
 import { serviceText } from './serviceMessages'
 import {
@@ -75,6 +75,9 @@ const workspaceTabs = ['workbench', 'support', 'explorer'] as const
 const baseSlugs = {
   soldier: 'Soldier_Cuirass',
   imperial: 'Imperial_Greathelm',
+  massive: 'Massive_Mitts',
+  sirenscale: 'Sirenscale_Gloves',
+  adherent: 'Adherent_Cuffs',
   'time-lost-ruby': 'Time-Lost Ruby',
   'time-lost-emerald': 'Time-Lost Emerald',
   'time-lost-sapphire': 'Time-Lost Sapphire',
@@ -296,6 +299,9 @@ export function CraftingPage() {
       | 'body'
       | 'soldier'
       | 'imperial'
+      | 'massive'
+      | 'sirenscale'
+      | 'adherent'
       | 'sceptre'
       | 'belt'
       | 'helmet'
@@ -471,6 +477,9 @@ export function CraftingPage() {
     | 'body'
     | 'soldier'
     | 'imperial'
+    | 'massive'
+    | 'sirenscale'
+    | 'adherent'
     | 'sceptre'
     | 'belt'
     | 'helmet'
@@ -845,7 +854,8 @@ export function CraftingPage() {
             base: baseName,
             itemClass: Object.hasOwn(workbenchJewelBases, catalogBase)
               ? 'Jewels'
-              : catalogBase === 'stocky'
+              : catalogBase === 'stocky' ||
+                  topBase(catalogBase)?.family === 'gloves'
                 ? 'Gloves'
                 : catalogBase === 'bow'
                   ? 'Bows'
@@ -865,6 +875,30 @@ export function CraftingPage() {
                               : 'Amulet',
             itemLevel: concrete.itemLevel,
             properties: [
+              ...(topBase(catalogBase)?.family === 'gloves'
+                ? [
+                    ...(topBase(catalogBase)!.armour > 0
+                      ? [
+                          {
+                            id: 'base-armour',
+                            text: t('base.armour', {
+                              value: topBase(catalogBase)!.armour,
+                            }),
+                          },
+                        ]
+                      : []),
+                    ...((topBase(catalogBase)!.energyShield ?? 0) > 0
+                      ? [
+                          {
+                            id: 'base-energy-shield',
+                            text: t('base.energy_shield', {
+                              value: topBase(catalogBase)!.energyShield!,
+                            }),
+                          },
+                        ]
+                      : []),
+                  ]
+                : []),
               ...(catalogBase === 'helmet' || catalogBase === 'imperial'
                 ? [
                     {
@@ -1774,7 +1808,8 @@ export function CraftingPage() {
                       name: baseName,
                       base: baseName,
                       itemClass:
-                        catalogBase === 'stocky'
+                        catalogBase === 'stocky' ||
+                        topBase(catalogBase)?.family === 'gloves'
                           ? 'Gloves'
                           : catalogBase === 'bow'
                             ? 'Bows'
@@ -1880,6 +1915,9 @@ export function CraftingPage() {
                           | 'body'
                           | 'soldier'
                           | 'imperial'
+                          | 'massive'
+                          | 'sirenscale'
+                          | 'adherent'
                           | 'sceptre'
                           | 'belt'
                           | 'helmet'
@@ -1929,6 +1967,11 @@ export function CraftingPage() {
                     <option value="wand">
                       {name('Attuned_Wand', 'Attuned Wand')}
                     </option>
+                    {reviewedGloveKeys.map((key) => (
+                      <option key={key} value={key}>
+                        {name(topBase(key)!.slug, topBase(key)!.name)}
+                      </option>
+                    ))}
                     <option value="soldier">
                       {name('Soldier_Cuirass', 'Soldier Cuirass')}
                     </option>

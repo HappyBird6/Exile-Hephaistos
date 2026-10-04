@@ -35,7 +35,26 @@ public final class ItemCatalogLoader {
         name = "Imperial Greathelm";
         pool = loadHelmet();
       }
-      default -> throw new IllegalArgumentException("Unreviewed endgame base");
+      default -> {
+        if (!com.poe2craft.item.ReviewedGloves.BASES.containsKey(key))
+          throw new IllegalArgumentException("Unreviewed endgame base");
+        try (var proof = ItemCatalogLoader.class.getResourceAsStream("/catalog/top-bases.json")) {
+          var source = mapper().readTree(proof).get(key);
+          id = com.poe2craft.item.ReviewedGloves.BASES.get(key);
+          name = source.get("name").asText();
+          String root = "/catalog/" + source.get("pool").asText() + "/";
+          try (var data = ItemCatalogLoader.class.getResourceAsStream(root + "catalog.json");
+              var raw = ItemCatalogLoader.class.getResourceAsStream(root + "base.raw.json");
+              var details =
+                  ItemCatalogLoader.class.getResourceAsStream(root + "details.raw.json")) {
+            pool = load(data, raw, details);
+          }
+          if (!pool.base().id().equals(id) || !pool.base().name().equals(name))
+            throw new IllegalArgumentException("Reviewed Gloves catalog identity mismatch");
+        } catch (IOException e) {
+          throw new IllegalStateException("Cannot load reviewed Gloves catalog", e);
+        }
+      }
     }
     String sourceDigest;
     try (var proof = ItemCatalogLoader.class.getResourceAsStream("/catalog/top-bases.json")) {

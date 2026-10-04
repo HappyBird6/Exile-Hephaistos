@@ -34134,6 +34134,891 @@
       "values": ["(10—15)"],
       "template": "special.6f0843c2a9e9189f",
       "sourceCode": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyAttackAreaOfEffect1"
+    },
+    "sirenscale-gloves:prefix:shining": {
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 10,
+          "max": 17
+        }
+      ],
+      "englishText": "+(10—17) to maximum Energy Shield",
+      "values": ["+(10—17)"],
+      "template": "gloves.c0a648e1ccb3e892438a",
+      "sourceCode": "LocalIncreasedEnergyShield1",
+      "valueStats": [
+        {
+          "id": "local_energy_shield",
+          "divisor": 1
+        }
+      ]
+    },
+    "sirenscale-gloves:prefix:glimmering": {
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 18,
+          "max": 24
+        }
+      ],
+      "englishText": "+(18—24) to maximum Energy Shield",
+      "values": ["+(18—24)"],
+      "template": "gloves.b34e883eab693451588b",
+      "sourceCode": "LocalIncreasedEnergyShield2",
+      "valueStats": [
+        {
+          "id": "local_energy_shield",
+          "divisor": 1
+        }
+      ]
+    },
+    "sirenscale-gloves:prefix:glittering": {
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 25,
+          "max": 30
+        }
+      ],
+      "englishText": "+(25—30) to maximum Energy Shield",
+      "values": ["+(25—30)"],
+      "template": "gloves.795d9ebc7b7a07ee0b4c",
+      "sourceCode": "LocalIncreasedEnergyShield3",
+      "valueStats": [
+        {
+          "id": "local_energy_shield",
+          "divisor": 1
+        }
+      ]
+    },
+    "sirenscale-gloves:prefix:glowing": {
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "englishText": "+(31—35) to maximum Energy Shield",
+      "values": ["+(31—35)"],
+      "template": "gloves.89edf1cc4ff9d40a237a",
+      "sourceCode": "LocalIncreasedEnergyShield4",
+      "valueStats": [
+        {
+          "id": "local_energy_shield",
+          "divisor": 1
+        }
+      ]
+    },
+    "sirenscale-gloves:prefix:radiating": {
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 36,
+          "max": 41
+        }
+      ],
+      "englishText": "+(36—41) to maximum Energy Shield",
+      "values": ["+(36—41)"],
+      "template": "gloves.9c024c949c78a14e340d",
+      "sourceCode": "LocalIncreasedEnergyShield5",
+      "valueStats": [
+        {
+          "id": "local_energy_shield",
+          "divisor": 1
+        }
+      ]
+    },
+    "sirenscale-gloves:prefix:pulsing": {
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 42,
+          "max": 47
+        }
+      ],
+      "englishText": "+(42—47) to maximum Energy Shield",
+      "values": ["+(42—47)"],
+      "template": "gloves.9ee05d11cea2e2dafe8c",
+      "sourceCode": "LocalIncreasedEnergyShield6",
+      "valueStats": [
+        {
+          "id": "local_energy_shield",
+          "divisor": 1
+        }
+      ]
+    },
+    "sirenscale-gloves:prefix:blazing": {
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 48,
+          "max": 60
+        }
+      ],
+      "englishText": "+(48—60) to maximum Energy Shield",
+      "values": ["+(48—60)"],
+      "template": "gloves.44047f1d043cc29b03a7",
+      "sourceCode": "LocalIncreasedEnergyShield7",
+      "valueStats": [
+        {
+          "id": "local_energy_shield",
+          "divisor": 1
+        }
+      ]
+    },
+    "sirenscale-gloves:prefix:protective": {
+      "stats": [
+        {
+          "id": "local_energy_shield_+%",
+          "min": 15,
+          "max": 26
+        }
+      ],
+      "englishText": "(15—26)% increased Energy Shield",
+      "values": ["(15—26)"],
+      "template": "gloves.6aec41e995060c28f895",
+      "sourceCode": "LocalIncreasedEnergyShieldPercent1",
+      "valueStats": [
+        {
+          "id": "local_energy_shield_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "sirenscale-gloves:prefix:strong-willed": {
+      "stats": [
+        {
+          "id": "local_energy_shield_+%",
+          "min": 27,
+          "max": 42
+        }
+      ],
+      "englishText": "(27—42)% increased Energy Shield",
+      "values": ["(27—42)"],
+      "template": "gloves.d937099c3bbe6feaf032",
+      "sourceCode": "LocalIncreasedEnergyShieldPercent2",
+      "valueStats": [
+        {
+          "id": "local_energy_shield_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "sirenscale-gloves:prefix:resolute": {
+      "stats": [
+        {
+          "id": "local_energy_shield_+%",
+          "min": 43,
+          "max": 55
+        }
+      ],
+      "englishText": "(43—55)% increased Energy Shield",
+      "values": ["(43—55)"],
+      "template": "gloves.e67e79ab7f0ae6e6c526",
+      "sourceCode": "LocalIncreasedEnergyShieldPercent3",
+      "valueStats": [
+        {
+          "id": "local_energy_shield_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "sirenscale-gloves:prefix:fearless": {
+      "stats": [
+        {
+          "id": "local_energy_shield_+%",
+          "min": 56,
+          "max": 67
+        }
+      ],
+      "englishText": "(56—67)% increased Energy Shield",
+      "values": ["(56—67)"],
+      "template": "gloves.a787bc4fe78a0f4a3fc3",
+      "sourceCode": "LocalIncreasedEnergyShieldPercent4",
+      "valueStats": [
+        {
+          "id": "local_energy_shield_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "sirenscale-gloves:prefix:dauntless": {
+      "stats": [
+        {
+          "id": "local_energy_shield_+%",
+          "min": 68,
+          "max": 79
+        }
+      ],
+      "englishText": "(68—79)% increased Energy Shield",
+      "values": ["(68—79)"],
+      "template": "gloves.acb9a0debc5657ae6a3f",
+      "sourceCode": "LocalIncreasedEnergyShieldPercent5",
+      "valueStats": [
+        {
+          "id": "local_energy_shield_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "sirenscale-gloves:prefix:indomitable": {
+      "stats": [
+        {
+          "id": "local_energy_shield_+%",
+          "min": 80,
+          "max": 91
+        }
+      ],
+      "englishText": "(80—91)% increased Energy Shield",
+      "values": ["(80—91)"],
+      "template": "gloves.5a5ba960d8a37a73ee83",
+      "sourceCode": "LocalIncreasedEnergyShieldPercent6",
+      "valueStats": [
+        {
+          "id": "local_energy_shield_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "sirenscale-gloves:prefix:unassailable": {
+      "stats": [
+        {
+          "id": "local_energy_shield_+%",
+          "min": 92,
+          "max": 100
+        }
+      ],
+      "englishText": "(92—100)% increased Energy Shield",
+      "values": ["(92—100)"],
+      "template": "gloves.bd00fe0788c7777eb9d3",
+      "sourceCode": "LocalIncreasedEnergyShieldPercent7_",
+      "valueStats": [
+        {
+          "id": "local_energy_shield_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "sirenscale-gloves:prefix:monk-s": {
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 7,
+          "max": 10
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 6,
+          "max": 13
+        }
+      ],
+      "englishText": "(6—13)% increased Energy Shield\n+(7—10) to maximum Life",
+      "values": ["(6—13)", "+(7—10)"],
+      "template": "gloves.0102c205bcca63170d08",
+      "sourceCode": "LocalIncreasedEnergyShieldAndLife1",
+      "valueStats": [
+        {
+          "id": "local_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    "sirenscale-gloves:prefix:prior-s": {
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 11,
+          "max": 19
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 14,
+          "max": 20
+        }
+      ],
+      "englishText": "(14—20)% increased Energy Shield\n+(11—19) to maximum Life",
+      "values": ["(14—20)", "+(11—19)"],
+      "template": "gloves.7ba25df9e91a900e9d90",
+      "sourceCode": "LocalIncreasedEnergyShieldAndLife2",
+      "valueStats": [
+        {
+          "id": "local_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    "sirenscale-gloves:prefix:abbot-s": {
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 20,
+          "max": 25
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "englishText": "(21—26)% increased Energy Shield\n+(20—25) to maximum Life",
+      "values": ["(21—26)", "+(20—25)"],
+      "template": "gloves.5d9f137c151bf81b23dd",
+      "sourceCode": "LocalIncreasedEnergyShieldAndLife3",
+      "valueStats": [
+        {
+          "id": "local_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    "sirenscale-gloves:prefix:bishop-s": {
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 26,
+          "max": 32
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "englishText": "(27—32)% increased Energy Shield\n+(26—32) to maximum Life",
+      "values": ["(27—32)", "+(26—32)"],
+      "template": "gloves.8428a04198e790e248b7",
+      "sourceCode": "LocalIncreasedEnergyShieldAndLife4",
+      "valueStats": [
+        {
+          "id": "local_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    "sirenscale-gloves:prefix:exarch-s": {
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 33,
+          "max": 41
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "englishText": "(33—38)% increased Energy Shield\n+(33—41) to maximum Life",
+      "values": ["(33—38)", "+(33—41)"],
+      "template": "gloves.bb66d971cc69327db879",
+      "sourceCode": "LocalIncreasedEnergyShieldAndLife5",
+      "valueStats": [
+        {
+          "id": "local_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    "sirenscale-gloves:prefix:pope-s": {
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 42,
+          "max": 49
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 39,
+          "max": 42
+        }
+      ],
+      "englishText": "(39—42)% increased Energy Shield\n+(42—49) to maximum Life",
+      "values": ["(39—42)", "+(42—49)"],
+      "template": "gloves.67ef3f828f9f600df9de",
+      "sourceCode": "LocalIncreasedEnergyShieldAndLife6",
+      "valueStats": [
+        {
+          "id": "local_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    "sirenscale-gloves:suffix:of-buffering": {
+      "stats": [
+        {
+          "id": "energy_shield_recharge_rate_+%",
+          "min": 16,
+          "max": 19
+        }
+      ],
+      "englishText": "(16—19)% increased Energy Shield Recharge Rate",
+      "values": ["(16—19)"],
+      "template": "gloves.cace7e6bc4d1f2920305",
+      "sourceCode": "EnergyShieldRechargeRate4",
+      "valueStats": [
+        {
+          "id": "energy_shield_recharge_rate_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "adherent-cuffs:prefix:blessed": {
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 9,
+          "max": 16
+        },
+        {
+          "id": "local_energy_shield",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "englishText": "+(9—16) to Armour\n+(5—8) to maximum Energy Shield",
+      "values": ["+(9—16)", "+(5—8)"],
+      "template": "gloves.839461795f36510250b5",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "divisor": 1
+        },
+        {
+          "id": "local_energy_shield",
+          "divisor": 1
+        }
+      ]
+    },
+    "adherent-cuffs:prefix:anointed": {
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 17,
+          "max": 46
+        },
+        {
+          "id": "local_energy_shield",
+          "min": 9,
+          "max": 15
+        }
+      ],
+      "englishText": "+(17—46) to Armour\n+(9—15) to maximum Energy Shield",
+      "values": ["+(17—46)", "+(9—15)"],
+      "template": "gloves.af507656e17dc5b88e94",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "divisor": 1
+        },
+        {
+          "id": "local_energy_shield",
+          "divisor": 1
+        }
+      ]
+    },
+    "adherent-cuffs:prefix:sanctified": {
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 47,
+          "max": 71
+        },
+        {
+          "id": "local_energy_shield",
+          "min": 16,
+          "max": 21
+        }
+      ],
+      "englishText": "+(47—71) to Armour\n+(16—21) to maximum Energy Shield",
+      "values": ["+(47—71)", "+(16—21)"],
+      "template": "gloves.9aeaa7bb41ac9b2be0f6",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "divisor": 1
+        },
+        {
+          "id": "local_energy_shield",
+          "divisor": 1
+        }
+      ]
+    },
+    "adherent-cuffs:prefix:hallowed": {
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 72,
+          "max": 85
+        },
+        {
+          "id": "local_energy_shield",
+          "min": 22,
+          "max": 25
+        }
+      ],
+      "englishText": "+(72—85) to Armour\n+(22—25) to maximum Energy Shield",
+      "values": ["+(72—85)", "+(22—25)"],
+      "template": "gloves.2ddc22b7af3ccb801643",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "divisor": 1
+        },
+        {
+          "id": "local_energy_shield",
+          "divisor": 1
+        }
+      ]
+    },
+    "adherent-cuffs:prefix:infixed": {
+      "stats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 15,
+          "max": 26
+        }
+      ],
+      "englishText": "(15—26)% increased Armour and Energy Shield",
+      "values": ["(15—26)"],
+      "template": "gloves.0310d3a2db33a1134d54",
+      "sourceCode": "LocalIncreasedArmourAndEnergyShield1",
+      "valueStats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "adherent-cuffs:prefix:ingrained": {
+      "stats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 27,
+          "max": 42
+        }
+      ],
+      "englishText": "(27—42)% increased Armour and Energy Shield",
+      "values": ["(27—42)"],
+      "template": "gloves.504e7db9c2d559914b06",
+      "sourceCode": "LocalIncreasedArmourAndEnergyShield2",
+      "valueStats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "adherent-cuffs:prefix:instilled": {
+      "stats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 43,
+          "max": 55
+        }
+      ],
+      "englishText": "(43—55)% increased Armour and Energy Shield",
+      "values": ["(43—55)"],
+      "template": "gloves.a1c5a1bb6b2de3b00553",
+      "sourceCode": "LocalIncreasedArmourAndEnergyShield3",
+      "valueStats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "adherent-cuffs:prefix:infused": {
+      "stats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 56,
+          "max": 67
+        }
+      ],
+      "englishText": "(56—67)% increased Armour and Energy Shield",
+      "values": ["(56—67)"],
+      "template": "gloves.d29cde3441de35bb3ce7",
+      "sourceCode": "LocalIncreasedArmourAndEnergyShield4",
+      "valueStats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "adherent-cuffs:prefix:inculcated": {
+      "stats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 68,
+          "max": 79
+        }
+      ],
+      "englishText": "(68—79)% increased Armour and Energy Shield",
+      "values": ["(68—79)"],
+      "template": "gloves.18c44708d1309b253c6f",
+      "sourceCode": "LocalIncreasedArmourAndEnergyShield5",
+      "valueStats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "adherent-cuffs:prefix:interpolated": {
+      "stats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 80,
+          "max": 91
+        }
+      ],
+      "englishText": "(80—91)% increased Armour and Energy Shield",
+      "values": ["(80—91)"],
+      "template": "gloves.6e5d01bafcdb94ddac87",
+      "sourceCode": "LocalIncreasedArmourAndEnergyShield6",
+      "valueStats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "adherent-cuffs:prefix:inspired": {
+      "stats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 92,
+          "max": 100
+        }
+      ],
+      "englishText": "(92—100)% increased Armour and Energy Shield",
+      "values": ["(92—100)"],
+      "template": "gloves.564f9b4c8af0970e0651",
+      "sourceCode": "LocalIncreasedArmourAndEnergyShield7",
+      "valueStats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "adherent-cuffs:prefix:augur-s": {
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 7,
+          "max": 10
+        },
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 6,
+          "max": 13
+        }
+      ],
+      "englishText": "(6—13)% increased Armour and Energy Shield\n+(7—10) to maximum Life",
+      "values": ["(6—13)", "+(7—10)"],
+      "template": "gloves.6c208b1918c01b007f82",
+      "sourceCode": "LocalIncreasedArmourAndEnergyShieldAndLife1",
+      "valueStats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    "adherent-cuffs:prefix:auspex-s": {
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 11,
+          "max": 19
+        },
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 14,
+          "max": 20
+        }
+      ],
+      "englishText": "(14—20)% increased Armour and Energy Shield\n+(11—19) to maximum Life",
+      "values": ["(14—20)", "+(11—19)"],
+      "template": "gloves.495e10f2750f319ca5e9",
+      "sourceCode": "LocalIncreasedArmourAndEnergyShieldAndLife2",
+      "valueStats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    "adherent-cuffs:prefix:druid-s": {
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 20,
+          "max": 25
+        },
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "englishText": "(21—26)% increased Armour and Energy Shield\n+(20—25) to maximum Life",
+      "values": ["(21—26)", "+(20—25)"],
+      "template": "gloves.77a0f83e3e14a8052cc7",
+      "sourceCode": "LocalIncreasedArmourAndEnergyShieldAndLife3",
+      "valueStats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    "adherent-cuffs:prefix:haruspex-s": {
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 26,
+          "max": 32
+        },
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "englishText": "(27—32)% increased Armour and Energy Shield\n+(26—32) to maximum Life",
+      "values": ["(27—32)", "+(26—32)"],
+      "template": "gloves.b738184a95607395dc60",
+      "sourceCode": "LocalIncreasedArmourAndEnergyShieldAndLife4",
+      "valueStats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    "adherent-cuffs:prefix:visionary-s": {
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 33,
+          "max": 41
+        },
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "englishText": "(33—38)% increased Armour and Energy Shield\n+(33—41) to maximum Life",
+      "values": ["(33—38)", "+(33—41)"],
+      "template": "gloves.e6fb0c7cd61f2b6fc1d6",
+      "sourceCode": "LocalIncreasedArmourAndEnergyShieldAndLife5",
+      "valueStats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    "adherent-cuffs:prefix:prophet-s": {
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 42,
+          "max": 49
+        },
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 39,
+          "max": 42
+        }
+      ],
+      "englishText": "(39—42)% increased Armour and Energy Shield\n+(42—49) to maximum Life",
+      "values": ["(39—42)", "+(42—49)"],
+      "template": "gloves.287371ba849e910fb248",
+      "sourceCode": "LocalIncreasedArmourAndEnergyShieldAndLife6",
+      "valueStats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    "adherent-cuffs:suffix:of-buffering": {
+      "stats": [
+        {
+          "id": "energy_shield_recharge_rate_+%",
+          "min": 16,
+          "max": 19
+        }
+      ],
+      "englishText": "(16—19)% increased Energy Shield Recharge Rate",
+      "values": ["(16—19)"],
+      "template": "gloves.cace7e6bc4d1f2920305",
+      "sourceCode": "EnergyShieldRechargeRate4",
+      "valueStats": [
+        {
+          "id": "energy_shield_recharge_rate_+%",
+          "divisor": 1
+        }
+      ]
     }
   },
   "templates": {
@@ -40897,6 +41782,158 @@
       "special.6f0843c2a9e9189f": {
         "template": "{v0}% increased Area of Effect for Attacks",
         "name": "of the Stars"
+      },
+      "gloves.c0a648e1ccb3e892438a": {
+        "template": "{v0} to maximum Energy Shield",
+        "name": "Shining"
+      },
+      "gloves.b34e883eab693451588b": {
+        "template": "{v0} to maximum Energy Shield",
+        "name": "Glimmering"
+      },
+      "gloves.795d9ebc7b7a07ee0b4c": {
+        "template": "{v0} to maximum Energy Shield",
+        "name": "Glittering"
+      },
+      "gloves.89edf1cc4ff9d40a237a": {
+        "template": "{v0} to maximum Energy Shield",
+        "name": "Glowing"
+      },
+      "gloves.9c024c949c78a14e340d": {
+        "template": "{v0} to maximum Energy Shield",
+        "name": "Radiating"
+      },
+      "gloves.9ee05d11cea2e2dafe8c": {
+        "template": "{v0} to maximum Energy Shield",
+        "name": "Pulsing"
+      },
+      "gloves.44047f1d043cc29b03a7": {
+        "template": "{v0} to maximum Energy Shield",
+        "name": "Blazing"
+      },
+      "gloves.6aec41e995060c28f895": {
+        "template": "{v0}% increased Energy Shield",
+        "name": "Protective"
+      },
+      "gloves.d937099c3bbe6feaf032": {
+        "template": "{v0}% increased Energy Shield",
+        "name": "Strong-Willed"
+      },
+      "gloves.e67e79ab7f0ae6e6c526": {
+        "template": "{v0}% increased Energy Shield",
+        "name": "Resolute"
+      },
+      "gloves.a787bc4fe78a0f4a3fc3": {
+        "template": "{v0}% increased Energy Shield",
+        "name": "Fearless"
+      },
+      "gloves.acb9a0debc5657ae6a3f": {
+        "template": "{v0}% increased Energy Shield",
+        "name": "Dauntless"
+      },
+      "gloves.5a5ba960d8a37a73ee83": {
+        "template": "{v0}% increased Energy Shield",
+        "name": "Indomitable"
+      },
+      "gloves.bd00fe0788c7777eb9d3": {
+        "template": "{v0}% increased Energy Shield",
+        "name": "Unassailable"
+      },
+      "gloves.0102c205bcca63170d08": {
+        "template": "{v0}% increased Energy Shield\n{v1} to maximum Life",
+        "name": "Monk's"
+      },
+      "gloves.7ba25df9e91a900e9d90": {
+        "template": "{v0}% increased Energy Shield\n{v1} to maximum Life",
+        "name": "Prior's"
+      },
+      "gloves.5d9f137c151bf81b23dd": {
+        "template": "{v0}% increased Energy Shield\n{v1} to maximum Life",
+        "name": "Abbot's"
+      },
+      "gloves.8428a04198e790e248b7": {
+        "template": "{v0}% increased Energy Shield\n{v1} to maximum Life",
+        "name": "Bishop's"
+      },
+      "gloves.bb66d971cc69327db879": {
+        "template": "{v0}% increased Energy Shield\n{v1} to maximum Life",
+        "name": "Exarch's"
+      },
+      "gloves.67ef3f828f9f600df9de": {
+        "template": "{v0}% increased Energy Shield\n{v1} to maximum Life",
+        "name": "Pope's"
+      },
+      "gloves.cace7e6bc4d1f2920305": {
+        "template": "{v0}% increased Energy Shield Recharge Rate",
+        "name": "of Buffering"
+      },
+      "gloves.839461795f36510250b5": {
+        "template": "{v0} to Armour\n{v1} to maximum Energy Shield",
+        "name": "Blessed"
+      },
+      "gloves.af507656e17dc5b88e94": {
+        "template": "{v0} to Armour\n{v1} to maximum Energy Shield",
+        "name": "Anointed"
+      },
+      "gloves.9aeaa7bb41ac9b2be0f6": {
+        "template": "{v0} to Armour\n{v1} to maximum Energy Shield",
+        "name": "Sanctified"
+      },
+      "gloves.2ddc22b7af3ccb801643": {
+        "template": "{v0} to Armour\n{v1} to maximum Energy Shield",
+        "name": "Hallowed"
+      },
+      "gloves.0310d3a2db33a1134d54": {
+        "template": "{v0}% increased Armour and Energy Shield",
+        "name": "Infixed"
+      },
+      "gloves.504e7db9c2d559914b06": {
+        "template": "{v0}% increased Armour and Energy Shield",
+        "name": "Ingrained"
+      },
+      "gloves.a1c5a1bb6b2de3b00553": {
+        "template": "{v0}% increased Armour and Energy Shield",
+        "name": "Instilled"
+      },
+      "gloves.d29cde3441de35bb3ce7": {
+        "template": "{v0}% increased Armour and Energy Shield",
+        "name": "Infused"
+      },
+      "gloves.18c44708d1309b253c6f": {
+        "template": "{v0}% increased Armour and Energy Shield",
+        "name": "Inculcated"
+      },
+      "gloves.6e5d01bafcdb94ddac87": {
+        "template": "{v0}% increased Armour and Energy Shield",
+        "name": "Interpolated"
+      },
+      "gloves.564f9b4c8af0970e0651": {
+        "template": "{v0}% increased Armour and Energy Shield",
+        "name": "Inspired"
+      },
+      "gloves.6c208b1918c01b007f82": {
+        "template": "{v0}% increased Armour and Energy Shield\n{v1} to maximum Life",
+        "name": "Augur's"
+      },
+      "gloves.495e10f2750f319ca5e9": {
+        "template": "{v0}% increased Armour and Energy Shield\n{v1} to maximum Life",
+        "name": "Auspex's"
+      },
+      "gloves.77a0f83e3e14a8052cc7": {
+        "template": "{v0}% increased Armour and Energy Shield\n{v1} to maximum Life",
+        "name": "Druid's"
+      },
+      "gloves.b738184a95607395dc60": {
+        "template": "{v0}% increased Armour and Energy Shield\n{v1} to maximum Life",
+        "name": "Haruspex's"
+      },
+      "gloves.e6fb0c7cd61f2b6fc1d6": {
+        "template": "{v0}% increased Armour and Energy Shield\n{v1} to maximum Life",
+        "name": "Visionary's"
+      },
+      "gloves.287371ba849e910fb248": {
+        "template": "{v0}% increased Armour and Energy Shield\n{v1} to maximum Life",
+        "name": "Prophet's"
       }
     },
     "ko": {
@@ -47659,6 +48696,158 @@
       "special.6f0843c2a9e9189f": {
         "template": "공격 효과 범위 {v0}% 증가",
         "name": "- 별"
+      },
+      "gloves.c0a648e1ccb3e892438a": {
+        "template": "에너지 보호막 최대치 {v0}",
+        "name": "반짝이는"
+      },
+      "gloves.b34e883eab693451588b": {
+        "template": "에너지 보호막 최대치 {v0}",
+        "name": "깜박이는"
+      },
+      "gloves.795d9ebc7b7a07ee0b4c": {
+        "template": "에너지 보호막 최대치 {v0}",
+        "name": "번쩍이는"
+      },
+      "gloves.89edf1cc4ff9d40a237a": {
+        "template": "에너지 보호막 최대치 {v0}",
+        "name": "타오르는"
+      },
+      "gloves.9c024c949c78a14e340d": {
+        "template": "에너지 보호막 최대치 {v0}",
+        "name": "발산하는"
+      },
+      "gloves.9ee05d11cea2e2dafe8c": {
+        "template": "에너지 보호막 최대치 {v0}",
+        "name": "맥동하는"
+      },
+      "gloves.44047f1d043cc29b03a7": {
+        "template": "에너지 보호막 최대치 {v0}",
+        "name": "맹렬한"
+      },
+      "gloves.6aec41e995060c28f895": {
+        "template": "에너지 보호막 {v0}% 증가",
+        "name": "보호하는"
+      },
+      "gloves.d937099c3bbe6feaf032": {
+        "template": "에너지 보호막 {v0}% 증가",
+        "name": "확고한"
+      },
+      "gloves.e67e79ab7f0ae6e6c526": {
+        "template": "에너지 보호막 {v0}% 증가",
+        "name": "단호한"
+      },
+      "gloves.a787bc4fe78a0f4a3fc3": {
+        "template": "에너지 보호막 {v0}% 증가",
+        "name": "용맹한"
+      },
+      "gloves.acb9a0debc5657ae6a3f": {
+        "template": "에너지 보호막 {v0}% 증가",
+        "name": "대담한"
+      },
+      "gloves.5a5ba960d8a37a73ee83": {
+        "template": "에너지 보호막 {v0}% 증가",
+        "name": "불굴의"
+      },
+      "gloves.bd00fe0788c7777eb9d3": {
+        "template": "에너지 보호막 {v0}% 증가",
+        "name": "빈틈 없는"
+      },
+      "gloves.0102c205bcca63170d08": {
+        "template": "에너지 보호막 {v0}% 증가\n생명력 최대치 {v1}",
+        "name": "수도승의"
+      },
+      "gloves.7ba25df9e91a900e9d90": {
+        "template": "에너지 보호막 {v0}% 증가\n생명력 최대치 {v1}",
+        "name": "수도원장의"
+      },
+      "gloves.5d9f137c151bf81b23dd": {
+        "template": "에너지 보호막 {v0}% 증가\n생명력 최대치 {v1}",
+        "name": "대수도원장의"
+      },
+      "gloves.8428a04198e790e248b7": {
+        "template": "에너지 보호막 {v0}% 증가\n생명력 최대치 {v1}",
+        "name": "주교의"
+      },
+      "gloves.bb66d971cc69327db879": {
+        "template": "에너지 보호막 {v0}% 증가\n생명력 최대치 {v1}",
+        "name": "총주교의"
+      },
+      "gloves.67ef3f828f9f600df9de": {
+        "template": "에너지 보호막 {v0}% 증가\n생명력 최대치 {v1}",
+        "name": "교황의"
+      },
+      "gloves.cace7e6bc4d1f2920305": {
+        "template": "에너지 보호막 재충전 속도 {v0}% 증가",
+        "name": "- 완충"
+      },
+      "gloves.839461795f36510250b5": {
+        "template": "방어도 {v0}\n에너지 보호막 최대치 {v1}",
+        "name": "축복받은"
+      },
+      "gloves.af507656e17dc5b88e94": {
+        "template": "방어도 {v0}\n에너지 보호막 최대치 {v1}",
+        "name": "기름 부은"
+      },
+      "gloves.9aeaa7bb41ac9b2be0f6": {
+        "template": "방어도 {v0}\n에너지 보호막 최대치 {v1}",
+        "name": "축성된"
+      },
+      "gloves.2ddc22b7af3ccb801643": {
+        "template": "방어도 {v0}\n에너지 보호막 최대치 {v1}",
+        "name": "거룩한"
+      },
+      "gloves.0310d3a2db33a1134d54": {
+        "template": "방어도 및 에너지 보호막 {v0}% 증가",
+        "name": "스며든"
+      },
+      "gloves.504e7db9c2d559914b06": {
+        "template": "방어도 및 에너지 보호막 {v0}% 증가",
+        "name": "물든"
+      },
+      "gloves.a1c5a1bb6b2de3b00553": {
+        "template": "방어도 및 에너지 보호막 {v0}% 증가",
+        "name": "침투된"
+      },
+      "gloves.d29cde3441de35bb3ce7": {
+        "template": "방어도 및 에너지 보호막 {v0}% 증가",
+        "name": "주입된"
+      },
+      "gloves.18c44708d1309b253c6f": {
+        "template": "방어도 및 에너지 보호막 {v0}% 증가",
+        "name": "심어진"
+      },
+      "gloves.6e5d01bafcdb94ddac87": {
+        "template": "방어도 및 에너지 보호막 {v0}% 증가",
+        "name": "보간된"
+      },
+      "gloves.564f9b4c8af0970e0651": {
+        "template": "방어도 및 에너지 보호막 {v0}% 증가",
+        "name": "격려된"
+      },
+      "gloves.6c208b1918c01b007f82": {
+        "template": "방어도 및 에너지 보호막 {v0}% 증가\n생명력 최대치 {v1}",
+        "name": "점술가의"
+      },
+      "gloves.495e10f2750f319ca5e9": {
+        "template": "방어도 및 에너지 보호막 {v0}% 증가\n생명력 최대치 {v1}",
+        "name": "점복관의"
+      },
+      "gloves.77a0f83e3e14a8052cc7": {
+        "template": "방어도 및 에너지 보호막 {v0}% 증가\n생명력 최대치 {v1}",
+        "name": "드루이드의"
+      },
+      "gloves.b738184a95607395dc60": {
+        "template": "방어도 및 에너지 보호막 {v0}% 증가\n생명력 최대치 {v1}",
+        "name": "창자 점쟁이의"
+      },
+      "gloves.e6fb0c7cd61f2b6fc1d6": {
+        "template": "방어도 및 에너지 보호막 {v0}% 증가\n생명력 최대치 {v1}",
+        "name": "공상가의"
+      },
+      "gloves.287371ba849e910fb248": {
+        "template": "방어도 및 에너지 보호막 {v0}% 증가\n생명력 최대치 {v1}",
+        "name": "선견자의"
       }
     },
     "zh-CN": {
@@ -54421,6 +55610,158 @@
       "special.6f0843c2a9e9189f": {
         "template": "攻击技能的效果区域提高 {v0}%",
         "name": "群星之"
+      },
+      "gloves.c0a648e1ccb3e892438a": {
+        "template": "{v0} 能量护盾上限",
+        "name": "发光的"
+      },
+      "gloves.b34e883eab693451588b": {
+        "template": "{v0} 能量护盾上限",
+        "name": "微光的"
+      },
+      "gloves.795d9ebc7b7a07ee0b4c": {
+        "template": "{v0} 能量护盾上限",
+        "name": "闪闪发亮的"
+      },
+      "gloves.89edf1cc4ff9d40a237a": {
+        "template": "{v0} 能量护盾上限",
+        "name": "泛光的"
+      },
+      "gloves.9c024c949c78a14e340d": {
+        "template": "{v0} 能量护盾上限",
+        "name": "辐射的"
+      },
+      "gloves.9ee05d11cea2e2dafe8c": {
+        "template": "{v0} 能量护盾上限",
+        "name": "脉冲的"
+      },
+      "gloves.44047f1d043cc29b03a7": {
+        "template": "{v0} 能量护盾上限",
+        "name": "炽烈的"
+      },
+      "gloves.6aec41e995060c28f895": {
+        "template": "能量护盾提高 {v0}%",
+        "name": "保护的"
+      },
+      "gloves.d937099c3bbe6feaf032": {
+        "template": "能量护盾提高 {v0}%",
+        "name": "意志坚强的"
+      },
+      "gloves.e67e79ab7f0ae6e6c526": {
+        "template": "能量护盾提高 {v0}%",
+        "name": "坚决的"
+      },
+      "gloves.a787bc4fe78a0f4a3fc3": {
+        "template": "能量护盾提高 {v0}%",
+        "name": "无惧的"
+      },
+      "gloves.acb9a0debc5657ae6a3f": {
+        "template": "能量护盾提高 {v0}%",
+        "name": "无畏的"
+      },
+      "gloves.5a5ba960d8a37a73ee83": {
+        "template": "能量护盾提高 {v0}%",
+        "name": "无法征服的"
+      },
+      "gloves.bd00fe0788c7777eb9d3": {
+        "template": "能量护盾提高 {v0}%",
+        "name": "坚不可摧的"
+      },
+      "gloves.0102c205bcca63170d08": {
+        "template": "能量护盾提高 {v0}%\n{v1} 生命上限",
+        "name": "行者的"
+      },
+      "gloves.7ba25df9e91a900e9d90": {
+        "template": "能量护盾提高 {v0}%\n{v1} 生命上限",
+        "name": "院长的"
+      },
+      "gloves.5d9f137c151bf81b23dd": {
+        "template": "能量护盾提高 {v0}%\n{v1} 生命上限",
+        "name": "尊长的"
+      },
+      "gloves.8428a04198e790e248b7": {
+        "template": "能量护盾提高 {v0}%\n{v1} 生命上限",
+        "name": "主教的"
+      },
+      "gloves.bb66d971cc69327db879": {
+        "template": "能量护盾提高 {v0}%\n{v1} 生命上限",
+        "name": "总督的"
+      },
+      "gloves.67ef3f828f9f600df9de": {
+        "template": "能量护盾提高 {v0}%\n{v1} 生命上限",
+        "name": "教宗的"
+      },
+      "gloves.cace7e6bc4d1f2920305": {
+        "template": "能量护盾充能率提高 {v0}%",
+        "name": "缓冲之"
+      },
+      "gloves.839461795f36510250b5": {
+        "template": "{v0} 护甲\n{v1} 能量护盾上限",
+        "name": "受福的"
+      },
+      "gloves.af507656e17dc5b88e94": {
+        "template": "{v0} 护甲\n{v1} 能量护盾上限",
+        "name": "受膏的"
+      },
+      "gloves.9aeaa7bb41ac9b2be0f6": {
+        "template": "{v0} 护甲\n{v1} 能量护盾上限",
+        "name": "圣化的"
+      },
+      "gloves.2ddc22b7af3ccb801643": {
+        "template": "{v0} 护甲\n{v1} 能量护盾上限",
+        "name": "崇圣的"
+      },
+      "gloves.0310d3a2db33a1134d54": {
+        "template": "护甲与能量护盾提高 {v0}%",
+        "name": "嵌入的"
+      },
+      "gloves.504e7db9c2d559914b06": {
+        "template": "护甲与能量护盾提高 {v0}%",
+        "name": "扎根的"
+      },
+      "gloves.a1c5a1bb6b2de3b00553": {
+        "template": "护甲与能量护盾提高 {v0}%",
+        "name": "灌输的"
+      },
+      "gloves.d29cde3441de35bb3ce7": {
+        "template": "护甲与能量护盾提高 {v0}%",
+        "name": "灌注的"
+      },
+      "gloves.18c44708d1309b253c6f": {
+        "template": "护甲与能量护盾提高 {v0}%",
+        "name": "重灌的"
+      },
+      "gloves.6e5d01bafcdb94ddac87": {
+        "template": "护甲与能量护盾提高 {v0}%",
+        "name": "窜改的"
+      },
+      "gloves.564f9b4c8af0970e0651": {
+        "template": "护甲与能量护盾提高 {v0}%",
+        "name": "鼓舞的"
+      },
+      "gloves.6c208b1918c01b007f82": {
+        "template": "护甲与能量护盾提高 {v0}%\n{v1} 生命上限",
+        "name": "预言者的"
+      },
+      "gloves.495e10f2750f319ca5e9": {
+        "template": "护甲与能量护盾提高 {v0}%\n{v1} 生命上限",
+        "name": "鸟语者的"
+      },
+      "gloves.77a0f83e3e14a8052cc7": {
+        "template": "护甲与能量护盾提高 {v0}%\n{v1} 生命上限",
+        "name": "德鲁伊的"
+      },
+      "gloves.b738184a95607395dc60": {
+        "template": "护甲与能量护盾提高 {v0}%\n{v1} 生命上限",
+        "name": "肠卜师的"
+      },
+      "gloves.e6fb0c7cd61f2b6fc1d6": {
+        "template": "护甲与能量护盾提高 {v0}%\n{v1} 生命上限",
+        "name": "幻视者的"
+      },
+      "gloves.287371ba849e910fb248": {
+        "template": "护甲与能量护盾提高 {v0}%\n{v1} 生命上限",
+        "name": "先知的"
       }
     },
     "zh-TW": {
@@ -61183,6 +62524,158 @@
       "special.6f0843c2a9e9189f": {
         "template": "攻擊增加{v0}%範圍效果",
         "name": "星辰之"
+      },
+      "gloves.c0a648e1ccb3e892438a": {
+        "template": "{v0}最大能量護盾",
+        "name": "發光的"
+      },
+      "gloves.b34e883eab693451588b": {
+        "template": "{v0}最大能量護盾",
+        "name": "微光的"
+      },
+      "gloves.795d9ebc7b7a07ee0b4c": {
+        "template": "{v0}最大能量護盾",
+        "name": "閃閃發亮的"
+      },
+      "gloves.89edf1cc4ff9d40a237a": {
+        "template": "{v0}最大能量護盾",
+        "name": "泛光的"
+      },
+      "gloves.9c024c949c78a14e340d": {
+        "template": "{v0}最大能量護盾",
+        "name": "輻射的"
+      },
+      "gloves.9ee05d11cea2e2dafe8c": {
+        "template": "{v0}最大能量護盾",
+        "name": "脈衝的"
+      },
+      "gloves.44047f1d043cc29b03a7": {
+        "template": "{v0}最大能量護盾",
+        "name": "熾烈的"
+      },
+      "gloves.6aec41e995060c28f895": {
+        "template": "增加{v0}%能量護盾",
+        "name": "保護的"
+      },
+      "gloves.d937099c3bbe6feaf032": {
+        "template": "增加{v0}%能量護盾",
+        "name": "意志堅強的"
+      },
+      "gloves.e67e79ab7f0ae6e6c526": {
+        "template": "增加{v0}%能量護盾",
+        "name": "堅決的"
+      },
+      "gloves.a787bc4fe78a0f4a3fc3": {
+        "template": "增加{v0}%能量護盾",
+        "name": "無懼的"
+      },
+      "gloves.acb9a0debc5657ae6a3f": {
+        "template": "增加{v0}%能量護盾",
+        "name": "無畏的"
+      },
+      "gloves.5a5ba960d8a37a73ee83": {
+        "template": "增加{v0}%能量護盾",
+        "name": "無法征服的"
+      },
+      "gloves.bd00fe0788c7777eb9d3": {
+        "template": "增加{v0}%能量護盾",
+        "name": "攻不可破的"
+      },
+      "gloves.0102c205bcca63170d08": {
+        "template": "增加{v0}%能量護盾\n{v1}最大生命",
+        "name": "僧侶之"
+      },
+      "gloves.7ba25df9e91a900e9d90": {
+        "template": "增加{v0}%能量護盾\n{v1}最大生命",
+        "name": "院長的"
+      },
+      "gloves.5d9f137c151bf81b23dd": {
+        "template": "增加{v0}%能量護盾\n{v1}最大生命",
+        "name": "住持的"
+      },
+      "gloves.8428a04198e790e248b7": {
+        "template": "增加{v0}%能量護盾\n{v1}最大生命",
+        "name": "主教的"
+      },
+      "gloves.bb66d971cc69327db879": {
+        "template": "增加{v0}%能量護盾\n{v1}最大生命",
+        "name": "總督的"
+      },
+      "gloves.67ef3f828f9f600df9de": {
+        "template": "增加{v0}%能量護盾\n{v1}最大生命",
+        "name": "教宗的"
+      },
+      "gloves.cace7e6bc4d1f2920305": {
+        "template": "增加{v0}%能量護盾充能率",
+        "name": "緩衝之"
+      },
+      "gloves.839461795f36510250b5": {
+        "template": "{v0}護甲值\n{v1}最大能量護盾",
+        "name": "被祝福的"
+      },
+      "gloves.af507656e17dc5b88e94": {
+        "template": "{v0}護甲值\n{v1}最大能量護盾",
+        "name": "神聖的"
+      },
+      "gloves.9aeaa7bb41ac9b2be0f6": {
+        "template": "{v0}護甲值\n{v1}最大能量護盾",
+        "name": "聖化的"
+      },
+      "gloves.2ddc22b7af3ccb801643": {
+        "template": "{v0}護甲值\n{v1}最大能量護盾",
+        "name": "聖潔的"
+      },
+      "gloves.0310d3a2db33a1134d54": {
+        "template": "增加{v0}%護甲值和能量護盾",
+        "name": "嵌入的"
+      },
+      "gloves.504e7db9c2d559914b06": {
+        "template": "增加{v0}%護甲值和能量護盾",
+        "name": "紮根的"
+      },
+      "gloves.a1c5a1bb6b2de3b00553": {
+        "template": "增加{v0}%護甲值和能量護盾",
+        "name": "灌輸的"
+      },
+      "gloves.d29cde3441de35bb3ce7": {
+        "template": "增加{v0}%護甲值和能量護盾",
+        "name": "灌注的"
+      },
+      "gloves.18c44708d1309b253c6f": {
+        "template": "增加{v0}%護甲值和能量護盾",
+        "name": "重灌的"
+      },
+      "gloves.6e5d01bafcdb94ddac87": {
+        "template": "增加{v0}%護甲值和能量護盾",
+        "name": "竄改的"
+      },
+      "gloves.564f9b4c8af0970e0651": {
+        "template": "增加{v0}%護甲值和能量護盾",
+        "name": "鼓舞的"
+      },
+      "gloves.6c208b1918c01b007f82": {
+        "template": "增加{v0}%護甲值和能量護盾\n{v1}最大生命",
+        "name": "預言的"
+      },
+      "gloves.495e10f2750f319ca5e9": {
+        "template": "增加{v0}%護甲值和能量護盾\n{v1}最大生命",
+        "name": "占卜的"
+      },
+      "gloves.77a0f83e3e14a8052cc7": {
+        "template": "增加{v0}%護甲值和能量護盾\n{v1}最大生命",
+        "name": "德魯伊的"
+      },
+      "gloves.b738184a95607395dc60": {
+        "template": "增加{v0}%護甲值和能量護盾\n{v1}最大生命",
+        "name": "占星的"
+      },
+      "gloves.e6fb0c7cd61f2b6fc1d6": {
+        "template": "增加{v0}%護甲值和能量護盾\n{v1}最大生命",
+        "name": "空想家的"
+      },
+      "gloves.287371ba849e910fb248": {
+        "template": "增加{v0}%護甲值和能量護盾\n{v1}最大生命",
+        "name": "預言者的"
       }
     },
     "ja": {
@@ -67945,6 +69438,158 @@
       "special.6f0843c2a9e9189f": {
         "template": "アタックの効果範囲が{v0}%増加する",
         "name": "星々の"
+      },
+      "gloves.c0a648e1ccb3e892438a": {
+        "template": "最大エナジーシールド {v0}",
+        "name": "輝く"
+      },
+      "gloves.b34e883eab693451588b": {
+        "template": "最大エナジーシールド {v0}",
+        "name": "瞬く"
+      },
+      "gloves.795d9ebc7b7a07ee0b4c": {
+        "template": "最大エナジーシールド {v0}",
+        "name": "煌く"
+      },
+      "gloves.89edf1cc4ff9d40a237a": {
+        "template": "最大エナジーシールド {v0}",
+        "name": "光る"
+      },
+      "gloves.9c024c949c78a14e340d": {
+        "template": "最大エナジーシールド {v0}",
+        "name": "放射する"
+      },
+      "gloves.9ee05d11cea2e2dafe8c": {
+        "template": "最大エナジーシールド {v0}",
+        "name": "脈動する"
+      },
+      "gloves.44047f1d043cc29b03a7": {
+        "template": "最大エナジーシールド {v0}",
+        "name": "焼き付く"
+      },
+      "gloves.6aec41e995060c28f895": {
+        "template": "エナジーシールドが{v0}%増加する",
+        "name": "守る"
+      },
+      "gloves.d937099c3bbe6feaf032": {
+        "template": "エナジーシールドが{v0}%増加する",
+        "name": "強き意志の"
+      },
+      "gloves.e67e79ab7f0ae6e6c526": {
+        "template": "エナジーシールドが{v0}%増加する",
+        "name": "確固たる"
+      },
+      "gloves.a787bc4fe78a0f4a3fc3": {
+        "template": "エナジーシールドが{v0}%増加する",
+        "name": "恐れ知らずな"
+      },
+      "gloves.acb9a0debc5657ae6a3f": {
+        "template": "エナジーシールドが{v0}%増加する",
+        "name": "恐れ知らずな"
+      },
+      "gloves.5a5ba960d8a37a73ee83": {
+        "template": "エナジーシールドが{v0}%増加する",
+        "name": "不屈の"
+      },
+      "gloves.bd00fe0788c7777eb9d3": {
+        "template": "エナジーシールドが{v0}%増加する",
+        "name": "難攻不落の"
+      },
+      "gloves.0102c205bcca63170d08": {
+        "template": "エナジーシールドが{v0}%増加する\n最大ライフ {v1}",
+        "name": "修道僧の"
+      },
+      "gloves.7ba25df9e91a900e9d90": {
+        "template": "エナジーシールドが{v0}%増加する\n最大ライフ {v1}",
+        "name": "少修道院長の"
+      },
+      "gloves.5d9f137c151bf81b23dd": {
+        "template": "エナジーシールドが{v0}%増加する\n最大ライフ {v1}",
+        "name": "修道院長の"
+      },
+      "gloves.8428a04198e790e248b7": {
+        "template": "エナジーシールドが{v0}%増加する\n最大ライフ {v1}",
+        "name": "司教の"
+      },
+      "gloves.bb66d971cc69327db879": {
+        "template": "エナジーシールドが{v0}%増加する\n最大ライフ {v1}",
+        "name": "高位聖職者の"
+      },
+      "gloves.67ef3f828f9f600df9de": {
+        "template": "エナジーシールドが{v0}%増加する\n最大ライフ {v1}",
+        "name": "主教の"
+      },
+      "gloves.cace7e6bc4d1f2920305": {
+        "template": "エナジーシールドリチャージレートが{v0}%増加する",
+        "name": "緩衝の"
+      },
+      "gloves.839461795f36510250b5": {
+        "template": "アーマー {v0}\n最大エナジーシールド {v1}",
+        "name": "祝福された"
+      },
+      "gloves.af507656e17dc5b88e94": {
+        "template": "アーマー {v0}\n最大エナジーシールド {v1}",
+        "name": "聖油の"
+      },
+      "gloves.9aeaa7bb41ac9b2be0f6": {
+        "template": "アーマー {v0}\n最大エナジーシールド {v1}",
+        "name": "聖域化された"
+      },
+      "gloves.2ddc22b7af3ccb801643": {
+        "template": "アーマー {v0}\n最大エナジーシールド {v1}",
+        "name": "聖なる"
+      },
+      "gloves.0310d3a2db33a1134d54": {
+        "template": "アーマーおよびエナジーシールドが{v0}%増加する",
+        "name": "教育されし"
+      },
+      "gloves.504e7db9c2d559914b06": {
+        "template": "アーマーおよびエナジーシールドが{v0}%増加する",
+        "name": "教導されし"
+      },
+      "gloves.a1c5a1bb6b2de3b00553": {
+        "template": "アーマーおよびエナジーシールドが{v0}%増加する",
+        "name": "教示されし"
+      },
+      "gloves.d29cde3441de35bb3ce7": {
+        "template": "アーマーおよびエナジーシールドが{v0}%増加する",
+        "name": "教諭されし"
+      },
+      "gloves.18c44708d1309b253c6f": {
+        "template": "アーマーおよびエナジーシールドが{v0}%増加する",
+        "name": "教授されし"
+      },
+      "gloves.6e5d01bafcdb94ddac87": {
+        "template": "アーマーおよびエナジーシールドが{v0}%増加する",
+        "name": "教戒されし"
+      },
+      "gloves.564f9b4c8af0970e0651": {
+        "template": "アーマーおよびエナジーシールドが{v0}%増加する",
+        "name": "教伝されし"
+      },
+      "gloves.6c208b1918c01b007f82": {
+        "template": "アーマーおよびエナジーシールドが{v0}%増加する\n最大ライフ {v1}",
+        "name": "占い師の"
+      },
+      "gloves.495e10f2750f319ca5e9": {
+        "template": "アーマーおよびエナジーシールドが{v0}%増加する\n最大ライフ {v1}",
+        "name": "占術師の"
+      },
+      "gloves.77a0f83e3e14a8052cc7": {
+        "template": "アーマーおよびエナジーシールドが{v0}%増加する\n最大ライフ {v1}",
+        "name": "ドルイドの"
+      },
+      "gloves.b738184a95607395dc60": {
+        "template": "アーマーおよびエナジーシールドが{v0}%増加する\n最大ライフ {v1}",
+        "name": "腸卜師の"
+      },
+      "gloves.e6fb0c7cd61f2b6fc1d6": {
+        "template": "アーマーおよびエナジーシールドが{v0}%増加する\n最大ライフ {v1}",
+        "name": "幻想家の"
+      },
+      "gloves.287371ba849e910fb248": {
+        "template": "アーマーおよびエナジーシールドが{v0}%増加する\n最大ライフ {v1}",
+        "name": "預言者の"
       }
     },
     "es": {
@@ -74707,6 +76352,158 @@
       "special.6f0843c2a9e9189f": {
         "template": "Área de efecto de los ataques aumentada un {v0}%",
         "name": "de las estrellas"
+      },
+      "gloves.c0a648e1ccb3e892438a": {
+        "template": "{v0} al escudo de energía máximo",
+        "name": "{brillante}{brillantes}"
+      },
+      "gloves.b34e883eab693451588b": {
+        "template": "{v0} al escudo de energía máximo",
+        "name": "{destelleante}{destelleantes}"
+      },
+      "gloves.795d9ebc7b7a07ee0b4c": {
+        "template": "{v0} al escudo de energía máximo",
+        "name": "{reluciente}{relucientes}"
+      },
+      "gloves.89edf1cc4ff9d40a237a": {
+        "template": "{v0} al escudo de energía máximo",
+        "name": "{refulgente}{refulgentes}"
+      },
+      "gloves.9c024c949c78a14e340d": {
+        "template": "{v0} al escudo de energía máximo",
+        "name": "{radiante}{radiantes}"
+      },
+      "gloves.9ee05d11cea2e2dafe8c": {
+        "template": "{v0} al escudo de energía máximo",
+        "name": "{pulsante}{pulsantes}"
+      },
+      "gloves.44047f1d043cc29b03a7": {
+        "template": "{v0} al escudo de energía máximo",
+        "name": "{flameante}{flameantes}"
+      },
+      "gloves.6aec41e995060c28f895": {
+        "template": "Escudo de energía aumentado un {v0}%",
+        "name": "{protector}{protectora}{protectores}{protectoras}"
+      },
+      "gloves.d937099c3bbe6feaf032": {
+        "template": "Escudo de energía aumentado un {v0}%",
+        "name": "{tenaz}{tenaces}"
+      },
+      "gloves.e67e79ab7f0ae6e6c526": {
+        "template": "Escudo de energía aumentado un {v0}%",
+        "name": "{resuelto}{resuelta}{resueltos}{resueltas}"
+      },
+      "gloves.a787bc4fe78a0f4a3fc3": {
+        "template": "Escudo de energía aumentado un {v0}%",
+        "name": "{valeroso}{valerosa}{valerosos}{valerosas}"
+      },
+      "gloves.acb9a0debc5657ae6a3f": {
+        "template": "Escudo de energía aumentado un {v0}%",
+        "name": "{intrépido}{intrépida}{intrépidos}{intrépidas}"
+      },
+      "gloves.5a5ba960d8a37a73ee83": {
+        "template": "Escudo de energía aumentado un {v0}%",
+        "name": "{indómito}{indómita}{indómitos}{indómitas}"
+      },
+      "gloves.bd00fe0788c7777eb9d3": {
+        "template": "Escudo de energía aumentado un {v0}%",
+        "name": "{irrefutable}{irrefutables}"
+      },
+      "gloves.0102c205bcca63170d08": {
+        "template": "Escudo de energía aumentado un {v0}%\n{v1} a la vida máxima",
+        "name": "del monje"
+      },
+      "gloves.7ba25df9e91a900e9d90": {
+        "template": "Escudo de energía aumentado un {v0}%\n{v1} a la vida máxima",
+        "name": "del prior"
+      },
+      "gloves.5d9f137c151bf81b23dd": {
+        "template": "Escudo de energía aumentado un {v0}%\n{v1} a la vida máxima",
+        "name": "del abad"
+      },
+      "gloves.8428a04198e790e248b7": {
+        "template": "Escudo de energía aumentado un {v0}%\n{v1} a la vida máxima",
+        "name": "del obispo"
+      },
+      "gloves.bb66d971cc69327db879": {
+        "template": "Escudo de energía aumentado un {v0}%\n{v1} a la vida máxima",
+        "name": "del exarca"
+      },
+      "gloves.67ef3f828f9f600df9de": {
+        "template": "Escudo de energía aumentado un {v0}%\n{v1} a la vida máxima",
+        "name": "del papa"
+      },
+      "gloves.cace7e6bc4d1f2920305": {
+        "template": "Velocidad de recarga del escudo de energía aumentada un {v0}%",
+        "name": "de amortiguamiento"
+      },
+      "gloves.839461795f36510250b5": {
+        "template": "{v0} a la armadura\n{v1} al escudo de energía máximo",
+        "name": "{bendito}{bendita}{benditos}{benditas}"
+      },
+      "gloves.af507656e17dc5b88e94": {
+        "template": "{v0} a la armadura\n{v1} al escudo de energía máximo",
+        "name": "{ungido}{ungida}{ungidos}{ungidas}"
+      },
+      "gloves.9aeaa7bb41ac9b2be0f6": {
+        "template": "{v0} a la armadura\n{v1} al escudo de energía máximo",
+        "name": "{santificado}{santificada}{santificados}{santificadas}"
+      },
+      "gloves.2ddc22b7af3ccb801643": {
+        "template": "{v0} a la armadura\n{v1} al escudo de energía máximo",
+        "name": "{sagrado}{sagrada}{sagrados}{sagradas}"
+      },
+      "gloves.0310d3a2db33a1134d54": {
+        "template": "Armadura y escudo de energía aumentados un {v0}%",
+        "name": "{insertado}{insertada}{insertados}{insertadas}"
+      },
+      "gloves.504e7db9c2d559914b06": {
+        "template": "Armadura y escudo de energía aumentados un {v0}%",
+        "name": "{enraizado}{enraizada}{enraizados}{enraizadas}"
+      },
+      "gloves.a1c5a1bb6b2de3b00553": {
+        "template": "Armadura y escudo de energía aumentados un {v0}%",
+        "name": "{instilado}{instilada}{instilados}{instiladas}"
+      },
+      "gloves.d29cde3441de35bb3ce7": {
+        "template": "Armadura y escudo de energía aumentados un {v0}%",
+        "name": "{infundido}{infundida}{infundidos}{infundidas}"
+      },
+      "gloves.18c44708d1309b253c6f": {
+        "template": "Armadura y escudo de energía aumentados un {v0}%",
+        "name": "{inculcado}{inculcada}{inculcados}{inculcadas}"
+      },
+      "gloves.6e5d01bafcdb94ddac87": {
+        "template": "Armadura y escudo de energía aumentados un {v0}%",
+        "name": "{intercalado}{intercalada}{intercalados}{intercaladas}"
+      },
+      "gloves.564f9b4c8af0970e0651": {
+        "template": "Armadura y escudo de energía aumentados un {v0}%",
+        "name": "{inspirado}{inspirada}{inspirados}{inspiradas}"
+      },
+      "gloves.6c208b1918c01b007f82": {
+        "template": "Armadura y escudo de energía aumentados un {v0}%\n{v1} a la vida máxima",
+        "name": "del augur"
+      },
+      "gloves.495e10f2750f319ca5e9": {
+        "template": "Armadura y escudo de energía aumentados un {v0}%\n{v1} a la vida máxima",
+        "name": "del vidente"
+      },
+      "gloves.77a0f83e3e14a8052cc7": {
+        "template": "Armadura y escudo de energía aumentados un {v0}%\n{v1} a la vida máxima",
+        "name": "del druida"
+      },
+      "gloves.b738184a95607395dc60": {
+        "template": "Armadura y escudo de energía aumentados un {v0}%\n{v1} a la vida máxima",
+        "name": "del arúspice"
+      },
+      "gloves.e6fb0c7cd61f2b6fc1d6": {
+        "template": "Armadura y escudo de energía aumentados un {v0}%\n{v1} a la vida máxima",
+        "name": "del visionario"
+      },
+      "gloves.287371ba849e910fb248": {
+        "template": "Armadura y escudo de energía aumentados un {v0}%\n{v1} a la vida máxima",
+        "name": "del profeta"
       }
     }
   }

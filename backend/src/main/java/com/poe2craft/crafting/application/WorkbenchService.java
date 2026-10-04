@@ -443,6 +443,30 @@ public final class WorkbenchService {
     throw new IllegalArgumentException("Unsupported Workbench base");
   }
 
+  /**
+   * Bootstrap registration uses source-reviewed catalog identities and per-class essence targets.
+   */
+  public void registerReviewedGloves(
+      String key,
+      ItemCatalog catalog,
+      Map<WorkbenchCurrency, List<String>> fixed,
+      Map<WorkbenchCurrency, List<String>> replacements) {
+    if (!catalog.base().id().equals(ReviewedGloves.BASES.get(key)) || topBases.containsKey(key))
+      throw new IllegalArgumentException("Unreviewed or duplicate Gloves registration");
+    var simulator =
+        new WorkbenchSimulator(
+            catalog,
+            new CraftingEngine(catalog),
+            catalog.modifiers().values().stream()
+                .filter(d -> d.stats().size() > 1)
+                .map(ModifierDefinition::id)
+                .collect(java.util.stream.Collectors.toSet()),
+            fixed,
+            replacements);
+    topBases.put(key, catalog);
+    topBaseSimulators.put(catalog.base().id(), simulator);
+  }
+
   public WorkbenchSimulator.Result apply(
       ItemState state, WorkbenchCurrency action, Set<String> omens, RandomGenerator random) {
     return simulator(state).apply(state, action, omens, random);
@@ -455,7 +479,10 @@ public final class WorkbenchService {
   public QualityDisplay qualityDisplay(ItemState state) {
     if (topBaseSimulators.containsKey(state.baseItemId())) {
       var selected =
-          catalog(BodyEssenceTargets.supports(state.baseItemId()) ? "soldier" : "imperial");
+          topBases.values().stream()
+              .filter(c -> c.base().id().equals(state.baseItemId()))
+              .findFirst()
+              .orElseThrow();
       return new QualityDisplay(
           com.poe2craft.item.CatalystQualityDisplay.VERSION,
           state,

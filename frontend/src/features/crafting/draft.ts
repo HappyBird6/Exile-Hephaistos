@@ -5,6 +5,9 @@ const baseText = 'Item Class: Amulets\nRarity: Normal\nSolar Amulet'
 const baseTexts = {
   soldier: 'Item Class: Body Armours\nRarity: Normal\nSoldier Cuirass',
   imperial: 'Item Class: Helmets\nRarity: Normal\nImperial Greathelm',
+  massive: 'Item Class: Gloves\nRarity: Normal\nMassive Mitts',
+  sirenscale: 'Item Class: Gloves\nRarity: Normal\nSirenscale Gloves',
+  adherent: 'Item Class: Gloves\nRarity: Normal\nAdherent Cuffs',
   'time-lost-ruby': 'Item Class: Jewels\nRarity: Normal\nTime-Lost Ruby',
   'time-lost-emerald': 'Item Class: Jewels\nRarity: Normal\nTime-Lost Emerald',
   'time-lost-sapphire':
@@ -40,6 +43,9 @@ type Draft = {
     | 'body'
     | 'soldier'
     | 'imperial'
+    | 'massive'
+    | 'sirenscale'
+    | 'adherent'
     | 'sceptre'
     | 'belt'
     | 'helmet'
@@ -66,6 +72,9 @@ type Draft = {
       | 'body'
       | 'soldier'
       | 'imperial'
+      | 'massive'
+      | 'sirenscale'
+      | 'adherent'
       | 'sceptre'
       | 'belt'
       | 'helmet'

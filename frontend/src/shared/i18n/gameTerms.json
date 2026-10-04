@@ -2157,6 +2157,24 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame",
       "sourceUrl": "https://poe2db.tw/us/Imperial_Greathelm"
+    },
+    "Massive_Mitts": {
+      "name": "Massive Mitts",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStr6Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Massive_Mitts"
+    },
+    "Sirenscale_Gloves": {
+      "name": "Sirenscale Gloves",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Sirenscale_Gloves"
+    },
+    "Adherent_Cuffs": {
+      "name": "Adherent Cuffs",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Adherent_Cuffs"
     }
   },
   "ko": {
@@ -4301,6 +4319,24 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame",
       "sourceUrl": "https://poe2db.tw/kr/Imperial_Greathelm"
+    },
+    "Massive_Mitts": {
+      "name": "거대한 미트",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStr6Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Massive_Mitts"
+    },
+    "Sirenscale_Gloves": {
+      "name": "사이렌비늘 장갑",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Sirenscale_Gloves"
+    },
+    "Adherent_Cuffs": {
+      "name": "지지자 수갑",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Adherent_Cuffs"
     }
   },
   "zh-CN": {
@@ -6343,6 +6379,24 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame",
       "sourceUrl": "https://poe2db.tw/cn/Imperial_Greathelm"
+    },
+    "Massive_Mitts": {
+      "name": "巨型护手",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStr6Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Massive_Mitts"
+    },
+    "Sirenscale_Gloves": {
+      "name": "海妖之鳞手套",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Sirenscale_Gloves"
+    },
+    "Adherent_Cuffs": {
+      "name": "信徒袖带",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Adherent_Cuffs"
     }
   },
   "zh-TW": {
@@ -8375,6 +8429,24 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame",
       "sourceUrl": "https://poe2db.tw/tw/Imperial_Greathelm"
+    },
+    "Massive_Mitts": {
+      "name": "巨型長手套",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStr6Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Massive_Mitts"
+    },
+    "Sirenscale_Gloves": {
+      "name": "海妖鱗手套",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Sirenscale_Gloves"
+    },
+    "Adherent_Cuffs": {
+      "name": "追隨者腕帶",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Adherent_Cuffs"
     }
   },
   "ja": {
@@ -10521,6 +10593,24 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame",
       "sourceUrl": "https://poe2db.tw/jp/Imperial_Greathelm"
+    },
+    "Massive_Mitts": {
+      "name": "巨大なミット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStr6Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Massive_Mitts"
+    },
+    "Sirenscale_Gloves": {
+      "name": "サイレーンスケイルの手袋",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Sirenscale_Gloves"
+    },
+    "Adherent_Cuffs": {
+      "name": "密着のカフス",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Adherent_Cuffs"
     }
   },
   "es": {
@@ -12585,6 +12675,24 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame",
       "sourceUrl": "https://poe2db.tw/sp/Imperial_Greathelm"
+    },
+    "Massive_Mitts": {
+      "name": "Manoplas masivas",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStr6Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Massive_Mitts"
+    },
+    "Sirenscale_Gloves": {
+      "name": "Guantes de sirena",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Sirenscale_Gloves"
+    },
+    "Adherent_Cuffs": {
+      "name": "Brazaletes adherentes",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Adherent_Cuffs"
     }
   }
 }
