@@ -33,6 +33,7 @@ public final class SupportRecommendations {
     if (!assessment.valid()) throw new IllegalArgumentException("Invalid Support goal");
     var omens = activeOmens == null ? Set.<String>of() : Set.copyOf(activeOmens);
     omens.forEach(WorkbenchOmen::fromId);
+    rejectMultiAddition(omens);
     long start = System.nanoTime();
     var before = pools.stats();
     var budget = new Budget(limits, start);
@@ -105,6 +106,7 @@ public final class SupportRecommendations {
       Set<String> omens,
       List<WorkbenchCurrency> sequence,
       Limits limits) {
+    rejectMultiAddition(omens);
     var assessment = goals.assess(root, goal);
     if (!assessment.valid()
         || sequence == null
@@ -112,6 +114,18 @@ public final class SupportRecommendations {
         || sequence.stream().anyMatch(a -> !AdditionRules.isAddition(a)))
       throw new IllegalArgumentException("Invalid finite addition sequence or goal");
     return evaluate(root, goal, omens, sequence, new Budget(limits, System.nanoTime()));
+  }
+
+  private void rejectMultiAddition(Set<String> omens) {
+    if (omens != null
+        && omens.stream()
+            .map(WorkbenchOmen::fromId)
+            .anyMatch(o -> o.trigger() == WorkbenchCurrency.ESSENCE_HYSTERIA))
+      throw new IllegalArgumentException(
+          "Crystallisation is outside the finite addition model. Deactivate it for Support.");
+    if (omens != null && omens.contains(WorkbenchOmen.GREATER_EXALTATION.id()))
+      throw new IllegalArgumentException(
+          "Greater Exaltation is outside the finite addition model. Deactivate it for Support.");
   }
 
   private Comparison evaluate(

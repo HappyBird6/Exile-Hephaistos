@@ -13,7 +13,42 @@ public record ItemState(
     Rarity rarity,
     List<ModifierInstance> implicits,
     List<ModifierInstance> explicits,
-    Set<Condition> conditions) {
+    Set<Condition> conditions,
+    Integer augmentSockets,
+    CatalystQuality catalystQuality) {
+  public ItemState(
+      String snapshotId,
+      String baseItemId,
+      int itemLevel,
+      Rarity rarity,
+      List<ModifierInstance> implicits,
+      List<ModifierInstance> explicits,
+      Set<Condition> conditions,
+      Integer augmentSockets) {
+    this(
+        snapshotId,
+        baseItemId,
+        itemLevel,
+        rarity,
+        implicits,
+        explicits,
+        conditions,
+        augmentSockets,
+        null);
+  }
+
+  /** Legacy states have unknown socket counts; never infer zero during migration. */
+  public ItemState(
+      String snapshotId,
+      String baseItemId,
+      int itemLevel,
+      Rarity rarity,
+      List<ModifierInstance> implicits,
+      List<ModifierInstance> explicits,
+      Set<Condition> conditions) {
+    this(snapshotId, baseItemId, itemLevel, rarity, implicits, explicits, conditions, null);
+  }
+
   public ItemState {
     if (snapshotId == null || snapshotId.isBlank() || baseItemId == null || baseItemId.isBlank()) {
       throw new IllegalArgumentException("Snapshot and base item IDs are required");

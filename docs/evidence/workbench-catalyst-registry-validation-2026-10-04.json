@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-04",
+  "baseline": "e0e0c09c68283581237da9abb3e6f2ae83eed0b8",
+  "change": "Reconcile verified Catalyst26 registry metadata; no crafting-rule or eligibility expansion",
+  "counts": {
+    "ACTIVE IMPLEMENTED": 170,
+    "DEFERRED PENDING_RULE_VERIFICATION": 42,
+    "DEFERRED IMPLEMENTED": 8
+  },
+  "registered": 220,
+  "active": 170,
+  "implementedActive": 170,
+  "defaultImplemented": 163,
+  "optInLegacyImplemented": 7,
+  "activePending": 0,
+  "deferred": 50,
+  "implementedDeferred": 8,
+  "unimplementedDeferred": 42,
+  "implementedOverall": 178,
+  "definition": "IMPLEMENTED = at least one verified positive execution path on declared supportedBases, not every base or proven game odds",
+  "ordinaryCatalyst": {
+    "count": 13,
+    "supportedBases": [
+      "solar",
+      "ring"
+    ]
+  },
+  "refinedCatalyst": {
+    "count": 13,
+    "supportedBases": [
+      "ruby",
+      "emerald",
+      "sapphire",
+      "diamond"
+    ]
+  },
+  "allOtherBasesExcluded": true,
+  "nonCatalystEntriesUnchanged": true,
+  "sourceProvenanceAndPreviousPendingHistoryPreserved": true,
+  "backend": {
+    "command": "spotlessApply test --tests com.poe2craft.crafting.CatalystRegistryTest, then check generateJooq bootJar (sequential)",
+    "passed": true,
+    "tests": {
+      "test": 386,
+      "integrationTest": 6
+    },
+    "log": "../ancient-liquid-20261004/backend-registry-check-3.log",
+    "newInvariant": "CatalystRegistryTest:26 actions x10 reviewed bases; exact declared bases, positive/rejections, no-spend failures, previous pending provenance and aggregate counts",
+    "targetedLog": "../ancient-liquid-20261004/backend-registry-targeted.log"
+  },
+  "priorQA": {
+    "path": "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json",
+    "sha256": "6ff80866a5f0ef0f6d045780f24b8a82afc6ed94e64bc79a437101ae9a5e12e4",
+    "preserved": true,
+    "notRepeated": "32,392 API assertions, browser380 and Frontend1739 unchanged; previous metadata counts describe their historical snapshot"
+  },
+  "failureHistory": [
+    {
+      "log": "../ancient-liquid-20261004/backend-registry-check.log",
+      "failure": "New invariant referenced IMPLICIT AffixType instead of Layer",
+      "resolution": "Corrected test to existing ModifierDefinition.Layer.IMPLICIT; aggregate rerun"
+    },
+    {
+      "log": "../ancient-liquid-20261004/backend-registry-check-2.log",
+      "failure": "Invariant used generic Jewel loader for Sapphire, whose existing loader is separate",
+      "resolution": "Used existing loadSapphire dispatch; production loader unchanged"
+    }
+  ],
+  "noLiveOrRemoteUpdate": true,
+  "qaOwner": {
+    "owner": "workbench/20261002",
+    "baseHead": "d36ef9a6a8a5b4371d59c09cf5d295eb1b2f0833",
+    "active": false,
+    "project": "exile-ancient-liquid-20261004",
+    "ports": [
+      18980,
+      18981
+    ],
+    "servicesStoppedNormally": true,
+    "releasedAt": "2026-10-04T11:59:05.946Z",
+    "reacquiredFor": "Catalyst registry finishing checks",
+    "registryChecksCompleted": true
+  }
+}

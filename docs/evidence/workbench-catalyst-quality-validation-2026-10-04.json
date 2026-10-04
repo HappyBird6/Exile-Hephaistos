@@ -1,0 +1,43 @@
+{
+  "scope": "typed catalyst quality foundation; no application actions",
+  "initialHead": "320a7acaa6ebd159314a44c88c5619197396688d",
+  "counts": { "bases": 9, "active": 111, "activeTotal": 155, "pending": 44, "deferred": 65 },
+  "backend": {
+    "command": "./gradlew --no-daemon spotlessApply check generateJooq bootJar",
+    "environment": "owned project Docker backend check",
+    "passed": 354,
+    "unit": 348,
+    "integration": 6,
+    "jarSha256": "26f05f30513b927103304c52a288b57485aaf01efcfa25cdbc67c12be73343c7"
+  },
+  "frontend": {
+    "npmCi": "pass; audit zero vulnerabilities",
+    "lintTypecheckFormatBuild": "pass",
+    "existingTestsFullRunPassed": 320,
+    "newTestsTargetedCorrectedFixtureRunPassed": 9,
+    "uniquePassingTests": 329,
+    "limitation": "Not a single all329-pass run. Two new tests initially used a noncanonical fixture alias; only local test fixtures were corrected, then all nine new tests rerun.",
+    "finalCssOnlyFormatBuild": "pass",
+    "finalAssets": ["index-BCdbyuAU.js", "index-BS8o2mQW.css"]
+  },
+  "runtime": {
+    "apiAssertions": 74,
+    "browserAssertions": 56,
+    "finalCssLinkFocusBrowserAssertions": 5,
+    "pageErrors": 0,
+    "checks": ["manual existing-quality input", "thirteen type projections", "raw rolls and fracture preserved", "Solar Breach cap40 unscaled", "typed currency refusal without consumption", "nine-base film restoration", "390px layout and keyboard focus", "legacy film bytes preserved"]
+  },
+  "catalog": { "preservedEntries": 1487, "comparedFields": ["weight", "ranges", "tags"], "gitDiff": "empty" },
+  "sourceProof": {
+    "freshHttp200Sources": 6,
+    "manifest": "codex/qa-20261003/catalyst-quality/manifest.json",
+    "ordinaryDefinitionsCheckedAgainstExistingCapturedMetadata": 255,
+    "sharedReviewedStatUnits": 22,
+    "currentEssenceBreachDetail": "HTTP200; cap explicitly unscalable",
+    "limitation": "First current cached-CDN ordinary detail returned403; no bypass and no fresh255-row recrawl claim. Captured source hashes and units retained. PoB is independent implementation evidence, not GGG engine certification."
+  },
+  "supportingFiles": "codex/qa-20261003/catalyst-quality/{manifest,stat-proof,api-results,weight-results,browser-results,link-review}.json and quality screenshots",
+  "selfReview": "Bounded state and detached integer display; original values and catalog unchanged; strict malformed-input validation; no implicit quality migration; all-nine-base restoration corrected; source-link visual contrast and focus verified.",
+  "preservation": "No DB reset, volume deletion, original-checkout edits, remote push, merge or deployment. Sequential Docker checks; owned disposable browser/probe containers closed; project QA four services remain.",
+  "remaining": ["per-use ilvl increments", "type replacement reset/increment", "unique exceptions", "negative/decimal/mixed rounding", "ordinary currency interactions", "Catalysing quality-to-weight function"]
+}

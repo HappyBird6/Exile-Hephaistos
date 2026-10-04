@@ -1,0 +1,1784 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-time-lost-ruby-ancient-20261004-7cadbd1d219a",
+    "retrievedAt": "2026-10-04T11:14:50.229Z",
+    "sourceUrl": "https://poe2db.tw/us/Time-Lost_Ruby",
+    "weightPolicy": "USER_APPROVED_UNIFORM_CANDIDATES_NOT_GAME_WEIGHTS",
+    "rawSha256": "7cadbd1d219a19a5e7c911d0872003ada91838c988156a99326fd9d1883d3737",
+    "detailsSha256": "cea0e3bca3ac5f8fea38a8067ec20680e75f7dd35049c92e177a2a99bec9d646",
+    "prefixCount": 39,
+    "suffixCount": 28,
+    "prefixWeight": 31,
+    "suffixWeight": 22
+  },
+  "base": {
+    "id": "Metadata/Items/Jewels/JewelRadiusStr",
+    "name": "Time-Lost Ruby",
+    "sourceUrl": "https://poe2db.tw/us/Time-Lost_Ruby",
+    "implicitModifierId": "time-lost-ruby:implicit:base-radius",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 2,
+    "rareSuffixes": 2
+  },
+  "modifiers": [
+    {
+      "id": "time-lost-ruby:implicit:base-radius",
+      "name": "Base radius",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "JewelEffectBaseRadius"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "text": "local jewel effect base radius [1000]",
+      "stats": [
+        {
+          "id": "local_jewel_effect_base_radius",
+          "min": 1000,
+          "max": 1000
+        }
+      ],
+      "tags": [
+        "unscalable",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Ruby"
+    },
+    {
+      "id": "time-lost-ruby:prefix:greater",
+      "name": "Greater",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "JewelRadiusLargerRadius"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Upgrades Radius to Medium\nlocal jewel effect base radius [150]",
+      "stats": [
+        {
+          "id": "local_jewel_effect_base_radius",
+          "min": 150,
+          "max": 150
+        }
+      ],
+      "tags": [
+        "unscalable",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4aa313e247c20b99ce5d4887d101bb0825619dd1e2c8142649c6ffc178cf9984"
+    },
+    {
+      "id": "time-lost-ruby:prefix:grand",
+      "name": "Grand",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "JewelRadiusLargerRadius"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Upgrades Radius to Large\nlocal jewel effect base radius [300]",
+      "stats": [
+        {
+          "id": "local_jewel_effect_base_radius",
+          "min": 300,
+          "max": 300
+        }
+      ],
+      "tags": [
+        "unscalable",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/22a00363990b50d56e2c26b677c9943f7e7ba34da7679fbd027506a9a0a5759f"
+    },
+    {
+      "id": "time-lost-ruby:suffix:of-potency",
+      "name": "of Potency",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "JewelRadiusSmallNodeEffect"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(15—25)% increased Effect of Small Passive Skills in Radius",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/593b8dbab8735b378bff1a443d702a0c1acf6f6ea4e765f77423c6de104ab684"
+    },
+    {
+      "id": "time-lost-ruby:suffix:of-supremacy",
+      "name": "of Supremacy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "JewelRadiusNotableEffect"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(15—25)% increased Effect of Notable Passive Skills in Radius",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8a4b0135ca74d11e383bb2ed7fa42c3d9dbd733d25fa77cf22723ec85a2ce870"
+    },
+    {
+      "id": "time-lost-ruby:prefix:blasting",
+      "name": "Blasting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "AreaOfEffect"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant (2—3)% increased Area of Effect",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/531d1de1f37f605b5d67d2064110d2b78174645103dfb947774d0b4a8a234b3c"
+    },
+    {
+      "id": "time-lost-ruby:prefix:armoured",
+      "name": "Armoured",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRatingPercent"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (2—3)% increased Armour",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/683e0cb376339985af6c9813cf43d8e480ccaed336176d505924f75774a2a2a2"
+    },
+    {
+      "id": "time-lost-ruby:prefix:shattering",
+      "name": "Shattering",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ArmourBreak"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant Break (1—2)% increased Armour",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/53471a69c889ad4353a44b05109649ac2d5a2deac4cc8fee471858c50d8892ce"
+    },
+    {
+      "id": "time-lost-ruby:suffix:resonating",
+      "name": "Resonating",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ArmourBreakDuration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant (5—10)% increased Armour Break Duration",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/19ac0664c09ca0ea53f1606fb8ebf32f72907f8a8056e2fd518f974940d8f71b"
+    },
+    {
+      "id": "time-lost-ruby:prefix:combat",
+      "name": "Combat",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "AttackDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (1—2)% increased Attack Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "damage",
+        "attack",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2a2f63a0a3b78669c94caa8b999db2ba514f1b9c3e0ab26e9136a6153492595d"
+    },
+    {
+      "id": "time-lost-ruby:prefix:bleeding",
+      "name": "Bleeding",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BleedChanceIncrease"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant 1% chance to inflict Bleeding on Hit",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "bleed",
+        "physical",
+        "ailment",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4956274a60a3d15235bdd50a9a3d49e8872f57e39c10139fe15688449886c1ba"
+    },
+    {
+      "id": "time-lost-ruby:suffix:of-haemophilia",
+      "name": "of Haemophilia",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BleedDuration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant (3—7)% increased Bleeding Duration",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 3,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "bleed",
+        "physical",
+        "attack",
+        "ailment",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b7257e1c5dd9a61c5a9a8de97b920d2f6cc10222d57cd1517108812eda8ad095"
+    },
+    {
+      "id": "time-lost-ruby:prefix:protecting",
+      "name": "Protecting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedBlockChance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant (1—3)% increased Block chance",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "block",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ae862ea114634721d9bf2a5b7d7765b0fc629b55350cd34658a8da09e037b8ec"
+    },
+    {
+      "id": "time-lost-ruby:prefix:exploiting",
+      "name": "Exploiting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DamagevsArmourBrokenEnemies"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (2—4)% increased Damage against Enemies with Fully Broken Armour",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "damage",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4ece304056229883492778f54a103cbfcac5af1d9e4c34fe46cb02be00328b96"
+    },
+    {
+      "id": "time-lost-ruby:prefix:prismatic",
+      "name": "Prismatic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ElementalDamagePercent"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (1—2)% increased Elemental Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/de3b5db80f0e2a834d8245b537855f081d2ebc666c1957c5fb33b7c74535c73a"
+    },
+    {
+      "id": "time-lost-ruby:prefix:empowering",
+      "name": "Empowering",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ExertedAttackDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant Empowered Attacks deal (2—3)% increased Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "damage",
+        "attack",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9a2c452497498d2ae1854f120cae88431a78042d1e1ef9c8e3d2784252f7934a"
+    },
+    {
+      "id": "time-lost-ruby:prefix:flaming",
+      "name": "Flaming",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamagePercentage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (1—2)% increased Fire Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/303411afb11b36076dcd1c0e3bf4964f57934f9c6a3797310e7330c19781cbf2"
+    },
+    {
+      "id": "time-lost-ruby:prefix:searing",
+      "name": "Searing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireResistancePenetration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant Damage Penetrates (1—2)% Fire Resistance",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2b6196ccb946653448ff078dc7294db7adbfc9f0a67e9b77da442e060d6fb433"
+    },
+    {
+      "id": "time-lost-ruby:suffix:of-ignition",
+      "name": "of Ignition",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IgniteChanceIncrease"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (2—3)% increased Flammability Magnitude",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "ailment",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/bd93d5e9091e112a8d4cb42a138d075a40678a18bf5aea56b23d6ee27ddc11a1"
+    },
+    {
+      "id": "time-lost-ruby:prefix:burning",
+      "name": "Burning",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IgniteEffect"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant (3—7)% increased Ignite Magnitude",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 3,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "ailment",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/85d95cc5af4ae21086bd106de5716e880d16c8a1bef26d125600a3de58915b5d"
+    },
+    {
+      "id": "time-lost-ruby:suffix:of-lengthening",
+      "name": "of Lengthening",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SkillEffectDuration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant (3—5)% increased Skill Effect Duration",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 3,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4c3f8d932fe0f4a67ea5d41b86f0145543a974ce216ca6687847c21656852748"
+    },
+    {
+      "id": "time-lost-ruby:suffix:of-fending",
+      "name": "of Fending",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Knockback"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant (3—7)% increased Knockback Distance",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 3,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ef2445d8eb364e607a0f1ac43ed93bcbb09c41225e654c5934b82a71ce044d92"
+    },
+    {
+      "id": "time-lost-ruby:suffix:of-sacrifice",
+      "name": "of Sacrifice",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeCost"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant (2—3)% of Skill Mana Costs Converted to Life Costs",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/00215b861c8f4f7776ba6a87343e9879322e85cd54782abf20869f5b4677d408"
+    },
+    {
+      "id": "time-lost-ruby:suffix:of-frenzy",
+      "name": "of Frenzy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeLeech"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (2—3)% increased amount of Life Leeched",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/891061c8b9df696251604b792d2fa4638082269dd8ca32a79107400e01334dfe"
+    },
+    {
+      "id": "time-lost-ruby:suffix:of-regeneration",
+      "name": "of Regeneration",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegenerationRate"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant (3—5)% increased Life Regeneration rate",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 3,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/15f01a2c0f5a0853f0b9fbc318f7361ff87e1f622a556c951018a3d42318de23"
+    },
+    {
+      "id": "time-lost-ruby:prefix:beating",
+      "name": "Beating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpecificWeaponDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (1—2)% increased Damage with Maces",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "damage",
+        "attack",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3d34dba1584121fbd7412532f3394349dfd6884a58df97874dd37248613b3573"
+    },
+    {
+      "id": "time-lost-ruby:suffix:of-thumping",
+      "name": "of Thumping",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "MaceStun"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant (6—12)% increased Stun Buildup with Maces",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 6,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "attack",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9536cb4fe448df8d47edd9ef29dcb3b6674f5d0591febe8258f92e5bee60f721"
+    },
+    {
+      "id": "time-lost-ruby:prefix:angry",
+      "name": "Angry",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaximumRage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant +1 to Maximum Rage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/58a916885ff0c497448b84e2b0aac82af4d265547a29e2e26f52ba6a318676c6"
+    },
+    {
+      "id": "time-lost-ruby:prefix:clashing",
+      "name": "Clashing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MeleeDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (1—2)% increased Melee Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "damage",
+        "attack",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2bdf7e61ce090c633c5479bd478bc54ecfa06a4eac549c7d2428215dd87826ee"
+    },
+    {
+      "id": "time-lost-ruby:prefix:companion",
+      "name": "Companion",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MinionAreaOfEffect"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant Minions have (3—5)% increased Area of Effect",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 3,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "minion",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9fdb106eece2b4dc56e9ecb6d732801da7f923a55261b64301247cc48105549f"
+    },
+    {
+      "id": "time-lost-ruby:prefix:fortuitous",
+      "name": "Fortuitous",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MinionLife"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant Minions have (1—2)% increased maximum Life",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "minion",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/29e16b66532f5434c0b63864f79a040faf9b37298823ce7177c350f37bc3514f"
+    },
+    {
+      "id": "time-lost-ruby:suffix:of-confidence",
+      "name": "of Confidence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "MinionPhysicalDamageReduction"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant Minions have (1—2)% additional Physical Damage Reduction",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "physical",
+        "minion",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4907aa0f04bfc807d4f345d38029d888bd3934f2e52851804747c57b9033efcc"
+    },
+    {
+      "id": "time-lost-ruby:prefix:sharpened",
+      "name": "Sharpened",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamagePercent"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (1—2)% increased Global Physical Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ee00fd7f1092048e5e9a921be7f4fcc4a970feafeefa672d3d648cc126b9e5b5"
+    },
+    {
+      "id": "time-lost-ruby:suffix:of-raging",
+      "name": "of Raging",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "RageOnHit"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant Gain 1 Rage on Melee Hit",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "attack",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b9a8ca321deeb5d9d0e966a4114e756f40fb2d573d6dd3850849d8b88da72e5e"
+    },
+    {
+      "id": "time-lost-ruby:suffix:of-retribution",
+      "name": "of Retribution",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "GainRage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant Gain (1—2) Rage when Hit by an Enemy",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8efdaf827692af2b3a8a042f5f992f9c6a4bc6797a168fb8b034f8c6693d9613"
+    },
+    {
+      "id": "time-lost-ruby:prefix:shielding",
+      "name": "Shielding",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ShieldArmourIncrease"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant (8—15)% increased Armour, Evasion and Energy Shield from Equipped Shield",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 8,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "defences",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d990e4f081accf25b5752f7fed2845d3830a37388a787a7f52c943ac7827703a"
+    },
+    {
+      "id": "time-lost-ruby:suffix:of-stunning",
+      "name": "of Stunning",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunDamageIncrease"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant (5—10)% increased Stun Buildup",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0a224743d85cd4bac0f67c021ca16b15c7a013c855d0a101d1f9048eabad9347"
+    },
+    {
+      "id": "time-lost-ruby:suffix:of-withstanding",
+      "name": "of Withstanding",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedStunThreshold"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (1—2)% increased Stun Threshold",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/af33876435bb309f8f86aa2b07561ede5681aef5aff29da2b2cb1867a39262fb"
+    },
+    {
+      "id": "time-lost-ruby:prefix:haemorrhaging",
+      "name": "Haemorrhaging",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BleedingDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant (3—7)% increased Magnitude of Bleeding you inflict",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 3,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "bleed",
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack",
+        "ailment",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/87593bc48dfdb3a2fc6e5f9fc620712c05e697487d36d6ac7c1736454c917149"
+    },
+    {
+      "id": "time-lost-ruby:prefix:retaliating",
+      "name": "Retaliating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (2—3)% increased Thorns damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "damage",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/68ffd9c50ca3589bd9b259362656763aa63194ae2284c3160466d9d20be83410"
+    },
+    {
+      "id": "time-lost-ruby:prefix:shaman-s",
+      "name": "Shaman's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "TotemDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (2—3)% increased Totem Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "damage",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f227a84cd5e92bc2d45bf85f0e082a9e2d278754b3e215c3d91c47d1525cf4e6"
+    },
+    {
+      "id": "time-lost-ruby:prefix:carved",
+      "name": "Carved",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedTotemLife"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (2—3)% increased Totem Life",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f34d0e30d97150a03d89fa912cbf246f73683b8195c9a5174f509877e6bb89cb"
+    },
+    {
+      "id": "time-lost-ruby:suffix:of-ancestry",
+      "name": "of Ancestry",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SummonTotemCastSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (2—3)% increased Totem Placement speed",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "speed",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2cdd821ebbde8e22dcd51036dcf337480484dde28c37473b08d6ccce78facd1b"
+    },
+    {
+      "id": "time-lost-ruby:suffix:of-rallying",
+      "name": "of Rallying",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "WarcryCooldownSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant (3—7)% increased Warcry Cooldown Recovery Rate",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 3,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/623f106201484bd85a1c71df3ff71323a1689fe709ecf0cd76c193fa43c1f496"
+    },
+    {
+      "id": "time-lost-ruby:prefix:yelling",
+      "name": "Yelling",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WarcryDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (2—3)% increased Damage with Warcries",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "damage",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/da19aa1a31c1580e7add0c7ef94649a3d2b83a899a56821e6740a304b33feab7"
+    },
+    {
+      "id": "time-lost-ruby:suffix:of-lungs",
+      "name": "of Lungs",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "WarcrySpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (2—3)% increased Warcry Speed",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "speed",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b3ff65fc143d089f0ce7c5d18d86ffc7a2f173fa3402fbff3dc0b39421b0d6a0"
+    },
+    {
+      "id": "time-lost-ruby:prefix:incise",
+      "name": "Incise",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncisionChance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (3—5)% chance for Attack Hits to apply Incision",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 3,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "bleed",
+        "physical",
+        "ailment",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3ead613e3f23ad033c77ed35cb3794b3f3bda507d0a375f96c9afc475a2d45e4"
+    },
+    {
+      "id": "time-lost-ruby:suffix:of-valour",
+      "name": "of Valour",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BannerValourGained"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant (8—12)% increased Glory generation for Banner Skills",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 8,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ea134c80c1661e6ff94b2d783817b6fa2007e14c309a9771e4d7aa907668da3c"
+    },
+    {
+      "id": "time-lost-ruby:prefix:rallying",
+      "name": "Rallying",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BannerArea"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant Banner Skills have (2—3)% increased Area of Effect",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/70331c7dac11952eb4ebf76e1bd9b37a7b2a5237c7f66e5394c07a98a1749e58"
+    },
+    {
+      "id": "time-lost-ruby:suffix:of-inspiring",
+      "name": "of Inspiring",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BannerDuration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant Banner Skills have (3—4)% increased Duration",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 3,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c2ed2b9f21729f492e1f333769f86de011d9fb41613c2ffff1f5c4f95ce1237d"
+    },
+    {
+      "id": "time-lost-ruby:prefix:iconic",
+      "name": "Iconic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PresenceRadius"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant (8—12)% increased Presence Area of Effect",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 8,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "aura",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5a909b79a58369695639c49182a35f4957e583913e68e90bd082f2983c8253b4"
+    },
+    {
+      "id": "time-lost-ruby:suffix:of-the-wild",
+      "name": "of the Wild",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SpecificWeaponSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant (1—2)% increased Skill Speed while Shapeshifted",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "speed",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9cc55043bef153298b4ed41bf0c2fbb38f1078411c574256463d0c4e2d314d98"
+    },
+    {
+      "id": "time-lost-ruby:prefix:bestial",
+      "name": "Bestial",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DamageForm"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (1—2)% increased Damage while Shapeshifted",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "damage",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/15c22bdcf9e38a217f0a510ee2bc16cd452c47ce97136f4efe9738aa17f1309c"
+    },
+    {
+      "id": "time-lost-ruby:prefix:overgrown",
+      "name": "Overgrown",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DamageForm"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (1—2)% increased Damage with Plant Skills",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "damage",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/bc98cc2628396e351b316fd11086240ef37eb90dfbbb94e54bc9e68016c74440"
+    },
+    {
+      "id": "time-lost-ruby:crafted:JewelRadiusArmour",
+      "name": "Ancient Diluted Liquid Ire (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRatingPercent"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (2—3)% increased Armour",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "crafted",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Ire"
+    },
+    {
+      "id": "time-lost-ruby:crafted:JewelRadiusFireDamage",
+      "name": "Ancient Diluted Liquid Guilt (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamagePercentage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (1—2)% increased Fire Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "crafted",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Guilt"
+    },
+    {
+      "id": "time-lost-ruby:crafted:JewelRadiusPhysicalDamage",
+      "name": "Ancient Diluted Liquid Greed (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamagePercent"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (1—2)% increased Global Physical Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "crafted",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Greed"
+    },
+    {
+      "id": "time-lost-ruby:crafted:JewelRadiusAttackDamage",
+      "name": "Ancient Liquid Paranoia (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "AttackDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (1—2)% increased Attack Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "damage",
+        "attack",
+        "crafted",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Paranoia"
+    },
+    {
+      "id": "time-lost-ruby:crafted:JewelRadiusLifeCost",
+      "name": "Ancient Liquid Envy (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeCost"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant (2—3)% of Skill Mana Costs Converted to Life Costs",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "crafted",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Envy"
+    },
+    {
+      "id": "time-lost-ruby:crafted:JewelRadiusLifeRegeneration",
+      "name": "Ancient Liquid Disgust (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegenerationRate"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant (3—5)% increased Life Regeneration rate",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 3,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "crafted",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Disgust"
+    },
+    {
+      "id": "time-lost-ruby:crafted:JewelRadiusRageonHit",
+      "name": "Ancient Liquid Despair (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "RageOnHit"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant Gain 1 Rage on Melee Hit",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "attack",
+        "crafted",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Despair"
+    },
+    {
+      "id": "time-lost-ruby:crafted:JewelRadiusWarcrySpeed",
+      "name": "Ancient Concentrated Liquid Fear (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "WarcrySpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Small Passive Skills in Radius also grant (2—3)% increased Warcry Speed",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "speed",
+        "crafted",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Fear"
+    },
+    {
+      "id": "time-lost-ruby:crafted:JewelRadiusMaximumRage",
+      "name": "Ancient Concentrated Liquid Suffering (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaximumRage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant +1 to Maximum Rage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "crafted",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Suffering"
+    },
+    {
+      "id": "time-lost-ruby:crafted:JewelRadiusIncLightningColdToFire",
+      "name": "Ancient Concentrated Liquid Isolation (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "TransformIncreasedDamageInRadius"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Increases and Reductions to\n Cold and Lightning Damage in Radius are transformed to apply to Fire Damage",
+      "stats": [
+        {
+          "id": "display_condition_present",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "crafted",
+        "unscalable",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Isolation"
+    },
+    {
+      "id": "time-lost-ruby:crafted:CraftedJewelRadiusExtraLargeSize",
+      "name": "Ancient Potent Liquid Melancholy (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "JewelRadiusLargerRadius"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Upgrades Radius to Very Large\nlocal jewel effect base radius [500]",
+      "stats": [
+        {
+          "id": "local_jewel_effect_base_radius",
+          "min": 500,
+          "max": 500
+        }
+      ],
+      "tags": [
+        "crafted",
+        "unscalable",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Potent_Liquid_Melancholy"
+    },
+    {
+      "id": "time-lost-ruby:crafted:CraftedJewelRadiusFireResistance",
+      "name": "Ancient Potent Liquid Ferocity (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Notable Passive Skills in Radius also grant +(5—7)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance",
+        "crafted",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Potent_Liquid_Ferocity"
+    },
+    {
+      "id": "time-lost-ruby:crafted:CraftedJewelAdditionalSuffixAllowed",
+      "name": "Ancient Potent Liquid Contempt (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaxPrefixMaxSuffix"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "+1 Suffix Modifier allowed",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "crafted",
+        "unscalable",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Potent_Liquid_Contempt"
+    },
+    {
+      "id": "time-lost-ruby:crafted:CraftedJewelAdditionalPrefixAllowed",
+      "name": "Ancient Potent Liquid Contempt (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "MaxPrefixMaxSuffix"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "+1 Prefix Modifier allowed",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "crafted",
+        "unscalable",
+        "passive-radius-condition"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Potent_Liquid_Contempt"
+    }
+  ]
+}

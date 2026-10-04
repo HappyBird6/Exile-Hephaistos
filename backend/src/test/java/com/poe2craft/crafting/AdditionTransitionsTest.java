@@ -128,11 +128,13 @@ class AdditionTransitionsTest {
               o -> catalog.find(o.addedModifierId()).orElseThrow().affixType() == omen.affix());
       assertThat(result.consumedOmens()).containsExactly(omen.id());
       assertThat(result.remainingOmens()).containsExactly(WorkbenchOmen.BLESSED.id());
-      var blocked = transitions.transition(state, WorkbenchCurrency.PERFECT_EXALTED, active);
-      assertThat(blocked.available()).isFalse();
-      assertThat(blocked.source()).isEqualTo(state);
-      assertThat(blocked.remainingOmens()).containsExactlyInAnyOrderElementsOf(active);
-      assertThat(blocked.reason()).contains("not verified");
+      var tiered = transitions.transition(state, WorkbenchCurrency.PERFECT_EXALTED, active);
+      assertThat(tiered.available()).isTrue();
+      assertThat(tiered.outcomes())
+          .allMatch(
+              o -> catalog.find(o.addedModifierId()).orElseThrow().affixType() == omen.affix());
+      assertThat(tiered.consumedOmens()).containsExactly(omen.id());
+      assertThat(tiered.remainingOmens()).containsExactly(WorkbenchOmen.BLESSED.id());
     }
     assertThat(
             transitions

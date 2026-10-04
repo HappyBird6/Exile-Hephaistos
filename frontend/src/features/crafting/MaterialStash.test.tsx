@@ -69,13 +69,13 @@ describe('Material stash and shared favorites', () => {
       within(
         screen.getByRole('group', { name: 'Special essences' }),
       ).getAllByRole('button'),
-    ).toHaveLength(6)
+    ).toHaveLength(4)
     expect(
       screen.queryByRole('button', { name: 'Runic Alloy' }),
     ).not.toBeInTheDocument()
   })
 
-  it('keeps all six special essences in place during matching and empty searches', () => {
+  it('keeps all four in-scope special essences in place during matching and empty searches', () => {
     show()
     fireEvent.click(tab('Essence'))
     const special = within(
@@ -119,14 +119,16 @@ describe('Material stash and shared favorites', () => {
       expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
       fireEvent.click(favorite(1))
       expect(favorite(1)).toHaveAccessibleName('Favorite slot 1: empty')
+      expect(material).toHaveAttribute('aria-pressed', 'false')
+      fireEvent.contextMenu(material)
       fireEvent.click(
         screen.getByRole('button', {
           name: 'Use selected currency on the central item',
         }),
       )
       if (label === 'Omen') {
-        expect(screen.getByRole('status')).toHaveTextContent('activated')
-        expect(useItemDraft.getState().activeOmens).toContain(
+        expect(screen.getByRole('status')).toHaveTextContent('favorite slot')
+        expect(useItemDraft.getState().activeOmens).not.toContain(
           'Omen_of_Whittling',
         )
       } else
@@ -265,14 +267,14 @@ describe('Material stash and shared favorites', () => {
     ).toBe(true)
   })
 
-  it('removes all requested currencies and moves Hinekora to the former Chance position', () => {
+  it('keeps prior removals, restores the supported Artificer slot and keeps Hinekora positioned', () => {
     show()
     expect(document.getElementById('material-list')!).toHaveAccessibleName(
       'Currency',
     )
     expect(
       within(document.getElementById('material-list')!).getAllByRole('button'),
-    ).toHaveLength(21)
+    ).toHaveLength(22)
     for (const name of [
       'Mirror of Kalandra',
       'Orb of Chance',
@@ -281,7 +283,6 @@ describe('Material stash and shared favorites', () => {
       "Blacksmith's Whetstone",
       "Glassblower's Bauble",
       "Gemcutter's Prism",
-      "Artificer's Orb",
       "Lesser Jeweller's Orb",
       "Greater Jeweller's Orb",
       "Perfect Jeweller's Orb",
@@ -291,6 +292,9 @@ describe('Material stash and shared favorites', () => {
     expect(
       currencies.find((item) => item.id === 'Hinekoras_Lock'),
     ).toMatchObject({ x: 329, y: 140 })
+    expect(
+      currencies.find((item) => item.id === 'Artificers_Orb'),
+    ).toMatchObject({ x: 574, y: 240 })
     expect(document.querySelector('.stash-inspector')).toBeNull()
     expect(document.querySelector('.item-panel')).toBeNull()
     expect(
@@ -312,9 +316,9 @@ describe('Material stash and shared favorites', () => {
     show()
     const card = screen.getByRole('article')
     for (const [label, count] of [
-      ['Essence', 76],
+      ['Essence', 76], // 19 ordinary families × four tiers; special group is separate.
       ['Alloy', 13],
-      ['Omen', 32],
+      ['Omen', 22],
       ['Catalysts', 26],
       ['Liquid Emotions', 27],
     ] as const) {
@@ -325,6 +329,52 @@ describe('Material stash and shared favorites', () => {
           'button',
         ),
       ).toHaveLength(count)
+      if (label === 'Essence') {
+        expect(
+          screen.queryByRole('button', { name: 'Essence of Delirium' }),
+        ).not.toBeInTheDocument()
+        expect(
+          screen.queryByRole('button', { name: 'Essence of Insanity' }),
+        ).not.toBeInTheDocument()
+        expect(
+          within(screen.getByRole('group', { name: 'Special essences' }))
+            .getAllByRole('button')
+            .map((button) => button.getAttribute('aria-label')),
+        ).toEqual([
+          'Essence of Hysteria',
+          'Essence of Horror',
+          'Essence of the Abyss',
+          'Essence of the Breach',
+        ])
+      }
+      if (label === 'Omen') {
+        const legacy = screen.getByRole('checkbox', {
+          name: 'Show legacy Omens',
+        })
+        expect(legacy).not.toBeChecked()
+        fireEvent.click(legacy)
+        expect(
+          within(document.getElementById('material-list')!).getAllByRole(
+            'button',
+          ),
+        ).toHaveLength(29)
+        expect(
+          screen.getByRole('button', {
+            name: 'Omen of Homogenising Exaltation',
+          }),
+        ).toHaveTextContent('(Legacy)')
+        expect(
+          screen.getByRole('button', {
+            name: 'Omen of Homogenising Coronation',
+          }),
+        ).toHaveTextContent('(Legacy)')
+        fireEvent.click(legacy)
+        expect(
+          within(document.getElementById('material-list')!).getAllByRole(
+            'button',
+          ),
+        ).toHaveLength(22)
+      }
       expect(
         within(
           screen.getByRole('group', { name: 'Shared material favorites' }),
@@ -355,6 +405,7 @@ describe('Material stash and shared favorites', () => {
     )
     fireEvent.click(favorite(2))
     expect(favorite(2)).toHaveAccessibleName('Favorite slot 2: empty')
+    expect(favorite(1)).toHaveAttribute('aria-pressed', 'false')
     fireEvent.click(tab('Essence'))
     expect(
       screen.getByRole('button', { name: 'Lesser Essence of the Body' }),
@@ -391,7 +442,7 @@ describe('Material stash and shared favorites', () => {
     )
     expect(screen.getByRole('article').textContent).toBe(original)
     expect(screen.getByRole('status')).toHaveTextContent(
-      'The item has not changed',
+      'Select a currency from the stash first.',
     )
   })
 

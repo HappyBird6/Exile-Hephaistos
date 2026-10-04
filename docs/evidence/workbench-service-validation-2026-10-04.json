@@ -1,0 +1,270 @@
+{
+  "date": "2026-10-04",
+  "status": "IMPLEMENTATION_CHECKPOINT_VALIDATION_PENDING",
+  "baseline": "ca2d035ba5692b5efe96df53bafb659111897bbe",
+  "scope": {
+    "date": "2026-10-04",
+    "registered": 220,
+    "active": 144,
+    "implementedActive": 118,
+    "defaultImplemented": 111,
+    "optInLegacyImplemented": 7,
+    "pending": 26,
+    "deferred": 76,
+    "previousDeferred": 65,
+    "newDeferred": 11,
+    "catalystService": "EXISTING_FOUNDATION_PRESERVED_APPLICATION_PENDING",
+    "qualityArchive": "RETAINED_WITH_EXISTING_REVIEWED_DISPLAY",
+    "pendingIds": [
+      "Flesh_Catalyst",
+      "Neural_Catalyst",
+      "Carapace_Catalyst",
+      "Uul-Netols_Catalyst",
+      "Xophs_Catalyst",
+      "Tuls_Catalyst",
+      "Eshs_Catalyst",
+      "Chayulas_Catalyst",
+      "Reaver_Catalyst",
+      "Sibilant_Catalyst",
+      "Skittering_Catalyst",
+      "Adaptive_Catalyst",
+      "Necrotic_Catalyst",
+      "Refined_Flesh_Catalyst",
+      "Refined_Neural_Catalyst",
+      "Refined_Carapace_Catalyst",
+      "Refined_Uul-Netols_Catalyst",
+      "Refined_Xophs_Catalyst",
+      "Refined_Tuls_Catalyst",
+      "Refined_Eshs_Catalyst",
+      "Refined_Chayulas_Catalyst",
+      "Refined_Reaver_Catalyst",
+      "Refined_Sibilant_Catalyst",
+      "Refined_Skittering_Catalyst",
+      "Refined_Adaptive_Catalyst",
+      "Refined_Necrotic_Catalyst"
+    ],
+    "newDeferredIds": [
+      "Blacksmiths_Whetstone",
+      "Arcanists_Etcher",
+      "Armourers_Scrap",
+      "Essence_of_Delirium",
+      "Essence_of_Insanity",
+      "Scroll_of_Wisdom",
+      "Orb_of_Chance",
+      "Orb_of_Extraction",
+      "Omen_of_Catalysing_Exaltation",
+      "Omen_of_Sinistral_Necromancy",
+      "Omen_of_Dextral_Necromancy"
+    ],
+    "preservedDeferredIds": [
+      "Vaal_Orb",
+      "Hinekoras_Lock",
+      "Runic_Alloy",
+      "Adaptive_Alloy",
+      "Protective_Alloy",
+      "Expansive_Alloy",
+      "Swift_Alloy",
+      "Cyclonic_Alloy",
+      "Prismatic_Alloy",
+      "Mystic_Alloy",
+      "Sovereign_Alloy",
+      "Celestial_Alloy",
+      "Transcendent_Alloy",
+      "The_Runebinders_Alloy",
+      "The_Runefathers_Alloy",
+      "Omen_of_Corruption",
+      "Omen_of_Answered_Prayers",
+      "Omen_of_Secret_Compartments",
+      "Omen_of_the_Hunt",
+      "Omen_of_Reinforcements",
+      "Omen_of_Sanctification",
+      "Omen_of_the_Sovereign",
+      "Omen_of_the_Liege",
+      "Omen_of_the_Blackblooded",
+      "Omen_of_Putrefaction",
+      "Omen_of_Light",
+      "Diluted_Liquid_Ire",
+      "Diluted_Liquid_Guilt",
+      "Diluted_Liquid_Greed",
+      "Liquid_Paranoia",
+      "Liquid_Envy",
+      "Liquid_Disgust",
+      "Liquid_Despair",
+      "Concentrated_Liquid_Fear",
+      "Concentrated_Liquid_Suffering",
+      "Concentrated_Liquid_Isolation",
+      "Ancient_Diluted_Liquid_Ire",
+      "Ancient_Diluted_Liquid_Guilt",
+      "Ancient_Diluted_Liquid_Greed",
+      "Ancient_Liquid_Paranoia",
+      "Ancient_Liquid_Envy",
+      "Ancient_Liquid_Disgust",
+      "Ancient_Liquid_Despair",
+      "Ancient_Concentrated_Liquid_Fear",
+      "Ancient_Concentrated_Liquid_Suffering",
+      "Ancient_Concentrated_Liquid_Isolation",
+      "Potent_Liquid_Melancholy",
+      "Potent_Liquid_Ferocity",
+      "Potent_Liquid_Contempt",
+      "Ancient_Potent_Liquid_Melancholy",
+      "Ancient_Potent_Liquid_Ferocity",
+      "Ancient_Potent_Liquid_Contempt",
+      "Liquid_Verisium",
+      "Mirror_of_Kalandra",
+      "Architects_Orb",
+      "Core_Destabiliser",
+      "Vaal_Cultivation_Orb",
+      "Yaomacs_Orb_of_Sacrifice",
+      "Kopecs_Orb_of_Sacrifice",
+      "Kamasas_Orb_of_Sacrifice",
+      "Yuguls_Orb_of_Sacrifice",
+      "Vaal_Armourers_Infuser",
+      "Vaal_Blacksmiths_Infuser",
+      "Vaal_Arcanists_Infuser",
+      "Vaal_Catalysing_Infuser"
+    ],
+    "registryImplemented": 126,
+    "completedLegacyFiveIds": [
+      "Omen_of_Sinistral_Alchemy",
+      "Omen_of_Dextral_Alchemy",
+      "Omen_of_Sinistral_Coronation",
+      "Omen_of_Dextral_Coronation",
+      "Omen_of_Greater_Annulment"
+    ]
+  },
+  "backend": {
+    "command": "./gradlew --no-daemon spotlessApply check generateJooq bootJar",
+    "result": "PASS_BEFORE_CATALYST_RESCOPE",
+    "unit": {
+      "tests": 357,
+      "failures": 0,
+      "skipped": 0
+    },
+    "integration": {
+      "tests": 6,
+      "failures": 0,
+      "skipped": 0
+    },
+    "latestScopeRevalidation": "PENDING",
+    "engineFiveChangedSincePass": false,
+    "firstFailure": "Three new fixtures: canonical modifier order and unsupported fractured Magic; corrected fixtures without loosening production validation."
+  },
+  "frontend": {
+    "environment": "upper codex isolated frontend-check; original mounted read-only",
+    "npmCi": "PASS",
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "formatCheck": "FAIL_CHANGED_LINK_LABEL",
+    "unitTests": "NOT_RUN",
+    "build": "NOT_RUN",
+    "latestScopeRevalidation": "PENDING",
+    "preparationFailure": "Incomplete source copy omitted lockfile; corrected explicit directory copy."
+  },
+  "runtimeApi": "NOT_RUN",
+  "browser": "NOT_RUN",
+  "retryPolicy": "Two whole-task recovery attempts used; stop under MULTI_SESSION_WORKFLOW.md and retain checkpoint",
+  "environment": {
+    "existingUserServer": "UNCHANGED",
+    "userBrowserStorage": "UNTOUCHED",
+    "dbVolumesEnvOriginalCheckout": "PRESERVED",
+    "temporaryPreview": "PREPARED_NOT_STARTED",
+    "remotePushMergeDeploy": "NOT_PERFORMED",
+    "temporaryContainers": "--rm; normal completion"
+  },
+  "sources": {
+    "official03": "https://www.pathofexile.com/forum/view-thread/3826682",
+    "poe2dbOmen": "https://poe2db.tw/us/Omen",
+    "capture": "codex/service-scope-20261004/source-manifest.json",
+    "freshWikiAndPoE2db": [
+      {
+        "url": "https://www.poe2wiki.net/wiki/Omen_of_Sinistral_Alchemy",
+        "status": 200,
+        "retrievedAt": "2026-10-04T04:49:52.305Z",
+        "sha256": "8965b7a968f8102bd6bae20b2d9232f3892ba11fbfa3cb9ee31a578696aa9171",
+        "file": "wiki-Omen_of_Sinistral_Alchemy.html"
+      },
+      {
+        "url": "https://poe2db.tw/us/Omen_of_Sinistral_Alchemy",
+        "status": 200,
+        "retrievedAt": "2026-10-04T04:49:53.198Z",
+        "sha256": "c0adbb34a523762a269647cc7aa26eb10c143ac6a90befc0fd0e691320ec395b",
+        "file": "db-Omen_of_Sinistral_Alchemy.html"
+      },
+      {
+        "url": "https://www.poe2wiki.net/wiki/Omen_of_Dextral_Alchemy",
+        "status": 200,
+        "retrievedAt": "2026-10-04T04:49:53.571Z",
+        "sha256": "220b85e7975cfbd814782f318cf8c30dce784a8db6530981497977b4172f1f0f",
+        "file": "wiki-Omen_of_Dextral_Alchemy.html"
+      },
+      {
+        "url": "https://poe2db.tw/us/Omen_of_Dextral_Alchemy",
+        "status": 200,
+        "retrievedAt": "2026-10-04T04:49:54.037Z",
+        "sha256": "db3689ae47e084b46e6622013d4caa1e18be4597dacaff3f2dcca057c9709a1c",
+        "file": "db-Omen_of_Dextral_Alchemy.html"
+      },
+      {
+        "url": "https://www.poe2wiki.net/wiki/Omen_of_Sinistral_Coronation",
+        "status": 200,
+        "retrievedAt": "2026-10-04T04:49:54.406Z",
+        "sha256": "cb9aacaff95b7d68bc648a74be4e1629d88805e317a9b37c0f260c3e257be0bc",
+        "file": "wiki-Omen_of_Sinistral_Coronation.html"
+      },
+      {
+        "url": "https://poe2db.tw/us/Omen_of_Sinistral_Coronation",
+        "status": 200,
+        "retrievedAt": "2026-10-04T04:49:57.004Z",
+        "sha256": "67437e64ee217a6645b48029da9fbdc5834cc833ae7a378d6e16d7ceeadc039a",
+        "file": "db-Omen_of_Sinistral_Coronation.html"
+      },
+      {
+        "url": "https://www.poe2wiki.net/wiki/Omen_of_Dextral_Coronation",
+        "status": 200,
+        "retrievedAt": "2026-10-04T04:49:57.376Z",
+        "sha256": "6a58e580494a63aa75ef0a64f6d6485afe8649e33c50287c45e31ce2110ccc64",
+        "file": "wiki-Omen_of_Dextral_Coronation.html"
+      },
+      {
+        "url": "https://poe2db.tw/us/Omen_of_Dextral_Coronation",
+        "status": 200,
+        "retrievedAt": "2026-10-04T04:49:57.812Z",
+        "sha256": "62ccd44cc708dce10d27e836c2025c909d19da5ac72532a90c7946913988bfc5",
+        "file": "db-Omen_of_Dextral_Coronation.html"
+      },
+      {
+        "url": "https://www.poe2wiki.net/wiki/Omen_of_Greater_Annulment",
+        "status": 200,
+        "retrievedAt": "2026-10-04T04:49:58.179Z",
+        "sha256": "49e58588a753d7a7a176e8dfad1e8c4adb5ef1bc83e6f9e23665ce22985c96ed",
+        "file": "wiki-Omen_of_Greater_Annulment.html"
+      },
+      {
+        "url": "https://poe2db.tw/us/Omen_of_Greater_Annulment",
+        "status": 200,
+        "retrievedAt": "2026-10-04T04:49:58.626Z",
+        "sha256": "32cbf8e6d807707c1dfcac530b143e20752e5d644c2bed25fd190580c72b2c14",
+        "file": "db-Omen_of_Greater_Annulment.html"
+      },
+      {
+        "url": "https://poe2db.tw/us/Omen",
+        "status": 200,
+        "sha256": "0497f5743c679021dab00e0b4a649bec0375c79daae1d7eb321085b401dcce99"
+      }
+    ]
+  },
+  "resume": {
+    "compose": "codex/service-scope-20261004/compose.yaml",
+    "ports": [
+      18180,
+      18181
+    ],
+    "frontend": "copy latest source to frontend-check, format and complete mandatory checks",
+    "scripts": [
+      "codex/scope-api-20261004.cjs",
+      "codex/scope-browser-20261004.cjs"
+    ],
+    "catalystScopeScripts": "Prepared API/browser originally reflected withdrawn catalyst scope; adapt to restored catalyst foundation before execution."
+  },
+  "runtimeWhittlingReadOnly": "docs/evidence/workbench-whittling-live-status-2026-10-04.json; GET initial/registry plus POST actions; no apply"
+}

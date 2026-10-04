@@ -1,0 +1,62 @@
+Latest checkpoint: [six Bow Perfect Essences](workbench-bow-perfect-2026-10-03.md), overall101 / current-scope155: implemented93, pending62, excluded65. Earlier counts and candidate statements below describe their dated checkpoints.
+
+# Crude Bow: bounded Workbench base and basic Essence batch
+
+Current implementation: one additional equipment base, shared Workbench crafting engine, 19 ordinary currencies and 21 fixed basic Essences. This completes 20 previously pending registry identities; Greater Essence of Battle already worked on Stocky and is counted once globally. Six Perfect Bow Essences remain candidates, not implemented results. Support/Explorer remain Solar only.
+
+## Selection and actual remaining barriers
+
+The 88 pending current-scope identities at checkpoint `317d345` comprised other-target61, rule/data20, engine/input-state2 and reintroduction-unverified5. Comparing only three equipment classes found **Bow26**, **Wand11**, **strength body armour4** pending Essence targets. These are card eligibility opportunities, not implementation-complete counts. Bow supplies the largest bounded batch and a complete ordinary pool of140 with no missing positive weight; Wand's pool has185 rows and strength body armour144. Refined Catalysts13 still require their own target/quality machinery, and weapon/caster quality currencies2 also lack increment rules. A new base alone does not resolve them.
+
+The chosen first delivery is Lesser/ordinary/Greater Abrasion, Flames, Ice, Electricity, Battle, Haste and Seeking. No broad base crawl or combat calculator was added. Catalyst13 and Catalysing Exaltation still lack verified amounts/scaling/rounding or quality-dependent weighting. Homogenising2 lacks verified modifier-type selection. Necromancy2 lacks the complete reveal/desecration operation. Chance lacks complete unique outcomes/probabilities. Scrap remains unresolved without another repeated formula investigation. Wisdom needs a real identification/input-state boundary; Extraction additionally needs socketed resources, destruction and returned inventory. Legacy Omens5 still lack verified reintroduction. These candidates offer lower immediate verified coverage than this20-identity batch.
+
+## Primary evidence and probability boundary
+
+- [PoE2DB Bows](https://poe2db.tw/us/Bows): captured2026-10-03T12:12:54.888Z; complete140 normal rows,71 prefixes/69 suffixes, published weights44755/52277. Policy remains `POE2DB_AS_PUBLISHED`; weight totals97032 describe the full pool, not every item's level/family-filtered pool.
+- [Crude Bow](https://poe2db.tw/us/Crude_Bow): exact base `Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1`, no ordinary implicit. The source page also contains a separate runeforged variant and a unique; neither is mixed into this base. Its reviewed ordinary maximum quality20 is metadata only. Computed weapon totals, applied quality, sockets, Augments, unique/runeforged generation and pasted Bow mapping are unsupported.
+- All140 exact public `hover?s=Data%5CMods%2F{Code}` details match current name, modifier level, affix, family, rendered effect and eligible base Spawn Tags. The CDN hover returned403; its public PoE2DB detail endpoint succeeded. Public POB at previously pinned `bb52d6b368307457eb9c54bb13f1829993d390b1` was only a Code locator, never adopted numerical authority.
+- Eleven same-name/effect candidates exposed distinct global/local stat identities. Checking ordered published Spawn Tags against actual Bow base tags selects exactly one eligible detail per row, excluding glove/ring/amulet global variants. All140 positive weights are retained without pruning, renormalisation or mixing known and unknown weight pools.
+- Twenty-one individually captured English material cards match the Bows Essence row's `Code`, affix, family and effect to one ordinary definition. Card table `Required Level` equals `reqlvl`, the effective character requirement. **It is not the modifier item level**. The implementation conservatively supports at or above the exact modifier `Level` and refuses lower item levels pending eligibility verification.
+
+[Bundled catalog](../backend/src/main/resources/catalog/crude-bow/catalog.json), [ordinary source rows](../backend/src/main/resources/catalog/crude-bow/base.raw.json), [matched detailed sources and Spawn Tags](../backend/src/main/resources/catalog/crude-bow/details.raw.json), [per-material evidence, level distinction and exact target IDs](../backend/src/main/resources/catalog/crude-bow/basic-essence-proof.json), [declared numeric model boundary](../backend/src/main/resources/catalog/crude-bow/roll-model-review.json).
+
+Magic becomes Rare, preserving existing explicit values and adding exactly one guaranteed eligible modifier. Existing family overlap and unsupported low item levels refuse unchanged; the guaranteed modifier selection probability is1. No type/result distribution is guessed and no unrelated active Omen is consumed. Ordinary random additions use the shared engine's eligible published weights; unknown removal/numeric distributions retain explicit existing assumption ledgers. Fifty multi-stat definitions opt into the user-approved, still-unverified shared-ratio/HALF_UP model (WB-001); scalar source-unit precision remains WB-003. No additional numeric model is presented as a game fact.
+
+
+| Material | Exact Code | Affix | Supported ilvl at least | Effective character level | Guaranteed effect |
+|---|---|---|---|---|---|
+| [Lesser_Essence_of_Abrasion](https://poe2db.tw/us/Lesser_Essence_of_Abrasion) | `LocalAddedPhysicalDamage2` | Prefix | 8 | 6 | Adds (4—6) to (7—11) Physical Damage |
+| [Essence_of_Abrasion](https://poe2db.tw/us/Essence_of_Abrasion) | `LocalAddedPhysicalDamage5` | Prefix | 46 | 36 | Adds (10—15) to (18—26) Physical Damage |
+| [Greater_Essence_of_Abrasion](https://poe2db.tw/us/Greater_Essence_of_Abrasion) | `LocalAddedPhysicalDamage7` | Prefix | 60 | 48 | Adds (16—24) to (28—42) Physical Damage |
+| [Lesser_Essence_of_Flames](https://poe2db.tw/us/Lesser_Essence_of_Flames) | `LocalAddedFireDamage2` | Prefix | 8 | 6 | Adds (4—6) to (7—10) Fire Damage |
+| [Essence_of_Flames](https://poe2db.tw/us/Essence_of_Flames) | `LocalAddedFireDamage5` | Prefix | 46 | 36 | Adds (20—24) to (32—37) Fire Damage |
+| [Greater_Essence_of_Flames](https://poe2db.tw/us/Greater_Essence_of_Flames) | `LocalAddedFireDamage7` | Prefix | 60 | 48 | Adds (35—44) to (56—71) Fire Damage |
+| [Lesser_Essence_of_Ice](https://poe2db.tw/us/Lesser_Essence_of_Ice) | `LocalAddedColdDamage2` | Prefix | 8 | 6 | Adds (3—5) to (6—9) Cold Damage |
+| [Essence_of_Ice](https://poe2db.tw/us/Essence_of_Ice) | `LocalAddedColdDamage5` | Prefix | 46 | 36 | Adds (17—20) to (26—32) Cold Damage |
+| [Greater_Essence_of_Ice](https://poe2db.tw/us/Greater_Essence_of_Ice) | `LocalAddedColdDamage7` | Prefix | 60 | 48 | Adds (31—38) to (47—59) Cold Damage |
+| [Lesser_Essence_of_Electricity](https://poe2db.tw/us/Lesser_Essence_of_Electricity) | `LocalAddedLightningDamage2` | Prefix | 8 | 6 | Adds 1 to (13—19) Lightning Damage |
+| [Essence_of_Electricity](https://poe2db.tw/us/Essence_of_Electricity) | `LocalAddedLightningDamage5` | Prefix | 46 | 36 | Adds (1—3) to (55—60) Lightning Damage |
+| [Greater_Essence_of_Electricity](https://poe2db.tw/us/Greater_Essence_of_Electricity) | `LocalAddedLightningDamage7` | Prefix | 60 | 48 | Adds (1—6) to (85—107) Lightning Damage |
+| [Lesser_Essence_of_Battle](https://poe2db.tw/us/Lesser_Essence_of_Battle) | `LocalIncreasedAccuracy3` | Prefix | 18 | 14 | +(61—84) to Accuracy Rating |
+| [Essence_of_Battle](https://poe2db.tw/us/Essence_of_Battle) | `LocalIncreasedAccuracy5` | Prefix | 36 | 28 | +(124—167) to Accuracy Rating |
+| [Greater_Essence_of_Battle](https://poe2db.tw/us/Greater_Essence_of_Battle) | `LocalIncreasedAccuracy7` | Prefix | 58 | 46 | +(237—346) to Accuracy Rating |
+| [Lesser_Essence_of_Haste](https://poe2db.tw/us/Lesser_Essence_of_Haste) | `LocalIncreasedAttackSpeed2` | Suffix | 11 | 8 | (8—10)% increased Attack Speed |
+| [Essence_of_Haste](https://poe2db.tw/us/Essence_of_Haste) | `LocalIncreasedAttackSpeed3` | Suffix | 22 | 17 | (11—13)% increased Attack Speed |
+| [Greater_Essence_of_Haste](https://poe2db.tw/us/Greater_Essence_of_Haste) | `LocalIncreasedAttackSpeed4` | Suffix | 30 | 24 | (14—16)% increased Attack Speed |
+| [Lesser_Essence_of_Seeking](https://poe2db.tw/us/Lesser_Essence_of_Seeking) | `LocalCriticalStrikeChance2` | Suffix | 20 | 16 | +(1.51—2.1)% to Critical Hit Chance |
+| [Essence_of_Seeking](https://poe2db.tw/us/Essence_of_Seeking) | `LocalCriticalStrikeChance3` | Suffix | 30 | 24 | +(2.11—2.7)% to Critical Hit Chance |
+| [Greater_Essence_of_Seeking](https://poe2db.tw/us/Greater_Essence_of_Seeking) | `LocalCriticalStrikeChance4` | Suffix | 44 | 35 | +(3.11—3.8)% to Critical Hit Chance |
+
+## Compatibility and actual UI finding
+
+Solar stays60 supported records/49 actions/218 definitions and its existing snapshot. Stocky stays68/57/194, six compatible older snapshots and ordinary Artificer0→1. Bow is49 supported records/40 actions/140 definitions, rule `bow-workbench-basic-essence-v1`, ledger `bow-unverified-numeric-assumptions-v1`. Unimplemented and user-deferred material inventory is preserved; unsupported Bow materials refuse unchanged.
+
+Films retain their existing storage format. Reload chooses the catalog from each saved frame's base identity; crafting from an old step creates a new linear film while preserving the original future. A real browser test discovered a normal multi-stat response rejected because event/state JSON maps had different key order. Value comparisons now require exact stat key/value equality independently of object order, including preserved and Fractured values. Changed values and extra stat keys remain rejected; an actual Docker API response is the regression fixture (WB-027).
+
+Current registry220 = effective exclusions65 + current inventory155. Implemented overall95 = current87 + retained deferred Alloy8; current pending68 = other-target41 (Essence26, Refined Catalyst13, weapon/caster quality2) + rule/data20 + state2 + reintroduction5. The65 deferred records and171 unrelated registry records are unchanged. These are registered inventory counts, not a complete-game denominator or a promise of every game's equipment condition.
+
+## Verification
+
+Project Docker only. Full backend `spotlessApply check generateJooq bootJar`:289 tests (283 unit,6 integration), zero failures/errors/skips; final metadata included. Final frontend lint/typecheck/format/tests/build:192 tests across33 files, all passing after the key-order correction. Earlier failed Debian/musl test startup and a mismatched transient formatter are environment failures, not skipped application tests. New fixture rejection tests confirmed the earlier coupled-model guard correctly rejects forged data; their expected rejection stage was corrected without permitting those responses.
+
+API121 assertions covers all21 exact results, supported item-level boundary/low-level refusal, family overlap, rarity, probability1, unrelated Omens, Fracture preservation, reviewed dual-Omen gate, unsupported resource fields, registry/base dispatch and old scopes. Existing Artificer API42 and browser26 were rerun on the new runtime. Final Bow browser120 assertions passed with zero page errors: all21 actual Essence uses, Shift retention/repeat refusal/Escape, old-step branch preserving original future, exact reload, Alt press/release,390px failure/retry/no overflow and old two-base use. Final Artificer browser26 passed again after the shared-value fix. Desktop and390px screenshots were visually reviewed; source-unit fallback for unmapped display precision remains explicit, with no clipped property text or document overflow. QA artifacts are under codex/qa-20261003/bow-*. Runtime JAR SHA25662631c8d7dc98cf8086c7f2fe297d2b8fdd287ff0c3b3d03a7dc0873346e3234; frontend index-ChEgnTIJ.js, image manifest8a0aba93a28001286cb83dda71243a4d41aafc29a10148f9ff2e551e4ee4a1cf. Unchanged full legacy browser30/cachepersist and every older individual material browser matrix are not rerun in this batch; their earlier results are not claimed as current executions. Original DB/volumes preserved, local-only checkpoint, no push/deploy.

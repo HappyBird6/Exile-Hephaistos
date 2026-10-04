@@ -11,7 +11,7 @@ public final class SupportGoals {
   public SupportGoals(ItemCatalog catalog) {
     this.catalog = Objects.requireNonNull(catalog);
     for (var d : catalog.modifiers().values()) {
-      if (d.layer() != ModifierDefinition.Layer.EXPLICIT) continue;
+      if (d.layer() != ModifierDefinition.Layer.EXPLICIT || d.weight() == 0) continue;
       if (d.familyIds().size() != 1)
         throw new IllegalArgumentException("Support family grouping needs verification");
       families.computeIfAbsent(d.familyIds().iterator().next(), key -> new ArrayList<>()).add(d);

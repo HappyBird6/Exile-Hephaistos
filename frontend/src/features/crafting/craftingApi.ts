@@ -28,11 +28,17 @@ export interface Bucket {
   baseItemId: string
   itemLevel: number
   rarity: 'NORMAL' | 'MAGIC' | 'RARE'
-  implicits: { modifierId: string; values: Record<string, number> }[]
+  implicits: {
+    modifierId: string
+    values: Record<string, number>
+    fractured?: boolean
+  }[]
   modifierIds: string[]
   conditions: string[]
 }
 export interface Definition {
+  requiredItemLevel?: number
+  weight?: number
   id: string
   name: string
   text: string
@@ -49,6 +55,8 @@ export interface Availability {
   reason: string
 }
 export interface Initial {
+  augmentSockets?: number | null | undefined
+  compatibleSnapshotIds?: string[]
   ruleVersion: string
   metadata: { snapshotId: string; retrievedAt: string; sourceUrl: string }
   id: string
@@ -107,7 +115,7 @@ const bucket = (v: unknown): v is Bucket =>
   v.modifierIds.length <= 6 &&
   strings(v.conditions) &&
   Array.isArray(v.implicits) &&
-  v.implicits.length === 1 &&
+  v.implicits.length <= 1 &&
   v.implicits.every(
     (m) =>
       object(m) &&
@@ -158,11 +166,94 @@ function invalid(): never {
 export async function loadInitial(
   level: number,
   signal: AbortSignal,
+  base:
+    | 'solar'
+    | 'stocky'
+    | 'bow'
+    | 'wand'
+    | 'body'
+    | 'sceptre'
+    | 'belt'
+    | 'helmet'
+    | 'ring'
+    | 'time-lost-ruby'
+    | 'time-lost-emerald'
+    | 'time-lost-sapphire'
+    | 'time-lost-diamond'
+    | 'ruby'
+    | 'emerald'
+    | 'diamond'
+    | 'sapphire' = 'solar',
 ): Promise<Initial> {
-  const v = await request(`initial?itemLevel=${level}`, signal)
+  const v = await request(
+    base === 'solar'
+      ? `initial?itemLevel=${level}`
+      : `workbench/initial?base=${base}&itemLevel=${level}`,
+    signal,
+  )
   if (
     !object(v) ||
     !bucket(v.state) ||
+    (base !== 'solar'
+      ? v.state.baseItemId !==
+          ([
+            'ruby',
+            'emerald',
+            'diamond',
+            'time-lost-ruby',
+            'time-lost-emerald',
+            'time-lost-sapphire',
+            'time-lost-diamond',
+          ].includes(base)
+            ? (
+                {
+                  'time-lost-ruby': 'Metadata/Items/Jewels/JewelRadiusStr',
+                  'time-lost-emerald': 'Metadata/Items/Jewels/JewelRadiusDex',
+                  'time-lost-sapphire': 'Metadata/Items/Jewels/JewelRadiusInt',
+                  'time-lost-diamond':
+                    'Metadata/Items/Jewels/JewelRadiusDiamond',
+                  ruby: 'Metadata/Items/Jewels/JewelStr',
+                  emerald: 'Metadata/Items/Jewels/JewelDex',
+                  diamond: 'Metadata/Items/Jewels/JewelDiamond',
+                } as Record<string, string>
+              )[base]
+            : base === 'sapphire'
+              ? 'Metadata/Items/Jewels/JewelInt'
+              : base === 'stocky'
+                ? 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+                : base === 'ring'
+                  ? 'Metadata/Items/Rings/FourRing1'
+                  : base === 'helmet'
+                    ? 'Metadata/Items/Armours/Helmets/FourHelmetStr1'
+                    : base === 'belt'
+                      ? 'Metadata/Items/Belts/FourBelt1'
+                      : base === 'sceptre'
+                        ? 'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
+                        : base === 'body'
+                          ? 'Metadata/Items/Armours/BodyArmours/FourBodyStr1'
+                          : base === 'wand'
+                            ? 'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
+                            : 'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1') ||
+        (base === 'ring'
+          ? v.state.implicits.length !== 1 ||
+            v.state.implicits[0]?.modifierId !==
+              'iron-ring:implicit:added-physical-damage-to-attacks' ||
+            Object.keys(v.state.implicits[0].values).length !== 2 ||
+            v.state.implicits[0].values.attack_minimum_added_physical_damage !==
+              1 ||
+            v.state.implicits[0].values.attack_maximum_added_physical_damage !==
+              4 ||
+            v.state.implicits[0].fractured === true
+          : base.startsWith('time-lost-')
+            ? v.state.implicits.length !== 1 ||
+              v.state.implicits[0]?.modifierId !==
+                base + ':implicit:base-radius' ||
+              Object.keys(v.state.implicits[0]?.values ?? {}).length !== 1 ||
+              v.state.implicits[0]?.values.local_jewel_effect_base_radius !==
+                1000 ||
+              v.state.implicits[0]?.fractured === true
+            : v.state.implicits.length !== 0)
+      : v.state.implicits.length !== 1) ||
     v.state.itemLevel !== level ||
     !object(v.metadata) ||
     typeof v.metadata.sourceUrl !== 'string' ||
@@ -171,8 +262,12 @@ export async function loadInitial(
     v.state.snapshotId !== v.metadata.snapshotId ||
     typeof v.id !== 'string' ||
     typeof v.ruleVersion !== 'string' ||
+    (v.augmentSockets !== undefined &&
+      v.augmentSockets !== null &&
+      (base !== 'stocky' || v.augmentSockets !== 0)) ||
     !object(v.modifiers) ||
-    !availability(v.actions)
+    !availability(v.actions) ||
+    (v.compatibleSnapshotIds !== undefined && !strings(v.compatibleSnapshotIds))
   )
     return invalid()
   if (

@@ -1,6 +1,12 @@
 /* Display-only catalog; positions from the approved Currency page. No game rules. */
 export const currencies = [
   {
+    id: 'Artificers_Orb',
+    x: 574,
+    y: 240,
+    image: '/assets/currency/CurrencyAddEquipmentSocket.webp',
+  },
+  {
     id: 'Orb_of_Transmutation',
     x: 29,
     y: 40,

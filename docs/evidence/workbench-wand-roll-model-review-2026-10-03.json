@@ -1,0 +1,168 @@
+{
+  "definitions": [
+    {
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageAndManaOnWeapon1",
+      "id": "attuned-wand:prefix:caster-s",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 15,
+          "max": 19
+        },
+        {
+          "id": "base_maximum_mana",
+          "min": 17,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageAndManaOnWeapon2",
+      "id": "attuned-wand:prefix:conjuror-s",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 20,
+          "max": 24
+        },
+        {
+          "id": "base_maximum_mana",
+          "min": 21,
+          "max": 24
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageAndManaOnWeapon3",
+      "id": "attuned-wand:prefix:wizard-s",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 25,
+          "max": 29
+        },
+        {
+          "id": "base_maximum_mana",
+          "min": 25,
+          "max": 28
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageAndManaOnWeapon4",
+      "id": "attuned-wand:prefix:warlock-s",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 30,
+          "max": 34
+        },
+        {
+          "id": "base_maximum_mana",
+          "min": 29,
+          "max": 33
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageAndManaOnWeapon5",
+      "id": "attuned-wand:prefix:mage-s",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 35,
+          "max": 39
+        },
+        {
+          "id": "base_maximum_mana",
+          "min": 34,
+          "max": 37
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageAndManaOnWeapon6",
+      "id": "attuned-wand:prefix:archmage-s",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 40,
+          "max": 44
+        },
+        {
+          "id": "base_maximum_mana",
+          "min": 38,
+          "max": 41
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageAndManaOnWeapon7",
+      "id": "attuned-wand:prefix:lich-s",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 45,
+          "max": 49
+        },
+        {
+          "id": "base_maximum_mana",
+          "min": 42,
+          "max": 45
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightRadiusAndManaRegeneration1",
+      "id": "attuned-wand:suffix:of-warmth",
+      "stats": [
+        {
+          "id": "light_radius_+%",
+          "min": 5,
+          "max": 5
+        },
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 8,
+          "max": 12
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightRadiusAndManaRegeneration2",
+      "id": "attuned-wand:suffix:of-kindling",
+      "stats": [
+        {
+          "id": "light_radius_+%",
+          "min": 10,
+          "max": 10
+        },
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 13,
+          "max": 17
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightRadiusAndManaRegeneration3",
+      "id": "attuned-wand:suffix:of-the-hearth",
+      "stats": [
+        {
+          "id": "light_radius_+%",
+          "min": 15,
+          "max": 15
+        },
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 18,
+          "max": 22
+        }
+      ]
+    }
+  ],
+  "status": "ASSUMED_EXISTING_USER_AUTHORISED_MODEL",
+  "modelId": "user-coupled-ratio-half-up-v1",
+  "policy": "Source-proven endpoint bounds only. Existing user-authorised shared ratio tick0..10000 and HALF_UP remain unverified game correlations, resolution and distribution. No independent Cartesian product, combat totals or innate-skill model.",
+  "sourceDetailsSHA256": "31b99d8eea5b8f652bb93f8fd18442b30492d87032905482a003ba04837a55d8"
+}

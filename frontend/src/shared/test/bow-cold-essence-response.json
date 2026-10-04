@@ -1,0 +1,86 @@
+{
+  "provenance": "Actual QA Docker API capture, 2026-10-03; PoE2DB source bounds, explicitly unverified shared-ratio numeric model.",
+  "result": {
+    "status": 200,
+    "ruleVersion": "bow-workbench-basic-essence-v1",
+    "ledgerVersion": "bow-unverified-numeric-assumptions-v1",
+    "snapshotId": "poe2db-crude-bow-normal-2026-10-03-417390c5ebe4",
+    "state": {
+      "snapshotId": "poe2db-crude-bow-normal-2026-10-03-417390c5ebe4",
+      "baseItemId": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1",
+      "itemLevel": 8,
+      "rarity": "RARE",
+      "implicits": [],
+      "explicits": [
+        {
+          "modifierId": "crude-bow:prefix:chilled",
+          "values": {
+            "local_maximum_added_cold_damage": 8,
+            "local_minimum_added_cold_damage": 4
+          },
+          "fractured": false
+        }
+      ],
+      "conditions": [],
+      "augmentSockets": null
+    },
+    "action": "LESSER_ESSENCE_ICE",
+    "applied": true,
+    "reason": "",
+    "events": [
+      {
+        "kind": "ADD",
+        "modifierId": "crude-bow:prefix:chilled",
+        "values": {
+          "local_minimum_added_cold_damage": 4,
+          "local_maximum_added_cold_damage": 8
+        },
+        "selectionProbability": 1
+      }
+    ],
+    "assumptions": [
+      {
+        "id": "user-coupled-ratio-half-up-v1",
+        "candidateUnit": "assumed shared ratio ticks (not distinct item outcomes)",
+        "n": 10001,
+        "candidates": ["crude-bow:prefix:chilled"],
+        "min": 0,
+        "max": 10000,
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalAddedColdDamage2",
+        "reason": "Unverified user conjecture approved 2026-10-02; ISSUES.md WB-001. One shared ratio tick/10000 for all stats; 10001 equally sampled model ticks, not a game-verified permitted outcome set or uniform rounded outcomes. Interpolate each source min/max; integer HALF_UP rounding, ties away from zero. Different ticks may produce the same tuple; modifier selection weights are separate.",
+        "ratioTick": 6694
+      }
+    ],
+    "consumedOmens": [],
+    "remainingOmens": ["Omen_of_the_Blessed"],
+    "qualityLimit": {
+      "ruleVersion": "quality-limit-v1",
+      "maximumQuality": 20
+    }
+  },
+  "definition": {
+    "id": "crude-bow:prefix:chilled",
+    "name": "Chilled",
+    "layer": "EXPLICIT",
+    "affixType": "PREFIX",
+    "familyIds": ["ColdDamage"],
+    "requiredItemLevel": 8,
+    "weight": 800,
+    "tier": 9,
+    "text": "Adds (3—5) to (6—9) Cold Damage",
+    "stats": [
+      {
+        "id": "local_maximum_added_cold_damage",
+        "min": 6,
+        "max": 9
+      },
+      {
+        "id": "local_minimum_added_cold_damage",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "tags": ["elemental_damage", "damage", "elemental", "cold", "attack"],
+    "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalAddedColdDamage2"
+  }
+}

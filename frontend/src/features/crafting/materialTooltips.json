@@ -1,4 +1,11 @@
 {
+  "Artificers_Orb": {
+    "name": "Artificer's Orb",
+    "lines": [
+      "Adds an Augment Socket to a Martial Weapon, wand, staff or Armour"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Artificers_Orb"
+  },
   "Orb_of_Transmutation": {
     "name": "Orb of Transmutation",
     "lines": [

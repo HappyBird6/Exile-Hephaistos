@@ -1,0 +1,489 @@
+{
+  "version": "remaining-essence-existing-four-base-audit-v1",
+  "reviewedAt": "2026-10-03T14:31:36.744Z",
+  "existingBaseConfirmed": 0,
+  "extraTargetRequired": 12,
+  "effectOrOutcomeEvidenceGapSecondary": 2,
+  "exclusionsUnchanged": 65,
+  "sourcePolicy": "Current PoE2DB PoE2 material cards and four class modifier tables; no PoE1 fallback or inferred cross-class targets.",
+  "classPools": [
+    {
+      "id": "Amulets",
+      "url": "https://poe2db.tw/us/Amulets",
+      "retrievedAt": "2026-10-03T14:31:21.571Z",
+      "sha256": "64a041d03357f7ceb01a1ddb3b3eddc2ca8e83156dd6d7d214bb3369d4a29834",
+      "essenceRows": 40,
+      "remainingMaterialHits": []
+    },
+    {
+      "id": "Gloves_str",
+      "url": "https://poe2db.tw/us/Gloves_str",
+      "retrievedAt": "2026-10-03T14:31:27.564Z",
+      "sha256": "98385a711f9fd1876d755eb7d9444f1df777b37a9d72f24cecdf0e90ab94a5cc",
+      "essenceRows": 63,
+      "remainingMaterialHits": []
+    },
+    {
+      "id": "Bows",
+      "url": "https://poe2db.tw/us/Bows",
+      "retrievedAt": "2026-10-03T14:31:32.316Z",
+      "sha256": "f17690f3173bf8fd52373906f3316b846243a427d42fc98b050fa87fc808584a",
+      "essenceRows": 45,
+      "remainingMaterialHits": []
+    },
+    {
+      "id": "Wands",
+      "url": "https://poe2db.tw/us/Wands",
+      "retrievedAt": "2026-10-03T14:31:36.743Z",
+      "sha256": "ab00614a4743c190ab1cc5f4a2a4198cad16ffa303602c7f0e9a67034023e408",
+      "essenceRows": 30,
+      "remainingMaterialHits": []
+    }
+  ],
+  "classification": [
+    {
+      "id": "Perfect_Essence_of_the_Body",
+      "status": "EXTRA_TARGET_REQUIRED",
+      "targetClasses": [
+        "Body Armours"
+      ],
+      "verifiedCard": {
+        "id": "Perfect_Essence_of_the_Body",
+        "url": "https://poe2db.tw/us/Perfect_Essence_of_the_Body",
+        "retrievedAt": "2026-10-03T14:19:01.668Z",
+        "sha256": "1890aaaf60baa466923cb5cbe2f59b7c7c943a2deb62943da5ad982ec4fc6354",
+        "card": "Perfect Essence of the Body Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierBody Armour: (8—10)% increased maximum Life Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+        "rows": [
+          {
+            "cells": [
+              "Body Armours",
+              "(8—10)% increased maximum Life",
+              "Prefix",
+              "57"
+            ],
+            "links": [
+              {
+                "text": "Body Armours",
+                "href": "Body_Armours"
+              }
+            ]
+          }
+        ]
+      },
+      "additionalBlockers": [],
+      "existingBaseResultConfirmed": false
+    },
+    {
+      "id": "Perfect_Essence_of_the_Mind",
+      "status": "EXTRA_TARGET_REQUIRED",
+      "targetClasses": [
+        "Rings"
+      ],
+      "verifiedCard": {
+        "id": "Perfect_Essence_of_the_Mind",
+        "url": "https://poe2db.tw/us/Perfect_Essence_of_the_Mind",
+        "retrievedAt": "2026-10-03T14:19:02.932Z",
+        "sha256": "6d85930ee36b1de3eea128dcd104300ba16e229ae3b09f31ad25ff93307512de",
+        "card": "Perfect Essence of the Mind Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierRing: (4—6)% increased maximum Mana Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+        "rows": [
+          {
+            "cells": [
+              "Rings",
+              "(4—6)% increased maximum Mana",
+              "Prefix",
+              "57"
+            ],
+            "links": [
+              {
+                "text": "Rings",
+                "href": "Rings"
+              }
+            ]
+          }
+        ]
+      },
+      "additionalBlockers": [],
+      "existingBaseResultConfirmed": false
+    },
+    {
+      "id": "Perfect_Essence_of_Ruin",
+      "status": "EXTRA_TARGET_REQUIRED",
+      "targetClasses": [
+        "Body Armours"
+      ],
+      "verifiedCard": {
+        "id": "Perfect_Essence_of_Ruin",
+        "url": "https://poe2db.tw/us/Perfect_Essence_of_Ruin",
+        "retrievedAt": "2026-10-03T14:19:03.463Z",
+        "sha256": "5ee33e5625fb584b9c11fa843cad3e2be37e81f21ffa69d68a8f48515ef158d6",
+        "card": "Perfect Essence of Ruin Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierBody Armour: (10—15)% of Physical Damage from Hits taken as Chaos Damage Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+        "rows": [
+          {
+            "cells": [
+              "Body Armours",
+              "(10—15)% of Physical Damage from Hits taken as Chaos Damage",
+              "Prefix",
+              "57"
+            ],
+            "links": [
+              {
+                "text": "Body Armours",
+                "href": "Body_Armours"
+              }
+            ]
+          }
+        ]
+      },
+      "additionalBlockers": [],
+      "existingBaseResultConfirmed": false
+    },
+    {
+      "id": "Perfect_Essence_of_Seeking",
+      "status": "EXTRA_TARGET_REQUIRED",
+      "targetClasses": [
+        "Body Armours"
+      ],
+      "verifiedCard": {
+        "id": "Perfect_Essence_of_Seeking",
+        "url": "https://poe2db.tw/us/Perfect_Essence_of_Seeking",
+        "retrievedAt": "2026-10-03T14:19:05.903Z",
+        "sha256": "9b63ceb0ef996bdd1baee13f5e6e929ce7879e6c962744ddc42e12d903f26b15",
+        "card": "Perfect Essence of Seeking Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierBody Armour: Hits against you have (40—50)% reduced Critical Damage Bonus Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+        "rows": [
+          {
+            "cells": [
+              "Body Armours",
+              "Hits against you have (40—50)% reduced Critical Damage Bonus",
+              "Suffix",
+              "57"
+            ],
+            "links": [
+              {
+                "text": "Body Armours",
+                "href": "Body_Armours"
+              },
+              {
+                "text": "Hits",
+                "href": "Hit_Damage"
+              },
+              {
+                "text": "Critical Damage Bonus",
+                "href": "Critical_Damage_Bonus"
+              }
+            ]
+          }
+        ]
+      },
+      "additionalBlockers": [],
+      "existingBaseResultConfirmed": false
+    },
+    {
+      "id": "Essence_of_Delirium",
+      "status": "EXTRA_TARGET_REQUIRED",
+      "targetClasses": [
+        "Body Armours"
+      ],
+      "verifiedCard": {
+        "id": "Essence_of_Delirium",
+        "url": "https://poe2db.tw/us/Essence_of_Delirium",
+        "retrievedAt": "2026-10-03T14:19:06.598Z",
+        "sha256": "89b070ffe616f03f95225819de5f338995c1113cb7b5a6f92aad5461513e8274",
+        "card": "Essence of Delirium Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierBody Armour: Allocates a random Notable Passive Skill Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+        "rows": [
+          {
+            "cells": [
+              "Body Armours",
+              "Allocates a random Notable Passive Skill",
+              "Prefix",
+              "0"
+            ],
+            "links": [
+              {
+                "text": "Body Armours",
+                "href": "Body_Armours"
+              }
+            ]
+          }
+        ]
+      },
+      "additionalBlockers": [
+        "Complete eligible Notable set, allocation interactions and distribution unverified"
+      ],
+      "existingBaseResultConfirmed": false
+    },
+    {
+      "id": "Essence_of_Insanity",
+      "status": "EXTRA_TARGET_REQUIRED",
+      "targetClasses": [
+        "Belts"
+      ],
+      "verifiedCard": {
+        "id": "Essence_of_Insanity",
+        "url": "https://poe2db.tw/us/Essence_of_Insanity",
+        "retrievedAt": "2026-10-03T14:19:07.104Z",
+        "sha256": "7b186a386a1b36f75c0a3efc02333aab65cac2d97ad01dd3f4c0599929e7b1c9",
+        "card": "Essence of Insanity Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierBelt: On Corruption, Item gains two Enchantments Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+        "rows": [
+          {
+            "cells": [
+              "Belts",
+              "On Corruption, Item gains two Enchantments",
+              "Suffix",
+              "0"
+            ],
+            "links": [
+              {
+                "text": "Belts",
+                "href": "Belts"
+              }
+            ]
+          }
+        ]
+      },
+      "additionalBlockers": [
+        "Vaal corruption operation is user-deferred; enchantment eligibility and paired outcomes unverified"
+      ],
+      "existingBaseResultConfirmed": false
+    },
+    {
+      "id": "Perfect_Essence_of_Insulation",
+      "status": "EXTRA_TARGET_REQUIRED",
+      "targetClasses": [
+        "Belts"
+      ],
+      "verifiedCard": {
+        "id": "Perfect_Essence_of_Insulation",
+        "url": "https://poe2db.tw/us/Perfect_Essence_of_Insulation",
+        "retrievedAt": "2026-10-03T14:19:09.793Z",
+        "sha256": "9f24ac5788b39c8c43c1dbcb270ca20ebe1550c25a5194bdc34d898f929613fb",
+        "card": "Perfect Essence of Insulation Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierBelt: (26—30)% of Fire Damage taken Recouped as Life Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+        "rows": [
+          {
+            "cells": [
+              "Belts",
+              "(26—30)% of Fire Damage taken Recouped as Life",
+              "Suffix",
+              "57"
+            ],
+            "links": [
+              {
+                "text": "Belts",
+                "href": "Belts"
+              },
+              {
+                "text": "Fire",
+                "href": "Fire_Damage"
+              },
+              {
+                "text": "Recouped",
+                "href": "Recoup"
+              }
+            ]
+          }
+        ]
+      },
+      "additionalBlockers": [],
+      "existingBaseResultConfirmed": false
+    },
+    {
+      "id": "Perfect_Essence_of_Thawing",
+      "status": "EXTRA_TARGET_REQUIRED",
+      "targetClasses": [
+        "Helmets"
+      ],
+      "verifiedCard": {
+        "id": "Perfect_Essence_of_Thawing",
+        "url": "https://poe2db.tw/us/Perfect_Essence_of_Thawing",
+        "retrievedAt": "2026-10-03T14:19:13.677Z",
+        "sha256": "916e863cd540591b9ba33c5f0aa4719ace014a8c8d2b5e3ccbc4dbe1114b9809",
+        "card": "Perfect Essence of Thawing Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierHelmet: (26—30)% of Cold Damage taken Recouped as Life Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+        "rows": [
+          {
+            "cells": [
+              "Helmets",
+              "(26—30)% of Cold Damage taken Recouped as Life",
+              "Suffix",
+              "57"
+            ],
+            "links": [
+              {
+                "text": "Helmets",
+                "href": "Helmets"
+              },
+              {
+                "text": "Cold",
+                "href": "Cold_Damage"
+              },
+              {
+                "text": "Recouped",
+                "href": "Recoup"
+              }
+            ]
+          }
+        ]
+      },
+      "additionalBlockers": [],
+      "existingBaseResultConfirmed": false
+    },
+    {
+      "id": "Lesser_Essence_of_Command",
+      "status": "EXTRA_TARGET_REQUIRED",
+      "targetClasses": [
+        "Sceptres"
+      ],
+      "verifiedCard": {
+        "id": "Lesser_Essence_of_Command",
+        "url": "https://poe2db.tw/us/Lesser_Essence_of_Command",
+        "retrievedAt": "2026-10-03T14:19:15.893Z",
+        "sha256": "a18466b01d1b7739a71f637db5a7ae1f8c2c5cfb10b88a4aa1d37ee1f2fd8364",
+        "card": "Lesser Essence of Command Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierSceptre: Allies in your Presence deal (35—44)% increased Damage Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+        "rows": [
+          {
+            "cells": [
+              "Sceptres",
+              "Allies in your Presence deal (35—44)% increased Damage",
+              "Prefix",
+              "6"
+            ],
+            "links": [
+              {
+                "text": "Sceptres",
+                "href": "Sceptres"
+              },
+              {
+                "text": "Allies",
+                "href": "Allies"
+              },
+              {
+                "text": "Presence",
+                "href": "Presence"
+              }
+            ]
+          }
+        ]
+      },
+      "additionalBlockers": [],
+      "existingBaseResultConfirmed": false
+    },
+    {
+      "id": "Essence_of_Command",
+      "status": "EXTRA_TARGET_REQUIRED",
+      "targetClasses": [
+        "Sceptres"
+      ],
+      "verifiedCard": {
+        "id": "Essence_of_Command",
+        "url": "https://poe2db.tw/us/Essence_of_Command",
+        "retrievedAt": "2026-10-03T14:19:16.399Z",
+        "sha256": "fcf5a1f3dca6a63633013fb47ce192525613a279ffce6e36df7040c92f1d9079",
+        "card": "Essence of Command Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierSceptre: Allies in your Presence deal (55—64)% increased Damage Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+        "rows": [
+          {
+            "cells": [
+              "Sceptres",
+              "Allies in your Presence deal (55—64)% increased Damage",
+              "Prefix",
+              "26"
+            ],
+            "links": [
+              {
+                "text": "Sceptres",
+                "href": "Sceptres"
+              },
+              {
+                "text": "Allies",
+                "href": "Allies"
+              },
+              {
+                "text": "Presence",
+                "href": "Presence"
+              }
+            ]
+          }
+        ]
+      },
+      "additionalBlockers": [],
+      "existingBaseResultConfirmed": false
+    },
+    {
+      "id": "Greater_Essence_of_Command",
+      "status": "EXTRA_TARGET_REQUIRED",
+      "targetClasses": [
+        "Sceptres"
+      ],
+      "verifiedCard": {
+        "id": "Greater_Essence_of_Command",
+        "url": "https://poe2db.tw/us/Greater_Essence_of_Command",
+        "retrievedAt": "2026-10-03T14:19:16.904Z",
+        "sha256": "6e567597b7041e803e68cda5571de0f6d62210f3653b4f88d4bc6043a359abc4",
+        "card": "Greater Essence of Command Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierSceptre: Allies in your Presence deal (75—89)% increased Damage Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+        "rows": [
+          {
+            "cells": [
+              "Sceptres",
+              "Allies in your Presence deal (75—89)% increased Damage",
+              "Prefix",
+              "48"
+            ],
+            "links": [
+              {
+                "text": "Sceptres",
+                "href": "Sceptres"
+              },
+              {
+                "text": "Allies",
+                "href": "Allies"
+              },
+              {
+                "text": "Presence",
+                "href": "Presence"
+              }
+            ]
+          }
+        ]
+      },
+      "additionalBlockers": [],
+      "existingBaseResultConfirmed": false
+    },
+    {
+      "id": "Perfect_Essence_of_Command",
+      "status": "EXTRA_TARGET_REQUIRED",
+      "targetClasses": [
+        "Sceptres"
+      ],
+      "verifiedCard": {
+        "id": "Perfect_Essence_of_Command",
+        "url": "https://poe2db.tw/us/Perfect_Essence_of_Command",
+        "retrievedAt": "2026-10-03T14:19:17.445Z",
+        "sha256": "ef32897f0404f3252382abb6178701af671c6f492a997e44b534394bb2419032",
+        "card": "Perfect Essence of Command Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierSceptre: Aura Skills have (15—20)% increased Magnitudes Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+        "rows": [
+          {
+            "cells": [
+              "Sceptres",
+              "Aura Skills have (15—20)% increased Magnitudes",
+              "Suffix",
+              "57"
+            ],
+            "links": [
+              {
+                "text": "Sceptres",
+                "href": "Sceptres"
+              },
+              {
+                "text": "Aura",
+                "href": "Auras"
+              },
+              {
+                "text": "Magnitudes",
+                "href": "Buff_Debuff_Magnitude"
+              }
+            ]
+          }
+        ]
+      },
+      "additionalBlockers": [],
+      "existingBaseResultConfirmed": false
+    }
+  ]
+}

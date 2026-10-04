@@ -1,0 +1,80 @@
+{
+  "retrievedAt": "2026-10-04T07:53:59.579Z",
+  "pages": [
+    {
+      "locale": "en",
+      "url": "https://poe2db.tw/us/Sapphire",
+      "sha256": "563d79c0d6bc1c0899a6cab22b73c24e9a5d1cdaf3c70ad1701238f5768ba6c8",
+      "name": "Sapphire",
+      "affixName": "of Enchanting",
+      "text": "(2—4)% increased Cast Speed"
+    },
+    {
+      "locale": "ko",
+      "url": "https://poe2db.tw/kr/Sapphire",
+      "sha256": "23c72485f366ca3c64f3f226d47fc52f5a19d6ce8938ba8312383117babcd4d8",
+      "name": "사파이어",
+      "affixName": "- 인챈트",
+      "text": "시전 속도 (2—4)% 증가"
+    },
+    {
+      "locale": "zh-CN",
+      "url": "https://poe2db.tw/cn/Sapphire",
+      "sha256": "55521a5efea1ca211ba9f28b34a1acb90a5f5cabf45f381a386751b64371c576",
+      "name": "蓝玉",
+      "affixName": "咒术之",
+      "text": "施法速度提高 (2—4)%"
+    },
+    {
+      "locale": "zh-TW",
+      "url": "https://poe2db.tw/tw/Sapphire",
+      "sha256": "159de61f68f6e3f8c39e1391b87a257ca504670f73adbb2c1fbf648543020403",
+      "name": "藍寶石",
+      "affixName": "咒術之",
+      "text": "增加(2—4)%施法速度"
+    },
+    {
+      "locale": "ja",
+      "url": "https://poe2db.tw/jp/Sapphire",
+      "sha256": "3bc3ff28b0a5168cad77f7275b481bad75df330e8c238720171b61b2e4f6bdce",
+      "name": "サファイア",
+      "affixName": "魔法の",
+      "text": "キャストスピードが(2—4)%増加する"
+    },
+    {
+      "locale": "es",
+      "url": "https://poe2db.tw/sp/Sapphire",
+      "sha256": "f43f676f331b7f57f8f1cb536d18ecef8e0efcefbd52deaffa349f08f34a4bc7",
+      "name": "Zafiro",
+      "affixName": "de encantamiento",
+      "text": "Velocidad de lanzamiento de hechizos aumentada un (2—4)%"
+    }
+  ],
+  "scope": "{\n  \"sourceUrl\": \"https://poe2db.tw/us/Sapphire\",\n  \"enabledRarity\": [\n    \"magic\",\n    \"rare\",\n    \"unique\"\n  ],\n  \"tags\": [\n    \"jewel\",\n    \"intjewel\"\n  ],\n  \"editorScope\": \"Magic or Rare; zero or one reviewed existing suffix. These editor bounds are not full game affix capacities.\",\n  \"statIdentity\": \"display_cast_speed_percent is an internal display-unit key derived from the published 2–4% Cast Speed text, not a verified game stat ID.\",\n  \"weightPolicy\": \"Zero excludes this display-only definition from all generation; published DropChance is not imported as a probability weight.\",\n  \"tierPolicy\": \"One reviewed row; tier 1 is a local row ordinal, not a game tier claim.\"\n}\n",
+  "affix": {
+    "Name": "of Enchanting",
+    "Level": "1",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "IncreasedCastSpeed"
+    ],
+    "DropChance": 1,
+    "str": "<span class='mod-value'>(2<span class=\"ndash\">—</span>4)</span>% increased Cast Speed",
+    "fossil_no": [
+      "caster_speed",
+      "caster",
+      "speed"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "intjewel",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+      "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e4ea5426c228f5cb0c1474726fbc38c23e7bb1138dbf13a4a49647c562ecc3cf"
+  }
+}

@@ -11,6 +11,7 @@ import {
 import { concreteInitial, mapSolarText } from './workbenchApi'
 import type { AppliedItem, ConcreteItem, WorkbenchAction } from './workbenchApi'
 import type { Item } from './itemModels'
+import { emptyFilms, startFilm, LocalFilmRepository } from './workbenchHistory'
 
 let client: QueryClient
 beforeEach(() => {
@@ -33,7 +34,107 @@ const useCurrency = (name: string) => {
     }),
   )
 }
+function favoriteOmen(name: string, slot: number) {
+  fireEvent.click(screen.getByRole('tab', { name: 'Omen' }))
+  fireEvent.click(screen.getByRole('button', { name }))
+  fireEvent.click(
+    screen.getByRole('button', { name: `Favorite slot ${slot}: empty` }),
+  )
+  const button = screen.getByRole('button', {
+    name: `Favorite slot ${slot}: ${name}`,
+  })
+  fireEvent.contextMenu(button)
+  fireEvent.click(screen.getByRole('tab', { name: 'Currency' }))
+  return button
+}
 describe('Workbench extensions', () => {
+  it('activates the reviewed Whittling pair and updates all local candidates without hover requests', async () => {
+    const definitions = {
+      ...initialFixture.modifiers,
+      p: { ...initialFixture.modifiers.p!, requiredItemLevel: 20 },
+      p2: {
+        ...initialFixture.modifiers.p!,
+        id: 'p2',
+        familyIds: ['p2'],
+        requiredItemLevel: 20,
+      },
+      s: { ...initialFixture.modifiers.s!, requiredItemLevel: 1 },
+    }
+    const state: ConcreteItem = {
+      ...concreteInitial(initialFixture),
+      rarity: 'RARE',
+      explicits: [
+        { modifierId: 'p', values: { life: 10 } },
+        { modifierId: 'p2', values: { life: 10 } },
+        { modifierId: 's', values: { strength: 5 } },
+      ],
+    }
+    new LocalFilmRepository(window.localStorage).save(
+      startFilm(emptyFilms(), state, 'preview'),
+    )
+    client.setQueryData(['crafting', 'initial', 'solar', 82], {
+      ...initialFixture,
+      modifiers: definitions,
+    })
+    const fetch = vi.fn(fixtureFetch)
+    vi.stubGlobal('fetch', fetch)
+    show()
+    const whittling = favoriteOmen('Omen of Whittling', 1)
+    expect(
+      screen.getAllByTitle('Eligible Whittling removal candidate'),
+    ).toHaveLength(1)
+    const sinistral = favoriteOmen('Omen of Sinistral Erasure', 2)
+    expect(whittling).toHaveClass('is-active-omen')
+    expect(sinistral).toHaveClass('is-active-omen')
+    expect(
+      screen.getAllByTitle('Eligible Whittling removal candidate'),
+    ).toHaveLength(2)
+    const requests = fetch.mock.calls.length
+    fireEvent.pointerMove(screen.getByRole('article'), {
+      clientX: 30,
+      clientY: 40,
+    })
+    fireEvent.pointerMove(screen.getByRole('article'), {
+      clientX: 50,
+      clientY: 60,
+    })
+    expect(fetch.mock.calls).toHaveLength(requests)
+    fireEvent.contextMenu(sinistral)
+    expect(
+      screen.getAllByTitle('Eligible Whittling removal candidate'),
+    ).toHaveLength(1)
+    fireEvent.contextMenu(whittling)
+    expect(
+      screen.queryByTitle('Eligible Whittling removal candidate'),
+    ).not.toBeInTheDocument()
+  })
+  it('prevents unverified matching omen combinations and removes activation when the last favorite is replaced', async () => {
+    vi.stubGlobal('fetch', fixtureFetch)
+    show()
+    await waitFor(() =>
+      expect(client.getQueryData(['crafting', 'initial', 82])).toBeDefined(),
+    )
+    const sinistral = favoriteOmen('Omen of Sinistral Exaltation', 1)
+    const dextral = favoriteOmen('Omen of Dextral Exaltation', 2)
+    expect(sinistral).toHaveClass('is-active-omen')
+    expect(dextral).not.toHaveClass('is-active-omen')
+    expect(screen.getByRole('status')).toHaveTextContent(
+      'combination has not been verified',
+    )
+    fireEvent.contextMenu(sinistral)
+    fireEvent.contextMenu(dextral)
+    expect(dextral).toHaveClass('is-active-omen')
+    fireEvent.click(screen.getByRole('tab', { name: 'Omen' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Omen of the Blessed' }))
+    fireEvent.click(dextral)
+    expect(useItemDraft.getState().activeOmens).toEqual([])
+    expect(
+      screen.queryByRole('checkbox', { name: /^Omen of / }),
+    ).not.toBeInTheDocument()
+    expect(
+      screen.getByRole('checkbox', { name: 'Show legacy Omens' }),
+    ).not.toBeChecked()
+  })
   it('consumes the matching affix omen and preserves the unrelated Blessed omen until Divine', async () => {
     const bodies: {
       state: ConcreteItem
@@ -116,27 +217,17 @@ describe('Workbench extensions', () => {
         } satisfies AppliedItem,
       ),
     )
-    fireEvent.click(
-      screen.getByRole('checkbox', { name: /Omen of Sinistral Exaltation/ }),
-    )
-    fireEvent.click(
-      screen.getByRole('checkbox', { name: /Omen of the Blessed/ }),
-    )
+    const exaltation = favoriteOmen('Omen of Sinistral Exaltation', 1)
+    const blessed = favoriteOmen('Omen of the Blessed', 2)
     useCurrency('Exalted Orb')
     await waitFor(() =>
-      expect(
-        screen.getByRole('checkbox', { name: /Omen of Sinistral Exaltation/ }),
-      ).not.toBeChecked(),
+      expect(exaltation).toHaveAttribute('aria-pressed', 'false'),
     )
-    expect(
-      screen.getByRole('checkbox', { name: /Omen of the Blessed/ }),
-    ).toBeChecked()
+    expect(blessed).toHaveClass('is-active-omen')
     expect(screen.getByRole('article')).toHaveTextContent('+17 to maximum Life')
     useCurrency('Divine Orb')
     await waitFor(() =>
-      expect(
-        screen.getByRole('checkbox', { name: /Omen of the Blessed/ }),
-      ).not.toBeChecked(),
+      expect(blessed).toHaveAttribute('aria-pressed', 'false'),
     )
     expect(screen.getByRole('article')).toHaveTextContent('+10 to Spirit')
     expect(screen.getByRole('article')).toHaveTextContent('+17 to maximum Life')
@@ -200,9 +291,8 @@ describe('Workbench extensions', () => {
     )
     expect(useItemDraft.getState().currentText.text).toBe(original)
     expect(useItemDraft.getState().source).toBe('text')
-    expect(
-      screen.getByRole('checkbox', { name: /Omen of Whittling/ }),
-    ).toBeEnabled()
+    const whittling = favoriteOmen('Omen of Whittling', 1)
+    expect(whittling).toHaveClass('is-active-omen')
   })
 
   it('rejects an unknown mapped modifier instead of rendering it as a validated item', async () => {

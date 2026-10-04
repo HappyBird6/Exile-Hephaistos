@@ -28,7 +28,7 @@ public record StateBucket(
         || itemLevel > 100) throw new IllegalArgumentException("Invalid bucket identity");
     Objects.requireNonNull(rarity);
     implicits = List.copyOf(implicits);
-    if (implicits.size() != 1
+    if (implicits.size() > 1
         || modifierIds.size() > 6
         || modifierIds.stream().anyMatch(id -> id == null || id.length() > 160)) {
       throw new IllegalArgumentException("Invalid bucket modifiers");
@@ -38,6 +38,9 @@ public record StateBucket(
   }
 
   public static StateBucket from(ItemState item) {
+    if (item.catalystQuality() != null)
+      throw new IllegalArgumentException(
+          "Catalyst quality cannot be projected into an affix-only bucket");
     return new StateBucket(
         item.snapshotId(),
         item.baseItemId(),

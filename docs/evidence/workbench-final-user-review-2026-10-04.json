@@ -1,0 +1,202 @@
+{
+  "status": "COMPLETE_LOCAL_USER_REVIEW",
+  "reportDate": "2026-10-04",
+  "executedAtUtc": "2026-10-03T20:50:15.2582819Z",
+  "branch": "workbench/20261002",
+  "reviewedCodeHead": "bbe608d1f673667269c26ab473bcb5194b38f103",
+  "review": "Self-review; no executable product defect found",
+  "productChanges": "NONE",
+  "documentationChanges": [
+    "README current status link",
+    "ISSUES WB-039",
+    "final user status report"
+  ],
+  "scope": {
+    "bases": 9,
+    "registry": 220,
+    "registryImplemented": 121,
+    "development": 155,
+    "defaultImplemented": 111,
+    "legacyImplemented": 2,
+    "pending": 42,
+    "deferred": 65,
+    "deferredPreservedAlloys": 8
+  },
+  "pendingIds": [
+    "Essence_of_Delirium",
+    "Essence_of_Insanity",
+    "Omen_of_Sinistral_Alchemy",
+    "Omen_of_Dextral_Alchemy",
+    "Omen_of_Sinistral_Coronation",
+    "Omen_of_Dextral_Coronation",
+    "Omen_of_Greater_Annulment",
+    "Omen_of_Catalysing_Exaltation",
+    "Omen_of_Sinistral_Necromancy",
+    "Omen_of_Dextral_Necromancy",
+    "Flesh_Catalyst",
+    "Neural_Catalyst",
+    "Carapace_Catalyst",
+    "Uul-Netols_Catalyst",
+    "Xophs_Catalyst",
+    "Tuls_Catalyst",
+    "Eshs_Catalyst",
+    "Chayulas_Catalyst",
+    "Reaver_Catalyst",
+    "Sibilant_Catalyst",
+    "Skittering_Catalyst",
+    "Adaptive_Catalyst",
+    "Necrotic_Catalyst",
+    "Refined_Flesh_Catalyst",
+    "Refined_Neural_Catalyst",
+    "Refined_Carapace_Catalyst",
+    "Refined_Uul-Netols_Catalyst",
+    "Refined_Xophs_Catalyst",
+    "Refined_Tuls_Catalyst",
+    "Refined_Eshs_Catalyst",
+    "Refined_Chayulas_Catalyst",
+    "Refined_Reaver_Catalyst",
+    "Refined_Sibilant_Catalyst",
+    "Refined_Skittering_Catalyst",
+    "Refined_Adaptive_Catalyst",
+    "Refined_Necrotic_Catalyst",
+    "Blacksmiths_Whetstone",
+    "Arcanists_Etcher",
+    "Armourers_Scrap",
+    "Scroll_of_Wisdom",
+    "Orb_of_Chance",
+    "Orb_of_Extraction"
+  ],
+  "pendingGroups": [
+    {
+      "Name": "APPLIED_QUALITY",
+      "Count": 29
+    },
+    {
+      "Name": "AUGMENT_EXTRACTION_STATE",
+      "Count": 1
+    },
+    {
+      "Name": "AVAILABILITY_REINTRODUCTION",
+      "Count": 5
+    },
+    {
+      "Name": "ENCHANTMENT_CORRUPTION",
+      "Count": 1
+    },
+    {
+      "Name": "IDENTIFICATION_STATE",
+      "Count": 1
+    },
+    {
+      "Name": "NOTABLE_OUTCOMES",
+      "Count": 1
+    },
+    {
+      "Name": "OMEN_POOL_INTERACTIONS",
+      "Count": 3
+    },
+    {
+      "Name": "UNIQUE_OUTCOME_POOL",
+      "Count": 1
+    }
+  ],
+  "runtime": {
+    "jarSha256": "780033645f4e63c1ea133a1c2d421a1711cf1a52584849df25a97aaeb1a75d75",
+    "htmlBundle": [
+      "index-DtvWs21k.js",
+      "index-Di5BXYtv.css"
+    ],
+    "ui": "http://127.0.0.1:18081/",
+    "api": "http://127.0.0.1:18080"
+  },
+  "ux": {
+    "result": "PASS",
+    "checks": [
+      "Alchemy creates four Rare affixes",
+      "Shift retains Alchemy selection",
+      "First repeated Exalted applies",
+      "Second repeated Exalted applies",
+      "Full slots block without changing item",
+      "Alt displays inline ranges",
+      "Alt keyup restores rolled values",
+      "Divine applies",
+      "Ordinary successful craft clears selection",
+      "Controlled 503 preserves item",
+      "Non-action click cancels currency",
+      "Blocked craft and network failure do not add history",
+      "Browsing to root does not split the session",
+      "Crafting from past applies",
+      "Past craft creates a new film preserving original future",
+      "Previous stays within the new film",
+      "Reload restores selected history step",
+      "Next restores the new film outcome",
+      "Archived original future remains navigable",
+      "Favorite right-click activates red omen",
+      "Matching unverified omen combination is prevented",
+      "Omen can be deactivated and counterpart activated",
+      "Desktop stash and properties are side by side",
+      "390px viewport has no document overflow",
+      "Mobile stash uses local horizontal scroll with readable grid",
+      "New base starts a film while archiving both earlier films",
+      "Quota failure does not discard a successful real craft",
+      "Quota failure keeps in-memory history navigable",
+      "Corrupt history remains untouched",
+      "No browser runtime errors"
+    ],
+    "errors": [],
+    "artifact": "codex/qa-20261004/final-review/integration-workbench-browser-results.json",
+    "visualReview": "390px screenshot inspected"
+  },
+  "boundaries": {
+    "result": "PASS",
+    "checks": [
+      "ordinary unsupplied quality crafting works",
+      "natural probability explicitly disclaims game odds",
+      "table weights and ordered eligibility separately explained",
+      "legacy defaults to hidden",
+      "legacy named explicitly",
+      "legacy availability and failure uncertainty visible",
+      "legacy hide restores default list",
+      "pending material refuses before request and preserves films",
+      "starting quality is described as existing input",
+      "explicit typed zero refuses without film loss or request",
+      "typed quality reload preserves original film bytes",
+      "no browser errors"
+    ],
+    "errors": [],
+    "artifact": "codex/qa-20261004/final-review/boundary-results.json",
+    "correctionRounds": 2,
+    "failures": [
+      "First attempt: wrong .craft-assumptions selector timeout",
+      "Second attempt: material left-click picked up for favorites rather than right-click use selection; expected refusal timeout"
+    ],
+    "fixes": [
+      "Actual .workbench-assumptions selector",
+      "Actual material right-click use selection",
+      "Quality (Flesh): +0% exact locator before final attempt"
+    ]
+  },
+  "notRerun": [
+    "Backend full check/generateJooq/bootJar: no executable changes",
+    "Frontend full checks/build: no executable changes",
+    "API269/browser83/layout10/browser993/cache restart: existing unchanged evidence, no full repetition",
+    "Windows script tests/Compose config: unchanged files"
+  ],
+  "historicalEvidence": [
+    "workbench-homogenising-validation-2026-10-03.json",
+    "workbench-catalyst-quality-validation-2026-10-04.json",
+    "workbench-continuation-validation-2026-10-03.json"
+  ],
+  "environment": {
+    "sequentialDocker": true,
+    "originalCheckout": "UNTOUCHED",
+    "dbVolumesEnv": "PRESERVED",
+    "temporaryBrowsers": "normal close and --rm",
+    "qaServices": "existing four retained",
+    "remoteWrites": "NONE",
+    "comCause": "UNCONFIRMED; no Windows process or COM changes",
+    "initialDockerRead": "Default sandbox pipe access denied; approved require_escalated Docker tool path used, no bypass"
+  },
+  "remaining": "42 material actions lack complete effect/state evidence; no unanswered product decision blocks this review",
+  "commit": "Local documentation checkpoint SHA is recorded in upper codex restart handoff"
+}

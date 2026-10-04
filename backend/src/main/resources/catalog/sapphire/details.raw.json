@@ -1,0 +1,23 @@
+{
+  "sourceUrl": "https://poe2db.tw/us/Sapphire",
+  "eligibleSection": "normal",
+  "excludedSections": [
+    "corrupted",
+    "desecrated"
+  ],
+  "weightPolicy": "USER_APPROVED_UNIFORM_CANDIDATES_NOT_GAME_WEIGHTS",
+  "slots": {
+    "magic": [
+      1,
+      1
+    ],
+    "rare": [
+      2,
+      2
+    ],
+    "source": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/dev/src/Classes/Item.lua"
+  },
+  "statPolicy": "Published integer display-unit bindings; display_source_value keys are internal, not game stat IDs. Conditional display_condition_present=1 is a presence marker, not a simulated combat effect.",
+  "craftedPolicy": "At most one Crafted. Zero ordinary weight. Uniform eligible removal then uniform valid sourced outcomes. Contempt occupies an ordinary slot and expands the opposite side; cap-loss preserves existing overflow. Ferocity and quality combine multiplicatively from original values with one central rounding, a provisional display assumption. Melancholy displays its external socketed-jewel condition only.",
+  "normalPolicy": "User-approved Normal simulator starting state; enabled_rarity remains magic,rare,unique."
+}

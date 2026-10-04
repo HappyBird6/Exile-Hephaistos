@@ -1,0 +1,1233 @@
+{
+  "captures": [
+    {
+      "action": "LESSER_ESSENCE_SORCERY",
+      "before": {
+        "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+        "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+        "itemLevel": 82,
+        "rarity": "MAGIC",
+        "implicits": [],
+        "conditions": [],
+        "explicits": [
+          {
+            "modifierId": "attuned-wand:prefix:beryl",
+            "values": {
+              "base_maximum_mana": 10
+            },
+            "fractured": false
+          }
+        ],
+        "augmentSockets": null
+      },
+      "result": {
+        "status": 200,
+        "ruleVersion": "wand-workbench-essence-v1",
+        "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+        "state": {
+          "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+          "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [],
+          "explicits": [
+            {
+              "modifierId": "attuned-wand:prefix:adept-s",
+              "values": {
+                "spell_damage_+%": 44
+              },
+              "fractured": false
+            },
+            {
+              "modifierId": "attuned-wand:prefix:beryl",
+              "values": {
+                "base_maximum_mana": 10
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null
+        },
+        "action": "LESSER_ESSENCE_SORCERY",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "attuned-wand:prefix:adept-s",
+            "values": {
+              "spell_damage_+%": 44
+            },
+            "selectionProbability": 1
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "spell_damage_+%",
+            "n": 10,
+            "candidates": [],
+            "min": 35,
+            "max": 44,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon2",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": ["Omen_of_the_Blessed"],
+        "qualityLimit": {
+          "ruleVersion": "quality-limit-v1",
+          "maximumQuality": 20
+        }
+      }
+    },
+    {
+      "action": "ESSENCE_SORCERY",
+      "before": {
+        "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+        "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+        "itemLevel": 82,
+        "rarity": "MAGIC",
+        "implicits": [],
+        "conditions": [],
+        "explicits": [
+          {
+            "modifierId": "attuned-wand:prefix:beryl",
+            "values": {
+              "base_maximum_mana": 10
+            },
+            "fractured": false
+          }
+        ],
+        "augmentSockets": null
+      },
+      "result": {
+        "status": 200,
+        "ruleVersion": "wand-workbench-essence-v1",
+        "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+        "state": {
+          "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+          "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [],
+          "explicits": [
+            {
+              "modifierId": "attuned-wand:prefix:beryl",
+              "values": {
+                "base_maximum_mana": 10
+              },
+              "fractured": false
+            },
+            {
+              "modifierId": "attuned-wand:prefix:professor-s",
+              "values": {
+                "spell_damage_+%": 63
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null
+        },
+        "action": "ESSENCE_SORCERY",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "attuned-wand:prefix:professor-s",
+            "values": {
+              "spell_damage_+%": 63
+            },
+            "selectionProbability": 1
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "spell_damage_+%",
+            "n": 10,
+            "candidates": [],
+            "min": 55,
+            "max": 64,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon4",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": ["Omen_of_the_Blessed"],
+        "qualityLimit": {
+          "ruleVersion": "quality-limit-v1",
+          "maximumQuality": 20
+        }
+      }
+    },
+    {
+      "action": "GREATER_ESSENCE_SORCERY",
+      "before": {
+        "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+        "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+        "itemLevel": 82,
+        "rarity": "MAGIC",
+        "implicits": [],
+        "conditions": [],
+        "explicits": [
+          {
+            "modifierId": "attuned-wand:prefix:beryl",
+            "values": {
+              "base_maximum_mana": 10
+            },
+            "fractured": false
+          }
+        ],
+        "augmentSockets": null
+      },
+      "result": {
+        "status": 200,
+        "ruleVersion": "wand-workbench-essence-v1",
+        "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+        "state": {
+          "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+          "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [],
+          "explicits": [
+            {
+              "modifierId": "attuned-wand:prefix:beryl",
+              "values": {
+                "base_maximum_mana": 10
+              },
+              "fractured": false
+            },
+            {
+              "modifierId": "attuned-wand:prefix:incanter-s",
+              "values": {
+                "spell_damage_+%": 80
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null
+        },
+        "action": "GREATER_ESSENCE_SORCERY",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "attuned-wand:prefix:incanter-s",
+            "values": {
+              "spell_damage_+%": 80
+            },
+            "selectionProbability": 1
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "spell_damage_+%",
+            "n": 15,
+            "candidates": [],
+            "min": 75,
+            "max": 89,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon6",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": ["Omen_of_the_Blessed"],
+        "qualityLimit": {
+          "ruleVersion": "quality-limit-v1",
+          "maximumQuality": 20
+        }
+      }
+    },
+    {
+      "action": "PERFECT_ESSENCE_SORCERY",
+      "before": {
+        "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+        "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "implicits": [],
+        "conditions": [],
+        "explicits": [
+          {
+            "modifierId": "attuned-wand:prefix:beryl",
+            "values": {
+              "base_maximum_mana": 10
+            },
+            "fractured": false
+          },
+          {
+            "modifierId": "attuned-wand:suffix:of-the-pupil",
+            "values": {
+              "additional_intelligence": 5
+            },
+            "fractured": false
+          }
+        ],
+        "augmentSockets": null
+      },
+      "result": {
+        "status": 200,
+        "ruleVersion": "wand-workbench-essence-v1",
+        "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+        "state": {
+          "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+          "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [],
+          "explicits": [
+            {
+              "modifierId": "attuned-wand:suffix:essence-spell-skill-level",
+              "values": {
+                "spell_skill_gem_level_+": 3
+              },
+              "fractured": false
+            },
+            {
+              "modifierId": "attuned-wand:suffix:of-the-pupil",
+              "values": {
+                "additional_intelligence": 5
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null
+        },
+        "action": "PERFECT_ESSENCE_SORCERY",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "REMOVE",
+            "modifierId": "attuned-wand:prefix:beryl",
+            "values": {},
+            "selectionProbability": 0.5
+          },
+          {
+            "kind": "ADD",
+            "modifierId": "attuned-wand:suffix:essence-spell-skill-level",
+            "values": {
+              "spell_skill_gem_level_+": 3
+            },
+            "selectionProbability": 1
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "uniform-removal-v1",
+            "candidateUnit": "eligible explicit modifier instance",
+            "n": 2,
+            "candidates": [
+              "attuned-wand:prefix:beryl",
+              "attuned-wand:suffix:of-the-pupil"
+            ],
+            "min": null,
+            "max": null,
+            "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Sorcery",
+            "reason": "Uniform among non-Fractured explicit instances; every removal branch must accept every sourced modifier outcome. No published removal weights.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": ["Omen_of_the_Blessed"],
+        "qualityLimit": {
+          "ruleVersion": "quality-limit-v1",
+          "maximumQuality": 20
+        }
+      }
+    },
+    {
+      "action": "LESSER_ESSENCE_SEEKING",
+      "before": {
+        "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+        "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+        "itemLevel": 82,
+        "rarity": "MAGIC",
+        "implicits": [],
+        "conditions": [],
+        "explicits": [
+          {
+            "modifierId": "attuned-wand:prefix:beryl",
+            "values": {
+              "base_maximum_mana": 10
+            },
+            "fractured": false
+          }
+        ],
+        "augmentSockets": null
+      },
+      "result": {
+        "status": 200,
+        "ruleVersion": "wand-workbench-essence-v1",
+        "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+        "state": {
+          "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+          "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [],
+          "explicits": [
+            {
+              "modifierId": "attuned-wand:prefix:beryl",
+              "values": {
+                "base_maximum_mana": 10
+              },
+              "fractured": false
+            },
+            {
+              "modifierId": "attuned-wand:suffix:of-havoc:spellcriticalstrikechance2",
+              "values": {
+                "spell_critical_strike_chance_+%": 34
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null
+        },
+        "action": "LESSER_ESSENCE_SEEKING",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "attuned-wand:suffix:of-havoc:spellcriticalstrikechance2",
+            "values": {
+              "spell_critical_strike_chance_+%": 34
+            },
+            "selectionProbability": 1
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "spell_critical_strike_chance_+%",
+            "n": 6,
+            "candidates": [],
+            "min": 34,
+            "max": 39,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeChance2",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": ["Omen_of_the_Blessed"],
+        "qualityLimit": {
+          "ruleVersion": "quality-limit-v1",
+          "maximumQuality": 20
+        }
+      }
+    },
+    {
+      "action": "ESSENCE_SEEKING",
+      "before": {
+        "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+        "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+        "itemLevel": 82,
+        "rarity": "MAGIC",
+        "implicits": [],
+        "conditions": [],
+        "explicits": [
+          {
+            "modifierId": "attuned-wand:prefix:beryl",
+            "values": {
+              "base_maximum_mana": 10
+            },
+            "fractured": false
+          }
+        ],
+        "augmentSockets": null
+      },
+      "result": {
+        "status": 200,
+        "ruleVersion": "wand-workbench-essence-v1",
+        "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+        "state": {
+          "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+          "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [],
+          "explicits": [
+            {
+              "modifierId": "attuned-wand:prefix:beryl",
+              "values": {
+                "base_maximum_mana": 10
+              },
+              "fractured": false
+            },
+            {
+              "modifierId": "attuned-wand:suffix:of-disaster",
+              "values": {
+                "spell_critical_strike_chance_+%": 45
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null
+        },
+        "action": "ESSENCE_SEEKING",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "attuned-wand:suffix:of-disaster",
+            "values": {
+              "spell_critical_strike_chance_+%": 45
+            },
+            "selectionProbability": 1
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "spell_critical_strike_chance_+%",
+            "n": 7,
+            "candidates": [],
+            "min": 40,
+            "max": 46,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeChance3",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": ["Omen_of_the_Blessed"],
+        "qualityLimit": {
+          "ruleVersion": "quality-limit-v1",
+          "maximumQuality": 20
+        }
+      }
+    },
+    {
+      "action": "GREATER_ESSENCE_SEEKING",
+      "before": {
+        "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+        "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+        "itemLevel": 82,
+        "rarity": "MAGIC",
+        "implicits": [],
+        "conditions": [],
+        "explicits": [
+          {
+            "modifierId": "attuned-wand:prefix:beryl",
+            "values": {
+              "base_maximum_mana": 10
+            },
+            "fractured": false
+          }
+        ],
+        "augmentSockets": null
+      },
+      "result": {
+        "status": 200,
+        "ruleVersion": "wand-workbench-essence-v1",
+        "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+        "state": {
+          "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+          "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [],
+          "explicits": [
+            {
+              "modifierId": "attuned-wand:prefix:beryl",
+              "values": {
+                "base_maximum_mana": 10
+              },
+              "fractured": false
+            },
+            {
+              "modifierId": "attuned-wand:suffix:of-calamity",
+              "values": {
+                "spell_critical_strike_chance_+%": 53
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null
+        },
+        "action": "GREATER_ESSENCE_SEEKING",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "attuned-wand:suffix:of-calamity",
+            "values": {
+              "spell_critical_strike_chance_+%": 53
+            },
+            "selectionProbability": 1
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "spell_critical_strike_chance_+%",
+            "n": 7,
+            "candidates": [],
+            "min": 47,
+            "max": 53,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeChance4",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": ["Omen_of_the_Blessed"],
+        "qualityLimit": {
+          "ruleVersion": "quality-limit-v1",
+          "maximumQuality": 20
+        }
+      }
+    },
+    {
+      "action": "LESSER_ESSENCE_ALACRITY",
+      "before": {
+        "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+        "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+        "itemLevel": 82,
+        "rarity": "MAGIC",
+        "implicits": [],
+        "conditions": [],
+        "explicits": [
+          {
+            "modifierId": "attuned-wand:prefix:beryl",
+            "values": {
+              "base_maximum_mana": 10
+            },
+            "fractured": false
+          }
+        ],
+        "augmentSockets": null
+      },
+      "result": {
+        "status": 200,
+        "ruleVersion": "wand-workbench-essence-v1",
+        "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+        "state": {
+          "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+          "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [],
+          "explicits": [
+            {
+              "modifierId": "attuned-wand:prefix:beryl",
+              "values": {
+                "base_maximum_mana": 10
+              },
+              "fractured": false
+            },
+            {
+              "modifierId": "attuned-wand:suffix:of-nimbleness",
+              "values": {
+                "base_cast_speed_+%": 14
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null
+        },
+        "action": "LESSER_ESSENCE_ALACRITY",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "attuned-wand:suffix:of-nimbleness",
+            "values": {
+              "base_cast_speed_+%": 14
+            },
+            "selectionProbability": 1
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "base_cast_speed_+%",
+            "n": 4,
+            "candidates": [],
+            "min": 13,
+            "max": 16,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeed2",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": ["Omen_of_the_Blessed"],
+        "qualityLimit": {
+          "ruleVersion": "quality-limit-v1",
+          "maximumQuality": 20
+        }
+      }
+    },
+    {
+      "action": "ESSENCE_ALACRITY",
+      "before": {
+        "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+        "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+        "itemLevel": 82,
+        "rarity": "MAGIC",
+        "implicits": [],
+        "conditions": [],
+        "explicits": [
+          {
+            "modifierId": "attuned-wand:prefix:beryl",
+            "values": {
+              "base_maximum_mana": 10
+            },
+            "fractured": false
+          }
+        ],
+        "augmentSockets": null
+      },
+      "result": {
+        "status": 200,
+        "ruleVersion": "wand-workbench-essence-v1",
+        "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+        "state": {
+          "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+          "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [],
+          "explicits": [
+            {
+              "modifierId": "attuned-wand:prefix:beryl",
+              "values": {
+                "base_maximum_mana": 10
+              },
+              "fractured": false
+            },
+            {
+              "modifierId": "attuned-wand:suffix:of-expertise",
+              "values": {
+                "base_cast_speed_+%": 17
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null
+        },
+        "action": "ESSENCE_ALACRITY",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "attuned-wand:suffix:of-expertise",
+            "values": {
+              "base_cast_speed_+%": 17
+            },
+            "selectionProbability": 1
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "base_cast_speed_+%",
+            "n": 4,
+            "candidates": [],
+            "min": 17,
+            "max": 20,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeed3",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": ["Omen_of_the_Blessed"],
+        "qualityLimit": {
+          "ruleVersion": "quality-limit-v1",
+          "maximumQuality": 20
+        }
+      }
+    },
+    {
+      "action": "GREATER_ESSENCE_ALACRITY",
+      "before": {
+        "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+        "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+        "itemLevel": 82,
+        "rarity": "MAGIC",
+        "implicits": [],
+        "conditions": [],
+        "explicits": [
+          {
+            "modifierId": "attuned-wand:prefix:beryl",
+            "values": {
+              "base_maximum_mana": 10
+            },
+            "fractured": false
+          }
+        ],
+        "augmentSockets": null
+      },
+      "result": {
+        "status": 200,
+        "ruleVersion": "wand-workbench-essence-v1",
+        "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+        "state": {
+          "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+          "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [],
+          "explicits": [
+            {
+              "modifierId": "attuned-wand:prefix:beryl",
+              "values": {
+                "base_maximum_mana": 10
+              },
+              "fractured": false
+            },
+            {
+              "modifierId": "attuned-wand:suffix:of-legerdemain",
+              "values": {
+                "base_cast_speed_+%": 25
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null
+        },
+        "action": "GREATER_ESSENCE_ALACRITY",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "attuned-wand:suffix:of-legerdemain",
+            "values": {
+              "base_cast_speed_+%": 25
+            },
+            "selectionProbability": 1
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "base_cast_speed_+%",
+            "n": 4,
+            "candidates": [],
+            "min": 25,
+            "max": 28,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeed5",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": ["Omen_of_the_Blessed"],
+        "qualityLimit": {
+          "ruleVersion": "quality-limit-v1",
+          "maximumQuality": 20
+        }
+      }
+    },
+    {
+      "action": "PERFECT_ESSENCE_ALACRITY",
+      "before": {
+        "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+        "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "implicits": [],
+        "conditions": [],
+        "explicits": [
+          {
+            "modifierId": "attuned-wand:prefix:beryl",
+            "values": {
+              "base_maximum_mana": 10
+            },
+            "fractured": false
+          },
+          {
+            "modifierId": "attuned-wand:suffix:of-the-pupil",
+            "values": {
+              "additional_intelligence": 5
+            },
+            "fractured": false
+          }
+        ],
+        "augmentSockets": null
+      },
+      "result": {
+        "status": 200,
+        "ruleVersion": "wand-workbench-essence-v1",
+        "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+        "state": {
+          "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
+          "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [],
+          "explicits": [
+            {
+              "modifierId": "attuned-wand:prefix:beryl",
+              "values": {
+                "base_maximum_mana": 10
+              },
+              "fractured": false
+            },
+            {
+              "modifierId": "attuned-wand:suffix:essence-mana-cost-efficiency",
+              "values": {
+                "base_mana_cost_efficiency_+%": 19
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null
+        },
+        "action": "PERFECT_ESSENCE_ALACRITY",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "REMOVE",
+            "modifierId": "attuned-wand:suffix:of-the-pupil",
+            "values": {},
+            "selectionProbability": 0.5
+          },
+          {
+            "kind": "ADD",
+            "modifierId": "attuned-wand:suffix:essence-mana-cost-efficiency",
+            "values": {
+              "base_mana_cost_efficiency_+%": 19
+            },
+            "selectionProbability": 1
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "uniform-removal-v1",
+            "candidateUnit": "eligible explicit modifier instance",
+            "n": 2,
+            "candidates": [
+              "attuned-wand:prefix:beryl",
+              "attuned-wand:suffix:of-the-pupil"
+            ],
+            "min": null,
+            "max": null,
+            "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Alacrity",
+            "reason": "Uniform among non-Fractured explicit instances; every removal branch must accept every sourced modifier outcome. No published removal weights.",
+            "ratioTick": null
+          },
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "base_mana_cost_efficiency_+%",
+            "n": 3,
+            "candidates": [],
+            "min": 18,
+            "max": 20,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceManaCostReduction",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": ["Omen_of_the_Blessed"],
+        "qualityLimit": {
+          "ruleVersion": "quality-limit-v1",
+          "maximumQuality": 20
+        }
+      }
+    }
+  ],
+  "definitions": {
+    "attuned-wand:suffix:of-the-pupil": {
+      "id": "attuned-wand:suffix:of-the-pupil",
+      "name": "of the Pupil",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["Intelligence"],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(5—8) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": ["attribute"],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence1"
+    },
+    "attuned-wand:prefix:beryl": {
+      "id": "attuned-wand:prefix:beryl",
+      "name": "Beryl",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["IncreasedMana"],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 11,
+      "text": "+(10—14) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": ["resource", "mana"],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana1"
+    },
+    "attuned-wand:prefix:adept-s": {
+      "id": "attuned-wand:prefix:adept-s",
+      "name": "Adept's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["WeaponCasterDamagePrefix"],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 7,
+      "text": "(35—44)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 35,
+          "max": 44
+        }
+      ],
+      "tags": ["caster_damage", "damage", "caster"],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon2"
+    },
+    "attuned-wand:prefix:professor-s": {
+      "id": "attuned-wand:prefix:professor-s",
+      "name": "Professor's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["WeaponCasterDamagePrefix"],
+      "requiredItemLevel": 33,
+      "weight": 600,
+      "tier": 5,
+      "text": "(55—64)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 55,
+          "max": 64
+        }
+      ],
+      "tags": ["caster_damage", "damage", "caster"],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon4"
+    },
+    "attuned-wand:prefix:incanter-s": {
+      "id": "attuned-wand:prefix:incanter-s",
+      "name": "Incanter's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["WeaponCasterDamagePrefix"],
+      "requiredItemLevel": 60,
+      "weight": 200,
+      "tier": 3,
+      "text": "(75—89)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 75,
+          "max": 89
+        }
+      ],
+      "tags": ["caster_damage", "damage", "caster"],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon6"
+    },
+    "attuned-wand:suffix:of-nimbleness": {
+      "id": "attuned-wand:suffix:of-nimbleness",
+      "name": "of Nimbleness",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["IncreasedCastSpeed"],
+      "requiredItemLevel": 15,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(13—16)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 13,
+          "max": 16
+        }
+      ],
+      "tags": ["caster_speed", "caster", "speed"],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeed2"
+    },
+    "attuned-wand:suffix:of-expertise": {
+      "id": "attuned-wand:suffix:of-expertise",
+      "name": "of Expertise",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["IncreasedCastSpeed"],
+      "requiredItemLevel": 30,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(17—20)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 17,
+          "max": 20
+        }
+      ],
+      "tags": ["caster_speed", "caster", "speed"],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeed3"
+    },
+    "attuned-wand:suffix:of-legerdemain": {
+      "id": "attuned-wand:suffix:of-legerdemain",
+      "name": "of Legerdemain",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["IncreasedCastSpeed"],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(25—28)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 25,
+          "max": 28
+        }
+      ],
+      "tags": ["caster_speed", "caster", "speed"],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeed5"
+    },
+    "attuned-wand:suffix:of-havoc:spellcriticalstrikechance2": {
+      "id": "attuned-wand:suffix:of-havoc:spellcriticalstrikechance2",
+      "name": "of Havoc",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["SpellCriticalStrikeChanceIncrease"],
+      "requiredItemLevel": 21,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(34—39)% increased Critical Hit Chance for Spells",
+      "stats": [
+        {
+          "id": "spell_critical_strike_chance_+%",
+          "min": 34,
+          "max": 39
+        }
+      ],
+      "tags": ["caster_critical", "caster", "critical"],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeChance2"
+    },
+    "attuned-wand:suffix:of-disaster": {
+      "id": "attuned-wand:suffix:of-disaster",
+      "name": "of Disaster",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["SpellCriticalStrikeChanceIncrease"],
+      "requiredItemLevel": 28,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(40—46)% increased Critical Hit Chance for Spells",
+      "stats": [
+        {
+          "id": "spell_critical_strike_chance_+%",
+          "min": 40,
+          "max": 46
+        }
+      ],
+      "tags": ["caster_critical", "caster", "critical"],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeChance3"
+    },
+    "attuned-wand:suffix:of-calamity": {
+      "id": "attuned-wand:suffix:of-calamity",
+      "name": "of Calamity",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["SpellCriticalStrikeChanceIncrease"],
+      "requiredItemLevel": 41,
+      "weight": 500,
+      "tier": 3,
+      "text": "(47—53)% increased Critical Hit Chance for Spells",
+      "stats": [
+        {
+          "id": "spell_critical_strike_chance_+%",
+          "min": 47,
+          "max": 53
+        }
+      ],
+      "tags": ["caster_critical", "caster", "critical"],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeChance4"
+    },
+    "attuned-wand:suffix:essence-spell-skill-level": {
+      "id": "attuned-wand:suffix:essence-spell-skill-level",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["IncreaseSocketedGemLevel"],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "+3 to Level of all Spell Skills",
+      "stats": [
+        {
+          "id": "spell_skill_gem_level_+",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "tags": ["caster", "gem"],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceSpellSkillLevel1H1"
+    },
+    "attuned-wand:suffix:essence-mana-cost-efficiency": {
+      "id": "attuned-wand:suffix:essence-mana-cost-efficiency",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["ManaCostEfficiency"],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(18—20)% increased Mana Cost Efficiency",
+      "stats": [
+        {
+          "id": "base_mana_cost_efficiency_+%",
+          "min": 18,
+          "max": 20
+        }
+      ],
+      "tags": ["resource", "mana"],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceManaCostReduction"
+    }
+  }
+}

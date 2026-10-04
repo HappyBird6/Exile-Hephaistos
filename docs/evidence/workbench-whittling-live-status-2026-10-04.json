@@ -1,0 +1,176 @@
+{
+  "time": "2026-10-04T04:53:00.335Z",
+  "method": "GET registry/initial + POST actions only; no apply, no browser/storage access",
+  "records": [
+    {
+      "base": "solar",
+      "ruleVersion": "solar-workbench-abyss-essence-v16-homogenising-legacy-v1",
+      "ordinaryRareChaos": {
+        "action": "CHAOS",
+        "available": true,
+        "reason": ""
+      },
+      "fracturedChaos": {
+        "action": "CHAOS",
+        "available": false,
+        "reason": "Whittling priority with Fractured modifiers needs verification. Deactivate the omen."
+      },
+      "status": [
+        200,
+        200
+      ]
+    },
+    {
+      "base": "stocky",
+      "ruleVersion": "stocky-workbench-artificer-v26-homogenising-legacy-v1",
+      "ordinaryRareChaos": {
+        "action": "CHAOS",
+        "available": true,
+        "reason": ""
+      },
+      "fracturedChaos": {
+        "action": "CHAOS",
+        "available": false,
+        "reason": "Whittling priority with Fractured modifiers needs verification. Deactivate the omen."
+      },
+      "status": [
+        200,
+        200
+      ]
+    },
+    {
+      "base": "bow",
+      "ruleVersion": "bow-workbench-perfect-essence-v2-homogenising-legacy-v1",
+      "ordinaryRareChaos": {
+        "action": "CHAOS",
+        "available": true,
+        "reason": ""
+      },
+      "fracturedChaos": {
+        "action": "CHAOS",
+        "available": false,
+        "reason": "Whittling priority with Fractured modifiers needs verification. Deactivate the omen."
+      },
+      "status": [
+        200,
+        200
+      ]
+    },
+    {
+      "base": "wand",
+      "ruleVersion": "wand-workbench-essence-v1-homogenising-legacy-v1",
+      "ordinaryRareChaos": {
+        "action": "CHAOS",
+        "available": true,
+        "reason": ""
+      },
+      "fracturedChaos": {
+        "action": "CHAOS",
+        "available": false,
+        "reason": "Whittling priority with Fractured modifiers needs verification. Deactivate the omen."
+      },
+      "status": [
+        200,
+        200
+      ]
+    },
+    {
+      "base": "body",
+      "ruleVersion": "body-workbench-perfect-essence-v1-homogenising-legacy-v1",
+      "ordinaryRareChaos": {
+        "action": "CHAOS",
+        "available": true,
+        "reason": ""
+      },
+      "fracturedChaos": {
+        "action": "CHAOS",
+        "available": false,
+        "reason": "Whittling priority with Fractured modifiers needs verification. Deactivate the omen."
+      },
+      "status": [
+        200,
+        200
+      ]
+    },
+    {
+      "base": "sceptre",
+      "ruleVersion": "sceptre-workbench-essence-v1-homogenising-legacy-v1",
+      "ordinaryRareChaos": {
+        "action": "CHAOS",
+        "available": true,
+        "reason": ""
+      },
+      "fracturedChaos": {
+        "action": "CHAOS",
+        "available": false,
+        "reason": "Whittling priority with Fractured modifiers needs verification. Deactivate the omen."
+      },
+      "status": [
+        200,
+        200
+      ]
+    },
+    {
+      "base": "belt",
+      "ruleVersion": "belt-workbench-perfect-essence-v1-homogenising-legacy-v1",
+      "ordinaryRareChaos": {
+        "action": "CHAOS",
+        "available": true,
+        "reason": ""
+      },
+      "fracturedChaos": {
+        "action": "CHAOS",
+        "available": false,
+        "reason": "Whittling priority with Fractured modifiers needs verification. Deactivate the omen."
+      },
+      "status": [
+        200,
+        200
+      ]
+    },
+    {
+      "base": "helmet",
+      "ruleVersion": "helmet-workbench-perfect-essence-v1-homogenising-legacy-v1",
+      "ordinaryRareChaos": {
+        "action": "CHAOS",
+        "available": true,
+        "reason": ""
+      },
+      "fracturedChaos": {
+        "action": "CHAOS",
+        "available": false,
+        "reason": "Whittling priority with Fractured modifiers needs verification. Deactivate the omen."
+      },
+      "status": [
+        200,
+        200
+      ]
+    },
+    {
+      "base": "ring",
+      "ruleVersion": "ring-workbench-perfect-essence-v1-homogenising-legacy-v1",
+      "ordinaryRareChaos": {
+        "action": "CHAOS",
+        "available": true,
+        "reason": ""
+      },
+      "fracturedChaos": {
+        "action": "CHAOS",
+        "available": false,
+        "reason": "Whittling priority with Fractured modifiers needs verification. Deactivate the omen."
+      },
+      "status": [
+        200,
+        200
+      ]
+    }
+  ],
+  "runtime": {
+    "frontend": "http://127.0.0.1:18081",
+    "js": "index-DtvWs21k.js",
+    "css": "index-Di5BXYtv.css",
+    "ruleSuffix": "homogenising-legacy-v1",
+    "legacyFiveNotDeployed": true,
+    "registryWhittling": "IMPLEMENTED/VALIDATED on nine supported bases"
+  }
+}

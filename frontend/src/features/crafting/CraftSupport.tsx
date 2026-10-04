@@ -1,10 +1,13 @@
+import { useI18n, formatPercent, formatNumber } from '../../shared/i18n/i18n'
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useRef, useState } from 'react'
 import { loadInitial } from './craftingApi'
 import type { Bucket } from './craftingApi'
 import { mapSolarText } from './workbenchApi'
 import { assessGoal, loadSupportFamilies, recommendGoal } from './supportApi'
-import { workbenchActionNames, workbenchOmens } from './workbenchApi'
+import { localizedAction } from './localizedCrafting'
+import { localizedModifierText } from './localizedModifiers'
+import { workbenchOmens } from './workbenchApi'
 import type {
   GoalAssessment,
   GoalCondition,
@@ -14,6 +17,7 @@ import type {
 import './craft-support.css'
 
 export function CraftSupport({ active }: { active: boolean }) {
+  const { t, name, locale } = useI18n()
   const [source, setSource] = useState<'base' | 'text' | 'manual'>('base')
   const [level, setLevel] = useState('82')
   const [rarity, setRarity] = useState<Bucket['rarity']>('RARE')
@@ -80,11 +84,27 @@ export function CraftSupport({ active }: { active: boolean }) {
   const used = new Set(
     [...goal.required, ...goal.candidates].map((c) => c.family),
   )
+  function familyExample(
+    family: NonNullable<typeof families.data>[number],
+    example: string,
+  ) {
+    // Resolve through the API-provided stable tier ID; source text only verifies
+    // which example that tier represents, and is never an API/grouping key.
+    const tier = family.tiers.find((entry) => entry.exampleText === example)
+    const definition = tier && initial.data?.modifiers[tier.modifierId]
+    return definition && definition.text === example
+      ? localizedModifierText(definition)
+      : example
+  }
   function conditions(kind: 'required' | 'candidates') {
     return (
       <fieldset>
         <legend>
-          {kind === 'required' ? 'All required families' : 'Candidate families'}
+          {t(
+            kind === 'required'
+              ? 'ui.all_required_families'
+              : 'ui.candidate_families',
+          )}
         </legend>
         {goal[kind].map((condition, index) => {
           const family = families.data?.find((f) => f.id === condition.family)
@@ -93,7 +113,14 @@ export function CraftSupport({ active }: { active: boolean }) {
               <label>
                 {condition.family}
                 <select
-                  aria-label={`${kind} ${condition.family} minimum tier`}
+                  aria-label={t('support.minimum_tier', {
+                    kind: t(
+                      kind === 'required'
+                        ? 'support.required'
+                        : 'support.candidate',
+                    ),
+                    family: condition.family,
+                  })}
                   value={condition.minimumTier}
                   onChange={(e) =>
                     setGoal((g) => ({
@@ -110,24 +137,24 @@ export function CraftSupport({ active }: { active: boolean }) {
                     .sort((a, b) => a - b)
                     .map((tier) => (
                       <option value={tier} key={tier}>
-                        T{tier} or better (T1{tier > 1 ? `–T${tier}` : ''})
+                        T{tier} {t('ui.tier_or_better')}
+                        {tier > 1 ? `–T${tier}` : ''})
                       </option>
                     ))}
                 </select>
                 <small>
-                  {family?.affix.toLowerCase()} family · Source example:{' '}
-                  {family?.effectExamples[0]}
+                  {family?.affix.toLowerCase()} {t('ui.family_source_example')}{' '}
+                  {family &&
+                    family.effectExamples[0] &&
+                    familyExample(family, family.effectExamples[0])}
                 </small>
                 {family && family.effectExamples.length > 1 && (
                   <div className="support-family-variants">
-                    <strong>Any effect in this family counts.</strong>
-                    <p>
-                      This goal does not select a specific gem or skill type.
-                      Source examples:
-                    </p>
+                    <strong>{t('ui.any_effect_in_this_family_counts')}</strong>
+                    <p>{t('notice.family_examples')}</p>
                     <ul>
                       {family.effectExamples.map((example) => (
-                        <li key={example}>{example}</li>
+                        <li key={example}>{familyExample(family, example)}</li>
                       ))}
                     </ul>
                   </div>
@@ -135,7 +162,15 @@ export function CraftSupport({ active }: { active: boolean }) {
               </label>
               <button
                 type="button"
-                aria-label={`Remove ${kind} ${condition.family}`}
+                data-remove-condition
+                aria-label={t('support.remove_family', {
+                  kind: t(
+                    kind === 'required'
+                      ? 'support.required'
+                      : 'support.candidate',
+                  ),
+                  family: condition.family,
+                })}
                 onClick={() =>
                   setGoal((g) => ({
                     ...g,
@@ -143,13 +178,17 @@ export function CraftSupport({ active }: { active: boolean }) {
                   }))
                 }
               >
-                Remove
+                {t('ui.remove')}
               </button>
             </div>
           )
         })}
         <label>
-          Add {kind === 'required' ? 'required' : 'candidate'} family
+          {t('support.add_family', {
+            kind: t(
+              kind === 'required' ? 'support.required' : 'support.candidate',
+            ),
+          })}
           <select
             aria-label={`Add ${kind} family`}
             value=""
@@ -163,7 +202,7 @@ export function CraftSupport({ active }: { active: boolean }) {
               setGoal((g) => ({ ...g, [kind]: [...g[kind], condition] }))
             }}
           >
-            <option value="">Select a distinct family</option>
+            <option value="">{t('ui.select_a_distinct_family')}</option>
             {families.data
               ?.filter((f) => !used.has(f.id))
               .map((f) => (
@@ -275,43 +314,40 @@ export function CraftSupport({ active }: { active: boolean }) {
     }
   }
   const percent = (value: number) =>
-    `${(Math.max(0, Math.min(1, value)) * 100).toLocaleString('en-US', { maximumFractionDigits: 4 })}%`
+    formatPercent(Math.max(0, Math.min(1, value)), 4, locale)
   const chosen =
     selectedRoute === null ? null : report?.comparisons[selectedRoute]
   return (
     <section
       className="craft-support"
-      aria-label="Craft Support"
+      aria-label={t('ui.craft_support')}
       onChange={invalidateAssessment}
       onClickCapture={(event) => {
         if (
-          (event.target as HTMLElement).closest('button[aria-label^="Remove"]')
+          (event.target as HTMLElement).closest('button[data-remove-condition]')
         )
           invalidateAssessment()
       }}
     >
-      <p className="support-intro">
-        Set one family-and-tier goal for a separate Solar Amulet starting state.
-        Workbench changes do not replace this state.
-      </p>
+      <p className="support-intro">{t('notice.support_root')}</p>
       <div className="support-columns">
         <section className="support-box">
-          <h2>1. Starting item</h2>
+          <h2>{t('ui.1_starting_item')}</h2>
           <label>
-            Input source
+            {t('ui.input_source')}
             <select
-              aria-label="Support input source"
+              aria-label={t('ui.support_input_source')}
               value={source}
               onChange={(e) => setSource(e.target.value as typeof source)}
             >
-              <option value="base">Server Solar base</option>
-              <option value="text">Verified item text</option>
-              <option value="manual">Manual modifier tiers</option>
+              <option value="base">{t('ui.server_solar_base')}</option>
+              <option value="text">{t('ui.verified_item_text')}</option>
+              <option value="manual">{t('ui.manual_modifier_tiers')}</option>
             </select>
           </label>
           {source !== 'text' && (
             <label>
-              Support item level
+              {t('ui.support_item_level')}
               <input
                 type="number"
                 min="1"
@@ -322,12 +358,14 @@ export function CraftSupport({ active }: { active: boolean }) {
             </label>
           )}
           {!validLevel && (
-            <p role="alert">Item level must be an integer from 1 to 100.</p>
+            <p role="alert">
+              {t('ui.item_level_must_be_an_integer_from_1_to_100')}
+            </p>
           )}
           {source === 'manual' && (
             <>
               <label>
-                Manual rarity
+                {t('ui.manual_rarity')}
                 <select
                   value={rarity}
                   onChange={(e) => {
@@ -335,34 +373,35 @@ export function CraftSupport({ active }: { active: boolean }) {
                     setManual([])
                   }}
                 >
-                  <option value="NORMAL">Normal</option>
-                  <option value="MAGIC">Magic</option>
-                  <option value="RARE">Rare</option>
+                  <option value="NORMAL">{t('ui.normal')}</option>
+                  <option value="MAGIC">{t('ui.magic')}</option>
+                  <option value="RARE">{t('ui.rare')}</option>
                 </select>
               </label>
-              <p>
-                Select actual modifier tiers. Numerical rolls are unspecified
-                and do not affect this goal.
-              </p>
+              <p>{t('notice.manual_rolls')}</p>
               {manual.map((id, index) => (
                 <p key={id}>
-                  {initial.data?.modifiers[id]?.text} · T
-                  {initial.data?.modifiers[id]?.tier}{' '}
+                  {initial.data?.modifiers[id] &&
+                    localizedModifierText(initial.data.modifiers[id])}{' '}
+                  · T{initial.data?.modifiers[id]?.tier}{' '}
                   <button
                     type="button"
-                    aria-label={`Remove manual modifier ${index + 1}`}
+                    data-remove-condition
+                    aria-label={t('support.remove_manual', {
+                      index: index + 1,
+                    })}
                     onClick={() =>
                       setManual((ms) => ms.filter((_, i) => i !== index))
                     }
                   >
-                    Remove
+                    {t('ui.remove')}
                   </button>
                 </p>
               ))}
               <label>
-                Add manual modifier
+                {t('ui.add_manual_modifier')}
                 <select
-                  aria-label="Add manual modifier"
+                  aria-label={t('ui.add_manual_modifier')}
                   value=""
                   disabled={
                     rarity === 'NORMAL' ||
@@ -373,7 +412,7 @@ export function CraftSupport({ active }: { active: boolean }) {
                       setManual((ms) => [...ms, e.target.value])
                   }}
                 >
-                  <option value="">Select a modifier tier</option>
+                  <option value="">{t('ui.select_a_modifier_tier')}</option>
                   {families.data?.flatMap((f) =>
                     f.tiers
                       .filter(
@@ -390,7 +429,12 @@ export function CraftSupport({ active }: { active: boolean }) {
                       )
                       .map((t) => (
                         <option value={t.modifierId} key={t.modifierId}>
-                          {f.id} · T{t.tier} · {t.exampleText}
+                          {f.id} · T{t.tier} ·{' '}
+                          {initial.data?.modifiers[t.modifierId]
+                            ? localizedModifierText(
+                                initial.data.modifiers[t.modifierId]!,
+                              )
+                            : t.exampleText}
                         </option>
                       )),
                   )}
@@ -401,7 +445,7 @@ export function CraftSupport({ active }: { active: boolean }) {
           {source === 'text' && (
             <>
               <label>
-                Support item text
+                {t('ui.support_item_text')}
                 <textarea
                   value={text}
                   onChange={(e) => {
@@ -409,7 +453,9 @@ export function CraftSupport({ active }: { active: boolean }) {
                     setMapped(null)
                     setMappingIssues([])
                   }}
-                  placeholder="Paste Solar Amulet text copied from the game"
+                  placeholder={t(
+                    'ui.paste_solar_amulet_text_copied_from_the_game',
+                  )}
                 />
               </label>
               <button
@@ -417,13 +463,9 @@ export function CraftSupport({ active }: { active: boolean }) {
                 onClick={validateText}
                 disabled={pending || !text.trim() || !initial.data}
               >
-                Validate Support text
+                {t('ui.validate_support_text')}
               </button>
-              {mapped && (
-                <p>
-                  Catalog mapping verified. Original text is retained above.
-                </p>
-              )}
+              {mapped && <p>{t('notice.mapping_verified')}</p>}
               {mappingIssues.map((issue, i) => (
                 <p role="alert" key={i}>
                   {issue}
@@ -433,23 +475,24 @@ export function CraftSupport({ active }: { active: boolean }) {
           )}
           {state && (
             <p className="support-state-summary">
-              Solar Amulet · Level {state.itemLevel} ·{' '}
-              {state.rarity.toLowerCase()} · {state.modifierIds.length} explicit
-              modifiers
+              {' '}
+              {t('ui.solar_level')} {state.itemLevel} ·{' '}
+              {state.rarity.toLowerCase()} · {state.modifierIds.length}{' '}
+              {t('ui.explicit_modifiers')}{' '}
             </p>
           )}
         </section>
         <section className="support-box">
-          <h2>2. One goal</h2>
+          <h2>{t('ui.2_one_goal')}</h2>
           <p>
-            All required conditions <strong>AND</strong> at least N distinct
-            candidate families. Each family counts once. T2 or better means
-            T1–T2.
+            {t('ui.all_required_conditions')}
+            <strong>{t('ui.and')}</strong>
+            {t('notice.candidate_logic')}
           </p>
           {conditions('required')}
           {conditions('candidates')}
           <label>
-            Candidate N
+            {t('ui.candidate_n')}
             <input
               type="number"
               min="0"
@@ -464,18 +507,13 @@ export function CraftSupport({ active }: { active: boolean }) {
               }
             />
           </label>
-          {!validN && (
-            <p role="alert">
-              Candidate N must be a whole number from 0 to the number of
-              distinct candidate families.
-            </p>
-          )}
+          {!validN && <p role="alert">{t('notice.candidate_count')}</p>}
           <p className="support-goal-summary">
             {goal.required
               .map((c) => `${c.family} T${c.minimumTier} or better`)
               .join(' AND ') || 'No required families'}{' '}
-            AND {goal.candidateCount} of {goal.candidates.length} distinct
-            candidate families.
+            {t('ui.and')} {goal.candidateCount} {t('ui.of')}{' '}
+            {goal.candidates.length} {t('ui.distinct_candidate_families')}{' '}
           </p>
           <button
             type="button"
@@ -484,17 +522,19 @@ export function CraftSupport({ active }: { active: boolean }) {
               pending || !state || !validLevel || !validN || !families.data
             }
           >
-            {pending ? 'Validating…' : 'Check starting state and goal'}
+            {pending
+              ? t('ui.validating')
+              : t('ui.check_starting_state_and_goal')}
           </button>
           <fieldset>
-            <legend>Addition omens</legend>
-            <p>
-              One ordinary Exalted omen may restrict the added family.
-              Greater/Perfect interactions and simultaneous matching omens are
-              unverified and blocked.
-            </p>
+            <legend>{t('ui.addition_omens')}</legend>
+            <p>{t('notice.addition_omen_scope')}</p>
             {workbenchOmens
-              .filter((o) => o.trigger === 'EXALTED')
+              .filter(
+                (o) =>
+                  o.trigger === 'EXALTED' &&
+                  o.id !== 'Omen_of_Greater_Exaltation',
+              )
               .map((o) => (
                 <label key={o.id}>
                   <input
@@ -508,19 +548,19 @@ export function CraftSupport({ active }: { active: boolean }) {
                       )
                     }
                   />
-                  {o.id.replaceAll('_', ' ')}: {o.effect}
+                  {name(o.id, o.id.replaceAll('_', ' '))}: {o.effect}
                 </label>
               ))}
           </fieldset>
           <label>
-            Calculation time budget
+            {t('ui.calculation_time_budget')}
             <select
               value={maxMillis}
               onChange={(e) => setMaxMillis(Number(e.target.value))}
             >
-              <option value={2000}>2 seconds</option>
-              <option value={5000}>5 seconds</option>
-              <option value={10000}>10 seconds</option>
+              <option value={2000}>{t('ui.2_seconds')}</option>
+              <option value={5000}>{t('ui.5_seconds')}</option>
+              <option value={10000}>{t('ui.10_seconds')}</option>
             </select>
           </label>
           <button
@@ -530,30 +570,31 @@ export function CraftSupport({ active }: { active: boolean }) {
               pending || !state || !validLevel || !validN || !families.data
             }
           >
-            {pending ? 'Calculating…' : 'Compare currency sequences'}
+            {pending ? t('ui.calculating') : t('ui.compare_currency_sequences')}
           </button>
           {pending && (
             <button type="button" onClick={invalidateAssessment}>
-              Cancel this request
+              {t('ui.cancel_this_request')}
             </button>
           )}
         </section>
       </div>
       {(initial.isError || families.isError) && (
         <p role="alert">
-          Could not load Support catalog data.{' '}
+          {' '}
+          {t('ui.support_catalog_load_error')}{' '}
           <button
             onClick={() => {
               void initial.refetch()
               void families.refetch()
             }}
           >
-            Retry catalog
+            {t('ui.retry_catalog')}
           </button>
         </p>
       )}
       {(initial.isPending || families.isPending) && active && (
-        <p role="status">Loading Support catalog…</p>
+        <p role="status">{t('ui.loading_support_catalog')}</p>
       )}
       {error && <p role="alert">{error}</p>}
       {assessment && (
@@ -568,24 +609,18 @@ export function CraftSupport({ active }: { active: boolean }) {
                   : 'Goal needs correction'}
           </h2>
           <p>
-            Required: {assessment.requiredMatched}/{goal.required.length}.
-            Candidates: {assessment.candidatesMatched}/{goal.candidateCount}{' '}
-            needed.
+            {' '}
+            {t('ui.required_colon')} {assessment.requiredMatched}/
+            {goal.required.length}
+            {t('ui.candidates_colon')} {assessment.candidatesMatched}/
+            {goal.candidateCount} {t('ui.needed')}{' '}
           </p>
-          {assessment.achieved && (
-            <p>
-              The starting state already satisfies the goal. First-hit
-              probability at step 0 is 100%; no currency is needed.
-            </p>
-          )}
+          {assessment.achieved && <p>{t('notice.goal_met')}</p>}
           {assessment.issues.map((issue, i) => (
             <p key={i}>{issue}</p>
           ))}
           {!report && !assessment.achieved && assessment.feasible && (
-            <p>
-              No sequence probabilities calculated yet. Choose Compare currency
-              sequences.
-            </p>
+            <p>{t('notice.no_calculation')}</p>
           )}
         </section>
       )}
@@ -597,27 +632,20 @@ export function CraftSupport({ active }: { active: boolean }) {
               : 'Partial comparison — ranking is not final'}
           </h2>
           <p>
-            Compared {report.comparedSequences}/{report.totalSequences} eligible
-            currency-grade sequences.
+            {' '}
+            {t('ui.compared')} {report.comparedSequences}/
+            {report.totalSequences} {t('ui.eligible_sequences')}{' '}
           </p>
           <p>
             {report.complete
               ? 'All listed sequences were fully calculated.'
               : `The calculation budget stopped before all work was complete. ${report.totalSequences - report.comparedSequences} unexamined sequences may have success probability anywhere from 0% to 100%. Unresolved mass is not failure.`}
           </p>
-          {report.comparisons.length === 0 && (
-            <p>
-              No sequences were evaluated within this budget. Increase the
-              budget and retry; this is not a 0% result.
-            </p>
-          )}
+          {report.comparisons.length === 0 && <p>{t('notice.empty_budget')}</p>}
           {report.complete &&
             report.comparisons.length > 0 &&
             report.comparisons.every((c) => c.successLower <= 1e-12) && (
-              <p>
-                No successful sequence under the selected state and omen rules.
-                Review active omens and the verified blocking reasons below.
-              </p>
+              <p>{t('notice.no_success')}</p>
             )}
           <div className="support-comparisons">
             {report.comparisons.map((c, index) => (
@@ -627,65 +655,68 @@ export function CraftSupport({ active }: { active: boolean }) {
                     ? `Rank ${index + 1}`
                     : `Provisional candidate ${index + 1}`}
                 </h3>
-                <p>
-                  {c.sequence.map((a) => workbenchActionNames[a]).join(' → ')}
-                </p>
+                <p>{c.sequence.map((a) => localizedAction(a)).join(' → ')}</p>
                 <p className="support-probability">
                   {c.complete
                     ? percent(c.successLower)
                     : `${percent(c.successLower)} – ${percent(c.successUpper)}`}{' '}
-                  success
+                  {t('ui.success')}{' '}
                 </p>
                 <p>
-                  {c.complete ? 'Complete first-hit sum' : 'Lower–upper bound'};
-                  verified failure {percent(c.failureProbability)}; unresolved{' '}
-                  {percent(c.unresolvedProbability)}.
+                  {c.complete ? 'Complete first-hit sum' : 'Lower–upper bound'}
+                  {t('ui.verified_failure')} {percent(c.failureProbability)}
+                  {t('ui.unresolved_status')} {percent(c.unresolvedProbability)}
+                  .
                 </p>
                 <button
                   type="button"
                   onClick={() => setSelectedRoute(index)}
                   aria-pressed={selectedRoute === index}
                 >
-                  Choose sequence {index + 1}
+                  {' '}
+                  {t('ui.choose_sequence')} {index + 1}
                 </button>
               </article>
             ))}
           </div>
           <details className="support-calculation-details">
-            <summary>Calculation details and sources</summary>
+            <summary>{t('ui.calculation_details_and_sources')}</summary>
             <p>
-              Published Solar modifier weights; numeric rolls are marginalized.
-              Rule {report.ruleVersion}; ledger {report.ledgerVersion}.
+              {' '}
+              {t('ui.published_solar_weights')} {report.ruleVersion}
+              {t('ui.ledger')} {report.ledgerVersion}.
             </p>
             <p>
-              Expanded {report.expandedStates.toLocaleString('en-US')} states
-              and {report.expandedEdges.toLocaleString('en-US')} edges in{' '}
-              {report.elapsedMillis.toFixed(1)} ms. Computed pools:{' '}
-              {report.cache.computedPools}; reused from memory:{' '}
-              {report.cache.memoryHits}; reused from PostgreSQL:{' '}
-              {report.cache.persistedHits}.
+              {' '}
+              {t('ui.expanded')} {formatNumber(report.expandedStates)}{' '}
+              {t('ui.states_and')} {formatNumber(report.expandedEdges)}{' '}
+              {t('ui.edges_in')}{' '}
+              {formatNumber(report.elapsedMillis, {
+                minimumFractionDigits: 1,
+                maximumFractionDigits: 1,
+              })}{' '}
+              {t('ui.computed_pools')} {report.cache.computedPools}
+              {t('ui.memory_hits')} {report.cache.memoryHits}
+              {t('ui.database_hits')} {report.cache.persistedHits}.
             </p>
           </details>
           {chosen && (
             <section className="support-route">
-              <h3>Chosen sequence — stop as soon as the goal is met</h3>
+              <h3>{t('ui.chosen_sequence_stop_as_soon_as_the_goal_is_met')}</h3>
               <ol>
                 {chosen.sequence.map((action, index) => (
                   <li key={index}>
-                    <strong>{workbenchActionNames[action]}</strong>
-                    <p>
-                      Check the family-and-tier goal after this craft. If
-                      achieved, stop immediately. Otherwise proceed only if the
-                      next currency is eligible.
-                    </p>
+                    <strong>{localizedAction(action)}</strong>
+                    <p>{t('notice.stop_goal')}</p>
                     {chosen.steps.find((s) => s.step === index + 1) && (
                       <p>
-                        First hit at this step:{' '}
+                        {' '}
+                        {t('ui.first_hit_step')}{' '}
                         {percent(
                           chosen.steps.find((s) => s.step === index + 1)!
                             .firstHitProbability,
                         )}{' '}
-                        of starting probability. Continuing/unresolved:{' '}
+                        {t('ui.continuing_probability')}{' '}
                         {percent(
                           chosen.steps.find((s) => s.step === index + 1)!
                             .continuingOrUnresolvedProbability,
@@ -699,28 +730,19 @@ export function CraftSupport({ active }: { active: boolean }) {
               {chosen.steps.flatMap((s) =>
                 s.blockedReasons.map((reason) => (
                   <p key={`${s.step}-${reason}`}>
-                    Step {s.step} rule block: {reason}
+                    {' '}
+                    {t('ui.step')} {s.step} {t('ui.rule_block')} {reason}
                   </p>
                 )),
               )}
-              <p>
-                This guide shows the chosen fixed sequence; each craft can
-                produce different eligible modifiers. It does not alter your
-                Workbench item.
-              </p>
+              <p>{t('notice.fixed_sequence')}</p>
             </section>
           )}
         </section>
       )}
       <section className="support-recovery">
-        <h2>Recovery starts a new calculation</h2>
-        <p>
-          Annulment, Chaos and their recovery omens are outside these addition
-          sequences. After recovery, enter the actual recovered modifiers or
-          validate recovered text as a new starting state. The previous route
-          probability is not carried or multiplied into the new result.
-          Divine/Blessed rerolls are outside this family-and-tier goal.
-        </p>
+        <h2>{t('ui.recovery_starts_a_new_calculation')}</h2>
+        <p>{t('notice.recovery_scope')}</p>
         <button
           type="button"
           disabled={!state || pending}
@@ -734,15 +756,9 @@ export function CraftSupport({ active }: { active: boolean }) {
             setSource('manual')
           }}
         >
-          Enter recovered state as a new root
+          {t('ui.enter_recovered_state_as_a_new_root')}
         </button>
-        {recovering && (
-          <p>
-            Edit the recovered modifier tiers in Starting item, then validate or
-            compare again. The family-and-tier goal is retained; previous
-            comparison results were cleared.
-          </p>
-        )}
+        {recovering && <p>{t('notice.recovery_reset')}</p>}
       </section>
     </section>
   )

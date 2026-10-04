@@ -1,0 +1,499 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-04",
+  "status": "COMPLETE_VALIDATED_LOCAL_ONLY",
+  "branch": "workbench/20261002",
+  "baseline": "0c044759b76241407d2b272021aa4cd40926ecfb",
+  "scope": {
+    "active": 144,
+    "implemented": 118,
+    "previousVerified": 113,
+    "fullyVerifiedNow": 118,
+    "pending": 26,
+    "deferred": 76,
+    "registry": 220,
+    "legacyFiveRuntimeValidation": "PASS nine-base API and actual five Solar browser actions",
+    "liveServerUpdated": false
+  },
+  "decisions": {
+    "sideFirst": "Unlocked -> requested prefix/suffix -> minimum known modifier level -> uniform tie1/N; user-defined/model odds",
+    "allowedSameTriggerPairs": [
+      [
+        "Sinistral Erasure",
+        "Whittling"
+      ],
+      [
+        "Dextral Erasure",
+        "Whittling"
+      ],
+      [
+        "Sinistral Annulment",
+        "Greater Annulment"
+      ],
+      [
+        "Dextral Annulment",
+        "Greater Annulment"
+      ],
+      [
+        "Homogenising Exaltation",
+        "Greater Exaltation"
+      ]
+    ],
+    "tiered": "Explicit matching effects with existing35/50 added-level/family fallback; UNVERIFIED composition ledger; frozen pre-craft tags before each multi-add stage level pool",
+    "deferred": [
+      "modifier-level-less special affixes",
+      "Fractured Whittling",
+      "directional + count2 addition overlap and partial side-slot result/consumption",
+      "Homogenising + directional overlap priority/empty pool",
+      "Greater Annulment1-target",
+      "Greater Exaltation1-total-slot",
+      "game failure consumption"
+    ]
+  },
+  "backend": {
+    "status": "PASS",
+    "command": "./gradlew --no-daemon spotlessApply check generateJooq bootJar",
+    "environment": "mcr.microsoft.com/devcontainers/java:21-bookworm; TESTCONTAINERS_HOST_OVERRIDE=host.docker.internal; owned source/build copy, Docker socket; Testcontainers temporary DB",
+    "test": {
+      "tests": 362,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "integrationTest": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "initialFailure": "362 unit PASS; integration startup Ryuk connection refused without Docker Desktop host override; repaired in recovery1",
+    "jarSha256": "4092aa4e64416388bffd722291ee6d4a54a1b3f3206ec1748af0dfd86c517e19"
+  },
+  "frontend": {
+    "npmCi": "PASS",
+    "lint": "PASS",
+    "typecheck": "PASS including final build after literal correction",
+    "formatCheck": "PASS full source; final literal correction also checked with same pinned Prettier",
+    "build": "PASS final source in owned copy",
+    "fullSuite": {
+      "total": 344,
+      "passed": 343,
+      "failed": 1,
+      "files": 46,
+      "error": "Baseline MaterialStash ordinary Essence count expected74 but source19 families x4=76; excluded special2 were NOT reintroduced"
+    },
+    "relatedRecovery": {
+      "total": 22,
+      "passed": 21,
+      "failed": 1,
+      "error": "Added exact special IDs expected wrong order; source order Hysteria/Horror/Abyss/Breach. Corrected literal after source review; final22 rerun NOT RUN at limit"
+    },
+    "finalUnitAggregate": "PASS344 unique tests:322 unchanged tests from full run plus22 final MaterialStash rerun; no product source change and SHA-equivalent copies. Full historical343/344 and recovery21/22 failures retained.",
+    "productSourceChangedAfterFullSuite": false,
+    "onlyTestCorrectionAfterFullSuite": "MaterialStash exact regular count and special/excluded identity assertions",
+    "relatedResumption": {
+      "status": "PASS",
+      "total": 22,
+      "passed": 22,
+      "failed": 0
+    },
+    "validatedUniqueTests": 344
+  },
+  "runtimeApi": {
+    "status": "PASS",
+    "passed": 640,
+    "bases": [
+      "solar",
+      "stocky",
+      "bow",
+      "wand",
+      "body",
+      "sceptre",
+      "belt",
+      "helmet",
+      "ring"
+    ],
+    "coverage": [
+      "side-first candidate sets and uniform tie probabilities",
+      "ordinary/Greater/Perfect Chaos/Regal/Exalted with bounded omens",
+      "legacy5 four-modifier and two-remove outcomes",
+      "exact candidate ledger and matching/unrelated consumption",
+      "original implicit/suffix/roll preservation",
+      "opposing directions/missing side/Fractured Whittling atomic refusal",
+      "two-stage minimum-level source-weighted pools with frozen tags",
+      "all-first-branch preflight and item-level floor atomic refusal"
+    ],
+    "firstFailurePreserved": true,
+    "comparisonRepair": "Initial StateBucket optional fields supplied as null and expected ItemState canonical order; every other field/roll/fracture and atomic consumption assertion retained. Final runtime confirms refusal equality."
+  },
+  "browser": {
+    "status": "PASS",
+    "passed": 95,
+    "pageErrors": [],
+    "requests": 30,
+    "checks": [
+      "legacy five hidden by default",
+      "solar-rare restore reaches exact root",
+      "solar local candidate set matches backend",
+      "solar orange candidate CSS",
+      "solar hover performs zero API calls",
+      "solar actual pair response contract and consumption",
+      "solar composition label does not invent uniform probability",
+      "solar film records one step preserving old frame",
+      "solar consumed preview clears",
+      "stocky-rare restore reaches exact root",
+      "stocky local candidate set matches backend",
+      "stocky orange candidate CSS",
+      "stocky hover performs zero API calls",
+      "stocky actual pair response contract and consumption",
+      "stocky composition label does not invent uniform probability",
+      "stocky film records one step preserving old frame",
+      "stocky consumed preview clears",
+      "bow-rare restore reaches exact root",
+      "bow local candidate set matches backend",
+      "bow orange candidate CSS",
+      "bow hover performs zero API calls",
+      "bow actual pair response contract and consumption",
+      "bow composition label does not invent uniform probability",
+      "bow film records one step preserving old frame",
+      "bow consumed preview clears",
+      "wand-rare restore reaches exact root",
+      "wand local candidate set matches backend",
+      "wand orange candidate CSS",
+      "wand hover performs zero API calls",
+      "wand actual pair response contract and consumption",
+      "wand composition label does not invent uniform probability",
+      "wand film records one step preserving old frame",
+      "wand consumed preview clears",
+      "body-rare restore reaches exact root",
+      "body local candidate set matches backend",
+      "body orange candidate CSS",
+      "body hover performs zero API calls",
+      "body actual pair response contract and consumption",
+      "body composition label does not invent uniform probability",
+      "body film records one step preserving old frame",
+      "body consumed preview clears",
+      "sceptre-rare restore reaches exact root",
+      "sceptre local candidate set matches backend",
+      "sceptre orange candidate CSS",
+      "sceptre hover performs zero API calls",
+      "sceptre actual pair response contract and consumption",
+      "sceptre composition label does not invent uniform probability",
+      "sceptre film records one step preserving old frame",
+      "sceptre consumed preview clears",
+      "belt-rare restore reaches exact root",
+      "belt local candidate set matches backend",
+      "belt orange candidate CSS",
+      "belt hover performs zero API calls",
+      "belt actual pair response contract and consumption",
+      "belt composition label does not invent uniform probability",
+      "belt film records one step preserving old frame",
+      "belt consumed preview clears",
+      "helmet-rare restore reaches exact root",
+      "helmet local candidate set matches backend",
+      "helmet orange candidate CSS",
+      "helmet hover performs zero API calls",
+      "helmet actual pair response contract and consumption",
+      "helmet composition label does not invent uniform probability",
+      "helmet film records one step preserving old frame",
+      "helmet consumed preview clears",
+      "ring-rare restore reaches exact root",
+      "ring local candidate set matches backend",
+      "ring orange candidate CSS",
+      "ring hover performs zero API calls",
+      "ring actual pair response contract and consumption",
+      "ring composition label does not invent uniform probability",
+      "ring film records one step preserving old frame",
+      "ring consumed preview clears",
+      "solar-rare restore reaches exact root",
+      "symmetric Dextral pair active",
+      "symmetric suffix preview",
+      "actual upgraded Dextral pair accepted",
+      "solar-normal restore reaches exact root",
+      "Omen of Sinistral Alchemy actual UI apply accepted",
+      "solar-normal restore reaches exact root",
+      "Omen of Dextral Alchemy actual UI apply accepted",
+      "solar-magic restore reaches exact root",
+      "Omen of Sinistral Coronation actual UI apply accepted",
+      "solar-magic restore reaches exact root",
+      "Omen of Dextral Coronation actual UI apply accepted",
+      "solar-rare restore reaches exact root",
+      "Omen of Greater Annulment actual UI apply accepted",
+      "solar-rare restore reaches exact root",
+      "preserved Greater plus Homogenising exception accepts tiered UI action",
+      "solar-rare restore reaches exact root",
+      "opposing side conflict stays inactive",
+      "opposing side distinction announced",
+      "390px document has no horizontal overflow",
+      "film and evidence reload byte-exactly",
+      "no page errors"
+    ],
+    "firstFailurePreserved": true,
+    "visualReview": {
+      "status": "PASS for candidate/card feedback on desktop1440 and390px, document overflow absent",
+      "limitation": "Existing fixed-size currency canvas clips some material buttons within narrow panel; carried to next requested UX bundle, no new responsive redesign here"
+    }
+  },
+  "sourceEquivalence": {
+    "backend": {
+      "files": 213,
+      "sha256": "24a9fd07f5cd5bf8602812ff6cdde2cf351bed1cc15ec2112fac74126737fbdb"
+    },
+    "frontend": {
+      "files": 324,
+      "sha256": "a6703db644024c40f7545667106a746a1c2b205dbc31efff73c6f091dcabfa9e"
+    },
+    "mismatches": []
+  },
+  "recovery": {
+    "maximum": 2,
+    "used": 2,
+    "round2": {
+      "frontend": "Full suite343 passed/1 failed: baseline MaterialStash expected74 ordinary Essence buttons, source has19 families x4=76, plus separate4 special.",
+      "changes": [
+        "Correct stale exact count to76 and add explicit Delirium/Insanity absence plus four special identities; no product scope or assertion removed"
+      ],
+      "validation": "Static checks PASS; targeted22=21 PASS/1 FAIL because added exact special IDs had the wrong order. Corrected to original Hysteria/Horror/Abyss/Breach order after source review; NOT rerun under2-round limit. Prior343 successes retained. Build/API/browser are first executions still pending. No further recovery round authorized."
+    },
+    "round1": {
+      "backend": "Docker Desktop host override missing; 362 unit passed, integration initialization failed",
+      "frontend": "Baseline serviceScope.test.ts formatter failure after npm ci/lint/typecheck passed",
+      "additionalReviewFix": "Pool projection cache namespace revised without DB deletion",
+      "changes": [
+        "TESTCONTAINERS_HOST_OVERRIDE=host.docker.internal",
+        "format serviceScope.test.ts",
+        "final cache namespace source included"
+      ]
+    },
+    "boundedResumption": {
+      "authorization": "Explicit user continuous-work instruction supplied by parent; user instructions take precedence. Existing2 rounds retained; one additional bounded harness repair batch, no stage/session reset and no denial bypass.",
+      "status": "PASS_FINAL_FE22_API640_BROWSER95",
+      "additionalBatches": 1,
+      "previousUsed": 2
+    }
+  },
+  "isolation": {
+    "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004",
+    "project": "exile-omen-bundle-20261004",
+    "ports": [
+      "127.0.0.1:18280",
+      "127.0.0.1:18281"
+    ],
+    "database": "owned PostgreSQL17.6 tmpfs, disposable credentials; separate Redis",
+    "composeConfig": "PASS --quiet",
+    "sourceFrontendMount": "read-only; npm outputs only frontend-check",
+    "composeEnd": "STOPPED normally after final PASS, no volumes removed",
+    "liveContainersPreserved": [
+      "exile-workbench-qa-20261002-app-1:18080",
+      "exile-workbench-qa-20261002-frontend-1:18081",
+      "exile-workbench-qa-20261002-redis-1",
+      "exile-workbench-qa-20261002-postgres-1"
+    ],
+    "browserStorage": "fresh context; only owned synthetic films; existing user browser untouched",
+    "heavySlot": "RELEASED"
+  },
+  "autoReview": {
+    "deniedAction": "docker inspect existing backend checker --format full .Config.Env",
+    "reason": "May expose secrets; unnecessary broad environment inspection",
+    "executed": false,
+    "retried": false,
+    "resolution": "Used official Testcontainers Docker Desktop host override in own new runner; no remaining dependency on denied action",
+    "source": "https://java.testcontainers.org/supported_docker_environment/continuous_integration/dind_patterns/"
+  },
+  "selfReview": {
+    "status": "COMPLETE for final diff, not independent review",
+    "checks": [
+      "side-first mirrors local/backend ordering",
+      "exact pair allowlist; unrelated omens preserved; refusal before draw",
+      "tag eligibility before tier pool; frozen tags across both draws",
+      "cache namespace invalidates old persisted refusal without deleting DB",
+      "composition/Alchemy ledger UI does not invent uniform probabilities",
+      "source/catalog weights/ranges/tags and excluded identities preserved",
+      "git diff --check PASS"
+    ],
+    "limitations": "Independent reviewer not requested; tested published-weight/user-accepted composition models, not verified game engine joint odds or failure consumption."
+  },
+  "notRun": [
+    "Windows dev.ps1 unittest (unchanged; new harness runs Linux Node, not Windows startup script)",
+    "existing stack Compose config (unchanged; own config checked)",
+    "independent agent review (not requested)",
+    "i18n integration (separate242954aa branch QA passed, not merged here)",
+    "remote push/merge/release/deploy"
+  ],
+  "artifacts": {
+    "backend-check/final-check.log": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/backend-check/final-check.log",
+      "sha256": "7fc4cb0fd1dd9bf6db0565e12f8fc7df08631175c0997c488fcc64d42350fee7"
+    },
+    "backend-first-check.log": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/backend-first-check.log",
+      "sha256": "45b15f884276ac0653fb6a879a9ca3c5b41874b5acc16399afb063756b2dc0ae"
+    },
+    "frontend-first-check.log": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/frontend-first-check.log",
+      "sha256": "5278916c255f9e4169ae6de01644bbe2b5bb2a501c837972c814d305ac2e26cc"
+    },
+    "frontend-full-test-results.log": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/frontend-full-test-results.log",
+      "sha256": "8f988115bf52156a9aed5dcb05cd2a6d54abefc9cff5c4096c3c1ee81207223c"
+    },
+    "frontend-recovery2.log": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/frontend-recovery2.log",
+      "sha256": "8883f20d77d9fabb561b013f63d92ba1c041d2e8ff12ac3d04307dd63bac98e2"
+    },
+    "frontend-build.log": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/frontend-build.log",
+      "sha256": "3dec5ede3aa7c59e4ac56c6c096a7838a49d3b8b5e29cbe4a34a54e114ca1ce6"
+    },
+    "api.cjs": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/api-first.cjs",
+      "sha256": "c4693cf2e671ae114453ce74d96bb87971c4cc4a7151726c43b7b2e3f19c8f33"
+    },
+    "api-failure.json": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/api-failure.json",
+      "sha256": "80640b9dddb84e4a3837dc3ce601e995fbd0fabbc4612bacf60029fb8f2b6512"
+    },
+    "browser.cjs": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/browser-first.cjs",
+      "sha256": "da998c7a7d747c30be978ff7f620f1aad56cfe0f243980410eb2feb8aed7cc68"
+    },
+    "browser-fixtures.cjs": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/browser-fixtures-first.cjs",
+      "sha256": "a7307ca86379685c36ca5e2092799e3f08cbcc707e02412c30e4a196adfa9037"
+    },
+    "browser-failure.json": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/browser-failure.json",
+      "sha256": "28a5518bd67d152c0b1f4446bd702aaee08094e3e20c01632092112f8bb0bc60"
+    },
+    "source-equivalence.json": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/source-equivalence.json",
+      "sha256": "3368f209bdfb355b7ea8063e3f6471127942e0b07f28097702793ac954152d87"
+    },
+    "recovery-rounds.json": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/recovery-rounds.json",
+      "sha256": "27f9e96850d76154205a6c91b94cc46b1d54f9511aa59f59c5fbc659fb6af2fb"
+    },
+    "compose.yaml": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/compose.yaml",
+      "sha256": "75660e60fb9a2fb637b2730c857093d3171cdc072fb97b361426378384df1afd"
+    },
+    "frontend-resumption.log": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/frontend-resumption.log",
+      "sha256": "dcba14af149c01bbde8ed25cef0982678987165530b12ef1af6955596a17ebea"
+    },
+    "api-results.json": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/api-results.json",
+      "sha256": "d5fecde1c0ffa2300c84c08e7a6900a73321e2f1dcd5057436ab33ba2fce0d48"
+    },
+    "browser-results.json": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/browser-results.json",
+      "sha256": "1fe6f991ffad7eb2a53d8ce9e3f7dd5f7349c9f51d255ed5a86af699cd38e72e"
+    },
+    "narrow.png": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/narrow.png",
+      "sha256": "0630154cc9105984926e126dad2d045f2de43e4c735578ea4d96f3e7d44b688c"
+    },
+    "desktop.png": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/desktop.png",
+      "sha256": "900c2a1c50dfd5b93399ae98a22208be4f803cd58e703cead54ba947dda397e2"
+    }
+  },
+  "boundedResumption": {
+    "authorization": "Explicit user continuous-work instruction supplied by parent; user instructions take precedence. Existing2 rounds retained; one additional bounded harness repair batch, no stage/session reset and no denial bypass.",
+    "prepared": true,
+    "heavyRuntimeExecuted": true,
+    "slot": "Granted after i18n standalone QA; all heavy stages sequential, released after owned services stop",
+    "changes": [
+      "MaterialStash original special-ID order already corrected in e2ae87e;22 tests pending",
+      "StateBucket optional fields/canonical order vs ItemState normalization; all substantive assertions retained",
+      "Browser selected-film/DOM step and per-click cursor waits; same active selection skipped",
+      "Capture failing full synthetic request/raw/parsed response and browser UI/storage to new failure files; first failure files preserved"
+    ],
+    "syntax": {
+      "api": "PASS node --check",
+      "browser": "PASS node --check",
+      "browserFixtures": "PASS node --check"
+    },
+    "scripts": {
+      "api.cjs": {
+        "path": "scripts/qa/omen-composition-20261004/api.cjs",
+        "sha256": "33f7d6184ff5f0882ff0b3137f2e3d34ae85eb7ccb91e2b1195605a7d022846b"
+      },
+      "browser.cjs": {
+        "path": "scripts/qa/omen-composition-20261004/browser.cjs",
+        "sha256": "7b15b0f08e6a04500556593b8650a04c6f2f0eb3253c3540ac8ab211a92dabd4"
+      },
+      "browser-fixtures.cjs": {
+        "path": "scripts/qa/omen-composition-20261004/browser-fixtures.cjs",
+        "sha256": "0b03d16f0876a6b64fac03156f82d973cb4c1e5766a67b868e955762c53a760b"
+      }
+    },
+    "status": "PASS"
+  },
+  "executionHistory": {
+    "frontendFullSuite": {
+      "total": 344,
+      "passed": 343,
+      "failed": 1,
+      "files": 46,
+      "error": "Baseline MaterialStash ordinary Essence count expected74 but source19 families x4=76; excluded special2 were NOT reintroduced"
+    },
+    "frontendRecovery2": {
+      "total": 22,
+      "passed": 21,
+      "failed": 1,
+      "error": "Added exact special IDs expected wrong order; source order Hysteria/Horror/Abyss/Breach. Corrected literal after source review; final22 rerun NOT RUN at limit"
+    },
+    "apiFirst": {
+      "status": "FAIL_HARNESS_INVESTIGATION_REQUIRED",
+      "passed": 18,
+      "checks": [
+        "solar CHAOS side-before-level/ties",
+        "solar CHAOS exact candidate ledger",
+        "solar CHAOS both consumed, unrelated retained",
+        "solar CHAOS implicit + suffix unchanged",
+        "solar CHAOS eligible weighted addition",
+        "solar GREATER_CHAOS side-before-level/ties",
+        "solar GREATER_CHAOS exact candidate ledger",
+        "solar GREATER_CHAOS both consumed, unrelated retained",
+        "solar GREATER_CHAOS implicit + suffix unchanged",
+        "solar GREATER_CHAOS eligible weighted addition",
+        "solar PERFECT_CHAOS side-before-level/ties",
+        "solar PERFECT_CHAOS exact candidate ledger",
+        "solar PERFECT_CHAOS both consumed, unrelated retained",
+        "solar PERFECT_CHAOS implicit + suffix unchanged",
+        "solar PERFECT_CHAOS eligible weighted addition",
+        "solar CHAOS symmetric Dextral",
+        "solar GREATER_CHAOS symmetric Dextral",
+        "solar PERFECT_CHAOS symmetric Dextral"
+      ],
+      "error": "AssertionError [ERR_ASSERTION]: solar opposing sides atomic",
+      "notRun": "Remaining nine-base/legacy5/weighted double-add/refusal checks",
+      "reviewInference": "Read-only follow-up: Solar explicit order is already canonical. Initial.state type is StateBucket (7 authoritative item fields); apply.state is ItemState and includes nullable augmentSockets/catalystQuality. Raw equality compares missing fields to null. Repair optional defaults plus existing canonical order only, keeping every other field/roll/flag and strict atomic events/assumptions/consumption assertions. Runtime confirmation pending."
+    },
+    "browserFirst": {
+      "status": "FAIL_HARNESS_WAIT_TIMEOUT",
+      "passed": 8,
+      "checks": [
+        "legacy five hidden by default",
+        "solar local candidate set matches backend",
+        "solar orange candidate CSS",
+        "solar hover performs zero API calls",
+        "solar actual pair response contract and consumption",
+        "solar composition label does not invent uniform probability",
+        "solar film records one step preserving old frame",
+        "solar consumed preview clears"
+      ],
+      "pageErrors": [],
+      "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Previous crafting step', exact: true })\n    - locator resolved to <button type=\"button\" aria-label=\"Previous crafting step\">‹</button>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not enabled\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not enabled\n    - retrying click action\n      - waiting 100ms\n    58 × waiting for element to be visible, enabled and stable\n       - element is not enabled\n     - retrying click action\n       - waiting 500ms\n",
+      "notRun": [
+        "remaining8-base candidate/apply checks",
+        "legacy5 actual UI actions",
+        "tiered Greater+Homogenising actual UI action",
+        "390px/1440px screenshots and visual QA",
+        "film reload byte preservation"
+      ],
+      "reviewInference": "restoreFilm loads catalog asynchronously. Harness inspected Previous from old film before new active ID/cursor/DOM step settled. Prepared waits for saved active/DOM last step, skips same active reselection, then waits each cursor decrement. Runtime confirmation pending."
+    }
+  }
+}

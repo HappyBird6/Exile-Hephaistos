@@ -1,0 +1,95 @@
+[
+  {
+    "sourceUrl": "https://poe2db.tw/us/Amulets#ModifiersCalc",
+    "row": {
+      "type": "essence",
+      "Level": "72",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+      ],
+      "fossil_no": [
+        "attribute"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/4b3bc43e78d56de228360b032c8160b166c3461b20c51ddc40c59c529b0ec399\" href=\"Perfect_Essence_of_the_Infinite\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/AttributeEssencePerfect.webp\" alt=\"AttributeEssencePerfect\" height=\"16\" />Perfect Essence of the Infinite</a>",
+      "Code": "EssencePercentStrength1",
+      "ModFamilyList": [
+        "PercentageStrength"
+      ],
+      "str": "<span class='mod-value'>(7<span class=\"ndash\">—</span>10)</span>% increased <a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/adc68348c13b27b1b831c2ce4caf358d08d796def82d1d95491b336d8a926849\">Strength</a>, <a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/df68c1bb7e0de9655bd5d2bdce54f7bc115c80605beb6755f7f3d1642f2045fd\">Dexterity</a> or <a data-keyword=\"Intelligence\" href=\"Intelligence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/35ecc1ff28e8ee7386e67bec70cdc12f96a62d638a35d71ab8156e96f0f5e08a\">Intelligence</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "default"
+      ],
+      "reqlvl": 57,
+      "IsPerfect": "1",
+      "IsAlloy": false,
+      "Removes": true
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssencePercentStrength1",
+    "detailHtml": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(7<span class=\"ndash\">—</span>10)</span>% increased <a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/adc68348c13b27b1b831c2ce4caf358d08d796def82d1d95491b336d8a926849\">Strength</a></span></h5>   <span data-tabname=\"of the Essence\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Essence\n<tr><th>Family<td>PercentageStrength\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>strength +% <span class=\"badge bg-primary\">7 <span class=\"ndash\">—</span> 10</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attribute</span> </table>  </div></div>"
+  },
+  {
+    "sourceUrl": "https://poe2db.tw/us/Amulets#ModifiersCalc",
+    "row": {
+      "type": "essence",
+      "Level": "72",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+      ],
+      "fossil_no": [
+        "attribute"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/4b3bc43e78d56de228360b032c8160b166c3461b20c51ddc40c59c529b0ec399\" href=\"Perfect_Essence_of_the_Infinite\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/AttributeEssencePerfect.webp\" alt=\"AttributeEssencePerfect\" height=\"16\" />Perfect Essence of the Infinite</a>",
+      "Code": "EssencePercentDexterity1",
+      "ModFamilyList": [
+        "PercentageDexterity"
+      ],
+      "str": "<span class='mod-value'>(7<span class=\"ndash\">—</span>10)</span>% increased <a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/adc68348c13b27b1b831c2ce4caf358d08d796def82d1d95491b336d8a926849\">Strength</a>, <a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/df68c1bb7e0de9655bd5d2bdce54f7bc115c80605beb6755f7f3d1642f2045fd\">Dexterity</a> or <a data-keyword=\"Intelligence\" href=\"Intelligence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/35ecc1ff28e8ee7386e67bec70cdc12f96a62d638a35d71ab8156e96f0f5e08a\">Intelligence</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "default"
+      ],
+      "reqlvl": 57,
+      "IsPerfect": "1",
+      "IsAlloy": false,
+      "Removes": true
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssencePercentDexterity1",
+    "detailHtml": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(7<span class=\"ndash\">—</span>10)</span>% increased <a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/df68c1bb7e0de9655bd5d2bdce54f7bc115c80605beb6755f7f3d1642f2045fd\">Dexterity</a></span></h5>   <span data-tabname=\"of the Essence\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Essence\n<tr><th>Family<td>PercentageDexterity\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>dexterity +% <span class=\"badge bg-primary\">7 <span class=\"ndash\">—</span> 10</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attribute</span> </table>  </div></div>"
+  },
+  {
+    "sourceUrl": "https://poe2db.tw/us/Amulets#ModifiersCalc",
+    "row": {
+      "type": "essence",
+      "Level": "72",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+      ],
+      "fossil_no": [
+        "attribute"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/4b3bc43e78d56de228360b032c8160b166c3461b20c51ddc40c59c529b0ec399\" href=\"Perfect_Essence_of_the_Infinite\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/AttributeEssencePerfect.webp\" alt=\"AttributeEssencePerfect\" height=\"16\" />Perfect Essence of the Infinite</a>",
+      "Code": "EssencePercentIntelligence1",
+      "ModFamilyList": [
+        "PercentageIntelligence"
+      ],
+      "str": "<span class='mod-value'>(7<span class=\"ndash\">—</span>10)</span>% increased <a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/adc68348c13b27b1b831c2ce4caf358d08d796def82d1d95491b336d8a926849\">Strength</a>, <a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/df68c1bb7e0de9655bd5d2bdce54f7bc115c80605beb6755f7f3d1642f2045fd\">Dexterity</a> or <a data-keyword=\"Intelligence\" href=\"Intelligence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/35ecc1ff28e8ee7386e67bec70cdc12f96a62d638a35d71ab8156e96f0f5e08a\">Intelligence</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "default"
+      ],
+      "reqlvl": 57,
+      "IsPerfect": "1",
+      "IsAlloy": false,
+      "Removes": true
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssencePercentIntelligence1",
+    "detailHtml": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(7<span class=\"ndash\">—</span>10)</span>% increased <a data-keyword=\"Intelligence\" href=\"Intelligence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/35ecc1ff28e8ee7386e67bec70cdc12f96a62d638a35d71ab8156e96f0f5e08a\">Intelligence</a></span></h5>   <span data-tabname=\"of the Essence\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Essence\n<tr><th>Family<td>PercentageIntelligence\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>intelligence +% <span class=\"badge bg-primary\">7 <span class=\"ndash\">—</span> 10</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attribute</span> </table>  </div></div>"
+  }
+]

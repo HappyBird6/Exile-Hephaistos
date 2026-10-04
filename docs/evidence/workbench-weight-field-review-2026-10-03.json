@@ -1,0 +1,267 @@
+{
+  "clientScript": {
+    "url": "https://cdn.poe2db.tw/js/ModsView.f39fca410dd746d3.js",
+    "sha256": "967efb19b218b4d92a7129fb60ee694ea3fee3a3015dd75cf7dd64d6cbb0a2a5",
+    "retrievedAt": "2026-10-03T14:20:21.802Z"
+  },
+  "rows185": 185,
+  "allCodeMatchedLevels": true,
+  "allApplicableDetailWeights": [
+    1
+  ],
+  "distribution": {
+    "1000/1": 64,
+    "600/1": 2,
+    "400/1": 7,
+    "200/1": 8,
+    "100/1": 13,
+    "50/1": 7,
+    "500/1": 47,
+    "300/1": 5,
+    "150/1": 1,
+    "750/1": 21,
+    "250/1": 8,
+    "125/1": 2
+  },
+  "snippets": [
+    {
+      "pattern": "DropChance",
+      "text": "&$.each(this.items.config,(e,r)=>{this.items[e]&&$.each(this.items[e],(e,r)=>{this.crafter.gentype_only!=parseInt(r.ModGenerationTypeID)&&r.DropChance&&(r.origDropChance=r.DropChance,r.DropChance=0)})})}harvest_hide(){var t=[],a=[],t=[].concat.apply(a,this.crafter.harvest_only);$(\".harvest-input\").each(function(){$(this).prop(\"checked\")&&($(this).data(\"only\")&&(t=[].concat.apply(t,$(this).data(\"only\").split(\",\"))),$(this).data(\"none\"))&"
+    },
+    {
+      "pattern": "DropChance",
+      "text": "config,(e,r)=>{this.items[e]&&$.each(this.items[e],(e,r)=>{this.crafter.gentype_only!=parseInt(r.ModGenerationTypeID)&&r.DropChance&&(r.origDropChance=r.DropChance,r.DropChance=0)})})}harvest_hide(){var t=[],a=[],t=[].concat.apply(a,this.crafter.harvest_only);$(\".harvest-input\").each(function(){$(this).prop(\"checked\")&&($(this).data(\"only\")&&(t=[].concat.apply(t,$(this).data(\"only\").split(\",\"))),$(this).data(\"none\"))&&(a=[].concat.apply"
+    },
+    {
+      "pattern": "DropChance",
+      "text": ">{this.items[e]&&$.each(this.items[e],(e,r)=>{this.crafter.gentype_only!=parseInt(r.ModGenerationTypeID)&&r.DropChance&&(r.origDropChance=r.DropChance,r.DropChance=0)})})}harvest_hide(){var t=[],a=[],t=[].concat.apply(a,this.crafter.harvest_only);$(\".harvest-input\").each(function(){$(this).prop(\"checked\")&&($(this).data(\"only\")&&(t=[].concat.apply(t,$(this).data(\"only\").split(\",\"))),$(this).data(\"none\"))&&(a=[].concat.apply(a,$(this).da"
+    },
+    {
+      "pattern": "spawn_no",
+      "text": ",0<a.length&&$.each(this.mod_types,(e,r)=>{this.none_mod_hide(a,this.items[r])})}none_spawn_mod_hide(t,e){0<t.length&&e&&$.each(e,(e,r)=>{r.spawn_no&&0<this.intersection(t,r.spawn_no).length&&(r.hide=1)})}none_mod_hide(t,e){0<t.length&&e&&$.each(e,(e,r)=>{0<this.intersection(t,r.fossil_no).length&&(r.hide=1)})}only_mod_hide(e,r){if(0<e.length&&r)for(var t in r){t=r[t];0==this.intersection(e,t.fossil_no).length&&(t.hide=1)}}ilvl_hide_min"
+    },
+    {
+      "pattern": "spawn_no",
+      "text": ",(e,r)=>{this.none_mod_hide(a,this.items[r])})}none_spawn_mod_hide(t,e){0<t.length&&e&&$.each(e,(e,r)=>{r.spawn_no&&0<this.intersection(t,r.spawn_no).length&&(r.hide=1)})}none_mod_hide(t,e){0<t.length&&e&&$.each(e,(e,r)=>{0<this.intersection(t,r.fossil_no).length&&(r.hide=1)})}only_mod_hide(e,r){if(0<e.length&&r)for(var t in r){t=r[t];0==this.intersection(e,t.fossil_no).length&&(t.hide=1)}}ilvl_hide_min(){$(\"[data-val=min_mod_lv]\").text"
+    },
+    {
+      "pattern": "Level",
+      "text": ",reqids:[\"annu\"],class:\"disabled\",type:\"Omen\"},\"omen-of-whittling\":{name:\"Omen of Whittling\",code:\"Metadata/Items/Currency/OmenOnChaosLowestLevelMod\",icon:\"Art/2DItems/Currency/Omens/VoodooOmens1Dark.webp\",reqids:[\"chaos\",\"greater-chaos-orb\",\"perfect-chaos-orb\"],class:\"disabled\",type:\"Omen\"},\"omen-of-sinistral-erasure\":{name:\"Omen of Sinistral Erasure\",code:\"Metadata/Items/Currency/OmenOnChaosPrefix\",icon:\"Art/2DItems/Currency/Omens/Voo"
+    },
+    {
+      "pattern": "Level",
+      "text": "s.items.config,(e,r)=>{if(this.items[e]){let a={},t=($.each(this.items[e],(e,r)=>{a[r.GenGroup]||(a[r.GenGroup]=[]),a[r.GenGroup].push(r),r.Level&&r.Level<s&&(r.hide=1)}),{});$.each(a,(e,r)=>{r=r.at(-1);t[e]=r.Level}),$.each(t,(e,t)=>{$.each(a[e],(e,r)=>{r.Level==t&&1==r.hide&&(r.hide=0)})})}}))}ilvl_hide_max(){var t=$(\"#max_mod_ilvl\").val()?parseInt($(\"#max_mod_ilvl\").val()):100;$(\"[data-val=max_mod_lv]\").text(t),$(\"[data-val=currency_"
+    },
+    {
+      "pattern": "Level",
+      "text": "onfig,(e,r)=>{if(this.items[e]){let a={},t=($.each(this.items[e],(e,r)=>{a[r.GenGroup]||(a[r.GenGroup]=[]),a[r.GenGroup].push(r),r.Level&&r.Level<s&&(r.hide=1)}),{});$.each(a,(e,r)=>{r=r.at(-1);t[e]=r.Level}),$.each(t,(e,t)=>{$.each(a[e],(e,r)=>{r.Level==t&&1==r.hide&&(r.hide=0)})})}}))}ilvl_hide_max(){var t=$(\"#max_mod_ilvl\").val()?parseInt($(\"#max_mod_ilvl\").val()):100;$(\"[data-val=max_mod_lv]\").text(t),$(\"[data-val=currency_max_mod_l"
+    },
+    {
+      "pattern": "weight",
+      "text": "OnPerfectEssencePrefix.webp\",reqids:[\"perfect-essences\"],class:\"disabled\",type:\"Omen\"}};fossil_attrs={\"Aberrant Fossil\":{hide:[\"lightning\"],weight:{chaos:10}},\"Aetheric Fossil\":{weight:{caster:10,attack:.15}},\"Bound Fossil\":{weight:{minion:10,aura:10,curse:10}},\"Corroded Fossil\":{hide:[\"elemental\"],weight:{poison:10,bleed:10}},\"Dense Fossil\":{hide:[\"life\"],weight:{defences:10}},\"Faceted Fossil\":{weight:{gem:10}},\"Frigid Fossil\":{hide:[\""
+    },
+    {
+      "pattern": "weight",
+      "text": "perfect-essences\"],class:\"disabled\",type:\"Omen\"}};fossil_attrs={\"Aberrant Fossil\":{hide:[\"lightning\"],weight:{chaos:10}},\"Aetheric Fossil\":{weight:{caster:10,attack:.15}},\"Bound Fossil\":{weight:{minion:10,aura:10,curse:10}},\"Corroded Fossil\":{hide:[\"elemental\"],weight:{poison:10,bleed:10}},\"Dense Fossil\":{hide:[\"life\"],weight:{defences:10}},\"Faceted Fossil\":{weight:{gem:10}},\"Frigid Fossil\":{hide:[\"fire\"],weight:{cold:10}},\"Jagged Fossi"
+    },
+    {
+      "pattern": "weight",
+      "text": "}};fossil_attrs={\"Aberrant Fossil\":{hide:[\"lightning\"],weight:{chaos:10}},\"Aetheric Fossil\":{weight:{caster:10,attack:.15}},\"Bound Fossil\":{weight:{minion:10,aura:10,curse:10}},\"Corroded Fossil\":{hide:[\"elemental\"],weight:{poison:10,bleed:10}},\"Dense Fossil\":{hide:[\"life\"],weight:{defences:10}},\"Faceted Fossil\":{weight:{gem:10}},\"Frigid Fossil\":{hide:[\"fire\"],weight:{cold:10}},\"Jagged Fossil\":{hide:[\"chaos\"],weight:{physical:10}},\"Lucen"
+    }
+  ],
+  "samples": [
+    {
+      "code": "Intelligence1",
+      "name": "of the Pupil",
+      "level": 1,
+      "detailLevel": 1,
+      "tableWeight": 1000,
+      "detailApplicable": {
+        "tag": "wand",
+        "weight": 1
+      },
+      "source": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence1",
+      "retrievedAt": "2026-10-03T13:37:42.627Z"
+    },
+    {
+      "code": "SpellDamageOnWeapon4",
+      "name": "Professor's",
+      "level": 33,
+      "detailLevel": 33,
+      "tableWeight": 600,
+      "detailApplicable": {
+        "tag": "wand",
+        "weight": 1
+      },
+      "source": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon4",
+      "retrievedAt": "2026-10-03T13:37:46.678Z"
+    },
+    {
+      "code": "SpellDamageOnWeapon5",
+      "name": "Occultist's",
+      "level": 46,
+      "detailLevel": 46,
+      "tableWeight": 400,
+      "detailApplicable": {
+        "tag": "wand",
+        "weight": 1
+      },
+      "source": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon5",
+      "retrievedAt": "2026-10-03T13:37:46.900Z"
+    },
+    {
+      "code": "SpellDamageOnWeapon6",
+      "name": "Incanter's",
+      "level": 60,
+      "detailLevel": 60,
+      "tableWeight": 200,
+      "detailApplicable": {
+        "tag": "wand",
+        "weight": 1
+      },
+      "source": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon6",
+      "retrievedAt": "2026-10-03T13:37:47.241Z"
+    },
+    {
+      "code": "SpellDamageOnWeapon7",
+      "name": "Glyphic",
+      "level": 70,
+      "detailLevel": 70,
+      "tableWeight": 100,
+      "detailApplicable": {
+        "tag": "wand",
+        "weight": 1
+      },
+      "source": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon7",
+      "retrievedAt": "2026-10-03T13:37:47.200Z"
+    },
+    {
+      "code": "SpellDamageOnWeapon8_",
+      "name": "Runic",
+      "level": 80,
+      "detailLevel": 80,
+      "tableWeight": 50,
+      "detailApplicable": {
+        "tag": "wand",
+        "weight": 1
+      },
+      "source": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon8_",
+      "retrievedAt": "2026-10-03T13:37:47.488Z"
+    },
+    {
+      "code": "FireDamagePrefixOnWeapon1",
+      "name": "Searing",
+      "level": 2,
+      "detailLevel": 2,
+      "tableWeight": 500,
+      "detailApplicable": {
+        "tag": "wand",
+        "weight": 1
+      },
+      "source": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireDamagePrefixOnWeapon1",
+      "retrievedAt": "2026-10-03T13:37:48.899Z"
+    },
+    {
+      "code": "FireDamagePrefixOnWeapon5_",
+      "name": "Smoldering",
+      "level": 46,
+      "detailLevel": 46,
+      "tableWeight": 300,
+      "detailApplicable": {
+        "tag": "wand",
+        "weight": 1
+      },
+      "source": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireDamagePrefixOnWeapon5_",
+      "retrievedAt": "2026-10-03T13:37:51.227Z"
+    },
+    {
+      "code": "GlobalSpellGemsLevelWeapon2",
+      "name": "of the Enchanter",
+      "level": 25,
+      "detailLevel": 25,
+      "tableWeight": 150,
+      "detailApplicable": {
+        "tag": "wand",
+        "weight": 1
+      },
+      "source": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalSpellGemsLevelWeapon2",
+      "retrievedAt": "2026-10-03T13:37:58.247Z"
+    },
+    {
+      "code": "GlobalFireSpellGemsLevelWeapon2",
+      "name": "of Cinders",
+      "level": 18,
+      "detailLevel": 18,
+      "tableWeight": 750,
+      "detailApplicable": {
+        "tag": "wand",
+        "weight": 1
+      },
+      "source": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalFireSpellGemsLevelWeapon2",
+      "retrievedAt": "2026-10-03T13:37:59.220Z"
+    },
+    {
+      "code": "GlobalFireSpellGemsLevelWeapon4",
+      "name": "of Immolation",
+      "level": 55,
+      "detailLevel": 55,
+      "tableWeight": 250,
+      "detailApplicable": {
+        "tag": "wand",
+        "weight": 1
+      },
+      "source": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalFireSpellGemsLevelWeapon4",
+      "retrievedAt": "2026-10-03T13:37:59.374Z"
+    },
+    {
+      "code": "SpellCriticalStrikeChance6_",
+      "name": "of Unmaking",
+      "level": 76,
+      "detailLevel": 76,
+      "tableWeight": 125,
+      "detailApplicable": {
+        "tag": "wand",
+        "weight": 1
+      },
+      "source": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeChance6_",
+      "retrievedAt": "2026-10-03T13:38:11.903Z"
+    }
+  ],
+  "rootCause": "NOT_ESTABLISHED: sources agree on identity/level/family/effect and applicable tags; table values and detail numbers differ. Client script explains use, not server-side provenance.",
+  "relevantClientSnippets": [
+    "0},y={0:0,1:0,2:0};for(d in i){var f,s=i[d];\"1\"!=(f=d.substr(0,1))&&\"2\"!=f&&(f=\"0\"),$.each(s,(e,r)=>{if(r.weights&&0<r.weights.length){let t=0,a=0;$.each(r.weights,function(e,r){1<r?t+=r:a+=r}),t&&(r.DropChance*=t),a&&(r.DropChance*=a)}parseInt(r.DropChance)&&(h[f]+=parseInt(r.DropChance))})}for(d in i){let a=i[d];var u=\"even\",g=(\"1\"==(f=\"1\"!=(f=d.substr(0,1))&&\"2\"!=f?\"0\":f)?c.length%2==0&&(u=\"odd\"):l.length%2==0&&(u=\"odd\"),d.substr(1)),b=this.group_divs(\"\"+f+g,o),C=\"\",v=[],_=\"\",M=1,O=0;let s,n=",
+    "r(d in i){var f,s=i[d];\"1\"!=(f=d.substr(0,1))&&\"2\"!=f&&(f=\"0\"),$.each(s,(e,r)=>{if(r.weights&&0<r.weights.length){let t=0,a=0;$.each(r.weights,function(e,r){1<r?t+=r:a+=r}),t&&(r.DropChance*=t),a&&(r.DropChance*=a)}parseInt(r.DropChance)&&(h[f]+=parseInt(r.DropChance))})}for(d in i){let a=i[d];var u=\"even\",g=(\"1\"==(f=\"1\"!=(f=d.substr(0,1))&&\"2\"!=f?\"0\":f)?c.length%2==0&&(u=\"odd\"):l.length%2==0&&(u=\"odd\"),d.substr(1)),b=this.group_divs(\"\"+f+g,o),C=\"\",v=[],_=\"\",M=1,O=0;let s,n=0;$.each(a,(e,r)=>{r.",
+    "!=(f=d.substr(0,1))&&\"2\"!=f&&(f=\"0\"),$.each(s,(e,r)=>{if(r.weights&&0<r.weights.length){let t=0,a=0;$.each(r.weights,function(e,r){1<r?t+=r:a+=r}),t&&(r.DropChance*=t),a&&(r.DropChance*=a)}parseInt(r.DropChance)&&(h[f]+=parseInt(r.DropChance))})}for(d in i){let a=i[d];var u=\"even\",g=(\"1\"==(f=\"1\"!=(f=d.substr(0,1))&&\"2\"!=f?\"0\":f)?c.length%2==0&&(u=\"odd\"):l.length%2==0&&(u=\"odd\"),d.substr(1)),b=this.group_divs(\"\"+f+g,o),C=\"\",v=[],_=\"\",M=1,O=0;let s,n=0;$.each(a,(e,r)=>{r.hide&&n++;var t=`<span>${r",
+    "=\"0\"),$.each(s,(e,r)=>{if(r.weights&&0<r.weights.length){let t=0,a=0;$.each(r.weights,function(e,r){1<r?t+=r:a+=r}),t&&(r.DropChance*=t),a&&(r.DropChance*=a)}parseInt(r.DropChance)&&(h[f]+=parseInt(r.DropChance))})}for(d in i){let a=i[d];var u=\"even\",g=(\"1\"==(f=\"1\"!=(f=d.substr(0,1))&&\"2\"!=f?\"0\":f)?c.length%2==0&&(u=\"odd\"):l.length%2==0&&(u=\"odd\"),d.substr(1)),b=this.group_divs(\"\"+f+g,o),C=\"\",v=[],_=\"\",M=1,O=0;let s,n=0;$.each(a,(e,r)=>{r.hide&&n++;var t=`<span>${r.sign} <span>${r.mod_no.join(\"\"",
+    "_no.join(\"\")}</span></span>`:-1==$.inArray(r.sign,v)&&(\"\"==_?_=t:r.Elevated||(_=_+'<hr class=\"mod-same-family\"/>'+t),v.push(r.sign)),parseInt(r.Level)>M&&!r.Elevated&&(M=parseInt(r.Level)),parseInt(r.DropChance)&&h[f]?(O+=parseInt(r.DropChance),r.pct=100*r.DropChance/h[f],r.pct=r.pct.toFixed(3)+\"%\"):r.pct=\"0%\",r.pasted&&(C=\"pasted\")}),n,a.length;var g=Mustache.render(this.tbl_tpl,{normal:a,CorrectGroup:g,SameGroup:b,identify:o}),b='<span class=\"float-end\"><span class=\"badge rounded-pill bg-secon",
+    "$.inArray(r.sign,v)&&(\"\"==_?_=t:r.Elevated||(_=_+'<hr class=\"mod-same-family\"/>'+t),v.push(r.sign)),parseInt(r.Level)>M&&!r.Elevated&&(M=parseInt(r.Level)),parseInt(r.DropChance)&&h[f]?(O+=parseInt(r.DropChance),r.pct=100*r.DropChance/h[f],r.pct=r.pct.toFixed(3)+\"%\"):r.pct=\"0%\",r.pasted&&(C=\"pasted\")}),n,a.length;var g=Mustache.render(this.tbl_tpl,{normal:a,CorrectGroup:g,SameGroup:b,identify:o}),b='<span class=\"float-end\"><span class=\"badge rounded-pill bg-secondary\">'+M+\"</span></span>\",I='<sp",
+    "==_?_=t:r.Elevated||(_=_+'<hr class=\"mod-same-family\"/>'+t),v.push(r.sign)),parseInt(r.Level)>M&&!r.Elevated&&(M=parseInt(r.Level)),parseInt(r.DropChance)&&h[f]?(O+=parseInt(r.DropChance),r.pct=100*r.DropChance/h[f],r.pct=r.pct.toFixed(3)+\"%\"):r.pct=\"0%\",r.pasted&&(C=\"pasted\")}),n,a.length;var g=Mustache.render(this.tbl_tpl,{normal:a,CorrectGroup:g,SameGroup:b,identify:o}),b='<span class=\"float-end\"><span class=\"badge rounded-pill bg-secondary\">'+M+\"</span></span>\",I='<span class=\"float-end\"><sp",
+    "xplicitMods=a}}else this.deleteRandomObject(this.crafter.explicitMods)}craftAdd(){var e,r=this.crafter.activeCurrency;let t=[],a=0;$.each(this.mod_types,(e,r)=>{$.each(this.items[r],(e,r)=>{r.Code&&r.DropChance&&!r.hide&&(a+=r.DropChance,t.push(r))})}),0!=a&&(e=this.getRandomWeightedElement(t))&&(this.crafter.explicitMods.push(e),r.afterRarity)&&(this.crafter.rarity=r.afterRarity)}deleteRandomObject(e){var r;if(0!==e.length)return r=Math.floor(Math.random()*e.length),e.splice(r,1)[0]}getRandomWe",
+    "leteRandomObject(this.crafter.explicitMods)}craftAdd(){var e,r=this.crafter.activeCurrency;let t=[],a=0;$.each(this.mod_types,(e,r)=>{$.each(this.items[r],(e,r)=>{r.Code&&r.DropChance&&!r.hide&&(a+=r.DropChance,t.push(r))})}),0!=a&&(e=this.getRandomWeightedElement(t))&&(this.crafter.explicitMods.push(e),r.afterRarity)&&(this.crafter.rarity=r.afterRarity)}deleteRandomObject(e){var r;if(0!==e.length)return r=Math.floor(Math.random()*e.length),e.splice(r,1)[0]}getRandomWeightedElement(e){let t=0,a=",
+    "his.crafter.rarity=r.afterRarity)}deleteRandomObject(e){var r;if(0!==e.length)return r=Math.floor(Math.random()*e.length),e.splice(r,1)[0]}getRandomWeightedElement(e){let t=0,a=($.each(e,(e,r)=>{t+=r.DropChance}),Math.floor(Math.random()*t)+1),s;return t=0,$.each(e,(e,r)=>{if((t+=r.DropChance)>=a)return s=r,!1}),s}dirty=!1;calcCurrencyActive(){this.crafter.activeCurrency&&(this.crafter.activeCurrency,$(\"#min_mod_ilvl\").val(this.crafter.min_mod_lv),this.crafter.pools.length)&&$.each(this.mod_type",
+    "n r=Math.floor(Math.random()*e.length),e.splice(r,1)[0]}getRandomWeightedElement(e){let t=0,a=($.each(e,(e,r)=>{t+=r.DropChance}),Math.floor(Math.random()*t)+1),s;return t=0,$.each(e,(e,r)=>{if((t+=r.DropChance)>=a)return s=r,!1}),s}dirty=!1;calcCurrencyActive(){this.crafter.activeCurrency&&(this.crafter.activeCurrency,$(\"#min_mod_ilvl\").val(this.crafter.min_mod_lv),this.crafter.pools.length)&&$.each(this.mod_types,(e,r)=>{-1==$.inArray(r,this.crafter.pools)&&(this.items[r]=[])})}crafter={explic"
+  ],
+  "adoptedFields": {
+    "weight": "Complete class table DropChance, POE2DB_AS_PUBLISHED source model only",
+    "eligibility": "Ordered detail Spawn Tags and source modifier level",
+    "notAdopted": "Detail numeric Spawn Tags are not substituted into table weights"
+  },
+  "explanationRuledOut": [
+    "Different matched modifier levels (185/185 exact)",
+    "Single global scale factor (12 distinct ratios)",
+    "Choosing another eligible detail: per-base ordered tags uniquely matched"
+  ],
+  "unresolved": [
+    "Server-side derivation of table weights",
+    "Whether table/detail caches originate from equivalent extraction snapshots",
+    "Actual game outcome probabilities"
+  ],
+  "sameDayFreshTableComparison": {
+    "url": "https://poe2db.tw/us/Wands",
+    "retrievedAt": "2026-10-03T14:31:36.743Z",
+    "sourceHtmlSha256": "ab00614a4743c190ab1cc5f4a2a4198cad16ffa303602c7f0e9a67034023e408",
+    "ordinaryRows": 185,
+    "nameLevelWeightEffectDifferencesFromAdoptedSnapshot": 0,
+    "interpretation": "Current table unchanged for all modeled rows; this does not establish matching server extraction provenance for detail fields."
+  }
+}

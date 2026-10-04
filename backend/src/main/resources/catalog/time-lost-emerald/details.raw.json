@@ -1,0 +1,23 @@
+{
+  "sourceUrl": "https://poe2db.tw/us/Time-Lost_Emerald",
+  "eligibleSection": "normal",
+  "excludedSections": [
+    "corrupted",
+    "desecrated"
+  ],
+  "weightPolicy": "USER_APPROVED_UNIFORM_CANDIDATES_NOT_GAME_WEIGHTS",
+  "slots": {
+    "magic": [
+      1,
+      1
+    ],
+    "rare": [
+      2,
+      2
+    ]
+  },
+  "statPolicy": "Published display-unit bounds. Radius [150/300/500] is a fixed source value, not scaled. Presence marker 1 is not a combat stat. Small/Notable scope is conditional text; passive tree is not simulated.",
+  "craftedPolicy": "One Crafted occupying ordinary slot. Uniform legal removals and valid sourced outcomes. Ancient Ferocity grants Notable resistance, Ancient Melancholy sets Very Large radius, Contempt expands opposite affix cap. Existing overflow preserved after cap loss.",
+  "catalystPolicy": "No jewel_catalyst tag in Time-Lost base source; Refined and ordinary catalysts excluded.",
+  "normalPolicy": "User-approved Normal simulator starting state; game drop rarity not inferred."
+}

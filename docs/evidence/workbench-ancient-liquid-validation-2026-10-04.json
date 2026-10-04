@@ -1,0 +1,238 @@
+{
+  "baseline": "d36ef9a6a8a5b4371d59c09cf5d295eb1b2f0833",
+  "date": "2026-10-04",
+  "scope": "Ancient Liquid13 positive actions and four Time-Lost Jewel bases; Basic Jewel regression",
+  "ordinaryCandidates": {
+    "time-lost-ruby": 53,
+    "time-lost-emerald": 77,
+    "time-lost-sapphire": 60,
+    "time-lost-diamond": 160
+  },
+  "craftedOutcomes": {
+    "time-lost-ruby": 14,
+    "time-lost-emerald": 14,
+    "time-lost-sapphire": 14,
+    "time-lost-diamond": 4
+  },
+  "completionAudit": {
+    "craftLiquidCurrencies": 26,
+    "basicLiquidCurrencies": 13,
+    "ancientLiquidCurrencies": 13,
+    "unrelatedExcluded": "Liquid_Verisium",
+    "basicCurrenciesPerReviewedJewelBase": 18,
+    "reviewedJewelBases": 8,
+    "diamondRestrictions": "Basic3 / AncientPotent3; exact source outcomes only",
+    "requestedExecutionGaps": []
+  },
+  "registryCounts": {
+    "ACTIVE IMPLEMENTED": 144,
+    "DEFERRED PENDING_RULE_VERIFICATION": 42,
+    "DEFERRED IMPLEMENTED": 8,
+    "ACTIVE PENDING_RULE_VERIFICATION": 26
+  },
+  "registryMetadataCaveat": "Existing Catalyst26 entries remain PENDING_RULE_VERIFICATION in historical registry inventory; actual ordinary/refined Catalyst implementations are covered by Basic regression tests. This snapshot does not claim these pending rows are new Ancient gaps.",
+  "backend": {
+    "passed": true,
+    "command": "spotlessApply check generateJooq bootJar",
+    "tests": {
+      "integrationTest": 6,
+      "test": 385
+    }
+  },
+  "frontend": {
+    "npmCi": true,
+    "lint": true,
+    "typecheck": true,
+    "formatCheck": true,
+    "tests": 1739,
+    "build": true
+  },
+  "api": {
+    "checks": 21359,
+    "captures": 3102
+  },
+  "basicRegressionApi": {
+    "checks": 10029,
+    "captures": 1445
+  },
+  "browser": {
+    "checks": 380,
+    "pageErrors": [],
+    "screenshots": [
+      "browser-failure-3.png",
+      "card-time-lost-diamond-en.png",
+      "card-time-lost-diamond-es.png",
+      "card-time-lost-diamond-ja.png",
+      "card-time-lost-diamond-ko.png",
+      "card-time-lost-diamond-zh-CN.png",
+      "card-time-lost-diamond-zh-TW.png",
+      "card-time-lost-emerald-en.png",
+      "card-time-lost-emerald-es.png",
+      "card-time-lost-emerald-ja.png",
+      "card-time-lost-emerald-ko.png",
+      "card-time-lost-emerald-zh-CN.png",
+      "card-time-lost-emerald-zh-TW.png",
+      "card-time-lost-ruby-en.png",
+      "card-time-lost-ruby-es.png",
+      "card-time-lost-ruby-ja.png",
+      "card-time-lost-ruby-ko.png",
+      "card-time-lost-ruby-zh-CN.png",
+      "card-time-lost-ruby-zh-TW.png",
+      "card-time-lost-sapphire-en.png",
+      "card-time-lost-sapphire-es.png",
+      "card-time-lost-sapphire-ja.png",
+      "card-time-lost-sapphire-ko.png",
+      "card-time-lost-sapphire-zh-CN.png",
+      "card-time-lost-sapphire-zh-TW.png",
+      "contact-time-lost-diamond.png",
+      "contact-time-lost-emerald.png",
+      "contact-time-lost-ruby.png",
+      "contact-time-lost-sapphire.png",
+      "omen-candidates.png",
+      "time-lost-diamond-en-1440.png",
+      "time-lost-diamond-en-390.png",
+      "time-lost-diamond-es-1440.png",
+      "time-lost-diamond-es-390.png",
+      "time-lost-diamond-ja-1440.png",
+      "time-lost-diamond-ja-390.png",
+      "time-lost-diamond-ko-1440.png",
+      "time-lost-diamond-ko-390.png",
+      "time-lost-diamond-overflow.png",
+      "time-lost-diamond-zh-CN-1440.png",
+      "time-lost-diamond-zh-CN-390.png",
+      "time-lost-diamond-zh-TW-1440.png",
+      "time-lost-diamond-zh-TW-390.png",
+      "time-lost-emerald-en-1440.png",
+      "time-lost-emerald-en-390.png",
+      "time-lost-emerald-es-1440.png",
+      "time-lost-emerald-es-390.png",
+      "time-lost-emerald-ja-1440.png",
+      "time-lost-emerald-ja-390.png",
+      "time-lost-emerald-ko-1440.png",
+      "time-lost-emerald-ko-390.png",
+      "time-lost-emerald-overflow.png",
+      "time-lost-emerald-zh-CN-1440.png",
+      "time-lost-emerald-zh-CN-390.png",
+      "time-lost-emerald-zh-TW-1440.png",
+      "time-lost-emerald-zh-TW-390.png",
+      "time-lost-ruby-en-1440.png",
+      "time-lost-ruby-en-390.png",
+      "time-lost-ruby-es-1440.png",
+      "time-lost-ruby-es-390.png",
+      "time-lost-ruby-ja-1440.png",
+      "time-lost-ruby-ja-390.png",
+      "time-lost-ruby-ko-1440.png",
+      "time-lost-ruby-ko-390.png",
+      "time-lost-ruby-overflow.png",
+      "time-lost-ruby-zh-CN-1440.png",
+      "time-lost-ruby-zh-CN-390.png",
+      "time-lost-ruby-zh-TW-1440.png",
+      "time-lost-ruby-zh-TW-390.png",
+      "time-lost-sapphire-en-1440.png",
+      "time-lost-sapphire-en-390.png",
+      "time-lost-sapphire-es-1440.png",
+      "time-lost-sapphire-es-390.png",
+      "time-lost-sapphire-ja-1440.png",
+      "time-lost-sapphire-ja-390.png",
+      "time-lost-sapphire-ko-1440.png",
+      "time-lost-sapphire-ko-390.png",
+      "time-lost-sapphire-overflow.png",
+      "time-lost-sapphire-zh-CN-1440.png",
+      "time-lost-sapphire-zh-CN-390.png",
+      "time-lost-sapphire-zh-TW-1440.png",
+      "time-lost-sapphire-zh-TW-390.png"
+    ]
+  },
+  "checkedSourceFiles": 367,
+  "identicalCheckedSources": true,
+  "isolatedProject": "exile-ancient-liquid-20261004",
+  "ports": [
+    18980,
+    18981
+  ],
+  "livePortsUntouched": [
+    18080,
+    18081
+  ],
+  "qaOwner": {
+    "owner": "workbench/20261002",
+    "baseHead": "d36ef9a6a8a5b4371d59c09cf5d295eb1b2f0833",
+    "active": false,
+    "project": "exile-ancient-liquid-20261004",
+    "ports": [
+      18980,
+      18981
+    ],
+    "servicesStoppedNormally": true,
+    "releasedAt": "2026-10-04T11:46:49.605Z"
+  },
+  "logsDirectory": "E:/WORK/Exile-Hephaistos/codex/ancient-liquid-20261004",
+  "jarSha256": "5a31a64b12fc07a3b86f177c0ad119f07939272717d934b084227650f371362a",
+  "provisional": [
+    "1/N after exact base, family, side and level eligibility; actual weights unknown",
+    "Contempt cap-loss preserves existing overflow; primary game proof absent",
+    "Basic Ferocity × matching quality central one-round display model unchanged",
+    "Radius/passive conditions displayed without tree simulation or interpreting base radius1000 as label",
+    "Missing Spanish Crafted templates have disclosed semantic translations"
+  ],
+  "failureHistory": [
+    {
+      "log": "backend-check-1.log",
+      "failure": "New test int assertion expected Long",
+      "resolution": "Used Long assertion and reran checks"
+    },
+    {
+      "log": "backend-check-2.log",
+      "failure": "Radius implicit generated tier1 instead of model tier0; empty Liquid target list changed unrelated action inventories",
+      "resolution": "Used implicit tier0 and excluded Liquids from non-Jewel action inventory"
+    },
+    {
+      "log": "backend-check-3.log",
+      "failure": "Harness used nonexistent ledger ID and neighboring seeds sampled same Contempt removal direction; prior Basic Liquid test included new Ancient enums",
+      "resolution": "Verified actual uniform-removal-v1 ID, used dispersed deterministic seeds, explicitly retained Basic-only test scope; no production assertion weakened"
+    },
+    {
+      "log": "browser-failure-1.json",
+      "screenshot": "browser-failure-3.png",
+      "failure": "Restored film rejected valid null qualityLimit for Jewel state",
+      "resolution": "Accept null only when computed maximumQuality is null; all763 API fixtures verify restored evidence and browser rerun passes"
+    },
+    {
+      "log": "frontend-check-1.log",
+      "failure": "QA image Node22 did not satisfy project engines",
+      "resolution": "Used Node24 image; engine checks unchanged"
+    },
+    {
+      "log": "frontend-check-2.log",
+      "failure": "Historic ordinary translation inventory count included new Time-Lost bindings",
+      "resolution": "Kept ordinary1485/Basic392 assertions and added exact Time-Lost400 catalog identity and all-locale coverage"
+    },
+    {
+      "log": "ancient-api-failure-1.json",
+      "failure": "Harness omitted nullable catalystQuality but API returns explicit null",
+      "resolution": "Constructed fully canonical synthetic before state; retained exact no-spend equality"
+    }
+  ],
+  "selfReview": "Exact per-base source pools/IDs/family/tags/bounds, implicit/canonical preservation, category and Rare guards, atomic no-spend, Contempt overflow/reapply, distinct Ancient Potent semantics, six-language film and UI restoration checked",
+  "remaining": "No requested Jewel/Liquid execution gaps. Game weights, tree simulation, radius interpretation/precision and primary cap-loss proof remain disclosed boundaries; no live/remote update.",
+  "catalystRegressionApi": {
+    "checks": 1004,
+    "quality40CapLossAndRepeatTypeChangePreserved": true
+  },
+  "composeConfigPassed": true,
+  "visualReview": {
+    "passed": true,
+    "inspected": [
+      "contact-time-lost-ruby.png",
+      "contact-time-lost-emerald.png",
+      "contact-time-lost-sapphire.png",
+      "contact-time-lost-diamond.png",
+      "time-lost-sapphire-en-1440.png",
+      "time-lost-ruby-ko-390.png",
+      "time-lost-diamond-overflow.png",
+      "omen-candidates.png"
+    ],
+    "result": "Six-language cards wrap within bounds; desktop/mobile layouts, overflow state and orange Omen candidate display preserved."
+  },
+  "buildWarning": "Existing Vite large-chunk warning; build passed without changing thresholds."
+}

@@ -1,0 +1,3798 @@
+{
+  "captures": [
+    {
+      "action": "LESSER_ESSENCE_COMMAND",
+      "before": {
+        "snapshotId": "poe2db-rattling-sceptre-normal-20261003-8042c018040e+sceptre-perfect-20261003-4647324722e0",
+        "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1",
+        "itemLevel": 82,
+        "rarity": "MAGIC",
+        "implicits": [],
+        "conditions": [],
+        "explicits": [
+          {
+            "modifierId": "rattling-sceptre:prefix:beryl",
+            "values": {
+              "base_maximum_mana": 10
+            },
+            "fractured": false
+          }
+        ],
+        "augmentSockets": null
+      },
+      "result": {
+        "status": 200,
+        "ruleVersion": "sceptre-workbench-essence-v1",
+        "ledgerVersion": "sceptre-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-rattling-sceptre-normal-20261003-8042c018040e+sceptre-perfect-20261003-4647324722e0",
+        "state": {
+          "snapshotId": "poe2db-rattling-sceptre-normal-20261003-8042c018040e+sceptre-perfect-20261003-4647324722e0",
+          "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [],
+          "explicits": [
+            {
+              "modifierId": "rattling-sceptre:prefix:agitative",
+              "values": {
+                "allies_in_presence_damage_+%": 36
+              },
+              "fractured": false
+            },
+            {
+              "modifierId": "rattling-sceptre:prefix:beryl",
+              "values": {
+                "base_maximum_mana": 10
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null
+        },
+        "action": "LESSER_ESSENCE_COMMAND",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "rattling-sceptre:prefix:agitative",
+            "values": {
+              "allies_in_presence_damage_+%": 36
+            },
+            "selectionProbability": 1
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "allies_in_presence_damage_+%",
+            "n": 10,
+            "candidates": [],
+            "min": 35,
+            "max": 44,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAllDamage2",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": ["Omen_of_the_Blessed"],
+        "qualityLimit": {
+          "ruleVersion": "quality-limit-v1",
+          "maximumQuality": 20
+        }
+      }
+    },
+    {
+      "action": "ESSENCE_COMMAND",
+      "before": {
+        "snapshotId": "poe2db-rattling-sceptre-normal-20261003-8042c018040e+sceptre-perfect-20261003-4647324722e0",
+        "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1",
+        "itemLevel": 82,
+        "rarity": "MAGIC",
+        "implicits": [],
+        "conditions": [],
+        "explicits": [
+          {
+            "modifierId": "rattling-sceptre:prefix:beryl",
+            "values": {
+              "base_maximum_mana": 10
+            },
+            "fractured": false
+          }
+        ],
+        "augmentSockets": null
+      },
+      "result": {
+        "status": 200,
+        "ruleVersion": "sceptre-workbench-essence-v1",
+        "ledgerVersion": "sceptre-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-rattling-sceptre-normal-20261003-8042c018040e+sceptre-perfect-20261003-4647324722e0",
+        "state": {
+          "snapshotId": "poe2db-rattling-sceptre-normal-20261003-8042c018040e+sceptre-perfect-20261003-4647324722e0",
+          "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [],
+          "explicits": [
+            {
+              "modifierId": "rattling-sceptre:prefix:beryl",
+              "values": {
+                "base_maximum_mana": 10
+              },
+              "fractured": false
+            },
+            {
+              "modifierId": "rattling-sceptre:prefix:provocative",
+              "values": {
+                "allies_in_presence_damage_+%": 56
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null
+        },
+        "action": "ESSENCE_COMMAND",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "rattling-sceptre:prefix:provocative",
+            "values": {
+              "allies_in_presence_damage_+%": 56
+            },
+            "selectionProbability": 1
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "allies_in_presence_damage_+%",
+            "n": 10,
+            "candidates": [],
+            "min": 55,
+            "max": 64,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAllDamage4",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": ["Omen_of_the_Blessed"],
+        "qualityLimit": {
+          "ruleVersion": "quality-limit-v1",
+          "maximumQuality": 20
+        }
+      }
+    },
+    {
+      "action": "GREATER_ESSENCE_COMMAND",
+      "before": {
+        "snapshotId": "poe2db-rattling-sceptre-normal-20261003-8042c018040e+sceptre-perfect-20261003-4647324722e0",
+        "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1",
+        "itemLevel": 82,
+        "rarity": "MAGIC",
+        "implicits": [],
+        "conditions": [],
+        "explicits": [
+          {
+            "modifierId": "rattling-sceptre:prefix:beryl",
+            "values": {
+              "base_maximum_mana": 10
+            },
+            "fractured": false
+          }
+        ],
+        "augmentSockets": null
+      },
+      "result": {
+        "status": 200,
+        "ruleVersion": "sceptre-workbench-essence-v1",
+        "ledgerVersion": "sceptre-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-rattling-sceptre-normal-20261003-8042c018040e+sceptre-perfect-20261003-4647324722e0",
+        "state": {
+          "snapshotId": "poe2db-rattling-sceptre-normal-20261003-8042c018040e+sceptre-perfect-20261003-4647324722e0",
+          "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [],
+          "explicits": [
+            {
+              "modifierId": "rattling-sceptre:prefix:beryl",
+              "values": {
+                "base_maximum_mana": 10
+              },
+              "fractured": false
+            },
+            {
+              "modifierId": "rattling-sceptre:prefix:motivating",
+              "values": {
+                "allies_in_presence_damage_+%": 79
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null
+        },
+        "action": "GREATER_ESSENCE_COMMAND",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "rattling-sceptre:prefix:motivating",
+            "values": {
+              "allies_in_presence_damage_+%": 79
+            },
+            "selectionProbability": 1
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "allies_in_presence_damage_+%",
+            "n": 15,
+            "candidates": [],
+            "min": 75,
+            "max": 89,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAllDamage6",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": ["Omen_of_the_Blessed"],
+        "qualityLimit": {
+          "ruleVersion": "quality-limit-v1",
+          "maximumQuality": 20
+        }
+      }
+    },
+    {
+      "action": "PERFECT_ESSENCE_COMMAND",
+      "before": {
+        "snapshotId": "poe2db-rattling-sceptre-normal-20261003-8042c018040e+sceptre-perfect-20261003-4647324722e0",
+        "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "implicits": [],
+        "conditions": [],
+        "explicits": [
+          {
+            "modifierId": "rattling-sceptre:prefix:beryl",
+            "values": {
+              "base_maximum_mana": 10
+            },
+            "fractured": false
+          },
+          {
+            "modifierId": "rattling-sceptre:suffix:of-the-pupil",
+            "values": {
+              "additional_intelligence": 5
+            },
+            "fractured": false
+          }
+        ],
+        "augmentSockets": null
+      },
+      "result": {
+        "status": 200,
+        "ruleVersion": "sceptre-workbench-essence-v1",
+        "ledgerVersion": "sceptre-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-rattling-sceptre-normal-20261003-8042c018040e+sceptre-perfect-20261003-4647324722e0",
+        "state": {
+          "snapshotId": "poe2db-rattling-sceptre-normal-20261003-8042c018040e+sceptre-perfect-20261003-4647324722e0",
+          "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [],
+          "explicits": [
+            {
+              "modifierId": "rattling-sceptre:suffix:essence-aura-magnitude",
+              "values": {
+                "aura_effect_+%": 16
+              },
+              "fractured": false
+            },
+            {
+              "modifierId": "rattling-sceptre:suffix:of-the-pupil",
+              "values": {
+                "additional_intelligence": 5
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null
+        },
+        "action": "PERFECT_ESSENCE_COMMAND",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "REMOVE",
+            "modifierId": "rattling-sceptre:prefix:beryl",
+            "values": {},
+            "selectionProbability": 0.5
+          },
+          {
+            "kind": "ADD",
+            "modifierId": "rattling-sceptre:suffix:essence-aura-magnitude",
+            "values": {
+              "aura_effect_+%": 16
+            },
+            "selectionProbability": 1
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "uniform-removal-v1",
+            "candidateUnit": "eligible explicit modifier instance",
+            "n": 2,
+            "candidates": [
+              "rattling-sceptre:prefix:beryl",
+              "rattling-sceptre:suffix:of-the-pupil"
+            ],
+            "min": null,
+            "max": null,
+            "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Command",
+            "reason": "Uniform among non-Fractured explicit instances; every removal branch must accept every sourced modifier outcome. No published removal weights.",
+            "ratioTick": null
+          },
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "aura_effect_+%",
+            "n": 6,
+            "candidates": [],
+            "min": 15,
+            "max": 20,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAuraEffect1",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": ["Omen_of_the_Blessed"],
+        "qualityLimit": {
+          "ruleVersion": "quality-limit-v1",
+          "maximumQuality": 20
+        }
+      }
+    }
+  ],
+  "initial": {
+    "ruleVersion": "sceptre-workbench-essence-v1",
+    "metadata": {
+      "snapshotId": "poe2db-rattling-sceptre-normal-20261003-8042c018040e+sceptre-perfect-20261003-4647324722e0",
+      "retrievedAt": "2026-10-03T16:10:11.072Z",
+      "sourceUrl": "https://poe2db.tw/us/Sceptres",
+      "weightPolicy": "POE2DB_AS_PUBLISHED",
+      "rawSha256": "8042c018040e987be4046c5ce49fa3690b2e3ad6718f63013f2669f80f0f92f5",
+      "detailsSha256": "7b75a79dcc1fea291595fe4555be7768019e904219ffe9b15638c7ee1f790e6a",
+      "prefixCount": 70,
+      "suffixCount": 81,
+      "prefixWeight": 39600,
+      "suffixWeight": 62150
+    },
+    "id": "bec050ba5cfdf5ede93190fe3e2640260e910ddb0df18b2e23d8472a8e9584eb",
+    "state": {
+      "snapshotId": "poe2db-rattling-sceptre-normal-20261003-8042c018040e+sceptre-perfect-20261003-4647324722e0",
+      "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1",
+      "itemLevel": 82,
+      "rarity": "NORMAL",
+      "implicits": [],
+      "modifierIds": [],
+      "conditions": []
+    },
+    "modifiers": {
+      "rattling-sceptre:suffix:of-the-brute": {
+        "id": "rattling-sceptre:suffix:of-the-brute",
+        "name": "of the Brute",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["Strength"],
+        "requiredItemLevel": 1,
+        "weight": 250,
+        "tier": 8,
+        "text": "+(5—8) to Strength",
+        "stats": [
+          {
+            "id": "additional_strength",
+            "min": 5,
+            "max": 8
+          }
+        ],
+        "tags": ["attribute"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength1"
+      },
+      "rattling-sceptre:suffix:of-the-wrestler": {
+        "id": "rattling-sceptre:suffix:of-the-wrestler",
+        "name": "of the Wrestler",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["Strength"],
+        "requiredItemLevel": 11,
+        "weight": 250,
+        "tier": 7,
+        "text": "+(9—12) to Strength",
+        "stats": [
+          {
+            "id": "additional_strength",
+            "min": 9,
+            "max": 12
+          }
+        ],
+        "tags": ["attribute"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength2"
+      },
+      "rattling-sceptre:suffix:of-the-bear": {
+        "id": "rattling-sceptre:suffix:of-the-bear",
+        "name": "of the Bear",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["Strength"],
+        "requiredItemLevel": 22,
+        "weight": 250,
+        "tier": 6,
+        "text": "+(13—16) to Strength",
+        "stats": [
+          {
+            "id": "additional_strength",
+            "min": 13,
+            "max": 16
+          }
+        ],
+        "tags": ["attribute"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength3"
+      },
+      "rattling-sceptre:suffix:of-the-lion": {
+        "id": "rattling-sceptre:suffix:of-the-lion",
+        "name": "of the Lion",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["Strength"],
+        "requiredItemLevel": 33,
+        "weight": 250,
+        "tier": 5,
+        "text": "+(17—20) to Strength",
+        "stats": [
+          {
+            "id": "additional_strength",
+            "min": 17,
+            "max": 20
+          }
+        ],
+        "tags": ["attribute"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength4"
+      },
+      "rattling-sceptre:suffix:of-the-gorilla": {
+        "id": "rattling-sceptre:suffix:of-the-gorilla",
+        "name": "of the Gorilla",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["Strength"],
+        "requiredItemLevel": 44,
+        "weight": 250,
+        "tier": 4,
+        "text": "+(21—24) to Strength",
+        "stats": [
+          {
+            "id": "additional_strength",
+            "min": 21,
+            "max": 24
+          }
+        ],
+        "tags": ["attribute"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength5"
+      },
+      "rattling-sceptre:suffix:of-the-goliath": {
+        "id": "rattling-sceptre:suffix:of-the-goliath",
+        "name": "of the Goliath",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["Strength"],
+        "requiredItemLevel": 55,
+        "weight": 250,
+        "tier": 3,
+        "text": "+(25—27) to Strength",
+        "stats": [
+          {
+            "id": "additional_strength",
+            "min": 25,
+            "max": 27
+          }
+        ],
+        "tags": ["attribute"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength6"
+      },
+      "rattling-sceptre:suffix:of-the-leviathan": {
+        "id": "rattling-sceptre:suffix:of-the-leviathan",
+        "name": "of the Leviathan",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["Strength"],
+        "requiredItemLevel": 66,
+        "weight": 250,
+        "tier": 2,
+        "text": "+(28—30) to Strength",
+        "stats": [
+          {
+            "id": "additional_strength",
+            "min": 28,
+            "max": 30
+          }
+        ],
+        "tags": ["attribute"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength7"
+      },
+      "rattling-sceptre:suffix:of-the-titan": {
+        "id": "rattling-sceptre:suffix:of-the-titan",
+        "name": "of the Titan",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["Strength"],
+        "requiredItemLevel": 74,
+        "weight": 250,
+        "tier": 1,
+        "text": "+(31—33) to Strength",
+        "stats": [
+          {
+            "id": "additional_strength",
+            "min": 31,
+            "max": 33
+          }
+        ],
+        "tags": ["attribute"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength8"
+      },
+      "rattling-sceptre:suffix:of-the-pupil": {
+        "id": "rattling-sceptre:suffix:of-the-pupil",
+        "name": "of the Pupil",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["Intelligence"],
+        "requiredItemLevel": 1,
+        "weight": 750,
+        "tier": 8,
+        "text": "+(5—8) to Intelligence",
+        "stats": [
+          {
+            "id": "additional_intelligence",
+            "min": 5,
+            "max": 8
+          }
+        ],
+        "tags": ["attribute"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence1"
+      },
+      "rattling-sceptre:suffix:of-the-student": {
+        "id": "rattling-sceptre:suffix:of-the-student",
+        "name": "of the Student",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["Intelligence"],
+        "requiredItemLevel": 11,
+        "weight": 750,
+        "tier": 7,
+        "text": "+(9—12) to Intelligence",
+        "stats": [
+          {
+            "id": "additional_intelligence",
+            "min": 9,
+            "max": 12
+          }
+        ],
+        "tags": ["attribute"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence2"
+      },
+      "rattling-sceptre:suffix:of-the-prodigy": {
+        "id": "rattling-sceptre:suffix:of-the-prodigy",
+        "name": "of the Prodigy",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["Intelligence"],
+        "requiredItemLevel": 22,
+        "weight": 750,
+        "tier": 6,
+        "text": "+(13—16) to Intelligence",
+        "stats": [
+          {
+            "id": "additional_intelligence",
+            "min": 13,
+            "max": 16
+          }
+        ],
+        "tags": ["attribute"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence3"
+      },
+      "rattling-sceptre:suffix:of-the-augur": {
+        "id": "rattling-sceptre:suffix:of-the-augur",
+        "name": "of the Augur",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["Intelligence"],
+        "requiredItemLevel": 33,
+        "weight": 750,
+        "tier": 5,
+        "text": "+(17—20) to Intelligence",
+        "stats": [
+          {
+            "id": "additional_intelligence",
+            "min": 17,
+            "max": 20
+          }
+        ],
+        "tags": ["attribute"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence4"
+      },
+      "rattling-sceptre:suffix:of-the-philosopher": {
+        "id": "rattling-sceptre:suffix:of-the-philosopher",
+        "name": "of the Philosopher",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["Intelligence"],
+        "requiredItemLevel": 44,
+        "weight": 750,
+        "tier": 4,
+        "text": "+(21—24) to Intelligence",
+        "stats": [
+          {
+            "id": "additional_intelligence",
+            "min": 21,
+            "max": 24
+          }
+        ],
+        "tags": ["attribute"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence5"
+      },
+      "rattling-sceptre:suffix:of-the-sage": {
+        "id": "rattling-sceptre:suffix:of-the-sage",
+        "name": "of the Sage",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["Intelligence"],
+        "requiredItemLevel": 55,
+        "weight": 750,
+        "tier": 3,
+        "text": "+(25—27) to Intelligence",
+        "stats": [
+          {
+            "id": "additional_intelligence",
+            "min": 25,
+            "max": 27
+          }
+        ],
+        "tags": ["attribute"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence6"
+      },
+      "rattling-sceptre:suffix:of-the-savant": {
+        "id": "rattling-sceptre:suffix:of-the-savant",
+        "name": "of the Savant",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["Intelligence"],
+        "requiredItemLevel": 66,
+        "weight": 750,
+        "tier": 2,
+        "text": "+(28—30) to Intelligence",
+        "stats": [
+          {
+            "id": "additional_intelligence",
+            "min": 28,
+            "max": 30
+          }
+        ],
+        "tags": ["attribute"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence7"
+      },
+      "rattling-sceptre:suffix:of-the-virtuoso": {
+        "id": "rattling-sceptre:suffix:of-the-virtuoso",
+        "name": "of the Virtuoso",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["Intelligence"],
+        "requiredItemLevel": 74,
+        "weight": 750,
+        "tier": 1,
+        "text": "+(31—33) to Intelligence",
+        "stats": [
+          {
+            "id": "additional_intelligence",
+            "min": 31,
+            "max": 33
+          }
+        ],
+        "tags": ["attribute"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence8"
+      },
+      "rattling-sceptre:suffix:of-adjustment": {
+        "id": "rattling-sceptre:suffix:of-adjustment",
+        "name": "of Adjustment",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["AllResistances"],
+        "requiredItemLevel": 12,
+        "weight": 800,
+        "tier": 6,
+        "text": "Allies in your Presence have +(3—5)% to all Elemental Resistances",
+        "stats": [
+          {
+            "id": "allies_in_presence_resist_all_elements_%",
+            "min": 3,
+            "max": 5
+          }
+        ],
+        "tags": [
+          "fire",
+          "elemental_resistance",
+          "lightning",
+          "cold_resistance",
+          "resistance",
+          "fire_resistance",
+          "elemental",
+          "cold",
+          "lightning_resistance"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAllResistances1"
+      },
+      "rattling-sceptre:suffix:of-acclimatisation": {
+        "id": "rattling-sceptre:suffix:of-acclimatisation",
+        "name": "of Acclimatisation",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["AllResistances"],
+        "requiredItemLevel": 26,
+        "weight": 800,
+        "tier": 5,
+        "text": "Allies in your Presence have +(6—8)% to all Elemental Resistances",
+        "stats": [
+          {
+            "id": "allies_in_presence_resist_all_elements_%",
+            "min": 6,
+            "max": 8
+          }
+        ],
+        "tags": [
+          "fire",
+          "elemental_resistance",
+          "lightning",
+          "cold_resistance",
+          "resistance",
+          "fire_resistance",
+          "elemental",
+          "cold",
+          "lightning_resistance"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAllResistances2"
+      },
+      "rattling-sceptre:suffix:of-adaptation": {
+        "id": "rattling-sceptre:suffix:of-adaptation",
+        "name": "of Adaptation",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["AllResistances"],
+        "requiredItemLevel": 40,
+        "weight": 800,
+        "tier": 4,
+        "text": "Allies in your Presence have +(9—11)% to all Elemental Resistances",
+        "stats": [
+          {
+            "id": "allies_in_presence_resist_all_elements_%",
+            "min": 9,
+            "max": 11
+          }
+        ],
+        "tags": [
+          "fire",
+          "elemental_resistance",
+          "lightning",
+          "cold_resistance",
+          "resistance",
+          "fire_resistance",
+          "elemental",
+          "cold",
+          "lightning_resistance"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAllResistances3"
+      },
+      "rattling-sceptre:suffix:of-evolution": {
+        "id": "rattling-sceptre:suffix:of-evolution",
+        "name": "of Evolution",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["AllResistances"],
+        "requiredItemLevel": 54,
+        "weight": 800,
+        "tier": 3,
+        "text": "Allies in your Presence have +(12—14)% to all Elemental Resistances",
+        "stats": [
+          {
+            "id": "allies_in_presence_resist_all_elements_%",
+            "min": 12,
+            "max": 14
+          }
+        ],
+        "tags": [
+          "fire",
+          "elemental_resistance",
+          "lightning",
+          "cold_resistance",
+          "resistance",
+          "fire_resistance",
+          "elemental",
+          "cold",
+          "lightning_resistance"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAllResistances4"
+      },
+      "rattling-sceptre:suffix:of-progression": {
+        "id": "rattling-sceptre:suffix:of-progression",
+        "name": "of Progression",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["AllResistances"],
+        "requiredItemLevel": 68,
+        "weight": 800,
+        "tier": 2,
+        "text": "Allies in your Presence have +(15—16)% to all Elemental Resistances",
+        "stats": [
+          {
+            "id": "allies_in_presence_resist_all_elements_%",
+            "min": 15,
+            "max": 16
+          }
+        ],
+        "tags": [
+          "fire",
+          "elemental_resistance",
+          "lightning",
+          "cold_resistance",
+          "resistance",
+          "fire_resistance",
+          "elemental",
+          "cold",
+          "lightning_resistance"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAllResistances5"
+      },
+      "rattling-sceptre:suffix:of-metamorphosis": {
+        "id": "rattling-sceptre:suffix:of-metamorphosis",
+        "name": "of Metamorphosis",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["AllResistances"],
+        "requiredItemLevel": 80,
+        "weight": 800,
+        "tier": 1,
+        "text": "Allies in your Presence have +(17—18)% to all Elemental Resistances",
+        "stats": [
+          {
+            "id": "allies_in_presence_resist_all_elements_%",
+            "min": 17,
+            "max": 18
+          }
+        ],
+        "tags": [
+          "fire",
+          "elemental_resistance",
+          "lightning",
+          "cold_resistance",
+          "resistance",
+          "fire_resistance",
+          "elemental",
+          "cold",
+          "lightning_resistance"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAllResistances6"
+      },
+      "rattling-sceptre:prefix:beryl": {
+        "id": "rattling-sceptre:prefix:beryl",
+        "name": "Beryl",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["IncreasedMana"],
+        "requiredItemLevel": 1,
+        "weight": 1000,
+        "tier": 11,
+        "text": "+(10—14) to maximum Mana",
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 10,
+            "max": 14
+          }
+        ],
+        "tags": ["resource", "mana"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana1"
+      },
+      "rattling-sceptre:prefix:cobalt": {
+        "id": "rattling-sceptre:prefix:cobalt",
+        "name": "Cobalt",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["IncreasedMana"],
+        "requiredItemLevel": 6,
+        "weight": 1000,
+        "tier": 10,
+        "text": "+(15—24) to maximum Mana",
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 15,
+            "max": 24
+          }
+        ],
+        "tags": ["resource", "mana"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana2"
+      },
+      "rattling-sceptre:prefix:azure": {
+        "id": "rattling-sceptre:prefix:azure",
+        "name": "Azure",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["IncreasedMana"],
+        "requiredItemLevel": 16,
+        "weight": 1000,
+        "tier": 9,
+        "text": "+(25—34) to maximum Mana",
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 25,
+            "max": 34
+          }
+        ],
+        "tags": ["resource", "mana"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana3"
+      },
+      "rattling-sceptre:prefix:teal": {
+        "id": "rattling-sceptre:prefix:teal",
+        "name": "Teal",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["IncreasedMana"],
+        "requiredItemLevel": 25,
+        "weight": 1000,
+        "tier": 8,
+        "text": "+(35—54) to maximum Mana",
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 35,
+            "max": 54
+          }
+        ],
+        "tags": ["resource", "mana"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana4"
+      },
+      "rattling-sceptre:prefix:cerulean": {
+        "id": "rattling-sceptre:prefix:cerulean",
+        "name": "Cerulean",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["IncreasedMana"],
+        "requiredItemLevel": 33,
+        "weight": 1000,
+        "tier": 7,
+        "text": "+(55—64) to maximum Mana",
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 55,
+            "max": 64
+          }
+        ],
+        "tags": ["resource", "mana"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana5"
+      },
+      "rattling-sceptre:prefix:aqua": {
+        "id": "rattling-sceptre:prefix:aqua",
+        "name": "Aqua",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["IncreasedMana"],
+        "requiredItemLevel": 38,
+        "weight": 1000,
+        "tier": 6,
+        "text": "+(65—79) to maximum Mana",
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 65,
+            "max": 79
+          }
+        ],
+        "tags": ["resource", "mana"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana6"
+      },
+      "rattling-sceptre:prefix:opalescent": {
+        "id": "rattling-sceptre:prefix:opalescent",
+        "name": "Opalescent",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["IncreasedMana"],
+        "requiredItemLevel": 46,
+        "weight": 1000,
+        "tier": 5,
+        "text": "+(80—89) to maximum Mana",
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 80,
+            "max": 89
+          }
+        ],
+        "tags": ["resource", "mana"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana7"
+      },
+      "rattling-sceptre:prefix:gentian": {
+        "id": "rattling-sceptre:prefix:gentian",
+        "name": "Gentian",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["IncreasedMana"],
+        "requiredItemLevel": 54,
+        "weight": 1000,
+        "tier": 4,
+        "text": "+(90—104) to maximum Mana",
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 90,
+            "max": 104
+          }
+        ],
+        "tags": ["resource", "mana"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana8"
+      },
+      "rattling-sceptre:prefix:chalybeous": {
+        "id": "rattling-sceptre:prefix:chalybeous",
+        "name": "Chalybeous",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["IncreasedMana"],
+        "requiredItemLevel": 60,
+        "weight": 1000,
+        "tier": 3,
+        "text": "+(105—124) to maximum Mana",
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 105,
+            "max": 124
+          }
+        ],
+        "tags": ["resource", "mana"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana9"
+      },
+      "rattling-sceptre:prefix:mazarine": {
+        "id": "rattling-sceptre:prefix:mazarine",
+        "name": "Mazarine",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["IncreasedMana"],
+        "requiredItemLevel": 65,
+        "weight": 1000,
+        "tier": 2,
+        "text": "+(125—149) to maximum Mana",
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 125,
+            "max": 149
+          }
+        ],
+        "tags": ["resource", "mana"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana10"
+      },
+      "rattling-sceptre:prefix:blue": {
+        "id": "rattling-sceptre:prefix:blue",
+        "name": "Blue",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["IncreasedMana"],
+        "requiredItemLevel": 70,
+        "weight": 1000,
+        "tier": 1,
+        "text": "+(150—164) to maximum Mana",
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 150,
+            "max": 164
+          }
+        ],
+        "tags": ["resource", "mana"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana11"
+      },
+      "rattling-sceptre:suffix:of-the-worthy": {
+        "id": "rattling-sceptre:suffix:of-the-worthy",
+        "name": "of the Worthy",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["LocalAttributeRequirements"],
+        "requiredItemLevel": 24,
+        "weight": 1000,
+        "tier": 5,
+        "text": "15% reduced Attribute Requirements",
+        "stats": [
+          {
+            "id": "local_attribute_requirements_+%",
+            "min": -15,
+            "max": -15
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedLocalAttributeRequirements1"
+      },
+      "rattling-sceptre:suffix:of-the-apt": {
+        "id": "rattling-sceptre:suffix:of-the-apt",
+        "name": "of the Apt",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["LocalAttributeRequirements"],
+        "requiredItemLevel": 32,
+        "weight": 1000,
+        "tier": 4,
+        "text": "20% reduced Attribute Requirements",
+        "stats": [
+          {
+            "id": "local_attribute_requirements_+%",
+            "min": -20,
+            "max": -20
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedLocalAttributeRequirements2"
+      },
+      "rattling-sceptre:suffix:of-the-talented": {
+        "id": "rattling-sceptre:suffix:of-the-talented",
+        "name": "of the Talented",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["LocalAttributeRequirements"],
+        "requiredItemLevel": 40,
+        "weight": 1000,
+        "tier": 3,
+        "text": "25% reduced Attribute Requirements",
+        "stats": [
+          {
+            "id": "local_attribute_requirements_+%",
+            "min": -25,
+            "max": -25
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedLocalAttributeRequirements3"
+      },
+      "rattling-sceptre:suffix:of-the-skilled": {
+        "id": "rattling-sceptre:suffix:of-the-skilled",
+        "name": "of the Skilled",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["LocalAttributeRequirements"],
+        "requiredItemLevel": 52,
+        "weight": 1000,
+        "tier": 2,
+        "text": "30% reduced Attribute Requirements",
+        "stats": [
+          {
+            "id": "local_attribute_requirements_+%",
+            "min": -30,
+            "max": -30
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedLocalAttributeRequirements4"
+      },
+      "rattling-sceptre:suffix:of-the-proficient": {
+        "id": "rattling-sceptre:suffix:of-the-proficient",
+        "name": "of the Proficient",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["LocalAttributeRequirements"],
+        "requiredItemLevel": 60,
+        "weight": 1000,
+        "tier": 1,
+        "text": "35% reduced Attribute Requirements",
+        "stats": [
+          {
+            "id": "local_attribute_requirements_+%",
+            "min": -35,
+            "max": -35
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedLocalAttributeRequirements5"
+      },
+      "rattling-sceptre:prefix:glinting": {
+        "id": "rattling-sceptre:prefix:glinting",
+        "name": "Glinting",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["PhysicalDamage"],
+        "requiredItemLevel": 1,
+        "weight": 500,
+        "tier": 9,
+        "text": "Allies in your Presence deal (1—2) to (3—4) added Attack Physical Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_physical_damage",
+            "min": 3,
+            "max": 4
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_physical_damage",
+            "min": 1,
+            "max": 2
+          }
+        ],
+        "tags": ["damage", "physical_damage", "attack", "physical"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedPhysicalDamage1"
+      },
+      "rattling-sceptre:prefix:burnished": {
+        "id": "rattling-sceptre:prefix:burnished",
+        "name": "Burnished",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["PhysicalDamage"],
+        "requiredItemLevel": 8,
+        "weight": 500,
+        "tier": 8,
+        "text": "Allies in your Presence deal (2—3) to (4—6) added Attack Physical Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_physical_damage",
+            "min": 4,
+            "max": 6
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_physical_damage",
+            "min": 2,
+            "max": 3
+          }
+        ],
+        "tags": ["damage", "physical_damage", "attack", "physical"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedPhysicalDamage2"
+      },
+      "rattling-sceptre:prefix:polished": {
+        "id": "rattling-sceptre:prefix:polished",
+        "name": "Polished",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["PhysicalDamage"],
+        "requiredItemLevel": 16,
+        "weight": 500,
+        "tier": 7,
+        "text": "Allies in your Presence deal (2—4) to (5—8) added Attack Physical Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_physical_damage",
+            "min": 5,
+            "max": 8
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_physical_damage",
+            "min": 2,
+            "max": 4
+          }
+        ],
+        "tags": ["damage", "physical_damage", "attack", "physical"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedPhysicalDamage3"
+      },
+      "rattling-sceptre:prefix:honed": {
+        "id": "rattling-sceptre:prefix:honed",
+        "name": "Honed",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["PhysicalDamage"],
+        "requiredItemLevel": 33,
+        "weight": 500,
+        "tier": 6,
+        "text": "Allies in your Presence deal (4—6) to (8—11) added Attack Physical Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_physical_damage",
+            "min": 8,
+            "max": 11
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_physical_damage",
+            "min": 4,
+            "max": 6
+          }
+        ],
+        "tags": ["damage", "physical_damage", "attack", "physical"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedPhysicalDamage4"
+      },
+      "rattling-sceptre:prefix:gleaming": {
+        "id": "rattling-sceptre:prefix:gleaming",
+        "name": "Gleaming",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["PhysicalDamage"],
+        "requiredItemLevel": 46,
+        "weight": 500,
+        "tier": 5,
+        "text": "Allies in your Presence deal (5—7) to (9—13) added Attack Physical Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_physical_damage",
+            "min": 9,
+            "max": 13
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_physical_damage",
+            "min": 5,
+            "max": 7
+          }
+        ],
+        "tags": ["damage", "physical_damage", "attack", "physical"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedPhysicalDamage5"
+      },
+      "rattling-sceptre:prefix:annealed": {
+        "id": "rattling-sceptre:prefix:annealed",
+        "name": "Annealed",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["PhysicalDamage"],
+        "requiredItemLevel": 54,
+        "weight": 500,
+        "tier": 4,
+        "text": "Allies in your Presence deal (6—10) to (12—17) added Attack Physical Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_physical_damage",
+            "min": 12,
+            "max": 17
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_physical_damage",
+            "min": 6,
+            "max": 10
+          }
+        ],
+        "tags": ["damage", "physical_damage", "attack", "physical"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedPhysicalDamage6"
+      },
+      "rattling-sceptre:prefix:razor-sharp": {
+        "id": "rattling-sceptre:prefix:razor-sharp",
+        "name": "Razor-sharp",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["PhysicalDamage"],
+        "requiredItemLevel": 60,
+        "weight": 400,
+        "tier": 3,
+        "text": "Allies in your Presence deal (7—11) to (14—20) added Attack Physical Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_physical_damage",
+            "min": 14,
+            "max": 20
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_physical_damage",
+            "min": 7,
+            "max": 11
+          }
+        ],
+        "tags": ["damage", "physical_damage", "attack", "physical"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedPhysicalDamage7"
+      },
+      "rattling-sceptre:prefix:tempered": {
+        "id": "rattling-sceptre:prefix:tempered",
+        "name": "Tempered",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["PhysicalDamage"],
+        "requiredItemLevel": 65,
+        "weight": 300,
+        "tier": 2,
+        "text": "Allies in your Presence deal (10—15) to (18—26) added Attack Physical Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_physical_damage",
+            "min": 18,
+            "max": 26
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_physical_damage",
+            "min": 10,
+            "max": 15
+          }
+        ],
+        "tags": ["damage", "physical_damage", "attack", "physical"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedPhysicalDamage8"
+      },
+      "rattling-sceptre:prefix:flaring": {
+        "id": "rattling-sceptre:prefix:flaring",
+        "name": "Flaring",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["PhysicalDamage"],
+        "requiredItemLevel": 75,
+        "weight": 200,
+        "tier": 1,
+        "text": "Allies in your Presence deal (12—19) to (22—32) added Attack Physical Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_physical_damage",
+            "min": 22,
+            "max": 32
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_physical_damage",
+            "min": 12,
+            "max": 19
+          }
+        ],
+        "tags": ["damage", "physical_damage", "attack", "physical"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedPhysicalDamage9"
+      },
+      "rattling-sceptre:prefix:heated": {
+        "id": "rattling-sceptre:prefix:heated",
+        "name": "Heated",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["FireDamage"],
+        "requiredItemLevel": 1,
+        "weight": 500,
+        "tier": 9,
+        "text": "Allies in your Presence deal (1—2) to (3—4) added Attack Fire Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_fire_damage",
+            "min": 3,
+            "max": 4
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_fire_damage",
+            "min": 1,
+            "max": 2
+          }
+        ],
+        "tags": ["elemental_damage", "attack", "elemental", "damage", "fire"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedFireDamage1"
+      },
+      "rattling-sceptre:prefix:smouldering": {
+        "id": "rattling-sceptre:prefix:smouldering",
+        "name": "Smouldering",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["FireDamage"],
+        "requiredItemLevel": 8,
+        "weight": 500,
+        "tier": 8,
+        "text": "Allies in your Presence deal (3—5) to (6—9) added Attack Fire Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_fire_damage",
+            "min": 6,
+            "max": 9
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_fire_damage",
+            "min": 3,
+            "max": 5
+          }
+        ],
+        "tags": ["elemental_damage", "attack", "elemental", "damage", "fire"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedFireDamage2"
+      },
+      "rattling-sceptre:prefix:smoking": {
+        "id": "rattling-sceptre:prefix:smoking",
+        "name": "Smoking",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["FireDamage"],
+        "requiredItemLevel": 16,
+        "weight": 500,
+        "tier": 7,
+        "text": "Allies in your Presence deal (6—8) to (10—13) added Attack Fire Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_fire_damage",
+            "min": 10,
+            "max": 13
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_fire_damage",
+            "min": 6,
+            "max": 8
+          }
+        ],
+        "tags": ["elemental_damage", "attack", "elemental", "damage", "fire"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedFireDamage3"
+      },
+      "rattling-sceptre:prefix:burning": {
+        "id": "rattling-sceptre:prefix:burning",
+        "name": "Burning",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["FireDamage"],
+        "requiredItemLevel": 33,
+        "weight": 500,
+        "tier": 6,
+        "text": "Allies in your Presence deal (9—11) to (14—17) added Attack Fire Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_fire_damage",
+            "min": 14,
+            "max": 17
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_fire_damage",
+            "min": 9,
+            "max": 11
+          }
+        ],
+        "tags": ["elemental_damage", "attack", "elemental", "damage", "fire"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedFireDamage4"
+      },
+      "rattling-sceptre:prefix:flaming": {
+        "id": "rattling-sceptre:prefix:flaming",
+        "name": "Flaming",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["FireDamage"],
+        "requiredItemLevel": 46,
+        "weight": 500,
+        "tier": 5,
+        "text": "Allies in your Presence deal (12—13) to (18—20) added Attack Fire Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_fire_damage",
+            "min": 18,
+            "max": 20
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_fire_damage",
+            "min": 12,
+            "max": 13
+          }
+        ],
+        "tags": ["elemental_damage", "attack", "elemental", "damage", "fire"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedFireDamage5"
+      },
+      "rattling-sceptre:prefix:scorching": {
+        "id": "rattling-sceptre:prefix:scorching",
+        "name": "Scorching",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["FireDamage"],
+        "requiredItemLevel": 54,
+        "weight": 500,
+        "tier": 4,
+        "text": "Allies in your Presence deal (14—16) to (21—26) added Attack Fire Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_fire_damage",
+            "min": 21,
+            "max": 26
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_fire_damage",
+            "min": 14,
+            "max": 16
+          }
+        ],
+        "tags": ["elemental_damage", "attack", "elemental", "damage", "fire"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedFireDamage6"
+      },
+      "rattling-sceptre:prefix:incinerating": {
+        "id": "rattling-sceptre:prefix:incinerating",
+        "name": "Incinerating",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["FireDamage"],
+        "requiredItemLevel": 60,
+        "weight": 400,
+        "tier": 3,
+        "text": "Allies in your Presence deal (17—19) to (27—30) added Attack Fire Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_fire_damage",
+            "min": 27,
+            "max": 30
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_fire_damage",
+            "min": 17,
+            "max": 19
+          }
+        ],
+        "tags": ["elemental_damage", "attack", "elemental", "damage", "fire"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedFireDamage7"
+      },
+      "rattling-sceptre:prefix:blasting": {
+        "id": "rattling-sceptre:prefix:blasting",
+        "name": "Blasting",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["FireDamage"],
+        "requiredItemLevel": 65,
+        "weight": 300,
+        "tier": 2,
+        "text": "Allies in your Presence deal (20—24) to (31—38) added Attack Fire Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_fire_damage",
+            "min": 31,
+            "max": 38
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_fire_damage",
+            "min": 20,
+            "max": 24
+          }
+        ],
+        "tags": ["elemental_damage", "attack", "elemental", "damage", "fire"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedFireDamage8"
+      },
+      "rattling-sceptre:prefix:cremating": {
+        "id": "rattling-sceptre:prefix:cremating",
+        "name": "Cremating",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["FireDamage"],
+        "requiredItemLevel": 75,
+        "weight": 200,
+        "tier": 1,
+        "text": "Allies in your Presence deal (25—29) to (39—45) added Attack Fire Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_fire_damage",
+            "min": 39,
+            "max": 45
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_fire_damage",
+            "min": 25,
+            "max": 29
+          }
+        ],
+        "tags": ["elemental_damage", "attack", "elemental", "damage", "fire"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedFireDamage9"
+      },
+      "rattling-sceptre:prefix:frosted": {
+        "id": "rattling-sceptre:prefix:frosted",
+        "name": "Frosted",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["ColdDamage"],
+        "requiredItemLevel": 1,
+        "weight": 500,
+        "tier": 9,
+        "text": "Allies in your Presence deal (1—2) to (3—4) added Attack Cold Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_cold_damage",
+            "min": 3,
+            "max": 4
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_cold_damage",
+            "min": 1,
+            "max": 2
+          }
+        ],
+        "tags": ["elemental_damage", "attack", "cold", "elemental", "damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedColdDamage1"
+      },
+      "rattling-sceptre:prefix:chilled": {
+        "id": "rattling-sceptre:prefix:chilled",
+        "name": "Chilled",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["ColdDamage"],
+        "requiredItemLevel": 8,
+        "weight": 500,
+        "tier": 8,
+        "text": "Allies in your Presence deal (3—4) to (5—8) added Attack Cold Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_cold_damage",
+            "min": 5,
+            "max": 8
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_cold_damage",
+            "min": 3,
+            "max": 4
+          }
+        ],
+        "tags": ["elemental_damage", "attack", "cold", "elemental", "damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedColdDamage2"
+      },
+      "rattling-sceptre:prefix:icy": {
+        "id": "rattling-sceptre:prefix:icy",
+        "name": "Icy",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["ColdDamage"],
+        "requiredItemLevel": 16,
+        "weight": 500,
+        "tier": 7,
+        "text": "Allies in your Presence deal (5—6) to (9—11) added Attack Cold Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_cold_damage",
+            "min": 9,
+            "max": 11
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_cold_damage",
+            "min": 5,
+            "max": 6
+          }
+        ],
+        "tags": ["elemental_damage", "attack", "cold", "elemental", "damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedColdDamage3"
+      },
+      "rattling-sceptre:prefix:frigid": {
+        "id": "rattling-sceptre:prefix:frigid",
+        "name": "Frigid",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["ColdDamage"],
+        "requiredItemLevel": 33,
+        "weight": 500,
+        "tier": 6,
+        "text": "Allies in your Presence deal (7—8) to (12—14) added Attack Cold Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_cold_damage",
+            "min": 12,
+            "max": 14
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_cold_damage",
+            "min": 7,
+            "max": 8
+          }
+        ],
+        "tags": ["elemental_damage", "attack", "cold", "elemental", "damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedColdDamage4"
+      },
+      "rattling-sceptre:prefix:freezing": {
+        "id": "rattling-sceptre:prefix:freezing",
+        "name": "Freezing",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["ColdDamage"],
+        "requiredItemLevel": 46,
+        "weight": 500,
+        "tier": 5,
+        "text": "Allies in your Presence deal (9—10) to (15—17) added Attack Cold Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_cold_damage",
+            "min": 15,
+            "max": 17
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_cold_damage",
+            "min": 9,
+            "max": 10
+          }
+        ],
+        "tags": ["elemental_damage", "attack", "cold", "elemental", "damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedColdDamage5"
+      },
+      "rattling-sceptre:prefix:frozen": {
+        "id": "rattling-sceptre:prefix:frozen",
+        "name": "Frozen",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["ColdDamage"],
+        "requiredItemLevel": 54,
+        "weight": 500,
+        "tier": 4,
+        "text": "Allies in your Presence deal (11—13) to (18—21) added Attack Cold Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_cold_damage",
+            "min": 18,
+            "max": 21
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_cold_damage",
+            "min": 11,
+            "max": 13
+          }
+        ],
+        "tags": ["elemental_damage", "attack", "cold", "elemental", "damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedColdDamage6"
+      },
+      "rattling-sceptre:prefix:glaciated": {
+        "id": "rattling-sceptre:prefix:glaciated",
+        "name": "Glaciated",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["ColdDamage"],
+        "requiredItemLevel": 60,
+        "weight": 400,
+        "tier": 3,
+        "text": "Allies in your Presence deal (14—15) to (22—24) added Attack Cold Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_cold_damage",
+            "min": 22,
+            "max": 24
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_cold_damage",
+            "min": 14,
+            "max": 15
+          }
+        ],
+        "tags": ["elemental_damage", "attack", "cold", "elemental", "damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedColdDamage7"
+      },
+      "rattling-sceptre:prefix:polar": {
+        "id": "rattling-sceptre:prefix:polar",
+        "name": "Polar",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["ColdDamage"],
+        "requiredItemLevel": 65,
+        "weight": 300,
+        "tier": 2,
+        "text": "Allies in your Presence deal (16—20) to (25—31) added Attack Cold Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_cold_damage",
+            "min": 25,
+            "max": 31
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_cold_damage",
+            "min": 16,
+            "max": 20
+          }
+        ],
+        "tags": ["elemental_damage", "attack", "cold", "elemental", "damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedColdDamage8"
+      },
+      "rattling-sceptre:prefix:entombing": {
+        "id": "rattling-sceptre:prefix:entombing",
+        "name": "Entombing",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["ColdDamage"],
+        "requiredItemLevel": 75,
+        "weight": 200,
+        "tier": 1,
+        "text": "Allies in your Presence deal (21—24) to (32—37) added Attack Cold Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_cold_damage",
+            "min": 32,
+            "max": 37
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_cold_damage",
+            "min": 21,
+            "max": 24
+          }
+        ],
+        "tags": ["elemental_damage", "attack", "cold", "elemental", "damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedColdDamage9"
+      },
+      "rattling-sceptre:prefix:humming": {
+        "id": "rattling-sceptre:prefix:humming",
+        "name": "Humming",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LightningDamage"],
+        "requiredItemLevel": 1,
+        "weight": 500,
+        "tier": 9,
+        "text": "Allies in your Presence deal 1 to (5—7) added Attack Lightning Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_lightning_damage",
+            "min": 5,
+            "max": 7
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_lightning_damage",
+            "min": 1,
+            "max": 1
+          }
+        ],
+        "tags": [
+          "elemental_damage",
+          "attack",
+          "lightning",
+          "elemental",
+          "damage"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedLightningDamage1"
+      },
+      "rattling-sceptre:prefix:buzzing": {
+        "id": "rattling-sceptre:prefix:buzzing",
+        "name": "Buzzing",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LightningDamage"],
+        "requiredItemLevel": 8,
+        "weight": 500,
+        "tier": 8,
+        "text": "Allies in your Presence deal 1 to (10—15) added Attack Lightning Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_lightning_damage",
+            "min": 10,
+            "max": 15
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_lightning_damage",
+            "min": 1,
+            "max": 1
+          }
+        ],
+        "tags": [
+          "elemental_damage",
+          "attack",
+          "lightning",
+          "elemental",
+          "damage"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedLightningDamage2"
+      },
+      "rattling-sceptre:prefix:snapping": {
+        "id": "rattling-sceptre:prefix:snapping",
+        "name": "Snapping",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LightningDamage"],
+        "requiredItemLevel": 16,
+        "weight": 500,
+        "tier": 7,
+        "text": "Allies in your Presence deal 1 to (16—22) added Attack Lightning Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_lightning_damage",
+            "min": 16,
+            "max": 22
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_lightning_damage",
+            "min": 1,
+            "max": 1
+          }
+        ],
+        "tags": [
+          "elemental_damage",
+          "attack",
+          "lightning",
+          "elemental",
+          "damage"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedLightningDamage3"
+      },
+      "rattling-sceptre:prefix:crackling": {
+        "id": "rattling-sceptre:prefix:crackling",
+        "name": "Crackling",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LightningDamage"],
+        "requiredItemLevel": 33,
+        "weight": 500,
+        "tier": 6,
+        "text": "Allies in your Presence deal 1 to (23—27) added Attack Lightning Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_lightning_damage",
+            "min": 23,
+            "max": 27
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_lightning_damage",
+            "min": 1,
+            "max": 1
+          }
+        ],
+        "tags": [
+          "elemental_damage",
+          "attack",
+          "lightning",
+          "elemental",
+          "damage"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedLightningDamage4"
+      },
+      "rattling-sceptre:prefix:sparking": {
+        "id": "rattling-sceptre:prefix:sparking",
+        "name": "Sparking",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LightningDamage"],
+        "requiredItemLevel": 46,
+        "weight": 500,
+        "tier": 5,
+        "text": "Allies in your Presence deal 1 to (28—32) added Attack Lightning Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_lightning_damage",
+            "min": 28,
+            "max": 32
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_lightning_damage",
+            "min": 1,
+            "max": 1
+          }
+        ],
+        "tags": [
+          "elemental_damage",
+          "attack",
+          "lightning",
+          "elemental",
+          "damage"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedLightningDamage5"
+      },
+      "rattling-sceptre:prefix:arcing": {
+        "id": "rattling-sceptre:prefix:arcing",
+        "name": "Arcing",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LightningDamage"],
+        "requiredItemLevel": 54,
+        "weight": 500,
+        "tier": 4,
+        "text": "Allies in your Presence deal (1—2) to (33—40) added Attack Lightning Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_lightning_damage",
+            "min": 33,
+            "max": 40
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_lightning_damage",
+            "min": 1,
+            "max": 2
+          }
+        ],
+        "tags": [
+          "elemental_damage",
+          "attack",
+          "lightning",
+          "elemental",
+          "damage"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedLightningDamage6"
+      },
+      "rattling-sceptre:prefix:shocking": {
+        "id": "rattling-sceptre:prefix:shocking",
+        "name": "Shocking",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LightningDamage"],
+        "requiredItemLevel": 60,
+        "weight": 400,
+        "tier": 3,
+        "text": "Allies in your Presence deal (1—2) to (41—47) added Attack Lightning Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_lightning_damage",
+            "min": 41,
+            "max": 47
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_lightning_damage",
+            "min": 1,
+            "max": 2
+          }
+        ],
+        "tags": [
+          "elemental_damage",
+          "attack",
+          "lightning",
+          "elemental",
+          "damage"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedLightningDamage7"
+      },
+      "rattling-sceptre:prefix:discharging": {
+        "id": "rattling-sceptre:prefix:discharging",
+        "name": "Discharging",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LightningDamage"],
+        "requiredItemLevel": 65,
+        "weight": 300,
+        "tier": 2,
+        "text": "Allies in your Presence deal (1—3) to (48—59) added Attack Lightning Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_lightning_damage",
+            "min": 48,
+            "max": 59
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_lightning_damage",
+            "min": 1,
+            "max": 3
+          }
+        ],
+        "tags": [
+          "elemental_damage",
+          "attack",
+          "lightning",
+          "elemental",
+          "damage"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedLightningDamage8"
+      },
+      "rattling-sceptre:prefix:electrocuting": {
+        "id": "rattling-sceptre:prefix:electrocuting",
+        "name": "Electrocuting",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LightningDamage"],
+        "requiredItemLevel": 75,
+        "weight": 200,
+        "tier": 1,
+        "text": "Allies in your Presence deal (1—4) to (60—71) added Attack Lightning Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_maximum_added_lightning_damage",
+            "min": 60,
+            "max": 71
+          },
+          {
+            "id": "allies_in_presence_attack_minimum_added_lightning_damage",
+            "min": 1,
+            "max": 4
+          }
+        ],
+        "tags": [
+          "elemental_damage",
+          "attack",
+          "lightning",
+          "elemental",
+          "damage"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAddedLightningDamage9"
+      },
+      "rattling-sceptre:prefix:coercive": {
+        "id": "rattling-sceptre:prefix:coercive",
+        "name": "Coercive",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["AllDamage"],
+        "requiredItemLevel": 1,
+        "weight": 1000,
+        "tier": 8,
+        "text": "Allies in your Presence deal (25—34)% increased Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_damage_+%",
+            "min": 25,
+            "max": 34
+          }
+        ],
+        "tags": ["damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAllDamage1"
+      },
+      "rattling-sceptre:prefix:agitative": {
+        "id": "rattling-sceptre:prefix:agitative",
+        "name": "Agitative",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["AllDamage"],
+        "requiredItemLevel": 8,
+        "weight": 1000,
+        "tier": 7,
+        "text": "Allies in your Presence deal (35—44)% increased Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_damage_+%",
+            "min": 35,
+            "max": 44
+          }
+        ],
+        "tags": ["damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAllDamage2"
+      },
+      "rattling-sceptre:prefix:instigative": {
+        "id": "rattling-sceptre:prefix:instigative",
+        "name": "Instigative",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["AllDamage"],
+        "requiredItemLevel": 16,
+        "weight": 1000,
+        "tier": 6,
+        "text": "Allies in your Presence deal (45—54)% increased Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_damage_+%",
+            "min": 45,
+            "max": 54
+          }
+        ],
+        "tags": ["damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAllDamage3"
+      },
+      "rattling-sceptre:prefix:provocative": {
+        "id": "rattling-sceptre:prefix:provocative",
+        "name": "Provocative",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["AllDamage"],
+        "requiredItemLevel": 33,
+        "weight": 600,
+        "tier": 5,
+        "text": "Allies in your Presence deal (55—64)% increased Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_damage_+%",
+            "min": 55,
+            "max": 64
+          }
+        ],
+        "tags": ["damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAllDamage4"
+      },
+      "rattling-sceptre:prefix:persuasive": {
+        "id": "rattling-sceptre:prefix:persuasive",
+        "name": "Persuasive",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["AllDamage"],
+        "requiredItemLevel": 46,
+        "weight": 400,
+        "tier": 4,
+        "text": "Allies in your Presence deal (65—74)% increased Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_damage_+%",
+            "min": 65,
+            "max": 74
+          }
+        ],
+        "tags": ["damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAllDamage5"
+      },
+      "rattling-sceptre:prefix:motivating": {
+        "id": "rattling-sceptre:prefix:motivating",
+        "name": "Motivating",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["AllDamage"],
+        "requiredItemLevel": 60,
+        "weight": 200,
+        "tier": 3,
+        "text": "Allies in your Presence deal (75—89)% increased Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_damage_+%",
+            "min": 75,
+            "max": 89
+          }
+        ],
+        "tags": ["damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAllDamage6"
+      },
+      "rattling-sceptre:prefix:inspirational": {
+        "id": "rattling-sceptre:prefix:inspirational",
+        "name": "Inspirational",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["AllDamage"],
+        "requiredItemLevel": 70,
+        "weight": 100,
+        "tier": 2,
+        "text": "Allies in your Presence deal (90—104)% increased Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_damage_+%",
+            "min": 90,
+            "max": 104
+          }
+        ],
+        "tags": ["damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAllDamage7"
+      },
+      "rattling-sceptre:prefix:empowering": {
+        "id": "rattling-sceptre:prefix:empowering",
+        "name": "Empowering",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["AllDamage"],
+        "requiredItemLevel": 82,
+        "weight": 50,
+        "tier": 1,
+        "text": "Allies in your Presence deal (105—119)% increased Damage",
+        "stats": [
+          {
+            "id": "allies_in_presence_damage_+%",
+            "min": 105,
+            "max": 119
+          }
+        ],
+        "tags": ["damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAllDamage8"
+      },
+      "rattling-sceptre:suffix:of-the-taskmaster": {
+        "id": "rattling-sceptre:suffix:of-the-taskmaster",
+        "name": "of the Taskmaster",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["IncreaseSocketedGemLevel"],
+        "requiredItemLevel": 2,
+        "weight": 750,
+        "tier": 4,
+        "text": "+1 to Level of all Minion Skills",
+        "stats": [
+          {
+            "id": "minion_skill_gem_level_+",
+            "min": 1,
+            "max": 1
+          }
+        ],
+        "tags": ["gem", "minion"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalMinionSpellSkillGemLevelWeapon1"
+      },
+      "rattling-sceptre:suffix:of-the-despot": {
+        "id": "rattling-sceptre:suffix:of-the-despot",
+        "name": "of the Despot",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["IncreaseSocketedGemLevel"],
+        "requiredItemLevel": 25,
+        "weight": 500,
+        "tier": 3,
+        "text": "+2 to Level of all Minion Skills",
+        "stats": [
+          {
+            "id": "minion_skill_gem_level_+",
+            "min": 2,
+            "max": 2
+          }
+        ],
+        "tags": ["gem", "minion"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalMinionSpellSkillGemLevelWeapon2"
+      },
+      "rattling-sceptre:suffix:of-the-overseer": {
+        "id": "rattling-sceptre:suffix:of-the-overseer",
+        "name": "of the Overseer",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["IncreaseSocketedGemLevel"],
+        "requiredItemLevel": 55,
+        "weight": 250,
+        "tier": 2,
+        "text": "+3 to Level of all Minion Skills",
+        "stats": [
+          {
+            "id": "minion_skill_gem_level_+",
+            "min": 3,
+            "max": 3
+          }
+        ],
+        "tags": ["gem", "minion"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalMinionSpellSkillGemLevelWeapon3"
+      },
+      "rattling-sceptre:suffix:of-the-slavedriver": {
+        "id": "rattling-sceptre:suffix:of-the-slavedriver",
+        "name": "of the Slavedriver",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["IncreaseSocketedGemLevel"],
+        "requiredItemLevel": 78,
+        "weight": 100,
+        "tier": 1,
+        "text": "+4 to Level of all Minion Skills",
+        "stats": [
+          {
+            "id": "minion_skill_gem_level_+",
+            "min": 4,
+            "max": 4
+          }
+        ],
+        "tags": ["gem", "minion"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalMinionSpellSkillGemLevelWeapon4"
+      },
+      "rattling-sceptre:suffix:of-the-newt": {
+        "id": "rattling-sceptre:suffix:of-the-newt",
+        "name": "of the Newt",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["LifeRegeneration"],
+        "requiredItemLevel": 1,
+        "weight": 1000,
+        "tier": 10,
+        "text": "Allies in your Presence Regenerate (1—2) Life per second",
+        "stats": [
+          {
+            "id": "allies_in_presence_life_regeneration_rate_per_minute",
+            "min": 60,
+            "max": 120
+          }
+        ],
+        "tags": ["life", "resource"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesLifeRegeneration1"
+      },
+      "rattling-sceptre:suffix:of-the-lizard": {
+        "id": "rattling-sceptre:suffix:of-the-lizard",
+        "name": "of the Lizard",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["LifeRegeneration"],
+        "requiredItemLevel": 5,
+        "weight": 1000,
+        "tier": 9,
+        "text": "Allies in your Presence Regenerate (2.1—3) Life per second",
+        "stats": [
+          {
+            "id": "allies_in_presence_life_regeneration_rate_per_minute",
+            "min": 126,
+            "max": 180
+          }
+        ],
+        "tags": ["life", "resource"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesLifeRegeneration2"
+      },
+      "rattling-sceptre:suffix:of-the-flatworm": {
+        "id": "rattling-sceptre:suffix:of-the-flatworm",
+        "name": "of the Flatworm",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["LifeRegeneration"],
+        "requiredItemLevel": 11,
+        "weight": 1000,
+        "tier": 8,
+        "text": "Allies in your Presence Regenerate (3.1—4) Life per second",
+        "stats": [
+          {
+            "id": "allies_in_presence_life_regeneration_rate_per_minute",
+            "min": 186,
+            "max": 240
+          }
+        ],
+        "tags": ["life", "resource"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesLifeRegeneration3"
+      },
+      "rattling-sceptre:suffix:of-the-starfish": {
+        "id": "rattling-sceptre:suffix:of-the-starfish",
+        "name": "of the Starfish",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["LifeRegeneration"],
+        "requiredItemLevel": 17,
+        "weight": 1000,
+        "tier": 7,
+        "text": "Allies in your Presence Regenerate (4.1—6) Life per second",
+        "stats": [
+          {
+            "id": "allies_in_presence_life_regeneration_rate_per_minute",
+            "min": 246,
+            "max": 360
+          }
+        ],
+        "tags": ["life", "resource"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesLifeRegeneration4"
+      },
+      "rattling-sceptre:suffix:of-the-hydra": {
+        "id": "rattling-sceptre:suffix:of-the-hydra",
+        "name": "of the Hydra",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["LifeRegeneration"],
+        "requiredItemLevel": 26,
+        "weight": 1000,
+        "tier": 6,
+        "text": "Allies in your Presence Regenerate (6.1—9) Life per second",
+        "stats": [
+          {
+            "id": "allies_in_presence_life_regeneration_rate_per_minute",
+            "min": 366,
+            "max": 540
+          }
+        ],
+        "tags": ["life", "resource"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesLifeRegeneration5"
+      },
+      "rattling-sceptre:suffix:of-the-troll": {
+        "id": "rattling-sceptre:suffix:of-the-troll",
+        "name": "of the Troll",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["LifeRegeneration"],
+        "requiredItemLevel": 35,
+        "weight": 1000,
+        "tier": 5,
+        "text": "Allies in your Presence Regenerate (9.1—13) Life per second",
+        "stats": [
+          {
+            "id": "allies_in_presence_life_regeneration_rate_per_minute",
+            "min": 546,
+            "max": 780
+          }
+        ],
+        "tags": ["life", "resource"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesLifeRegeneration6"
+      },
+      "rattling-sceptre:suffix:of-convalescence": {
+        "id": "rattling-sceptre:suffix:of-convalescence",
+        "name": "of Convalescence",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["LifeRegeneration"],
+        "requiredItemLevel": 47,
+        "weight": 1000,
+        "tier": 4,
+        "text": "Allies in your Presence Regenerate (13.1—18) Life per second",
+        "stats": [
+          {
+            "id": "allies_in_presence_life_regeneration_rate_per_minute",
+            "min": 786,
+            "max": 1080
+          }
+        ],
+        "tags": ["life", "resource"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesLifeRegeneration7"
+      },
+      "rattling-sceptre:suffix:of-recuperation": {
+        "id": "rattling-sceptre:suffix:of-recuperation",
+        "name": "of Recuperation",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["LifeRegeneration"],
+        "requiredItemLevel": 58,
+        "weight": 1000,
+        "tier": 3,
+        "text": "Allies in your Presence Regenerate (18.1—23) Life per second",
+        "stats": [
+          {
+            "id": "allies_in_presence_life_regeneration_rate_per_minute",
+            "min": 1086,
+            "max": 1380
+          }
+        ],
+        "tags": ["life", "resource"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesLifeRegeneration8"
+      },
+      "rattling-sceptre:suffix:of-resurgence": {
+        "id": "rattling-sceptre:suffix:of-resurgence",
+        "name": "of Resurgence",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["LifeRegeneration"],
+        "requiredItemLevel": 68,
+        "weight": 1000,
+        "tier": 2,
+        "text": "Allies in your Presence Regenerate (23.1—29) Life per second",
+        "stats": [
+          {
+            "id": "allies_in_presence_life_regeneration_rate_per_minute",
+            "min": 1386,
+            "max": 1740
+          }
+        ],
+        "tags": ["life", "resource"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesLifeRegeneration9"
+      },
+      "rattling-sceptre:suffix:of-immortality": {
+        "id": "rattling-sceptre:suffix:of-immortality",
+        "name": "of Immortality",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["LifeRegeneration"],
+        "requiredItemLevel": 75,
+        "weight": 1000,
+        "tier": 1,
+        "text": "Allies in your Presence Regenerate (29.1—33) Life per second",
+        "stats": [
+          {
+            "id": "allies_in_presence_life_regeneration_rate_per_minute",
+            "min": 1746,
+            "max": 1980
+          }
+        ],
+        "tags": ["life", "resource"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesLifeRegeneration10"
+      },
+      "rattling-sceptre:suffix:of-excitement": {
+        "id": "rattling-sceptre:suffix:of-excitement",
+        "name": "of Excitement",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["ManaRegeneration"],
+        "requiredItemLevel": 1,
+        "weight": 1000,
+        "tier": 6,
+        "text": "(10—19)% increased Mana Regeneration Rate",
+        "stats": [
+          {
+            "id": "mana_regeneration_rate_+%",
+            "min": 10,
+            "max": 19
+          }
+        ],
+        "tags": ["resource", "mana"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaRegeneration1"
+      },
+      "rattling-sceptre:suffix:of-joy": {
+        "id": "rattling-sceptre:suffix:of-joy",
+        "name": "of Joy",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["ManaRegeneration"],
+        "requiredItemLevel": 18,
+        "weight": 1000,
+        "tier": 5,
+        "text": "(20—29)% increased Mana Regeneration Rate",
+        "stats": [
+          {
+            "id": "mana_regeneration_rate_+%",
+            "min": 20,
+            "max": 29
+          }
+        ],
+        "tags": ["resource", "mana"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaRegeneration2"
+      },
+      "rattling-sceptre:suffix:of-elation": {
+        "id": "rattling-sceptre:suffix:of-elation",
+        "name": "of Elation",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["ManaRegeneration"],
+        "requiredItemLevel": 29,
+        "weight": 1000,
+        "tier": 4,
+        "text": "(30—39)% increased Mana Regeneration Rate",
+        "stats": [
+          {
+            "id": "mana_regeneration_rate_+%",
+            "min": 30,
+            "max": 39
+          }
+        ],
+        "tags": ["resource", "mana"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaRegeneration3"
+      },
+      "rattling-sceptre:suffix:of-bliss": {
+        "id": "rattling-sceptre:suffix:of-bliss",
+        "name": "of Bliss",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["ManaRegeneration"],
+        "requiredItemLevel": 42,
+        "weight": 1000,
+        "tier": 3,
+        "text": "(40—49)% increased Mana Regeneration Rate",
+        "stats": [
+          {
+            "id": "mana_regeneration_rate_+%",
+            "min": 40,
+            "max": 49
+          }
+        ],
+        "tags": ["resource", "mana"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaRegeneration4"
+      },
+      "rattling-sceptre:suffix:of-euphoria": {
+        "id": "rattling-sceptre:suffix:of-euphoria",
+        "name": "of Euphoria",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["ManaRegeneration"],
+        "requiredItemLevel": 55,
+        "weight": 1000,
+        "tier": 2,
+        "text": "(50—59)% increased Mana Regeneration Rate",
+        "stats": [
+          {
+            "id": "mana_regeneration_rate_+%",
+            "min": 50,
+            "max": 59
+          }
+        ],
+        "tags": ["resource", "mana"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaRegeneration5"
+      },
+      "rattling-sceptre:suffix:of-nirvana": {
+        "id": "rattling-sceptre:suffix:of-nirvana",
+        "name": "of Nirvana",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["ManaRegeneration"],
+        "requiredItemLevel": 79,
+        "weight": 1000,
+        "tier": 1,
+        "text": "(60—69)% increased Mana Regeneration Rate",
+        "stats": [
+          {
+            "id": "mana_regeneration_rate_+%",
+            "min": 60,
+            "max": 69
+          }
+        ],
+        "tags": ["resource", "mana"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaRegeneration6"
+      },
+      "rattling-sceptre:suffix:of-skill": {
+        "id": "rattling-sceptre:suffix:of-skill",
+        "name": "of Skill",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["IncreasedAttackSpeed"],
+        "requiredItemLevel": 5,
+        "weight": 1000,
+        "tier": 4,
+        "text": "Allies in your Presence have (5—7)% increased Attack Speed",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_speed_+%",
+            "min": 5,
+            "max": 7
+          }
+        ],
+        "tags": ["speed", "attack"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesIncreasedAttackSpeed1"
+      },
+      "rattling-sceptre:suffix:of-ease": {
+        "id": "rattling-sceptre:suffix:of-ease",
+        "name": "of Ease",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["IncreasedAttackSpeed"],
+        "requiredItemLevel": 20,
+        "weight": 1000,
+        "tier": 3,
+        "text": "Allies in your Presence have (8—10)% increased Attack Speed",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_speed_+%",
+            "min": 8,
+            "max": 10
+          }
+        ],
+        "tags": ["speed", "attack"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesIncreasedAttackSpeed2"
+      },
+      "rattling-sceptre:suffix:of-mastery": {
+        "id": "rattling-sceptre:suffix:of-mastery",
+        "name": "of Mastery",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["IncreasedAttackSpeed"],
+        "requiredItemLevel": 35,
+        "weight": 1000,
+        "tier": 2,
+        "text": "Allies in your Presence have (11—13)% increased Attack Speed",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_speed_+%",
+            "min": 11,
+            "max": 13
+          }
+        ],
+        "tags": ["speed", "attack"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesIncreasedAttackSpeed3"
+      },
+      "rattling-sceptre:suffix:of-renown": {
+        "id": "rattling-sceptre:suffix:of-renown",
+        "name": "of Renown",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["IncreasedAttackSpeed"],
+        "requiredItemLevel": 55,
+        "weight": 1000,
+        "tier": 1,
+        "text": "Allies in your Presence have (14—16)% increased Attack Speed",
+        "stats": [
+          {
+            "id": "allies_in_presence_attack_speed_+%",
+            "min": 14,
+            "max": 16
+          }
+        ],
+        "tags": ["speed", "attack"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesIncreasedAttackSpeed4"
+      },
+      "rattling-sceptre:suffix:of-talent": {
+        "id": "rattling-sceptre:suffix:of-talent",
+        "name": "of Talent",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["IncreasedCastSpeed"],
+        "requiredItemLevel": 6,
+        "weight": 1000,
+        "tier": 4,
+        "text": "Allies in your Presence have (5—8)% increased Cast Speed",
+        "stats": [
+          {
+            "id": "allies_in_presence_cast_speed_+%",
+            "min": 5,
+            "max": 8
+          }
+        ],
+        "tags": ["caster_speed", "speed", "caster"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesIncreasedCastSpeed1"
+      },
+      "rattling-sceptre:suffix:of-nimbleness": {
+        "id": "rattling-sceptre:suffix:of-nimbleness",
+        "name": "of Nimbleness",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["IncreasedCastSpeed"],
+        "requiredItemLevel": 21,
+        "weight": 1000,
+        "tier": 3,
+        "text": "Allies in your Presence have (9—12)% increased Cast Speed",
+        "stats": [
+          {
+            "id": "allies_in_presence_cast_speed_+%",
+            "min": 9,
+            "max": 12
+          }
+        ],
+        "tags": ["caster_speed", "speed", "caster"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesIncreasedCastSpeed2"
+      },
+      "rattling-sceptre:suffix:of-expertise": {
+        "id": "rattling-sceptre:suffix:of-expertise",
+        "name": "of Expertise",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["IncreasedCastSpeed"],
+        "requiredItemLevel": 36,
+        "weight": 1000,
+        "tier": 2,
+        "text": "Allies in your Presence have (13—16)% increased Cast Speed",
+        "stats": [
+          {
+            "id": "allies_in_presence_cast_speed_+%",
+            "min": 13,
+            "max": 16
+          }
+        ],
+        "tags": ["caster_speed", "speed", "caster"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesIncreasedCastSpeed3"
+      },
+      "rattling-sceptre:suffix:of-sortilege": {
+        "id": "rattling-sceptre:suffix:of-sortilege",
+        "name": "of Sortilege",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["IncreasedCastSpeed"],
+        "requiredItemLevel": 56,
+        "weight": 1000,
+        "tier": 1,
+        "text": "Allies in your Presence have (17—20)% increased Cast Speed",
+        "stats": [
+          {
+            "id": "allies_in_presence_cast_speed_+%",
+            "min": 17,
+            "max": 20
+          }
+        ],
+        "tags": ["caster_speed", "speed", "caster"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesIncreasedCastSpeed4"
+      },
+      "rattling-sceptre:suffix:of-menace": {
+        "id": "rattling-sceptre:suffix:of-menace",
+        "name": "of Menace",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["CriticalStrikeChanceIncrease"],
+        "requiredItemLevel": 11,
+        "weight": 1000,
+        "tier": 6,
+        "text": "Allies in your Presence have (10—14)% increased Critical Hit Chance",
+        "stats": [
+          {
+            "id": "allies_in_presence_critical_strike_chance_+%",
+            "min": 10,
+            "max": 14
+          }
+        ],
+        "tags": ["critical"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesCriticalStrikeChance1"
+      },
+      "rattling-sceptre:suffix:of-havoc": {
+        "id": "rattling-sceptre:suffix:of-havoc",
+        "name": "of Havoc",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["CriticalStrikeChanceIncrease"],
+        "requiredItemLevel": 21,
+        "weight": 1000,
+        "tier": 5,
+        "text": "Allies in your Presence have (15—19)% increased Critical Hit Chance",
+        "stats": [
+          {
+            "id": "allies_in_presence_critical_strike_chance_+%",
+            "min": 15,
+            "max": 19
+          }
+        ],
+        "tags": ["critical"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesCriticalStrikeChance2"
+      },
+      "rattling-sceptre:suffix:of-disaster": {
+        "id": "rattling-sceptre:suffix:of-disaster",
+        "name": "of Disaster",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["CriticalStrikeChanceIncrease"],
+        "requiredItemLevel": 28,
+        "weight": 1000,
+        "tier": 4,
+        "text": "Allies in your Presence have (20—24)% increased Critical Hit Chance",
+        "stats": [
+          {
+            "id": "allies_in_presence_critical_strike_chance_+%",
+            "min": 20,
+            "max": 24
+          }
+        ],
+        "tags": ["critical"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesCriticalStrikeChance3"
+      },
+      "rattling-sceptre:suffix:of-calamity": {
+        "id": "rattling-sceptre:suffix:of-calamity",
+        "name": "of Calamity",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["CriticalStrikeChanceIncrease"],
+        "requiredItemLevel": 41,
+        "weight": 500,
+        "tier": 3,
+        "text": "Allies in your Presence have (25—29)% increased Critical Hit Chance",
+        "stats": [
+          {
+            "id": "allies_in_presence_critical_strike_chance_+%",
+            "min": 25,
+            "max": 29
+          }
+        ],
+        "tags": ["critical"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesCriticalStrikeChance4"
+      },
+      "rattling-sceptre:suffix:of-ruin": {
+        "id": "rattling-sceptre:suffix:of-ruin",
+        "name": "of Ruin",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["CriticalStrikeChanceIncrease"],
+        "requiredItemLevel": 59,
+        "weight": 250,
+        "tier": 2,
+        "text": "Allies in your Presence have (30—34)% increased Critical Hit Chance",
+        "stats": [
+          {
+            "id": "allies_in_presence_critical_strike_chance_+%",
+            "min": 30,
+            "max": 34
+          }
+        ],
+        "tags": ["critical"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesCriticalStrikeChance5"
+      },
+      "rattling-sceptre:suffix:of-unmaking": {
+        "id": "rattling-sceptre:suffix:of-unmaking",
+        "name": "of Unmaking",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["CriticalStrikeChanceIncrease"],
+        "requiredItemLevel": 76,
+        "weight": 125,
+        "tier": 1,
+        "text": "Allies in your Presence have (35—38)% increased Critical Hit Chance",
+        "stats": [
+          {
+            "id": "allies_in_presence_critical_strike_chance_+%",
+            "min": 35,
+            "max": 38
+          }
+        ],
+        "tags": ["critical"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesCriticalStrikeChance6"
+      },
+      "rattling-sceptre:suffix:of-ire": {
+        "id": "rattling-sceptre:suffix:of-ire",
+        "name": "of Ire",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["CriticalStrikeMultiplier"],
+        "requiredItemLevel": 8,
+        "weight": 1000,
+        "tier": 6,
+        "text": "Allies in your Presence have (10—14)% increased Critical Damage Bonus",
+        "stats": [
+          {
+            "id": "allies_in_presence_critical_strike_multiplier_+",
+            "min": 10,
+            "max": 14
+          }
+        ],
+        "tags": ["critical", "damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesCriticalMultiplier1"
+      },
+      "rattling-sceptre:suffix:of-anger": {
+        "id": "rattling-sceptre:suffix:of-anger",
+        "name": "of Anger",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["CriticalStrikeMultiplier"],
+        "requiredItemLevel": 21,
+        "weight": 1000,
+        "tier": 5,
+        "text": "Allies in your Presence have (15—19)% increased Critical Damage Bonus",
+        "stats": [
+          {
+            "id": "allies_in_presence_critical_strike_multiplier_+",
+            "min": 15,
+            "max": 19
+          }
+        ],
+        "tags": ["critical", "damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesCriticalMultiplier2"
+      },
+      "rattling-sceptre:suffix:of-rage": {
+        "id": "rattling-sceptre:suffix:of-rage",
+        "name": "of Rage",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["CriticalStrikeMultiplier"],
+        "requiredItemLevel": 30,
+        "weight": 1000,
+        "tier": 4,
+        "text": "Allies in your Presence have (20—24)% increased Critical Damage Bonus",
+        "stats": [
+          {
+            "id": "allies_in_presence_critical_strike_multiplier_+",
+            "min": 20,
+            "max": 24
+          }
+        ],
+        "tags": ["critical", "damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesCriticalMultiplier3"
+      },
+      "rattling-sceptre:suffix:of-fury": {
+        "id": "rattling-sceptre:suffix:of-fury",
+        "name": "of Fury",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["CriticalStrikeMultiplier"],
+        "requiredItemLevel": 44,
+        "weight": 500,
+        "tier": 3,
+        "text": "Allies in your Presence have (25—29)% increased Critical Damage Bonus",
+        "stats": [
+          {
+            "id": "allies_in_presence_critical_strike_multiplier_+",
+            "min": 25,
+            "max": 29
+          }
+        ],
+        "tags": ["critical", "damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesCriticalMultiplier4"
+      },
+      "rattling-sceptre:suffix:of-ferocity": {
+        "id": "rattling-sceptre:suffix:of-ferocity",
+        "name": "of Ferocity",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["CriticalStrikeMultiplier"],
+        "requiredItemLevel": 59,
+        "weight": 250,
+        "tier": 2,
+        "text": "Allies in your Presence have (30—34)% increased Critical Damage Bonus",
+        "stats": [
+          {
+            "id": "allies_in_presence_critical_strike_multiplier_+",
+            "min": 30,
+            "max": 34
+          }
+        ],
+        "tags": ["critical", "damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesCriticalMultiplier5"
+      },
+      "rattling-sceptre:suffix:of-destruction": {
+        "id": "rattling-sceptre:suffix:of-destruction",
+        "name": "of Destruction",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["CriticalStrikeMultiplier"],
+        "requiredItemLevel": 73,
+        "weight": 125,
+        "tier": 1,
+        "text": "Allies in your Presence have (35—39)% increased Critical Damage Bonus",
+        "stats": [
+          {
+            "id": "allies_in_presence_critical_strike_multiplier_+",
+            "min": 35,
+            "max": 39
+          }
+        ],
+        "tags": ["critical", "damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesCriticalMultiplier6"
+      },
+      "rattling-sceptre:suffix:of-warmth": {
+        "id": "rattling-sceptre:suffix:of-warmth",
+        "name": "of Warmth",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["LightRadiusAndManaRegeneration"],
+        "requiredItemLevel": 8,
+        "weight": 1000,
+        "tier": 3,
+        "text": "(8—12)% increased Mana Regeneration Rate5% increased Light Radius",
+        "stats": [
+          {
+            "id": "light_radius_+%",
+            "min": 5,
+            "max": 5
+          },
+          {
+            "id": "mana_regeneration_rate_+%",
+            "min": 8,
+            "max": 12
+          }
+        ],
+        "tags": ["resource", "mana"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightRadiusAndManaRegeneration1"
+      },
+      "rattling-sceptre:suffix:of-kindling": {
+        "id": "rattling-sceptre:suffix:of-kindling",
+        "name": "of Kindling",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["LightRadiusAndManaRegeneration"],
+        "requiredItemLevel": 15,
+        "weight": 1000,
+        "tier": 2,
+        "text": "(13—17)% increased Mana Regeneration Rate10% increased Light Radius",
+        "stats": [
+          {
+            "id": "light_radius_+%",
+            "min": 10,
+            "max": 10
+          },
+          {
+            "id": "mana_regeneration_rate_+%",
+            "min": 13,
+            "max": 17
+          }
+        ],
+        "tags": ["resource", "mana"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightRadiusAndManaRegeneration2"
+      },
+      "rattling-sceptre:suffix:of-the-hearth": {
+        "id": "rattling-sceptre:suffix:of-the-hearth",
+        "name": "of the Hearth",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["LightRadiusAndManaRegeneration"],
+        "requiredItemLevel": 30,
+        "weight": 1000,
+        "tier": 1,
+        "text": "(18—22)% increased Mana Regeneration Rate15% increased Light Radius",
+        "stats": [
+          {
+            "id": "light_radius_+%",
+            "min": 15,
+            "max": 15
+          },
+          {
+            "id": "mana_regeneration_rate_+%",
+            "min": 18,
+            "max": 22
+          }
+        ],
+        "tags": ["resource", "mana"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightRadiusAndManaRegeneration3"
+      },
+      "rattling-sceptre:prefix:lord-s": {
+        "id": "rattling-sceptre:prefix:lord-s",
+        "name": "Lord's",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LocalIncreasedSpiritPercent"],
+        "requiredItemLevel": 1,
+        "weight": 1000,
+        "tier": 8,
+        "text": "(20—26)% increased Spirit",
+        "stats": [
+          {
+            "id": "local_spirit_+%",
+            "min": 20,
+            "max": 26
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedSpiritPercent1"
+      },
+      "rattling-sceptre:prefix:baron-s": {
+        "id": "rattling-sceptre:prefix:baron-s",
+        "name": "Baron's",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LocalIncreasedSpiritPercent"],
+        "requiredItemLevel": 8,
+        "weight": 1000,
+        "tier": 7,
+        "text": "(27—32)% increased Spirit",
+        "stats": [
+          {
+            "id": "local_spirit_+%",
+            "min": 27,
+            "max": 32
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedSpiritPercent2"
+      },
+      "rattling-sceptre:prefix:viscount-s": {
+        "id": "rattling-sceptre:prefix:viscount-s",
+        "name": "Viscount's",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LocalIncreasedSpiritPercent"],
+        "requiredItemLevel": 16,
+        "weight": 1000,
+        "tier": 6,
+        "text": "(33—38)% increased Spirit",
+        "stats": [
+          {
+            "id": "local_spirit_+%",
+            "min": 33,
+            "max": 38
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedSpiritPercent3"
+      },
+      "rattling-sceptre:prefix:marquess": {
+        "id": "rattling-sceptre:prefix:marquess",
+        "name": "Marquess'",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LocalIncreasedSpiritPercent"],
+        "requiredItemLevel": 33,
+        "weight": 600,
+        "tier": 5,
+        "text": "(39—44)% increased Spirit",
+        "stats": [
+          {
+            "id": "local_spirit_+%",
+            "min": 39,
+            "max": 44
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedSpiritPercent4"
+      },
+      "rattling-sceptre:prefix:count-s": {
+        "id": "rattling-sceptre:prefix:count-s",
+        "name": "Count's",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LocalIncreasedSpiritPercent"],
+        "requiredItemLevel": 46,
+        "weight": 400,
+        "tier": 4,
+        "text": "(45—50)% increased Spirit",
+        "stats": [
+          {
+            "id": "local_spirit_+%",
+            "min": 45,
+            "max": 50
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedSpiritPercent5"
+      },
+      "rattling-sceptre:prefix:duke-s": {
+        "id": "rattling-sceptre:prefix:duke-s",
+        "name": "Duke's",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LocalIncreasedSpiritPercent"],
+        "requiredItemLevel": 60,
+        "weight": 200,
+        "tier": 3,
+        "text": "(51—55)% increased Spirit",
+        "stats": [
+          {
+            "id": "local_spirit_+%",
+            "min": 51,
+            "max": 55
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedSpiritPercent6"
+      },
+      "rattling-sceptre:prefix:prince-s": {
+        "id": "rattling-sceptre:prefix:prince-s",
+        "name": "Prince's",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LocalIncreasedSpiritPercent"],
+        "requiredItemLevel": 75,
+        "weight": 100,
+        "tier": 2,
+        "text": "(56—60)% increased Spirit",
+        "stats": [
+          {
+            "id": "local_spirit_+%",
+            "min": 56,
+            "max": 60
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedSpiritPercent7"
+      },
+      "rattling-sceptre:prefix:king-s": {
+        "id": "rattling-sceptre:prefix:king-s",
+        "name": "King's",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LocalIncreasedSpiritPercent"],
+        "requiredItemLevel": 82,
+        "weight": 50,
+        "tier": 1,
+        "text": "(61—65)% increased Spirit",
+        "stats": [
+          {
+            "id": "local_spirit_+%",
+            "min": 61,
+            "max": 65
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedSpiritPercent8"
+      },
+      "rattling-sceptre:prefix:advisor-s": {
+        "id": "rattling-sceptre:prefix:advisor-s",
+        "name": "Advisor's",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LocalIncreasedSpiritAndMana"],
+        "requiredItemLevel": 2,
+        "weight": 1000,
+        "tier": 7,
+        "text": "(10—14)% increased Spirit+(17—20) to maximum Mana",
+        "stats": [
+          {
+            "id": "local_spirit_+%",
+            "min": 10,
+            "max": 14
+          },
+          {
+            "id": "base_maximum_mana",
+            "min": 17,
+            "max": 20
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedSpiritAndMana1"
+      },
+      "rattling-sceptre:prefix:counselor-s": {
+        "id": "rattling-sceptre:prefix:counselor-s",
+        "name": "Counselor's",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LocalIncreasedSpiritAndMana"],
+        "requiredItemLevel": 11,
+        "weight": 1000,
+        "tier": 6,
+        "text": "(15—18)% increased Spirit+(21—24) to maximum Mana",
+        "stats": [
+          {
+            "id": "local_spirit_+%",
+            "min": 15,
+            "max": 18
+          },
+          {
+            "id": "base_maximum_mana",
+            "min": 21,
+            "max": 24
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedSpiritAndMana2"
+      },
+      "rattling-sceptre:prefix:emissary-s": {
+        "id": "rattling-sceptre:prefix:emissary-s",
+        "name": "Emissary's",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LocalIncreasedSpiritAndMana"],
+        "requiredItemLevel": 26,
+        "weight": 1000,
+        "tier": 5,
+        "text": "(19—22)% increased Spirit+(25—28) to maximum Mana",
+        "stats": [
+          {
+            "id": "local_spirit_+%",
+            "min": 19,
+            "max": 22
+          },
+          {
+            "id": "base_maximum_mana",
+            "min": 25,
+            "max": 28
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedSpiritAndMana3"
+      },
+      "rattling-sceptre:prefix:minister-s": {
+        "id": "rattling-sceptre:prefix:minister-s",
+        "name": "Minister's",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LocalIncreasedSpiritAndMana"],
+        "requiredItemLevel": 36,
+        "weight": 600,
+        "tier": 4,
+        "text": "(23—26)% increased Spirit+(29—33) to maximum Mana",
+        "stats": [
+          {
+            "id": "local_spirit_+%",
+            "min": 23,
+            "max": 26
+          },
+          {
+            "id": "base_maximum_mana",
+            "min": 29,
+            "max": 33
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedSpiritAndMana4"
+      },
+      "rattling-sceptre:prefix:envoy-s": {
+        "id": "rattling-sceptre:prefix:envoy-s",
+        "name": "Envoy's",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LocalIncreasedSpiritAndMana"],
+        "requiredItemLevel": 48,
+        "weight": 400,
+        "tier": 3,
+        "text": "(27—30)% increased Spirit+(34—37) to maximum Mana",
+        "stats": [
+          {
+            "id": "local_spirit_+%",
+            "min": 27,
+            "max": 30
+          },
+          {
+            "id": "base_maximum_mana",
+            "min": 34,
+            "max": 37
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedSpiritAndMana5"
+      },
+      "rattling-sceptre:prefix:diplomat-s": {
+        "id": "rattling-sceptre:prefix:diplomat-s",
+        "name": "Diplomat's",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LocalIncreasedSpiritAndMana"],
+        "requiredItemLevel": 58,
+        "weight": 200,
+        "tier": 2,
+        "text": "(31—34)% increased Spirit+(38—41) to maximum Mana",
+        "stats": [
+          {
+            "id": "local_spirit_+%",
+            "min": 31,
+            "max": 34
+          },
+          {
+            "id": "base_maximum_mana",
+            "min": 38,
+            "max": 41
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedSpiritAndMana6"
+      },
+      "rattling-sceptre:prefix:chancellor-s": {
+        "id": "rattling-sceptre:prefix:chancellor-s",
+        "name": "Chancellor's",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["LocalIncreasedSpiritAndMana"],
+        "requiredItemLevel": 70,
+        "weight": 100,
+        "tier": 1,
+        "text": "(35—38)% increased Spirit+(42—45) to maximum Mana",
+        "stats": [
+          {
+            "id": "local_spirit_+%",
+            "min": 35,
+            "max": 38
+          },
+          {
+            "id": "base_maximum_mana",
+            "min": 42,
+            "max": 45
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedSpiritAndMana7"
+      },
+      "rattling-sceptre:suffix:of-direction": {
+        "id": "rattling-sceptre:suffix:of-direction",
+        "name": "of Direction",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["PresenceRadius"],
+        "requiredItemLevel": 23,
+        "weight": 500,
+        "tier": 4,
+        "text": "(36—45)% increased Presence Area of Effect",
+        "stats": [
+          {
+            "id": "presence_area_+%",
+            "min": 36,
+            "max": 45
+          }
+        ],
+        "tags": ["aura"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FPresenceRadius1"
+      },
+      "rattling-sceptre:suffix:of-outreach": {
+        "id": "rattling-sceptre:suffix:of-outreach",
+        "name": "of Outreach",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["PresenceRadius"],
+        "requiredItemLevel": 40,
+        "weight": 500,
+        "tier": 3,
+        "text": "(46—55)% increased Presence Area of Effect",
+        "stats": [
+          {
+            "id": "presence_area_+%",
+            "min": 46,
+            "max": 55
+          }
+        ],
+        "tags": ["aura"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FPresenceRadius2"
+      },
+      "rattling-sceptre:suffix:of-guidance": {
+        "id": "rattling-sceptre:suffix:of-guidance",
+        "name": "of Guidance",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["PresenceRadius"],
+        "requiredItemLevel": 56,
+        "weight": 500,
+        "tier": 2,
+        "text": "(56—65)% increased Presence Area of Effect",
+        "stats": [
+          {
+            "id": "presence_area_+%",
+            "min": 56,
+            "max": 65
+          }
+        ],
+        "tags": ["aura"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FPresenceRadius3"
+      },
+      "rattling-sceptre:suffix:of-influence": {
+        "id": "rattling-sceptre:suffix:of-influence",
+        "name": "of Influence",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["PresenceRadius"],
+        "requiredItemLevel": 72,
+        "weight": 500,
+        "tier": 1,
+        "text": "(66—80)% increased Presence Area of Effect",
+        "stats": [
+          {
+            "id": "presence_area_+%",
+            "min": 66,
+            "max": 80
+          }
+        ],
+        "tags": ["aura"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FPresenceRadius4"
+      },
+      "rattling-sceptre:suffix:of-the-mentor": {
+        "id": "rattling-sceptre:suffix:of-the-mentor",
+        "name": "of the Mentor",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["MinionLife"],
+        "requiredItemLevel": 2,
+        "weight": 1000,
+        "tier": 6,
+        "text": "Minions have (21—25)% increased maximum Life",
+        "stats": [
+          {
+            "id": "minion_maximum_life_+%",
+            "min": 21,
+            "max": 25
+          }
+        ],
+        "tags": ["minion", "resource", "life"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMinionLife1"
+      },
+      "rattling-sceptre:suffix:of-the-tutor": {
+        "id": "rattling-sceptre:suffix:of-the-tutor",
+        "name": "of the Tutor",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["MinionLife"],
+        "requiredItemLevel": 16,
+        "weight": 1000,
+        "tier": 5,
+        "text": "Minions have (26—30)% increased maximum Life",
+        "stats": [
+          {
+            "id": "minion_maximum_life_+%",
+            "min": 26,
+            "max": 30
+          }
+        ],
+        "tags": ["minion", "resource", "life"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMinionLife2"
+      },
+      "rattling-sceptre:suffix:of-the-director": {
+        "id": "rattling-sceptre:suffix:of-the-director",
+        "name": "of the Director",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["MinionLife"],
+        "requiredItemLevel": 32,
+        "weight": 1000,
+        "tier": 4,
+        "text": "Minions have (31—35)% increased maximum Life",
+        "stats": [
+          {
+            "id": "minion_maximum_life_+%",
+            "min": 31,
+            "max": 35
+          }
+        ],
+        "tags": ["minion", "resource", "life"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMinionLife3"
+      },
+      "rattling-sceptre:suffix:of-the-headmaster": {
+        "id": "rattling-sceptre:suffix:of-the-headmaster",
+        "name": "of the Headmaster",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["MinionLife"],
+        "requiredItemLevel": 48,
+        "weight": 1000,
+        "tier": 3,
+        "text": "Minions have (36—40)% increased maximum Life",
+        "stats": [
+          {
+            "id": "minion_maximum_life_+%",
+            "min": 36,
+            "max": 40
+          }
+        ],
+        "tags": ["minion", "resource", "life"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMinionLife4"
+      },
+      "rattling-sceptre:suffix:of-the-administrator": {
+        "id": "rattling-sceptre:suffix:of-the-administrator",
+        "name": "of the Administrator",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["MinionLife"],
+        "requiredItemLevel": 64,
+        "weight": 1000,
+        "tier": 2,
+        "text": "Minions have (41—45)% increased maximum Life",
+        "stats": [
+          {
+            "id": "minion_maximum_life_+%",
+            "min": 41,
+            "max": 45
+          }
+        ],
+        "tags": ["minion", "resource", "life"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMinionLife5"
+      },
+      "rattling-sceptre:suffix:of-the-rector": {
+        "id": "rattling-sceptre:suffix:of-the-rector",
+        "name": "of the Rector",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["MinionLife"],
+        "requiredItemLevel": 80,
+        "weight": 1000,
+        "tier": 1,
+        "text": "Minions have (46—50)% increased maximum Life",
+        "stats": [
+          {
+            "id": "minion_maximum_life_+%",
+            "min": 46,
+            "max": 50
+          }
+        ],
+        "tags": ["minion", "resource", "life"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMinionLife6"
+      },
+      "rattling-sceptre:suffix:essence-aura-magnitude": {
+        "id": "rattling-sceptre:suffix:essence-aura-magnitude",
+        "name": "of the Essence",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["AuraEffect"],
+        "requiredItemLevel": 72,
+        "weight": 0,
+        "tier": 1,
+        "text": "Aura Skills have (15—20)% increased Magnitudes",
+        "stats": [
+          {
+            "id": "aura_effect_+%",
+            "min": 15,
+            "max": 20
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAuraEffect1"
+      }
+    },
+    "actions": [
+      {
+        "action": "TRANSMUTATION",
+        "available": true,
+        "reason": ""
+      },
+      {
+        "action": "AUGMENTATION",
+        "available": false,
+        "reason": "This currency cannot be used on this rarity."
+      },
+      {
+        "action": "REGAL",
+        "available": false,
+        "reason": "This currency cannot be used on this rarity."
+      },
+      {
+        "action": "EXALTED",
+        "available": false,
+        "reason": "This currency cannot be used on this rarity."
+      },
+      {
+        "action": "ANNULMENT",
+        "available": false,
+        "reason": "This currency cannot be used on this rarity."
+      },
+      {
+        "action": "CHAOS",
+        "available": false,
+        "reason": "This currency cannot be used on this rarity."
+      }
+    ],
+    "compatibleSnapshotIds": [
+      "poe2db-rattling-sceptre-normal-20261003-8042c018040e"
+    ],
+    "qualityLimit": {
+      "ruleVersion": "quality-limit-v1",
+      "maximumQuality": 20
+    },
+    "augmentSockets": null
+  }
+}

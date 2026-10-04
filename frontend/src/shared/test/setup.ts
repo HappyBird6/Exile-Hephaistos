@@ -2,8 +2,14 @@ import '@testing-library/jest-dom/vitest'
 import { cleanup } from '@testing-library/react'
 import { afterEach, beforeEach, vi } from 'vitest'
 import { fixtureFetch } from './craftingFixtures'
+import { setLocale } from '../i18n/i18n'
 
-beforeEach(() => vi.stubGlobal('fetch', fixtureFetch))
+beforeEach(() => {
+  // Existing behavior tests assert the English UI; locale behavior has its own suite.
+  setLocale('en')
+  vi.stubGlobal('fetch', fixtureFetch)
+  window.localStorage.removeItem('hephaistos.workbench.films.v1')
+})
 afterEach(() => vi.unstubAllGlobals())
 
 afterEach(cleanup)

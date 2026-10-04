@@ -1,0 +1,41 @@
+{
+  "status": "SOURCE_TARGET_VERIFIED_IMPLEMENTATION_PENDING",
+  "itemClass": "Amulet",
+  "pageSource": {
+    "url": "https://poe2db.tw/us/Amulets",
+    "status": 200,
+    "retrievedAt": "2026-10-03T09:56:44.958Z",
+    "sha256": "ba0b2a1cd26b9cc57b9f2260cbfb981fdd7a1373a96a32ae846780685538ace2"
+  },
+  "row": {
+    "type": "essence",
+    "Level": "65",
+    "DropChance": 0,
+    "ModGenerationTypeID": "1",
+    "mod_no": [],
+    "fossil_no": [],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/b06df68982ed6b8d8c6b7e00df1f1b877dac987f99dc54d95df6a464020d3451\" href=\"Sovereign_Alloy\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/Alloy1.webp\" alt=\"Alloy1\" height=\"16\" />Sovereign Alloy</a>",
+    "Code": "AlloyEffectOfResistanceMods1",
+    "ModFamilyList": [
+      "EnchantmentHeistArmour"
+    ],
+    "str": "<span class='mod-value'>(20<span class=\"ndash\">—</span>30)</span>% increased Explicit Resistance Modifier magnitudes",
+    "adds_no": [],
+    "spawn_no": [
+      "default"
+    ],
+    "reqlvl": 52,
+    "IsPerfect": "0",
+    "IsAlloy": true,
+    "Removes": true
+  },
+  "detail": {
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyEffectOfResistanceMods1",
+    "status": 200,
+    "retrievedAt": "2026-10-03T10:01:22.195Z",
+    "sha256": "4372cf91c0fb4b45483bb492e954ac5891d0b3cf8fe454ebff4a483d717a8827",
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(20<span class=\"ndash\">—</span>30)</span>% increased Explicit Resistance Modifier magnitudes</span></h5>   <span data-tabname=\"Verisium\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Verisium\n<tr><th>Family<td>EnchantmentHeistArmour\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>65 (Effective: 52)\n<tr><th>Gold Price<td>1422\n<tr><th>Stats<td><li>heist enchantment resistance mod effect +% <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 30</span> <span class=\"badge bg-secondary\">Local</span> <span class=\"badge bg-warning\"><span class=\"italic\"><span style=\"color:rgb(170,170,170)\"> — Unscalable Value</span></span></span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+    "text": "(20—30)% increased Explicit Resistance Modifier magnitudes NameVerisium FamilyEnchantmentHeistArmour DomainsItem (1) GenerationTypePrefix (1) Req. level65 (Effective: 52) Gold Price1422 Statsheist enchantment resistance mod effect +% 20 — 30 Local — Unscalable Value Spawn Tagsdefault: 0"
+  },
+  "implementationBoundary": "Assignment alone is not computed resistance magnitude. Eligible resistance stats, integer roll/display/scaling rules, lock/reroll handling and low-ilvl boundary remain to be reviewed."
+}

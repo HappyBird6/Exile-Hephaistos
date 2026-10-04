@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "snapshotId": "body-perfect-20261003-7291b4e1d1cd",
+    "retrievedAt": "2026-10-03T15:03:51.893Z",
+    "sourceUrl": "https://poe2db.tw/us/Body_Armours_str",
+    "rawSha256": "7291b4e1d1cddbc3f1561b4f34cf8afadca02eb7331d74a3734770ed0cf4a1ba"
+  },
+  "modifiers": [
+    {
+      "id": "rusted-cuirass:prefix:essence-maximum-life-percent",
+      "name": "Essences",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaximumLifeIncreasePercent"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(8—10)% increased maximum Life",
+      "stats": [
+        {
+          "id": "maximum_life_+%",
+          "min": 8,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceIncreasedLifePercent1"
+    },
+    {
+      "id": "rusted-cuirass:prefix:essence-physical-taken-as-chaos",
+      "name": "Essences",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamageTakenAsChaos"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(10—15)% of Physical Damage from Hits taken as Chaos Damage",
+      "stats": [
+        {
+          "id": "physical_damage_taken_%_as_chaos",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "physical",
+        "chaos"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssencePhysicalDamageTakenAsChaos1"
+    },
+    {
+      "id": "rusted-cuirass:suffix:essence-reduced-incoming-critical-damage",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedCriticalStrikeDamageTaken"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "Hits against you have (40—50)% reduced Critical Damage Bonus",
+      "stats": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "min": 40,
+          "max": 50
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceReducedCriticalDamageAgainstYou1"
+    }
+  ]
+}

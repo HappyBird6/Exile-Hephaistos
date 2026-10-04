@@ -1,3 +1,5 @@
 * text=auto eol=lf
 *.bat text eol=crlf
 *.jar binary
+# This reviewed raw proof is checksum-bound to its exact captured bytes.
+backend/src/main/resources/catalog/stocky-mitts/horror-essence.raw.json -text whitespace=cr-at-eol

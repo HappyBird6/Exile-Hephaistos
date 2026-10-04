@@ -17,32 +17,79 @@ public final class ItemStateValidator {
 
   public List<Violation> validate(ItemState state) {
     var errors = new ArrayList<Violation>();
+    if (BasicJewel.supportedCrafting(state.baseItemId())
+        && (state.augmentSockets() != null
+            || state.explicits().stream().anyMatch(ModifierInstance::fractured)))
+      errors.add(
+          new Violation(
+              Code.UNSUPPORTED_STATE,
+              "",
+              "Sapphire socket and fractured states remain unsupported"));
+    if (BasicJewel.supportedCrafting(state.baseItemId())
+        && state.explicits().stream()
+                .filter(
+                    m ->
+                        catalog
+                            .find(m.modifierId())
+                            .map(d -> d.tags().contains("crafted"))
+                            .orElse(false))
+                .count()
+            > 1)
+      errors.add(new Violation(Code.UNSUPPORTED_STATE, "", "Only one Crafted modifier is allowed"));
+    if (state.catalystQuality() != null) {
+      int cap = state.baseItemId().equals(SolarAmulet.BASE_ID) ? 40 : 20;
+      if (!CatalystQuality.supportedBase(state.baseItemId())
+          || state.catalystQuality().amount() > cap)
+        errors.add(
+            new Violation(
+                Code.UNSUPPORTED_STATE,
+                "",
+                "Unsupported catalyst quality or amount above reviewed reachable maximum"));
+    }
     if (!state.snapshotId().equals(catalog.metadata().snapshotId())) {
       errors.add(new Violation(Code.SNAPSHOT_MISMATCH, "", "State and catalog snapshots differ"));
     }
     if (!state.baseItemId().equals(catalog.base().id())) {
       errors.add(
-          new Violation(
-              Code.UNSUPPORTED_BASE, "", "Only this snapshot's Solar Amulet is supported"));
+          new Violation(Code.UNSUPPORTED_BASE, "", "Only this snapshot's base is supported"));
     }
     if (state.rarity() == ItemState.Rarity.UNIQUE || !state.conditions().isEmpty()) {
       errors.add(
           new Violation(
               Code.UNSUPPORTED_STATE, "", "Unique or special item conditions are not supported"));
     }
-    if (state.implicits().size() != 1
-        || !state.implicits().getFirst().modifierId().equals(catalog.base().implicitModifierId())) {
-      errors.add(
-          new Violation(Code.INVALID_IMPLICIT, "", "Solar Amulet requires its Spirit implicit"));
+    if (catalog.base().hasImplicit()
+        ? state.implicits().size() != 1
+            || !state
+                .implicits()
+                .getFirst()
+                .modifierId()
+                .equals(catalog.base().implicitModifierId())
+        : !state.implicits().isEmpty()) {
+      errors.add(new Violation(Code.INVALID_IMPLICIT, "", "Implicits must match the catalog base"));
     }
     validateModifiers(state.implicits(), Layer.IMPLICIT, errors);
     validateModifiers(state.explicits(), Layer.EXPLICIT, errors);
+    if (state.implicits().stream().anyMatch(ModifierInstance::fractured)
+        || state.explicits().stream().filter(ModifierInstance::fractured).count() > 1
+        || (state.explicits().stream().anyMatch(ModifierInstance::fractured)
+            && state.rarity() != ItemState.Rarity.RARE)) {
+      errors.add(
+          new Violation(
+              Code.UNSUPPORTED_STATE,
+              "",
+              "Only one fractured explicit on a Rare item is supported"));
+    }
     if (state.rarity() != ItemState.Rarity.UNIQUE
         && state.snapshotId().equals(catalog.metadata().snapshotId())
         && state.baseItemId().equals(catalog.base().id())) {
       var slots = slots(state);
-      if (slots.usedPrefixes() > slots.maxPrefixes()
-          || slots.usedSuffixes() > slots.maxSuffixes()) {
+      if (BasicJewel.supportedCrafting(state.baseItemId())
+              && state.rarity() == ItemState.Rarity.RARE
+          ? !BasicJewel.existingCapacity(
+              slots.usedPrefixes(), slots.usedSuffixes(), slots.maxPrefixes(), slots.maxSuffixes())
+          : slots.usedPrefixes() > slots.maxPrefixes()
+              || slots.usedSuffixes() > slots.maxSuffixes()) {
         errors.add(
             new Violation(Code.AFFIX_CAPACITY_EXCEEDED, "", "Explicit affix capacity exceeded"));
       }
@@ -138,6 +185,12 @@ public final class ItemStateValidator {
           case RARE -> catalog.base().rareSuffixes();
           default -> throw new IllegalArgumentException("Unsupported rarity");
         };
+    if (BasicJewel.supportedCrafting(state.baseItemId())
+        && state.rarity() == ItemState.Rarity.RARE) {
+      var ids = state.explicits().stream().map(ModifierInstance::modifierId).toList();
+      maxPrefixes += BasicJewel.extra(ids, AffixType.PREFIX);
+      maxSuffixes += BasicJewel.extra(ids, AffixType.SUFFIX);
+    }
     return new AffixSlots(prefixes, suffixes, maxPrefixes, maxSuffixes);
   }
 

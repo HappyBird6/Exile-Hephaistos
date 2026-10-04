@@ -1,0 +1,177 @@
+import { afterEach, expect, it, vi } from 'vitest'
+import actual from '../../shared/test/helmet-essence-responses.json'
+import { jsonResponse } from '../../shared/test/craftingFixtures'
+import { applyCurrency } from './workbenchApi'
+import type { AppliedItem, ConcreteItem, WorkbenchAction } from './workbenchApi'
+import type { Definition } from './craftingApi'
+import { loadInitial } from './craftingApi'
+import { maximumQuality } from './qualityLimit'
+import { supportsConcreteStateShape } from './workbenchStateShape'
+import { craftProbabilityEvidence } from './craftProbabilityEvidence'
+
+afterEach(() => vi.unstubAllGlobals())
+const definitions = actual.initial.modifiers as Record<string, Definition>
+
+it.each(actual.captures)(
+  'accepts actual $action with exact Helmet targets and numeric source',
+  async ({ action, before, result }) => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(jsonResponse(result)))
+    const verified = await applyCurrency(
+      before as ConcreteItem,
+      action as WorkbenchAction,
+      definitions,
+      new AbortController().signal,
+      ['Omen_of_the_Blessed'],
+    )
+    expect(verified.applied).toBe(true)
+    expect(craftProbabilityEvidence(verified).weighted).toBe(false)
+  },
+)
+
+it.each(actual.captures)(
+  'rejects forged numeric provenance for $action',
+  async ({ action, before, result }) => {
+    const forged = structuredClone(result) as AppliedItem
+    forged.assumptions.find(
+      (a) => a.id === 'assumed-source-integer-roll-v1',
+    )!.sourceUrl = 'https://poe2db.tw/us/Helmets_str'
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(jsonResponse(forged)))
+    await expect(
+      applyCurrency(
+        before as ConcreteItem,
+        action as WorkbenchAction,
+        definitions,
+        new AbortController().signal,
+        ['Omen_of_the_Blessed'],
+      ),
+    ).rejects.toThrow('numeric model')
+  },
+)
+
+it.each([
+  'missing-value',
+  'extra-value',
+  'range',
+  'missing-ledger',
+  'below-level',
+  'wrong-base',
+])('refuses a forged %s Helmet response', async (kind) => {
+  const capture = actual.captures[0]!,
+    response = structuredClone(capture.result) as AppliedItem
+  const added = response.events.at(-1)!,
+    target = response.state.explicits.find(
+      (m) => m.modifierId === added.modifierId,
+    )!,
+    stat = definitions[added.modifierId]!.stats![0]!
+  const before = structuredClone(capture.before) as ConcreteItem
+  if (kind === 'missing-value') {
+    delete target.values[stat.id]
+    delete added.values[stat.id]
+  }
+  if (kind === 'extra-value') {
+    target.values.unknown = 1
+    added.values.unknown = 1
+  }
+  if (kind === 'range') {
+    target.values[stat.id] = stat.max + 1
+    added.values[stat.id] = stat.max + 1
+  }
+  if (kind === 'missing-ledger')
+    response.assumptions = response.assumptions.filter(
+      (a) => a.id !== 'assumed-source-integer-roll-v1',
+    )
+  if (kind === 'below-level') {
+    before.itemLevel = 71
+    response.state.itemLevel = 71
+  }
+  if (kind === 'wrong-base') {
+    before.baseItemId = 'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
+    response.state.baseItemId = before.baseItemId
+  }
+  vi.stubGlobal('fetch', vi.fn().mockResolvedValue(jsonResponse(response)))
+  await expect(
+    applyCurrency(
+      before,
+      capture.action as WorkbenchAction,
+      definitions,
+      new AbortController().signal,
+      ['Omen_of_the_Blessed'],
+    ),
+  ).rejects.toThrow('verify')
+})
+
+it('selects the actual eighth-base initial endpoint and refuses a substituted old base', async () => {
+  const fetch = vi
+    .fn()
+    .mockResolvedValueOnce(jsonResponse(actual.initial))
+    .mockResolvedValueOnce(
+      jsonResponse({
+        ...actual.initial,
+        state: {
+          ...actual.initial.state,
+          baseItemId: 'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3',
+        },
+      }),
+    )
+  vi.stubGlobal('fetch', fetch)
+  await expect(
+    loadInitial(82, new AbortController().signal, 'helmet'),
+  ).resolves.toMatchObject({
+    state: { baseItemId: 'Metadata/Items/Armours/Helmets/FourHelmetStr1' },
+  })
+  expect(fetch.mock.calls[0]![0]).toBe(
+    '/api/v1/crafting/workbench/initial?base=helmet&itemLevel=82',
+  )
+  await expect(
+    loadInitial(82, new AbortController().signal, 'helmet'),
+  ).rejects.toThrow('verify')
+})
+
+it('keeps the source cap separate from unmodeled quality, Armour and sockets', () => {
+  const state = actual.captures[0]!.before as ConcreteItem
+  expect(maximumQuality(state, definitions)).toBe(20)
+  expect(supportsConcreteStateShape(state)).toBe(true)
+  for (const extension of [
+    { augmentSockets: 0 },
+    { quality: 20 },
+    { armour: 29 },
+  ])
+    expect(supportsConcreteStateShape({ ...state, ...extension })).toBe(false)
+})
+
+it('accepts actual Helmet Divine while preserving the explicit-only projection', async () => {
+  const capture = actual.divineCapture
+  vi.stubGlobal(
+    'fetch',
+    vi.fn().mockResolvedValue(jsonResponse(capture.result)),
+  )
+  const r = await applyCurrency(
+    capture.before as ConcreteItem,
+    'DIVINE',
+    definitions,
+    new AbortController().signal,
+  )
+  expect(r.applied).toBe(true)
+  expect(r.state.implicits).toEqual([])
+  expect(r.qualityLimit?.maximumQuality).toBe(20)
+})
+it.each([null, { ruleVersion: 'quality-limit-v1', maximumQuality: 40 }])(
+  'refuses a forged Helmet quality limit %s',
+  async (limit) => {
+    const capture = actual.captures[0]!,
+      forged = structuredClone(capture.result) as AppliedItem
+    forged.qualityLimit = limit as NonNullable<
+      AppliedItem['qualityLimit']
+    > | null
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(jsonResponse(forged)))
+    await expect(
+      applyCurrency(
+        capture.before as ConcreteItem,
+        capture.action as WorkbenchAction,
+        definitions,
+        new AbortController().signal,
+        ['Omen_of_the_Blessed'],
+      ),
+    ).rejects.toThrow('verify')
+  },
+)

@@ -1,0 +1,88 @@
+{
+  "status": "COMPLETE_LOCAL_VALIDATION",
+  "resumption": {
+    "authority": "Latest explicit user instruction to continue while absent and apply reversible recommendations, confirmed by follow-up delegation",
+    "scope": "Minimum fixtureFetch fix; Frontend mandatory checks; pending runtime API/browser checks; safe local commit",
+    "policyException": "One limited recovery exception to the whole-task two-round cost workflow; repository policy is unchanged. No security or tool permission bypass.",
+    "additionalFrontendFullRunsStarted": 1,
+    "minimumFix": "vi.stubGlobal('fetch', fixtureFetch), passing the existing fetch implementation directly"
+  },
+  "branch": "workbench/20261002",
+  "baselineHead": "780dd172f25bcf1d75c33f63163bad5860256ba9",
+  "selfReview": "Reviewed source tag union, frozen double-add tags, unchanged ordinary pool and exact conditional weights, trigger-specific consumption and unsupported boundaries. Independent review not requested.",
+  "backend": {
+    "command": "./gradlew --no-daemon spotlessApply check generateJooq bootJar",
+    "environment": "existing exile-workbench-backend-check-20261002 Docker container",
+    "result": "PASS",
+    "unitTests": 353,
+    "integrationTests": 6,
+    "skipped": 0,
+    "newTests": "4 Homogenising unit boundary tests plus one API contract test covering nine bases",
+    "jarSha256": "780033645f4e63c1ea133a1c2d421a1711cf1a52584849df25a97aaeb1a75d75",
+    "firstFailure": "New controller fixture passed StateBucket instead of ItemState; corrected concrete test input.",
+    "secondFailure": "Eight old exact ruleVersion strings needed the new revision; updated strings only. New random successful fixture included a source state with no matching candidates; replaced with a deterministic source-proven eligible fixture, keeping success assertions.",
+    "correctiveReruns": 2,
+    "finalExitCode": 0
+  },
+  "frontend": {
+    "environment": "owned --rm node:24-alpine Docker container",
+    "npmCi": "PASS: 239 packages; zero reported vulnerabilities",
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "formatCheck": "PASS",
+    "unitTests": "Resumed full run: 331/333 passed; two changed legacy visibility contracts corrected. Targeted three files: 30/30 passed (333 unique tests covered across runs; no claim of a final full-suite rerun).",
+    "build": "PASS",
+    "plannedCorrection": "Use the function directly: vi.stubGlobal('fetch', fixtureFetch), rather than invoking fixtureFetch with no request.",
+    "priorStop": "MULTI_SESSION_WORKFLOW.md two-round cost cap reached; paused and requested explicit approval. Later explicit continuation instruction authorised this limited recovery.",
+    "layoutCorrection": "Bound legacy notice to110px with internal scroll; preserve source link and usable material list. Scoped static checks/30 related tests/build repeated in existing node:24-alpine environment.",
+    "firstFailure": "fixtureFetch() TS2554 corrected to direct function; no production guard relaxation.",
+    "extraExecutionFailure": "An accidental node:22-bookworm image choice passed static checks but Vitest startup lacked native bindings before any test ran. Returned to established node:24-alpine image; package-lock and dependencies unchanged.",
+    "finalAssets": [
+      "index-Di5BXYtv.css",
+      "index-DtvWs21k.js"
+    ]
+  },
+  "runtimeApi": {
+    "result": "PASS",
+    "checks": 269,
+    "artifact": "codex/qa-20261003/homogenising/api-results.json",
+    "fixtureCorrection": "Initial source seed had incomplete second-add branches; fixture now proves every eligible first branch before asserting double success, and separately asserts incomplete branches refuse."
+  },
+  "browser": {
+    "result": "PASS",
+    "checks": 83,
+    "errors": [],
+    "artifact": "codex/qa-20261003/homogenising/browser-results.json",
+    "fixtureCorrection": "Separate source-valid magic/rare roots for nine bases; exhausted same-family pool correctly refuses.",
+    "layout": "Initial screenshot revealed notice hiding narrow material rows; fixed and separately checked final layout.",
+    "finalLayout": {
+      "result": "PASS",
+      "checks": 10,
+      "viewports": [
+        390,
+        1440
+      ],
+      "artifact": "codex/qa-20261003/homogenising/layout-results.json",
+      "visualReview": "Final narrow.png and desktop.png inspected: search/material rows usable; bounded notice scrolls and source link receives keyboard focus."
+    }
+  },
+  "catalogAndEnvironment": {
+    "catalogGitDiff": "NONE across all nine bases",
+    "lockfileGitDiff": "NONE",
+    "migrationGitDiff": "NONE",
+    "originalCheckout": "UNTOUCHED",
+    "qaRuntime": "Verified immutable jar mounted in owned QA app; final frontend dist copied to owned QA frontend",
+    "dbVolumesEnv": "PRESERVED",
+    "testCleanup": "Backend stopped normally; all temporary --rm probes cleaned; existing QA four services retained",
+    "remoteWrites": "NONE",
+    "sourcePreservation": "1487 source modifier definitions across nine bases verified for exact weights/ranges/tags/families; catalog Git diff NONE"
+  },
+  "sourceCapture": {
+    "manifest": "E:/WORK/Exile-Hephaistos/codex/qa-20261003/homogenising/manifest.json",
+    "successfulDirectBodies": "two Wiki Homogenising pages, Desecrated Wiki, PoE2DB Omen and Desecrated Modifiers",
+    "officialRead": "web tool read succeeded; direct Docker capture HTTP403, no bypass",
+    "taglessEvidenceStrength": "Wiki Mechanics plus linked user bug report; no staff confirmation in that report",
+    "latestReintroduction": "No positive official evidence found; current drops not asserted"
+  },
+  "commitLocation": "Final local commit SHA is recorded in codex/NEXT_CHAT_HANDOFF_20261003.md outside the repository."
+}

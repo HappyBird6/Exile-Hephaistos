@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "snapshotId": "stocky-perfect-grounding-opulence-2026-10-03-27d72d44f22c",
+    "retrievedAt": "2026-10-03T06:33:04.092Z",
+    "sourceUrl": "https://poe2db.tw/us/Gloves_str#ModifiersCalc",
+    "rawSha256": "27d72d44f22ce03d63626b3a93d49d1430fdd833a2dae5fc4c9760962a688d30"
+  },
+  "modifiers": [
+    {
+      "id": "stocky-mitts:suffix:essence-lightning-recoup",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningDamageTakenRecoupedAsLife"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(26—30)% of Lightning Damage taken Recouped as Life",
+      "stats": [
+        {
+          "max": 30,
+          "min": 26,
+          "id": "lightning_damage_taken_goes_to_life_over_4_seconds_%"
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceLightningRecoupLife1"
+    },
+    {
+      "id": "stocky-mitts:suffix:essence-gold-quantity",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EssenceGoldDropped"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(10—15)% increased Quantity of Gold Dropped by Slain Enemies",
+      "stats": [
+        {
+          "max": 15,
+          "min": 10,
+          "id": "gold_+%_from_enemies"
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceGoldDropped1"
+    }
+  ]
+}

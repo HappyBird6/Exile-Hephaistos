@@ -1,3 +1,12 @@
+Latest checkpoint: [Rattling Sceptre and four Command Essences](workbench-rattling-sceptre-2026-10-03.md), overall116 / current-scope155: implemented108, pending47, excluded65. Earlier counts describe their dated checkpoints.
+
+Latest checkpoint: [bounded Attuned Wand and11 Essence paths](workbench-attuned-wand-2026-10-03.md), overall109 / current-scope155: implemented101, pending54, excluded65. Prior counts below describe their dated checkpoints.
+
+Latest checkpoint: [six Bow Perfect Essences](workbench-bow-perfect-2026-10-03.md), overall101 / current-scope155: implemented93, pending62, excluded65. Earlier counts and candidate statements below describe their dated checkpoints.
+
+Latest runtime: [Crude Bow v1 and three-base compatibility](workbench-crude-bow-2026-10-03.md); overall implemented95, current-scope155/87/68, same65 exclusions. The Artificer75 and earlier counts below are historical checkpoints.
+
+> Current 2026-10-03 checkpoint: Solar rules v16, Stocky `stocky-workbench-artificer-v26`; registered220 / implemented75. Ordinary Stocky Artificer adds one empty socket, legacy count unknown stays unknown. [Delivery and executed checks](workbench-stocky-artificer-2026-10-03.md), [current user development scope155/67/88](workbench-development-deferrals-2026-10-03.md). Historical v1/v2 sections below are not current implementation counts.
 # Solar Amulet Workbench simulator
 
 현재 활성 규칙은 `solar-workbench-affix-v2`, registry는 `equipment-crafting-registry-v2`다. 아래의 첫 구현 단계 설명은 v1 기록이며, 현재 지원 범위는 이 절과 [전체 목록](workbench-support-v2.md)을 따른다.

@@ -1,0 +1,169 @@
+{
+  "comparison": [
+    {
+      "id": "Sceptres",
+      "source": "https://poe2db.tw/us/Sceptres",
+      "reusedSource": true,
+      "sourceHtmlSha256": "e4bfd63c056c5f5c65c4d72ff74edde3d6e3db09be7987558eac4296f11a8993",
+      "reviewedAt": "2026-10-03T16:01:12.619Z",
+      "normalRows": 150,
+      "candidateCodes": 346,
+      "missingCodeRows": [],
+      "missingOrNonPositiveWeights": 0,
+      "remainingEssence": [
+        {
+          "id": "Lesser_Essence_of_Command",
+          "blockedDependency": null
+        },
+        {
+          "id": "Essence_of_Command",
+          "blockedDependency": null
+        },
+        {
+          "id": "Greater_Essence_of_Command",
+          "blockedDependency": null
+        },
+        {
+          "id": "Perfect_Essence_of_Command",
+          "blockedDependency": null
+        }
+      ],
+      "boundedRemainingEssence": 4
+    },
+    {
+      "id": "Rings",
+      "source": "https://poe2db.tw/us/Rings",
+      "reusedSource": false,
+      "sourceHtmlSha256": "9985f9ee54336536d253294e8c707a8da38bb67b17981f419074467fe6bced40",
+      "reviewedAt": "2026-10-03T16:01:14.915Z",
+      "normalRows": 203,
+      "candidateCodes": 391,
+      "missingCodeRows": [],
+      "missingOrNonPositiveWeights": 0,
+      "remainingEssence": [
+        {
+          "id": "Perfect_Essence_of_the_Mind",
+          "blockedDependency": null
+        }
+      ],
+      "boundedRemainingEssence": 1
+    },
+    {
+      "id": "Belts",
+      "source": "https://poe2db.tw/us/Belts",
+      "reusedSource": false,
+      "sourceHtmlSha256": "e93924b6a5203ebd031e14b559501859f24bfc00dd11c9534fbea939699140bf",
+      "reviewedAt": "2026-10-03T16:01:16.461Z",
+      "normalRows": 135,
+      "candidateCodes": 165,
+      "missingCodeRows": [],
+      "missingOrNonPositiveWeights": 0,
+      "remainingEssence": [
+        {
+          "id": "Essence_of_Insanity",
+          "blockedDependency": "Vaal corruption operation is user-deferred; enchantment eligibility and paired outcomes unverified"
+        },
+        {
+          "id": "Perfect_Essence_of_Insulation",
+          "blockedDependency": null
+        }
+      ],
+      "boundedRemainingEssence": 1
+    },
+    {
+      "id": "Helmets_str",
+      "source": "https://poe2db.tw/us/Helmets_str",
+      "reusedSource": false,
+      "sourceHtmlSha256": "b4c8aad2c404cf0126c906473108ae9dac90a45483f8dda2a9a1a443e5a6f160",
+      "reviewedAt": "2026-10-03T16:01:17.736Z",
+      "normalRows": 137,
+      "candidateCodes": 200,
+      "missingCodeRows": [],
+      "missingOrNonPositiveWeights": 0,
+      "remainingEssence": [
+        {
+          "id": "Perfect_Essence_of_Thawing",
+          "blockedDependency": null
+        }
+      ],
+      "boundedRemainingEssence": 1
+    }
+  ],
+  "selected": "Rattling Sceptre",
+  "rationale": "One base supports four bounded Command tiers; other targets only one each, and Insanity excluded from viable count. Reuses collected Sceptre table and Rattling base facts, existing detailed modifier cache and shared engine.",
+  "selectedLookupCache": {
+    "candidateCodes": 346,
+    "cachedCodes": 141,
+    "newLookups": 205
+  },
+  "selectedBase": "Rattling Sceptre, FourSceptre1",
+  "resolvedDetailRows": 150,
+  "selectedDetailCost": {
+    "fetched": 205,
+    "reused": 141,
+    "unresolved": [],
+    "exactUniqueMatches": 150,
+    "candidates": 346
+  },
+  "interpretation": "Historical cost comparison before Sceptre expansion; original remainingEssence rows are not current support status. Sceptre, Rawhide Belt, Rusted Greathelm and Iron Ring now implement their bounded targets. Current44 pending are recorded in the active and post-Ring gap ledgers.",
+  "beltIntegration": {
+    "base": "Rawhide Belt, FourBelt1",
+    "normalRows": 135,
+    "exactUniqueMatches": 135,
+    "candidateCodes": 165,
+    "reusedDetailCodes": 119,
+    "newDetailLookups": 46,
+    "freshPrimarySha256": "1b3f70ffed129eaa76147f6b9ada273810d5f93da24e45fbf34943b50206191b",
+    "sourceRetrievedAt": "2026-10-03T16:47:38.798Z",
+    "implementedMaterial": "Perfect_Essence_of_Insulation",
+    "projection": "EXPLICIT_AFFIX_ONLY",
+    "variableImplicit": "UNKNOWN_UNMODELED",
+    "charmSlots": "UNKNOWN_UNMODELED",
+    "qualityMaximum": null,
+    "divine": "UNSUPPORTED_MODEL_INCOMPLETE"
+  },
+  "helmetIntegration": {
+    "base": "Rusted Greathelm, FourHelmetStr1",
+    "normalRows": 137,
+    "exactUniqueMatches": 137,
+    "candidateCodes": 200,
+    "reusedDetailCodes": 141,
+    "newDetailLookups": 59,
+    "freshPrimarySha256": "5ffa7e69dfeb94d16b76c194f83bedde83c88d5b82f107be0d6979f1b507e2d9",
+    "sourceRetrievedAt": "2026-10-03T17:38:07.186Z",
+    "implementedMaterial": "Perfect_Essence_of_Thawing",
+    "baseArmour": 29,
+    "qualityMaximum": 20,
+    "augmentSockets": null,
+    "numericModel": "UNVERIFIED"
+  },
+  "ringCandidateReview": {
+    "base": "Iron Ring, FourRing1",
+    "source": "https://poe2db.tw/us/Iron_Ring",
+    "sourceSha256": "3ba496ecc871f22d4aa960dcb9ba364d830b25c1aab5f248ca3769b659fc93ff",
+    "sourceRetrievedAt": "2026-10-03T17:38:30.042Z",
+    "normalRows": 203,
+    "candidateCodes": 391,
+    "newDetailLookupsBeforeHelmet": 106,
+    "implicit": "FIXED attack maximum added physical damage4 and minimum1",
+    "qualityMaximum": null,
+    "status": "HISTORICAL_CANDIDATE_NOW_INTEGRATED",
+    "selectionRationale": "Iron Ring DropLevel1, fixed integer endpoints; Unset Ring DropLevel44 with skill-slot scope. Prefer Iron for the next complete pool review.",
+    "newDetailLookupsAfterHelmet": 77
+  },
+  "ringIntegration": {
+    "base": "Iron Ring, FourRing1",
+    "normalRows": 203,
+    "exactUniqueMatches": 203,
+    "candidateCodes": 391,
+    "reusedDetailCodes": 314,
+    "newDetailLookups": 77,
+    "freshPrimarySha256": "a95e4378b42f02b92090e67cd5cb18e4ca12ae242925a538f5fdab4eb28645ad",
+    "sourceRetrievedAt": "2026-10-03T17:38:29.443Z",
+    "implementedMaterial": "Perfect_Essence_of_the_Mind",
+    "implicit": "FIXED_PHYSICAL_DAMAGE_1_TO_4",
+    "qualityMaximum": null,
+    "augmentSockets": null,
+    "numericModel": "UNVERIFIED"
+  }
+}

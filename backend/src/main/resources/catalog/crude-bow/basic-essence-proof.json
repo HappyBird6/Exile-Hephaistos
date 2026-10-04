@@ -1,0 +1,1113 @@
+[
+  {
+    "id": "Lesser_Essence_of_Abrasion",
+    "url": "https://poe2db.tw/us/Lesser_Essence_of_Abrasion",
+    "retrievedAt": "2026-10-03T12:19:44.870Z",
+    "sha256": "810f71cde02fc7d65a70ad09c6dc40294a9392c9dc2e830f3de58fd267c17271",
+    "target": [
+      "Bows",
+      "Adds (4—6) to (7—11) Physical Damage",
+      "Prefix",
+      "6"
+    ],
+    "card": "Lesser Essence of Abrasion Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierOne Handed Melee Weapon or Bow: Adds (4—6) to (7—11) Physical DamageTwo Handed Melee Weapon or Crossbow: Adds (5—8) to (10—15) Physical Damage Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "matchedModifierIds": [
+      "crude-bow:prefix:burnished"
+    ],
+    "essenceRow": {
+      "type": "essence",
+      "Level": "8",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>",
+        "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+      ],
+      "fossil_no": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/d10ae1ada3468d01c962fcfb8f567090e73b49e69526fa5262ac8afd365d676a\" href=\"Lesser_Essence_of_Abrasion\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/PhysicalEssenceLesser.webp\" alt=\"PhysicalEssenceLesser\" height=\"16\" />Lesser Essence of Abrasion</a>",
+      "Code": "LocalAddedPhysicalDamage2",
+      "ModFamilyList": [
+        "PhysicalDamage"
+      ],
+      "str": "Adds <span class='mod-value'>(4<span class=\"ndash\">—</span>6)</span> to <span class='mod-value'>(7<span class=\"ndash\">—</span>11)</span> <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage",
+      "adds_no": [],
+      "spawn_no": [
+        "bow",
+        "one_hand_weapon",
+        "default"
+      ],
+      "reqlvl": 6,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "minimumSupportedItemLevel": 8,
+    "requiredCharacterLevel": 6
+  },
+  {
+    "id": "Essence_of_Abrasion",
+    "url": "https://poe2db.tw/us/Essence_of_Abrasion",
+    "retrievedAt": "2026-10-03T12:19:45.342Z",
+    "sha256": "50f8f43c79fb9816a089139ee31473ee16e0f557483b56f94ceca07038500e6a",
+    "target": [
+      "Bows",
+      "Adds (10—15) to (18—26) Physical Damage",
+      "Prefix",
+      "36"
+    ],
+    "card": "Essence of Abrasion Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierOne Handed Melee Weapon or Bow: Adds (10—15) to (18—26) Physical DamageTwo Handed Melee Weapon or Crossbow: Adds (14—21) to (25—37) Physical Damage Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "matchedModifierIds": [
+      "crude-bow:prefix:gleaming"
+    ],
+    "essenceRow": {
+      "type": "essence",
+      "Level": "46",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>",
+        "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+      ],
+      "fossil_no": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/dff588e74c571535109e44ce656fa18ba9b6195ae693f0f346ecf4f85b90e6af\" href=\"Essence_of_Abrasion\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/PhysicalEssence.webp\" alt=\"PhysicalEssence\" height=\"16\" />Essence of Abrasion</a>",
+      "Code": "LocalAddedPhysicalDamage5",
+      "ModFamilyList": [
+        "PhysicalDamage"
+      ],
+      "str": "Adds <span class='mod-value'>(10<span class=\"ndash\">—</span>15)</span> to <span class='mod-value'>(18<span class=\"ndash\">—</span>26)</span> <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage",
+      "adds_no": [],
+      "spawn_no": [
+        "bow",
+        "one_hand_weapon",
+        "default"
+      ],
+      "reqlvl": 36,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "minimumSupportedItemLevel": 46,
+    "requiredCharacterLevel": 36
+  },
+  {
+    "id": "Greater_Essence_of_Abrasion",
+    "url": "https://poe2db.tw/us/Greater_Essence_of_Abrasion",
+    "retrievedAt": "2026-10-03T12:19:45.960Z",
+    "sha256": "a439ba176fd3ab563083506bcaebf5d400a7bdae87dfc76c86cfc556f3cb0803",
+    "target": [
+      "Bows",
+      "Adds (16—24) to (28—42) Physical Damage",
+      "Prefix",
+      "48"
+    ],
+    "card": "Greater Essence of Abrasion Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierOne Handed Melee Weapon or Bow: Adds (16—24) to (28—42) Physical DamageTwo Handed Melee Weapon or Crossbow: Adds (23—35) to (39—59) Physical Damage Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "matchedModifierIds": [
+      "crude-bow:prefix:razor-sharp"
+    ],
+    "essenceRow": {
+      "type": "essence",
+      "Level": "60",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>",
+        "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+      ],
+      "fossil_no": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/70a00baf733e7a3ef9fdeba23378b558d549d815251ef924762eeee738d875cc\" href=\"Greater_Essence_of_Abrasion\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterPhysicalEssence.webp\" alt=\"GreaterPhysicalEssence\" height=\"16\" />Greater Essence of Abrasion</a>",
+      "Code": "LocalAddedPhysicalDamage7",
+      "ModFamilyList": [
+        "PhysicalDamage"
+      ],
+      "str": "Adds <span class='mod-value'>(16<span class=\"ndash\">—</span>24)</span> to <span class='mod-value'>(28<span class=\"ndash\">—</span>42)</span> <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage",
+      "adds_no": [],
+      "spawn_no": [
+        "bow",
+        "one_hand_weapon",
+        "default"
+      ],
+      "reqlvl": 48,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "minimumSupportedItemLevel": 60,
+    "requiredCharacterLevel": 48
+  },
+  {
+    "id": "Lesser_Essence_of_Flames",
+    "url": "https://poe2db.tw/us/Lesser_Essence_of_Flames",
+    "retrievedAt": "2026-10-03T12:19:46.409Z",
+    "sha256": "d096f179e1f478e78578a21cb086ea4014578165f982b22a7183cb095b1facdb",
+    "target": [
+      "Bows",
+      "Adds (4—6) to (7—10) Fire Damage",
+      "Prefix",
+      "6"
+    ],
+    "card": "Lesser Essence of Flames Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierOne Handed Melee Weapon or Bow: Adds (4—6) to (7—10) Fire DamageTwo Handed Melee Weapon or Crossbow: Adds (6—9) to (10—16) Fire Damage Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "matchedModifierIds": [
+      "crude-bow:prefix:smouldering"
+    ],
+    "essenceRow": {
+      "type": "essence",
+      "Level": "8",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+        "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+      ],
+      "fossil_no": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/493ace34775cb6c02ccb0038645f89740da3cc1d325d6be4d9b13729c7170477\" href=\"Lesser_Essence_of_Flames\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/FireEssenceLesser.webp\" alt=\"FireEssenceLesser\" height=\"16\" />Lesser Essence of Flames</a>",
+      "Code": "LocalAddedFireDamage2",
+      "ModFamilyList": [
+        "FireDamage"
+      ],
+      "str": "Adds <span class='mod-value'>(4<span class=\"ndash\">—</span>6)</span> to <span class='mod-value'>(7<span class=\"ndash\">—</span>10)</span> <a data-keyword=\"Fire\" href=\"Fire_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/b5d8acaae74359659060318919bfa3de84e8587e6fa6487df3f2423250d85c87\">Fire</a> Damage",
+      "adds_no": [],
+      "spawn_no": [
+        "bow",
+        "two_hand_weapon",
+        "sword",
+        "axe",
+        "mace",
+        "spear",
+        "claw",
+        "dagger",
+        "flail",
+        "default"
+      ],
+      "reqlvl": 6,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "minimumSupportedItemLevel": 8,
+    "requiredCharacterLevel": 6
+  },
+  {
+    "id": "Essence_of_Flames",
+    "url": "https://poe2db.tw/us/Essence_of_Flames",
+    "retrievedAt": "2026-10-03T12:19:47.169Z",
+    "sha256": "70864eab1474345edd77b06b6674cb2c9709f99b49d2fcdd9cb99fb34e80424f",
+    "target": [
+      "Bows",
+      "Adds (20—24) to (32—37) Fire Damage",
+      "Prefix",
+      "36"
+    ],
+    "card": "Essence of Flames Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierOne Handed Melee Weapon or Bow: Adds (20—24) to (32—37) Fire DamageTwo Handed Melee Weapon or Crossbow: Adds (30—37) to (45—56) Fire Damage Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "matchedModifierIds": [
+      "crude-bow:prefix:flaming"
+    ],
+    "essenceRow": {
+      "type": "essence",
+      "Level": "46",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+        "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+      ],
+      "fossil_no": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/72ddfd09a2781cddf6431f91de48f5ebc2f8ebdb31d158f7b6713074cad6db8d\" href=\"Essence_of_Flames\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/FireEssence.webp\" alt=\"FireEssence\" height=\"16\" />Essence of Flames</a>",
+      "Code": "LocalAddedFireDamage5",
+      "ModFamilyList": [
+        "FireDamage"
+      ],
+      "str": "Adds <span class='mod-value'>(20<span class=\"ndash\">—</span>24)</span> to <span class='mod-value'>(32<span class=\"ndash\">—</span>37)</span> <a data-keyword=\"Fire\" href=\"Fire_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/b5d8acaae74359659060318919bfa3de84e8587e6fa6487df3f2423250d85c87\">Fire</a> Damage",
+      "adds_no": [],
+      "spawn_no": [
+        "bow",
+        "two_hand_weapon",
+        "sword",
+        "axe",
+        "mace",
+        "spear",
+        "claw",
+        "dagger",
+        "flail",
+        "default"
+      ],
+      "reqlvl": 36,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "minimumSupportedItemLevel": 46,
+    "requiredCharacterLevel": 36
+  },
+  {
+    "id": "Greater_Essence_of_Flames",
+    "url": "https://poe2db.tw/us/Greater_Essence_of_Flames",
+    "retrievedAt": "2026-10-03T12:19:51.309Z",
+    "sha256": "964e0b8054a428a3a97922c8a021357fc3ba70454e05368595480a47191f1409",
+    "target": [
+      "Bows",
+      "Adds (35—44) to (56—71) Fire Damage",
+      "Prefix",
+      "48"
+    ],
+    "card": "Greater Essence of Flames Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierOne Handed Melee Weapon or Bow: Adds (35—44) to (56—71) Fire DamageTwo Handed Melee Weapon or Crossbow: Adds (56—70) to (84—107) Fire Damage Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "matchedModifierIds": [
+      "crude-bow:prefix:incinerating"
+    ],
+    "essenceRow": {
+      "type": "essence",
+      "Level": "60",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+        "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+      ],
+      "fossil_no": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/f097aaf9a9710de2d7f28ba39a582ebba3bd8c4fd5cd3766c7215b0cda5a70df\" href=\"Greater_Essence_of_Flames\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterFireEssence.webp\" alt=\"GreaterFireEssence\" height=\"16\" />Greater Essence of Flames</a>",
+      "Code": "LocalAddedFireDamage7",
+      "ModFamilyList": [
+        "FireDamage"
+      ],
+      "str": "Adds <span class='mod-value'>(35<span class=\"ndash\">—</span>44)</span> to <span class='mod-value'>(56<span class=\"ndash\">—</span>71)</span> <a data-keyword=\"Fire\" href=\"Fire_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/b5d8acaae74359659060318919bfa3de84e8587e6fa6487df3f2423250d85c87\">Fire</a> Damage",
+      "adds_no": [],
+      "spawn_no": [
+        "bow",
+        "two_hand_weapon",
+        "sword",
+        "axe",
+        "mace",
+        "spear",
+        "claw",
+        "dagger",
+        "flail",
+        "default"
+      ],
+      "reqlvl": 48,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "minimumSupportedItemLevel": 60,
+    "requiredCharacterLevel": 48
+  },
+  {
+    "id": "Lesser_Essence_of_Ice",
+    "url": "https://poe2db.tw/us/Lesser_Essence_of_Ice",
+    "retrievedAt": "2026-10-03T12:19:55.406Z",
+    "sha256": "5fca46681deb39882376254c437356936b53740e8e24fa212ea2e7ef74af99b1",
+    "target": [
+      "Bows",
+      "Adds (3—5) to (6—9) Cold Damage",
+      "Prefix",
+      "6"
+    ],
+    "card": "Lesser Essence of Ice Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierOne Handed Melee Weapon or Bow: Adds (3—5) to (6—9) Cold DamageTwo Handed Melee Weapon or Crossbow: Adds (5—8) to (9—14) Cold Damage Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "matchedModifierIds": [
+      "crude-bow:prefix:chilled"
+    ],
+    "essenceRow": {
+      "type": "essence",
+      "Level": "8",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+        "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+      ],
+      "fossil_no": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/a3f21853b98da6e0dd53e668e1372acd064756e59d6a293870c8f591cb55c62a\" href=\"Lesser_Essence_of_Ice\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/ColdEssenceLesser.webp\" alt=\"ColdEssenceLesser\" height=\"16\" />Lesser Essence of Ice</a>",
+      "Code": "LocalAddedColdDamage2",
+      "ModFamilyList": [
+        "ColdDamage"
+      ],
+      "str": "Adds <span class='mod-value'>(3<span class=\"ndash\">—</span>5)</span> to <span class='mod-value'>(6<span class=\"ndash\">—</span>9)</span> <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage",
+      "adds_no": [],
+      "spawn_no": [
+        "bow",
+        "two_hand_weapon",
+        "sword",
+        "axe",
+        "mace",
+        "spear",
+        "claw",
+        "dagger",
+        "flail",
+        "default"
+      ],
+      "reqlvl": 6,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "minimumSupportedItemLevel": 8,
+    "requiredCharacterLevel": 6
+  },
+  {
+    "id": "Essence_of_Ice",
+    "url": "https://poe2db.tw/us/Essence_of_Ice",
+    "retrievedAt": "2026-10-03T12:19:55.860Z",
+    "sha256": "3fdfe6fb4c7cf532cfcd3d8c3189d52ce92ba2d19bea28dc6139635c542e8ecf",
+    "target": [
+      "Bows",
+      "Adds (17—20) to (26—32) Cold Damage",
+      "Prefix",
+      "36"
+    ],
+    "card": "Essence of Ice Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierOne Handed Melee Weapon or Bow: Adds (17—20) to (26—32) Cold DamageTwo Handed Melee Weapon or Crossbow: Adds (25—30) to (38—46) Cold Damage Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "matchedModifierIds": [
+      "crude-bow:prefix:freezing"
+    ],
+    "essenceRow": {
+      "type": "essence",
+      "Level": "46",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+        "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+      ],
+      "fossil_no": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/0d70ff7cc1564da9e29e7e6997f68481148eafba7d8704e5b33e9f3ecae5e618\" href=\"Essence_of_Ice\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/ColdEssence.webp\" alt=\"ColdEssence\" height=\"16\" />Essence of Ice</a>",
+      "Code": "LocalAddedColdDamage5",
+      "ModFamilyList": [
+        "ColdDamage"
+      ],
+      "str": "Adds <span class='mod-value'>(17<span class=\"ndash\">—</span>20)</span> to <span class='mod-value'>(26<span class=\"ndash\">—</span>32)</span> <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage",
+      "adds_no": [],
+      "spawn_no": [
+        "bow",
+        "two_hand_weapon",
+        "sword",
+        "axe",
+        "mace",
+        "spear",
+        "claw",
+        "dagger",
+        "flail",
+        "default"
+      ],
+      "reqlvl": 36,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "minimumSupportedItemLevel": 46,
+    "requiredCharacterLevel": 36
+  },
+  {
+    "id": "Greater_Essence_of_Ice",
+    "url": "https://poe2db.tw/us/Greater_Essence_of_Ice",
+    "retrievedAt": "2026-10-03T12:20:00.907Z",
+    "sha256": "f1ed959964a7fe7176498f6dbdb7e5b235476d4d88a59354f406947a0443fced",
+    "target": [
+      "Bows",
+      "Adds (31—38) to (47—59) Cold Damage",
+      "Prefix",
+      "48"
+    ],
+    "card": "Greater Essence of Ice Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierOne Handed Melee Weapon or Bow: Adds (31—38) to (47—59) Cold DamageTwo Handed Melee Weapon or Crossbow: Adds (46—57) to (70—88) Cold Damage Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "matchedModifierIds": [
+      "crude-bow:prefix:glaciated"
+    ],
+    "essenceRow": {
+      "type": "essence",
+      "Level": "60",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+        "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+      ],
+      "fossil_no": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/5b602a5b19f4f39ae4200f58467e9b8e6b731c7a266e31438e8fb7b1e7f0144f\" href=\"Greater_Essence_of_Ice\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterColdEssence.webp\" alt=\"GreaterColdEssence\" height=\"16\" />Greater Essence of Ice</a>",
+      "Code": "LocalAddedColdDamage7",
+      "ModFamilyList": [
+        "ColdDamage"
+      ],
+      "str": "Adds <span class='mod-value'>(31<span class=\"ndash\">—</span>38)</span> to <span class='mod-value'>(47<span class=\"ndash\">—</span>59)</span> <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage",
+      "adds_no": [],
+      "spawn_no": [
+        "bow",
+        "two_hand_weapon",
+        "sword",
+        "axe",
+        "mace",
+        "spear",
+        "claw",
+        "dagger",
+        "flail",
+        "default"
+      ],
+      "reqlvl": 48,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "minimumSupportedItemLevel": 60,
+    "requiredCharacterLevel": 48
+  },
+  {
+    "id": "Lesser_Essence_of_Electricity",
+    "url": "https://poe2db.tw/us/Lesser_Essence_of_Electricity",
+    "retrievedAt": "2026-10-03T12:20:01.318Z",
+    "sha256": "73391a86012e620c8980d8561eca1769ee230de7b43da0f3b3fd3e67c96e57eb",
+    "target": [
+      "Bows",
+      "Adds 1 to (13—19) Lightning Damage",
+      "Prefix",
+      "6"
+    ],
+    "card": "Lesser Essence of Electricity Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierOne Handed Melee Weapon or Bow: Adds 1 to (13—19) Lightning DamageTwo Handed Melee Weapon or Crossbow: Adds (1—2) to (19—27) Lightning Damage Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "matchedModifierIds": [
+      "crude-bow:prefix:buzzing"
+    ],
+    "essenceRow": {
+      "type": "essence",
+      "Level": "8",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+        "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+      ],
+      "fossil_no": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/17f956e5131b40c241477724e42cebf1ff79454860af15c6ed562131b0388889\" href=\"Lesser_Essence_of_Electricity\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/LightningEssenceLesser.webp\" alt=\"LightningEssenceLesser\" height=\"16\" />Lesser Essence of Electricity</a>",
+      "Code": "LocalAddedLightningDamage2",
+      "ModFamilyList": [
+        "LightningDamage"
+      ],
+      "str": "Adds <span class='mod-value'>1</span> to <span class='mod-value'>(13<span class=\"ndash\">—</span>19)</span> <a data-keyword=\"Lightning\" href=\"Lightning_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1d5815b2f2bd5f23d99d435288c3b41e79adf38037cf8d2a266bc276f527201d\">Lightning</a> Damage",
+      "adds_no": [],
+      "spawn_no": [
+        "bow",
+        "two_hand_weapon",
+        "sword",
+        "axe",
+        "mace",
+        "spear",
+        "claw",
+        "dagger",
+        "flail",
+        "default"
+      ],
+      "reqlvl": 6,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "minimumSupportedItemLevel": 8,
+    "requiredCharacterLevel": 6
+  },
+  {
+    "id": "Essence_of_Electricity",
+    "url": "https://poe2db.tw/us/Essence_of_Electricity",
+    "retrievedAt": "2026-10-03T12:20:01.780Z",
+    "sha256": "7944d5986e51cbe6a44d8285864bdac61250a539d706ea36d7bf2f44fbafdf57",
+    "target": [
+      "Bows",
+      "Adds (1—3) to (55—60) Lightning Damage",
+      "Prefix",
+      "36"
+    ],
+    "card": "Essence of Electricity Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierOne Handed Melee Weapon or Bow: Adds (1—3) to (55—60) Lightning DamageTwo Handed Melee Weapon or Crossbow: Adds (1—4) to (80—88) Lightning Damage Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "matchedModifierIds": [
+      "crude-bow:prefix:sparking"
+    ],
+    "essenceRow": {
+      "type": "essence",
+      "Level": "46",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+        "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+      ],
+      "fossil_no": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/3738de34c8854a7ffa331f0be1e2e2c47457a98cc02e4cd4c3bfa77b33e5efe1\" href=\"Essence_of_Electricity\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/LightningEssence.webp\" alt=\"LightningEssence\" height=\"16\" />Essence of Electricity</a>",
+      "Code": "LocalAddedLightningDamage5",
+      "ModFamilyList": [
+        "LightningDamage"
+      ],
+      "str": "Adds <span class='mod-value'>(1<span class=\"ndash\">—</span>3)</span> to <span class='mod-value'>(55<span class=\"ndash\">—</span>60)</span> <a data-keyword=\"Lightning\" href=\"Lightning_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1d5815b2f2bd5f23d99d435288c3b41e79adf38037cf8d2a266bc276f527201d\">Lightning</a> Damage",
+      "adds_no": [],
+      "spawn_no": [
+        "bow",
+        "two_hand_weapon",
+        "sword",
+        "axe",
+        "mace",
+        "spear",
+        "claw",
+        "dagger",
+        "flail",
+        "default"
+      ],
+      "reqlvl": 36,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "minimumSupportedItemLevel": 46,
+    "requiredCharacterLevel": 36
+  },
+  {
+    "id": "Greater_Essence_of_Electricity",
+    "url": "https://poe2db.tw/us/Greater_Essence_of_Electricity",
+    "retrievedAt": "2026-10-03T12:20:03.159Z",
+    "sha256": "e897c2a9532ac653c83c9121e32a8cee67af0dcd38c9b6bec37c6e52dfd55cf3",
+    "target": [
+      "Bows",
+      "Adds (1—6) to (85—107) Lightning Damage",
+      "Prefix",
+      "48"
+    ],
+    "card": "Greater Essence of Electricity Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierOne Handed Melee Weapon or Bow: Adds (1—6) to (85—107) Lightning DamageTwo Handed Melee Weapon or Crossbow: Adds (1—8) to (128—162) Lightning Damage Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "matchedModifierIds": [
+      "crude-bow:prefix:shocking"
+    ],
+    "essenceRow": {
+      "type": "essence",
+      "Level": "60",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+        "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+      ],
+      "fossil_no": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/e72a06ee7840f92d3249b352924303418ef57af7a09ea44394a4e1d5c9d56ab4\" href=\"Greater_Essence_of_Electricity\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterLightningEssence.webp\" alt=\"GreaterLightningEssence\" height=\"16\" />Greater Essence of Electricity</a>",
+      "Code": "LocalAddedLightningDamage7",
+      "ModFamilyList": [
+        "LightningDamage"
+      ],
+      "str": "Adds <span class='mod-value'>(1<span class=\"ndash\">—</span>6)</span> to <span class='mod-value'>(85<span class=\"ndash\">—</span>107)</span> <a data-keyword=\"Lightning\" href=\"Lightning_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1d5815b2f2bd5f23d99d435288c3b41e79adf38037cf8d2a266bc276f527201d\">Lightning</a> Damage",
+      "adds_no": [],
+      "spawn_no": [
+        "bow",
+        "two_hand_weapon",
+        "sword",
+        "axe",
+        "mace",
+        "spear",
+        "claw",
+        "dagger",
+        "flail",
+        "default"
+      ],
+      "reqlvl": 48,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "minimumSupportedItemLevel": 60,
+    "requiredCharacterLevel": 48
+  },
+  {
+    "id": "Lesser_Essence_of_Battle",
+    "url": "https://poe2db.tw/us/Lesser_Essence_of_Battle",
+    "retrievedAt": "2026-10-03T12:20:03.603Z",
+    "sha256": "ea4604bdb483336b155719ea8d40f45942884b636b2718a7be8965ebde88fd03",
+    "target": [
+      "Bows",
+      "+(61—84) to Accuracy Rating",
+      "Prefix",
+      "14"
+    ],
+    "card": "Lesser Essence of Battle Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierMartial Weapon: +(61—84) to Accuracy Rating Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "matchedModifierIds": [
+      "crude-bow:prefix:focused"
+    ],
+    "essenceRow": {
+      "type": "essence",
+      "Level": "18",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+      ],
+      "fossil_no": [
+        "attack"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/ec6292c906bf38f08170c03855c56e698c581f530b53fb8668d50b6f3fc64fe6\" href=\"Lesser_Essence_of_Battle\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/AttackEssenceLesser.webp\" alt=\"AttackEssenceLesser\" height=\"16\" />Lesser Essence of Battle</a>",
+      "Code": "LocalIncreasedAccuracy3",
+      "ModFamilyList": [
+        "IncreasedAccuracy"
+      ],
+      "str": "<span class='mod-value'>+(61<span class=\"ndash\">—</span>84)</span> to <a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/4a439d13631e43c7f47aab345a7e6b64877fb0209f2c42901d14cd9d9f36da1c\">Accuracy</a> Rating",
+      "adds_no": [],
+      "spawn_no": [
+        "weapon",
+        "default"
+      ],
+      "reqlvl": 14,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "minimumSupportedItemLevel": 18,
+    "requiredCharacterLevel": 14
+  },
+  {
+    "id": "Essence_of_Battle",
+    "url": "https://poe2db.tw/us/Essence_of_Battle",
+    "retrievedAt": "2026-10-03T12:20:04.042Z",
+    "sha256": "a7281b8d16a2fe1697926d37459025a581b1742b58b2719a9015876e79ca6864",
+    "target": [
+      "Bows",
+      "+(124—167) to Accuracy Rating",
+      "Prefix",
+      "28"
+    ],
+    "card": "Essence of Battle Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierMartial Weapon: +(124—167) to Accuracy Rating Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "matchedModifierIds": [
+      "crude-bow:prefix:consistent"
+    ],
+    "essenceRow": {
+      "type": "essence",
+      "Level": "36",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+      ],
+      "fossil_no": [
+        "attack"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/1a18c3b9c9adfa240872cdbe1ed59ed7fc4c6493566285a9e2f3f1397b8d7c70\" href=\"Essence_of_Battle\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/AttackEssence.webp\" alt=\"AttackEssence\" height=\"16\" />Essence of Battle</a>",
+      "Code": "LocalIncreasedAccuracy5",
+      "ModFamilyList": [
+        "IncreasedAccuracy"
+      ],
+      "str": "<span class='mod-value'>+(124<span class=\"ndash\">—</span>167)</span> to <a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/4a439d13631e43c7f47aab345a7e6b64877fb0209f2c42901d14cd9d9f36da1c\">Accuracy</a> Rating",
+      "adds_no": [],
+      "spawn_no": [
+        "weapon",
+        "default"
+      ],
+      "reqlvl": 28,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "minimumSupportedItemLevel": 36,
+    "requiredCharacterLevel": 28
+  },
+  {
+    "id": "Greater_Essence_of_Battle",
+    "url": "https://poe2db.tw/us/Greater_Essence_of_Battle",
+    "retrievedAt": "2026-10-03T12:20:06.633Z",
+    "sha256": "2266b3062592a33a15984e85bda9cb11d85a0ebf987e3f6f7f86fd08b4f81535",
+    "target": [
+      "Bows",
+      "+(237—346) to Accuracy Rating",
+      "Prefix",
+      "46"
+    ],
+    "card": "Greater Essence of Battle Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierMartial Weapon, Gloves or Quiver: +(237—346) to Accuracy Rating Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "matchedModifierIds": [
+      "crude-bow:prefix:hunter-s"
+    ],
+    "essenceRow": {
+      "type": "essence",
+      "Level": "58",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+      ],
+      "fossil_no": [
+        "attack"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/0bc1c1466504b5a60f287196af50be517d38ec81522bd291380a0a70b45aa5cc\" href=\"Greater_Essence_of_Battle\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterAttackEssence.webp\" alt=\"GreaterAttackEssence\" height=\"16\" />Greater Essence of Battle</a>",
+      "Code": "LocalIncreasedAccuracy7",
+      "ModFamilyList": [
+        "IncreasedAccuracy"
+      ],
+      "str": "<span class='mod-value'>+(237<span class=\"ndash\">—</span>346)</span> to <a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/4a439d13631e43c7f47aab345a7e6b64877fb0209f2c42901d14cd9d9f36da1c\">Accuracy</a> Rating",
+      "adds_no": [],
+      "spawn_no": [
+        "weapon",
+        "default"
+      ],
+      "reqlvl": 46,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "minimumSupportedItemLevel": 58,
+    "requiredCharacterLevel": 46
+  },
+  {
+    "id": "Lesser_Essence_of_Haste",
+    "url": "https://poe2db.tw/us/Lesser_Essence_of_Haste",
+    "retrievedAt": "2026-10-03T12:20:07.345Z",
+    "sha256": "ad1b3eb09be356630a8a9a8a7640203538121757f8a12e2eaddbb9485d33035e",
+    "target": [
+      "Bows",
+      "(8—10)% increased Attack Speed",
+      "Suffix",
+      "8"
+    ],
+    "card": "Lesser Essence of Haste Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierMelee Weapon: (11—13)% increased Attack SpeedBow or Crossbow: (8—10)% increased Attack Speed Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "matchedModifierIds": [
+      "crude-bow:suffix:of-ease"
+    ],
+    "essenceRow": {
+      "type": "essence",
+      "Level": "11",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>",
+        "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+      ],
+      "fossil_no": [
+        "attack",
+        "speed"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/e490fe051a5f908835132c051baec65db0a2e20974db199755bb3d772db906f1\" href=\"Lesser_Essence_of_Haste\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/SpeedEssenceLesser.webp\" alt=\"SpeedEssenceLesser\" height=\"16\" />Lesser Essence of Haste</a>",
+      "Code": "LocalIncreasedAttackSpeed2",
+      "ModFamilyList": [
+        "IncreasedAttackSpeed"
+      ],
+      "str": "<span class='mod-value'>(8<span class=\"ndash\">—</span>10)</span>% increased <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attack</a> Speed",
+      "adds_no": [],
+      "spawn_no": [
+        "weapon",
+        "default"
+      ],
+      "reqlvl": 8,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "minimumSupportedItemLevel": 11,
+    "requiredCharacterLevel": 8
+  },
+  {
+    "id": "Essence_of_Haste",
+    "url": "https://poe2db.tw/us/Essence_of_Haste",
+    "retrievedAt": "2026-10-03T12:20:09.645Z",
+    "sha256": "f36f9ecc98ac57164eeab280a6523aa3234ba97467bef40abd2b0e37e857bf88",
+    "target": [
+      "Bows",
+      "(11—13)% increased Attack Speed",
+      "Suffix",
+      "17"
+    ],
+    "card": "Essence of Haste Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierMelee Weapon: (17—19)% increased Attack SpeedBow or Crossbow: (11—13)% increased Attack Speed Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "matchedModifierIds": [
+      "crude-bow:suffix:of-mastery"
+    ],
+    "essenceRow": {
+      "type": "essence",
+      "Level": "22",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>",
+        "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+      ],
+      "fossil_no": [
+        "attack",
+        "speed"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/54b2e1470ebf7b35e46c426452b9f1009b8811609b34a5d125bfe0c89ae83ae3\" href=\"Essence_of_Haste\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/SpeedEssence.webp\" alt=\"SpeedEssence\" height=\"16\" />Essence of Haste</a>",
+      "Code": "LocalIncreasedAttackSpeed3",
+      "ModFamilyList": [
+        "IncreasedAttackSpeed"
+      ],
+      "str": "<span class='mod-value'>(11<span class=\"ndash\">—</span>13)</span>% increased <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attack</a> Speed",
+      "adds_no": [],
+      "spawn_no": [
+        "weapon",
+        "default"
+      ],
+      "reqlvl": 17,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "minimumSupportedItemLevel": 22,
+    "requiredCharacterLevel": 17
+  },
+  {
+    "id": "Greater_Essence_of_Haste",
+    "url": "https://poe2db.tw/us/Greater_Essence_of_Haste",
+    "retrievedAt": "2026-10-03T12:20:13.174Z",
+    "sha256": "eb866c8173f0bcc4bbf81d974b7f08257142f35d57daa8463240fabb9901489a",
+    "target": [
+      "Bows",
+      "(14—16)% increased Attack Speed",
+      "Suffix",
+      "24"
+    ],
+    "card": "Greater Essence of Haste Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierMelee Weapon: (23—25)% increased Attack SpeedBow or Crossbow: (14—16)% increased Attack Speed Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "matchedModifierIds": [
+      "crude-bow:suffix:of-renown"
+    ],
+    "essenceRow": {
+      "type": "essence",
+      "Level": "30",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>",
+        "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+      ],
+      "fossil_no": [
+        "attack",
+        "speed"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/3be1415285d111433cf000d22c62eaac55f7ade8a844dc6f94941e957592e23a\" href=\"Greater_Essence_of_Haste\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterSpeedEssence.webp\" alt=\"GreaterSpeedEssence\" height=\"16\" />Greater Essence of Haste</a>",
+      "Code": "LocalIncreasedAttackSpeed4",
+      "ModFamilyList": [
+        "IncreasedAttackSpeed"
+      ],
+      "str": "<span class='mod-value'>(14<span class=\"ndash\">—</span>16)</span>% increased <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attack</a> Speed",
+      "adds_no": [],
+      "spawn_no": [
+        "ranged",
+        "weapon",
+        "default"
+      ],
+      "reqlvl": 24,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "minimumSupportedItemLevel": 30,
+    "requiredCharacterLevel": 24
+  },
+  {
+    "id": "Lesser_Essence_of_Seeking",
+    "url": "https://poe2db.tw/us/Lesser_Essence_of_Seeking",
+    "retrievedAt": "2026-10-03T12:20:13.948Z",
+    "sha256": "499ce6d53b6c269a1f023f05f6816c217fc4ddfa8015adbf0b2ca08a9f1628ae",
+    "target": [
+      "Bows",
+      "+(1.51—2.1)% to Critical Hit Chance",
+      "Suffix",
+      "16"
+    ],
+    "card": "Lesser Essence of Seeking Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierMartial Weapon: +(1.51—2.1)% to Critical Hit ChanceFocus or Wand: (34—39)% increased Critical Hit Chance for SpellsStaff: (50—59)% increased Critical Hit Chance for Spells Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "matchedModifierIds": [
+      "crude-bow:suffix:of-havoc"
+    ],
+    "essenceRow": {
+      "type": "essence",
+      "Level": "20",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>",
+        "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+      ],
+      "fossil_no": [
+        "attack",
+        "critical"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/7e688aea571e4f5bcfb0599b3700ff006fbc282c23c806e6fd8480e8f71cc7e8\" href=\"Lesser_Essence_of_Seeking\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/CriticalEssenceLesser.webp\" alt=\"CriticalEssenceLesser\" height=\"16\" />Lesser Essence of Seeking</a>",
+      "Code": "LocalCriticalStrikeChance2",
+      "ModFamilyList": [
+        "CriticalStrikeChanceIncrease"
+      ],
+      "str": "<span class='mod-value'>+(1.51<span class=\"ndash\">—</span>2.1)</span>% to <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit</a> Chance",
+      "adds_no": [],
+      "spawn_no": [
+        "weapon",
+        "default"
+      ],
+      "reqlvl": 16,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "minimumSupportedItemLevel": 20,
+    "requiredCharacterLevel": 16
+  },
+  {
+    "id": "Essence_of_Seeking",
+    "url": "https://poe2db.tw/us/Essence_of_Seeking",
+    "retrievedAt": "2026-10-03T12:20:15.144Z",
+    "sha256": "b0dc7680d22120bea609c27ae111da0f4c7aae42c9e584be2c1bc9e817f64333",
+    "target": [
+      "Bows",
+      "+(2.11—2.7)% to Critical Hit Chance",
+      "Suffix",
+      "24"
+    ],
+    "card": "Essence of Seeking Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierMartial Weapon: +(2.11—2.7)% to Critical Hit ChanceFocus or Wand: (40—46)% increased Critical Hit Chance for SpellsStaff: (60—69)% increased Critical Hit Chance for Spells Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "matchedModifierIds": [
+      "crude-bow:suffix:of-disaster"
+    ],
+    "essenceRow": {
+      "type": "essence",
+      "Level": "30",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>",
+        "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+      ],
+      "fossil_no": [
+        "attack",
+        "critical"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/1ec7c44de949f30a9818a6b29499c3b0504de6f64c3355b7e01c719fa72667f6\" href=\"Essence_of_Seeking\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/CriticalEssence.webp\" alt=\"CriticalEssence\" height=\"16\" />Essence of Seeking</a>",
+      "Code": "LocalCriticalStrikeChance3",
+      "ModFamilyList": [
+        "CriticalStrikeChanceIncrease"
+      ],
+      "str": "<span class='mod-value'>+(2.11<span class=\"ndash\">—</span>2.7)</span>% to <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit</a> Chance",
+      "adds_no": [],
+      "spawn_no": [
+        "weapon",
+        "default"
+      ],
+      "reqlvl": 24,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "minimumSupportedItemLevel": 30,
+    "requiredCharacterLevel": 24
+  },
+  {
+    "id": "Greater_Essence_of_Seeking",
+    "url": "https://poe2db.tw/us/Greater_Essence_of_Seeking",
+    "retrievedAt": "2026-10-03T12:20:16.469Z",
+    "sha256": "e3224024c41fe5d2501b4ad6d35e72c492b81bf6c469fd0e2224ac9300283039",
+    "target": [
+      "Bows",
+      "+(3.11—3.8)% to Critical Hit Chance",
+      "Suffix",
+      "35"
+    ],
+    "card": "Greater Essence of Seeking Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierMartial Weapon: +(3.11—3.8)% to Critical Hit ChanceFocus or Wand: (47—53)% increased Critical Hit Chance for SpellsStaff: (70—79)% increased Critical Hit Chance for Spells Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "matchedModifierIds": [
+      "crude-bow:suffix:of-calamity"
+    ],
+    "essenceRow": {
+      "type": "essence",
+      "Level": "44",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>",
+        "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+      ],
+      "fossil_no": [
+        "attack",
+        "critical"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/6f447ea5a395329e6b05e3742260bd23b52027bcbac260ad501e31038b44ac83\" href=\"Greater_Essence_of_Seeking\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterCriticalEssence.webp\" alt=\"GreaterCriticalEssence\" height=\"16\" />Greater Essence of Seeking</a>",
+      "Code": "LocalCriticalStrikeChance4",
+      "ModFamilyList": [
+        "CriticalStrikeChanceIncrease"
+      ],
+      "str": "<span class='mod-value'>+(3.11<span class=\"ndash\">—</span>3.8)</span>% to <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit</a> Chance",
+      "adds_no": [],
+      "spawn_no": [
+        "weapon",
+        "default"
+      ],
+      "reqlvl": 35,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "minimumSupportedItemLevel": 44,
+    "requiredCharacterLevel": 35
+  }
+]

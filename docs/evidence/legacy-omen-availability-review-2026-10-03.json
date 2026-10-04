@@ -1,0 +1,16 @@
+{
+  "url": "https://www.pathofexile.com/forum/view-thread/3826682",
+  "checkedAt": "2026-10-03",
+  "verifiedTransport": "web reader",
+  "directDockerRetrievalStatus": 403,
+  "patch": "PoE2 0.3.0",
+  "discontinuedIds": [
+    "Omen_of_Greater_Annulment",
+    "Omen_of_Dextral_Alchemy",
+    "Omen_of_Sinistral_Alchemy",
+    "Omen_of_Dextral_Coronation",
+    "Omen_of_Sinistral_Coronation"
+  ],
+  "laterReintroduction": "UNVERIFIED",
+  "note": "Source presence is not current obtainability; no SHA for unavailable direct HTML is asserted."
+}

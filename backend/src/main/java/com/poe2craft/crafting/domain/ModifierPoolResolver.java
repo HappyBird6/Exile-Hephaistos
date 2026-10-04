@@ -61,8 +61,19 @@ public final class ModifierPoolResolver {
         state.rarity() == ItemState.Rarity.MAGIC
             ? catalog.base().magicSuffixes()
             : catalog.base().rareSuffixes();
+    if (com.poe2craft.item.BasicJewel.supportedCrafting(state.baseItemId())
+        && state.rarity() == ItemState.Rarity.RARE) {
+      p +=
+          com.poe2craft.item.BasicJewel.extra(
+              state.modifierIds(), ModifierDefinition.AffixType.PREFIX);
+      s +=
+          com.poe2craft.item.BasicJewel.extra(
+              state.modifierIds(), ModifierDefinition.AffixType.SUFFIX);
+    }
     if (prefixCount >= p) candidates.andNot(prefixes);
     if (suffixCount >= s) candidates.andNot(suffixes);
+    if (com.poe2craft.item.BasicJewel.supportedCrafting(state.baseItemId())
+        && prefixCount + suffixCount >= p + s) candidates.clear();
     var result = candidates.stream().mapToObj(definitions::get).toList();
     return new Pool(result, result.stream().mapToLong(ModifierDefinition::weight).sum());
   }

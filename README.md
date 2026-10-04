@@ -1,4 +1,11 @@
+> 최신 완료 집계 (2026-10-04): registry220 = active170(implemented170 = default163 + opt-in legacy7, pending0) + deferred50(보존 구현8 + 미구현42). Catalyst26는 검증된 제한 base만 IMPLEMENTED로 정리했다. 전체 구현178은 deferred8을 포함하므로 현재 사용 가능 수가 아니다. 아래의 이전 집계는 checkpoint 이력이다. [정의·base 제한·검증](docs/workbench-catalyst-registry-2026-10-04.md).
+
 # Exile-Hephaistos
+
+> 최신 사용자 지시 (2026-10-04): 기폭제 서비스 제외 취소. 현재144 = 기본111 + legacy7 + 기폭제 미구현26, 보류76 = 기존65 + 신규11, registry220/구현체126. 기존 기폭제 메뉴·typed 품질 입력/API·film·모델·테스트 보존. 실제 적용과 UX는 사용자 피드백 수집 후 조정. Catalysing 및 Necromancy2·훼손 신규 개발은 계속 보류. 이번5는 구현 checkpoint이며 최종 FE/API/browser 검증 미완료. [최신 범위](docs/workbench-service-scope-2026-10-04.md).
+
+
+최신 Workbench 사용자 상태는 [2026-10-04 보고서](docs/workbench-status-2026-10-04.md)를 기준으로 확인하세요. 9베이스, 기본 지원111 + opt-in legacy2, 미완료42이며 아래 단계별 설명은 이전 개발 이력을 포함합니다. 확률은 출처 snapshot 모델·명시된 가정이며 실제 게임 odds 검증을 뜻하지 않습니다.
 
 영어 PoE2 아이템 복사 텍스트를 분석하고 Solar Amulet을 제작하거나 확률을 비교하는 작업대입니다. Workbench는 커런시 17종과 Omen 8종으로 실제 아이템 상태를 변경합니다. 독립 Craft Support는 시작 아이템과 필수 family AND 후보 N개·최소 tier 목표에 대해 정상 추가 화폐 순서를 비교하고 최초 목표 달성 확률을 합산합니다. 속성 선택은 PoE2DB Base 게시 가중치, 수치 roll과 제거는 명시한 균등 확률 가정을 사용합니다. 재료 수량·가격·비용은 계산하지 않습니다. 복사 텍스트는 catalog 검증을 통과한 경우에만 제작 상태로 사용할 수 있습니다. [Workbench·registry·가정 ledger](docs/workbench-simulator.md), [Support 계산·지원 한계](docs/support-transition-design.md), [ItemState·확률 탐색 명세](docs/item-state.md).
 
@@ -86,3 +93,14 @@ GitHub Actions는 사용하지 않습니다. `.gitattributes`는 Windows/Linux �
 - [Worker 운영 명세](docs/solo-workflow/MULTI_SESSION_WORKFLOW.md).
 
 Solar Workbench v2: 17 currencies and 8 omens. See [supported and blocked inventory](docs/workbench-support-v2.md) and [rules, assumptions, and Support preparation](docs/workbench-simulator.md).
+
+최신 Workbench 확장(2026-10-03): Solar Amulet과 Stocky Mitts를 베이스별로 지원합니다. Stocky Mitts는 일반 화폐 19종과 확인된 Enhancement 3종·Greater Battle, 관련 징조·분열을 지원하며 일반 모드 182개와 PoE2DB 게시 가중치를 보존합니다. 장갑의 수치 롤은 원자료 단위 정수·공통 비율/HALF_UP **미검증 모델**로 명시하고 제작 단계별 가정을 복원합니다. 최종 Armour·품질·소켓·장갑 텍스트 매핑과 다른 장갑 특수 수단은 미지원입니다. Craft Support/State Explorer는 Solar 범위입니다. [최신 범위·검증·되돌리기](docs/workbench-stocky-mitts-runtime-2026-10-03.md), [단일 이슈 목록](ISSUES.md).
+
+Stocky Mitts 기본 Essence 확장(v18): 기존 4종에 Body/Mind/Ruin/Insulation/Thawing/Grounding/Opulence 21종을 추가해 25종을 지원합니다. 두 베이스 전체 구현 목록은 64종으로 유지되며, 장갑 Infinite 결과 집합은 WB-010에서 근거 부족으로 차단합니다. [검증·효과 표·지원 경계](docs/workbench-stocky-basic-essences-2026-10-03.md).
+
+장갑 Hysteria(v19): Rare/lvl45+에서 전용 of Fury 치명타 피해 보너스로 교체하며, Crystallisation 방향·전체 제거 분기·Fractured 보존을 검증했습니다. 장갑 지원 56종/45액션, 구현 고유 재료는 64종 그대로입니다. [근거·검증·후속 후보](docs/workbench-stocky-hysteria-2026-10-03.md).
+
+장갑 Abyss(v20): 일반 모드 182개는 보존하고 zero-spawn 전용 접두/접미 2개만 별도 카탈로그로 추가했습니다. 이전 snapshot·필름의 수치/잠금/증거/미래 단계를 보존하며, 선택 1/2는 미공개 가중치에 대한 명시적 가정입니다. 구현 고유 재료 64종 유지, 장갑 지원 57종/46액션. [검증·호환 경계](docs/workbench-stocky-abyss-2026-10-03.md), [나머지 특수 결과 근거표](docs/workbench-stocky-special-evidence-2026-10-03.md).
+
+2026-10-03 Workbench 후속: Stocky Mitts Horror의 고정 Local 60% suffix 부여를 지원합니다. 소켓 장착과 Rune/Soul Core 효과 계산은 미지원이며 화면에 경계를 표시합니다. 일반 182모드의 가중치는 유지했고, 기존 normal/Abyss 제작 필름을 보존합니다. 실제 구현 범위는 등록 220개 중 65개, Stocky 58 지원항목/47액션, Solar 60/49입니다. [룰 근거·Docker/브라우저 검증·미실행 검사·다음 우선순위](docs/workbench-stocky-horror-2026-10-03.md). 390px 중앙 사용 버튼 잘림도 수정했습니다.
+2026-10-03 Workbench 추가: Perfect Grounding/Opulence의 장갑 전용 suffix 부여를 보수적 지원 범위인 Stocky ilvl 72+에서 활성화했습니다. 표의 effective/Required Level 57을 화폐 최소 아이템 레벨로 단정하지 않으며 낮은 ilvl은 WB-017 미확인입니다. 수치 정밀도는 UNVERIFIED 모델, Recoup/Gold 계산과 Solar 적용은 미지원입니다. 고유 구현 67종, Stocky 60 지원항목/49액션, Solar 60/49. [원문·checksum/필름 호환·검증과 미실행 범위](docs/workbench-stocky-perfect-glove-essences-2026-10-03.md).

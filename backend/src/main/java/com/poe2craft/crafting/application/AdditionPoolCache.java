@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * Goal-independent family occupancy cache. Returned channels are attached to the caller's tiers.
  */
 public final class AdditionPoolCache {
-  public static final String PROJECTION_VERSION = "solar-family-pool-v1";
+  public static final String PROJECTION_VERSION = "solar-family-pool-v2-omen-composition";
   private final ItemCatalog catalog;
   private final AdditionRules rules;
   private final CraftingEngine validator;

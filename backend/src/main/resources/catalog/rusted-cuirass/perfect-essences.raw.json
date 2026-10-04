@@ -1,0 +1,198 @@
+[
+  {
+    "id": "Perfect_Essence_of_the_Body",
+    "url": "https://poe2db.tw/us/Perfect_Essence_of_the_Body",
+    "retrievedAt": "2026-10-03T14:19:01.668Z",
+    "sha256": "1890aaaf60baa466923cb5cbe2f59b7c7c943a2deb62943da5ad982ec4fc6354",
+    "card": "Perfect Essence of the Body Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierBody Armour: (8—10)% increased maximum Life Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+    "row": {
+      "type": "essence",
+      "Level": "72",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+      ],
+      "fossil_no": [
+        "resource",
+        "life"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/0722ae2ede6e39bf91b84ca11d3eb25f7f3352eb35ae4bc4af0d62a7f27ca5f2\" href=\"Perfect_Essence_of_the_Body\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/LifeEssencePerfect.webp\" alt=\"LifeEssencePerfect\" height=\"16\" />Perfect Essence of the Body</a>",
+      "Code": "EssenceIncreasedLifePercent1",
+      "ModFamilyList": [
+        "MaximumLifeIncreasePercent"
+      ],
+      "str": "<span class='mod-value'>(8<span class=\"ndash\">—</span>10)</span>% increased maximum Life",
+      "adds_no": [],
+      "spawn_no": [
+        "default"
+      ],
+      "reqlvl": 57,
+      "IsPerfect": "1",
+      "IsAlloy": false,
+      "Removes": true
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceIncreasedLifePercent1",
+    "detailRetrievedAt": "2026-10-03T15:03:51.893Z",
+    "detailSha256": "a0cdccdc0a5d59f819b9b22abc167ec5e994f7762964ac84af62d761241c8fb7",
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(8<span class=\"ndash\">—</span>10)</span>% increased maximum Life</span></h5>   <span data-tabname=\"Essences\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Essences\n<tr><th>Family<td>MaximumLifeIncreasePercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>maximum life +% <span class=\"badge bg-primary\">8 <span class=\"ndash\">—</span> 10</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> </table>  </div></div>",
+    "parsed": {
+      "fields": {
+        "Name": "Essences",
+        "Family": "MaximumLifeIncreasePercent",
+        "Domains": "Item (1)",
+        "GenerationType": "Prefix (1)",
+        "Req. level": "72 (Effective: 57)",
+        "Gold Price": "3266",
+        "Stats": "maximum life +% 8 — 10 Global",
+        "Spawn Tags": "default: 0",
+        "Craft Tags": "resource Life"
+      },
+      "effect": "(8—10)% increased maximum Life",
+      "stats": [
+        {
+          "id": "maximum_life_+%",
+          "bounds": [
+            8,
+            10
+          ]
+        }
+      ],
+      "sameEffect": true
+    },
+    "minimumSupportedItemLevel": 72,
+    "requiredCharacterLevel": 57,
+    "matchedModifierIds": [
+      "rusted-cuirass:prefix:essence-maximum-life-percent"
+    ]
+  },
+  {
+    "id": "Perfect_Essence_of_Ruin",
+    "url": "https://poe2db.tw/us/Perfect_Essence_of_Ruin",
+    "retrievedAt": "2026-10-03T14:19:03.463Z",
+    "sha256": "5ee33e5625fb584b9c11fa843cad3e2be37e81f21ffa69d68a8f48515ef158d6",
+    "card": "Perfect Essence of Ruin Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierBody Armour: (10—15)% of Physical Damage from Hits taken as Chaos Damage Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+    "row": {
+      "type": "essence",
+      "Level": "72",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>",
+        "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>"
+      ],
+      "fossil_no": [
+        "physical",
+        "chaos"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/92b9ccc1321ad7de03c1377b6d91742c21080b0c2e2bc178f31a5f197a279f6d\" href=\"Perfect_Essence_of_Ruin\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/ChaosEssencePerfect.webp\" alt=\"ChaosEssencePerfect\" height=\"16\" />Perfect Essence of Ruin</a>",
+      "Code": "EssencePhysicalDamageTakenAsChaos1",
+      "ModFamilyList": [
+        "PhysicalDamageTakenAsChaos"
+      ],
+      "str": "<span class='mod-value'>(10<span class=\"ndash\">—</span>15)</span>% of Physical Damage from Hits taken as Chaos Damage",
+      "adds_no": [],
+      "spawn_no": [
+        "default"
+      ],
+      "reqlvl": 57,
+      "IsPerfect": "1",
+      "IsAlloy": false,
+      "Removes": true
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssencePhysicalDamageTakenAsChaos1",
+    "detailRetrievedAt": "2026-10-03T15:03:52.172Z",
+    "detailSha256": "be66498b2a50241253af0e7d769b1f777ea2bc4b82816ac5b4a99fbd4db50d58",
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(10<span class=\"ndash\">—</span>15)</span>% of Physical Damage from Hits taken as Chaos Damage</span></h5>   <span data-tabname=\"Essences\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Essences\n<tr><th>Family<td>PhysicalDamageTakenAsChaos\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>physical damage taken % as chaos <span class=\"badge bg-primary\">10 <span class=\"ndash\">—</span> 15</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Physical</span> <span class='badge bg-primary'>Chaos</span> </table>  </div></div>",
+    "parsed": {
+      "fields": {
+        "Name": "Essences",
+        "Family": "PhysicalDamageTakenAsChaos",
+        "Domains": "Item (1)",
+        "GenerationType": "Prefix (1)",
+        "Req. level": "72 (Effective: 57)",
+        "Gold Price": "3266",
+        "Stats": "physical damage taken % as chaos 10 — 15 Global",
+        "Spawn Tags": "default: 0",
+        "Craft Tags": "Physical Chaos"
+      },
+      "effect": "(10—15)% of Physical Damage from Hits taken as Chaos Damage",
+      "stats": [
+        {
+          "id": "physical_damage_taken_%_as_chaos",
+          "bounds": [
+            10,
+            15
+          ]
+        }
+      ],
+      "sameEffect": true
+    },
+    "minimumSupportedItemLevel": 72,
+    "requiredCharacterLevel": 57,
+    "matchedModifierIds": [
+      "rusted-cuirass:prefix:essence-physical-taken-as-chaos"
+    ]
+  },
+  {
+    "id": "Perfect_Essence_of_Seeking",
+    "url": "https://poe2db.tw/us/Perfect_Essence_of_Seeking",
+    "retrievedAt": "2026-10-03T14:19:05.903Z",
+    "sha256": "9b63ceb0ef996bdd1baee13f5e6e929ce7879e6c962744ddc42e12d903f26b15",
+    "card": "Perfect Essence of Seeking Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierBody Armour: Hits against you have (40—50)% reduced Critical Damage Bonus Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+    "row": {
+      "type": "essence",
+      "Level": "72",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [],
+      "fossil_no": [],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/11a1cd735ae45e306d1dd2e60ceb68dbea165ec49e0b15480fd7ca5b8e29a547\" href=\"Perfect_Essence_of_Seeking\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/CriticalEssencePerfect.webp\" alt=\"CriticalEssencePerfect\" height=\"16\" />Perfect Essence of Seeking</a>",
+      "Code": "EssenceReducedCriticalDamageAgainstYou1",
+      "ModFamilyList": [
+        "ReducedCriticalStrikeDamageTaken"
+      ],
+      "str": "<a data-keyword=\"Hit\" href=\"Hit_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/396ec0ccc46f63acd9059876455d4a9f7d5108864acf9fc0f4c56be5a6f9cd57\">Hits</a> against you have <span class='mod-value'>(40<span class=\"ndash\">—</span>50)</span>% reduced <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244\">Critical Damage Bonus</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "default"
+      ],
+      "reqlvl": 57,
+      "IsPerfect": "1",
+      "IsAlloy": false,
+      "Removes": true
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceReducedCriticalDamageAgainstYou1",
+    "detailRetrievedAt": "2026-10-03T15:03:52.450Z",
+    "detailSha256": "4ba91538f9858367763f49bcd7a5059f5f6004c0bfe44bc82dec8e30482dbc82",
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Hit\" href=\"Hit_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/396ec0ccc46f63acd9059876455d4a9f7d5108864acf9fc0f4c56be5a6f9cd57\">Hits</a> against you have <span class='mod-value'>(40<span class=\"ndash\">—</span>50)</span>% reduced <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244\">Critical Damage Bonus</a></span></h5>   <span data-tabname=\"of the Essence\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Essence\n<tr><th>Family<td>ReducedCriticalStrikeDamageTaken\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>base self critical strike multiplier -% <span class=\"badge bg-primary\">40 <span class=\"ndash\">—</span> 50</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+    "parsed": {
+      "fields": {
+        "Name": "of the Essence",
+        "Family": "ReducedCriticalStrikeDamageTaken",
+        "Domains": "Item (1)",
+        "GenerationType": "Suffix (2)",
+        "Req. level": "72 (Effective: 57)",
+        "Gold Price": "3266",
+        "Stats": "base self critical strike multiplier -% 40 — 50 Global",
+        "Spawn Tags": "default: 0"
+      },
+      "effect": "Hits against you have (40—50)% reduced Critical Damage Bonus",
+      "stats": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "bounds": [
+            40,
+            50
+          ]
+        }
+      ],
+      "sameEffect": true
+    },
+    "minimumSupportedItemLevel": 72,
+    "requiredCharacterLevel": 57,
+    "matchedModifierIds": [
+      "rusted-cuirass:suffix:essence-reduced-incoming-critical-damage"
+    ]
+  }
+]

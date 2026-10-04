@@ -1,3 +1,16 @@
+Latest checkpoint: [Ancient Liquid and Time-Lost Jewel](workbench-ancient-liquid-2026-10-04.md). Time-Lost Ruby53/Emerald77/Sapphire60/Diamond160 ordinary candidates, Ancient Liquid13/13/13/3 with Crafted outcomes14/14/14/4. All26 craft Liquids and reviewed18 ordinary currencies on eight Jewel bases have sourced positive paths. Fixed base radius implicit is preserved; passive-tree effects are conditional text only. Earlier dated scopes below are superseded for these bases.
+
+Previous checkpoint: [Basic Jewel four bases and Potent Liquid](workbench-basic-jewel-potent-2026-10-04.md). Ruby50/Emerald74/Sapphire58/Diamond160 ordinary candidates, base-specific Liquid13/13/13/3; provisional Ferocity projection and Contempt overflow preservation.
+
+Latest checkpoint: [bounded Attuned Wand and11 Essence paths](workbench-attuned-wand-2026-10-03.md), overall109 / current-scope155: implemented101, pending54, excluded65. Prior counts below describe their dated checkpoints.
+
+Latest checkpoint: [six Bow Perfect Essences](workbench-bow-perfect-2026-10-03.md), overall101 / current-scope155: implemented93, pending62, excluded65. Earlier counts and candidate statements below describe their dated checkpoints.
+
+Current bounded Workbench extension: [Crude Bow ordinary catalog and basic Essences](workbench-crude-bow-2026-10-03.md), without computed weapon totals or socket/resource state. Existing Solar/Stocky films retain their format.
+
+> 2026-10-03 Workbench extension: optional nullable `augmentSockets` preserves a reviewed ordinary Stocky empty-socket count0/1. Missing/null on old items means unknown; only fresh Stocky placement supplies zero. All ordinary Workbench copies/crafts/refusals retain it. Support/Explorer bucket projection remains affix-only and does not create socket state. [Delivered Artificer path, compatibility and evidence](workbench-stocky-artificer-2026-10-03.md).
+> 2026-10-04 correction: optional `catalystQuality` retains one type and amount on reviewed Solar/Iron/Sapphire states; absent/null legacy fields remain unsupplied. User-confirmed cap loss preserves existing quality40 when the cap becomes20. The current cap is not a blanket stored-value ceiling: Solar accepts reviewed reachable0–40, Iron/Sapphire0–20. Catalyst actions set `max(existing,currentCap)` and replace the type under an explicit simulator convenience policy. Supported Workbench actions preserve typed quality and canonical rolls. Derived effects use a replaceable provisional HALF_UP policy. Support/Explorer remain affix-only. [Current correction and validation](workbench-quality-preserve-2026-10-04.md), [earlier foundation evidence](workbench-catalyst-quality-2026-10-04.md).
+
 # Solar Amulet ItemState
 
 2026-10-01 추가: 독립 Workbench에서 일반 화폐 6종의 실제 수치 roll과 적용을 지원한다. 아래 버킷 탐색 모델과 별도이며 [Workbench simulator 명세](workbench-simulator.md)를 따른다. 붙여넣기 catalog 매핑과 특수 제작은 아직 미지원이다.
@@ -179,3 +192,12 @@ API 테스트는 번들 초기 상태, 전체 전이, 잘못된 요청·상태, 
 기본 Crafting Workbench와 State explorer는 헤더 아래 별도 탭이다. 탭 전환은 탐색 경로를 유지한다. Workbench에서 시작 아이템에 화폐를 미리보면 표시된 시작 아이템에서 새 경로를 시작한다. 탐색 화면은 방문 상태를 세로로 표시하고 현재 상태를 구분하며, 이전 단계로 돌아가 다른 분기를 선택할 수 있다. 각 단계는 원래 조건부 확률을 보존하고 선택 경로의 확률은 그 곱이다.
 
 화폐 미리보기는 작업대 자산을 재사용하며 접근 가능한 이름·선택 상태·사용 불가 사유를 표시한다. 티어 결과는 단일 전이 응답 안에서 snapshot·base·level·rarity·implicit·condition과 속성 layer·affix·family ID·stat ID·tag·수치를 제외한 문구가 같을 때만 합산한다. 고정 수치는 문구의 모든 숫자가 선언된 고정 stat 값과 대응할 때만 정규화하고, 그 외 상수는 보존한다. 식별 자료가 없으면 개별 결과로 남긴다. 그룹은 원래 확률의 합을 표시하며 펼치면 티어 순서로 원래 수치·확률을 보여준다. 다음 상태로 이동할 때는 그룹 평균이 아닌 개별 결과를 선택한다. 순서 탐색의 terminal 총합과 API·엔진 의미는 유지한다.
+
+## Sapphire 기존 아이템과 quality cap 변경
+
+Workbench 한정 Sapphire Magic/Rare 시작 아이템은 옵션 없음 또는 source-backed Cast Speed suffix 한 개를 입력할 수 있다. Normal/Unique/특수 Jewel·전체 Jewel pool·일반 Jewel crafting은 현재 미지원이며 0P/1S는 제품 편집 제한이다. refined13은 한 번 사용 시 max20, 유형 교체, 원래 roll 보존과 중앙 HALF_UP 표시 정책을 따른다. 사용자 확인에 따라 cap modifier 제거 후 기존 품질·유형을 보존하고 cap 증가 시 자동 충전하지 않는다. 제거 후보/확률은 그대로이며 film은 before/after 및 기존 probability ledger를 보존한다. [정정 규칙](workbench-quality-preserve-2026-10-04.md). Jewel 기본 제작과 Liquid는 [다음 묶음](workbench-jewel-liquid-next-2026-10-04.md)에서 재개하며 Essence는 제외한다.
+
+
+## Sapphire 일반 생성 및 Basic Liquid 범위 갱신
+
+2026-10-04: 위 existing-suffix 편집 제한은 Sapphire Workbench에서 superseded. normal58 후보와 Magic1P/1S·Rare2P/2S, 기본 화폐18종·Basic Liquid10을 지원한다. weight는 사용자 승인 균등 simulator 모델이며 실제 game weight가 아니다. Crafted는 item당 하나이고 ordinary 생성에서 제외하며 기존 film ID/roll을 보존한다. [상세 구현·출처·가역 정책·잔여 범위](workbench-sapphire-generation-liquid-2026-10-04.md). CraftSupport/StateExplorer·다른 Jewel bases·Potent·Ancient는 이 갱신에 포함하지 않는다.
