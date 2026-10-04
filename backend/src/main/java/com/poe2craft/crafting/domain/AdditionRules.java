@@ -38,7 +38,8 @@ public final class AdditionRules {
           "Multiple omens for the same operation need combination verification. Deactivate all but one.");
     if (matching.contains(WorkbenchOmen.GREATER_EXALTATION))
       return blocked(state, ids, "Two-modifier additions are outside the finite addition model.");
-    if (!matching.isEmpty() && action.minimumModifierLevel() > 0)
+    if (action.minimumModifierLevel() > 0
+        && matching.stream().anyMatch(o -> !o.supportsTieredCurrency()))
       return blocked(
           state,
           ids,
@@ -87,6 +88,17 @@ public final class AdditionRules {
     if (omen != null && omen.affix() != null)
       eligible = eligible.stream().filter(d -> d.affixType() == omen.affix()).toList();
     if (omen != null && omen.homogenising()) eligible = matchingTags(eligible, existingTags(state));
+    return minimumLevelPool(eligible, currency);
+  }
+
+  /** Frozen pre-craft tag eligibility precedes the level pool for every multi-add stage. */
+  public List<ModifierDefinition> poolWithTags(
+      StateBucket state, WorkbenchCurrency currency, Set<String> tags) {
+    return minimumLevelPool(matchingTags(resolver.resolve(state).candidates(), tags), currency);
+  }
+
+  private List<ModifierDefinition> minimumLevelPool(
+      List<ModifierDefinition> eligible, WorkbenchCurrency currency) {
     if (currency.minimumModifierLevel() == 0) return eligible;
     var highest = new HashMap<String, Integer>();
     for (var d : eligible) highest.merge(group(d), d.requiredItemLevel(), Math::max);

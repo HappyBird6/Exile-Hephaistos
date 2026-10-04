@@ -11,6 +11,7 @@ import {
 import { concreteInitial, mapSolarText } from './workbenchApi'
 import type { AppliedItem, ConcreteItem, WorkbenchAction } from './workbenchApi'
 import type { Item } from './itemModels'
+import { emptyFilms, startFilm, LocalFilmRepository } from './workbenchHistory'
 
 let client: QueryClient
 beforeEach(() => {
@@ -47,6 +48,66 @@ function favoriteOmen(name: string, slot: number) {
   return button
 }
 describe('Workbench extensions', () => {
+  it('activates the reviewed Whittling pair and updates all local candidates without hover requests', async () => {
+    const definitions = {
+      ...initialFixture.modifiers,
+      p: { ...initialFixture.modifiers.p!, requiredItemLevel: 20 },
+      p2: {
+        ...initialFixture.modifiers.p!,
+        id: 'p2',
+        familyIds: ['p2'],
+        requiredItemLevel: 20,
+      },
+      s: { ...initialFixture.modifiers.s!, requiredItemLevel: 1 },
+    }
+    const state: ConcreteItem = {
+      ...concreteInitial(initialFixture),
+      rarity: 'RARE',
+      explicits: [
+        { modifierId: 'p', values: { life: 10 } },
+        { modifierId: 'p2', values: { life: 10 } },
+        { modifierId: 's', values: { strength: 5 } },
+      ],
+    }
+    new LocalFilmRepository(window.localStorage).save(
+      startFilm(emptyFilms(), state, 'preview'),
+    )
+    client.setQueryData(['crafting', 'initial', 'solar', 82], {
+      ...initialFixture,
+      modifiers: definitions,
+    })
+    const fetch = vi.fn(fixtureFetch)
+    vi.stubGlobal('fetch', fetch)
+    show()
+    const whittling = favoriteOmen('Omen of Whittling', 1)
+    expect(
+      screen.getAllByTitle('Eligible Whittling removal candidate'),
+    ).toHaveLength(1)
+    const sinistral = favoriteOmen('Omen of Sinistral Erasure', 2)
+    expect(whittling).toHaveClass('is-active-omen')
+    expect(sinistral).toHaveClass('is-active-omen')
+    expect(
+      screen.getAllByTitle('Eligible Whittling removal candidate'),
+    ).toHaveLength(2)
+    const requests = fetch.mock.calls.length
+    fireEvent.pointerMove(screen.getByRole('article'), {
+      clientX: 30,
+      clientY: 40,
+    })
+    fireEvent.pointerMove(screen.getByRole('article'), {
+      clientX: 50,
+      clientY: 60,
+    })
+    expect(fetch.mock.calls).toHaveLength(requests)
+    fireEvent.contextMenu(sinistral)
+    expect(
+      screen.getAllByTitle('Eligible Whittling removal candidate'),
+    ).toHaveLength(1)
+    fireEvent.contextMenu(whittling)
+    expect(
+      screen.queryByTitle('Eligible Whittling removal candidate'),
+    ).not.toBeInTheDocument()
+  })
   it('prevents unverified matching omen combinations and removes activation when the last favorite is replaced', async () => {
     vi.stubGlobal('fetch', fixtureFetch)
     show()

@@ -12,7 +12,7 @@ import {
   concreteInitial,
   compatibleOmenPair,
 } from './workbenchApi'
-import type { AppliedItem, ConcreteItem } from './workbenchApi'
+import type { AppliedItem, ConcreteItem, WorkbenchAction } from './workbenchApi'
 import type { Definition } from './craftingApi'
 
 const omen = 'Omen_of_Homogenising_Exaltation'
@@ -86,7 +86,7 @@ const apply = (
   response: AppliedItem,
   omens = [omen, greater],
   state = before,
-  action: 'EXALTED' | 'REGAL' = 'EXALTED',
+  action: WorkbenchAction = 'EXALTED',
 ) => {
   vi.stubGlobal('fetch', () => Promise.resolve(jsonResponse(response)))
   return applyCurrency(
@@ -102,6 +102,15 @@ it('accepts frozen original tags, conditional table weights and preserved Fractu
   expect((await apply(result)).state.explicits).toEqual(result.state.explicits)
   expect(compatibleOmenPair(omen, greater)).toBe(true)
   expect(compatibleOmenPair(omen, 'Omen_of_Sinistral_Exaltation')).toBe(false)
+})
+
+it('accepts tiered double addition with frozen tags and per-group low-level fallback', async () => {
+  for (const action of ['GREATER_EXALTED', 'PERFECT_EXALTED'] as const) {
+    const r = { ...result, action }
+    expect(
+      (await apply(r, [omen, greater], before, action)).state.explicits,
+    ).toEqual(result.state.explicits)
+  }
 })
 
 it('rejects tag expansion, forged weights, lost consumption, forbidden conflict and changed originals', async () => {
@@ -182,9 +191,7 @@ it('default stash hides legacy; explicit opt-in names availability and unverifie
   expect(
     screen.queryByRole('button', { name: 'Omen of Homogenising Exaltation' }),
   ).toBeNull()
-  fireEvent.click(
-    screen.getByRole('checkbox', { name: 'Show legacy Omens' }),
-  )
+  fireEvent.click(screen.getByRole('checkbox', { name: 'Show legacy Omens' }))
   expect(
     screen.getByRole('button', { name: 'Omen of Homogenising Exaltation' }),
   ).toHaveTextContent('(Legacy)')

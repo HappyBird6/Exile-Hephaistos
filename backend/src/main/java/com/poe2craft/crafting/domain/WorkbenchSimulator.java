@@ -99,7 +99,7 @@ public final class WorkbenchSimulator {
   }
 
   public String ruleVersion() {
-    return baseRuleVersion() + "-homogenising-legacy-v1-legacy-five-v1";
+    return baseRuleVersion() + "-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1";
   }
 
   private String baseRuleVersion() {
@@ -209,8 +209,8 @@ public final class WorkbenchSimulator {
       return blocked(action, "This material's results are not verified for this base.");
     var matches = matching(action, omens);
     if (WorkbenchOmen.verifiedDoubleAddition(matches)) {
-      if (action != WorkbenchCurrency.EXALTED)
-        return blocked(action, "Greater Exaltation with Greater/Perfect currency is not verified.");
+      if (state.itemLevel() < action.minimumModifierLevel())
+        return blocked(action, "Item level is below the currency's minimum modifier level.");
       if (state.rarity() != ItemState.Rarity.RARE)
         return blocked(action, "Exalted Orb requires a Rare item.");
       if (state.explicits().size() > 4)
@@ -221,15 +221,17 @@ public final class WorkbenchSimulator {
           matches.contains(WorkbenchOmen.HOMOGENISING_EXALTATION)
               ? additionRules.existingTags(StateBucket.from(state))
               : Set.<String>of();
-      var first = AdditionRules.matchingTags(pool(state, action, null), originalTags);
+      var first = additionRules.poolWithTags(StateBucket.from(state), action, originalTags);
       if (first.isEmpty()) return blocked(action, "No verified first addition pool.");
       for (var candidate : first) {
         var next = new ArrayList<>(state.explicits());
         var values = new HashMap<String, Long>();
         for (var stat : candidate.stats()) values.put(stat.id(), stat.min());
         next.add(new ModifierInstance(candidate.id(), values));
-        if (AdditionRules.matchingTags(
-                pool(copy(state, state.rarity(), state.implicits(), next), action, null),
+        if (additionRules
+            .poolWithTags(
+                StateBucket.from(copy(state, state.rarity(), state.implicits(), next)),
+                action,
                 originalTags)
             .isEmpty())
           return blocked(action, "A first addition branch has no verified second addition pool.");
@@ -244,11 +246,14 @@ public final class WorkbenchSimulator {
               omens.stream().map(WorkbenchOmen::id).collect(java.util.stream.Collectors.toSet()));
       return new Availability(action, plan.available(), plan.reason());
     }
-    if (matches.size() > 1)
+    if (matches.size() > 1
+        && !WorkbenchOmen.sideWhittling(matches)
+        && !WorkbenchOmen.sideDoubleRemoval(matches))
       return blocked(
           action,
           "Multiple omens for the same operation need combination verification. Deactivate all but one.");
-    if (!matches.isEmpty() && action.minimumModifierLevel() > 0)
+    if (action.minimumModifierLevel() > 0
+        && matches.stream().anyMatch(o -> !o.supportsTieredCurrency()))
       return blocked(
           action,
           "Omen interaction with Greater/Perfect currency is not verified. Deactivate the omen or use ordinary currency.");
@@ -301,7 +306,7 @@ public final class WorkbenchSimulator {
         return blocked(action, "Cannot fracture an already Fractured item.");
       return new Availability(action, true, "");
     }
-    if (omen == WorkbenchOmen.WHITTLING
+    if (matches.contains(WorkbenchOmen.WHITTLING)
         && state.explicits().stream().anyMatch(ModifierInstance::fractured))
       return blocked(
           action,
@@ -344,10 +349,10 @@ public final class WorkbenchSimulator {
         };
     if (!rarity) return blocked(action, "This currency cannot be used on this rarity.");
     if (kind == CraftingAction.ANNULMENT || kind == CraftingAction.CHAOS) {
-      var removals = removalCandidates(state, omen);
+      var removals = removalCandidates(state, matches);
       if (removals.isEmpty())
         return blocked(action, "No eligible explicit modifier can be removed with this omen.");
-      if (omen == WorkbenchOmen.GREATER_ANNULMENT && removals.size() < 2)
+      if (matches.contains(WorkbenchOmen.GREATER_ANNULMENT) && removals.size() < 2)
         return blocked(
             action,
             "Greater Annulment needs two removable modifiers; one-removal behavior is not verified.");
@@ -439,13 +444,18 @@ public final class WorkbenchSimulator {
   }
 
   private List<ModifierInstance> removalCandidates(ItemState state, WorkbenchOmen omen) {
+    return removalCandidates(state, omen == null ? List.of() : List.of(omen));
+  }
+
+  private List<ModifierInstance> removalCandidates(ItemState state, List<WorkbenchOmen> omens) {
     var eligible = state.explicits().stream().filter(m -> !m.fractured()).toList();
+    var omen = omens.stream().filter(o -> o.affix() != null).findFirst().orElse(null);
     if (omen != null && omen.affix() != null)
       eligible =
           eligible.stream()
               .filter(m -> catalog.find(m.modifierId()).orElseThrow().affixType() == omen.affix())
               .toList();
-    if (omen == WorkbenchOmen.WHITTLING && !eligible.isEmpty()) {
+    if (omens.contains(WorkbenchOmen.WHITTLING) && !eligible.isEmpty()) {
       int lowest =
           eligible.stream()
               .mapToInt(m -> catalog.find(m.modifierId()).orElseThrow().requiredItemLevel())
@@ -651,9 +661,9 @@ public final class WorkbenchSimulator {
     } else {
       if (action.baseAction() == CraftingAction.ANNULMENT
           || action.baseAction() == CraftingAction.CHAOS) {
-        int removals = omen == WorkbenchOmen.GREATER_ANNULMENT ? 2 : 1;
+        int removals = matched.contains(WorkbenchOmen.GREATER_ANNULMENT) ? 2 : 1;
         for (int removal = 0; removal < removals; removal++) {
-          var candidates = removalCandidates(copy(state, rarity, implicits, explicits), omen);
+          var candidates = removalCandidates(copy(state, rarity, implicits, explicits), matched);
           var removed = candidates.get(random.nextInt(candidates.size()));
           explicits.remove(removed);
           events.add(new Event("REMOVE", removed.modifierId(), Map.of(), 1.0 / candidates.size()));
@@ -671,7 +681,9 @@ public final class WorkbenchSimulator {
                               ? "Chaos_Orb"
                               : "Orb_of_Annulment")
                       : "https://poe2db.tw/us/" + omen.id(),
-                  "Uniform among eligible removal instances, after affix or lowest modifier-level restriction; no published removal weights."));
+                  WorkbenchOmen.sideWhittling(matched)
+                      ? "User-specified side-first composition (with symmetric suffix model): affix candidates first, then lowest modifier level, then uniform ties; not independently established game odds."
+                      : "Uniform among eligible removal instances, after affix or lowest modifier-level restriction; no published removal weights."));
         }
       }
       if (action.baseAction() != CraftingAction.ANNULMENT) {
@@ -682,11 +694,12 @@ public final class WorkbenchSimulator {
         for (int i = 0; i < additions; i++) {
           var intermediate = copy(state, rarity, implicits, explicits);
           var candidates =
-              pool(
-                  intermediate,
-                  action,
-                  action.baseAction() == CraftingAction.CHAOS || homogenising ? null : omen);
-          if (homogenising) candidates = AdditionRules.matchingTags(candidates, originalTags);
+              WorkbenchOmen.verifiedDoubleAddition(matched)
+                  ? additionRules.poolWithTags(StateBucket.from(intermediate), action, originalTags)
+                  : pool(
+                      intermediate,
+                      action,
+                      action.baseAction() == CraftingAction.CHAOS ? null : omen);
           long total = candidates.stream().mapToLong(ModifierDefinition::weight).sum();
           long draw = random.nextLong(total);
           var chosen = candidates.getLast();
@@ -706,6 +719,17 @@ public final class WorkbenchSimulator {
     }
     var result = copy(state, rarity, implicits, explicits);
     validate(result);
+    if (action.minimumModifierLevel() > 0 && !matched.isEmpty())
+      assumptions.add(
+          new Assumption(
+              "tiered-omen-composition-v1",
+              "omen/currency effect composition",
+              matched.size(),
+              matched.stream().map(WorkbenchOmen::id).toList(),
+              null,
+              null,
+              "https://poe2db.tw/us/Omen",
+              "UNVERIFIED composition model: existing omen eligibility precedes the currency's minimum-added-level pool at each addition; multi-add tags remain frozen before the craft. This does not establish game combination odds or failure consumption."));
     var consumed = matched.stream().map(WorkbenchOmen::id).toList();
     var remaining = allIds.stream().filter(id -> !consumed.contains(id)).toList();
     return new Result(

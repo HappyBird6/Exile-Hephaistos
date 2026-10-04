@@ -2752,7 +2752,7 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "DEXTRAL_CRYSTALLISATION",
-      "reason": "Supported Solar replacement Essences or Stocky Mitts Hysteria/Abyss/Horror/Perfect Grounding/Perfect Opulence: remove only unlocked suffix instances. Consume once on success; unrelated omens remain. Matching pair conflicts, no eligible suffix and any invalid replacement branch are blocked. Other glove replacement materials remain unsupported. Crude Bow Perfect Abrasion/Flames/Ice/Electricity/Battle/Haste use the same verified removal-side restriction and atomic conflict handling.",
+      "reason": "Supported replacement Essence results on all nine supported bases; restrict unlocked removal to the indicated side. Every removal branch must permit every sourced target. Other same-trigger combinations remain unverified.",
       "supportedBases": [
         "solar",
         "stocky",
@@ -2778,7 +2778,7 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": "SINISTRAL_CRYSTALLISATION",
-      "reason": "Supported Solar replacement Essences or Stocky Mitts Hysteria/Abyss/Horror/Perfect Grounding/Perfect Opulence: remove only unlocked prefix instances. Consume once on success; unrelated omens remain. Matching pair conflicts, no eligible prefix and any invalid replacement branch are blocked. Other glove replacement materials remain unsupported. Crude Bow Perfect Abrasion/Flames/Ice/Electricity/Battle/Haste use the same verified removal-side restriction and atomic conflict handling.",
+      "reason": "Supported replacement Essence results on all nine supported bases; restrict unlocked removal to the indicated side. Every removal branch must permit every sourced target. Other same-trigger combinations remain unverified.",
       "supportedBases": [
         "solar",
         "stocky",
@@ -2808,7 +2808,7 @@
       "ruleSource": "https://poe2db.tw/us/Omen",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
+      "interactionScope": "Ordinary/Greater/Perfect Chaos: removal restrictions precede an unrestricted-side replacement pool with the currency minimum-added-level rule. Sinistral Erasure + Whittling uses the user-specified prefix -> minimum modifier level -> uniform ties order; Dextral uses the symmetric suffix composition model. Other same-trigger combinations remain unverified. Whittling with Fractured or missing-level modifiers remains unsupported.",
       "supportedBases": [
         "solar",
         "stocky",
@@ -2838,7 +2838,7 @@
       "ruleSource": "https://poe2db.tw/us/Omen",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
+      "interactionScope": "Ordinary/Greater/Perfect Chaos: removal restrictions precede an unrestricted-side replacement pool with the currency minimum-added-level rule. Sinistral Erasure + Whittling uses the user-specified prefix -> minimum modifier level -> uniform ties order; Dextral uses the symmetric suffix composition model. Other same-trigger combinations remain unverified. Whittling with Fractured or missing-level modifiers remains unsupported.",
       "supportedBases": [
         "solar",
         "stocky",
@@ -2868,7 +2868,7 @@
       "ruleSource": "https://poe2db.tw/us/Omen",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
+      "interactionScope": "Ordinary/Greater/Perfect Chaos: removal restrictions precede an unrestricted-side replacement pool with the currency minimum-added-level rule. Sinistral Erasure + Whittling uses the user-specified prefix -> minimum modifier level -> uniform ties order; Dextral uses the symmetric suffix composition model. Other same-trigger combinations remain unverified. Whittling with Fractured or missing-level modifiers remains unsupported.",
       "supportedBases": [
         "solar",
         "stocky",
@@ -2970,7 +2970,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "interactionScope": "Single directional omen with ordinary/Greater/Perfect matching currency. Affix eligibility precedes the existing minimum-added-level group fallback. Other same-trigger combinations remain unverified."
     },
     {
       "id": "Omen_of_Dextral_Coronation",
@@ -3000,7 +3001,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "interactionScope": "Single directional omen with ordinary/Greater/Perfect matching currency. Affix eligibility precedes the existing minimum-added-level group fallback. Other same-trigger combinations remain unverified."
     },
     {
       "id": "Omen_of_Corruption",
@@ -3029,7 +3031,7 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": null,
-      "reason": "Solar Rare with at least two free explicit slots; ordinary Exalted only. Two conditional PoE2DB-weighted additions. One-slot and same-trigger omen combinations are unsupported. Finite Support does not model multi-additions.",
+      "reason": "Supported Rare bases with at least two free explicit slots; ordinary/Greater/Perfect Exalted. Two conditional PoE2DB-weighted additions with the currency minimum-added-level pool at each stage. Homogenising Exaltation pair supported with frozen pre-craft tags before level filtering. Tiered composition is an explicitly unverified model. Other same-trigger pairs and one-slot behavior remain unsupported. Finite Support does not model multi-additions.",
       "ruleSource": "https://poe2db.tw/us/Omen",
       "ruleVerifiedAt": "2026-10-02",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
@@ -3062,7 +3064,7 @@
       "ruleSource": "https://poe2db.tw/us/Omen",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
+      "interactionScope": "Single directional omen with ordinary/Greater/Perfect matching currency. Affix eligibility precedes the existing minimum-added-level group fallback. Other same-trigger combinations remain unverified.",
       "supportedBases": [
         "solar",
         "stocky",
@@ -3092,7 +3094,7 @@
       "ruleSource": "https://poe2db.tw/us/Omen",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
+      "interactionScope": "Single directional omen with ordinary/Greater/Perfect matching currency. Affix eligibility precedes the existing minimum-added-level group fallback. Other same-trigger combinations remain unverified.",
       "supportedBases": [
         "solar",
         "stocky",
@@ -3134,7 +3136,8 @@
         "belt",
         "helmet",
         "ring"
-      ]
+      ],
+      "interactionScope": "Greater Annulment + Sinistral Annulment supports two distinct unlocked prefixes, based on the audited community example; Dextral uses the symmetric suffix composition model. Requires at least two eligible modifiers on the chosen side; both matching omens consumed on success. Other combinations and one-target behavior remain unverified."
     },
     {
       "id": "Omen_of_Sinistral_Annulment",
@@ -3152,7 +3155,7 @@
       "ruleSource": "https://poe2db.tw/us/Omen",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
+      "interactionScope": "Greater Annulment + Sinistral Annulment supports two distinct unlocked prefixes, based on the audited community example; Dextral uses the symmetric suffix composition model. Requires at least two eligible modifiers on the chosen side; both matching omens consumed on success. Other combinations and one-target behavior remain unverified.",
       "supportedBases": [
         "solar",
         "stocky",
@@ -3182,7 +3185,7 @@
       "ruleSource": "https://poe2db.tw/us/Omen",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
+      "interactionScope": "Greater Annulment + Sinistral Annulment supports two distinct unlocked prefixes, based on the audited community example; Dextral uses the symmetric suffix composition model. Requires at least two eligible modifiers on the chosen side; both matching omens consumed on success. Other combinations and one-target behavior remain unverified.",
       "supportedBases": [
         "solar",
         "stocky",
@@ -3268,7 +3271,7 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": null,
-      "reason": "Legacy narrow support: ordinary currency; existing modifier tag intersection; frozen pre-craft tags with Greater Exaltation. Other same-trigger combinations and actual failure consumption unverified. Published PoE2DB weights are a source model.",
+      "reason": "Legacy bounded support on all nine supported bases: single omen with ordinary/Greater/Perfect matching currency; existing modifier-tag intersection precedes minimum-added-level group fallback. Greater Exaltation omen pair freezes pre-craft tags at each stage, including tiered currency composition. Other same-trigger combinations and actual failure consumption unverified. Published PoE2DB weights and tiered composition are source-based models.",
       "availabilityStatus": "DROP_DISABLED_EXISTING_FUNCTIONAL",
       "availabilitySource": "https://www.pathofexile.com/forum/view-thread/3883495/filter-account-type/staff",
       "ruleSource": "https://www.poe2wiki.net/wiki/Omen_of_Homogenising_Exaltation",
@@ -3287,7 +3290,7 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED",
       "action": null,
-      "reason": "Legacy narrow support: ordinary currency; existing modifier tag intersection; frozen pre-craft tags with Greater Exaltation. Other same-trigger combinations and actual failure consumption unverified. Published PoE2DB weights are a source model.",
+      "reason": "Legacy bounded support on all nine supported bases: single omen with ordinary/Greater/Perfect matching currency; existing modifier-tag intersection precedes minimum-added-level group fallback. Greater Exaltation omen pair freezes pre-craft tags at each stage, including tiered currency composition. Other same-trigger combinations and actual failure consumption unverified. Published PoE2DB weights and tiered composition are source-based models.",
       "availabilityStatus": "DROP_DISABLED_EXISTING_FUNCTIONAL",
       "availabilitySource": "https://www.pathofexile.com/forum/view-thread/3883495/filter-account-type/staff",
       "ruleSource": "https://www.poe2wiki.net/wiki/Omen_of_Homogenising_Coronation",

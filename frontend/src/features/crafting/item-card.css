@@ -54,6 +54,10 @@
 .item-card__line--fractured {
   color: #d4b572;
 }
+.item-card__line--removal-candidate,
+.item-card__line--removal-candidate .item-card__affix {
+  color: #ffa64d;
+}
 .item-card__line--crafted {
   color: #b4d4ef;
 }

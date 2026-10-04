@@ -161,14 +161,14 @@ class HomogenisingTest {
   }
 
   @Test
-  void unknownCombinationTierAndSecondBranchRefuse() {
+  void tieredDoubleAdditionWorksButUnknownCombinationAndSecondBranchRefuse() {
     var c = catalog(true);
     var sim = new WorkbenchSimulator(c, new CraftingEngine(c));
     var before =
         state(c, ItemState.Rarity.RARE, List.of(new ModifierInstance("seed", Map.of("seed", 1L))));
     for (var action : List.of(WorkbenchCurrency.GREATER_EXALTED, WorkbenchCurrency.PERFECT_EXALTED))
       assertThat(sim.apply(before, action, Set.of(exalt, greater), new Random()).applied())
-          .isFalse();
+          .isTrue();
     for (var other :
         List.of(WorkbenchOmen.SINISTRAL_EXALTATION.id(), WorkbenchOmen.DEXTRAL_EXALTATION.id()))
       assertThat(

@@ -92,8 +92,11 @@ class LegacyFiveTest {
       assertThat(catalog.find(result.events().getFirst().modifierId()).orElseThrow().affixType())
           .isEqualTo(omen.affix());
       var tiered =
-          simulator.apply(before, WorkbenchCurrency.GREATER_REGAL, Set.of(omen.id()), noRandom());
-      assertAtomicRefusal(before, tiered, Set.of(omen.id()));
+          simulator.apply(
+              before, WorkbenchCurrency.GREATER_REGAL, Set.of(omen.id()), new Random(9));
+      assertThat(tiered.applied()).isTrue();
+      assertThat(catalog.find(tiered.events().getFirst().modifierId()).orElseThrow().affixType())
+          .isEqualTo(omen.affix());
     }
   }
 
@@ -134,7 +137,11 @@ class LegacyFiveTest {
             Set.of(WorkbenchOmen.GREATER_ANNULMENT.id()),
             noRandom()),
         Set.of(WorkbenchOmen.GREATER_ANNULMENT.id()));
-    var pair = Set.of(WorkbenchOmen.GREATER_ANNULMENT.id(), WorkbenchOmen.SINISTRAL_ANNULMENT.id());
+    var pair =
+        Set.of(
+            WorkbenchOmen.GREATER_ANNULMENT.id(),
+            WorkbenchOmen.DEXTRAL_ANNULMENT.id(),
+            WorkbenchOmen.SINISTRAL_ANNULMENT.id());
     assertAtomicRefusal(
         before, simulator.apply(before, WorkbenchCurrency.ANNULMENT, pair, noRandom()), pair);
   }

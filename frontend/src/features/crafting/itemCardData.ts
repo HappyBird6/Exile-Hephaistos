@@ -11,6 +11,7 @@ export interface ItemCardLine {
   kind?: ModifierKind
   detail?: string | undefined
   affixLabel?: string | undefined
+  removalCandidate?: boolean | undefined
 }
 export interface ItemCardData {
   rarity: Item['rarity']

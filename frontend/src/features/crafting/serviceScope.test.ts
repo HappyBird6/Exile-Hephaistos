@@ -10,13 +10,20 @@ describe('current service scope', () => {
     expect(deferredServiceIds.size).toBe(11)
     expect(catalysts.every((m) => inServiceScope(m.id))).toBe(true)
     expect(specialEssences.every((m) => inServiceScope(m.id))).toBe(true)
-    expect(essenceRows('').flat().filter(Boolean).every((m) => inServiceScope(m!.id))).toBe(true)
+    expect(
+      essenceRows('')
+        .flat()
+        .filter(Boolean)
+        .every((m) => inServiceScope(m!.id)),
+    ).toBe(true)
     expect(inServiceScope('Orb_of_Transmutation')).toBe(true)
     expect(inServiceScope('Essence_of_Hysteria')).toBe(true)
   })
   it('offers five scoped legacy effects behind the legacy identity set', () => {
     expect(legacyFiveIds).toHaveLength(5)
     expect(legacyOmenIds).toHaveLength(7)
-    expect(legacyFiveIds.every((id) => workbenchOmens.some((o) => o.id === id))).toBe(true)
+    expect(
+      legacyFiveIds.every((id) => workbenchOmens.some((o) => o.id === id)),
+    ).toBe(true)
   })
 })

@@ -316,7 +316,7 @@ describe('Material stash and shared favorites', () => {
     show()
     const card = screen.getByRole('article')
     for (const [label, count] of [
-      ['Essence', 74],
+      ['Essence', 76], // 19 ordinary families × four tiers; special group is separate.
       ['Alloy', 13],
       ['Omen', 22],
       ['Catalysts', 26],
@@ -329,6 +329,24 @@ describe('Material stash and shared favorites', () => {
           'button',
         ),
       ).toHaveLength(count)
+      if (label === 'Essence') {
+        expect(
+          screen.queryByRole('button', { name: 'Essence of Delirium' }),
+        ).not.toBeInTheDocument()
+        expect(
+          screen.queryByRole('button', { name: 'Essence of Insanity' }),
+        ).not.toBeInTheDocument()
+        expect(
+          within(screen.getByRole('group', { name: 'Special essences' }))
+            .getAllByRole('button')
+            .map((button) => button.getAttribute('aria-label')),
+        ).toEqual([
+          'Essence of Hysteria',
+          'Essence of Horror',
+          'Essence of the Abyss',
+          'Essence of the Breach',
+        ])
+      }
       if (label === 'Omen') {
         const legacy = screen.getByRole('checkbox', {
           name: 'Show legacy Omens',

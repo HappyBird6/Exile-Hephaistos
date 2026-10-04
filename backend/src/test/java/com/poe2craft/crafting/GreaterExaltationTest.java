@@ -76,8 +76,37 @@ class GreaterExaltationTest {
       assertThat(result.remainingOmens()).containsExactly(omen);
     }
     for (var currency :
-        List.of(WorkbenchCurrency.GREATER_EXALTED, WorkbenchCurrency.PERFECT_EXALTED))
-      assertThat(simulator.apply(four, currency, Set.of(omen), new Random(1)).applied()).isFalse();
+        List.of(WorkbenchCurrency.GREATER_EXALTED, WorkbenchCurrency.PERFECT_EXALTED)) {
+      var result = simulator.apply(four, currency, Set.of(omen), new Random(1));
+      assertThat(result.applied()).isTrue();
+      assertThat(result.events()).hasSize(2);
+      assertThat(result.state().explicits()).hasSize(6).containsAll(four.explicits());
+      var intermediate = four;
+      for (var e : result.events()) {
+        var pool = simulator.pool(intermediate, currency, null);
+        var chosen = catalog.find(e.modifierId()).orElseThrow();
+        assertThat(pool).contains(chosen);
+        assertThat(e.selectionProbability())
+            .isEqualTo(
+                (double) chosen.weight()
+                    / pool.stream().mapToLong(ModifierDefinition::weight).sum());
+        var mods = new ArrayList<>(intermediate.explicits());
+        mods.add(new ModifierInstance(e.modifierId(), e.values()));
+        intermediate =
+            new ItemState(
+                four.snapshotId(),
+                four.baseItemId(),
+                four.itemLevel(),
+                four.rarity(),
+                four.implicits(),
+                mods,
+                four.conditions());
+      }
+      assertThat(result.assumptions())
+          .anyMatch(
+              a ->
+                  a.id().equals("tiered-omen-composition-v1") && a.reason().contains("UNVERIFIED"));
+    }
     assertThat(
             simulator
                 .apply(

@@ -97,8 +97,9 @@ class WorkbenchControllerTest {
                       mapper.writeValueAsBytes(
                           Map.of("state", magic, "action", "GREATER_REGAL", "activeOmens", omens))))
           .andExpect(status().isOk())
-          .andExpect(jsonPath("$.applied").value(false))
-          .andExpect(jsonPath("$.consumedOmens").isEmpty());
+          .andExpect(jsonPath("$.applied").value(true))
+          .andExpect(jsonPath("$.consumedOmens[0]").value("Omen_of_Homogenising_Coronation"))
+          .andExpect(jsonPath("$.remainingOmens[0]").value("Omen_of_Homogenising_Exaltation"));
     }
   }
 
@@ -221,7 +222,8 @@ class WorkbenchControllerTest {
         .andExpect(jsonPath("$.events[0].kind").value("ADD"))
         .andExpect(
             jsonPath("$.ruleVersion")
-                .value("solar-workbench-abyss-essence-v16-homogenising-legacy-v1-legacy-five-v1"));
+                .value(
+                    "solar-workbench-abyss-essence-v16-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1"));
     mvc.perform(
             post("/api/v1/crafting/workbench/apply")
                 .contentType(MediaType.APPLICATION_JSON)

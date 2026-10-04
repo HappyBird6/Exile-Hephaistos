@@ -10,6 +10,7 @@ import {
 import { skipToken, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useRef, useState } from 'react'
 import { ItemCard } from './ItemCard'
+import { whittlingCandidates } from './omenRemovalCandidates'
 import { toItemCard } from './itemCardData'
 import { MaterialTooltip } from './MaterialTooltip'
 import { useItemTextImport } from './useItemTextImport'
@@ -444,8 +445,11 @@ export function CraftingPage() {
         draft.activeOmens.includes(entry.id),
     )
     if (!active && conflict) {
+      const oppositeSides =
+        (id.includes('Sinistral') && conflict.id.includes('Dextral')) ||
+        (id.includes('Dextral') && conflict.id.includes('Sinistral'))
       setAnnouncement(
-        `Deactivate ${conflict.id.replaceAll('_', ' ')} first. This combination has not been verified.`,
+        `${oppositeSides ? 'Conflicting prefix/suffix restrictions. ' : ''}Deactivate ${conflict.id.replaceAll('_', ' ')} first. This combination has not been verified.`,
       )
       return
     }
@@ -708,6 +712,10 @@ export function CraftingPage() {
     concrete && initial.data
       ? maximumQuality(concrete, initial.data.modifiers)
       : null
+  const removalCandidates =
+    concrete && initial.data
+      ? whittlingCandidates(concrete, initial.data.modifiers, draft.activeOmens)
+      : []
   const card =
     item && !concrete
       ? toItemCard(item)
@@ -829,6 +837,9 @@ export function CraftingPage() {
                     : rolledText(d, projection.values)
                 return {
                   id: m.modifierId,
+                  removalCandidate:
+                    i >= concrete.implicits.length &&
+                    removalCandidates.includes(m.modifierId),
                   text: `${'fractured' in m && m.fractured ? '[Fractured] ' : ''}${altHeld ? d.text : displayText}`,
                   detail: concrete.catalystQuality
                     ? `Original roll: ${rolledText(d, m.values)}\nQuality display: ${projection.status}. Secondary source model; game engine precision is not guaranteed.`
@@ -1010,44 +1021,52 @@ export function CraftingPage() {
                   }
                 >
                   {activeTab === 'Currency' ? (
-                    currencies.filter((currency) => inServiceScope(currency.id)).map((currency) => {
-                      const name = currencyNames[currency.id]
-                      return (
-                        <button
-                          key={currency.id}
-                          type="button"
-                          className={`currency-slot ${selected?.id === currency.id ? 'is-selected' : ''}`}
-                          style={{
-                            left: `${currency.x / 9.35}%`,
-                            top: `${currency.y / 5.5}%`,
-                          }}
-                          aria-label={name}
-                          aria-pressed={selected?.id === currency.id}
-                          {...tooltipEvents(currency.id)}
-                          onContextMenu={(event) => {
-                            event.preventDefault()
-                            setPointer({ x: event.clientX, y: event.clientY })
-                            choose({ ...currency, name })
-                          }}
-                          onClick={(event) => {
-                            if (event.detail === 0) setPointer(null)
-                            choose({ ...currency, name })
-                          }}
-                        >
-                          <CurrencyImage {...currency} name={name} />
-                          {currency.id.startsWith('Greater') && (
-                            <span className="currency-tier" aria-hidden="true">
-                              II
-                            </span>
-                          )}
-                          {currency.id.startsWith('Perfect') && (
-                            <span className="currency-tier" aria-hidden="true">
-                              III
-                            </span>
-                          )}
-                        </button>
-                      )
-                    })
+                    currencies
+                      .filter((currency) => inServiceScope(currency.id))
+                      .map((currency) => {
+                        const name = currencyNames[currency.id]
+                        return (
+                          <button
+                            key={currency.id}
+                            type="button"
+                            className={`currency-slot ${selected?.id === currency.id ? 'is-selected' : ''}`}
+                            style={{
+                              left: `${currency.x / 9.35}%`,
+                              top: `${currency.y / 5.5}%`,
+                            }}
+                            aria-label={name}
+                            aria-pressed={selected?.id === currency.id}
+                            {...tooltipEvents(currency.id)}
+                            onContextMenu={(event) => {
+                              event.preventDefault()
+                              setPointer({ x: event.clientX, y: event.clientY })
+                              choose({ ...currency, name })
+                            }}
+                            onClick={(event) => {
+                              if (event.detail === 0) setPointer(null)
+                              choose({ ...currency, name })
+                            }}
+                          >
+                            <CurrencyImage {...currency} name={name} />
+                            {currency.id.startsWith('Greater') && (
+                              <span
+                                className="currency-tier"
+                                aria-hidden="true"
+                              >
+                                II
+                              </span>
+                            )}
+                            {currency.id.startsWith('Perfect') && (
+                              <span
+                                className="currency-tier"
+                                aria-hidden="true"
+                              >
+                                III
+                              </span>
+                            )}
+                          </button>
+                        )
+                      })
                   ) : (
                     <>
                       {activeTab === 'Omen' && (
@@ -1064,18 +1083,20 @@ export function CraftingPage() {
                           </label>
                           {showLegacyOmens && (
                             <p>
-                              Homogenising: drops disabled in 0.4; existing items
-                              work.
-                              Alchemy, Coronation and Greater Annulment: no longer
-                              obtainable in 0.3. Legacy effects are modeled on
-                              ordinary currency; current acquisition is not
-                              asserted.
-                              Ordinary currency only. Greater Exaltation
-                              uses pre-craft tags for both additions. Other
-                              same-trigger combinations and catalyst quality are
-                              unsupported. Failed requests preserve resources
-                              here; actual game failure consumption is
-                              unverified.{' '}
+                              Homogenising: drops disabled in 0.4; existing
+                              items work. Alchemy, Coronation and Greater
+                              Annulment: no longer obtainable in 0.3. Legacy
+                              effects are modeled within the supported scope;
+                              current acquisition is not asserted. Coronation
+                              and Homogenising support matching ordinary,
+                              Greater and Perfect currency. Tiered composition
+                              is an unverified model. Alchemy and Annulment use
+                              ordinary currency. Greater Exaltation with
+                              Homogenising uses pre-craft tags for both
+                              additions. Only reviewed combinations are enabled;
+                              catalyst quality interactions remain unsupported.
+                              Failed requests preserve resources here; actual
+                              game failure consumption is unverified.{' '}
                               <a
                                 href="https://www.pathofexile.com/forum/view-thread/3883495/filter-account-type/staff"
                                 target="_blank"
@@ -1320,6 +1341,13 @@ export function CraftingPage() {
                       flags: [],
                     }}
                   />
+                )}
+                {draft.activeOmens.includes('Omen_of_Whittling') && (
+                  <p className="workbench-feedback">
+                    {removalCandidates.length > 0
+                      ? `Orange: ${removalCandidates.length} eligible Whittling removal candidate${removalCandidates.length === 1 ? '' : 's'}; tied candidates use 1/${removalCandidates.length} in the model.`
+                      : 'Whittling preview unavailable: no supported removal candidates. Fractured and missing-level interactions remain unverified.'}
+                  </p>
                 )}
                 {(selected?.id === 'Essence_of_the_Breach' ||
                   concrete?.explicits.some(
@@ -1594,13 +1622,22 @@ export function CraftingPage() {
                     {craftEvidence.assumptions.length ? (
                       craftEvidence.assumptions.map((a, i) => (
                         <p key={`${a.id}-${i}`}>
-                          {a.id === 'user-coupled-ratio-half-up-v1'
-                            ? 'Unverified coupled roll model'
-                            : a.id === 'assumed-source-integer-roll-v1'
-                              ? 'Unverified source-unit roll model'
-                              : 'Uniform assumption'}
-                          : {a.candidateUnit}, N = {a.n}, each candidate = 1/
-                          {a.n}.{' '}
+                          {a.id === 'tiered-omen-composition-v1'
+                            ? 'Unverified omen composition model'
+                            : a.id === 'legacy-alchemy-order-v1'
+                              ? 'Unverified affix draw order model'
+                              : a.id === 'user-coupled-ratio-half-up-v1'
+                                ? 'Unverified coupled roll model'
+                                : a.id === 'assumed-source-integer-roll-v1'
+                                  ? 'Unverified source-unit roll model'
+                                  : 'Uniform assumption'}
+                          : {a.candidateUnit}
+                          {[
+                            'tiered-omen-composition-v1',
+                            'legacy-alchemy-order-v1',
+                          ].includes(a.id)
+                            ? '. '
+                            : `, N = ${a.n}, each candidate = 1/${a.n}. `}
                           {a.id === 'user-coupled-ratio-half-up-v1' &&
                           a.min !== null
                             ? `Assumed ratio ticks ${a.min} to ${a.max}. `

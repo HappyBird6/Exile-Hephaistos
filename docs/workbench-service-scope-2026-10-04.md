@@ -2,6 +2,8 @@
 
 **최종 검증 재개가 필요한 로컬 구현 checkpoint**다. 최신 사용자 지시로 기폭제 서비스 제외가 취소됐으므로 기존 메뉴·typed 품질 입력·품질 미리보기 API를 보존한다. 실제 기폭제 적용과 새 UX는 피드백 수집 완료 후 조정한다. 사용자 테스트 중인 서버와 실제 브라우저 저장소는 변경하지 않았다.
 
+최신 후속 checkpoint: [Omen composition](workbench-omen-composition-2026-10-04.md), [실행 근거](evidence/workbench-omen-composition-validation-2026-10-04.json), WB-042. 명시 승인 후 tiered currency와 한정된 병용·로컬 후보 표시를 구현했고 Backend362+6/필수 검사 및 FE 정적검사/build를 통과했다. 전체 FE343/344, 마지막 관련21/22, API18/browser8 이후 harness failure와 복구2회 한도로 중단했다. 최종 legacy5/9-base 실행완료 집계는 여전히 미완료이며 구현118/검증113을 유지한다. 아래 검증 절은 이전 checkpoint 이력이다. 같은-trigger 전체·Greater/Perfect 전체 거부는 최신 allowlist로 대체했고 미확인 게임 의미는 WB-042에 구체적으로 남겼다.
+
 ## 범위 검산
 
 220개 고유 ID를 검산했다. 기존 active155에서 품질 화폐3 + 특수 Essence2 + Wisdom/Chance/Extraction3 + Catalysing1 + Necromancy2 =11개를 중복 없이 보류한다. 기폭제26은 개발 범위로 복귀했고 실제 적용은 아직 미구현이다. 기존 보류65는 그대로다. [ID별 검산](evidence/workbench-service-scope-2026-10-04.json).

@@ -1,4 +1,5 @@
 import { supportsConcreteStateShape } from './workbenchStateShape'
+import { whittlingCandidates } from './omenRemovalCandidates'
 import type { CatalystQuality } from './catalystQuality'
 import { maximumQuality, qualityLimitMatches } from './qualityLimit'
 import type { QualityLimit } from './qualityLimit'
@@ -562,12 +563,13 @@ export const legacyOmenIds = [...legacyHomogenisingIds, ...legacyFiveIds]
 export function compatibleOmenPair(first: string, second: string): boolean {
   return (
     new Set([first, second]).size === 2 &&
-    [first, second].every((id) =>
-      [
-        'Omen_of_Homogenising_Exaltation',
-        'Omen_of_Greater_Exaltation',
-      ].includes(id),
-    )
+    [
+      ['Omen_of_Homogenising_Exaltation', 'Omen_of_Greater_Exaltation'],
+      ['Omen_of_Sinistral_Erasure', 'Omen_of_Whittling'],
+      ['Omen_of_Dextral_Erasure', 'Omen_of_Whittling'],
+      ['Omen_of_Sinistral_Annulment', 'Omen_of_Greater_Annulment'],
+      ['Omen_of_Dextral_Annulment', 'Omen_of_Greater_Annulment'],
+    ].some((pair) => pair.includes(first) && pair.includes(second))
   )
 }
 export const baseWorkbenchAction = (action: WorkbenchAction) =>
@@ -1094,7 +1096,7 @@ export async function applyCurrency(
               action === 'FRACTURING' ||
               replacementTargets.length > 0
             ? 0
-            : action === 'EXALTED' &&
+            : baseAction === 'EXALTED' &&
                 activeOmens.includes('Omen_of_Greater_Exaltation')
               ? 2
               : 1)
@@ -1395,7 +1397,7 @@ export async function applyCurrency(
   }
   if (
     v.applied &&
-    action === 'EXALTED' &&
+    baseAction === 'EXALTED' &&
     activeOmens.includes('Omen_of_Greater_Exaltation') &&
     (state.rarity !== 'RARE' ||
       state.explicits.length > 4 ||
@@ -1424,6 +1426,52 @@ export async function applyCurrency(
     throw new Error(
       'Could not verify both added modifiers. Your item is unchanged. Please retry.',
     )
+  if (
+    v.applied &&
+    baseAction === 'CHAOS' &&
+    activeOmens.includes('Omen_of_Whittling')
+  ) {
+    const candidates = whittlingCandidates(state, definitions, activeOmens)
+    const matching = workbenchOmens.filter(
+      (o) => o.trigger === 'CHAOS' && activeOmens.includes(o.id),
+    )
+    const removed = v.events.filter((e) => e.kind === 'REMOVE')
+    const added = v.events.filter((e) => e.kind === 'ADD')
+    const removal = removed[0]
+    const model = v.assumptions.filter((a) => a.id === 'uniform-removal-v1')
+    if (
+      candidates.length === 0 ||
+      matching.length > 2 ||
+      (matching.length === 2 &&
+        !compatibleOmenPair(matching[0]!.id, matching[1]!.id)) ||
+      v.consumedOmens.length !== matching.length ||
+      !matching.every((o) => v.consumedOmens.includes(o.id)) ||
+      v.events.length !== 2 ||
+      removed.length !== 1 ||
+      added.length !== 1 ||
+      !removal ||
+      !candidates.includes(removal.modifierId) ||
+      Object.keys(removal.values).length !== 0 ||
+      removal.selectionProbability !== 1 / candidates.length ||
+      model.length !== 1 ||
+      model[0]!.n !== candidates.length ||
+      model[0]!.candidates.length !== candidates.length ||
+      new Set(model[0]!.candidates).size !== candidates.length ||
+      !model[0]!.candidates.every((id) => candidates.includes(id)) ||
+      !sameModifiers(
+        state.explicits.filter((m) => m.modifierId !== removal.modifierId),
+        next.explicits.filter((m) => m.modifierId !== added[0]!.modifierId),
+      ) ||
+      !sameValues(
+        added[0]!.values,
+        next.explicits.find((m) => m.modifierId === added[0]!.modifierId)
+          ?.values,
+      )
+    )
+      throw new Error(
+        'Could not verify the Whittling removal candidates. Your item is unchanged. Please retry.',
+      )
+  }
   const legacyFive = legacyFiveIds.filter(
     (id) =>
       activeOmens.includes(id) &&
@@ -1447,10 +1495,17 @@ export async function applyCurrency(
     const added = v.events.filter((e) => e.kind === 'ADD')
     const removed = v.events.filter((e) => e.kind === 'REMOVE')
     let valid =
-      action === trigger &&
-      matches.length === 1 &&
-      v.consumedOmens.length === 1 &&
-      v.consumedOmens[0] === id
+      baseAction === trigger &&
+      (matches.length === 1 ||
+        (trigger === 'ANNULMENT' &&
+          matches.length === 2 &&
+          matches.some(
+            (o) =>
+              o.id === 'Omen_of_Sinistral_Annulment' ||
+              o.id === 'Omen_of_Dextral_Annulment',
+          ))) &&
+      v.consumedOmens.length === matches.length &&
+      matches.every((o) => v.consumedOmens.includes(o.id))
     if (trigger === 'ALCHEMY') {
       valid &&=
         !state.explicits.some((m) => m.fractured) &&
@@ -1471,7 +1526,15 @@ export async function applyCurrency(
           ),
         )
     } else {
-      const candidates = state.explicits.filter((m) => !m.fractured)
+      const candidates = state.explicits.filter(
+        (m) =>
+          !m.fractured &&
+          (matches.length === 1 ||
+            definitions[m.modifierId]?.affixType ===
+              (matches.some((o) => o.id === 'Omen_of_Sinistral_Annulment')
+                ? 'PREFIX'
+                : 'SUFFIX')),
+      )
       valid &&=
         candidates.length >= 2 &&
         added.length === 0 &&
@@ -1511,7 +1574,6 @@ export async function applyCurrency(
     )
     let intermediate = [...state.explicits]
     const valid =
-      action === baseAction &&
       matching.every(
         (o) => o.id === homogenising || compatibleOmenPair(o.id, homogenising),
       ) &&
@@ -1528,7 +1590,7 @@ export async function applyCurrency(
         const existingFamilies = new Set(
           intermediate.flatMap((m) => definitions[m.modifierId]!.familyIds),
         )
-        const pool = Object.values(definitions).filter(
+        let pool = Object.values(definitions).filter(
           (d) =>
             d.layer === 'EXPLICIT' &&
             (d.weight ?? 0) > 0 &&
@@ -1542,6 +1604,28 @@ export async function applyCurrency(
             (originalTags.size === 0 ||
               d.tags?.some((tag) => originalTags.has(tag))),
         )
+        const minimum = action.startsWith('GREATER_')
+          ? 35
+          : action.startsWith('PERFECT_')
+            ? 50
+            : 0
+        if (minimum > 0) {
+          const highest = new Map<string, number>()
+          for (const d of pool) {
+            if (d.familyIds.length !== 1) return false
+            const group = `${d.affixType}:${d.familyIds[0]}`
+            highest.set(
+              group,
+              Math.max(highest.get(group) ?? 0, d.requiredItemLevel!),
+            )
+          }
+          pool = pool.filter(
+            (d) =>
+              d.requiredItemLevel! >= minimum ||
+              d.requiredItemLevel ===
+                highest.get(`${d.affixType}:${d.familyIds[0]}`),
+          )
+        }
         const chosen = pool.find((d) => d.id === event.modifierId)
         const added = next.explicits.find(
           (m) => m.modifierId === event.modifierId,

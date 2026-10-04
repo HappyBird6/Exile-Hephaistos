@@ -1,0 +1,283 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-04",
+  "status": "IMPLEMENTED_VALIDATION_BLOCKED",
+  "branch": "workbench/20261002",
+  "baseline": "0c044759b76241407d2b272021aa4cd40926ecfb",
+  "scope": {
+    "active": 144,
+    "implemented": 118,
+    "previousVerified": 113,
+    "fullyVerifiedNow": 113,
+    "pending": 26,
+    "deferred": 76,
+    "registry": 220,
+    "legacyFiveRuntimeValidation": "INCOMPLETE",
+    "liveServerUpdated": false
+  },
+  "decisions": {
+    "sideFirst": "Unlocked -> requested prefix/suffix -> minimum known modifier level -> uniform tie1/N; user-defined/model odds",
+    "allowedSameTriggerPairs": [
+      [
+        "Sinistral Erasure",
+        "Whittling"
+      ],
+      [
+        "Dextral Erasure",
+        "Whittling"
+      ],
+      [
+        "Sinistral Annulment",
+        "Greater Annulment"
+      ],
+      [
+        "Dextral Annulment",
+        "Greater Annulment"
+      ],
+      [
+        "Homogenising Exaltation",
+        "Greater Exaltation"
+      ]
+    ],
+    "tiered": "Explicit matching effects with existing35/50 added-level/family fallback; UNVERIFIED composition ledger; frozen pre-craft tags before each multi-add stage level pool",
+    "deferred": [
+      "modifier-level-less special affixes",
+      "Fractured Whittling",
+      "directional + count2 addition overlap and partial side-slot result/consumption",
+      "Homogenising + directional overlap priority/empty pool",
+      "Greater Annulment1-target",
+      "Greater Exaltation1-total-slot",
+      "game failure consumption"
+    ]
+  },
+  "backend": {
+    "status": "PASS",
+    "command": "./gradlew --no-daemon spotlessApply check generateJooq bootJar",
+    "environment": "mcr.microsoft.com/devcontainers/java:21-bookworm; TESTCONTAINERS_HOST_OVERRIDE=host.docker.internal; owned source/build copy, Docker socket; Testcontainers temporary DB",
+    "test": {
+      "tests": 362,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "integrationTest": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "initialFailure": "362 unit PASS; integration startup Ryuk connection refused without Docker Desktop host override; repaired in recovery1",
+    "jarSha256": "4092aa4e64416388bffd722291ee6d4a54a1b3f3206ec1748af0dfd86c517e19"
+  },
+  "frontend": {
+    "npmCi": "PASS",
+    "lint": "PASS",
+    "typecheck": "PASS including final build after literal correction",
+    "formatCheck": "PASS before final special-ID literal reordering; final reordering changes no formatting",
+    "build": "PASS final source in owned copy",
+    "fullSuite": {
+      "total": 344,
+      "passed": 343,
+      "failed": 1,
+      "files": 46,
+      "error": "Baseline MaterialStash ordinary Essence count expected74 but source19 families x4=76; excluded special2 were NOT reintroduced"
+    },
+    "relatedRecovery": {
+      "total": 22,
+      "passed": 21,
+      "failed": 1,
+      "error": "Added exact special IDs expected wrong order; source order Hysteria/Horror/Abyss/Breach. Corrected literal after source review; final22 rerun NOT RUN at limit"
+    },
+    "finalUnitAggregate": "NOT COMPLETE; no failed test skipped or assertions removed; original343 successes preserved",
+    "productSourceChangedAfterFullSuite": false,
+    "onlyTestCorrectionAfterFullSuite": "MaterialStash exact regular count and special/excluded identity assertions"
+  },
+  "runtimeApi": {
+    "status": "FAIL_HARNESS_INVESTIGATION_REQUIRED",
+    "passed": 18,
+    "checks": [
+      "solar CHAOS side-before-level/ties",
+      "solar CHAOS exact candidate ledger",
+      "solar CHAOS both consumed, unrelated retained",
+      "solar CHAOS implicit + suffix unchanged",
+      "solar CHAOS eligible weighted addition",
+      "solar GREATER_CHAOS side-before-level/ties",
+      "solar GREATER_CHAOS exact candidate ledger",
+      "solar GREATER_CHAOS both consumed, unrelated retained",
+      "solar GREATER_CHAOS implicit + suffix unchanged",
+      "solar GREATER_CHAOS eligible weighted addition",
+      "solar PERFECT_CHAOS side-before-level/ties",
+      "solar PERFECT_CHAOS exact candidate ledger",
+      "solar PERFECT_CHAOS both consumed, unrelated retained",
+      "solar PERFECT_CHAOS implicit + suffix unchanged",
+      "solar PERFECT_CHAOS eligible weighted addition",
+      "solar CHAOS symmetric Dextral",
+      "solar GREATER_CHAOS symmetric Dextral",
+      "solar PERFECT_CHAOS symmetric Dextral"
+    ],
+    "error": "AssertionError [ERR_ASSERTION]: solar opposing sides atomic",
+    "notRun": "Remaining nine-base/legacy5/weighted double-add/refusal checks",
+    "reviewInference": "ItemState.canonical sorts modifier arrays; synthetic rare order may differ from response in raw deepStrictEqual. Not confirmed by a captured full response; investigate preserving all fields/rolls/flags. No repeat executed."
+  },
+  "browser": {
+    "status": "FAIL_HARNESS_WAIT_TIMEOUT",
+    "passed": 8,
+    "checks": [
+      "legacy five hidden by default",
+      "solar local candidate set matches backend",
+      "solar orange candidate CSS",
+      "solar hover performs zero API calls",
+      "solar actual pair response contract and consumption",
+      "solar composition label does not invent uniform probability",
+      "solar film records one step preserving old frame",
+      "solar consumed preview clears"
+    ],
+    "pageErrors": [],
+    "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Previous crafting step', exact: true })\n    - locator resolved to <button type=\"button\" aria-label=\"Previous crafting step\">‹</button>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not enabled\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not enabled\n    - retrying click action\n      - waiting 100ms\n    58 × waiting for element to be visible, enabled and stable\n       - element is not enabled\n     - retrying click action\n       - waiting 500ms\n",
+    "notRun": [
+      "remaining8-base candidate/apply checks",
+      "legacy5 actual UI actions",
+      "tiered Greater+Homogenising actual UI action",
+      "390px/1440px screenshots and visual QA",
+      "film reload byte preservation"
+    ],
+    "reviewInference": "After session select, Previous is read before new film state settles; enabled old button becomes disabled. Await selected active film/cursor before traversing. No repeat executed."
+  },
+  "sourceEquivalence": {
+    "backend": {
+      "files": 213,
+      "sha256": "24a9fd07f5cd5bf8602812ff6cdde2cf351bed1cc15ec2112fac74126737fbdb"
+    },
+    "frontend": {
+      "files": 324,
+      "sha256": "a6703db644024c40f7545667106a746a1c2b205dbc31efff73c6f091dcabfa9e"
+    },
+    "mismatches": []
+  },
+  "recovery": {
+    "maximum": 2,
+    "used": 2,
+    "round2": {
+      "frontend": "Full suite343 passed/1 failed: baseline MaterialStash expected74 ordinary Essence buttons, source has19 families x4=76, plus separate4 special.",
+      "changes": [
+        "Correct stale exact count to76 and add explicit Delirium/Insanity absence plus four special identities; no product scope or assertion removed"
+      ],
+      "validation": "Static checks PASS; targeted22=21 PASS/1 FAIL because added exact special IDs had the wrong order. Corrected to original Hysteria/Horror/Abyss/Breach order after source review; NOT rerun under2-round limit. Prior343 successes retained. Build/API/browser are first executions still pending. No further recovery round authorized."
+    },
+    "round1": {
+      "backend": "Docker Desktop host override missing; 362 unit passed, integration initialization failed",
+      "frontend": "Baseline serviceScope.test.ts formatter failure after npm ci/lint/typecheck passed",
+      "additionalReviewFix": "Pool projection cache namespace revised without DB deletion",
+      "changes": [
+        "TESTCONTAINERS_HOST_OVERRIDE=host.docker.internal",
+        "format serviceScope.test.ts",
+        "final cache namespace source included"
+      ]
+    }
+  },
+  "isolation": {
+    "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004",
+    "project": "exile-omen-bundle-20261004",
+    "ports": [
+      "127.0.0.1:18280",
+      "127.0.0.1:18281"
+    ],
+    "database": "owned PostgreSQL17.6 tmpfs, disposable credentials; separate Redis",
+    "composeConfig": "PASS --quiet",
+    "sourceFrontendMount": "read-only; npm outputs only frontend-check",
+    "composeEnd": "STOPPED normally, no volume deletion",
+    "liveContainersPreserved": [
+      "exile-workbench-qa-20261002-app-1:18080",
+      "exile-workbench-qa-20261002-frontend-1:18081",
+      "exile-workbench-qa-20261002-redis-1",
+      "exile-workbench-qa-20261002-postgres-1"
+    ],
+    "browserStorage": "fresh context; only owned synthetic films; existing user browser untouched",
+    "heavySlot": "RELEASED"
+  },
+  "autoReview": {
+    "deniedAction": "docker inspect existing backend checker --format full .Config.Env",
+    "reason": "May expose secrets; unnecessary broad environment inspection",
+    "executed": false,
+    "retried": false,
+    "resolution": "Used official Testcontainers Docker Desktop host override in own new runner; no remaining dependency on denied action",
+    "source": "https://java.testcontainers.org/supported_docker_environment/continuous_integration/dind_patterns/"
+  },
+  "selfReview": {
+    "status": "COMPLETE for final diff, not independent review",
+    "checks": [
+      "side-first mirrors local/backend ordering",
+      "exact pair allowlist; unrelated omens preserved; refusal before draw",
+      "tag eligibility before tier pool; frozen tags across both draws",
+      "cache namespace invalidates old persisted refusal without deleting DB",
+      "composition/Alchemy ledger UI does not invent uniform probabilities",
+      "source/catalog weights/ranges/tags and excluded identities preserved",
+      "git diff --check PASS"
+    ],
+    "limitations": "No full final FE/API/browser aggregate green; no screenshot produced"
+  },
+  "notRun": [
+    "Windows script unittest (no script changed in repo)",
+    "existing stack Compose config (unchanged; own config checked)",
+    "independent agent review (not requested)",
+    "remote push/merge/release/deploy"
+  ],
+  "artifacts": {
+    "backend-check/final-check.log": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/backend-check/final-check.log",
+      "sha256": "7fc4cb0fd1dd9bf6db0565e12f8fc7df08631175c0997c488fcc64d42350fee7"
+    },
+    "backend-first-check.log": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/backend-first-check.log",
+      "sha256": "45b15f884276ac0653fb6a879a9ca3c5b41874b5acc16399afb063756b2dc0ae"
+    },
+    "frontend-first-check.log": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/frontend-first-check.log",
+      "sha256": "5278916c255f9e4169ae6de01644bbe2b5bb2a501c837972c814d305ac2e26cc"
+    },
+    "frontend-full-test-results.log": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/frontend-full-test-results.log",
+      "sha256": "8f988115bf52156a9aed5dcb05cd2a6d54abefc9cff5c4096c3c1ee81207223c"
+    },
+    "frontend-recovery2.log": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/frontend-recovery2.log",
+      "sha256": "8883f20d77d9fabb561b013f63d92ba1c041d2e8ff12ac3d04307dd63bac98e2"
+    },
+    "frontend-build.log": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/frontend-build.log",
+      "sha256": "3dec5ede3aa7c59e4ac56c6c096a7838a49d3b8b5e29cbe4a34a54e114ca1ce6"
+    },
+    "api.cjs": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/api.cjs",
+      "sha256": "c4693cf2e671ae114453ce74d96bb87971c4cc4a7151726c43b7b2e3f19c8f33"
+    },
+    "api-failure.json": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/api-failure.json",
+      "sha256": "80640b9dddb84e4a3837dc3ce601e995fbd0fabbc4612bacf60029fb8f2b6512"
+    },
+    "browser.cjs": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/browser.cjs",
+      "sha256": "da998c7a7d747c30be978ff7f620f1aad56cfe0f243980410eb2feb8aed7cc68"
+    },
+    "browser-fixtures.cjs": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/browser-fixtures.cjs",
+      "sha256": "a7307ca86379685c36ca5e2092799e3f08cbcc707e02412c30e4a196adfa9037"
+    },
+    "browser-failure.json": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/browser-failure.json",
+      "sha256": "28a5518bd67d152c0b1f4446bd702aaee08094e3e20c01632092112f8bb0bc60"
+    },
+    "source-equivalence.json": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/source-equivalence.json",
+      "sha256": "3368f209bdfb355b7ea8063e3f6471127942e0b07f28097702793ac954152d87"
+    },
+    "recovery-rounds.json": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/recovery-rounds.json",
+      "sha256": "a05bb8e5078fc4cda35baaedbb95cd2a3f56463623309ed0b27d04c28de67a2a"
+    },
+    "compose.yaml": {
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/compose.yaml",
+      "sha256": "75660e60fb9a2fb637b2730c857093d3171cdc072fb97b361426378384df1afd"
+    }
+  }
+}

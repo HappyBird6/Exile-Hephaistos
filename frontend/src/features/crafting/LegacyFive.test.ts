@@ -71,6 +71,12 @@ it('accepts prefix Coronation retaining prior rolls and rejects suffix response'
     [{ ...mods[0]!, kind: 'ADD', selectionProbability: 1 }],
   )
   expect((await apply(magic, r)).state.explicits).toHaveLength(2)
+  expect(
+    (await apply(magic, { ...r, action: 'GREATER_REGAL' })).state.explicits,
+  ).toHaveLength(2)
+  expect(
+    (await apply(magic, { ...r, action: 'PERFECT_REGAL' })).state.explicits,
+  ).toHaveLength(2)
   await expect(
     apply(magic, { ...r, consumedOmens: ['Omen_of_Dextral_Coronation'] }),
   ).rejects.toThrow('Your item is unchanged')
@@ -100,5 +106,38 @@ it('accepts two distinct removals preserving fracture and rejects duplicate remo
   expect((await apply(rare, r)).state.explicits[0]).toEqual(locked)
   await expect(
     apply(rare, { ...r, events: [events[0]!, events[0]!] }),
+  ).rejects.toThrow('Your item is unchanged')
+})
+
+it('accepts audited prefix double removal consuming both omens and refuses a suffix event', async () => {
+  const active = ['Omen_of_Greater_Annulment', 'Omen_of_Sinistral_Annulment']
+  const rare = {
+    ...root,
+    rarity: 'RARE' as const,
+    explicits: [mods[0]!, mods[1]!, mods[3]!],
+  }
+  const r = result(
+    rare,
+    'ANNULMENT',
+    active[0]!,
+    { ...rare, explicits: [mods[3]!] },
+    [
+      {
+        kind: 'REMOVE',
+        modifierId: 'p',
+        values: {},
+        selectionProbability: 0.5,
+      },
+      { kind: 'REMOVE', modifierId: 'p2', values: {}, selectionProbability: 1 },
+    ],
+  )
+  r.consumedOmens = active
+  expect((await apply(rare, r, active)).consumedOmens).toEqual(active)
+  await expect(
+    apply(
+      rare,
+      { ...r, events: [{ ...r.events[0]!, modifierId: 's' }, r.events[1]!] },
+      active,
+    ),
   ).rejects.toThrow('Your item is unchanged')
 })

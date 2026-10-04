@@ -3,7 +3,7 @@ package com.poe2craft.crafting.domain;
 import com.poe2craft.item.ModifierDefinition.AffixType;
 import java.util.Arrays;
 
-/** Only individually verified effects. Combination order is deliberately unsupported. */
+/** Bounded effects and explicitly reviewed composition rules; other combinations remain blocked. */
 public enum WorkbenchOmen {
   SINISTRAL_ALCHEMY("Omen_of_Sinistral_Alchemy", WorkbenchCurrency.ALCHEMY, AffixType.PREFIX),
   DEXTRAL_ALCHEMY("Omen_of_Dextral_Alchemy", WorkbenchCurrency.ALCHEMY, AffixType.SUFFIX),
@@ -50,6 +50,37 @@ public enum WorkbenchOmen {
 
   public boolean homogenising() {
     return this == HOMOGENISING_EXALTATION || this == HOMOGENISING_CORONATION;
+  }
+
+  /** Reviewed single-effect composition with the currency's existing added-level pool. */
+  public boolean supportsTieredCurrency() {
+    return switch (this) {
+      case SINISTRAL_CORONATION,
+          DEXTRAL_CORONATION,
+          SINISTRAL_EXALTATION,
+          DEXTRAL_EXALTATION,
+          SINISTRAL_ERASURE,
+          DEXTRAL_ERASURE,
+          WHITTLING,
+          HOMOGENISING_EXALTATION,
+          HOMOGENISING_CORONATION ->
+          true;
+      default -> false;
+    };
+  }
+
+  /** User-specified order and its symmetric side: side pool, lowest level, uniform ties. */
+  public static boolean sideWhittling(java.util.List<WorkbenchOmen> matching) {
+    return matching.size() == 2
+        && (matching.contains(SINISTRAL_ERASURE) || matching.contains(DEXTRAL_ERASURE))
+        && matching.contains(WHITTLING);
+  }
+
+  /** Audited prefix/count example and symmetric suffix rule; not arbitrary combinations. */
+  public static boolean sideDoubleRemoval(java.util.List<WorkbenchOmen> matching) {
+    return matching.size() == 2
+        && (matching.contains(SINISTRAL_ANNULMENT) || matching.contains(DEXTRAL_ANNULMENT))
+        && matching.contains(GREATER_ANNULMENT);
   }
 
   /** Only this same-trigger pair has a reviewed combined effect. */

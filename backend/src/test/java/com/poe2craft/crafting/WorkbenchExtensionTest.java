@@ -128,7 +128,8 @@ class WorkbenchExtensionTest {
   @Test
   void conflictingAndUnverifiedCombinationsAreAtomicAndDoNotConsumeOmens() {
     var rare = item(ItemState.Rarity.RARE, "IncreasedLife", "IncreasedCastSpeed");
-    var conflicting = Set.of(WorkbenchOmen.SINISTRAL_ERASURE.id(), WorkbenchOmen.WHITTLING.id());
+    var conflicting =
+        Set.of(WorkbenchOmen.DEXTRAL_ERASURE.id(), WorkbenchOmen.SINISTRAL_ERASURE.id());
     var result = simulator.apply(rare, WorkbenchCurrency.CHAOS, conflicting, new Random(1));
     assertThat(result.applied()).isFalse();
     assertThat(result.state()).isEqualTo(rare);
@@ -140,8 +141,10 @@ class WorkbenchExtensionTest {
             WorkbenchCurrency.PERFECT_EXALTED,
             Set.of(WorkbenchOmen.SINISTRAL_EXALTATION.id()),
             new Random(1));
-    assertThat(tiered.applied()).isFalse();
-    assertThat(tiered.state()).isEqualTo(rare);
+    assertThat(tiered.applied()).isTrue();
+    assertThat(catalog.find(tiered.events().getFirst().modifierId()).orElseThrow().affixType())
+        .isEqualTo(ModifierDefinition.AffixType.PREFIX);
+    assertThat(tiered.consumedOmens()).containsExactly(WorkbenchOmen.SINISTRAL_EXALTATION.id());
     var onlyPrefix = item(ItemState.Rarity.RARE, "IncreasedLife");
     var absent =
         simulator.apply(

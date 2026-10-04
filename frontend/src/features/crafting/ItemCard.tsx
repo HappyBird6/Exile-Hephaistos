@@ -16,7 +16,13 @@ function Lines({
       {visible.map((line) => (
         <div
           key={line.id}
-          className={`item-card__line item-card__line--${flags && /^(Corrupted|Twice Corrupted)$/.test(line.text.trim()) ? 'corrupted' : (line.kind ?? 'property')}`}
+          className={`item-card__line item-card__line--${flags && /^(Corrupted|Twice Corrupted)$/.test(line.text.trim()) ? 'corrupted' : (line.kind ?? 'property')}${line.removalCandidate ? ' item-card__line--removal-candidate' : ''}`}
+          data-removal-candidate={line.removalCandidate ? line.id : undefined}
+          title={
+            line.removalCandidate
+              ? 'Eligible Whittling removal candidate'
+              : undefined
+          }
         >
           {line.affixLabel && (
             <span className="item-card__affix">{line.affixLabel}</span>
