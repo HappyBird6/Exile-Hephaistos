@@ -1,3 +1,4 @@
+import { useI18n, gameTerm } from '../../shared/i18n/i18n'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import descriptions from './materialTooltips.json'
 import { legacyHomogenisingIds, legacyFiveIds } from './workbenchApi'
@@ -5,6 +6,7 @@ import { legacyHomogenisingIds, legacyFiveIds } from './workbenchApi'
 type TooltipData = { name: string; lines: string[]; sourceUrl: string }
 const catalog: Record<string, TooltipData> = descriptions
 export function MaterialTooltip() {
+  const { t, locale, name } = useI18n()
   const tooltip = useRef<HTMLElement>(null)
   const [target, setTarget] = useState<{
     id: string
@@ -91,6 +93,9 @@ export function MaterialTooltip() {
   }, [target])
   const data = target && catalog[target.id]
   if (!data || !target) return null
+  const translated = gameTerm(target.id, locale)
+  const hasDescription = Boolean(translated.data?.lines.length)
+  const lines = hasDescription ? translated.data!.lines : data.lines
   return (
     <aside
       ref={tooltip}
@@ -99,36 +104,37 @@ export function MaterialTooltip() {
       id="material-description"
       style={{ left: target.x, top: target.y }}
     >
-      <strong>{data.name}</strong>
-      {legacyFiveIds.includes(target.id) && (
-        <p>
-          Legacy: no longer obtainable in 0.3. Ordinary currency effects are
-          modeled; current acquisition is not asserted. Unverified combinations
-          and failures are refused without spending resources.
-        </p>
+      <strong>{name(target.id, data.name)}</strong>
+      {locale !== 'en' && (!hasDescription || translated.fallback) && (
+        <small className="translation-fallback">
+          {t('translation.english')}
+        </small>
       )}
+      {legacyFiveIds.includes(target.id) && <p>{t('notice.legacy_five')}</p>}
       {legacyFiveIds.includes(target.id) && (
         <a
           href="https://www.pathofexile.com/forum/view-thread/3826682"
           target="_blank"
           rel="noreferrer"
         >
-          Official legacy availability
+          {t('ui.official_legacy_availability')}
         </a>
       )}
       {legacyHomogenisingIds.includes(target.id) && (
-        <p>
-          Legacy: drop disabled in 0.4; existing items work. Ordinary currency
-          only; other combinations and actual failure consumption remain
-          unverified.
-        </p>
+        <p>{t('notice.legacy_homogenising')}</p>
       )}
-      {data.lines
+      {lines
         .filter((line) => !line.startsWith('Stack Size:'))
         .map((line, i) => (
-          <p key={i}>{line}</p>
+          <p key={i} lang={hasDescription ? translated.language : 'en'}>
+            {line}
+          </p>
         ))}
-      <a href={data.sourceUrl} target="_blank" rel="noreferrer">
+      <a
+        href={translated.data?.sourceUrl ?? data.sourceUrl}
+        target="_blank"
+        rel="noreferrer"
+      >
         PoE2DB
       </a>
       {legacyHomogenisingIds.includes(target.id) && (
@@ -137,7 +143,7 @@ export function MaterialTooltip() {
           target="_blank"
           rel="noreferrer"
         >
-          Official legacy availability
+          {t('ui.official_legacy_availability')}
         </a>
       )}
     </aside>

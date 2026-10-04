@@ -1,3 +1,12 @@
+import {
+  useI18n,
+  matchesGameName,
+  uiText,
+  translate,
+} from '../../shared/i18n/i18n'
+import { LocaleSelector } from '../../shared/i18n/LocaleSelector'
+import { localizedAction, catalystItemIds } from './localizedCrafting'
+import { localizedModifierText } from './localizedModifiers'
 import { inServiceScope } from './serviceScope'
 import { maximumQuality } from './qualityLimit'
 import { catalystTypes, catalystProjection } from './catalystQuality'
@@ -32,7 +41,6 @@ import {
   concreteInitial,
   rolledText,
   workbenchCurrencyActions,
-  workbenchActionNames,
   workbenchOmens,
   legacyOmenIds,
   compatibleOmenPair,
@@ -60,11 +68,17 @@ function tooltipEvents(id: string) {
 }
 
 const workspaceTabs = ['workbench', 'support', 'explorer'] as const
-const workspaceNames = {
-  workbench: 'Crafting Workbench',
-  support: 'Craft Support',
-  explorer: 'State explorer',
-}
+const baseSlugs = {
+  solar: 'Solar_Amulet',
+  stocky: 'Stocky_Mitts',
+  bow: 'Crude_Bow',
+  wand: 'Attuned_Wand',
+  body: 'Rusted_Cuirass',
+  sceptre: 'Rattling_Sceptre',
+  belt: 'Rawhide_Belt',
+  ring: 'Iron_Ring',
+  helmet: 'Rusted_Greathelm',
+} as const
 
 type Selection = { id: string; name: string; image: string }
 
@@ -73,6 +87,7 @@ function filmId() {
 }
 
 export function CraftingPage() {
+  const { t, name } = useI18n()
   const client = useQueryClient()
   const draft = useItemDraft()
   const [filmState, setFilmState] = useState(() => {
@@ -87,8 +102,7 @@ export function CraftingPage() {
       return {
         history: emptyFilms(),
         revision: draft.baseRevision,
-        error:
-          'Saved history could not be loaded. Existing storage is preserved; new crafts remain available in this page only.',
+        error: t('notice.history_load'),
         blockedSaving: true,
       }
     }
@@ -157,8 +171,7 @@ export function CraftingPage() {
         new LocalFilmRepository(window.localStorage).save(history)
         error = ''
       } catch {
-        error =
-          'History could not be saved. Current films remain available until this page closes.'
+        error = t('notice.history_save')
       }
     }
     setFilmState({ ...filmState, history, revision, error })
@@ -270,9 +283,7 @@ export function CraftingPage() {
       setHeld(null)
       setAnnouncement('')
     } catch {
-      setAnnouncement(
-        'Could not load the selected base. Your item and saved films are preserved.',
-      )
+      setAnnouncement(t('notice.load_base'))
     } finally {
       if (request === placementRequest.current) placementPending.current = false
     }
@@ -321,9 +332,7 @@ export function CraftingPage() {
       )
         return
       if (!verifiedHistoryState(state, data)) {
-        setAnnouncement(
-          'This saved session does not match the current catalog. It has been preserved.',
-        )
+        setAnnouncement(t('notice.saved_session'))
         return
       }
       draft.setBase(state.itemLevel, base)
@@ -339,9 +348,7 @@ export function CraftingPage() {
       setHeld(null)
       setAnnouncement('')
     } catch {
-      setAnnouncement(
-        'Could not load this saved session catalog. Saved films are preserved.',
-      )
+      setAnnouncement(t('notice.session_catalog'))
     } finally {
       if (request === placementRequest.current) placementPending.current = false
     }
@@ -404,7 +411,7 @@ export function CraftingPage() {
             new Event('cancel', { cancelable: true }),
           )
         if (inputOpen) inputToggle.current?.focus()
-        setAnnouncement('Currency selection cleared.')
+        setAnnouncement(translate('notice.selection_cleared'))
       }
     }
     const release = (event: KeyboardEvent) => {
@@ -427,13 +434,15 @@ export function CraftingPage() {
   function choose(resource: Selection) {
     setSelected(resource)
     setHeld(null)
-    setAnnouncement(`${resource.name} selected · Click the central item.`)
+    setAnnouncement(
+      t('material.selected', { name: name(resource.id, resource.name) }),
+    )
   }
   function toggleOmen(id: string) {
     if (applyingRequest.current) return
     const omen = workbenchOmens.find((entry) => entry.id === id)
     if (!omen) {
-      setAnnouncement('This omen has no verified Workbench rule yet.')
+      setAnnouncement(t('notice.omen_rule'))
       return
     }
     const active = draft.activeOmens.includes(id)
@@ -449,7 +458,7 @@ export function CraftingPage() {
         (id.includes('Sinistral') && conflict.id.includes('Dextral')) ||
         (id.includes('Dextral') && conflict.id.includes('Sinistral'))
       setAnnouncement(
-        `${oppositeSides ? 'Conflicting prefix/suffix restrictions. ' : ''}Deactivate ${conflict.id.replaceAll('_', ' ')} first. This combination has not been verified.`,
+        `${oppositeSides ? t('omen.opposite_sides') + ' ' : ''}${t('omen.conflict', { name: name(conflict.id, conflict.id.replaceAll('_', ' ')) })}`,
       )
       return
     }
@@ -462,13 +471,15 @@ export function CraftingPage() {
     setHeld(null)
     setPointer(null)
     setAnnouncement(
-      `${id.replaceAll('_', ' ')} ${active ? 'deactivated' : 'activated'}.`,
+      t(active ? 'omen.deactivate' : 'omen.activate', {
+        name: name(id, id.replaceAll('_', ' ')),
+      }),
     )
   }
   async function apply(repeat = false) {
     if (applyingRequest.current || placementPending.current) return
     if (!selected) {
-      setAnnouncement('Select a currency from the stash first.')
+      setAnnouncement(t('notice.select_currency'))
       return
     }
     if (!canCraft) {
@@ -478,22 +489,16 @@ export function CraftingPage() {
       return
     }
     if (workbenchOmens.some((omen) => omen.id === selected.id)) {
-      setAnnouncement(
-        'Move this omen to a favorite slot, then right-click the favorite to activate it.',
-      )
+      setAnnouncement(t('notice.omen_favorite'))
       return
     }
     const action = workbenchCurrencyActions[selected.id]
     if (!action) {
-      setAnnouncement(
-        'The item has not changed. This material has no verified crafting rule in the current Workbench.',
-      )
+      setAnnouncement(t('notice.no_rule'))
       return
     }
     if (!initial.data) {
-      setAnnouncement(
-        'The item has not changed. Wait for the crafting catalog or retry loading it.',
-      )
+      setAnnouncement(t('notice.wait_catalog'))
       return
     }
     const controller = new AbortController()
@@ -536,7 +541,19 @@ export function CraftingPage() {
         )
         draft.setActiveOmens(result.remainingOmens)
         setAnnouncement(
-          `${workbenchActionNames[action]} applied. Current item updated.${result.consumedOmens.length ? ` Consumed: ${result.consumedOmens.map((id) => id.replaceAll('_', ' ')).join(', ')}.` : ''}${result.assumptions.length ? ' Uniform probability assumptions were used; see the roll assumptions.' : ''}`,
+          [
+            t('craft.applied', { name: localizedAction(action) }),
+            result.consumedOmens.length
+              ? t('craft.consumed', {
+                  names: result.consumedOmens
+                    .map((id) => name(id, id.replaceAll('_', ' ')))
+                    .join(', '),
+                })
+              : '',
+            result.assumptions.length ? t('craft.uniform') : '',
+          ]
+            .filter(Boolean)
+            .join(' '),
         )
         if (!repeat) {
           setSelected(null)
@@ -544,15 +561,11 @@ export function CraftingPage() {
           setPointer(null)
         }
       } else
-        setAnnouncement(
-          `Craft blocked by rule: ${result.reason} Your item is unchanged; active omens are preserved.`,
-        )
+        setAnnouncement(t('craft.blocked', { reason: result.reason ?? '' }))
     } catch (error) {
       if (!controller.signal.aborted)
         setAnnouncement(
-          error instanceof Error
-            ? error.message
-            : 'Could not apply currency. Your item is unchanged.',
+          error instanceof Error ? error.message : t('notice.apply_error'),
         )
     } finally {
       if (applyingRequest.current === controller) {
@@ -648,20 +661,27 @@ export function CraftingPage() {
         position === index ? held : resource,
       ),
     )
-    setAnnouncement(`${held.name} registered in favorite slot ${index + 1}.`)
+    setAnnouncement(
+      t('material.registered', {
+        name: name(held.id, held.name),
+        index: index + 1,
+      }),
+    )
     setHeld(null)
   }
 
   const item = draft.source === 'text' ? imported.data : undefined
   const displayedName =
-    draft.source === 'base' ? baseName : (item?.displayName ?? 'Pasted item')
+    draft.source === 'base'
+      ? name(baseSlugs[catalogBase], baseName)
+      : (item?.displayName ?? 'Pasted item')
   const search = searches[activeTab] ?? ''
   const currentMaterials = materials.filter(
     (m) =>
       inServiceScope(m.id) &&
       m.category === activeTab &&
       (showLegacyOmens || !legacyOmenIds.includes(m.id)) &&
-      m.name.toLowerCase().includes(search.trim().toLowerCase()),
+      matchesGameName(m.id, m.name, search),
   )
   function materialButton(material: Material) {
     return (
@@ -669,7 +689,7 @@ export function CraftingPage() {
         type="button"
         key={material.id}
         className={`material-entry ${held?.id === material.id ? 'is-held' : ''} ${selected?.id === material.id ? 'is-selected' : ''}`}
-        aria-label={material.name}
+        aria-label={name(material.id, material.name)}
         aria-pressed={held?.id === material.id || selected?.id === material.id}
         {...tooltipEvents(material.id)}
         onContextMenu={(event) => {
@@ -682,7 +702,7 @@ export function CraftingPage() {
           setHeld(material)
           setSelected(null)
           setAnnouncement(
-            `${material.name} picked up. Click a favorite slot to register; Escape to cancel.`,
+            t('material.picked', { name: name(material.id, material.name) }),
           )
         }}
       >
@@ -690,8 +710,8 @@ export function CraftingPage() {
           <CurrencyImage key={material.id} {...material} />
         </span>
         <span>
-          {material.name}
-          {legacyOmenIds.includes(material.id) ? ' (Legacy)' : ''}
+          {name(material.id, material.name)}
+          {legacyOmenIds.includes(material.id) ? t('legacy.suffix') : ''}
         </span>
       </button>
     )
@@ -834,13 +854,13 @@ export function CraftingPage() {
                   projection.status === 'SCALED_INTEGER' &&
                   d.id === 'iron-ring:implicit:added-physical-damage-to-attacks'
                     ? `Adds ${projection.values.attack_minimum_added_physical_damage} to ${projection.values.attack_maximum_added_physical_damage} Physical Damage to Attacks`
-                    : rolledText(d, projection.values)
+                    : localizedModifierText(d, projection.values)
                 return {
                   id: m.modifierId,
                   removalCandidate:
                     i >= concrete.implicits.length &&
                     removalCandidates.includes(m.modifierId),
-                  text: `${'fractured' in m && m.fractured ? '[Fractured] ' : ''}${altHeld ? d.text : displayText}`,
+                  text: `${'fractured' in m && m.fractured ? '[Fractured] ' : ''}${altHeld ? localizedModifierText(d) : displayText}`,
                   detail: concrete.catalystQuality
                     ? `Original roll: ${rolledText(d, m.values)}\nQuality display: ${projection.status}. Secondary source model; game engine precision is not guaranteed.`
                     : undefined,
@@ -876,21 +896,26 @@ export function CraftingPage() {
       onPointerLeave={() => setPointer(null)}
     >
       <header className="craft-header">
-        <a className="craft-brand" href="/" aria-label="Exile Hephaistos home">
+        <a
+          className="craft-brand"
+          href="/"
+          aria-label={t('ui.exile_hephaistos_home')}
+        >
           <span className="brand-mark" aria-hidden="true">
             H
           </span>
           <span>
             EXILE <b>HEPHAISTOS</b>
-            <small>PATH OF EXILE 2 · CRAFTING WORKBENCH</small>
+            <small>{t('ui.path_of_exile_2_crafting_workbench')}</small>
           </span>
         </a>
         <a className="admin-link" href="/admin">
-          Admin
+          {t('ui.admin')}
         </a>
+        <LocaleSelector />
       </header>
-      <nav className="workspace-nav" aria-label="Main navigation">
-        <div role="tablist" aria-label="Crafting workspace">
+      <nav className="workspace-nav" aria-label={t('ui.main_navigation')}>
+        <div role="tablist" aria-label={t('ui.crafting_workspace')}>
           {workspaceTabs.map((tab, index) => (
             <button
               key={tab}
@@ -933,23 +958,29 @@ export function CraftingPage() {
               }}
             >
               <span aria-hidden="true">0{index + 1}</span>
-              {workspaceNames[tab]}
+              {t(`workspace.${tab}`)}
             </button>
           ))}
         </div>
       </nav>
       <div className="craft-title">
         <div>
-          <p className="craft-kicker">THE CRAFTING BENCH</p>
+          <p className="craft-kicker">{t('ui.the_crafting_bench')}</p>
           <h1>
-            {view === 'workbench' ? 'Crafting workbench' : workspaceNames[view]}
+            {view === 'workbench'
+              ? t('ui.crafting_workbench')
+              : t(`workspace.${view}`)}
           </h1>
         </div>
         <span className="preview-badge">
           <i />
-          {baseName} · Base modifiers
+          {name(baseSlugs[catalogBase], baseName)} · {t('ui.base')}
         </span>
       </div>
+      <aside className="locale-disclosure">
+        <p>{t('probability.disclaimer')}</p>
+        <small>{t('translation.coverage')}</small>
+      </aside>
       <div
         className="workbench-layout"
         id="panel-workbench"
@@ -962,7 +993,7 @@ export function CraftingPage() {
           <div className="panel-heading stash-heading">
             <div
               role="tablist"
-              aria-label="Material stash tabs"
+              aria-label={t('ui.material_stash_tabs')}
               className="material-tabs"
             >
               {materialTabs.map((tab, index) => (
@@ -994,7 +1025,7 @@ export function CraftingPage() {
                     document.getElementById(`tab-${target.id}`)?.focus()
                   }}
                 >
-                  {tab.label}
+                  {t(`stash.${tab.id}`)}
                 </button>
               ))}
             </div>
@@ -1004,12 +1035,12 @@ export function CraftingPage() {
                 checked={tooltipsEnabled}
                 onChange={(event) => setTooltipsEnabled(event.target.checked)}
               />
-              Show tooltips
+              {t('ui.show_tooltips')}
             </label>
           </div>
           <div className="stash-board">
             <div className="stash-viewport">
-              <div className="stash-canvas" aria-label="Currency stash">
+              <div className="stash-canvas" aria-label={t('ui.currency_stash')}>
                 <div
                   id="material-list"
                   role="tabpanel"
@@ -1024,7 +1055,10 @@ export function CraftingPage() {
                     currencies
                       .filter((currency) => inServiceScope(currency.id))
                       .map((currency) => {
-                        const name = currencyNames[currency.id]
+                        const currencyName = name(
+                          currency.id,
+                          currencyNames[currency.id],
+                        )
                         return (
                           <button
                             key={currency.id}
@@ -1034,20 +1068,26 @@ export function CraftingPage() {
                               left: `${currency.x / 9.35}%`,
                               top: `${currency.y / 5.5}%`,
                             }}
-                            aria-label={name}
+                            aria-label={currencyName}
                             aria-pressed={selected?.id === currency.id}
                             {...tooltipEvents(currency.id)}
                             onContextMenu={(event) => {
                               event.preventDefault()
                               setPointer({ x: event.clientX, y: event.clientY })
-                              choose({ ...currency, name })
+                              choose({
+                                ...currency,
+                                name: currencyNames[currency.id],
+                              })
                             }}
                             onClick={(event) => {
                               if (event.detail === 0) setPointer(null)
-                              choose({ ...currency, name })
+                              choose({
+                                ...currency,
+                                name: currencyNames[currency.id],
+                              })
                             }}
                           >
-                            <CurrencyImage {...currency} name={name} />
+                            <CurrencyImage {...currency} name={currencyName} />
                             {currency.id.startsWith('Greater') && (
                               <span
                                 className="currency-tier"
@@ -1079,7 +1119,7 @@ export function CraftingPage() {
                                 setShowLegacyOmens(event.target.checked)
                               }
                             />{' '}
-                            Show legacy Omens
+                            {t('ui.show_legacy_omens')}
                           </label>
                           {showLegacyOmens && (
                             <p>
@@ -1102,14 +1142,14 @@ export function CraftingPage() {
                                 target="_blank"
                                 rel="noreferrer"
                               >
-                                Official Homogenising source
+                                {t('ui.official_homogenising_source')}
                               </a>{' '}
                               <a
                                 href="https://www.pathofexile.com/forum/view-thread/3826682"
                                 target="_blank"
                                 rel="noreferrer"
                               >
-                                Official 0.3 availability
+                                {t('ui.official_0_3_availability')}
                               </a>
                             </p>
                           )}
@@ -1118,8 +1158,10 @@ export function CraftingPage() {
                       <input
                         type="search"
                         className="material-search"
-                        aria-label={`Search ${activeTab.replaceAll('_', ' ')}`}
-                        placeholder="Search…"
+                        aria-label={t('material.search', {
+                          category: t(`stash.${activeTab}`),
+                        })}
+                        placeholder={t('ui.search')}
                         value={search}
                         onChange={(event) =>
                           setSearches((old) => ({
@@ -1144,7 +1186,7 @@ export function CraftingPage() {
                           ? matchingEssenceRows.length === 0
                           : currentMaterials.length === 0) && (
                           <p className="material-no-results">
-                            No materials found
+                            {t('ui.no_materials_found')}
                           </p>
                         )}
                       </div>
@@ -1155,24 +1197,28 @@ export function CraftingPage() {
                   <div
                     className="special-essences"
                     role="group"
-                    aria-label="Special essences"
+                    aria-label={t('ui.special_essences')}
                   >
                     {specialEssences.map(materialButton)}
                   </div>
                 )}
                 <div className="item-placement">
-                  <span className="placement-label">Current item</span>
+                  <span className="placement-label">
+                    {t('ui.current_item')}
+                  </span>
                   <button
                     className={`item-slot ${selected ? 'is-ready' : ''}`}
                     type="button"
-                    aria-label="Use selected currency on the central item"
+                    aria-label={t(
+                      'ui.use_selected_currency_on_the_central_item',
+                    )}
                     disabled={applying !== null}
                     onClick={(event) => void apply(event.shiftKey)}
                   >
                     {draft.source === 'base' && catalogBase === 'solar' ? (
                       <img
                         src="/assets/currency/solar-amulet.webp"
-                        alt="Solar Amulet"
+                        alt={name('Solar_Amulet', 'Solar Amulet')}
                         draggable="false"
                       />
                     ) : (
@@ -1190,12 +1236,12 @@ export function CraftingPage() {
                     aria-controls="item-input-panel"
                     onClick={() => setInputOpen((open) => !open)}
                   >
-                    Edit item
+                    {t('ui.edit_item')}
                   </button>
                 </div>
                 <div
                   role="group"
-                  aria-label="Shared material favorites"
+                  aria-label={t('ui.shared_material_favorites')}
                   className={`favorite-slots ${held ? 'is-placing' : ''}`}
                 >
                   {favorites.map((resource, index) => (
@@ -1207,7 +1253,12 @@ export function CraftingPage() {
                         left: `${(652 + (index % 3) * 90) / 9.35}%`,
                         top: `${(40 + Math.floor(index / 3) * 100) / 5.5}%`,
                       }}
-                      aria-label={`Favorite slot ${index + 1}: ${resource?.name ?? 'empty'}`}
+                      aria-label={t('material.favorite', {
+                        index: index + 1,
+                        name: resource
+                          ? name(resource.id, resource.name)
+                          : t('material.empty'),
+                      })}
                       aria-pressed={Boolean(
                         resource &&
                         (selected?.id === resource.id ||
@@ -1244,7 +1295,7 @@ export function CraftingPage() {
                 <div className="workbench-film-controls">
                   <button
                     type="button"
-                    aria-label="Previous crafting step"
+                    aria-label={t('ui.previous_crafting_step')}
                     disabled={
                       !film ||
                       filmState.history.cursor === 0 ||
@@ -1256,12 +1307,15 @@ export function CraftingPage() {
                   </button>
                   <span>
                     {film
-                      ? `Step ${filmState.history.cursor} / ${film.frames.length - 1}`
-                      : 'New craft'}
+                      ? t('film.step', {
+                          step: filmState.history.cursor,
+                          total: film.frames.length - 1,
+                        })
+                      : t('ui.new_craft')}
                   </span>
                   <button
                     type="button"
-                    aria-label="Next crafting step"
+                    aria-label={t('ui.next_crafting_step')}
                     disabled={
                       !film ||
                       filmState.history.cursor === film.frames.length - 1 ||
@@ -1274,35 +1328,41 @@ export function CraftingPage() {
                 </div>
                 {filmState.history.films.length > 0 && (
                   <label className="workbench-film-select">
-                    Crafting session
+                    {t('ui.crafting_session')}
                     <select
-                      aria-label="Crafting session"
+                      aria-label={t('ui.crafting_session')}
                       value={film?.id ?? ''}
                       disabled={applying !== null}
                       onChange={(event) => void restoreFilm(event.target.value)}
                     >
                       <option value="" disabled>
-                        New craft
+                        {t('ui.new_craft')}
                       </option>
                       {filmState.history.films.map((entry, index) => (
                         <option key={entry.id} value={entry.id}>
-                          Session {index + 1} · {entry.frames.length - 1} crafts
+                          {t('film.session', { index: index + 1 })} ·{' '}
+                          {t('crafts', { count: entry.frames.length - 1 })}
                         </option>
                       ))}
                     </select>
                   </label>
                 )}
-                {filmState.error && <p role="alert">{filmState.error}</p>}
+                {filmState.error && (
+                  <p role="alert">{uiText(filmState.error)}</p>
+                )}
                 {storedFrame && initial.data && !restoredValid && (
-                  <p role="alert">
-                    Saved step does not match the current catalog. Start a new
-                    equipment base; saved films are preserved.
-                  </p>
+                  <p role="alert">{t('notice.saved_catalog')}</p>
                 )}
                 {card ? (
-                  <ItemCard item={card} />
+                  <ItemCard
+                    item={card}
+                    {...(concrete
+                      ? { baseItemId: baseSlugs[catalogBase] }
+                      : {})}
+                  />
                 ) : (
                   <ItemCard
+                    baseItemId={baseSlugs[catalogBase]}
                     item={{
                       rarity: 'NORMAL',
                       name: baseName,
@@ -1345,8 +1405,8 @@ export function CraftingPage() {
                 {draft.activeOmens.includes('Omen_of_Whittling') && (
                   <p className="workbench-feedback">
                     {removalCandidates.length > 0
-                      ? `Orange: ${removalCandidates.length} eligible Whittling removal candidate${removalCandidates.length === 1 ? '' : 's'}; tied candidates use 1/${removalCandidates.length} in the model.`
-                      : 'Whittling preview unavailable: no supported removal candidates. Fractured and missing-level interactions remain unverified.'}
+                      ? t('omen.preview', { count: removalCandidates.length })
+                      : t('omen.preview_unavailable')}
                   </p>
                 )}
                 {(selected?.id === 'Essence_of_the_Breach' ||
@@ -1355,18 +1415,14 @@ export function CraftingPage() {
                       m.modifierId === 'amulet:prefix:essence-maximum-quality',
                   )) && (
                   <p className="workbench-feedback">
-                    Maximum Quality modifier supported. Applying Catalyst
-                    quality is not supported yet.
+                    {t('notice.maximum_quality')}
                   </p>
                 )}
                 {(selected?.id === 'Essence_of_the_Abyss' ||
                   concrete?.explicits.some((m) =>
                     m.modifierId.endsWith(':essence-abyssal-mark'),
                   )) && (
-                  <p className="workbench-feedback">
-                    Mark modifier supported. Desecration and revealing its
-                    result are not supported yet.
-                  </p>
+                  <p className="workbench-feedback">{t('notice.mark')}</p>
                 )}
                 {((selected?.id === 'Essence_of_Horror' &&
                   concrete?.baseItemId ===
@@ -1375,9 +1431,7 @@ export function CraftingPage() {
                     m.modifierId.endsWith(':essence-socketed-augment-effect'),
                   )) && (
                   <p className="workbench-feedback">
-                    60% Socketed Augment Item effect modifier supported.
-                    Socketing and Rune/Soul Core effect calculations are not
-                    supported yet.
+                    {t('notice.augment_effect')}
                   </p>
                 )}
                 {(([
@@ -1392,9 +1446,7 @@ export function CraftingPage() {
                       m.modifierId.endsWith(':essence-gold-quantity'),
                   )) && (
                   <p className="workbench-feedback">
-                    Supported gloves: item level 72+. Lower item-level use is
-                    not verified. Modifier assignment only; Recoup recovery and
-                    Gold drop totals are not calculated.
+                    {t('notice.glove_recoup')}
                   </p>
                 )}
                 {(([
@@ -1412,11 +1464,7 @@ export function CraftingPage() {
                     ].some((id) => m.modifierId.endsWith(id)),
                   )) && (
                   <p className="workbench-feedback">
-                    Supported gloves: Expansive item level 25+; Cyclonic and
-                    Mystic 45+. Lower item-level use is not verified. Modifier
-                    assignment only; Remnant collection, ailment duration and
-                    attack area are not calculated. Crystallisation omens do not
-                    apply to Alloys.
+                    {t('notice.glove_alloy_area')}
                   </p>
                 )}
                 {(([
@@ -1434,11 +1482,7 @@ export function CraftingPage() {
                     ].some((id) => m.modifierId.endsWith(id)),
                   )) && (
                   <p className="workbench-feedback">
-                    Supported gloves: Adaptive and Sovereign item level 25+;
-                    Swift 45+. Lower item-level use is not verified. Modifier
-                    assignment only; missing-Ward conditions, attack/cast speed
-                    and Local Ward totals are not calculated. Crystallisation
-                    omens do not apply to Alloys.
+                    {t('notice.glove_alloy_ward')}
                   </p>
                 )}
                 {((selected?.id === 'Prismatic_Alloy' &&
@@ -1448,25 +1492,17 @@ export function CraftingPage() {
                     m.modifierId.endsWith(':alloy-elemental-penetration'),
                   )) && (
                   <p className="workbench-feedback">
-                    Supported gloves: item level 45+. Lower item-level use is
-                    not verified. Penetration modifier only; enemy resistances
-                    and damage are not calculated. Crystallisation omens do not
-                    apply to Alloys.
+                    {t('notice.glove_alloy_penetration')}
                   </p>
                 )}
-                {!canCraft && (
-                  <p>
-                    Pasted items are display-only until catalog mapping is
-                    verified.
-                  </p>
-                )}
+                {!canCraft && <p>{t('notice.pasted_display')}</p>}
                 {draft.source === 'text' && !mapping.data?.mapped && (
                   <button
                     type="button"
                     onClick={() => void enableCrafting()}
                     disabled={applying !== null || !initial.data}
                   >
-                    Enable Solar crafting
+                    {t('ui.enable_solar_crafting')}
                   </button>
                 )}
                 {mapping.data && (
@@ -1478,38 +1514,32 @@ export function CraftingPage() {
                 )}
                 {mapping.data?.issues.map((issue, index) => (
                   <p key={index}>
-                    Line {issue.lineNumber || 'item'}: {issue.message}
+                    {' '}
+                    {t('ui.line')} {issue.lineNumber || 'item'}: {issue.message}
                   </p>
                 ))}
-                {initial.isPending && <p>Loading crafting catalog...</p>}
+                {initial.isPending && <p>{t('ui.loading_crafting_catalog')}</p>}
                 {initial.isError && (
                   <p role="alert">
-                    Could not load crafting catalog.{' '}
+                    {' '}
+                    {t('ui.catalog_load_error')}{' '}
                     <button
                       type="button"
                       onClick={() => void initial.refetch()}
                     >
-                      Retry catalog
+                      {t('ui.retry_catalog')}
                     </button>
                   </p>
                 )}
-                {applying && <p>Updating item...</p>}
+                {applying && <p>{t('ui.updating_item')}</p>}
                 {announcement && (
-                  <p className="workbench-feedback">{announcement}</p>
+                  <p className="workbench-feedback">{uiText(announcement)}</p>
                 )}
                 {evidenceInvalid && (
-                  <p role="alert">
-                    Saved craft evidence could not be verified. Item history is
-                    preserved.
-                  </p>
+                  <p role="alert">{t('notice.saved_evidence')}</p>
                 )}
                 {catalogBase === 'ring' && (
-                  <p className="workbench-feedback">
-                    Implicit physical damage endpoints are fixed at 1 and 4.
-                    Maximum Quality is 20%. Existing typed catalyst quality is
-                    retained; catalyst use, sockets and pasted mapping are
-                    unsupported. Blessed has no variable implicit target.
-                  </p>
+                  <p className="workbench-feedback">{t('notice.ring_scope')}</p>
                 )}
                 {concrete?.catalystQuality && (
                   <p className="workbench-feedback">
@@ -1523,74 +1553,43 @@ export function CraftingPage() {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      Quality source
+                      {t('ui.quality_source')}
                     </a>
                   </p>
                 )}
                 {catalogBase === 'helmet' && (
                   <p className="workbench-feedback">
-                    Armour is a base fact; computed Armour, applied quality,
-                    sockets and pasted mapping are unsupported. Blessed has no
-                    implicit target.
+                    {t('notice.helmet_scope')}
                   </p>
                 )}
                 {catalogBase === 'belt' && (
-                  <p className="workbench-feedback">
-                    Explicit affix crafting only. Variable flask implicit and
-                    Charm slots are unknown; Divine, Blessed, applied quality,
-                    sockets and pasted mapping are unsupported. Quality maximum
-                    is unknown.
-                  </p>
+                  <p className="workbench-feedback">{t('notice.belt_scope')}</p>
                 )}
                 {catalogBase === 'sceptre' && (
                   <p className="workbench-feedback">
-                    Spirit and Skeletal Warrior are base facts; their totals,
-                    applied quality, sockets and pasted mapping are unsupported.
-                    Item-level gates use source modifier levels; lower-level
-                    game behavior is unverified.
+                    {t('notice.sceptre_scope')}
                   </p>
                 )}
                 {catalogBase === 'body' && (
-                  <p className="workbench-feedback">
-                    Computed Armour, movement speed, applied quality, sockets
-                    and pasted Body Armour mapping are not simulated. Numeric
-                    rolls use unverified source-unit/shared-ratio models.
-                    Item-level gates use source modifier levels; lower-level
-                    game behavior is unverified. Delirium Notable outcomes are
-                    not supported.
-                  </p>
+                  <p className="workbench-feedback">{t('notice.body_scope')}</p>
                 )}
                 {catalogBase === 'wand' && (
-                  <p className="workbench-feedback">
-                    Innate Mana Drain, combat totals, applied quality, sockets
-                    and pasted Wand mapping are not simulated. Numeric rolls use
-                    unverified source-unit/shared-ratio models. Item-level gates
-                    use source modifier levels; lower-level game behavior is
-                    unverified.
-                  </p>
+                  <p className="workbench-feedback">{t('notice.wand_scope')}</p>
                 )}
                 {catalogBase === 'bow' && (
-                  <p className="workbench-feedback">
-                    Numeric rolls use unverified source-unit and shared-ratio
-                    models. Computed weapon damage, quality, sockets and pasted
-                    bow mapping are not supported. Item-level gates use source
-                    modifier levels; lower-level game behavior is unverified.
-                  </p>
+                  <p className="workbench-feedback">{t('notice.bow_scope')}</p>
                 )}
                 {catalogBase === 'stocky' && (
                   <p className="workbench-feedback">
-                    Numeric rolls use unverified source-unit and shared-ratio
-                    models. Base Armour: 15; computed Armour, applied quality,
-                    socketed Augment effects and pasted glove mapping are not
-                    supported.
+                    {t('notice.glove_scope')}
                   </p>
                 )}
                 {craftEvidence && (
                   <details className="workbench-assumptions">
-                    <summary>Last craft and roll assumptions</summary>
+                    <summary>{t('ui.last_craft_and_roll_assumptions')}</summary>
                     <p>
-                      {workbenchActionNames[craftEvidence.action]} applied.{' '}
-                      {craftProbabilityEvidence(craftEvidence).text}
+                      {localizedAction(craftEvidence.action)} {t('ui.applied')}{' '}
+                      {uiText(craftProbabilityEvidence(craftEvidence).text)}
                     </p>
                     {craftProbabilityEvidence(craftEvidence).weighted && (
                       <p>
@@ -1599,7 +1598,7 @@ export function CraftingPage() {
                           target="_blank"
                           rel="noreferrer"
                         >
-                          PoE2DB modifier table
+                          {t('ui.poe2db_modifier_table')}
                         </a>
                         : published DropChance values supply model weights;
                         ordered Spawn Tags establish eligibility only. The
@@ -1613,9 +1612,10 @@ export function CraftingPage() {
                     </p>
                     {craftEvidence.consumedOmens.length > 0 && (
                       <p>
-                        Consumed omens:{' '}
+                        {' '}
+                        {t('ui.consumed_omens')}{' '}
                         {craftEvidence.consumedOmens
-                          .map((id) => id.replaceAll('_', ' '))
+                          .map((id) => name(id, id.replaceAll('_', ' ')))
                           .join(', ')}
                       </p>
                     )}
@@ -1623,9 +1623,9 @@ export function CraftingPage() {
                       craftEvidence.assumptions.map((a, i) => (
                         <p key={`${a.id}-${i}`}>
                           {a.id === 'tiered-omen-composition-v1'
-                            ? 'Unverified omen composition model'
+                            ? t('omen.composition_model')
                             : a.id === 'legacy-alchemy-order-v1'
-                              ? 'Unverified affix draw order model'
+                              ? t('omen.draw_order_model')
                               : a.id === 'user-coupled-ratio-half-up-v1'
                                 ? 'Unverified coupled roll model'
                                 : a.id === 'assumed-source-integer-roll-v1'
@@ -1651,12 +1651,12 @@ export function CraftingPage() {
                             target="_blank"
                             rel="noreferrer"
                           >
-                            Source
+                            {t('ui.source')}
                           </a>
                         </p>
                       ))
                     ) : (
-                      <p>No uniform fallback was needed for this craft.</p>
+                      <p>{t('notice.no_uniform_fallback')}</p>
                     )}
                   </details>
                 )}
@@ -1674,7 +1674,7 @@ export function CraftingPage() {
             }}
             id="item-input-panel"
             className="item-input-panel detail-body"
-            aria-label="Starting item"
+            aria-label={t('ui.starting_item')}
             aria-busy={imported.pending}
           >
             <div className="item-input-content">
@@ -1682,19 +1682,19 @@ export function CraftingPage() {
                 ref={inputClose}
                 type="button"
                 className="input-close"
-                aria-label="Close item input"
+                aria-label={t('ui.close_item_input')}
                 onClick={closeInput}
               >
                 ×
               </button>
               <div className="input-heading">
-                <h3>Starting item</h3>
+                <h3>{t('ui.starting_item')}</h3>
                 <span>01</span>
               </div>
               <div
                 className="input-tabs"
                 role="group"
-                aria-label="Item input method"
+                aria-label={t('ui.item_input_method')}
               >
                 <button
                   type="button"
@@ -1704,19 +1704,19 @@ export function CraftingPage() {
                     setInputMode('base')
                   }}
                 >
-                  Select base
+                  {t('ui.select_base')}
                 </button>
                 <button
                   type="button"
                   aria-pressed={inputMode === 'text'}
                   onClick={() => setInputMode('text')}
                 >
-                  Item text
+                  {t('ui.item_text')}
                 </button>
               </div>
               {inputMode === 'base' ? (
                 <div className="base-form">
-                  <label htmlFor="base-select">Equipment base</label>
+                  <label htmlFor="base-select">{t('ui.equipment_base')}</label>
                   <select
                     id="base-select"
                     value={baseChoice}
@@ -1735,17 +1735,35 @@ export function CraftingPage() {
                       )
                     }
                   >
-                    <option value="solar">Solar Amulet</option>
-                    <option value="stocky">Stocky Mitts</option>
-                    <option value="bow">Crude Bow</option>
-                    <option value="wand">Attuned Wand</option>
-                    <option value="body">Rusted Cuirass</option>
-                    <option value="sceptre">Rattling Sceptre</option>
-                    <option value="belt">Rawhide Belt</option>
-                    <option value="helmet">Rusted Greathelm</option>
-                    <option value="ring">Iron Ring</option>
+                    <option value="solar">
+                      {name('Solar_Amulet', 'Solar Amulet')}
+                    </option>
+                    <option value="stocky">
+                      {name('Stocky_Mitts', 'Stocky Mitts')}
+                    </option>
+                    <option value="bow">
+                      {name('Crude_Bow', 'Crude Bow')}
+                    </option>
+                    <option value="wand">
+                      {name('Attuned_Wand', 'Attuned Wand')}
+                    </option>
+                    <option value="body">
+                      {name('Rusted_Cuirass', 'Rusted Cuirass')}
+                    </option>
+                    <option value="sceptre">
+                      {name('Rattling_Sceptre', 'Rattling Sceptre')}
+                    </option>
+                    <option value="belt">
+                      {name('Rawhide_Belt', 'Rawhide Belt')}
+                    </option>
+                    <option value="helmet">
+                      {name('Rusted_Greathelm', 'Rusted Greathelm')}
+                    </option>
+                    <option value="ring">
+                      {name('Iron_Ring', 'Iron Ring')}
+                    </option>
                   </select>
-                  <label htmlFor="base-level">Item level</label>
+                  <label htmlFor="base-level">{t('ui.item_level')}</label>
                   <input
                     id="base-level"
                     type="number"
@@ -1758,7 +1776,7 @@ export function CraftingPage() {
                   {(baseChoice === 'solar' || baseChoice === 'ring') && (
                     <>
                       <label htmlFor="starting-quality-type">
-                        Existing catalyst quality
+                        {t('ui.existing_catalyst_quality')}
                       </label>
                       <select
                         id="starting-quality-type"
@@ -1769,17 +1787,22 @@ export function CraftingPage() {
                           )
                         }
                       >
-                        <option value="">No typed quality supplied</option>
+                        <option value="">
+                          {t('ui.no_typed_quality_supplied')}
+                        </option>
                         {Object.entries(catalystTypes).map(([type, info]) => (
                           <option key={type} value={type}>
-                            {info.name} Catalyst
+                            {name(
+                              catalystItemIds[type as CatalystQuality['type']],
+                              `${info.name} Catalyst`,
+                            )}
                           </option>
                         ))}
                       </select>
                       {qualityType !== '' && (
                         <>
                           <label htmlFor="starting-quality-amount">
-                            Current quality (%)
+                            {t('ui.current_quality')}
                           </label>
                           <input
                             id="starting-quality-amount"
@@ -1790,11 +1813,7 @@ export function CraftingPage() {
                             value={qualityAmount}
                             onChange={(e) => setQualityAmount(e.target.value)}
                           />
-                          <p>
-                            Enter quality already on the starting item. This
-                            does not use a catalyst. Currency interactions
-                            remain unverified.
-                          </p>
+                          <p>{t('notice.existing_quality')}</p>
                         </>
                       )}
                     </>
@@ -1828,13 +1847,14 @@ export function CraftingPage() {
                       closeInput()
                     }}
                   >
-                    Place base <span aria-hidden="true">↗</span>
+                    {t('ui.place_base')}
+                    <span aria-hidden="true">↗</span>
                   </button>
                 </div>
               ) : (
                 <div className="text-form">
                   <label htmlFor="item-text">
-                    Item text copied from the game
+                    {t('ui.item_text_copied_from_the_game')}
                   </label>
                   <textarea
                     id="item-text"
@@ -1862,7 +1882,9 @@ export function CraftingPage() {
                     onClick={importText}
                     disabled={imported.pending}
                   >
-                    {imported.pending ? 'Analyzing item…' : 'Analyze item'}{' '}
+                    {imported.pending
+                      ? t('ui.analyzing_item')
+                      : t('ui.analyze_item')}{' '}
                     <span aria-hidden="true">↗</span>
                   </button>
                 </div>
@@ -1879,7 +1901,7 @@ export function CraftingPage() {
       >
         <div className="explorer-toolbar">
           <label>
-            Starting item level
+            {t('ui.starting_item_level')}
             <input
               type="number"
               min="1"
@@ -1900,7 +1922,9 @@ export function CraftingPage() {
               setPreviewRequest({ count: 0, action: null })
             }}
           >
-            Start new Solar Amulet
+            {t('ui.start_new_solar_amulet', {
+              name: name('Solar_Amulet', 'Solar Amulet'),
+            })}
           </button>
         </div>
         {draft.source === 'base' && catalogBase === 'solar' ? (
@@ -1912,10 +1936,7 @@ export function CraftingPage() {
             requestedAction={previewRequest.action}
           />
         ) : (
-          <p>
-            Pasted items are display-only. Start a Solar Amulet to explore
-            probabilities.
-          </p>
+          <p>{t('notice.pasted_explorer')}</p>
         )}
       </div>
       <div
@@ -1928,8 +1949,9 @@ export function CraftingPage() {
           <CraftSupport active={view === 'support'} />
         ) : (
           <p>
-            {baseName} is supported in Workbench only. Select Solar Amulet to
-            use Craft Support.
+            {t('notice.support_base', {
+              name: name(baseSlugs[catalogBase], baseName),
+            })}
           </p>
         )}
       </div>
@@ -1938,15 +1960,15 @@ export function CraftingPage() {
       </span>
       <footer className="craft-footer">
         <span>
-          EXILE HEPHAISTOS <span aria-hidden="true">/</span> Your personal
-          crafting workbench
+          EXILE HEPHAISTOS <span aria-hidden="true">/</span>
+          {t('ui.your_personal_crafting_workbench')}
         </span>
         <a
           href="https://poe2db.tw/us/Currency"
           target="_blank"
           rel="noreferrer"
         >
-          Currency images · PoE2DB ↗
+          {t('ui.currency_images_poe2db')}
         </a>
       </footer>
       {tooltipsEnabled && !selected && <MaterialTooltip />}

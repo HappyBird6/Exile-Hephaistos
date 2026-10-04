@@ -1,7 +1,10 @@
+import { useI18n } from '../shared/i18n/i18n'
 import { useEffect } from 'react'
 import { CraftingPage } from '../features/crafting/CraftingPage'
+import { LocaleSelector } from '../shared/i18n/LocaleSelector'
 
 export function App() {
+  const { t } = useI18n()
   useEffect(() => {
     if (window.location.pathname === '/admin/crawling') {
       window.history.replaceState(null, '', '/admin')
@@ -13,11 +16,12 @@ export function App() {
   ) {
     return (
       <main>
-        <nav aria-label="Main navigation">
-          <a href="/">Crafting workbench</a>
+        <nav aria-label={t('ui.main_navigation')}>
+          <a href="/">{t('ui.crafting_workbench')}</a>
         </nav>
-        <h1>Admin</h1>
-        <p>No admin tools are available yet.</p>
+        <LocaleSelector />
+        <h1>{t('ui.admin')}</h1>
+        <p>{t('ui.no_admin_tools_are_available_yet')}</p>
       </main>
     )
   }

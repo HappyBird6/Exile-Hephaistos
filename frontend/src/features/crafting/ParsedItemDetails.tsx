@@ -1,3 +1,4 @@
+import { useI18n, uiText } from '../../shared/i18n/i18n'
 import type { Item, TextLine } from './itemModels'
 
 const warningMessages: Record<string, string> = {
@@ -13,38 +14,36 @@ const warningMessages: Record<string, string> = {
 }
 
 export function ParsedItemDetails({ item }: { item: Item }) {
+  const { t } = useI18n()
   const groups: { title: string; lines: TextLine[] }[] = [
     {
-      title: 'Raw properties',
+      title: t('parser.raw_properties'),
       lines: item.properties.map((field) => field.source),
     },
     {
-      title: 'Raw requirements',
+      title: t('parser.raw_requirements'),
       lines: item.requirements.map((field) => field.source),
     },
     {
-      title: 'Modifier source text',
+      title: t('parser.modifier_source'),
       lines: item.modifiers.map((mod) => mod.source),
     },
-    { title: 'Raw flags', lines: item.flags },
-    { title: 'Unresolved lines', lines: item.unparsedLines },
+    { title: t('parser.raw_flags'), lines: item.flags },
+    { title: t('parser.unresolved'), lines: item.unparsedLines },
   ]
   return (
     <div className="parsed-item">
-      <p className="detail-note">
-        This is a draft read from text. The base and modifiers have not been
-        verified against a catalog and cannot be used for crafting calculations.
-      </p>
+      <p className="detail-note">{t('notice.parsed_draft')}</p>
 
       {item.warnings.length > 0 && (
         <div className="parsed-group item-warnings">
-          <h3>Review needed</h3>
+          <h3>{t('ui.review_needed')}</h3>
           <ul>
             {item.warnings.map((warning, index) => (
               <li key={`${warning.code}-${index}`}>
                 {warning.lineNumber > 0 && `Line ${warning.lineNumber}: `}
                 {Object.hasOwn(warningMessages, warning.code)
-                  ? warningMessages[warning.code]
+                  ? uiText(warningMessages[warning.code]!)
                   : `Review required: ${warning.code}`}
               </li>
             ))}
@@ -52,19 +51,19 @@ export function ParsedItemDetails({ item }: { item: Item }) {
         </div>
       )}
       <details className="parsed-evidence">
-        <summary>Parsing details and source text</summary>
+        <summary>{t('ui.parsing_details_and_source_text')}</summary>
         <dl>
           <div>
-            <dt>Base</dt>
-            <dd>{item.displayBase ?? 'Unknown'}</dd>
+            <dt>{t('ui.base')}</dt>
+            <dd>{item.displayBase ?? t('ui.unknown')}</dd>
           </div>
           <div>
-            <dt>Rarity</dt>
+            <dt>{t('ui.rarity')}</dt>
             <dd>{item.rarityText}</dd>
           </div>
           <div>
-            <dt>Text language</dt>
-            <dd>English</dd>
+            <dt>{t('ui.text_language')}</dt>
+            <dd>{t('ui.english')}</dd>
           </div>
         </dl>
         {groups
@@ -75,7 +74,9 @@ export function ParsedItemDetails({ item }: { item: Item }) {
               <ul>
                 {group.lines.map((line) => (
                   <li key={line.number}>
-                    <span className="source-line">{`Line ${line.number}`}</span>{' '}
+                    <span className="source-line">
+                      {t('parser.line', { index: line.number })}
+                    </span>{' '}
                     {line.raw}
                   </li>
                 ))}
@@ -83,7 +84,7 @@ export function ParsedItemDetails({ item }: { item: Item }) {
             </div>
           ))}
         <details>
-          <summary>View full original text</summary>
+          <summary>{t('ui.view_full_original_text')}</summary>
           <pre className="item-raw">{item.text.originalText}</pre>
         </details>
       </details>

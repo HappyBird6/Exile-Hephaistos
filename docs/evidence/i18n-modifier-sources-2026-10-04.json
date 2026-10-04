@@ -1,0 +1,502 @@
+{
+  "retrievedAt": "2026-10-04T05:59:01.420Z",
+  "pages": [
+    {
+      "url": "https://poe2db.tw/us/Amulets",
+      "sha256": "a398872cc614fc8d349c1b052410c472a48abf721cd780416f823bf4c0e49b8f"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Amulets",
+      "sha256": "4f234318bd1845d13d8f78941afbb90bcb1701df46b35806d4ab864642da45cc"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Amulets",
+      "sha256": "18260d3c8d8f04dc5458ac39630cbd637dae63023e6758a0c9730b08d62a186a"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Amulets",
+      "sha256": "36b2c14d497c21b9be2963e338f3b819884a92c867a913abc4dddec8effa3a89"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Amulets",
+      "sha256": "9a0c53ea44b4ce05ef99329a35e4cc7d182da1c4723c4cfb721521b9d0d25d0e"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Amulets",
+      "sha256": "1d6d3971a797e368c8b178d0d546ff90166773989b93bb6c4c54540aa6d223bf"
+    },
+    {
+      "url": "https://poe2db.tw/us/Gloves_str",
+      "sha256": "353c536d25816d5cc1d870d498af5b1d2f575f000a1e5e13d8affa415860e6cc"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Gloves_str",
+      "sha256": "ebbe2b771680fbda9d642d5b18bd2cea3f67ba0d68aa0f33736b738eb9fa1394"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Gloves_str",
+      "sha256": "a0e5876d2c52786d1ea17189fdd1328fd5e923b403abaa0aba12e17749223816"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Gloves_str",
+      "sha256": "cffd0dfd951a0e84a1b3aa13341b63645830d0593d882d352ea8ede1464f8713"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Gloves_str",
+      "sha256": "f091ba25317fb182bf41ec7ec27f96c6c04f4287a0b56ec67077fca4b69fa693"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Gloves_str",
+      "sha256": "09c315e9e962fd61b87b8dc8d0fdbc877f1dac8044b44563cc73ef5edd8687fc"
+    },
+    {
+      "url": "https://poe2db.tw/us/Bows",
+      "sha256": "80db441a6bfcf47533e2adb457e8b7d8a687902b0ce1d575c2088592de72cb1a"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Bows",
+      "sha256": "11fbec3edd822224e1b3561e119709d3c50c110361fa1d12f2d098030a36319a"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Bows",
+      "sha256": "264c6b4958d30c26ace7ea0becb4b84f6ad0d19fcb86d3984ff9e894bb25198e"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Bows",
+      "sha256": "56a4975f3d962a8b38337e5caba28f964e625c8a7f7d2a44a962de757209d868"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Bows",
+      "sha256": "c42b74217ed61e185c8ddc0a519bf3fbaf624914766cd23cb58dc4e7f9a9f3a8"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Bows",
+      "sha256": "ff4679c06bf566cbd1a9b111d06d858d7a876a32b919a4d620d60c43d0c3c5c2"
+    },
+    {
+      "url": "https://poe2db.tw/us/Wands",
+      "sha256": "21c36bab057f1a9cc2f6d0827501092c08cc69bf01c81e3237301e49d8045a9f"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Wands",
+      "sha256": "7f8a9654ad97094fb862c5dd22ae11cd5eabda64ef4267215300ff5409fe7445"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Wands",
+      "sha256": "41930916e825b23628d2ed9965b3038982083693971cfb013f19f0a703b4f76c"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Wands",
+      "sha256": "c4ec04d96a6e9aa53b84828a56df916cb54c16546302a072cd09e7b56795ee6f"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Wands",
+      "sha256": "f0432c021e2b0884725a31328eb834c66efcb8acfe1d2a6f03b6cb48007bf5f3"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Wands",
+      "sha256": "7b64573df7fe257216778a292133b62833d07e1b83fbb4c346878e12bf93e90c"
+    },
+    {
+      "url": "https://poe2db.tw/us/Body_Armours_str",
+      "sha256": "0c5e6a000d85ac64c8bf45e822890a52dc722cbffb3fc13270da522e5b02f118"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Body_Armours_str",
+      "sha256": "43ff3cb34936a6484ec4ba16ba741c09d948b80d5984ed4cd06a811a3abab8f0"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Body_Armours_str",
+      "sha256": "416b907798940e0598c3a7f0b61896438eb6e153dfd8a3c0cf820a695dfc89e1"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Body_Armours_str",
+      "sha256": "4c0034741e43188d4d67171b78c28b6c5e568483d6e36175d0f2521ecea806bb"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Body_Armours_str",
+      "sha256": "1739ce8a3426ec799b8b2336ddb71b5127f2df1db57d8736c46a95810cea606d"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Body_Armours_str",
+      "sha256": "04804f58bf3069f50f7ec4b05a7d733c804f763a48ae7b314988aaf85b08bb54"
+    },
+    {
+      "url": "https://poe2db.tw/us/Sceptres",
+      "sha256": "97a20dea207adea8985739a78793ed899bed743180bc2a35e80c81432be5e601"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Sceptres",
+      "sha256": "35633c20d62dcb09ee0ee38369ffb79215c8dc1790b83d0bd8453d26bd770fc1"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Sceptres",
+      "sha256": "b5cb622919b5b4ba5341fe95b9f070fc46ed29c248e08be21cc5269355f28f18"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Sceptres",
+      "sha256": "fc86d6af742973cc88804e2a5f16e476f3b2f4be4df861b357804f7f507c90eb"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Sceptres",
+      "sha256": "007084e7db6926cd2b2235b29e0bbbabfdb913aa26d62bb41bf6353f891c03f0"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Sceptres",
+      "sha256": "673ab6ad9efee5790689871d6e2ed950e339cedc1fece98219b6f03e3842a344"
+    },
+    {
+      "url": "https://poe2db.tw/us/Belts",
+      "sha256": "c3ba7348b885a44cf76cc720136555a734bc72aaada8dfabed286501aa18c52c"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Belts",
+      "sha256": "afc2ca0d3d470e95d00f9d9f87aa9069ea20f892bec166f3bb6f243aff5c069b"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Belts",
+      "sha256": "404198e0d42d5e23a3f39d8528ff4efc3f01cbe856691c40e3d58a597962b930"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Belts",
+      "sha256": "67395af8725b7bb1a5572c1c1974528df5dcf2826dc2da78616dcf0aec53bf17"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Belts",
+      "sha256": "52674acf750b892b3ddec5497ece22a576f20213d8ed15252253050486193da6"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Belts",
+      "sha256": "e01903ef3fa1b8803c01a84dc8158b20b9ac20bd0ecaba3df414800709ae2f53"
+    },
+    {
+      "url": "https://poe2db.tw/us/Rings",
+      "sha256": "117ddcc8fec2b1201cb78e949148398a4352b5912b5c7545d129823d713b1f23"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Rings",
+      "sha256": "eb5d90d2a0ffe5373f8f9e35c897268e4995ddc165e7e3fad86fe63714f1d409"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Rings",
+      "sha256": "6d9eab3266b00167d02b631cb2eb3e762943fd9a0256f4d520a21b9cb11e1a9f"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Rings",
+      "sha256": "89a51c8a871c0e9d9336ef71b229d604900c6dbbbcaba8e91ea314e29660b3a6"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Rings",
+      "sha256": "61b0f37db265801a9bb7d6cf2b0a9e56ac48788e6056781470950c1a9eaef09f"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Rings",
+      "sha256": "5c2b6ad9eb42f8001540bbf8983aea3cb543fd5b9886f4f6ed37d742478b4e0b"
+    },
+    {
+      "url": "https://poe2db.tw/us/Helmets_str",
+      "sha256": "13054c51a81e4be6817f72d193c88373ad8cf1f98c515cd18ce564cfb850bc25"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Helmets_str",
+      "sha256": "c3cc45545544cf890f4270a5895e9b15bc6ca063b95de3b55f8bff21d2e1b516"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Helmets_str",
+      "sha256": "c9fb5bb964f582102ef0c62f3a562a20f6d6ae62fc3343bec06e4c14d99a7c23"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Helmets_str",
+      "sha256": "81e2e8fd0db701baaf4ac7af7c70f5899bf8a459c76ac2654b4355c4dd659df8"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Helmets_str",
+      "sha256": "89ad13088970db8b8479fb57af3fc5c41d308cdaaae3b7cddd5f04bcb712a0c5"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Helmets_str",
+      "sha256": "ef88b67103431defb7e40ef4a205f4d43ca69aee12128e4a78b8f527f892ca40"
+    }
+  ],
+  "counts": {
+    "en": {
+      "total": 1522,
+      "verified": 1485,
+      "ordinaryTotal": 1485,
+      "ordinaryVerified": 1485,
+      "templates": 792
+    },
+    "ko": {
+      "total": 1522,
+      "verified": 1485,
+      "ordinaryTotal": 1485,
+      "ordinaryVerified": 1485,
+      "templates": 792
+    },
+    "zh-CN": {
+      "total": 1522,
+      "verified": 1485,
+      "ordinaryTotal": 1485,
+      "ordinaryVerified": 1485,
+      "templates": 792
+    },
+    "zh-TW": {
+      "total": 1522,
+      "verified": 1485,
+      "ordinaryTotal": 1485,
+      "ordinaryVerified": 1485,
+      "templates": 792
+    },
+    "ja": {
+      "total": 1522,
+      "verified": 1485,
+      "ordinaryTotal": 1485,
+      "ordinaryVerified": 1485,
+      "templates": 792
+    },
+    "es": {
+      "total": 1522,
+      "verified": 1485,
+      "ordinaryTotal": 1485,
+      "ordinaryVerified": 1485,
+      "templates": 792
+    }
+  },
+  "gaps": {
+    "en": [
+      "amulet:prefix:essence-abyssal-mark",
+      "amulet:suffix:essence-abyssal-mark",
+      "amulet:prefix:essence-maximum-quality",
+      "solar-amulet:implicit:spirit",
+      "amulet:prefix:essence-global-defences",
+      "amulet:suffix:essence-percent-strength",
+      "amulet:suffix:essence-percent-dexterity",
+      "amulet:suffix:essence-percent-intelligence",
+      "amulet:prefix:alloy-maximum-runic-ward",
+      "stocky-mitts:prefix:essence-abyssal-mark",
+      "stocky-mitts:suffix:essence-abyssal-mark",
+      "stocky-mitts:suffix:essence-socketed-augment-effect",
+      "stocky-mitts:suffix:essence-lightning-recoup",
+      "stocky-mitts:suffix:essence-gold-quantity",
+      "stocky-mitts:prefix:alloy-elemental-penetration",
+      "stocky-mitts:suffix:alloy-attack-speed-missing-ward",
+      "stocky-mitts:suffix:alloy-cast-speed",
+      "stocky-mitts:prefix:alloy-local-runic-ward",
+      "stocky-mitts:suffix:alloy-remnant-pickup-range",
+      "stocky-mitts:suffix:alloy-damaging-ailment-duration",
+      "stocky-mitts:suffix:alloy-attack-area-of-effect",
+      "crude-bow:prefix:essence-extra-physical-damage",
+      "crude-bow:prefix:essence-extra-fire-damage",
+      "crude-bow:prefix:essence-extra-cold-damage",
+      "crude-bow:prefix:essence-extra-lightning-damage",
+      "crude-bow:suffix:essence-attack-skill-level",
+      "crude-bow:suffix:essence-onslaught-on-kill",
+      "attuned-wand:suffix:essence-spell-skill-level",
+      "attuned-wand:suffix:essence-mana-cost-efficiency",
+      "rusted-cuirass:prefix:essence-maximum-life-percent",
+      "rusted-cuirass:prefix:essence-physical-taken-as-chaos",
+      "rusted-cuirass:suffix:essence-reduced-incoming-critical-damage",
+      "rattling-sceptre:suffix:essence-aura-magnitude",
+      "rawhide-belt:suffix:essence-fire-damage-recouped-as-life",
+      "iron-ring:implicit:added-physical-damage-to-attacks",
+      "iron-ring:prefix:essence-increased-maximum-mana",
+      "rusted-greathelm:suffix:essence-cold-damage-recouped-as-life"
+    ],
+    "ko": [
+      "amulet:prefix:essence-abyssal-mark",
+      "amulet:suffix:essence-abyssal-mark",
+      "amulet:prefix:essence-maximum-quality",
+      "solar-amulet:implicit:spirit",
+      "amulet:prefix:essence-global-defences",
+      "amulet:suffix:essence-percent-strength",
+      "amulet:suffix:essence-percent-dexterity",
+      "amulet:suffix:essence-percent-intelligence",
+      "amulet:prefix:alloy-maximum-runic-ward",
+      "stocky-mitts:prefix:essence-abyssal-mark",
+      "stocky-mitts:suffix:essence-abyssal-mark",
+      "stocky-mitts:suffix:essence-socketed-augment-effect",
+      "stocky-mitts:suffix:essence-lightning-recoup",
+      "stocky-mitts:suffix:essence-gold-quantity",
+      "stocky-mitts:prefix:alloy-elemental-penetration",
+      "stocky-mitts:suffix:alloy-attack-speed-missing-ward",
+      "stocky-mitts:suffix:alloy-cast-speed",
+      "stocky-mitts:prefix:alloy-local-runic-ward",
+      "stocky-mitts:suffix:alloy-remnant-pickup-range",
+      "stocky-mitts:suffix:alloy-damaging-ailment-duration",
+      "stocky-mitts:suffix:alloy-attack-area-of-effect",
+      "crude-bow:prefix:essence-extra-physical-damage",
+      "crude-bow:prefix:essence-extra-fire-damage",
+      "crude-bow:prefix:essence-extra-cold-damage",
+      "crude-bow:prefix:essence-extra-lightning-damage",
+      "crude-bow:suffix:essence-attack-skill-level",
+      "crude-bow:suffix:essence-onslaught-on-kill",
+      "attuned-wand:suffix:essence-spell-skill-level",
+      "attuned-wand:suffix:essence-mana-cost-efficiency",
+      "rusted-cuirass:prefix:essence-maximum-life-percent",
+      "rusted-cuirass:prefix:essence-physical-taken-as-chaos",
+      "rusted-cuirass:suffix:essence-reduced-incoming-critical-damage",
+      "rattling-sceptre:suffix:essence-aura-magnitude",
+      "rawhide-belt:suffix:essence-fire-damage-recouped-as-life",
+      "iron-ring:implicit:added-physical-damage-to-attacks",
+      "iron-ring:prefix:essence-increased-maximum-mana",
+      "rusted-greathelm:suffix:essence-cold-damage-recouped-as-life"
+    ],
+    "zh-CN": [
+      "amulet:prefix:essence-abyssal-mark",
+      "amulet:suffix:essence-abyssal-mark",
+      "amulet:prefix:essence-maximum-quality",
+      "solar-amulet:implicit:spirit",
+      "amulet:prefix:essence-global-defences",
+      "amulet:suffix:essence-percent-strength",
+      "amulet:suffix:essence-percent-dexterity",
+      "amulet:suffix:essence-percent-intelligence",
+      "amulet:prefix:alloy-maximum-runic-ward",
+      "stocky-mitts:prefix:essence-abyssal-mark",
+      "stocky-mitts:suffix:essence-abyssal-mark",
+      "stocky-mitts:suffix:essence-socketed-augment-effect",
+      "stocky-mitts:suffix:essence-lightning-recoup",
+      "stocky-mitts:suffix:essence-gold-quantity",
+      "stocky-mitts:prefix:alloy-elemental-penetration",
+      "stocky-mitts:suffix:alloy-attack-speed-missing-ward",
+      "stocky-mitts:suffix:alloy-cast-speed",
+      "stocky-mitts:prefix:alloy-local-runic-ward",
+      "stocky-mitts:suffix:alloy-remnant-pickup-range",
+      "stocky-mitts:suffix:alloy-damaging-ailment-duration",
+      "stocky-mitts:suffix:alloy-attack-area-of-effect",
+      "crude-bow:prefix:essence-extra-physical-damage",
+      "crude-bow:prefix:essence-extra-fire-damage",
+      "crude-bow:prefix:essence-extra-cold-damage",
+      "crude-bow:prefix:essence-extra-lightning-damage",
+      "crude-bow:suffix:essence-attack-skill-level",
+      "crude-bow:suffix:essence-onslaught-on-kill",
+      "attuned-wand:suffix:essence-spell-skill-level",
+      "attuned-wand:suffix:essence-mana-cost-efficiency",
+      "rusted-cuirass:prefix:essence-maximum-life-percent",
+      "rusted-cuirass:prefix:essence-physical-taken-as-chaos",
+      "rusted-cuirass:suffix:essence-reduced-incoming-critical-damage",
+      "rattling-sceptre:suffix:essence-aura-magnitude",
+      "rawhide-belt:suffix:essence-fire-damage-recouped-as-life",
+      "iron-ring:implicit:added-physical-damage-to-attacks",
+      "iron-ring:prefix:essence-increased-maximum-mana",
+      "rusted-greathelm:suffix:essence-cold-damage-recouped-as-life"
+    ],
+    "zh-TW": [
+      "amulet:prefix:essence-abyssal-mark",
+      "amulet:suffix:essence-abyssal-mark",
+      "amulet:prefix:essence-maximum-quality",
+      "solar-amulet:implicit:spirit",
+      "amulet:prefix:essence-global-defences",
+      "amulet:suffix:essence-percent-strength",
+      "amulet:suffix:essence-percent-dexterity",
+      "amulet:suffix:essence-percent-intelligence",
+      "amulet:prefix:alloy-maximum-runic-ward",
+      "stocky-mitts:prefix:essence-abyssal-mark",
+      "stocky-mitts:suffix:essence-abyssal-mark",
+      "stocky-mitts:suffix:essence-socketed-augment-effect",
+      "stocky-mitts:suffix:essence-lightning-recoup",
+      "stocky-mitts:suffix:essence-gold-quantity",
+      "stocky-mitts:prefix:alloy-elemental-penetration",
+      "stocky-mitts:suffix:alloy-attack-speed-missing-ward",
+      "stocky-mitts:suffix:alloy-cast-speed",
+      "stocky-mitts:prefix:alloy-local-runic-ward",
+      "stocky-mitts:suffix:alloy-remnant-pickup-range",
+      "stocky-mitts:suffix:alloy-damaging-ailment-duration",
+      "stocky-mitts:suffix:alloy-attack-area-of-effect",
+      "crude-bow:prefix:essence-extra-physical-damage",
+      "crude-bow:prefix:essence-extra-fire-damage",
+      "crude-bow:prefix:essence-extra-cold-damage",
+      "crude-bow:prefix:essence-extra-lightning-damage",
+      "crude-bow:suffix:essence-attack-skill-level",
+      "crude-bow:suffix:essence-onslaught-on-kill",
+      "attuned-wand:suffix:essence-spell-skill-level",
+      "attuned-wand:suffix:essence-mana-cost-efficiency",
+      "rusted-cuirass:prefix:essence-maximum-life-percent",
+      "rusted-cuirass:prefix:essence-physical-taken-as-chaos",
+      "rusted-cuirass:suffix:essence-reduced-incoming-critical-damage",
+      "rattling-sceptre:suffix:essence-aura-magnitude",
+      "rawhide-belt:suffix:essence-fire-damage-recouped-as-life",
+      "iron-ring:implicit:added-physical-damage-to-attacks",
+      "iron-ring:prefix:essence-increased-maximum-mana",
+      "rusted-greathelm:suffix:essence-cold-damage-recouped-as-life"
+    ],
+    "ja": [
+      "amulet:prefix:essence-abyssal-mark",
+      "amulet:suffix:essence-abyssal-mark",
+      "amulet:prefix:essence-maximum-quality",
+      "solar-amulet:implicit:spirit",
+      "amulet:prefix:essence-global-defences",
+      "amulet:suffix:essence-percent-strength",
+      "amulet:suffix:essence-percent-dexterity",
+      "amulet:suffix:essence-percent-intelligence",
+      "amulet:prefix:alloy-maximum-runic-ward",
+      "stocky-mitts:prefix:essence-abyssal-mark",
+      "stocky-mitts:suffix:essence-abyssal-mark",
+      "stocky-mitts:suffix:essence-socketed-augment-effect",
+      "stocky-mitts:suffix:essence-lightning-recoup",
+      "stocky-mitts:suffix:essence-gold-quantity",
+      "stocky-mitts:prefix:alloy-elemental-penetration",
+      "stocky-mitts:suffix:alloy-attack-speed-missing-ward",
+      "stocky-mitts:suffix:alloy-cast-speed",
+      "stocky-mitts:prefix:alloy-local-runic-ward",
+      "stocky-mitts:suffix:alloy-remnant-pickup-range",
+      "stocky-mitts:suffix:alloy-damaging-ailment-duration",
+      "stocky-mitts:suffix:alloy-attack-area-of-effect",
+      "crude-bow:prefix:essence-extra-physical-damage",
+      "crude-bow:prefix:essence-extra-fire-damage",
+      "crude-bow:prefix:essence-extra-cold-damage",
+      "crude-bow:prefix:essence-extra-lightning-damage",
+      "crude-bow:suffix:essence-attack-skill-level",
+      "crude-bow:suffix:essence-onslaught-on-kill",
+      "attuned-wand:suffix:essence-spell-skill-level",
+      "attuned-wand:suffix:essence-mana-cost-efficiency",
+      "rusted-cuirass:prefix:essence-maximum-life-percent",
+      "rusted-cuirass:prefix:essence-physical-taken-as-chaos",
+      "rusted-cuirass:suffix:essence-reduced-incoming-critical-damage",
+      "rattling-sceptre:suffix:essence-aura-magnitude",
+      "rawhide-belt:suffix:essence-fire-damage-recouped-as-life",
+      "iron-ring:implicit:added-physical-damage-to-attacks",
+      "iron-ring:prefix:essence-increased-maximum-mana",
+      "rusted-greathelm:suffix:essence-cold-damage-recouped-as-life"
+    ],
+    "es": [
+      "amulet:prefix:essence-abyssal-mark",
+      "amulet:suffix:essence-abyssal-mark",
+      "amulet:prefix:essence-maximum-quality",
+      "solar-amulet:implicit:spirit",
+      "amulet:prefix:essence-global-defences",
+      "amulet:suffix:essence-percent-strength",
+      "amulet:suffix:essence-percent-dexterity",
+      "amulet:suffix:essence-percent-intelligence",
+      "amulet:prefix:alloy-maximum-runic-ward",
+      "stocky-mitts:prefix:essence-abyssal-mark",
+      "stocky-mitts:suffix:essence-abyssal-mark",
+      "stocky-mitts:suffix:essence-socketed-augment-effect",
+      "stocky-mitts:suffix:essence-lightning-recoup",
+      "stocky-mitts:suffix:essence-gold-quantity",
+      "stocky-mitts:prefix:alloy-elemental-penetration",
+      "stocky-mitts:suffix:alloy-attack-speed-missing-ward",
+      "stocky-mitts:suffix:alloy-cast-speed",
+      "stocky-mitts:prefix:alloy-local-runic-ward",
+      "stocky-mitts:suffix:alloy-remnant-pickup-range",
+      "stocky-mitts:suffix:alloy-damaging-ailment-duration",
+      "stocky-mitts:suffix:alloy-attack-area-of-effect",
+      "crude-bow:prefix:essence-extra-physical-damage",
+      "crude-bow:prefix:essence-extra-fire-damage",
+      "crude-bow:prefix:essence-extra-cold-damage",
+      "crude-bow:prefix:essence-extra-lightning-damage",
+      "crude-bow:suffix:essence-attack-skill-level",
+      "crude-bow:suffix:essence-onslaught-on-kill",
+      "attuned-wand:suffix:essence-spell-skill-level",
+      "attuned-wand:suffix:essence-mana-cost-efficiency",
+      "rusted-cuirass:prefix:essence-maximum-life-percent",
+      "rusted-cuirass:prefix:essence-physical-taken-as-chaos",
+      "rusted-cuirass:suffix:essence-reduced-incoming-critical-damage",
+      "rattling-sceptre:suffix:essence-aura-magnitude",
+      "rawhide-belt:suffix:essence-fire-damage-recouped-as-life",
+      "iron-ring:implicit:added-physical-damage-to-attacks",
+      "iron-ring:prefix:essence-increased-maximum-mana",
+      "rusted-greathelm:suffix:essence-cold-damage-recouped-as-life"
+    ]
+  },
+  "method": "Retained source-code/hover proof or unique family/generation/level identity; unchanged English numeric text corroboration; unique family/generation/level/tag/numeric-span locale signature; never translated display-name matching"
+}

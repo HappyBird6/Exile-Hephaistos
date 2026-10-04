@@ -1,0 +1,87 @@
+{
+  "recordedAt": "2026-10-04T06:44:58.945127+00:00",
+  "targetBranch": "workbench/20261002",
+  "baseline": "8e5832137b7d724cf0ceb7a1f23576ff8344cd4c",
+  "incoming": "242954aa0822e572cb999a439d0b7a1abfb5f24a",
+  "integration": "single complete-branch merge",
+  "frontend": {
+    "npmCi": "PASS",
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "formatCheck": "PASS",
+    "testFiles": 48,
+    "testsPassed": 357,
+    "failures": 0,
+    "build": "PASS",
+    "uiKeysPerLocale": {
+      "en": 295,
+      "ko": 295,
+      "zh-CN": 295,
+      "zh-TW": 295,
+      "ja": 295,
+      "es": 295
+    },
+    "warning": "Existing large central dictionary bundle; JS 1783.06 kB / gzip 355.75 kB"
+  },
+  "api": {
+    "checks": 640,
+    "bases": 9,
+    "result": "PASS"
+  },
+  "browser": {
+    "omenAndCombinedLocalePreviewChecks": 125,
+    "sixLocaleChecks": 224,
+    "pageErrors": 0,
+    "result": "PASS",
+    "visualReview": [
+      "Omen narrow 390px",
+      "Korean desktop 1440px",
+      "Spanish narrow 390px"
+    ],
+    "knownLayoutFollowup": "Existing narrow fixed currency canvas clips within panel; no document overflow"
+  },
+  "sourceEquivalence": {
+    "comparedFrontendFiles": 334,
+    "missing": [],
+    "different": [],
+    "backendJarSha256": "4092aa4e64416388bffd722291ee6d4a54a1b3f3206ec1748af0dfd86c517e19",
+    "backendJarMatchesOmenVerifiedJar": true
+  },
+  "backend": {
+    "freshFullBuild": false,
+    "reason": "No backend/build/dependency/contract changes; previously verified exact JAR reused",
+    "priorVerifiedUnitArchUnit": 362,
+    "priorVerifiedIntegration": 6,
+    "priorEvidence": "docs/evidence/workbench-omen-composition-validation-2026-10-04.json"
+  },
+  "isolation": {
+    "project": "exile-combined-i18n-20261004",
+    "apiPort": 18380,
+    "uiPort": 18381,
+    "sourceReadOnly": true,
+    "browserContext": "disposable",
+    "live18080And18081": "untouched",
+    "databaseVolumes": "untouched",
+    "ownedServicesStopped": true,
+    "heavyQaSlot": "released"
+  },
+  "history": {
+    "initialIntegrationSnapshot": "357 tests PASS; not authoritative for final tooltip change",
+    "finalSnapshot": "357 tests and all checks PASS",
+    "priorFailureHistories": "Preserved in original Omen and i18n evidence",
+    "integrationValidationFailures": 0,
+    "permissionDenials": "No original output overwrite or secret environment inspection repeated"
+  },
+  "review": "Self-review completed: current Omen semantics and numeric/API/film/ID contracts preserved; no backend/schema/lockfile changes",
+  "remainingBlockers": [],
+  "nextBundle": "26 catalysts: max-quality-on-use/type replacement and collected UX; not implemented here",
+  "rawEvidenceDirectory": "codex/combined-i18n-20261004",
+  "artifacts": {
+    "final-check.log": "e29aa507e5eb897844efa691e9c62f7a4d0f666893c42caa93fec5a14d4a6703",
+    "final-build.log": "ff202f57db8ce0f791db62943ef818eb1fdbb2c3da15e639f9c336bd8dc66db9",
+    "api-results.json": "9d32a54b4a1ccfae4b0e5cbd1c8f55d5fd41e9618d67acce0f60a920cbe4821b",
+    "omen-browser-results.json": "83d1302e977944b0b0314f36f90a153c11a326c07436d9b20e8f1b0813f0e2e6",
+    "browser-results.json": "16b65383b2a301207c617f47bb38e6ae7bb4cb9d7f8818bc8b8a8798da85688d",
+    "source-equivalence.json": "7890d2cf01047c55c77e2d58c2575d275767703e909d5fcf063daadc0401c93d"
+  }
+}

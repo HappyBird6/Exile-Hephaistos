@@ -1,0 +1,539 @@
+{
+  "retrievedAt": "2026-10-04T05:35:00.484Z",
+  "localePaths": {
+    "en": "us",
+    "ko": "kr",
+    "zh-CN": "cn",
+    "zh-TW": "tw",
+    "ja": "jp",
+    "es": "sp"
+  },
+  "pages": [
+    {
+      "url": "https://poe2db.tw/us/Currency",
+      "status": 200,
+      "sha256": "3d44199497772d73a963098e82b8fe72f5bebddf42792390d535fe9f1e1d8ad7"
+    },
+    {
+      "url": "https://poe2db.tw/us/Essence",
+      "status": 200,
+      "sha256": "49a22dc457180533fd7648584bb247d19173f5c0e783b9aff42a27e7d8b5b505"
+    },
+    {
+      "url": "https://poe2db.tw/us/Omen",
+      "status": 200,
+      "sha256": "9936c97f5078b86f248850b031841aa226ba26131b139003d0664511632db7b9"
+    },
+    {
+      "url": "https://poe2db.tw/us/Catalyst",
+      "status": 404,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "url": "https://poe2db.tw/us/Solar_Amulet",
+      "status": 200,
+      "sha256": "9eab9c411b6f8f171e5d5fb30eacab4152458b56eb30202125d507c2a7feb685"
+    },
+    {
+      "url": "https://poe2db.tw/us/Stocky_Mitts",
+      "status": 200,
+      "sha256": "bd71c07b824bf086932f530cc27d9500ce59e7b5bca28188786b456e633ab19b"
+    },
+    {
+      "url": "https://poe2db.tw/us/Crude_Bow",
+      "status": 200,
+      "sha256": "11074552cb29dd7105233ac142e50c71a85c756e60e377b833c9c37eb0a8dd59"
+    },
+    {
+      "url": "https://poe2db.tw/us/Attuned_Wand",
+      "status": 200,
+      "sha256": "35043550afcd9da3b790f0f9f9b353e1154d86f88c12c9290abf863b21309afb"
+    },
+    {
+      "url": "https://poe2db.tw/us/Rusted_Cuirass",
+      "status": 200,
+      "sha256": "1342fa7ae177093cb46bf70b3ca89dfbf3047f82b7a970df89f2e351b1308210"
+    },
+    {
+      "url": "https://poe2db.tw/us/Rattling_Sceptre",
+      "status": 200,
+      "sha256": "91226c8f4728b6b745e88437cba2b70fa57c8add6aade774df98bd85291c0779"
+    },
+    {
+      "url": "https://poe2db.tw/us/Rawhide_Belt",
+      "status": 200,
+      "sha256": "8bd581c653ccd3604605b2049c85c9ca18dc275ffdcfc5d8af76c27ee5b6b979"
+    },
+    {
+      "url": "https://poe2db.tw/us/Rusted_Greathelm",
+      "status": 200,
+      "sha256": "8519cfcb61a3d022fb43bf062997d6a2b957800528aad1e95a81c5bd3dad8fae"
+    },
+    {
+      "url": "https://poe2db.tw/us/Iron_Ring",
+      "status": 200,
+      "sha256": "a2e30a9021a0c90899ff0a482ad40fecf6bc493a115eba666d256dfae69d4a43"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Currency",
+      "status": 200,
+      "sha256": "8664153ce03034e068ce3a3ecfdc3eead177cecec4c502632b5878fe8b00b11f"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Essence",
+      "status": 200,
+      "sha256": "3d918bbabce45b248acbecf8ec5b190e92944760bb705aa5d1b5bddab1debfee"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Omen",
+      "status": 200,
+      "sha256": "a88fa2a2fc1d5532486dec94dc0184cb4cf522e9f1028c5e1a840747fc222e37"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Catalyst",
+      "status": 404,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Solar_Amulet",
+      "status": 200,
+      "sha256": "aae9021e088b63c9e48533efb2e7b911349d31a749b25822b43a52c9efcbfbdf"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Stocky_Mitts",
+      "status": 200,
+      "sha256": "04103ed438ceeefcb9a6dcd0ae2a7af6034ef3b09c9646543a72855e0d68cedc"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Crude_Bow",
+      "status": 200,
+      "sha256": "132b400d67761c1f1ce82412bfc8fe7e982fb16051804dd723b6f050d23c8a1c"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Attuned_Wand",
+      "status": 200,
+      "sha256": "26c3669476f1656ecc29579d2059b14b413a797a24efa68aa0e4e9274db26280"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Rusted_Cuirass",
+      "status": 200,
+      "sha256": "185fc501b3b73dbfcbdd923c100dc212ad1dc59750feecd8fed18ecdd1f144bd"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Rattling_Sceptre",
+      "status": 200,
+      "sha256": "59fca7f59e101b44400ddb490531efd31a57fdd41c8c9c655b971211574c2da6"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Rawhide_Belt",
+      "status": 200,
+      "sha256": "f997110f22b18c01525575bcd107980d2c50d05331dff316aa82860268c11215"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Rusted_Greathelm",
+      "status": 200,
+      "sha256": "f58f037295661e886fa89e4e0efdde1bcc047c3c23028def1eff0ad306a4ba93"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Iron_Ring",
+      "status": 200,
+      "sha256": "c942c3b9711b37df87f86d7a651838a637429f2b19c485485d30ca1fd1319fe3"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Currency",
+      "status": 200,
+      "sha256": "522dacc997fba8090e1b767253ad20586b349bd8a13f2582acb2e9a1601b015b"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Essence",
+      "status": 200,
+      "sha256": "ec1ee43aa90ef6fc7aba5912e25138cc699002fe6941e99cf52c542d1600ba6f"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Omen",
+      "status": 200,
+      "sha256": "4bb35aa4f9afcfdc7a47db6749085c8d5b49578eb68976ab9ce98ea28ce0d0ab"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Catalyst",
+      "status": 404,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Solar_Amulet",
+      "status": 200,
+      "sha256": "75c724a9c6232ab6772c4b170f0e73640f8fcddadaff43069a1bcc7b59ee3da8"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Stocky_Mitts",
+      "status": 200,
+      "sha256": "807c8c8a2029a250b4d290bf5cadfde1e46426cd49d16f873efe4176d644e015"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Crude_Bow",
+      "status": 200,
+      "sha256": "8ec4b5b3e909874cc7031216cfb54ae5f841bf3c813f0c18d48cd96b24f2e78f"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Attuned_Wand",
+      "status": 200,
+      "sha256": "f482ff80982d29b8f916040dac39b0bc01696234a2702ff923dafab72e6701d3"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Rusted_Cuirass",
+      "status": 200,
+      "sha256": "3c95efb820cdefb95e4831388d6e4feca319f03989cca24be110d85ee9182658"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Rattling_Sceptre",
+      "status": 200,
+      "sha256": "e34e6e95588bf1284684f51d8be7cc964f747141c514c93d3e18a8edb2d048da"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Rawhide_Belt",
+      "status": 200,
+      "sha256": "51e26f32447db7d8bd22d39ddd391760ead38910ea3ddf2caa6b27191d0ff29f"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Rusted_Greathelm",
+      "status": 200,
+      "sha256": "ec41e50c865d8055cd0e0b8f5cc6fd9220c84207b3e960f32276b18be88d6184"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Iron_Ring",
+      "status": 200,
+      "sha256": "e28d0f2a403c3506476ab5ee27b309bced2db5f84f9b277cdee6b848d8ba2969"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Currency",
+      "status": 200,
+      "sha256": "94e6b5120f0c46cf1c0d21eb8c9fea879c5213fd40503ae869f11ba802daba27"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Essence",
+      "status": 200,
+      "sha256": "c156bb9e2a2913f63442ecc013a41ed10d788e3514ed4637a32dfeb8e38d6534"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Omen",
+      "status": 200,
+      "sha256": "359d01f026b2fbd5fcc692b027f9e90b8c21570a76c525c43af30050d8604821"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Catalyst",
+      "status": 404,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Solar_Amulet",
+      "status": 200,
+      "sha256": "319510c07e4863cd93126dee628420102a56890003fd937c361aa9b220dfac15"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Stocky_Mitts",
+      "status": 200,
+      "sha256": "f84b07e2f9a27c068556823ae716b266b71f24edf8a38ecea8223302dbc264b7"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Crude_Bow",
+      "status": 200,
+      "sha256": "12fb09d4f78a57a0dc04a4ec85b1fb6c23c9dc62d68bd047d1521634ec76b20a"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Attuned_Wand",
+      "status": 200,
+      "sha256": "1f1ffdafb0d8cb2412744f467a3d9e001d0f4f9d51a3891f2437401e1bfcdc81"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Rusted_Cuirass",
+      "status": 200,
+      "sha256": "33cc69d62e8521170729770f1a1ec9926f1a02d0f6e4e84679a4fa64e16bde61"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Rattling_Sceptre",
+      "status": 200,
+      "sha256": "40e8e1d354453f689c8e9356617ac1f2ad50f1b1e71dc7c138e1633931d26a7d"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Rawhide_Belt",
+      "status": 200,
+      "sha256": "ce5b8cd7f055fa022bc13361202655ce4752dba0e28d1d9b017445b624b6f90d"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Rusted_Greathelm",
+      "status": 200,
+      "sha256": "bf46c39d73a5bde1f2827d72287edccdfad4ce54a3a7f5d9eab9334bf839c2b4"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Iron_Ring",
+      "status": 200,
+      "sha256": "cca5117da5b6bad5275a6343d83d12524a27c0a45891dfe028b2a2ced07640c0"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Currency",
+      "status": 200,
+      "sha256": "cd6f2afac321899fe322eb7495b6a8a75e9f9a3035ff28eb0af8a11c943c093b"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Essence",
+      "status": 200,
+      "sha256": "16d29918d8ec0757eac607bfe653a5c8508413121d4a8aa4b3f20c4ebf45eaf3"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Omen",
+      "status": 200,
+      "sha256": "0f5109ea46a4d44a32d34d95eebd01ef9a5689911bcfaed29e6b63c777d1a5eb"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Catalyst",
+      "status": 404,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Solar_Amulet",
+      "status": 200,
+      "sha256": "bccab8b979f79a1b324d864b221868e2d7059bc109dcdf7904ee96cba9b2e3ba"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Stocky_Mitts",
+      "status": 200,
+      "sha256": "c0a498a2422f197ec3598d44506aeaa86e1ced47159886acde58719573acb02f"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Crude_Bow",
+      "status": 200,
+      "sha256": "8f69bc44976857e7e0ac581b624795532e1768ff9fc30707f4186c51f893fa28"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Attuned_Wand",
+      "status": 200,
+      "sha256": "c443119fa0767a189e26d2112520b9fbe95ae10343696f20af58465cd0c608f3"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Rusted_Cuirass",
+      "status": 200,
+      "sha256": "9aefef6abca786a20d3451467e197d19ea92697bdb076a51652b87118d7b149b"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Rattling_Sceptre",
+      "status": 200,
+      "sha256": "45ae3a3a7ba0639db233406e0fb7fae6e4b80b4739025be09b30b9ec70aa26a8"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Rawhide_Belt",
+      "status": 200,
+      "sha256": "9be56260deff1d14f513a04ccabb8c608388fe63f8b1887acc11d1c88ab6e897"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Rusted_Greathelm",
+      "status": 200,
+      "sha256": "f8d128924543f2a47c62ad777d28d6e812d84db61592cf2398ef5e39a7f3cd21"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Iron_Ring",
+      "status": 200,
+      "sha256": "7ed897742ff12b354a9e3e9bad2957aee390bc5460cc251385fb22def179eb49"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Currency",
+      "status": 200,
+      "sha256": "0ed41f292bbe0dc835df8390b99477b4582080766774fab8ffed36d73da44861"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Essence",
+      "status": 200,
+      "sha256": "a4cb8cb617ffe2c43d7bfdaeaf0bca6b5e23690ba36cc8db2baa523fb3e61e5f"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Omen",
+      "status": 200,
+      "sha256": "b795b00260986f1c231cb6ab482452c71dbef35f04322d40a730af1daf82882c"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Catalyst",
+      "status": 404,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Solar_Amulet",
+      "status": 200,
+      "sha256": "52bcbace1e5f5513f5ce8a24f263dcfd6327cc3a2c9e755a5b0984701d64dc57"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Stocky_Mitts",
+      "status": 200,
+      "sha256": "3544cc2cb2078455ec0ab50539c5c1254a2e40b0feb64ed70cc0eff6d76af5f5"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Crude_Bow",
+      "status": 200,
+      "sha256": "60bef2b7038550dc54deb037215b843936f68ccc1be6a96557a20053b88f7e91"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Attuned_Wand",
+      "status": 200,
+      "sha256": "83c72934ff31b838fca2ebad03dc9213eaefd5614e6b00a03ca57940bc168bcb"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Rusted_Cuirass",
+      "status": 200,
+      "sha256": "8c3ea5c0f05e1905256d285d9b3a59be906e226dc441b3543dbeebf68d3e2a62"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Rattling_Sceptre",
+      "status": 200,
+      "sha256": "569a03f3ebf89cafa69fee25f0a6c4c250f34f39ae57003a2b3a13ed79407cd1"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Rawhide_Belt",
+      "status": 200,
+      "sha256": "2f3a1d3579ca0eeec1381e43f988df69921a8c15045742eb8395785b1ff29532"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Rusted_Greathelm",
+      "status": 200,
+      "sha256": "3f727540e9331afb33c4bb1f0d165580adfa8a92e1e36cbd13df772f0ff0d714"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Iron_Ring",
+      "status": 200,
+      "sha256": "d10b075fccae2776e5ea03388b68345c887b682f8e8eb35448b8a6f2a936e551"
+    },
+    {
+      "url": "https://poe2db.tw/us/Omen",
+      "status": 200,
+      "sha256": "90bda0ad0badbbe87a220c1af5c33d1d8d3c372663f7bc51efa62fb728a4d47a"
+    },
+    {
+      "url": "https://poe2db.tw/us/Catalyst",
+      "status": 404,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Omen",
+      "status": 200,
+      "sha256": "7fd3d7c8b916cca52f61ccd60b33ffaf22296b86da9c2360386393417b6f1eb2"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Catalyst",
+      "status": 404,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Omen",
+      "status": 200,
+      "sha256": "046528b460f6bdf931cc9a86e55626da7bbd07cb0f85f4256f368432e2c15512"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Catalyst",
+      "status": 404,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Omen",
+      "status": 200,
+      "sha256": "b10ceacfa486328f4009e9c43bb047e4b688500d9db5496cb91958b670fc8257"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Catalyst",
+      "status": 404,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Omen",
+      "status": 200,
+      "sha256": "d0da1a89bf6410b00f8a95e5d1e1c7e2eae2897d36a598030a8f4b443821dbd7"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Catalyst",
+      "status": 404,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Omen",
+      "status": 200,
+      "sha256": "a4cf0e77e8e8599e98a7d6d94e74cc32c475328de4a7ab4ebdde7b7f7dbd0abc"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Catalyst",
+      "status": 404,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "url": "https://poe2db.tw/us/Catalysts",
+      "status": 200,
+      "sha256": "26e859f8b99556be61fc077fe4b53743a2d307e88089a847fd7957c015e14656"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Catalysts",
+      "status": 200,
+      "sha256": "9b293826ec35d7ee8a63ef5bd4864acb783ab35205e8c08608cd76f84daeb6a3"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Catalysts",
+      "status": 200,
+      "sha256": "72071ac110071d0c0adc4d0001602a8c1be15c53dbf3429e6512e3c930597766"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Catalysts",
+      "status": 200,
+      "sha256": "517db97d0601da59a1a45ae5b331799272d87d03668326475338dd1b7925c562"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Catalysts",
+      "status": 200,
+      "sha256": "b13dbbca7574be52997377eb2c7d03127b96b5d2f28c56a378a599a6175d6eab"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Catalysts",
+      "status": 200,
+      "sha256": "95b94c549680bd32522512f934c0344171576c4d5af459abb610c152d2445500"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Necrotic_Catalyst",
+      "status": 200,
+      "provider": "web",
+      "verifiedMetadata": "Metadata/Items/Currency/CurrencyJewelleryQualityMinion",
+      "verifiedName": "Catalizador necrótico"
+    }
+  ],
+  "coverage": {
+    "en": {
+      "verified": 153,
+      "missingInventory": [],
+      "missingBases": []
+    },
+    "ko": {
+      "verified": 153,
+      "missingInventory": [],
+      "missingBases": []
+    },
+    "zh-CN": {
+      "verified": 153,
+      "missingInventory": [],
+      "missingBases": []
+    },
+    "zh-TW": {
+      "verified": 153,
+      "missingInventory": [],
+      "missingBases": []
+    },
+    "ja": {
+      "verified": 153,
+      "missingInventory": [],
+      "missingBases": []
+    },
+    "es": {
+      "verified": 152,
+      "missingInventory": ["Refined_Necrotic_Catalyst"],
+      "missingBases": []
+    }
+  },
+  "gaps": [
+    {
+      "locale": "es",
+      "id": "Refined_Necrotic_Catalyst",
+      "reason": "No verified localized term"
+    }
+  ]
+}
