@@ -462,4 +462,4 @@ Spanish 공식 이름이 없는6항목은 자체 번역 provenance를 표시하�
 
 이 묶음은 기존 class 규칙의 실제 성공 경로를 검증하는 확장이며 등록만으로 모든 재료 지원을 주장하지 않는다. deferred50·excluded mechanics·Solar Support/Explorer·quality40 보존·rounding·Shift/Alt·film storage는 변경하지 않는다. remote push/merge/deploy는 수행하지 않는다. 다음 묶음은 Massive Mitts 및 나머지 defence archetype부터 진행하는 것을 권장한다.
 
-검증 상태: Backend396/Frontend1749/Browser125 통과, 6locale×2viewport×2base 화면24장 확인. 전체 API probe는 fixture의 생략된 `fractured:false`와 응답 default의 비교 차이로 중단되어 merge-ready가 아니다. 이미 운영 명세의 결함 수정2회를 사용했으므로 추가 fixture 수정·재검증에는 별도 범위 승인이 필요하며 다음 채팅에서 횟수를 초기화하지 않는다. 기존 registry entry220 보존은 source 비교로 통과했으나 runtime registry 전체 비교는 미완료다. 실패 이력과 구체적인 미실행 구간은 위 문서에 기록했다.
+최종 검증 상태: Backend396/Frontend1749/Browser125/API87 통과, 6locale×2viewport×2base 화면24장 확인. 첫 commit의 `fractured:false` fixture 비교 중단은 부모가 명시적으로 승인한 bounded recovery로 해결했다. 생략/false의 실제 API 동등성과 모든 기존 상태·roll·소모 assertion을 유지했고 runtime registry 및 기존220 entry 보존도 통과했다. Imperial은 source 일반137+special1=138개이며 초기 기록의 special3을 바로잡았다. 실패 로그와 준비 오류·승인 근거는 위 문서에 보존한다. 제품 코드는 recovery에서 변경하지 않았다. 자체 QA service는 종료했고 원격 반영은 수행하지 않았다.

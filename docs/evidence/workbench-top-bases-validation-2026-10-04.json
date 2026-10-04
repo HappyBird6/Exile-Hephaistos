@@ -59,17 +59,29 @@
     ]
   },
   "api": {
-    "passed": false,
+    "passed": true,
+    "assertions": 87,
     "initials": 19,
-    "stoppedAt": "soldier: PERFECT_ESSENCE_BODY atomic conflict",
-    "cause": "QA instances omit fractured:false while response serializes the default",
-    "diagnostic": "Both new bases refuse conflicting omens without changing modifier IDs/values",
-    "remaining": "Full API probe requires additional correction/revalidation authorization; no reset in a new chat"
+    "schemaDefaultEquivalence": true,
+    "exactSourceDefinitions": true,
+    "definitionCounts": {
+      "soldier": {
+        "ordinary": 144,
+        "special": 3,
+        "total": 147
+      },
+      "imperial": {
+        "ordinary": 137,
+        "special": 1,
+        "total": 138
+      }
+    },
+    "fullStateRollConsumptionAssertionsPreserved": true,
+    "results": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\api-recovery-5\\api-results.json"
   },
   "registry": {
     "sourceComparison": true,
-    "runtimeComparison": false,
-    "reason": "Git dubious ownership under escalated user",
+    "runtimeComparison": true,
     "entries": 220,
     "newBaseSupport": {
       "soldier": 38,
@@ -91,7 +103,7 @@
     ],
     "remoteActions": []
   },
-  "mergeReady": false,
+  "mergeReady": true,
   "evidence": [
     {
       "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\api-conflict-diagnostic.json",
@@ -228,6 +240,61 @@
     {
       "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\soldier-zh-TW-390.png",
       "sha256": "017b26d035c5569b8f694cb9df30989f7d92e9bda12b2e73adf1c4150c3426e4"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\api-recovery-1\\api-probe.log",
+      "sha256": "4b225fb56ddf8c8ab6ed67e268a5279e3fc2076f99f04719eb3400d7367b96f6"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\api-recovery-2\\api-probe.log",
+      "sha256": "35177c86a634f04615e6195eae1301db4b74fc3b7714807e038b6979ccefa666"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\api-recovery-3\\api-probe.log",
+      "sha256": "5b3f575a44b8a89ee2f8d9260e57fbc73e4f2586c4e4acf0d42d10695b641a8e"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\api-recovery-4\\api-probe.log",
+      "sha256": "8f20ba4044d330d48513898f8282e922ca400091bc13b1b580150c73d0477b22"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\api-recovery-5\\api-initials.json",
+      "sha256": "c832ff9faf5b23658dc70add791ad86c5555583912a915651d23c6f62fc322fe"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\api-recovery-5\\api-probe.log",
+      "sha256": "ebac0309b00b667adf7e54c9960f624610ed87204c75040b285fc8421cf0c119"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\api-recovery-5\\api-results.json",
+      "sha256": "bdb3d5b22b1814b4af4102722e73783de417e475d90bedbeb3956a53595ef35d"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\api-recovery-5\\baseline-registry.json",
+      "sha256": "14946ea839b5abf95ceb270d26a201daf120bf63197ddf1b9eda570eda61a2cb"
     }
-  ]
+  ],
+  "apiHistory": [
+    {
+      "passed": false,
+      "initials": 19,
+      "stoppedAt": "soldier: PERFECT_ESSENCE_BODY atomic conflict",
+      "cause": "QA instances omit fractured:false while response serializes the default",
+      "diagnostic": "Both new bases refuse conflicting omens without changing modifier IDs/values",
+      "remaining": "Full API probe requires additional correction/revalidation authorization; no reset in a new chat"
+    }
+  ],
+  "recovery": {
+    "authorizedBy": "Parent delegated bounded recovery based on explicit user continuous-work instructions",
+    "productSourceChanged": false,
+    "originalCorrectionCountPreserved": 2,
+    "failuresPreserved": [
+      "api-recovery-1/api-probe.log",
+      "api-recovery-2/api-probe.log",
+      "api-recovery-3/api-probe.log",
+      "api-recovery-4/api-probe.log"
+    ],
+    "successfulRun": "api-recovery-5",
+    "scopedGitFallbackVerified": true
+  }
 }

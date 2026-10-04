@@ -35,7 +35,7 @@ Soldier Cuirass는 `FourBodyStr3Endgame`, Armour 570, 요구 캐릭터 레벨 65
 
 `collect-top-base-bundle.mjs`는 이 두 STR variant의 base/6locale source와 eligibility를 수집한다. `verify-top-base-pools.mjs`는 현재 일반 표가 달라지면 assert로 거절한다. `wire-top-base-bundle.mjs`는 검토된 증거로 backend/frontend manifest·6locale 이름·base 지원 기록을 생성한다. 서로 다른 archetype이나 implicit을 이 경로로 자동 허용하지 않는다. 새 snapshot은 새 source digest와 기존 검증된 옵션 풀 snapshot을 함께 식별한다. 기존 modifier ID는 동일한 source definition을 가리키므로 유지하고, old base ID/snapshot/film은 새 base로 alias하지 않는다. 새 catalog에는 legacy compatibleSnapshotIds를 넣지 않는다.
 
-첫 묶음 이후 catalog는 19개: Amulet 1, Ring 1, Belt 1, Wand 1, Sceptre 1, Bow 1, Gloves 1, Body 2, Helmet 2, Basic Jewel 4, Time-Lost Jewel 4. 일반/특수 정의는 Soldier 144+3, Imperial 137+3이며 기존 definition과 6locale templates를 재사용한다. 수치 roll의 기존 UNVERIFIED 가정과 published table model policy는 그대로다. 신규 일반 weight를 1/N으로 대체하지 않았다. 지원 재료가 동일해지는 것은 검증된 같은 eligible pool과 같은 class 제한에 한정된다. Soldier의 Perfect Body/Ruin/Seeking과 Imperial의 기존 Helmet Perfect 경로만 허용하며 Bow 전용 Perfect Ice, Artificer/socket/alloy·catalyst·deferred mechanics를 추가하지 않는다. 기존 50 deferred 항목의 status와 scope를 바꾸지 않는다.
+첫 묶음 이후 catalog는 19개: Amulet 1, Ring 1, Belt 1, Wand 1, Sceptre 1, Bow 1, Gloves 1, Body 2, Helmet 2, Basic Jewel 4, Time-Lost Jewel 4. 일반/특수 정의는 Soldier 144+3, Imperial 137+1이며 기존 definition과 6locale templates를 재사용한다. 수치 roll의 기존 UNVERIFIED 가정과 published table model policy는 그대로다. 신규 일반 weight를 1/N으로 대체하지 않았다. 지원 재료가 동일해지는 것은 검증된 같은 eligible pool과 같은 class 제한에 한정된다. Soldier의 Perfect Body/Ruin/Seeking과 Imperial의 기존 Helmet Perfect 경로만 허용하며 Bow 전용 Perfect Ice, Artificer/socket/alloy·catalyst·deferred mechanics를 추가하지 않는다. 기존 50 deferred 항목의 status와 scope를 바꾸지 않는다.
 
 ## 검증 기록
 
@@ -51,4 +51,16 @@ QA 증거는 `../top-bases-qa-20261004`에 보존한다. 무거운 검사는 자
 
 [Worker 운영 명세](solo-workflow/MULTI_SESSION_WORKFLOW.md)의 “범위 내 결함 수정·재검증·필요한 재리뷰는 작업 전체 최대 2회” 한도를 사용했으므로 API fixture를 추가 수정·재실행하지 않았다. 다음 결정은 fixture에 명시적 `fractured:false`를 넣고 재검증할 **추가 수정/재검증 범위 승인**이다. 세션을 바꿔 이 한도를 초기화하지 않는다. Runtime registry의 독립 read-only 비교 시도는 escalated 사용자와 worktree 소유자가 달라 Git dubious ownership 검사에서 중단됐다. 대신 기존 entry 보존은 sandbox source 비교로 확인했다. 재개 시 전역 Git 설정을 바꾸지 않고 read-only 기준 registry fixture나 해당 경로만 지정한 `git -c safe.directory=...`를 사용할 수 있다.
 
-증거 색인은 [validation JSON](evidence/workbench-top-bases-validation-2026-10-04.json)이다. 전체 API probe가 통과하기 전에는 merge-ready로 표시하지 않는다. 후속 category 확장과 이 미완료 검증을 구분한다.
+위 중단 상태와 실패는 첫 commit `ef6b8fa` 당시 기록이다. 증거 색인은 [validation JSON](evidence/workbench-top-bases-validation-2026-10-04.json)이며 최종 상태는 아래 승인된 재개 결과를 따른다.
+
+### 승인된 bounded recovery와 최종 API 결과
+
+부모 위임에서 사용자의 “중단없이 진행해줘”와 “베이스 확장 작업 ㄱㄱ”를 근거로 이번 fixture recovery를 명시적으로 승인했다. 따라서 이전 중단 지점을 이어서 완료했고 일반적인 수정 한도를 새 세션이라는 이유로 초기화하지 않았다. 제품 코드·catalog·UI는 수정하지 않았다.
+
+`ModifierInstance`의 `boolean fractured`와 두 인자 생성자의 `false` 기본값을 확인했다. Fixture의 이 필드만 명시했고 상태 비교의 나머지 field·roll·배열 순서는 그대로 유지했다. 실제 API에서 생략된 필드와 명시적 false의 ARTIFICER 거부 응답 전체가 동일하고, state 보존·events 0·consumedOmens 0인 것을 두 베이스에서 확인했다.
+
+기존 probe의 다른 준비 오류도 정확한 계약으로 정리했다. `BLESSED`는 실제 enum 값이 아니므로 class refusal 대신 HTTP400 Problem Details 검사를 유지했다. Imperial의 special 수는 source 파일의 1개였으므로 잘못 기재한 3개/총140을 1개/총138로 바로잡았다. 새로 추가한 모든 definition 필드 비교는 Java `Set`인 tags/familyIds의 멤버만 정렬하며 ordered stats나 상태 배열에는 적용하지 않는다. 기준 registry는 expansion 전 SHA `2aac292d`로 고정하고 sandbox에서 읽은 파일을 escalated probe의 read-only fixture로 전달했다. 전역 safe.directory나 권한은 변경하지 않았다.
+
+최종 `api-recovery-5/api-results.json`의 **87개 API assertion 모두 통과**했다. 19개 initial, 두 베이스의 6개 일반 화폐·Alchemy·Fracturing/Chaos 보존, 모든 modifier source field/weight/range, Soldier Perfect Body/Ruin/Seeking와 Imperial Perfect Thawing, Sinistral Omen 소모·충돌 원자 거부, Bow/socket/alloy/catalyst 제한, 잘못된 action400, quality-display, runtime registry와 이전220 entry 보존을 확인했다. 이전 실패 로그 `api-recovery-1`~`4`도 보존했다(잘못된 enum, 잘못된 예상 수, definition Set 순서, Windows Git ownership 순서). 모두 QA 준비·검증 문제였으며 제품 동작 assertion을 완화하지 않았다.
+
+최종 변경은 API QA script와 이 기록·증거 색인뿐이다. 기존 Backend396/Frontend1749/Browser125와 화면24장의 검증 결과는 제품 소스 동등성이 유지되어 재사용한다. 최종 API 검증 blocker는 해결했으며 원격 반영은 여전히 수행하지 않았다.
