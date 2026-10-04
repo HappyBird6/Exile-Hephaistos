@@ -1,0 +1,16 @@
+{
+  "sourceUrl": "https://poe2db.tw/us/Sapphire",
+  "enabledRarity": [
+    "magic",
+    "rare",
+    "unique"
+  ],
+  "tags": [
+    "jewel",
+    "intjewel"
+  ],
+  "editorScope": "Magic or Rare; zero or one reviewed existing suffix. These editor bounds are not full game affix capacities.",
+  "statIdentity": "display_cast_speed_percent is an internal display-unit key derived from the published 2–4% Cast Speed text, not a verified game stat ID.",
+  "weightPolicy": "Zero excludes this display-only definition from all generation; published DropChance is not imported as a probability weight.",
+  "tierPolicy": "One reviewed row; tier 1 is a local row ordinal, not a game tier claim."
+}

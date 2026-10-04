@@ -30,6 +30,7 @@ export const catalystBase = (base: string) =>
   [
     'Metadata/Items/Amulets/FourAmulet9',
     'Metadata/Items/Rings/FourRing1',
+    'Metadata/Items/Jewels/JewelInt',
   ].includes(base)
 
 export function qualityShape(
@@ -104,6 +105,9 @@ export function catalystProjection(
     Object.hasOwn(values, 'attack_maximum_added_physical_damage')
   const reviewed =
     ironImplicit ||
+    (d.id === 'sapphire:suffix:of-enchanting' &&
+      d.stats?.length === 1 &&
+      d.stats[0]?.id === 'display_cast_speed_percent') ||
     (d.weight !== undefined &&
       d.weight > 0 &&
       d.stats?.length === 1 &&

@@ -1,0 +1,46 @@
+{
+  "status": "INCOMPLETE_REQUIRED_FRONTEND_TEST_FAILED",
+  "branch": "workbench/20261002",
+  "baseline": "1b8a8884aa1ce13e260c0b1d4422cfa6f9174349",
+  "qaDirectory": "E:/WORK/Exile-Hephaistos/codex/refined-catalyst-20261004",
+  "backend": {
+    "command": "./gradlew --no-daemon spotlessApply check generateJooq bootJar",
+    "status": "PASS",
+    "unitAndArchUnit": 370,
+    "integration": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "frontend": {
+    "runtime": "node:24-bookworm",
+    "npmCi": "PASS",
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "formatCheck": "PASS",
+    "unit": { "passed": 368, "failed": 1, "total": 369, "files": 50 },
+    "failure": "localizedModifiers.test.ts:28 expects 1485 bindings; actual 1486 after adding the Sapphire binding",
+    "build": "NOT_RUN"
+  },
+  "finalApi": "NOT_RUN",
+  "finalBrowser": "NOT_RUN",
+  "screenshots": "NOT_INSPECTED",
+  "recoveryHistory": [
+    "Initial Backend: service infrastructure dependency violated ArchUnit; Strength fixture roll 5 outside source range 9..12",
+    "Initial Frontend: Node22 rejected by package engine",
+    "Recovery 1: Backend PASS; Frontend fixture formatting failed",
+    "Recovery 2: Frontend format PASS; one existing fixed-count unit assertion failed"
+  ],
+  "stopReason": "Workflow work-wide maximum two fix/revalidation rounds reached; failure preserved without skip or weakening expectations",
+  "coverageClaim": "Implementation targets refined13 on bounded Magic/Rare Sapphire only; complete support and final regression validation are not yet claimed",
+  "gameEvidenceGaps": [
+    "Sapphire full generation pool, slot capacity and weights are not imported or invented",
+    "Selected Cast Speed source row uses explicit internal display-unit key because CDN detail request returned 403",
+    "Post-removal quality clamp is an unverified simulator model with reversible REJECT_OVERCAP policy"
+  ],
+  "ownedRuntimeStarted": false,
+  "ownedQaContainersRemaining": 0,
+  "heavyQaSlotReleased": true,
+  "userServicesPreserved": [18080, 18081],
+  "remotePushMergeDeploy": "NOT_PERFORMED"
+}

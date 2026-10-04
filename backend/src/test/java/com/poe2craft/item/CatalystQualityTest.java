@@ -151,7 +151,7 @@ class CatalystQualityTest {
   }
 
   @Test
-  void maximumCapAndUnknownCapRemovalBoundaryAreRetained() {
+  void maximumCapRemovalClampsUnderDeclaredSimulatorPolicy() {
     var breach =
         new ModifierInstance(QualityLimitRules.BREACH_ID, Map.of(QualityLimitRules.STAT_ID, 20L));
     var item = state(CatalystQuality.Type.FLESH, 20, List.of(breach));
@@ -162,7 +162,7 @@ class CatalystQualityTest {
     assertThat(
             sim.apply(result.state(), WorkbenchCurrency.ANNULMENT, Set.of(), new Random(1))
                 .applied())
-        .isFalse();
+        .isTrue();
     assertThat(sim.apply(item, WorkbenchCurrency.ANNULMENT, Set.of(), new Random(1)).applied())
         .isTrue();
   }

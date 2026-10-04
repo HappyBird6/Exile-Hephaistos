@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-sapphire-editor-20261004-63e81efc2080",
+    "retrievedAt": "2026-10-04T07:53:59.566Z",
+    "sourceUrl": "https://poe2db.tw/us/Sapphire",
+    "weightPolicy": "STARTING_ITEM_ONLY_NO_GENERATION",
+    "rawSha256": "63e81efc20809f89140e85e04dffac49b31f0806e59fb8ca09b97c87de077efc",
+    "detailsSha256": "a3ae4d06c3c3b45e04bf537c1cbdedcef8c3865d46a72ede23f9bf87e1019b71",
+    "prefixCount": 0,
+    "suffixCount": 1,
+    "prefixWeight": 0,
+    "suffixWeight": 0
+  },
+  "base": {
+    "id": "Metadata/Items/Jewels/JewelInt",
+    "name": "Sapphire",
+    "sourceUrl": "https://poe2db.tw/us/Sapphire",
+    "implicitModifierId": "",
+    "magicPrefixes": 0,
+    "magicSuffixes": 1,
+    "rarePrefixes": 0,
+    "rareSuffixes": 1
+  },
+  "modifiers": [
+    {
+      "id": "sapphire:suffix:of-enchanting",
+      "name": "of Enchanting",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "(2—4)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "display_cast_speed_percent",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Sapphire"
+    }
+  ]
+}

@@ -1331,6 +1331,12 @@
       ],
       "itemKey": "JewelCatalystNecrotic",
       "sourceUrl": "https://poe2db.tw/us/Refined_Necrotic_Catalyst"
+    },
+    "Sapphire": {
+      "name": "Sapphire",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelInt",
+      "sourceUrl": "https://poe2db.tw/us/Sapphire"
     }
   },
   "ko": {
@@ -2651,6 +2657,12 @@
       ],
       "itemKey": "JewelCatalystNecrotic",
       "sourceUrl": "https://poe2db.tw/kr/Refined_Necrotic_Catalyst"
+    },
+    "Sapphire": {
+      "name": "사파이어",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelInt",
+      "sourceUrl": "https://poe2db.tw/kr/Sapphire"
     }
   },
   "zh-CN": {
@@ -3885,6 +3897,12 @@
       "lines": ["给珠宝添加品质，强化召唤生物类词缀。\n\r\n取代其它品质类型"],
       "itemKey": "JewelCatalystNecrotic",
       "sourceUrl": "https://poe2db.tw/cn/Refined_Necrotic_Catalyst"
+    },
+    "Sapphire": {
+      "name": "蓝玉",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelInt",
+      "sourceUrl": "https://poe2db.tw/cn/Sapphire"
     }
   },
   "zh-TW": {
@@ -5115,6 +5133,12 @@
       "lines": ["附加品質以增強珠寶上的召喚物詞綴\n\r\n取代其他品質類型"],
       "itemKey": "JewelCatalystNecrotic",
       "sourceUrl": "https://poe2db.tw/tw/Refined_Necrotic_Catalyst"
+    },
+    "Sapphire": {
+      "name": "藍寶石",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelInt",
+      "sourceUrl": "https://poe2db.tw/tw/Sapphire"
     }
   },
   "ja": {
@@ -6435,6 +6459,12 @@
       ],
       "itemKey": "JewelCatalystNecrotic",
       "sourceUrl": "https://poe2db.tw/jp/Refined_Necrotic_Catalyst"
+    },
+    "Sapphire": {
+      "name": "サファイア",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelInt",
+      "sourceUrl": "https://poe2db.tw/jp/Sapphire"
     }
   },
   "es": {
@@ -7753,6 +7783,12 @@
       "lines": [],
       "itemKey": "BreachCatalystNecrotic",
       "sourceUrl": "https://poe2db.tw/sp/Necrotic_Catalyst"
+    },
+    "Sapphire": {
+      "name": "Zafiro",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelInt",
+      "sourceUrl": "https://poe2db.tw/sp/Sapphire"
     }
   }
 }

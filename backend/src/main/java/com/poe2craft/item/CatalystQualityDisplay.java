@@ -33,7 +33,8 @@ public final class CatalystQualityDisplay {
           "physical_damage_reduction_rating_+%",
           "maximum_energy_shield_+%",
           "evasion_rating_+%",
-          "base_cast_speed_+%");
+          "base_cast_speed_+%",
+          "display_cast_speed_percent");
 
   private CatalystQualityDisplay() {}
 
@@ -63,7 +64,7 @@ public final class CatalystQualityDisplay {
                         "attack_maximum_added_physical_damage"));
     boolean reviewed =
         ironImplicit
-            || (d.weight() > 0
+            || ((d.weight() > 0 || d.id().equals(SapphireJewel.CAST_SPEED_ID))
                 && d.stats().size() == 1
                 && INTEGER_STATS.contains(d.stats().getFirst().id()));
     if (!reviewed

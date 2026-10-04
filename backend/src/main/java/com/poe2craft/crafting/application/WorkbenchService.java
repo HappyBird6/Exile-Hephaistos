@@ -26,6 +26,8 @@ public final class WorkbenchService {
   private final WorkbenchSimulator wandSimulator;
   private final ItemCatalog bow;
   private final WorkbenchSimulator bowSimulator;
+  private final ItemCatalog sapphire;
+  private final WorkbenchSimulator sapphireSimulator;
 
   public WorkbenchService(
       ItemCatalog solar, WorkbenchSimulator solarSimulator, ItemCatalog stocky) {
@@ -103,6 +105,24 @@ public final class WorkbenchService {
       ItemCatalog belt,
       ItemCatalog helmet,
       ItemCatalog ring) {
+    this(solar, solarSimulator, stocky, bow, wand, body, sceptre, belt, helmet, ring, null);
+  }
+
+  public WorkbenchService(
+      ItemCatalog solar,
+      WorkbenchSimulator solarSimulator,
+      ItemCatalog stocky,
+      ItemCatalog bow,
+      ItemCatalog wand,
+      ItemCatalog body,
+      ItemCatalog sceptre,
+      ItemCatalog belt,
+      ItemCatalog helmet,
+      ItemCatalog ring,
+      ItemCatalog sapphire) {
+    this.sapphire = sapphire;
+    this.sapphireSimulator =
+        sapphire == null ? null : new WorkbenchSimulator(sapphire, new CraftingEngine(sapphire));
     this.ring = ring;
     this.ringSimulator =
         ring == null
@@ -215,7 +235,7 @@ public final class WorkbenchService {
                 catalog.metadata().snapshotId(),
                 catalog.base().id(),
                 level,
-                ItemState.Rarity.NORMAL,
+                base.equals("sapphire") ? ItemState.Rarity.MAGIC : ItemState.Rarity.NORMAL,
                 base.equals("ring")
                     ? List.of(
                         new ModifierInstance(
@@ -237,7 +257,14 @@ public final class WorkbenchService {
         bucket.id(),
         bucket,
         catalog.modifiers(),
-        engine.actions(bucket),
+        base.equals("sapphire")
+            ? java.util.Arrays.stream(CraftingAction.values())
+                .map(
+                    a ->
+                        new CraftingEngine.Availability(
+                            a, false, "General Jewel crafting is unavailable."))
+                .toList()
+            : engine.actions(bucket),
         catalog.compatibleSnapshotIds(),
         QualityLimitRules.describe(state, catalog),
         base.equals("stocky") ? 0 : null);
@@ -245,6 +272,10 @@ public final class WorkbenchService {
 
   private ItemCatalog catalog(String base) {
     return switch (base) {
+      case "sapphire" -> {
+        if (sapphire == null) throw new IllegalArgumentException("Sapphire catalog unavailable");
+        yield sapphire;
+      }
       case "ring" -> {
         if (ring == null) throw new IllegalArgumentException("Ring catalog unavailable");
         yield ring;
@@ -281,6 +312,9 @@ public final class WorkbenchService {
 
   private WorkbenchSimulator simulator(ItemState state) {
     if (state != null
+        && state.baseItemId().equals(SapphireJewel.BASE_ID)
+        && sapphireSimulator != null) return sapphireSimulator;
+    if (state != null
         && state.baseItemId().equals(RingEssenceTargets.BASE_ID)
         && ringSimulator != null) return ringSimulator;
     if (state != null
@@ -314,7 +348,8 @@ public final class WorkbenchService {
 
   public QualityDisplay qualityDisplay(ItemState state) {
     var selected =
-        java.util.stream.Stream.of(solar, stocky, bow, wand, body, sceptre, belt, helmet, ring)
+        java.util.stream.Stream.of(
+                solar, stocky, bow, wand, body, sceptre, belt, helmet, ring, sapphire)
             .filter(java.util.Objects::nonNull)
             .filter(c -> c.base().id().equals(state.baseItemId()))
             .findFirst()

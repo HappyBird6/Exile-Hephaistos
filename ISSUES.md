@@ -406,9 +406,19 @@ Final combined checkpoint: six-language branch integrated once into `workbench/2
 
 ## WB-044 — Catalyst simulator policy and collected Workbench UX (2026-10-04)
 
+후속 사용자 승인 범위(2026-10-04): Sapphire의 최소 source-backed 시작 아이템 편집과 refined13 실제 적용을 추가한다. 기존 "Jewel catalog 확장 제외" 및 "over-cap cap 제거 action 거절"은 이 후속 작업의 명시 지시로 대체한다. 이전 결정·실패 기록은 아래에 보존한다. [후속 범위와 근거](docs/workbench-refined-catalyst-2026-10-04.md).
+
 - 사용자 결정: ordinary/refined catalyst 26종 모두 서비스 선택 대상으로 유지한다. 한 번 적용하면 현재 아이템의 검증된 최대 품질을 설정하고 기존 유형을 교체한다. 실제 게임의 1회 사용 증가량을 구현한 것으로 표시하지 않는다. 원본 affix 값은 보존하고 새 유형의 표시 효과만 한 번 계산한다.
 - 권장 결정 적용: 품질 표시 소수는 기존 compound roll의 HALF_UP(정확히 절반이면 0에서 멀어짐) 정책과 맞춘다. Backend/Frontend `QualityRoundingPolicy`에 모아 게임 정밀도 검증 후 교체 가능하게 했다. 기존 source-unit/negative/mixed-stat 미검증 경계는 유지한다. rollback은 품질 정책 함수와 표시 버전 변경으로 한정 가능하다.
 - 근거: [PoE2DB Catalysts](https://poe2db.tw/us/Catalysts)는 ordinary Ring/Amulet, refined Jewel 및 단일 유형 교체를 명시한다. 기존 검증 cap 계산을 재사용하며 Solar의 Breach cap40을 보존한다. 지원 catalog에 Jewel이 없어 refined13은 선택과 명시적 적용 거절까지 구현하며, Ring/Amulet에 우회 적용하지 않는다. Jewel catalog 확장은 이번 요청에 추가하지 않는 권장 선택이다.
 - 열린 게임 검증: 품질이20을 넘을 때 cap을 제공하는 Breach 옵션을 제거한 뒤의 품질 처리. 해당 옵션을 제거할 수 있는 후보 집합에 한해 명시적으로 거절한다. 낮은 품질 및 cap 옵션을 제거할 수 없는 제작은 기존 지원 규칙대로 수행한다. 자동 clamp/reset을 추측하지 않는다. Catalysing/Necromancy 및 기존 제외 화폐는 미지원 그대로다.
 - 권장 UX 적용: stash 위에 Select base/New craft를 노출한다. New craft는 현재 base/level의 새 Normal root를 만들어 이전 film을 보존한다. 과거 frame 제작은 기존 linear film 분리 규칙을 유지한다. 설명은 중앙 item 영역 아래, affix 카드와 분리한다. 여유 높이에만 최대24px을 추가하며 resize 시 다시 계산한다. 회색 Fractured와 숨은 의미 설명, Alt prefix/suffix 복귀를 유지한다. rollback은 해당 UI/CSS 변경으로 가능하며 저장 schema나 DB migration은 없다.
 - 검증 진행 및 실패 이력은 [구현/검증 기록](docs/workbench-catalyst-ux-2026-10-04.md)에 기록한다. 이전 checkpoint와 실패 기록은 삭제하지 않는다.
+
+## WB-045 — Sapphire 편집 경계와 cap 삭제 simulator 모델 검증 대기
+
+- 모바일 검토용 권장 결정 적용: Sapphire Magic/Rare 시작 아이템에서 옵션 없음 또는 검증된 Cast Speed suffix 하나만 입력한다. 실제 Jewel 전체 slot/pool/특수 Jewel/Unique 제작은 열지 않는다. Normal은 source rarity 목록에 없으므로 거절한다. catalog의0P/1S는 제품 편집 제한이다. 후속 증거와 사용자 결정으로 편집 범위를 확장하거나 Sapphire dispatch를 제거할 수 있다.
+- source identity가 확인된 suffix의2–4% 표시 단위만 사용한다. CDN hover403 때문에 game stat ID는 미확인이다. 내부 `display_cast_speed_percent` key를 game stat로 주장하지 않는다. generation weight는0으로 두고 실제 게임 odds를 추측하지 않는다. Sibilant/Skittering 외11종의 NO_MATCH와 빈 아이템의 NO_MATCH는 정당한 결과다.
+- 모바일 검토용 권장 정책 적용: Solar quality40의 Breach cap prefix를 accepted Annul/Chaos/replacement로 삭제한 경우 quality20으로 clamp하고 유형·살아남은 원본 roll을 보존한다. cap prefix를 제거 후보에서 제외하지 않는다. Omen filter 후 실제 선택된 후보와1/N odds는 그대로다. cap 재증가 시 자동 refill하지 않고 다음 catalyst 사용만 현재 max까지 설정한다.
+- 증거 gap: 실제 인게임 cap modifier 삭제 직후 품질이 clamp/유지/reset되는지, 표시 precision과 special Jewel cap은 미확인이다. `QualityCapChangePolicy.DEFAULT`와 `REJECT_OVERCAP` toggle 및 `unverified-quality-cap-clamp-v1` ledger로 simulator 가정과 source 사실을 분리한다. 사용자 인게임 검증 후 policy/버전을 교체할 수 있고 DB 변경은 없다.
+- 기존 UI/6언어/film/exclusions 유지. CraftSupport/StateExplorer, Desecration/Vaal/Hinekora/Liquid/Catalysing/Necromancy는 추가하지 않는다. 지원144는 최소 한 검증 base에서 동작하는 수이며 모든 base×currency 지원 의미가 아니다. 최종 QA 결과는 후속 문서/evidence에서 확인한다.

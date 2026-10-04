@@ -9,6 +9,7 @@ public final class WorkbenchSimulator {
   public static final String RULE_VERSION = "solar-workbench-abyss-essence-v16";
   public static final String LEDGER_VERSION = "solar-uniform-assumptions-v10";
   private final ItemCatalog catalog;
+  private final QualityCapChangePolicy qualityCapChangePolicy;
   private final AdditionRules additionRules;
   private final Set<String> coupledModifierIds;
   private final Map<WorkbenchCurrency, List<String>> essenceTargetOverrides;
@@ -38,7 +39,24 @@ public final class WorkbenchSimulator {
       Set<String> coupledModifierIds,
       Map<WorkbenchCurrency, List<String>> essenceTargetOverrides,
       Map<WorkbenchCurrency, List<String>> replacementTargetOverrides) {
+    this(
+        catalog,
+        engine,
+        coupledModifierIds,
+        essenceTargetOverrides,
+        replacementTargetOverrides,
+        QualityCapChangePolicy.DEFAULT);
+  }
+
+  public WorkbenchSimulator(
+      ItemCatalog catalog,
+      CraftingEngine engine,
+      Set<String> coupledModifierIds,
+      Map<WorkbenchCurrency, List<String>> essenceTargetOverrides,
+      Map<WorkbenchCurrency, List<String>> replacementTargetOverrides,
+      QualityCapChangePolicy qualityCapChangePolicy) {
     this.catalog = Objects.requireNonNull(catalog);
+    this.qualityCapChangePolicy = Objects.requireNonNull(qualityCapChangePolicy);
     var replacements = new EnumMap<WorkbenchCurrency, List<String>>(WorkbenchCurrency.class);
     replacementTargetOverrides.forEach(
         (action, ids) -> {
@@ -100,10 +118,14 @@ public final class WorkbenchSimulator {
 
   public String ruleVersion() {
     return baseRuleVersion()
-        + "-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1";
+        + "-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1"
+        + (qualityCapChangePolicy == QualityCapChangePolicy.CLAMP_TO_CURRENT_CAP
+            ? "-quality-cap-clamp-v1"
+            : "-quality-cap-reject-v1");
   }
 
   private String baseRuleVersion() {
+    if (catalog.base().id().equals(SapphireJewel.BASE_ID)) return "sapphire-existing-editor-v1";
     if (catalog.base().id().equals(RingEssenceTargets.BASE_ID))
       return "ring-workbench-perfect-essence-v1";
     if (catalog.base().id().equals(HelmetEssenceTargets.BASE_ID))
@@ -193,15 +215,22 @@ public final class WorkbenchSimulator {
   private Availability availability(
       ItemState state, WorkbenchCurrency action, List<WorkbenchOmen> omens) {
     if (action.catalystType() != null) {
-      if (action.refinedCatalyst())
-        return blocked(
-            action, "Refined catalysts require a Jewel; no reviewed Jewel catalog is available.");
+      if (action.refinedCatalyst()) {
+        if (!state.baseItemId().equals(SapphireJewel.BASE_ID))
+          return blocked(action, "Refined catalysts require the supported Sapphire Jewel.");
+        return new Availability(action, true, "");
+      }
       if (!state.baseItemId().equals(SolarAmulet.BASE_ID)
           && !state.baseItemId().equals(RingEssenceTargets.BASE_ID))
         return blocked(action, "Ordinary catalysts require a supported Ring or Amulet.");
       return new Availability(action, true, "");
     }
-    if (state.catalystQuality() != null
+    if (state.baseItemId().equals(SapphireJewel.BASE_ID))
+      return blocked(
+          action,
+          "General Jewel crafting is unavailable: eligibility, full slot rules and generation pool are not reviewed.");
+    if (qualityCapChangePolicy == QualityCapChangePolicy.REJECT_OVERCAP
+        && state.catalystQuality() != null
         && (action.baseAction() == CraftingAction.ANNULMENT
             || action.baseAction() == CraftingAction.CHAOS
             || !replacementTargets(action).isEmpty())
@@ -761,7 +790,19 @@ public final class WorkbenchSimulator {
         }
       }
     }
-    var result = copy(state, rarity, implicits, explicits);
+    var beforeCapPolicy = copy(state, rarity, implicits, explicits);
+    var result = qualityCapChangePolicy.afterAcceptedOperation(beforeCapPolicy, catalog);
+    if (!Objects.equals(result.catalystQuality(), beforeCapPolicy.catalystQuality()))
+      assumptions.add(
+          new Assumption(
+              QualityCapChangePolicy.VERSION,
+              "quality amount",
+              1,
+              List.of(),
+              (long) result.catalystQuality().amount(),
+              (long) beforeCapPolicy.catalystQuality().amount(),
+              "https://poe2db.tw/us/Quality",
+              "UNVERIFIED simulator policy: after the accepted operation quality is clamped to the remaining cap; type and original rolls are retained. A later cap increase does not refill quality. The source establishes the cap, not removal behavior."));
     validate(result);
     if (action.minimumModifierLevel() > 0 && !matched.isEmpty())
       assumptions.add(

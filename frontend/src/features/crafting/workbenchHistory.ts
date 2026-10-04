@@ -1,4 +1,5 @@
 import { supportsConcreteStateShape } from './workbenchStateShape'
+import { sapphireBase, reviewedSapphire } from './sapphireJewel'
 import { verifiedCatalystQuality } from './catalystQuality'
 import { qualityLimitMatches } from './qualityLimit'
 import type { Initial } from './craftingApi'
@@ -242,6 +243,7 @@ export function verifiedHistoryState(
   try {
     if (
       !supportsConcreteStateShape(state) ||
+      (state.baseItemId === sapphireBase && !reviewedSapphire(state)) ||
       !verifiedCatalystQuality(state, initial.modifiers) ||
       (state.snapshotId !== initial.metadata.snapshotId &&
         !initial.compatibleSnapshotIds?.includes(state.snapshotId)) ||

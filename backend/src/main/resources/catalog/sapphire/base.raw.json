@@ -1,0 +1,42 @@
+{
+  "sourceUrl": "https://poe2db.tw/us/Sapphire",
+  "pageSha256": "563d79c0d6bc1c0899a6cab22b73c24e9a5d1cdaf3c70ad1701238f5768ba6c8",
+  "baseitem": {
+    "ItemType": "Metadata/Items/Jewels/JewelInt",
+    "Code": "Sapphire",
+    "ModDomainsID": "11",
+    "ItemVisualIdentityID": "11536",
+    "ItemClassesID": "42",
+    "cn": "Jewel",
+    "IconPath": "",
+    "link_name": "<a class=\"whiteitem Jewel\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/fb2d76a5cde045f267c8a9c3c6114778d01a8ff4d603bbebe1f6fae1cdff706c\" href=\"Sapphire\">Sapphire</a><span data-tabname=\"Sapphire Modifiers\"></span>",
+    "attr": [],
+    "tags": null
+  },
+  "selectedExistingAffix": {
+    "Name": "of Enchanting",
+    "Level": "1",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "IncreasedCastSpeed"
+    ],
+    "DropChance": 1,
+    "str": "<span class='mod-value'>(2<span class=\"ndash\">—</span>4)</span>% increased Cast Speed",
+    "fossil_no": [
+      "caster_speed",
+      "caster",
+      "speed"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "intjewel",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+      "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e4ea5426c228f5cb0c1474726fbc38c23e7bb1138dbf13a4a49647c562ecc3cf"
+  }
+}

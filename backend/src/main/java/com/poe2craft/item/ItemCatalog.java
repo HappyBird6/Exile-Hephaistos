@@ -104,10 +104,14 @@ public final class ItemCatalog {
       }
       if (!rawSha256.matches("[0-9a-f]{64}")
           || !detailsSha256.matches("[0-9a-f]{64}")
-          || prefixCount < 1
-          || suffixCount < 1
-          || prefixWeight < 1
-          || suffixWeight < 1) {
+          || prefixCount < 0
+          || suffixCount < 0
+          || prefixWeight < 0
+          || suffixWeight < 0
+          || (!weightPolicy.equals("STARTING_ITEM_ONLY_NO_GENERATION")
+              && (prefixCount < 1 || suffixCount < 1 || prefixWeight < 1 || suffixWeight < 1))
+          || (weightPolicy.equals("STARTING_ITEM_ONLY_NO_GENERATION")
+              && (prefixWeight != 0 || suffixWeight != 0))) {
         throw new IllegalArgumentException("Invalid snapshot metadata");
       }
     }

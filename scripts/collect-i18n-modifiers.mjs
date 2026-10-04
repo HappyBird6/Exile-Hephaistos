@@ -16,6 +16,7 @@ const locales = {
   es: "sp",
 };
 const pages = {
+  sapphire: "Sapphire",
   "solar-amulet": "Amulets",
   "stocky-mitts": "Gloves_str",
   "crude-bow": "Bows",

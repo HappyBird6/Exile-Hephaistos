@@ -20444,6 +20444,18 @@
       "values": ["+(38—43)"],
       "template": "modifier.90bb84ec8f16cd4a",
       "sourceCode": "ArmourAppliesToElementalDamage5"
+    },
+    "sapphire:suffix:of-enchanting": {
+      "stats": [
+        {
+          "id": "display_cast_speed_percent",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "englishText": "(2—4)% increased Cast Speed",
+      "values": ["(2—4)"],
+      "template": "sapphire-existing-cast-speed-v1"
     }
   },
   "templates": {
@@ -23615,6 +23627,10 @@
       "modifier.25176205527e9bd4": {
         "template": "{v0}% increased Armour\n{v1} to maximum Mana",
         "name": "Ancestral"
+      },
+      "sapphire-existing-cast-speed-v1": {
+        "name": "of Enchanting",
+        "template": "{v0}% increased Cast Speed"
       }
     },
     "ko": {
@@ -26785,6 +26801,10 @@
       "modifier.25176205527e9bd4": {
         "template": "방어도 {v0}% 증가\n마나 최대치 {v1}",
         "name": "선대의"
+      },
+      "sapphire-existing-cast-speed-v1": {
+        "name": "- 인챈트",
+        "template": "시전 속도 {v0}% 증가"
       }
     },
     "zh-CN": {
@@ -29955,6 +29975,10 @@
       "modifier.25176205527e9bd4": {
         "template": "护甲提高 {v0}%\n{v1} 魔力上限",
         "name": "先祖的"
+      },
+      "sapphire-existing-cast-speed-v1": {
+        "name": "咒术之",
+        "template": "施法速度提高 {v0}%"
       }
     },
     "zh-TW": {
@@ -33125,6 +33149,10 @@
       "modifier.25176205527e9bd4": {
         "template": "增加{v0}%護甲值\n{v1}最大魔力",
         "name": "先祖的"
+      },
+      "sapphire-existing-cast-speed-v1": {
+        "name": "咒術之",
+        "template": "增加{v0}%施法速度"
       }
     },
     "ja": {
@@ -36295,6 +36323,10 @@
       "modifier.25176205527e9bd4": {
         "template": "アーマーが{v0}%増加する\n最大マナ {v1}",
         "name": "祖先の"
+      },
+      "sapphire-existing-cast-speed-v1": {
+        "name": "魔法の",
+        "template": "キャストスピードが{v0}%増加する"
       }
     },
     "es": {
@@ -39465,6 +39497,10 @@
       "modifier.25176205527e9bd4": {
         "template": "Armadura aumentada un {v0}%\n{v1} al maná máximo",
         "name": "{ancestral}{ancestrales}"
+      },
+      "sapphire-existing-cast-speed-v1": {
+        "name": "de encantamiento",
+        "template": "Velocidad de lanzamiento de hechizos aumentada un {v0}%"
       }
     }
   }

@@ -17,6 +17,16 @@ public final class ItemStateValidator {
 
   public List<Violation> validate(ItemState state) {
     var errors = new ArrayList<Violation>();
+    if (state.baseItemId().equals(SapphireJewel.BASE_ID)
+        && (state.rarity() != ItemState.Rarity.MAGIC && state.rarity() != ItemState.Rarity.RARE
+            || state.augmentSockets() != null
+            || state.explicits().size() > 1
+            || state.explicits().stream().anyMatch(ModifierInstance::fractured)))
+      errors.add(
+          new Violation(
+              Code.UNSUPPORTED_STATE,
+              "",
+              "Sapphire editing supports only Magic/Rare and at most one reviewed existing suffix"));
     if (state.catalystQuality() != null) {
       int cap = 20;
       if (state.baseItemId().equals(SolarAmulet.BASE_ID)

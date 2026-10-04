@@ -1,4 +1,6 @@
 import { supportsConcreteStateShape } from './workbenchStateShape'
+import { sapphireBase, reviewedSapphire } from './sapphireJewel'
+import { qualityCapChangeMatches } from './qualityCapChangePolicy'
 import { whittlingCandidates } from './omenRemovalCandidates'
 import {
   catalystBase,
@@ -928,9 +930,9 @@ export async function applyCurrency(
     !next ||
     !supportsConcreteStateShape(next) ||
     !verifiedCatalystQuality(next, definitions) ||
+    (next.baseItemId === sapphireBase && !reviewedSapphire(next)) ||
     (catalystActionType(action) === null &&
-      (next.catalystQuality?.type !== state.catalystQuality?.type ||
-        next.catalystQuality?.amount !== state.catalystQuality?.amount)) ||
+      !qualityCapChangeMatches(state, v, definitions)) ||
     (state.baseItemId === 'Metadata/Items/Rings/FourRing1' &&
       (!sameModifiers(next.implicits, state.implicits) ||
         next.implicits.length !== 1 ||
@@ -1113,7 +1115,8 @@ export async function applyCurrency(
       v.assumptions.length !== 0 ||
       v.consumedOmens.length !== 0 ||
       (v.applied
-        ? action.startsWith('REFINED_') ||
+        ? action.startsWith('REFINED_') !==
+            (state.baseItemId === sapphireBase) ||
           !catalystBase(state.baseItemId) ||
           next.catalystQuality?.type !== catalystType ||
           next.catalystQuality?.amount !== maximumQuality(state, definitions)

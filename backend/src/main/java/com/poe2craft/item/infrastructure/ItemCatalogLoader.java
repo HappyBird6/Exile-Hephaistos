@@ -19,6 +19,18 @@ public final class ItemCatalogLoader {
 
   private ItemCatalogLoader() {}
 
+  /** One source-verified existing suffix; all generation weights remain zero. */
+  public static ItemCatalog loadSapphire() {
+    try (var data = ItemCatalogLoader.class.getResourceAsStream("/catalog/sapphire/catalog.json");
+        var raw = ItemCatalogLoader.class.getResourceAsStream("/catalog/sapphire/base.raw.json");
+        var details =
+            ItemCatalogLoader.class.getResourceAsStream("/catalog/sapphire/details.raw.json")) {
+      return load(data, raw, details);
+    } catch (IOException e) {
+      throw new IllegalStateException("Cannot load Sapphire starting-item catalog", e);
+    }
+  }
+
   /** Complete ordinary Bow snapshot for Workbench dispatch only. */
   public static ItemCatalog loadBow() {
     try (var data = ItemCatalogLoader.class.getResourceAsStream("/catalog/crude-bow/catalog.json");

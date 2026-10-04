@@ -57,6 +57,7 @@ import {
   upgradeCompatibleFilms,
 } from './workbenchHistory'
 import type { Films } from './workbenchHistory'
+import { sapphireBase, sapphireCastSpeed } from './sapphireJewel'
 import './crafting.css'
 
 function tooltipEvents(id: string) {
@@ -65,6 +66,7 @@ function tooltipEvents(id: string) {
 
 const workspaceTabs = ['workbench', 'support', 'explorer'] as const
 const baseSlugs = {
+  sapphire: 'Sapphire',
   solar: 'Solar_Amulet',
   stocky: 'Stocky_Mitts',
   bow: 'Crude_Bow',
@@ -111,51 +113,55 @@ export function CraftingPage() {
   const catalogBase =
     draft.source === 'text'
       ? 'solar'
-      : storedFrame?.state.baseItemId ===
-          'Metadata/Items/Armours/Gloves/FourGlovesStr1'
-        ? 'stocky'
+      : storedFrame?.state.baseItemId === sapphireBase
+        ? 'sapphire'
         : storedFrame?.state.baseItemId ===
-            'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1'
-          ? 'bow'
+            'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+          ? 'stocky'
           : storedFrame?.state.baseItemId ===
-              'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
-            ? 'wand'
+              'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1'
+            ? 'bow'
             : storedFrame?.state.baseItemId ===
-                'Metadata/Items/Armours/BodyArmours/FourBodyStr1'
-              ? 'body'
+                'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
+              ? 'wand'
               : storedFrame?.state.baseItemId ===
-                  'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
-                ? 'sceptre'
+                  'Metadata/Items/Armours/BodyArmours/FourBodyStr1'
+                ? 'body'
                 : storedFrame?.state.baseItemId ===
-                    'Metadata/Items/Belts/FourBelt1'
-                  ? 'belt'
+                    'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
+                  ? 'sceptre'
                   : storedFrame?.state.baseItemId ===
-                      'Metadata/Items/Rings/FourRing1'
-                    ? 'ring'
+                      'Metadata/Items/Belts/FourBelt1'
+                    ? 'belt'
                     : storedFrame?.state.baseItemId ===
-                        'Metadata/Items/Armours/Helmets/FourHelmetStr1'
-                      ? 'helmet'
-                      : storedFrame
-                        ? 'solar'
-                        : draft.base
+                        'Metadata/Items/Rings/FourRing1'
+                      ? 'ring'
+                      : storedFrame?.state.baseItemId ===
+                          'Metadata/Items/Armours/Helmets/FourHelmetStr1'
+                        ? 'helmet'
+                        : storedFrame
+                          ? 'solar'
+                          : draft.base
   const baseName =
-    catalogBase === 'stocky'
-      ? 'Stocky Mitts'
-      : catalogBase === 'bow'
-        ? 'Crude Bow'
-        : catalogBase === 'wand'
-          ? 'Attuned Wand'
-          : catalogBase === 'body'
-            ? 'Rusted Cuirass'
-            : catalogBase === 'sceptre'
-              ? 'Rattling Sceptre'
-              : catalogBase === 'belt'
-                ? 'Rawhide Belt'
-                : catalogBase === 'ring'
-                  ? 'Iron Ring'
-                  : catalogBase === 'helmet'
-                    ? 'Rusted Greathelm'
-                    : 'Solar Amulet'
+    catalogBase === 'sapphire'
+      ? 'Sapphire'
+      : catalogBase === 'stocky'
+        ? 'Stocky Mitts'
+        : catalogBase === 'bow'
+          ? 'Crude Bow'
+          : catalogBase === 'wand'
+            ? 'Attuned Wand'
+            : catalogBase === 'body'
+              ? 'Rusted Cuirass'
+              : catalogBase === 'sceptre'
+                ? 'Rattling Sceptre'
+                : catalogBase === 'belt'
+                  ? 'Rawhide Belt'
+                  : catalogBase === 'ring'
+                    ? 'Iron Ring'
+                    : catalogBase === 'helmet'
+                      ? 'Rusted Greathelm'
+                      : 'Solar Amulet'
   const catalogLevel =
     Number.isInteger(storedLevel) && storedLevel! >= 1 && storedLevel! <= 100
       ? storedLevel!
@@ -267,8 +273,11 @@ export function CraftingPage() {
       | 'sceptre'
       | 'belt'
       | 'helmet'
-      | 'ring' = 'solar',
+      | 'ring'
+      | 'sapphire' = 'solar',
     catalystQuality: CatalystQuality | null = null,
+    sapphireRarity: 'MAGIC' | 'RARE' = 'MAGIC',
+    castSpeed: number | null = null,
   ) {
     const request = ++placementRequest.current
     const revision = useItemDraft.getState().baseRevision
@@ -289,6 +298,20 @@ export function CraftingPage() {
         return
       const root = {
         ...concreteInitial(data),
+        ...(base === 'sapphire'
+          ? {
+              rarity: sapphireRarity,
+              explicits:
+                castSpeed === null
+                  ? []
+                  : [
+                      {
+                        modifierId: sapphireCastSpeed,
+                        values: { display_cast_speed_percent: castSpeed },
+                      },
+                    ],
+            }
+          : {}),
         ...(catalystQuality ? { catalystQuality } : {}),
       }
       if (!verifiedHistoryState(root, data))
@@ -318,27 +341,30 @@ export function CraftingPage() {
     placementPending.current = true
     const state = selectedFilm.frames.at(-1)!.state
     const base =
-      state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
-        ? 'stocky'
-        : state.baseItemId === 'Metadata/Items/Rings/FourRing1'
-          ? 'ring'
-          : state.baseItemId === 'Metadata/Items/Armours/Helmets/FourHelmetStr1'
-            ? 'helmet'
-            : state.baseItemId === 'Metadata/Items/Belts/FourBelt1'
-              ? 'belt'
-              : state.baseItemId ===
-                  'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
-                ? 'sceptre'
+      state.baseItemId === sapphireBase
+        ? 'sapphire'
+        : state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+          ? 'stocky'
+          : state.baseItemId === 'Metadata/Items/Rings/FourRing1'
+            ? 'ring'
+            : state.baseItemId ===
+                'Metadata/Items/Armours/Helmets/FourHelmetStr1'
+              ? 'helmet'
+              : state.baseItemId === 'Metadata/Items/Belts/FourBelt1'
+                ? 'belt'
                 : state.baseItemId ===
-                    'Metadata/Items/Armours/BodyArmours/FourBodyStr1'
-                  ? 'body'
+                    'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
+                  ? 'sceptre'
                   : state.baseItemId ===
-                      'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
-                    ? 'wand'
+                      'Metadata/Items/Armours/BodyArmours/FourBodyStr1'
+                    ? 'body'
                     : state.baseItemId ===
-                        'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1'
-                      ? 'bow'
-                      : 'solar'
+                        'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
+                      ? 'wand'
+                      : state.baseItemId ===
+                          'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1'
+                        ? 'bow'
+                        : 'solar'
     try {
       const data = await client.fetchQuery({
         queryKey: ['crafting', 'initial', base, state.itemLevel],
@@ -394,6 +420,11 @@ export function CraftingPage() {
     '',
   )
   const [qualityAmount, setQualityAmount] = useState('0')
+  const [sapphireRarity, setSapphireRarity] = useState<'MAGIC' | 'RARE'>(
+    'MAGIC',
+  )
+  const [sapphireAffix, setSapphireAffix] = useState(false)
+  const [sapphireRoll, setSapphireRoll] = useState('2')
   const [baseChoice, setBaseChoice] = useState<
     | 'solar'
     | 'stocky'
@@ -404,6 +435,7 @@ export function CraftingPage() {
     | 'belt'
     | 'helmet'
     | 'ring'
+    | 'sapphire'
   >('solar')
   const [previewRequest, setPreviewRequest] = useState<{
     count: number
@@ -763,23 +795,25 @@ export function CraftingPage() {
             name: item?.displayName ?? baseName,
             base: baseName,
             itemClass:
-              catalogBase === 'stocky'
-                ? 'Gloves'
-                : catalogBase === 'bow'
-                  ? 'Bows'
-                  : catalogBase === 'wand'
-                    ? 'Wands'
-                    : catalogBase === 'body'
-                      ? 'Body Armours'
-                      : catalogBase === 'sceptre'
-                        ? 'Sceptres'
-                        : catalogBase === 'belt'
-                          ? 'Belts'
-                          : catalogBase === 'ring'
-                            ? 'Rings'
-                            : catalogBase === 'helmet'
-                              ? 'Helmets'
-                              : 'Amulet',
+              catalogBase === 'sapphire'
+                ? 'Jewels'
+                : catalogBase === 'stocky'
+                  ? 'Gloves'
+                  : catalogBase === 'bow'
+                    ? 'Bows'
+                    : catalogBase === 'wand'
+                      ? 'Wands'
+                      : catalogBase === 'body'
+                        ? 'Body Armours'
+                        : catalogBase === 'sceptre'
+                          ? 'Sceptres'
+                          : catalogBase === 'belt'
+                            ? 'Belts'
+                            : catalogBase === 'ring'
+                              ? 'Rings'
+                              : catalogBase === 'helmet'
+                                ? 'Helmets'
+                                : 'Amulet',
             itemLevel: concrete.itemLevel,
             properties: [
               ...(catalogBase === 'helmet'
@@ -890,7 +924,7 @@ export function CraftingPage() {
                   affixLabel:
                     d.affixType === 'NONE'
                       ? undefined
-                      : `${d.affixType === 'PREFIX' ? 'P' : 'S'}${d.tier}`,
+                      : `${d.affixType === 'PREFIX' ? 'P' : 'S'}${catalogBase === 'sapphire' ? '' : d.tier}`,
                 }
               })
               .sort((a, b) => {
@@ -1496,6 +1530,29 @@ export function CraftingPage() {
                     {t('notice.catalyst_policy')}
                   </p>
                 )}
+                {catalogBase === 'sapphire' && (
+                  <p className="workbench-feedback">
+                    {t('notice.sapphire_scope')}
+                  </p>
+                )}
+                {catalogBase === 'solar' && concrete?.catalystQuality && (
+                  <p className="workbench-feedback">
+                    {t('notice.quality_cap_change')}
+                  </p>
+                )}
+                {concrete?.catalystQuality &&
+                  ![...concrete.implicits, ...concrete.explicits].some((m) =>
+                    catalystTypes[concrete.catalystQuality!.type].tags.some(
+                      (tag) =>
+                        initial.data?.modifiers[m.modifierId]?.tags?.includes(
+                          tag,
+                        ),
+                    ),
+                  ) && (
+                    <p className="workbench-feedback">
+                      {t('notice.catalyst_no_match')}
+                    </p>
+                  )}
                 {catalogBase === 'helmet' && (
                   <p className="workbench-feedback">
                     {t('notice.helmet_scope')}
@@ -1709,10 +1766,14 @@ export function CraftingPage() {
                           | 'sceptre'
                           | 'belt'
                           | 'helmet'
-                          | 'ring',
+                          | 'ring'
+                          | 'sapphire',
                       )
                     }
                   >
+                    <option value="sapphire">
+                      {name('Sapphire', 'Sapphire')}
+                    </option>
                     <option value="solar">
                       {name('Solar_Amulet', 'Solar Amulet')}
                     </option>
@@ -1741,6 +1802,46 @@ export function CraftingPage() {
                       {name('Iron_Ring', 'Iron Ring')}
                     </option>
                   </select>
+                  {baseChoice === 'sapphire' && (
+                    <>
+                      <p>{t('notice.sapphire_scope')}</p>
+                      <label htmlFor="sapphire-rarity">{t('ui.rarity')}</label>
+                      <select
+                        id="sapphire-rarity"
+                        value={sapphireRarity}
+                        onChange={(e) =>
+                          setSapphireRarity(e.target.value as 'MAGIC' | 'RARE')
+                        }
+                      >
+                        <option value="MAGIC">{t('ui.magic')}</option>
+                        <option value="RARE">{t('ui.rare')}</option>
+                      </select>
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked={sapphireAffix}
+                          onChange={(e) => setSapphireAffix(e.target.checked)}
+                        />
+                        {t('ui.sapphire_existing_suffix')}
+                      </label>
+                      {sapphireAffix && (
+                        <>
+                          <label htmlFor="sapphire-roll">
+                            {t('ui.sapphire_cast_speed')}
+                          </label>
+                          <input
+                            id="sapphire-roll"
+                            type="number"
+                            min="2"
+                            max="4"
+                            step="1"
+                            value={sapphireRoll}
+                            onChange={(e) => setSapphireRoll(e.target.value)}
+                          />
+                        </>
+                      )}
+                    </>
+                  )}
                   <label htmlFor="base-level">{t('ui.item_level')}</label>
                   <input
                     id="base-level"
@@ -1751,7 +1852,9 @@ export function CraftingPage() {
                     value={baseLevel}
                     onChange={(e) => setBaseLevel(e.target.value)}
                   />
-                  {(baseChoice === 'solar' || baseChoice === 'ring') && (
+                  {(baseChoice === 'solar' ||
+                    baseChoice === 'ring' ||
+                    baseChoice === 'sapphire') && (
                     <>
                       <label htmlFor="starting-quality-type">
                         {t('ui.existing_catalyst_quality')}
@@ -1771,7 +1874,10 @@ export function CraftingPage() {
                         {Object.entries(catalystTypes).map(([type, info]) => (
                           <option key={type} value={type}>
                             {name(
-                              catalystItemIds[type as CatalystQuality['type']],
+                              (baseChoice === 'sapphire' ? 'Refined_' : '') +
+                                catalystItemIds[
+                                  type as CatalystQuality['type']
+                                ],
                               `${info.name} Catalyst`,
                             )}
                           </option>
@@ -1800,10 +1906,18 @@ export function CraftingPage() {
                     type="button"
                     className="primary-action"
                     disabled={
+                      (baseChoice === 'sapphire' &&
+                        sapphireAffix &&
+                        (sapphireRoll.trim() === '' ||
+                          !Number.isInteger(Number(sapphireRoll)) ||
+                          Number(sapphireRoll) < 2 ||
+                          Number(sapphireRoll) > 4)) ||
                       !Number.isInteger(Number(baseLevel)) ||
                       Number(baseLevel) < 1 ||
                       Number(baseLevel) > 100 ||
-                      ((baseChoice === 'solar' || baseChoice === 'ring') &&
+                      ((baseChoice === 'solar' ||
+                        baseChoice === 'ring' ||
+                        baseChoice === 'sapphire') &&
                         qualityType !== '' &&
                         (qualityAmount.trim() === '' ||
                           !Number.isInteger(Number(qualityAmount)) ||
@@ -1815,10 +1929,14 @@ export function CraftingPage() {
                       void startBase(
                         Number(baseLevel),
                         baseChoice,
-                        (baseChoice === 'solar' || baseChoice === 'ring') &&
+                        (baseChoice === 'solar' ||
+                          baseChoice === 'ring' ||
+                          baseChoice === 'sapphire') &&
                           qualityType !== ''
                           ? { type: qualityType, amount: Number(qualityAmount) }
                           : null,
+                        sapphireRarity,
+                        sapphireAffix ? Number(sapphireRoll) : null,
                       )
                       setPreviewRequest({ count: 0, action: null })
                       setSelected(null)

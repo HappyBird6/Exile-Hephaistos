@@ -219,7 +219,7 @@ class IronRingEssenceTest {
     assertThat(service.initial("ring", 82).qualityLimit().maximumQuality()).isEqualTo(20);
     assertThat(service.initial("ring", 82).ruleVersion())
         .isEqualTo(
-            "ring-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1");
+            "ring-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-clamp-v1");
     assertThat(service.initial("bow", 82).modifiers()).hasSize(146);
     assertThat(service.initial("wand", 82).modifiers()).hasSize(187);
     assertThat(service.initial("stocky", 82).modifiers()).hasSize(194);

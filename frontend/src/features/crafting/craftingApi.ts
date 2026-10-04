@@ -175,7 +175,8 @@ export async function loadInitial(
     | 'sceptre'
     | 'belt'
     | 'helmet'
-    | 'ring' = 'solar',
+    | 'ring'
+    | 'sapphire' = 'solar',
 ): Promise<Initial> {
   const v = await request(
     base === 'solar'
@@ -188,21 +189,23 @@ export async function loadInitial(
     !bucket(v.state) ||
     (base !== 'solar'
       ? v.state.baseItemId !==
-          (base === 'stocky'
-            ? 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
-            : base === 'ring'
-              ? 'Metadata/Items/Rings/FourRing1'
-              : base === 'helmet'
-                ? 'Metadata/Items/Armours/Helmets/FourHelmetStr1'
-                : base === 'belt'
-                  ? 'Metadata/Items/Belts/FourBelt1'
-                  : base === 'sceptre'
-                    ? 'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
-                    : base === 'body'
-                      ? 'Metadata/Items/Armours/BodyArmours/FourBodyStr1'
-                      : base === 'wand'
-                        ? 'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
-                        : 'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1') ||
+          (base === 'sapphire'
+            ? 'Metadata/Items/Jewels/JewelInt'
+            : base === 'stocky'
+              ? 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+              : base === 'ring'
+                ? 'Metadata/Items/Rings/FourRing1'
+                : base === 'helmet'
+                  ? 'Metadata/Items/Armours/Helmets/FourHelmetStr1'
+                  : base === 'belt'
+                    ? 'Metadata/Items/Belts/FourBelt1'
+                    : base === 'sceptre'
+                      ? 'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
+                      : base === 'body'
+                        ? 'Metadata/Items/Armours/BodyArmours/FourBodyStr1'
+                        : base === 'wand'
+                          ? 'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
+                          : 'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1') ||
         (base === 'ring'
           ? v.state.implicits.length !== 1 ||
             v.state.implicits[0]?.modifierId !==

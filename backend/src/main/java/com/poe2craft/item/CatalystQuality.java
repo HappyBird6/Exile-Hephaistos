@@ -36,6 +36,8 @@ public record CatalystQuality(Type type, int amount) {
   }
 
   public static boolean supportedBase(String base) {
-    return base.equals(SolarAmulet.BASE_ID) || base.equals("Metadata/Items/Rings/FourRing1");
+    return base.equals(SolarAmulet.BASE_ID)
+        || base.equals("Metadata/Items/Rings/FourRing1")
+        || base.equals(SapphireJewel.BASE_ID);
   }
 }
