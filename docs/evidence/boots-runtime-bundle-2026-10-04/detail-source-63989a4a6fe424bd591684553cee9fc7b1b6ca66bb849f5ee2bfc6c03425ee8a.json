@@ -1,0 +1,40 @@
+{
+  "code": null,
+  "sourceId": "63989a4a6fe424bd591684553cee9fc7b1b6ca66bb849f5ee2bfc6c03425ee8a",
+  "url": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/63989a4a6fe424bd591684553cee9fc7b1b6ca66bb849f5ee2bfc6c03425ee8a",
+  "retrievedAt": "2026-10-04T18:56:29.949Z",
+  "sha256": "63989a4a6fe424bd591684553cee9fc7b1b6ca66bb849f5ee2bfc6c03425ee8a",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>20</span>% increased Movement Speed</span></h5>   <span data-tabname=\"Stallion's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Stallion's\n<tr><th>Family<td>MovementVelocity\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>33 (Effective: 26)\n<tr><th>Gold Price<td>748\n<tr><th>Stats<td><li>base movement velocity +% <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Speed</span> </table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Stallion's",
+      "Family": "MovementVelocity",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "33 (Effective: 26)",
+      "Gold Price": "748",
+      "Stats": "base movement velocity +% 20 — 20 Global",
+      "Spawn Tags": "boots: 1 default: 0",
+      "Craft Tags": "Speed"
+    },
+    "stats": [
+      {
+        "id": "base_movement_velocity_+%",
+        "min": 20,
+        "max": 20,
+        "locality": "Global"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "boots",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "20% increased Movement Speed"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "preservedQaRoot": "codex/boots-qa-20261004",
+  "failures": [
+    {
+      "phase": "importer",
+      "log": "import-1.log",
+      "cause": "Same family, level, tags and numeric ranges matched two distinct ailment locale rows.",
+      "repair": "Include stable source keyword sequence in Boots row identity; keep exact unique-row assertion.",
+      "followup": "import-2.log and cached importer replay passed."
+    },
+    {
+      "phase": "QA preparation",
+      "record": "Tool execution output retained in session history",
+      "cause": "git show of the complete modifier-template baseline exceeded Node execFileSync default buffer.",
+      "repair": "Use bounded 32 MiB maxBuffer and retain already completed baseline files; no QA output was overwritten."
+    },
+    {
+      "phase": "Frontend attempt 1",
+      "log": "frontend-check-1.log",
+      "cause": "The isolated copy omitted scripts/check-display-coverage.mjs required by pretest. npm ci, lint, typecheck and format passed before launch failure.",
+      "repair": "Copy the existing script into the owned QA root and run a new attempt; do not bypass pretest."
+    },
+    {
+      "phase": "Frontend attempt 2",
+      "log": "frontend-check-2.log",
+      "cause": "Two exact binding-count assertions retained the previous 342 compound / 186 single-stat totals.",
+      "repair": "Source-verified Boots add 36 compound and 22 single-stat definitions: require exact 378 / 208. Keep every min/middle/max locale and canonical-value assertion."
+    },
+    {
+      "phase": "API attempt 1",
+      "log": "api-check-1.log",
+      "cause": "QualityLimitRules did not include ReviewedBoots, so sourced Boots qualityLimit was null despite maximum quality20.",
+      "repair": "Add only the six reviewed Boots to the cap rule, assert cap20 in all six Backend parameter cases, then rerun complete Backend checks and API. Keep the API cap assertion unchanged."
+    },
+    {
+      "phase": "Boots contract attempt 1",
+      "log": "boots-contract-1.log",
+      "cause": "Historical runtime definition comparison treated Java Set familyIds/tags iteration order as an ordered list.",
+      "repair": "Canonicalize only those two Sets, retaining exact members, duplicates, IDs, ordered stats, ranges, levels and weights. Historical catalog input order remains unchanged."
+    },
+    {
+      "phase": "Boots contract attempt 2",
+      "log": "boots-contract-2.log",
+      "cause": "The fixture expected malformed-request HTTP400 for a syntactically valid but semantically invalid roll.",
+      "repair": "Require the existing CraftingErrors contract: exact HTTP422, Problem Details status422 and INVALID_CRAFTING_REQUEST code."
+    },
+    {
+      "phase": "Boots contract attempt 3",
+      "log": "boots-contract-3.log",
+      "cause": "The fixture assumed existing high-tier rolls must be rejected below generation ilvl, contradicting ItemStateValidator's documented existing-item preservation.",
+      "repair": "Assert existing roll preservation. Separately require exact MovementVelocity candidate membership immediately below and at each sourced ilvl boundary, and verify every newly generated affix obeys ilvl."
+    }
+  ],
+  "tooling": "PowerShell/node one-line quoting and Windows encoding diagnostics remained in tool history; use file-backed scripts and native allowed tools. No failed tooling launch was represented as an application test result.",
+  "authorization": "Explicit continuous work permits scoped recoverable repairs with history retained. Prior output-overwrite denial remains binding; no permission bypass, test skip or weakened assertion."
+}

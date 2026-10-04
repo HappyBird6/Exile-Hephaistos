@@ -40,7 +40,7 @@ describe('verified modifier display templates', () => {
           !id.startsWith('time-lost-'),
       ),
       // Preserve 1,652 historical equipment bindings and cover 67 new Body/Helmet bindings.
-    ).toHaveLength(1719)
+    ).toHaveLength(1777)
     expect(
       ids.filter((id) => /^(ruby|emerald|sapphire|diamond):/.test(id)),
     ).toHaveLength(392)

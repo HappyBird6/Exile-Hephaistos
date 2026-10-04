@@ -1,0 +1,42 @@
+{
+  "locales": {
+    "en": {
+      "names": 220,
+      "total": 220,
+      "exceptions": [],
+      "liquidNamesAndDescriptions": 26
+    },
+    "ko": {
+      "names": 220,
+      "total": 220,
+      "exceptions": [],
+      "liquidNamesAndDescriptions": 26
+    },
+    "zh-CN": {
+      "names": 220,
+      "total": 220,
+      "exceptions": [],
+      "liquidNamesAndDescriptions": 26
+    },
+    "zh-TW": {
+      "names": 220,
+      "total": 220,
+      "exceptions": [],
+      "liquidNamesAndDescriptions": 26
+    },
+    "ja": {
+      "names": 220,
+      "total": 220,
+      "exceptions": [],
+      "liquidNamesAndDescriptions": 26
+    },
+    "es": {
+      "names": 220,
+      "total": 220,
+      "exceptions": [],
+      "liquidNamesAndDescriptions": 26
+    }
+  },
+  "catalogDefinitions": 2569,
+  "compoundBindings": 378
+}

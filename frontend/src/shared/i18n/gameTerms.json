@@ -2253,6 +2253,42 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame",
       "sourceUrl": "https://poe2db.tw/us/Cryptic_Crown"
+    },
+    "Tasalian_Greaves": {
+      "name": "Tasalian Greaves",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsStr6Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Tasalian_Greaves"
+    },
+    "Drakeskin_Boots": {
+      "name": "Drakeskin Boots",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Drakeskin_Boots"
+    },
+    "Sekhema_Sandals": {
+      "name": "Sekhema Sandals",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Sekhema_Sandals"
+    },
+    "Blacksteel_Sabatons": {
+      "name": "Blacksteel Sabatons",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsStrDex4Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Blacksteel_Sabatons"
+    },
+    "Faithful_Leggings": {
+      "name": "Faithful Leggings",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsStrInt1Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Faithful_Leggings"
+    },
+    "Daggerfoot_Shoes": {
+      "name": "Daggerfoot Shoes",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Daggerfoot_Shoes"
     }
   },
   "ko": {
@@ -4493,6 +4529,42 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame",
       "sourceUrl": "https://poe2db.tw/kr/Cryptic_Crown"
+    },
+    "Tasalian_Greaves": {
+      "name": "타살리오의 각반",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsStr6Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Tasalian_Greaves"
+    },
+    "Drakeskin_Boots": {
+      "name": "비룡가죽 장화",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Drakeskin_Boots"
+    },
+    "Sekhema_Sandals": {
+      "name": "세케마 샌들",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Sekhema_Sandals"
+    },
+    "Blacksteel_Sabatons": {
+      "name": "검은강철 발 덮개",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsStrDex4Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Blacksteel_Sabatons"
+    },
+    "Faithful_Leggings": {
+      "name": "충실한 레깅스",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsStrInt1Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Faithful_Leggings"
+    },
+    "Daggerfoot_Shoes": {
+      "name": "단검발 신발",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Daggerfoot_Shoes"
     }
   },
   "zh-CN": {
@@ -6631,6 +6703,42 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame",
       "sourceUrl": "https://poe2db.tw/cn/Cryptic_Crown"
+    },
+    "Tasalian_Greaves": {
+      "name": "塔萨里奥胫甲",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsStr6Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Tasalian_Greaves"
+    },
+    "Drakeskin_Boots": {
+      "name": "龙皮长靴",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Drakeskin_Boots"
+    },
+    "Sekhema_Sandals": {
+      "name": "丝克玛便鞋",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Sekhema_Sandals"
+    },
+    "Blacksteel_Sabatons": {
+      "name": "黑钢战靴",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsStrDex4Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Blacksteel_Sabatons"
+    },
+    "Faithful_Leggings": {
+      "name": "信仰护腿",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsStrInt1Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Faithful_Leggings"
+    },
+    "Daggerfoot_Shoes": {
+      "name": "捷足便鞋",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Daggerfoot_Shoes"
     }
   },
   "zh-TW": {
@@ -8759,6 +8867,42 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame",
       "sourceUrl": "https://poe2db.tw/tw/Cryptic_Crown"
+    },
+    "Tasalian_Greaves": {
+      "name": "塔薩里奧脛甲",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsStr6Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Tasalian_Greaves"
+    },
+    "Drakeskin_Boots": {
+      "name": "龍膚長靴",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Drakeskin_Boots"
+    },
+    "Sekhema_Sandals": {
+      "name": "絲克瑪便鞋",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Sekhema_Sandals"
+    },
+    "Blacksteel_Sabatons": {
+      "name": "烏鋼鎧靴",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsStrDex4Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Blacksteel_Sabatons"
+    },
+    "Faithful_Leggings": {
+      "name": "信仰護腿",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsStrInt1Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Faithful_Leggings"
+    },
+    "Daggerfoot_Shoes": {
+      "name": "捷足輕鞋",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Daggerfoot_Shoes"
     }
   },
   "ja": {
@@ -11001,6 +11145,42 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame",
       "sourceUrl": "https://poe2db.tw/jp/Cryptic_Crown"
+    },
+    "Tasalian_Greaves": {
+      "name": "タサリオのグリーヴ",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsStr6Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Tasalian_Greaves"
+    },
+    "Drakeskin_Boots": {
+      "name": "ドレイクスキンブーツ",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Drakeskin_Boots"
+    },
+    "Sekhema_Sandals": {
+      "name": "セケマのサンダル",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Sekhema_Sandals"
+    },
+    "Blacksteel_Sabatons": {
+      "name": "ブラックスティールサバトン",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsStrDex4Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Blacksteel_Sabatons"
+    },
+    "Faithful_Leggings": {
+      "name": "忠義者のレギンス",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsStrInt1Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Faithful_Leggings"
+    },
+    "Daggerfoot_Shoes": {
+      "name": "ダガーフットシューズ",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Daggerfoot_Shoes"
     }
   },
   "es": {
@@ -13161,6 +13341,42 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame",
       "sourceUrl": "https://poe2db.tw/sp/Cryptic_Crown"
+    },
+    "Tasalian_Greaves": {
+      "name": "Grebas tasalias",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsStr6Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Tasalian_Greaves"
+    },
+    "Drakeskin_Boots": {
+      "name": "Botas de cuero de draco",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Drakeskin_Boots"
+    },
+    "Sekhema_Sandals": {
+      "name": "Sandalias de sekhema",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Sekhema_Sandals"
+    },
+    "Blacksteel_Sabatons": {
+      "name": "Escarpes de acero negro",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsStrDex4Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Blacksteel_Sabatons"
+    },
+    "Faithful_Leggings": {
+      "name": "Botines fieles",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsStrInt1Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Faithful_Leggings"
+    },
+    "Daggerfoot_Shoes": {
+      "name": "Zapatos afilados",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Daggerfoot_Shoes"
     }
   }
 }

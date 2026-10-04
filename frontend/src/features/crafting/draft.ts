@@ -15,6 +15,12 @@ const baseTexts = {
   wolfskin: 'Item Class: Body Armours\nRarity: Normal\nWolfskin Mantle',
   ancestral: 'Item Class: Helmets\nRarity: Normal\nAncestral Tiara',
   cryptic: 'Item Class: Helmets\nRarity: Normal\nCryptic Crown',
+  tasalian: 'Item Class: Boots\nRarity: Normal\nTasalian Greaves',
+  drakeskin: 'Item Class: Boots\nRarity: Normal\nDrakeskin Boots',
+  sekhema: 'Item Class: Boots\nRarity: Normal\nSekhema Sandals',
+  'blacksteel-boots': 'Item Class: Boots\nRarity: Normal\nBlacksteel Sabatons',
+  faithful: 'Item Class: Boots\nRarity: Normal\nFaithful Leggings',
+  daggerfoot: 'Item Class: Boots\nRarity: Normal\nDaggerfoot Shoes',
   freebooter: 'Item Class: Helmets\nRarity: Normal\nFreebooter Cap',
   gladiatorial: 'Item Class: Helmets\nRarity: Normal\nGladiatorial Helm',
   grinning: 'Item Class: Helmets\nRarity: Normal\nGrinning Mask',
@@ -67,6 +73,12 @@ type Draft = {
     | 'wolfskin'
     | 'ancestral'
     | 'cryptic'
+    | 'tasalian'
+    | 'drakeskin'
+    | 'sekhema'
+    | 'blacksteel-boots'
+    | 'faithful'
+    | 'daggerfoot'
     | 'freebooter'
     | 'gladiatorial'
     | 'grinning'
@@ -109,6 +121,12 @@ type Draft = {
       | 'wolfskin'
       | 'ancestral'
       | 'cryptic'
+      | 'tasalian'
+      | 'drakeskin'
+      | 'sekhema'
+      | 'blacksteel-boots'
+      | 'faithful'
+      | 'daggerfoot'
       | 'freebooter'
       | 'gladiatorial'
       | 'grinning'

@@ -46,6 +46,12 @@ describe('reviewed endgame armour source and restoration', () => {
     'wolfskin',
     'ancestral',
     'cryptic',
+    'tasalian',
+    'drakeskin',
+    'sekhema',
+    'blacksteel-boots',
+    'faithful',
+    'daggerfoot',
   ] as const)(
     'preserves %s identity and six source names without inventing socket state',
     (key) => {
@@ -71,7 +77,9 @@ describe('reviewed endgame armour source and restoration', () => {
           ? 'Item Class: Helmets'
           : base.family === 'body'
             ? 'Item Class: Body Armours'
-            : 'Item Class: Gloves',
+            : base.family === 'boots'
+              ? 'Item Class: Boots'
+              : 'Item Class: Gloves',
       )
       expect(useItemDraft.getState().baseItemLevel).toBe(1)
       const state = {

@@ -23,6 +23,12 @@ describe('reviewed endgame base identities', () => {
     'wolfskin',
     'ancestral',
     'cryptic',
+    'tasalian',
+    'drakeskin',
+    'sekhema',
+    'blacksteel-boots',
+    'faithful',
+    'daggerfoot',
   ] as const)('preserves source facts and six languages for %s', (key) => {
     const base = topBase(key)!
     expect(topBaseKey(base.id)).toBe(key)

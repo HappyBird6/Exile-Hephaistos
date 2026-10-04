@@ -1,4 +1,4 @@
-최신 base 확장: [Body / remaining Helmet 7종](workbench-body-helmet-bundle-2026-10-04.md). Workbench 35 bases; Body·Helmet·Gloves의 일반 defence archetype 6종 완료. 남은 armour는 Boots 6종. 전체 source pool·6locale·class별 Essence·기존 film을 보존하며 Support/Explorer는 Solar-only.
+최신 base 확장: [Boots 6종](workbench-boots-bundle-2026-10-04.md). Workbench 41 bases; Body·Helmet·Gloves·Boots의 일반 defence archetype 6종 완료. 전체 source pool·6locale·class별 Essence·기존 film을 보존하며 Support/Explorer는 Solar-only.
 
 > 최신 완료 집계 (2026-10-04): registry220 = active170(implemented170 = default163 + opt-in legacy7, pending0) + deferred50(보존 구현8 + 미구현42). Catalyst26는 검증된 제한 base만 IMPLEMENTED로 정리했다. 전체 구현178은 deferred8을 포함하므로 현재 사용 가능 수가 아니다. 아래의 이전 집계는 checkpoint 이력이다. [정의·base 제한·검증](workbench-catalyst-registry-2026-10-04.md).
 

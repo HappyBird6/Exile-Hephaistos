@@ -1,0 +1,57 @@
+{
+  "code": null,
+  "sourceId": "029caf7d12e4cb70a1634ff5c4f5f6930ceba5bb13b578b8ec4169702d960939",
+  "url": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/029caf7d12e4cb70a1634ff5c4f5f6930ceba5bb13b578b8ec4169702d960939",
+  "retrievedAt": "2026-10-04T18:58:30.938Z",
+  "sha256": "029caf7d12e4cb70a1634ff5c4f5f6930ceba5bb13b578b8ec4169702d960939",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(39<span class=\"ndash\">—</span>42)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/eb07d7bed5df994c783915a2b4446076746834995f74021f2cb2decc2466d8f7\">Armour</a> and <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9a5ff1400bc71ec138a670ac8572505962d009bf3c5e15a9e1069755cbaeda17\">Energy Shield</a><br><span class='mod-value'>+(95<span class=\"ndash\">—</span>136)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/7adffdaab6131759d53ff406391045a5e23c9dff3c24ce66c52b1f352ecbab36\">Stun Threshold</a></span></h5>   <span data-tabname=\"Sentinel's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Sentinel's\n<tr><th>Family<td>DefencesPercentAndStunThreshold\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>74 (Effective: 59)\n<tr><th>Gold Price<td>2583\n<tr><th>Stats<td><li>stun threshold + <span class=\"badge bg-primary\">95 <span class=\"ndash\">—</span> 136</span> <span class=\"badge bg-secondary\">Global</span></li><li>local armour and energy shield +% <span class=\"badge bg-primary\">39 <span class=\"ndash\">—</span> 42</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 0</span> <span class='badge bg-primary'>helmet: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>str_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Sentinel's",
+      "Family": "DefencesPercentAndStunThreshold",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "74 (Effective: 59)",
+      "Gold Price": "2583",
+      "Stats": "stun threshold + 95 — 136 Globallocal armour and energy shield +% 39 — 42 Local",
+      "Spawn Tags": "body_armour: 0 helmet: 0 gloves: 0 str_int_armour: 1 default: 0"
+    },
+    "stats": [
+      {
+        "id": "stun_threshold_+",
+        "min": 95,
+        "max": 136,
+        "locality": "Global"
+      },
+      {
+        "id": "local_armour_and_energy_shield_+%",
+        "min": 39,
+        "max": 42,
+        "locality": "Local"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "body_armour",
+        "weight": 0
+      },
+      {
+        "tag": "helmet",
+        "weight": 0
+      },
+      {
+        "tag": "gloves",
+        "weight": 0
+      },
+      {
+        "tag": "str_int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "(39—42)% increased Armour and Energy Shield\n+(95—136) to Stun Threshold"
+  }
+}

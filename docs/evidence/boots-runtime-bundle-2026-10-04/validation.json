@@ -1,0 +1,128 @@
+{
+  "passed": true,
+  "baseHead": "e8034894cce832d0a7397d0265cc1b1d68ee2628",
+  "branch": "workbench/top-bases-20261004",
+  "baseCount": 41,
+  "backend": {
+    "test": {
+      "tests": 418,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": 69
+    },
+    "integrationTest": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": 1
+    }
+  },
+  "frontend": {
+    "tests": 1794,
+    "checks": [
+      "npm ci",
+      "lint",
+      "typecheck",
+      "format:check",
+      "test -- --run",
+      "build"
+    ],
+    "bundleSizeWarning": "Existing Vite chunk warning retained"
+  },
+  "api": {
+    "general": 413,
+    "bootsContract": 533,
+    "total": 946
+  },
+  "browser": {
+    "checks": 532,
+    "screenshots": 99,
+    "errors": [],
+    "viewports": [
+      1440,
+      390
+    ],
+    "locales": [
+      "en",
+      "ko",
+      "ja",
+      "zh-CN",
+      "zh-TW",
+      "es"
+    ],
+    "pixelReview": "All 72 locale/viewport captures inspected in contact sheets; representative original-size captures, 6 orange previews and 21 old films inspected"
+  },
+  "importer": {
+    "passed": true,
+    "comparedDocuments": 25,
+    "ordinaryRows": 792,
+    "exactDetails": 58
+  },
+  "scope": {
+    "supportExplorer": "Solar-only",
+    "deferred": 50,
+    "review": "Self-review; no separate reviewer",
+    "remotePushMergeDeploy": false
+  },
+  "qa": {
+    "project": "exile-boots-20261004",
+    "ports": [
+      19680,
+      19681
+    ],
+    "released": true
+  },
+  "jarSha256": "9b57f46d10fe6128eb016900220ec6a34e629b259930649b36d8d3f36100cd13",
+  "logs": {
+    "backend": "backend-check-3.log",
+    "frontend": "frontend-check-3.log",
+    "api": "api-check-2.log",
+    "bootsContract": "boots-contract-4.log",
+    "browser": "browser-check-1.log"
+  },
+  "displayCoverage": {
+    "locales": {
+      "en": {
+        "names": 220,
+        "total": 220,
+        "exceptions": [],
+        "liquidNamesAndDescriptions": 26
+      },
+      "ko": {
+        "names": 220,
+        "total": 220,
+        "exceptions": [],
+        "liquidNamesAndDescriptions": 26
+      },
+      "zh-CN": {
+        "names": 220,
+        "total": 220,
+        "exceptions": [],
+        "liquidNamesAndDescriptions": 26
+      },
+      "zh-TW": {
+        "names": 220,
+        "total": 220,
+        "exceptions": [],
+        "liquidNamesAndDescriptions": 26
+      },
+      "ja": {
+        "names": 220,
+        "total": 220,
+        "exceptions": [],
+        "liquidNamesAndDescriptions": 26
+      },
+      "es": {
+        "names": 220,
+        "total": 220,
+        "exceptions": [],
+        "liquidNamesAndDescriptions": 26
+      }
+    },
+    "catalogDefinitions": 2569,
+    "compoundBindings": 378
+  },
+  "cardCrops": 72
+}

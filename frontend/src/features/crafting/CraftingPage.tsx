@@ -85,6 +85,12 @@ const baseSlugs = {
   wolfskin: 'Wolfskin_Mantle',
   ancestral: 'Ancestral_Tiara',
   cryptic: 'Cryptic_Crown',
+  tasalian: 'Tasalian_Greaves',
+  drakeskin: 'Drakeskin_Boots',
+  sekhema: 'Sekhema_Sandals',
+  'blacksteel-boots': 'Blacksteel_Sabatons',
+  faithful: 'Faithful_Leggings',
+  daggerfoot: 'Daggerfoot_Shoes',
   freebooter: 'Freebooter_Cap',
   gladiatorial: 'Gladiatorial_Helm',
   grinning: 'Grinning_Mask',
@@ -324,6 +330,12 @@ export function CraftingPage() {
       | 'wolfskin'
       | 'ancestral'
       | 'cryptic'
+      | 'tasalian'
+      | 'drakeskin'
+      | 'sekhema'
+      | 'blacksteel-boots'
+      | 'faithful'
+      | 'daggerfoot'
       | 'freebooter'
       | 'gladiatorial'
       | 'grinning'
@@ -515,6 +527,12 @@ export function CraftingPage() {
     | 'wolfskin'
     | 'ancestral'
     | 'cryptic'
+    | 'tasalian'
+    | 'drakeskin'
+    | 'sekhema'
+    | 'blacksteel-boots'
+    | 'faithful'
+    | 'daggerfoot'
     | 'freebooter'
     | 'gladiatorial'
     | 'grinning'
@@ -916,13 +934,15 @@ export function CraftingPage() {
                                 catalogBase === 'imperial' ||
                                 topBase(catalogBase)?.family === 'helmets'
                               ? 'Helmets'
-                              : 'Amulet',
+                              : topBase(catalogBase)?.family === 'boots'
+                                ? 'Boots'
+                                : 'Amulet',
             itemLevel: concrete.itemLevel,
             properties: [
               ...(topBase(catalogBase)?.sourceProperties?.[locale] ?? []).map(
                 (text, i) => ({ id: 'source-property-' + i, text }),
               ),
-              ...(['gloves', 'helmets', 'body'].includes(
+              ...(['gloves', 'helmets', 'body', 'boots'].includes(
                 topBase(catalogBase)?.family ?? '',
               ) && catalogBase !== 'soldier'
                 ? [
@@ -1889,7 +1909,10 @@ export function CraftingPage() {
                                           topBase(catalogBase)?.family ===
                                             'helmets'
                                         ? 'Helmets'
-                                        : 'Amulet',
+                                        : topBase(catalogBase)?.family ===
+                                            'boots'
+                                          ? 'Boots'
+                                          : 'Amulet',
                       itemLevel: draft.baseItemLevel,
                       properties: [],
                       requirements: [],
@@ -1987,6 +2010,12 @@ export function CraftingPage() {
                           | 'wolfskin'
                           | 'ancestral'
                           | 'cryptic'
+                          | 'tasalian'
+                          | 'drakeskin'
+                          | 'sekhema'
+                          | 'blacksteel-boots'
+                          | 'faithful'
+                          | 'daggerfoot'
                           | 'freebooter'
                           | 'gladiatorial'
                           | 'grinning'

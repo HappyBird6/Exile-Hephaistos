@@ -1,0 +1,52 @@
+{
+  "code": "ColdResist2",
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist2",
+  "retrievedAt": "2026-10-04T18:57:46.180Z",
+  "sha256": "4418a8f0a3227b6d5b1f2ba4f97046eedc807935155fb7a562f7d07aab32ef9e",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(11<span class=\"ndash\">—</span>15)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a></span></h5>   <span data-tabname=\"of the Penguin\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Penguin\n<tr><th>Family<td>ColdResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>14 (Effective: 11)\n<tr><th>Gold Price<td>268\n<tr><th>Stats<td><li>base cold damage resistance % <span class=\"badge bg-primary\">11 <span class=\"ndash\">—</span> 15</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>armour: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>cold_resistance</i></span> <span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Cold</span> <span class='badge bg-primary'>Resistance</span> \n<tr><th>Horticrafting<td>Can change Element modifier\n<tr><td>Fists of Stone<td><span class='mod-value'>+1</span>% to [MaximumResistances|Maximum Cold Resistance]<br><span class='mod-value'>+(16<span class=\"ndash\">—</span>20)</span>% to [Resistances|Cold Resistance]</table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "of the Penguin",
+      "Family": "ColdResistance",
+      "Domains": "Item (1)",
+      "GenerationType": "Suffix (2)",
+      "Req. level": "14 (Effective: 11)",
+      "Gold Price": "268",
+      "Stats": "base cold damage resistance % 11 — 15 Global",
+      "Spawn Tags": "armour: 1 ring: 1 amulet: 1 belt: 1 default: 0",
+      "Craft Tags": "cold_resistance elemental_resistance Elemental Cold Resistance",
+      "Horticrafting": "Can change Element modifier"
+    },
+    "stats": [
+      {
+        "id": "base_cold_damage_resistance_%",
+        "min": 11,
+        "max": 15,
+        "locality": "Global"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "armour",
+        "weight": 1
+      },
+      {
+        "tag": "ring",
+        "weight": 1
+      },
+      {
+        "tag": "amulet",
+        "weight": 1
+      },
+      {
+        "tag": "belt",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "+(11—15)% to Cold Resistance"
+  }
+}

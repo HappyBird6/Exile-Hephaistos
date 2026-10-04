@@ -134,6 +134,7 @@ public final class WorkbenchSimulator {
   }
 
   private String baseRuleVersion() {
+    if (ReviewedBoots.supports(catalog.base().id())) return "boots-workbench-uniform-v1";
     if (ReviewedBodies.supports(catalog.base().id())) return "body-workbench-uniform-v1";
     if (ReviewedHelmets.supports(catalog.base().id())) return "helmets-workbench-uniform-v1";
     if (ReviewedGloves.supports(catalog.base().id())) return "gloves-workbench-uniform-v1";
@@ -158,6 +159,8 @@ public final class WorkbenchSimulator {
   }
 
   public String ledgerVersion() {
+    if (ReviewedBoots.supports(catalog.base().id()))
+      return "boots-uniform-candidates-unverified-rolls-v1";
     if (ReviewedBodies.supports(catalog.base().id()))
       return "body-uniform-candidates-unverified-rolls-v1";
     if (ReviewedHelmets.supports(catalog.base().id()))
@@ -932,6 +935,17 @@ public final class WorkbenchSimulator {
 
   private void recordSapphireSelection(
       List<ModifierDefinition> candidates, List<Assumption> assumptions) {
+    if (ReviewedBoots.supports(catalog.base().id()))
+      assumptions.add(
+          new Assumption(
+              "boots-uniform-candidates-v1",
+              "eligible per-base Boots ordinary modifier",
+              candidates.size(),
+              candidates.stream().map(ModifierDefinition::id).sorted().toList(),
+              null,
+              null,
+              catalog.metadata().sourceUrl(),
+              "USER-APPROVED SIMULATOR MODEL: equal 1/N after family, side and level restrictions. Actual game spawn weights and numeric roll probabilities remain unverified."));
     if (ReviewedBodies.supports(catalog.base().id()))
       assumptions.add(
           new Assumption(

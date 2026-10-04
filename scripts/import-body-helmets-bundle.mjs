@@ -4,8 +4,9 @@ import crypto from 'node:crypto'
 import { cleanSource as clean } from './armour-source.mjs'
 
 const body = process.argv.includes('--body')
-const slot = body ? 'Body_Armours' : 'Helmets'
-const proofRoot = 'docs/evidence/body-helmets-runtime-bundle-2026-10-04/' + (body ? 'body' : 'helmets')
+const boots = process.argv.includes('--boots')
+const slot = boots ? 'Boots' : body ? 'Body_Armours' : 'Helmets'
+const proofRoot = boots ? 'docs/evidence/boots-runtime-bundle-2026-10-04' : 'docs/evidence/body-helmets-runtime-bundle-2026-10-04/' + (body ? 'body' : 'helmets')
 fs.mkdirSync(proofRoot, { recursive: true })
 const sourceRoot = 'docs/evidence/armour-source-bundle-2026-10-04'
 const read = p => JSON.parse(fs.readFileSync(p, 'utf8'))
@@ -14,7 +15,14 @@ const hash = text => crypto.createHash('sha256').update(text).digest('hex')
 const write = (p, value) => fs.writeFileSync(p, JSON.stringify(value, null, 2) + '\n')
 const normalize = text => clean(text).replace(/[—–]/g, '-').replace(/\s+/g, '')
 const sources = { en: 'us', ko: 'kr', ja: 'jp', 'zh-CN': 'cn', 'zh-TW': 'tw', es: 'sp' }
-const candidates = body ? [
+const candidates = boots ? [
+  { key: 'tasalian', slug: 'Tasalian_Greaves', archetype: 'str', pool: 'tasalian-greaves' },
+  { key: 'drakeskin', slug: 'Drakeskin_Boots', archetype: 'dex', pool: 'drakeskin-boots' },
+  { key: 'sekhema', slug: 'Sekhema_Sandals', archetype: 'int', pool: 'sekhema-sandals' },
+  { key: 'blacksteel-boots', slug: 'Blacksteel_Sabatons', archetype: 'str_dex', pool: 'blacksteel-sabatons' },
+  { key: 'faithful', slug: 'Faithful_Leggings', archetype: 'str_int', pool: 'faithful-leggings' },
+  { key: 'daggerfoot', slug: 'Daggerfoot_Shoes', archetype: 'dex_int', pool: 'daggerfoot-shoes' },
+] : body ? [
   { key: 'slipstrike', slug: 'Slipstrike_Vest', archetype: 'dex', pool: 'slipstrike-vest' },
   { key: 'death-mail', slug: 'Death_Mail', archetype: 'str_dex', pool: 'death-mail' },
   { key: 'sleek', slug: 'Sleek_Jacket', archetype: 'dex_int', pool: 'sleek-jacket' },
@@ -90,7 +98,7 @@ function spans(html) {
   return parts
 }
 function rowIdentity(row) {
-  return JSON.stringify([row.ModGenerationTypeID, row.ModFamilyList, String(row.Level), row.spawn_no, row.fossil_no, spans(row.str).map(s => normalize(s.value))])
+  return JSON.stringify([row.ModGenerationTypeID, row.ModFamilyList, String(row.Level), row.spawn_no, row.fossil_no, spans(row.str).map(s => normalize(s.value)), ...(boots ? [[...row.str.matchAll(/data-keyword="([^"]+)"/g)].map(m => m[1])] : [])])
 }
 function localizedRow(rows, row) {
   const matches = rows.filter(r => rowIdentity(r) === rowIdentity(row))
@@ -118,10 +126,15 @@ for (const base of candidates) {
   assert(reviewed, 'Highest-tier ordinary candidate must be in the reviewed handoff roster')
   assert.equal(baseSource.fields.Type, reviewed.locales.us.fields.Type, 'Stable reviewed base Type required')
   assert.equal(baseSource.fields['Quality.max_quality'], '20')
+  if (boots) {
+    assert.equal(baseSource.fields.Class, 'Boots')
+    assert(baseSource.fields.Type.startsWith('Metadata/Items/Armours/Boots/'))
+    assert(baseSource.card.endsWith(baseSource.requirements), 'No unmodeled trailing implicit source effect')
+  }
   assert(!baseSource.fields.Type.includes('Unique') && !baseSource.fields.Icon.includes('Uniques/'))
   const tags = baseSource.fields.Tags.split(', ')
   // Extra base-specific tags must never silently change the archetype's published pool.
-  const extra = tags.filter(t => ![`${base.archetype}_armour`, body ? 'body_armour' : 'helmet', 'armour'].includes(t))
+  const extra = tags.filter(t => ![`${base.archetype}_armour`, boots ? 'boots' : body ? 'body_armour' : 'helmet', 'armour'].includes(t))
   assert(normal.every(r => extra.every(t => !r.spawn_no.includes(t))))
   const modifiers = [], proofs = [], defRows = new Map()
   const currentRoot = `backend/src/main/resources/catalog/${base.pool}`
@@ -201,7 +214,7 @@ for (const base of candidates) {
   }
   // Class-restricted special outcomes are reused only if this exact published class table contains them.
   const special = []
-  for (const name of ['perfect-essences', 'abyss-essence']) {
+  for (const name of boots ? ['abyss-essence'] : ['perfect-essences', 'abyss-essence']) {
     const existing = read(`backend/src/main/resources/catalog/${name === 'abyss-essence' ? 'stocky-mitts' : body ? 'rusted-cuirass' : 'rusted-greathelm'}/${name}.catalog.json`)
     for (const d of existing.modifiers) {
       const code = new URL(d.sourceUrl).searchParams.get('s').split('/').at(-1)
@@ -226,13 +239,18 @@ for (const base of candidates) {
   const requirements = {}, sourceProperties = {}
   for (const [locale, sourceLocale] of Object.entries(sources)) {
     const source = read(`${sourceRoot}/${base.slug}.${sourceLocale}.json`)
+    if (boots) {
+      assert.equal(source.fields.Type, baseSource.fields.Type, 'Six-language base identity must agree')
+      const trailing = source.card.slice(source.card.indexOf(source.requirements) + source.requirements.length).trim()
+      assert(trailing === '' || trailing === baseSource.name, 'Only the source English-name footer may follow requirements; no implicit effect may be discarded')
+    }
     terms[locale][base.slug] = { name: source.name, lines: [], itemKey: baseSource.fields.Type, sourceUrl: source.url }
     requirements[locale] = source.requirements
     sourceProperties[locale] = [...source.card.matchAll(/(?:Base Movement Speed|\u57fa\u7840\u79fb\u52a8\u901f\u5ea6|\u57fa\u790e\u79fb\u52d5\u901f\u5ea6): -?\d+(?:\.\d+)?/g)].map(m => m[0])
     if (body) assert.equal(sourceProperties[locale].length, 1, `Every Body source movement property must be preserved: ${base.key}/${locale}`)
   }
   const sourceCard = baseSource.card
-  manifest[base.key] = { ...base, family: body ? 'body' : 'helmets', id: baseSource.fields.Type, name: baseSource.name, sourceUrl: baseSource.url, sourceSha256: baseSource.sha256, sourceTags: tags, armour: +(sourceCard.match(/Armour: (\d+)/)?.[1] ?? 0), energyShield: +(sourceCard.match(/Energy Shield: (\d+)/)?.[1] ?? 0), requiredLevel: +sourceCard.match(/Level (\d+)/)[1], strength: +(sourceCard.match(/(\d+) Str/)?.[1] ?? 0), intelligence: +(sourceCard.match(/(\d+) Int/)?.[1] ?? 0), maximumQuality: 20, requirements }
+  manifest[base.key] = { ...base, family: boots ? 'boots' : body ? 'body' : 'helmets', id: baseSource.fields.Type, name: baseSource.name, sourceUrl: baseSource.url, sourceSha256: baseSource.sha256, sourceTags: tags, armour: +(sourceCard.match(/Armour: (\d+)/)?.[1] ?? 0), energyShield: +(sourceCard.match(/Energy Shield: (\d+)/)?.[1] ?? 0), requiredLevel: +sourceCard.match(/Level (\d+)/)[1], strength: +(sourceCard.match(/(\d+) Str/)?.[1] ?? 0), intelligence: +(sourceCard.match(/(\d+) Int/)?.[1] ?? 0), maximumQuality: 20, requirements }
   manifest[base.key].evasion = +(sourceCard.match(/Evasion Rating: (\d+)/)?.[1] ?? 0); manifest[base.key].dexterity = +(sourceCard.match(/(\d+) Dex/)?.[1] ?? 0)
   const reviewedCard = reviewed.locales.us.card
   assert.equal(manifest[base.key].armour, +(reviewedCard.match(/Armour: (\d+)/)?.[1] ?? 0))

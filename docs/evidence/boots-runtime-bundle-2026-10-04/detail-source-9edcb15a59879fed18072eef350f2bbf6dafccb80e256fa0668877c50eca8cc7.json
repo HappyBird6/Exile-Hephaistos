@@ -1,0 +1,57 @@
+{
+  "code": null,
+  "sourceId": "9edcb15a59879fed18072eef350f2bbf6dafccb80e256fa0668877c50eca8cc7",
+  "url": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/9edcb15a59879fed18072eef350f2bbf6dafccb80e256fa0668877c50eca8cc7",
+  "retrievedAt": "2026-10-04T18:58:16.047Z",
+  "sha256": "9edcb15a59879fed18072eef350f2bbf6dafccb80e256fa0668877c50eca8cc7",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(14<span class=\"ndash\">—</span>20)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/eb07d7bed5df994c783915a2b4446076746834995f74021f2cb2decc2466d8f7\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/5b6ec6eb65a018369b5ec769fa88051ee7f93c3ef1dd5a6a834c75baaa97d247\">Evasion</a><br><span class='mod-value'>+(14<span class=\"ndash\">—</span>24)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/7adffdaab6131759d53ff406391045a5e23c9dff3c24ce66c52b1f352ecbab36\">Stun Threshold</a></span></h5>   <span data-tabname=\"Commander's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Commander's\n<tr><th>Family<td>DefencesPercentAndStunThreshold\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>19 (Effective: 15)\n<tr><th>Gold Price<td>295\n<tr><th>Stats<td><li>stun threshold + <span class=\"badge bg-primary\">14 <span class=\"ndash\">—</span> 24</span> <span class=\"badge bg-secondary\">Global</span></li><li>local armour and evasion +% <span class=\"badge bg-primary\">14 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 0</span> <span class='badge bg-primary'>helmet: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>str_dex_armour: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Commander's",
+      "Family": "DefencesPercentAndStunThreshold",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "19 (Effective: 15)",
+      "Gold Price": "295",
+      "Stats": "stun threshold + 14 — 24 Globallocal armour and evasion +% 14 — 20 Local",
+      "Spawn Tags": "body_armour: 0 helmet: 0 gloves: 0 str_dex_armour: 1 default: 0"
+    },
+    "stats": [
+      {
+        "id": "stun_threshold_+",
+        "min": 14,
+        "max": 24,
+        "locality": "Global"
+      },
+      {
+        "id": "local_armour_and_evasion_+%",
+        "min": 14,
+        "max": 20,
+        "locality": "Local"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "body_armour",
+        "weight": 0
+      },
+      {
+        "tag": "helmet",
+        "weight": 0
+      },
+      {
+        "tag": "gloves",
+        "weight": 0
+      },
+      {
+        "tag": "str_dex_armour",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "(14—20)% increased Armour and Evasion\n+(14—24) to Stun Threshold"
+  }
+}

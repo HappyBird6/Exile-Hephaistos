@@ -674,5 +674,202 @@
     },
     "evasion": 0,
     "dexterity": 0
+  },
+  "tasalian": {
+    "key": "tasalian",
+    "slug": "Tasalian_Greaves",
+    "archetype": "str",
+    "pool": "tasalian-greaves",
+    "family": "boots",
+    "id": "Metadata/Items/Armours/Boots/FourBootsStr6Endgame",
+    "name": "Tasalian Greaves",
+    "sourceUrl": "https://poe2db.tw/us/Tasalian_Greaves",
+    "sourceSha256": "8d50cf56f3db2bd52fea1e9462f6bff481646ebd6d7e5658c4a9e8ac08767685",
+    "sourceTags": [
+      "str_armour",
+      "karui_basetype",
+      "boots",
+      "armour"
+    ],
+    "armour": 280,
+    "energyShield": 0,
+    "requiredLevel": 80,
+    "strength": 108,
+    "intelligence": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 108 Str",
+      "ko": "요구 사항:  레벨 80, 108 힘",
+      "ja": "装備条件： レベル 80, 108 筋力",
+      "zh-CN": "需求：  等级 80, 108 力量",
+      "zh-TW": "需求:  等級 80, 108 力量",
+      "es": "Requiere:  Nivel 80, 108 Fue"
+    },
+    "evasion": 0,
+    "dexterity": 0
+  },
+  "drakeskin": {
+    "key": "drakeskin",
+    "slug": "Drakeskin_Boots",
+    "archetype": "dex",
+    "pool": "drakeskin-boots",
+    "family": "boots",
+    "id": "Metadata/Items/Armours/Boots/FourBootsDex6Endgame",
+    "name": "Drakeskin Boots",
+    "sourceUrl": "https://poe2db.tw/us/Drakeskin_Boots",
+    "sourceSha256": "b4a1e781c8b61273ecbb9045799f3c6e4431c48f8bdbfb839e58cc6e4694cbac",
+    "sourceTags": [
+      "dex_armour",
+      "karui_basetype",
+      "boots",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 0,
+    "requiredLevel": 80,
+    "strength": 0,
+    "intelligence": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 108 Dex",
+      "ko": "요구 사항:  레벨 80, 108 민첩",
+      "ja": "装備条件： レベル 80, 108 器用さ",
+      "zh-CN": "需求：  等级 80, 108 敏捷",
+      "zh-TW": "需求:  等級 80, 108 敏捷",
+      "es": "Requiere:  Nivel 80, 108 Des"
+    },
+    "evasion": 255,
+    "dexterity": 108
+  },
+  "sekhema": {
+    "key": "sekhema",
+    "slug": "Sekhema_Sandals",
+    "archetype": "int",
+    "pool": "sekhema-sandals",
+    "family": "boots",
+    "id": "Metadata/Items/Armours/Boots/FourBootsInt6Endgame",
+    "name": "Sekhema Sandals",
+    "sourceUrl": "https://poe2db.tw/us/Sekhema_Sandals",
+    "sourceSha256": "a0301aa77b114eeb27501b0ff2d5b830a25c5365bc12177a972e485dc8f06930",
+    "sourceTags": [
+      "int_armour",
+      "karui_basetype",
+      "boots",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 83,
+    "requiredLevel": 80,
+    "strength": 0,
+    "intelligence": 108,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 108 Int",
+      "ko": "요구 사항:  레벨 80, 108 지능",
+      "ja": "装備条件： レベル 80, 108 知性",
+      "zh-CN": "需求：  等级 80, 108 智慧",
+      "zh-TW": "需求:  等級 80, 108 智慧",
+      "es": "Requiere:  Nivel 80, 108 Int"
+    },
+    "evasion": 0,
+    "dexterity": 0
+  },
+  "blacksteel-boots": {
+    "key": "blacksteel-boots",
+    "slug": "Blacksteel_Sabatons",
+    "archetype": "str_dex",
+    "pool": "blacksteel-sabatons",
+    "family": "boots",
+    "id": "Metadata/Items/Armours/Boots/FourBootsStrDex4Endgame",
+    "name": "Blacksteel Sabatons",
+    "sourceUrl": "https://poe2db.tw/us/Blacksteel_Sabatons",
+    "sourceSha256": "7d04a02a1f36b2662459aaa2c038d83f420cd89b0ce8370217acb1925213367a",
+    "sourceTags": [
+      "str_dex_armour",
+      "karui_basetype",
+      "boots",
+      "armour"
+    ],
+    "armour": 154,
+    "energyShield": 0,
+    "requiredLevel": 80,
+    "strength": 59,
+    "intelligence": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 59 Str, 59 Dex",
+      "ko": "요구 사항:  레벨 80, 59 힘, 59 민첩",
+      "ja": "装備条件： レベル 80, 59 筋力, 59 器用さ",
+      "zh-CN": "需求：  等级 80, 59 力量, 59 敏捷",
+      "zh-TW": "需求:  等級 80, 59 力量, 59 敏捷",
+      "es": "Requiere:  Nivel 80, 59 Fue, 59 Des"
+    },
+    "evasion": 140,
+    "dexterity": 59
+  },
+  "faithful": {
+    "key": "faithful",
+    "slug": "Faithful_Leggings",
+    "archetype": "str_int",
+    "pool": "faithful-leggings",
+    "family": "boots",
+    "id": "Metadata/Items/Armours/Boots/FourBootsStrInt1Endgame",
+    "name": "Faithful Leggings",
+    "sourceUrl": "https://poe2db.tw/us/Faithful_Leggings",
+    "sourceSha256": "22effc7b863a74d261a248f3fc116ccdbd09b8048299d6cce826c87bf149faf8",
+    "sourceTags": [
+      "str_int_armour",
+      "boots",
+      "armour"
+    ],
+    "armour": 134,
+    "energyShield": 37,
+    "requiredLevel": 65,
+    "strength": 47,
+    "intelligence": 47,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 65, 47 Str, 47 Int",
+      "ko": "요구 사항:  레벨 65, 47 힘, 47 지능",
+      "ja": "装備条件： レベル 65, 47 筋力, 47 知性",
+      "zh-CN": "需求：  等级 65, 47 力量, 47 智慧",
+      "zh-TW": "需求:  等級 65, 47 力量, 47 智慧",
+      "es": "Requiere:  Nivel 65, 47 Fue, 47 Int"
+    },
+    "evasion": 0,
+    "dexterity": 0
+  },
+  "daggerfoot": {
+    "key": "daggerfoot",
+    "slug": "Daggerfoot_Shoes",
+    "archetype": "dex_int",
+    "pool": "daggerfoot-shoes",
+    "family": "boots",
+    "id": "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame",
+    "name": "Daggerfoot Shoes",
+    "sourceUrl": "https://poe2db.tw/us/Daggerfoot_Shoes",
+    "sourceSha256": "64a63eb38f3c10748dd7be47925da48adc0af518ddf9f264756c7714e1cd4a2a",
+    "sourceTags": [
+      "dex_int_armour",
+      "karui_basetype",
+      "boots",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 43,
+    "requiredLevel": 80,
+    "strength": 0,
+    "intelligence": 59,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 59 Dex, 59 Int",
+      "ko": "요구 사항:  레벨 80, 59 민첩, 59 지능",
+      "ja": "装備条件： レベル 80, 59 器用さ, 59 知性",
+      "zh-CN": "需求：  等级 80, 59 敏捷, 59 智慧",
+      "zh-TW": "需求:  等級 80, 59 敏捷, 59 智慧",
+      "es": "Requiere:  Nivel 80, 59 Des, 59 Int"
+    },
+    "evasion": 140,
+    "dexterity": 59
   }
 }

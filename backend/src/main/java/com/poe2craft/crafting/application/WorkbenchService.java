@@ -456,7 +456,9 @@ public final class WorkbenchService {
             .id()
             .equals(
                 ReviewedGloves.BASES.getOrDefault(
-                    key, ReviewedHelmets.BASES.getOrDefault(key, ReviewedBodies.BASES.get(key))))
+                    key,
+                    ReviewedHelmets.BASES.getOrDefault(
+                        key, ReviewedBodies.BASES.getOrDefault(key, ReviewedBoots.BASES.get(key)))))
         || topBases.containsKey(key))
       throw new IllegalArgumentException("Unreviewed or duplicate armour registration");
     var simulator =

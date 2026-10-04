@@ -1,0 +1,40 @@
+{
+  "code": null,
+  "sourceId": "d20e6649fe1ab33001f7ad300ac873884d60e42879e0804dc915fdd1aba9ef85",
+  "url": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/d20e6649fe1ab33001f7ad300ac873884d60e42879e0804dc915fdd1aba9ef85",
+  "retrievedAt": "2026-10-04T18:57:28.757Z",
+  "sha256": "d20e6649fe1ab33001f7ad300ac873884d60e42879e0804dc915fdd1aba9ef85",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(51<span class=\"ndash\">—</span>55)</span>% reduced <a data-keyword=\"Chill\" href=\"Chill\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6f972aebbf02b4aaa7ffed794664708a63eae0870da1fd7fbf0d11a5d76ffafa\">Chill</a> Duration on you</span></h5>   <span data-tabname=\"of Dissipation\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Dissipation\n<tr><th>Family<td>ReducedAilmentDuration\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>63 (Effective: 50)\n<tr><th>Gold Price<td>2658\n<tr><th>Stats<td><li>base self chill duration -% <span class=\"badge bg-primary\">51 <span class=\"ndash\">—</span> 55</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Cold</span> <span class='badge bg-primary'>Ailment</span> </table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "of Dissipation",
+      "Family": "ReducedAilmentDuration",
+      "Domains": "Item (1)",
+      "GenerationType": "Suffix (2)",
+      "Req. level": "63 (Effective: 50)",
+      "Gold Price": "2658",
+      "Stats": "base self chill duration -% 51 — 55 Global",
+      "Spawn Tags": "boots: 1 default: 0",
+      "Craft Tags": "Elemental Cold Ailment"
+    },
+    "stats": [
+      {
+        "id": "base_self_chill_duration_-%",
+        "min": 51,
+        "max": 55,
+        "locality": "Global"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "boots",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "(51—55)% reduced Chill Duration on you"
+  }
+}

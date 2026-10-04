@@ -39065,6 +39065,1432 @@
           "divisor": 1
         }
       ]
+    },
+    "tasalian-greaves:prefix:beetle-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 8,
+          "max": 13
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 6,
+          "max": 13
+        }
+      ],
+      "englishText": "(6—13)% increased Armour\n+(8—13) to Stun Threshold",
+      "values": ["(6—13)", "+(8—13)"],
+      "template": "gloves.288618defa7105b84351",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:prefix:crab-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 14,
+          "max": 24
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 14,
+          "max": 20
+        }
+      ],
+      "englishText": "(14—20)% increased Armour\n+(14—24) to Stun Threshold",
+      "values": ["(14—20)", "+(14—24)"],
+      "template": "gloves.bd3b2c6452833b7d74fc",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:prefix:armadillo-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 25,
+          "max": 40
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "englishText": "(21—26)% increased Armour\n+(25—40) to Stun Threshold",
+      "values": ["(21—26)", "+(25—40)"],
+      "template": "gloves.5c5e6d1742d8f1cdd0e1",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:prefix:rhino-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 41,
+          "max": 63
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "englishText": "(27—32)% increased Armour\n+(41—63) to Stun Threshold",
+      "values": ["(27—32)", "+(41—63)"],
+      "template": "gloves.aa150fe342bd1a231b2b",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:prefix:elephant-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 64,
+          "max": 94
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "englishText": "(33—38)% increased Armour\n+(64—94) to Stun Threshold",
+      "values": ["(33—38)", "+(64—94)"],
+      "template": "gloves.678875597ac018b09a2c",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:prefix:mammoth-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 95,
+          "max": 136
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 39,
+          "max": 42
+        }
+      ],
+      "englishText": "(39—42)% increased Armour\n+(95—136) to Stun Threshold",
+      "values": ["(39—42)", "+(95—136)"],
+      "template": "gloves.455e334e251c7d1af5f4",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:suffix:of-titanium-skin": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 305,
+          "max": 352
+        }
+      ],
+      "englishText": "+(305—352) to Stun Threshold",
+      "values": ["+(305—352)"],
+      "template": "gloves.067eddf4bd9f25cc858c",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:prefix:runner-s": {
+      "stats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "min": 10,
+          "max": 10
+        }
+      ],
+      "englishText": "10% increased Movement Speed",
+      "values": ["10"],
+      "template": "gloves.8be567c056de46eb852d",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:prefix:sprinter-s": {
+      "stats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "min": 15,
+          "max": 15
+        }
+      ],
+      "englishText": "15% increased Movement Speed",
+      "values": ["15"],
+      "template": "gloves.3d600fea162f699ab343",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:prefix:stallion-s": {
+      "stats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "min": 20,
+          "max": 20
+        }
+      ],
+      "englishText": "20% increased Movement Speed",
+      "values": ["20"],
+      "template": "gloves.845e727a35d842a490a3",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:prefix:gazelle-s": {
+      "stats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "min": 25,
+          "max": 25
+        }
+      ],
+      "englishText": "25% increased Movement Speed",
+      "values": ["25"],
+      "template": "gloves.7d9863739f51c576382d",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:prefix:cheetah-s": {
+      "stats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "min": 30,
+          "max": 30
+        }
+      ],
+      "englishText": "30% increased Movement Speed",
+      "values": ["30"],
+      "template": "gloves.8ef52013bb1125039ce7",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:prefix:hellion-s": {
+      "stats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "min": 35,
+          "max": 35
+        }
+      ],
+      "englishText": "35% increased Movement Speed",
+      "values": ["35"],
+      "template": "gloves.efb098aaf6e3a2600f52",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:suffix:of-earthing": {
+      "stats": [
+        {
+          "id": "base_self_shock_duration_-%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "englishText": "(36—40)% reduced Shock duration on you",
+      "values": ["(36—40)"],
+      "template": "gloves.235eae956b8ac3a51dec",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_self_shock_duration_-%",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:suffix:of-insulation": {
+      "stats": [
+        {
+          "id": "base_self_shock_duration_-%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "englishText": "(41—45)% reduced Shock duration on you",
+      "values": ["(41—45)"],
+      "template": "gloves.86c6358c96e363789420",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_self_shock_duration_-%",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:suffix:of-the-impedance": {
+      "stats": [
+        {
+          "id": "base_self_shock_duration_-%",
+          "min": 46,
+          "max": 50
+        }
+      ],
+      "englishText": "(46—50)% reduced Shock duration on you",
+      "values": ["(46—50)"],
+      "template": "gloves.b32d0372b17799741bab",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_self_shock_duration_-%",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:suffix:of-the-dielectric": {
+      "stats": [
+        {
+          "id": "base_self_shock_duration_-%",
+          "min": 51,
+          "max": 55
+        }
+      ],
+      "englishText": "(51—55)% reduced Shock duration on you",
+      "values": ["(51—55)"],
+      "template": "gloves.c74704e79f7cc7a73375",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_self_shock_duration_-%",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:suffix:of-grounding": {
+      "stats": [
+        {
+          "id": "base_self_shock_duration_-%",
+          "min": 56,
+          "max": 60
+        }
+      ],
+      "englishText": "(56—60)% reduced Shock duration on you",
+      "values": ["(56—60)"],
+      "template": "gloves.570062c36bf637e03063",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_self_shock_duration_-%",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:suffix:of-convection": {
+      "stats": [
+        {
+          "id": "base_self_chill_duration_-%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "englishText": "(36—40)% reduced Chill Duration on you",
+      "values": ["(36—40)"],
+      "template": "gloves.507a9493fd00e8bda3bf",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_self_chill_duration_-%",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:suffix:of-fluidity": {
+      "stats": [
+        {
+          "id": "base_self_chill_duration_-%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "englishText": "(41—45)% reduced Chill Duration on you",
+      "values": ["(41—45)"],
+      "template": "gloves.587d0040ee055814783a",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_self_chill_duration_-%",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:suffix:of-entropy": {
+      "stats": [
+        {
+          "id": "base_self_chill_duration_-%",
+          "min": 46,
+          "max": 50
+        }
+      ],
+      "englishText": "(46—50)% reduced Chill Duration on you",
+      "values": ["(46—50)"],
+      "template": "gloves.c1be734bb601fc4a013d",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_self_chill_duration_-%",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:suffix:of-dissipation": {
+      "stats": [
+        {
+          "id": "base_self_chill_duration_-%",
+          "min": 51,
+          "max": 55
+        }
+      ],
+      "englishText": "(51—55)% reduced Chill Duration on you",
+      "values": ["(51—55)"],
+      "template": "gloves.8e52680f431fd7c8f790",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_self_chill_duration_-%",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:suffix:of-the-reversal": {
+      "stats": [
+        {
+          "id": "base_self_chill_duration_-%",
+          "min": 56,
+          "max": 60
+        }
+      ],
+      "englishText": "(56—60)% reduced Chill Duration on you",
+      "values": ["(56—60)"],
+      "template": "gloves.c78e1b4a18c2f9f6cf1d",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_self_chill_duration_-%",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:suffix:of-heating": {
+      "stats": [
+        {
+          "id": "base_self_freeze_duration_-%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "englishText": "(36—40)% reduced Freeze Duration on you",
+      "values": ["(36—40)"],
+      "template": "gloves.06ac3c222c22e74049e7",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_self_freeze_duration_-%",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:suffix:of-unfreezing": {
+      "stats": [
+        {
+          "id": "base_self_freeze_duration_-%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "englishText": "(41—45)% reduced Freeze Duration on you",
+      "values": ["(41—45)"],
+      "template": "gloves.01f908e7116484585d06",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_self_freeze_duration_-%",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:suffix:of-defrosting": {
+      "stats": [
+        {
+          "id": "base_self_freeze_duration_-%",
+          "min": 46,
+          "max": 50
+        }
+      ],
+      "englishText": "(46—50)% reduced Freeze Duration on you",
+      "values": ["(46—50)"],
+      "template": "gloves.800df92e04f00bda2b5d",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_self_freeze_duration_-%",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:suffix:of-the-temperate": {
+      "stats": [
+        {
+          "id": "base_self_freeze_duration_-%",
+          "min": 51,
+          "max": 55
+        }
+      ],
+      "englishText": "(51—55)% reduced Freeze Duration on you",
+      "values": ["(51—55)"],
+      "template": "gloves.54227e6465a92da12141",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_self_freeze_duration_-%",
+          "divisor": 1
+        }
+      ]
+    },
+    "tasalian-greaves:suffix:of-thawing": {
+      "stats": [
+        {
+          "id": "base_self_freeze_duration_-%",
+          "min": 56,
+          "max": 60
+        }
+      ],
+      "englishText": "(56—60)% reduced Freeze Duration on you",
+      "values": ["(56—60)"],
+      "template": "gloves.5c91036053f855bc125d",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_self_freeze_duration_-%",
+          "divisor": 1
+        }
+      ]
+    },
+    "drakeskin-boots:prefix:mosquito-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 8,
+          "max": 13
+        },
+        {
+          "id": "local_evasion_rating_+%",
+          "min": 6,
+          "max": 13
+        }
+      ],
+      "englishText": "(6—13)% increased Evasion Rating\n+(8—13) to Stun Threshold",
+      "values": ["(6—13)", "+(8—13)"],
+      "template": "gloves.7a1cb82f9941622df45f",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_evasion_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "drakeskin-boots:prefix:moth-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 14,
+          "max": 24
+        },
+        {
+          "id": "local_evasion_rating_+%",
+          "min": 14,
+          "max": 20
+        }
+      ],
+      "englishText": "(14—20)% increased Evasion Rating\n+(14—24) to Stun Threshold",
+      "values": ["(14—20)", "+(14—24)"],
+      "template": "gloves.da3425effc030b1423b1",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_evasion_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "drakeskin-boots:prefix:butterfly-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 25,
+          "max": 40
+        },
+        {
+          "id": "local_evasion_rating_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "englishText": "(21—26)% increased Evasion Rating\n+(25—40) to Stun Threshold",
+      "values": ["(21—26)", "+(25—40)"],
+      "template": "gloves.9c79c7afe8fe4d5bb112",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_evasion_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "drakeskin-boots:prefix:wasp-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 41,
+          "max": 63
+        },
+        {
+          "id": "local_evasion_rating_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "englishText": "(27—32)% increased Evasion Rating\n+(41—63) to Stun Threshold",
+      "values": ["(27—32)", "+(41—63)"],
+      "template": "gloves.252f083fc53803013d4d",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_evasion_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "drakeskin-boots:prefix:dragonfly-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 64,
+          "max": 94
+        },
+        {
+          "id": "local_evasion_rating_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "englishText": "(33—38)% increased Evasion Rating\n+(64—94) to Stun Threshold",
+      "values": ["(33—38)", "+(64—94)"],
+      "template": "gloves.37dee6518d783c907c96",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_evasion_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "drakeskin-boots:prefix:hummingbird-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 95,
+          "max": 136
+        },
+        {
+          "id": "local_evasion_rating_+%",
+          "min": 39,
+          "max": 42
+        }
+      ],
+      "englishText": "(39—42)% increased Evasion Rating\n+(95—136) to Stun Threshold",
+      "values": ["(39—42)", "+(95—136)"],
+      "template": "gloves.fe0347b8d8d1afa5071e",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_evasion_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "sekhema-sandals:prefix:pixie-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 8,
+          "max": 13
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 6,
+          "max": 13
+        }
+      ],
+      "englishText": "(6—13)% increased Energy Shield\n+(8—13) to Stun Threshold",
+      "values": ["(6—13)", "+(8—13)"],
+      "template": "gloves.1bb470c01030f125febf",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "sekhema-sandals:prefix:gremlin-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 14,
+          "max": 24
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 14,
+          "max": 20
+        }
+      ],
+      "englishText": "(14—20)% increased Energy Shield\n+(14—24) to Stun Threshold",
+      "values": ["(14—20)", "+(14—24)"],
+      "template": "gloves.b19a0b5ed5a508e5faa2",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "sekhema-sandals:prefix:boggart-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 25,
+          "max": 40
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "englishText": "(21—26)% increased Energy Shield\n+(25—40) to Stun Threshold",
+      "values": ["(21—26)", "+(25—40)"],
+      "template": "gloves.606c2101e044db2df53b",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "sekhema-sandals:prefix:naga-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 41,
+          "max": 63
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "englishText": "(27—32)% increased Energy Shield\n+(41—63) to Stun Threshold",
+      "values": ["(27—32)", "+(41—63)"],
+      "template": "gloves.954e4c691f7e46d3f48d",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "sekhema-sandals:prefix:djinn-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 64,
+          "max": 94
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "englishText": "(33—38)% increased Energy Shield\n+(64—94) to Stun Threshold",
+      "values": ["(33—38)", "+(64—94)"],
+      "template": "gloves.0fbd23e36ba4539f3976",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "sekhema-sandals:prefix:seraphim-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 95,
+          "max": 136
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 39,
+          "max": 42
+        }
+      ],
+      "englishText": "(39—42)% increased Energy Shield\n+(95—136) to Stun Threshold",
+      "values": ["(39—42)", "+(95—136)"],
+      "template": "gloves.e3071b5a5689253e92cc",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "blacksteel-sabatons:prefix:captain-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 8,
+          "max": 13
+        },
+        {
+          "id": "local_armour_and_evasion_+%",
+          "min": 6,
+          "max": 13
+        }
+      ],
+      "englishText": "(6—13)% increased Armour and Evasion\n+(8—13) to Stun Threshold",
+      "values": ["(6—13)", "+(8—13)"],
+      "template": "gloves.c11eb95b35740ed41002",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_armour_and_evasion_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "blacksteel-sabatons:prefix:commander-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 14,
+          "max": 24
+        },
+        {
+          "id": "local_armour_and_evasion_+%",
+          "min": 14,
+          "max": 20
+        }
+      ],
+      "englishText": "(14—20)% increased Armour and Evasion\n+(14—24) to Stun Threshold",
+      "values": ["(14—20)", "+(14—24)"],
+      "template": "gloves.ecda6aa605727bcf0f80",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_armour_and_evasion_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "blacksteel-sabatons:prefix:magnate-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 25,
+          "max": 40
+        },
+        {
+          "id": "local_armour_and_evasion_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "englishText": "(21—26)% increased Armour and Evasion\n+(25—40) to Stun Threshold",
+      "values": ["(21—26)", "+(25—40)"],
+      "template": "gloves.6304fc17b8c57d400095",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_armour_and_evasion_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "blacksteel-sabatons:prefix:marshal-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 41,
+          "max": 63
+        },
+        {
+          "id": "local_armour_and_evasion_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "englishText": "(27—32)% increased Armour and Evasion\n+(41—63) to Stun Threshold",
+      "values": ["(27—32)", "+(41—63)"],
+      "template": "gloves.53ddd158c7a6f7c28ff7",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_armour_and_evasion_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "blacksteel-sabatons:prefix:general-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 64,
+          "max": 94
+        },
+        {
+          "id": "local_armour_and_evasion_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "englishText": "(33—38)% increased Armour and Evasion\n+(64—94) to Stun Threshold",
+      "values": ["(33—38)", "+(64—94)"],
+      "template": "gloves.7f7e4b3f897b1c74060e",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_armour_and_evasion_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "blacksteel-sabatons:prefix:warlord-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 95,
+          "max": 136
+        },
+        {
+          "id": "local_armour_and_evasion_+%",
+          "min": 39,
+          "max": 42
+        }
+      ],
+      "englishText": "(39—42)% increased Armour and Evasion\n+(95—136) to Stun Threshold",
+      "values": ["(39—42)", "+(95—136)"],
+      "template": "gloves.233a9713f59ad8a25b31",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_armour_and_evasion_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "faithful-leggings:prefix:defender-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 8,
+          "max": 13
+        },
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 6,
+          "max": 13
+        }
+      ],
+      "englishText": "(6—13)% increased Armour and Energy Shield\n+(8—13) to Stun Threshold",
+      "values": ["(6—13)", "+(8—13)"],
+      "template": "gloves.0229e1a233a965205061",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "faithful-leggings:prefix:protector-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 14,
+          "max": 24
+        },
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 14,
+          "max": 20
+        }
+      ],
+      "englishText": "(14—20)% increased Armour and Energy Shield\n+(14—24) to Stun Threshold",
+      "values": ["(14—20)", "+(14—24)"],
+      "template": "gloves.5b664c42869d2dc0ab27",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "faithful-leggings:prefix:keeper-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 25,
+          "max": 40
+        },
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "englishText": "(21—26)% increased Armour and Energy Shield\n+(25—40) to Stun Threshold",
+      "values": ["(21—26)", "+(25—40)"],
+      "template": "gloves.08e132fef027704a516f",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "faithful-leggings:prefix:guardian-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 41,
+          "max": 63
+        },
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "englishText": "(27—32)% increased Armour and Energy Shield\n+(41—63) to Stun Threshold",
+      "values": ["(27—32)", "+(41—63)"],
+      "template": "gloves.0365aabb3c078ace057d",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "faithful-leggings:prefix:warden-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 64,
+          "max": 94
+        },
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "englishText": "(33—38)% increased Armour and Energy Shield\n+(64—94) to Stun Threshold",
+      "values": ["(33—38)", "+(64—94)"],
+      "template": "gloves.9db6cb8b272b63ab5e1b",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "faithful-leggings:prefix:sentinel-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 95,
+          "max": 136
+        },
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 39,
+          "max": 42
+        }
+      ],
+      "englishText": "(39—42)% increased Armour and Energy Shield\n+(95—136) to Stun Threshold",
+      "values": ["(39—42)", "+(95—136)"],
+      "template": "gloves.7bfa5364798ea3bc94ba",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "daggerfoot-shoes:prefix:intuitive": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 8,
+          "max": 13
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 6,
+          "max": 13
+        }
+      ],
+      "englishText": "(6—13)% increased Evasion and Energy Shield\n+(8—13) to Stun Threshold",
+      "values": ["(6—13)", "+(8—13)"],
+      "template": "gloves.7a9286c24b1e5749cefa",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "daggerfoot-shoes:prefix:psychic": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 14,
+          "max": 24
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 14,
+          "max": 20
+        }
+      ],
+      "englishText": "(14—20)% increased Evasion and Energy Shield\n+(14—24) to Stun Threshold",
+      "values": ["(14—20)", "+(14—24)"],
+      "template": "gloves.c90d3cf62b1defc6dac5",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "daggerfoot-shoes:prefix:telepath-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 25,
+          "max": 40
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "englishText": "(21—26)% increased Evasion and Energy Shield\n+(25—40) to Stun Threshold",
+      "values": ["(21—26)", "+(25—40)"],
+      "template": "gloves.e37f60b42dbb921e7493",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "daggerfoot-shoes:prefix:illusionist-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 41,
+          "max": 63
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "englishText": "(27—32)% increased Evasion and Energy Shield\n+(41—63) to Stun Threshold",
+      "values": ["(27—32)", "+(41—63)"],
+      "template": "gloves.7743799ae913630804cc",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "daggerfoot-shoes:prefix:mentalist-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 64,
+          "max": 94
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "englishText": "(33—38)% increased Evasion and Energy Shield\n+(64—94) to Stun Threshold",
+      "values": ["(33—38)", "+(64—94)"],
+      "template": "gloves.d41a25ba0f71a19f0e7d",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "daggerfoot-shoes:prefix:trickster-s": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 95,
+          "max": 136
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 39,
+          "max": 42
+        }
+      ],
+      "englishText": "(39—42)% increased Evasion and Energy Shield\n+(95—136) to Stun Threshold",
+      "values": ["(39—42)", "+(95—136)"],
+      "template": "gloves.4112bbc13fe727afda06",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "divisor": 1
+        },
+        {
+          "id": "stun_threshold_+",
+          "divisor": 1
+        }
+      ]
     }
   },
   "templates": {
@@ -46568,6 +47994,238 @@
       "gloves.5f53bbf3f26bcfa172fe": {
         "template": "{v0}% increased Armour and Energy Shield\n{v1} to maximum Mana",
         "name": "Whale's"
+      },
+      "gloves.288618defa7105b84351": {
+        "template": "{v0}% increased Armour\n{v1} to Stun Threshold",
+        "name": "Beetle's"
+      },
+      "gloves.bd3b2c6452833b7d74fc": {
+        "template": "{v0}% increased Armour\n{v1} to Stun Threshold",
+        "name": "Crab's"
+      },
+      "gloves.5c5e6d1742d8f1cdd0e1": {
+        "template": "{v0}% increased Armour\n{v1} to Stun Threshold",
+        "name": "Armadillo's"
+      },
+      "gloves.aa150fe342bd1a231b2b": {
+        "template": "{v0}% increased Armour\n{v1} to Stun Threshold",
+        "name": "Rhino's"
+      },
+      "gloves.678875597ac018b09a2c": {
+        "template": "{v0}% increased Armour\n{v1} to Stun Threshold",
+        "name": "Elephant's"
+      },
+      "gloves.455e334e251c7d1af5f4": {
+        "template": "{v0}% increased Armour\n{v1} to Stun Threshold",
+        "name": "Mammoth's"
+      },
+      "gloves.067eddf4bd9f25cc858c": {
+        "template": "{v0} to Stun Threshold",
+        "name": "of Titanium Skin"
+      },
+      "gloves.8be567c056de46eb852d": {
+        "template": "{v0}% increased Movement Speed",
+        "name": "Runner's"
+      },
+      "gloves.3d600fea162f699ab343": {
+        "template": "{v0}% increased Movement Speed",
+        "name": "Sprinter's"
+      },
+      "gloves.845e727a35d842a490a3": {
+        "template": "{v0}% increased Movement Speed",
+        "name": "Stallion's"
+      },
+      "gloves.7d9863739f51c576382d": {
+        "template": "{v0}% increased Movement Speed",
+        "name": "Gazelle's"
+      },
+      "gloves.8ef52013bb1125039ce7": {
+        "template": "{v0}% increased Movement Speed",
+        "name": "Cheetah's"
+      },
+      "gloves.efb098aaf6e3a2600f52": {
+        "template": "{v0}% increased Movement Speed",
+        "name": "Hellion's"
+      },
+      "gloves.235eae956b8ac3a51dec": {
+        "template": "{v0}% reduced Shock duration on you",
+        "name": "of Earthing"
+      },
+      "gloves.86c6358c96e363789420": {
+        "template": "{v0}% reduced Shock duration on you",
+        "name": "of Insulation"
+      },
+      "gloves.b32d0372b17799741bab": {
+        "template": "{v0}% reduced Shock duration on you",
+        "name": "of the Impedance"
+      },
+      "gloves.c74704e79f7cc7a73375": {
+        "template": "{v0}% reduced Shock duration on you",
+        "name": "of the Dielectric"
+      },
+      "gloves.570062c36bf637e03063": {
+        "template": "{v0}% reduced Shock duration on you",
+        "name": "of Grounding"
+      },
+      "gloves.507a9493fd00e8bda3bf": {
+        "template": "{v0}% reduced Chill Duration on you",
+        "name": "of Convection"
+      },
+      "gloves.587d0040ee055814783a": {
+        "template": "{v0}% reduced Chill Duration on you",
+        "name": "of Fluidity"
+      },
+      "gloves.c1be734bb601fc4a013d": {
+        "template": "{v0}% reduced Chill Duration on you",
+        "name": "of Entropy"
+      },
+      "gloves.8e52680f431fd7c8f790": {
+        "template": "{v0}% reduced Chill Duration on you",
+        "name": "of Dissipation"
+      },
+      "gloves.c78e1b4a18c2f9f6cf1d": {
+        "template": "{v0}% reduced Chill Duration on you",
+        "name": "of the Reversal"
+      },
+      "gloves.06ac3c222c22e74049e7": {
+        "template": "{v0}% reduced Freeze Duration on you",
+        "name": "of Heating"
+      },
+      "gloves.01f908e7116484585d06": {
+        "template": "{v0}% reduced Freeze Duration on you",
+        "name": "of Unfreezing"
+      },
+      "gloves.800df92e04f00bda2b5d": {
+        "template": "{v0}% reduced Freeze Duration on you",
+        "name": "of Defrosting"
+      },
+      "gloves.54227e6465a92da12141": {
+        "template": "{v0}% reduced Freeze Duration on you",
+        "name": "of the Temperate"
+      },
+      "gloves.5c91036053f855bc125d": {
+        "template": "{v0}% reduced Freeze Duration on you",
+        "name": "of Thawing"
+      },
+      "gloves.7a1cb82f9941622df45f": {
+        "template": "{v0}% increased Evasion Rating\n{v1} to Stun Threshold",
+        "name": "Mosquito's"
+      },
+      "gloves.da3425effc030b1423b1": {
+        "template": "{v0}% increased Evasion Rating\n{v1} to Stun Threshold",
+        "name": "Moth's"
+      },
+      "gloves.9c79c7afe8fe4d5bb112": {
+        "template": "{v0}% increased Evasion Rating\n{v1} to Stun Threshold",
+        "name": "Butterfly's"
+      },
+      "gloves.252f083fc53803013d4d": {
+        "template": "{v0}% increased Evasion Rating\n{v1} to Stun Threshold",
+        "name": "Wasp's"
+      },
+      "gloves.37dee6518d783c907c96": {
+        "template": "{v0}% increased Evasion Rating\n{v1} to Stun Threshold",
+        "name": "Dragonfly's"
+      },
+      "gloves.fe0347b8d8d1afa5071e": {
+        "template": "{v0}% increased Evasion Rating\n{v1} to Stun Threshold",
+        "name": "Hummingbird's"
+      },
+      "gloves.1bb470c01030f125febf": {
+        "template": "{v0}% increased Energy Shield\n{v1} to Stun Threshold",
+        "name": "Pixie's"
+      },
+      "gloves.b19a0b5ed5a508e5faa2": {
+        "template": "{v0}% increased Energy Shield\n{v1} to Stun Threshold",
+        "name": "Gremlin's"
+      },
+      "gloves.606c2101e044db2df53b": {
+        "template": "{v0}% increased Energy Shield\n{v1} to Stun Threshold",
+        "name": "Boggart's"
+      },
+      "gloves.954e4c691f7e46d3f48d": {
+        "template": "{v0}% increased Energy Shield\n{v1} to Stun Threshold",
+        "name": "Naga's"
+      },
+      "gloves.0fbd23e36ba4539f3976": {
+        "template": "{v0}% increased Energy Shield\n{v1} to Stun Threshold",
+        "name": "Djinn's"
+      },
+      "gloves.e3071b5a5689253e92cc": {
+        "template": "{v0}% increased Energy Shield\n{v1} to Stun Threshold",
+        "name": "Seraphim's"
+      },
+      "gloves.c11eb95b35740ed41002": {
+        "template": "{v0}% increased Armour and Evasion\n{v1} to Stun Threshold",
+        "name": "Captain's"
+      },
+      "gloves.ecda6aa605727bcf0f80": {
+        "template": "{v0}% increased Armour and Evasion\n{v1} to Stun Threshold",
+        "name": "Commander's"
+      },
+      "gloves.6304fc17b8c57d400095": {
+        "template": "{v0}% increased Armour and Evasion\n{v1} to Stun Threshold",
+        "name": "Magnate's"
+      },
+      "gloves.53ddd158c7a6f7c28ff7": {
+        "template": "{v0}% increased Armour and Evasion\n{v1} to Stun Threshold",
+        "name": "Marshal's"
+      },
+      "gloves.7f7e4b3f897b1c74060e": {
+        "template": "{v0}% increased Armour and Evasion\n{v1} to Stun Threshold",
+        "name": "General's"
+      },
+      "gloves.233a9713f59ad8a25b31": {
+        "template": "{v0}% increased Armour and Evasion\n{v1} to Stun Threshold",
+        "name": "Warlord's"
+      },
+      "gloves.0229e1a233a965205061": {
+        "template": "{v0}% increased Armour and Energy Shield\n{v1} to Stun Threshold",
+        "name": "Defender's"
+      },
+      "gloves.5b664c42869d2dc0ab27": {
+        "template": "{v0}% increased Armour and Energy Shield\n{v1} to Stun Threshold",
+        "name": "Protector's"
+      },
+      "gloves.08e132fef027704a516f": {
+        "template": "{v0}% increased Armour and Energy Shield\n{v1} to Stun Threshold",
+        "name": "Keeper's"
+      },
+      "gloves.0365aabb3c078ace057d": {
+        "template": "{v0}% increased Armour and Energy Shield\n{v1} to Stun Threshold",
+        "name": "Guardian's"
+      },
+      "gloves.9db6cb8b272b63ab5e1b": {
+        "template": "{v0}% increased Armour and Energy Shield\n{v1} to Stun Threshold",
+        "name": "Warden's"
+      },
+      "gloves.7bfa5364798ea3bc94ba": {
+        "template": "{v0}% increased Armour and Energy Shield\n{v1} to Stun Threshold",
+        "name": "Sentinel's"
+      },
+      "gloves.7a9286c24b1e5749cefa": {
+        "template": "{v0}% increased Evasion and Energy Shield\n{v1} to Stun Threshold",
+        "name": "Intuitive"
+      },
+      "gloves.c90d3cf62b1defc6dac5": {
+        "template": "{v0}% increased Evasion and Energy Shield\n{v1} to Stun Threshold",
+        "name": "Psychic"
+      },
+      "gloves.e37f60b42dbb921e7493": {
+        "template": "{v0}% increased Evasion and Energy Shield\n{v1} to Stun Threshold",
+        "name": "Telepath's"
+      },
+      "gloves.7743799ae913630804cc": {
+        "template": "{v0}% increased Evasion and Energy Shield\n{v1} to Stun Threshold",
+        "name": "Illusionist's"
+      },
+      "gloves.d41a25ba0f71a19f0e7d": {
+        "template": "{v0}% increased Evasion and Energy Shield\n{v1} to Stun Threshold",
+        "name": "Mentalist's"
+      },
+      "gloves.4112bbc13fe727afda06": {
+        "template": "{v0}% increased Evasion and Energy Shield\n{v1} to Stun Threshold",
+        "name": "Trickster's"
       }
     },
     "ko": {
@@ -54070,6 +55728,238 @@
       "gloves.5f53bbf3f26bcfa172fe": {
         "template": "방어도 및 에너지 보호막 {v0}% 증가\n마나 최대치 {v1}",
         "name": "고래의"
+      },
+      "gloves.288618defa7105b84351": {
+        "template": "방어도 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "딱정벌레의"
+      },
+      "gloves.bd3b2c6452833b7d74fc": {
+        "template": "방어도 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "게의"
+      },
+      "gloves.5c5e6d1742d8f1cdd0e1": {
+        "template": "방어도 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "아르마딜로의"
+      },
+      "gloves.aa150fe342bd1a231b2b": {
+        "template": "방어도 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "코뿔소의"
+      },
+      "gloves.678875597ac018b09a2c": {
+        "template": "방어도 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "코끼리의"
+      },
+      "gloves.455e334e251c7d1af5f4": {
+        "template": "방어도 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "매머드의"
+      },
+      "gloves.067eddf4bd9f25cc858c": {
+        "template": "기절 한계치 {v0}",
+        "name": "- 티타늄 피부"
+      },
+      "gloves.8be567c056de46eb852d": {
+        "template": "이동 속도 {v0}% 증가",
+        "name": "주자의"
+      },
+      "gloves.3d600fea162f699ab343": {
+        "template": "이동 속도 {v0}% 증가",
+        "name": "단거리 주자의"
+      },
+      "gloves.845e727a35d842a490a3": {
+        "template": "이동 속도 {v0}% 증가",
+        "name": "종마의"
+      },
+      "gloves.7d9863739f51c576382d": {
+        "template": "이동 속도 {v0}% 증가",
+        "name": "가젤의"
+      },
+      "gloves.8ef52013bb1125039ce7": {
+        "template": "이동 속도 {v0}% 증가",
+        "name": "치타의"
+      },
+      "gloves.efb098aaf6e3a2600f52": {
+        "template": "이동 속도 {v0}% 증가",
+        "name": "헬리온의"
+      },
+      "gloves.235eae956b8ac3a51dec": {
+        "template": "플레이어에게 적용되는 감전 지속시간 {v0}% 감소",
+        "name": "- 땅"
+      },
+      "gloves.86c6358c96e363789420": {
+        "template": "플레이어에게 적용되는 감전 지속시간 {v0}% 감소",
+        "name": "- 절연"
+      },
+      "gloves.b32d0372b17799741bab": {
+        "template": "플레이어에게 적용되는 감전 지속시간 {v0}% 감소",
+        "name": "- 저해"
+      },
+      "gloves.c74704e79f7cc7a73375": {
+        "template": "플레이어에게 적용되는 감전 지속시간 {v0}% 감소",
+        "name": "- 유전체"
+      },
+      "gloves.570062c36bf637e03063": {
+        "template": "플레이어에게 적용되는 감전 지속시간 {v0}% 감소",
+        "name": "- 접지"
+      },
+      "gloves.507a9493fd00e8bda3bf": {
+        "template": "플레이어에게 적용되는 냉각 지속시간 {v0}% 감소",
+        "name": "- 대류"
+      },
+      "gloves.587d0040ee055814783a": {
+        "template": "플레이어에게 적용되는 냉각 지속시간 {v0}% 감소",
+        "name": "- 유동성"
+      },
+      "gloves.c1be734bb601fc4a013d": {
+        "template": "플레이어에게 적용되는 냉각 지속시간 {v0}% 감소",
+        "name": "- 엔트로피"
+      },
+      "gloves.8e52680f431fd7c8f790": {
+        "template": "플레이어에게 적용되는 냉각 지속시간 {v0}% 감소",
+        "name": "- 소멸"
+      },
+      "gloves.c78e1b4a18c2f9f6cf1d": {
+        "template": "플레이어에게 적용되는 냉각 지속시간 {v0}% 감소",
+        "name": "- 반전"
+      },
+      "gloves.06ac3c222c22e74049e7": {
+        "template": "플레이어에게 적용되는 동결 지속시간 {v0}% 감소",
+        "name": "- 가열"
+      },
+      "gloves.01f908e7116484585d06": {
+        "template": "플레이어에게 적용되는 동결 지속시간 {v0}% 감소",
+        "name": "- 동결 해제"
+      },
+      "gloves.800df92e04f00bda2b5d": {
+        "template": "플레이어에게 적용되는 동결 지속시간 {v0}% 감소",
+        "name": "- 해동"
+      },
+      "gloves.54227e6465a92da12141": {
+        "template": "플레이어에게 적용되는 동결 지속시간 {v0}% 감소",
+        "name": "- 온화"
+      },
+      "gloves.5c91036053f855bc125d": {
+        "template": "플레이어에게 적용되는 동결 지속시간 {v0}% 감소",
+        "name": "- 녹이기"
+      },
+      "gloves.7a1cb82f9941622df45f": {
+        "template": "회피 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "모기의"
+      },
+      "gloves.da3425effc030b1423b1": {
+        "template": "회피 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "나방의"
+      },
+      "gloves.9c79c7afe8fe4d5bb112": {
+        "template": "회피 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "나비의"
+      },
+      "gloves.252f083fc53803013d4d": {
+        "template": "회피 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "말벌의"
+      },
+      "gloves.37dee6518d783c907c96": {
+        "template": "회피 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "잠자리의"
+      },
+      "gloves.fe0347b8d8d1afa5071e": {
+        "template": "회피 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "벌새의"
+      },
+      "gloves.1bb470c01030f125febf": {
+        "template": "에너지 보호막 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "픽시의"
+      },
+      "gloves.b19a0b5ed5a508e5faa2": {
+        "template": "에너지 보호막 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "그렘린의"
+      },
+      "gloves.606c2101e044db2df53b": {
+        "template": "에너지 보호막 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "보가트의"
+      },
+      "gloves.954e4c691f7e46d3f48d": {
+        "template": "에너지 보호막 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "나가의"
+      },
+      "gloves.0fbd23e36ba4539f3976": {
+        "template": "에너지 보호막 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "지니의"
+      },
+      "gloves.e3071b5a5689253e92cc": {
+        "template": "에너지 보호막 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "고위 천사의"
+      },
+      "gloves.c11eb95b35740ed41002": {
+        "template": "방어도 및 회피 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "대장의"
+      },
+      "gloves.ecda6aa605727bcf0f80": {
+        "template": "방어도 및 회피 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "지휘관의"
+      },
+      "gloves.6304fc17b8c57d400095": {
+        "template": "방어도 및 회피 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "거물의"
+      },
+      "gloves.53ddd158c7a6f7c28ff7": {
+        "template": "방어도 및 회피 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "원수의"
+      },
+      "gloves.7f7e4b3f897b1c74060e": {
+        "template": "방어도 및 회피 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "장군의"
+      },
+      "gloves.233a9713f59ad8a25b31": {
+        "template": "방어도 및 회피 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "전쟁군주의"
+      },
+      "gloves.0229e1a233a965205061": {
+        "template": "방어도 및 에너지 보호막 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "방어자의"
+      },
+      "gloves.5b664c42869d2dc0ab27": {
+        "template": "방어도 및 에너지 보호막 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "보호자의"
+      },
+      "gloves.08e132fef027704a516f": {
+        "template": "방어도 및 에너지 보호막 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "보관자의"
+      },
+      "gloves.0365aabb3c078ace057d": {
+        "template": "방어도 및 에너지 보호막 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "가디언의"
+      },
+      "gloves.9db6cb8b272b63ab5e1b": {
+        "template": "방어도 및 에너지 보호막 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "간수의"
+      },
+      "gloves.7bfa5364798ea3bc94ba": {
+        "template": "방어도 및 에너지 보호막 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "파수꾼의"
+      },
+      "gloves.7a9286c24b1e5749cefa": {
+        "template": "회피 및 에너지 보호막 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "직관의"
+      },
+      "gloves.c90d3cf62b1defc6dac5": {
+        "template": "회피 및 에너지 보호막 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "심령의"
+      },
+      "gloves.e37f60b42dbb921e7493": {
+        "template": "회피 및 에너지 보호막 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "정신 감응의"
+      },
+      "gloves.7743799ae913630804cc": {
+        "template": "회피 및 에너지 보호막 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "환상술사의"
+      },
+      "gloves.d41a25ba0f71a19f0e7d": {
+        "template": "회피 및 에너지 보호막 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "유심론자의"
+      },
+      "gloves.4112bbc13fe727afda06": {
+        "template": "회피 및 에너지 보호막 {v0}% 증가\n기절 한계치 {v1}",
+        "name": "트릭스터의"
       }
     },
     "zh-CN": {
@@ -61572,6 +63462,238 @@
       "gloves.5f53bbf3f26bcfa172fe": {
         "template": "护甲与能量护盾提高 {v0}%\n{v1} 魔力上限",
         "name": "鲸鱼的"
+      },
+      "gloves.288618defa7105b84351": {
+        "template": "护甲提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "甲虫的"
+      },
+      "gloves.bd3b2c6452833b7d74fc": {
+        "template": "护甲提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "螃蟹的"
+      },
+      "gloves.5c5e6d1742d8f1cdd0e1": {
+        "template": "护甲提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "犰狳的"
+      },
+      "gloves.aa150fe342bd1a231b2b": {
+        "template": "护甲提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "犀牛的"
+      },
+      "gloves.678875597ac018b09a2c": {
+        "template": "护甲提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "大象的"
+      },
+      "gloves.455e334e251c7d1af5f4": {
+        "template": "护甲提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "长毛象的"
+      },
+      "gloves.067eddf4bd9f25cc858c": {
+        "template": "{v0} 晕眩阈值",
+        "name": "钛金皮之"
+      },
+      "gloves.8be567c056de46eb852d": {
+        "template": "移动速度提高 {v0}%",
+        "name": "跑步的"
+      },
+      "gloves.3d600fea162f699ab343": {
+        "template": "移动速度提高 {v0}%",
+        "name": "短跑的"
+      },
+      "gloves.845e727a35d842a490a3": {
+        "template": "移动速度提高 {v0}%",
+        "name": "种马的"
+      },
+      "gloves.7d9863739f51c576382d": {
+        "template": "移动速度提高 {v0}%",
+        "name": "瞪羚的"
+      },
+      "gloves.8ef52013bb1125039ce7": {
+        "template": "移动速度提高 {v0}%",
+        "name": "猎豹的"
+      },
+      "gloves.efb098aaf6e3a2600f52": {
+        "template": "移动速度提高 {v0}%",
+        "name": "地狱的"
+      },
+      "gloves.235eae956b8ac3a51dec": {
+        "template": "你被感电的持续时间降低 {v0}%",
+        "name": "下地之"
+      },
+      "gloves.86c6358c96e363789420": {
+        "template": "你被感电的持续时间降低 {v0}%",
+        "name": "隔绝之"
+      },
+      "gloves.b32d0372b17799741bab": {
+        "template": "你被感电的持续时间降低 {v0}%",
+        "name": "阻抗之"
+      },
+      "gloves.c74704e79f7cc7a73375": {
+        "template": "你被感电的持续时间降低 {v0}%",
+        "name": "电介之"
+      },
+      "gloves.570062c36bf637e03063": {
+        "template": "你被感电的持续时间降低 {v0}%",
+        "name": "接地之"
+      },
+      "gloves.507a9493fd00e8bda3bf": {
+        "template": "你被冰缓的持续时间降低 {v0}%",
+        "name": "对流之"
+      },
+      "gloves.587d0040ee055814783a": {
+        "template": "你被冰缓的持续时间降低 {v0}%",
+        "name": "流动之"
+      },
+      "gloves.c1be734bb601fc4a013d": {
+        "template": "你被冰缓的持续时间降低 {v0}%",
+        "name": "熵热之"
+      },
+      "gloves.8e52680f431fd7c8f790": {
+        "template": "你被冰缓的持续时间降低 {v0}%",
+        "name": "消融之"
+      },
+      "gloves.c78e1b4a18c2f9f6cf1d": {
+        "template": "你被冰缓的持续时间降低 {v0}%",
+        "name": "扭转之"
+      },
+      "gloves.06ac3c222c22e74049e7": {
+        "template": "你被冻结的持续时间降低 {v0}%",
+        "name": "加热之"
+      },
+      "gloves.01f908e7116484585d06": {
+        "template": "你被冻结的持续时间降低 {v0}%",
+        "name": "解冻之"
+      },
+      "gloves.800df92e04f00bda2b5d": {
+        "template": "你被冻结的持续时间降低 {v0}%",
+        "name": "除霜之"
+      },
+      "gloves.54227e6465a92da12141": {
+        "template": "你被冻结的持续时间降低 {v0}%",
+        "name": "热温之"
+      },
+      "gloves.5c91036053f855bc125d": {
+        "template": "你被冻结的持续时间降低 {v0}%",
+        "name": "熔解之"
+      },
+      "gloves.7a1cb82f9941622df45f": {
+        "template": "闪避值提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "蚊子的"
+      },
+      "gloves.da3425effc030b1423b1": {
+        "template": "闪避值提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "飞蛾的"
+      },
+      "gloves.9c79c7afe8fe4d5bb112": {
+        "template": "闪避值提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "蝴蝶的"
+      },
+      "gloves.252f083fc53803013d4d": {
+        "template": "闪避值提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "黄蜂的"
+      },
+      "gloves.37dee6518d783c907c96": {
+        "template": "闪避值提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "蜻蜓的"
+      },
+      "gloves.fe0347b8d8d1afa5071e": {
+        "template": "闪避值提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "蜂鸟的"
+      },
+      "gloves.1bb470c01030f125febf": {
+        "template": "能量护盾提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "妖精的"
+      },
+      "gloves.b19a0b5ed5a508e5faa2": {
+        "template": "能量护盾提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "小魔怪的"
+      },
+      "gloves.606c2101e044db2df53b": {
+        "template": "能量护盾提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "幻形怪的"
+      },
+      "gloves.954e4c691f7e46d3f48d": {
+        "template": "能量护盾提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "纳迦的"
+      },
+      "gloves.0fbd23e36ba4539f3976": {
+        "template": "能量护盾提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "巨灵的"
+      },
+      "gloves.e3071b5a5689253e92cc": {
+        "template": "能量护盾提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "六翼天使的"
+      },
+      "gloves.c11eb95b35740ed41002": {
+        "template": "护甲与闪避提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "队长的"
+      },
+      "gloves.ecda6aa605727bcf0f80": {
+        "template": "护甲与闪避提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "军官的"
+      },
+      "gloves.6304fc17b8c57d400095": {
+        "template": "护甲与闪避提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "头目的"
+      },
+      "gloves.53ddd158c7a6f7c28ff7": {
+        "template": "护甲与闪避提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "元帅的"
+      },
+      "gloves.7f7e4b3f897b1c74060e": {
+        "template": "护甲与闪避提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "将军的"
+      },
+      "gloves.233a9713f59ad8a25b31": {
+        "template": "护甲与闪避提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "督军的"
+      },
+      "gloves.0229e1a233a965205061": {
+        "template": "护甲与能量护盾提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "守护者的"
+      },
+      "gloves.5b664c42869d2dc0ab27": {
+        "template": "护甲与能量护盾提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "保护者的"
+      },
+      "gloves.08e132fef027704a516f": {
+        "template": "护甲与能量护盾提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "庇护者的"
+      },
+      "gloves.0365aabb3c078ace057d": {
+        "template": "护甲与能量护盾提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "守卫者的"
+      },
+      "gloves.9db6cb8b272b63ab5e1b": {
+        "template": "护甲与能量护盾提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "监守者的"
+      },
+      "gloves.7bfa5364798ea3bc94ba": {
+        "template": "护甲与能量护盾提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "哨兵的"
+      },
+      "gloves.7a9286c24b1e5749cefa": {
+        "template": "闪避与能量护盾提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "直觉的"
+      },
+      "gloves.c90d3cf62b1defc6dac5": {
+        "template": "闪避与能量护盾提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "心思的"
+      },
+      "gloves.e37f60b42dbb921e7493": {
+        "template": "闪避与能量护盾提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "传感的"
+      },
+      "gloves.7743799ae913630804cc": {
+        "template": "闪避与能量护盾提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "幻术师的"
+      },
+      "gloves.d41a25ba0f71a19f0e7d": {
+        "template": "闪避与能量护盾提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "卜算师的"
+      },
+      "gloves.4112bbc13fe727afda06": {
+        "template": "闪避与能量护盾提高 {v0}%\n{v1} 晕眩阈值",
+        "name": "欺诈师的"
       }
     },
     "zh-TW": {
@@ -69074,6 +71196,238 @@
       "gloves.5f53bbf3f26bcfa172fe": {
         "template": "增加{v0}%護甲值和能量護盾\n{v1}最大魔力",
         "name": "鯨魚的"
+      },
+      "gloves.288618defa7105b84351": {
+        "template": "增加{v0}%護甲值\n暈眩門檻{v1}",
+        "name": "甲蟲的"
+      },
+      "gloves.bd3b2c6452833b7d74fc": {
+        "template": "增加{v0}%護甲值\n暈眩門檻{v1}",
+        "name": "螃蟹的"
+      },
+      "gloves.5c5e6d1742d8f1cdd0e1": {
+        "template": "增加{v0}%護甲值\n暈眩門檻{v1}",
+        "name": "犰狳的"
+      },
+      "gloves.aa150fe342bd1a231b2b": {
+        "template": "增加{v0}%護甲值\n暈眩門檻{v1}",
+        "name": "犀牛的"
+      },
+      "gloves.678875597ac018b09a2c": {
+        "template": "增加{v0}%護甲值\n暈眩門檻{v1}",
+        "name": "大象的"
+      },
+      "gloves.455e334e251c7d1af5f4": {
+        "template": "增加{v0}%護甲值\n暈眩門檻{v1}",
+        "name": "長毛象的"
+      },
+      "gloves.067eddf4bd9f25cc858c": {
+        "template": "暈眩門檻{v0}",
+        "name": "鈦膚之"
+      },
+      "gloves.8be567c056de46eb852d": {
+        "template": "增加{v0}%移動速度",
+        "name": "跑步的"
+      },
+      "gloves.3d600fea162f699ab343": {
+        "template": "增加{v0}%移動速度",
+        "name": "短跑的"
+      },
+      "gloves.845e727a35d842a490a3": {
+        "template": "增加{v0}%移動速度",
+        "name": "種馬的"
+      },
+      "gloves.7d9863739f51c576382d": {
+        "template": "增加{v0}%移動速度",
+        "name": "瞪羚的"
+      },
+      "gloves.8ef52013bb1125039ce7": {
+        "template": "增加{v0}%移動速度",
+        "name": "獵豹的"
+      },
+      "gloves.efb098aaf6e3a2600f52": {
+        "template": "增加{v0}%移動速度",
+        "name": "惡徒的"
+      },
+      "gloves.235eae956b8ac3a51dec": {
+        "template": "減少{v0}%你身上的感電持續時間",
+        "name": "接地之"
+      },
+      "gloves.86c6358c96e363789420": {
+        "template": "減少{v0}%你身上的感電持續時間",
+        "name": "隔絕之"
+      },
+      "gloves.b32d0372b17799741bab": {
+        "template": "減少{v0}%你身上的感電持續時間",
+        "name": "阻抗之"
+      },
+      "gloves.c74704e79f7cc7a73375": {
+        "template": "減少{v0}%你身上的感電持續時間",
+        "name": "電介質之"
+      },
+      "gloves.570062c36bf637e03063": {
+        "template": "減少{v0}%你身上的感電持續時間",
+        "name": "接地之"
+      },
+      "gloves.507a9493fd00e8bda3bf": {
+        "template": "減少{v0}%你身上的冰緩持續時間",
+        "name": "對流之"
+      },
+      "gloves.587d0040ee055814783a": {
+        "template": "減少{v0}%你身上的冰緩持續時間",
+        "name": "流動之"
+      },
+      "gloves.c1be734bb601fc4a013d": {
+        "template": "減少{v0}%你身上的冰緩持續時間",
+        "name": "亂世之"
+      },
+      "gloves.8e52680f431fd7c8f790": {
+        "template": "減少{v0}%你身上的冰緩持續時間",
+        "name": "消散之"
+      },
+      "gloves.c78e1b4a18c2f9f6cf1d": {
+        "template": "減少{v0}%你身上的冰緩持續時間",
+        "name": "逆轉之"
+      },
+      "gloves.06ac3c222c22e74049e7": {
+        "template": "減少{v0}%你身上的冰凍持續時間",
+        "name": "警告之"
+      },
+      "gloves.01f908e7116484585d06": {
+        "template": "減少{v0}%你身上的冰凍持續時間",
+        "name": "解凍之"
+      },
+      "gloves.800df92e04f00bda2b5d": {
+        "template": "減少{v0}%你身上的冰凍持續時間",
+        "name": "除霜之"
+      },
+      "gloves.54227e6465a92da12141": {
+        "template": "減少{v0}%你身上的冰凍持續時間",
+        "name": "溫和之"
+      },
+      "gloves.5c91036053f855bc125d": {
+        "template": "減少{v0}%你身上的冰凍持續時間",
+        "name": "解凍之"
+      },
+      "gloves.7a1cb82f9941622df45f": {
+        "template": "增加{v0}%閃避值\n暈眩門檻{v1}",
+        "name": "蚊子的"
+      },
+      "gloves.da3425effc030b1423b1": {
+        "template": "增加{v0}%閃避值\n暈眩門檻{v1}",
+        "name": "飛蛾的"
+      },
+      "gloves.9c79c7afe8fe4d5bb112": {
+        "template": "增加{v0}%閃避值\n暈眩門檻{v1}",
+        "name": "蝴蝶的"
+      },
+      "gloves.252f083fc53803013d4d": {
+        "template": "增加{v0}%閃避值\n暈眩門檻{v1}",
+        "name": "黃蜂的"
+      },
+      "gloves.37dee6518d783c907c96": {
+        "template": "增加{v0}%閃避值\n暈眩門檻{v1}",
+        "name": "蜻蜓的"
+      },
+      "gloves.fe0347b8d8d1afa5071e": {
+        "template": "增加{v0}%閃避值\n暈眩門檻{v1}",
+        "name": "蜂鳥的"
+      },
+      "gloves.1bb470c01030f125febf": {
+        "template": "增加{v0}%能量護盾\n暈眩門檻{v1}",
+        "name": "妖精的"
+      },
+      "gloves.b19a0b5ed5a508e5faa2": {
+        "template": "增加{v0}%能量護盾\n暈眩門檻{v1}",
+        "name": "小魔怪的"
+      },
+      "gloves.606c2101e044db2df53b": {
+        "template": "增加{v0}%能量護盾\n暈眩門檻{v1}",
+        "name": "幻形怪的"
+      },
+      "gloves.954e4c691f7e46d3f48d": {
+        "template": "增加{v0}%能量護盾\n暈眩門檻{v1}",
+        "name": "納迦的"
+      },
+      "gloves.0fbd23e36ba4539f3976": {
+        "template": "增加{v0}%能量護盾\n暈眩門檻{v1}",
+        "name": "巨靈的"
+      },
+      "gloves.e3071b5a5689253e92cc": {
+        "template": "增加{v0}%能量護盾\n暈眩門檻{v1}",
+        "name": "六翼天使的"
+      },
+      "gloves.c11eb95b35740ed41002": {
+        "template": "增加{v0}%護甲值和閃避\n暈眩門檻{v1}",
+        "name": "統帥的"
+      },
+      "gloves.ecda6aa605727bcf0f80": {
+        "template": "增加{v0}%護甲值和閃避\n暈眩門檻{v1}",
+        "name": "指揮官的"
+      },
+      "gloves.6304fc17b8c57d400095": {
+        "template": "增加{v0}%護甲值和閃避\n暈眩門檻{v1}",
+        "name": "大亨的"
+      },
+      "gloves.53ddd158c7a6f7c28ff7": {
+        "template": "增加{v0}%護甲值和閃避\n暈眩門檻{v1}",
+        "name": "元帥的"
+      },
+      "gloves.7f7e4b3f897b1c74060e": {
+        "template": "增加{v0}%護甲值和閃避\n暈眩門檻{v1}",
+        "name": "將軍的"
+      },
+      "gloves.233a9713f59ad8a25b31": {
+        "template": "增加{v0}%護甲值和閃避\n暈眩門檻{v1}",
+        "name": "督軍的"
+      },
+      "gloves.0229e1a233a965205061": {
+        "template": "增加{v0}%護甲值和能量護盾\n暈眩門檻{v1}",
+        "name": "防衛者的"
+      },
+      "gloves.5b664c42869d2dc0ab27": {
+        "template": "增加{v0}%護甲值和能量護盾\n暈眩門檻{v1}",
+        "name": "保護者的"
+      },
+      "gloves.08e132fef027704a516f": {
+        "template": "增加{v0}%護甲值和能量護盾\n暈眩門檻{v1}",
+        "name": "守護者的"
+      },
+      "gloves.0365aabb3c078ace057d": {
+        "template": "增加{v0}%護甲值和能量護盾\n暈眩門檻{v1}",
+        "name": "守護者的"
+      },
+      "gloves.9db6cb8b272b63ab5e1b": {
+        "template": "增加{v0}%護甲值和能量護盾\n暈眩門檻{v1}",
+        "name": "守護者的"
+      },
+      "gloves.7bfa5364798ea3bc94ba": {
+        "template": "增加{v0}%護甲值和能量護盾\n暈眩門檻{v1}",
+        "name": "守望的"
+      },
+      "gloves.7a9286c24b1e5749cefa": {
+        "template": "增加{v0}%閃避和能量護盾\n暈眩門檻{v1}",
+        "name": "直覺"
+      },
+      "gloves.c90d3cf62b1defc6dac5": {
+        "template": "增加{v0}%閃避和能量護盾\n暈眩門檻{v1}",
+        "name": "幽能"
+      },
+      "gloves.e37f60b42dbb921e7493": {
+        "template": "增加{v0}%閃避和能量護盾\n暈眩門檻{v1}",
+        "name": "傳心的"
+      },
+      "gloves.7743799ae913630804cc": {
+        "template": "增加{v0}%閃避和能量護盾\n暈眩門檻{v1}",
+        "name": "神幻術士的"
+      },
+      "gloves.d41a25ba0f71a19f0e7d": {
+        "template": "增加{v0}%閃避和能量護盾\n暈眩門檻{v1}",
+        "name": "超感者的"
+      },
+      "gloves.4112bbc13fe727afda06": {
+        "template": "增加{v0}%閃避和能量護盾\n暈眩門檻{v1}",
+        "name": "欺詐者的"
       }
     },
     "ja": {
@@ -76576,6 +78930,238 @@
       "gloves.5f53bbf3f26bcfa172fe": {
         "template": "アーマーおよびエナジーシールドが{v0}%増加する\n最大マナ {v1}",
         "name": "クジラの"
+      },
+      "gloves.288618defa7105b84351": {
+        "template": "アーマーが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "甲虫の"
+      },
+      "gloves.bd3b2c6452833b7d74fc": {
+        "template": "アーマーが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "カニの"
+      },
+      "gloves.5c5e6d1742d8f1cdd0e1": {
+        "template": "アーマーが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "アルマジロの"
+      },
+      "gloves.aa150fe342bd1a231b2b": {
+        "template": "アーマーが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "サイの"
+      },
+      "gloves.678875597ac018b09a2c": {
+        "template": "アーマーが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "象の"
+      },
+      "gloves.455e334e251c7d1af5f4": {
+        "template": "アーマーが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "マンモスの"
+      },
+      "gloves.067eddf4bd9f25cc858c": {
+        "template": "スタン閾値 {v0}",
+        "name": "チタンの肌の"
+      },
+      "gloves.8be567c056de46eb852d": {
+        "template": "移動スピードが{v0}%増加する",
+        "name": "走者の"
+      },
+      "gloves.3d600fea162f699ab343": {
+        "template": "移動スピードが{v0}%増加する",
+        "name": "競走者の"
+      },
+      "gloves.845e727a35d842a490a3": {
+        "template": "移動スピードが{v0}%増加する",
+        "name": "牡馬の"
+      },
+      "gloves.7d9863739f51c576382d": {
+        "template": "移動スピードが{v0}%増加する",
+        "name": "ガゼルの"
+      },
+      "gloves.8ef52013bb1125039ce7": {
+        "template": "移動スピードが{v0}%増加する",
+        "name": "チーターの"
+      },
+      "gloves.efb098aaf6e3a2600f52": {
+        "template": "移動スピードが{v0}%増加する",
+        "name": "ヘリオンの"
+      },
+      "gloves.235eae956b8ac3a51dec": {
+        "template": "受ける感電の持続時間が{v0}%減少する",
+        "name": "接地の"
+      },
+      "gloves.86c6358c96e363789420": {
+        "template": "受ける感電の持続時間が{v0}%減少する",
+        "name": "絶縁の"
+      },
+      "gloves.b32d0372b17799741bab": {
+        "template": "受ける感電の持続時間が{v0}%減少する",
+        "name": "抵抗の"
+      },
+      "gloves.c74704e79f7cc7a73375": {
+        "template": "受ける感電の持続時間が{v0}%減少する",
+        "name": "誘電の"
+      },
+      "gloves.570062c36bf637e03063": {
+        "template": "受ける感電の持続時間が{v0}%減少する",
+        "name": "グランドの"
+      },
+      "gloves.507a9493fd00e8bda3bf": {
+        "template": "受ける冷却の持続時間が{v0}%減少する",
+        "name": "対流の"
+      },
+      "gloves.587d0040ee055814783a": {
+        "template": "受ける冷却の持続時間が{v0}%減少する",
+        "name": "流動性の"
+      },
+      "gloves.c1be734bb601fc4a013d": {
+        "template": "受ける冷却の持続時間が{v0}%減少する",
+        "name": "エントロピーの"
+      },
+      "gloves.8e52680f431fd7c8f790": {
+        "template": "受ける冷却の持続時間が{v0}%減少する",
+        "name": "霧散の"
+      },
+      "gloves.c78e1b4a18c2f9f6cf1d": {
+        "template": "受ける冷却の持続時間が{v0}%減少する",
+        "name": "逆転の"
+      },
+      "gloves.06ac3c222c22e74049e7": {
+        "template": "受ける凍結の持続時間が{v0}%減少する",
+        "name": "加熱の"
+      },
+      "gloves.01f908e7116484585d06": {
+        "template": "受ける凍結の持続時間が{v0}%減少する",
+        "name": "解凍の"
+      },
+      "gloves.800df92e04f00bda2b5d": {
+        "template": "受ける凍結の持続時間が{v0}%減少する",
+        "name": "除霜の"
+      },
+      "gloves.54227e6465a92da12141": {
+        "template": "受ける凍結の持続時間が{v0}%減少する",
+        "name": "温暖の"
+      },
+      "gloves.5c91036053f855bc125d": {
+        "template": "受ける凍結の持続時間が{v0}%減少する",
+        "name": "雪解けの"
+      },
+      "gloves.7a1cb82f9941622df45f": {
+        "template": "回避力が{v0}%増加する\nスタン閾値 {v1}",
+        "name": "蚊の"
+      },
+      "gloves.da3425effc030b1423b1": {
+        "template": "回避力が{v0}%増加する\nスタン閾値 {v1}",
+        "name": "蛾の"
+      },
+      "gloves.9c79c7afe8fe4d5bb112": {
+        "template": "回避力が{v0}%増加する\nスタン閾値 {v1}",
+        "name": "蝶の"
+      },
+      "gloves.252f083fc53803013d4d": {
+        "template": "回避力が{v0}%増加する\nスタン閾値 {v1}",
+        "name": "スズメバチの"
+      },
+      "gloves.37dee6518d783c907c96": {
+        "template": "回避力が{v0}%増加する\nスタン閾値 {v1}",
+        "name": "蜻蛉の"
+      },
+      "gloves.fe0347b8d8d1afa5071e": {
+        "template": "回避力が{v0}%増加する\nスタン閾値 {v1}",
+        "name": "ハチドリの"
+      },
+      "gloves.1bb470c01030f125febf": {
+        "template": "エナジーシールドが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "ピクシーの"
+      },
+      "gloves.b19a0b5ed5a508e5faa2": {
+        "template": "エナジーシールドが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "グレムリンの"
+      },
+      "gloves.606c2101e044db2df53b": {
+        "template": "エナジーシールドが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "ボガートの"
+      },
+      "gloves.954e4c691f7e46d3f48d": {
+        "template": "エナジーシールドが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "ナーガの"
+      },
+      "gloves.0fbd23e36ba4539f3976": {
+        "template": "エナジーシールドが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "ジンの"
+      },
+      "gloves.e3071b5a5689253e92cc": {
+        "template": "エナジーシールドが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "熾天使の"
+      },
+      "gloves.c11eb95b35740ed41002": {
+        "template": "アーマーおよび回避力が{v0}%増加する\nスタン閾値 {v1}",
+        "name": "隊長の"
+      },
+      "gloves.ecda6aa605727bcf0f80": {
+        "template": "アーマーおよび回避力が{v0}%増加する\nスタン閾値 {v1}",
+        "name": "司令官の"
+      },
+      "gloves.6304fc17b8c57d400095": {
+        "template": "アーマーおよび回避力が{v0}%増加する\nスタン閾値 {v1}",
+        "name": "有力者の"
+      },
+      "gloves.53ddd158c7a6f7c28ff7": {
+        "template": "アーマーおよび回避力が{v0}%増加する\nスタン閾値 {v1}",
+        "name": "元帥の"
+      },
+      "gloves.7f7e4b3f897b1c74060e": {
+        "template": "アーマーおよび回避力が{v0}%増加する\nスタン閾値 {v1}",
+        "name": "大将の"
+      },
+      "gloves.233a9713f59ad8a25b31": {
+        "template": "アーマーおよび回避力が{v0}%増加する\nスタン閾値 {v1}",
+        "name": "武将の"
+      },
+      "gloves.0229e1a233a965205061": {
+        "template": "アーマーおよびエナジーシールドが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "防衛者の"
+      },
+      "gloves.5b664c42869d2dc0ab27": {
+        "template": "アーマーおよびエナジーシールドが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "保護者の"
+      },
+      "gloves.08e132fef027704a516f": {
+        "template": "アーマーおよびエナジーシールドが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "守り人の"
+      },
+      "gloves.0365aabb3c078ace057d": {
+        "template": "アーマーおよびエナジーシールドが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "守護者の"
+      },
+      "gloves.9db6cb8b272b63ab5e1b": {
+        "template": "アーマーおよびエナジーシールドが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "番人の"
+      },
+      "gloves.7bfa5364798ea3bc94ba": {
+        "template": "アーマーおよびエナジーシールドが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "衛兵の"
+      },
+      "gloves.7a9286c24b1e5749cefa": {
+        "template": "回避力およびエナジーシールドが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "直感的な"
+      },
+      "gloves.c90d3cf62b1defc6dac5": {
+        "template": "回避力およびエナジーシールドが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "超能力の"
+      },
+      "gloves.e37f60b42dbb921e7493": {
+        "template": "回避力およびエナジーシールドが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "テレパスの"
+      },
+      "gloves.7743799ae913630804cc": {
+        "template": "回避力およびエナジーシールドが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "幻術師の"
+      },
+      "gloves.d41a25ba0f71a19f0e7d": {
+        "template": "回避力およびエナジーシールドが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "メンタリストの"
+      },
+      "gloves.4112bbc13fe727afda06": {
+        "template": "回避力およびエナジーシールドが{v0}%増加する\nスタン閾値 {v1}",
+        "name": "トリックスターの"
       }
     },
     "es": {
@@ -84078,6 +86664,238 @@
       "gloves.5f53bbf3f26bcfa172fe": {
         "template": "Armadura y escudo de energía aumentados un {v0}%\n{v1} al maná máximo",
         "name": "de la ballena"
+      },
+      "gloves.288618defa7105b84351": {
+        "template": "Armadura aumentada un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del escarabajo"
+      },
+      "gloves.bd3b2c6452833b7d74fc": {
+        "template": "Armadura aumentada un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del cangrejo"
+      },
+      "gloves.5c5e6d1742d8f1cdd0e1": {
+        "template": "Armadura aumentada un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del armadillo"
+      },
+      "gloves.aa150fe342bd1a231b2b": {
+        "template": "Armadura aumentada un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del rinoceronte"
+      },
+      "gloves.678875597ac018b09a2c": {
+        "template": "Armadura aumentada un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del elefante"
+      },
+      "gloves.455e334e251c7d1af5f4": {
+        "template": "Armadura aumentada un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del mamut"
+      },
+      "gloves.067eddf4bd9f25cc858c": {
+        "template": "{v0} al umbral de aturdimiento",
+        "name": "de piel de titanio"
+      },
+      "gloves.8be567c056de46eb852d": {
+        "template": "Velocidad de movimiento aumentada un {v0}%",
+        "name": "del corredor"
+      },
+      "gloves.3d600fea162f699ab343": {
+        "template": "Velocidad de movimiento aumentada un {v0}%",
+        "name": "del velocista"
+      },
+      "gloves.845e727a35d842a490a3": {
+        "template": "Velocidad de movimiento aumentada un {v0}%",
+        "name": "del semental"
+      },
+      "gloves.7d9863739f51c576382d": {
+        "template": "Velocidad de movimiento aumentada un {v0}%",
+        "name": "de la gacela"
+      },
+      "gloves.8ef52013bb1125039ce7": {
+        "template": "Velocidad de movimiento aumentada un {v0}%",
+        "name": "del guepardo"
+      },
+      "gloves.efb098aaf6e3a2600f52": {
+        "template": "Velocidad de movimiento aumentada un {v0}%",
+        "name": "de la fiera"
+      },
+      "gloves.235eae956b8ac3a51dec": {
+        "template": "Duración de la electrocución reducida un {v0}% sobre ti",
+        "name": "de terrenidad"
+      },
+      "gloves.86c6358c96e363789420": {
+        "template": "Duración de la electrocución reducida un {v0}% sobre ti",
+        "name": "de aislamiento"
+      },
+      "gloves.b32d0372b17799741bab": {
+        "template": "Duración de la electrocución reducida un {v0}% sobre ti",
+        "name": "de impedancia"
+      },
+      "gloves.c74704e79f7cc7a73375": {
+        "template": "Duración de la electrocución reducida un {v0}% sobre ti",
+        "name": "del dieléctrico"
+      },
+      "gloves.570062c36bf637e03063": {
+        "template": "Duración de la electrocución reducida un {v0}% sobre ti",
+        "name": "de aterrizaje"
+      },
+      "gloves.507a9493fd00e8bda3bf": {
+        "template": "Duración del escarchamiento reducida un {v0}% sobre ti",
+        "name": "de convección"
+      },
+      "gloves.587d0040ee055814783a": {
+        "template": "Duración del escarchamiento reducida un {v0}% sobre ti",
+        "name": "de fluidez"
+      },
+      "gloves.c1be734bb601fc4a013d": {
+        "template": "Duración del escarchamiento reducida un {v0}% sobre ti",
+        "name": "de entropía"
+      },
+      "gloves.8e52680f431fd7c8f790": {
+        "template": "Duración del escarchamiento reducida un {v0}% sobre ti",
+        "name": "de disipación"
+      },
+      "gloves.c78e1b4a18c2f9f6cf1d": {
+        "template": "Duración del escarchamiento reducida un {v0}% sobre ti",
+        "name": "de revés"
+      },
+      "gloves.06ac3c222c22e74049e7": {
+        "template": "Duración del congelamiento reducida un {v0}% sobre ti",
+        "name": "de acaloramiento"
+      },
+      "gloves.01f908e7116484585d06": {
+        "template": "Duración del congelamiento reducida un {v0}% sobre ti",
+        "name": "de descongelamiento"
+      },
+      "gloves.800df92e04f00bda2b5d": {
+        "template": "Duración del congelamiento reducida un {v0}% sobre ti",
+        "name": "de derretimiento"
+      },
+      "gloves.54227e6465a92da12141": {
+        "template": "Duración del congelamiento reducida un {v0}% sobre ti",
+        "name": "de tibieza"
+      },
+      "gloves.5c91036053f855bc125d": {
+        "template": "Duración del congelamiento reducida un {v0}% sobre ti",
+        "name": "de deshielo"
+      },
+      "gloves.7a1cb82f9941622df45f": {
+        "template": "Evasión aumentada un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del mosquito"
+      },
+      "gloves.da3425effc030b1423b1": {
+        "template": "Evasión aumentada un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "de la polilla"
+      },
+      "gloves.9c79c7afe8fe4d5bb112": {
+        "template": "Evasión aumentada un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "de la mariposa"
+      },
+      "gloves.252f083fc53803013d4d": {
+        "template": "Evasión aumentada un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "de la avispa"
+      },
+      "gloves.37dee6518d783c907c96": {
+        "template": "Evasión aumentada un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "de la libélula"
+      },
+      "gloves.fe0347b8d8d1afa5071e": {
+        "template": "Evasión aumentada un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del colibrí"
+      },
+      "gloves.1bb470c01030f125febf": {
+        "template": "Escudo de energía aumentado un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del hada"
+      },
+      "gloves.b19a0b5ed5a508e5faa2": {
+        "template": "Escudo de energía aumentado un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del gremlin"
+      },
+      "gloves.606c2101e044db2df53b": {
+        "template": "Escudo de energía aumentado un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del boggart"
+      },
+      "gloves.954e4c691f7e46d3f48d": {
+        "template": "Escudo de energía aumentado un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del naga"
+      },
+      "gloves.0fbd23e36ba4539f3976": {
+        "template": "Escudo de energía aumentado un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del genio"
+      },
+      "gloves.e3071b5a5689253e92cc": {
+        "template": "Escudo de energía aumentado un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del serafín"
+      },
+      "gloves.c11eb95b35740ed41002": {
+        "template": "Armadura y evasión aumentadas un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del capitán"
+      },
+      "gloves.ecda6aa605727bcf0f80": {
+        "template": "Armadura y evasión aumentadas un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del comandante"
+      },
+      "gloves.6304fc17b8c57d400095": {
+        "template": "Armadura y evasión aumentadas un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del magnate"
+      },
+      "gloves.53ddd158c7a6f7c28ff7": {
+        "template": "Armadura y evasión aumentadas un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del mariscal"
+      },
+      "gloves.7f7e4b3f897b1c74060e": {
+        "template": "Armadura y evasión aumentadas un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del general"
+      },
+      "gloves.233a9713f59ad8a25b31": {
+        "template": "Armadura y evasión aumentadas un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del jefe de guerra"
+      },
+      "gloves.0229e1a233a965205061": {
+        "template": "Armadura y escudo de energía aumentados un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del defensor"
+      },
+      "gloves.5b664c42869d2dc0ab27": {
+        "template": "Armadura y escudo de energía aumentados un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del protector"
+      },
+      "gloves.08e132fef027704a516f": {
+        "template": "Armadura y escudo de energía aumentados un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del cuidador"
+      },
+      "gloves.0365aabb3c078ace057d": {
+        "template": "Armadura y escudo de energía aumentados un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del guardián"
+      },
+      "gloves.9db6cb8b272b63ab5e1b": {
+        "template": "Armadura y escudo de energía aumentados un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del vigilante"
+      },
+      "gloves.7bfa5364798ea3bc94ba": {
+        "template": "Armadura y escudo de energía aumentados un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del centinela"
+      },
+      "gloves.7a9286c24b1e5749cefa": {
+        "template": "Evasión y escudo de energía aumentados un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "{intuitivo}{intuitiva}{intuitivos}{intuitivas}"
+      },
+      "gloves.c90d3cf62b1defc6dac5": {
+        "template": "Evasión y escudo de energía aumentados un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "{psíquico}{psíquica}{psíquicos}{psíquicas}"
+      },
+      "gloves.e37f60b42dbb921e7493": {
+        "template": "Evasión y escudo de energía aumentados un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del telépata"
+      },
+      "gloves.7743799ae913630804cc": {
+        "template": "Evasión y escudo de energía aumentados un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del ilusionista"
+      },
+      "gloves.d41a25ba0f71a19f0e7d": {
+        "template": "Evasión y escudo de energía aumentados un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del mentalista"
+      },
+      "gloves.4112bbc13fe727afda06": {
+        "template": "Evasión y escudo de energía aumentados un {v0}%\n{v1} al umbral de aturdimiento",
+        "name": "del embaucador"
       }
     }
   }

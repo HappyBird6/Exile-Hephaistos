@@ -989,7 +989,9 @@ export async function applyCurrency(
   const reviewedKey = topBaseKey(state.baseItemId)
   const reviewedTargets =
     reviewedKey &&
-    ['gloves', 'helmets', 'body'].includes(topBase(reviewedKey)?.family ?? '')
+    ['gloves', 'helmets', 'body', 'boots'].includes(
+      topBase(reviewedKey)?.family ?? '',
+    )
       ? (
           reviewedEssenceTargets as Record<
             string,
