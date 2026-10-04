@@ -4,7 +4,7 @@ import terms from '../../shared/i18n/gameTerms.json'
 import { supportsConcreteStateShape } from './workbenchStateShape'
 import { useItemDraft } from './draft'
 
-describe('reviewed endgame Gloves source and restoration', () => {
+describe('reviewed endgame armour source and restoration', () => {
   it('offers distinct Armour, ES and Armour/ES bases with exact source facts', () => {
     expect(reviewedGloveKeys).toEqual([
       'massive',
@@ -39,6 +39,13 @@ describe('reviewed endgame Gloves source and restoration', () => {
     'freebooter',
     'gladiatorial',
     'grinning',
+    'slipstrike',
+    'death-mail',
+    'sleek',
+    'vile',
+    'wolfskin',
+    'ancestral',
+    'cryptic',
   ] as const)(
     'preserves %s identity and six source names without inventing socket state',
     (key) => {
@@ -62,7 +69,9 @@ describe('reviewed endgame Gloves source and restoration', () => {
       expect(useItemDraft.getState().text).toContain(
         base.family === 'helmets'
           ? 'Item Class: Helmets'
-          : 'Item Class: Gloves',
+          : base.family === 'body'
+            ? 'Item Class: Body Armours'
+            : 'Item Class: Gloves',
       )
       expect(useItemDraft.getState().baseItemLevel).toBe(1)
       const state = {

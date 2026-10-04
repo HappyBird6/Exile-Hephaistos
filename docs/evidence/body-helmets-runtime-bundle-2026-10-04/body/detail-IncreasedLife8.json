@@ -1,0 +1,67 @@
+{
+  "code": "IncreasedLife8",
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife8",
+  "retrievedAt": "2026-10-04T17:53:38.103Z",
+  "sha256": "3f57c4674caee503d336b56076492bd1a225e6e868b8fa1348e17e3e01e4204e",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(100<span class=\"ndash\">—</span>119)</span> to maximum Life</span></h5>   <span data-tabname=\"Virile\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Virile\n<tr><th>Family<td>IncreasedLife\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>54 (Effective: 43)\n<tr><th>Gold Price<td>1002\n<tr><th>Stats<td><li>base maximum life <span class=\"badge bg-primary\">100 <span class=\"ndash\">—</span> 119</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 1</span> <span class='badge bg-primary'>shield: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>12</span>% less damage taken while on [LowLife|Low Life]</table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Virile",
+      "Family": "IncreasedLife",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "54 (Effective: 43)",
+      "Gold Price": "1002",
+      "Stats": "base maximum life 100 — 119 Global",
+      "Spawn Tags": "body_armour: 1 shield: 1 helmet: 1 gloves: 1 boots: 1 belt: 1 amulet: 1 ring: 1 default: 0",
+      "Craft Tags": "resource Life"
+    },
+    "stats": [
+      {
+        "id": "base_maximum_life",
+        "min": 100,
+        "max": 119,
+        "locality": "Global"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "body_armour",
+        "weight": 1
+      },
+      {
+        "tag": "shield",
+        "weight": 1
+      },
+      {
+        "tag": "helmet",
+        "weight": 1
+      },
+      {
+        "tag": "gloves",
+        "weight": 1
+      },
+      {
+        "tag": "boots",
+        "weight": 1
+      },
+      {
+        "tag": "belt",
+        "weight": 1
+      },
+      {
+        "tag": "amulet",
+        "weight": 1
+      },
+      {
+        "tag": "ring",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "+(100—119) to maximum Life"
+  }
+}

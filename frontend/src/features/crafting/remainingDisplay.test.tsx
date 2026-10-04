@@ -22,15 +22,15 @@ type DisplayBinding = {
 }
 const bindings: Record<string, DisplayBinding> = catalog.definitions
 describe('remaining display coverage', () => {
-  it('renders all 290 compound bindings at min/middle/max in all locales with canonical values preserved', () => {
+  it('renders all 342 compound bindings at min/middle/max in all locales with canonical values preserved', () => {
     const compound = Object.entries(bindings).filter(
       ([, b]) =>
         b.valueStats &&
         b.stats.length > 1 &&
         b.stats.some((s) => s.min !== s.max),
     )
-    // Preserve all 244 historical bindings and cover 46 new evasion bindings.
-    expect(compound).toHaveLength(290)
+    // Preserve 290 historical bindings and cover 52 new Body/Helmet compound bindings.
+    expect(compound).toHaveLength(342)
     for (const [id, b] of compound) {
       const d: Definition = {
         id,
@@ -71,8 +71,8 @@ describe('remaining display coverage', () => {
     const single = Object.entries(bindings).filter(
       ([, b]) => b.valueStats && b.stats.length === 1,
     )
-    // 126 historical bindings plus 45 new source-verified single-stat bindings.
-    expect(single).toHaveLength(171)
+    // Preserve 171 historical bindings and cover 15 new source-verified single-stat bindings.
+    expect(single).toHaveLength(186)
     for (const [id, b] of single) {
       const d: Definition = {
         id,

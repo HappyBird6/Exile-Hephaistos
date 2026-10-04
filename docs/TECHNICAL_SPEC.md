@@ -1,3 +1,5 @@
+최신 base 확장: [Body / remaining Helmet 7종](workbench-body-helmet-bundle-2026-10-04.md). Workbench 35 bases; Body·Helmet·Gloves의 일반 defence archetype 6종 완료. 남은 armour는 Boots 6종. 전체 source pool·6locale·class별 Essence·기존 film을 보존하며 Support/Explorer는 Solar-only.
+
 # Exile-Hephaistos 기술 명세
 
 2026-09-29 · 현재 구현 기준

@@ -78,6 +78,13 @@ const baseSlugs = {
   massive: 'Massive_Mitts',
   sirenscale: 'Sirenscale_Gloves',
   adherent: 'Adherent_Cuffs',
+  slipstrike: 'Slipstrike_Vest',
+  'death-mail': 'Death_Mail',
+  sleek: 'Sleek_Jacket',
+  vile: 'Vile_Robe',
+  wolfskin: 'Wolfskin_Mantle',
+  ancestral: 'Ancestral_Tiara',
+  cryptic: 'Cryptic_Crown',
   freebooter: 'Freebooter_Cap',
   gladiatorial: 'Gladiatorial_Helm',
   grinning: 'Grinning_Mask',
@@ -184,7 +191,9 @@ export function CraftingPage() {
           ? 'Crude Bow'
           : catalogBase === 'wand'
             ? 'Attuned Wand'
-            : catalogBase === 'body' || catalogBase === 'soldier'
+            : catalogBase === 'body' ||
+                catalogBase === 'soldier' ||
+                topBase(catalogBase)?.family === 'body'
               ? 'Rusted Cuirass'
               : catalogBase === 'sceptre'
                 ? 'Rattling Sceptre'
@@ -308,6 +317,13 @@ export function CraftingPage() {
       | 'massive'
       | 'sirenscale'
       | 'adherent'
+      | 'slipstrike'
+      | 'death-mail'
+      | 'sleek'
+      | 'vile'
+      | 'wolfskin'
+      | 'ancestral'
+      | 'cryptic'
       | 'freebooter'
       | 'gladiatorial'
       | 'grinning'
@@ -492,6 +508,13 @@ export function CraftingPage() {
     | 'massive'
     | 'sirenscale'
     | 'adherent'
+    | 'slipstrike'
+    | 'death-mail'
+    | 'sleek'
+    | 'vile'
+    | 'wolfskin'
+    | 'ancestral'
+    | 'cryptic'
     | 'freebooter'
     | 'gladiatorial'
     | 'grinning'
@@ -879,7 +902,9 @@ export function CraftingPage() {
                   ? 'Bows'
                   : catalogBase === 'wand'
                     ? 'Wands'
-                    : catalogBase === 'body' || catalogBase === 'soldier'
+                    : catalogBase === 'body' ||
+                        catalogBase === 'soldier' ||
+                        topBase(catalogBase)?.family === 'body'
                       ? 'Body Armours'
                       : catalogBase === 'sceptre'
                         ? 'Sceptres'
@@ -894,9 +919,12 @@ export function CraftingPage() {
                               : 'Amulet',
             itemLevel: concrete.itemLevel,
             properties: [
-              ...(['gloves', 'helmets'].includes(
+              ...(topBase(catalogBase)?.sourceProperties?.[locale] ?? []).map(
+                (text, i) => ({ id: 'source-property-' + i, text }),
+              ),
+              ...(['gloves', 'helmets', 'body'].includes(
                 topBase(catalogBase)?.family ?? '',
-              )
+              ) && catalogBase !== 'soldier'
                 ? [
                     ...(topBase(catalogBase)!.armour > 0
                       ? [
@@ -1847,7 +1875,8 @@ export function CraftingPage() {
                             : catalogBase === 'wand'
                               ? 'Wands'
                               : catalogBase === 'body' ||
-                                  catalogBase === 'soldier'
+                                  catalogBase === 'soldier' ||
+                                  topBase(catalogBase)?.family === 'body'
                                 ? 'Body Armours'
                                 : catalogBase === 'sceptre'
                                   ? 'Sceptres'
@@ -1951,6 +1980,13 @@ export function CraftingPage() {
                           | 'massive'
                           | 'sirenscale'
                           | 'adherent'
+                          | 'slipstrike'
+                          | 'death-mail'
+                          | 'sleek'
+                          | 'vile'
+                          | 'wolfskin'
+                          | 'ancestral'
+                          | 'cryptic'
                           | 'freebooter'
                           | 'gladiatorial'
                           | 'grinning'

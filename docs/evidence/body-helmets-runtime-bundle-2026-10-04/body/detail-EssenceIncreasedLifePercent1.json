@@ -1,0 +1,35 @@
+{
+  "code": "EssenceIncreasedLifePercent1",
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceIncreasedLifePercent1",
+  "retrievedAt": "2026-10-04T17:53:28.896Z",
+  "sha256": "a0cdccdc0a5d59f819b9b22abc167ec5e994f7762964ac84af62d761241c8fb7",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(8<span class=\"ndash\">—</span>10)</span>% increased maximum Life</span></h5>   <span data-tabname=\"Essences\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Essences\n<tr><th>Family<td>MaximumLifeIncreasePercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>maximum life +% <span class=\"badge bg-primary\">8 <span class=\"ndash\">—</span> 10</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> </table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Essences",
+      "Family": "MaximumLifeIncreasePercent",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "72 (Effective: 57)",
+      "Gold Price": "3266",
+      "Stats": "maximum life +% 8 — 10 Global",
+      "Spawn Tags": "default: 0",
+      "Craft Tags": "resource Life"
+    },
+    "stats": [
+      {
+        "id": "maximum_life_+%",
+        "min": 8,
+        "max": 10,
+        "locality": "Global"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "(8—10)% increased maximum Life"
+  }
+}

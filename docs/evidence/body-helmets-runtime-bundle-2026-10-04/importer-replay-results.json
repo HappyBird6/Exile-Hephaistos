@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "comparedDocuments": 28,
+  "ordinaryRows": 1004,
+  "exactDetails": 67,
+  "assertions": "Cached source, stable IDs, ranges, family, generation, tags, spawn ordering, six-language templates and timestamps preserved"
+}

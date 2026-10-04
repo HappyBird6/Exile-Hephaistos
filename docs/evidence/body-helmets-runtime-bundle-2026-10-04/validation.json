@@ -1,0 +1,202 @@
+{
+  "passed": true,
+  "baseHead": "a03d3c41ff012bd335f2268fe407a198ed58b6d6",
+  "branch": "workbench/top-bases-20261004",
+  "qaRoot": "codex/body-helmets-qa-20261004",
+  "project": "exile-body-helmets-20261004",
+  "ports": [
+    19580,
+    19581
+  ],
+  "backend": {
+    "unitAndArchUnit": 412,
+    "integration": 6,
+    "log": "backend-check-3.log",
+    "finalPackagingLog": "backend-final-package.log"
+  },
+  "frontend": {
+    "tests": 1782,
+    "files": 59,
+    "npmCiLog": "frontend-check-2.log",
+    "finalLog": "frontend-check-4.log"
+  },
+  "api": {
+    "assertions": 469,
+    "initialBases": 35
+  },
+  "browser": {
+    "checks": 598,
+    "errors": 0,
+    "screenshots": 105,
+    "localeScreenshots": 84,
+    "orangeScreenshots": 7,
+    "oldFilmScreenshots": 14
+  },
+  "coverage": {
+    "locales": {
+      "en": {
+        "names": 220,
+        "total": 220,
+        "exceptions": [],
+        "liquidNamesAndDescriptions": 26
+      },
+      "ko": {
+        "names": 220,
+        "total": 220,
+        "exceptions": [],
+        "liquidNamesAndDescriptions": 26
+      },
+      "zh-CN": {
+        "names": 220,
+        "total": 220,
+        "exceptions": [],
+        "liquidNamesAndDescriptions": 26
+      },
+      "zh-TW": {
+        "names": 220,
+        "total": 220,
+        "exceptions": [],
+        "liquidNamesAndDescriptions": 26
+      },
+      "ja": {
+        "names": 220,
+        "total": 220,
+        "exceptions": [],
+        "liquidNamesAndDescriptions": 26
+      },
+      "es": {
+        "names": 220,
+        "total": 220,
+        "exceptions": [],
+        "liquidNamesAndDescriptions": 26
+      }
+    },
+    "catalogDefinitions": 2511,
+    "compoundBindings": 342
+  },
+  "replay": {
+    "passed": true,
+    "comparedDocuments": 28,
+    "ordinaryRows": 1004,
+    "exactDetails": 67,
+    "assertions": "Cached source, stable IDs, ranges, family, generation, tags, spawn ordering, six-language templates and timestamps preserved"
+  },
+  "jarSha256": "9924625314d19cb1644a78ca944bb82d5ad56f690257bbacb2d97fbfe165fdf1",
+  "addedBases": [
+    {
+      "key": "slipstrike",
+      "id": "Metadata/Items/Armours/BodyArmours/FourBodyDex6Endgame",
+      "name": "Slipstrike Vest",
+      "family": "body",
+      "armour": 0,
+      "evasion": 519,
+      "energyShield": 0,
+      "requiredLevel": 70,
+      "strength": 0,
+      "dexterity": 121,
+      "intelligence": 0,
+      "baseMovementSpeed": -0.03
+    },
+    {
+      "key": "death-mail",
+      "id": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex6Endgame",
+      "name": "Death Mail",
+      "family": "body",
+      "armour": 313,
+      "evasion": 285,
+      "energyShield": 0,
+      "requiredLevel": 75,
+      "strength": 67,
+      "dexterity": 67,
+      "intelligence": 0,
+      "baseMovementSpeed": -0.04
+    },
+    {
+      "key": "sleek",
+      "id": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt2Endgame",
+      "name": "Sleek Jacket",
+      "family": "body",
+      "armour": 0,
+      "evasion": 285,
+      "energyShield": 87,
+      "requiredLevel": 65,
+      "strength": 0,
+      "dexterity": 67,
+      "intelligence": 67,
+      "baseMovementSpeed": -0.03
+    },
+    {
+      "key": "vile",
+      "id": "Metadata/Items/Armours/BodyArmours/FourBodyInt3Endgame",
+      "name": "Vile Robe",
+      "family": "body",
+      "armour": 0,
+      "evasion": 0,
+      "energyShield": 171,
+      "requiredLevel": 65,
+      "strength": 0,
+      "dexterity": 0,
+      "intelligence": 121,
+      "baseMovementSpeed": -0.03
+    },
+    {
+      "key": "wolfskin",
+      "id": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt2Endgame",
+      "name": "Wolfskin Mantle",
+      "family": "body",
+      "armour": 313,
+      "evasion": 0,
+      "energyShield": 87,
+      "requiredLevel": 65,
+      "strength": 67,
+      "dexterity": 0,
+      "intelligence": 67,
+      "baseMovementSpeed": -0.04
+    },
+    {
+      "key": "ancestral",
+      "id": "Metadata/Items/Armours/Helmets/FourHelmetInt8Endgame",
+      "name": "Ancestral Tiara",
+      "family": "helmets",
+      "armour": 0,
+      "evasion": 0,
+      "energyShield": 109,
+      "requiredLevel": 80,
+      "strength": 0,
+      "dexterity": 0,
+      "intelligence": 115
+    },
+    {
+      "key": "cryptic",
+      "id": "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame",
+      "name": "Cryptic Crown",
+      "family": "helmets",
+      "armour": 206,
+      "evasion": 0,
+      "energyShield": 57,
+      "requiredLevel": 80,
+      "strength": 63,
+      "dexterity": 0,
+      "intelligence": 63
+    }
+  ],
+  "remainingArmour": [
+    "Tasalian Greaves",
+    "Drakeskin Boots",
+    "Sekhema Sandals",
+    "Blacksteel Sabatons",
+    "Faithful Leggings",
+    "Daggerfoot Shoes"
+  ],
+  "failuresPreserved": [
+    "backend-check-1.log",
+    "backend-failure-1.xml",
+    "backend-launch-2.log",
+    "frontend-check-1.log",
+    "frontend-check-2.log",
+    "body-import-3.log",
+    "browser-launch-failure.log",
+    "browser-attempt-1"
+  ],
+  "review": "Author self-review; no separate reviewer; source roster, full pools, hard rows, runtime routing, class targets, six locales and historical data preservation checked"
+}

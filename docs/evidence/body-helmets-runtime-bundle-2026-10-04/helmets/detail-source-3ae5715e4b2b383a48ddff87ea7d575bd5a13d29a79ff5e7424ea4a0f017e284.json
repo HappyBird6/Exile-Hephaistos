@@ -1,0 +1,62 @@
+{
+  "code": null,
+  "sourceId": "3ae5715e4b2b383a48ddff87ea7d575bd5a13d29a79ff5e7424ea4a0f017e284",
+  "url": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/3ae5715e4b2b383a48ddff87ea7d575bd5a13d29a79ff5e7424ea4a0f017e284",
+  "retrievedAt": "2026-10-04T17:55:25.102Z",
+  "sha256": "3ae5715e4b2b383a48ddff87ea7d575bd5a13d29a79ff5e7424ea4a0f017e284",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(14<span class=\"ndash\">—</span>20)</span>% increased <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9a5ff1400bc71ec138a670ac8572505962d009bf3c5e15a9e1069755cbaeda17\">Energy Shield</a><br><span class='mod-value'>+(9<span class=\"ndash\">—</span>16)</span> to maximum Mana</span></h5>   <span data-tabname=\"Serene\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Serene\n<tr><th>Family<td>BaseLocalDefencesAndMana\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>16 (Effective: 12)\n<tr><th>Gold Price<td>314\n<tr><th>Stats<td><li>base maximum mana <span class=\"badge bg-primary\">9 <span class=\"ndash\">—</span> 16</span> <span class=\"badge bg-secondary\">Global</span></li><li>local energy shield +% <span class=\"badge bg-primary\">14 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 0</span> <span class='badge bg-primary'>shield: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>boots: 0</span> <span class='badge bg-primary'>int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> <span class='badge bg-primary'>Energy Shield</span> </table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Serene",
+      "Family": "BaseLocalDefencesAndMana",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "16 (Effective: 12)",
+      "Gold Price": "314",
+      "Stats": "base maximum mana 9 — 16 Globallocal energy shield +% 14 — 20 Local",
+      "Spawn Tags": "body_armour: 0 shield: 0 gloves: 0 boots: 0 int_armour: 1 default: 0",
+      "Craft Tags": "defences resource Mana Energy Shield"
+    },
+    "stats": [
+      {
+        "id": "base_maximum_mana",
+        "min": 9,
+        "max": 16,
+        "locality": "Global"
+      },
+      {
+        "id": "local_energy_shield_+%",
+        "min": 14,
+        "max": 20,
+        "locality": "Local"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "body_armour",
+        "weight": 0
+      },
+      {
+        "tag": "shield",
+        "weight": 0
+      },
+      {
+        "tag": "gloves",
+        "weight": 0
+      },
+      {
+        "tag": "boots",
+        "weight": 0
+      },
+      {
+        "tag": "int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "(14—20)% increased Energy Shield\n+(9—16) to maximum Mana"
+  }
+}

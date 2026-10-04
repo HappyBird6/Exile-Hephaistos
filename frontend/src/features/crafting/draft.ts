@@ -8,6 +8,13 @@ const baseTexts = {
   massive: 'Item Class: Gloves\nRarity: Normal\nMassive Mitts',
   sirenscale: 'Item Class: Gloves\nRarity: Normal\nSirenscale Gloves',
   adherent: 'Item Class: Gloves\nRarity: Normal\nAdherent Cuffs',
+  slipstrike: 'Item Class: Body Armours\nRarity: Normal\nSlipstrike Vest',
+  'death-mail': 'Item Class: Body Armours\nRarity: Normal\nDeath Mail',
+  sleek: 'Item Class: Body Armours\nRarity: Normal\nSleek Jacket',
+  vile: 'Item Class: Body Armours\nRarity: Normal\nVile Robe',
+  wolfskin: 'Item Class: Body Armours\nRarity: Normal\nWolfskin Mantle',
+  ancestral: 'Item Class: Helmets\nRarity: Normal\nAncestral Tiara',
+  cryptic: 'Item Class: Helmets\nRarity: Normal\nCryptic Crown',
   freebooter: 'Item Class: Helmets\nRarity: Normal\nFreebooter Cap',
   gladiatorial: 'Item Class: Helmets\nRarity: Normal\nGladiatorial Helm',
   grinning: 'Item Class: Helmets\nRarity: Normal\nGrinning Mask',
@@ -53,6 +60,13 @@ type Draft = {
     | 'massive'
     | 'sirenscale'
     | 'adherent'
+    | 'slipstrike'
+    | 'death-mail'
+    | 'sleek'
+    | 'vile'
+    | 'wolfskin'
+    | 'ancestral'
+    | 'cryptic'
     | 'freebooter'
     | 'gladiatorial'
     | 'grinning'
@@ -88,6 +102,13 @@ type Draft = {
       | 'massive'
       | 'sirenscale'
       | 'adherent'
+      | 'slipstrike'
+      | 'death-mail'
+      | 'sleek'
+      | 'vile'
+      | 'wolfskin'
+      | 'ancestral'
+      | 'cryptic'
       | 'freebooter'
       | 'gladiatorial'
       | 'grinning'

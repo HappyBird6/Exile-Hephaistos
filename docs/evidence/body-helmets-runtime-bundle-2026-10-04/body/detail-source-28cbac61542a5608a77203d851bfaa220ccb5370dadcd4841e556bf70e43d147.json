@@ -1,0 +1,68 @@
+{
+  "code": null,
+  "sourceId": "28cbac61542a5608a77203d851bfaa220ccb5370dadcd4841e556bf70e43d147",
+  "url": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/28cbac61542a5608a77203d851bfaa220ccb5370dadcd4841e556bf70e43d147",
+  "retrievedAt": "2026-10-04T17:53:58.047Z",
+  "sha256": "28cbac61542a5608a77203d851bfaa220ccb5370dadcd4841e556bf70e43d147",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(6<span class=\"ndash\">—</span>16)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(4<span class=\"ndash\">—</span>14)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating<br><span class='mod-value'>(14<span class=\"ndash\">—</span>20)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a></span></h5>   <span data-tabname=\"Fighter's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Fighter's\n<tr><th>Family<td>BaseLocalDefencesAndDefencePercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>16 (Effective: 12)\n<tr><th>Gold Price<td>295\n<tr><th>Stats<td><li>local base evasion rating <span class=\"badge bg-primary\">4 <span class=\"ndash\">—</span> 14</span> <span class=\"badge bg-secondary\">Local</span></li><li>local armour and evasion +% <span class=\"badge bg-primary\">14 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Local</span></li><li>local base physical damage reduction rating <span class=\"badge bg-primary\">6 <span class=\"ndash\">—</span> 16</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>helmet: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>boots: 0</span> <span class='badge bg-primary'>shield: 0</span> <span class='badge bg-primary'>str_dex_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Armour</span> <span class='badge bg-primary'>Evasion</span> </table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Fighter's",
+      "Family": "BaseLocalDefencesAndDefencePercent",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "16 (Effective: 12)",
+      "Gold Price": "295",
+      "Stats": "local base evasion rating 4 — 14 Locallocal armour and evasion +% 14 — 20 Locallocal base physical damage reduction rating 6 — 16 Local",
+      "Spawn Tags": "helmet: 0 gloves: 0 boots: 0 shield: 0 str_dex_armour: 1 default: 0",
+      "Craft Tags": "defences Armour Evasion"
+    },
+    "stats": [
+      {
+        "id": "local_base_evasion_rating",
+        "min": 4,
+        "max": 14,
+        "locality": "Local"
+      },
+      {
+        "id": "local_armour_and_evasion_+%",
+        "min": 14,
+        "max": 20,
+        "locality": "Local"
+      },
+      {
+        "id": "local_base_physical_damage_reduction_rating",
+        "min": 6,
+        "max": 16,
+        "locality": "Local"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "helmet",
+        "weight": 0
+      },
+      {
+        "tag": "gloves",
+        "weight": 0
+      },
+      {
+        "tag": "boots",
+        "weight": 0
+      },
+      {
+        "tag": "shield",
+        "weight": 0
+      },
+      {
+        "tag": "str_dex_armour",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "+(6—16) to Armour\n+(4—14) to Evasion Rating\n(14—20)% increased Armour and Evasion"
+  }
+}

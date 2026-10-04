@@ -18,7 +18,8 @@ public final class BodyEssenceTargets {
   private BodyEssenceTargets() {}
 
   public static boolean supports(String id) {
-    return id.equals(BASE_ID)
+    return com.poe2craft.item.ReviewedBodies.supports(id)
+        || id.equals(BASE_ID)
         || id.equals("Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame");
   }
 }

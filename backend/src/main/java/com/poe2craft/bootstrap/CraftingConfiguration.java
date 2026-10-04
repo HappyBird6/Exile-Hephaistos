@@ -103,7 +103,9 @@ public class CraftingConfiguration {
         for (var key :
             java.util.stream.Stream.concat(
                     com.poe2craft.item.ReviewedGloves.BASES.keySet().stream(),
-                    com.poe2craft.item.ReviewedHelmets.BASES.keySet().stream())
+                    java.util.stream.Stream.concat(
+                        com.poe2craft.item.ReviewedHelmets.BASES.keySet().stream(),
+                        com.poe2craft.item.ReviewedBodies.BASES.keySet().stream()))
                 .toList()) {
           service.registerReviewedArmour(
               key,

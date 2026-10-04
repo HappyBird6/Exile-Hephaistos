@@ -9,6 +9,11 @@ type TopBase = {
   armour: number
   evasion?: number
   dexterity?: number
+  sourceProperties?: Record<
+    'en' | 'ko' | 'ja' | 'zh-CN' | 'zh-TW' | 'es',
+    string[]
+  >
+  baseMovementSpeed?: number
   energyShield?: number
   strength: number
   intelligence?: number
@@ -27,5 +32,7 @@ export function topBaseKey(id: string | undefined): TopBaseKey | undefined {
 }
 
 export const reviewedArmourKeys = (Object.keys(data) as TopBaseKey[]).filter(
-  (key) => ['gloves', 'helmets'].includes(data[key].family),
+  (key) =>
+    key !== 'soldier' &&
+    ['gloves', 'helmets', 'body'].includes(data[key].family),
 )

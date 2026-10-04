@@ -1,0 +1,34 @@
+{
+  "code": "EssenceReducedCriticalDamageAgainstYou1",
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceReducedCriticalDamageAgainstYou1",
+  "retrievedAt": "2026-10-04T17:53:29.646Z",
+  "sha256": "4ba91538f9858367763f49bcd7a5059f5f6004c0bfe44bc82dec8e30482dbc82",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Hit\" href=\"Hit_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/396ec0ccc46f63acd9059876455d4a9f7d5108864acf9fc0f4c56be5a6f9cd57\">Hits</a> against you have <span class='mod-value'>(40<span class=\"ndash\">—</span>50)</span>% reduced <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244\">Critical Damage Bonus</a></span></h5>   <span data-tabname=\"of the Essence\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Essence\n<tr><th>Family<td>ReducedCriticalStrikeDamageTaken\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>base self critical strike multiplier -% <span class=\"badge bg-primary\">40 <span class=\"ndash\">—</span> 50</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "of the Essence",
+      "Family": "ReducedCriticalStrikeDamageTaken",
+      "Domains": "Item (1)",
+      "GenerationType": "Suffix (2)",
+      "Req. level": "72 (Effective: 57)",
+      "Gold Price": "3266",
+      "Stats": "base self critical strike multiplier -% 40 — 50 Global",
+      "Spawn Tags": "default: 0"
+    },
+    "stats": [
+      {
+        "id": "base_self_critical_strike_multiplier_-%",
+        "min": 40,
+        "max": 50,
+        "locality": "Global"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "Hits against you have (40—50)% reduced Critical Damage Bonus"
+  }
+}

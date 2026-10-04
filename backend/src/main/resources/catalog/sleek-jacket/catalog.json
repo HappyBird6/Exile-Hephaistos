@@ -1,0 +1,4173 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-sleek-jacket-uniform-20261004-f59e7ca2053026e0",
+    "retrievedAt": "2026-10-04T17:54:02.808Z",
+    "sourceUrl": "https://poe2db.tw/us/Body_Armours_dex_int",
+    "weightPolicy": "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES",
+    "rawSha256": "93570d397a4175eb09ec53497294bad4ff25bbf38238de09e4b8d766e153b4b9",
+    "detailsSha256": "b4121b81c69926d4ec2cd67a6b6ee0e6cb5d96df708ff677e2cd9ad20c1d3a22",
+    "prefixCount": 59,
+    "suffixCount": 98,
+    "prefixWeight": 56,
+    "suffixWeight": 96
+  },
+  "base": {
+    "id": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt2Endgame",
+    "name": "Sleek Jacket",
+    "sourceUrl": "https://poe2db.tw/us/Sleek_Jacket",
+    "implicitModifierId": "",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifiers": [
+    {
+      "id": "stocky-mitts:suffix:of-the-mongoose",
+      "name": "of the Mongoose",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 9,
+      "text": "+(5—8) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDexterity1"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-lynx",
+      "name": "of the Lynx",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1,
+      "tier": 8,
+      "text": "+(9—12) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDexterity2"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-fox",
+      "name": "of the Fox",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 1,
+      "tier": 7,
+      "text": "+(13—16) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 13,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDexterity3"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-falcon",
+      "name": "of the Falcon",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1,
+      "tier": 6,
+      "text": "+(17—20) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 17,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDexterity4"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-panther",
+      "name": "of the Panther",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 1,
+      "tier": 5,
+      "text": "+(21—24) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDexterity5"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-leopard",
+      "name": "of the Leopard",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1,
+      "tier": 4,
+      "text": "+(25—27) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 25,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDexterity6"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-jaguar",
+      "name": "of the Jaguar",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1,
+      "tier": 3,
+      "text": "+(28—30) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 28,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDexterity7"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-phantom",
+      "name": "of the Phantom",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1,
+      "tier": 2,
+      "text": "+(31—33) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 31,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDexterity8"
+    },
+    {
+      "id": "amulet:suffix:of-the-pupil",
+      "name": "of the Pupil",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 8,
+      "text": "+(5—8) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d6aab603f89fd48501982bdeab012471df4ea3edddc730848a7b21534107fcc5"
+    },
+    {
+      "id": "amulet:suffix:of-the-student",
+      "name": "of the Student",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1,
+      "tier": 7,
+      "text": "+(9—12) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6155489233bf2e5f19f7aa47bca52569d0bf751b413d419f90999cdbc8fa9075"
+    },
+    {
+      "id": "amulet:suffix:of-the-prodigy",
+      "name": "of the Prodigy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 1,
+      "tier": 6,
+      "text": "+(13—16) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 13,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/de2422fe33393262d518450e9e2a59c50fc47ba4ca01ef6bf002b3ae112eb365"
+    },
+    {
+      "id": "amulet:suffix:of-the-augur",
+      "name": "of the Augur",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1,
+      "tier": 5,
+      "text": "+(17—20) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 17,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a686cefe9bc9ab858922c37e91eb273248e03f90523b3852ab5f00ec49a50c99"
+    },
+    {
+      "id": "amulet:suffix:of-the-philosopher",
+      "name": "of the Philosopher",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 1,
+      "tier": 4,
+      "text": "+(21—24) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/46a2eda784bbb84ed301379d12f94bf31804b2877d0b1095d7dde68f360dc001"
+    },
+    {
+      "id": "amulet:suffix:of-the-sage",
+      "name": "of the Sage",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1,
+      "tier": 3,
+      "text": "+(25—27) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 25,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/141b731f7479f67d4755a6984339ccd45f3d301d12b86b3ff76687d055793d44"
+    },
+    {
+      "id": "amulet:suffix:of-the-savant",
+      "name": "of the Savant",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1,
+      "tier": 2,
+      "text": "+(28—30) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 28,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e39612197defaafe89a6ca14a7eed41e92a6387628eaf09f58981e770157a182"
+    },
+    {
+      "id": "amulet:suffix:of-the-virtuoso",
+      "name": "of the Virtuoso",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1,
+      "tier": 1,
+      "text": "+(31—33) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 31,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/83b93bc3bb01e6b8423b06900acc062cee0650c4c036056a76b5f0ebf13be5e5"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-whelpling",
+      "name": "of the Whelpling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 8,
+      "text": "+(6—10)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/64fa1c3e757e642a5cac9b01f54d56cdbd5fcc1fe21d2267c2da9ffb281f5dea"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-salamander",
+      "name": "of the Salamander",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 12,
+      "weight": 1,
+      "tier": 7,
+      "text": "+(11—15)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/533bfdc2d201d628fed036ebf2b0a1e9c5228f3f7ba2598a763c83d3fea892a1"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-drake",
+      "name": "of the Drake",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1,
+      "tier": 6,
+      "text": "+(16—20)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6fcf6ee1af61dfd3d7b5e0cd3f245eafbfcca243c5f455e06d86442b6f43d79c"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-kiln",
+      "name": "of the Kiln",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 1,
+      "tier": 5,
+      "text": "+(21—25)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/03e5b5f00c9a49607c0cb7c5e37e96d2272adf4fc2dfc395fe927ff4317cc0a8"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-furnace",
+      "name": "of the Furnace",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 1,
+      "tier": 4,
+      "text": "+(26—30)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/933c9208ddd40fc7c626cd376b7055fa9ad400d0201230ff933e57ecbe0344ac"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-volcano",
+      "name": "of the Volcano",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1,
+      "tier": 3,
+      "text": "+(31—35)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5d75d013cd619918dfc6668e410aebdbf2edddbf0ec8681e7870f011263281d2"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-magma",
+      "name": "of Magma",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1,
+      "tier": 2,
+      "text": "+(36—40)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d0d158a1cd7c39f83c259cfadbdbb7740cdd24cc8775ae938dd6357460d44b67"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-tzteosh",
+      "name": "of Tzteosh",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1,
+      "tier": 1,
+      "text": "+(41—45)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/06d9118a1f47eeb3eb93eb3ebee31ad80947d5f98a06afa49b6c355e0e59a916"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-seal",
+      "name": "of the Seal",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 8,
+      "text": "+(6—10)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b0faf2de7818ba1fd088aa86341e0f84d7b4d16d4ed0433b44f039c2acfe90f3"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-penguin",
+      "name": "of the Penguin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 14,
+      "weight": 1,
+      "tier": 7,
+      "text": "+(11—15)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4418a8f0a3227b6d5b1f2ba4f97046eedc807935155fb7a562f7d07aab32ef9e"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-narwhal",
+      "name": "of the Narwhal",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 1,
+      "tier": 6,
+      "text": "+(16—20)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/785bc7e76d96d4b375494935dda916afedb5f8b900884ba8abec85106a7ff6d3"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-yeti",
+      "name": "of the Yeti",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1,
+      "tier": 5,
+      "text": "+(21—25)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f5587c04163dc2361565d314feebe3819ec6ae593add79ad36902964883270c0"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-walrus",
+      "name": "of the Walrus",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 50,
+      "weight": 1,
+      "tier": 4,
+      "text": "+(26—30)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/cbcec57171969514078d0eab7bb06fbf3eb95c27efa02b381e3987e12ee6727a"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-polar-bear",
+      "name": "of the Polar Bear",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1,
+      "tier": 3,
+      "text": "+(31—35)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4ead34b3b4a3a69abad4a88df44774b079021a43d52e533cb84674e85f72fb93"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-ice",
+      "name": "of the Ice",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1,
+      "tier": 2,
+      "text": "+(36—40)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ce020e91d9401d1f64136f8d9d41c64c772bdb37368ece47b368668a55ce0e0c"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-haast",
+      "name": "of Haast",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1,
+      "tier": 1,
+      "text": "+(41—45)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4aed6bb4829cb762403036729efe27d3ce0c7f850a1e2fe41907ac4683011d8e"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-cloud",
+      "name": "of the Cloud",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 8,
+      "text": "+(6—10)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/00f11750c6ce94d5a2dd5a79c077429125f9e99f7a223026f39b1f22d984037c"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-squall",
+      "name": "of the Squall",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 13,
+      "weight": 1,
+      "tier": 7,
+      "text": "+(11—15)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e94770e924952957544158cb8d135abc2637b3e343bda198f1791d72af514493"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-storm",
+      "name": "of the Storm",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1,
+      "tier": 6,
+      "text": "+(16—20)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/66f026e043c7848c2db72601a0ae309f9841b8fdcd8f838cb7fc8635f05e90ce"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-thunderhead",
+      "name": "of the Thunderhead",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 37,
+      "weight": 1,
+      "tier": 5,
+      "text": "+(21—25)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/43956c46e2939b2b5146daf4f1878a48088a5098dbb527caa731258d2cf8fa97"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-tempest",
+      "name": "of the Tempest",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 49,
+      "weight": 1,
+      "tier": 4,
+      "text": "+(26—30)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/775248100a5a83e7af2769c8dd0163af61b5a44e73d70e5ac1f08fc7a726ecd0"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-maelstrom",
+      "name": "of the Maelstrom",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1,
+      "tier": 3,
+      "text": "+(31—35)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/35a9a740c4fc222bd0fd7e4efe0d56c93ea42ddf60cad93a805d35e7b96e2312"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-lightning",
+      "name": "of the Lightning",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1,
+      "tier": 2,
+      "text": "+(36—40)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5e913f76eea6cf78488633838baf076135ddaf34e92e9586c9ef2ff24970cb5e"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-ephij",
+      "name": "of Ephij",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1,
+      "tier": 1,
+      "text": "+(41—45)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ef0507c8677d36e238d874f750eb59e8afe0221d4e961b377a02a6da080090c1"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-lost",
+      "name": "of the Lost",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1,
+      "tier": 6,
+      "text": "+(4—7)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 4,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/806559f788ece5107fd457dc884cd57a9d6c7316f189c29ed33e186a1a615540"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-banishment",
+      "name": "of Banishment",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 30,
+      "weight": 1,
+      "tier": 5,
+      "text": "+(8—11)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 8,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/029a70baae414597b1e49bad3fcd3339908fb3dce889c0f08c7cc47a3ce1d387"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-eviction",
+      "name": "of Eviction",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 1,
+      "tier": 4,
+      "text": "+(12—15)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 12,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/76a1eedd7035e2ac8b8258931cc132cd1c68644b2086438f4e9e7db8e0e61415"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-expulsion",
+      "name": "of Expulsion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 56,
+      "weight": 1,
+      "tier": 3,
+      "text": "+(16—19)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 16,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c77bae9fddfed1121200621047161c73aba40be67c34e4cda19e915e5ab2c068"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-exile",
+      "name": "of Exile",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 68,
+      "weight": 1,
+      "tier": 2,
+      "text": "+(20—23)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 20,
+          "max": 23
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/af5ccc11617109cc9923a429fd177ef8d6054bf2290f72b0a4c86ba4efb2b2e3"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-bameth",
+      "name": "of Bameth",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 1,
+      "tier": 1,
+      "text": "+(24—27)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 24,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0d72e641fa39c3df5883680aa5e639fdc2843ea86b05d43e8598511618e58c0e"
+    },
+    {
+      "id": "stocky-mitts:prefix:hale",
+      "name": "Hale",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 9,
+      "text": "+(10—19) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 10,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d3184b467d4d101696a1ec171906fc3b45f1ef6a017d5c057f20d73c1120b3ff"
+    },
+    {
+      "id": "stocky-mitts:prefix:healthy",
+      "name": "Healthy",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 6,
+      "weight": 1,
+      "tier": 8,
+      "text": "+(20—29) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 20,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/dfaf9bfeec1dfc60c75138318b493bca64f32146906904ce2a7bcdd3f41128d2"
+    },
+    {
+      "id": "stocky-mitts:prefix:sanguine",
+      "name": "Sanguine",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1,
+      "tier": 7,
+      "text": "+(30—39) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 30,
+          "max": 39
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/436dd8d7a7bcc1bdfa78e9fba034f9ed8566831456e5894083e10e331e6c8c1a"
+    },
+    {
+      "id": "stocky-mitts:prefix:stalwart",
+      "name": "Stalwart",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1,
+      "tier": 6,
+      "text": "+(40—59) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 40,
+          "max": 59
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/600d0c23a44fb6ab9e0aee0a076bd0f928baeb1ef27614a37eb4fab301021d1a"
+    },
+    {
+      "id": "stocky-mitts:prefix:stout",
+      "name": "Stout",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1,
+      "tier": 5,
+      "text": "+(60—69) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 60,
+          "max": 69
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d752a62fa20288c77271d8cbeab0b651e666c4930e165cf836d05db9fcd9394a"
+    },
+    {
+      "id": "stocky-mitts:prefix:robust",
+      "name": "Robust",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1,
+      "tier": 4,
+      "text": "+(70—84) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 70,
+          "max": 84
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/72a00abccf75cc0c4f91fe969e6fd13df8cc361c59cdc53f6f3b6e9121549c9b"
+    },
+    {
+      "id": "stocky-mitts:prefix:rotund",
+      "name": "Rotund",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1,
+      "tier": 3,
+      "text": "+(85—99) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 85,
+          "max": 99
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/23bda55be13599a91446f74c6d8cee65ada6ee7fb9189c68412270cf7a727ab8"
+    },
+    {
+      "id": "stocky-mitts:prefix:virile",
+      "name": "Virile",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1,
+      "tier": 2,
+      "text": "+(100—119) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 100,
+          "max": 119
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3f57c4674caee503d336b56076492bd1a225e6e868b8fa1348e17e3e01e4204e"
+    },
+    {
+      "id": "stocky-mitts:prefix:athlete-s",
+      "name": "Athlete's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1,
+      "tier": 1,
+      "text": "+(120—149) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 120,
+          "max": 149
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/dd7a7f3839381bb31ea44197b01e1739aae2884cafc205d98bc3107b8243f170"
+    },
+    {
+      "id": "rusted-greathelm:prefix:fecund",
+      "name": "Fecund",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1,
+      "tier": 1,
+      "text": "+(150—174) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 150,
+          "max": 174
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife10"
+    },
+    {
+      "id": "rusted-cuirass:prefix:vigorous",
+      "name": "Vigorous",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 1,
+      "tier": 3,
+      "text": "+(175—189) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 175,
+          "max": 189
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife11"
+    },
+    {
+      "id": "rusted-cuirass:prefix:rapturous",
+      "name": "Rapturous",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1,
+      "tier": 2,
+      "text": "+(190—199) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 190,
+          "max": 199
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife12"
+    },
+    {
+      "id": "rusted-cuirass:prefix:prime",
+      "name": "Prime",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 80,
+      "weight": 1,
+      "tier": 1,
+      "text": "+(200—214) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 200,
+          "max": 214
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife13"
+    },
+    {
+      "id": "war-wraps:prefix:will-o-wisp-s",
+      "name": "Will-o-wisp's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 4,
+      "text": "+(6—10) to Evasion Rating\n+(5—8) to maximum Energy Shield",
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 5,
+          "max": 8
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/6806504c9db4fdf749f58f62ca5b0cc557f7c83c3407234a54388ccf9c76d579"
+    },
+    {
+      "id": "war-wraps:prefix:nymph-s",
+      "name": "Nymph's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1,
+      "tier": 3,
+      "text": "+(11—41) to Evasion Rating\n+(9—15) to maximum Energy Shield",
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 9,
+          "max": 15
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 11,
+          "max": 41
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/e8f5f9e520d18ff4bb8a0534ecdada43704f6a6da0f14e2f59c447d8f05caaf7"
+    },
+    {
+      "id": "war-wraps:prefix:sylph-s",
+      "name": "Sylph's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1,
+      "tier": 2,
+      "text": "+(42—64) to Evasion Rating\n+(16—21) to maximum Energy Shield",
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 16,
+          "max": 21
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 42,
+          "max": 64
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/205c2feef170f34c821546355423c3626ed20eeb6e6d2d04ff47ecb747e26445"
+    },
+    {
+      "id": "war-wraps:prefix:cherub-s",
+      "name": "Cherub's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1,
+      "tier": 1,
+      "text": "+(65—78) to Evasion Rating\n+(22—25) to maximum Energy Shield",
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 22,
+          "max": 25
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 65,
+          "max": 78
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/c67df818ddde0a67b7fce754f16b8a59cb9e90326dd34a5fffe6f8338cf21560"
+    },
+    {
+      "id": "grinning-mask:prefix:spirit-s",
+      "name": "Spirit's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1,
+      "tier": 1,
+      "text": "+(79—94) to Evasion Rating\n+(26—29) to maximum Energy Shield",
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 26,
+          "max": 29
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 79,
+          "max": 94
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/fe98dd729a34ec2eef5da8687dc983b3107cc898d244a53efa42a54c255d8bba"
+    },
+    {
+      "id": "sleek-jacket:prefix:eidolon-s",
+      "name": "Eidolon's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1,
+      "tier": 3,
+      "text": "+(95—119) to Evasion Rating\n+(30—36) to maximum Energy Shield",
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 30,
+          "max": 36
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 95,
+          "max": 119
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/470bff4082d885ff897e746804fe9efee8941e0720d85c940ce097e4e3571ece"
+    },
+    {
+      "id": "sleek-jacket:prefix:apparition-s",
+      "name": "Apparition's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1,
+      "tier": 2,
+      "text": "+(120—141) to Evasion Rating\n+(37—42) to maximum Energy Shield",
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 37,
+          "max": 42
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 120,
+          "max": 141
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/59cdd498f65c5e66707f515d9d4b6ba691ec62c3b308290448afdf60e1688b67"
+    },
+    {
+      "id": "sleek-jacket:prefix:banshee-s",
+      "name": "Banshee's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1,
+      "tier": 1,
+      "text": "+(142—161) to Evasion Rating\n+(43—48) to maximum Energy Shield",
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 43,
+          "max": 48
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 142,
+          "max": 161
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/9ede649d762a634f429568d5d105cce454541975942d419aa3da419c26783b86"
+    },
+    {
+      "id": "war-wraps:prefix:shadowy",
+      "name": "Shadowy",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 1,
+      "tier": 7,
+      "text": "(15—26)% increased Evasion and Energy Shield",
+      "stats": [
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 15,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedEvasionAndEnergyShield1"
+    },
+    {
+      "id": "war-wraps:prefix:ethereal",
+      "name": "Ethereal",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1,
+      "tier": 6,
+      "text": "(27—42)% increased Evasion and Energy Shield",
+      "stats": [
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 27,
+          "max": 42
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedEvasionAndEnergyShield2"
+    },
+    {
+      "id": "war-wraps:prefix:unworldly",
+      "name": "Unworldly",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1,
+      "tier": 5,
+      "text": "(43—55)% increased Evasion and Energy Shield",
+      "stats": [
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 43,
+          "max": 55
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedEvasionAndEnergyShield3"
+    },
+    {
+      "id": "war-wraps:prefix:ephemeral",
+      "name": "Ephemeral",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1,
+      "tier": 4,
+      "text": "(56—67)% increased Evasion and Energy Shield",
+      "stats": [
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 56,
+          "max": 67
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedEvasionAndEnergyShield4"
+    },
+    {
+      "id": "war-wraps:prefix:evanescent",
+      "name": "Evanescent",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1,
+      "tier": 3,
+      "text": "(68—79)% increased Evasion and Energy Shield",
+      "stats": [
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 68,
+          "max": 79
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedEvasionAndEnergyShield5_"
+    },
+    {
+      "id": "war-wraps:prefix:unreal",
+      "name": "Unreal",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1,
+      "tier": 2,
+      "text": "(80—91)% increased Evasion and Energy Shield",
+      "stats": [
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 80,
+          "max": 91
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedEvasionAndEnergyShield6"
+    },
+    {
+      "id": "war-wraps:prefix:illusory",
+      "name": "Illusory",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1,
+      "tier": 1,
+      "text": "(92—100)% increased Evasion and Energy Shield",
+      "stats": [
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 92,
+          "max": 100
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedEvasionAndEnergyShield7"
+    },
+    {
+      "id": "sleek-jacket:prefix:incorporeal",
+      "name": "Incorporeal",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1,
+      "tier": 1,
+      "text": "(101—110)% increased Evasion and Energy Shield",
+      "stats": [
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 101,
+          "max": 110
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/67862fee2b342a8d8a91f14ca573b188db67869b7004c843547217e346e6792a"
+    },
+    {
+      "id": "war-wraps:prefix:poet-s",
+      "name": "Poet's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1,
+      "tier": 6,
+      "text": "(6—13)% increased Evasion and Energy Shield\n+(7—10) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 7,
+          "max": 10
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 6,
+          "max": 13
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedEvasionAndEnergyShieldAndLife1"
+    },
+    {
+      "id": "war-wraps:prefix:musician-s",
+      "name": "Musician's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1,
+      "tier": 5,
+      "text": "(14—20)% increased Evasion and Energy Shield\n+(11—19) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 11,
+          "max": 19
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 14,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedEvasionAndEnergyShieldAndLife2"
+    },
+    {
+      "id": "war-wraps:prefix:troubadour-s",
+      "name": "Troubadour's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1,
+      "tier": 4,
+      "text": "(21—26)% increased Evasion and Energy Shield\n+(20—25) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 20,
+          "max": 25
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedEvasionAndEnergyShieldAndLife3"
+    },
+    {
+      "id": "war-wraps:prefix:bard-s",
+      "name": "Bard's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1,
+      "tier": 3,
+      "text": "(27—32)% increased Evasion and Energy Shield\n+(26—32) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 26,
+          "max": 32
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedEvasionAndEnergyShieldAndLife4"
+    },
+    {
+      "id": "war-wraps:prefix:minstrel-s",
+      "name": "Minstrel's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1,
+      "tier": 2,
+      "text": "(33—38)% increased Evasion and Energy Shield\n+(33—41) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 33,
+          "max": 41
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedEvasionAndEnergyShieldAndLife5"
+    },
+    {
+      "id": "war-wraps:prefix:maestro-s",
+      "name": "Maestro's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 78,
+      "weight": 1,
+      "tier": 1,
+      "text": "(39—42)% increased Evasion and Energy Shield\n+(42—49) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 42,
+          "max": 49
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 39,
+          "max": 42
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedEvasionAndEnergyShieldAndLife6"
+    },
+    {
+      "id": "sleek-jacket:prefix:pursuer-s",
+      "name": "Pursuer's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1,
+      "tier": 6,
+      "text": "+(2—3) to Evasion Rating\n+(2—4) to maximum Energy Shield\n(6—13)% increased Evasion and Energy Shield",
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 6,
+          "max": 13
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/3834b3c218136e306feb707e7a80ec1111e27b4d6851d74a82a796029ed2f6b5"
+    },
+    {
+      "id": "sleek-jacket:prefix:tracker-s",
+      "name": "Tracker's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1,
+      "tier": 5,
+      "text": "+(4—14) to Evasion Rating\n+(5—6) to maximum Energy Shield\n(14—20)% increased Evasion and Energy Shield",
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 5,
+          "max": 6
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 4,
+          "max": 14
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 14,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/014d3caf44f04ec86d9ad40905ccb84a4904a7e680ec2fb4cd6d397d22960bef"
+    },
+    {
+      "id": "sleek-jacket:prefix:chaser-s",
+      "name": "Chaser's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1,
+      "tier": 4,
+      "text": "+(15—21) to Evasion Rating\n+(7—8) to maximum Energy Shield\n(21—26)% increased Evasion and Energy Shield",
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 7,
+          "max": 8
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 15,
+          "max": 21
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/e5d433e4aa88af8ea5acd9d0e177525049a1f3c151ebeaee6013680455d8b71f"
+    },
+    {
+      "id": "sleek-jacket:prefix:phantom-s",
+      "name": "Phantom's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1,
+      "tier": 3,
+      "text": "+(22—29) to Evasion Rating\n+(9—10) to maximum Energy Shield\n(27—32)% increased Evasion and Energy Shield",
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 9,
+          "max": 10
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 22,
+          "max": 29
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/c94dc65e1a2c74da5fd0c2f1ccdcaa80986e98631c77722eb0ab749776ccb73c"
+    },
+    {
+      "id": "sleek-jacket:prefix:rogue-s",
+      "name": "Rogue's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1,
+      "tier": 2,
+      "text": "+(30—39) to Evasion Rating\n+(11—12) to maximum Energy Shield\n(33—38)% increased Evasion and Energy Shield",
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 11,
+          "max": 12
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 30,
+          "max": 39
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/cbc8d17b696d1321fc32d97d2a7eabaf0f751d357f820d43d552ba4f6d6be580"
+    },
+    {
+      "id": "sleek-jacket:prefix:stalker-s",
+      "name": "Stalker's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 78,
+      "weight": 1,
+      "tier": 1,
+      "text": "+(40—50) to Evasion Rating\n+(13—15) to maximum Energy Shield\n(39—42)% increased Evasion and Energy Shield",
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 13,
+          "max": 15
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 40,
+          "max": 50
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 39,
+          "max": 42
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/08984c2f3462599841995b122527dd5a08006f332a7b00bb81c6c73ee75e832f"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-worthy",
+      "name": "of the Worthy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LocalAttributeRequirements"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1,
+      "tier": 5,
+      "text": "15% reduced Attribute Requirements",
+      "stats": [
+        {
+          "id": "local_attribute_requirements_+%",
+          "min": -15,
+          "max": -15
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedLocalAttributeRequirements1"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-apt",
+      "name": "of the Apt",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LocalAttributeRequirements"
+      ],
+      "requiredItemLevel": 32,
+      "weight": 1,
+      "tier": 4,
+      "text": "20% reduced Attribute Requirements",
+      "stats": [
+        {
+          "id": "local_attribute_requirements_+%",
+          "min": -20,
+          "max": -20
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedLocalAttributeRequirements2"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-talented",
+      "name": "of the Talented",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LocalAttributeRequirements"
+      ],
+      "requiredItemLevel": 40,
+      "weight": 1,
+      "tier": 3,
+      "text": "25% reduced Attribute Requirements",
+      "stats": [
+        {
+          "id": "local_attribute_requirements_+%",
+          "min": -25,
+          "max": -25
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedLocalAttributeRequirements3"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-skilled",
+      "name": "of the Skilled",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LocalAttributeRequirements"
+      ],
+      "requiredItemLevel": 52,
+      "weight": 1,
+      "tier": 2,
+      "text": "30% reduced Attribute Requirements",
+      "stats": [
+        {
+          "id": "local_attribute_requirements_+%",
+          "min": -30,
+          "max": -30
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedLocalAttributeRequirements4"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-proficient",
+      "name": "of the Proficient",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LocalAttributeRequirements"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1,
+      "tier": 1,
+      "text": "35% reduced Attribute Requirements",
+      "stats": [
+        {
+          "id": "local_attribute_requirements_+%",
+          "min": -35,
+          "max": -35
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedLocalAttributeRequirements5"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-thick-skin",
+      "name": "of Thick Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 10,
+      "text": "+(6—11) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 6,
+          "max": 11
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold1"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-reinforced-skin",
+      "name": "of Reinforced Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1,
+      "tier": 9,
+      "text": "+(12—29) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 12,
+          "max": 29
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold2"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-stone-skin",
+      "name": "of Stone Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 15,
+      "weight": 1,
+      "tier": 8,
+      "text": "+(30—49) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 30,
+          "max": 49
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold3"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-iron-skin",
+      "name": "of Iron Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 1,
+      "tier": 7,
+      "text": "+(50—72) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 50,
+          "max": 72
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold4"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-steel-skin",
+      "name": "of Steel Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 29,
+      "weight": 1,
+      "tier": 6,
+      "text": "+(73—97) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 73,
+          "max": 97
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold5"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-granite-skin",
+      "name": "of Granite Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 1,
+      "tier": 5,
+      "text": "+(98—124) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 98,
+          "max": 124
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold6"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-platinum-skin",
+      "name": "of Platinum Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 1,
+      "tier": 4,
+      "text": "+(125—163) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 125,
+          "max": 163
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold7"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-adamantite-skin",
+      "name": "of Adamantite Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1,
+      "tier": 3,
+      "text": "+(164—206) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 164,
+          "max": 206
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold8"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-corundum-skin",
+      "name": "of Corundum Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 63,
+      "weight": 1,
+      "tier": 2,
+      "text": "+(207—253) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 207,
+          "max": 253
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold9"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-obsidian-skin",
+      "name": "of Obsidian Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 1,
+      "tier": 1,
+      "text": "+(254—304) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 254,
+          "max": 304
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold10"
+    },
+    {
+      "id": "rusted-cuirass:prefix:thorny",
+      "name": "Thorny",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 7,
+      "text": "(1—2) to (3—4) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 3,
+          "max": 4
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage1"
+    },
+    {
+      "id": "rusted-cuirass:prefix:spiny",
+      "name": "Spiny",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 10,
+      "weight": 1,
+      "tier": 6,
+      "text": "(5—7) to (7—10) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 7,
+          "max": 10
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 5,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage2"
+    },
+    {
+      "id": "rusted-cuirass:prefix:barbed",
+      "name": "Barbed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 19,
+      "weight": 1,
+      "tier": 5,
+      "text": "(11—16) to (17—23) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 17,
+          "max": 23
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 11,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage3"
+    },
+    {
+      "id": "rusted-cuirass:prefix:pointed",
+      "name": "Pointed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1,
+      "tier": 4,
+      "text": "(24—35) to (36—53) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 36,
+          "max": 53
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 24,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage4"
+    },
+    {
+      "id": "rusted-cuirass:prefix:spiked",
+      "name": "Spiked",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 1,
+      "tier": 3,
+      "text": "(40—60) to (61—92) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 61,
+          "max": 92
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 40,
+          "max": 60
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage5"
+    },
+    {
+      "id": "rusted-cuirass:prefix:edged",
+      "name": "Edged",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 63,
+      "weight": 1,
+      "tier": 2,
+      "text": "(64—97) to (98—145) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 98,
+          "max": 145
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 64,
+          "max": 97
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage6"
+    },
+    {
+      "id": "rusted-cuirass:prefix:jagged",
+      "name": "Jagged",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1,
+      "tier": 1,
+      "text": "(101—151) to (152—220) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 152,
+          "max": 220
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 101,
+          "max": 151
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage7"
+    },
+    {
+      "id": "amulet:suffix:of-the-newt",
+      "name": "of the Newt",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 10,
+      "text": "(1—2) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 60,
+          "max": 120
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/85ec89626ed4c595905c79401a171ef7372582fb5a6ee7fc8b771caa0507c729"
+    },
+    {
+      "id": "amulet:suffix:of-the-lizard",
+      "name": "of the Lizard",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 5,
+      "weight": 1,
+      "tier": 9,
+      "text": "(2.1—3) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 126,
+          "max": 180
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3bb9c1cb5b68f309fee6f16b3cb02250b348c88fc71c95081308e8ecedaa811e"
+    },
+    {
+      "id": "amulet:suffix:of-the-flatworm",
+      "name": "of the Flatworm",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1,
+      "tier": 8,
+      "text": "(3.1—4) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 186,
+          "max": 240
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/18162c016d3f678285f683cf99354a1eeb3a4809c43bce09b3d9802ea5df7eb2"
+    },
+    {
+      "id": "amulet:suffix:of-the-starfish",
+      "name": "of the Starfish",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 17,
+      "weight": 1,
+      "tier": 7,
+      "text": "(4.1—6) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 246,
+          "max": 360
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a6995bfff430eedc5da1e4b1e31ba0850963b6dbaf2f174d1fdf5bd740ad0167"
+    },
+    {
+      "id": "amulet:suffix:of-the-hydra",
+      "name": "of the Hydra",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 1,
+      "tier": 6,
+      "text": "(6.1—9) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 366,
+          "max": 540
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3a166a6a77ed3a3bda4f35653008f890b433c8a273e13cf166e9a0c07d938d1f"
+    },
+    {
+      "id": "amulet:suffix:of-the-troll",
+      "name": "of the Troll",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 35,
+      "weight": 1,
+      "tier": 5,
+      "text": "(9.1—13) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 546,
+          "max": 780
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9ae132d16563d31595affaec4c0d208d4e417dd767fff4cef8a158004943e858"
+    },
+    {
+      "id": "amulet:suffix:of-convalescence",
+      "name": "of Convalescence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 47,
+      "weight": 1,
+      "tier": 4,
+      "text": "(13.1—18) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 786,
+          "max": 1080
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ac83f08dfe4308d856621084a4ca51519416a8a519ec52b28f0e6eb40be5bffd"
+    },
+    {
+      "id": "amulet:suffix:of-recuperation",
+      "name": "of Recuperation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 58,
+      "weight": 1,
+      "tier": 3,
+      "text": "(18.1—23) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 1086,
+          "max": 1380
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/fb3df008bb8a0d1daa13f6acde5bd6580fbe2c48a4d28e2aed3ef2a5ae1e1028"
+    },
+    {
+      "id": "amulet:suffix:of-resurgence",
+      "name": "of Resurgence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 68,
+      "weight": 1,
+      "tier": 2,
+      "text": "(23.1—29) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 1386,
+          "max": 1740
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e15bc71f06b8df9cebbc62504d383e1578ede3222f8155f033bfc217bdacf1a1"
+    },
+    {
+      "id": "amulet:suffix:of-immortality",
+      "name": "of Immortality",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1,
+      "tier": 1,
+      "text": "(29.1—33) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 1746,
+          "max": 1980
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9c042871282a0c5a897eed0aab1598dab4af71f8a7293e1bac869b34100980b9"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-phoenix",
+      "name": "of the Phoenix",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 1,
+      "tier": 1,
+      "text": "(33.1—36) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 1986,
+          "max": 2160
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration11____"
+    },
+    {
+      "id": "amulet:prefix:lady-s",
+      "name": "Lady's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1,
+      "tier": 5,
+      "text": "+(30—33) to Spirit",
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 30,
+          "max": 33
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8469bf153c57c7a22d19b6306ef3ee0f092e527608c648bb3efd8529b177b63e"
+    },
+    {
+      "id": "amulet:prefix:baronness",
+      "name": "Baronness'",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1,
+      "tier": 4,
+      "text": "+(34—37) to Spirit",
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 34,
+          "max": 37
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0f42ae33a63f709a2eb7801c2b7833922014771f475e906002a953c3fcf8a9fe"
+    },
+    {
+      "id": "amulet:prefix:viscountess",
+      "name": "Viscountess'",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1,
+      "tier": 3,
+      "text": "+(38—42) to Spirit",
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 38,
+          "max": 42
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/368d2f77af712c32aa27c88542f656d0553c7ffe8f20203e125da28c3dee7c00"
+    },
+    {
+      "id": "amulet:prefix:marchioness",
+      "name": "Marchioness'",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1,
+      "tier": 2,
+      "text": "+(43—46) to Spirit",
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 43,
+          "max": 46
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/fbf339127cbcda8f60bcb59ce4a15ad29fb749942a598ce106f1cc3e7771665f"
+    },
+    {
+      "id": "amulet:prefix:countess",
+      "name": "Countess'",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1,
+      "tier": 1,
+      "text": "+(47—50) to Spirit",
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 47,
+          "max": 50
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/64e4cc621d25ba6ef48118250d66a02ca546135da56714bdda00c4f81c286988"
+    },
+    {
+      "id": "rusted-cuirass:prefix:duchess",
+      "name": "Duchess'",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1,
+      "tier": 3,
+      "text": "+(51—53) to Spirit",
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 51,
+          "max": 53
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedSpirit6"
+    },
+    {
+      "id": "rusted-cuirass:prefix:princess",
+      "name": "Princess'",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1,
+      "tier": 2,
+      "text": "+(54—56) to Spirit",
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 54,
+          "max": 56
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedSpirit7"
+    },
+    {
+      "id": "rusted-cuirass:prefix:queen-s",
+      "name": "Queen's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 78,
+      "weight": 1,
+      "tier": 1,
+      "text": "+(57—61) to Spirit",
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 57,
+          "max": 61
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedSpirit8"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-sealing",
+      "name": "of Sealing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 21,
+      "weight": 1,
+      "tier": 5,
+      "text": "(36—40)% reduced Duration of Bleeding on You",
+      "stats": [
+        {
+          "id": "self_bleed_duration_+%",
+          "min": -40,
+          "max": -36
+        }
+      ],
+      "tags": [
+        "bleed",
+        "physical",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedBleedDuration1"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-alleviation",
+      "name": "of Alleviation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 37,
+      "weight": 1,
+      "tier": 4,
+      "text": "(41—45)% reduced Duration of Bleeding on You",
+      "stats": [
+        {
+          "id": "self_bleed_duration_+%",
+          "min": -45,
+          "max": -41
+        }
+      ],
+      "tags": [
+        "bleed",
+        "physical",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedBleedDuration2"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-allaying",
+      "name": "of Allaying",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 50,
+      "weight": 1,
+      "tier": 3,
+      "text": "(46—50)% reduced Duration of Bleeding on You",
+      "stats": [
+        {
+          "id": "self_bleed_duration_+%",
+          "min": -50,
+          "max": -46
+        }
+      ],
+      "tags": [
+        "bleed",
+        "physical",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedBleedDuration3"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-assuaging",
+      "name": "of Assuaging",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 64,
+      "weight": 1,
+      "tier": 2,
+      "text": "(51—55)% reduced Duration of Bleeding on You",
+      "stats": [
+        {
+          "id": "self_bleed_duration_+%",
+          "min": -55,
+          "max": -51
+        }
+      ],
+      "tags": [
+        "bleed",
+        "physical",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedBleedDuration4"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-staunching",
+      "name": "of Staunching",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 76,
+      "weight": 1,
+      "tier": 1,
+      "text": "(56—60)% reduced Duration of Bleeding on You",
+      "stats": [
+        {
+          "id": "self_bleed_duration_+%",
+          "min": -60,
+          "max": -56
+        }
+      ],
+      "tags": [
+        "bleed",
+        "physical",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedBleedDuration5"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-antitoxin",
+      "name": "of the Antitoxin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 21,
+      "weight": 1,
+      "tier": 5,
+      "text": "(36—40)% reduced Poison Duration on you",
+      "stats": [
+        {
+          "id": "self_poison_duration_+%",
+          "min": -40,
+          "max": -36
+        }
+      ],
+      "tags": [
+        "poison",
+        "chaos",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedPoisonDuration1"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-remedy",
+      "name": "of the Remedy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 37,
+      "weight": 1,
+      "tier": 4,
+      "text": "(41—45)% reduced Poison Duration on you",
+      "stats": [
+        {
+          "id": "self_poison_duration_+%",
+          "min": -45,
+          "max": -41
+        }
+      ],
+      "tags": [
+        "poison",
+        "chaos",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedPoisonDuration2"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-cure",
+      "name": "of the Cure",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 50,
+      "weight": 1,
+      "tier": 3,
+      "text": "(46—50)% reduced Poison Duration on you",
+      "stats": [
+        {
+          "id": "self_poison_duration_+%",
+          "min": -50,
+          "max": -46
+        }
+      ],
+      "tags": [
+        "poison",
+        "chaos",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedPoisonDuration3"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-panacea",
+      "name": "of the Panacea",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 64,
+      "weight": 1,
+      "tier": 2,
+      "text": "(51—55)% reduced Poison Duration on you",
+      "stats": [
+        {
+          "id": "self_poison_duration_+%",
+          "min": -55,
+          "max": -51
+        }
+      ],
+      "tags": [
+        "poison",
+        "chaos",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedPoisonDuration4"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-antidote",
+      "name": "of the Antidote",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 76,
+      "weight": 1,
+      "tier": 1,
+      "text": "(56—60)% reduced Poison Duration on you",
+      "stats": [
+        {
+          "id": "self_poison_duration_+%",
+          "min": -60,
+          "max": -56
+        }
+      ],
+      "tags": [
+        "poison",
+        "chaos",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedPoisonDuration5"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-damping",
+      "name": "of Damping",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 21,
+      "weight": 1,
+      "tier": 5,
+      "text": "(36—40)% reduced Ignite Duration on you",
+      "stats": [
+        {
+          "id": "base_self_ignite_duration_-%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedBurnDuration1"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-quashing",
+      "name": "of Quashing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 37,
+      "weight": 1,
+      "tier": 4,
+      "text": "(41—45)% reduced Ignite Duration on you",
+      "stats": [
+        {
+          "id": "base_self_ignite_duration_-%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedBurnDuration2"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-quelling",
+      "name": "of Quelling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 50,
+      "weight": 1,
+      "tier": 3,
+      "text": "(46—50)% reduced Ignite Duration on you",
+      "stats": [
+        {
+          "id": "base_self_ignite_duration_-%",
+          "min": 46,
+          "max": 50
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedBurnDuration3"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-quenching",
+      "name": "of Quenching",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 64,
+      "weight": 1,
+      "tier": 2,
+      "text": "(51—55)% reduced Ignite Duration on you",
+      "stats": [
+        {
+          "id": "base_self_ignite_duration_-%",
+          "min": 51,
+          "max": 55
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedBurnDuration4"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-dousing",
+      "name": "of Dousing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 76,
+      "weight": 1,
+      "tier": 1,
+      "text": "(56—60)% reduced Ignite Duration on you",
+      "stats": [
+        {
+          "id": "base_self_ignite_duration_-%",
+          "min": 56,
+          "max": 60
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedBurnDuration5"
+    },
+    {
+      "id": "sirenscale-gloves:suffix:of-buffering",
+      "name": "of Buffering",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EnergyShieldRegeneration"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 1,
+      "tier": 1,
+      "text": "(16—19)% increased Energy Shield Recharge Rate",
+      "stats": [
+        {
+          "id": "energy_shield_recharge_rate_+%",
+          "min": 16,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEnergyShieldRechargeRate4"
+    },
+    {
+      "id": "sleek-jacket:suffix:of-ardour",
+      "name": "of Ardour",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EnergyShieldRegeneration"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1,
+      "tier": 2,
+      "text": "(20—23)% increased Energy Shield Recharge Rate",
+      "stats": [
+        {
+          "id": "energy_shield_recharge_rate_+%",
+          "min": 20,
+          "max": 23
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/6411293f934d42dbe74efda557ecfeedba678e132dd83597c30204f2de0f62af"
+    },
+    {
+      "id": "sleek-jacket:suffix:of-suffusion",
+      "name": "of Suffusion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EnergyShieldRegeneration"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 1,
+      "tier": 1,
+      "text": "(24—27)% increased Energy Shield Recharge Rate",
+      "stats": [
+        {
+          "id": "energy_shield_recharge_rate_+%",
+          "min": 24,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/c85c92ebb5ce0c13615eedff58df32b9c391f3a2168de526b33b8573eeea307a"
+    },
+    {
+      "id": "polished-bracers:suffix:of-deflecting",
+      "name": "of Deflecting",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EvasionAppliesToDeflection"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 5,
+      "text": "Gain Deflection Rating equal to (8—11)% of Evasion Rating",
+      "stats": [
+        {
+          "id": "base_deflection_rating_%_of_evasion_rating",
+          "min": 8,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceUrl": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/75330ab4ab9e8f4b04b07953f26867838247c23adbdf197f09f28b4094dd4de3"
+    },
+    {
+      "id": "polished-bracers:suffix:of-bending",
+      "name": "of Bending",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EvasionAppliesToDeflection"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1,
+      "tier": 4,
+      "text": "Gain Deflection Rating equal to (12—14)% of Evasion Rating",
+      "stats": [
+        {
+          "id": "base_deflection_rating_%_of_evasion_rating",
+          "min": 12,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceUrl": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/40291c23a5471623db8e34664ca1467e5673dd6b154d96cd69c318f11cf18778"
+    },
+    {
+      "id": "polished-bracers:suffix:of-curvation",
+      "name": "of Curvation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EvasionAppliesToDeflection"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 1,
+      "tier": 3,
+      "text": "Gain Deflection Rating equal to (15—17)% of Evasion Rating",
+      "stats": [
+        {
+          "id": "base_deflection_rating_%_of_evasion_rating",
+          "min": 15,
+          "max": 17
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceUrl": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/2d876537639fa49581dc16588611e5886c9a2f9e5afc4c1a9f11018aee11dab6"
+    },
+    {
+      "id": "polished-bracers:suffix:of-diversion",
+      "name": "of Diversion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EvasionAppliesToDeflection"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 1,
+      "tier": 2,
+      "text": "Gain Deflection Rating equal to (18—20)% of Evasion Rating",
+      "stats": [
+        {
+          "id": "base_deflection_rating_%_of_evasion_rating",
+          "min": 18,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceUrl": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/bdf406c6339f6e3f095c753906e321f76cc691bba0211653480d489ab0160b54"
+    },
+    {
+      "id": "polished-bracers:suffix:of-flexure",
+      "name": "of Flexure",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EvasionAppliesToDeflection"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1,
+      "tier": 1,
+      "text": "Gain Deflection Rating equal to (21—23)% of Evasion Rating",
+      "stats": [
+        {
+          "id": "base_deflection_rating_%_of_evasion_rating",
+          "min": 21,
+          "max": 23
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceUrl": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/80f0c25ca0f5198f24c432edcc6fcc2f7ca7cf274a4d54b462c9f765a8dcbd83"
+    },
+    {
+      "id": "slipstrike-vest:suffix:of-warping",
+      "name": "of Warping",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EvasionAppliesToDeflection"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 1,
+      "tier": 1,
+      "text": "Gain Deflection Rating equal to (24—26)% of Evasion Rating",
+      "stats": [
+        {
+          "id": "base_deflection_rating_%_of_evasion_rating",
+          "min": 24,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceUrl": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/2b9c6b44216bb6de101d2ec7aa2d0885db46d320893b46821c84ca4bdcc8a759"
+    },
+    {
+      "id": "rusted-cuirass:prefix:essence-maximum-life-percent",
+      "name": "Essences",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaximumLifeIncreasePercent"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(8—10)% increased maximum Life",
+      "stats": [
+        {
+          "id": "maximum_life_+%",
+          "min": 8,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceIncreasedLifePercent1"
+    },
+    {
+      "id": "rusted-cuirass:prefix:essence-physical-taken-as-chaos",
+      "name": "Essences",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamageTakenAsChaos"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(10—15)% of Physical Damage from Hits taken as Chaos Damage",
+      "stats": [
+        {
+          "id": "physical_damage_taken_%_as_chaos",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "physical",
+        "chaos"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssencePhysicalDamageTakenAsChaos1"
+    },
+    {
+      "id": "rusted-cuirass:suffix:essence-reduced-incoming-critical-damage",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedCriticalStrikeDamageTaken"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "Hits against you have (40—50)% reduced Critical Damage Bonus",
+      "stats": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "min": 40,
+          "max": 50
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceReducedCriticalDamageAgainstYou1"
+    },
+    {
+      "id": "stocky-mitts:prefix:essence-abyssal-mark",
+      "name": "Abyssal",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EssenceAbyss"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Bears the Mark of the Abyssal Lord",
+      "stats": [
+        {
+          "id": "essence_abyss_guaranteed_pick",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssPrefix"
+    },
+    {
+      "id": "stocky-mitts:suffix:essence-abyssal-mark",
+      "name": "of the Abyss",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EssenceAbyss"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Bears the Mark of the Abyssal Lord",
+      "stats": [
+        {
+          "id": "essence_abyss_guaranteed_pick",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssSuffix"
+    }
+  ]
+}

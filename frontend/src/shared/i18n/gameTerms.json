@@ -2211,6 +2211,48 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame",
       "sourceUrl": "https://poe2db.tw/us/Grinning_Mask"
+    },
+    "Slipstrike_Vest": {
+      "name": "Slipstrike Vest",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Slipstrike_Vest"
+    },
+    "Death_Mail": {
+      "name": "Death Mail",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Death_Mail"
+    },
+    "Sleek_Jacket": {
+      "name": "Sleek Jacket",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt2Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Sleek_Jacket"
+    },
+    "Vile_Robe": {
+      "name": "Vile Robe",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt3Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Vile_Robe"
+    },
+    "Wolfskin_Mantle": {
+      "name": "Wolfskin Mantle",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt2Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Wolfskin_Mantle"
+    },
+    "Ancestral_Tiara": {
+      "name": "Ancestral Tiara",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Ancestral_Tiara"
+    },
+    "Cryptic_Crown": {
+      "name": "Cryptic Crown",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Cryptic_Crown"
     }
   },
   "ko": {
@@ -4409,6 +4451,48 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame",
       "sourceUrl": "https://poe2db.tw/kr/Grinning_Mask"
+    },
+    "Slipstrike_Vest": {
+      "name": "미끄러진 타격 조끼",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Slipstrike_Vest"
+    },
+    "Death_Mail": {
+      "name": "죽음의 사슬옷",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Death_Mail"
+    },
+    "Sleek_Jacket": {
+      "name": "매끈한 재킷",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt2Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Sleek_Jacket"
+    },
+    "Vile_Robe": {
+      "name": "끔찍한 로브",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt3Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Vile_Robe"
+    },
+    "Wolfskin_Mantle": {
+      "name": "늑대가죽 외투",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt2Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Wolfskin_Mantle"
+    },
+    "Ancestral_Tiara": {
+      "name": "선대의 티아라",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Ancestral_Tiara"
+    },
+    "Cryptic_Crown": {
+      "name": "난해한 왕관",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Cryptic_Crown"
     }
   },
   "zh-CN": {
@@ -6505,6 +6589,48 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame",
       "sourceUrl": "https://poe2db.tw/cn/Grinning_Mask"
+    },
+    "Slipstrike_Vest": {
+      "name": "滑击背心",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Slipstrike_Vest"
+    },
+    "Death_Mail": {
+      "name": "死亡锁甲",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Death_Mail"
+    },
+    "Sleek_Jacket": {
+      "name": "滑布外衣",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt2Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Sleek_Jacket"
+    },
+    "Vile_Robe": {
+      "name": "邪恶束衣",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt3Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Vile_Robe"
+    },
+    "Wolfskin_Mantle": {
+      "name": "狼皮斗篷",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt2Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Wolfskin_Mantle"
+    },
+    "Ancestral_Tiara": {
+      "name": "先祖冠冕",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Ancestral_Tiara"
+    },
+    "Cryptic_Crown": {
+      "name": "隐秘之冠",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Cryptic_Crown"
     }
   },
   "zh-TW": {
@@ -8591,6 +8717,48 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame",
       "sourceUrl": "https://poe2db.tw/tw/Grinning_Mask"
+    },
+    "Slipstrike_Vest": {
+      "name": "快速打擊背心",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Slipstrike_Vest"
+    },
+    "Death_Mail": {
+      "name": "死亡鎖甲",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Death_Mail"
+    },
+    "Sleek_Jacket": {
+      "name": "光滑外衣",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt2Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Sleek_Jacket"
+    },
+    "Vile_Robe": {
+      "name": "惡毒長袍",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt3Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Vile_Robe"
+    },
+    "Wolfskin_Mantle": {
+      "name": "狼皮披肩",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt2Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Wolfskin_Mantle"
+    },
+    "Ancestral_Tiara": {
+      "name": "先祖頭冠",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Ancestral_Tiara"
+    },
+    "Cryptic_Crown": {
+      "name": "隱祕之冠",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Cryptic_Crown"
     }
   },
   "ja": {
@@ -10791,6 +10959,48 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame",
       "sourceUrl": "https://poe2db.tw/jp/Grinning_Mask"
+    },
+    "Slipstrike_Vest": {
+      "name": "スリップストライクベスト",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Slipstrike_Vest"
+    },
+    "Death_Mail": {
+      "name": "デスメイル",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Death_Mail"
+    },
+    "Sleek_Jacket": {
+      "name": "艶のあるジャケット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt2Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Sleek_Jacket"
+    },
+    "Vile_Robe": {
+      "name": "悪辣のローブ",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt3Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Vile_Robe"
+    },
+    "Wolfskin_Mantle": {
+      "name": "狼皮の外套",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt2Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Wolfskin_Mantle"
+    },
+    "Ancestral_Tiara": {
+      "name": "先祖のティアラ",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Ancestral_Tiara"
+    },
+    "Cryptic_Crown": {
+      "name": "謎の冠",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Cryptic_Crown"
     }
   },
   "es": {
@@ -12909,6 +13119,48 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame",
       "sourceUrl": "https://poe2db.tw/sp/Grinning_Mask"
+    },
+    "Slipstrike_Vest": {
+      "name": "Jubón de impacto rápido",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Slipstrike_Vest"
+    },
+    "Death_Mail": {
+      "name": "Cota de malla de muerte",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Death_Mail"
+    },
+    "Sleek_Jacket": {
+      "name": "Chaqueta lisa",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt2Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Sleek_Jacket"
+    },
+    "Vile_Robe": {
+      "name": "Túnica vil",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt3Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Vile_Robe"
+    },
+    "Wolfskin_Mantle": {
+      "name": "Manto de piel de lobo",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt2Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Wolfskin_Mantle"
+    },
+    "Ancestral_Tiara": {
+      "name": "Tiara ancestral",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Ancestral_Tiara"
+    },
+    "Cryptic_Crown": {
+      "name": "Corona críptica",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Cryptic_Crown"
     }
   }
 }

@@ -1,3 +1,5 @@
+최신 base 확장: [Body / remaining Helmet 7종](workbench-body-helmet-bundle-2026-10-04.md). Workbench 35 bases; Body·Helmet·Gloves의 일반 defence archetype 6종 완료. 남은 armour는 Boots 6종. 전체 source pool·6locale·class별 Essence·기존 film을 보존하며 Support/Explorer는 Solar-only.
+
 최신 base 확장: [Evasion Gloves / Helmets 6종](workbench-evasion-armour-bundle-2026-10-04.md). Workbench 28 bases, Gloves의 일반 defence archetype 6종 완료, Helmet evasion 3종 추가. 전체 eligible pool·6locale·class별 Essence·기존 film을 유지하며 Support/Explorer는 Solar-only다.
 
 Latest checkpoint: [Ancient Liquid and Time-Lost Jewel](workbench-ancient-liquid-2026-10-04.md). Time-Lost Ruby53/Emerald77/Sapphire60/Diamond160 ordinary candidates, Ancient Liquid13/13/13/3 with Crafted outcomes14/14/14/4. All26 craft Liquids and reviewed18 ordinary currencies on eight Jewel bases have sourced positive paths. Fixed base radius implicit is preserved; passive-tree effects are conditional text only. Earlier dated scopes below are superseded for these bases.

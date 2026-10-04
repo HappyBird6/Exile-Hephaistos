@@ -16,6 +16,13 @@ describe('reviewed endgame base identities', () => {
     'freebooter',
     'gladiatorial',
     'grinning',
+    'slipstrike',
+    'death-mail',
+    'sleek',
+    'vile',
+    'wolfskin',
+    'ancestral',
+    'cryptic',
   ] as const)('preserves source facts and six languages for %s', (key) => {
     const base = topBase(key)!
     expect(topBaseKey(base.id)).toBe(key)
@@ -36,6 +43,15 @@ describe('reviewed endgame base identities', () => {
           (!base.intelligence || text.includes(String(base.intelligence))),
       ),
     ).toBe(true)
+    if (base.baseMovementSpeed !== undefined) {
+      expect(Object.keys(base.sourceProperties ?? {}).sort()).toEqual(
+        Object.keys(base.requirements).sort(),
+      )
+      for (const lines of Object.values(base.sourceProperties ?? {})) {
+        expect(lines).toHaveLength(1)
+        expect(lines[0]).toContain(String(base.baseMovementSpeed))
+      }
+    }
     useItemDraft.getState().setBase(82, key)
     expect(useItemDraft.getState().text).toContain(base.name)
     expect(useItemDraft.getState().baseItemLevel).toBe(82)
