@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/sp/Sirenscale_Gloves",
+  "retrievedAt": "2026-10-04T15:38:17.325Z",
+  "sha256": "b1735c6f3bd705f09e02eca9d50a1e0d41fa6f6dfef0bb198ec3e48c0855dca9",
+  "name": "Guantes de sirena",
+  "card": "Guantes de sirena\n        \n    \n    \n        \n            GuantesEscudo de energía: 54Requiere:  Nivel 80, 101 Int\n        \n\n\n\n        \n            Sirenscale Gloves",
+  "requirements": "Requiere:  Nivel 80, 101 Int",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "Guantes de sirena",
+    "Class": "Guantes",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Gloves/FourGlovesInt6Endgame",
+    "Tags": "int_armour, karui_basetype, gloves, armour",
+    "Icon": "Art/2DItems/Armours/Gloves/Basetypes/GlovesInt06",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, gloves",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Gloves",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

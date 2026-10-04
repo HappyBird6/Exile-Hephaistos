@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/kr/Sirenscale_Gloves",
+  "retrievedAt": "2026-10-04T15:38:16.171Z",
+  "sha256": "3e50b5d3da209f7471ad09a9eff3e66da27c25f806ea4331268246bb4869c3ac",
+  "name": "사이렌비늘 장갑",
+  "card": "사이렌비늘 장갑\n        \n    \n    \n        \n            장갑에너지 보호막: 54요구 사항:  레벨 80, 101 지능\n        \n\n\n\n        \n            Sirenscale Gloves",
+  "requirements": "요구 사항:  레벨 80, 101 지능",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "사이렌비늘 장갑",
+    "Class": "장갑",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Gloves/FourGlovesInt6Endgame",
+    "Tags": "int_armour, karui_basetype, gloves, armour",
+    "Icon": "Art/2DItems/Armours/Gloves/Basetypes/GlovesInt06",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, gloves",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Gloves",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

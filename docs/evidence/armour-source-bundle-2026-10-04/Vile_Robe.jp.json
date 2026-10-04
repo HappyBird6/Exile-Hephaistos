@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/jp/Vile_Robe",
+  "retrievedAt": "2026-10-04T15:37:55.614Z",
+  "sha256": "90b57fb808f8d8f90bc57064b0d5372c3c0cce468d735640a48f1d31be6f7e50",
+  "name": "悪辣のローブ",
+  "card": "悪辣のローブ\n        \n    \n    \n        \n            鎧エナジーシールド: 171Base Movement Speed: -0.03装備条件： レベル 65, 121 知性\n        \n\n\n\n        \n            Vile Robe",
+  "requirements": "装備条件： レベル 65, 121 知性",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "悪辣のローブ",
+    "Class": "鎧",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/BodyArmours/FourBodyInt3Endgame",
+    "Tags": "int_armour, body_armour, armour",
+    "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyInt03",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, body_armour",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "BodyArmour",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+  }
+}

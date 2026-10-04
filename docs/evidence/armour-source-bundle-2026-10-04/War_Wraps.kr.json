@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/kr/War_Wraps",
+  "retrievedAt": "2026-10-04T15:38:23.097Z",
+  "sha256": "0acf20481382872c92d4a1d992b5eb568cd33695a28e2fc3c245d502167b1316",
+  "name": "전쟁 싸개",
+  "card": "전쟁 싸개\n        \n    \n    \n        \n            장갑회피: 94에너지 보호막: 29요구 사항:  레벨 65, 44 민첩, 44 지능\n        \n\n\n\n        \n            War Wraps",
+  "requirements": "요구 사항:  레벨 65, 44 민첩, 44 지능",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "전쟁 싸개",
+    "Class": "장갑",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Gloves/FourGlovesDexInt1Endgame",
+    "Tags": "dex_int_armour, gloves, armour",
+    "Icon": "Art/2DItems/Armours/Gloves/Basetypes/GlovesDexInt01",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, gloves",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Gloves",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

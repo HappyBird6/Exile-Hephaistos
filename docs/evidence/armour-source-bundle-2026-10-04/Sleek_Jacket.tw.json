@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/tw/Sleek_Jacket",
+  "retrievedAt": "2026-10-04T15:43:58.881Z",
+  "sha256": "cd16c02697bab1a79e8f132d9ca923b43eb2f5aacc737ac17a0c3106a9efddbe",
+  "name": "光滑外衣",
+  "card": "光滑外衣\n        \n    \n    \n        \n            胸甲閃避值: 285能量護盾: 87基礎移動速度: -0.03需求:  等級 65, 67 敏捷, 67 智慧\n        \n\n\n\n        \n            Sleek Jacket",
+  "requirements": "需求:  等級 65, 67 敏捷, 67 智慧",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "光滑外衣",
+    "Class": "胸甲",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt2Endgame",
+    "Tags": "dex_int_armour, body_armour, armour",
+    "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyDexInt02",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, body_armour",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "BodyArmour",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+  }
+}

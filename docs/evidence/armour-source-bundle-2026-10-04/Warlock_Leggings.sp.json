@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/sp/Warlock_Leggings",
+  "retrievedAt": "2026-10-04T15:38:38.104Z",
+  "sha256": "f1fee4252e8ed2a8430d67cd0cc2fd29c07e5d38b228f2337840d8e753df6d2f",
+  "name": "Botines de brujo",
+  "card": "Botines de brujo\n        \n    \n    \n        \n            BotasArmadura: 134Escudo de energía: 37Requiere:  Nivel 75, 56 Fue, 56 Int\n        \n\n\n\n        \n            Warlock Leggings",
+  "requirements": "Requiere:  Nivel 75, 56 Fue, 56 Int",
+  "fields": {
+    "DropLevel": "75",
+    "BaseType": "Botines de brujo",
+    "Class": "Botas",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Boots/FourBootsStrInt3Endgame",
+    "Tags": "str_int_armour, boots, armour",
+    "Icon": "Art/2DItems/Armours/Boots/Basetypes/BootsIntStr03",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, boots",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Boots",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/tw/Polished_Bracers",
+  "retrievedAt": "2026-10-04T15:38:15.302Z",
+  "sha256": "046f422e6fc5c1445b6f79b3401a6740fb2b3b80fe9c535c1188aaff8f31ad55",
+  "name": "亮澤護腕",
+  "card": "亮澤護腕\n        \n    \n    \n        \n            手套閃避值: 170需求:  等級 80, 101 敏捷\n        \n\n\n\n        \n            Polished Bracers",
+  "requirements": "需求:  等級 80, 101 敏捷",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "亮澤護腕",
+    "Class": "手套",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Gloves/FourGlovesDex6Endgame",
+    "Tags": "dex_armour, karui_basetype, gloves, armour",
+    "Icon": "Art/2DItems/Armours/Gloves/Basetypes/GlovesDex06",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, gloves",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Gloves",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/sp/War_Wraps",
+  "retrievedAt": "2026-10-04T15:38:24.242Z",
+  "sha256": "8d77fd04fbd5f90cdbd2b0589438ec2181d226af0593a1edcf519add38d926ac",
+  "name": "Vendajes de guerra",
+  "card": "Vendajes de guerra\n        \n    \n    \n        \n            GuantesEvasión: 94Escudo de energía: 29Requiere:  Nivel 65, 44 Des, 44 Int\n        \n\n\n\n        \n            War Wraps",
+  "requirements": "Requiere:  Nivel 65, 44 Des, 44 Int",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "Vendajes de guerra",
+    "Class": "Guantes",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Gloves/FourGlovesDexInt1Endgame",
+    "Tags": "dex_int_armour, gloves, armour",
+    "Icon": "Art/2DItems/Armours/Gloves/Basetypes/GlovesDexInt01",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, gloves",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Gloves",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

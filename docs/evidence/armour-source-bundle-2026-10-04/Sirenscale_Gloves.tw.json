@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/tw/Sirenscale_Gloves",
+  "retrievedAt": "2026-10-04T15:38:17.035Z",
+  "sha256": "4852743a671c074953d80bc576df8ca6be2e15fd2777e5e0732f4d534e20fe5a",
+  "name": "海妖鱗手套",
+  "card": "海妖鱗手套\n        \n    \n    \n        \n            手套能量護盾: 54需求:  等級 80, 101 智慧\n        \n\n\n\n        \n            Sirenscale Gloves",
+  "requirements": "需求:  等級 80, 101 智慧",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "海妖鱗手套",
+    "Class": "手套",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Gloves/FourGlovesInt6Endgame",
+    "Tags": "int_armour, karui_basetype, gloves, armour",
+    "Icon": "Art/2DItems/Armours/Gloves/Basetypes/GlovesInt06",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, gloves",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Gloves",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

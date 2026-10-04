@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/tw/Daggerfoot_Shoes",
+  "retrievedAt": "2026-10-04T15:38:41.477Z",
+  "sha256": "e6f824dff8ad168f1fae98bbf5393ed3b99373b505e110c71132d6ee700c17f1",
+  "name": "捷足輕鞋",
+  "card": "捷足輕鞋\n        \n    \n    \n        \n            鞋子閃避值: 140能量護盾: 43需求:  等級 80, 59 敏捷, 59 智慧\n        \n\n\n\n        \n            Daggerfoot Shoes",
+  "requirements": "需求:  等級 80, 59 敏捷, 59 智慧",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "捷足輕鞋",
+    "Class": "鞋子",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame",
+    "Tags": "dex_int_armour, karui_basetype, boots, armour",
+    "Icon": "Art/2DItems/Armours/Boots/Basetypes/BootsDexInt04",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, boots",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Boots",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

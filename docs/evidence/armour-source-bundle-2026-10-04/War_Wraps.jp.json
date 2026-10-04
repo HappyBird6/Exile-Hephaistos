@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/jp/War_Wraps",
+  "retrievedAt": "2026-10-04T15:38:23.382Z",
+  "sha256": "c35fbcd0b10e62f25c3b66e51dc48cb924e133ebb26a0fabf7e499b0591a2bd3",
+  "name": "ウォーラップ",
+  "card": "ウォーラップ\n        \n    \n    \n        \n            手袋回避力: 94エナジーシールド: 29装備条件： レベル 65, 44 器用さ, 44 知性\n        \n\n\n\n        \n            War Wraps",
+  "requirements": "装備条件： レベル 65, 44 器用さ, 44 知性",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "ウォーラップ",
+    "Class": "手袋",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Gloves/FourGlovesDexInt1Endgame",
+    "Tags": "dex_int_armour, gloves, armour",
+    "Icon": "Art/2DItems/Armours/Gloves/Basetypes/GlovesDexInt01",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, gloves",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Gloves",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

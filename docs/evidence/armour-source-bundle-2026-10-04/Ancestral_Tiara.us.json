@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/us/Ancestral_Tiara",
+  "retrievedAt": "2026-10-04T15:38:05.466Z",
+  "sha256": "f825b78a8351ecd4749c00fe2906fcb3921be3910f70179db5431471df20a84e",
+  "name": "Ancestral Tiara",
+  "card": "Ancestral Tiara\n        \n    \n    \n        \n            HelmetsEnergy Shield: 109Requires:  Level 80, 115 Int",
+  "requirements": "Requires:  Level 80, 115 Int",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "Ancestral Tiara",
+    "Class": "Helmets",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Helmets/FourHelmetInt8Endgame",
+    "Tags": "int_armour, karui_basetype, helmet, armour",
+    "Icon": "Art/2DItems/Armours/Helmets/Basetypes/HelmetInt08",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, helmet",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Helm",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

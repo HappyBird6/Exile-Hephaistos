@@ -1,0 +1,24 @@
+{
+  "runtimeFailures": [],
+  "sourcePreflightFailures": [
+    {
+      "sequence": 1,
+      "command": "node scripts/audit-armour-pools.mjs docs/evidence/armour-source-bundle-2026-10-04",
+      "error": "TypeError: raw is not iterable",
+      "cause": "Jewel base.raw.json is an object, while ordinary armour source rows are arrays.",
+      "correction": "Exclude non-array source formats from armour-row matching. No source definition or assertion was relaxed."
+    },
+    {
+      "sequence": 2,
+      "command": "node scripts/verify-armour-evidence.mjs docs/evidence/armour-source-bundle-2026-10-04",
+      "error": "AssertionError: Wolfskin_Mantle: not the highest normal inventory defence",
+      "cause": "Raw inventory includes Ornate Ringmail with Unique metadata and Loreweave icon. Primal Markings also loses the maximum-defence comparison to Sleek Jacket.",
+      "correction": "Preserve original candidate records and false highestDefence results. Collect outlier and Sleek source evidence, verify corrected normal-metadata recommendations against inventory maxima, and write reviewed-roster.json separately."
+    }
+  ],
+  "sourceAccessObservations": [
+    "CDN Poe_Data_Mods_hover returned HTTP403.",
+    "Public Data/Mods/MovementVelocity1 returned a nonempty detail.",
+    "Guessed LocalEvasionRating1 and LocalEnergyShield1 returned HTTP200 with empty bodies; they are not verified modifier identities."
+  ]
+}

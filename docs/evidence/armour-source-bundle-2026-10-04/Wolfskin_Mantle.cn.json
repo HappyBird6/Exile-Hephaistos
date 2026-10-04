@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/cn/Wolfskin_Mantle",
+  "retrievedAt": "2026-10-04T15:37:59.383Z",
+  "sha256": "f2a7b987bcdcd0e94e466cdc823437bce0153920ef79af37f6f5121f565ed5cc",
+  "name": "狼皮斗篷",
+  "card": "狼皮斗篷\n        \n    \n    \n        \n            护甲护甲: 313能量护盾: 87基础移动速度: -0.04需求：  等级 65, 67 力量, 67 智慧\n        \n\n\n\n        \n            Wolfskin Mantle",
+  "requirements": "需求：  等级 65, 67 力量, 67 智慧",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "狼皮斗篷",
+    "Class": "护甲",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt2Endgame",
+    "Tags": "str_int_armour, body_armour, armour",
+    "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr02",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, body_armour",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "BodyArmour",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+  }
+}

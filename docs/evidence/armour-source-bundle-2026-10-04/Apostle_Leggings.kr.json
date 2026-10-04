@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/kr/Apostle_Leggings",
+  "retrievedAt": "2026-10-04T15:38:35.219Z",
+  "sha256": "1de1d3e7d4179ac93c5e0e214c1f136238b338938f33aa30632d8e86804286e0",
+  "name": "사도 레깅스",
+  "card": "사도 레깅스\n        \n    \n    \n        \n            장화방어도: 134에너지 보호막: 37요구 사항:  레벨 70, 51 힘, 51 지능\n        \n\n\n\n        \n            Apostle Leggings",
+  "requirements": "요구 사항:  레벨 70, 51 힘, 51 지능",
+  "fields": {
+    "DropLevel": "70",
+    "BaseType": "사도 레깅스",
+    "Class": "장화",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Boots/FourBootsStrInt2Endgame",
+    "Tags": "str_int_armour, boots, armour",
+    "Icon": "Art/2DItems/Armours/Boots/Basetypes/BootsIntStr02",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, boots",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Boots",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

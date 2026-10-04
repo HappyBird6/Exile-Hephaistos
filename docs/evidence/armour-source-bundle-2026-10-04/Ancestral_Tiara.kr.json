@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/kr/Ancestral_Tiara",
+  "retrievedAt": "2026-10-04T15:38:05.751Z",
+  "sha256": "13f008a22325711484a0db05bdbf4aff173dabe4629f21f806a7bae4502ac3df",
+  "name": "선대의 티아라",
+  "card": "선대의 티아라\n        \n    \n    \n        \n            투구에너지 보호막: 109요구 사항:  레벨 80, 115 지능\n        \n\n\n\n        \n            Ancestral Tiara",
+  "requirements": "요구 사항:  레벨 80, 115 지능",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "선대의 티아라",
+    "Class": "투구",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Helmets/FourHelmetInt8Endgame",
+    "Tags": "int_armour, karui_basetype, helmet, armour",
+    "Icon": "Art/2DItems/Armours/Helmets/Basetypes/HelmetInt08",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, helmet",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Helm",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/kr/Death_Mail",
+  "retrievedAt": "2026-10-04T15:37:57.058Z",
+  "sha256": "2895606de607e7bc33a6bc5ef6e98a9a29f373cbd28f4183ac2f4bce922e71f1",
+  "name": "죽음의 사슬옷",
+  "card": "죽음의 사슬옷\n        \n    \n    \n        \n            갑옷방어도: 313회피: 285Base Movement Speed: -0.04요구 사항:  레벨 75, 67 힘, 67 민첩\n        \n\n\n\n        \n            Death Mail",
+  "requirements": "요구 사항:  레벨 75, 67 힘, 67 민첩",
+  "fields": {
+    "DropLevel": "75",
+    "BaseType": "죽음의 사슬옷",
+    "Class": "갑옷",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex6Endgame",
+    "Tags": "str_dex_armour, body_armour, armour",
+    "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex06",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, body_armour",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "BodyArmour",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+  }
+}

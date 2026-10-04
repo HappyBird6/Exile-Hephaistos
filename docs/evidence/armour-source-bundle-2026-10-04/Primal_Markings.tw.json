@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/tw/Primal_Markings",
+  "retrievedAt": "2026-10-04T15:38:01.399Z",
+  "sha256": "57e4b6abd7df38583ff629011080b0d1688c7b5a0d0a72fa1c7defc926d2d23f",
+  "name": "野性標記",
+  "card": "野性標記\n        \n    \n    \n        \n            胸甲閃避值: 268能量護盾: 82基礎移動速度: -0.03需求:  等級 70, 67 敏捷, 67 智慧\n        \n\n\n\n        \n            Primal Markings",
+  "requirements": "需求:  等級 70, 67 敏捷, 67 智慧",
+  "fields": {
+    "DropLevel": "70",
+    "BaseType": "野性標記",
+    "Class": "胸甲",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/BodyArmours/FourBodyDexIntUnique1",
+    "Tags": "dex_int_armour, body_armour, armour",
+    "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyDexInt08",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, body_armour",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "BodyArmour",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/us/Blacksteel_Sabatons",
+  "retrievedAt": "2026-10-04T15:38:31.467Z",
+  "sha256": "7d04a02a1f36b2662459aaa2c038d83f420cd89b0ce8370217acb1925213367a",
+  "name": "Blacksteel Sabatons",
+  "card": "Blacksteel Sabatons\n        \n    \n    \n        \n            BootsArmour: 154Evasion Rating: 140Requires:  Level 80, 59 Str, 59 Dex",
+  "requirements": "Requires:  Level 80, 59 Str, 59 Dex",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "Blacksteel Sabatons",
+    "Class": "Boots",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Boots/FourBootsStrDex4Endgame",
+    "Tags": "str_dex_armour, karui_basetype, boots, armour",
+    "Icon": "Art/2DItems/Armours/Boots/Basetypes/BootsStrDex04",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, boots",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Boots",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

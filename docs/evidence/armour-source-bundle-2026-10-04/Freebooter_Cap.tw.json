@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/tw/Freebooter_Cap",
+  "retrievedAt": "2026-10-04T15:38:04.868Z",
+  "sha256": "a5a239e9a692c7f80ecb5a7752dd5497e2a302523378fd8ddfb016138925919b",
+  "name": "劫掠者便帽",
+  "card": "劫掠者便帽\n        \n    \n    \n        \n            頭部閃避值: 340需求:  等級 80, 115 敏捷\n        \n\n\n\n        \n            Freebooter Cap",
+  "requirements": "需求:  等級 80, 115 敏捷",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "劫掠者便帽",
+    "Class": "頭部",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Helmets/FourHelmetDex7Endgame",
+    "Tags": "dex_armour, karui_basetype, helmet, armour",
+    "Icon": "Art/2DItems/Armours/Helmets/Basetypes/HelmetDex07",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, helmet",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Helm",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

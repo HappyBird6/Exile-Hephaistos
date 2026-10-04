@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/us/Primal_Markings",
+  "retrievedAt": "2026-10-04T15:38:00.248Z",
+  "sha256": "5b2698c90992ca2ec12aa657715d05cc9456ebf403aa1d1d80aae3f00a2d6d01",
+  "name": "Primal Markings",
+  "card": "Primal Markings\n        \n    \n    \n        \n            Body ArmoursEvasion Rating: 268Energy Shield: 82Base Movement Speed: -0.03Requires:  Level 70, 67 Dex, 67 Int",
+  "requirements": "Requires:  Level 70, 67 Dex, 67 Int",
+  "fields": {
+    "DropLevel": "70",
+    "BaseType": "Primal Markings",
+    "Class": "Body Armours",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/BodyArmours/FourBodyDexIntUnique1",
+    "Tags": "dex_int_armour, body_armour, armour",
+    "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyDexInt08",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, body_armour",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "BodyArmour",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+  }
+}

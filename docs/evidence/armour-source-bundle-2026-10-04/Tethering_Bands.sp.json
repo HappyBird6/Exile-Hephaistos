@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/sp/Tethering_Bands",
+  "retrievedAt": "2026-10-04T15:38:20.787Z",
+  "sha256": "43254e40ed9220033c97791605ddd6a1442cb9ecf00ceb40492e1275dca08aac",
+  "name": "Vendas apresantes",
+  "card": "Vendas apresantes\n        \n    \n    \n        \n            GuantesArmadura: 98Escudo de energía: 27Requiere:  Nivel 65, 55 Fue, 55 Int\n        \n\n\n\n        \n            Tethering Bands",
+  "requirements": "Requiere:  Nivel 65, 55 Fue, 55 Int",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "Vendas apresantes",
+    "Class": "Guantes",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Gloves/FourGlovesStrIntUnique1",
+    "Tags": "str_int_armour, karui_basetype, gloves, armour",
+    "Icon": "Art/2DItems/Armours/Gloves/Basetypes/GlovesIntStr04",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, gloves",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Gloves",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

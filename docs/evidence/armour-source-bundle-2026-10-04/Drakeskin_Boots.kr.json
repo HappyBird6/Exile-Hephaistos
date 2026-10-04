@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/kr/Drakeskin_Boots",
+  "retrievedAt": "2026-10-04T15:38:28.292Z",
+  "sha256": "5da5e86d0e7a4052a4a6cb8401fdf7d0e870d644110115555231a6426baed996",
+  "name": "비룡가죽 장화",
+  "card": "비룡가죽 장화\n        \n    \n    \n        \n            장화회피: 255요구 사항:  레벨 80, 108 민첩\n        \n\n\n\n        \n            Drakeskin Boots",
+  "requirements": "요구 사항:  레벨 80, 108 민첩",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "비룡가죽 장화",
+    "Class": "장화",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Boots/FourBootsDex6Endgame",
+    "Tags": "dex_armour, karui_basetype, boots, armour",
+    "Icon": "Art/2DItems/Armours/Boots/Basetypes/BootsDex06",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, boots",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Boots",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

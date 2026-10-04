@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/sp/Imperial_Greathelm",
+  "retrievedAt": "2026-10-04T15:38:03.422Z",
+  "sha256": "ed1e3ffc49ce6da685618f630de9d3bfdb7c4694b2ff97b47a00925920acab22",
+  "name": "Gran yelmo imperial",
+  "card": "Gran yelmo imperial\n        \n    \n    \n        \n            CascosArmadura: 374Requiere:  Nivel 80, 115 Fue\n        \n\n\n\n        \n            Imperial Greathelm",
+  "requirements": "Requiere:  Nivel 80, 115 Fue",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "Gran yelmo imperial",
+    "Class": "Cascos",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame",
+    "Tags": "str_armour, karui_basetype, helmet, armour",
+    "Icon": "Art/2DItems/Armours/Helmets/Basetypes/HelmetStr07",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, helmet",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Helm",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

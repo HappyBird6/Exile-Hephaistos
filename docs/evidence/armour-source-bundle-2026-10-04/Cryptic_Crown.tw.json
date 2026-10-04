@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/tw/Cryptic_Crown",
+  "retrievedAt": "2026-10-04T15:38:10.094Z",
+  "sha256": "baa05897cb926d3b044b23fe1f6b1121b09b9b01c5c261953c4f2137c6c45ab8",
+  "name": "隱祕之冠",
+  "card": "隱祕之冠\n        \n    \n    \n        \n            頭部護甲值: 206能量護盾: 57需求:  等級 80, 63 力量, 63 智慧\n        \n\n\n\n        \n            Cryptic Crown",
+  "requirements": "需求:  等級 80, 63 力量, 63 智慧",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "隱祕之冠",
+    "Class": "頭部",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame",
+    "Tags": "str_int_armour, karui_basetype, helmet, armour",
+    "Icon": "Art/2DItems/Armours/Helmets/Basetypes/HelmetIntStr06",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, helmet",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Helm",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

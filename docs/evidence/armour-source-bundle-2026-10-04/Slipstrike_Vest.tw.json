@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/tw/Slipstrike_Vest",
+  "retrievedAt": "2026-10-04T15:37:54.462Z",
+  "sha256": "d478434c65ebd82db7e81879e248b5ff022059435a9e11147c475521595017c6",
+  "name": "快速打擊背心",
+  "card": "快速打擊背心\n        \n    \n    \n        \n            胸甲閃避值: 519基礎移動速度: -0.03需求:  等級 70, 121 敏捷\n        \n\n\n\n        \n            Slipstrike Vest",
+  "requirements": "需求:  等級 70, 121 敏捷",
+  "fields": {
+    "DropLevel": "70",
+    "BaseType": "快速打擊背心",
+    "Class": "胸甲",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/BodyArmours/FourBodyDex6Endgame",
+    "Tags": "dex_armour, body_armour, armour",
+    "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyDex06",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, body_armour",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "BodyArmour",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+  }
+}

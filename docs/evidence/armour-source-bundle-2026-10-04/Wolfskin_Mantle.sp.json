@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/sp/Wolfskin_Mantle",
+  "retrievedAt": "2026-10-04T15:37:59.952Z",
+  "sha256": "4590aeea9ed8b02ecb459890cd4ad7524f5b0389fe0691364ece157ef09959b4",
+  "name": "Manto de piel de lobo",
+  "card": "Manto de piel de lobo\n        \n    \n    \n        \n            Armaduras corporalesArmadura: 313Escudo de energía: 87Base Movement Speed: -0.04Requiere:  Nivel 65, 67 Fue, 67 Int\n        \n\n\n\n        \n            Wolfskin Mantle",
+  "requirements": "Requiere:  Nivel 65, 67 Fue, 67 Int",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "Manto de piel de lobo",
+    "Class": "Armaduras corporales",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt2Endgame",
+    "Tags": "str_int_armour, body_armour, armour",
+    "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr02",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, body_armour",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "BodyArmour",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+  }
+}

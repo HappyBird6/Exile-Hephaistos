@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/us/Polished_Bracers",
+  "retrievedAt": "2026-10-04T15:38:14.155Z",
+  "sha256": "ec8acaf4281317b4883f685b89bd37519376f3a78d2aceeb26a2b1cb21f25bb2",
+  "name": "Polished Bracers",
+  "card": "Polished Bracers\n        \n    \n    \n        \n            GlovesEvasion Rating: 170Requires:  Level 80, 101 Dex",
+  "requirements": "Requires:  Level 80, 101 Dex",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "Polished Bracers",
+    "Class": "Gloves",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Gloves/FourGlovesDex6Endgame",
+    "Tags": "dex_armour, karui_basetype, gloves, armour",
+    "Icon": "Art/2DItems/Armours/Gloves/Basetypes/GlovesDex06",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, gloves",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Gloves",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

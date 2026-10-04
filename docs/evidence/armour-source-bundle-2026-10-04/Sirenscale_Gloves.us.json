@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/us/Sirenscale_Gloves",
+  "retrievedAt": "2026-10-04T15:38:15.884Z",
+  "sha256": "4e8523b4d55098dee45af0c93e02d0d148d93cae6f186913be40df9778eacfd7",
+  "name": "Sirenscale Gloves",
+  "card": "Sirenscale Gloves\n        \n    \n    \n        \n            GlovesEnergy Shield: 54Requires:  Level 80, 101 Int",
+  "requirements": "Requires:  Level 80, 101 Int",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "Sirenscale Gloves",
+    "Class": "Gloves",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Gloves/FourGlovesInt6Endgame",
+    "Tags": "int_armour, karui_basetype, gloves, armour",
+    "Icon": "Art/2DItems/Armours/Gloves/Basetypes/GlovesInt06",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, gloves",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Gloves",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

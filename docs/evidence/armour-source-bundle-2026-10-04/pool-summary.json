@@ -1,0 +1,146 @@
+[
+  {
+    "page": "Body_Armours_str",
+    "normalCount": 144,
+    "matchedCount": 144,
+    "unmatchedCount": 0
+  },
+  {
+    "page": "Body_Armours_dex",
+    "normalCount": 144,
+    "matchedCount": 107,
+    "unmatchedCount": 37
+  },
+  {
+    "page": "Body_Armours_int",
+    "normalCount": 141,
+    "matchedCount": 107,
+    "unmatchedCount": 34
+  },
+  {
+    "page": "Body_Armours_str_dex",
+    "normalCount": 155,
+    "matchedCount": 121,
+    "unmatchedCount": 34
+  },
+  {
+    "page": "Body_Armours_str_int",
+    "normalCount": 152,
+    "matchedCount": 121,
+    "unmatchedCount": 31
+  },
+  {
+    "page": "Body_Armours_dex_int",
+    "normalCount": 152,
+    "matchedCount": 115,
+    "unmatchedCount": 37
+  },
+  {
+    "page": "Helmets_str",
+    "normalCount": 137,
+    "matchedCount": 137,
+    "unmatchedCount": 0
+  },
+  {
+    "page": "Helmets_dex",
+    "normalCount": 137,
+    "matchedCount": 105,
+    "unmatchedCount": 32
+  },
+  {
+    "page": "Helmets_int",
+    "normalCount": 125,
+    "matchedCount": 97,
+    "unmatchedCount": 28
+  },
+  {
+    "page": "Helmets_str_dex",
+    "normalCount": 147,
+    "matchedCount": 118,
+    "unmatchedCount": 29
+  },
+  {
+    "page": "Helmets_str_int",
+    "normalCount": 135,
+    "matchedCount": 110,
+    "unmatchedCount": 25
+  },
+  {
+    "page": "Helmets_dex_int",
+    "normalCount": 135,
+    "matchedCount": 105,
+    "unmatchedCount": 30
+  },
+  {
+    "page": "Gloves_str",
+    "normalCount": 182,
+    "matchedCount": 182,
+    "unmatchedCount": 0
+  },
+  {
+    "page": "Gloves_dex",
+    "normalCount": 174,
+    "matchedCount": 149,
+    "unmatchedCount": 25
+  },
+  {
+    "page": "Gloves_int",
+    "normalCount": 178,
+    "matchedCount": 157,
+    "unmatchedCount": 21
+  },
+  {
+    "page": "Gloves_str_dex",
+    "normalCount": 184,
+    "matchedCount": 162,
+    "unmatchedCount": 22
+  },
+  {
+    "page": "Gloves_str_int",
+    "normalCount": 188,
+    "matchedCount": 170,
+    "unmatchedCount": 18
+  },
+  {
+    "page": "Gloves_dex_int",
+    "normalCount": 180,
+    "matchedCount": 157,
+    "unmatchedCount": 23
+  },
+  {
+    "page": "Boots_str",
+    "normalCount": 129,
+    "matchedCount": 101,
+    "unmatchedCount": 28
+  },
+  {
+    "page": "Boots_dex",
+    "normalCount": 129,
+    "matchedCount": 82,
+    "unmatchedCount": 47
+  },
+  {
+    "page": "Boots_int",
+    "normalCount": 125,
+    "matchedCount": 82,
+    "unmatchedCount": 43
+  },
+  {
+    "page": "Boots_str_dex",
+    "normalCount": 139,
+    "matchedCount": 95,
+    "unmatchedCount": 44
+  },
+  {
+    "page": "Boots_str_int",
+    "normalCount": 135,
+    "matchedCount": 95,
+    "unmatchedCount": 40
+  },
+  {
+    "page": "Boots_dex_int",
+    "normalCount": 135,
+    "matchedCount": 90,
+    "unmatchedCount": 45
+  }
+]
