@@ -1,3 +1,4 @@
+import { useI18n, formatNumber } from '../../shared/i18n/i18n'
 import { isTradePrice } from './itemCardData'
 import type { ItemCardData, ItemCardLine } from './itemCardData'
 import './item-card.css'
@@ -36,7 +37,14 @@ function Lines({
 }
 
 // Rendering has no item state: replacing props updates all fields together.
-export function ItemCard({ item }: { item: ItemCardData }) {
+export function ItemCard({
+  item,
+  baseItemId,
+}: {
+  item: ItemCardData
+  baseItemId?: string
+}) {
+  const { t, name } = useI18n()
   const implicit = item.modifiers.filter((line) => line.kind === 'implicit')
   const other = item.modifiers.filter((line) => line.kind !== 'implicit')
   const doubleHeader =
@@ -46,20 +54,30 @@ export function ItemCard({ item }: { item: ItemCardData }) {
   return (
     <article
       className={`item-card item-card--${item.rarity.toLowerCase()}`}
-      aria-label="Item card"
+      aria-label={t('ui.item_card')}
     >
       <header className="item-card__header">
-        <h2>{item.name}</h2>
-        {doubleHeader && <div>{item.base}</div>}
+        <h2>
+          {baseItemId && item.name === item.base
+            ? name(baseItemId, item.name)
+            : item.name}
+        </h2>
+        {doubleHeader && (
+          <div>{baseItemId ? name(baseItemId, item.base!) : item.base}</div>
+        )}
       </header>
       <div className="item-card__content">
-        <div className="item-card__class">{item.itemClass || 'Unknown'}</div>
+        <div className="item-card__class">
+          {item.itemClass || t('ui.unknown')}
+        </div>
         <Lines lines={item.properties} />
         <div className="item-card__section">
           <div>
-            Item level:{' '}
+            {t('ui.item_level_colon')}{' '}
             <span className="item-card__value">
-              {item.itemLevel ?? 'Unknown'}
+              {item.itemLevel === null
+                ? t('ui.unknown')
+                : formatNumber(item.itemLevel)}
             </span>
           </div>
           {item.requirements

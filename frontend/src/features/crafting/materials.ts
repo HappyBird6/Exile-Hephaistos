@@ -1,4 +1,5 @@
 import { inServiceScope } from './serviceScope'
+import { matchesGameName } from '../../shared/i18n/i18n'
 // Display catalog only. Source pages, retrieval date and hashes: public/assets/materials/sources.json.
 export const materialTabs = [
   { id: 'Currency', label: 'Currency' },
@@ -1128,9 +1129,5 @@ export function essenceRows(query: string): (Material | null)[][] {
         return regular.find((m) => m.id === prefix + family) ?? null
       }),
     )
-    .filter((row) =>
-      row.some((m) =>
-        m?.name.toLowerCase().includes(query.trim().toLowerCase()),
-      ),
-    )
+    .filter((row) => row.some((m) => m && matchesGameName(m.id, m.name, query)))
 }

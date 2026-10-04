@@ -1,4 +1,12 @@
+import {
+  useI18n,
+  formatPercent,
+  formatNumber,
+  formatDate,
+  localizedSource,
+} from '../../shared/i18n/i18n'
 import { useRef, useState } from 'react'
+import { localizedAction } from './localizedCrafting'
 import { CurrencyImage } from './CurrencyImage'
 import { currencies } from './currencies'
 import { groupOutcomes, modifierSummary } from './outcomeGroups'
@@ -7,7 +15,6 @@ import { ItemCard } from './ItemCard'
 import type { ItemCardData } from './itemCardData'
 import {
   actions,
-  actionNames,
   currencyActions,
   explore,
   loadActions,
@@ -19,8 +26,8 @@ import './crafting-explorer.css'
 
 const percent = (value: number) =>
   value > 0 && value * 100 < 0.000001
-    ? `${(value * 100).toExponential(3)}%`
-    : `${(value * 100).toLocaleString('en-US', { maximumFractionDigits: 6 })}%`
+    ? `${formatNumber(value * 100, { notation: 'scientific', maximumFractionDigits: 3 })}%`
+    : formatPercent(value)
 function describe(state: Bucket, definitions: Record<string, Definition>) {
   return state.modifierIds.length
     ? state.modifierIds
@@ -56,6 +63,7 @@ export function CraftingExplorer({
   requestCount: number
   requestedAction: Action | null
 }) {
+  const { t } = useI18n()
   const client = useQueryClient()
   const currentHeading = useRef<HTMLDivElement>(null)
   const initial = useQuery({
@@ -195,24 +203,27 @@ export function CraftingExplorer({
   return (
     <section
       className="craft-explorer"
-      aria-label="Crafting probability explorer"
+      aria-label={t('ui.crafting_probability_explorer')}
     >
-      <ol className="selected-path" aria-label="Selected crafting path">
+      <ol className="selected-path" aria-label={t('ui.selected_crafting_path')}>
         {history.map((entry, index) => (
           <li key={`${entry.id}-${index}`}>
             <span className="path-step">{index + 1}</span>
             <div>
               <strong>
-                {entry.state.rarity} · Item level {entry.state.itemLevel}
+                {entry.state.rarity} {t('ui.item_level_fragment')}{' '}
+                {entry.state.itemLevel}
               </strong>
               <p>{describe(entry.state, definitions)}</p>
               <button type="button" onClick={() => returnTo(index)}>
-                Return to step {index + 1}
+                {t('explorer.return_step', { index: index + 1 })}
               </button>
               <p className="path-action">
                 ↓{' '}
-                {entry.action ? actionNames[entry.action] : 'Selected outcome'}{' '}
-                · Conditional probability: {percent(entry.chance)}
+                {entry.action
+                  ? localizedAction(entry.action)
+                  : t('ui.selected_outcome')}{' '}
+                {t('ui.conditional_probability')} {percent(entry.chance)}
               </p>
             </div>
           </li>
@@ -225,44 +236,48 @@ export function CraftingExplorer({
           tabIndex={-1}
         >
           <span className="path-step">{history.length + 1}</span>
-          <h2>Current state</h2>
-          <span className="current-marker">You are here</span>
+          <h2>{t('ui.current_state')}</h2>
+          <span className="current-marker">{t('ui.you_are_here')}</span>
         </div>
         <div className="current-overview">
-          <ItemCard item={card} />
+          <ItemCard baseItemId="Solar_Amulet" item={card} />
           <div className="current-context">
+            <p>{t('notice.predicted_ranges')}</p>
             <p>
-              Modifier ranges are shown for predicted states; numeric values
-              have not been rolled.
-            </p>
-            <p>
-              {history.length} steps · Selected path probability:{' '}
+              {history.length} {t('ui.path_probability')}{' '}
               {percent(history.reduce((p, h) => p * h.chance, 1))}
             </p>
             <button type="button" onClick={back} disabled={!history.length}>
-              Previous state
+              {t('ui.previous_state')}
             </button>
             {initial.data && (
               <p className="probability-source">
-                Probabilities are calculated using{' '}
+                {' '}
+                {t('ui.weights_calculation')}{' '}
                 <a
-                  href="https://poe2db.tw/us/Amulets#ModifiersCalc"
+                  href={localizedSource(
+                    'https://poe2db.tw/us/Amulets#ModifiersCalc',
+                  )}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  PoE2DB modifier weights
+                  {t('ui.poe2db_modifier_weights')}
                 </a>
-                .<br />
-                Data: {initial.data.metadata.retrievedAt.slice(0, 10)}
+                .<br /> {t('ui.data_colon')}{' '}
+                {formatDate(initial.data.metadata.retrievedAt)}
               </p>
             )}
           </div>
         </div>
       </div>
       <div className="explorer-results">
-        <h2>Next possible states</h2>
-        <p>Choose a currency, then a possible outcome to explore its future.</p>
-        {initial.isPending && <p>Loading modifier data…</p>}
+        <h2>{t('ui.next_possible_states')}</h2>
+        <p>
+          {t(
+            'ui.choose_a_currency_then_a_possible_outcome_to_explore_its_future',
+          )}
+        </p>
+        {initial.isPending && <p>{t('ui.loading_modifier_data')}</p>}
         {error && (
           <p role="alert">
             {error.message}{' '}
@@ -275,12 +290,12 @@ export function CraftingExplorer({
                 if (search) void exploration.refetch()
               }}
             >
-              Retry
+              {t('ui.retry')}
             </button>
           </p>
         )}
         {available.isFetching && (
-          <p role="status">Loading available currencies…</p>
+          <p role="status">{t('ui.loading_available_currencies')}</p>
         )}
         <div className="explorer-actions" aria-busy={available.isFetching}>
           {(available.data ?? []).map((a) => (
@@ -289,7 +304,9 @@ export function CraftingExplorer({
                 type="button"
                 disabled={!a.available}
                 aria-pressed={selected === a.action}
-                aria-label={`Preview ${actionNames[a.action]}`}
+                aria-label={t('explorer.preview', {
+                  name: localizedAction(a.action),
+                })}
                 aria-describedby={
                   !a.available ? `reason-${a.action}` : undefined
                 }
@@ -304,9 +321,9 @@ export function CraftingExplorer({
                       (currency) => currencyActions[currency.id] === a.action,
                     )!.image
                   }
-                  name={actionNames[a.action]}
+                  name={localizedAction(a.action)}
                 />
-                <span>{actionNames[a.action]}</span>
+                <span>{localizedAction(a.action)}</span>
               </button>
               {!a.available && (
                 <small id={`reason-${a.action}`}>{a.reason}</small>
@@ -316,27 +333,27 @@ export function CraftingExplorer({
         </div>
         {transitions.isFetching && (
           <p>
-            Calculating outcomes…{' '}
+            {' '}
+            {t('ui.calculating_outcomes')}{' '}
             <button
               type="button"
               onClick={() =>
                 setSelection({ count: requestCount, action: null })
               }
             >
-              Cancel preview
+              {t('ui.cancel_preview')}
             </button>
           </p>
         )}
         {selected && transitions.data && (
           <div className="transition-outcomes">
-            <h3>{actionNames[selected]}</h3>
+            <h3>{localizedAction(selected)}</h3>
             {!transitions.data.available ? (
               <p>{transitions.data.reason}</p>
             ) : (
               <>
                 <p>
-                  {transitions.data.outcomes.length} distinct states · Total
-                  probability:{' '}
+                  {transitions.data.outcomes.length} {t('ui.total_probability')}{' '}
                   {percent(
                     transitions.data.outcomes.reduce(
                       (s, o) => s + o.probability,
@@ -361,14 +378,11 @@ export function CraftingExplorer({
                                 : id,
                             ).join(' · ')}{' '}
                             <span>
-                              {group.outcomes.length} tier combinations · Expand
+                              {group.outcomes.length}{' '}
+                              {t('ui.tier_combinations')}{' '}
                             </span>
                           </summary>
-                          <p>
-                            Probabilities below are conditional on the same
-                            currency and starting state. Choose an individual
-                            tier outcome to continue.
-                          </p>
+                          <p>{t('notice.conditional_probability')}</p>
                           <ol>
                             {group.outcomes
                               .slice()
@@ -394,7 +408,7 @@ export function CraftingExplorer({
                                       choose(o.id, o.state, o.probability)
                                     }
                                   >
-                                    Explore this state
+                                    {t('ui.explore_this_state')}
                                   </button>
                                 </li>
                               ))}
@@ -414,7 +428,7 @@ export function CraftingExplorer({
                                 choose(o.id, o.state, o.probability)
                               }
                             >
-                              Explore this state
+                              {t('ui.explore_this_state')}
                             </button>
                           </div>
                         ))
@@ -427,8 +441,9 @@ export function CraftingExplorer({
                     type="button"
                     onClick={() => setVisible((v) => v + 20)}
                   >
-                    Show more outcomes ({groups.length - visible} groups
-                    remaining)
+                    {' '}
+                    {t('ui.more_outcomes')}
+                    {groups.length - visible} {t('ui.groups_remaining')}{' '}
                   </button>
                 )}
               </>
@@ -436,15 +451,13 @@ export function CraftingExplorer({
           </div>
         )}
         <details className="future-plan">
-          <summary>Explore a currency sequence</summary>
-          <p>
-            Evaluate up to three steps from the current state. Unavailable steps
-            stop that branch.
-          </p>
+          <summary>{t('ui.explore_a_currency_sequence')}</summary>
+          <p>{t('notice.explore_three')}</p>
           <div className="plan-inputs">
             {plan.map((a, i) => (
               <label key={i}>
-                Step {i + 1}
+                {' '}
+                {t('ui.step')} {i + 1}
                 <select
                   value={a}
                   onChange={(e) => {
@@ -456,10 +469,10 @@ export function CraftingExplorer({
                     setSearch(null)
                   }}
                 >
-                  <option value="">Stop here</option>
+                  <option value="">{t('ui.stop_here')}</option>
                   {actions.map((v) => (
                     <option key={v} value={v}>
-                      {actionNames[v]}
+                      {localizedAction(v)}
                     </option>
                   ))}
                 </select>
@@ -480,13 +493,14 @@ export function CraftingExplorer({
               })
             }}
           >
-            Explore sequence
+            {t('ui.explore_sequence')}
           </button>
           {exploration.isFetching && (
             <p>
-              Exploring…{' '}
+              {' '}
+              {t('ui.exploring')}{' '}
               <button type="button" onClick={() => setSearch(null)}>
-                Cancel exploration
+                {t('ui.cancel_exploration')}
               </button>
             </p>
           )}
@@ -497,22 +511,19 @@ export function CraftingExplorer({
                   ? 'Exploration complete.'
                   : 'Exploration limited; some probability remains unexplored.'}
               </p>
-              {!exploration.data.complete && (
-                <p>
-                  Try fewer steps, or select an outcome before exploring again.
-                </p>
-              )}
+              {!exploration.data.complete && <p>{t('notice.try_fewer')}</p>}
               <dl>
-                <dt>Reached the end</dt>
+                <dt>{t('ui.reached_the_end')}</dt>
                 <dd>{percent(exploration.data.completedProbability)}</dd>
-                <dt>Stopped by unavailable currency</dt>
+                <dt>{t('ui.stopped_by_unavailable_currency')}</dt>
                 <dd>{percent(exploration.data.blockedProbability)}</dd>
-                <dt>Unexplored</dt>
+                <dt>{t('ui.unexplored')}</dt>
                 <dd>{percent(exploration.data.unexploredProbability)}</dd>
               </dl>
               <p>
-                {Object.keys(exploration.data.nodes).length} shared states ·{' '}
-                {exploration.data.edges.length} transitions
+                {Object.keys(exploration.data.nodes).length}{' '}
+                {t('ui.shared_states')} {exploration.data.edges.length}{' '}
+                {t('ui.transitions')}{' '}
               </p>
               <ol>
                 {exploration.data.terminals.slice(0, 20).map((t, i) => (
@@ -523,10 +534,7 @@ export function CraftingExplorer({
                 ))}
               </ol>
               {exploration.data.terminals.length > 20 && (
-                <p>
-                  Showing the first 20 endpoints. The totals include every
-                  calculated endpoint.
-                </p>
+                <p>{t('notice.first_twenty')}</p>
               )}
             </div>
           )}
