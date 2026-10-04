@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import catalog from '../../shared/i18n/modifierTemplates.json'
+import sapphire from '../../shared/test/sapphire-catalog.json'
 import { locales } from '../../shared/i18n/i18n'
 import type { Definition } from './craftingApi'
 import {
@@ -25,7 +26,16 @@ function definition(id: keyof typeof catalog.definitions): Definition {
 
 describe('verified modifier display templates', () => {
   it('covers every ordinary catalog definition in all six locales', () => {
-    expect(Object.keys(catalog.definitions)).toHaveLength(1485)
+    const ids = Object.keys(catalog.definitions)
+    const jewelIds = ids.filter((id) => id.startsWith('sapphire:'))
+    expect(ids.filter((id) => !id.startsWith('sapphire:'))).toHaveLength(1485)
+    expect(jewelIds).toEqual(['sapphire:suffix:of-enchanting'])
+    expect(sapphire.modifiers.map((entry) => entry.id)).toEqual(jewelIds)
+    const source = sapphire.modifiers[0]
+    if (!source) throw new Error('Source-backed Sapphire modifier is missing')
+    const binding = catalog.definitions['sapphire:suffix:of-enchanting']
+    expect(binding.englishText).toBe(source.text)
+    expect(binding.stats).toEqual(source.stats)
     for (const id of Object.keys(catalog.definitions)) {
       const d = definition(id as keyof typeof catalog.definitions)
       for (const locale of locales) {

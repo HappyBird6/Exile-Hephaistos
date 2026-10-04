@@ -188,3 +188,7 @@ API 테스트는 번들 초기 상태, 전체 전이, 잘못된 요청·상태, 
 기본 Crafting Workbench와 State explorer는 헤더 아래 별도 탭이다. 탭 전환은 탐색 경로를 유지한다. Workbench에서 시작 아이템에 화폐를 미리보면 표시된 시작 아이템에서 새 경로를 시작한다. 탐색 화면은 방문 상태를 세로로 표시하고 현재 상태를 구분하며, 이전 단계로 돌아가 다른 분기를 선택할 수 있다. 각 단계는 원래 조건부 확률을 보존하고 선택 경로의 확률은 그 곱이다.
 
 화폐 미리보기는 작업대 자산을 재사용하며 접근 가능한 이름·선택 상태·사용 불가 사유를 표시한다. 티어 결과는 단일 전이 응답 안에서 snapshot·base·level·rarity·implicit·condition과 속성 layer·affix·family ID·stat ID·tag·수치를 제외한 문구가 같을 때만 합산한다. 고정 수치는 문구의 모든 숫자가 선언된 고정 stat 값과 대응할 때만 정규화하고, 그 외 상수는 보존한다. 식별 자료가 없으면 개별 결과로 남긴다. 그룹은 원래 확률의 합을 표시하며 펼치면 티어 순서로 원래 수치·확률을 보여준다. 다음 상태로 이동할 때는 그룹 평균이 아닌 개별 결과를 선택한다. 순서 탐색의 terminal 총합과 API·엔진 의미는 유지한다.
+
+## Sapphire 기존 아이템과 quality cap 변경
+
+Workbench 한정 Sapphire Magic/Rare 시작 아이템은 옵션 없음 또는 source-backed Cast Speed suffix 한 개를 입력할 수 있다. Normal/Unique/특수 Jewel·전체 Jewel pool·일반 Jewel crafting은 미지원이며 0P/1S는 제품 편집 제한이다. refined13은 한 번 사용 시 max20, 유형 교체, 원래 roll 보존과 중앙 HALF_UP 표시 정책을 따른다. cap modifier 제거 후 quality=min(existing,newCap)는 명시된 미검증 simulator 모델이고 cap 증가 시 자동 충전하지 않는다. 제거 후보/확률은 그대로이며 film은 before/after 및 ledger를 보존한다. [범위·근거·rollback 정책](workbench-refined-catalyst-2026-10-04.md).

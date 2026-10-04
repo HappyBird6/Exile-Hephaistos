@@ -1,5 +1,5 @@
 {
-  "status": "INCOMPLETE_REQUIRED_FRONTEND_TEST_FAILED",
+  "status": "PASS_FINAL_ISOLATED_VALIDATION",
   "branch": "workbench/20261002",
   "baseline": "1b8a8884aa1ce13e260c0b1d4422cfa6f9174349",
   "qaDirectory": "E:/WORK/Exile-Hephaistos/codex/refined-catalyst-20261004",
@@ -18,29 +18,90 @@
     "lint": "PASS",
     "typecheck": "PASS",
     "formatCheck": "PASS",
-    "unit": { "passed": 368, "failed": 1, "total": 369, "files": 50 },
-    "failure": "localizedModifiers.test.ts:28 expects 1485 bindings; actual 1486 after adding the Sapphire binding",
-    "build": "NOT_RUN"
+    "unit": {
+      "passed": 369,
+      "failed": 0,
+      "total": 369,
+      "files": 50
+    },
+    "build": "PASS",
+    "buildNotice": "Existing large dictionary chunk warning retained; no unrelated splitting added",
+    "bindingRecovery": {
+      "baselineBindingsPreservedExactly": 1485,
+      "soleAddedBinding": "sapphire:suffix:of-enchanting",
+      "assertions": "Retains 1485 non-Sapphire count; exact additional identity equals source fixture; English text and full stat bounds match; all bindings verified in all six locales"
+    }
   },
-  "finalApi": "NOT_RUN",
-  "finalBrowser": "NOT_RUN",
-  "screenshots": "NOT_INSPECTED",
+  "finalApi": {
+    "status": "PASS",
+    "omen": 640,
+    "ordinaryCatalyst": 1004,
+    "refinedAndCap": 446,
+    "total": 2090
+  },
+  "finalBrowser": {
+    "status": "PASS",
+    "omen": 125,
+    "sixLanguage": 224,
+    "catalystAndUx": 113,
+    "refinedAndCap": 103,
+    "total": 565,
+    "pageErrors": 0
+  },
+  "screenshots": {
+    "status": "INSPECTED",
+    "sapphire": "All six locales at 1440px and 390px",
+    "additional": [
+      "sapphire-rare-editor.png",
+      "cap-clamp-film.png",
+      "desktop.png",
+      "narrow.png"
+    ],
+    "result": "Readable names, selected suffix and policy/scope disclosure; no page overflow; source tier not fabricated; original stash scrolling and film layout retained"
+  },
+  "sourceEquivalence": {
+    "backendSrcFiles": 215,
+    "frontendSrcFiles": 107,
+    "allMatchCheckedInputs": true,
+    "backendTestSourceUnchangedOnContinuation": true,
+    "checkedAndRuntimeJarSha256": "c43785bcf4dd00fd83316c4a7ff4dac59287dc8dd584d50ba8653fe6727362e4"
+  },
   "recoveryHistory": [
     "Initial Backend: service infrastructure dependency violated ArchUnit; Strength fixture roll 5 outside source range 9..12",
     "Initial Frontend: Node22 rejected by package engine",
     "Recovery 1: Backend PASS; Frontend fixture formatting failed",
-    "Recovery 2: Frontend format PASS; one existing fixed-count unit assertion failed"
+    "Recovery 2: Frontend format PASS; one existing fixed-count unit assertion failed",
+    "Checkpoint 1e4410fb1e17bbbaf2f9fee06c6ea61bd92e452c preserved incomplete results and stopped at workflow boundary",
+    "Explicit standing-user continuation delegated bounded recovery; no permission-denial bypass",
+    "Continuation Frontend first attempt: strict TypeScript required a missing-source guard in the new coverage assertion; preserved continuation1-frontend.log",
+    "Continuation Frontend final: full npm ci/lint/typecheck/format/unit/build PASS",
+    "Refined browser attempt 1: harness singular Catalyst selector did not match actual Catalysts tab",
+    "Refined browser attempt 2: harness used left-click pickup instead of existing right-click use selection",
+    "Refined browser attempt 3: identical hidden editor notice caused strict selector ambiguity; scoped to Workbench feedback",
+    "Refined browser final: all 103 assertions PASS; prior failure JSON and screenshots retained, assertions not skipped"
   ],
-  "stopReason": "Workflow work-wide maximum two fix/revalidation rounds reached; failure preserved without skip or weakening expectations",
-  "coverageClaim": "Implementation targets refined13 on bounded Magic/Rare Sapphire only; complete support and final regression validation are not yet claimed",
+  "coverageClaim": "144 selectable actions now each have at least one validated positive supported base; refined13 positive support is bounded Magic/Rare Sapphire only, not every base/currency combination. All13 tested on empty and selected-suffix Magic/Rare states; only Sibilant/Skittering match the reviewed Cast Speed suffix, remaining11 honestly show NO_MATCH.",
   "gameEvidenceGaps": [
     "Sapphire full generation pool, slot capacity and weights are not imported or invented",
     "Selected Cast Speed source row uses explicit internal display-unit key because CDN detail request returned 403",
     "Post-removal quality clamp is an unverified simulator model with reversible REJECT_OVERCAP policy"
   ],
-  "ownedRuntimeStarted": false,
+  "composeConfigQuiet": "PASS",
+  "ownedRuntimeStarted": true,
   "ownedQaContainersRemaining": 0,
   "heavyQaSlotReleased": true,
-  "userServicesPreserved": [18080, 18081],
-  "remotePushMergeDeploy": "NOT_PERFORMED"
+  "userServicesPreserved": [
+    18080,
+    18081
+  ],
+  "remotePushMergeDeploy": "NOT_PERFORMED",
+  "resultArtifactSha256": {
+    "omen-api-results.json": "4413024a4621e1afa5192293ee94586e77fcf693197962e0b14d71b4af8ad9cd",
+    "catalyst-api-results.json": "221649af7a33f7ee09eaf24063c5ff8433ae4464ab0db306b2415a98e6306525",
+    "refined-api-results.json": "6b54231aea67c81095562d0305be0f611004118bb182952540166835cfb5e06f",
+    "browser-results.json": "354c0c239c1f398844a26bec490bc92554aee0619e328d972f47d63062c2d041",
+    "i18n-browser-results.json": "16b65383b2a301207c617f47bb38e6ae7bb4cb9d7f8818bc8b8a8798da85688d",
+    "catalyst-browser-results.json": "375bd48911893832ed58524779339e51eb5513d7429b8cd7f257df3b3f640618",
+    "refined-browser-results.json": "546f329485160571cecafb27fca9fd1f604f88777e0a6d96925bbdb63c0eb887"
+  }
 }

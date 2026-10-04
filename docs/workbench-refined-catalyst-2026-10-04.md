@@ -22,6 +22,18 @@ rollback은 `QualityCapChangePolicy.REJECT_OVERCAP` 선택으로 기존 전체 a
 
 ## 검증
 
+### 최종 재개 결과
+
+사용자의 명시된 계속 작업 지시에 따른 제한 복구를 완료했다. 기존 1485개 binding이 baseline과 정확히 같으며 유일한 추가는 `sapphire:suffix:of-enchanting`임을 확인했다. 고정 개수 검사 삭제 대신 기존 1485개와 정확한 추가 identity, source fixture의 원문·stat 범위 및 전체 6개 언어 coverage를 함께 검증한다.
+
+최종 Backend 370 unit/ArchUnit + 6 integration PASS, Frontend npm ci/lint/typecheck/format/369 unit/build PASS, API 2090(640+1004+446), browser 565(125+224+113+103), page error0이다. 반복 실행의 부분 통과 건수는 더하지 않았다. 모든 6개 언어 Sapphire 1440/390px와 Rare 시작 편집, cap 제거 film 화면을 자체 검토했다. 체크 입력과 최종 `src` 파일 Backend215/Frontend107개가 동일하며 runtime JAR hash도 검증 JAR과 같다. [최종 evidence](evidence/workbench-refined-catalyst-validation-2026-10-04.json).
+
+refined13 모두 Magic/Rare 및 빈 affix/검증된 suffix 상태에서 applied=true, 반복·유형 교체·원래 roll·cap20·NO_MATCH를 검증했다. 일반 catalyst의 Jewel 거부와 refined의 Ring/Solar 거부, 일반 Jewel crafting 거부를 유지한다. UI Rare 품질7 입력 보존과21 거부, New craft Magic, film/reload, cap40 이전/20 이후 frame 및 ledger를 확인했다. Omen filter별 후보/확률, cap 재증가 후 품질20 유지와 다음 catalyst40도 확인했다. 지원144는 최소 한 검증된 base에서의 positive 지원이며 모든 base×currency 지원이 아니다.
+
+재개 중 추가 TypeScript fixture 존재 guard 실패와 browser harness의 탭 이름·좌클릭/우클릭·숨겨진 dialog의 중복 문구 selector 실패도 모두 보존했다. 제품 assertion을 skip하거나 완화하지 않았다. 최종 제품 구현은 첫 checkpoint와 같고 재개 변경은 coverage 테스트·QA harness·근거 정리다. 격리 Compose만 정상 종료하고 사용자18080/18081·데이터·프로필을 보존했다. heavy QA를 해제하며 로컬 commit까지만 수행한다. 아래 중단 기록은 이전 checkpoint의 이력이다.
+
+### 이전 checkpoint 이력
+
 현재 checkpoint는 **검증 미완료**다. Backend `spotlessApply check generateJooq bootJar`는 unit/ArchUnit 370건 및 Docker integration 6건을 실패·오류·skip 없이 통과했다. Frontend는 격리 Node24 환경에서 `npm ci`, lint, typecheck, format 검사를 통과했지만 전체 unit 결과는 368 PASS / 1 FAIL(50 files, 369 tests)이다. `localizedModifiers.test.ts:28`의 기존 고정 개수 1485가 Sapphire binding 추가 후 1486과 불일치한다. 이 검사를 skip하거나 기대값을 완화하지 않았다.
 
 실패 이력은 격리 QA 디렉터리에 보존한다: 최초 Backend ArchUnit 경계 및 fixture 범위 실패 2건, 최초 Node22 engine 불일치, 첫 복구 Frontend fixture formatting 실패, 두 번째 복구 후 위 고정 개수 실패. 작업 전체 수정·재검증 최대 2회 경계에 도달하여 추가 수정과 재검증을 중단했다. Frontend build 및 최종 API/browser 실행·스크린샷 검토는 실행하지 않았으며 전체 지원 완료 또는 회귀 검증 PASS로 표시하지 않는다. 후속 재개 시 고정 개수만 단순 변경하기보다 기존 1485 identity 보존과 추가된 정확한 Sapphire identity를 함께 검증해야 한다.
