@@ -51,7 +51,8 @@ describe('Workbench actual application', () => {
       /Model probability uses published PoE2DB table weights/,
     )
     fireEvent.click(screen.getByText('Last craft and roll assumptions'))
-    expect(screen.getByText(/not verified game odds/)).toBeVisible()
+    for (const element of screen.getAllByText(/not verified game odds/))
+      expect(element).toBeVisible()
     expect(
       screen.getByRole('link', { name: 'PoE2DB modifier table' }),
     ).toHaveAttribute('href', 'https://poe2db.tw/us/Amulets')

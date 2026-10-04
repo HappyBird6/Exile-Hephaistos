@@ -316,7 +316,9 @@ describe('Material stash and shared favorites', () => {
     show()
     const card = screen.getByRole('article')
     for (const [label, count] of [
-      ['Essence', 74],
+      // The committed baseline already has 76 regular entries plus four
+      // separate special essences; localization must preserve this scope.
+      ['Essence', 76],
       ['Alloy', 13],
       ['Omen', 22],
       ['Catalysts', 26],

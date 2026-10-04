@@ -182,9 +182,7 @@ it('default stash hides legacy; explicit opt-in names availability and unverifie
   expect(
     screen.queryByRole('button', { name: 'Omen of Homogenising Exaltation' }),
   ).toBeNull()
-  fireEvent.click(
-    screen.getByRole('checkbox', { name: 'Show legacy Omens' }),
-  )
+  fireEvent.click(screen.getByRole('checkbox', { name: 'Show legacy Omens' }))
   expect(
     screen.getByRole('button', { name: 'Omen of Homogenising Exaltation' }),
   ).toHaveTextContent('(Legacy)')

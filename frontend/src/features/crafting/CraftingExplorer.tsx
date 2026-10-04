@@ -27,7 +27,7 @@ import './crafting-explorer.css'
 
 const percent = (value: number) =>
   value > 0 && value * 100 < 0.000001
-    ? `${formatNumber(value * 100, { notation: 'scientific', maximumFractionDigits: 3 })}%`
+    ? `${formatNumber(value * 100, { notation: 'scientific', minimumFractionDigits: 3, maximumFractionDigits: 3 }).replace(/E(?=-?\d)/, 'e')}%`
     : formatPercent(value)
 function describe(state: Bucket, definitions: Record<string, Definition>) {
   return state.modifierIds.length
