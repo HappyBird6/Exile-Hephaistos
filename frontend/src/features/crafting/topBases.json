@@ -699,5 +699,337 @@
     },
     "evasion": 140,
     "dexterity": 59
+  },
+  "warmonger": {
+    "key": "warmonger",
+    "slug": "Warmonger_Bow",
+    "pool": "warmonger-bow",
+    "family": "bows",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow8Endgame",
+    "name": "Warmonger Bow",
+    "sourceUrl": "https://poe2db.tw/us/Warmonger_Bow",
+    "sourceSha256": "2a974a12bb87b07fae620d64da49343f89758a8cfbef85d8e22ec25472914711",
+    "sourceTags": ["bow", "ranged", "two_hand_weapon", "twohand", "weapon"],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 163,
+    "requiredLevel": 77,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 77, 163 Dex",
+      "ko": "요구 사항:  레벨 77, 163 민첩",
+      "ja": "装備条件： レベル 77, 163 器用さ",
+      "zh-CN": "需求：  等级 77, 163 敏捷",
+      "zh-TW": "需求:  等級 77, 163 敏捷",
+      "es": "Requiere:  Nivel 77, 163 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Physical Damage: 56-84",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.2"
+      ],
+      "ko": ["물리 피해: 56-84", "치명타 명중 확률: 5%", "초당 공격 횟수: 1.2"],
+      "ja": [
+        "物理ダメージ: 56-84",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.2"
+      ],
+      "zh-CN": ["物理伤害: 56-84", "暴击率: 5%", "每秒攻击次数: 1.2"],
+      "zh-TW": ["物理傷害: 56-84", "暴擊率: 5%", "每秒攻擊次數: 1.2"],
+      "es": [
+        "Daño físico: 56-84",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.2"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "physicalDamage": "56-84",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.2
+  },
+  "guardian": {
+    "key": "guardian",
+    "slug": "Guardian_Bow",
+    "pool": "guardian-bow",
+    "family": "bows",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow3Endgame",
+    "name": "Guardian Bow",
+    "sourceUrl": "https://poe2db.tw/us/Guardian_Bow",
+    "sourceSha256": "831c3d80d2479116ca14b1c4076d5114f56b56d90356e3638bc14203d7969d33",
+    "sourceTags": ["bow", "ranged", "two_hand_weapon", "twohand", "weapon"],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 163,
+    "requiredLevel": 77,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 77, 163 Dex",
+      "ko": "요구 사항:  레벨 77, 163 민첩",
+      "ja": "装備条件： レベル 77, 163 器用さ",
+      "zh-CN": "需求：  等级 77, 163 敏捷",
+      "zh-TW": "需求:  等級 77, 163 敏捷",
+      "es": "Requiere:  Nivel 77, 163 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Physical Damage: 53-88",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.15"
+      ],
+      "ko": [
+        "물리 피해: 53-88",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.15"
+      ],
+      "ja": [
+        "物理ダメージ: 53-88",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.15"
+      ],
+      "zh-CN": ["物理伤害: 53-88", "暴击率: 5%", "每秒攻击次数: 1.15"],
+      "zh-TW": ["物理傷害: 53-88", "暴擊率: 5%", "每秒攻擊次數: 1.15"],
+      "es": [
+        "Daño físico: 53-88",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.15"
+      ]
+    },
+    "implicitModifierId": "guardian-bow:implicit:chain",
+    "implicitStats": [
+      {
+        "id": "local_additional_attack_chain_chance_%",
+        "min": 25,
+        "max": 35
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_additional_attack_chain_chance_%",
+        "min": 25,
+        "max": 35,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "53-88",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.15
+  },
+  "gemini": {
+    "key": "gemini",
+    "slug": "Gemini_Bow",
+    "pool": "gemini-bow",
+    "family": "bows",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow6Endgame",
+    "name": "Gemini Bow",
+    "sourceUrl": "https://poe2db.tw/us/Gemini_Bow",
+    "sourceSha256": "8cd453bbdf4b0fe2407f0c84d66188cc02ea3a0fda8de3868da3c92024401e63",
+    "sourceTags": ["bow", "ranged", "two_hand_weapon", "twohand", "weapon"],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 163,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 163 Dex",
+      "ko": "요구 사항:  레벨 78, 163 민첩",
+      "ja": "装備条件： レベル 78, 163 器用さ",
+      "zh-CN": "需求：  等级 78, 163 敏捷",
+      "zh-TW": "需求:  等級 78, 163 敏捷",
+      "es": "Requiere:  Nivel 78, 163 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Physical Damage: 39-72",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.15"
+      ],
+      "ko": [
+        "물리 피해: 39-72",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.15"
+      ],
+      "ja": [
+        "物理ダメージ: 39-72",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.15"
+      ],
+      "zh-CN": ["物理伤害: 39-72", "暴击率: 5%", "每秒攻击次数: 1.15"],
+      "zh-TW": ["物理傷害: 39-72", "暴擊率: 5%", "每秒攻擊次數: 1.15"],
+      "es": [
+        "Daño físico: 39-72",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.15"
+      ]
+    },
+    "implicitModifierId": "gemini-bow:implicit:additionalarrows",
+    "implicitStats": [
+      {
+        "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
+        "min": 50,
+        "max": 50
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
+        "min": 50,
+        "max": 50,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "39-72",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.15
+  },
+  "fanatic": {
+    "key": "fanatic",
+    "slug": "Fanatic_Bow",
+    "pool": "fanatic-bow",
+    "family": "bows",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow7Endgame",
+    "name": "Fanatic Bow",
+    "sourceUrl": "https://poe2db.tw/us/Fanatic_Bow",
+    "sourceSha256": "f4a9c77fc31f73f220cd27c4c9fa198130574b60057e601a8d779dc0b07681c8",
+    "sourceTags": ["bow", "ranged", "two_hand_weapon", "twohand", "weapon"],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 163,
+    "requiredLevel": 79,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 79, 163 Dex",
+      "ko": "요구 사항:  레벨 79, 163 민첩",
+      "ja": "装備条件： レベル 79, 163 器用さ",
+      "zh-CN": "需求：  等级 79, 163 敏捷",
+      "zh-TW": "需求:  等級 79, 163 敏捷",
+      "es": "Requiere:  Nivel 79, 163 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Physical Damage: 47-79",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.2"
+      ],
+      "ko": ["물리 피해: 47-79", "치명타 명중 확률: 5%", "초당 공격 횟수: 1.2"],
+      "ja": [
+        "物理ダメージ: 47-79",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.2"
+      ],
+      "zh-CN": ["物理伤害: 47-79", "暴击率: 5%", "每秒攻击次数: 1.2"],
+      "zh-TW": ["物理傷害: 47-79", "暴擊率: 5%", "每秒攻擊次數: 1.2"],
+      "es": [
+        "Daño físico: 47-79",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.2"
+      ]
+    },
+    "implicitModifierId": "fanatic-bow:implicit:weaponimplicitdamagetype",
+    "implicitStats": [
+      {
+        "id": "local_weapon_implicit_hidden_added_maximum_chaos_damage",
+        "min": 64,
+        "max": 64
+      },
+      {
+        "id": "local_weapon_implicit_hidden_added_minimum_chaos_damage",
+        "min": 28,
+        "max": 28
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_weapon_implicit_hidden_added_maximum_chaos_damage",
+        "min": 64,
+        "max": 64,
+        "locality": "Local"
+      },
+      {
+        "id": "local_weapon_implicit_hidden_added_minimum_chaos_damage",
+        "min": 28,
+        "max": 28,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "47-79",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.2
+  },
+  "obliterator": {
+    "key": "obliterator",
+    "slug": "Obliterator_Bow",
+    "pool": "obliterator-bow",
+    "family": "bows",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow9Endgame",
+    "name": "Obliterator Bow",
+    "sourceUrl": "https://poe2db.tw/us/Obliterator_Bow",
+    "sourceSha256": "90f6f625eb5558d2c4ff68e913fd69ccce48c7a5141878c5efa6cced954d2791",
+    "sourceTags": [
+      "karui_basetype",
+      "bow",
+      "ranged",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 163,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 163 Dex",
+      "ko": "요구 사항:  레벨 78, 163 민첩",
+      "ja": "装備条件： レベル 78, 163 器用さ",
+      "zh-CN": "需求：  等级 78, 163 敏捷",
+      "zh-TW": "需求:  等級 78, 163 敏捷",
+      "es": "Requiere:  Nivel 78, 163 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Physical Damage: 62-115",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.1"
+      ],
+      "ko": [
+        "물리 피해: 62-115",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.1"
+      ],
+      "ja": [
+        "物理ダメージ: 62-115",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.1"
+      ],
+      "zh-CN": ["物理伤害: 62-115", "暴击率: 5%", "每秒攻击次数: 1.1"],
+      "zh-TW": ["物理傷害: 62-115", "暴擊率: 5%", "每秒攻擊次數: 1.1"],
+      "es": [
+        "Daño físico: 62-115",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.1"
+      ]
+    },
+    "implicitModifierId": "obliterator-bow:implicit:projectilerange",
+    "implicitStats": [
+      {
+        "id": "projectile_attack_range_+%",
+        "min": -50,
+        "max": -50
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "projectile_attack_range_+%",
+        "min": -50,
+        "max": -50,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "62-115",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.1
   }
 }

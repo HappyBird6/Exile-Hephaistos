@@ -21,6 +21,11 @@ const baseTexts = {
   'blacksteel-boots': 'Item Class: Boots\nRarity: Normal\nBlacksteel Sabatons',
   faithful: 'Item Class: Boots\nRarity: Normal\nFaithful Leggings',
   daggerfoot: 'Item Class: Boots\nRarity: Normal\nDaggerfoot Shoes',
+  warmonger: 'Item Class: Bows\nRarity: Normal\nWarmonger Bow',
+  guardian: 'Item Class: Bows\nRarity: Normal\nGuardian Bow',
+  gemini: 'Item Class: Bows\nRarity: Normal\nGemini Bow',
+  fanatic: 'Item Class: Bows\nRarity: Normal\nFanatic Bow',
+  obliterator: 'Item Class: Bows\nRarity: Normal\nObliterator Bow',
   freebooter: 'Item Class: Helmets\nRarity: Normal\nFreebooter Cap',
   gladiatorial: 'Item Class: Helmets\nRarity: Normal\nGladiatorial Helm',
   grinning: 'Item Class: Helmets\nRarity: Normal\nGrinning Mask',
@@ -79,6 +84,11 @@ type Draft = {
     | 'blacksteel-boots'
     | 'faithful'
     | 'daggerfoot'
+    | 'warmonger'
+    | 'guardian'
+    | 'gemini'
+    | 'fanatic'
+    | 'obliterator'
     | 'freebooter'
     | 'gladiatorial'
     | 'grinning'
@@ -127,6 +137,11 @@ type Draft = {
       | 'blacksteel-boots'
       | 'faithful'
       | 'daggerfoot'
+      | 'warmonger'
+      | 'guardian'
+      | 'gemini'
+      | 'fanatic'
+      | 'obliterator'
       | 'freebooter'
       | 'gladiatorial'
       | 'grinning'

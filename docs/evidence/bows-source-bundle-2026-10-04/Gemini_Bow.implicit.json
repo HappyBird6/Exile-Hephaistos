@@ -1,0 +1,13 @@
+{
+  "url": "https://poe2db.tw/us/Gemini_Bow",
+  "retrievedAt": "2026-10-04T20:09:27.129Z",
+  "sha256": "5bb0cf1c3dba90010924231f42903cbbeadddf2eb4cd8e6ef0fbd1233f973559",
+  "stats": [
+    {
+      "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
+      "min": 50,
+      "max": 50,
+      "locality": "Global"
+    }
+  ]
+}

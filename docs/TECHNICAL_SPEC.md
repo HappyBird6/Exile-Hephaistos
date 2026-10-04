@@ -1,4 +1,4 @@
-최신 base 확장: [Boots 6종](workbench-boots-bundle-2026-10-04.md). Workbench 41 bases; Body·Helmet·Gloves·Boots의 일반 defence archetype 6종 완료. 전체 source pool·6locale·class별 Essence·기존 film을 보존하며 Support/Explorer는 Solar-only.
+최신 base 확장: [Bow 5종](workbench-bows-bundle-2026-10-04.md). Workbench 46 bases; 선택된 highest-tier armour 24종과 Bow 5종을 제공한다. 개별 weapon property·implicit·source pool·6locale·기존 film을 보존하며 Support/Explorer는 Solar-only. Ring8·Amulet7·Wand/Sceptre·Belt 및 다른 equipment category는 후속 source 검증 범위다.
 
 # Exile-Hephaistos 기술 명세
 

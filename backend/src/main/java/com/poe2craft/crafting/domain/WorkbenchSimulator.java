@@ -134,6 +134,7 @@ public final class WorkbenchSimulator {
   }
 
   private String baseRuleVersion() {
+    if (ReviewedBows.supports(catalog.base().id())) return "endgame-bows-workbench-v1";
     if (ReviewedBoots.supports(catalog.base().id())) return "boots-workbench-uniform-v1";
     if (ReviewedBodies.supports(catalog.base().id())) return "body-workbench-uniform-v1";
     if (ReviewedHelmets.supports(catalog.base().id())) return "helmets-workbench-uniform-v1";
@@ -159,6 +160,7 @@ public final class WorkbenchSimulator {
   }
 
   public String ledgerVersion() {
+    if (ReviewedBows.supports(catalog.base().id())) return "bow-unverified-numeric-assumptions-v1";
     if (ReviewedBoots.supports(catalog.base().id()))
       return "boots-uniform-candidates-unverified-rolls-v1";
     if (ReviewedBodies.supports(catalog.base().id()))

@@ -71,8 +71,20 @@ describe('remaining display coverage', () => {
     const single = Object.entries(bindings).filter(
       ([, b]) => b.valueStats && b.stats.length === 1,
     )
-    // Preserve 186 historical bindings and cover 22 new source-verified Boots single-stat bindings.
-    expect(single).toHaveLength(208)
+    // Preserve all 208 historical bindings and add three exact Bow single-stat projections.
+    expect(single).toHaveLength(211)
+    expect(
+      single
+        .filter(([id]) =>
+          /^(guardian|gemini|obliterator)-bow:implicit:/.test(id),
+        )
+        .map(([id]) => id)
+        .sort(),
+    ).toEqual([
+      'gemini-bow:implicit:additionalarrows',
+      'guardian-bow:implicit:chain',
+      'obliterator-bow:implicit:projectilerange',
+    ])
     for (const [id, b] of single) {
       const d: Definition = {
         id,

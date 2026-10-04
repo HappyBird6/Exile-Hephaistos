@@ -39,7 +39,8 @@ public final class ItemCatalogLoader {
         if (!com.poe2craft.item.ReviewedGloves.BASES.containsKey(key)
             && !com.poe2craft.item.ReviewedHelmets.BASES.containsKey(key)
             && !com.poe2craft.item.ReviewedBodies.BASES.containsKey(key)
-            && !com.poe2craft.item.ReviewedBoots.BASES.containsKey(key))
+            && !com.poe2craft.item.ReviewedBoots.BASES.containsKey(key)
+            && !com.poe2craft.item.ReviewedBows.BASES.containsKey(key))
           throw new IllegalArgumentException("Unreviewed endgame base");
         try (var proof = ItemCatalogLoader.class.getResourceAsStream("/catalog/top-bases.json")) {
           var source = mapper().readTree(proof).get(key);
@@ -49,7 +50,9 @@ public final class ItemCatalogLoader {
                   com.poe2craft.item.ReviewedHelmets.BASES.getOrDefault(
                       key,
                       com.poe2craft.item.ReviewedBodies.BASES.getOrDefault(
-                          key, com.poe2craft.item.ReviewedBoots.BASES.get(key))));
+                          key,
+                          com.poe2craft.item.ReviewedBoots.BASES.getOrDefault(
+                              key, com.poe2craft.item.ReviewedBows.BASES.get(key)))));
           name = source.get("name").asText();
           String root = "/catalog/" + source.get("pool").asText() + "/";
           try (var data = ItemCatalogLoader.class.getResourceAsStream(root + "catalog.json");
@@ -103,7 +106,14 @@ public final class ItemCatalogLoader {
             old.prefixWeight(),
             old.suffixWeight()),
         new ItemCatalog.BaseItem(
-            id, name, "https://poe2db.tw/us/" + name.replace(' ', '_'), "", 1, 1, 3, 3),
+            id,
+            name,
+            "https://poe2db.tw/us/" + name.replace(' ', '_'),
+            pool.base().implicitModifierId(),
+            1,
+            1,
+            3,
+            3),
         new ArrayList<>(pool.modifiers().values()));
   }
 

@@ -6,6 +6,8 @@ type TopBase = {
   name: string
   slug: string
   family: string
+  implicitModifierId?: string
+  implicitStats?: { id: string; min: number; max: number }[]
   armour: number
   evasion?: number
   dexterity?: number
@@ -34,5 +36,5 @@ export function topBaseKey(id: string | undefined): TopBaseKey | undefined {
 export const reviewedArmourKeys = (Object.keys(data) as TopBaseKey[]).filter(
   (key) =>
     key !== 'soldier' &&
-    ['gloves', 'helmets', 'body', 'boots'].includes(data[key].family),
+    ['gloves', 'helmets', 'body', 'boots', 'bows'].includes(data[key].family),
 )

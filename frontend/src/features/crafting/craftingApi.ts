@@ -164,6 +164,20 @@ async function request(
 function invalid(): never {
   throw new Error('Could not verify the crafting response. Please retry.')
 }
+function reviewedImplicitMatches(base: string, state: Bucket): boolean {
+  const reviewed = topBase(base)
+  const implicit = state.implicits[0]
+  return reviewed?.implicitModifierId
+    ? state.implicits.length === 1 &&
+        implicit?.modifierId === reviewed.implicitModifierId &&
+        implicit.fractured !== true &&
+        Object.keys(implicit.values).length ===
+          reviewed.implicitStats!.length &&
+        reviewed.implicitStats!.every(
+          (stat) => implicit.values[stat.id] === stat.max,
+        )
+    : state.implicits.length === 0
+}
 export async function loadInitial(
   level: number,
   signal: AbortSignal,
@@ -191,6 +205,11 @@ export async function loadInitial(
     | 'blacksteel-boots'
     | 'faithful'
     | 'daggerfoot'
+    | 'warmonger'
+    | 'guardian'
+    | 'gemini'
+    | 'fanatic'
+    | 'obliterator'
     | 'freebooter'
     | 'gladiatorial'
     | 'grinning'
@@ -279,7 +298,7 @@ export async function loadInitial(
               v.state.implicits[0]?.values.local_jewel_effect_base_radius !==
                 1000 ||
               v.state.implicits[0]?.fractured === true
-            : v.state.implicits.length !== 0)
+            : !reviewedImplicitMatches(base, v.state))
       : v.state.implicits.length !== 1) ||
     v.state.itemLevel !== level ||
     !object(v.metadata) ||

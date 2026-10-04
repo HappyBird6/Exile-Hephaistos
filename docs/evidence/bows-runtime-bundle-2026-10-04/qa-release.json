@@ -1,0 +1,37 @@
+{
+  "project": "exile-bows-20261004",
+  "normalComposeDown": true,
+  "volumesRemoved": false,
+  "exclusiveSlotReleased": true,
+  "releasedAt": "2026-10-04T20:49:56.496Z",
+  "liveContainers": [
+    {
+      "id": "c8e74d399af2",
+      "name": "exile-workbench-qa-20261002-frontend-1",
+      "ports": "127.0.0.1:18081->8080/tcp",
+      "state": "running"
+    },
+    {
+      "id": "c4bbebf6e190",
+      "name": "exile-workbench-qa-20261002-app-1",
+      "ports": "127.0.0.1:18080->8080/tcp",
+      "state": "running"
+    },
+    {
+      "id": "9f0962732bc2",
+      "name": "exile-workbench-qa-20261002-redis-1",
+      "ports": "6379/tcp",
+      "state": "running"
+    },
+    {
+      "id": "747188687b03",
+      "name": "exile-workbench-qa-20261002-postgres-1",
+      "ports": "5432/tcp",
+      "state": "running"
+    }
+  ],
+  "liveUiRevision": "18a2a3d",
+  "liveApiRevision": "7d27d6c",
+  "userBrowserAndStorageUntouched": true,
+  "remotePushMergeDeploy": false
+}

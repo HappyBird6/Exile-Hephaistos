@@ -91,6 +91,11 @@ const baseSlugs = {
   'blacksteel-boots': 'Blacksteel_Sabatons',
   faithful: 'Faithful_Leggings',
   daggerfoot: 'Daggerfoot_Shoes',
+  warmonger: 'Warmonger_Bow',
+  guardian: 'Guardian_Bow',
+  gemini: 'Gemini_Bow',
+  fanatic: 'Fanatic_Bow',
+  obliterator: 'Obliterator_Bow',
   freebooter: 'Freebooter_Cap',
   gladiatorial: 'Gladiatorial_Helm',
   grinning: 'Grinning_Mask',
@@ -193,7 +198,7 @@ export function CraftingPage() {
       ? baseSlugs[catalogBase]
       : catalogBase === 'stocky'
         ? 'Stocky Mitts'
-        : catalogBase === 'bow'
+        : catalogBase === 'bow' || topBase(catalogBase)?.family === 'bows'
           ? 'Crude Bow'
           : catalogBase === 'wand'
             ? 'Attuned Wand'
@@ -336,6 +341,11 @@ export function CraftingPage() {
       | 'blacksteel-boots'
       | 'faithful'
       | 'daggerfoot'
+      | 'warmonger'
+      | 'guardian'
+      | 'gemini'
+      | 'fanatic'
+      | 'obliterator'
       | 'freebooter'
       | 'gladiatorial'
       | 'grinning'
@@ -533,6 +543,11 @@ export function CraftingPage() {
     | 'blacksteel-boots'
     | 'faithful'
     | 'daggerfoot'
+    | 'warmonger'
+    | 'guardian'
+    | 'gemini'
+    | 'fanatic'
+    | 'obliterator'
     | 'freebooter'
     | 'gladiatorial'
     | 'grinning'
@@ -916,7 +931,8 @@ export function CraftingPage() {
               : catalogBase === 'stocky' ||
                   topBase(catalogBase)?.family === 'gloves'
                 ? 'Gloves'
-                : catalogBase === 'bow'
+                : catalogBase === 'bow' ||
+                    topBase(catalogBase)?.family === 'bows'
                   ? 'Bows'
                   : catalogBase === 'wand'
                     ? 'Wands'
@@ -940,7 +956,13 @@ export function CraftingPage() {
             itemLevel: concrete.itemLevel,
             properties: [
               ...(topBase(catalogBase)?.sourceProperties?.[locale] ?? []).map(
-                (text, i) => ({ id: 'source-property-' + i, text }),
+                (text, i) => ({
+                  id: 'source-property-' + i,
+                  text:
+                    topBase(catalogBase)?.family === 'bows'
+                      ? t('base.weapon_property', { property: text })
+                      : text,
+                }),
               ),
               ...(['gloves', 'helmets', 'body', 'boots'].includes(
                 topBase(catalogBase)?.family ?? '',
@@ -1773,7 +1795,8 @@ export function CraftingPage() {
                 {catalogBase === 'wand' && (
                   <p className="workbench-feedback">{t('notice.wand_scope')}</p>
                 )}
-                {catalogBase === 'bow' && (
+                {(catalogBase === 'bow' ||
+                  topBase(catalogBase)?.family === 'bows') && (
                   <p className="workbench-feedback">{t('notice.bow_scope')}</p>
                 )}
                 {catalogBase === 'stocky' && (
@@ -1890,7 +1913,8 @@ export function CraftingPage() {
                         catalogBase === 'stocky' ||
                         topBase(catalogBase)?.family === 'gloves'
                           ? 'Gloves'
-                          : catalogBase === 'bow'
+                          : catalogBase === 'bow' ||
+                              topBase(catalogBase)?.family === 'bows'
                             ? 'Bows'
                             : catalogBase === 'wand'
                               ? 'Wands'
@@ -2016,6 +2040,11 @@ export function CraftingPage() {
                           | 'blacksteel-boots'
                           | 'faithful'
                           | 'daggerfoot'
+                          | 'warmonger'
+                          | 'guardian'
+                          | 'gemini'
+                          | 'fanatic'
+                          | 'obliterator'
                           | 'freebooter'
                           | 'gladiatorial'
                           | 'grinning'

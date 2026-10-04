@@ -40491,6 +40491,91 @@
           "divisor": 1
         }
       ]
+    },
+    "guardian-bow:implicit:chain": {
+      "stats": [
+        {
+          "id": "local_additional_attack_chain_chance_%",
+          "min": 25,
+          "max": 35
+        }
+      ],
+      "englishText": "(25—35)% chance to Chain an additional time",
+      "values": ["(25—35)"],
+      "template": "bows.guardian.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_additional_attack_chain_chance_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "gemini-bow:implicit:additionalarrows": {
+      "stats": [
+        {
+          "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
+          "min": 50,
+          "max": 50
+        }
+      ],
+      "englishText": "+50% Surpassing chance to fire an additional Arrow",
+      "values": ["+50"],
+      "template": "bows.gemini.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
+          "divisor": 1
+        }
+      ]
+    },
+    "fanatic-bow:implicit:weaponimplicitdamagetype": {
+      "stats": [
+        {
+          "id": "local_weapon_implicit_hidden_added_maximum_chaos_damage",
+          "min": 64,
+          "max": 64
+        },
+        {
+          "id": "local_weapon_implicit_hidden_added_minimum_chaos_damage",
+          "min": 28,
+          "max": 28
+        }
+      ],
+      "englishText": "local weapon implicit hidden added maximum chaos damage [64]\nlocal weapon implicit hidden added minimum chaos damage [28]",
+      "values": ["64", "28"],
+      "template": "bows.fanatic.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_weapon_implicit_hidden_added_maximum_chaos_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_weapon_implicit_hidden_added_minimum_chaos_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "obliterator-bow:implicit:projectilerange": {
+      "stats": [
+        {
+          "id": "projectile_attack_range_+%",
+          "min": -50,
+          "max": -50
+        }
+      ],
+      "englishText": "50% reduced Projectile Range",
+      "values": ["50"],
+      "template": "bows.obliterator.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "projectile_attack_range_+%",
+          "divisor": -1
+        }
+      ]
     }
   },
   "templates": {
@@ -48226,6 +48311,22 @@
       "gloves.4112bbc13fe727afda06": {
         "template": "{v0}% increased Evasion and Energy Shield\n{v1} to Stun Threshold",
         "name": "Trickster's"
+      },
+      "bows.guardian.implicit": {
+        "name": "Guardian Bow",
+        "template": "{v0}% chance to Chain an additional time"
+      },
+      "bows.gemini.implicit": {
+        "name": "Gemini Bow",
+        "template": "{v0}% Surpassing chance to fire an additional Arrow"
+      },
+      "bows.fanatic.implicit": {
+        "name": "Fanatic Bow",
+        "template": "local weapon implicit hidden added maximum chaos damage [{v0}]\nlocal weapon implicit hidden added minimum chaos damage [{v1}]"
+      },
+      "bows.obliterator.implicit": {
+        "name": "Obliterator Bow",
+        "template": "{v0}% reduced Projectile Range"
       }
     },
     "ko": {
@@ -55960,6 +56061,22 @@
       "gloves.4112bbc13fe727afda06": {
         "template": "회피 및 에너지 보호막 {v0}% 증가\n기절 한계치 {v1}",
         "name": "트릭스터의"
+      },
+      "bows.guardian.implicit": {
+        "name": "수호자 활",
+        "template": "{v0}%의 확률로 1회 추가 연쇄"
+      },
+      "bows.gemini.implicit": {
+        "name": "쌍둥이자리 활",
+        "template": "추가 화살을 발사할 초과 확률 {v0}%"
+      },
+      "bows.fanatic.implicit": {
+        "name": "광신도 활",
+        "template": "local weapon implicit hidden added maximum chaos damage [{v0}]\nlocal weapon implicit hidden added minimum chaos damage [{v1}]"
+      },
+      "bows.obliterator.implicit": {
+        "name": "절멸자 활",
+        "template": "투사체 사거리 {v0}% 감소"
       }
     },
     "zh-CN": {
@@ -63694,6 +63811,22 @@
       "gloves.4112bbc13fe727afda06": {
         "template": "闪避与能量护盾提高 {v0}%\n{v1} 晕眩阈值",
         "name": "欺诈师的"
+      },
+      "bows.guardian.implicit": {
+        "name": "守护者之弓",
+        "template": "{v0}% 的几率额外连锁一次"
+      },
+      "bows.gemini.implicit": {
+        "name": "双子之弓",
+        "template": "{v0}% 的溢出几率发射一支额外箭矢"
+      },
+      "bows.fanatic.implicit": {
+        "name": "狂热之弓",
+        "template": "local weapon implicit hidden added maximum chaos damage [{v0}]\nlocal weapon implicit hidden added minimum chaos damage [{v1}]"
+      },
+      "bows.obliterator.implicit": {
+        "name": "毁灭者之弓",
+        "template": "投射物射程降低 {v0}%"
       }
     },
     "zh-TW": {
@@ -71428,6 +71561,22 @@
       "gloves.4112bbc13fe727afda06": {
         "template": "增加{v0}%閃避和能量護盾\n暈眩門檻{v1}",
         "name": "欺詐者的"
+      },
+      "bows.guardian.implicit": {
+        "name": "防衛者之弓",
+        "template": "有{v0}%機率額外連鎖一次"
+      },
+      "bows.gemini.implicit": {
+        "name": "雙子之弓",
+        "template": "{v0}%滿溢機率發射額外一枚箭矢"
+      },
+      "bows.fanatic.implicit": {
+        "name": "盲信之弓",
+        "template": "local weapon implicit hidden added maximum chaos damage [{v0}]\nlocal weapon implicit hidden added minimum chaos damage [{v1}]"
+      },
+      "bows.obliterator.implicit": {
+        "name": "毀滅者之弓",
+        "template": "減少{v0}%投射物範圍"
       }
     },
     "ja": {
@@ -79162,6 +79311,22 @@
       "gloves.4112bbc13fe727afda06": {
         "template": "回避力およびエナジーシールドが{v0}%増加する\nスタン閾値 {v1}",
         "name": "トリックスターの"
+      },
+      "bows.guardian.implicit": {
+        "name": "守護者の弓",
+        "template": "{v0}%の確率で追加で1回連鎖する"
+      },
+      "bows.gemini.implicit": {
+        "name": "ジェミニボウ",
+        "template": "矢を追加で1個放つ超過可能確率 {v0}%"
+      },
+      "bows.fanatic.implicit": {
+        "name": "熱狂者の弓",
+        "template": "local weapon implicit hidden added maximum chaos damage [{v0}]\nlocal weapon implicit hidden added minimum chaos damage [{v1}]"
+      },
+      "bows.obliterator.implicit": {
+        "name": "殲滅者の弓",
+        "template": "投射物の範囲が{v0}%減少する"
       }
     },
     "es": {
@@ -86896,6 +87061,22 @@
       "gloves.4112bbc13fe727afda06": {
         "template": "Evasión y escudo de energía aumentados un {v0}%\n{v1} al umbral de aturdimiento",
         "name": "del embaucador"
+      },
+      "bows.guardian.implicit": {
+        "name": "Arco de guardián",
+        "template": "{v0}% de probabilidad de encadenarse una vez adicional"
+      },
+      "bows.gemini.implicit": {
+        "name": "Arco geminiano",
+        "template": "{v0}% de probabilidad sobrepasante de disparar una flecha adicional"
+      },
+      "bows.fanatic.implicit": {
+        "name": "Arco de fanático",
+        "template": "local weapon implicit hidden added maximum chaos damage [{v0}]\nlocal weapon implicit hidden added minimum chaos damage [{v1}]"
+      },
+      "bows.obliterator.implicit": {
+        "name": "Arco obliterador",
+        "template": "Alcance de los proyectiles reducido un {v0}%"
       }
     }
   }

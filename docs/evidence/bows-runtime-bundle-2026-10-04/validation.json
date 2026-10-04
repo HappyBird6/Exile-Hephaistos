@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "baseHead": "3d48354db103bb25cdd6f31a09a7a4a83bdbd75e",
+  "addedBases": 5,
+  "totalBases": 46,
+  "backend": {
+    "unitAndArchUnit": 423,
+    "dockerIntegration": 6,
+    "total": 429,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "aggregate": "check generateJooq bootJar",
+    "log": "E:/WORK/Exile-Hephaistos/codex/bows-qa-20261004/backend-check-1.log"
+  },
+  "frontend": {
+    "tests": 1794,
+    "checks": [
+      "npm ci",
+      "lint",
+      "typecheck",
+      "format:check",
+      "test -- --run",
+      "build"
+    ],
+    "finalLog": "E:/WORK/Exile-Hephaistos/codex/bows-qa-20261004/frontend-check-4.log",
+    "warning": "Existing Vite chunk size warning"
+  },
+  "api": {
+    "main": 475,
+    "materialPaths": 336,
+    "total": 811,
+    "positiveCurrencyPaths": 95,
+    "positiveOmenPaths": 76
+  },
+  "browser": {
+    "checks": 538,
+    "errors": [],
+    "primaryScreenshots": 93,
+    "extraBlessedCapture": 1,
+    "cardCrops": 60,
+    "contactSheets": 21,
+    "locales": [
+      "en",
+      "ko",
+      "ja",
+      "zh-CN",
+      "zh-TW",
+      "es"
+    ],
+    "widths": [
+      1440,
+      390
+    ],
+    "pixelReview": "All card/full/remaining contact sheets reviewed; no clipping or overflow observed"
+  },
+  "displayCoverage": {
+    "definitions": 2573,
+    "compound": 378,
+    "materialNames": 220,
+    "liquidNames": 26,
+    "locales": 6
+  },
+  "jarSha256": "7008a3b22ccbf276439de6b5c4f98256a8818afa3a20d827cb5af4b18ea94899",
+  "sourceEqualsCheckedCopy": true
+}

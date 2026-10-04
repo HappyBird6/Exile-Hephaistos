@@ -2289,6 +2289,36 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame",
       "sourceUrl": "https://poe2db.tw/us/Daggerfoot_Shoes"
+    },
+    "Warmonger_Bow": {
+      "name": "Warmonger Bow",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow8Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Warmonger_Bow"
+    },
+    "Guardian_Bow": {
+      "name": "Guardian Bow",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow3Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Guardian_Bow"
+    },
+    "Gemini_Bow": {
+      "name": "Gemini Bow",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow6Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Gemini_Bow"
+    },
+    "Fanatic_Bow": {
+      "name": "Fanatic Bow",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow7Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Fanatic_Bow"
+    },
+    "Obliterator_Bow": {
+      "name": "Obliterator Bow",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow9Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Obliterator_Bow"
     }
   },
   "ko": {
@@ -4565,6 +4595,36 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame",
       "sourceUrl": "https://poe2db.tw/kr/Daggerfoot_Shoes"
+    },
+    "Warmonger_Bow": {
+      "name": "전쟁광 활",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow8Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Warmonger_Bow"
+    },
+    "Guardian_Bow": {
+      "name": "수호자 활",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow3Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Guardian_Bow"
+    },
+    "Gemini_Bow": {
+      "name": "쌍둥이자리 활",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow6Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Gemini_Bow"
+    },
+    "Fanatic_Bow": {
+      "name": "광신도 활",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow7Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Fanatic_Bow"
+    },
+    "Obliterator_Bow": {
+      "name": "절멸자 활",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow9Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Obliterator_Bow"
     }
   },
   "zh-CN": {
@@ -6739,6 +6799,36 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame",
       "sourceUrl": "https://poe2db.tw/cn/Daggerfoot_Shoes"
+    },
+    "Warmonger_Bow": {
+      "name": "寻战之弓",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow8Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Warmonger_Bow"
+    },
+    "Guardian_Bow": {
+      "name": "守护者之弓",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow3Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Guardian_Bow"
+    },
+    "Gemini_Bow": {
+      "name": "双子之弓",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow6Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Gemini_Bow"
+    },
+    "Fanatic_Bow": {
+      "name": "狂热之弓",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow7Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Fanatic_Bow"
+    },
+    "Obliterator_Bow": {
+      "name": "毁灭者之弓",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow9Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Obliterator_Bow"
     }
   },
   "zh-TW": {
@@ -8903,6 +8993,36 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame",
       "sourceUrl": "https://poe2db.tw/tw/Daggerfoot_Shoes"
+    },
+    "Warmonger_Bow": {
+      "name": "狂戰者之弓",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow8Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Warmonger_Bow"
+    },
+    "Guardian_Bow": {
+      "name": "防衛者之弓",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow3Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Guardian_Bow"
+    },
+    "Gemini_Bow": {
+      "name": "雙子之弓",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow6Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Gemini_Bow"
+    },
+    "Fanatic_Bow": {
+      "name": "盲信之弓",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow7Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Fanatic_Bow"
+    },
+    "Obliterator_Bow": {
+      "name": "毀滅者之弓",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow9Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Obliterator_Bow"
     }
   },
   "ja": {
@@ -11181,6 +11301,36 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame",
       "sourceUrl": "https://poe2db.tw/jp/Daggerfoot_Shoes"
+    },
+    "Warmonger_Bow": {
+      "name": "戦争屋の弓",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow8Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Warmonger_Bow"
+    },
+    "Guardian_Bow": {
+      "name": "守護者の弓",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow3Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Guardian_Bow"
+    },
+    "Gemini_Bow": {
+      "name": "ジェミニボウ",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow6Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Gemini_Bow"
+    },
+    "Fanatic_Bow": {
+      "name": "熱狂者の弓",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow7Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Fanatic_Bow"
+    },
+    "Obliterator_Bow": {
+      "name": "殲滅者の弓",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow9Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Obliterator_Bow"
     }
   },
   "es": {
@@ -13377,6 +13527,36 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame",
       "sourceUrl": "https://poe2db.tw/sp/Daggerfoot_Shoes"
+    },
+    "Warmonger_Bow": {
+      "name": "Arco de belicista",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow8Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Warmonger_Bow"
+    },
+    "Guardian_Bow": {
+      "name": "Arco de guardián",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow3Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Guardian_Bow"
+    },
+    "Gemini_Bow": {
+      "name": "Arco geminiano",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow6Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Gemini_Bow"
+    },
+    "Fanatic_Bow": {
+      "name": "Arco de fanático",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow7Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Fanatic_Bow"
+    },
+    "Obliterator_Bow": {
+      "name": "Arco obliterador",
+      "lines": [],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow9Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Obliterator_Bow"
     }
   }
 }

@@ -1,0 +1,38 @@
+{
+  "failuresPreserved": true,
+  "attempts": [
+    {
+      "attempt": "source fetch",
+      "issue": "Restricted network EACCES",
+      "resolution": "Approved source fetch escalation; isolated fresh source path"
+    },
+    {
+      "attempt": "importer preflight",
+      "issue": "Abbreviated Abyss table vs full detail text",
+      "resolution": "Verified same Code/family/level and cached table; retained existing full detail"
+    },
+    {
+      "attempt": "frontend-check-1",
+      "issue": "TS18046 unknown state in callback",
+      "resolution": "Typed validation helper"
+    },
+    {
+      "attempt": "frontend-check-2",
+      "issue": "Missing QA pretest display coverage helper",
+      "resolution": "Copied existing helper into isolated QA"
+    },
+    {
+      "attempt": "frontend-check-3",
+      "issue": "Two stale coverage totals after new implicit bindings",
+      "resolution": "Updated totals and asserted exact added ID sets; all previous assertions retained"
+    },
+    {
+      "attempt": "browser-attempt-1",
+      "issue": "Blessed fixture lacked favorite registration and activation",
+      "resolution": "Corrected actual UI activation in new attempt; 538 checks passed"
+    }
+  ],
+  "logsRoot": "E:/WORK/Exile-Hephaistos/codex/bows-qa-20261004",
+  "permissionBypass": false,
+  "skippedTests": 0
+}

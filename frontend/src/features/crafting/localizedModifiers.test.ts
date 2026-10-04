@@ -39,8 +39,20 @@ describe('verified modifier display templates', () => {
           !/^(ruby|emerald|sapphire|diamond):/.test(id) &&
           !id.startsWith('time-lost-'),
       ),
-      // Preserve 1,652 historical equipment bindings and cover 67 new Body/Helmet bindings.
-    ).toHaveLength(1777)
+      // Preserve 1,777 historical equipment bindings and add four sourced Bow implicits.
+    ).toHaveLength(1781)
+    expect(
+      ids
+        .filter((id) =>
+          /^(guardian|gemini|fanatic|obliterator)-bow:implicit:/.test(id),
+        )
+        .sort(),
+    ).toEqual([
+      'fanatic-bow:implicit:weaponimplicitdamagetype',
+      'gemini-bow:implicit:additionalarrows',
+      'guardian-bow:implicit:chain',
+      'obliterator-bow:implicit:projectilerange',
+    ])
     expect(
       ids.filter((id) => /^(ruby|emerald|sapphire|diamond):/.test(id)),
     ).toHaveLength(392)

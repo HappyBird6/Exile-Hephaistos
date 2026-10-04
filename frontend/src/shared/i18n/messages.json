@@ -384,7 +384,8 @@
     "server.gloves_candidate_unit": "eligible per-base Gloves ordinary modifier",
     "base.evasion": "Base Evasion Rating: {value} (not computed)",
     "server.helmets_uniform_candidates": "USER-APPROVED SIMULATOR MODEL: equal 1/N among eligible Helmet modifiers after family, side and level restrictions. Actual game spawn weights are unavailable; published DropChance is not a verified game weight.",
-    "server.helmets_candidate_unit": "eligible per-base Helmet ordinary modifier"
+    "server.helmets_candidate_unit": "eligible per-base Helmet ordinary modifier",
+    "base.weapon_property": "Base {property} (not computed)"
   },
   "ko": {
     "language": "언어",
@@ -771,7 +772,8 @@
     "server.gloves_candidate_unit": "베이스별 적격 장갑 일반 옵션",
     "base.evasion": "기본 회피: {value} (미계산)",
     "server.helmets_uniform_candidates": "사용자가 승인한 시뮬레이터 모델: 계열·접두/접미·아이템 레벨 제한 후 적격 투구 옵션을 1/N로 선택합니다. 실제 게임 생성 가중치는 알려지지 않았으며 공개 DropChance는 검증된 게임 가중치가 아닙니다.",
-    "server.helmets_candidate_unit": "베이스별 적격 투구 일반 옵션"
+    "server.helmets_candidate_unit": "베이스별 적격 투구 일반 옵션",
+    "base.weapon_property": "기본 {property} (계산하지 않음)"
   },
   "zh-CN": {
     "language": "语言",
@@ -1158,7 +1160,8 @@
     "server.gloves_candidate_unit": "该基底的可用手套普通词缀",
     "base.evasion": "基础闪避值：{value}（未计算）",
     "server.helmets_uniform_candidates": "用户批准的模拟器模型：应用词缀组、前缀/后缀和物品等级限制后，以1/N选择符合条件的头盔词缀。实际游戏生成权重未知；公开DropChance不是已验证的游戏权重。",
-    "server.helmets_candidate_unit": "每种基底符合条件的头盔普通词缀"
+    "server.helmets_candidate_unit": "每种基底符合条件的头盔普通词缀",
+    "base.weapon_property": "基础 {property}（未计算）"
   },
   "zh-TW": {
     "language": "語言",
@@ -1545,7 +1548,8 @@
     "server.gloves_candidate_unit": "該基底的適格手套普通詞綴",
     "base.evasion": "基礎閃避值：{value}（未計算）",
     "server.helmets_uniform_candidates": "使用者批准的模擬器模型：套用詞綴組、前綴/後綴和物品等級限制後，以1/N選擇符合條件的頭盔詞綴。實際遊戲生成權重未知；公開DropChance不是已驗證的遊戲權重。",
-    "server.helmets_candidate_unit": "各基底符合條件的頭盔普通詞綴"
+    "server.helmets_candidate_unit": "各基底符合條件的頭盔普通詞綴",
+    "base.weapon_property": "基礎 {property}（未計算）"
   },
   "ja": {
     "language": "言語",
@@ -1932,7 +1936,8 @@
     "server.gloves_candidate_unit": "ベースごとの適格なグローブ通常モッド",
     "base.evasion": "基礎回避力: {value} (未計算)",
     "server.helmets_uniform_candidates": "ユーザー承認のシミュレーターモデル：系統・接頭辞/接尾辞・アイテムレベル制限後の適格な兜モッドを1/Nで選択します。実際のゲーム生成重みは不明で、公開DropChanceは検証済みのゲーム重みではありません。",
-    "server.helmets_candidate_unit": "ベースごとの適格な兜通常モッド"
+    "server.helmets_candidate_unit": "ベースごとの適格な兜通常モッド",
+    "base.weapon_property": "基本 {property}（未計算）"
   },
   "es": {
     "language": "Idioma",
@@ -2319,6 +2324,7 @@
     "server.gloves_candidate_unit": "modificador normal de guantes válido para esta base",
     "base.evasion": "Evasión base: {value} (sin calcular)",
     "server.helmets_uniform_candidates": "MODELO DE SIMULACIÓN APROBADO POR EL USUARIO: selección uniforme 1/N entre los modificadores de casco válidos tras aplicar las restricciones de familia, prefijo/sufijo y nivel de objeto. Los pesos reales del juego son desconocidos; el DropChance publicado no es un peso de juego verificado.",
-    "server.helmets_candidate_unit": "modificador normal de casco válido para esta base"
+    "server.helmets_candidate_unit": "modificador normal de casco válido para esta base",
+    "base.weapon_property": "Base {property} (sin calcular)"
   }
 }

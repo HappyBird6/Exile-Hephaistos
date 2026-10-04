@@ -352,7 +352,20 @@ public final class WorkbenchService {
                                     1L,
                                     "attack_maximum_added_physical_damage",
                                     4L)))
-                        : List.of(),
+                        : ReviewedBows.supports(catalog.base().id()) && catalog.base().hasImplicit()
+                            ? List.of(
+                                new ModifierInstance(
+                                    catalog.base().implicitModifierId(),
+                                    catalog
+                                        .find(catalog.base().implicitModifierId())
+                                        .orElseThrow()
+                                        .stats()
+                                        .stream()
+                                        .collect(
+                                            java.util.stream.Collectors.toMap(
+                                                ModifierDefinition.StatRange::id,
+                                                stat -> stat.max()))))
+                            : List.of(),
                 List.of(),
                 Set.of());
     var bucket = StateBucket.from(state);
@@ -458,7 +471,10 @@ public final class WorkbenchService {
                 ReviewedGloves.BASES.getOrDefault(
                     key,
                     ReviewedHelmets.BASES.getOrDefault(
-                        key, ReviewedBodies.BASES.getOrDefault(key, ReviewedBoots.BASES.get(key)))))
+                        key,
+                        ReviewedBodies.BASES.getOrDefault(
+                            key,
+                            ReviewedBoots.BASES.getOrDefault(key, ReviewedBows.BASES.get(key))))))
         || topBases.containsKey(key))
       throw new IllegalArgumentException("Unreviewed or duplicate armour registration");
     var simulator =
