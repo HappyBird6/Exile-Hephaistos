@@ -106,11 +106,17 @@ export function MaterialTooltip() {
       style={{ left: target.x, top: target.y }}
     >
       <strong>{name(target.id, data.name)}</strong>
-      {locale !== 'en' && (!hasDescription || translated.fallback) && (
-        <small className="translation-fallback">
-          {t('translation.english')}
-        </small>
+      {translated.data?.nameProvenance && (
+        <small className="translation-fallback">{t('translation.own')}</small>
       )}
+      {locale !== 'en' &&
+        (!hasDescription ||
+          translated.fallback ||
+          translated.data?.linesLanguage === 'en') && (
+          <small className="translation-fallback">
+            {t('translation.english')}
+          </small>
+        )}
       {legacyFiveIds.includes(target.id) && <p>{t('notice.legacy_five')}</p>}
       {legacyFiveIds.includes(target.id) && (
         <a
@@ -127,7 +133,14 @@ export function MaterialTooltip() {
       {lines
         .filter((line) => !line.startsWith('Stack Size:'))
         .map((line, i) => (
-          <p key={i} lang={hasDescription ? translated.language : 'en'}>
+          <p
+            key={i}
+            lang={
+              hasDescription
+                ? (translated.data?.linesLanguage ?? translated.language)
+                : 'en'
+            }
+          >
             {line}
           </p>
         ))}

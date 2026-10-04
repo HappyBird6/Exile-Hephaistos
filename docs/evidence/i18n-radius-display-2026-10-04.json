@@ -1,0 +1,18 @@
+{
+  "ids": [
+    "time-lost-ruby:implicit:base-radius",
+    "time-lost-emerald:implicit:base-radius",
+    "time-lost-sapphire:implicit:base-radius",
+    "time-lost-diamond:implicit:base-radius"
+  ],
+  "text": {
+    "en": "Base radius (source value): [1000]",
+    "ko": "기본 반경 (출처 값): [1000]",
+    "zh-CN": "基础半径（来源值）：[1000]",
+    "zh-TW": "基礎半徑（來源值）：[1000]",
+    "ja": "基本半径（出典の値）：[1000]",
+    "es": "Radio base (valor de la fuente): [1000]"
+  },
+  "provenance": "OWN_DISPLAY_LABEL_FROM_CANONICAL_STAT_ID",
+  "policy": "Raw [1000] is preserved. No distance unit, Medium/Large label, additive radius, or tree effect is inferred."
+}

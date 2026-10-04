@@ -1,3 +1,4 @@
+import { ServiceMessage } from './ServiceMessage'
 import {
   useI18n,
   formatPercent,
@@ -283,7 +284,7 @@ export function CraftingExplorer({
         {initial.isPending && <p>{t('ui.loading_modifier_data')}</p>}
         {error && (
           <p role="alert">
-            {error.message}{' '}
+            <ServiceMessage text={error.message} />{' '}
             <button
               type="button"
               onClick={() => {
@@ -329,7 +330,9 @@ export function CraftingExplorer({
                 <span>{localizedAction(a.action)}</span>
               </button>
               {!a.available && (
-                <small id={`reason-${a.action}`}>{a.reason}</small>
+                <small id={`reason-${a.action}`}>
+                  <ServiceMessage text={a.reason} />
+                </small>
               )}
             </div>
           ))}
@@ -352,7 +355,9 @@ export function CraftingExplorer({
           <div className="transition-outcomes">
             <h3>{localizedAction(selected)}</h3>
             {!transitions.data.available ? (
-              <p>{transitions.data.reason}</p>
+              <p>
+                <ServiceMessage text={transitions.data.reason} />
+              </p>
             ) : (
               <>
                 <p>

@@ -1,3 +1,5 @@
+import { ServiceMessage } from './ServiceMessage'
+import { serviceText } from './serviceMessages'
 import {
   useI18n,
   matchesGameName,
@@ -35,7 +37,6 @@ import { loadInitial } from './craftingApi'
 import {
   applyCurrency,
   concreteInitial,
-  rolledText,
   workbenchCurrencyActions,
   workbenchOmens,
   legacyOmenIds,
@@ -97,7 +98,7 @@ function filmId() {
 }
 
 export function CraftingPage() {
-  const { t, name } = useI18n()
+  const { t, name, locale } = useI18n()
   const client = useQueryClient()
   const draft = useItemDraft()
   const [filmState, setFilmState] = useState(() => {
@@ -644,7 +645,9 @@ export function CraftingPage() {
           setPointer(null)
         }
       } else
-        setAnnouncement(t('craft.blocked', { reason: result.reason ?? '' }))
+        setAnnouncement(
+          translate('craft.blocked', { reason: result.reason ?? '' }, 'en'),
+        )
     } catch (error) {
       if (!controller.signal.aborted)
         setAnnouncement(
@@ -852,7 +855,7 @@ export function CraftingPage() {
                 ? [
                     {
                       id: 'base-armour',
-                      text: 'Base Armour: 29 (not computed)',
+                      text: t('base.armour', { value: 29 }),
                     },
                   ]
                 : []),
@@ -860,11 +863,11 @@ export function CraftingPage() {
                 ? [
                     {
                       id: 'belt-implicit',
-                      text: 'Flask life recovery: unknown (20–30% base range)',
+                      text: t('base.flask'),
                     },
                     {
                       id: 'belt-charm',
-                      text: 'Charm slots: unknown (not modeled)',
+                      text: t('base.charms'),
                     },
                   ]
                 : []),
@@ -872,11 +875,11 @@ export function CraftingPage() {
                 ? [
                     {
                       id: 'base-spirit',
-                      text: 'Base Spirit: 100 (not computed)',
+                      text: t('base.spirit'),
                     },
                     {
                       id: 'innate-skill',
-                      text: 'Grants Skill: Skeletal Warrior (not simulated)',
+                      text: t('base.skeletal_warrior'),
                     },
                   ]
                 : []),
@@ -884,7 +887,7 @@ export function CraftingPage() {
                 ? [
                     {
                       id: 'base-armour',
-                      text: 'Base Armour: 45 (not computed)',
+                      text: t('base.armour', { value: 45 }),
                     },
                   ]
                 : []),
@@ -892,7 +895,7 @@ export function CraftingPage() {
                 ? [
                     {
                       id: 'innate-skill',
-                      text: 'Grants Skill: Mana Drain (not simulated)',
+                      text: t('base.mana_drain'),
                     },
                   ]
                 : []),
@@ -901,14 +904,29 @@ export function CraftingPage() {
                 : [
                     {
                       id: 'maximum-quality',
-                      text: `Maximum Quality: ${qualityMaximum}%`,
+                      text: t('quality.maximum', { value: qualityMaximum }),
                     },
                   ]),
               ...(concrete.catalystQuality
                 ? [
                     {
                       id: 'catalyst-quality',
-                      text: `Quality (${catalystTypes[concrete.catalystQuality.type].name}): +${concrete.catalystQuality.amount}%`,
+                      text: t('quality.current', {
+                        type:
+                          locale === 'en'
+                            ? catalystTypes[concrete.catalystQuality.type].name
+                            : name(
+                                (Object.hasOwn(basicJewelBases, catalogBase)
+                                  ? 'Refined_'
+                                  : '') +
+                                  catalystItemIds[
+                                    concrete.catalystQuality.type
+                                  ],
+                                catalystTypes[concrete.catalystQuality.type]
+                                  .name,
+                              ),
+                        value: concrete.catalystQuality.amount,
+                      }),
                     },
                   ]
                 : []),
@@ -918,8 +936,10 @@ export function CraftingPage() {
                       id: 'augment-sockets',
                       text:
                         concrete.augmentSockets == null
-                          ? 'Augment Sockets: unknown'
-                          : `Augment Sockets: ${concrete.augmentSockets} / 1`,
+                          ? t('base.sockets_unknown')
+                          : t('base.sockets', {
+                              value: concrete.augmentSockets,
+                            }),
                     },
                   ]
                 : []),
@@ -935,11 +955,7 @@ export function CraftingPage() {
                   concrete.catalystQuality,
                   concrete,
                 )
-                const displayText =
-                  projection.status === 'SCALED_INTEGER' &&
-                  d.id === 'iron-ring:implicit:added-physical-damage-to-attacks'
-                    ? `Adds ${projection.values.attack_minimum_added_physical_damage} to ${projection.values.attack_maximum_added_physical_damage} Physical Damage to Attacks`
-                    : localizedModifierText(d, projection.values)
+                const displayText = localizedModifierText(d, projection.values)
                 return {
                   id: m.modifierId,
                   removalCandidate:
@@ -950,7 +966,7 @@ export function CraftingPage() {
                   detail:
                     concrete.catalystQuality ||
                     projection.status === 'JEWEL_EFFECT_AND_QUALITY_PROVISIONAL'
-                      ? `Original roll: ${rolledText(d, m.values)}\nQuality display: ${projection.status}. Secondary source model; game engine precision is not guaranteed.`
+                      ? `${t('quality.original_roll', { roll: localizedModifierText(d, m.values) })}\n${t('quality.display_model', { status: projection.status })}`
                       : undefined,
                   kind:
                     i < concrete.implicits.length
@@ -1538,7 +1554,8 @@ export function CraftingPage() {
                 {mapping.data?.issues.map((issue, index) => (
                   <p key={index}>
                     {' '}
-                    {t('ui.line')} {issue.lineNumber || 'item'}: {issue.message}
+                    {t('ui.line')} {issue.lineNumber || 'item'}:{' '}
+                    <ServiceMessage text={issue.message} />
                   </p>
                 ))}
                 {initial.isPending && <p>{t('ui.loading_crafting_catalog')}</p>}
@@ -1556,7 +1573,9 @@ export function CraftingPage() {
                 )}
                 {applying && <p>{t('ui.updating_item')}</p>}
                 {announcement && (
-                  <p className="workbench-feedback">{uiText(announcement)}</p>
+                  <p className="workbench-feedback">
+                    {serviceText(announcement)}
+                  </p>
                 )}
                 {evidenceInvalid && (
                   <p role="alert">{t('notice.saved_evidence')}</p>

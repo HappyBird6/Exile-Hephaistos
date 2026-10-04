@@ -1,0 +1,320 @@
+{
+  "retrievedAt": "2026-10-04T13:49:29.927Z",
+  "pages": [
+    {
+      "url": "https://poe2db.tw/us/Liquid_Emotions",
+      "sha256": "7f8e8ffe79a6e15e632a403cadd3d6d51d92ab64df8001484ad5956f8b8e3544",
+      "retained": true
+    },
+    {
+      "url": "https://poe2db.tw/us/Currency",
+      "sha256": "b4be555b4dd2ecd9aed42b6618049a1ee79eaf8d30061f9b31db5ecb3bd46386",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/us/Stackable_Currency",
+      "sha256": "ced2fe32c1e167bf02f925edc6ee3c2989ae01299b16cdfad387c6bd5d729981",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/us/Essence",
+      "sha256": "bc718cc540cc091ecbdc72f534f9fd96b03315b3e089e635203ea13d1e45d3db",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/us/Omen",
+      "sha256": "40c849e78cd0b02f0a61ea5804bfce31a9249089bff0a2eb9bfbbe8d7245a8dc",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/us/Catalysts",
+      "sha256": "3a7beb0da088473acc198b7a5740670fb27ec43cb82346d3adf76d3f22287978",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/us/Ruby",
+      "sha256": "ec231b0fe0ebd3b4fde16dccccec234a4d1298e7502097e04c226447031bbb7f",
+      "retained": true
+    },
+    {
+      "url": "https://poe2db.tw/us/Emerald",
+      "sha256": "52b63b897e042b50d8c60c49995eb125669a8154aa5ec573e149315fbfa158ce",
+      "retained": true
+    },
+    {
+      "url": "https://poe2db.tw/us/Diamond",
+      "sha256": "e4b8940f057263e38345e110325dd2d346b53590121754ad385a90b011e06e6f",
+      "retained": true
+    },
+    {
+      "url": "https://poe2db.tw/kr/Liquid_Emotions",
+      "sha256": "eb22739954bd945b684ed2a878ba1cda1a11028e916eff1f469669be93b493f6",
+      "retained": true
+    },
+    {
+      "url": "https://poe2db.tw/kr/Currency",
+      "sha256": "52dec4afab193d6d7e0a10cb1cc53a4ddb2b7c0b165afd5ee42c62f81127211f",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/kr/Stackable_Currency",
+      "sha256": "fd22d6dc088b533af8785a209df64a364ef14d736d74e2ab3f82b492b0efaffe",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/kr/Essence",
+      "sha256": "acccc2b0f9ad5225bfe5083f2d258ba2a8356d2485a4299fdade244680172426",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/kr/Omen",
+      "sha256": "ff52a3efe038251dc55f62b0c2b2312963ac1f9b33e5e5908ebb5bc20a057aa7",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/kr/Catalysts",
+      "sha256": "43459537ba1674db0ea3ff7ebfced1f40697fabf056576f6649c28c520a0acfc",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/kr/Ruby",
+      "sha256": "3478a6c52068b8d5d2299e4ef35b64829824b61ebd34dd5f8936a4694a42765c",
+      "retained": true
+    },
+    {
+      "url": "https://poe2db.tw/kr/Emerald",
+      "sha256": "363961ad690c814cc989afc075be151f7a19eab9c981fa2fcd125d5371595512",
+      "retained": true
+    },
+    {
+      "url": "https://poe2db.tw/kr/Diamond",
+      "sha256": "d2e163ab0abe66ac5b508cc63fcef5452063d88e2565b772dd373a1f4d04a6e7",
+      "retained": true
+    },
+    {
+      "url": "https://poe2db.tw/cn/Liquid_Emotions",
+      "sha256": "79752899b0f10b45a039c350b2cb9a7cc18ab2de20287efe4a944a4cc09bc20c",
+      "retained": true
+    },
+    {
+      "url": "https://poe2db.tw/cn/Currency",
+      "sha256": "bc67df70a4b0b4c2e1af1042e4706e82c843f0c53d5cd2d9005c194385546f45",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/cn/Stackable_Currency",
+      "sha256": "5709620bad5aa7d83641c348acfb069ba8be9c1ec7b95d2f5a7836f743b16d24",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/cn/Essence",
+      "sha256": "aa2b59605b4342c1df52d71f81ea1043c61b81014896f90703b000b935db44be",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/cn/Omen",
+      "sha256": "c66bc48f0ad237682cfffe06746efbea86eb5784ea3d3fe6768a3ca117a98d00",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/cn/Catalysts",
+      "sha256": "3253233652cac897c28beb29602209c9e69e61ea925ca3546662a32a8a6d0c65",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/cn/Ruby",
+      "sha256": "d33132889cae991d26bfaeccf8f9ab508be78e46c27821f833b56d8743583d71",
+      "retained": true
+    },
+    {
+      "url": "https://poe2db.tw/cn/Emerald",
+      "sha256": "382c88c2b7113be9b4618eac5454cf2e2c8aa5a005034e9894a47fb4da5a68bc",
+      "retained": true
+    },
+    {
+      "url": "https://poe2db.tw/cn/Diamond",
+      "sha256": "eb000f43a9d032231fb4f8f93e4c91326964f935798f6b8576906bf70963691f",
+      "retained": true
+    },
+    {
+      "url": "https://poe2db.tw/tw/Liquid_Emotions",
+      "sha256": "cec6f2e82e60c3bd8ba78418dc5938ed3165f40593e7ff9abb6296cbe3ccccdb",
+      "retained": true
+    },
+    {
+      "url": "https://poe2db.tw/tw/Currency",
+      "sha256": "ca5d03dd1f6337f38d9bab74c3cb081fcc9ffa092e15d0bd1463bd6122bb7e13",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/tw/Stackable_Currency",
+      "sha256": "3e2c4be33d35cbdd78bf7258f75b4ab1369a7080b34f32ce2995091b006e2419",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/tw/Essence",
+      "sha256": "b2d7ecf78ef4b6a7cdbdb0d6177c48823853bde865f0de3e605bf01482df2405",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/tw/Omen",
+      "sha256": "d260c65cd024b2f3fa7a70848dea67e922723f91a60815d8dcc0ffd411e521f2",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/tw/Catalysts",
+      "sha256": "f7280192346c54551a64d61b9a59b3c259ced04da4d8a9ab2065e19639ade9a3",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/tw/Ruby",
+      "sha256": "bd7c750a24affcc0b2b3a9075b309cc50976c5c30d66af3392fefe7e062fbc40",
+      "retained": true
+    },
+    {
+      "url": "https://poe2db.tw/tw/Emerald",
+      "sha256": "3c16d8aa06427331c74199f219e676b127da4622504ab8af5bf1626442e25756",
+      "retained": true
+    },
+    {
+      "url": "https://poe2db.tw/tw/Diamond",
+      "sha256": "82f39174f4815031dc4bf9b25fa492b7fce1bc271816d07014faadefd3299fcc",
+      "retained": true
+    },
+    {
+      "url": "https://poe2db.tw/jp/Liquid_Emotions",
+      "sha256": "ccb86a26908f06a74ba6c8885ccc065efb7117884c906baab3ea9e8c30dd040a",
+      "retained": true
+    },
+    {
+      "url": "https://poe2db.tw/jp/Currency",
+      "sha256": "03785550d9f8da3d586eb0df80799533d0376be862a7cecac397e5eab770cae8",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/jp/Stackable_Currency",
+      "sha256": "7d38a1a1ec396b0f2974dcc5e3d31502ccf8c6b75854520f887feecfda948cab",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/jp/Essence",
+      "sha256": "bde64258fb92a726d4460c6f6670406f66f5abfb84fbc0cbfc89c3f157678d27",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/jp/Omen",
+      "sha256": "a7230130c6d1c27356a9425057bfd91d2fcf118e1781d77f2c7de76151bccde0",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/jp/Catalysts",
+      "sha256": "dac5400266e39787b89475b81792a5093e638f53031068f09e5a22320b2d601b",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/jp/Ruby",
+      "sha256": "1e744aad5e66ced8a4b42138ca51048cc6b19b53100ebd4a79fa04d775c6ffb9",
+      "retained": true
+    },
+    {
+      "url": "https://poe2db.tw/jp/Emerald",
+      "sha256": "c9900258acaa9685fbda7ffa6a636950045c19353aa10288b9950cbc983dcad6",
+      "retained": true
+    },
+    {
+      "url": "https://poe2db.tw/jp/Diamond",
+      "sha256": "d7af3d06072ec12061fb8fd84fd6488e2eadd63d438a1030cf8886aa1f1f51e1",
+      "retained": true
+    },
+    {
+      "url": "https://poe2db.tw/sp/Liquid_Emotions",
+      "sha256": "07c2bcd5acacbea085cc46d67f8d8df010917dd716a6746788a4577b701dba52",
+      "retained": true
+    },
+    {
+      "url": "https://poe2db.tw/sp/Currency",
+      "sha256": "1596faaa2111cf8452bd78024bd59d04d182f27ccc8144e2c584311daeb6cdbd",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/sp/Stackable_Currency",
+      "sha256": "0c4502c09312e1a5be139b7de4e868f3d07cb839f6f6adc492734bf6d2eba76c",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/sp/Essence",
+      "sha256": "12ea1927bba91f7190ddaf02e623ffca01422c5f8a8edb66f12c3aa1265bea21",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/sp/Omen",
+      "sha256": "b508ff0ba2339eb55b3e547cb59a0d4133152137a1bebf9f97927be6c676caad",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/sp/Catalysts",
+      "sha256": "6204173d9e93771f9787fe53d43a9df3571e602d11aeced4ddc92dad361d9624",
+      "retained": false
+    },
+    {
+      "url": "https://poe2db.tw/sp/Ruby",
+      "sha256": "7d0ba65aacc934806aa80167a09001d94140f2b38966b805f927c1a3d9a43bec",
+      "retained": true
+    },
+    {
+      "url": "https://poe2db.tw/sp/Emerald",
+      "sha256": "220839d30331ed677bb5f9a2e7318d73e864ab2667b476774340a9479ba3eb17",
+      "retained": true
+    },
+    {
+      "url": "https://poe2db.tw/sp/Diamond",
+      "sha256": "a3614f8f04f33c5fa1390fccbed266b9a62b2877d21a5bff560f1015e3121357",
+      "retained": true
+    }
+  ],
+  "gaps": [],
+  "coverage": {
+    "en": {
+      "inventory": 220,
+      "names": 220,
+      "missing": [],
+      "emptyDescriptions": []
+    },
+    "ko": {
+      "inventory": 220,
+      "names": 220,
+      "missing": [],
+      "emptyDescriptions": []
+    },
+    "zh-CN": {
+      "inventory": 220,
+      "names": 220,
+      "missing": [],
+      "emptyDescriptions": []
+    },
+    "zh-TW": {
+      "inventory": 220,
+      "names": 220,
+      "missing": [],
+      "emptyDescriptions": []
+    },
+    "ja": {
+      "inventory": 220,
+      "names": 220,
+      "missing": [],
+      "emptyDescriptions": []
+    },
+    "es": {
+      "inventory": 220,
+      "names": 215,
+      "missing": [
+        "Liquid_Verisium",
+        "Yaomacs_Orb_of_Sacrifice",
+        "Kopecs_Orb_of_Sacrifice",
+        "Kamasas_Orb_of_Sacrifice",
+        "Yuguls_Orb_of_Sacrifice"
+      ],
+      "emptyDescriptions": []
+    }
+  }
+}

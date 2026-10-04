@@ -447,3 +447,9 @@ WB-045 cap 정정 최종 검증: Backend371+6, Frontend369/50files 및 필수 �
 사용자 승인 가역 정책: 게임 weight 부재는 명시적 후보1/N으로 계산한다. DropChance1을 검증된 game weight로 주장하지 않는다. Liquid는 제거 후 보장 Crafted를 추가할 수 있는 legal 분기에서 균등 선택하며, 게임 무효 분기의 소비/재시도는 미검증이다. 기존 Crafted가 있는 두 번째 Liquid는 무소모 거절한다. Normal Sapphire 시작과 display-unit integer/Catalyst precision은 명시적 simulator 모델이다. 기존 quality40/cap20 보존과 max(existing,currentCap) 정책은 유지한다.
 
 잔여: Ruby/Emerald/Diamond 및 Potent3·Ancient13, Contempt cap-loss overflow 유지/추가 슬롯·Ferocity opposite-side scaling·Melancholy tree 조건·Time-Lost radius와 Small/Notable 범위. Liquid27은 Basic13+Ancient13+unrelated Verisium1이며 raw outcome 수15/14와 currency 수13/13을 구분한다. Essence-on-Jewel·Fracturing/socket 특례·Vaal/Hinekora/Desecration은 계속 제외한다.
+
+### 2026-10-04 remaining display localization
+
+`18a2a3d` UI checkpoint 기반 별도 branch에서 active170/deferred50 이름, Liquid26 이름·설명, 베이스17 이름, modifier2314 bindings/templates1690을 6개 언어로 연결했다. 복합228 및 source-unit/negative103 표시 변환은 stat identity와 source endpoint를 검증했으며 canonical payload·quality·film·game mechanics·English import는 변경하지 않았다. 실제 API JSON 객체 키 순서 차이로 special locale fallback이 발생한 문제도 id/min/max의 엄격한 비교로 수정했다.
+
+Spanish 공식 이름이 없는6항목은 자체 번역 provenance를 표시하고 deferred Verisium 설명은 English source로 명시한다. 신규 active 번역 누락은 pretest coverage guard로 차단한다. 미래 베이스 확대는 최고 티어 대표 기준이며 현재17종을 변경하지 않는다. 출처·예외·검증 이력과 독립 QA 결과는 [remaining localization handoff](docs/i18n-remaining-2026-10-04.md)를 따른다. remote push/merge/live deploy는 수행하지 않는다.

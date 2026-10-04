@@ -1,0 +1,933 @@
+{
+  "retrievedAt": "2026-10-04T13:45:42.406Z",
+  "pages": [
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceSpellSkillLevel1H1",
+      "sha256": "2e1181bed8b8ef027f9a0f1ee9b90201fbe4f6d384a2d31f5365a40479417b9d"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssenceSpellSkillLevel1H1",
+      "sha256": "b62bbc8105105d661ec85ec53fdac73da3ec729899a6942fdbc9d308b7217448"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssenceSpellSkillLevel1H1",
+      "sha256": "c0547e6a1db68b7f40d242d4fcf6f63f8a9cb1f9fc0aef1d28e05559ffa3db74"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssenceSpellSkillLevel1H1",
+      "sha256": "8c74c9f4d4c957dcb7e0b1906a1f60d42345ac60410387e1564682c352d933a1"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssenceSpellSkillLevel1H1",
+      "sha256": "34c84bc59e037bbef10b4b4e976a7800cd30cbda5e0c355d98a346e58590396a"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssenceSpellSkillLevel1H1",
+      "sha256": "de6aec2b1120aacbe9c999ebe906e5cb18b931092685958ca65ad334e59b9c0c"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceManaCostReduction",
+      "sha256": "2feefea6b27b8d79b4e02b75aa09727663ae36911a4528305a296a1e3bd1f251"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssenceManaCostReduction",
+      "sha256": "9b429212386153c60216e59e456aaee56f8a18249761286814f59fc8f51ac578"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssenceManaCostReduction",
+      "sha256": "ff59dbbee5cfe9fc9533acd9219026a4d40b29e0910f176ee3d82019813f5a11"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssenceManaCostReduction",
+      "sha256": "f9483bc33c76fbba934e42d550657cea69a1bfc75c1bb6bdc93e414c1280103c"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssenceManaCostReduction",
+      "sha256": "f92852d16b1ab5111b4ac82808c58263336f4c35de0bb7c4b23314eb0ed5519c"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssenceManaCostReduction",
+      "sha256": "7ead13f81c3a88cfffed1bca704a6cfe25d2fbfac37a853d7aecd0a1d4543b4b"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraPhysical1",
+      "sha256": "eecc5920d6f35cfb49c41c0161be5e6928d6e14bee0571b18e8a991600f01a68"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssenceDamageasExtraPhysical1",
+      "sha256": "7c74f4db824b6faead56e12a3a1a242c97b7df796dd285805febda2d071f0ab4"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssenceDamageasExtraPhysical1",
+      "sha256": "4995e8d9398a883bafbf67e4ddc7e3338d9fe5a58eca6429d90039bd71a1f61e"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssenceDamageasExtraPhysical1",
+      "sha256": "79a72d08a94d461c6025b63fbc8c023487830bff8314e8d5cb25185d538ee5ce"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssenceDamageasExtraPhysical1",
+      "sha256": "ec681caa5aca9d581f0d78a5e1210cd99057745b1828a2b22998e460df52facf"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssenceDamageasExtraPhysical1",
+      "sha256": "2a55e53fb306a2eaa95358018234103414c9a7d768f5f204bc8b0317b8a6fd7f"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraFire1",
+      "sha256": "39335db451ef0b990069a9eb742fcd347162bdf6cdb69555fe2b9ff019d90f18"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssenceDamageasExtraFire1",
+      "sha256": "02893929ada1679d24a090ab1ac43a48e8ea2c618e92accabfe0ff6580ce214c"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssenceDamageasExtraFire1",
+      "sha256": "238b3c80cc7ee5dfec15807d3b061496fb23f1ee2cf3db475868dc994c017773"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssenceDamageasExtraFire1",
+      "sha256": "f3d1f8759411402243a40ea95417edbe11cb9280335f00dc9b3c01158922a675"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssenceDamageasExtraFire1",
+      "sha256": "6e1b16c9cd0fc89b26fe0595583b56d7c295cb90745c61e01e31d5fedd4fa53e"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssenceDamageasExtraFire1",
+      "sha256": "35b6473c02af1cf79710830ca6768315f8c597a00cbc67b53c07491da383cc71"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraCold1",
+      "sha256": "3ecb672f835beafdd4636ec9b1a66b7abfe58019944ca4ca35c9626fb12b28c2"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssenceDamageasExtraCold1",
+      "sha256": "442bd8bb3d6bb62a27c2349a2f1eb06de437994704daf0d417d1e25cfe7d06bd"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssenceDamageasExtraCold1",
+      "sha256": "21feafa3279ada3d02acebd43bf0ecb5a77fc1e53080f44733d5fa53ba88fc7a"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssenceDamageasExtraCold1",
+      "sha256": "db12194157ba13c21a150e7ef8faa27b818edc665bcefc4e2e80455e35c192d4"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssenceDamageasExtraCold1",
+      "sha256": "b857ef5128cd15319725c052c99330b070cbcc7f97e715ce232ae2570c54a65a"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssenceDamageasExtraCold1",
+      "sha256": "c901ec5d34c0f5fd3f842bb9500349a0e98ce5c0567bc5161ce0d37fbe403fa1"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraLightning1",
+      "sha256": "f2ad5d1f1a1ceafb849e8d3234b461aec6411eed8ae4dc6a5d35164ce88d25b7"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssenceDamageasExtraLightning1",
+      "sha256": "9d26b472a90d2933391144e6253b0307240bb4aabfb945ea5fbefca6ac8402ad"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssenceDamageasExtraLightning1",
+      "sha256": "0dfce9f869226e3d5a7de0c1e8fbb809a7b26ef8e16a0a2f337fe91be27e65a7"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssenceDamageasExtraLightning1",
+      "sha256": "4b60de8e907a1f6487bfcfa454d2a56aa5c8886018fb7101ddacb24fc1ae08ac"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssenceDamageasExtraLightning1",
+      "sha256": "f442e0246a73c86d3a90d074bae7f1d9f486bef6f2fbe2bf6c4402da05df8502"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssenceDamageasExtraLightning1",
+      "sha256": "2de458b9268ed8907cfdd41ad9785b1f8d1628f0178291c36ded5a51766ebe25"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAttackSkillLevel1H1",
+      "sha256": "483afdaa8e5f8673f1894af7b9c23f5bc68b494fac22b362639b0c2b6baa22f8"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssenceAttackSkillLevel1H1",
+      "sha256": "ef256c23e8374f0cfb34bbcfc117026ab1baf352eb9c38d8ba4d03c77813bb6e"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssenceAttackSkillLevel1H1",
+      "sha256": "e81894307877f15ff5dff889bd81bf393408ad2992450872d82cd11c36ecaf3b"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssenceAttackSkillLevel1H1",
+      "sha256": "0a8446643d58bbcc0416d067e80b24c85a9a28646424ec1cc7283fbaac1c471f"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssenceAttackSkillLevel1H1",
+      "sha256": "727f1326c9f55eee4bdb5097be088a29cc149be2d5b1f4a79e765402bd1754bf"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssenceAttackSkillLevel1H1",
+      "sha256": "bf7ffae5ccb516722607d4498d8a993c5c4aef50bdd7b57e81cc64cc7b1acf18"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceOnslaughtonKill1",
+      "sha256": "d69d80ccae389e6717110d1186395e170611a5883baae8b0049889cb94d807fc"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssenceOnslaughtonKill1",
+      "sha256": "c257d816be0acf020638dfde3c4a4ecbbb1b25e53ac8fa10211bc0700b5616c2"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssenceOnslaughtonKill1",
+      "sha256": "70d9c3191051376e4ffe49a0f803011a4c2bb265c1918a0684129c8e710dab18"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssenceOnslaughtonKill1",
+      "sha256": "90fa1f6192d8dcad3a49d615e210a5112f6e0e514f8e3fed5baf132294b5b740"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssenceOnslaughtonKill1",
+      "sha256": "686b110feaa724f688431eadb7b5edf80517e04425739f89723c849d724a6cb4"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssenceOnslaughtonKill1",
+      "sha256": "571082c82a76248340eab00d5491c2121bb423bc8cbad44dc9f06d3d6540d07e"
+    },
+    {
+      "url": "https://poe2db.tw/us/Iron_Ring",
+      "sha256": "5f32bdab865480747246122bef70654b42f5052ebc3f575fb8a669235f893d47"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Iron_Ring",
+      "sha256": "017e971fc87a7f5a8827d9e1292b1b671dc8181a0355440518b1fe6249f31763"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Iron_Ring",
+      "sha256": "2637e15c57d0c259b40d51f8a7b326017008bae527f0a2df917cc28a2af7367d"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Iron_Ring",
+      "sha256": "b3b9aab89b3e6150f597cf47d53475cda516bc4121848baa08deac23be13de5e"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Iron_Ring",
+      "sha256": "0007a565eaa55835808cf53ab84eb935ff6a808a3176407f2aec5f90649c649c"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Iron_Ring",
+      "sha256": "46fa0048f4e8de8276b4f7fedf88578725efd83891b875ceb3c27f82c0ff569b"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceIncreasedManaPercent1",
+      "sha256": "fb6dbbc2b9d750fe8b9a729f8025c3274f61299bcbb8ad12532ca0af9146a2fa"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssenceIncreasedManaPercent1",
+      "sha256": "2130f83f6bfb08ad856de6eaa617b3b694d8b0be46b88ab965535dd368eff72c"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssenceIncreasedManaPercent1",
+      "sha256": "ec35fff0d09daa0974dda7ec2abec4999706f108eaae53f8761ae3e61ca9c9c0"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssenceIncreasedManaPercent1",
+      "sha256": "93fa883e4df7ab7b5bfc21cfccb45beaa963a5eeebdb1ab281d8ff718c4604a7"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssenceIncreasedManaPercent1",
+      "sha256": "e1e82f4bef81abf3b4ee3d2d5c5a63c6316bbc2c9fa357c6f989bf39124db53a"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssenceIncreasedManaPercent1",
+      "sha256": "6e2cd18d58062af1c0f882f4305a1f84854b0f6c4619a7174a08c8909cad74ee"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAuraEffect1",
+      "sha256": "e2ce8fb18c49a4b00397c088be4f6d0cdef140060ce6ea98452c019c4a02dad4"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssenceAuraEffect1",
+      "sha256": "adad51a2fb04a3d401c20ff892027bddf60a577d865473148752984e13c48688"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssenceAuraEffect1",
+      "sha256": "996956505e205c826869b3f348a36e5de788f29953d9b929ee2afc7ad71236e7"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssenceAuraEffect1",
+      "sha256": "5db5d437064001281b53acfc2bb82b87d5b8371435c682da4c8339ca788de301"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssenceAuraEffect1",
+      "sha256": "9f2b9d1bffebdb1a20fb7e9b58c7397c2589b16bfcc647bd85844995bbed20b8"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssenceAuraEffect1",
+      "sha256": "64cad126843a37a921eeddab96197d6bcb6880788db870a688b49b3e0ef22f7a"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceFireRecoupLife1",
+      "sha256": "091ef8d74ba80e9f8ecfb082c69b7aa18434b2a9fede355f249aeaa69b4df122"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssenceFireRecoupLife1",
+      "sha256": "3c483d46a9ebedcd58725eae9e93980c1e2f3f866fb4dc196e73bb28f900aec7"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssenceFireRecoupLife1",
+      "sha256": "8868bce3ce115a6c12e2f9594ad7b490138c7d9c8e4f8f15d8bc8f1a25a1a873"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssenceFireRecoupLife1",
+      "sha256": "887f3ae8bfbd951034ba52c6e4b57d1072996cb24c0fb5a5731c32b19b7ab80e"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssenceFireRecoupLife1",
+      "sha256": "895f8aea8ecddbc07c17b900769560df11487c9db289dddbc32b5ad7c6c55f95"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssenceFireRecoupLife1",
+      "sha256": "386c352b39a467748ca6651d3b7fc418522214df94e0b86a93c570c8f32d9bef"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceIncreasedLifePercent1",
+      "sha256": "a0cdccdc0a5d59f819b9b22abc167ec5e994f7762964ac84af62d761241c8fb7"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssenceIncreasedLifePercent1",
+      "sha256": "c34c0552806e9705545a0fa4b2a151cf5371873d6480c8d9e30fadb6dd68d506"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssenceIncreasedLifePercent1",
+      "sha256": "e472de9b92e81cbd6cdfb100382bfb379e10f9d8931c5d7cec4d95f0642d08af"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssenceIncreasedLifePercent1",
+      "sha256": "3e962265d19fb2cadd8da19eec25269541c3e19792c6261d51416f236e9788ce"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssenceIncreasedLifePercent1",
+      "sha256": "edef65b93a35405fa86d081771f0434522a6c482720db7590fa50c3bf1c8ed6a"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssenceIncreasedLifePercent1",
+      "sha256": "c13ba6bbf07f7aec6fe611c0d62c3cf8cc8ac9f2c924616b8bb5b166acacf608"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssencePhysicalDamageTakenAsChaos1",
+      "sha256": "be66498b2a50241253af0e7d769b1f777ea2bc4b82816ac5b4a99fbd4db50d58"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssencePhysicalDamageTakenAsChaos1",
+      "sha256": "0bcf3b88adf092fd52e79681d678063870b5d7f94461a0361d730c7806f4816a"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssencePhysicalDamageTakenAsChaos1",
+      "sha256": "d487f9e60c20a23014b28774c6dc30a798ac579b482d0cccb38827de3b56660c"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssencePhysicalDamageTakenAsChaos1",
+      "sha256": "0a9fe9f97e3a389841d83819c8210fa0eab034ba2f668aca88fefd23b4bfb38b"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssencePhysicalDamageTakenAsChaos1",
+      "sha256": "f13b0e522a4a8de1296d53100694fdc30565ceef0d3396d934c0743f8b58dbce"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssencePhysicalDamageTakenAsChaos1",
+      "sha256": "f67e78f6c8038e6a32c09fbf34215b5f25b4e069eb1011301e426280952a9e43"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceReducedCriticalDamageAgainstYou1",
+      "sha256": "4ba91538f9858367763f49bcd7a5059f5f6004c0bfe44bc82dec8e30482dbc82"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssenceReducedCriticalDamageAgainstYou1",
+      "sha256": "ca80ed153847759d8e3864032c7fa58b8b8d034b8ded113b9f5d0d6824921ca3"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssenceReducedCriticalDamageAgainstYou1",
+      "sha256": "5f191fb729a82fe54e9bf1c0082f3a5503c440b6fd574a8f6bca8f11de2797cf"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssenceReducedCriticalDamageAgainstYou1",
+      "sha256": "7dffd5f19f858134fc66ff9e7cd1eff9a7691207aea94c9b3c8193862a05bcb5"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssenceReducedCriticalDamageAgainstYou1",
+      "sha256": "f05c38e1e8c59f461859726cd3ef5346eeba8a7146f8ce2b15f19be10efbfe4a"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssenceReducedCriticalDamageAgainstYou1",
+      "sha256": "e61a2d7148d936eef8032b722da796065bdf3e1adca11a6d067c161e02729580"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceColdRecoupLife1",
+      "sha256": "9cbbab1dc8112c8c1adf2f2f3a7df5610fb364a59bfa7300531a1eb76c85d4aa"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssenceColdRecoupLife1",
+      "sha256": "aac92a9ae897602dc408828bb78c565c86c7d16089c11949c2defdaea7306949"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssenceColdRecoupLife1",
+      "sha256": "8c3e763cbbbfa9eeb53867113c66df32ff6bb6f5fd920e978ccb398eb4becea6"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssenceColdRecoupLife1",
+      "sha256": "09d1e1b8c40d8d0dc1fe7b08a89c160c9a2aec10949d4d84dc397252a1f1cb0a"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssenceColdRecoupLife1",
+      "sha256": "efb3396290f0415a1009614af9bbc2f81a1d304db40c822a6b47ba125d43bb63"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssenceColdRecoupLife1",
+      "sha256": "98b4b922c15a30b4263feed0e76bc15537298b82c9b742720823d4125c8cdb68"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssPrefix",
+      "sha256": "80d68f05638192b759a6b196d5012463cbc5486f629f624f51b17c621be6bcf0"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssenceAbyssPrefix",
+      "sha256": "590262c21930bc3afce9d7721ef58ae30175dd98a7d043fdec260f3438521317"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssenceAbyssPrefix",
+      "sha256": "2fa67f4784b00c631c6baed4a27a2c819df02a16d87aa4ca1e286dbaa45d958c"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssenceAbyssPrefix",
+      "sha256": "0e94e086cd994e9dcc874597fd40a8cbaee90294521e53fc4a0378b653c7b6ca"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssenceAbyssPrefix",
+      "sha256": "5072c97c0590696c01e5399e9b2822b2fc575c08335ec5dde491adf28dc829b4"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssenceAbyssPrefix",
+      "sha256": "dbb26e8aa3e99cf025f5c53962cd661af063d30d079744010008eb0893fe4c1d"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssSuffix",
+      "sha256": "12c0238c1a227d5345c6654fef083da709f4f16222ca969f296fe9a2e91e0715"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssenceAbyssSuffix",
+      "sha256": "99eafebf8eba7480f0ad4d819495e266200f9952d83a3fc55eb4bc1020519a56"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssenceAbyssSuffix",
+      "sha256": "bd6f6422c01b9f4d889b8bdaf6a1dffadd6bf902b2086c91e794c968e289888b"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssenceAbyssSuffix",
+      "sha256": "67f1407ba8c0d0c508b1f17113361ec1dabc6f761a14b3075953d6c67b972f35"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssenceAbyssSuffix",
+      "sha256": "342fa6244b9c75590bbe8bbec86f625e526fd05d5e910136130373a584060872"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssenceAbyssSuffix",
+      "sha256": "a6e6171094128c4f4d987cff608353be68772c1ff7ef44b66d845767242a0759"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceBreach",
+      "sha256": "a7d71549df93e30e76711fe4e01867e65a32f3cb9b39761c7bad718507438b23"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssenceBreach",
+      "sha256": "9cd809d4e81c61463965fa1f3420c119eb1c66f4e39bee3cbbb489c8dd78ab12"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssenceBreach",
+      "sha256": "0f11e5e82a424cbe460f8439f6b1ffc322c053fca44584bc71a4a8cc11c6bd0e"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssenceBreach",
+      "sha256": "70ba2589dcb038ab07f48b0db6d14e2cbeb139e7c7cca5dba7faa21016901126"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssenceBreach",
+      "sha256": "e9363d7459d6ee6659d387b1d58cea53aea7e13204a4f8ae6019a6910aca1431"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssenceBreach",
+      "sha256": "a87b31a98299fc4380949a42f8205e3eae4e32b967611600d2671c7074993b67"
+    },
+    {
+      "url": "https://poe2db.tw/us/Solar_Amulet",
+      "sha256": "06f4816b5a4c6da6ba4d7a2a6fda591501ecf5243c7f4f24e0c4727a2d95bf6e"
+    },
+    {
+      "url": "https://poe2db.tw/kr/Solar_Amulet",
+      "sha256": "87b88553eec3888f3e6deb0959ba8d7b821cc9917d14c30b9e0ebe6e57a44398"
+    },
+    {
+      "url": "https://poe2db.tw/cn/Solar_Amulet",
+      "sha256": "93478be076afcd8ae35f712fad695cd85d6d694b598f95e31542a269a071d789"
+    },
+    {
+      "url": "https://poe2db.tw/tw/Solar_Amulet",
+      "sha256": "834ff7e8f05a083831599b595de548748a5bcdf9e44f66f003f2d04ff316dbaa"
+    },
+    {
+      "url": "https://poe2db.tw/jp/Solar_Amulet",
+      "sha256": "7d82081a207a7acf944290deca6819b02701e6d4e306e7f7f5cfe1bc1d0b750e"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Solar_Amulet",
+      "sha256": "77a84fe1da14dd3092b387f56de746eba6d2044ca13ca9a76a9bbc69927c3209"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceGlobalDefences1",
+      "sha256": "1fd6d4913829478df80a8819bdeae6582e925683c06ca33570976009d8490973"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssenceGlobalDefences1",
+      "sha256": "c1cb2ca89f3af15394addc6442818a012859a4c5ed830ec1fe0702452c3ce795"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssenceGlobalDefences1",
+      "sha256": "9faf5a3574bc62990544230e80649b0129e331074c00cda40f4565bd756de762"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssenceGlobalDefences1",
+      "sha256": "0a8862811929ea48decafe2661b017e66fc93e2edb0ad43c46405c8073cff22c"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssenceGlobalDefences1",
+      "sha256": "624b9e027d29b992444be619d13f98148cba4b6ec37fa21f2186a3dd911cafff"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssenceGlobalDefences1",
+      "sha256": "704ca94b7b90e7336a319b883ec2b8f17db3f7800b28c513c8d6f0f4395404cc"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssencePercentStrength1",
+      "sha256": "99a72388623230425d7fbb4c4b3b7760bc57e7087bbec7d0db3de215477a6c36"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssencePercentStrength1",
+      "sha256": "1e739e68e0f429bea4f8eff5cb6d63cdeaa748c2a8c64236e5f2a15f9b094cc2"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssencePercentStrength1",
+      "sha256": "71fb5fbad67e3dd86697b9eb6d1cd884449c5a7d459f4af41cc4481e2906539e"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssencePercentStrength1",
+      "sha256": "ff085727e92f843027fb1d2528a7e73b41642ab66a15c8d7162be20bf85b22bc"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssencePercentStrength1",
+      "sha256": "858b1c6a99523eea0a111a0ccfb645ebc0177c8aea638346771fc71075117e23"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssencePercentStrength1",
+      "sha256": "e25a9c8aa2cfdd563fcbf601cc99d953d98675737b9727c5b2372c544e754e00"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssencePercentDexterity1",
+      "sha256": "f40c29af144dcb25e6a0c162875c704db5b50da43fc7a66d84f8679cbed19c63"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssencePercentDexterity1",
+      "sha256": "7fbe4f84a92ac872fefd25fe4cedc246eadadec61daa00e969b550c77273d6bb"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssencePercentDexterity1",
+      "sha256": "d0e3eb5edd5a472b40cabae04a16c8f3e537367d55c58ac65263445d25cc7f31"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssencePercentDexterity1",
+      "sha256": "c35b6b000baaf90e0bb3ea88c92d7205195ee96e0cdf7ecdc46e117ed65645ee"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssencePercentDexterity1",
+      "sha256": "8679af8e543f3058b92037646be32d55c09c885f0fcfc6bff89fd9f79e9bc232"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssencePercentDexterity1",
+      "sha256": "4979f7110145dfaa707e638ce6e3b94d09f6b9aea6026c7de72749ca86c66153"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssencePercentIntelligence1",
+      "sha256": "5fdad5703d24ca3dd935aafbd68153c10bbc5a76a2d7eb4da934642afb07b364"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssencePercentIntelligence1",
+      "sha256": "1bdb092d85945825e31066d92632c05ee6f32571148c55af4895e7f2e5f1752e"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssencePercentIntelligence1",
+      "sha256": "f2a8b258d2d03a30f79d738c953af88dbf20814cf77a2390121db515b2159fe0"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssencePercentIntelligence1",
+      "sha256": "fc0a34a4b4314bc9d788dbac51ecb7c5b65881d682830e67ebd068fda53ab2d3"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssencePercentIntelligence1",
+      "sha256": "30f879ab3c1994a40e93c752518568ba56efeee291be0deb0c1f916665c39160"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssencePercentIntelligence1",
+      "sha256": "cf15eea0a326fe2d4e2fe6b718f6b9b6aa78978f8c331e2f9b0fcdee656d88fa"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyMaximumRunicWardPercent1",
+      "sha256": "4f7f5df107ef23b9dec6fa95b21d8d794c193abd2cac041635ab5c33e62e670d"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FAlloyMaximumRunicWardPercent1",
+      "sha256": "04745fec0923c8ed8aa26b30d8c01184aa9ec63054dda2f26c4a0b1247bbdb68"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FAlloyMaximumRunicWardPercent1",
+      "sha256": "48bd813b6a15784839dbc1f9bcb0eb6eb113a59dce52fcfa5cd3840e502e705a"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FAlloyMaximumRunicWardPercent1",
+      "sha256": "b59c842e38be6c6fa8cd178d0b642c856fc71c3a4bb2bb03f2977985b038bc91"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FAlloyMaximumRunicWardPercent1",
+      "sha256": "cdead2a966ccb49b03dfdb5e5f544e02a61fe697c3e8e878f3139756bd867ffe"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FAlloyMaximumRunicWardPercent1",
+      "sha256": "67f5b5ae695adcc39acbfb2a56b8f9e00114322f6eb8c94a8d66b7e783dfa00b"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssPrefix",
+      "sha256": "80d68f05638192b759a6b196d5012463cbc5486f629f624f51b17c621be6bcf0"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssenceAbyssPrefix",
+      "sha256": "590262c21930bc3afce9d7721ef58ae30175dd98a7d043fdec260f3438521317"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssenceAbyssPrefix",
+      "sha256": "2fa67f4784b00c631c6baed4a27a2c819df02a16d87aa4ca1e286dbaa45d958c"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssenceAbyssPrefix",
+      "sha256": "0e94e086cd994e9dcc874597fd40a8cbaee90294521e53fc4a0378b653c7b6ca"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssenceAbyssPrefix",
+      "sha256": "5072c97c0590696c01e5399e9b2822b2fc575c08335ec5dde491adf28dc829b4"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssenceAbyssPrefix",
+      "sha256": "dbb26e8aa3e99cf025f5c53962cd661af063d30d079744010008eb0893fe4c1d"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssSuffix",
+      "sha256": "12c0238c1a227d5345c6654fef083da709f4f16222ca969f296fe9a2e91e0715"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssenceAbyssSuffix",
+      "sha256": "99eafebf8eba7480f0ad4d819495e266200f9952d83a3fc55eb4bc1020519a56"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssenceAbyssSuffix",
+      "sha256": "bd6f6422c01b9f4d889b8bdaf6a1dffadd6bf902b2086c91e794c968e289888b"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssenceAbyssSuffix",
+      "sha256": "67f1407ba8c0d0c508b1f17113361ec1dabc6f761a14b3075953d6c67b972f35"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssenceAbyssSuffix",
+      "sha256": "342fa6244b9c75590bbe8bbec86f625e526fd05d5e910136130373a584060872"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssenceAbyssSuffix",
+      "sha256": "a6e6171094128c4f4d987cff608353be68772c1ff7ef44b66d845767242a0759"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceLocalRuneAndSoulCoreEffect1",
+      "sha256": "1d54ac2acd920a1b6fa66e8feb04a132d98c4a2a01c24c64cd8ecbd26dc30e74"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssenceLocalRuneAndSoulCoreEffect1",
+      "sha256": "2492612851cfaa787f532d94e15e653941771696cb704a39b1f4a13e2a517b40"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssenceLocalRuneAndSoulCoreEffect1",
+      "sha256": "d8a6289433ae8a47a576a9321229b957e732dde8137962f9d0be238417509185"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssenceLocalRuneAndSoulCoreEffect1",
+      "sha256": "0108cf47fe168f55845409dfa3f64b6e60ce69cc95bb0994cc3bfb51b0f4f4f6"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssenceLocalRuneAndSoulCoreEffect1",
+      "sha256": "e86b5e1ea2f3f1560054a4492c0558d1be567d18b6a742b57b225c887249d073"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssenceLocalRuneAndSoulCoreEffect1",
+      "sha256": "379ad8f6ea3c36cde50e33908b3d26dfbd2a8decf92bceaf80a890301dcfec74"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceLightningRecoupLife1",
+      "sha256": "d4d4c3190fe8ea386089a2064b40a858eed0148de7e6290fb188c525df3218af"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssenceLightningRecoupLife1",
+      "sha256": "ddd5f0bcec11d59317d44e4af53c466e7efa5584a514e8517bc2ba88efc1f4f0"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssenceLightningRecoupLife1",
+      "sha256": "58291b481ff7cd3dffff24af1f4a7637a68ba9ce45f3f89ab662eea66229a8a2"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssenceLightningRecoupLife1",
+      "sha256": "763a195672df43f08121b3104fefc6735f2605c6fb3027b4003b307283832439"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssenceLightningRecoupLife1",
+      "sha256": "5aca2811d95b872e674f47b11fb3a9521fd9681bb9109706ba7d51c4efbe54ee"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssenceLightningRecoupLife1",
+      "sha256": "9834cac34b4ed01bbdaa16f51c9b70dda5403a60b39be64fb7e3e9ab2067badf"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceGoldDropped1",
+      "sha256": "af673a637182ad5e3ed27f14dd561d8a9bdb39287f25a8a16b0a83428f330005"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FEssenceGoldDropped1",
+      "sha256": "c558e4808e15027d350ab21fb348eb49b3254c28c1fa9b0f5db6b3ad8687511b"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FEssenceGoldDropped1",
+      "sha256": "3eddaa4c50fc029aed0d5eee8a7ca1bc36b6bf316b77f36244d3235d95b5feb8"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FEssenceGoldDropped1",
+      "sha256": "dcd94beef781bb6f9f60887531df5f2da8af6550205bdb1b4536efe354a2931b"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FEssenceGoldDropped1",
+      "sha256": "26a67381c74ee3fe87826af014a43eb4d9b50e75d6cb9aa1e3cfdf01540222cd"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEssenceGoldDropped1",
+      "sha256": "778ece291a3e563289785e0e293a23c3049928d6dbbcd00e1c4cf9853b290e96"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyElementalPenetration1",
+      "sha256": "a8a9c500d644bebc98cccee3b346dc38c3292592eaaa4a4041f1d505ea68c721"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FAlloyElementalPenetration1",
+      "sha256": "e5fadee7ba56d4352fac7e2cfa9721047bd92807ad41ed1709a5a34f607145ac"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FAlloyElementalPenetration1",
+      "sha256": "c3fd2553cac6712c19d0fc66d968ab8f33d7478cf205ebf960d771ec8a2a521d"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FAlloyElementalPenetration1",
+      "sha256": "280dccc9bf82a6b245cfc949363cbabdf935bb2972847fb1f906a206002b56ba"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FAlloyElementalPenetration1",
+      "sha256": "8ae137fd8ea0a70467d875433d0f56558a24be2aa5f781175ef091d807d88a18"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FAlloyElementalPenetration1",
+      "sha256": "0a563bc4c2978459a8ab36f67f528809b889411c82e54ded62a45ad954d2446d"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyAttackSpeedIfMissingWardRecently1",
+      "sha256": "41eea0594134594d7ab49d1cf75b0167f03f38d665303315eccca3aaaf127874"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FAlloyAttackSpeedIfMissingWardRecently1",
+      "sha256": "000c9b671c6adb52bf00b8df8f0e8b1f37e24f9cf96cb459df5637a6731296ef"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FAlloyAttackSpeedIfMissingWardRecently1",
+      "sha256": "a40ce7188ec47e02cd62a78e9d19eeb31062a3943073d3c4e175ab7ea66cbbdd"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FAlloyAttackSpeedIfMissingWardRecently1",
+      "sha256": "1059dcd8566c7c5ebd8613dbf39f5f7f02c049b3f8730d32f6dc8451bb397661"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FAlloyAttackSpeedIfMissingWardRecently1",
+      "sha256": "b6248bf58ab13f70bd8a36b088eac01a46edd71df59321656631ca1140923ba8"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FAlloyAttackSpeedIfMissingWardRecently1",
+      "sha256": "48d8207c87fbab65228480bc9a5fe3f83ee87e11cd784fae6789237b6a5c547a"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyCastSpeedGloves1",
+      "sha256": "0a3f9bcb1624a81e4c1a4ad012fff63b96b37198a39a14c6659bb4b4072abdd6"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FAlloyCastSpeedGloves1",
+      "sha256": "009b1fe095f2bab17a09072baa189b7493f3cc555c626ee22113eca5b72b6776"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FAlloyCastSpeedGloves1",
+      "sha256": "3558efe5c9232c195f3621f3bd32a91e4fba672a019bf7fd0b9f5d0625e681a2"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FAlloyCastSpeedGloves1",
+      "sha256": "c91dbac7cec290f96ac7d3e107e8dceb85c9da9febe101066463ea4d1d72cf4b"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FAlloyCastSpeedGloves1",
+      "sha256": "eed52f0837fcd2baf454e2515c44dbc9696f90ea7a5be03d248582d664f33551"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FAlloyCastSpeedGloves1",
+      "sha256": "3f4eaec035e9b21017a8465afde39f3844a42f75e6d5f81df774f2b021a0d91d"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyLocalWardIncreasePercent1",
+      "sha256": "11d57d30e534f355454f19f7c11953708606698b52199028a70dcfbfd88c0224"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FAlloyLocalWardIncreasePercent1",
+      "sha256": "6cca5f21a51ac506c2cab92922b6e96f5e38e6f60fa7b039d21217bd141546e0"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FAlloyLocalWardIncreasePercent1",
+      "sha256": "b786baaac3252400b6578c5b0c24926d8b853f5fc6715e43f7f4ec25d37a8a56"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FAlloyLocalWardIncreasePercent1",
+      "sha256": "af1cec72677a9bb97e4304c13f671e75234079e6ff1946379cafb64a543f2ab6"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FAlloyLocalWardIncreasePercent1",
+      "sha256": "380eb6052cf5ce2c932d8c16fe8e45476dc8da3e2014242ad04def3e9635bbf6"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FAlloyLocalWardIncreasePercent1",
+      "sha256": "35cc4a730116fc7c70ef900c19dcb13b9a1a5003577960e17b163d30b602b016"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyRemnantPickupRange1",
+      "sha256": "858a3cc8686a86d8344fe596f4d1c35636fe5f527e06d44d330aa73d47f6122a"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FAlloyRemnantPickupRange1",
+      "sha256": "6cc6da4e1cf647084f2014c079fac7736cd785f82bb3146241d457d13126fcd9"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FAlloyRemnantPickupRange1",
+      "sha256": "3c3e142d3c8dcd8f0c5a8ef59bcda34866dadfc27935b2ad4ce3cf8a5b2fdfc8"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FAlloyRemnantPickupRange1",
+      "sha256": "35a7b35d5b06756afaed22a14631c12beabf8d86ae6147fef037c4a4632a0bcc"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FAlloyRemnantPickupRange1",
+      "sha256": "e0e1d61fbdf84dde8e643a9c5abf317d5c09615817e0eba92b012d3d52d221c3"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FAlloyRemnantPickupRange1",
+      "sha256": "4bde535d1a9751189f99fb6edb4936c9b444ef5f44a9d4cd5c4c8eeb3001cdd8"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyDamagingAilmentDuration1",
+      "sha256": "59d83929e83f7d3b2e3000eb9dd25f7df89ef95d7dbc5035e91d9c0656099d82"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FAlloyDamagingAilmentDuration1",
+      "sha256": "57b12c6f7f180e845c06bad7e5c9b4ecc214ed8bcc93ebf602749b1dac9c79df"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FAlloyDamagingAilmentDuration1",
+      "sha256": "9f9456ecd8e622503f61360211aeadad7d723836af073a4870fd6b2bb002ebcc"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FAlloyDamagingAilmentDuration1",
+      "sha256": "3e989092926de3124fa13f63bb5a8dc85f6a1d513cd6d5e23584c0ab2316c0f8"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FAlloyDamagingAilmentDuration1",
+      "sha256": "142e9026282262ee1c9e9c9af25aa97c27c1d780b3280d059bed039f7e8b83fc"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FAlloyDamagingAilmentDuration1",
+      "sha256": "713fc6d382a1db541ec3a28e50fdb8cb89904437bd95e5633f73be6a37c4bb59"
+    },
+    {
+      "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyAttackAreaOfEffect1",
+      "sha256": "0670f076f0cefbe4a09fb9c64ba7866bd80416ef1dbe540cecef4e0a23f80579"
+    },
+    {
+      "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FAlloyAttackAreaOfEffect1",
+      "sha256": "74dd7c5a3c203fabf25c3f7fd876944ddea07c3d2854df165918b222d3e89e0f"
+    },
+    {
+      "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FAlloyAttackAreaOfEffect1",
+      "sha256": "eece37b9821383061fb647ce5a1bb3a5ac1ee20d239d13df6e446ad9c245d7aa"
+    },
+    {
+      "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FAlloyAttackAreaOfEffect1",
+      "sha256": "ac219e4fcbe9e81a6a81b7d5c32bd65cc74890a81707212357bf65654f623413"
+    },
+    {
+      "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FAlloyAttackAreaOfEffect1",
+      "sha256": "9ad129ea81c22ba7237e2927e1960b2bb0a3d6ab2c9b86de4db56df74fe407eb"
+    },
+    {
+      "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FAlloyAttackAreaOfEffect1",
+      "sha256": "f3bf110019bc344276be98ceb2c154a702384cf20045383f653acb67d022c32d"
+    }
+  ],
+  "bindings": [
+    "attuned-wand:suffix:essence-spell-skill-level",
+    "attuned-wand:suffix:essence-mana-cost-efficiency",
+    "crude-bow:prefix:essence-extra-physical-damage",
+    "crude-bow:prefix:essence-extra-fire-damage",
+    "crude-bow:prefix:essence-extra-cold-damage",
+    "crude-bow:prefix:essence-extra-lightning-damage",
+    "crude-bow:suffix:essence-attack-skill-level",
+    "crude-bow:suffix:essence-onslaught-on-kill",
+    "iron-ring:implicit:added-physical-damage-to-attacks",
+    "iron-ring:prefix:essence-increased-maximum-mana",
+    "rattling-sceptre:suffix:essence-aura-magnitude",
+    "rawhide-belt:suffix:essence-fire-damage-recouped-as-life",
+    "rusted-cuirass:prefix:essence-maximum-life-percent",
+    "rusted-cuirass:prefix:essence-physical-taken-as-chaos",
+    "rusted-cuirass:suffix:essence-reduced-incoming-critical-damage",
+    "rusted-greathelm:suffix:essence-cold-damage-recouped-as-life",
+    "amulet:prefix:essence-abyssal-mark",
+    "amulet:suffix:essence-abyssal-mark",
+    "amulet:prefix:essence-maximum-quality",
+    "solar-amulet:implicit:spirit",
+    "amulet:prefix:essence-global-defences",
+    "amulet:suffix:essence-percent-strength",
+    "amulet:suffix:essence-percent-dexterity",
+    "amulet:suffix:essence-percent-intelligence",
+    "amulet:prefix:alloy-maximum-runic-ward",
+    "stocky-mitts:prefix:essence-abyssal-mark",
+    "stocky-mitts:suffix:essence-abyssal-mark",
+    "stocky-mitts:suffix:essence-socketed-augment-effect",
+    "stocky-mitts:suffix:essence-lightning-recoup",
+    "stocky-mitts:suffix:essence-gold-quantity",
+    "stocky-mitts:prefix:alloy-elemental-penetration",
+    "stocky-mitts:suffix:alloy-attack-speed-missing-ward",
+    "stocky-mitts:suffix:alloy-cast-speed",
+    "stocky-mitts:prefix:alloy-local-runic-ward",
+    "stocky-mitts:suffix:alloy-remnant-pickup-range",
+    "stocky-mitts:suffix:alloy-damaging-ailment-duration",
+    "stocky-mitts:suffix:alloy-attack-area-of-effect"
+  ],
+  "gaps": []
+}

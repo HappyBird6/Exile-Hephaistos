@@ -1,3 +1,4 @@
+import { ServiceMessage } from './ServiceMessage'
 import { useI18n, formatPercent, formatNumber } from '../../shared/i18n/i18n'
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useRef, useState } from 'react'
@@ -468,7 +469,7 @@ export function CraftSupport({ active }: { active: boolean }) {
               {mapped && <p>{t('notice.mapping_verified')}</p>}
               {mappingIssues.map((issue, i) => (
                 <p role="alert" key={i}>
-                  {issue}
+                  <ServiceMessage text={issue} />
                 </p>
               ))}
             </>
@@ -596,7 +597,11 @@ export function CraftSupport({ active }: { active: boolean }) {
       {(initial.isPending || families.isPending) && active && (
         <p role="status">{t('ui.loading_support_catalog')}</p>
       )}
-      {error && <p role="alert">{error}</p>}
+      {error && (
+        <p role="alert">
+          <ServiceMessage text={error} />
+        </p>
+      )}
       {assessment && (
         <section className="support-assessment" aria-live="polite">
           <h2>
@@ -617,7 +622,9 @@ export function CraftSupport({ active }: { active: boolean }) {
           </p>
           {assessment.achieved && <p>{t('notice.goal_met')}</p>}
           {assessment.issues.map((issue, i) => (
-            <p key={i}>{issue}</p>
+            <p key={i}>
+              <ServiceMessage text={issue} />
+            </p>
           ))}
           {!report && !assessment.achieved && assessment.feasible && (
             <p>{t('notice.no_calculation')}</p>
@@ -731,7 +738,8 @@ export function CraftSupport({ active }: { active: boolean }) {
                 s.blockedReasons.map((reason) => (
                   <p key={`${s.step}-${reason}`}>
                     {' '}
-                    {t('ui.step')} {s.step} {t('ui.rule_block')} {reason}
+                    {t('ui.step')} {s.step} {t('ui.rule_block')}{' '}
+                    <ServiceMessage text={reason} />
                   </p>
                 )),
               )}

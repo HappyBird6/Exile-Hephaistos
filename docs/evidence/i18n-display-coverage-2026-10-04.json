@@ -1,0 +1,140 @@
+{
+  "baseHead": "18a2a3d4235e7ebf3e45c81f4fb6fe5f115c93b0",
+  "before": {
+    "en": {
+      "uiKeys": 305,
+      "registeredNames": 144,
+      "activeNames": 144,
+      "deferredNames": 0,
+      "liquidNames": 0,
+      "liquidDescriptions": 0,
+      "modifierBindings": 2277,
+      "templates": 1653,
+      "compoundMappings": 0
+    },
+    "ko": {
+      "uiKeys": 305,
+      "registeredNames": 144,
+      "activeNames": 144,
+      "deferredNames": 0,
+      "liquidNames": 0,
+      "liquidDescriptions": 0,
+      "modifierBindings": 2277,
+      "templates": 1653,
+      "compoundMappings": 0
+    },
+    "zh-CN": {
+      "uiKeys": 305,
+      "registeredNames": 144,
+      "activeNames": 144,
+      "deferredNames": 0,
+      "liquidNames": 0,
+      "liquidDescriptions": 0,
+      "modifierBindings": 2277,
+      "templates": 1653,
+      "compoundMappings": 0
+    },
+    "zh-TW": {
+      "uiKeys": 305,
+      "registeredNames": 144,
+      "activeNames": 144,
+      "deferredNames": 0,
+      "liquidNames": 0,
+      "liquidDescriptions": 0,
+      "modifierBindings": 2277,
+      "templates": 1653,
+      "compoundMappings": 0
+    },
+    "ja": {
+      "uiKeys": 305,
+      "registeredNames": 144,
+      "activeNames": 144,
+      "deferredNames": 0,
+      "liquidNames": 0,
+      "liquidDescriptions": 0,
+      "modifierBindings": 2277,
+      "templates": 1653,
+      "compoundMappings": 0
+    },
+    "es": {
+      "uiKeys": 305,
+      "registeredNames": 143,
+      "activeNames": 143,
+      "deferredNames": 0,
+      "liquidNames": 0,
+      "liquidDescriptions": 0,
+      "modifierBindings": 2277,
+      "templates": 1653,
+      "compoundMappings": 0
+    }
+  },
+  "after": {
+    "en": {
+      "uiKeys": 378,
+      "registeredNames": 220,
+      "activeNames": 170,
+      "deferredNames": 50,
+      "liquidNames": 26,
+      "liquidDescriptions": 26,
+      "modifierBindings": 2314,
+      "templates": 1690,
+      "compoundMappings": 228
+    },
+    "ko": {
+      "uiKeys": 378,
+      "registeredNames": 220,
+      "activeNames": 170,
+      "deferredNames": 50,
+      "liquidNames": 26,
+      "liquidDescriptions": 26,
+      "modifierBindings": 2314,
+      "templates": 1690,
+      "compoundMappings": 228
+    },
+    "zh-CN": {
+      "uiKeys": 378,
+      "registeredNames": 220,
+      "activeNames": 170,
+      "deferredNames": 50,
+      "liquidNames": 26,
+      "liquidDescriptions": 26,
+      "modifierBindings": 2314,
+      "templates": 1690,
+      "compoundMappings": 228
+    },
+    "zh-TW": {
+      "uiKeys": 378,
+      "registeredNames": 220,
+      "activeNames": 170,
+      "deferredNames": 50,
+      "liquidNames": 26,
+      "liquidDescriptions": 26,
+      "modifierBindings": 2314,
+      "templates": 1690,
+      "compoundMappings": 228
+    },
+    "ja": {
+      "uiKeys": 378,
+      "registeredNames": 220,
+      "activeNames": 170,
+      "deferredNames": 50,
+      "liquidNames": 26,
+      "liquidDescriptions": 26,
+      "modifierBindings": 2314,
+      "templates": 1690,
+      "compoundMappings": 228
+    },
+    "es": {
+      "uiKeys": 378,
+      "registeredNames": 220,
+      "activeNames": 170,
+      "deferredNames": 50,
+      "liquidNames": 26,
+      "liquidDescriptions": 26,
+      "modifierBindings": 2314,
+      "templates": 1690,
+      "compoundMappings": 228
+    }
+  },
+  "sourceUnitSingleStat": []
+}

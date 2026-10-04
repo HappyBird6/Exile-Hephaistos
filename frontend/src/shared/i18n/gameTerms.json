@@ -1385,6 +1385,766 @@
       "lines": [],
       "itemKey": "Metadata/Items/Jewels/JewelRadiusDiamond",
       "sourceUrl": "https://poe2db.tw/us/Time-Lost_Diamond"
+    },
+    "Diluted_Liquid_Ire": {
+      "name": "Diluted Liquid Ire",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: (10—20)% increased Armour",
+        "Sapphire Prefix: (10—20)% increased maximum Energy Shield",
+        "Emerald Prefix: (10—20)% increased Evasion Rating"
+      ],
+      "itemKey": "DilutedDistilledIre",
+      "sourceUrl": "https://poe2db.tw/us/Diluted_Liquid_Ire"
+    },
+    "Diluted_Liquid_Guilt": {
+      "name": "Diluted Liquid Guilt",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: (5—15)% increased Fire Damage",
+        "Sapphire Prefix: (5—15)% increased Cold Damage",
+        "Emerald Prefix: (5—15)% increased Lightning Damage"
+      ],
+      "itemKey": "DilutedDistilledGuilt",
+      "sourceUrl": "https://poe2db.tw/us/Diluted_Liquid_Guilt"
+    },
+    "Diluted_Liquid_Greed": {
+      "name": "Diluted Liquid Greed",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: (5—15)% increased Global Physical Damage",
+        "Sapphire Prefix: (7—13)% increased Chaos Damage",
+        "Emerald Prefix: (5—15)% increased Elemental Damage"
+      ],
+      "itemKey": "DilutedDistilledGreed",
+      "sourceUrl": "https://poe2db.tw/us/Diluted_Liquid_Greed"
+    },
+    "Liquid_Paranoia": {
+      "name": "Liquid Paranoia",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: (5—15)% increased Attack Damage",
+        "Sapphire Suffix: (2—4)% increased Cast Speed",
+        "Emerald Suffix: (2—4)% increased Attack Speed"
+      ],
+      "itemKey": "DistilledParanoia",
+      "sourceUrl": "https://poe2db.tw/us/Liquid_Paranoia"
+    },
+    "Liquid_Envy": {
+      "name": "Liquid Envy",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Suffix: (4—6)% of Skill Mana Costs Converted to Life Costs",
+        "Sapphire Prefix: (5—15)% increased Spell Damage",
+        "Emerald Suffix: (3—5)% increased Cooldown Recovery Rate"
+      ],
+      "itemKey": "DistilledEnvy",
+      "sourceUrl": "https://poe2db.tw/us/Liquid_Envy"
+    },
+    "Liquid_Disgust": {
+      "name": "Liquid Disgust",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Suffix: (5—10)% increased Life Regeneration rate",
+        "Sapphire Suffix: Recover (1—2)% of maximum Mana on Kill",
+        "Emerald Suffix: Recover (1—2)% of maximum Life on Kill"
+      ],
+      "itemKey": "DistilledDisgust",
+      "sourceUrl": "https://poe2db.tw/us/Liquid_Disgust"
+    },
+    "Liquid_Despair": {
+      "name": "Liquid Despair",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Suffix: Gain 1 Rage on Melee Hit",
+        "Sapphire Suffix: (5—15)% increased Critical Hit Chance for Spells",
+        "Emerald Suffix: (6—16)% increased Critical Hit Chance for Attacks"
+      ],
+      "itemKey": "DistilledDespair",
+      "sourceUrl": "https://poe2db.tw/us/Liquid_Despair"
+    },
+    "Concentrated_Liquid_Fear": {
+      "name": "Concentrated Liquid Fear",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Suffix: (10—20)% increased Warcry Speed",
+        "Sapphire Suffix: (10—20)% increased Critical Spell Damage Bonus",
+        "Emerald Suffix: (10—20)% increased Critical Damage Bonus for Attack Damage"
+      ],
+      "itemKey": "ConcentratedDistilledFear",
+      "sourceUrl": "https://poe2db.tw/us/Concentrated_Liquid_Fear"
+    },
+    "Concentrated_Liquid_Suffering": {
+      "name": "Concentrated Liquid Suffering",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: +(1—2) to Maximum Rage",
+        "Sapphire Prefix: (4—6)% increased Area of Effect",
+        "Emerald Suffix: (1—2)% increased Movement Speed"
+      ],
+      "itemKey": "ConcentratedDistilledSuffering",
+      "sourceUrl": "https://poe2db.tw/us/Concentrated_Liquid_Suffering"
+    },
+    "Concentrated_Liquid_Isolation": {
+      "name": "Concentrated Liquid Isolation",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Suffix: +1% to Maximum Fire Resistance",
+        "Sapphire Suffix: +1% to Maximum Cold Resistance",
+        "Emerald Suffix: +1% to Maximum Lightning Resistance",
+        "Diamond Suffix: +1% to Maximum Chaos Resistance"
+      ],
+      "itemKey": "ConcentratedDistilledIsolation",
+      "sourceUrl": "https://poe2db.tw/us/Concentrated_Liquid_Isolation"
+    },
+    "Ancient_Diluted_Liquid_Ire": {
+      "name": "Ancient Diluted Liquid Ire",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: Small Passive Skills in Radius also grant (2—3)% increased Armour",
+        "Sapphire Prefix: Small Passive Skills in Radius also grant (2—3)% increased maximum Energy Shield",
+        "Emerald Prefix: Small Passive Skills in Radius also grant (2—3)% increased Evasion Rating"
+      ],
+      "itemKey": "TimelostDilutedDistilledIre",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Ire"
+    },
+    "Ancient_Diluted_Liquid_Guilt": {
+      "name": "Ancient Diluted Liquid Guilt",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: Small Passive Skills in Radius also grant (1—2)% increased Fire Damage",
+        "Sapphire Prefix: Small Passive Skills in Radius also grant (1—2)% increased Cold Damage",
+        "Emerald Prefix: Small Passive Skills in Radius also grant (1—2)% increased Lightning Damage"
+      ],
+      "itemKey": "TimelostDilutedDistilledGuilt",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Guilt"
+    },
+    "Ancient_Diluted_Liquid_Greed": {
+      "name": "Ancient Diluted Liquid Greed",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: Small Passive Skills in Radius also grant (1—2)% increased Global Physical Damage",
+        "Sapphire Prefix: Small Passive Skills in Radius also grant (1—2)% increased Chaos Damage",
+        "Emerald Prefix: Small Passive Skills in Radius also grant (1—2)% increased Elemental Damage"
+      ],
+      "itemKey": "TimelostDilutedDistilledGreed",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Greed"
+    },
+    "Ancient_Liquid_Paranoia": {
+      "name": "Ancient Liquid Paranoia",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: Small Passive Skills in Radius also grant (1—2)% increased Attack Damage",
+        "Sapphire Suffix: Notable Passive Skills in Radius also grant (1—2)% increased Cast Speed",
+        "Emerald Suffix: Notable Passive Skills in Radius also grant (1—2)% increased Attack Speed"
+      ],
+      "itemKey": "TimelostDistilledParanoia",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Paranoia"
+    },
+    "Ancient_Liquid_Envy": {
+      "name": "Ancient Liquid Envy",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Suffix: Notable Passive Skills in Radius also grant (2—3)% of Skill Mana Costs Converted to Life Costs",
+        "Sapphire Prefix: Small Passive Skills in Radius also grant (1—2)% increased Spell Damage",
+        "Emerald Suffix: Notable Passive Skills in Radius also grant (1—3)% increased Cooldown Recovery Rate"
+      ],
+      "itemKey": "TimelostDistilledEnvy",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Envy"
+    },
+    "Ancient_Liquid_Disgust": {
+      "name": "Ancient Liquid Disgust",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Suffix: Notable Passive Skills in Radius also grant (3—5)% increased Life Regeneration rate",
+        "Sapphire Suffix: Notable Passive Skills in Radius also grant Recover 1% of maximum Mana on Kill",
+        "Emerald Suffix: Notable Passive Skills in Radius also grant Recover 1% of maximum Life on Kill"
+      ],
+      "itemKey": "TimelostDistilledDisgust",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Disgust"
+    },
+    "Ancient_Liquid_Despair": {
+      "name": "Ancient Liquid Despair",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Suffix: Notable Passive Skills in Radius also grant Gain 1 Rage on Melee Hit",
+        "Sapphire Suffix: Notable Passive Skills in Radius also grant (3—7)% increased Critical Hit Chance for Spells",
+        "Emerald Suffix: Notable Passive Skills in Radius also grant (3—7)% increased Critical Hit Chance for Attacks"
+      ],
+      "itemKey": "TimelostDistilledDespair",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Despair"
+    },
+    "Ancient_Concentrated_Liquid_Fear": {
+      "name": "Ancient Concentrated Liquid Fear",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Suffix: Small Passive Skills in Radius also grant (2—3)% increased Warcry Speed",
+        "Sapphire Suffix: Notable Passive Skills in Radius also grant (5—10)% increased Critical Spell Damage Bonus",
+        "Emerald Suffix: Notable Passive Skills in Radius also grant (5—10)% increased Critical Damage Bonus for Attack Damage"
+      ],
+      "itemKey": "TimelostConcentratedDistilledFear",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Fear"
+    },
+    "Ancient_Concentrated_Liquid_Suffering": {
+      "name": "Ancient Concentrated Liquid Suffering",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: Notable Passive Skills in Radius also grant +1 to Maximum Rage",
+        "Sapphire Prefix: Notable Passive Skills in Radius also grant (2—3)% increased Area of Effect",
+        "Emerald Suffix: Notable Passive Skills in Radius also grant 1% increased Movement Speed"
+      ],
+      "itemKey": "TimelostConcentratedDistilledSuffering",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Suffering"
+    },
+    "Ancient_Concentrated_Liquid_Isolation": {
+      "name": "Ancient Concentrated Liquid Isolation",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: Increases and Reductions to\n Cold and Lightning Damage in Radius are transformed to apply to Fire Damage",
+        "Sapphire Prefix: Increases and Reductions to\n Fire and Lightning Damage in Radius are transformed to apply to Cold Damage",
+        "Emerald Prefix: Increases and Reductions to\n Cold and Fire Damage in Radius are transformed to apply to Lightning Damage"
+      ],
+      "itemKey": "TimelostConcentratedDistilledIsolation",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Isolation"
+    },
+    "Potent_Liquid_Melancholy": {
+      "name": "Potent Liquid Melancholy",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Suffix: Debilitate Enemies on Hit while you have an Emerald and a Sapphire socketed in your tree",
+        "Sapphire Suffix: Inflict Elemental Exposure on Hit while you have a Ruby and an Emerald socketed in your tree",
+        "Emerald Suffix: Blind Enemies on Hit while you have a Ruby and a Sapphire socketed in your tree"
+      ],
+      "itemKey": "UniqueHumansEmotion",
+      "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Melancholy"
+    },
+    "Potent_Liquid_Ferocity": {
+      "name": "Potent Liquid Ferocity",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: (40—60)% increased Effect of Suffixes",
+        "Ruby Suffix: (40—60)% increased Effect of Prefixes",
+        "Sapphire Prefix: (40—60)% increased Effect of Suffixes",
+        "Sapphire Suffix: (40—60)% increased Effect of Prefixes",
+        "Emerald Prefix: (40—60)% increased Effect of Suffixes",
+        "Emerald Suffix: (40—60)% increased Effect of Prefixes",
+        "Diamond Prefix: (40—60)% increased Effect of Suffixes",
+        "Diamond Suffix: (40—60)% increased Effect of Prefixes"
+      ],
+      "itemKey": "UniqueConstructsEmotion",
+      "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Ferocity"
+    },
+    "Potent_Liquid_Contempt": {
+      "name": "Potent Liquid Contempt",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: +1 Suffix Modifier allowed",
+        "Ruby Suffix: +1 Prefix Modifier allowed",
+        "Sapphire Prefix: +1 Suffix Modifier allowed",
+        "Sapphire Suffix: +1 Prefix Modifier allowed",
+        "Emerald Prefix: +1 Suffix Modifier allowed",
+        "Emerald Suffix: +1 Prefix Modifier allowed",
+        "Diamond Prefix: +1 Suffix Modifier allowed",
+        "Diamond Suffix: +1 Prefix Modifier allowed"
+      ],
+      "itemKey": "UniqueBeastEmotion",
+      "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Contempt"
+    },
+    "Ancient_Potent_Liquid_Melancholy": {
+      "name": "Ancient Potent Liquid Melancholy",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: Upgrades Radius to Very Large\nlocal jewel effect base radius [500]",
+        "Sapphire Prefix: Upgrades Radius to Very Large\nlocal jewel effect base radius [500]",
+        "Emerald Prefix: Upgrades Radius to Very Large\nlocal jewel effect base radius [500]",
+        "Diamond Prefix: Upgrades Radius to Very Large\nlocal jewel effect base radius [500]"
+      ],
+      "itemKey": "TimelessUniqueHumansEmotion",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Potent_Liquid_Melancholy"
+    },
+    "Ancient_Potent_Liquid_Ferocity": {
+      "name": "Ancient Potent Liquid Ferocity",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Suffix: Notable Passive Skills in Radius also grant +(5—7)% to Fire Resistance",
+        "Sapphire Suffix: Notable Passive Skills in Radius also grant +(5—7)% to Cold Resistance",
+        "Emerald Suffix: Notable Passive Skills in Radius also grant +(5—7)% to Lightning Resistance",
+        "Diamond Suffix: Notable Passive Skills in Radius also grant +(4—5)% to Chaos Resistance"
+      ],
+      "itemKey": "TimlessUniqueConstructsEmotion",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Potent_Liquid_Ferocity"
+    },
+    "Ancient_Potent_Liquid_Contempt": {
+      "name": "Ancient Potent Liquid Contempt",
+      "lines": [
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: +1 Suffix Modifier allowed",
+        "Ruby Suffix: +1 Prefix Modifier allowed",
+        "Sapphire Prefix: +1 Suffix Modifier allowed",
+        "Sapphire Suffix: +1 Prefix Modifier allowed",
+        "Emerald Prefix: +1 Suffix Modifier allowed",
+        "Emerald Suffix: +1 Prefix Modifier allowed",
+        "Diamond Prefix: +1 Suffix Modifier allowed",
+        "Diamond Suffix: +1 Prefix Modifier allowed"
+      ],
+      "itemKey": "TimelessUniqueBeastEmotion",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Potent_Liquid_Contempt"
+    },
+    "Liquid_Verisium": {
+      "name": "Liquid Verisium",
+      "lines": [
+        "Immediately start a Runic Remnant Encounter with a random Runic Inscription"
+      ],
+      "itemKey": "LiquidMetalVerisium",
+      "sourceUrl": "https://poe2db.tw/us/Liquid_Verisium"
+    },
+    "Hinekoras_Lock": {
+      "name": "Hinekora's Lock",
+      "lines": [
+        "Allows an item to foresee the result of the next Currency item used on it\n\nModifying the item in any way removes the ability to foresee"
+      ],
+      "itemKey": "HinekorasLock",
+      "sourceUrl": "https://poe2db.tw/us/Hinekoras_Lock"
+    },
+    "Vaal_Orb": {
+      "name": "Vaal Orb",
+      "lines": ["Modifies an item unpredictably and Corrupts it"],
+      "itemKey": "CurrencyVaal",
+      "sourceUrl": "https://poe2db.tw/us/Vaal_Orb"
+    },
+    "Essence_of_Delirium": {
+      "name": "Essence of Delirium",
+      "lines": [
+        "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+        "Body Armour: Allocates a random Notable Passive Skill"
+      ],
+      "itemKey": "CorruptedEssenceDelirium",
+      "sourceUrl": "https://poe2db.tw/us/Essence_of_Delirium"
+    },
+    "Essence_of_Insanity": {
+      "name": "Essence of Insanity",
+      "lines": [
+        "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+        "Belt: On Corruption, Item gains two Enchantments"
+      ],
+      "itemKey": "CorruptedEssenceInsanity",
+      "sourceUrl": "https://poe2db.tw/us/Essence_of_Insanity"
+    },
+    "Runic_Alloy": {
+      "name": "Runic Alloy",
+      "lines": [
+        "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+        "Ring: +(37—49) to maximum Runic Ward",
+        "Amulet: (6—10)% increased maximum Runic Ward",
+        "Belt: (15—20)% increased Runic Ward Regeneration Rate"
+      ],
+      "itemKey": "ScrapVerisium",
+      "sourceUrl": "https://poe2db.tw/us/Runic_Alloy"
+    },
+    "Adaptive_Alloy": {
+      "name": "Adaptive Alloy",
+      "lines": [
+        "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+        "Staff: Gain (42—52)% of Damage as Extra Fire Damage while you are missing Runic Ward",
+        "Wand: Gain (21—26)% of Damage as Extra Fire Damage while you are missing Runic Ward",
+        "Sceptre: (30—50)% Surpassing Chance to gain a Puppet Master stack whenever you use a Command Skill",
+        "Gloves: (10—15)% increased Attack Speed while missing Runic Ward"
+      ],
+      "itemKey": "ChippedVerisium",
+      "sourceUrl": "https://poe2db.tw/us/Adaptive_Alloy"
+    },
+    "Protective_Alloy": {
+      "name": "Protective Alloy",
+      "lines": [
+        "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+        "Belt: Recover (32—45) Runic Ward when a Charm is used",
+        "Weapons: +(51—74) to maximum Runic Ward",
+        "Shield: Recover (10—15) Runic Ward when you Block"
+      ],
+      "itemKey": "ImpureVerisium",
+      "sourceUrl": "https://poe2db.tw/us/Protective_Alloy"
+    },
+    "Expansive_Alloy": {
+      "name": "Expansive Alloy",
+      "lines": [
+        "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+        "Gloves: Remnants can be collected from (35—50)% further away",
+        "Body Armour: (35—50)% increased Presence Area of Effect",
+        "Helmet: (18—29)% increased Mana Cost Efficiency",
+        "Boots: Temporary Minion Skills have +(1—2) to Limit of Minions summoned"
+      ],
+      "itemKey": "StandardVerisium",
+      "sourceUrl": "https://poe2db.tw/us/Expansive_Alloy"
+    },
+    "Swift_Alloy": {
+      "name": "Swift Alloy",
+      "lines": [
+        "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+        "Gloves: (9—12)% increased Cast Speed",
+        "Ring: (7—9)% increased Attack Speed",
+        "Belt: Flasks gain (0.75—1) charges per Second",
+        "Shield or Focus: (30—49)% increased Totem Placement speed"
+      ],
+      "itemKey": "PureVerisium",
+      "sourceUrl": "https://poe2db.tw/us/Swift_Alloy"
+    },
+    "Cyclonic_Alloy": {
+      "name": "Cyclonic Alloy",
+      "lines": [
+        "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+        "Body Armour: (15—30)% reduced Slowing Potency of Debuffs on You",
+        "Boots: (15—19)% increased Skill Effect Duration",
+        "Gloves: (20—25)% increased Duration of Damaging Ailments on Enemies",
+        "Helmet: (35—42)% increased Archon Buff duration"
+      ],
+      "itemKey": "ImbuedVerisium",
+      "sourceUrl": "https://poe2db.tw/us/Cyclonic_Alloy"
+    },
+    "Prismatic_Alloy": {
+      "name": "Prismatic Alloy",
+      "lines": [
+        "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+        "Gloves: Damage Penetrates (9—15)% Elemental Resistances",
+        "Martial Weapon: (20—30)% increased Magnitude of Ailments you inflict",
+        "Focus, Staff or Wand: (40—50)% increased Exposure Effect",
+        "Sceptre: Minions have (40—49)% increased Magnitude of Damaging Ailments"
+      ],
+      "itemKey": "SovereignVerisium",
+      "sourceUrl": "https://poe2db.tw/us/Prismatic_Alloy"
+    },
+    "Mystic_Alloy": {
+      "name": "Mystic Alloy",
+      "lines": [
+        "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+        "Helmet: Spell Skills have (10—15)% increased Area of Effect",
+        "Gloves: (10—15)% increased Area of Effect for Attacks",
+        "Boots: +(10—15) to Spirit",
+        "Quiver: (25—35)% chance to Chain an additional time",
+        "Caster Weapon: +1 to maximum number of Elemental Infusions"
+      ],
+      "itemKey": "CelestialVerisium",
+      "sourceUrl": "https://poe2db.tw/us/Mystic_Alloy"
+    },
+    "Sovereign_Alloy": {
+      "name": "Sovereign Alloy",
+      "lines": [
+        "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+        "Weapons: (20—30)% increased effect of Socketed Augment Items",
+        "Armour: (24—30)% increased Runic Ward",
+        "Jewellery or Belt: (20—30)% increased Explicit Resistance Modifier magnitudes"
+      ],
+      "itemKey": "Alloy1",
+      "sourceUrl": "https://poe2db.tw/us/Sovereign_Alloy"
+    },
+    "Celestial_Alloy": {
+      "name": "Celestial Alloy",
+      "lines": [
+        "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+        "Staff or Wand: +(142—188) to maximum Mana\n+1 to Level of all Spell Skills",
+        "Martial Weapon: +(327—427) to Accuracy Rating\n(5—8)% increased Attack Speed"
+      ],
+      "itemKey": "Alloy4",
+      "sourceUrl": "https://poe2db.tw/us/Celestial_Alloy"
+    },
+    "Transcendent_Alloy": {
+      "name": "Transcendent Alloy",
+      "lines": [
+        "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+        "Staff: (39—47)% increased Cast Speed\nGain (11—16)% of Elemental Damage as Extra Cold Damage",
+        "Focus or Wand: (26—31)% increased Cast Speed\nGain (7—11)% of Elemental Damage as Extra Cold Damage",
+        "Martial Weapon: (15—20)% increased Physical Damage\n+(7—10) to all Attributes"
+      ],
+      "itemKey": "Alloy5",
+      "sourceUrl": "https://poe2db.tw/us/Transcendent_Alloy"
+    },
+    "The_Runebinders_Alloy": {
+      "name": "The Runebinder's Alloy",
+      "lines": [
+        "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+        "Staff: (25—50)% chance to gain Nature's Archon when your Plants Overgrow",
+        "Wand: +1 to Limit for Elemental Skills",
+        "Sceptre: +(4—5) maximum stacks of Puppet Master",
+        "Crossbow: +2 to maximum number of Summoned Ballista Totems",
+        "Bow: (40—50)% increased Effect of your Mark Skills"
+      ],
+      "itemKey": "Alloy2",
+      "sourceUrl": "https://poe2db.tw/us/The_Runebinders_Alloy"
+    },
+    "The_Runefathers_Alloy": {
+      "name": "The Runefather's Alloy",
+      "lines": [
+        "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+        "Mace: (60—75)% chance for Skills to retain 40% of Glory on use",
+        "Quarterstaff: Tempest Bells are destroyed after an additional (4—5) Hits",
+        "Spear: +(8—10) to Weapon Range",
+        "Talisman: Lightning Damage from Hits also Contributes to Flammability and Ignite Magnitudes"
+      ],
+      "itemKey": "Alloy3",
+      "sourceUrl": "https://poe2db.tw/us/The_Runefathers_Alloy"
+    },
+    "Omen_of_Corruption": {
+      "name": "Omen of Corruption",
+      "lines": [
+        "While this item is active in your inventory your next\n\nVaal Orb will always result in change"
+      ],
+      "itemKey": "VoodooOmens3Red",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Corruption"
+    },
+    "Omen_of_Answered_Prayers": {
+      "name": "Omen of Answered Prayers",
+      "lines": [
+        "While this item is active in your inventory the next\n\nShrine you click on will grant an additional Effect"
+      ],
+      "itemKey": "VoodooOmens4Blue",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Answered_Prayers"
+    },
+    "Omen_of_Secret_Compartments": {
+      "name": "Omen of Secret Compartments",
+      "lines": [
+        "While this item is active in your inventory the next\n\nStrongbox you click on will be reopenable"
+      ],
+      "itemKey": "VoodooOmens4Dark",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Secret_Compartments"
+    },
+    "Omen_of_the_Hunt": {
+      "name": "Omen of the Hunt",
+      "lines": [
+        "While this item is active in your inventory the next\n\nPossessed monster you kill will Release and manifest all Azmeri Spirits"
+      ],
+      "itemKey": "VoodooOmens4Green",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_the_Hunt"
+    },
+    "Omen_of_Reinforcements": {
+      "name": "Omen of Reinforcements",
+      "lines": [
+        "While this item is active in your inventory the next\n\nRogue Exile you encounter will summon an ally"
+      ],
+      "itemKey": "VoodooOmens4Purple",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Reinforcements"
+    },
+    "Omen_of_Sanctification": {
+      "name": "Omen of Sanctification",
+      "lines": [
+        "While this item is active in your inventory your next\n\nDivine Orb used on a Rare item will Sanctify it"
+      ],
+      "itemKey": "OmenOnDivineSanctify",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Sanctification"
+    },
+    "Omen_of_Catalysing_Exaltation": {
+      "name": "Omen of Catalysing Exaltation",
+      "lines": [
+        "While this item is active in your inventory your next\n\nExalted Orb will consume all Catalyst Quality to increase\n\nthe chance of the corresponding type of Modifier"
+      ],
+      "itemKey": "OmenOnExaltConsumeQuality",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Catalysing_Exaltation"
+    },
+    "Omen_of_the_Sovereign": {
+      "name": "Omen of the Sovereign",
+      "lines": [
+        "While this item is active in your inventory your next\n\nWeapon or Jewellery Desecration attempt will guarantee a random Ulaman modifier"
+      ],
+      "itemKey": "OmenOnAbyssGuarenteedLichTypeMod1",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_the_Sovereign"
+    },
+    "Omen_of_the_Liege": {
+      "name": "Omen of the Liege",
+      "lines": [
+        "While this item is active in your inventory your next\n\nWeapon or Jewellery Desecration attempt will guarantee a random Amanamu modifier"
+      ],
+      "itemKey": "OmenOnAbyssGuarenteedLichTypeMod2",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_the_Liege"
+    },
+    "Omen_of_the_Blackblooded": {
+      "name": "Omen of the Blackblooded",
+      "lines": [
+        "While this item is active in your inventory your next\n\nWeapon or Jewellery Desecration attempt will guarantee a random Kurgal modifier"
+      ],
+      "itemKey": "OmenOnAbyssGuarenteedLichTypeMod3",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_the_Blackblooded"
+    },
+    "Omen_of_Putrefaction": {
+      "name": "Omen of Putrefaction",
+      "lines": [
+        "While this item is active in your inventory your next\n\nDesecration attempt will replace all modifiers on the item\n\ncreating an item with up to 6 Unrevealed modifiers and Corrupting the item"
+      ],
+      "itemKey": "OmenOnAbyssVeilAllAndCorrupt",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Putrefaction"
+    },
+    "Omen_of_Light": {
+      "name": "Omen of Light",
+      "lines": [
+        "While this item is active in your inventory your next\n\nOrb of Annulment will remove only Desecrated modifiers"
+      ],
+      "itemKey": "OmenOnAnnulRemoveAbyssMod",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Light"
+    },
+    "Omen_of_Sinistral_Necromancy": {
+      "name": "Omen of Sinistral Necromancy",
+      "lines": [
+        "While this item is active in your inventory your next\n\nDesecration attempt will add only prefix modifiers"
+      ],
+      "itemKey": "OmenOnAbyssAddPrefixes",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Sinistral_Necromancy"
+    },
+    "Omen_of_Dextral_Necromancy": {
+      "name": "Omen of Dextral Necromancy",
+      "lines": [
+        "While this item is active in your inventory your next\n\nDesecration attempt will add only suffix modifiers"
+      ],
+      "itemKey": "OmenOnAbyssAddSuffixes",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Dextral_Necromancy"
+    },
+    "Ruby": {
+      "name": "Ruby",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelStr",
+      "sourceUrl": "https://poe2db.tw/us/Ruby"
+    },
+    "Emerald": {
+      "name": "Emerald",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelDex",
+      "sourceUrl": "https://poe2db.tw/us/Emerald"
+    },
+    "Diamond": {
+      "name": "Diamond",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelDiamond",
+      "sourceUrl": "https://poe2db.tw/us/Diamond"
+    },
+    "Blacksmiths_Whetstone": {
+      "name": "Blacksmith's Whetstone",
+      "lines": ["Improves the quality of a martial weapon"],
+      "itemKey": "CurrencyWeaponQuality",
+      "sourceUrl": "https://poe2db.tw/us/Blacksmiths_Whetstone"
+    },
+    "Arcanists_Etcher": {
+      "name": "Arcanist's Etcher",
+      "lines": ["Improves the quality of a wand, staff or sceptre"],
+      "itemKey": "CurrencyWeaponMagicQuality",
+      "sourceUrl": "https://poe2db.tw/us/Arcanists_Etcher"
+    },
+    "Scroll_of_Wisdom": {
+      "name": "Scroll of Wisdom",
+      "lines": ["Identifies an item"],
+      "itemKey": "CurrencyIdentification",
+      "sourceUrl": "https://poe2db.tw/us/Scroll_of_Wisdom"
+    },
+    "Armourers_Scrap": {
+      "name": "Armourer's Scrap",
+      "lines": ["Improves the quality of an armour"],
+      "itemKey": "CurrencyArmourQuality",
+      "sourceUrl": "https://poe2db.tw/us/Armourers_Scrap"
+    },
+    "Mirror_of_Kalandra": {
+      "name": "Mirror of Kalandra",
+      "lines": ["Creates a Mirrored copy of an item"],
+      "itemKey": "CurrencyDuplicate",
+      "sourceUrl": "https://poe2db.tw/us/Mirror_of_Kalandra"
+    },
+    "Orb_of_Chance": {
+      "name": "Orb of Chance",
+      "lines": [
+        "Unpredictably either upgrades a Normal item to Unique rarity or destroys it"
+      ],
+      "itemKey": "CurrencyUpgradeToUnique",
+      "sourceUrl": "https://poe2db.tw/us/Orb_of_Chance"
+    },
+    "Architects_Orb": {
+      "name": "Architect's Orb",
+      "lines": [
+        "Modifies a Corrupted Equipment or Jewel item unpredictably or destroys it"
+      ],
+      "itemKey": "IncursionGreaterVaalOrb",
+      "sourceUrl": "https://poe2db.tw/us/Architects_Orb"
+    },
+    "Core_Destabiliser": {
+      "name": "Core Destabiliser",
+      "lines": [
+        "Modifies a Soul Core unpredictably, with a chance to destroy it"
+      ],
+      "itemKey": "IncursionCoreDestabliser",
+      "sourceUrl": "https://poe2db.tw/us/Core_Destabiliser"
+    },
+    "Vaal_Cultivation_Orb": {
+      "name": "Vaal Cultivation Orb",
+      "lines": [
+        "Replaces up to 2 modifiers on a Corrupted Vaal Unique\n\nReplaces other Uniques with a Corrupted Unique of the same Item Class"
+      ],
+      "itemKey": "IncursionHistoricVaalOrb",
+      "sourceUrl": "https://poe2db.tw/us/Vaal_Cultivation_Orb"
+    },
+    "Yaomacs_Orb_of_Sacrifice": {
+      "name": "Yaomac's Orb of Sacrifice",
+      "lines": [
+        "Upgrades a Corruption Enchantment on a Rare Weapon or Quiver\n\r\nand removes a random Modifier"
+      ],
+      "itemKey": "IncursionCorruptionOrb1",
+      "sourceUrl": "https://poe2db.tw/us/Yaomacs_Orb_of_Sacrifice"
+    },
+    "Kopecs_Orb_of_Sacrifice": {
+      "name": "Kopec's Orb of Sacrifice",
+      "lines": [
+        "Upgrades a Corruption Enchantment on a Rare Armour\n\r\nand removes a random Modifier"
+      ],
+      "itemKey": "IncursionCorruptionOrb2",
+      "sourceUrl": "https://poe2db.tw/us/Kopecs_Orb_of_Sacrifice"
+    },
+    "Kamasas_Orb_of_Sacrifice": {
+      "name": "Kamasa's Orb of Sacrifice",
+      "lines": [
+        "Upgrades a Corruption Enchantment on a Rare Amulet, Ring or Belt\n\r\nand removes a random Modifier"
+      ],
+      "itemKey": "IncursionCorruptionOrb3",
+      "sourceUrl": "https://poe2db.tw/us/Kamasas_Orb_of_Sacrifice"
+    },
+    "Yuguls_Orb_of_Sacrifice": {
+      "name": "Yugul's Orb of Sacrifice",
+      "lines": [
+        "Upgrades a Corruption Enchantment on a Rare Jewel\n\r\nand removes a random Modifier"
+      ],
+      "itemKey": "IncursionCorruptionOrb4",
+      "sourceUrl": "https://poe2db.tw/us/Yuguls_Orb_of_Sacrifice"
+    },
+    "Vaal_Armourers_Infuser": {
+      "name": "Vaal Armourer's Infuser",
+      "lines": [
+        "Improves the quality of an Armour,\n\nexceeding maximum quality by up to 10% with a chance of Corrupting it"
+      ],
+      "itemKey": "VaakArmourersScrap",
+      "sourceUrl": "https://poe2db.tw/us/Vaal_Armourers_Infuser"
+    },
+    "Vaal_Blacksmiths_Infuser": {
+      "name": "Vaal Blacksmith's Infuser",
+      "lines": [
+        "Improves the quality of a Martial Weapon,\n\nexceeding maximum quality by up to 10% with a chance of Corrupting it"
+      ],
+      "itemKey": "VaalBlacksmithsWhetstone",
+      "sourceUrl": "https://poe2db.tw/us/Vaal_Blacksmiths_Infuser"
+    },
+    "Vaal_Arcanists_Infuser": {
+      "name": "Vaal Arcanist's Infuser",
+      "lines": [
+        "Improves the quality of a wand, staff or sceptre,\n\nexceeding maximum quality by up to 10% with a chance of Corrupting it"
+      ],
+      "itemKey": "VaalArcanistsEtcher",
+      "sourceUrl": "https://poe2db.tw/us/Vaal_Arcanists_Infuser"
+    },
+    "Vaal_Catalysing_Infuser": {
+      "name": "Vaal Catalysing Infuser",
+      "lines": [
+        "Improves the quality of a ring or amulet,\n\nexceeding maximum quality by up to 10% with a chance of Corrupting it"
+      ],
+      "itemKey": "VaalCatalyst",
+      "sourceUrl": "https://poe2db.tw/us/Vaal_Catalysing_Infuser"
+    },
+    "Orb_of_Extraction": {
+      "name": "Orb of Extraction",
+      "lines": [
+        "Destroys an Equipment item, returning any non Socket-Bound Augments socketed in it"
+      ],
+      "itemKey": "IncursionSocketableExtractorCurrency",
+      "sourceUrl": "https://poe2db.tw/us/Orb_of_Extraction"
     }
   },
   "ko": {
@@ -2759,6 +3519,764 @@
       "lines": [],
       "itemKey": "Metadata/Items/Jewels/JewelRadiusDiamond",
       "sourceUrl": "https://poe2db.tw/us/Time-Lost_Diamond"
+    },
+    "Diluted_Liquid_Ire": {
+      "name": "희석된 액체 진노",
+      "lines": [
+        "희귀 기본 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접두어: 방어도 (10—20)% 증가",
+        "사파이어 접두어: 에너지 보호막 최대치 (10—20)% 증가",
+        "에메랄드 접두어: 회피 (10—20)% 증가"
+      ],
+      "itemKey": "DilutedDistilledIre",
+      "sourceUrl": "https://poe2db.tw/kr/Diluted_Liquid_Ire"
+    },
+    "Diluted_Liquid_Guilt": {
+      "name": "희석된 액체 죄책감",
+      "lines": [
+        "희귀 기본 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접두어: 화염 피해 (5—15)% 증가",
+        "사파이어 접두어: 냉기 피해 (5—15)% 증가",
+        "에메랄드 접두어: 번개 피해 (5—15)% 증가"
+      ],
+      "itemKey": "DilutedDistilledGuilt",
+      "sourceUrl": "https://poe2db.tw/kr/Diluted_Liquid_Guilt"
+    },
+    "Diluted_Liquid_Greed": {
+      "name": "희석된 액체 탐욕",
+      "lines": [
+        "희귀 기본 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접두어: 일반 물리 피해 (5—15)% 증가",
+        "사파이어 접두어: 카오스 피해 (7—13)% 증가",
+        "에메랄드 접두어: 원소 피해 (5—15)% 증가"
+      ],
+      "itemKey": "DilutedDistilledGreed",
+      "sourceUrl": "https://poe2db.tw/kr/Diluted_Liquid_Greed"
+    },
+    "Liquid_Paranoia": {
+      "name": "액체 집착",
+      "lines": [
+        "희귀 기본 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접두어: 공격 피해 (5—15)% 증가",
+        "사파이어 접미어: 시전 속도 (2—4)% 증가",
+        "에메랄드 접미어: 공격 속도 (2—4)% 증가"
+      ],
+      "itemKey": "DistilledParanoia",
+      "sourceUrl": "https://poe2db.tw/kr/Liquid_Paranoia"
+    },
+    "Liquid_Envy": {
+      "name": "액체 선망",
+      "lines": [
+        "희귀 기본 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접미어: 스킬의 마나 소모의 (4—6)%가 생명력 소모로 전환",
+        "사파이어 접두어: 주문 피해 (5—15)% 증가",
+        "에메랄드 접미어: 재사용 대기시간 회복 속도 (3—5)% 증가"
+      ],
+      "itemKey": "DistilledEnvy",
+      "sourceUrl": "https://poe2db.tw/kr/Liquid_Envy"
+    },
+    "Liquid_Disgust": {
+      "name": "액체 혐오",
+      "lines": [
+        "희귀 기본 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접미어: 생명력 재생 속도 (5—10)% 증가",
+        "사파이어 접미어: 처치 시 마나의 (1—2)% 회복",
+        "에메랄드 접미어: 처치 시 생명력의 (1—2)% 회복"
+      ],
+      "itemKey": "DistilledDisgust",
+      "sourceUrl": "https://poe2db.tw/kr/Liquid_Disgust"
+    },
+    "Liquid_Despair": {
+      "name": "액체 절망",
+      "lines": [
+        "희귀 기본 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접미어: 근접 명중 시 격노 1 획득",
+        "사파이어 접미어: 주문 치명타 명중 확률 (5—15)% 증가",
+        "에메랄드 접미어: 공격 치명타 명중 확률 (6—16)% 증가"
+      ],
+      "itemKey": "DistilledDespair",
+      "sourceUrl": "https://poe2db.tw/kr/Liquid_Despair"
+    },
+    "Concentrated_Liquid_Fear": {
+      "name": "농축된 액체 두려움",
+      "lines": [
+        "희귀 기본 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접미어: 함성 속도 (10—20)% 증가",
+        "사파이어 접미어: 주문 치명타 피해 보너스 (10—20)% 증가",
+        "에메랄드 접미어: 공격 피해의 치명타 피해 보너스 (10—20)% 증가"
+      ],
+      "itemKey": "ConcentratedDistilledFear",
+      "sourceUrl": "https://poe2db.tw/kr/Concentrated_Liquid_Fear"
+    },
+    "Concentrated_Liquid_Suffering": {
+      "name": "농축된 액체 고통",
+      "lines": [
+        "희귀 기본 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접두어: 격노 최대치 +(1—2)",
+        "사파이어 접두어: 효과 범위 (4—6)% 증가",
+        "에메랄드 접미어: 이동 속도 (1—2)% 증가"
+      ],
+      "itemKey": "ConcentratedDistilledSuffering",
+      "sourceUrl": "https://poe2db.tw/kr/Concentrated_Liquid_Suffering"
+    },
+    "Concentrated_Liquid_Isolation": {
+      "name": "농축된 액체 고립",
+      "lines": [
+        "희귀 기본 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접미어: 화염 저항 최대치 +1%",
+        "사파이어 접미어: 냉기 저항 최대치 +1%",
+        "에메랄드 접미어: 번개 저항 최대치 +1%",
+        "다이아몬드 접미어: 카오스 저항 최대치 +1%"
+      ],
+      "itemKey": "ConcentratedDistilledIsolation",
+      "sourceUrl": "https://poe2db.tw/kr/Concentrated_Liquid_Isolation"
+    },
+    "Ancient_Diluted_Liquid_Ire": {
+      "name": "고대 희석된 액체 진노",
+      "lines": [
+        "희귀 오래된 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접두어: 반경 내 소형 패시브 스킬이 방어도 (2—3)% 증가도 부여",
+        "사파이어 접두어: 반경 내 소형 패시브 스킬이 에너지 보호막 최대치 (2—3)% 증가도 부여",
+        "에메랄드 접두어: 반경 내 소형 패시브 스킬이 회피 (2—3)% 증가도 부여"
+      ],
+      "itemKey": "TimelostDilutedDistilledIre",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Diluted_Liquid_Ire"
+    },
+    "Ancient_Diluted_Liquid_Guilt": {
+      "name": "고대 희석된 액체 죄책감",
+      "lines": [
+        "희귀 오래된 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접두어: 반경 내 소형 패시브 스킬이 화염 피해 (1—2)% 증가도 부여",
+        "사파이어 접두어: 반경 내 소형 패시브 스킬이 냉기 피해 (1—2)% 증가도 부여",
+        "에메랄드 접두어: 반경 내 소형 패시브 스킬이 번개 피해 (1—2)% 증가도 부여"
+      ],
+      "itemKey": "TimelostDilutedDistilledGuilt",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Diluted_Liquid_Guilt"
+    },
+    "Ancient_Diluted_Liquid_Greed": {
+      "name": "고대 희석된 액체 탐욕",
+      "lines": [
+        "희귀 오래된 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접두어: 반경 내 소형 패시브 스킬이 일반 물리 피해 (1—2)% 증가도 부여",
+        "사파이어 접두어: 반경 내 소형 패시브 스킬이 카오스 피해 (1—2)% 증가도 부여",
+        "에메랄드 접두어: 반경 내 소형 패시브 스킬이 원소 피해 (1—2)% 증가도 부여"
+      ],
+      "itemKey": "TimelostDilutedDistilledGreed",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Diluted_Liquid_Greed"
+    },
+    "Ancient_Liquid_Paranoia": {
+      "name": "고대 액체 집착",
+      "lines": [
+        "희귀 오래된 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접두어: 반경 내 소형 패시브 스킬이 공격 피해 (1—2)% 증가도 부여",
+        "사파이어 접미어: 반경 내 주요 패시브 스킬이 시전 속도 (1—2)% 증가도 부여",
+        "에메랄드 접미어: 반경 내 주요 패시브 스킬이 공격 속도 (1—2)% 증가도 부여"
+      ],
+      "itemKey": "TimelostDistilledParanoia",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Liquid_Paranoia"
+    },
+    "Ancient_Liquid_Envy": {
+      "name": "고대 액체 선망",
+      "lines": [
+        "희귀 오래된 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접미어: 반경 내 주요 패시브 스킬이 스킬의 마나 소모의 (2—3)%가 생명력 소모로 전환도 부여",
+        "사파이어 접두어: 반경 내 소형 패시브 스킬이 주문 피해 (1—2)% 증가도 부여",
+        "에메랄드 접미어: 반경 내 주요 패시브 스킬이 재사용 대기시간 회복 속도 (1—3)% 증가도 부여"
+      ],
+      "itemKey": "TimelostDistilledEnvy",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Liquid_Envy"
+    },
+    "Ancient_Liquid_Disgust": {
+      "name": "고대 액체 혐오",
+      "lines": [
+        "희귀 오래된 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접미어: 반경 내 주요 패시브 스킬이 생명력 재생 속도 (3—5)% 증가도 부여",
+        "사파이어 접미어: 반경 내 주요 패시브 스킬이 처치 시 마나의 1% 회복도 부여",
+        "에메랄드 접미어: 반경 내 주요 패시브 스킬이 처치 시 생명력의 1% 회복도 부여"
+      ],
+      "itemKey": "TimelostDistilledDisgust",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Liquid_Disgust"
+    },
+    "Ancient_Liquid_Despair": {
+      "name": "고대 액체 절망",
+      "lines": [
+        "희귀 오래된 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접미어: 반경 내 주요 패시브 스킬이 근접 명중 시 격노 1 획득도 부여",
+        "사파이어 접미어: 반경 내 주요 패시브 스킬이 주문 치명타 명중 확률 (3—7)% 증가도 부여",
+        "에메랄드 접미어: 반경 내 주요 패시브 스킬이 공격 치명타 명중 확률 (3—7)% 증가도 부여"
+      ],
+      "itemKey": "TimelostDistilledDespair",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Liquid_Despair"
+    },
+    "Ancient_Concentrated_Liquid_Fear": {
+      "name": "고대 농축된 액체 두려움",
+      "lines": [
+        "희귀 오래된 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접미어: 반경 내 소형 패시브 스킬이 함성 속도 (2—3)% 증가도 부여",
+        "사파이어 접미어: 반경 내 주요 패시브 스킬이 주문 치명타 피해 보너스 (5—10)% 증가도 부여",
+        "에메랄드 접미어: 반경 내 주요 패시브 스킬이 공격 피해의 치명타 피해 보너스 (5—10)% 증가도 부여"
+      ],
+      "itemKey": "TimelostConcentratedDistilledFear",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Concentrated_Liquid_Fear"
+    },
+    "Ancient_Concentrated_Liquid_Suffering": {
+      "name": "고대 농축된 액체 고통",
+      "lines": [
+        "희귀 오래된 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접두어: 반경 내 주요 패시브 스킬이 격노 최대치 +1도 부여",
+        "사파이어 접두어: 반경 내 주요 패시브 스킬이 효과 범위 (2—3)% 증가도 부여",
+        "에메랄드 접미어: 반경 내 주요 패시브 스킬이 이동 속도 1% 증가도 부여"
+      ],
+      "itemKey": "TimelostConcentratedDistilledSuffering",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Concentrated_Liquid_Suffering"
+    },
+    "Ancient_Concentrated_Liquid_Isolation": {
+      "name": "고대 농축된 액체 고립",
+      "lines": [
+        "희귀 오래된 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접두어: 반경 내 냉기 및 번개 피해의\n증가 및 감소가 변형되어 화염 피해에 적용",
+        "사파이어 접두어: 반경 내 화염 및 번개 피해의\n증가 및 감소가 변형되어 냉기 피해에 적용",
+        "에메랄드 접두어: 반경 내 냉기 및 화염 피해의\n증가 및 감소가 변형되어 번개 피해에 적용"
+      ],
+      "itemKey": "TimelostConcentratedDistilledIsolation",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Concentrated_Liquid_Isolation"
+    },
+    "Potent_Liquid_Melancholy": {
+      "name": "위력적인 액체 우울",
+      "lines": [
+        "희귀 기본 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접미어: 에메랄드 및 사파이어가 장착된 동안 명중 시 적 쇠잔 유발",
+        "사파이어 접미어: 루비 및 에메랄드가 장착된 동안 명중 시 적 원소 노출 유발",
+        "에메랄드 접미어: 루비 및 사파이어가 장착된 동안 명중 시 적 실명 유발"
+      ],
+      "itemKey": "UniqueHumansEmotion",
+      "sourceUrl": "https://poe2db.tw/kr/Potent_Liquid_Melancholy"
+    },
+    "Potent_Liquid_Ferocity": {
+      "name": "위력적인 액체 흉포함",
+      "lines": [
+        "희귀 기본 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접두어: 접미어 효과 (40—60)% 증가",
+        "루비 접미어: 접두어 효과 (40—60)% 증가",
+        "사파이어 접두어: 접미어 효과 (40—60)% 증가",
+        "사파이어 접미어: 접두어 효과 (40—60)% 증가",
+        "에메랄드 접두어: 접미어 효과 (40—60)% 증가",
+        "에메랄드 접미어: 접두어 효과 (40—60)% 증가",
+        "다이아몬드 접두어: 접미어 효과 (40—60)% 증가",
+        "다이아몬드 접미어: 접두어 효과 (40—60)% 증가"
+      ],
+      "itemKey": "UniqueConstructsEmotion",
+      "sourceUrl": "https://poe2db.tw/kr/Potent_Liquid_Ferocity"
+    },
+    "Potent_Liquid_Contempt": {
+      "name": "위력적인 액체 경멸",
+      "lines": [
+        "희귀 기본 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접두어: 접미어 속성 부여의 최대 개수 +1개",
+        "루비 접미어: 접두어 속성 부여의 최대 개수 +1개",
+        "사파이어 접두어: 접미어 속성 부여의 최대 개수 +1개",
+        "사파이어 접미어: 접두어 속성 부여의 최대 개수 +1개",
+        "에메랄드 접두어: 접미어 속성 부여의 최대 개수 +1개",
+        "에메랄드 접미어: 접두어 속성 부여의 최대 개수 +1개",
+        "다이아몬드 접두어: 접미어 속성 부여의 최대 개수 +1개",
+        "다이아몬드 접미어: 접두어 속성 부여의 최대 개수 +1개"
+      ],
+      "itemKey": "UniqueBeastEmotion",
+      "sourceUrl": "https://poe2db.tw/kr/Potent_Liquid_Contempt"
+    },
+    "Ancient_Potent_Liquid_Melancholy": {
+      "name": "고대 위력적인 액체 우울",
+      "lines": [
+        "희귀 오래된 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접두어: 반경이 매우 넓은 반경으로 업그레이드\nlocal jewel effect base radius [500]",
+        "사파이어 접두어: 반경이 매우 넓은 반경으로 업그레이드\nlocal jewel effect base radius [500]",
+        "에메랄드 접두어: 반경이 매우 넓은 반경으로 업그레이드\nlocal jewel effect base radius [500]",
+        "다이아몬드 접두어: 반경이 매우 넓은 반경으로 업그레이드\nlocal jewel effect base radius [500]"
+      ],
+      "itemKey": "TimelessUniqueHumansEmotion",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Potent_Liquid_Melancholy"
+    },
+    "Ancient_Potent_Liquid_Ferocity": {
+      "name": "고대 위력적인 액체 흉포함",
+      "lines": [
+        "희귀 오래된 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접미어: 반경 내 주요 패시브 스킬이 화염 저항 +(5—7)%도 부여",
+        "사파이어 접미어: 반경 내 주요 패시브 스킬이 냉기 저항 +(5—7)%도 부여",
+        "에메랄드 접미어: 반경 내 주요 패시브 스킬이 번개 저항 +(5—7)%도 부여",
+        "다이아몬드 접미어: 반경 내 주요 패시브 스킬이 카오스 저항 +(4—5)%도 부여"
+      ],
+      "itemKey": "TimlessUniqueConstructsEmotion",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Potent_Liquid_Ferocity"
+    },
+    "Ancient_Potent_Liquid_Contempt": {
+      "name": "고대 위력적인 액체 경멸",
+      "lines": [
+        "희귀 오래된 주얼에서 무작위 속성 하나를 제거하고 확정적인\n\n제작된 속성 하나를 새로 부여합니다.",
+        "루비 접두어: 접미어 속성 부여의 최대 개수 +1개",
+        "루비 접미어: 접두어 속성 부여의 최대 개수 +1개",
+        "사파이어 접두어: 접미어 속성 부여의 최대 개수 +1개",
+        "사파이어 접미어: 접두어 속성 부여의 최대 개수 +1개",
+        "에메랄드 접두어: 접미어 속성 부여의 최대 개수 +1개",
+        "에메랄드 접미어: 접두어 속성 부여의 최대 개수 +1개",
+        "다이아몬드 접두어: 접미어 속성 부여의 최대 개수 +1개",
+        "다이아몬드 접미어: 접두어 속성 부여의 최대 개수 +1개"
+      ],
+      "itemKey": "TimelessUniqueBeastEmotion",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Potent_Liquid_Contempt"
+    },
+    "Liquid_Verisium": {
+      "name": "액체 베리시움",
+      "lines": ["무작위 룬 명문이 있는 룬 유적 인카운터를 시작합니다."],
+      "itemKey": "LiquidMetalVerisium",
+      "sourceUrl": "https://poe2db.tw/kr/Liquid_Verisium"
+    },
+    "Hinekoras_Lock": {
+      "name": "히네코라의 머리카락",
+      "lines": [
+        "사용 시 해당 아이템에 다음에 사용할 화폐 아이템의 결과를 예측할 수 있습니다.\n\n어떤 방식으로든 해당 아이템에 속성을 부여하면 예측 능력이 제거됩니다."
+      ],
+      "itemKey": "HinekorasLock",
+      "sourceUrl": "https://poe2db.tw/kr/Hinekoras_Lock"
+    },
+    "Vaal_Orb": {
+      "name": "바알 오브",
+      "lines": ["아이템을 예측 불가능하게 변경하고 타락시킵니다."],
+      "itemKey": "CurrencyVaal",
+      "sourceUrl": "https://poe2db.tw/kr/Vaal_Orb"
+    },
+    "Essence_of_Delirium": {
+      "name": "섬망의 에센스",
+      "lines": [
+        "희귀 아이템에서 무작위 속성을 제거하고 새로운 확정적 속성으로 보강합니다.",
+        "갑옷: 무작위 주요 패시브 스킬 할당"
+      ],
+      "itemKey": "CorruptedEssenceDelirium",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_Delirium"
+    },
+    "Essence_of_Insanity": {
+      "name": "광기의 에센스",
+      "lines": [
+        "희귀 아이템에서 무작위 속성을 제거하고 새로운 확정적 속성으로 보강합니다.",
+        "허리띠: 타락 시 아이템이 인챈트 2개 획득"
+      ],
+      "itemKey": "CorruptedEssenceInsanity",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_Insanity"
+    },
+    "Runic_Alloy": {
+      "name": "룬 합금",
+      "lines": [
+        "희귀 아이템에서 무작위 속성을 제거하고 새로운 확정적 속성으로 보강합니다.",
+        "반지: 최대 룬 수호 +(37—49)",
+        "목걸이: 최대 룬 수호 (6—10)% 증가",
+        "허리띠: 룬 수호 재생 속도 (15—20)% 증가"
+      ],
+      "itemKey": "ScrapVerisium",
+      "sourceUrl": "https://poe2db.tw/kr/Runic_Alloy"
+    },
+    "Adaptive_Alloy": {
+      "name": "적응형 합금",
+      "lines": [
+        "희귀 아이템에서 무작위 속성을 제거하고 새로운 확정적 속성으로 보강합니다.",
+        "지팡이: 룬 수호가 없을 때 피해의 (42—52)%를 추가 화염 피해로 획득",
+        "마법봉: 룬 수호가 없을 때 피해의 (21—26)%를 추가 화염 피해로 획득",
+        "셉터: 명령 스킬을 사용할 때마다 (30—50)%의 초과 확률로 인형사 중첩 획득",
+        "장갑: 룬 수호가 없는 동안 공격 속도 (10—15)% 증가"
+      ],
+      "itemKey": "ChippedVerisium",
+      "sourceUrl": "https://poe2db.tw/kr/Adaptive_Alloy"
+    },
+    "Protective_Alloy": {
+      "name": "보호의 합금",
+      "lines": [
+        "희귀 아이템에서 무작위 속성을 제거하고 새로운 확정적 속성으로 보강합니다.",
+        "허리띠: 호신부 사용 시 룬 수호 (32—45)% 회복",
+        "무기: 최대 룬 수호 +(51—74)",
+        "방패: 막아낼 시 룬 수호 (10—15) 회복"
+      ],
+      "itemKey": "ImpureVerisium",
+      "sourceUrl": "https://poe2db.tw/kr/Protective_Alloy"
+    },
+    "Expansive_Alloy": {
+      "name": "팽창하는 합금",
+      "lines": [
+        "희귀 아이템에서 무작위 속성을 제거하고 새로운 확정적 속성으로 보강합니다.",
+        "장갑: 잔류물을 (35—50)% 더 먼 곳에서 획득 가능",
+        "갑옷: 접근 효과 범위 (35—50)% 증가",
+        "투구: 마나 소모 효율 (18—29)% 증가",
+        "장화: 소환한 소환수의 일시적 소환수 스킬 제한 +(1—2)"
+      ],
+      "itemKey": "StandardVerisium",
+      "sourceUrl": "https://poe2db.tw/kr/Expansive_Alloy"
+    },
+    "Swift_Alloy": {
+      "name": "재빠른 합금",
+      "lines": [
+        "희귀 아이템에서 무작위 속성을 제거하고 새로운 확정적 속성으로 보강합니다.",
+        "장갑: 시전 속도 (9—12)% 증가",
+        "반지: 공격 속도 (7—9)% 증가",
+        "허리띠: 플라스크가 1초마다 충전 (0.75—1) 획득",
+        "방패 또는 집중구: 토템 설치 속도 (30—49)% 증가"
+      ],
+      "itemKey": "PureVerisium",
+      "sourceUrl": "https://poe2db.tw/kr/Swift_Alloy"
+    },
+    "Cyclonic_Alloy": {
+      "name": "회오리바람 합금",
+      "lines": [
+        "희귀 아이템에서 무작위 속성을 제거하고 새로운 확정적 속성으로 보강합니다.",
+        "갑옷: 디버프의 감속 효력 (15—30)% 감소",
+        "장화: 스킬 효과 지속시간 (15—19)% 증가",
+        "장갑: 적에게 적용되는 피해를 주는 상태 이상의 지속시간 (20—25)% 증가",
+        "투구: 집정관 버프 지속시간 (35—42)% 증가"
+      ],
+      "itemKey": "ImbuedVerisium",
+      "sourceUrl": "https://poe2db.tw/kr/Cyclonic_Alloy"
+    },
+    "Prismatic_Alloy": {
+      "name": "분광 합금",
+      "lines": [
+        "희귀 아이템에서 무작위 속성을 제거하고 새로운 확정적 속성으로 보강합니다.",
+        "장갑: 피해가 (9—15)%의 원소 저항 관통",
+        "무도 무기: 플레이어가 유발하는 상태 이상의 강도 (20—30)% 증가",
+        "집중구, 지팡이 또는 마법봉: 노출 효과 (40—50)% 증가",
+        "셉터: 소환수의 피해를 주는 상태 이상의 강도 (40—49)% 증가"
+      ],
+      "itemKey": "SovereignVerisium",
+      "sourceUrl": "https://poe2db.tw/kr/Prismatic_Alloy"
+    },
+    "Mystic_Alloy": {
+      "name": "신비한 합금",
+      "lines": [
+        "희귀 아이템에서 무작위 속성을 제거하고 새로운 확정적 속성으로 보강합니다.",
+        "투구: 주문 스킬의 효과 범위 (10—15)% 증가",
+        "장갑: 공격 효과 범위 (10—15)% 증가",
+        "장화: 정신력 +(10—15)",
+        "화살통: (25—35)%의 확률로 1회 추가 연쇄",
+        "시전자 무기: 원소 주입 수치 최대치 +1"
+      ],
+      "itemKey": "CelestialVerisium",
+      "sourceUrl": "https://poe2db.tw/kr/Mystic_Alloy"
+    },
+    "Sovereign_Alloy": {
+      "name": "군왕의 합금",
+      "lines": [
+        "희귀 아이템에서 무작위 속성을 제거하고 새로운 확정적 속성으로 보강합니다.",
+        "무기: 장착된 아이템의 효과 (20—30)% 증가",
+        "방어구: 룬 수호 (24—30)% 증가",
+        "장신구 또는 허리띠: 비고정 저항 속성 부여 규모 (20—30)% 증가"
+      ],
+      "itemKey": "Alloy1",
+      "sourceUrl": "https://poe2db.tw/kr/Sovereign_Alloy"
+    },
+    "Celestial_Alloy": {
+      "name": "천공의 합금",
+      "lines": [
+        "희귀 아이템에서 무작위 속성을 제거하고 새로운 확정적 속성으로 보강합니다.",
+        "지팡이 또는 마법봉: 마나 최대치 +(142—188)\n모든 주문 스킬 레벨 +1",
+        "무도 무기: 정확도 +(327—427)\n공격 속도 (5—8)% 증가"
+      ],
+      "itemKey": "Alloy4",
+      "sourceUrl": "https://poe2db.tw/kr/Celestial_Alloy"
+    },
+    "Transcendent_Alloy": {
+      "name": "초월의 합금",
+      "lines": [
+        "희귀 아이템에서 무작위 속성을 제거하고 새로운 확정적 속성으로 보강합니다.",
+        "지팡이: 시전 속도 (39—47)% 증가\n원소 피해의 (11—16)%를 추가 냉기 피해로 획득",
+        "집중구 또는 마법봉: 시전 속도 (26—31)% 증가\n원소 피해의 (7—11)%를 추가 냉기 피해로 획득",
+        "무도 무기: 물리 피해 (15—20)% 증가\n모든 능력치 +(7—10)"
+      ],
+      "itemKey": "Alloy5",
+      "sourceUrl": "https://poe2db.tw/kr/Transcendent_Alloy"
+    },
+    "The_Runebinders_Alloy": {
+      "name": "룬 결속사의 합금",
+      "lines": [
+        "희귀 아이템에서 무작위 속성을 제거하고 새로운 확정적 속성으로 보강합니다.",
+        "지팡이: 식물이 과성장하면 (25—50)% 확률로 자연의 집정관 획득",
+        "마법봉: 원소 스킬 제한 +1",
+        "셉터: 인형사 최대 중첩 +(4—5)",
+        "석궁: 소환 가능한 쇠뇌 토템 최대 개수 +2",
+        "활: 플레이어의 징표 스킬의 효과 (40—50)% 증가"
+      ],
+      "itemKey": "Alloy2",
+      "sourceUrl": "https://poe2db.tw/kr/The_Runebinders_Alloy"
+    },
+    "The_Runefathers_Alloy": {
+      "name": "룬 아버지의 합금",
+      "lines": [
+        "희귀 아이템에서 무작위 속성을 제거하고 새로운 확정적 속성으로 보강합니다.",
+        "철퇴: 스킬 사용 시 (60—75)% 확률로 영광의 40%를 유지",
+        "육척봉: 폭풍의 종이 추가 (4—5)회 명중 후 파괴됨",
+        "창: 무기 공격 범위 +(8—10)",
+        "부적: 명중의 번개 피해가 인화성 및 점화 강도에도 반영"
+      ],
+      "itemKey": "Alloy3",
+      "sourceUrl": "https://poe2db.tw/kr/The_Runefathers_Alloy"
+    },
+    "Omen_of_Corruption": {
+      "name": "타락의 징조",
+      "lines": [
+        "이 아이템이 소지품에서 활성화되어 있을 때\n\n바알 오브를 사용하면 항상 변화가 생깁니다."
+      ],
+      "itemKey": "VoodooOmens3Red",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Corruption"
+    },
+    "Omen_of_Answered_Prayers": {
+      "name": "응답받은 기도의 징조",
+      "lines": [
+        "이 아이템이 소지품에서 활성화되어 있는 동안\n\n다음에 클릭하는 성소가 추가 효과를 1개 부여합니다."
+      ],
+      "itemKey": "VoodooOmens4Blue",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Answered_Prayers"
+    },
+    "Omen_of_Secret_Compartments": {
+      "name": "비밀 공간의 징조",
+      "lines": [
+        "이 아이템이 소지품에서 활성화되어 있는 동안\n\n다음에 클릭하는 금고를 다시 열 수 있습니다."
+      ],
+      "itemKey": "VoodooOmens4Dark",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Secret_Compartments"
+    },
+    "Omen_of_the_Hunt": {
+      "name": "사냥의 징조",
+      "lines": [
+        "이 아이템이 소지품에서 활성화되어 있는 동안\n\n다음으로 처치하는 사로잡힌 몬스터가 아즈메리 혼백을 내보냅니다."
+      ],
+      "itemKey": "VoodooOmens4Green",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_the_Hunt"
+    },
+    "Omen_of_Reinforcements": {
+      "name": "보강의 징조",
+      "lines": [
+        "이 아이템이 소지품에서 활성화되어 있는 동안\n\n다음에 조우하는 탈주 유배자가 동료를 소환합니다."
+      ],
+      "itemKey": "VoodooOmens4Purple",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Reinforcements"
+    },
+    "Omen_of_Sanctification": {
+      "name": "축성의 징조",
+      "lines": [
+        "이 아이템이 소지품에서 활성화되어 있을 때\n\n희귀 아이템에 신성한 오브를 사용하면 아이템이 축성됩니다."
+      ],
+      "itemKey": "OmenOnDivineSanctify",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Sanctification"
+    },
+    "Omen_of_Catalysing_Exaltation": {
+      "name": "촉진하는 찬미의 징조",
+      "lines": [
+        "이 아이템이 소지품에서 활성화되어 있을 때\n\n엑잘티드 오브를 사용하면 기폭제 퀄리티를 모두 소모하여\n\n해당하는 유형의 속성이 나올 확률을 증가시킵니다."
+      ],
+      "itemKey": "OmenOnExaltConsumeQuality",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Catalysing_Exaltation"
+    },
+    "Omen_of_the_Sovereign": {
+      "name": "군주의 징조",
+      "lines": [
+        "이 아이템이 소지품에서 활성화되어 있을 때\n\n무기 또는 장신구에 훼손을 시도하면 무작위 울라만 속성을 확정적으로 얻을 수 있습니다."
+      ],
+      "itemKey": "OmenOnAbyssGuarenteedLichTypeMod1",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_the_Sovereign"
+    },
+    "Omen_of_the_Liege": {
+      "name": "군왕의 징조",
+      "lines": [
+        "이 아이템이 소지품에서 활성화되어 있을 때\n\n무기 또는 장신구에 훼손을 시도하면 무작위 아마나무 속성을 확정적으로 얻을 수 있습니다."
+      ],
+      "itemKey": "OmenOnAbyssGuarenteedLichTypeMod2",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_the_Liege"
+    },
+    "Omen_of_the_Blackblooded": {
+      "name": "검은 피의 징조",
+      "lines": [
+        "이 아이템이 소지품에서 활성화되어 있을 때\n\n무기 또는 장신구에 훼손을 시도하면 무작위 쿠르갈 속성을 확정적으로 얻을 수 있습니다."
+      ],
+      "itemKey": "OmenOnAbyssGuarenteedLichTypeMod3",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_the_Blackblooded"
+    },
+    "Omen_of_Putrefaction": {
+      "name": "부패의 징조",
+      "lines": [
+        "이 아이템이 소지품에서 활성화되어 있을 때\n\n훼손을 시도하면 아이템의 모든 속성을 교체하여\n\n최대 6개의 드러나지 않은 속성을 가진 아이템을 만들고 아이템을 타락시킵니다."
+      ],
+      "itemKey": "OmenOnAbyssVeilAllAndCorrupt",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Putrefaction"
+    },
+    "Omen_of_Light": {
+      "name": "빛의 징조",
+      "lines": [
+        "이 아이템이 소지품에서 활성화되어 있을 때\n\n소멸의 오브를 사용하면 훼손된 속성만 제거됩니다."
+      ],
+      "itemKey": "OmenOnAnnulRemoveAbyssMod",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Light"
+    },
+    "Omen_of_Sinistral_Necromancy": {
+      "name": "좌측 강령술의 징조",
+      "lines": [
+        "이 아이템이 소지품에서 활성화되어 있을 때\n\n훼손을 시도하면 접두어 속성만 추가됩니다."
+      ],
+      "itemKey": "OmenOnAbyssAddPrefixes",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Sinistral_Necromancy"
+    },
+    "Omen_of_Dextral_Necromancy": {
+      "name": "우측 강령술의 징조",
+      "lines": [
+        "이 아이템이 소지품에서 활성화되어 있을 때\n\n훼손을 시도하면 접미어 속성만 추가됩니다."
+      ],
+      "itemKey": "OmenOnAbyssAddSuffixes",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Dextral_Necromancy"
+    },
+    "Ruby": {
+      "name": "루비",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelStr",
+      "sourceUrl": "https://poe2db.tw/kr/Ruby"
+    },
+    "Emerald": {
+      "name": "에메랄드",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelDex",
+      "sourceUrl": "https://poe2db.tw/kr/Emerald"
+    },
+    "Diamond": {
+      "name": "다이아몬드",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelDiamond",
+      "sourceUrl": "https://poe2db.tw/kr/Diamond"
+    },
+    "Blacksmiths_Whetstone": {
+      "name": "대장장이의 숫돌",
+      "lines": ["무도 무기의 퀄리티의 퀄리티 향상"],
+      "itemKey": "CurrencyWeaponQuality",
+      "sourceUrl": "https://poe2db.tw/kr/Blacksmiths_Whetstone"
+    },
+    "Arcanists_Etcher": {
+      "name": "신비학자의 식각기",
+      "lines": ["마법봉이나 지팡이, 셉터의 퀄리티 향상"],
+      "itemKey": "CurrencyWeaponMagicQuality",
+      "sourceUrl": "https://poe2db.tw/kr/Arcanists_Etcher"
+    },
+    "Scroll_of_Wisdom": {
+      "name": "감정 주문서",
+      "lines": ["미확인 아이템 식별"],
+      "itemKey": "CurrencyIdentification",
+      "sourceUrl": "https://poe2db.tw/kr/Scroll_of_Wisdom"
+    },
+    "Armourers_Scrap": {
+      "name": "방어구 장인의 고철",
+      "lines": ["방어구 퀄리티 향상"],
+      "itemKey": "CurrencyArmourQuality",
+      "sourceUrl": "https://poe2db.tw/kr/Armourers_Scrap"
+    },
+    "Mirror_of_Kalandra": {
+      "name": "칼란드라의 거울",
+      "lines": ["아이템과 똑같은 복제본 생성"],
+      "itemKey": "CurrencyDuplicate",
+      "sourceUrl": "https://poe2db.tw/kr/Mirror_of_Kalandra"
+    },
+    "Orb_of_Chance": {
+      "name": "기회의 오브",
+      "lines": [
+        "일반 아이템을 예측 불가능하게 고유 희귀도로 업그레이드하거나 파괴합니다."
+      ],
+      "itemKey": "CurrencyUpgradeToUnique",
+      "sourceUrl": "https://poe2db.tw/kr/Orb_of_Chance"
+    },
+    "Architects_Orb": {
+      "name": "건축가의 오브",
+      "lines": [
+        "타락한 장비 또는 주얼 아이템을 예측 불가능하게 변경하거나 파괴합니다."
+      ],
+      "itemKey": "IncursionGreaterVaalOrb",
+      "sourceUrl": "https://poe2db.tw/kr/Architects_Orb"
+    },
+    "Core_Destabiliser": {
+      "name": "핵 불안정화기",
+      "lines": [
+        "영혼 핵을 예측 불가능하게 변경합니다. 일정 확률로 영혼 핵이 파괴됩니다."
+      ],
+      "itemKey": "IncursionCoreDestabliser",
+      "sourceUrl": "https://poe2db.tw/kr/Core_Destabiliser"
+    },
+    "Vaal_Cultivation_Orb": {
+      "name": "바알 함양 오브",
+      "lines": [
+        "타락한 바알 고유 아이템의 속성을 최대 2개까지 교체합니다.\n\n다른 고유 아이템은 아이템 종류가 같은 타락한 고유 아이템으로 교체합니다."
+      ],
+      "itemKey": "IncursionHistoricVaalOrb",
+      "sourceUrl": "https://poe2db.tw/kr/Vaal_Cultivation_Orb"
+    },
+    "Yaomacs_Orb_of_Sacrifice": {
+      "name": "야오맥의 희생의 오브",
+      "lines": [
+        "희귀 무기 또는 화살통의 타락한 인챈트 하나를 업그레이드하고\n\r\n무작위 속성 하나를 제거합니다."
+      ],
+      "itemKey": "IncursionCorruptionOrb1",
+      "sourceUrl": "https://poe2db.tw/kr/Yaomacs_Orb_of_Sacrifice"
+    },
+    "Kopecs_Orb_of_Sacrifice": {
+      "name": "코펙의 희생의 오브",
+      "lines": [
+        "희귀 방어구의 타락한 인챈트 하나를 업그레이드하고\n\r\n무작위 속성 하나를 제거합니다."
+      ],
+      "itemKey": "IncursionCorruptionOrb2",
+      "sourceUrl": "https://poe2db.tw/kr/Kopecs_Orb_of_Sacrifice"
+    },
+    "Kamasas_Orb_of_Sacrifice": {
+      "name": "카마사의 희생의 오브",
+      "lines": [
+        "희귀 목걸이, 반지 또는 허리띠의 타락한 인챈트 하나를 업그레이드하고\n\r\n무작위 속성 하나를 제거합니다."
+      ],
+      "itemKey": "IncursionCorruptionOrb3",
+      "sourceUrl": "https://poe2db.tw/kr/Kamasas_Orb_of_Sacrifice"
+    },
+    "Yuguls_Orb_of_Sacrifice": {
+      "name": "유굴의 희생의 오브",
+      "lines": [
+        "희귀 주얼의 타락한 인챈트 하나를 업그레이드하고\n\r\n무작위 속성 하나를 제거합니다."
+      ],
+      "itemKey": "IncursionCorruptionOrb4",
+      "sourceUrl": "https://poe2db.tw/kr/Yuguls_Orb_of_Sacrifice"
+    },
+    "Vaal_Armourers_Infuser": {
+      "name": "바알 방어구 장인의 주입기",
+      "lines": [
+        "방어구의 퀄리티를 향상시킵니다. 최대 퀄리티를 최대 10% 초과하고\n\n일정 확률로 아이템이 타락합니다."
+      ],
+      "itemKey": "VaakArmourersScrap",
+      "sourceUrl": "https://poe2db.tw/kr/Vaal_Armourers_Infuser"
+    },
+    "Vaal_Blacksmiths_Infuser": {
+      "name": "바알 대장장이의 주입기",
+      "lines": [
+        "무도 무기의 퀄리티를 향상시킵니다. 최대 퀄리티를 최대 10% 초과하고\n\n일정 확률로 아이템이 타락합니다."
+      ],
+      "itemKey": "VaalBlacksmithsWhetstone",
+      "sourceUrl": "https://poe2db.tw/kr/Vaal_Blacksmiths_Infuser"
+    },
+    "Vaal_Arcanists_Infuser": {
+      "name": "바알 신비학자의 주입기",
+      "lines": [
+        "마법봉, 지팡이 또는 셉터의 퀄리티를 향상시킵니다. 최대 퀄리티를 최대 10% 초과하고\n\n일정 확률로 아이템이 타락합니다."
+      ],
+      "itemKey": "VaalArcanistsEtcher",
+      "sourceUrl": "https://poe2db.tw/kr/Vaal_Arcanists_Infuser"
+    },
+    "Vaal_Catalysing_Infuser": {
+      "name": "바알 촉진시키는 주입기",
+      "lines": [
+        "반지 또는 목걸이의 퀄리티를 향상시킵니다. 최대 퀄리티를 최대 10% 초과하고\n\n일정 확률로 아이템이 타락합니다."
+      ],
+      "itemKey": "VaalCatalyst",
+      "sourceUrl": "https://poe2db.tw/kr/Vaal_Catalysing_Infuser"
+    },
+    "Orb_of_Extraction": {
+      "name": "추출의 오브",
+      "lines": [
+        "장비 아이템을 파괴하고, 홈에 귀속되지 않은 증강물을 모두 돌려받습니다."
+      ],
+      "itemKey": "IncursionSocketableExtractorCurrency",
+      "sourceUrl": "https://poe2db.tw/kr/Orb_of_Extraction"
     }
   },
   "zh-CN": {
@@ -4047,6 +5565,748 @@
       "lines": [],
       "itemKey": "Metadata/Items/Jewels/JewelRadiusDiamond",
       "sourceUrl": "https://poe2db.tw/us/Time-Lost_Diamond"
+    },
+    "Diluted_Liquid_Ire": {
+      "name": "稀释的液化愤怒",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有基本珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 前缀: 护甲提高 (10—20)%",
+        "蓝玉 前缀: 能量护盾上限提高 (10—20)%",
+        "翡翠 前缀: 闪避值提高 (10—20)%"
+      ],
+      "itemKey": "DilutedDistilledIre",
+      "sourceUrl": "https://poe2db.tw/cn/Diluted_Liquid_Ire"
+    },
+    "Diluted_Liquid_Guilt": {
+      "name": "稀释的液化内疚",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有基本珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 前缀: 火焰伤害提高 (5—15)%",
+        "蓝玉 前缀: 冰霜伤害提高 (5—15)%",
+        "翡翠 前缀: 闪电伤害提高 (5—15)%"
+      ],
+      "itemKey": "DilutedDistilledGuilt",
+      "sourceUrl": "https://poe2db.tw/cn/Diluted_Liquid_Guilt"
+    },
+    "Diluted_Liquid_Greed": {
+      "name": "稀释的液化贪婪",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有基本珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 前缀: 全局物理伤害提高 (5—15)%",
+        "蓝玉 前缀: 混沌伤害提高 (7—13)%",
+        "翡翠 前缀: 元素伤害提高 (5—15)%"
+      ],
+      "itemKey": "DilutedDistilledGreed",
+      "sourceUrl": "https://poe2db.tw/cn/Diluted_Liquid_Greed"
+    },
+    "Liquid_Paranoia": {
+      "name": "液化偏执",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有基本珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 前缀: 攻击伤害提高 (5—15)%",
+        "蓝玉 后缀: 施法速度提高 (2—4)%",
+        "翡翠 后缀: 攻击速度提高 (2—4)%"
+      ],
+      "itemKey": "DistilledParanoia",
+      "sourceUrl": "https://poe2db.tw/cn/Liquid_Paranoia"
+    },
+    "Liquid_Envy": {
+      "name": "液化嫉妒",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有基本珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 后缀: 技能的魔力消耗的 (4—6)% 转化为生命消耗",
+        "蓝玉 前缀: 法术伤害提高 (5—15)%",
+        "翡翠 后缀: 冷却回复速度提高 (3—5)%"
+      ],
+      "itemKey": "DistilledEnvy",
+      "sourceUrl": "https://poe2db.tw/cn/Liquid_Envy"
+    },
+    "Liquid_Disgust": {
+      "name": "液化憎恶",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有基本珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 后缀: 生命再生率提高 (5—10)%",
+        "蓝玉 后缀: 魔力在击败敌人时恢复 (1—2)%",
+        "翡翠 后缀: 生命在击败敌人时恢复 (1—2)%"
+      ],
+      "itemKey": "DistilledDisgust",
+      "sourceUrl": "https://poe2db.tw/cn/Liquid_Disgust"
+    },
+    "Liquid_Despair": {
+      "name": "液化绝望",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有基本珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 后缀: 近战击中时获得 1 怒火",
+        "蓝玉 后缀: 法术暴击率提高 (5—15)%",
+        "翡翠 后缀: 攻击暴击率提高 (6—16)%"
+      ],
+      "itemKey": "DistilledDespair",
+      "sourceUrl": "https://poe2db.tw/cn/Liquid_Despair"
+    },
+    "Concentrated_Liquid_Fear": {
+      "name": "浓缩的液化恐惧",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有基本珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 后缀: 战吼速度提高 (10—20)%",
+        "蓝玉 后缀: 法术暴击伤害加成提高 (10—20)%",
+        "翡翠 后缀: 攻击伤害的暴击伤害加成 (10—20)%"
+      ],
+      "itemKey": "ConcentratedDistilledFear",
+      "sourceUrl": "https://poe2db.tw/cn/Concentrated_Liquid_Fear"
+    },
+    "Concentrated_Liquid_Suffering": {
+      "name": "浓缩的液化痛苦",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有基本珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 前缀: +(1—2) 怒火上限",
+        "蓝玉 前缀: 效果区域提高 (4—6)%",
+        "翡翠 后缀: 移动速度提高 (1—2)%"
+      ],
+      "itemKey": "ConcentratedDistilledSuffering",
+      "sourceUrl": "https://poe2db.tw/cn/Concentrated_Liquid_Suffering"
+    },
+    "Concentrated_Liquid_Isolation": {
+      "name": "浓缩的液化孤独",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有基本珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 后缀: +1% 火焰抗性上限",
+        "蓝玉 后缀: +1% 冰霜抗性上限",
+        "翡翠 后缀: +1%闪电抗性上限",
+        "宝钻 后缀: +1% 混沌抗性上限"
+      ],
+      "itemKey": "ConcentratedDistilledIsolation",
+      "sourceUrl": "https://poe2db.tw/cn/Concentrated_Liquid_Isolation"
+    },
+    "Ancient_Diluted_Liquid_Ire": {
+      "name": "远古稀释的液化愤怒",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有失落时空珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 前缀: 范围内的小型天赋同时提供 护甲提高 (2—3)%",
+        "蓝玉 前缀: 范围内的小型天赋同时提供 能量护盾上限提高 (2—3)%",
+        "翡翠 前缀: 范围内的小型天赋同时提供 闪避值提高 (2—3)%"
+      ],
+      "itemKey": "TimelostDilutedDistilledIre",
+      "sourceUrl": "https://poe2db.tw/cn/Ancient_Diluted_Liquid_Ire"
+    },
+    "Ancient_Diluted_Liquid_Guilt": {
+      "name": "远古稀释的液化内疚",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有失落时空珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 前缀: 范围内的小型天赋同时提供 火焰伤害提高 (1—2)%",
+        "蓝玉 前缀: 范围内的小型天赋同时提供 冰霜伤害提高 (1—2)%",
+        "翡翠 前缀: 范围内的小型天赋同时提供 闪电伤害提高 (1—2)%"
+      ],
+      "itemKey": "TimelostDilutedDistilledGuilt",
+      "sourceUrl": "https://poe2db.tw/cn/Ancient_Diluted_Liquid_Guilt"
+    },
+    "Ancient_Diluted_Liquid_Greed": {
+      "name": "远古稀释的液化贪婪",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有失落时空珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 前缀: 范围内的小型天赋同时提供 全局物理伤害提高 (1—2)%",
+        "蓝玉 前缀: 范围内的小型天赋同时提供 混沌伤害提高 (1—2)%",
+        "翡翠 前缀: 范围内的小型天赋同时提供 元素伤害提高 (1—2)%"
+      ],
+      "itemKey": "TimelostDilutedDistilledGreed",
+      "sourceUrl": "https://poe2db.tw/cn/Ancient_Diluted_Liquid_Greed"
+    },
+    "Ancient_Liquid_Paranoia": {
+      "name": "远古液化偏执",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有失落时空珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 前缀: 范围内的小型天赋同时提供 攻击伤害提高 (1—2)%",
+        "蓝玉 后缀: 范围内的核心天赋同时提供 施法速度提高 (1—2)%",
+        "翡翠 后缀: 范围内的核心天赋同时提供 攻击速度提高 (1—2)%"
+      ],
+      "itemKey": "TimelostDistilledParanoia",
+      "sourceUrl": "https://poe2db.tw/cn/Ancient_Liquid_Paranoia"
+    },
+    "Ancient_Liquid_Envy": {
+      "name": "远古液化嫉妒",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有失落时空珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 后缀: 范围内的核心天赋同时提供 技能的魔力消耗的 (2—3)% 转化为生命消耗",
+        "蓝玉 前缀: 范围内的小型天赋同时提供 法术伤害提高 (1—2)%",
+        "翡翠 后缀: 范围内的核心天赋同时提供 冷却回复速度提高 (1—3)%"
+      ],
+      "itemKey": "TimelostDistilledEnvy",
+      "sourceUrl": "https://poe2db.tw/cn/Ancient_Liquid_Envy"
+    },
+    "Ancient_Liquid_Disgust": {
+      "name": "远古液化憎恶",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有失落时空珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 后缀: 范围内的核心天赋同时提供 生命再生率提高 (3—5)%",
+        "蓝玉 后缀: 范围内的核心天赋同时提供 魔力在击败敌人时恢复 1%",
+        "翡翠 后缀: 范围内的核心天赋同时提供 生命在击败敌人时恢复 1%"
+      ],
+      "itemKey": "TimelostDistilledDisgust",
+      "sourceUrl": "https://poe2db.tw/cn/Ancient_Liquid_Disgust"
+    },
+    "Ancient_Liquid_Despair": {
+      "name": "远古液化绝望",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有失落时空珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 后缀: 范围内的核心天赋同时提供 近战击中时获得 1 怒火",
+        "蓝玉 后缀: 范围内的核心天赋同时提供 法术暴击率提高 (3—7)%",
+        "翡翠 后缀: 范围内的核心天赋同时提供 攻击暴击率提高 (3—7)%"
+      ],
+      "itemKey": "TimelostDistilledDespair",
+      "sourceUrl": "https://poe2db.tw/cn/Ancient_Liquid_Despair"
+    },
+    "Ancient_Concentrated_Liquid_Fear": {
+      "name": "远古浓缩的液化恐惧",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有失落时空珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 后缀: 范围内的小型天赋同时提供 战吼速度提高 (2—3)%",
+        "蓝玉 后缀: 范围内的核心天赋同时提供 法术暴击伤害加成提高 (5—10)%",
+        "翡翠 后缀: 范围内的核心天赋同时提供 攻击伤害的暴击伤害加成 (5—10)%"
+      ],
+      "itemKey": "TimelostConcentratedDistilledFear",
+      "sourceUrl": "https://poe2db.tw/cn/Ancient_Concentrated_Liquid_Fear"
+    },
+    "Ancient_Concentrated_Liquid_Suffering": {
+      "name": "远古浓缩的液化痛苦",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有失落时空珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 前缀: 范围内的核心天赋同时提供 +1 怒火上限",
+        "蓝玉 前缀: 范围内的核心天赋同时提供 效果区域提高 (2—3)%",
+        "翡翠 后缀: 范围内的核心天赋同时提供 移动速度提高 1%"
+      ],
+      "itemKey": "TimelostConcentratedDistilledSuffering",
+      "sourceUrl": "https://poe2db.tw/cn/Ancient_Concentrated_Liquid_Suffering"
+    },
+    "Ancient_Concentrated_Liquid_Isolation": {
+      "name": "远古浓缩的液化孤独",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有失落时空珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 前缀: 范围内冰霜与闪电伤害的\n增减转换成火焰伤害",
+        "蓝玉 前缀: 范围内火焰与闪电伤害的\n增减转换成冰霜伤害",
+        "翡翠 前缀: 范围内冰霜与火焰伤害的\n增减转换成闪电伤害"
+      ],
+      "itemKey": "TimelostConcentratedDistilledIsolation",
+      "sourceUrl": "https://poe2db.tw/cn/Ancient_Concentrated_Liquid_Isolation"
+    },
+    "Potent_Liquid_Melancholy": {
+      "name": "强效的液化悲哀",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有基本珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 后缀: 当你镶嵌有一颗翡翠和一颗蓝玉时，击中会使敌人疲惫",
+        "蓝玉 后缀: 当你镶嵌有一颗红玉和一颗翡翠时，击中会施加元素曝露",
+        "翡翠 后缀: 当你镶嵌有一颗红玉和一颗蓝玉时，击中会使敌人致盲"
+      ],
+      "itemKey": "UniqueHumansEmotion",
+      "sourceUrl": "https://poe2db.tw/cn/Potent_Liquid_Melancholy"
+    },
+    "Potent_Liquid_Ferocity": {
+      "name": "强效的液化凶残",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有基本珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 前缀: 后缀效果提高 (40—60)%",
+        "红玉 后缀: 前缀效果提高 (40—60)%",
+        "蓝玉 前缀: 后缀效果提高 (40—60)%",
+        "蓝玉 后缀: 前缀效果提高 (40—60)%",
+        "翡翠 前缀: 后缀效果提高 (40—60)%",
+        "翡翠 后缀: 前缀效果提高 (40—60)%",
+        "宝钻 前缀: 后缀效果提高 (40—60)%",
+        "宝钻 后缀: 前缀效果提高 (40—60)%"
+      ],
+      "itemKey": "UniqueConstructsEmotion",
+      "sourceUrl": "https://poe2db.tw/cn/Potent_Liquid_Ferocity"
+    },
+    "Potent_Liquid_Contempt": {
+      "name": "强效的液化轻蔑",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有基本珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 前缀: 允许的后缀 +1",
+        "红玉 后缀: 允许的前缀 +1",
+        "蓝玉 前缀: 允许的后缀 +1",
+        "蓝玉 后缀: 允许的前缀 +1",
+        "翡翠 前缀: 允许的后缀 +1",
+        "翡翠 后缀: 允许的前缀 +1",
+        "宝钻 前缀: 允许的后缀 +1",
+        "宝钻 后缀: 允许的前缀 +1"
+      ],
+      "itemKey": "UniqueBeastEmotion",
+      "sourceUrl": "https://poe2db.tw/cn/Potent_Liquid_Contempt"
+    },
+    "Ancient_Potent_Liquid_Melancholy": {
+      "name": "远古强效的液化悲哀",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有失落时空珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 前缀: 将范围升级为极大型\nlocal jewel effect base radius [500]",
+        "蓝玉 前缀: 将范围升级为极大型\nlocal jewel effect base radius [500]",
+        "翡翠 前缀: 将范围升级为极大型\nlocal jewel effect base radius [500]",
+        "宝钻 前缀: 将范围升级为极大型\nlocal jewel effect base radius [500]"
+      ],
+      "itemKey": "TimelessUniqueHumansEmotion",
+      "sourceUrl": "https://poe2db.tw/cn/Ancient_Potent_Liquid_Melancholy"
+    },
+    "Ancient_Potent_Liquid_Ferocity": {
+      "name": "远古强效的液化凶残",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有失落时空珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 后缀: 范围内的核心天赋同时提供 火焰抗性 +(5—7)%",
+        "蓝玉 后缀: 范围内的核心天赋同时提供 冰霜抗性 +(5—7)%",
+        "翡翠 后缀: 范围内的核心天赋同时提供 闪电抗性 +(5—7)%",
+        "宝钻 后缀: 范围内的核心天赋同时提供 混沌抗性 +(4—5)%"
+      ],
+      "itemKey": "TimlessUniqueConstructsEmotion",
+      "sourceUrl": "https://poe2db.tw/cn/Ancient_Potent_Liquid_Ferocity"
+    },
+    "Ancient_Potent_Liquid_Contempt": {
+      "name": "远古强效的液化轻蔑",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有失落时空珠宝添加一条新的必定出现的工艺词缀。",
+        "红玉 前缀: 允许的后缀 +1",
+        "红玉 后缀: 允许的前缀 +1",
+        "蓝玉 前缀: 允许的后缀 +1",
+        "蓝玉 后缀: 允许的前缀 +1",
+        "翡翠 前缀: 允许的后缀 +1",
+        "翡翠 后缀: 允许的前缀 +1",
+        "宝钻 前缀: 允许的后缀 +1",
+        "宝钻 后缀: 允许的前缀 +1"
+      ],
+      "itemKey": "TimelessUniqueBeastEmotion",
+      "sourceUrl": "https://poe2db.tw/cn/Ancient_Potent_Liquid_Contempt"
+    },
+    "Liquid_Verisium": {
+      "name": "液态维金",
+      "lines": ["立即以随机铭刻符文开启一次符文残片遭遇战。"],
+      "itemKey": "LiquidMetalVerisium",
+      "sourceUrl": "https://poe2db.tw/cn/Liquid_Verisium"
+    },
+    "Hinekoras_Lock": {
+      "name": "辛格拉的发辫",
+      "lines": [
+        "允许物品预示对其使用的下一个通货物品的结果\n\n任何对物品的修改会移除该预示能力"
+      ],
+      "itemKey": "HinekorasLock",
+      "sourceUrl": "https://poe2db.tw/cn/Hinekoras_Lock"
+    },
+    "Vaal_Orb": {
+      "name": "瓦尔宝珠",
+      "lines": ["随机修改一件物品，并腐化它"],
+      "itemKey": "CurrencyVaal",
+      "sourceUrl": "https://poe2db.tw/cn/Vaal_Orb"
+    },
+    "Essence_of_Delirium": {
+      "name": "谵妄精华",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有物品添加一条新的必定出现的词缀。",
+        "护甲: 分配一个随机的核心天赋"
+      ],
+      "itemKey": "CorruptedEssenceDelirium",
+      "sourceUrl": "https://poe2db.tw/cn/Essence_of_Delirium"
+    },
+    "Essence_of_Insanity": {
+      "name": "错乱精华",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有物品添加一条新的必定出现的词缀。",
+        "腰带: 被腐化时，物品获得两项附魔"
+      ],
+      "itemKey": "CorruptedEssenceInsanity",
+      "sourceUrl": "https://poe2db.tw/cn/Essence_of_Insanity"
+    },
+    "Runic_Alloy": {
+      "name": "符文合金",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有物品添加一条新的必定出现的词缀。",
+        "戒指: +(37—49) 符文结界上限",
+        "项链: 符文结界上限提高 (6—10)%",
+        "腰带: 符文结界再生率提高 (15—20)%"
+      ],
+      "itemKey": "ScrapVerisium",
+      "sourceUrl": "https://poe2db.tw/cn/Runic_Alloy"
+    },
+    "Adaptive_Alloy": {
+      "name": "适性合金",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有物品添加一条新的必定出现的词缀。",
+        "长杖: 损失符文结界时，获得等同于伤害 (42—52)% 的额外火焰伤害",
+        "法杖: 损失符文结界时，获得等同于伤害 (21—26)% 的额外火焰伤害",
+        "权杖: 使用命令技能时，有 (30—50)% 的溢出几率获得一层傀儡大师",
+        "手套: 损失符文结界时攻击速度提高 (10—15)%"
+      ],
+      "itemKey": "ChippedVerisium",
+      "sourceUrl": "https://poe2db.tw/cn/Adaptive_Alloy"
+    },
+    "Protective_Alloy": {
+      "name": "防护合金",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有物品添加一条新的必定出现的词缀。",
+        "腰带: 使用咒符时，回复 (32—45) 层符文结界",
+        "武器: +(51—74) 符文结界上限",
+        "盾牌: 格挡时回复 (10—15) 层符文结界"
+      ],
+      "itemKey": "ImpureVerisium",
+      "sourceUrl": "https://poe2db.tw/cn/Protective_Alloy"
+    },
+    "Expansive_Alloy": {
+      "name": "扩展合金",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有物品添加一条新的必定出现的词缀。",
+        "手套: 残片收集距离延长 (35—50)%",
+        "护甲: 在场范围提高 (35—50)%",
+        "头盔: 魔力消耗效能提高 (18—29)%",
+        "鞋子: 临时召唤生物技能的召唤生物上限 +(1—2)"
+      ],
+      "itemKey": "StandardVerisium",
+      "sourceUrl": "https://poe2db.tw/cn/Expansive_Alloy"
+    },
+    "Swift_Alloy": {
+      "name": "迅捷合金",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有物品添加一条新的必定出现的词缀。",
+        "手套: 施法速度提高 (9—12)%",
+        "戒指: 攻击速度提高 (7—9)%",
+        "腰带: 药剂每秒获得 (0.75—1) 次充能",
+        "盾牌或法器: 你的图腾放置速度提高 (30—49)%"
+      ],
+      "itemKey": "PureVerisium",
+      "sourceUrl": "https://poe2db.tw/cn/Swift_Alloy"
+    },
+    "Cyclonic_Alloy": {
+      "name": "飓风合金",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有物品添加一条新的必定出现的词缀。",
+        "护甲: 你受到的异常状态的减速强度降低 (15—30)%",
+        "鞋子: 技能效果持续时间提高 (15—19)%",
+        "手套: 敌人受到伤害性异常状态的持续时间提高 (20—25)%",
+        "头盔: 执政官增益状态持续时间提高 (35—42)%"
+      ],
+      "itemKey": "ImbuedVerisium",
+      "sourceUrl": "https://poe2db.tw/cn/Cyclonic_Alloy"
+    },
+    "Prismatic_Alloy": {
+      "name": "棱镜合金",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有物品添加一条新的必定出现的词缀。",
+        "手套: 伤害穿透 (9—15)% 元素抗性",
+        "战斗武器: 你造成的异常状态强度提高 (20—30)%",
+        "法器、长杖或法杖: 曝露效果提高 (40—50)%",
+        "权杖: 召唤生物的伤害性异常状态强度提高 (40—49)%"
+      ],
+      "itemKey": "SovereignVerisium",
+      "sourceUrl": "https://poe2db.tw/cn/Prismatic_Alloy"
+    },
+    "Mystic_Alloy": {
+      "name": "神秘合金",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有物品添加一条新的必定出现的词缀。",
+        "头盔: 法术技能的效果区域提高 (10—15)%",
+        "手套: 攻击技能的效果区域提高 (10—15)%",
+        "鞋子: +(10—15) 精魂",
+        "箭袋: (25—35)% 的几率额外连锁一次",
+        "施法武器: 元素灌注数量上限 +1"
+      ],
+      "itemKey": "CelestialVerisium",
+      "sourceUrl": "https://poe2db.tw/cn/Mystic_Alloy"
+    },
+    "Sovereign_Alloy": {
+      "name": "君王合金",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有物品添加一条新的必定出现的词缀。",
+        "武器: 镶嵌的增幅器物品效果提高 (20—30)%",
+        "护甲: 符文结界提高 (24—30)%",
+        "饰品或腰带: 外延抗性词缀增幅提高 (20—30)%"
+      ],
+      "itemKey": "Alloy1",
+      "sourceUrl": "https://poe2db.tw/cn/Sovereign_Alloy"
+    },
+    "Celestial_Alloy": {
+      "name": "天界合金",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有物品添加一条新的必定出现的词缀。",
+        "长杖或法杖: +(142—188) 魔力上限\n所有法术技能等级 +1",
+        "战斗武器: +(327—427) 命中值\n攻击速度提高 (5—8)%"
+      ],
+      "itemKey": "Alloy4",
+      "sourceUrl": "https://poe2db.tw/cn/Celestial_Alloy"
+    },
+    "Transcendent_Alloy": {
+      "name": "超凡合金",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有物品添加一条新的必定出现的词缀。",
+        "长杖: 施法速度提高 (39—47)%\n获得相当于元素伤害 (11—16)% 的额外冰霜伤害",
+        "法器或法杖: 施法速度提高 (26—31)%\n获得相当于元素伤害 (7—11)% 的额外冰霜伤害",
+        "战斗武器: 物理伤害提高 (15—20)%\n全属性 +(7—10)"
+      ],
+      "itemKey": "Alloy5",
+      "sourceUrl": "https://poe2db.tw/cn/Transcendent_Alloy"
+    },
+    "The_Runebinders_Alloy": {
+      "name": "符文缚者的合金",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有物品添加一条新的必定出现的词缀。",
+        "长杖: 植物蔓生时，有 (25—50)% 的几率获得自然执政官",
+        "法杖: 元素技能上限 +1",
+        "权杖: +(4—5) 傀儡大师层数上限",
+        "战弩: +2 召唤弩炮图腾数量上限",
+        "弓类: 你的印记技能效果提高 (40—50)%"
+      ],
+      "itemKey": "Alloy2",
+      "sourceUrl": "https://poe2db.tw/cn/The_Runebinders_Alloy"
+    },
+    "The_Runefathers_Alloy": {
+      "name": "符文之父的合金",
+      "lines": [
+        "移除一条随机词缀，并为一件稀有物品添加一条新的必定出现的词缀。",
+        "锤类: 使用技能时，有 (60—75)% 的几率保留 40% 的荣耀",
+        "节杖: 风雷钟在受到 (4—5) 次额外击中后被摧毁",
+        "战矛: +(8—10) 武器范围",
+        "魔符: 击中造成的闪电伤害也会作用于易燃和点燃强度"
+      ],
+      "itemKey": "Alloy3",
+      "sourceUrl": "https://poe2db.tw/cn/The_Runefathers_Alloy"
+    },
+    "Omen_of_Corruption": {
+      "name": "腐化预兆",
+      "lines": [
+        "此物品在你的背包中激活时，\n\n你的下一个瓦尔宝珠效果总是会造成变化"
+      ],
+      "itemKey": "VoodooOmens3Red",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Corruption"
+    },
+    "Omen_of_Answered_Prayers": {
+      "name": "有求必应预兆",
+      "lines": [
+        "此物品在你的背包中激活时，\n\n你点击的下一个神龛会提供一个额外效果"
+      ],
+      "itemKey": "VoodooOmens4Blue",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Answered_Prayers"
+    },
+    "Omen_of_Secret_Compartments": {
+      "name": "秘密暗格预兆",
+      "lines": [
+        "此物品在你的背包中激活时，\n\n你点击的下一个保险箱可以再次打开"
+      ],
+      "itemKey": "VoodooOmens4Dark",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Secret_Compartments"
+    },
+    "Omen_of_the_Hunt": {
+      "name": "狩猎预兆",
+      "lines": [
+        "此物品在你的背包中激活时，\n\n你击败的下一个附身怪物会释放并显化出阿兹莫里之灵"
+      ],
+      "itemKey": "VoodooOmens4Green",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_the_Hunt"
+    },
+    "Omen_of_Reinforcements": {
+      "name": "增援预兆",
+      "lines": [
+        "此物品在你的背包中激活时，\n\n你遭遇的下一个盗贼流放者会召唤一个盟友"
+      ],
+      "itemKey": "VoodooOmens4Purple",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Reinforcements"
+    },
+    "Omen_of_Sanctification": {
+      "name": "神圣预兆",
+      "lines": [
+        "此物品在你的背包中激活时，\n\n你的下一个用于稀有物品的神圣石将圣化该物品"
+      ],
+      "itemKey": "OmenOnDivineSanctify",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Sanctification"
+    },
+    "Omen_of_Catalysing_Exaltation": {
+      "name": "催化崇高预兆",
+      "lines": [
+        "此物品在你的背包中激活时，\n\n你的下一个崇高石将消耗所有催化剂品质\n\n以提高对应类型词缀的几率"
+      ],
+      "itemKey": "OmenOnExaltConsumeQuality",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Catalysing_Exaltation"
+    },
+    "Omen_of_the_Sovereign": {
+      "name": "至高预兆",
+      "lines": [
+        "此物品在你的背包中激活时\n\n你的武器或珠宝下一次渎灵尝试保证获得一个随机乌拉曼词缀"
+      ],
+      "itemKey": "OmenOnAbyssGuarenteedLichTypeMod1",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_the_Sovereign"
+    },
+    "Omen_of_the_Liege": {
+      "name": "领主预兆",
+      "lines": [
+        "此物品在你的背包中激活时\n\n你的武器或珠宝下一次渎灵尝试保证获得一个随机阿曼娜姆词缀"
+      ],
+      "itemKey": "OmenOnAbyssGuarenteedLichTypeMod2",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_the_Liege"
+    },
+    "Omen_of_the_Blackblooded": {
+      "name": "黑血预兆",
+      "lines": [
+        "此物品在你的背包中激活时\n\n你的武器或珠宝下一次渎灵尝试保证获得一个随机古加尔词缀"
+      ],
+      "itemKey": "OmenOnAbyssGuarenteedLichTypeMod3",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_the_Blackblooded"
+    },
+    "Omen_of_Putrefaction": {
+      "name": "腐烂预兆",
+      "lines": [
+        "此物品在你的背包中激活时\n\n你的下一次渎灵尝试会替换物品上的所有词缀\n\n创造一个具有最多6个渎灵词缀的物品并腐化物品"
+      ],
+      "itemKey": "OmenOnAbyssVeilAllAndCorrupt",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Putrefaction"
+    },
+    "Omen_of_Light": {
+      "name": "光明预兆",
+      "lines": ["此物品在你的背包中激活时\n\n你的下一个剥离石只会移除渎灵词缀"],
+      "itemKey": "OmenOnAnnulRemoveAbyssMod",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Light"
+    },
+    "Omen_of_Sinistral_Necromancy": {
+      "name": "左旋死灵预兆",
+      "lines": [
+        "此物品在你的背包中激活时\n\n你的下一次渎灵尝试只会添加前缀词缀"
+      ],
+      "itemKey": "OmenOnAbyssAddPrefixes",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Sinistral_Necromancy"
+    },
+    "Omen_of_Dextral_Necromancy": {
+      "name": "右旋死灵预兆",
+      "lines": [
+        "此物品在你的背包中激活时\n\n你的下一次渎灵尝试只会添加后缀词缀"
+      ],
+      "itemKey": "OmenOnAbyssAddSuffixes",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Dextral_Necromancy"
+    },
+    "Ruby": {
+      "name": "红玉",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelStr",
+      "sourceUrl": "https://poe2db.tw/cn/Ruby"
+    },
+    "Emerald": {
+      "name": "翡翠",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelDex",
+      "sourceUrl": "https://poe2db.tw/cn/Emerald"
+    },
+    "Diamond": {
+      "name": "宝钻",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelDiamond",
+      "sourceUrl": "https://poe2db.tw/cn/Diamond"
+    },
+    "Blacksmiths_Whetstone": {
+      "name": "磨刀石",
+      "lines": ["提升战斗武器的品质"],
+      "itemKey": "CurrencyWeaponQuality",
+      "sourceUrl": "https://poe2db.tw/cn/Blacksmiths_Whetstone"
+    },
+    "Arcanists_Etcher": {
+      "name": "奥术师的铭刻",
+      "lines": ["提高法杖、长杖或权杖的品质"],
+      "itemKey": "CurrencyWeaponMagicQuality",
+      "sourceUrl": "https://poe2db.tw/cn/Arcanists_Etcher"
+    },
+    "Scroll_of_Wisdom": {
+      "name": "知识卷轴",
+      "lines": ["鉴定一件指定物品"],
+      "itemKey": "CurrencyIdentification",
+      "sourceUrl": "https://poe2db.tw/cn/Scroll_of_Wisdom"
+    },
+    "Armourers_Scrap": {
+      "name": "护甲片",
+      "lines": ["提升护甲的品质"],
+      "itemKey": "CurrencyArmourQuality",
+      "sourceUrl": "https://poe2db.tw/cn/Armourers_Scrap"
+    },
+    "Mirror_of_Kalandra": {
+      "name": "卡兰德的魔镜",
+      "lines": ["复制一件指定物品"],
+      "itemKey": "CurrencyDuplicate",
+      "sourceUrl": "https://poe2db.tw/cn/Mirror_of_Kalandra"
+    },
+    "Orb_of_Chance": {
+      "name": "机会石",
+      "lines": ["把一件普通物品升级为传奇物品，或者将其摧毁，不可预料结果"],
+      "itemKey": "CurrencyUpgradeToUnique",
+      "sourceUrl": "https://poe2db.tw/cn/Orb_of_Chance"
+    },
+    "Architects_Orb": {
+      "name": "建筑师宝珠",
+      "lines": ["随机修改一件已腐化装备或珠宝，或将其摧毁"],
+      "itemKey": "IncursionGreaterVaalOrb",
+      "sourceUrl": "https://poe2db.tw/cn/Architects_Orb"
+    },
+    "Core_Destabiliser": {
+      "name": "核心失稳装置",
+      "lines": ["随机修改一个灵核，有几率将其摧毁"],
+      "itemKey": "IncursionCoreDestabliser",
+      "sourceUrl": "https://poe2db.tw/cn/Core_Destabiliser"
+    },
+    "Vaal_Cultivation_Orb": {
+      "name": "瓦尔培育宝珠",
+      "lines": [
+        "最多替换已腐化瓦尔传奇物品上的 2 个词缀\n\n同物品类别的腐化传奇物品替换其他传奇物品"
+      ],
+      "itemKey": "IncursionHistoricVaalOrb",
+      "sourceUrl": "https://poe2db.tw/cn/Vaal_Cultivation_Orb"
+    },
+    "Yaomacs_Orb_of_Sacrifice": {
+      "name": "约马克之献祭宝珠",
+      "lines": ["升级一件稀有武器或箭袋上的腐化附魔\n\r\n同时移除一个随机词缀"],
+      "itemKey": "IncursionCorruptionOrb1",
+      "sourceUrl": "https://poe2db.tw/cn/Yaomacs_Orb_of_Sacrifice"
+    },
+    "Kopecs_Orb_of_Sacrifice": {
+      "name": "科佩克之献祭宝珠",
+      "lines": ["升级一件稀有护甲上的腐化附魔\n\r\n同时移除一个随机词缀"],
+      "itemKey": "IncursionCorruptionOrb2",
+      "sourceUrl": "https://poe2db.tw/cn/Kopecs_Orb_of_Sacrifice"
+    },
+    "Kamasas_Orb_of_Sacrifice": {
+      "name": "卡马萨之献祭宝珠",
+      "lines": [
+        "升级一件稀有项链、戒指或腰带上的腐化附魔\n\r\n同时移除一个随机词缀"
+      ],
+      "itemKey": "IncursionCorruptionOrb3",
+      "sourceUrl": "https://poe2db.tw/cn/Kamasas_Orb_of_Sacrifice"
+    },
+    "Yuguls_Orb_of_Sacrifice": {
+      "name": "尤格尔之献祭宝珠",
+      "lines": ["升级一件稀有珠宝上的腐化附魔\n\r\n同时移除一个随机词缀"],
+      "itemKey": "IncursionCorruptionOrb4",
+      "sourceUrl": "https://poe2db.tw/cn/Yuguls_Orb_of_Sacrifice"
+    },
+    "Vaal_Armourers_Infuser": {
+      "name": "瓦尔护甲师注能装置",
+      "lines": [
+        "提升一件护甲的品质\n\n允许提升最大品质至 10%，并有几率腐化该物品"
+      ],
+      "itemKey": "VaakArmourersScrap",
+      "sourceUrl": "https://poe2db.tw/cn/Vaal_Armourers_Infuser"
+    },
+    "Vaal_Blacksmiths_Infuser": {
+      "name": "瓦尔铁匠注能装置",
+      "lines": [
+        "提升一件战斗武器的品质\n\n最多可超出最大品质 10%，并有几率腐化该物品"
+      ],
+      "itemKey": "VaalBlacksmithsWhetstone",
+      "sourceUrl": "https://poe2db.tw/cn/Vaal_Blacksmiths_Infuser"
+    },
+    "Vaal_Arcanists_Infuser": {
+      "name": "瓦尔秘术师注能装置",
+      "lines": [
+        "提升一件法杖、长杖或权杖的品质\n\n最多可超出最大品质 10%，并有几率腐化该物品"
+      ],
+      "itemKey": "VaalArcanistsEtcher",
+      "sourceUrl": "https://poe2db.tw/cn/Vaal_Arcanists_Infuser"
+    },
+    "Vaal_Catalysing_Infuser": {
+      "name": "瓦尔催化注能装置",
+      "lines": [
+        "提升一件戒指或项链的品质\n\n最多可超出最大品质 10%，并有几率腐化该物品"
+      ],
+      "itemKey": "VaalCatalyst",
+      "sourceUrl": "https://poe2db.tw/cn/Vaal_Catalysing_Infuser"
+    },
+    "Orb_of_Extraction": {
+      "name": "萃取石",
+      "lines": ["摧毁一件装备物品，并返还其中镶嵌的所有非插槽绑定的增幅器"],
+      "itemKey": "IncursionSocketableExtractorCurrency",
+      "sourceUrl": "https://poe2db.tw/cn/Orb_of_Extraction"
     }
   },
   "zh-TW": {
@@ -5331,6 +7591,742 @@
       "lines": [],
       "itemKey": "Metadata/Items/Jewels/JewelRadiusDiamond",
       "sourceUrl": "https://poe2db.tw/us/Time-Lost_Diamond"
+    },
+    "Diluted_Liquid_Ire": {
+      "name": "稀釋的液態憤怒",
+      "lines": [
+        "隨機移除一條稀有基礎珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 前綴: 增加(10—20)%護甲值",
+        "藍寶石 前綴: 增加(10—20)%最大能量護盾",
+        "綠寶石 前綴: 增加(10—20)%閃避值"
+      ],
+      "itemKey": "DilutedDistilledIre",
+      "sourceUrl": "https://poe2db.tw/tw/Diluted_Liquid_Ire"
+    },
+    "Diluted_Liquid_Guilt": {
+      "name": "稀釋的液態罪惡",
+      "lines": [
+        "隨機移除一條稀有基礎珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 前綴: 增加(5—15)%火焰傷害",
+        "藍寶石 前綴: 增加(5—15)%冰冷傷害",
+        "綠寶石 前綴: 增加(5—15)%閃電傷害"
+      ],
+      "itemKey": "DilutedDistilledGuilt",
+      "sourceUrl": "https://poe2db.tw/tw/Diluted_Liquid_Guilt"
+    },
+    "Diluted_Liquid_Greed": {
+      "name": "稀釋的液態貪婪",
+      "lines": [
+        "隨機移除一條稀有基礎珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 前綴: 增加(5—15)%全域物理傷害",
+        "藍寶石 前綴: 增加(7—13)%混沌傷害",
+        "綠寶石 前綴: 增加(5—15)%元素傷害"
+      ],
+      "itemKey": "DilutedDistilledGreed",
+      "sourceUrl": "https://poe2db.tw/tw/Diluted_Liquid_Greed"
+    },
+    "Liquid_Paranoia": {
+      "name": "液態偏執",
+      "lines": [
+        "隨機移除一條稀有基礎珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 前綴: 增加(5—15)%攻擊傷害",
+        "藍寶石 後綴: 增加(2—4)%施法速度",
+        "綠寶石 後綴: 增加(2—4)%攻擊速度"
+      ],
+      "itemKey": "DistilledParanoia",
+      "sourceUrl": "https://poe2db.tw/tw/Liquid_Paranoia"
+    },
+    "Liquid_Envy": {
+      "name": "液態忌妒",
+      "lines": [
+        "隨機移除一條稀有基礎珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 後綴: (4—6)%技能魔力消耗轉換為生命消耗",
+        "藍寶石 前綴: 增加(5—15)%法術傷害",
+        "綠寶石 後綴: 增加(3—5)%冷卻時間恢復率"
+      ],
+      "itemKey": "DistilledEnvy",
+      "sourceUrl": "https://poe2db.tw/tw/Liquid_Envy"
+    },
+    "Liquid_Disgust": {
+      "name": "液態厭惡",
+      "lines": [
+        "隨機移除一條稀有基礎珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 後綴: 增加(5—10)%生命回復率",
+        "藍寶石 後綴: 擊殺時恢復(1—2)%魔力",
+        "綠寶石 後綴: 擊殺時恢復(1—2)%生命"
+      ],
+      "itemKey": "DistilledDisgust",
+      "sourceUrl": "https://poe2db.tw/tw/Liquid_Disgust"
+    },
+    "Liquid_Despair": {
+      "name": "液態絕望",
+      "lines": [
+        "隨機移除一條稀有基礎珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 後綴: 近戰擊中時，獲得1層盛怒",
+        "藍寶石 後綴: 增加(5—15)%法術暴擊率",
+        "綠寶石 後綴: 增加(6—16)%攻擊暴擊率"
+      ],
+      "itemKey": "DistilledDespair",
+      "sourceUrl": "https://poe2db.tw/tw/Liquid_Despair"
+    },
+    "Concentrated_Liquid_Fear": {
+      "name": "濃縮液態恐懼",
+      "lines": [
+        "隨機移除一條稀有基礎珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 後綴: 增加(10—20)%戰吼速度",
+        "藍寶石 後綴: 增加(10—20)%法術暴擊傷害加成",
+        "綠寶石 後綴: 增加(10—20)%攻擊傷害的暴擊傷害加成"
+      ],
+      "itemKey": "ConcentratedDistilledFear",
+      "sourceUrl": "https://poe2db.tw/tw/Concentrated_Liquid_Fear"
+    },
+    "Concentrated_Liquid_Suffering": {
+      "name": "濃縮液態苦難",
+      "lines": [
+        "隨機移除一條稀有基礎珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 前綴: +(1—2)層最大盛怒",
+        "藍寶石 前綴: 增加(4—6)%範圍效果",
+        "綠寶石 後綴: 增加(1—2)%移動速度"
+      ],
+      "itemKey": "ConcentratedDistilledSuffering",
+      "sourceUrl": "https://poe2db.tw/tw/Concentrated_Liquid_Suffering"
+    },
+    "Concentrated_Liquid_Isolation": {
+      "name": "濃縮液態孤立",
+      "lines": [
+        "隨機移除一條稀有基礎珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 後綴: +1%最大火焰抗性",
+        "藍寶石 後綴: +1%最大冰冷抗性",
+        "綠寶石 後綴: +1%最大閃電抗性",
+        "寶鑽 後綴: +1%最大混沌抗性"
+      ],
+      "itemKey": "ConcentratedDistilledIsolation",
+      "sourceUrl": "https://poe2db.tw/tw/Concentrated_Liquid_Isolation"
+    },
+    "Ancient_Diluted_Liquid_Ire": {
+      "name": "遠古稀釋的液態憤怒",
+      "lines": [
+        "隨機移除一條稀有時迭珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 前綴: 範圍內小型天賦也會賦予 增加(2—3)%護甲值",
+        "藍寶石 前綴: 範圍內小型天賦也會賦予 增加(2—3)%最大能量護盾",
+        "綠寶石 前綴: 範圍內小型天賦也會賦予 增加(2—3)%閃避值"
+      ],
+      "itemKey": "TimelostDilutedDistilledIre",
+      "sourceUrl": "https://poe2db.tw/tw/Ancient_Diluted_Liquid_Ire"
+    },
+    "Ancient_Diluted_Liquid_Guilt": {
+      "name": "遠古稀釋的液態罪惡",
+      "lines": [
+        "隨機移除一條稀有時迭珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 前綴: 範圍內小型天賦也會賦予 增加(1—2)%火焰傷害",
+        "藍寶石 前綴: 範圍內小型天賦也會賦予 增加(1—2)%冰冷傷害",
+        "綠寶石 前綴: 範圍內小型天賦也會賦予 增加(1—2)%閃電傷害"
+      ],
+      "itemKey": "TimelostDilutedDistilledGuilt",
+      "sourceUrl": "https://poe2db.tw/tw/Ancient_Diluted_Liquid_Guilt"
+    },
+    "Ancient_Diluted_Liquid_Greed": {
+      "name": "遠古稀釋的液態貪婪",
+      "lines": [
+        "隨機移除一條稀有時迭珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 前綴: 範圍內小型天賦也會賦予 增加(1—2)%全域物理傷害",
+        "藍寶石 前綴: 範圍內小型天賦也會賦予 增加(1—2)%混沌傷害",
+        "綠寶石 前綴: 範圍內小型天賦也會賦予 增加(1—2)%元素傷害"
+      ],
+      "itemKey": "TimelostDilutedDistilledGreed",
+      "sourceUrl": "https://poe2db.tw/tw/Ancient_Diluted_Liquid_Greed"
+    },
+    "Ancient_Liquid_Paranoia": {
+      "name": "遠古液態偏執",
+      "lines": [
+        "隨機移除一條稀有時迭珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 前綴: 範圍內小型天賦也會賦予 增加(1—2)%攻擊傷害",
+        "藍寶石 後綴: 範圍內核心天賦也會賦予 增加(1—2)%施法速度",
+        "綠寶石 後綴: 範圍內核心天賦也會賦予 增加(1—2)%攻擊速度"
+      ],
+      "itemKey": "TimelostDistilledParanoia",
+      "sourceUrl": "https://poe2db.tw/tw/Ancient_Liquid_Paranoia"
+    },
+    "Ancient_Liquid_Envy": {
+      "name": "遠古液態忌妒",
+      "lines": [
+        "隨機移除一條稀有時迭珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 後綴: 範圍內核心天賦也會賦予 (2—3)%技能魔力消耗轉換為生命消耗",
+        "藍寶石 前綴: 範圍內小型天賦也會賦予 增加(1—2)%法術傷害",
+        "綠寶石 後綴: 範圍內核心天賦也會賦予 增加(1—3)%冷卻時間恢復率"
+      ],
+      "itemKey": "TimelostDistilledEnvy",
+      "sourceUrl": "https://poe2db.tw/tw/Ancient_Liquid_Envy"
+    },
+    "Ancient_Liquid_Disgust": {
+      "name": "遠古液態厭惡",
+      "lines": [
+        "隨機移除一條稀有時迭珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 後綴: 範圍內核心天賦也會賦予 增加(3—5)%生命回復率",
+        "藍寶石 後綴: 範圍內核心天賦也會賦予 擊殺時恢復1%魔力",
+        "綠寶石 後綴: 範圍內核心天賦也會賦予 擊殺時恢復1%生命"
+      ],
+      "itemKey": "TimelostDistilledDisgust",
+      "sourceUrl": "https://poe2db.tw/tw/Ancient_Liquid_Disgust"
+    },
+    "Ancient_Liquid_Despair": {
+      "name": "遠古液態絕望",
+      "lines": [
+        "隨機移除一條稀有時迭珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 後綴: 範圍內核心天賦也會賦予 近戰擊中時，獲得1層盛怒",
+        "藍寶石 後綴: 範圍內核心天賦也會賦予 增加(3—7)%法術暴擊率",
+        "綠寶石 後綴: 範圍內核心天賦也會賦予 增加(3—7)%攻擊暴擊率"
+      ],
+      "itemKey": "TimelostDistilledDespair",
+      "sourceUrl": "https://poe2db.tw/tw/Ancient_Liquid_Despair"
+    },
+    "Ancient_Concentrated_Liquid_Fear": {
+      "name": "遠古濃縮液態恐懼",
+      "lines": [
+        "隨機移除一條稀有時迭珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 後綴: 範圍內小型天賦也會賦予 增加(2—3)%戰吼速度",
+        "藍寶石 後綴: 範圍內核心天賦也會賦予 增加(5—10)%法術暴擊傷害加成",
+        "綠寶石 後綴: 範圍內核心天賦也會賦予 增加(5—10)%攻擊傷害的暴擊傷害加成"
+      ],
+      "itemKey": "TimelostConcentratedDistilledFear",
+      "sourceUrl": "https://poe2db.tw/tw/Ancient_Concentrated_Liquid_Fear"
+    },
+    "Ancient_Concentrated_Liquid_Suffering": {
+      "name": "遠古濃縮液態苦難",
+      "lines": [
+        "隨機移除一條稀有時迭珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 前綴: 範圍內核心天賦也會賦予 +1層最大盛怒",
+        "藍寶石 前綴: 範圍內核心天賦也會賦予 增加(2—3)%範圍效果",
+        "綠寶石 後綴: 範圍內核心天賦也會賦予 增加1%移動速度"
+      ],
+      "itemKey": "TimelostConcentratedDistilledSuffering",
+      "sourceUrl": "https://poe2db.tw/tw/Ancient_Concentrated_Liquid_Suffering"
+    },
+    "Ancient_Concentrated_Liquid_Isolation": {
+      "name": "遠古濃縮液態孤立",
+      "lines": [
+        "隨機移除一條稀有時迭珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 前綴: 範圍內對冰冷和閃電傷害的增減\n會改為套用至火焰傷害",
+        "藍寶石 前綴: 範圍內對火焰和閃電傷害的增減\n會改為套用至冰冷傷害",
+        "綠寶石 前綴: 範圍內對冰冷和火焰傷害的增減\n會改為套用至閃電傷害"
+      ],
+      "itemKey": "TimelostConcentratedDistilledIsolation",
+      "sourceUrl": "https://poe2db.tw/tw/Ancient_Concentrated_Liquid_Isolation"
+    },
+    "Potent_Liquid_Melancholy": {
+      "name": "增幅液態憂鬱",
+      "lines": [
+        "隨機移除一條稀有基礎珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 後綴: 若插槽中的鑲嵌碧綠翠雲和藍寶石，擊中時虛弱敵人",
+        "藍寶石 後綴: 若插槽中的鑲嵌紅寶石和綠寶石，擊中時施加元素曝曬",
+        "綠寶石 後綴: 若插槽中的鑲嵌紅寶石和藍寶石，擊中時致盲敵人"
+      ],
+      "itemKey": "UniqueHumansEmotion",
+      "sourceUrl": "https://poe2db.tw/tw/Potent_Liquid_Melancholy"
+    },
+    "Potent_Liquid_Ferocity": {
+      "name": "增幅液態蔑視",
+      "lines": [
+        "隨機移除一條稀有基礎珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 前綴: 增加(40—60)%後綴效果",
+        "紅寶石 後綴: 增加(40—60)%前綴效果",
+        "藍寶石 前綴: 增加(40—60)%後綴效果",
+        "藍寶石 後綴: 增加(40—60)%前綴效果",
+        "綠寶石 前綴: 增加(40—60)%後綴效果",
+        "綠寶石 後綴: 增加(40—60)%前綴效果",
+        "寶鑽 前綴: 增加(40—60)%後綴效果",
+        "寶鑽 後綴: 增加(40—60)%前綴效果"
+      ],
+      "itemKey": "UniqueConstructsEmotion",
+      "sourceUrl": "https://poe2db.tw/tw/Potent_Liquid_Ferocity"
+    },
+    "Potent_Liquid_Contempt": {
+      "name": "增幅液態怨恨",
+      "lines": [
+        "隨機移除一條稀有基礎珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 前綴: 允許後綴+1",
+        "紅寶石 後綴: 允許前綴+1",
+        "藍寶石 前綴: 允許後綴+1",
+        "藍寶石 後綴: 允許前綴+1",
+        "綠寶石 前綴: 允許後綴+1",
+        "綠寶石 後綴: 允許前綴+1",
+        "寶鑽 前綴: 允許後綴+1",
+        "寶鑽 後綴: 允許前綴+1"
+      ],
+      "itemKey": "UniqueBeastEmotion",
+      "sourceUrl": "https://poe2db.tw/tw/Potent_Liquid_Contempt"
+    },
+    "Ancient_Potent_Liquid_Melancholy": {
+      "name": "遠古增幅液態憂鬱",
+      "lines": [
+        "隨機移除一條稀有時迭珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 前綴: 將範圍升級至非常大\nlocal jewel effect base radius [500]",
+        "藍寶石 前綴: 將範圍升級至非常大\nlocal jewel effect base radius [500]",
+        "綠寶石 前綴: 將範圍升級至非常大\nlocal jewel effect base radius [500]",
+        "寶鑽 前綴: 將範圍升級至非常大\nlocal jewel effect base radius [500]"
+      ],
+      "itemKey": "TimelessUniqueHumansEmotion",
+      "sourceUrl": "https://poe2db.tw/tw/Ancient_Potent_Liquid_Melancholy"
+    },
+    "Ancient_Potent_Liquid_Ferocity": {
+      "name": "遠古增幅液態蔑視",
+      "lines": [
+        "隨機移除一條稀有時迭珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 後綴: 範圍內核心天賦也會賦予 +(5—7)%火焰抗性",
+        "藍寶石 後綴: 範圍內核心天賦也會賦予 +(5—7)%冰冷抗性",
+        "綠寶石 後綴: 範圍內核心天賦也會賦予 +(5—7)%閃電抗性",
+        "寶鑽 後綴: 範圍內核心天賦也會賦予 +(4—5)%混沌抗性"
+      ],
+      "itemKey": "TimlessUniqueConstructsEmotion",
+      "sourceUrl": "https://poe2db.tw/tw/Ancient_Potent_Liquid_Ferocity"
+    },
+    "Ancient_Potent_Liquid_Contempt": {
+      "name": "遠古增幅液態怨恨",
+      "lines": [
+        "隨機移除一條稀有時迭珠寶上的詞綴，並新增一條\n\n必出的工藝詞綴。",
+        "紅寶石 前綴: 允許後綴+1",
+        "紅寶石 後綴: 允許前綴+1",
+        "藍寶石 前綴: 允許後綴+1",
+        "藍寶石 後綴: 允許前綴+1",
+        "綠寶石 前綴: 允許後綴+1",
+        "綠寶石 後綴: 允許前綴+1",
+        "寶鑽 前綴: 允許後綴+1",
+        "寶鑽 後綴: 允許前綴+1"
+      ],
+      "itemKey": "TimelessUniqueBeastEmotion",
+      "sourceUrl": "https://poe2db.tw/tw/Ancient_Potent_Liquid_Contempt"
+    },
+    "Liquid_Verisium": {
+      "name": "液態維里西姆",
+      "lines": ["立即以一個隨機符文銘刻開始一場符文遺物遭遇。"],
+      "itemKey": "LiquidMetalVerisium",
+      "sourceUrl": "https://poe2db.tw/tw/Liquid_Verisium"
+    },
+    "Hinekoras_Lock": {
+      "name": "悉妮蔻拉的髮絲",
+      "lines": [
+        "使一件物品可預覽下一次使用通貨的結果\n\n以任何方式改變物品會移除預覽效果"
+      ],
+      "itemKey": "HinekorasLock",
+      "sourceUrl": "https://poe2db.tw/tw/Hinekoras_Lock"
+    },
+    "Vaal_Orb": {
+      "name": "瓦爾寶珠",
+      "lines": ["隨機改造一件物品並使其汙染"],
+      "itemKey": "CurrencyVaal",
+      "sourceUrl": "https://poe2db.tw/tw/Vaal_Orb"
+    },
+    "Essence_of_Delirium": {
+      "name": "譫妄精髓",
+      "lines": [
+        "移除一條隨機詞綴，且必定為一件稀有物品新增一條詞綴",
+        "身體護甲: 分配一個隨機核心天賦"
+      ],
+      "itemKey": "CorruptedEssenceDelirium",
+      "sourceUrl": "https://poe2db.tw/tw/Essence_of_Delirium"
+    },
+    "Essence_of_Insanity": {
+      "name": "錯亂精髓",
+      "lines": [
+        "移除一條隨機詞綴，且必定為一件稀有物品新增一條詞綴",
+        "腰帶: 物品受腐化時，獲得兩個附魔"
+      ],
+      "itemKey": "CorruptedEssenceInsanity",
+      "sourceUrl": "https://poe2db.tw/tw/Essence_of_Insanity"
+    },
+    "Runic_Alloy": {
+      "name": "符文合金",
+      "lines": [
+        "移除一條隨機詞綴，且必定為一件稀有物品新增一條詞綴",
+        "戒指: +(37—49)最大符文保護",
+        "項鍊: 增加(6—10)%最大符文保護",
+        "腰帶: 增加(15—20)%符文保護回復率"
+      ],
+      "itemKey": "ScrapVerisium",
+      "sourceUrl": "https://poe2db.tw/tw/Runic_Alloy"
+    },
+    "Adaptive_Alloy": {
+      "name": "適應合金",
+      "lines": [
+        "移除一條隨機詞綴，且必定為一件稀有物品新增一條詞綴",
+        "長杖: 當你損失符文保護時，獲得(42—52)%傷害的額外火焰傷害",
+        "法杖: 當你損失符文保護時，獲得(21—26)%傷害的額外火焰傷害",
+        "權杖: 每當你使用號令技能時，有(30—50)%滿溢機率獲得一層傀儡大師",
+        "手套: 當擁有失去的符文保護時增加(10—15)%攻擊速度"
+      ],
+      "itemKey": "ChippedVerisium",
+      "sourceUrl": "https://poe2db.tw/tw/Adaptive_Alloy"
+    },
+    "Protective_Alloy": {
+      "name": "防護合金",
+      "lines": [
+        "移除一條隨機詞綴，且必定為一件稀有物品新增一條詞綴",
+        "腰帶: 使用護符時恢復(32—45)點符文保護",
+        "武器: +(51—74)最大符文保護",
+        "盾牌: 你格擋時恢復(10—15)點符文保護"
+      ],
+      "itemKey": "ImpureVerisium",
+      "sourceUrl": "https://poe2db.tw/tw/Protective_Alloy"
+    },
+    "Expansive_Alloy": {
+      "name": "延展合金",
+      "lines": [
+        "移除一條隨機詞綴，且必定為一件稀有物品新增一條詞綴",
+        "手套: 痕跡可從(35—50)%更遠距離撿拾",
+        "身體護甲: 增加(35—50)%存在範圍的範圍效果",
+        "頭盔: 增加(18—29)%魔力消耗效用",
+        "長靴: 暫時召喚物技能具有 +(1—2) 召出召喚物上限"
+      ],
+      "itemKey": "StandardVerisium",
+      "sourceUrl": "https://poe2db.tw/tw/Expansive_Alloy"
+    },
+    "Swift_Alloy": {
+      "name": "迅捷合金",
+      "lines": [
+        "移除一條隨機詞綴，且必定為一件稀有物品新增一條詞綴",
+        "手套: 增加(9—12)%施法速度",
+        "戒指: 增加(7—9)%攻擊速度",
+        "腰帶: 藥劑每秒獲得(0.75—1)充能",
+        "盾牌或法器: 增加(30—49)%圖騰設置速度"
+      ],
+      "itemKey": "PureVerisium",
+      "sourceUrl": "https://poe2db.tw/tw/Swift_Alloy"
+    },
+    "Cyclonic_Alloy": {
+      "name": "氣旋合金",
+      "lines": [
+        "移除一條隨機詞綴，且必定為一件稀有物品新增一條詞綴",
+        "身體護甲: 減少(15—30)%你身上的減益效果緩速程度",
+        "長靴: 增加(15—19)%技能效果持續時間",
+        "手套: 增加(20—25)%敵人身上的傷害型異常狀態持續時間",
+        "頭盔: 增加(35—42)%統治者持續時間"
+      ],
+      "itemKey": "ImbuedVerisium",
+      "sourceUrl": "https://poe2db.tw/tw/Cyclonic_Alloy"
+    },
+    "Prismatic_Alloy": {
+      "name": "煥彩合金",
+      "lines": [
+        "移除一條隨機詞綴，且必定為一件稀有物品新增一條詞綴",
+        "手套: 傷害穿透(9—15)%元素抗性",
+        "軍用武器: 增加(20—30)%你所施加之異常狀態的幅度",
+        "法器、長杖或法杖: 增加(40—50)%曝曬效果",
+        "權杖: 增加(40—49)%召喚物所施加之傷害型異常狀態的幅度"
+      ],
+      "itemKey": "SovereignVerisium",
+      "sourceUrl": "https://poe2db.tw/tw/Prismatic_Alloy"
+    },
+    "Mystic_Alloy": {
+      "name": "秘能合金",
+      "lines": [
+        "移除一條隨機詞綴，且必定為一件稀有物品新增一條詞綴",
+        "頭盔: 法術技能增加(10—15)%範圍效果",
+        "手套: 攻擊增加(10—15)%範圍效果",
+        "長靴: +(10—15)精魂",
+        "箭袋: 有(25—35)%機率額外連鎖一次",
+        "法術武器: +1最大元素灌注數量"
+      ],
+      "itemKey": "CelestialVerisium",
+      "sourceUrl": "https://poe2db.tw/tw/Mystic_Alloy"
+    },
+    "Sovereign_Alloy": {
+      "name": "君主合金",
+      "lines": [
+        "移除一條隨機詞綴，且必定為一件稀有物品新增一條詞綴",
+        "武器: 增加(20—30)%鑲嵌的物品效果",
+        "護甲: 增加(24—30)%符文保護",
+        "飾品或腰帶: 增加(20—30)%變動抗性詞綴的大小"
+      ],
+      "itemKey": "Alloy1",
+      "sourceUrl": "https://poe2db.tw/tw/Sovereign_Alloy"
+    },
+    "Celestial_Alloy": {
+      "name": "星界合金",
+      "lines": [
+        "移除一條隨機詞綴，且必定為一件稀有物品新增一條詞綴",
+        "長杖或法杖: +(142—188)最大魔力\n全部法術技能等級+1",
+        "軍用武器: +(327—427)命中值\n增加(5—8)%攻擊速度"
+      ],
+      "itemKey": "Alloy4",
+      "sourceUrl": "https://poe2db.tw/tw/Celestial_Alloy"
+    },
+    "Transcendent_Alloy": {
+      "name": "超凡合金",
+      "lines": [
+        "移除一條隨機詞綴，且必定為一件稀有物品新增一條詞綴",
+        "長杖: 增加(39—47)%施法速度\n獲得等同於(11—16)%元素傷害的額外冰冷傷害",
+        "法器或法杖: 增加(26—31)%施法速度\n獲得等同於(7—11)%元素傷害的額外冰冷傷害",
+        "軍用武器: 增加(15—20)%物理傷害\n+(7—10)點全部能力值"
+      ],
+      "itemKey": "Alloy5",
+      "sourceUrl": "https://poe2db.tw/tw/Transcendent_Alloy"
+    },
+    "The_Runebinders_Alloy": {
+      "name": "符文縛者的合金",
+      "lines": [
+        "移除一條隨機詞綴，且必定為一件稀有物品新增一條詞綴",
+        "長杖: 當你的植物過度生長時有(25—50)%機率獲得自然統治者",
+        "法杖: 元素技能的上限+1",
+        "權杖: +(4—5)最大魁儡大師層數",
+        "十字弓: 召喚砲塔圖騰最大數量+2",
+        "弓: 增加(40—50)%你的印記技能效果"
+      ],
+      "itemKey": "Alloy2",
+      "sourceUrl": "https://poe2db.tw/tw/The_Runebinders_Alloy"
+    },
+    "The_Runefathers_Alloy": {
+      "name": "符文之父的合金",
+      "lines": [
+        "移除一條隨機詞綴，且必定為一件稀有物品新增一條詞綴",
+        "鈍器: 技能有(60—75)%機率在使用後保持40%的榮耀",
+        "細杖: 風暴之鐘會於(4—5)次額外擊中後被破壞",
+        "長矛: +(8—10)武器距離",
+        "魔符: 擊中造成的閃電傷害也會貢獻至易燃和點燃幅度"
+      ],
+      "itemKey": "Alloy3",
+      "sourceUrl": "https://poe2db.tw/tw/The_Runefathers_Alloy"
+    },
+    "Omen_of_Corruption": {
+      "name": "腐化之兆",
+      "lines": ["此物品在你的背包裡啟動時，你的下一個\n\n瓦爾寶珠必定造成改變"],
+      "itemKey": "VoodooOmens3Red",
+      "sourceUrl": "https://poe2db.tw/tw/Omen_of_Corruption"
+    },
+    "Omen_of_Answered_Prayers": {
+      "name": "回應祈禱之兆",
+      "lines": [
+        "當這個物品在背包中生效時，你點擊的下一個\n\n神殿會賦予一個額外效果"
+      ],
+      "itemKey": "VoodooOmens4Blue",
+      "sourceUrl": "https://poe2db.tw/tw/Omen_of_Answered_Prayers"
+    },
+    "Omen_of_Secret_Compartments": {
+      "name": "密室之兆",
+      "lines": ["當這個物品在背包中生效時，你點擊的下一個\n\n保險箱可重新開啟"],
+      "itemKey": "VoodooOmens4Dark",
+      "sourceUrl": "https://poe2db.tw/tw/Omen_of_Secret_Compartments"
+    },
+    "Omen_of_the_Hunt": {
+      "name": "狩獵之兆",
+      "lines": [
+        "此物品在你的背包中生效時，你擊殺的下一個\n\n受附身怪物會釋放阿茲莫里魂靈"
+      ],
+      "itemKey": "VoodooOmens4Green",
+      "sourceUrl": "https://poe2db.tw/tw/Omen_of_the_Hunt"
+    },
+    "Omen_of_Reinforcements": {
+      "name": "增援之兆",
+      "lines": [
+        "當這個物品在背包中生效時，你遇到的下一個\n\n盜賊流亡者會召喚一名盟友"
+      ],
+      "itemKey": "VoodooOmens4Purple",
+      "sourceUrl": "https://poe2db.tw/tw/Omen_of_Reinforcements"
+    },
+    "Omen_of_Sanctification": {
+      "name": "聖化之兆",
+      "lines": [
+        "此物品在你的背包中生效時，你對稀有物品使用的下一個\n\n神聖石會使其聖化"
+      ],
+      "itemKey": "OmenOnDivineSanctify",
+      "sourceUrl": "https://poe2db.tw/tw/Omen_of_Sanctification"
+    },
+    "Omen_of_Catalysing_Exaltation": {
+      "name": "催化喜悅之兆",
+      "lines": [
+        "此物品在你的背包中生效時，你的下一個\n\n崇高石會消耗全部催化劑品質以增加\n\n對應種類詞綴出現的機率"
+      ],
+      "itemKey": "OmenOnExaltConsumeQuality",
+      "sourceUrl": "https://poe2db.tw/tw/Omen_of_Catalysing_Exaltation"
+    },
+    "Omen_of_the_Sovereign": {
+      "name": "領主之兆",
+      "lines": [
+        "此物品在你的背包中生效時，你的下一次武器或飾品\n\n褻瀆時必定會賦予一個隨機烏拉曼詞綴"
+      ],
+      "itemKey": "OmenOnAbyssGuarenteedLichTypeMod1",
+      "sourceUrl": "https://poe2db.tw/tw/Omen_of_the_Sovereign"
+    },
+    "Omen_of_the_Liege": {
+      "name": "諸侯之兆",
+      "lines": [
+        "此物品在你的背包中生效時，你的下一次武器或飾品\n\n褻瀆時必定會賦予一個隨機阿姆那姆詞綴"
+      ],
+      "itemKey": "OmenOnAbyssGuarenteedLichTypeMod2",
+      "sourceUrl": "https://poe2db.tw/tw/Omen_of_the_Liege"
+    },
+    "Omen_of_the_Blackblooded": {
+      "name": "黑血者之兆",
+      "lines": [
+        "此物品在你的背包中生效時，你的下一次武器或飾品\n\n褻瀆時必定會賦予一個隨機柯戈詞綴"
+      ],
+      "itemKey": "OmenOnAbyssGuarenteedLichTypeMod3",
+      "sourceUrl": "https://poe2db.tw/tw/Omen_of_the_Blackblooded"
+    },
+    "Omen_of_Putrefaction": {
+      "name": "腐敗之兆",
+      "lines": [
+        "此物品在你的背包中生效時，你的下一次\n\n褻瀆必定會取代物品上的所有詞綴，\n\n創造一個最多 6 個褻瀆詞綴的物品，並汙染該物品"
+      ],
+      "itemKey": "OmenOnAbyssVeilAllAndCorrupt",
+      "sourceUrl": "https://poe2db.tw/tw/Omen_of_Putrefaction"
+    },
+    "Omen_of_Light": {
+      "name": "光明之兆",
+      "lines": [
+        "此物品在你的背包中生效時，你的下一個\n\n無效石只會移除褻瀆詞綴"
+      ],
+      "itemKey": "OmenOnAnnulRemoveAbyssMod",
+      "sourceUrl": "https://poe2db.tw/tw/Omen_of_Light"
+    },
+    "Omen_of_Sinistral_Necromancy": {
+      "name": "左旋死靈術之兆",
+      "lines": ["此物品在你的背包中生效時，你的下一次\n\n褻瀆只會賦予前綴"],
+      "itemKey": "OmenOnAbyssAddPrefixes",
+      "sourceUrl": "https://poe2db.tw/tw/Omen_of_Sinistral_Necromancy"
+    },
+    "Omen_of_Dextral_Necromancy": {
+      "name": "右旋死靈術之兆",
+      "lines": ["此物品在你的背包中生效時，你的下一次\n\n褻瀆只會賦予後綴"],
+      "itemKey": "OmenOnAbyssAddSuffixes",
+      "sourceUrl": "https://poe2db.tw/tw/Omen_of_Dextral_Necromancy"
+    },
+    "Ruby": {
+      "name": "紅寶石",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelStr",
+      "sourceUrl": "https://poe2db.tw/tw/Ruby"
+    },
+    "Emerald": {
+      "name": "綠寶石",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelDex",
+      "sourceUrl": "https://poe2db.tw/tw/Emerald"
+    },
+    "Diamond": {
+      "name": "鑽石",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelDiamond",
+      "sourceUrl": "https://poe2db.tw/tw/Diamond"
+    },
+    "Blacksmiths_Whetstone": {
+      "name": "磨刀石",
+      "lines": ["提升軍用武器的品質"],
+      "itemKey": "CurrencyWeaponQuality",
+      "sourceUrl": "https://poe2db.tw/tw/Blacksmiths_Whetstone"
+    },
+    "Arcanists_Etcher": {
+      "name": "奧術蝕刻師",
+      "lines": ["提升法杖、長杖或權杖的品質"],
+      "itemKey": "CurrencyWeaponMagicQuality",
+      "sourceUrl": "https://poe2db.tw/tw/Arcanists_Etcher"
+    },
+    "Scroll_of_Wisdom": {
+      "name": "知識卷軸",
+      "lines": ["鑑定一件指定物品"],
+      "itemKey": "CurrencyIdentification",
+      "sourceUrl": "https://poe2db.tw/tw/Scroll_of_Wisdom"
+    },
+    "Armourers_Scrap": {
+      "name": "護甲片",
+      "lines": ["提升護甲的品質"],
+      "itemKey": "CurrencyArmourQuality",
+      "sourceUrl": "https://poe2db.tw/tw/Armourers_Scrap"
+    },
+    "Mirror_of_Kalandra": {
+      "name": "卡蘭德的魔鏡",
+      "lines": ["複製一件指定物品"],
+      "itemKey": "CurrencyDuplicate",
+      "sourceUrl": "https://poe2db.tw/tw/Mirror_of_Kalandra"
+    },
+    "Orb_of_Chance": {
+      "name": "機會石",
+      "lines": ["隨機將普通物品升級至傳奇稀有度，或摧毀它"],
+      "itemKey": "CurrencyUpgradeToUnique",
+      "sourceUrl": "https://poe2db.tw/tw/Orb_of_Chance"
+    },
+    "Architects_Orb": {
+      "name": "策匠石",
+      "lines": ["不可預測的改造一件已汙染的裝備或 飾品，或摧毀它"],
+      "itemKey": "IncursionGreaterVaalOrb",
+      "sourceUrl": "https://poe2db.tw/tw/Architects_Orb"
+    },
+    "Core_Destabiliser": {
+      "name": "核心擾亂器",
+      "lines": ["不可預測的改造一顆靈魂核心，且有機率摧毀它"],
+      "itemKey": "IncursionCoreDestabliser",
+      "sourceUrl": "https://poe2db.tw/tw/Core_Destabiliser"
+    },
+    "Vaal_Cultivation_Orb": {
+      "name": "瓦爾栽培寶珠",
+      "lines": [
+        "改造一件已汙染的瓦爾傳奇，以最多兩條瓦爾傳奇詞綴取代原先的詞綴\n\n其他 傳奇物品則會被轉換為一件同物品種類的隨機已汙染傳奇物品"
+      ],
+      "itemKey": "IncursionHistoricVaalOrb",
+      "sourceUrl": "https://poe2db.tw/tw/Vaal_Cultivation_Orb"
+    },
+    "Yaomacs_Orb_of_Sacrifice": {
+      "name": "堯馬克奉獻寶珠",
+      "lines": ["升級一條稀有武器或箭袋上的已汙染附魔\n\r\n並移除一條隨機詞綴"],
+      "itemKey": "IncursionCorruptionOrb1",
+      "sourceUrl": "https://poe2db.tw/tw/Yaomacs_Orb_of_Sacrifice"
+    },
+    "Kopecs_Orb_of_Sacrifice": {
+      "name": "科佩克奉獻寶珠",
+      "lines": ["升級一條稀有護甲上的已汙染附魔\n\r\n並移除一條隨機詞綴"],
+      "itemKey": "IncursionCorruptionOrb2",
+      "sourceUrl": "https://poe2db.tw/tw/Kopecs_Orb_of_Sacrifice"
+    },
+    "Kamasas_Orb_of_Sacrifice": {
+      "name": "卡瑪薩奉獻寶珠",
+      "lines": [
+        "升級一條稀有項鍊、戒指、或腰帶上的已汙染附魔\n\r\n並移除一條隨機詞綴"
+      ],
+      "itemKey": "IncursionCorruptionOrb3",
+      "sourceUrl": "https://poe2db.tw/tw/Kamasas_Orb_of_Sacrifice"
+    },
+    "Yuguls_Orb_of_Sacrifice": {
+      "name": "伊果奉獻寶珠",
+      "lines": ["升級一條稀有珠寶上的已汙染附魔\n\r\n並移除一條隨機詞綴"],
+      "itemKey": "IncursionCorruptionOrb4",
+      "sourceUrl": "https://poe2db.tw/tw/Yuguls_Orb_of_Sacrifice"
+    },
+    "Vaal_Armourers_Infuser": {
+      "name": "瓦爾護甲鍛造師的灌注器",
+      "lines": [
+        "提高一件護甲的品質\n\n允許物品的品質超過最大品質10%，但有機率汙染該物品"
+      ],
+      "itemKey": "VaakArmourersScrap",
+      "sourceUrl": "https://poe2db.tw/tw/Vaal_Armourers_Infuser"
+    },
+    "Vaal_Blacksmiths_Infuser": {
+      "name": "瓦爾鐵匠的灌注器",
+      "lines": [
+        "提高一件軍用武器的品質\n\n允許物品的品質超過最大品質10%，但有機率汙染該物品"
+      ],
+      "itemKey": "VaalBlacksmithsWhetstone",
+      "sourceUrl": "https://poe2db.tw/tw/Vaal_Blacksmiths_Infuser"
+    },
+    "Vaal_Arcanists_Infuser": {
+      "name": "瓦爾奧術師的灌注器",
+      "lines": [
+        "提高一件法杖、長杖、或權杖的品質\n\n允許物品的品質超過最大品質10%，但有機率汙染該物品"
+      ],
+      "itemKey": "VaalArcanistsEtcher",
+      "sourceUrl": "https://poe2db.tw/tw/Vaal_Arcanists_Infuser"
+    },
+    "Vaal_Catalysing_Infuser": {
+      "name": "瓦爾催化灌注器",
+      "lines": [
+        "提高一件戒指或項鍊的品質\n\n允許物品的品質超過最大品質10%，但有機率汙染該物品"
+      ],
+      "itemKey": "VaalCatalyst",
+      "sourceUrl": "https://poe2db.tw/tw/Vaal_Catalysing_Infuser"
+    },
+    "Orb_of_Extraction": {
+      "name": "萃取石",
+      "lines": ["摧毀一件裝備物品，返還鑲嵌其中的任何非插槽綁定增幅"],
+      "itemKey": "IncursionSocketableExtractorCurrency",
+      "sourceUrl": "https://poe2db.tw/tw/Orb_of_Extraction"
     }
   },
   "ja": {
@@ -6705,6 +9701,766 @@
       "lines": [],
       "itemKey": "Metadata/Items/Jewels/JewelRadiusDiamond",
       "sourceUrl": "https://poe2db.tw/us/Time-Lost_Diamond"
+    },
+    "Diluted_Liquid_Ire": {
+      "name": "希釈された液化した怒り",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レア基本ジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー プレフィックス: アーマーが(10—20)%増加する",
+        "サファイア プレフィックス: 最大エナジーシールドが(10—20)%増加する",
+        "エメラルド プレフィックス: 回避力が(10—20)%増加する"
+      ],
+      "itemKey": "DilutedDistilledIre",
+      "sourceUrl": "https://poe2db.tw/jp/Diluted_Liquid_Ire"
+    },
+    "Diluted_Liquid_Guilt": {
+      "name": "希釈された液化した罪悪感",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レア基本ジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー プレフィックス: 火ダメージが(5—15)%増加する",
+        "サファイア プレフィックス: 冷気ダメージが(5—15)%増加する",
+        "エメラルド プレフィックス: 雷ダメージが(5—15)%増加する"
+      ],
+      "itemKey": "DilutedDistilledGuilt",
+      "sourceUrl": "https://poe2db.tw/jp/Diluted_Liquid_Guilt"
+    },
+    "Diluted_Liquid_Greed": {
+      "name": "希釈された液化した貪欲",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レア基本ジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー プレフィックス: グローバル物理ダメージが(5—15)%増加する",
+        "サファイア プレフィックス: 混沌ダメージが(7—13)%増加する",
+        "エメラルド プレフィックス: 元素ダメージが(5—15)%増加する"
+      ],
+      "itemKey": "DilutedDistilledGreed",
+      "sourceUrl": "https://poe2db.tw/jp/Diluted_Liquid_Greed"
+    },
+    "Liquid_Paranoia": {
+      "name": "液化した偏執症",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レア基本ジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー プレフィックス: アタックダメージが(5—15)%増加する",
+        "サファイア サフィックス: キャストスピードが(2—4)%増加する",
+        "エメラルド サフィックス: アタックスピードが(2—4)%増加する"
+      ],
+      "itemKey": "DistilledParanoia",
+      "sourceUrl": "https://poe2db.tw/jp/Liquid_Paranoia"
+    },
+    "Liquid_Envy": {
+      "name": "液化した嫉妬",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レア基本ジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー サフィックス: スキルのマナコストの(4—6)%がライフコストに変換される",
+        "サファイア プレフィックス: スペルダメージが(5—15)%増加する",
+        "エメラルド サフィックス: クールダウン解消レートが(3—5)%増加する"
+      ],
+      "itemKey": "DistilledEnvy",
+      "sourceUrl": "https://poe2db.tw/jp/Liquid_Envy"
+    },
+    "Liquid_Disgust": {
+      "name": "液化した嫌悪",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レア基本ジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー サフィックス: ライフ自動回復レートが(5—10)%増加する",
+        "サファイア サフィックス: 敵を倒した時にマナの(1—2)%を回復する",
+        "エメラルド サフィックス: 敵を倒した時にライフの(1—2)%を回復する"
+      ],
+      "itemKey": "DistilledDisgust",
+      "sourceUrl": "https://poe2db.tw/jp/Liquid_Disgust"
+    },
+    "Liquid_Despair": {
+      "name": "液化した絶望",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レア基本ジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー サフィックス: 近接ヒット時に憤怒を1獲得する",
+        "サファイア サフィックス: スペルのクリティカルヒット率が(5—15)%増加する",
+        "エメラルド サフィックス: アタックのクリティカルヒット率が(6—16)%増加する"
+      ],
+      "itemKey": "DistilledDespair",
+      "sourceUrl": "https://poe2db.tw/jp/Liquid_Despair"
+    },
+    "Concentrated_Liquid_Fear": {
+      "name": "濃縮された液化した恐怖",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レア基本ジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー サフィックス: ウォークライスピードが(10—20)%増加する",
+        "サファイア サフィックス: スペルクリティカルダメージボーナスが(10—20)%増加する",
+        "エメラルド サフィックス: アタックダメージのクリティカルダメージボーナスが(10—20)%増加する"
+      ],
+      "itemKey": "ConcentratedDistilledFear",
+      "sourceUrl": "https://poe2db.tw/jp/Concentrated_Liquid_Fear"
+    },
+    "Concentrated_Liquid_Suffering": {
+      "name": "濃縮された液化した苦悩",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レア基本ジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー プレフィックス: 憤怒の最大数 +(1—2)",
+        "サファイア プレフィックス: 効果範囲が(4—6)%増加する",
+        "エメラルド サフィックス: 移動スピードが(1—2)%増加する"
+      ],
+      "itemKey": "ConcentratedDistilledSuffering",
+      "sourceUrl": "https://poe2db.tw/jp/Concentrated_Liquid_Suffering"
+    },
+    "Concentrated_Liquid_Isolation": {
+      "name": "濃縮された液化した孤立感",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レア基本ジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー サフィックス: 火耐性の最大値 +1%",
+        "サファイア サフィックス: 冷気耐性の最大値 +1%",
+        "エメラルド サフィックス: 雷耐性の最大値 +1%",
+        "ダイアモンド サフィックス: 混沌耐性の最大値 +1%"
+      ],
+      "itemKey": "ConcentratedDistilledIsolation",
+      "sourceUrl": "https://poe2db.tw/jp/Concentrated_Liquid_Isolation"
+    },
+    "Ancient_Diluted_Liquid_Ire": {
+      "name": "古代の希釈された液化した怒り",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアタイムロストジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー プレフィックス: 範囲内のスモールパッシブスキルはアーマーが(2—3)%増加するも付与する",
+        "サファイア プレフィックス: 範囲内のスモールパッシブスキルは最大エナジーシールドが(2—3)%増加するも付与する",
+        "エメラルド プレフィックス: 範囲内のスモールパッシブスキルは回避力が(2—3)%増加するも付与する"
+      ],
+      "itemKey": "TimelostDilutedDistilledIre",
+      "sourceUrl": "https://poe2db.tw/jp/Ancient_Diluted_Liquid_Ire"
+    },
+    "Ancient_Diluted_Liquid_Guilt": {
+      "name": "古代の希釈された液化した罪悪感",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアタイムロストジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー プレフィックス: 範囲内のスモールパッシブスキルは火ダメージが(1—2)%増加するも付与する",
+        "サファイア プレフィックス: 範囲内のスモールパッシブスキルは冷気ダメージが(1—2)%増加するも付与する",
+        "エメラルド プレフィックス: 範囲内のスモールパッシブスキルは雷ダメージが(1—2)%増加するも付与する"
+      ],
+      "itemKey": "TimelostDilutedDistilledGuilt",
+      "sourceUrl": "https://poe2db.tw/jp/Ancient_Diluted_Liquid_Guilt"
+    },
+    "Ancient_Diluted_Liquid_Greed": {
+      "name": "古代の希釈された液化した貪欲",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアタイムロストジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー プレフィックス: 範囲内のスモールパッシブスキルはグローバル物理ダメージが(1—2)%増加するも付与する",
+        "サファイア プレフィックス: 範囲内のスモールパッシブスキルは混沌ダメージが(1—2)%増加するも付与する",
+        "エメラルド プレフィックス: 範囲内のスモールパッシブスキルは元素ダメージが(1—2)%増加するも付与する"
+      ],
+      "itemKey": "TimelostDilutedDistilledGreed",
+      "sourceUrl": "https://poe2db.tw/jp/Ancient_Diluted_Liquid_Greed"
+    },
+    "Ancient_Liquid_Paranoia": {
+      "name": "古代の液化した偏執症",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアタイムロストジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー プレフィックス: 範囲内のスモールパッシブスキルはアタックダメージが(1—2)%増加するも付与する",
+        "サファイア サフィックス: 範囲内のノータブルパッシブスキルはキャストスピードが(1—2)%増加するも付与する",
+        "エメラルド サフィックス: 範囲内のノータブルパッシブスキルはアタックスピードが(1—2)%増加するも付与する"
+      ],
+      "itemKey": "TimelostDistilledParanoia",
+      "sourceUrl": "https://poe2db.tw/jp/Ancient_Liquid_Paranoia"
+    },
+    "Ancient_Liquid_Envy": {
+      "name": "古代の液化した嫉妬",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアタイムロストジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー サフィックス: 範囲内のノータブルパッシブスキルはスキルのマナコストの(2—3)%がライフコストに変換されるも付与する",
+        "サファイア プレフィックス: 範囲内のスモールパッシブスキルはスペルダメージが(1—2)%増加するも付与する",
+        "エメラルド サフィックス: 範囲内のノータブルパッシブスキルはクールダウン解消レートが(1—3)%増加するも付与する"
+      ],
+      "itemKey": "TimelostDistilledEnvy",
+      "sourceUrl": "https://poe2db.tw/jp/Ancient_Liquid_Envy"
+    },
+    "Ancient_Liquid_Disgust": {
+      "name": "古代の液化した嫌悪",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアタイムロストジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー サフィックス: 範囲内のノータブルパッシブスキルはライフ自動回復レートが(3—5)%増加するも付与する",
+        "サファイア サフィックス: 範囲内のノータブルパッシブスキルは敵を倒した時にマナの1%を回復するも付与する",
+        "エメラルド サフィックス: 範囲内のノータブルパッシブスキルは敵を倒した時にライフの1%を回復するも付与する"
+      ],
+      "itemKey": "TimelostDistilledDisgust",
+      "sourceUrl": "https://poe2db.tw/jp/Ancient_Liquid_Disgust"
+    },
+    "Ancient_Liquid_Despair": {
+      "name": "古代の液化した絶望",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアタイムロストジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー サフィックス: 範囲内のノータブルパッシブスキルは近接ヒット時に憤怒を1獲得するも付与する",
+        "サファイア サフィックス: 範囲内のノータブルパッシブスキルはスペルのクリティカルヒット率が(3—7)%増加するも付与する",
+        "エメラルド サフィックス: 範囲内のノータブルパッシブスキルはアタックのクリティカルヒット率が(3—7)%増加するも付与する"
+      ],
+      "itemKey": "TimelostDistilledDespair",
+      "sourceUrl": "https://poe2db.tw/jp/Ancient_Liquid_Despair"
+    },
+    "Ancient_Concentrated_Liquid_Fear": {
+      "name": "古代の濃縮された液化した恐怖",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアタイムロストジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー サフィックス: 範囲内のスモールパッシブスキルはウォークライスピードが(2—3)%増加するも付与する",
+        "サファイア サフィックス: 範囲内のノータブルパッシブスキルはスペルクリティカルダメージボーナスが(5—10)%増加するも付与する",
+        "エメラルド サフィックス: 範囲内のノータブルパッシブスキルはアタックダメージのクリティカルダメージボーナスが(5—10)%増加するも付与する"
+      ],
+      "itemKey": "TimelostConcentratedDistilledFear",
+      "sourceUrl": "https://poe2db.tw/jp/Ancient_Concentrated_Liquid_Fear"
+    },
+    "Ancient_Concentrated_Liquid_Suffering": {
+      "name": "古代の濃縮された液化した苦悩",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアタイムロストジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー プレフィックス: 範囲内のノータブルパッシブスキルは憤怒の最大数 +1も付与する",
+        "サファイア プレフィックス: 範囲内のノータブルパッシブスキルは効果範囲が(2—3)%増加するも付与する",
+        "エメラルド サフィックス: 範囲内のノータブルパッシブスキルは移動スピードが1%増加するも付与する"
+      ],
+      "itemKey": "TimelostConcentratedDistilledSuffering",
+      "sourceUrl": "https://poe2db.tw/jp/Ancient_Concentrated_Liquid_Suffering"
+    },
+    "Ancient_Concentrated_Liquid_Isolation": {
+      "name": "古代の濃縮された液化した孤立感",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアタイムロストジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー プレフィックス: 範囲内の冷気および雷ダメージの増減のモッドは火ダメージに適用するよう変化する",
+        "サファイア プレフィックス: 範囲内の火および雷ダメージの増減のモッドは冷気ダメージに適用するよう変化する",
+        "エメラルド プレフィックス: 範囲内の冷気および火ダメージの増減のモッドは雷ダメージに適用するよう変化する"
+      ],
+      "itemKey": "TimelostConcentratedDistilledIsolation",
+      "sourceUrl": "https://poe2db.tw/jp/Ancient_Concentrated_Liquid_Isolation"
+    },
+    "Potent_Liquid_Melancholy": {
+      "name": "強力な液化した憂鬱",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レア基本ジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー サフィックス: エメラルドおよびサファイアをソケットしていればヒット時に敵を弱体化する",
+        "サファイア サフィックス: ルビーおよびエメラルドをソケットしていればヒット時に敵に元素の曝露を付与する",
+        "エメラルド サフィックス: ルビーおよびサファイアをソケットしていればヒット時に敵を盲目にする"
+      ],
+      "itemKey": "UniqueHumansEmotion",
+      "sourceUrl": "https://poe2db.tw/jp/Potent_Liquid_Melancholy"
+    },
+    "Potent_Liquid_Ferocity": {
+      "name": "強力な液化した獰猛",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レア基本ジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー プレフィックス: サフィックスの効果が(40—60)%増加する",
+        "ルビー サフィックス: プレフィックスの効果が(40—60)%増加する",
+        "サファイア プレフィックス: サフィックスの効果が(40—60)%増加する",
+        "サファイア サフィックス: プレフィックスの効果が(40—60)%増加する",
+        "エメラルド プレフィックス: サフィックスの効果が(40—60)%増加する",
+        "エメラルド サフィックス: プレフィックスの効果が(40—60)%増加する",
+        "ダイアモンド プレフィックス: サフィックスの効果が(40—60)%増加する",
+        "ダイアモンド サフィックス: プレフィックスの効果が(40—60)%増加する"
+      ],
+      "itemKey": "UniqueConstructsEmotion",
+      "sourceUrl": "https://poe2db.tw/jp/Potent_Liquid_Ferocity"
+    },
+    "Potent_Liquid_Contempt": {
+      "name": "強力な液化した軽蔑",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レア基本ジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー プレフィックス: サフィックスモッド +1個",
+        "ルビー サフィックス: プレフィックスモッド +1個",
+        "サファイア プレフィックス: サフィックスモッド +1個",
+        "サファイア サフィックス: プレフィックスモッド +1個",
+        "エメラルド プレフィックス: サフィックスモッド +1個",
+        "エメラルド サフィックス: プレフィックスモッド +1個",
+        "ダイアモンド プレフィックス: サフィックスモッド +1個",
+        "ダイアモンド サフィックス: プレフィックスモッド +1個"
+      ],
+      "itemKey": "UniqueBeastEmotion",
+      "sourceUrl": "https://poe2db.tw/jp/Potent_Liquid_Contempt"
+    },
+    "Ancient_Potent_Liquid_Melancholy": {
+      "name": "古代の強力な液化した憂鬱",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアタイムロストジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー プレフィックス: 半径を特大範囲にアップグレードする\nlocal jewel effect base radius [500]",
+        "サファイア プレフィックス: 半径を特大範囲にアップグレードする\nlocal jewel effect base radius [500]",
+        "エメラルド プレフィックス: 半径を特大範囲にアップグレードする\nlocal jewel effect base radius [500]",
+        "ダイアモンド プレフィックス: 半径を特大範囲にアップグレードする\nlocal jewel effect base radius [500]"
+      ],
+      "itemKey": "TimelessUniqueHumansEmotion",
+      "sourceUrl": "https://poe2db.tw/jp/Ancient_Potent_Liquid_Melancholy"
+    },
+    "Ancient_Potent_Liquid_Ferocity": {
+      "name": "古代の強力な液化した獰猛",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアタイムロストジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー サフィックス: 範囲内のノータブルパッシブスキルは火耐性 +(5—7)%も付与する",
+        "サファイア サフィックス: 範囲内のノータブルパッシブスキルは冷気耐性 +(5—7)%も付与する",
+        "エメラルド サフィックス: 範囲内のノータブルパッシブスキルは雷耐性 +(5—7)%も付与する",
+        "ダイアモンド サフィックス: 範囲内のノータブルパッシブスキルは混沌耐性 +(4—5)%も付与する"
+      ],
+      "itemKey": "TimlessUniqueConstructsEmotion",
+      "sourceUrl": "https://poe2db.tw/jp/Ancient_Potent_Liquid_Ferocity"
+    },
+    "Ancient_Potent_Liquid_Contempt": {
+      "name": "古代の強力な液化した軽蔑",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアタイムロストジュエルに確定で\n\nクラフトモッドを追加する",
+        "ルビー プレフィックス: サフィックスモッド +1個",
+        "ルビー サフィックス: プレフィックスモッド +1個",
+        "サファイア プレフィックス: サフィックスモッド +1個",
+        "サファイア サフィックス: プレフィックスモッド +1個",
+        "エメラルド プレフィックス: サフィックスモッド +1個",
+        "エメラルド サフィックス: プレフィックスモッド +1個",
+        "ダイアモンド プレフィックス: サフィックスモッド +1個",
+        "ダイアモンド サフィックス: プレフィックスモッド +1個"
+      ],
+      "itemKey": "TimelessUniqueBeastEmotion",
+      "sourceUrl": "https://poe2db.tw/jp/Ancient_Potent_Liquid_Contempt"
+    },
+    "Liquid_Verisium": {
+      "name": "リキッドヴェリシウム",
+      "lines": [
+        "ランダムなルーンの刻印を持つルーニックレムナントエンカウンターを即座に開始する"
+      ],
+      "itemKey": "LiquidMetalVerisium",
+      "sourceUrl": "https://poe2db.tw/jp/Liquid_Verisium"
+    },
+    "Hinekoras_Lock": {
+      "name": "ヒネコラの髪束",
+      "lines": [
+        "このアイテムに次回使用するカレンシーの結果を予見できるようにする\n\nいずれかの方法でアイテムを変更すると予見の能力は取り除かれる"
+      ],
+      "itemKey": "HinekorasLock",
+      "sourceUrl": "https://poe2db.tw/jp/Hinekoras_Lock"
+    },
+    "Vaal_Orb": {
+      "name": "ヴァールオーブ",
+      "lines": ["アイテムをコラプトし、予測不能な変化を与える。"],
+      "itemKey": "CurrencyVaal",
+      "sourceUrl": "https://poe2db.tw/jp/Vaal_Orb"
+    },
+    "Essence_of_Delirium": {
+      "name": "錯乱のエッセンス",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアアイテムに確定で新しいモッドを追加する",
+        "鎧: ランダムなノータブルパッシブスキルを割り当てる"
+      ],
+      "itemKey": "CorruptedEssenceDelirium",
+      "sourceUrl": "https://poe2db.tw/jp/Essence_of_Delirium"
+    },
+    "Essence_of_Insanity": {
+      "name": "狂気のエッセンス",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアアイテムに確定で新しいモッドを追加する",
+        "ベルト: コラプト時に、アイテムは2個のエンチャントを獲得する"
+      ],
+      "itemKey": "CorruptedEssenceInsanity",
+      "sourceUrl": "https://poe2db.tw/jp/Essence_of_Insanity"
+    },
+    "Runic_Alloy": {
+      "name": "ルーンの合金",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアアイテムに確定で新しいモッドを追加する",
+        "指輪: 最大ルーンワード +(37—49)",
+        "アミュレット: 最大ルーンワードが(6—10)%増加する",
+        "ベルト: ルーンワードの自動回復レートが(15—20)%増加する"
+      ],
+      "itemKey": "ScrapVerisium",
+      "sourceUrl": "https://poe2db.tw/jp/Runic_Alloy"
+    },
+    "Adaptive_Alloy": {
+      "name": "適応の合金",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアアイテムに確定で新しいモッドを追加する",
+        "スタッフ: ルーンワードが最大値未満の間ダメージの(42—52)%を追加火ダメージとして獲得する",
+        "ワンド: ルーンワードが最大値未満の間ダメージの(21—26)%を追加火ダメージとして獲得する",
+        "セプター: コマンドスキルを使用した時に(30—50)%の超過可能確率でパペットマスターのスタックを1獲得する",
+        "手袋: ルーンワードが最大値未満の間アタックスピードが(10—15)%増加する"
+      ],
+      "itemKey": "ChippedVerisium",
+      "sourceUrl": "https://poe2db.tw/jp/Adaptive_Alloy"
+    },
+    "Protective_Alloy": {
+      "name": "保護の合金",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアアイテムに確定で新しいモッドを追加する",
+        "ベルト: チャーム使用時に(32—45)のルーンワードを回復する",
+        "武器: 最大ルーンワード +(51—74)",
+        "盾: ブロック時に(10—15)のルーンワードを回復する"
+      ],
+      "itemKey": "ImpureVerisium",
+      "sourceUrl": "https://poe2db.tw/jp/Protective_Alloy"
+    },
+    "Expansive_Alloy": {
+      "name": "拡張の合金",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアアイテムに確定で新しいモッドを追加する",
+        "手袋: レムナントは(35—50)%遠くからでも拾える",
+        "鎧: 存在下の効果範囲が(35—50)%増加する",
+        "兜: マナコスト効率が(18—29)%増加する",
+        "靴: 一時的ミニオンスキルは召喚できるミニオンの上限 +(1—2)"
+      ],
+      "itemKey": "StandardVerisium",
+      "sourceUrl": "https://poe2db.tw/jp/Expansive_Alloy"
+    },
+    "Swift_Alloy": {
+      "name": "迅速の合金",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアアイテムに確定で新しいモッドを追加する",
+        "手袋: キャストスピードが(9—12)%増加する",
+        "指輪: アタックスピードが(7—9)%増加する",
+        "ベルト: フラスコは毎秒(0.75—1)のチャージを獲得する",
+        "盾またはフォーカス: トーテム設置スピードが(30—49)%増加する"
+      ],
+      "itemKey": "PureVerisium",
+      "sourceUrl": "https://poe2db.tw/jp/Swift_Alloy"
+    },
+    "Cyclonic_Alloy": {
+      "name": "旋風の合金",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアアイテムに確定で新しいモッドを追加する",
+        "鎧: プレイヤーに対する減速のデバフのポテンシャルが(15—30)%減少する",
+        "靴: スキル効果持続時間が(15—19)%増加する",
+        "手袋: 敵に付与したダメージ性状態異常の持続時間が(20—25)%増加する",
+        "兜: アルコンの持続時間が(35—42)%増加する"
+      ],
+      "itemKey": "ImbuedVerisium",
+      "sourceUrl": "https://poe2db.tw/jp/Cyclonic_Alloy"
+    },
+    "Prismatic_Alloy": {
+      "name": "プリズム合金",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアアイテムに確定で新しいモッドを追加する",
+        "手袋: ダメージは(9—15)%の元素耐性を貫通する",
+        "マーシャル武器: プレイヤーが付与した状態異常の強度が(20—30)%増加する",
+        "フォーカス、スタッフまたはワンド: 曝露の効果が(40—50)%増加する",
+        "セプター: ミニオンはダメージ性状態異常の強度が(40—49)%増加する"
+      ],
+      "itemKey": "SovereignVerisium",
+      "sourceUrl": "https://poe2db.tw/jp/Prismatic_Alloy"
+    },
+    "Mystic_Alloy": {
+      "name": "神秘の合金",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアアイテムに確定で新しいモッドを追加する",
+        "兜: スペルスキルの効果範囲が(10—15)%増加する",
+        "手袋: アタックの効果範囲が(10—15)%増加する",
+        "靴: スピリット +(10—15)",
+        "矢筒: (25—35)%の確率で追加で1回連鎖する",
+        "キャスター武器: エレメンタルインフュージョンの最大数 +1"
+      ],
+      "itemKey": "CelestialVerisium",
+      "sourceUrl": "https://poe2db.tw/jp/Mystic_Alloy"
+    },
+    "Sovereign_Alloy": {
+      "name": "王権の合金",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアアイテムに確定で新しいモッドを追加する",
+        "武器: ソケットされているアイテムの効果が(20—30)%増加する",
+        "防具: ルーンワードが(24—30)%増加する",
+        "宝飾品またはベルト: 明示耐性モッドの強さが(20—30)%増加する"
+      ],
+      "itemKey": "Alloy1",
+      "sourceUrl": "https://poe2db.tw/jp/Sovereign_Alloy"
+    },
+    "Celestial_Alloy": {
+      "name": "天体の合金",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアアイテムに確定で新しいモッドを追加する",
+        "スタッフまたはワンド: 最大マナ +(142—188)\n全てのスペルスキルのレベル +1",
+        "マーシャル武器: 命中力 +(327—427)\nアタックスピードが(5—8)%増加する"
+      ],
+      "itemKey": "Alloy4",
+      "sourceUrl": "https://poe2db.tw/jp/Celestial_Alloy"
+    },
+    "Transcendent_Alloy": {
+      "name": "超越の合金",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアアイテムに確定で新しいモッドを追加する",
+        "スタッフ: キャストスピードが(39—47)%増加する\n元素ダメージの(11—16)%を追加冷気ダメージとして獲得する",
+        "フォーカスまたはワンド: キャストスピードが(26—31)%増加する\n元素ダメージの(7—11)%を追加冷気ダメージとして獲得する",
+        "マーシャル武器: 物理ダメージが(15—20)%増加する\n全ての能力値 +(7—10)"
+      ],
+      "itemKey": "Alloy5",
+      "sourceUrl": "https://poe2db.tw/jp/Transcendent_Alloy"
+    },
+    "The_Runebinders_Alloy": {
+      "name": "ルーンバインダーの合金",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアアイテムに確定で新しいモッドを追加する",
+        "スタッフ: プラントが生い茂った時に(25—50)%の確率で自然のアルコンを獲得する",
+        "ワンド: 元素スキルの上限 +1",
+        "セプター: パペットマスターの最大スタック数 +(4—5)",
+        "クロスボウ: バリスタトーテムの最大召喚数 +2",
+        "弓: プレイヤーの呪印スキルの効果が(40—50)%増加する"
+      ],
+      "itemKey": "Alloy2",
+      "sourceUrl": "https://poe2db.tw/jp/The_Runebinders_Alloy"
+    },
+    "The_Runefathers_Alloy": {
+      "name": "ルーンファーザーの合金",
+      "lines": [
+        "ランダムなモッドを1個取り除き、レアアイテムに確定で新しいモッドを追加する",
+        "メイス: スキル使用時に(60—75)%の確率でグローリーの40%を保持する",
+        "クォータースタッフ: テンペストベルはヒットを追加で(4—5)回受けた後壊れる",
+        "スピア: 武器の攻撃範囲 +(8—10)",
+        "タリスマン: ヒットによる雷ダメージが可燃性および発火の強度にも寄与する"
+      ],
+      "itemKey": "Alloy3",
+      "sourceUrl": "https://poe2db.tw/jp/The_Runefathers_Alloy"
+    },
+    "Omen_of_Corruption": {
+      "name": "穢れのお告げ",
+      "lines": [
+        "インベントリ内でアクティブ状態の時\n\n次に使用するヴァールオーブは常に変化させる。"
+      ],
+      "itemKey": "VoodooOmens3Red",
+      "sourceUrl": "https://poe2db.tw/jp/Omen_of_Corruption"
+    },
+    "Omen_of_Answered_Prayers": {
+      "name": "成就のお告げ",
+      "lines": [
+        "インベントリ内でアクティブ状態の時\n\n次にクリックするシュラインは追加の効果を付与する。"
+      ],
+      "itemKey": "VoodooOmens4Blue",
+      "sourceUrl": "https://poe2db.tw/jp/Omen_of_Answered_Prayers"
+    },
+    "Omen_of_Secret_Compartments": {
+      "name": "秘密の区画のお告げ",
+      "lines": [
+        "インベントリ内でアクティブ状態の時\n\n次にクリックするストロングボックスは再度開くことができる。"
+      ],
+      "itemKey": "VoodooOmens4Dark",
+      "sourceUrl": "https://poe2db.tw/jp/Omen_of_Secret_Compartments"
+    },
+    "Omen_of_the_Hunt": {
+      "name": "狩りのお告げ",
+      "lines": [
+        "インベントリ内でアクティブ状態の時\n\n次に倒す憑依されたモンスターはアズメリの精霊をReleaseAzmeriSpirits|解放]し、全てのアズメリの精霊が顕現する"
+      ],
+      "itemKey": "VoodooOmens4Green",
+      "sourceUrl": "https://poe2db.tw/jp/Omen_of_the_Hunt"
+    },
+    "Omen_of_Reinforcements": {
+      "name": "増援のお告げ",
+      "lines": [
+        "インベントリ内でアクティブ状態の時\n\n次に遭遇するローグエグザイルは仲間を召喚する。"
+      ],
+      "itemKey": "VoodooOmens4Purple",
+      "sourceUrl": "https://poe2db.tw/jp/Omen_of_Reinforcements"
+    },
+    "Omen_of_Sanctification": {
+      "name": "聖別のお告げ",
+      "lines": [
+        "インベントリ内でアクティブ状態の時\n\n次回レアアイテムに使用する神のオーブはそのアイテムを聖別する"
+      ],
+      "itemKey": "OmenOnDivineSanctify",
+      "sourceUrl": "https://poe2db.tw/jp/Omen_of_Sanctification"
+    },
+    "Omen_of_Catalysing_Exaltation": {
+      "name": "触媒の高貴のお告げ",
+      "lines": [
+        "インベントリ内でアクティブ状態の時\n\n次回使用する高貴なオーブはカタリストの品質を全て消費し\n\n対応するモッドを追加する確率を上げる"
+      ],
+      "itemKey": "OmenOnExaltConsumeQuality",
+      "sourceUrl": "https://poe2db.tw/jp/Omen_of_Catalysing_Exaltation"
+    },
+    "Omen_of_the_Sovereign": {
+      "name": "支配者のお告げ",
+      "lines": [
+        "インベントリ内でアクティブな時\n\n次に行う武器または宝飾品への\n\r\n冒涜化の試行は、ランダムなウラマンのモッドを1個必ず付与する"
+      ],
+      "itemKey": "OmenOnAbyssGuarenteedLichTypeMod1",
+      "sourceUrl": "https://poe2db.tw/jp/Omen_of_the_Sovereign"
+    },
+    "Omen_of_the_Liege": {
+      "name": "君主のお告げ",
+      "lines": [
+        "インベントリ内でアクティブな時\n\n次に行う武器または宝飾品への\n\r\n冒涜化の試行は、ランダムなアマナムのモッドを1個必ず付与する"
+      ],
+      "itemKey": "OmenOnAbyssGuarenteedLichTypeMod2",
+      "sourceUrl": "https://poe2db.tw/jp/Omen_of_the_Liege"
+    },
+    "Omen_of_the_Blackblooded": {
+      "name": "ブラックブラッドのお告げ",
+      "lines": [
+        "インベントリ内でアクティブな時\n\n次に行う武器または宝飾品への\n\r\n冒涜化の試行は、ランダムなクルガルのモッドを1個必ず付与する"
+      ],
+      "itemKey": "OmenOnAbyssGuarenteedLichTypeMod3",
+      "sourceUrl": "https://poe2db.tw/jp/Omen_of_the_Blackblooded"
+    },
+    "Omen_of_Putrefaction": {
+      "name": "腐食のお告げ",
+      "lines": [
+        "インベントリ内でアクティブな時\n\n次に行う\n\r\n冒涜化の試行は、アイテムの全てのモッドを置き換え\n\n未発現の冒涜モッドを最大6個持ったアイテムを生成し、そのアイテムをコラプト状態にする"
+      ],
+      "itemKey": "OmenOnAbyssVeilAllAndCorrupt",
+      "sourceUrl": "https://poe2db.tw/jp/Omen_of_Putrefaction"
+    },
+    "Omen_of_Light": {
+      "name": "光のお告げ",
+      "lines": [
+        "インベントリ内でアクティブな時\n\n次に使用する消去のオーブは冒涜モッドのみを取り除く"
+      ],
+      "itemKey": "OmenOnAnnulRemoveAbyssMod",
+      "sourceUrl": "https://poe2db.tw/jp/Omen_of_Light"
+    },
+    "Omen_of_Sinistral_Necromancy": {
+      "name": "左手のネクロマンシーのお告げ",
+      "lines": [
+        "インベントリ内でアクティブな時\n\n次に行う\n\r\n冒涜化の試行は、プレフィックスモッドだけを追加する"
+      ],
+      "itemKey": "OmenOnAbyssAddPrefixes",
+      "sourceUrl": "https://poe2db.tw/jp/Omen_of_Sinistral_Necromancy"
+    },
+    "Omen_of_Dextral_Necromancy": {
+      "name": "右手のネクロマンシーのお告げ",
+      "lines": [
+        "インベントリ内でアクティブな時\n\n次に行う\n\r\n冒涜化の試行は、サフィックスモッドだけを追加する"
+      ],
+      "itemKey": "OmenOnAbyssAddSuffixes",
+      "sourceUrl": "https://poe2db.tw/jp/Omen_of_Dextral_Necromancy"
+    },
+    "Ruby": {
+      "name": "ルビー",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelStr",
+      "sourceUrl": "https://poe2db.tw/jp/Ruby"
+    },
+    "Emerald": {
+      "name": "エメラルド",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelDex",
+      "sourceUrl": "https://poe2db.tw/jp/Emerald"
+    },
+    "Diamond": {
+      "name": "ダイヤモンド",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelDiamond",
+      "sourceUrl": "https://poe2db.tw/jp/Diamond"
+    },
+    "Blacksmiths_Whetstone": {
+      "name": "鍛冶屋の砥石",
+      "lines": ["マーシャル武器の品質を向上させる。"],
+      "itemKey": "CurrencyWeaponQuality",
+      "sourceUrl": "https://poe2db.tw/jp/Blacksmiths_Whetstone"
+    },
+    "Arcanists_Etcher": {
+      "name": "秘術師の彫刻針",
+      "lines": ["ワンド、スタッフまたはセプターの品質を向上させる。"],
+      "itemKey": "CurrencyWeaponMagicQuality",
+      "sourceUrl": "https://poe2db.tw/jp/Arcanists_Etcher"
+    },
+    "Scroll_of_Wisdom": {
+      "name": "鑑定の巻物",
+      "lines": ["アイテムを鑑定する。"],
+      "itemKey": "CurrencyIdentification",
+      "sourceUrl": "https://poe2db.tw/jp/Scroll_of_Wisdom"
+    },
+    "Armourers_Scrap": {
+      "name": "鎧鍛冶の端材",
+      "lines": ["防具の品質を向上させる。"],
+      "itemKey": "CurrencyArmourQuality",
+      "sourceUrl": "https://poe2db.tw/jp/Armourers_Scrap"
+    },
+    "Mirror_of_Kalandra": {
+      "name": "カランドラの鏡",
+      "lines": ["アイテムのミラー化コピーを生成する。"],
+      "itemKey": "CurrencyDuplicate",
+      "sourceUrl": "https://poe2db.tw/jp/Mirror_of_Kalandra"
+    },
+    "Orb_of_Chance": {
+      "name": "可能性のオーブ",
+      "lines": [
+        "ノーマルアイテムを予測不能なユニークレアリティへのアップグレードまたは、アイテムを破壊する。"
+      ],
+      "itemKey": "CurrencyUpgradeToUnique",
+      "sourceUrl": "https://poe2db.tw/jp/Orb_of_Chance"
+    },
+    "Architects_Orb": {
+      "name": "アーキテクトオーブ",
+      "lines": [
+        "コラプト状態の装備品またはジュエルアイテムを予測不可能に変化させるか、または破壊する。"
+      ],
+      "itemKey": "IncursionGreaterVaalOrb",
+      "sourceUrl": "https://poe2db.tw/jp/Architects_Orb"
+    },
+    "Core_Destabiliser": {
+      "name": "コア不安定化装置",
+      "lines": [
+        "ソウルコアのスタックを予測不可能に変化させるか、一定確率で破壊する。"
+      ],
+      "itemKey": "IncursionCoreDestabliser",
+      "sourceUrl": "https://poe2db.tw/jp/Core_Destabiliser"
+    },
+    "Vaal_Cultivation_Orb": {
+      "name": "ヴァール培養のオーブ",
+      "lines": [
+        "コラプト状態のヴァールユニークを変化させ、最大2個のモッドを置き換える。\n\n他の種類のユニークアイテムは代わりに同じアイテムクラスのランダムなユニークアイテムに変化し、コラプト状態になる。"
+      ],
+      "itemKey": "IncursionHistoricVaalOrb",
+      "sourceUrl": "https://poe2db.tw/jp/Vaal_Cultivation_Orb"
+    },
+    "Yaomacs_Orb_of_Sacrifice": {
+      "name": "ヤオマックの生贄のオーブ",
+      "lines": [
+        "レアの武器または矢筒のコラプトエンチャントをアップグレードし、\n\r\nランダムなモッドを1個取り除く"
+      ],
+      "itemKey": "IncursionCorruptionOrb1",
+      "sourceUrl": "https://poe2db.tw/jp/Yaomacs_Orb_of_Sacrifice"
+    },
+    "Kopecs_Orb_of_Sacrifice": {
+      "name": "コペックの生贄のオーブ",
+      "lines": [
+        "レアの防具のコラプトエンチャントをアップグレードし、\n\r\nランダムなモッドを1個取り除く"
+      ],
+      "itemKey": "IncursionCorruptionOrb2",
+      "sourceUrl": "https://poe2db.tw/jp/Kopecs_Orb_of_Sacrifice"
+    },
+    "Kamasas_Orb_of_Sacrifice": {
+      "name": "カマサの生贄のオーブ",
+      "lines": [
+        "レアのアミュレット、指輪またはベルトのコラプトエンチャントをアップグレードし、\n\r\nランダムなモッドを1個取り除く"
+      ],
+      "itemKey": "IncursionCorruptionOrb3",
+      "sourceUrl": "https://poe2db.tw/jp/Kamasas_Orb_of_Sacrifice"
+    },
+    "Yuguls_Orb_of_Sacrifice": {
+      "name": "ユグルの生贄のオーブ",
+      "lines": [
+        "レアのジュエルのコラプトエンチャントをアップグレードし、\n\r\nランダムなモッドを1個取り除く"
+      ],
+      "itemKey": "IncursionCorruptionOrb4",
+      "sourceUrl": "https://poe2db.tw/jp/Yuguls_Orb_of_Sacrifice"
+    },
+    "Vaal_Armourers_Infuser": {
+      "name": "ヴァール鎧鍛冶のインフューザー",
+      "lines": [
+        "防具の品質を向上させる\n\n最大品質を最大10%まで超過することができるが、一定確率でコラプト化してしまう"
+      ],
+      "itemKey": "VaakArmourersScrap",
+      "sourceUrl": "https://poe2db.tw/jp/Vaal_Armourers_Infuser"
+    },
+    "Vaal_Blacksmiths_Infuser": {
+      "name": "ヴァール鍛冶屋のインフューザー",
+      "lines": [
+        "マーシャル武器の品質を向上させる\n\n最大品質を最大10%まで超過することができるが、一定確率でコラプト化してしまう"
+      ],
+      "itemKey": "VaalBlacksmithsWhetstone",
+      "sourceUrl": "https://poe2db.tw/jp/Vaal_Blacksmiths_Infuser"
+    },
+    "Vaal_Arcanists_Infuser": {
+      "name": "ヴァールアルカニストのインフューザー",
+      "lines": [
+        "ワンド、スタッフまたはセプターの品質を向上させる\n\n最大品質を最大10%まで超過することができるが、一定確率でコラプト化してしまう"
+      ],
+      "itemKey": "VaalArcanistsEtcher",
+      "sourceUrl": "https://poe2db.tw/jp/Vaal_Arcanists_Infuser"
+    },
+    "Vaal_Catalysing_Infuser": {
+      "name": "ヴァールカタリストのインフューザー",
+      "lines": [
+        "指輪またはアミュレットの品質を向上させる\n\n最大品質を最大10%まで超過することができるが、一定確率でコラプト化してしまう"
+      ],
+      "itemKey": "VaalCatalyst",
+      "sourceUrl": "https://poe2db.tw/jp/Vaal_Catalysing_Infuser"
+    },
+    "Orb_of_Extraction": {
+      "name": "抽出のオーブ",
+      "lines": [
+        "装備品アイテムを破壊し、それにソケットされているソケットバウンドでないオーグメントを取り戻す。"
+      ],
+      "itemKey": "IncursionSocketableExtractorCurrency",
+      "sourceUrl": "https://poe2db.tw/jp/Orb_of_Extraction"
     }
   },
   "es": {
@@ -8020,7 +11776,9 @@
     },
     "Necrotic_Catalyst": {
       "name": "Catalizador necrótico",
-      "lines": [],
+      "lines": [
+        "Agrega calidad que mejora los modificadores de esbirros de un anillo o un amuleto\n\r\nReemplaza otros tipos de calidad"
+      ],
       "itemKey": "BreachCatalystNecrotic",
       "sourceUrl": "https://poe2db.tw/sp/Necrotic_Catalyst"
     },
@@ -8077,6 +11835,684 @@
       "lines": [],
       "itemKey": "Metadata/Items/Jewels/JewelRadiusDiamond",
       "sourceUrl": "https://poe2db.tw/us/Time-Lost_Diamond"
+    },
+    "Diluted_Liquid_Ire": {
+      "name": "Ira líquida diluida",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya básica rara con\n\nun nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "DilutedDistilledIre",
+      "sourceUrl": "https://poe2db.tw/sp/Diluted_Liquid_Ire"
+    },
+    "Diluted_Liquid_Guilt": {
+      "name": "Culpa líquida diluida",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya básica rara con\n\nun nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "DilutedDistilledGuilt",
+      "sourceUrl": "https://poe2db.tw/sp/Diluted_Liquid_Guilt"
+    },
+    "Diluted_Liquid_Greed": {
+      "name": "Codicia líquida diluida",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya básica rara con\n\nun nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "DilutedDistilledGreed",
+      "sourceUrl": "https://poe2db.tw/sp/Diluted_Liquid_Greed"
+    },
+    "Liquid_Paranoia": {
+      "name": "Paranoia líquida",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya básica rara con\n\nun nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "DistilledParanoia",
+      "sourceUrl": "https://poe2db.tw/sp/Liquid_Paranoia"
+    },
+    "Liquid_Envy": {
+      "name": "Envidia líquida",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya básica rara con\n\nun nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "DistilledEnvy",
+      "sourceUrl": "https://poe2db.tw/sp/Liquid_Envy"
+    },
+    "Liquid_Disgust": {
+      "name": "Disgusto líquido",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya básica rara con\n\nun nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "DistilledDisgust",
+      "sourceUrl": "https://poe2db.tw/sp/Liquid_Disgust"
+    },
+    "Liquid_Despair": {
+      "name": "Desesperación líquida",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya básica rara con\n\nun nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "DistilledDespair",
+      "sourceUrl": "https://poe2db.tw/sp/Liquid_Despair"
+    },
+    "Concentrated_Liquid_Fear": {
+      "name": "Miedo líquido concentrado",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya básica rara con\n\nun nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "ConcentratedDistilledFear",
+      "sourceUrl": "https://poe2db.tw/sp/Concentrated_Liquid_Fear"
+    },
+    "Concentrated_Liquid_Suffering": {
+      "name": "Sufrimiento líquido concentrado",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya básica rara con\n\nun nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "ConcentratedDistilledSuffering",
+      "sourceUrl": "https://poe2db.tw/sp/Concentrated_Liquid_Suffering"
+    },
+    "Concentrated_Liquid_Isolation": {
+      "name": "Aislamiento líquido concentrado",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya básica rara con\n\nun nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "ConcentratedDistilledIsolation",
+      "sourceUrl": "https://poe2db.tw/sp/Concentrated_Liquid_Isolation"
+    },
+    "Ancient_Diluted_Liquid_Ire": {
+      "name": "Ira líquida diluida antigua",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya rara perdida\n\nen el tiempo con un nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "TimelostDilutedDistilledIre",
+      "sourceUrl": "https://poe2db.tw/sp/Ancient_Diluted_Liquid_Ire"
+    },
+    "Ancient_Diluted_Liquid_Guilt": {
+      "name": "Culpa líquida diluida antigua",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya rara perdida\n\nen el tiempo con un nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "TimelostDilutedDistilledGuilt",
+      "sourceUrl": "https://poe2db.tw/sp/Ancient_Diluted_Liquid_Guilt"
+    },
+    "Ancient_Diluted_Liquid_Greed": {
+      "name": "Codicia líquida diluida antigua",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya rara perdida\n\nen el tiempo con un nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "TimelostDilutedDistilledGreed",
+      "sourceUrl": "https://poe2db.tw/sp/Ancient_Diluted_Liquid_Greed"
+    },
+    "Ancient_Liquid_Paranoia": {
+      "name": "Paranoia líquida antigua",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya rara perdida\n\nen el tiempo con un nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "TimelostDistilledParanoia",
+      "sourceUrl": "https://poe2db.tw/sp/Ancient_Liquid_Paranoia"
+    },
+    "Ancient_Liquid_Envy": {
+      "name": "Envidia líquida antigua",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya rara perdida\n\nen el tiempo con un nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "TimelostDistilledEnvy",
+      "sourceUrl": "https://poe2db.tw/sp/Ancient_Liquid_Envy"
+    },
+    "Ancient_Liquid_Disgust": {
+      "name": "Disgusto líquido antiguo",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya rara perdida\n\nen el tiempo con un nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "TimelostDistilledDisgust",
+      "sourceUrl": "https://poe2db.tw/sp/Ancient_Liquid_Disgust"
+    },
+    "Ancient_Liquid_Despair": {
+      "name": "Desesperación líquida antigua",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya rara perdida\n\nen el tiempo con un nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "TimelostDistilledDespair",
+      "sourceUrl": "https://poe2db.tw/sp/Ancient_Liquid_Despair"
+    },
+    "Ancient_Concentrated_Liquid_Fear": {
+      "name": "Miedo líquido concentrado antiguo",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya rara perdida\n\nen el tiempo con un nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "TimelostConcentratedDistilledFear",
+      "sourceUrl": "https://poe2db.tw/sp/Ancient_Concentrated_Liquid_Fear"
+    },
+    "Ancient_Concentrated_Liquid_Suffering": {
+      "name": "Sufrimiento líquido concentrado antiguo",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya rara perdida\n\nen el tiempo con un nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "TimelostConcentratedDistilledSuffering",
+      "sourceUrl": "https://poe2db.tw/sp/Ancient_Concentrated_Liquid_Suffering"
+    },
+    "Ancient_Concentrated_Liquid_Isolation": {
+      "name": "Aislamiento líquido concentrado antiguo",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya rara perdida\n\nen el tiempo con un nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "TimelostConcentratedDistilledIsolation",
+      "sourceUrl": "https://poe2db.tw/sp/Ancient_Concentrated_Liquid_Isolation"
+    },
+    "Potent_Liquid_Melancholy": {
+      "name": "Melancolía líquida potente",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya básica rara con\n\nun nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "UniqueHumansEmotion",
+      "sourceUrl": "https://poe2db.tw/sp/Potent_Liquid_Melancholy"
+    },
+    "Potent_Liquid_Ferocity": {
+      "name": "Ferocidad líquida potente",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya básica rara con\n\nun nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "UniqueConstructsEmotion",
+      "sourceUrl": "https://poe2db.tw/sp/Potent_Liquid_Ferocity"
+    },
+    "Potent_Liquid_Contempt": {
+      "name": "Desprecio líquido potente",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya básica rara con\n\nun nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "UniqueBeastEmotion",
+      "sourceUrl": "https://poe2db.tw/sp/Potent_Liquid_Contempt"
+    },
+    "Ancient_Potent_Liquid_Melancholy": {
+      "name": "Melancolía líquida potente antigua",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya rara perdida\n\nen el tiempo con un nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "TimelessUniqueHumansEmotion",
+      "sourceUrl": "https://poe2db.tw/sp/Ancient_Potent_Liquid_Melancholy"
+    },
+    "Ancient_Potent_Liquid_Ferocity": {
+      "name": "Ferocidad líquida potente antigua",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya rara perdida\n\nen el tiempo con un nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "TimlessUniqueConstructsEmotion",
+      "sourceUrl": "https://poe2db.tw/sp/Ancient_Potent_Liquid_Ferocity"
+    },
+    "Ancient_Potent_Liquid_Contempt": {
+      "name": "Desprecio líquido potente antiguo",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora una joya rara perdida\n\nen el tiempo con un nuevo modificador de fabricación garantizado"
+      ],
+      "itemKey": "TimelessUniqueBeastEmotion",
+      "sourceUrl": "https://poe2db.tw/sp/Ancient_Potent_Liquid_Contempt"
+    },
+    "Hinekoras_Lock": {
+      "name": "Mechón de Hinekora",
+      "lines": [
+        "Permite que un objeto anticipe el resultado del próximo objeto monetario que se va a usar sobre él\n\nSi modificas el objeto de alguna forma, se pierde la capacidad de anticipación"
+      ],
+      "itemKey": "HinekorasLock",
+      "sourceUrl": "https://poe2db.tw/sp/Hinekoras_Lock"
+    },
+    "Vaal_Orb": {
+      "name": "Orbe vaal",
+      "lines": ["Modifica un objeto de forma impredecible y lo corrompe"],
+      "itemKey": "CurrencyVaal",
+      "sourceUrl": "https://poe2db.tw/sp/Vaal_Orb"
+    },
+    "Essence_of_Delirium": {
+      "name": "Esencia de delirio",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora un objeto raro otorgándole un nuevo modificador garantizado",
+        "Armadura: Asigna una habilidad pasiva notable aleatoria"
+      ],
+      "itemKey": "CorruptedEssenceDelirium",
+      "sourceUrl": "https://poe2db.tw/sp/Essence_of_Delirium"
+    },
+    "Essence_of_Insanity": {
+      "name": "Esencia de demencia",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora un objeto raro otorgándole un nuevo modificador garantizado",
+        "Cinturón: Al corromperlo, el objeto gana dos encantamientos"
+      ],
+      "itemKey": "CorruptedEssenceInsanity",
+      "sourceUrl": "https://poe2db.tw/sp/Essence_of_Insanity"
+    },
+    "Runic_Alloy": {
+      "name": "Aleación rúnica",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora un objeto raro otorgándole un nuevo modificador garantizado",
+        "Anillo: +(37—49) a la barrera rúnica máxima",
+        "Amuleto: Barrera rúnica máxima aumentada un (6—10)%",
+        "Cinturón: Velocidad de regeneración de la barrera rúnica aumentada un (15—20)%"
+      ],
+      "itemKey": "ScrapVerisium",
+      "sourceUrl": "https://poe2db.tw/sp/Runic_Alloy"
+    },
+    "Adaptive_Alloy": {
+      "name": "Aleación adaptativa",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora un objeto raro otorgándole un nuevo modificador garantizado",
+        "Báculo: Ganas el (42—52)% del daño como daño de fuego extra mientras no tengas barrera rúnica",
+        "Varita: Ganas el (21—26)% del daño como daño de fuego extra mientras no tengas barrera rúnica",
+        "Cetro: (30—50)% de probabilidad sobrepasante de ganar una acumulación de Maestro titiritero cuando usas una habilidad de orden",
+        "Guantes: (10—15)% increased Attack Speed while missing Runic Ward"
+      ],
+      "itemKey": "ChippedVerisium",
+      "sourceUrl": "https://poe2db.tw/sp/Adaptive_Alloy"
+    },
+    "Protective_Alloy": {
+      "name": "Aleación protectora",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora un objeto raro otorgándole un nuevo modificador garantizado",
+        "Cinturón: Recuperas (32—45) de barrera rúnica cuando se usa un vial",
+        "Armas: +(51—74) a la barrera rúnica máxima",
+        "Escudo: Recuperas (10—15) de barrera rúnica cuando bloqueas"
+      ],
+      "itemKey": "ImpureVerisium",
+      "sourceUrl": "https://poe2db.tw/sp/Protective_Alloy"
+    },
+    "Expansive_Alloy": {
+      "name": "Aleación extensa",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora un objeto raro otorgándole un nuevo modificador garantizado",
+        "Guantes: Los remanentes se pueden recolectar desde un (35—50)% más lejos",
+        "Armadura: Área de efecto de la presencia aumentada un (35—50)%",
+        "Casco: Eficiencia del costo de maná aumentada un (18—29)%",
+        "Botas: Las habilidades de esbirros temporales tienen +(1—2) al límite de esbirros invocados"
+      ],
+      "itemKey": "StandardVerisium",
+      "sourceUrl": "https://poe2db.tw/sp/Expansive_Alloy"
+    },
+    "Swift_Alloy": {
+      "name": "Aleación veloz",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora un objeto raro otorgándole un nuevo modificador garantizado",
+        "Guantes: Velocidad de lanzamiento de hechizos aumentada un (9—12)%",
+        "Anillo: Velocidad de ataque aumentada un (7—9)%",
+        "Cinturón: Los frascos ganan (0.75—1) cargas por segundo",
+        "Escudo o foco: Velocidad de colocación de tótems aumentada un (30—49)%"
+      ],
+      "itemKey": "PureVerisium",
+      "sourceUrl": "https://poe2db.tw/sp/Swift_Alloy"
+    },
+    "Cyclonic_Alloy": {
+      "name": "Aleación ciclónica",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora un objeto raro otorgándole un nuevo modificador garantizado",
+        "Armadura: La potencia ralentizadora de los efectos nocivos está reducida un (15—30)% sobre ti",
+        "Botas: Duración de los efectos de las habilidades aumentada un (15—19)%",
+        "Guantes: Duración de los estados alterados en los enemigos aumentada un (20—25)%",
+        "Casco: Duración de los arcontes aumentada un (35—42)%"
+      ],
+      "itemKey": "ImbuedVerisium",
+      "sourceUrl": "https://poe2db.tw/sp/Cyclonic_Alloy"
+    },
+    "Prismatic_Alloy": {
+      "name": "Aleación prismática",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora un objeto raro otorgándole un nuevo modificador garantizado",
+        "Guantes: El daño penetra el (9—15)% de las resistencias elementales",
+        "Arma marcial: Magnitud de los estados alterados que aplicas aumentada un (20—30)%",
+        "Foco, báculo o varita: Efecto de la exposición aumentado un (40—50)%",
+        "Cetro: Los esbirros tienen la magnitud de los estados alterados dañinos aumentada un (40—49)%"
+      ],
+      "itemKey": "SovereignVerisium",
+      "sourceUrl": "https://poe2db.tw/sp/Prismatic_Alloy"
+    },
+    "Mystic_Alloy": {
+      "name": "Aleación mística",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora un objeto raro otorgándole un nuevo modificador garantizado",
+        "Casco: Las habilidades de hechizos tienen su área de efecto aumentada un (10—15)%",
+        "Guantes: Área de efecto de los ataques aumentada un (10—15)%",
+        "Botas: +(10—15) al espíritu",
+        "Carcaj: (25—35)% de probabilidad de encadenarse una vez adicional",
+        "Arma de lanzador de hechizos: +1 a la cantidad máxima de infusiones elementales"
+      ],
+      "itemKey": "CelestialVerisium",
+      "sourceUrl": "https://poe2db.tw/sp/Mystic_Alloy"
+    },
+    "Sovereign_Alloy": {
+      "name": "Aleación soberana",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora un objeto raro otorgándole un nuevo modificador garantizado",
+        "Armas: Efecto de los objetos engarzados aumentado un (20—30)%",
+        "Armadura: Barrera rúnica aumentada un (24—30)%",
+        "Joyería o cinturón: Magnitudes de los modificadores de resistencia explícitos aumentadas un (20—30)%"
+      ],
+      "itemKey": "Alloy1",
+      "sourceUrl": "https://poe2db.tw/sp/Sovereign_Alloy"
+    },
+    "Celestial_Alloy": {
+      "name": "Aleación celestial",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora un objeto raro otorgándole un nuevo modificador garantizado",
+        "Báculo o varita: +(142—188) al maná máximo\n+1 al nivel de todas las habilidades de hechizos",
+        "Arma marcial: +(327—427) a la precisión\nVelocidad de ataque aumentada un (5—8)%"
+      ],
+      "itemKey": "Alloy4",
+      "sourceUrl": "https://poe2db.tw/sp/Celestial_Alloy"
+    },
+    "Transcendent_Alloy": {
+      "name": "Aleación sobresaliente",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora un objeto raro otorgándole un nuevo modificador garantizado",
+        "Foco, báculo o varita: Velocidad de lanzamiento de hechizos aumentada un (39—47)%\nGanas el (11—16)% del daño elemental como daño de hielo extra",
+        "Arma marcial: Daño físico aumentado un (15—20)%\n+(7—10) a todos los atributos"
+      ],
+      "itemKey": "Alloy5",
+      "sourceUrl": "https://poe2db.tw/sp/Transcendent_Alloy"
+    },
+    "The_Runebinders_Alloy": {
+      "name": "Aleación del vinculador de runas",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora un objeto raro otorgándole un nuevo modificador garantizado",
+        "Báculo: (25—50)% chance to gain Nature's Archon when your Plants Overgrow",
+        "Varita: +1 al límite de las habilidades elementales",
+        "Cetro: +(4—5) al máximo de acumulaciones de Maestro titiritero",
+        "Ballesta: +2 a la cantidad máxima de tótems balista que puedes invocar",
+        "Arco: Efecto de tus habilidades de señal aumentado un (40—50)%"
+      ],
+      "itemKey": "Alloy2",
+      "sourceUrl": "https://poe2db.tw/sp/The_Runebinders_Alloy"
+    },
+    "The_Runefathers_Alloy": {
+      "name": "Aleación del Padre de las runas",
+      "lines": [
+        "Elimina un modificador aleatorio y mejora un objeto raro otorgándole un nuevo modificador garantizado",
+        "Maza: (60—75)% de probabilidad de que las habilidades retengan el 40% de la gloria al usarse",
+        "Bastón: Tempest Bells are destroyed after an additional (4—5) Hits",
+        "Lanza: +(8—10) al alcance del arma",
+        "Talismán: El daño de rayo de los impactos también contribuye a las magnitudes de la inflamabilidad y la quemadura"
+      ],
+      "itemKey": "Alloy3",
+      "sourceUrl": "https://poe2db.tw/sp/The_Runefathers_Alloy"
+    },
+    "Omen_of_Corruption": {
+      "name": "Augurio de corrupción",
+      "lines": [
+        "Mientras este objeto esté activo en tu inventario, tu siguiente\n\norbe vaal siempre provocará un cambio"
+      ],
+      "itemKey": "VoodooOmens3Red",
+      "sourceUrl": "https://poe2db.tw/sp/Omen_of_Corruption"
+    },
+    "Omen_of_Answered_Prayers": {
+      "name": "Augurio de plegarias respondidas",
+      "lines": [
+        "Mientras este objeto esté activo en tu inventario, el siguiente\n\nsantuario en el que hagas clic otorgará un efecto adicional"
+      ],
+      "itemKey": "VoodooOmens4Blue",
+      "sourceUrl": "https://poe2db.tw/sp/Omen_of_Answered_Prayers"
+    },
+    "Omen_of_Secret_Compartments": {
+      "name": "Augurio de compartimentos secretos",
+      "lines": [
+        "Mientras este objeto esté activo en tu inventario, la siguiente\n\ncaja fuerte en la que hagas clic podrá volver a abrirse"
+      ],
+      "itemKey": "VoodooOmens4Dark",
+      "sourceUrl": "https://poe2db.tw/sp/Omen_of_Secret_Compartments"
+    },
+    "Omen_of_the_Hunt": {
+      "name": "Augurio de la cacería",
+      "lines": [
+        "Mientras este objeto esté activo en tu inventario, el siguiente\n\nmonstruo poseído que mates liberará su espíritu azmeri"
+      ],
+      "itemKey": "VoodooOmens4Green",
+      "sourceUrl": "https://poe2db.tw/sp/Omen_of_the_Hunt"
+    },
+    "Omen_of_Reinforcements": {
+      "name": "Augurio de refuerzos",
+      "lines": [
+        "Mientras este objeto esté activo en tu inventario, el siguiente\n\nexiliado renegado que encuentres invocará a un aliado"
+      ],
+      "itemKey": "VoodooOmens4Purple",
+      "sourceUrl": "https://poe2db.tw/sp/Omen_of_Reinforcements"
+    },
+    "Omen_of_Sanctification": {
+      "name": "Augurio de santificación",
+      "lines": [
+        "Mientras este objeto esté activo en tu inventario, el siguiente\n\norbe divino que uses en un objeto raro lo santificará"
+      ],
+      "itemKey": "OmenOnDivineSanctify",
+      "sourceUrl": "https://poe2db.tw/sp/Omen_of_Sanctification"
+    },
+    "Omen_of_Catalysing_Exaltation": {
+      "name": "Augurio de exaltación catalizada",
+      "lines": [
+        "Mientras este objeto esté activo en tu inventario, tu siguiente\n\norbe exaltado consumirá toda la calidad del catalizador para aumentar\n\nla probabilidad del tipo correspondiente de modificador"
+      ],
+      "itemKey": "OmenOnExaltConsumeQuality",
+      "sourceUrl": "https://poe2db.tw/sp/Omen_of_Catalysing_Exaltation"
+    },
+    "Omen_of_the_Sovereign": {
+      "name": "Augurio del soberano",
+      "lines": [
+        "Mientras este objeto esté activo en tu inventario, tu siguiente intento\n\nde profanación en armas o joyas garantizará un modificador de Ulaman aleatorio"
+      ],
+      "itemKey": "OmenOnAbyssGuarenteedLichTypeMod1",
+      "sourceUrl": "https://poe2db.tw/sp/Omen_of_the_Sovereign"
+    },
+    "Omen_of_the_Liege": {
+      "name": "Augurio del señor feudal",
+      "lines": [
+        "Mientras este objeto esté activo en tu inventario, tu siguiente intento\n\nde profanación en armas o joyas garantizará un modificador de Amanamu aleatorio"
+      ],
+      "itemKey": "OmenOnAbyssGuarenteedLichTypeMod2",
+      "sourceUrl": "https://poe2db.tw/sp/Omen_of_the_Liege"
+    },
+    "Omen_of_the_Blackblooded": {
+      "name": "Augurio de los sangrenegra",
+      "lines": [
+        "Mientras este objeto esté activo en tu inventario, tu siguiente intento\n\nde profanación en armas o joyas garantizará un modificador de Kurgal aleatorio"
+      ],
+      "itemKey": "OmenOnAbyssGuarenteedLichTypeMod3",
+      "sourceUrl": "https://poe2db.tw/sp/Omen_of_the_Blackblooded"
+    },
+    "Omen_of_Putrefaction": {
+      "name": "Augurio de putrefacción",
+      "lines": [
+        "Mientras este objeto esté activo en tu inventario, tu siguiente intento\n\nde profanación reemplazará todos los modificadores del objeto\n\npara crear un objeto con hasta 6 modificadores sin revelar y corromper el objeto"
+      ],
+      "itemKey": "OmenOnAbyssVeilAllAndCorrupt",
+      "sourceUrl": "https://poe2db.tw/sp/Omen_of_Putrefaction"
+    },
+    "Omen_of_Light": {
+      "name": "Augurio de la luz",
+      "lines": [
+        "Mientras este objeto esté activo en tu inventario, tu siguiente\n\norbe de anulación solo retirará los modificadores profanados"
+      ],
+      "itemKey": "OmenOnAnnulRemoveAbyssMod",
+      "sourceUrl": "https://poe2db.tw/sp/Omen_of_Light"
+    },
+    "Omen_of_Sinistral_Necromancy": {
+      "name": "Augurio de nigromancia izquierdo",
+      "lines": [
+        "Mientras este objeto esté activo en tu inventario, tu siguiente intento\n\nde profanación agregará solo modificadores de prefijo"
+      ],
+      "itemKey": "OmenOnAbyssAddPrefixes",
+      "sourceUrl": "https://poe2db.tw/sp/Omen_of_Sinistral_Necromancy"
+    },
+    "Omen_of_Dextral_Necromancy": {
+      "name": "Augurio de nigromancia derecho",
+      "lines": [
+        "Mientras este objeto esté activo en tu inventario, tu siguiente intento\n\nde profanación agregará solo modificadores de sufijo"
+      ],
+      "itemKey": "OmenOnAbyssAddSuffixes",
+      "sourceUrl": "https://poe2db.tw/sp/Omen_of_Dextral_Necromancy"
+    },
+    "Ruby": {
+      "name": "Rubí",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelStr",
+      "sourceUrl": "https://poe2db.tw/sp/Ruby"
+    },
+    "Emerald": {
+      "name": "Esmeralda",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelDex",
+      "sourceUrl": "https://poe2db.tw/sp/Emerald"
+    },
+    "Diamond": {
+      "name": "Diamante",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelDiamond",
+      "sourceUrl": "https://poe2db.tw/sp/Diamond"
+    },
+    "Refined_Necrotic_Catalyst": {
+      "name": "Catalizador necrótico refinado",
+      "lines": [
+        "Agrega calidad que mejora los modificadores de esbirros de una joya\n\r\nReemplaza otros tipos de calidad"
+      ],
+      "itemKey": "JewelCatalystNecrotic",
+      "sourceUrl": "https://poe2db.tw/sp/Refined_Necrotic_Catalyst",
+      "nameProvenance": "OWN_TRANSLATION_SOURCE_NAME_UNAVAILABLE"
+    },
+    "Blacksmiths_Whetstone": {
+      "name": "Piedra de afilar",
+      "lines": ["Mejora la calidad de un arma marcial"],
+      "itemKey": "CurrencyWeaponQuality",
+      "sourceUrl": "https://poe2db.tw/sp/Blacksmiths_Whetstone"
+    },
+    "Arcanists_Etcher": {
+      "name": "Buril del arcanista",
+      "lines": ["Mejora la calidad de una varita, un báculo o un cetro"],
+      "itemKey": "CurrencyWeaponMagicQuality",
+      "sourceUrl": "https://poe2db.tw/sp/Arcanists_Etcher"
+    },
+    "Scroll_of_Wisdom": {
+      "name": "Pergamino de sabiduría",
+      "lines": ["Identifica un objeto"],
+      "itemKey": "CurrencyIdentification",
+      "sourceUrl": "https://poe2db.tw/sp/Scroll_of_Wisdom"
+    },
+    "Armourers_Scrap": {
+      "name": "Restos de armaduras",
+      "lines": ["Mejora la calidad de una armadura"],
+      "itemKey": "CurrencyArmourQuality",
+      "sourceUrl": "https://poe2db.tw/sp/Armourers_Scrap"
+    },
+    "Mirror_of_Kalandra": {
+      "name": "Espejo de Kalandra",
+      "lines": ["Crea una copia reflejada de un objeto"],
+      "itemKey": "CurrencyDuplicate",
+      "sourceUrl": "https://poe2db.tw/sp/Mirror_of_Kalandra"
+    },
+    "Orb_of_Chance": {
+      "name": "Orbe de azar",
+      "lines": [
+        "De forma impredecible, mejora un objeto de normal a único o lo destruye"
+      ],
+      "itemKey": "CurrencyUpgradeToUnique",
+      "sourceUrl": "https://poe2db.tw/sp/Orb_of_Chance"
+    },
+    "Architects_Orb": {
+      "name": "Orbe del arquitecto",
+      "lines": [
+        "Modifica un objeto de equipamiento o una joya corruptos de forma impredecible o los destruye"
+      ],
+      "itemKey": "IncursionGreaterVaalOrb",
+      "sourceUrl": "https://poe2db.tw/sp/Architects_Orb"
+    },
+    "Core_Destabiliser": {
+      "name": "Desestabilizador de núcleos",
+      "lines": [
+        "Modifica un núcleo de alma de forma impredecible, con una probabilidad de que se destruya"
+      ],
+      "itemKey": "IncursionCoreDestabliser",
+      "sourceUrl": "https://poe2db.tw/sp/Core_Destabiliser"
+    },
+    "Vaal_Cultivation_Orb": {
+      "name": "Orbe de cultivación vaal",
+      "lines": [
+        "Reemplaza hasta 2 modificadores de un único vaal corrupto\n\nReemplaza otros únicos por un único corrupto de la misma clase de objeto"
+      ],
+      "itemKey": "IncursionHistoricVaalOrb",
+      "sourceUrl": "https://poe2db.tw/sp/Vaal_Cultivation_Orb"
+    },
+    "Vaal_Armourers_Infuser": {
+      "name": "Infusor vaal del armero",
+      "lines": [
+        "Mejora la calidad de una armadura,\n\ny excede la calidad máxima hasta en un 10% con una probabilidad de corromperla"
+      ],
+      "itemKey": "VaakArmourersScrap",
+      "sourceUrl": "https://poe2db.tw/sp/Vaal_Armourers_Infuser"
+    },
+    "Vaal_Blacksmiths_Infuser": {
+      "name": "Infusor vaal del herrero",
+      "lines": [
+        "Mejora la calidad de un arma marcial,\n\ny excede la calidad máxima en hasta un 10% con una probabilidad de corromperla"
+      ],
+      "itemKey": "VaalBlacksmithsWhetstone",
+      "sourceUrl": "https://poe2db.tw/sp/Vaal_Blacksmiths_Infuser"
+    },
+    "Vaal_Arcanists_Infuser": {
+      "name": "Infusor vaal del arcanista",
+      "lines": [
+        "Mejora la calidad de una varita, un báculo o un cetro,\n\ny excede la calidad máxima en hasta un 10% con una probabilidad de corromperlos"
+      ],
+      "itemKey": "VaalArcanistsEtcher",
+      "sourceUrl": "https://poe2db.tw/sp/Vaal_Arcanists_Infuser"
+    },
+    "Vaal_Catalysing_Infuser": {
+      "name": "Infusor vaal de catalización",
+      "lines": [
+        "Mejora la calidad de un anillo o amuleto,\n\ny excede la calidad máxima en hasta un 10% con una probabilidad de corromperlos"
+      ],
+      "itemKey": "VaalCatalyst",
+      "sourceUrl": "https://poe2db.tw/sp/Vaal_Catalysing_Infuser"
+    },
+    "Orb_of_Extraction": {
+      "name": "Orbe de extracción",
+      "lines": [
+        "Destruye un objeto de equipamiento y devuelve todas las mejoras que estaban engarzadas en él"
+      ],
+      "itemKey": "IncursionSocketableExtractorCurrency",
+      "sourceUrl": "https://poe2db.tw/sp/Orb_of_Extraction"
+    },
+    "Liquid_Verisium": {
+      "name": "Verisium líquido",
+      "lines": [
+        "Immediately start a Runic Remnant Encounter with a random Runic Inscription"
+      ],
+      "itemKey": "LiquidMetalVerisium",
+      "sourceUrl": "https://poe2db.tw/sp/Liquid_Verisium",
+      "nameProvenance": "OWN_TRANSLATION_SOURCE_NAME_UNAVAILABLE",
+      "linesLanguage": "en"
+    },
+    "Yaomacs_Orb_of_Sacrifice": {
+      "name": "Orbe de sacrificio de Yaomac",
+      "lines": [
+        "Mejora un encantamiento corrupto de un arma o un carcaj raros\n\r\nY elimina un modificador aleatorio"
+      ],
+      "itemKey": "IncursionCorruptionOrb1",
+      "sourceUrl": "https://poe2db.tw/sp/Yaomacs_Orb_of_Sacrifice",
+      "nameProvenance": "OWN_TRANSLATION_SOURCE_NAME_UNAVAILABLE"
+    },
+    "Kopecs_Orb_of_Sacrifice": {
+      "name": "Orbe de sacrificio de Kopec",
+      "lines": [
+        "Mejora un encantamiento corrupto de una armadura rara\n\r\nY elimina un modificador aleatorio"
+      ],
+      "itemKey": "IncursionCorruptionOrb2",
+      "sourceUrl": "https://poe2db.tw/sp/Kopecs_Orb_of_Sacrifice",
+      "nameProvenance": "OWN_TRANSLATION_SOURCE_NAME_UNAVAILABLE"
+    },
+    "Kamasas_Orb_of_Sacrifice": {
+      "name": "Orbe de sacrificio de Kamasa",
+      "lines": [
+        "Mejora un encantamiento corrupto de un amuleto, un anillo o un cinturón raros\n\r\nY elimina un modificador aleatorio"
+      ],
+      "itemKey": "IncursionCorruptionOrb3",
+      "sourceUrl": "https://poe2db.tw/sp/Kamasas_Orb_of_Sacrifice",
+      "nameProvenance": "OWN_TRANSLATION_SOURCE_NAME_UNAVAILABLE"
+    },
+    "Yuguls_Orb_of_Sacrifice": {
+      "name": "Orbe de sacrificio de Yugul",
+      "lines": [
+        "Mejora un encantamiento corrupto de una armadura rara\n\r\nY elimina un modificador aleatorio"
+      ],
+      "itemKey": "IncursionCorruptionOrb4",
+      "sourceUrl": "https://poe2db.tw/sp/Yuguls_Orb_of_Sacrifice",
+      "nameProvenance": "OWN_TRANSLATION_SOURCE_NAME_UNAVAILABLE"
     }
   }
 }

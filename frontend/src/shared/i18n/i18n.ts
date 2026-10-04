@@ -93,6 +93,8 @@ type GameTerm = {
   lines: string[]
   itemKey: string
   sourceUrl: string
+  nameProvenance?: string
+  linesLanguage?: string
 }
 const gameDictionaries: Record<Locale, Record<string, GameTerm>> = terms
 export function gameTerm(id: string, locale = getLocale()) {

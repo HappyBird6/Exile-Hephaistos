@@ -21,7 +21,8 @@ function definition(id: keyof typeof catalog.definitions): Definition {
       binding.template as keyof typeof catalog.templates.en
     ].name,
     text: binding.englishText,
-    stats: binding.stats,
+    // API JSON property order does not affect stat identity; array order does.
+    stats: binding.stats.map(({ id, min, max }) => ({ id, min, max })),
     tier: 1,
     affixType: 'PREFIX',
     familyIds: ['test-family'],
@@ -38,7 +39,7 @@ describe('verified modifier display templates', () => {
           !/^(ruby|emerald|sapphire|diamond):/.test(id) &&
           !id.startsWith('time-lost-'),
       ),
-    ).toHaveLength(1485)
+    ).toHaveLength(1522)
     expect(
       ids.filter((id) => /^(ruby|emerald|sapphire|diamond):/.test(id)),
     ).toHaveLength(392)
@@ -101,17 +102,18 @@ describe('verified modifier display templates', () => {
     }
   })
 
-  it('keeps raw multi-stat IDs and source values while localizing only the verified affix name', () => {
+  it('renders source-correlated compound values in display order without exposing stat IDs', () => {
     const d = definition('stocky-mitts:prefix:oyster-s')
     const values = Object.fromEntries(
       d.stats!.map((stat) => [stat.id, stat.min]),
     )
-    const english = rolledText(d, values)
+    const before = JSON.stringify({ d, values })
     const translated = localizedModifierText(d, values, 'ko')
-    expect(english.startsWith(`${d.name}:`)).toBe(true)
-    expect(translated.endsWith(english.slice(d.name.length))).toBe(true)
-    for (const stat of d.stats!)
-      expect(translated).toContain(stat.id.replaceAll('_', ' '))
+    expect(translated).toContain('방어도 6% 증가')
+    expect(translated).toContain('생명력 최대치 +7')
+    expect(translated).not.toContain('source units')
+    for (const stat of d.stats!) expect(translated).not.toContain(stat.id)
+    expect(JSON.stringify({ d, values })).toBe(before)
     expect(localizedModifierText(d, undefined, 'ko')).toContain('(6—13)')
     expect(localizedModifierText(d, undefined, 'ko')).toContain('(7—10)')
   })
