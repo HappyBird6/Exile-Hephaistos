@@ -125,7 +125,8 @@ public final class WorkbenchSimulator {
   }
 
   private String baseRuleVersion() {
-    if (catalog.base().id().equals(SapphireJewel.BASE_ID)) return "sapphire-existing-editor-v1";
+    if (catalog.base().id().equals(SapphireJewel.BASE_ID))
+      return "sapphire-existing-reroll-removal-v1";
     if (catalog.base().id().equals(RingEssenceTargets.BASE_ID))
       return "ring-workbench-perfect-essence-v1";
     if (catalog.base().id().equals(HelmetEssenceTargets.BASE_ID))
@@ -225,10 +226,12 @@ public final class WorkbenchSimulator {
         return blocked(action, "Ordinary catalysts require a supported Ring or Amulet.");
       return new Availability(action, true, "");
     }
-    if (state.baseItemId().equals(SapphireJewel.BASE_ID))
+    if (state.baseItemId().equals(SapphireJewel.BASE_ID)
+        && action != WorkbenchCurrency.ANNULMENT
+        && action != WorkbenchCurrency.DIVINE)
       return blocked(
           action,
-          "General Jewel crafting is unavailable: eligibility, full slot rules and generation pool are not reviewed.");
+          "Sapphire currently supports reviewed existing-modifier Annulment and Divine only; additions, full slot rules and the generation pool need verification.");
     if (qualityCapChangePolicy == QualityCapChangePolicy.REJECT_OVERCAP
         && state.catalystQuality() != null
         && (action.baseAction() == CraftingAction.ANNULMENT

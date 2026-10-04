@@ -1,0 +1,87 @@
+{
+  "status": "PASS_BOUNDED_EXISTING_SUFFIX_PARTIAL_JL01",
+  "branch": "workbench/20261002",
+  "baseline": "f454ad62b1ef5d7d70124182251dbac82bf4f59f",
+  "qaDirectory": "E:/WORK/Exile-Hephaistos/codex/sapphire-existing-20261004",
+  "implemented": {
+    "firstTabPositiveStableIds": ["Orb_of_Annulment", "Divine_Orb"],
+    "stateScope": "Magic/Rare Sapphire, zero or one reviewed existing Cast Speed suffix; positive requires the suffix",
+    "positiveWithSuffix": 15,
+    "positiveWithoutSuffix": 13,
+    "retainedRefinedCatalystTypes": 13,
+    "liquidPositive": 0,
+    "generalGenerationPositive": 0,
+    "fullJewelSlotsImplemented": false,
+    "globalRegisteredInventoryChanged": false,
+    "catalogOrFilmSnapshotChanged": false
+  },
+  "backend": {
+    "command": "./gradlew --no-daemon spotlessApply check generateJooq bootJar",
+    "test": {"tests": 374, "failures": 0, "errors": 0, "skipped": 0},
+    "integrationTest": {"tests": 6, "failures": 0, "errors": 0, "skipped": 0}
+  },
+  "frontend": {
+    "runtime": "node:24-bookworm",
+    "npmCi": "PASS",
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "formatCheck": "PASS",
+    "testFiles": 50,
+    "unit": 370,
+    "build": "PASS",
+    "notice": "Existing large dictionary chunk warning retained"
+  },
+  "httpApi": {
+    "assertions": 97,
+    "status": "PASS",
+    "coverage": "Both rarities; positive availability15; Annulment/Divine actual apply; typed quality; source bounds/disclosed3 integer candidates; repeat refusal; exposed registered unavailable actions preserve item; Omen restrictions; invalid roll/rarity/duplicate/unknown crafted property Problem Details",
+    "registeredRejectionChecksArePositiveSupport": false
+  },
+  "browser": {
+    "assertions": 37,
+    "pageErrors": 0,
+    "status": "PASS",
+    "coverage": "Invalid starting roll; source-range Divine; Shift repeat; Alt bounds; Whittling local orange preview; Annulment with Dextral Omen; film undo/redo/reload; typed quality20 survives removal; six locales at1440/390",
+    "whittlingPreviewEstablishesChaosSupport": false,
+    "screenshotsGenerated": 13,
+    "screenshotsInspected": ["omen-candidate.png", "en-1440.png", "ko-390.png", "zh-CN-390.png", "zh-TW-390.png", "ja-390.png", "es-390.png"],
+    "visualResult": "Readable scope and stored quality; orange preview retained; no document horizontal overflow; existing stash scroll layout retained"
+  },
+  "sourceEquivalence": {
+    "backendFiles": 216,
+    "frontendFiles": 107,
+    "mismatches": 0,
+    "checkedJarSha256": "bed6e887a8217f487c5b48013960d4a4bc62711f663edbdd4a2699a34abe9e85",
+    "runtimeJarSha256": "bed6e887a8217f487c5b48013960d4a4bc62711f663edbdd4a2699a34abe9e85"
+  },
+  "sources": {
+    "currentCurrencyRules": "https://poe2db.tw/us/Currency",
+    "sapphireRarityAndExistingSnapshot": "https://poe2db.tw/us/Sapphire",
+    "nextLiquidSource": "https://poe2db.tw/us/Liquid_Emotions",
+    "candidateInventory": "docs/evidence/jewel-liquid-next-inventory-2026-10-04.json",
+    "weightBoundary": "Current Sapphire source says modifier weights cannot be obtained from game files. DropChance1 is not imported as spawn weight. Existing suffix generation weight remains0.",
+    "craftedRead": "FAILED; no crafted uniqueness/overlap rules established",
+    "modifierHoverRead": "403 Forbidden; no new stat/weight verification claimed"
+  },
+  "recoveryHistory": [{
+    "attempt": 1,
+    "stage": "Browser harness",
+    "reason": "Harness expected local orange preview for Dextral Annulment alone. Existing preview is Whittling-only. Activated Whittling separately, retaining same preview assertion and product code.",
+    "evidence": ["browser-first-failure.json", "browser-first-failure.png"],
+    "authorization": "Standing explicit continuous-work instruction permits scoped recoverable fixes"
+  }],
+  "composeConfigQuiet": "PASS_PROJECT_AND_ISOLATED",
+  "ownedQaContainersRemaining": 0,
+  "heavyQaSlotReleased": true,
+  "userServicesPreserved": [18080, 18081],
+  "remotePushMergeDeploy": "NOT_PERFORMED",
+  "historicalBaseline": {"api": 2108, "browser": 594, "rerunOrClaimedAsThisRun": false},
+  "selfReview": "Requirement/diff/evidence reviewed. Existing-suffix support complete and validated; full requested Jewel/Liquid bundle remains incomplete because slot/pool and crafted conflict semantics need evidence.",
+  "remainingOrdered": [
+    "JL01 full Sapphire current-game slot rules and eligible generation snapshot",
+    "JL02 ordinary Basic Liquid10 on Sapphire with crafted serialization/conflict/removal evidence or explicitly labeled reversible policy",
+    "JL03 other Basic Jewel bases",
+    "JL04 Potent3",
+    "JL05 Ancient14 / Time-Lost"
+  ]
+}

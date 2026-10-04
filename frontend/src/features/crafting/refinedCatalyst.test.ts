@@ -61,6 +61,65 @@ const reply = (state: ConcreteItem, action: WorkbenchAction): AppliedItem => ({
 })
 afterEach(() => vi.unstubAllGlobals())
 
+it('accepts reviewed Sapphire removal and source-range reroll while preserving typed quality', async () => {
+  const before: ConcreteItem = {
+    ...root,
+    catalystQuality: { type: 'SIBILANT', amount: 20 },
+  }
+  for (const action of ['ANNULMENT', 'DIVINE'] as const) {
+    const next: ConcreteItem = {
+      ...before,
+      explicits:
+        action === 'ANNULMENT'
+          ? []
+          : [
+              {
+                modifierId: sapphireCastSpeed,
+                values: { display_cast_speed_percent: 4 },
+              },
+            ],
+    }
+    const result = {
+      ...reply(next, action),
+      events: [
+        {
+          kind: action === 'ANNULMENT' ? 'REMOVE' : 'REROLL_EXPLICIT',
+          modifierId: sapphireCastSpeed,
+          values:
+            action === 'ANNULMENT' ? {} : { display_cast_speed_percent: 4 },
+          selectionProbability: 1,
+        },
+      ],
+    }
+    vi.stubGlobal(
+      'fetch',
+      vi
+        .fn()
+        .mockResolvedValue(
+          new Response(JSON.stringify(result), { status: 200 }),
+        ),
+    )
+    const accepted = await applyCurrency(
+      before,
+      action,
+      definitions,
+      new AbortController().signal,
+    )
+    expect(accepted.state).toEqual(next)
+    expect(verifiedHistoryState(next, initial)).toBe(true)
+    if (action === 'DIVINE') {
+      expect(
+        catalystProjection(
+          definitions[sapphireCastSpeed]!,
+          next.explicits[0]!.values,
+          next.catalystQuality,
+        ).values.display_cast_speed_percent,
+      ).toBe(5)
+      expect(next.explicits[0]!.values.display_cast_speed_percent).toBe(4)
+    }
+  }
+})
+
 it('accepts all thirteen refined API results, repeated use and type replacement without changing original rolls', async () => {
   let state = root
   for (const type of Object.keys(

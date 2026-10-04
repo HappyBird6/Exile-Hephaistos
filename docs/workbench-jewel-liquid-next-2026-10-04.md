@@ -1,5 +1,7 @@
 # 다음 묶음: Jewel 기본 화폐와 Liquid
 
+진행 경계: JL-01의 기존 Sapphire suffix Annulment/Divine 부분은 [제거·재굴림 변경](workbench-sapphire-existing-currency-2026-10-04.md)으로 구현했다. 일반 pool/실제 slot 확대와 Liquid는 아직 미완료다. 아래 순서는 남은 작업의 순서이며 전체 JL-01 완료를 뜻하지 않는다.
+
 이번 채팅은 cap 정정만 구현한다. 다음 fresh chat은 Jewel 기본 제작과 Liquid를 구현한다. 사용자가 Jewel도 첫 Currency tab의 기본 규칙을 적용받는다고 확인했고 Liquid를 다시 요청했으므로 이전 Liquid 제외·catalyst-only Jewel guard는 다음 묶음에서 갱신한다. Essence는 Jewel에 적용하지 않는다. “장비라고 명시되어 있지 않은 애들”은 검증할 가설이다. tooltip 단어 부재를 eligibility로 사용하지 않는다. 서버 갱신 요청은 없다.
 
 첫 tab은 `currencies.ts`의22개다. [전체 stable ID와 source 인벤토리](evidence/jewel-liquid-next-inventory-2026-10-04.json)에 순서대로 기록했다. 일반/Greater/Perfect Transmutation, Augmentation, Regal, Exalted, Chaos15종과 Alchemy, Annulment, Divine3종이 우선 검토 대상18개다. Artificer's Orb는 socket/equipment 대상 경계 확인이 필요하다. Fracturing Orb는 기존 구현과 Jewel 적용·최소 affix 조건을 별도 확인한다. Vaal Orb와 Hinekora's Lock은 첫 tab에 있지만 이전 deferred 범위와 충돌한다. 새 요청 없이 확률/예측/오염 구현으로 확대하지 않는다. Chance·Extraction·Desecration은 이22개에 없다.

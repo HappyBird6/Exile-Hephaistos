@@ -1,5 +1,12 @@
 # Project issues
 
+## WB-046 - PARTIAL IMPLEMENTATION / OPEN EVIDENCE - Sapphire basic currencies and Liquid
+
+- 기존 검증된 Cast Speed suffix의 Annulment/Divine을 구현한다. Refined13과 합쳐 Sapphire에서 positive15이며 전체 기본 crafting이나 Liquid 완료가 아니다. [기능 경계와 이어갈 작업](docs/workbench-sapphire-existing-currency-2026-10-04.md).
+- JL-01 잔여: current-game Magic/Rare side slot 근거, 일반58행의 eligible pool·stat mapping 검증. `DropChance=1`은 실제 weight로 가져오지 않는다. 확인된 후보에서 source weight가 없으면 사용자 허용 disclosed1/N fallback을 적용한다. 기존 suffix stable ID·film을 유지한다.
+- JL-02 잔여: Rare Sapphire ordinary Basic Liquid10의 Crafted 표식 직렬화, 기존 Crafted 교체/제거, family 충돌, side-full과 fractured 분기. 현재 Crafted source 읽기 실패와 modifier hover HTTP403을 확인했으며 이를 규칙 확인으로 취급하지 않는다. 권장 reversible model과 source-confirmed rules를 구분해야 한다.
+- 후속 순서: Sapphire 기본 제작 잔여 → Basic Liquid → 다른 Basic Jewel bases → Potent3 → Ancient14. Essence-on-Jewel, Vaal/Hinekora/Desecration 등 기존 제외 범위는 유지한다.
+
 > 최신 사용자 지시 (2026-10-04): 기폭제 서비스 제외 취소. 현재144 = 기본111 + legacy7 + 기폭제 미구현26, 보류76 = 기존65 + 신규11, registry220/구현체126. 기존 기폭제 메뉴·typed 품질 입력/API·film·모델·테스트 보존. 실제 적용과 UX는 사용자 피드백 수집 후 조정. Catalysing 및 Necromancy2·훼손 신규 개발은 계속 보류. 이번5는 구현 checkpoint이며 최종 FE/API/browser 검증 미완료. [최신 범위](docs/workbench-service-scope-2026-10-04.md).
 
 
