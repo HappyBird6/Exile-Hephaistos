@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "date": "2026-10-04",
-  "status": "IMPLEMENTED_VALIDATION_BLOCKED",
+  "status": "IMPLEMENTED_BOUNDED_HARNESS_RESUMPTION_PREPARED_RUNTIME_PENDING",
   "branch": "workbench/20261002",
   "baseline": "0c044759b76241407d2b272021aa4cd40926ecfb",
   "scope": {
@@ -117,7 +117,7 @@
     ],
     "error": "AssertionError [ERR_ASSERTION]: solar opposing sides atomic",
     "notRun": "Remaining nine-base/legacy5/weighted double-add/refusal checks",
-    "reviewInference": "ItemState.canonical sorts modifier arrays; synthetic rare order may differ from response in raw deepStrictEqual. Not confirmed by a captured full response; investigate preserving all fields/rolls/flags. No repeat executed."
+    "reviewInference": "Read-only follow-up: Solar explicit order is already canonical. Initial.state type is StateBucket (7 authoritative item fields); apply.state is ItemState and includes nullable augmentSockets/catalystQuality. Raw equality compares missing fields to null. Repair optional defaults plus existing canonical order only, keeping every other field/roll/flag and strict atomic events/assumptions/consumption assertions. Runtime confirmation pending."
   },
   "browser": {
     "status": "FAIL_HARNESS_WAIT_TIMEOUT",
@@ -141,7 +141,7 @@
       "390px/1440px screenshots and visual QA",
       "film reload byte preservation"
     ],
-    "reviewInference": "After session select, Previous is read before new film state settles; enabled old button becomes disabled. Await selected active film/cursor before traversing. No repeat executed."
+    "reviewInference": "restoreFilm loads catalog asynchronously. Harness inspected Previous from old film before new active ID/cursor/DOM step settled. Prepared waits for saved active/DOM last step, skips same active reselection, then waits each cursor decrement. Runtime confirmation pending."
   },
   "sourceEquivalence": {
     "backend": {
@@ -248,7 +248,7 @@
       "sha256": "3dec5ede3aa7c59e4ac56c6c096a7838a49d3b8b5e29cbe4a34a54e114ca1ce6"
     },
     "api.cjs": {
-      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/api.cjs",
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/api-first.cjs",
       "sha256": "c4693cf2e671ae114453ce74d96bb87971c4cc4a7151726c43b7b2e3f19c8f33"
     },
     "api-failure.json": {
@@ -256,11 +256,11 @@
       "sha256": "80640b9dddb84e4a3837dc3ce601e995fbd0fabbc4612bacf60029fb8f2b6512"
     },
     "browser.cjs": {
-      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/browser.cjs",
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/browser-first.cjs",
       "sha256": "da998c7a7d747c30be978ff7f620f1aad56cfe0f243980410eb2feb8aed7cc68"
     },
     "browser-fixtures.cjs": {
-      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/browser-fixtures.cjs",
+      "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/browser-fixtures-first.cjs",
       "sha256": "a7307ca86379685c36ca5e2092799e3f08cbcc707e02412c30e4a196adfa9037"
     },
     "browser-failure.json": {
@@ -278,6 +278,37 @@
     "compose.yaml": {
       "path": "E:/WORK/Exile-Hephaistos/codex/omen-bundle-20261004/compose.yaml",
       "sha256": "75660e60fb9a2fb637b2730c857093d3171cdc072fb97b361426378384df1afd"
+    }
+  },
+  "boundedResumption": {
+    "authorization": "Explicit user continuous-work instruction supplied by parent; user instructions take precedence. Existing2 rounds retained; one additional bounded harness repair batch, no stage/session reset and no denial bypass.",
+    "prepared": true,
+    "heavyRuntimeExecuted": false,
+    "slot": "i18n owns exclusive heavy slot; wait for grant",
+    "changes": [
+      "MaterialStash original special-ID order already corrected in e2ae87e;22 tests pending",
+      "StateBucket optional fields/canonical order vs ItemState normalization; all substantive assertions retained",
+      "Browser selected-film/DOM step and per-click cursor waits; same active selection skipped",
+      "Capture failing full synthetic request/raw/parsed response and browser UI/storage to new failure files; first failure files preserved"
+    ],
+    "syntax": {
+      "api": "PASS node --check",
+      "browser": "PASS node --check",
+      "browserFixtures": "PASS node --check"
+    },
+    "scripts": {
+      "api.cjs": {
+        "path": "scripts/qa/omen-composition-20261004/api.cjs",
+        "sha256": "33f7d6184ff5f0882ff0b3137f2e3d34ae85eb7ccb91e2b1195605a7d022846b"
+      },
+      "browser.cjs": {
+        "path": "scripts/qa/omen-composition-20261004/browser.cjs",
+        "sha256": "7b15b0f08e6a04500556593b8650a04c6f2f0eb3253c3540ac8ab211a92dabd4"
+      },
+      "browser-fixtures.cjs": {
+        "path": "scripts/qa/omen-composition-20261004/browser-fixtures.cjs",
+        "sha256": "0b03d16f0876a6b64fac03156f82d973cb4c1e5766a67b868e955762c53a760b"
+      }
     }
   }
 }

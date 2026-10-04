@@ -37,11 +37,13 @@ modifier level 없는 special affix와 Fractured Whittling은 사용자 인게�
 
 ## 다음 재개 범위
 
-운영명세의 복구2회를 모두 사용했다. 다음 실행 전 명시 재개 승인이 필요하며 횟수를 새 stage로 초기화하지 않는다. 추가 범위 확대 없이 아래 세 가지를 해결한다.
+운영명세의 기본 복구2회를 모두 사용했다. 이후 부모가 제시한 사용자 명시 `중단없이 진행` 지시와 사용자 지시 우선 조항을 대조해, 기존 세 harness 결함만 고치는 추가 bounded 복구1묶음으로 재개하기로 했다. 새 action-time 승인 요구는 운영명세에 없으며 기존 승인 범위를 다시 묻지 않는다. 기존2회 횟수·실패를 삭제하거나 stage/session으로 초기화하지 않는다. i18n이 shared QA slot을 사용 중이므로 repaired script는 준비/구문 확인만 하고 runtime 재검증은 slot 반환 후 진행한다. 반복 실패 시 캡처와 원인을 보고하며 임의 추가 반복하지 않는다.
 
 1. 최종 정정된 `MaterialStash.test.tsx`22개를 검증한다. 기존 ordinary Essence19×4=76, 별도 special4와 Delirium/Insanity 제외를 유지한다. 마지막 failure는 추가한 special ID 순서의 fixture 오류였으며 실제 목록은 변경하지 않았다.
-2. 격리 API script의 atomic 비교를 기존 `ItemState.canonical` 정렬 계약과 대조한다. 모든 필드와 각 roll·fractured flag를 보존하는 비교가 필요하다. 순서 차이가 원인이라는 현재 추론을 실제 응답으로 확인하고 나머지9-base/legacy5 검사를 완료한다. 실패를 PASS로 재표시하지 않는다.
-3. browser restore에서 선택한 film의 active ID/cursor가 반영될 때까지 기다린 뒤 Previous를 조작한다. Solar 성공8개는 보존하고 나머지9-base, legacy5, Greater+Homogenising tiered 실제 동작, 390px screenshot, reload 검사를 완료한다.
+2. API 읽기 전용 재진단으로 Solar fixture의 배열은 이미 canonical 순서였음을 확인했다. 이전 배열순서 추론을 정정한다. initial.state는 `StateBucket`이라 optional `augmentSockets/catalystQuality`가 없고 apply.state는 `ItemState`라 null 필드가 생기는 계약 차이가 raw equality의 구체적인 원인이다. fixture에 기존 nullable defaults를 명시하고 기존 정렬 계약만 적용한다. 다른 모든 필드와 각 roll·fractured flag를 보존하며 원자적 events/assumptions/소모 검사는 유지한다. 실패 request/raw response/parsed response를 새 파일에 캡처하고 나머지9-base/legacy5 검사를 완료한다. repaired 실행 전까지 최초 실패를 PASS로 재표시하지 않는다.
+3. browser restore에서 선택한 film의 active ID/cursor와 DOM step이 반영될 때까지 기다린 뒤 Previous를 조작한다. 같은 active film은 비동기 재선택을 생략한다. 각 Previous 후 cursor와 DOM 감소를 기다린다. Solar 성공8개는 보존하고 나머지9-base, legacy5, Greater+Homogenising tiered 실제 동작, 390px screenshot, reload 검사를 완료한다. 실패 시 마지막 request/response/film/DOM 상태를 새 파일로 캡처한다.
+
+준비된 재현 script는 [QA harness](../scripts/qa/omen-composition-20261004/README.md)에 commit했다. product code 변경이나 assertion 삭제 없음. Node `--check`3개 PASS는 syntax 확인이고 API/browser runtime 검증이 아니다.
 
 `codex/omen-bundle-20261004`의 실패 scripts/logs와 source-equivalence를 보존했다. Runtime jar와 frontend dist는 격리 폴더에만 있다. 병행 i18n worker `db78a7b`와의 통합은 별도 권한과 통합검증이 필요하다. 이 checkpoint는 push/merge/deploy 완료를 의미하지 않는다.
 
