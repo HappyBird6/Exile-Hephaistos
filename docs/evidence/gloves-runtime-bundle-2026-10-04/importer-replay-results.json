@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "comparedDocuments": 9,
+  "pools": [
+    "massive-mitts",
+    "sirenscale-gloves",
+    "adherent-cuffs"
+  ],
+  "assertions": "Exact catalog identities, definitions, hashes, original timestamps, six-language terms/templates, top-base manifests and complete Essence targets survive cached re-import"
+}

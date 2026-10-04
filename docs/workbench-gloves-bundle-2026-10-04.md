@@ -28,6 +28,35 @@ QA project는 `exile-gloves-20261004`, API/UI는 localhost 19380/19381이다. �
 
 Source importer의 최초 perfect/Abyss 검사는 축약된 section text를 full effect와 비교하여 실패했다. Source Code, family, generation, level과 public detail의 exact effect를 비교하도록 수정했고 실패 로그를 보존했다. Backend check 1은 Gradle provisioning 중 최종 소스 반영을 위해 중단했으며 assertion failure가 아니다. 이후 검증 결과는 완료 후 아래에 기록한다.
 
+최종 검증:
+
+| 영역 | 결과 | 근거 |
+|---|---|---|
+| Backend `spotlessApply check generateJooq bootJar` | unit/ArchUnit 396 + Docker integration 6 = 402 통과 | QA `backend-check-4.log`, XML |
+| Frontend `npm ci`, lint, typecheck, format:check, test -- --run, build | 59 files, 1,756 tests 통과 | QA `frontend-check-6.log`; npm ci 성공은 check 3 |
+| 여섯 언어 completeness | 정의 2,353개, compound binding 244개, 이름 220/220 | [JSON](evidence/gloves-runtime-bundle-2026-10-04/display-coverage.json) |
+| 실제 API | 217 assertions, 22 initial bases | [JSON](evidence/gloves-runtime-bundle-2026-10-04/api-results.json) |
+| 실제 browser | 223 checks, error 0 | [JSON](evidence/gloves-runtime-bundle-2026-10-04/browser-results.json) |
+| 화면 | 3 bases × 6 locales × 2 widths = 36 captures, orange preview 3개 | QA `browser-attempt-2`; 여섯 언어 대표 화면 시각 검토 |
+| Compose | 격리 profile `config --quiet` 통과 | QA `compose.yaml` |
+| Importer cached replay | 9개 JSON 문서의 완전 동등성, ID/hash/원래 timestamp 유지 | [JSON](evidence/gloves-runtime-bundle-2026-10-04/importer-replay-results.json) |
+
+API는 새 base의 전체 정의·1/N ledger, 일반 화폐 6종, Alchemy/Fracturing 및 Chaos lock 보존, basic Essence 28종씩, Perfect Grounding/Opulence/Hysteria/Abyss, omen 충돌의 원자적 거부, 저레벨 경계, 미지원 class/quality 경로를 확인한다. 기존 registry 220개와 과거 game terms/template/base 속성은 original commit과 완전 비교한다. Browser는 selector 22개, old Stocky/Body/Helmet film의 원래 ID 유지·복원·제작, 새 film의 분기·원래 미래 유지·reload, Shift/Alt, fractured, 빈 implicit, ES/hybrid roll 번역, target 검증 및 local orange preview를 확인한다. 기존 전체 테스트에 포함된 quality overflow와 중앙 rounding 검사를 유지했다.
+
+회복 기록을 삭제하지 않았다:
+
+- Frontend check 1: Node 22가 engine 요구 범위를 벗어나 npm ci 종료. Node 24.21.0/npm 11.19.0으로 재실행했다.
+- Check 2: 새 테스트의 strict nullable dictionary 접근을 수정했다. 누락된 이름/ID는 계속 실패한다.
+- Check 3: 격리 pretest의 catalog root를 `HEPHAISTOS_TRANSLATION_ROOT=/source`로 연결했다.
+- Check 4: 기존 exact corpus count 1,522/228/103을 source 증가분 39/16/23과 함께 1,561/244/126으로 갱신했다. 모든 기존/새 binding의 여섯 언어 min/middle/max assertions를 유지했다. Check 5와 최종 6은 모두 통과했다.
+- API check 1: Abyss의 기본 Amulet target routing이 새 Gloves에 적용되어 거부됐다. 검증된 Gloves target 두 개를 override에 연결하고 세 base의 성공·1/2 확률·omen 충돌 회귀 검사를 추가했다. importer에서 proof record와 definition 배열을 혼동한 첫 수정 실패도 별도 log에 보존했다. 완성 전 compile-only check 3을 중단하고 최종 Backend check 4를 전부 실행했다.
+- API check 2: PowerShell text pipeline이 만든 과거 Unicode fixture가 손상됐다. 손상본을 별도 보존하고 Git blob을 native byte redirect로 다시 내보냈다. 비교 assertion을 바꾸지 않았으며 check 3에서 모두 통과했다.
+- Browser attempt 1: Omen 선택을 활성화로 잘못 취급한 fixture가 orange preview에서 timeout됐다. 실제 즐겨찾기 배치/우클릭 활성화 흐름으로 바로잡고 별도 `browser-attempt-2`에서 전부 재실행했다. 최초 실패 JSON/PNG와 36개 캡처를 보존했다.
+
+실제 게임 spawn/numeric roll 확률은 여전히 검증되지 않았다. build의 큰 chunk 안내는 남아 있으나 build는 성공했다. UI/서버/DB volume을 배포하거나 업데이트하지 않았다. 구현 checkpoint는 `5eaad014bfa7e78a35a425d76669c24a9eb484fd`; 후속 commit은 Abyss 수정과 최종 검증 근거를 담는다. 남은 armour는 아래 후보이며 현재 세 base에 대한 source/runtime blocker는 없다.
+
+격리 QA services만 중지·제거했고 QA slot을 해제했다. 기존 live 18080/18081의 네 container는 계속 실행 중이다. 사용자 browser/localStorage, 기존 DB volume, 원본 repository와 remote branch는 변경하지 않았다. QA의 로그·XML·JAR·36개 최종 locale captures·3개 orange captures·실패 이력은 `codex/gloves-qa-20261004`에 남긴다.
+
 ## 다음 묶음
 
 남은 armour 후보 19개:

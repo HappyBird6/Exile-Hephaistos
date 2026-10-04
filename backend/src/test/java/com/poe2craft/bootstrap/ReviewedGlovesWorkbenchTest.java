@@ -177,14 +177,22 @@ class ReviewedGlovesWorkbenchTest {
     for (var action :
         List.of(
             WorkbenchCurrency.PERFECT_ESSENCE_GROUNDING,
-            WorkbenchCurrency.PERFECT_ESSENCE_OPULENCE)) {
+            WorkbenchCurrency.PERFECT_ESSENCE_OPULENCE,
+            WorkbenchCurrency.ESSENCE_ABYSS)) {
       var result =
           service.apply(
               rare, action, Set.of(WorkbenchOmen.SINISTRAL_CRYSTALLISATION.id()), new Random(77));
       assertThat(result.applied()).as(action.name()).isTrue();
       assertThat(result.consumedOmens())
           .containsExactly(WorkbenchOmen.SINISTRAL_CRYSTALLISATION.id());
-      assertThat(result.events().getLast().modifierId()).isIn(action.replacementModifiers());
+      var targets =
+          action == WorkbenchCurrency.ESSENCE_ABYSS
+              ? List.of(
+                  "stocky-mitts:prefix:essence-abyssal-mark",
+                  "stocky-mitts:suffix:essence-abyssal-mark")
+              : action.replacementModifiers();
+      assertThat(result.events().getLast().modifierId()).isIn(targets);
+      assertThat(result.events().getLast().selectionProbability()).isEqualTo(1.0 / targets.size());
       var refused =
           service.apply(
               rare,

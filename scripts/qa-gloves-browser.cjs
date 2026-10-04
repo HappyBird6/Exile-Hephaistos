@@ -84,6 +84,7 @@ const concrete = (i) => { const s = { ...i.state, explicits: [], augmentSockets:
     const source = initials[k], d = Object.values(source.modifiers).find((d) => d.weight > 0 && (k === 'massive' ? d.stats.length === 1 : d.stats.length === 2 && d.id.startsWith(bases[k].pool + ':')) && d.stats[0].min !== d.stats[0].max)
     const state = { ...concrete(source), rarity: 'RARE', explicits: [{ modifierId: d.id, values: Object.fromEntries(d.stats.map(s => [s.id, s.min])), fractured: true }] }
     await seed(state, 'qa-' + k)
+    check(k + ' no invented implicit lines', await page.locator('.bench-item-card .item-card__line--implicit').count() === 0)
     check(k + ' fractured rendered', await page.locator('.bench-item-card [data-fractured], .bench-item-card .item-card__line--fractured').count() === 1)
     const normal = await page.locator('.bench-item-card').innerText()
     await page.keyboard.down('Alt')
@@ -125,6 +126,9 @@ const concrete = (i) => { const s = { ...i.state, explicits: [], augmentSockets:
     await seed(rare, 'perfect-' + k)
     const result = await use('Perfect_Essence_of_Grounding')
     check(k + ' browser accepts class-valid Perfect Essence', result.applied)
+    await seed(rare, 'abyss-' + k)
+    const abyss = await use('Essence_of_the_Abyss')
+    check(k + ' browser accepts sourced Gloves Abyss targets', abyss.applied)
   }
   for (const k of ['massive', 'sirenscale', 'adherent']) {
     const source = initials[k]
@@ -135,12 +139,15 @@ const concrete = (i) => { const s = { ...i.state, explicits: [], augmentSockets:
     const saved = await raw()
     await page.locator('#tab-Omen').click()
     const omen = page.getByRole('button', { name: terms.en.Omen_of_Whittling.name, exact: true })
-    await omen.click({ button: 'right' })
+    await omen.click()
+    const favorite = page.locator('.favorite-slot').first()
+    await favorite.click()
+    await favorite.click({ button: 'right' })
     await page.waitForSelector('.bench-item-card .item-card__line--removal-candidate')
     check(k + ' local orange preview', await page.locator('.item-card__line--removal-candidate').evaluate(el => getComputedStyle(el).color) === 'rgb(255, 166, 77)')
     check(k + ' local preview preserves film', await raw() === saved)
     await page.screenshot({ path: '/evidence/' + k + '-orange-preview.png', fullPage: true })
-    await omen.click({ button: 'right' })
+    await favorite.click({ button: 'right' })
   }
   for (const legacy of ['stocky', 'body', 'helmet']) {
     const state = concrete(initials[legacy])

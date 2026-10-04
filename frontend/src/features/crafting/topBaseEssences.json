@@ -40,7 +40,11 @@
       "GREATER_ESSENCE_OPULENCE": ["stocky-mitts:suffix:of-archaeology"]
     },
     "replacements": {
-      "ESSENCE_HYSTERIA": ["stocky-mitts:suffix:of-fury"]
+      "ESSENCE_HYSTERIA": ["stocky-mitts:suffix:of-fury"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
     }
   },
   "sirenscale": {
@@ -84,7 +88,11 @@
       "GREATER_ESSENCE_OPULENCE": ["stocky-mitts:suffix:of-archaeology"]
     },
     "replacements": {
-      "ESSENCE_HYSTERIA": ["stocky-mitts:suffix:of-fury"]
+      "ESSENCE_HYSTERIA": ["stocky-mitts:suffix:of-fury"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
     }
   },
   "adherent": {
@@ -131,7 +139,11 @@
       "GREATER_ESSENCE_OPULENCE": ["stocky-mitts:suffix:of-archaeology"]
     },
     "replacements": {
-      "ESSENCE_HYSTERIA": ["stocky-mitts:suffix:of-fury"]
+      "ESSENCE_HYSTERIA": ["stocky-mitts:suffix:of-fury"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
     }
   }
 }

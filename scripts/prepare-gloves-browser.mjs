@@ -10,6 +10,7 @@ s = s.replaceAll('19281', '19381')
   .replace("const normal = await page.locator('.bench-item-card').innerText()", "check(k + ' fractured rendered', await page.locator('.bench-item-card [data-fractured], .bench-item-card .item-card__line--fractured').count() === 1)\n    const normal = await page.locator('.bench-item-card').innerText()")
 s = s.replace('d.stats.length === 1 && d.stats[0].min !== d.stats[0].max', "(k === 'massive' ? d.stats.length === 1 : d.stats.length === 2 && d.id.startsWith(bases[k].pool + ':')) && d.stats[0].min !== d.stats[0].max")
   .replace('values: { [d.stats[0].id]: d.stats[0].min }, fractured: true', 'values: Object.fromEntries(d.stats.map(s => [s.id, s.min])), fractured: true')
+  .replace("check(k + ' fractured rendered'", "check(k + ' no invented implicit lines', await page.locator('.bench-item-card .item-card__line--implicit').count() === 0)\n    check(k + ' fractured rendered'")
 s = s.replace("await page.locator('#tab-Currency').click()", "await page.locator(id.includes('Essence') ? '#tab-Essence' : '#tab-Currency').click()")
   .replace('await button.click()', "await button.click({ button: id.includes('Essence') ? 'right' : 'left' })")
 s = s.replace("  for (const legacy of ['stocky', 'body', 'helmet']) {", `  for (const k of ['massive', 'sirenscale', 'adherent']) {
@@ -27,6 +28,9 @@ s = s.replace("  for (const legacy of ['stocky', 'body', 'helmet']) {", `  for (
     await seed(rare, 'perfect-' + k)
     const result = await use('Perfect_Essence_of_Grounding')
     check(k + ' browser accepts class-valid Perfect Essence', result.applied)
+    await seed(rare, 'abyss-' + k)
+    const abyss = await use('Essence_of_the_Abyss')
+    check(k + ' browser accepts sourced Gloves Abyss targets', abyss.applied)
   }
   for (const k of ['massive', 'sirenscale', 'adherent']) {
     const source = initials[k]
@@ -37,12 +41,15 @@ s = s.replace("  for (const legacy of ['stocky', 'body', 'helmet']) {", `  for (
     const saved = await raw()
     await page.locator('#tab-Omen').click()
     const omen = page.getByRole('button', { name: terms.en.Omen_of_Whittling.name, exact: true })
-    await omen.click({ button: 'right' })
+    await omen.click()
+    const favorite = page.locator('.favorite-slot').first()
+    await favorite.click()
+    await favorite.click({ button: 'right' })
     await page.waitForSelector('.bench-item-card .item-card__line--removal-candidate')
     check(k + ' local orange preview', await page.locator('.item-card__line--removal-candidate').evaluate(el => getComputedStyle(el).color) === 'rgb(255, 166, 77)')
     check(k + ' local preview preserves film', await raw() === saved)
     await page.screenshot({ path: '/evidence/' + k + '-orange-preview.png', fullPage: true })
-    await omen.click({ button: 'right' })
+    await favorite.click({ button: 'right' })
   }
   for (const legacy of ['stocky', 'body', 'helmet']) {`)
 fs.writeFileSync('/source/scripts/qa-gloves-browser.cjs', s)

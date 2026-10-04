@@ -1,0 +1,10 @@
+file:///source/scripts/import-gloves-bundle.mjs:223
+  replacements.ESSENCE_ABYSS = special.filter(d => d.familyIds.includes('EssenceAbyss')).map(d => d.id)
+                                                               ^
+
+TypeError: Cannot read properties of undefined (reading 'includes')
+    at file:///source/scripts/import-gloves-bundle.mjs:223:64
+    at Array.filter (<anonymous>)
+    at file:///source/scripts/import-gloves-bundle.mjs:223:40
+
+Node.js v24.21.0

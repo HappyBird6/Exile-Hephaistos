@@ -194,6 +194,10 @@ for (const base of candidates) {
   fs.writeFileSync(`${poolRoot}/base.raw.json`, rawText); fs.writeFileSync(`${poolRoot}/details.raw.json`, detailText)
   const prefixes = modifiers.filter(d => d.affixType === 'PREFIX'), suffixes = modifiers.filter(d => d.affixType === 'SUFFIX')
   const metadata = { snapshotId: `poe2db-${base.pool}-uniform-20261004-${hash(rawText + detailText).slice(0, 16)}`, retrievedAt: new Date().toISOString(), sourceUrl: `https://poe2db.tw/us/Gloves_${base.archetype}`, weightPolicy: 'UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES', rawSha256: hash(rawText), detailsSha256: hash(detailText), prefixCount: prefixes.length, suffixCount: suffixes.length, prefixWeight: prefixes.reduce((n, d) => n + d.weight, 0), suffixWeight: suffixes.reduce((n, d) => n + d.weight, 0) }
+  // A cached re-import must not pretend the sources were fetched again.
+  metadata.retrievedAt = fs.existsSync(`${poolRoot}/catalog.json`)
+    ? read(`${poolRoot}/catalog.json`).metadata.retrievedAt
+    : read(`${proofRoot}/Gloves_${base.archetype}.en.json`).retrievedAt
   write(`${poolRoot}/catalog.json`, { metadata, base: { id: baseSource.fields.Type, name: baseSource.name, sourceUrl: baseSource.url, implicitModifierId: '', magicPrefixes: 1, magicSuffixes: 1, rarePrefixes: 3, rareSuffixes: 3 }, modifiers })
   const requirements = {}
   for (const [locale, sourceLocale] of Object.entries(sources)) {
@@ -220,6 +224,8 @@ for (const base of candidates) {
   const hysteriaDetail = await codeDetail(hysteria.Code)
   replacements.ESSENCE_HYSTERIA = modifiers.filter(d => d.weight && normalize(d.text) === normalize(hysteriaDetail.parsed.effect) && d.requiredItemLevel === +hysteria.Level).map(d => d.id)
   assert.equal(replacements.ESSENCE_HYSTERIA.length, 1)
+  replacements.ESSENCE_ABYSS = modifiers.filter(d => d.weight === 0 && d.familyIds.includes('EssenceAbyss')).map(d => d.id)
+  assert.equal(replacements.ESSENCE_ABYSS.length, 2)
   overrides[base.key] = { fixed, replacements }
   summary.push({ key: base.key, ordinary: normal.length, special: special.length, newMapped: proofs.filter(p => p.proof.method !== 'EXACT_EXISTING_FAMILY_LEVEL_GENERATION_EFFECT_MATCH').length, fixedEssences: Object.keys(fixed) })
   console.log(base.key, summary.at(-1))

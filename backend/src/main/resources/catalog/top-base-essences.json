@@ -92,6 +92,10 @@
     "replacements": {
       "ESSENCE_HYSTERIA": [
         "stocky-mitts:suffix:of-fury"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
       ]
     }
   },
@@ -188,6 +192,10 @@
     "replacements": {
       "ESSENCE_HYSTERIA": [
         "stocky-mitts:suffix:of-fury"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
       ]
     }
   },
@@ -287,6 +295,10 @@
     "replacements": {
       "ESSENCE_HYSTERIA": [
         "stocky-mitts:suffix:of-fury"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
       ]
     }
   }
