@@ -39,6 +39,19 @@ export function localizedModifierText(
   if (!verified) return english
   const { binding, translation } = verified
   const numbers = [...binding.values]
+  if (values && /^(ruby|emerald|sapphire|diamond):/.test(definition.id)) {
+    numbers.forEach((n, i) => {
+      const stat = definition.stats?.[i]
+      if (stat && Number.isSafeInteger(values[stat.id]))
+        numbers[i] =
+          (n.startsWith('+') ? '+' : '') +
+          formatNumber(values[stat.id]!, { maximumFractionDigits: 20 }, locale)
+    })
+    return translation.template.replace(
+      /\{v(\d+)\}/g,
+      (match, index: string) => numbers[Number(index)] ?? match,
+    )
+  }
   if (values) {
     if (english === definition.text) {
       // Fixed stats retain their published display values; no conversion is inferred.

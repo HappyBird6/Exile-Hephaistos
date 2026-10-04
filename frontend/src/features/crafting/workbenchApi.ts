@@ -1,5 +1,7 @@
 import { supportsConcreteStateShape } from './workbenchStateShape'
-import { sapphireBase, reviewedSapphire } from './sapphireJewel'
+import displayBindings from '../../shared/i18n/modifierTemplates.json'
+import liquidTargets from './basicJewelLiquidTargets.json'
+import { isBasicJewel, reviewedBasicJewel, jewelCapacity } from './basicJewel'
 import { qualityCapChangeMatches } from './qualityCapChangePolicy'
 import { whittlingCandidates } from './omenRemovalCandidates'
 import {
@@ -24,6 +26,9 @@ export const catalystActionType = (action: WorkbenchAction) => {
 }
 
 export type WorkbenchAction =
+  | 'POTENT_LIQUID_MELANCHOLY'
+  | 'POTENT_LIQUID_FEROCITY'
+  | 'POTENT_LIQUID_CONTEMPT'
   | 'DILUTED_LIQUID_IRE'
   | 'DILUTED_LIQUID_GUILT'
   | 'DILUTED_LIQUID_GREED'
@@ -296,6 +301,9 @@ const replacementEssenceModifiers: Partial<
   ],
 }
 export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
+  Potent_Liquid_Melancholy: 'POTENT_LIQUID_MELANCHOLY',
+  Potent_Liquid_Ferocity: 'POTENT_LIQUID_FEROCITY',
+  Potent_Liquid_Contempt: 'POTENT_LIQUID_CONTEMPT',
   Diluted_Liquid_Ire: 'DILUTED_LIQUID_IRE',
   Diluted_Liquid_Guilt: 'DILUTED_LIQUID_GUILT',
   Diluted_Liquid_Greed: 'DILUTED_LIQUID_GREED',
@@ -427,6 +435,9 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Greater_Essence_of_Opulence: 'GREATER_ESSENCE_OPULENCE',
 }
 export const workbenchActionNames: Record<WorkbenchAction, string> = {
+  POTENT_LIQUID_MELANCHOLY: 'Potent Liquid Melancholy',
+  POTENT_LIQUID_FEROCITY: 'Potent Liquid Ferocity',
+  POTENT_LIQUID_CONTEMPT: 'Potent Liquid Contempt',
   DILUTED_LIQUID_IRE: 'Diluted Liquid Ire',
   DILUTED_LIQUID_GUILT: 'Diluted Liquid Guilt',
   DILUTED_LIQUID_GREED: 'Diluted Liquid Greed',
@@ -946,11 +957,28 @@ export async function applyCurrency(
       'stocky-mitts:suffix:essence-abyssal-mark',
     ],
   }
-  const replacementTargets =
-    (state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
-      ? (stockyReplacementTargets[action] ??
-        replacementEssenceModifiers[action])
-      : replacementEssenceModifiers[action]) ?? []
+  const baseName = Object.keys(liquidTargets).find(
+    (b) =>
+      state.baseItemId ===
+      (
+        {
+          ruby: 'Metadata/Items/Jewels/JewelStr',
+          emerald: 'Metadata/Items/Jewels/JewelDex',
+          diamond: 'Metadata/Items/Jewels/JewelDiamond',
+          sapphire: 'Metadata/Items/Jewels/JewelInt',
+        } as Record<string, string>
+      )[b],
+  )
+  const replacementTargets = action.includes('LIQUID_')
+    ? baseName
+      ? ((liquidTargets as Record<string, Record<string, string[]>>)[
+          baseName
+        ]?.[action] ?? [])
+      : []
+    : ((state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+        ? (stockyReplacementTargets[action] ??
+          replacementEssenceModifiers[action])
+        : replacementEssenceModifiers[action]) ?? [])
   const sameModifiers = (
     a: ConcreteItem['explicits'],
     b: ConcreteItem['explicits'],
@@ -972,12 +1000,12 @@ export async function applyCurrency(
     !next ||
     !supportsConcreteStateShape(next) ||
     !verifiedCatalystQuality(next, definitions) ||
-    (next.baseItemId === sapphireBase && !reviewedSapphire(next)) ||
+    (isBasicJewel(next.baseItemId) && !reviewedBasicJewel(next)) ||
     (v.applied &&
       action.includes('LIQUID_') &&
-      (state.baseItemId !== sapphireBase ||
+      (!isBasicJewel(state.baseItemId) ||
         state.explicits.some((m) =>
-          m.modifierId.startsWith('sapphire:crafted:'),
+          definitions[m.modifierId]?.tags?.includes('crafted'),
         ))) ||
     (catalystActionType(action) === null &&
       !qualityCapChangeMatches(state, v, definitions)) ||
@@ -1163,8 +1191,7 @@ export async function applyCurrency(
       v.assumptions.length !== 0 ||
       v.consumedOmens.length !== 0 ||
       (v.applied
-        ? action.startsWith('REFINED_') !==
-            (state.baseItemId === sapphireBase) ||
+        ? action.startsWith('REFINED_') !== isBasicJewel(state.baseItemId) ||
           !catalystBase(state.baseItemId) ||
           next.catalystQuality?.type !== catalystType ||
           next.catalystQuality?.amount !==
@@ -1219,7 +1246,7 @@ export async function applyCurrency(
       ? 0
       : next.rarity === 'MAGIC'
         ? 1
-        : next.baseItemId === sapphireBase
+        : isBasicJewel(next.baseItemId)
           ? 2
           : 3
   const expectedRarity =
@@ -1250,8 +1277,9 @@ export async function applyCurrency(
               ? 2
               : 1)
   if (
-    prefixes > capacity ||
-    suffixes > capacity ||
+    (isBasicJewel(next.baseItemId)
+      ? !reviewedBasicJewel(next)
+      : prefixes > capacity || suffixes > capacity) ||
     (v.applied &&
       (next.rarity !== expectedRarity ||
         next.explicits.length !== expectedCount)) ||
@@ -1304,14 +1332,15 @@ export async function applyCurrency(
         !m.fractured &&
         (!side || definitions[m.modifierId]?.affixType === side) &&
         (!action.includes('LIQUID_') ||
-          replacementTargets.every((id) => {
+          replacementTargets.some((id) => {
             const target = definitions[id]
             if (!target) return false
             const rest = state.explicits
               .filter((old) => old.modifierId !== m.modifierId)
               .map((old) => definitions[old.modifierId]!)
             return (
-              rest.filter((d) => d.affixType === target.affixType).length < 2 &&
+              rest.filter((d) => d.affixType === target.affixType).length <
+                jewelCapacity(state, target.affixType) &&
               rest.every(
                 (d) => !d.familyIds.some((f) => target.familyIds.includes(f)),
               )
@@ -1319,6 +1348,27 @@ export async function applyCurrency(
           })),
     )
     const removed = v.events[0]
+    const validTargets = action.includes('LIQUID_')
+      ? replacementTargets.filter((id) => {
+          const target = definitions[id]!
+          const restState = {
+            ...state,
+            explicits: state.explicits.filter(
+              (m) => m.modifierId !== removed?.modifierId,
+            ),
+          }
+          const rest = restState.explicits.map(
+            (m) => definitions[m.modifierId]!,
+          )
+          return (
+            rest.filter((d) => d.affixType === target.affixType).length <
+              jewelCapacity(restState, target.affixType) &&
+            rest.every(
+              (d) => !d.familyIds.some((f) => target.familyIds.includes(f)),
+            )
+          )
+        })
+      : replacementTargets
     const added = v.events[1]
     const old = candidates.find((m) => m.modifierId === removed?.modifierId)
     const target = next.explicits.find(
@@ -1335,8 +1385,8 @@ export async function applyCurrency(
       removed.selectionProbability !== 1 / candidates.length ||
       Object.keys(removed.values).length !== 0 ||
       added?.kind !== 'ADD' ||
-      !replacementTargets.includes(added.modifierId) ||
-      added.selectionProbability !== 1 / replacementTargets.length ||
+      !validTargets.includes(added.modifierId) ||
+      added.selectionProbability !== 1 / validTargets.length ||
       !target ||
       !sameValues(added.values, target.values) ||
       matching.length > 1 ||
@@ -1348,14 +1398,17 @@ export async function applyCurrency(
           preserved.some((p) => p.modifierId === m.modifierId),
         ),
       ) ||
-      (replacementTargets.length > 1 &&
+      (validTargets.length > 1 &&
         !v.assumptions.some(
           (a) =>
-            a.id === 'uniform-essence-choice-v1' &&
-            a.n === replacementTargets.length &&
-            a.candidates.length === replacementTargets.length &&
-            new Set(a.candidates).size === replacementTargets.length &&
-            a.candidates.every((id) => replacementTargets.includes(id)),
+            a.id ===
+              (action.includes('LIQUID_')
+                ? 'uniform-liquid-outcomes-v1'
+                : 'uniform-essence-choice-v1') &&
+            a.n === validTargets.length &&
+            a.candidates.length === validTargets.length &&
+            new Set(a.candidates).size === validTargets.length &&
+            a.candidates.every((id) => validTargets.includes(id)),
         )) ||
       !v.assumptions.some(
         (a) =>
@@ -1564,7 +1617,7 @@ export async function applyCurrency(
     baseAction === 'EXALTED' &&
     activeOmens.includes('Omen_of_Greater_Exaltation') &&
     (state.rarity !== 'RARE' ||
-      state.explicits.length > (state.baseItemId === sapphireBase ? 2 : 4) ||
+      state.explicits.length > (isBasicJewel(state.baseItemId) ? 2 : 4) ||
       !sameModifiers(
         state.explicits
           .map((old) =>
@@ -1677,7 +1730,7 @@ export async function applyCurrency(
         removed.length === state.explicits.length &&
         next.explicits.filter(
           (m) => definitions[m.modifierId]?.affixType === side,
-        ).length === (state.baseItemId === sapphireBase ? 2 : 3)
+        ).length === (isBasicJewel(state.baseItemId) ? 2 : 3)
     } else if (trigger === 'REGAL') {
       valid &&=
         added.length === 1 &&
@@ -1764,7 +1817,13 @@ export async function applyCurrency(
             !d.familyIds.some((family) => existingFamilies.has(family)) &&
             intermediate.filter(
               (m) => definitions[m.modifierId]!.affixType === d.affixType,
-            ).length < (state.baseItemId === sapphireBase ? 2 : 3) &&
+            ).length <
+              (isBasicJewel(state.baseItemId)
+                ? jewelCapacity(
+                    { ...state, explicits: intermediate },
+                    d.affixType,
+                  )
+                : 3) &&
             (originalTags.size === 0 ||
               d.tags?.some((tag) => originalTags.has(tag))),
         )
@@ -1851,6 +1910,32 @@ export function rolledText(
   definition: Definition,
   values: Record<string, number>,
 ): string {
+  if (/^(ruby|emerald|sapphire|diamond):/.test(definition.id)) {
+    const binding = (
+      displayBindings.definitions as Record<
+        string,
+        { englishText: string; values: string[]; template: string }
+      >
+    )[definition.id]
+    if (
+      binding &&
+      binding.englishText === definition.text &&
+      definition.stats &&
+      !definition.tags?.includes('unscalable')
+    ) {
+      let text = definition.text
+      for (const [i, n] of binding.values.entries()) {
+        const stat = definition.stats[i]
+        if (stat && Number.isSafeInteger(values[stat.id])) {
+          const replacement = n.startsWith('+')
+            ? '+' + values[stat.id]
+            : String(values[stat.id])
+          text = text.replace(n, replacement)
+        }
+      }
+      return text
+    }
+  }
   if (
     definition.stats &&
     definition.stats.length > 1 &&

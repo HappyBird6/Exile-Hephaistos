@@ -42,12 +42,13 @@ public final class CatalystQualityDisplay {
     if (!new ItemStateValidator(catalog).validate(state).isEmpty())
       throw new IllegalArgumentException("Unsupported state for quality display");
     return java.util.stream.Stream.concat(state.implicits().stream(), state.explicits().stream())
-        .map(m -> project(m, catalog.find(m.modifierId()).orElseThrow(), state.catalystQuality()))
+        .map(m -> project(m, catalog.find(m.modifierId()).orElseThrow(), state))
         .toList();
   }
 
-  private static Projection project(
-      ModifierInstance m, ModifierDefinition d, CatalystQuality quality) {
+  private static Projection project(ModifierInstance m, ModifierDefinition d, ItemState state) {
+    CatalystQuality quality = state.catalystQuality();
+    if (BasicJewel.supported(state.baseItemId())) return projectJewel(m, d, state);
     if (quality == null)
       return new Projection(m.modifierId(), m.values(), m.values(), "NO_TYPED_QUALITY");
     if (m.values().containsKey("local_maximum_quality_+") || d.tags().contains("unscalable"))
@@ -83,6 +84,34 @@ public final class CatalystQualityDisplay {
                             .multiply(BigInteger.valueOf(100L + quality.amount())),
                         BigInteger.valueOf(100))));
     return new Projection(m.modifierId(), m.values(), scaled, "SCALED_INTEGER");
+  }
+
+  private static Projection projectJewel(
+      ModifierInstance m, ModifierDefinition d, ItemState state) {
+    if (d.tags().contains("unscalable"))
+      return new Projection(m.modifierId(), m.values(), m.values(), "UNSCALABLE");
+    var q = state.catalystQuality();
+    int quality = q != null && q.type().matches(d.tags()) ? q.amount() : 0;
+    long effect = BasicJewel.effect(state, d.affixType());
+    if (quality == 0 && effect == 0)
+      return new Projection(
+          m.modifierId(), m.values(), m.values(), q == null ? "NO_TYPED_QUALITY" : "NO_MATCH");
+    var displayed = new java.util.TreeMap<String, Long>();
+    m.values()
+        .forEach(
+            (id, value) ->
+                displayed.put(
+                    id,
+                    QualityRoundingPolicy.roundRatio(
+                        BigInteger.valueOf(value)
+                            .multiply(BigInteger.valueOf(100L + quality))
+                            .multiply(BigInteger.valueOf(100L + effect)),
+                        BigInteger.valueOf(10000))));
+    return new Projection(
+        m.modifierId(),
+        m.values(),
+        displayed,
+        effect == 0 ? "SCALED_INTEGER" : "JEWEL_EFFECT_AND_QUALITY_PROVISIONAL");
   }
 
   public record Projection(

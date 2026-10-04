@@ -1,5 +1,6 @@
 package com.poe2craft.crafting.domain;
 
+import com.poe2craft.item.BasicJewel;
 import com.poe2craft.item.ItemCatalog;
 import com.poe2craft.item.ItemState;
 import com.poe2craft.item.ItemStateValidator;
@@ -62,6 +63,13 @@ public final class CraftingEngine {
             : state.rarity() == ItemState.Rarity.MAGIC
                 ? catalog.base().magicSuffixes()
                 : catalog.base().rareSuffixes();
+    if (BasicJewel.supported(state.baseItemId()) && state.rarity() == ItemState.Rarity.RARE) {
+      maxP += BasicJewel.extra(state.modifierIds(), ModifierDefinition.AffixType.PREFIX);
+      maxS += BasicJewel.extra(state.modifierIds(), ModifierDefinition.AffixType.SUFFIX);
+      if (!BasicJewel.existingCapacity(p, s, maxP, maxS))
+        throw new IllegalArgumentException("Affix capacity exceeded");
+      return;
+    }
     if (p > maxP || s > maxS) throw new IllegalArgumentException("Affix capacity exceeded");
   }
 

@@ -57,7 +57,8 @@ import {
   upgradeCompatibleFilms,
 } from './workbenchHistory'
 import type { Films } from './workbenchHistory'
-import { sapphireBase, sapphireCastSpeed } from './sapphireJewel'
+import { basicJewelBases, isBasicJewel } from './basicJewel'
+import { sapphireCastSpeed } from './sapphireJewel'
 import './crafting.css'
 
 function tooltipEvents(id: string) {
@@ -66,6 +67,9 @@ function tooltipEvents(id: string) {
 
 const workspaceTabs = ['workbench', 'support', 'explorer'] as const
 const baseSlugs = {
+  ruby: 'Ruby',
+  emerald: 'Emerald',
+  diamond: 'Diamond',
   sapphire: 'Sapphire',
   solar: 'Solar_Amulet',
   stocky: 'Stocky_Mitts',
@@ -113,8 +117,14 @@ export function CraftingPage() {
   const catalogBase =
     draft.source === 'text'
       ? 'solar'
-      : storedFrame?.state.baseItemId === sapphireBase
-        ? 'sapphire'
+      : Object.values(basicJewelBases).some(
+            (id) => id === storedFrame?.state.baseItemId,
+          )
+        ? (Object.keys(basicJewelBases).find(
+            (b) =>
+              basicJewelBases[b as keyof typeof basicJewelBases] ===
+              storedFrame?.state.baseItemId,
+          ) as keyof typeof basicJewelBases)
         : storedFrame?.state.baseItemId ===
             'Metadata/Items/Armours/Gloves/FourGlovesStr1'
           ? 'stocky'
@@ -142,26 +152,25 @@ export function CraftingPage() {
                         : storedFrame
                           ? 'solar'
                           : draft.base
-  const baseName =
-    catalogBase === 'sapphire'
-      ? 'Sapphire'
-      : catalogBase === 'stocky'
-        ? 'Stocky Mitts'
-        : catalogBase === 'bow'
-          ? 'Crude Bow'
-          : catalogBase === 'wand'
-            ? 'Attuned Wand'
-            : catalogBase === 'body'
-              ? 'Rusted Cuirass'
-              : catalogBase === 'sceptre'
-                ? 'Rattling Sceptre'
-                : catalogBase === 'belt'
-                  ? 'Rawhide Belt'
-                  : catalogBase === 'ring'
-                    ? 'Iron Ring'
-                    : catalogBase === 'helmet'
-                      ? 'Rusted Greathelm'
-                      : 'Solar Amulet'
+  const baseName = Object.hasOwn(basicJewelBases, catalogBase)
+    ? baseSlugs[catalogBase]
+    : catalogBase === 'stocky'
+      ? 'Stocky Mitts'
+      : catalogBase === 'bow'
+        ? 'Crude Bow'
+        : catalogBase === 'wand'
+          ? 'Attuned Wand'
+          : catalogBase === 'body'
+            ? 'Rusted Cuirass'
+            : catalogBase === 'sceptre'
+              ? 'Rattling Sceptre'
+              : catalogBase === 'belt'
+                ? 'Rawhide Belt'
+                : catalogBase === 'ring'
+                  ? 'Iron Ring'
+                  : catalogBase === 'helmet'
+                    ? 'Rusted Greathelm'
+                    : 'Solar Amulet'
   const catalogLevel =
     Number.isInteger(storedLevel) && storedLevel! >= 1 && storedLevel! <= 100
       ? storedLevel!
@@ -274,6 +283,9 @@ export function CraftingPage() {
       | 'belt'
       | 'helmet'
       | 'ring'
+      | 'ruby'
+      | 'emerald'
+      | 'diamond'
       | 'sapphire' = 'solar',
     catalystQuality: CatalystQuality | null = null,
     sapphireRarity: 'NORMAL' | 'MAGIC' | 'RARE' = 'MAGIC',
@@ -298,11 +310,11 @@ export function CraftingPage() {
         return
       const root = {
         ...concreteInitial(data),
-        ...(base === 'sapphire'
+        ...(Object.hasOwn(basicJewelBases, base)
           ? {
               rarity: sapphireRarity,
               explicits:
-                castSpeed === null
+                castSpeed === null || base !== 'sapphire'
                   ? []
                   : [
                       {
@@ -340,31 +352,33 @@ export function CraftingPage() {
     const revision = useItemDraft.getState().baseRevision
     placementPending.current = true
     const state = selectedFilm.frames.at(-1)!.state
-    const base =
-      state.baseItemId === sapphireBase
-        ? 'sapphire'
-        : state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
-          ? 'stocky'
-          : state.baseItemId === 'Metadata/Items/Rings/FourRing1'
-            ? 'ring'
-            : state.baseItemId ===
-                'Metadata/Items/Armours/Helmets/FourHelmetStr1'
-              ? 'helmet'
-              : state.baseItemId === 'Metadata/Items/Belts/FourBelt1'
-                ? 'belt'
+    const base = isBasicJewel(state.baseItemId)
+      ? (Object.keys(basicJewelBases).find(
+          (b) =>
+            basicJewelBases[b as keyof typeof basicJewelBases] ===
+            state.baseItemId,
+        ) as keyof typeof basicJewelBases)
+      : state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+        ? 'stocky'
+        : state.baseItemId === 'Metadata/Items/Rings/FourRing1'
+          ? 'ring'
+          : state.baseItemId === 'Metadata/Items/Armours/Helmets/FourHelmetStr1'
+            ? 'helmet'
+            : state.baseItemId === 'Metadata/Items/Belts/FourBelt1'
+              ? 'belt'
+              : state.baseItemId ===
+                  'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
+                ? 'sceptre'
                 : state.baseItemId ===
-                    'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
-                  ? 'sceptre'
+                    'Metadata/Items/Armours/BodyArmours/FourBodyStr1'
+                  ? 'body'
                   : state.baseItemId ===
-                      'Metadata/Items/Armours/BodyArmours/FourBodyStr1'
-                    ? 'body'
+                      'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
+                    ? 'wand'
                     : state.baseItemId ===
-                        'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
-                      ? 'wand'
-                      : state.baseItemId ===
-                          'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1'
-                        ? 'bow'
-                        : 'solar'
+                        'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1'
+                      ? 'bow'
+                      : 'solar'
     try {
       const data = await client.fetchQuery({
         queryKey: ['crafting', 'initial', base, state.itemLevel],
@@ -435,6 +449,9 @@ export function CraftingPage() {
     | 'belt'
     | 'helmet'
     | 'ring'
+    | 'ruby'
+    | 'emerald'
+    | 'diamond'
     | 'sapphire'
   >('solar')
   const [previewRequest, setPreviewRequest] = useState<{
@@ -794,26 +811,25 @@ export function CraftingPage() {
             rarity: concrete.rarity,
             name: item?.displayName ?? baseName,
             base: baseName,
-            itemClass:
-              catalogBase === 'sapphire'
-                ? 'Jewels'
-                : catalogBase === 'stocky'
-                  ? 'Gloves'
-                  : catalogBase === 'bow'
-                    ? 'Bows'
-                    : catalogBase === 'wand'
-                      ? 'Wands'
-                      : catalogBase === 'body'
-                        ? 'Body Armours'
-                        : catalogBase === 'sceptre'
-                          ? 'Sceptres'
-                          : catalogBase === 'belt'
-                            ? 'Belts'
-                            : catalogBase === 'ring'
-                              ? 'Rings'
-                              : catalogBase === 'helmet'
-                                ? 'Helmets'
-                                : 'Amulet',
+            itemClass: Object.hasOwn(basicJewelBases, catalogBase)
+              ? 'Jewels'
+              : catalogBase === 'stocky'
+                ? 'Gloves'
+                : catalogBase === 'bow'
+                  ? 'Bows'
+                  : catalogBase === 'wand'
+                    ? 'Wands'
+                    : catalogBase === 'body'
+                      ? 'Body Armours'
+                      : catalogBase === 'sceptre'
+                        ? 'Sceptres'
+                        : catalogBase === 'belt'
+                          ? 'Belts'
+                          : catalogBase === 'ring'
+                            ? 'Rings'
+                            : catalogBase === 'helmet'
+                              ? 'Helmets'
+                              : 'Amulet',
             itemLevel: concrete.itemLevel,
             properties: [
               ...(catalogBase === 'helmet'
@@ -901,6 +917,7 @@ export function CraftingPage() {
                   d,
                   m.values,
                   concrete.catalystQuality,
+                  concrete,
                 )
                 const displayText =
                   projection.status === 'SCALED_INTEGER' &&
@@ -914,9 +931,11 @@ export function CraftingPage() {
                     removalCandidates.includes(m.modifierId),
                   text: altHeld ? localizedModifierText(d) : displayText,
                   fractured: 'fractured' in m && Boolean(m.fractured),
-                  detail: concrete.catalystQuality
-                    ? `Original roll: ${rolledText(d, m.values)}\nQuality display: ${projection.status}. Secondary source model; game engine precision is not guaranteed.`
-                    : undefined,
+                  detail:
+                    concrete.catalystQuality ||
+                    projection.status === 'JEWEL_EFFECT_AND_QUALITY_PROVISIONAL'
+                      ? `Original roll: ${rolledText(d, m.values)}\nQuality display: ${projection.status}. Secondary source model; game engine precision is not guaranteed.`
+                      : undefined,
                   kind:
                     i < concrete.implicits.length
                       ? ('implicit' as const)
@@ -926,7 +945,7 @@ export function CraftingPage() {
                   affixLabel:
                     d.affixType === 'NONE'
                       ? undefined
-                      : `${d.affixType === 'PREFIX' ? 'P' : 'S'}${catalogBase === 'sapphire' ? '' : d.tier}`,
+                      : `${d.affixType === 'PREFIX' ? 'P' : 'S'}${Object.hasOwn(basicJewelBases, catalogBase) ? '' : d.tier}`,
                 }
               })
               .sort((a, b) => {
@@ -1480,26 +1499,27 @@ export function CraftingPage() {
                     {t('notice.glove_alloy_penetration')}
                   </p>
                 )}
-                {catalogBase === 'sapphire' && craftEvidence && (
-                  <details className="sapphire-craft-evidence">
-                    <summary>{t('ui.sapphire_craft_evidence')}</summary>
-                    <p>{t('notice.sapphire_scope')}</p>
-                    {craftEvidence.events.map((event, index) => (
-                      <p key={index}>
-                        {event.kind === 'REMOVE' ? '−' : '+'}{' '}
-                        {initial.data?.modifiers[event.modifierId]
-                          ? localizedModifierText(
-                              initial.data.modifiers[event.modifierId]!,
-                              event.kind === 'REMOVE'
-                                ? undefined
-                                : event.values,
-                            )
-                          : event.modifierId}{' '}
-                        ({(event.selectionProbability * 100).toFixed(2)}%)
-                      </p>
-                    ))}
-                  </details>
-                )}
+                {Object.hasOwn(basicJewelBases, catalogBase) &&
+                  craftEvidence && (
+                    <details className="sapphire-craft-evidence">
+                      <summary>{t('ui.sapphire_craft_evidence')}</summary>
+                      <p>{t('notice.sapphire_scope')}</p>
+                      {craftEvidence.events.map((event, index) => (
+                        <p key={index}>
+                          {event.kind === 'REMOVE' ? '−' : '+'}{' '}
+                          {initial.data?.modifiers[event.modifierId]
+                            ? localizedModifierText(
+                                initial.data.modifiers[event.modifierId]!,
+                                event.kind === 'REMOVE'
+                                  ? undefined
+                                  : event.values,
+                              )
+                            : event.modifierId}{' '}
+                          ({(event.selectionProbability * 100).toFixed(2)}%)
+                        </p>
+                      ))}
+                    </details>
+                  )}
                 {!canCraft && <p>{t('notice.pasted_display')}</p>}
                 {draft.source === 'text' && !mapping.data?.mapped && (
                   <button
@@ -1552,7 +1572,7 @@ export function CraftingPage() {
                     {t('notice.catalyst_policy')}
                   </p>
                 )}
-                {catalogBase === 'sapphire' && (
+                {Object.hasOwn(basicJewelBases, catalogBase) && (
                   <p className="workbench-feedback">
                     {t('notice.sapphire_scope')}
                   </p>
@@ -1789,10 +1809,20 @@ export function CraftingPage() {
                           | 'belt'
                           | 'helmet'
                           | 'ring'
+                          | 'ruby'
+                          | 'emerald'
+                          | 'diamond'
                           | 'sapphire',
                       )
                     }
                   >
+                    <option value="ruby">{name('Ruby', 'Ruby')}</option>
+                    <option value="emerald">
+                      {name('Emerald', 'Emerald')}
+                    </option>
+                    <option value="diamond">
+                      {name('Diamond', 'Diamond')}
+                    </option>
                     <option value="sapphire">
                       {name('Sapphire', 'Sapphire')}
                     </option>
@@ -1824,7 +1854,7 @@ export function CraftingPage() {
                       {name('Iron_Ring', 'Iron Ring')}
                     </option>
                   </select>
-                  {baseChoice === 'sapphire' && (
+                  {Object.hasOwn(basicJewelBases, baseChoice) && (
                     <>
                       <p>{t('notice.sapphire_scope')}</p>
                       <label htmlFor="sapphire-rarity">{t('ui.rarity')}</label>
@@ -1841,31 +1871,37 @@ export function CraftingPage() {
                         <option value="MAGIC">{t('ui.magic')}</option>
                         <option value="RARE">{t('ui.rare')}</option>
                       </select>
-                      <label>
+                      <label hidden={baseChoice !== 'sapphire'}>
                         <input
                           type="checkbox"
-                          checked={sapphireAffix && sapphireRarity !== 'NORMAL'}
+                          checked={
+                            baseChoice === 'sapphire' &&
+                            sapphireAffix &&
+                            sapphireRarity !== 'NORMAL'
+                          }
                           disabled={sapphireRarity === 'NORMAL'}
                           onChange={(e) => setSapphireAffix(e.target.checked)}
                         />
                         {t('ui.sapphire_existing_suffix')}
                       </label>
-                      {sapphireAffix && sapphireRarity !== 'NORMAL' && (
-                        <>
-                          <label htmlFor="sapphire-roll">
-                            {t('ui.sapphire_cast_speed')}
-                          </label>
-                          <input
-                            id="sapphire-roll"
-                            type="number"
-                            min="2"
-                            max="4"
-                            step="1"
-                            value={sapphireRoll}
-                            onChange={(e) => setSapphireRoll(e.target.value)}
-                          />
-                        </>
-                      )}
+                      {baseChoice === 'sapphire' &&
+                        sapphireAffix &&
+                        sapphireRarity !== 'NORMAL' && (
+                          <>
+                            <label htmlFor="sapphire-roll">
+                              {t('ui.sapphire_cast_speed')}
+                            </label>
+                            <input
+                              id="sapphire-roll"
+                              type="number"
+                              min="2"
+                              max="4"
+                              step="1"
+                              value={sapphireRoll}
+                              onChange={(e) => setSapphireRoll(e.target.value)}
+                            />
+                          </>
+                        )}
                     </>
                   )}
                   <label htmlFor="base-level">{t('ui.item_level')}</label>
@@ -1880,7 +1916,7 @@ export function CraftingPage() {
                   />
                   {(baseChoice === 'solar' ||
                     baseChoice === 'ring' ||
-                    baseChoice === 'sapphire') && (
+                    Object.hasOwn(basicJewelBases, baseChoice)) && (
                     <>
                       <label htmlFor="starting-quality-type">
                         {t('ui.existing_catalyst_quality')}
@@ -1900,7 +1936,9 @@ export function CraftingPage() {
                         {Object.entries(catalystTypes).map(([type, info]) => (
                           <option key={type} value={type}>
                             {name(
-                              (baseChoice === 'sapphire' ? 'Refined_' : '') +
+                              (Object.hasOwn(basicJewelBases, baseChoice)
+                                ? 'Refined_'
+                                : '') +
                                 catalystItemIds[
                                   type as CatalystQuality['type']
                                 ],
@@ -1944,7 +1982,7 @@ export function CraftingPage() {
                       Number(baseLevel) > 100 ||
                       ((baseChoice === 'solar' ||
                         baseChoice === 'ring' ||
-                        baseChoice === 'sapphire') &&
+                        Object.hasOwn(basicJewelBases, baseChoice)) &&
                         qualityType !== '' &&
                         (qualityAmount.trim() === '' ||
                           !Number.isInteger(Number(qualityAmount)) ||
@@ -1958,12 +1996,14 @@ export function CraftingPage() {
                         baseChoice,
                         (baseChoice === 'solar' ||
                           baseChoice === 'ring' ||
-                          baseChoice === 'sapphire') &&
+                          Object.hasOwn(basicJewelBases, baseChoice)) &&
                           qualityType !== ''
                           ? { type: qualityType, amount: Number(qualityAmount) }
                           : null,
                         sapphireRarity,
-                        sapphireAffix && sapphireRarity !== 'NORMAL'
+                        baseChoice === 'sapphire' &&
+                          sapphireAffix &&
+                          sapphireRarity !== 'NORMAL'
                           ? Number(sapphireRoll)
                           : null,
                       )

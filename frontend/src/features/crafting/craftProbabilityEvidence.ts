@@ -18,12 +18,14 @@ export function craftProbabilityEvidence(
 ) {
   if (evidence.events.some((event) => event.kind === 'ADD')) {
     if (
-      evidence.snapshotId?.startsWith('poe2db-sapphire-') ||
+      /^poe2db-(ruby|emerald|sapphire|diamond)-/.test(
+        evidence.snapshotId ?? '',
+      ) ||
       evidence.action.includes('LIQUID_')
     ) {
       return {
         weighted: false,
-        text: 'Explicit Sapphire simulator model: uniform eligible candidates and legal Liquid removals. Actual game weights and failed-removal behavior are unverified; assumptions are listed below.',
+        text: 'Explicit Basic Jewel simulator model: uniform eligible candidates and legal Liquid removals. Actual game weights and failed-removal behavior are unverified; assumptions are listed below.',
       }
     }
     if (

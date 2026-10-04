@@ -814,5 +814,65 @@
       }
     ],
     "crafted": true
+  },
+  "sapphire:crafted:CraftedJewelExposureOnHitWhileRubyEmeraldSocketed": {
+    "affixType": "SUFFIX",
+    "familyIds": ["JewelStatusOnHitWhileSocketed"],
+    "stats": [
+      {
+        "id": "display_condition_present",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": true
+  },
+  "sapphire:crafted:CraftedJewelSuffixEffect": {
+    "affixType": "PREFIX",
+    "familyIds": ["LocalPrefixSuffixEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 40,
+        "max": 60
+      }
+    ],
+    "crafted": true
+  },
+  "sapphire:crafted:CraftedJewelPrefixEffect": {
+    "affixType": "SUFFIX",
+    "familyIds": ["LocalPrefixSuffixEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 40,
+        "max": 60
+      }
+    ],
+    "crafted": true
+  },
+  "sapphire:crafted:CraftedJewelAdditionalSuffixAllowed": {
+    "affixType": "PREFIX",
+    "familyIds": ["MaxPrefixMaxSuffix"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": true
+  },
+  "sapphire:crafted:CraftedJewelAdditionalPrefixAllowed": {
+    "affixType": "SUFFIX",
+    "familyIds": ["MaxPrefixMaxSuffix"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": true
   }
 }

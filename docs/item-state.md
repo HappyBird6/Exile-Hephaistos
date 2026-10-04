@@ -1,3 +1,5 @@
+Latest checkpoint: [Basic Jewel four bases and Potent Liquid](workbench-basic-jewel-potent-2026-10-04.md). Ruby50/Emerald74/Sapphire58/Diamond160 ordinary candidates, base-specific Liquid13/13/13/3; provisional Ferocity projection and Contempt overflow preservation. Earlier dated scopes below are superseded for these bases.
+
 Latest checkpoint: [bounded Attuned Wand and11 Essence paths](workbench-attuned-wand-2026-10-03.md), overall109 / current-scope155: implemented101, pending54, excluded65. Prior counts below describe their dated checkpoints.
 
 Latest checkpoint: [six Bow Perfect Essences](workbench-bow-perfect-2026-10-03.md), overall101 / current-scope155: implemented93, pending62, excluded65. Earlier counts and candidate statements below describe their dated checkpoints.

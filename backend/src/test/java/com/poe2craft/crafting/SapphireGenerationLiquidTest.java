@@ -48,7 +48,7 @@ class SapphireGenerationLiquidTest {
     assertThat(catalog.metadata().weightPolicy())
         .isEqualTo("USER_APPROVED_UNIFORM_CANDIDATES_NOT_GAME_WEIGHTS");
     assertThat(catalog.modifiers().values().stream().filter(d -> d.tags().contains("crafted")))
-        .hasSize(10);
+        .hasSize(15);
   }
 
   @Test
@@ -137,7 +137,8 @@ class SapphireGenerationLiquidTest {
       assertThat(result.events())
           .extracting(WorkbenchSimulator.Event::kind)
           .containsExactly("REMOVE", "ADD");
-      var target = action.replacementModifiers().getFirst();
+      var target = result.events().getLast().modifierId();
+      assertThat(action.replacementModifiers()).contains(target);
       assertThat(result.state().explicits())
           .extracting(ModifierInstance::modifierId)
           .contains(target);

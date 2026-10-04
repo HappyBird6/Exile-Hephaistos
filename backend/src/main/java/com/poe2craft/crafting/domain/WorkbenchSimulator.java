@@ -113,6 +113,12 @@ public final class WorkbenchSimulator {
   }
 
   private List<String> replacementTargets(WorkbenchCurrency action) {
+    if (action.isLiquid() && BasicJewel.supported(catalog.base().id()))
+      return catalog.modifiers().values().stream()
+          .filter(
+              d -> d.tags().contains("crafted") && d.sourceUrl().equals(action.replacementSource()))
+          .map(ModifierDefinition::id)
+          .toList();
     return replacementTargetOverrides.getOrDefault(action, action.replacementModifiers());
   }
 
@@ -125,7 +131,7 @@ public final class WorkbenchSimulator {
   }
 
   private String baseRuleVersion() {
-    if (catalog.base().id().equals(SapphireJewel.BASE_ID)) return "sapphire-basic-liquid-v2";
+    if (BasicJewel.supported(catalog.base().id())) return "basic-jewel-potent-v3";
     if (catalog.base().id().equals(RingEssenceTargets.BASE_ID))
       return "ring-workbench-perfect-essence-v1";
     if (catalog.base().id().equals(HelmetEssenceTargets.BASE_ID))
@@ -143,7 +149,7 @@ public final class WorkbenchSimulator {
   }
 
   public String ledgerVersion() {
-    if (catalog.base().id().equals(SapphireJewel.BASE_ID))
+    if (BasicJewel.supported(catalog.base().id()))
       return "sapphire-uniform-candidates-and-rolls-v1";
     if (catalog.base().id().equals(RingEssenceTargets.BASE_ID))
       return "ring-unverified-numeric-assumptions-v1";
@@ -219,7 +225,7 @@ public final class WorkbenchSimulator {
       ItemState state, WorkbenchCurrency action, List<WorkbenchOmen> omens) {
     if (action.catalystType() != null) {
       if (action.refinedCatalyst()) {
-        if (!state.baseItemId().equals(SapphireJewel.BASE_ID))
+        if (!BasicJewel.supported(state.baseItemId()))
           return blocked(action, "Refined catalysts require the supported Sapphire Jewel.");
         return new Availability(action, true, "");
       }
@@ -228,7 +234,7 @@ public final class WorkbenchSimulator {
         return blocked(action, "Ordinary catalysts require a supported Ring or Amulet.");
       return new Availability(action, true, "");
     }
-    if (state.baseItemId().equals(SapphireJewel.BASE_ID)
+    if (BasicJewel.supported(state.baseItemId())
         && action.baseAction() == null
         && action != WorkbenchCurrency.ALCHEMY
         && action != WorkbenchCurrency.DIVINE
@@ -236,6 +242,8 @@ public final class WorkbenchSimulator {
       return blocked(
           action,
           "This operation remains outside the reviewed Sapphire basic currency and Liquid scope.");
+    if (action.isLiquid() && replacementTargets(action).isEmpty())
+      return blocked(action, "No sourced Liquid outcome for this Basic Jewel base.");
     if (action.isLiquid()
         && state.explicits().stream()
             .anyMatch(m -> catalog.find(m.modifierId()).orElseThrow().tags().contains("crafted")))
@@ -331,7 +339,8 @@ public final class WorkbenchSimulator {
         var rest = new ArrayList<>(state.explicits());
         rest.remove(removed);
         var afterRemoval = copy(state, state.rarity(), state.implicits(), rest);
-        if (targets.stream().anyMatch(target -> !canAddFixed(afterRemoval, target)))
+        if (!action.isLiquid()
+            && targets.stream().anyMatch(target -> !canAddFixed(afterRemoval, target)))
           return blocked(
               action,
               "An essence removal branch conflicts with a guaranteed modifier or available slots; this interaction is unsupported.");
@@ -489,6 +498,11 @@ public final class WorkbenchSimulator {
         target.affixType() == ModifierDefinition.AffixType.PREFIX
             ? catalog.base().rarePrefixes()
             : catalog.base().rareSuffixes();
+    if (BasicJewel.supported(state.baseItemId()))
+      capacity +=
+          BasicJewel.extra(
+              state.explicits().stream().map(ModifierInstance::modifierId).toList(),
+              target.affixType());
     return state.itemLevel() >= target.requiredItemLevel()
         && existing.stream().filter(d -> d.affixType() == target.affixType()).count() < capacity
         && existing.stream()
@@ -499,13 +513,18 @@ public final class WorkbenchSimulator {
       ItemState state, WorkbenchCurrency action, WorkbenchOmen omen) {
     var candidates = removalCandidates(state, omen);
     if (!action.isLiquid()) return candidates;
-    var target = catalog.find(replacementTargets(action).getFirst()).orElseThrow();
+    var targets =
+        replacementTargets(action).stream().map(id -> catalog.find(id).orElseThrow()).toList();
     return candidates.stream()
         .filter(
             removed -> {
               var rest = new ArrayList<>(state.explicits());
               rest.remove(removed);
-              return canAddFixed(copy(state, state.rarity(), state.implicits(), rest), target);
+              return targets.stream()
+                  .anyMatch(
+                      target ->
+                          canAddFixed(
+                              copy(state, state.rarity(), state.implicits(), rest), target));
             })
         .toList();
   }
@@ -652,22 +671,31 @@ public final class WorkbenchSimulator {
               action.isLiquid()
                   ? "USER-APPROVED SIMULATOR MODEL: uniform among removals that leave a legal Crafted side and family. Failed branches are excluded before sampling; actual game retry/failure and removal weights are unknown. One Crafted modifier per item."
                   : "Uniform among non-Fractured explicit instances; every removal branch must accept every sourced modifier outcome. No published removal weights."));
-      var targets = replacementTargets(action);
+      var afterRemoval = copy(state, state.rarity(), state.implicits(), explicits);
+      var targets =
+          replacementTargets(action).stream()
+              .filter(
+                  id ->
+                      !action.isLiquid()
+                          || canAddFixed(afterRemoval, catalog.find(id).orElseThrow()))
+              .toList();
       var definition =
           catalog
               .find(targets.get(targets.size() == 1 ? 0 : random.nextInt(targets.size())))
               .orElseThrow();
-      if (targets.size() > 1)
+      if (targets.size() > 1 || action.isLiquid())
         assumptions.add(
             new Assumption(
-                "uniform-essence-choice-v1",
-                "fixed essence modifier outcome",
+                action.isLiquid() ? "uniform-liquid-outcomes-v1" : "uniform-essence-choice-v1",
+                "valid sourced modifier outcome",
                 targets.size(),
                 targets,
                 null,
                 null,
                 action.replacementSource(),
-                "Uniform among the sourced modifier outcomes; no published essence choice weights. Zero ordinary spawn weight is not an essence selection weight."));
+                action.isLiquid()
+                    ? "USER-APPROVED SIMULATOR MODEL: 1/N among valid sourced Liquid outcomes after this removal and side/family eligibility. Actual outcome weights are unavailable."
+                    : "Uniform among the sourced modifier outcomes; no published essence choice weights. Zero ordinary spawn weight is not an essence selection weight."));
       var rolled = roll(definition, random, assumptions);
       explicits.add(rolled);
       events.add(new Event("ADD", definition.id(), rolled.values(), 1.0 / targets.size()));
@@ -827,6 +855,35 @@ public final class WorkbenchSimulator {
     var beforeCapPolicy = copy(state, rarity, implicits, explicits);
     var result = qualityCapChangePolicy.afterAcceptedOperation(beforeCapPolicy, catalog);
     validate(result);
+    if (BasicJewel.supported(result.baseItemId())) {
+      if (result.explicits().stream()
+          .anyMatch(
+              m ->
+                  m.modifierId().endsWith("JewelPrefixEffect")
+                      || m.modifierId().endsWith("JewelSuffixEffect")))
+        assumptions.add(
+            new Assumption(
+                "jewel-effect-quality-projection-v1",
+                "derived display only",
+                1,
+                List.of(),
+                null,
+                null,
+                "https://poe2db.tw/us/Potent_Liquid_Ferocity",
+                "PROVISIONAL: opposite-side effect and matching refined quality multiply from original rolls; central integer rounding once. Stored values never change. Meta and conditional modifiers are unscalable; no combat simulation."));
+      var slots = new ItemStateValidator(catalog).slots(result);
+      if (slots.usedPrefixes() > slots.maxPrefixes() || slots.usedSuffixes() > slots.maxSuffixes())
+        assumptions.add(
+            new Assumption(
+                "jewel-cap-loss-preserve-v1",
+                "existing affix overflow",
+                1,
+                result.explicits().stream().map(ModifierInstance::modifierId).toList(),
+                null,
+                null,
+                "https://mobalytics.gg/poe-2/profile/paintmaster/guides/recoup-chronomancer-gear-crafting-guide",
+                "Secondary-evidence simulator policy: removing Contempt preserves existing excess affixes. Future insertion obeys current side and total capacity. No primary proof of cap-loss behavior."));
+    }
     if (action.minimumModifierLevel() > 0 && !matched.isEmpty())
       assumptions.add(
           new Assumption(
@@ -857,16 +914,16 @@ public final class WorkbenchSimulator {
 
   private void recordSapphireSelection(
       List<ModifierDefinition> candidates, List<Assumption> assumptions) {
-    if (catalog.base().id().equals(SapphireJewel.BASE_ID))
+    if (BasicJewel.supported(catalog.base().id()))
       assumptions.add(
           new Assumption(
               "sapphire-uniform-candidates-v1",
-              "eligible Sapphire ordinary modifier",
+              "eligible Basic Jewel ordinary modifier",
               candidates.size(),
               candidates.stream().map(ModifierDefinition::id).toList(),
               null,
               null,
-              "https://poe2db.tw/us/Sapphire",
+              catalog.metadata().sourceUrl(),
               "USER-APPROVED SIMULATOR MODEL: equal 1/N among the eligible normal-section candidates after family, side and level restrictions. Actual game spawn weights are unavailable; DropChance=1 is not a verified weight."));
   }
 

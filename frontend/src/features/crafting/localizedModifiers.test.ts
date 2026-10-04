@@ -28,8 +28,13 @@ describe('verified modifier display templates', () => {
   it('covers every ordinary catalog definition in all six locales', () => {
     const ids = Object.keys(catalog.definitions)
     const jewelIds = ids.filter((id) => id.startsWith('sapphire:'))
-    expect(ids.filter((id) => !id.startsWith('sapphire:'))).toHaveLength(1485)
-    expect(jewelIds).toHaveLength(68)
+    expect(
+      ids.filter((id) => !/^(ruby|emerald|sapphire|diamond):/.test(id)),
+    ).toHaveLength(1485)
+    expect(
+      ids.filter((id) => /^(ruby|emerald|sapphire|diamond):/.test(id)),
+    ).toHaveLength(392)
+    expect(jewelIds).toHaveLength(73)
     expect([...jewelIds].sort()).toEqual(
       sapphire.modifiers.map((entry) => entry.id).sort(),
     )
@@ -38,7 +43,7 @@ describe('verified modifier display templates', () => {
     )
     expect(
       sapphire.modifiers.filter((entry) => entry.tags.includes('crafted')),
-    ).toHaveLength(10)
+    ).toHaveLength(15)
     const source = sapphire.modifiers.find(
       (entry) => entry.id === 'sapphire:suffix:of-enchanting',
     )!

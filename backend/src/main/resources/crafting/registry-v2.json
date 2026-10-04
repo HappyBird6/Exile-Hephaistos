@@ -35,7 +35,10 @@
         "belt",
         "helmet",
         "ring",
-        "sapphire"
+        "sapphire",
+        "ruby",
+        "emerald",
+        "diamond"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -67,7 +70,10 @@
         "belt",
         "helmet",
         "ring",
-        "sapphire"
+        "sapphire",
+        "ruby",
+        "emerald",
+        "diamond"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -99,7 +105,10 @@
         "belt",
         "helmet",
         "ring",
-        "sapphire"
+        "sapphire",
+        "ruby",
+        "emerald",
+        "diamond"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -128,7 +137,10 @@
         "belt",
         "helmet",
         "ring",
-        "sapphire"
+        "sapphire",
+        "ruby",
+        "emerald",
+        "diamond"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -160,7 +172,10 @@
         "belt",
         "helmet",
         "ring",
-        "sapphire"
+        "sapphire",
+        "ruby",
+        "emerald",
+        "diamond"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -192,7 +207,10 @@
         "belt",
         "helmet",
         "ring",
-        "sapphire"
+        "sapphire",
+        "ruby",
+        "emerald",
+        "diamond"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -224,7 +242,10 @@
         "belt",
         "helmet",
         "ring",
-        "sapphire"
+        "sapphire",
+        "ruby",
+        "emerald",
+        "diamond"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -300,7 +321,10 @@
         "sceptre",
         "helmet",
         "ring",
-        "sapphire"
+        "sapphire",
+        "ruby",
+        "emerald",
+        "diamond"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -332,7 +356,10 @@
         "belt",
         "helmet",
         "ring",
-        "sapphire"
+        "sapphire",
+        "ruby",
+        "emerald",
+        "diamond"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -364,7 +391,10 @@
         "belt",
         "helmet",
         "ring",
-        "sapphire"
+        "sapphire",
+        "ruby",
+        "emerald",
+        "diamond"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -396,7 +426,10 @@
         "belt",
         "helmet",
         "ring",
-        "sapphire"
+        "sapphire",
+        "ruby",
+        "emerald",
+        "diamond"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -428,7 +461,10 @@
         "belt",
         "helmet",
         "ring",
-        "sapphire"
+        "sapphire",
+        "ruby",
+        "emerald",
+        "diamond"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -460,7 +496,10 @@
         "belt",
         "helmet",
         "ring",
-        "sapphire"
+        "sapphire",
+        "ruby",
+        "emerald",
+        "diamond"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -492,7 +531,10 @@
         "belt",
         "helmet",
         "ring",
-        "sapphire"
+        "sapphire",
+        "ruby",
+        "emerald",
+        "diamond"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -524,7 +566,10 @@
         "belt",
         "helmet",
         "ring",
-        "sapphire"
+        "sapphire",
+        "ruby",
+        "emerald",
+        "diamond"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -556,7 +601,10 @@
         "belt",
         "helmet",
         "ring",
-        "sapphire"
+        "sapphire",
+        "ruby",
+        "emerald",
+        "diamond"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -588,7 +636,10 @@
         "belt",
         "helmet",
         "ring",
-        "sapphire"
+        "sapphire",
+        "ruby",
+        "emerald",
+        "diamond"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -620,7 +671,10 @@
         "belt",
         "helmet",
         "ring",
-        "sapphire"
+        "sapphire",
+        "ruby",
+        "emerald",
+        "diamond"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -3882,9 +3936,11 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "NOT_APPLICABLE",
       "action": "DILUTED_LIQUID_IRE",
-      "reason": "Sapphire fixed Crafted result; one Crafted cap. Explicit uniform legal-removal simulator model; repeated Crafted replacement is unsupported.",
+      "reason": "Sourced Basic Jewel Crafted outcomes. One Crafted cap; explicit uniform legal removal and valid outcome model.",
       "serviceScope": "ACTIVE",
       "supportedBases": [
+        "ruby",
+        "emerald",
         "sapphire"
       ],
       "ruleSource": "https://poe2db.tw/us/Diluted_Liquid_Ire",
@@ -3902,9 +3958,11 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "NOT_APPLICABLE",
       "action": "DILUTED_LIQUID_GUILT",
-      "reason": "Sapphire fixed Crafted result; one Crafted cap. Explicit uniform legal-removal simulator model; repeated Crafted replacement is unsupported.",
+      "reason": "Sourced Basic Jewel Crafted outcomes. One Crafted cap; explicit uniform legal removal and valid outcome model.",
       "serviceScope": "ACTIVE",
       "supportedBases": [
+        "ruby",
+        "emerald",
         "sapphire"
       ],
       "ruleSource": "https://poe2db.tw/us/Diluted_Liquid_Guilt",
@@ -3922,9 +3980,11 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "NOT_APPLICABLE",
       "action": "DILUTED_LIQUID_GREED",
-      "reason": "Sapphire fixed Crafted result; one Crafted cap. Explicit uniform legal-removal simulator model; repeated Crafted replacement is unsupported.",
+      "reason": "Sourced Basic Jewel Crafted outcomes. One Crafted cap; explicit uniform legal removal and valid outcome model.",
       "serviceScope": "ACTIVE",
       "supportedBases": [
+        "ruby",
+        "emerald",
         "sapphire"
       ],
       "ruleSource": "https://poe2db.tw/us/Diluted_Liquid_Greed",
@@ -3942,9 +4002,11 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "NOT_APPLICABLE",
       "action": "LIQUID_PARANOIA",
-      "reason": "Sapphire fixed Crafted result; one Crafted cap. Explicit uniform legal-removal simulator model; repeated Crafted replacement is unsupported.",
+      "reason": "Sourced Basic Jewel Crafted outcomes. One Crafted cap; explicit uniform legal removal and valid outcome model.",
       "serviceScope": "ACTIVE",
       "supportedBases": [
+        "ruby",
+        "emerald",
         "sapphire"
       ],
       "ruleSource": "https://poe2db.tw/us/Liquid_Paranoia",
@@ -3962,9 +4024,11 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "NOT_APPLICABLE",
       "action": "LIQUID_ENVY",
-      "reason": "Sapphire fixed Crafted result; one Crafted cap. Explicit uniform legal-removal simulator model; repeated Crafted replacement is unsupported.",
+      "reason": "Sourced Basic Jewel Crafted outcomes. One Crafted cap; explicit uniform legal removal and valid outcome model.",
       "serviceScope": "ACTIVE",
       "supportedBases": [
+        "ruby",
+        "emerald",
         "sapphire"
       ],
       "ruleSource": "https://poe2db.tw/us/Liquid_Envy",
@@ -3982,9 +4046,11 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "NOT_APPLICABLE",
       "action": "LIQUID_DISGUST",
-      "reason": "Sapphire fixed Crafted result; one Crafted cap. Explicit uniform legal-removal simulator model; repeated Crafted replacement is unsupported.",
+      "reason": "Sourced Basic Jewel Crafted outcomes. One Crafted cap; explicit uniform legal removal and valid outcome model.",
       "serviceScope": "ACTIVE",
       "supportedBases": [
+        "ruby",
+        "emerald",
         "sapphire"
       ],
       "ruleSource": "https://poe2db.tw/us/Liquid_Disgust",
@@ -4002,9 +4068,11 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "NOT_APPLICABLE",
       "action": "LIQUID_DESPAIR",
-      "reason": "Sapphire fixed Crafted result; one Crafted cap. Explicit uniform legal-removal simulator model; repeated Crafted replacement is unsupported.",
+      "reason": "Sourced Basic Jewel Crafted outcomes. One Crafted cap; explicit uniform legal removal and valid outcome model.",
       "serviceScope": "ACTIVE",
       "supportedBases": [
+        "ruby",
+        "emerald",
         "sapphire"
       ],
       "ruleSource": "https://poe2db.tw/us/Liquid_Despair",
@@ -4022,9 +4090,11 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "NOT_APPLICABLE",
       "action": "CONCENTRATED_LIQUID_FEAR",
-      "reason": "Sapphire fixed Crafted result; one Crafted cap. Explicit uniform legal-removal simulator model; repeated Crafted replacement is unsupported.",
+      "reason": "Sourced Basic Jewel Crafted outcomes. One Crafted cap; explicit uniform legal removal and valid outcome model.",
       "serviceScope": "ACTIVE",
       "supportedBases": [
+        "ruby",
+        "emerald",
         "sapphire"
       ],
       "ruleSource": "https://poe2db.tw/us/Concentrated_Liquid_Fear",
@@ -4042,9 +4112,11 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "NOT_APPLICABLE",
       "action": "CONCENTRATED_LIQUID_SUFFERING",
-      "reason": "Sapphire fixed Crafted result; one Crafted cap. Explicit uniform legal-removal simulator model; repeated Crafted replacement is unsupported.",
+      "reason": "Sourced Basic Jewel Crafted outcomes. One Crafted cap; explicit uniform legal removal and valid outcome model.",
       "serviceScope": "ACTIVE",
       "supportedBases": [
+        "ruby",
+        "emerald",
         "sapphire"
       ],
       "ruleSource": "https://poe2db.tw/us/Concentrated_Liquid_Suffering",
@@ -4062,9 +4134,12 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "NOT_APPLICABLE",
       "action": "CONCENTRATED_LIQUID_ISOLATION",
-      "reason": "Sapphire fixed Crafted result; one Crafted cap. Explicit uniform legal-removal simulator model; repeated Crafted replacement is unsupported.",
+      "reason": "Sourced Basic Jewel Crafted outcomes. One Crafted cap; explicit uniform legal removal and valid outcome model.",
       "serviceScope": "ACTIVE",
       "supportedBases": [
+        "ruby",
+        "emerald",
+        "diamond",
         "sapphire"
       ],
       "ruleSource": "https://poe2db.tw/us/Concentrated_Liquid_Isolation",
@@ -4229,11 +4304,18 @@
       "sourceRetrievedAt": "2026-09-23T07:20:35.589496+00:00",
       "sourceSha256": "75bd5388d4b39ec2d9ae205866d4116696f3b9c259421b21309efd8edbfa8e1b",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered Liquid inventory; Potent and Ancient mechanics remain unsupported. Registration is not implementation.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_APPLICABLE",
+      "action": "POTENT_LIQUID_MELANCHOLY",
+      "reason": "Sourced Basic Jewel Crafted outcomes. One Crafted cap; explicit uniform legal removal and valid outcome model.",
+      "serviceScope": "ACTIVE",
+      "supportedBases": [
+        "ruby",
+        "emerald",
+        "sapphire"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Potent_Liquid_Melancholy",
+      "ruleVerifiedAt": "2026-10-04"
     },
     {
       "id": "Potent_Liquid_Ferocity",
@@ -4244,11 +4326,19 @@
       "sourceRetrievedAt": "2026-09-23T07:20:35.589496+00:00",
       "sourceSha256": "75bd5388d4b39ec2d9ae205866d4116696f3b9c259421b21309efd8edbfa8e1b",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered Liquid inventory; Potent and Ancient mechanics remain unsupported. Registration is not implementation.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_APPLICABLE",
+      "action": "POTENT_LIQUID_FEROCITY",
+      "reason": "Sourced Basic Jewel Crafted outcomes. One Crafted cap; explicit uniform legal removal and valid outcome model.",
+      "serviceScope": "ACTIVE",
+      "supportedBases": [
+        "ruby",
+        "emerald",
+        "diamond",
+        "sapphire"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Potent_Liquid_Ferocity",
+      "ruleVerifiedAt": "2026-10-04"
     },
     {
       "id": "Potent_Liquid_Contempt",
@@ -4259,11 +4349,19 @@
       "sourceRetrievedAt": "2026-09-23T07:20:35.589496+00:00",
       "sourceSha256": "75bd5388d4b39ec2d9ae205866d4116696f3b9c259421b21309efd8edbfa8e1b",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered Liquid inventory; Potent and Ancient mechanics remain unsupported. Registration is not implementation.",
-      "serviceScope": "ACTIVE"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_APPLICABLE",
+      "action": "POTENT_LIQUID_CONTEMPT",
+      "reason": "Sourced Basic Jewel Crafted outcomes. One Crafted cap; explicit uniform legal removal and valid outcome model.",
+      "serviceScope": "ACTIVE",
+      "supportedBases": [
+        "ruby",
+        "emerald",
+        "diamond",
+        "sapphire"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Potent_Liquid_Contempt",
+      "ruleVerifiedAt": "2026-10-04"
     },
     {
       "id": "Ancient_Potent_Liquid_Melancholy",

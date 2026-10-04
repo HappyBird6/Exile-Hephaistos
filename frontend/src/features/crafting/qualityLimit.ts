@@ -19,6 +19,9 @@ export function maximumQuality(
     ![
       solar,
       'Metadata/Items/Jewels/JewelInt',
+      'Metadata/Items/Jewels/JewelStr',
+      'Metadata/Items/Jewels/JewelDex',
+      'Metadata/Items/Jewels/JewelDiamond',
       'Metadata/Items/Rings/FourRing1',
       stocky,
       'Metadata/Items/Armours/Helmets/FourHelmetStr1',

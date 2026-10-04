@@ -30,9 +30,24 @@ public final class ItemCatalogLoader {
           catalog.metadata(),
           catalog.base(),
           new ArrayList<>(catalog.modifiers().values()),
-          List.of("poe2db-sapphire-editor-20261004-63e81efc2080"));
+          List.of(
+              "poe2db-sapphire-editor-20261004-63e81efc2080",
+              "poe2db-sapphire-basic-liquid-20261004-2eaf12518879"));
     } catch (IOException e) {
       throw new IllegalStateException("Cannot load Sapphire starting-item catalog", e);
+    }
+  }
+
+  public static ItemCatalog loadBasicJewel(String base) {
+    if (!java.util.Set.of("ruby", "emerald", "diamond").contains(base))
+      throw new IllegalArgumentException("Unsupported Basic Jewel catalog");
+    String root = "/catalog/" + base + "/";
+    try (var data = ItemCatalogLoader.class.getResourceAsStream(root + "catalog.json");
+        var raw = ItemCatalogLoader.class.getResourceAsStream(root + "base.raw.json");
+        var details = ItemCatalogLoader.class.getResourceAsStream(root + "details.raw.json")) {
+      return load(data, raw, details);
+    } catch (IOException e) {
+      throw new IllegalStateException("Cannot load Basic Jewel catalog", e);
     }
   }
 

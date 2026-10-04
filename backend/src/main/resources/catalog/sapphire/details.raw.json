@@ -3,10 +3,9 @@
   "eligibleSection": "normal",
   "excludedSections": [
     "corrupted",
-    "desecrated",
-    "liquid"
+    "desecrated"
   ],
-  "weightPolicy": "USER_APPROVED_UNIFORM_CANDIDATES_NOT_GAME_WEIGHTS; DropChance=1 is not imported as a verified weight",
+  "weightPolicy": "USER_APPROVED_UNIFORM_CANDIDATES_NOT_GAME_WEIGHTS",
   "slots": {
     "magic": [
       1,
@@ -16,10 +15,9 @@
       2,
       2
     ],
-    "source": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/dev/src/Classes/Item.lua",
-    "status": "corroborated simulator model"
+    "source": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/dev/src/Classes/Item.lua"
   },
-  "statPolicy": "Single published display-unit range per row; display_source_value is an internal key, not a verified game stat ID. Minion attack and cast speed uses one shared published magnitude.",
-  "normalPolicy": "Normal Sapphire is a user-approved reversible simulator starting state; PoE2DB enabled_rarity lists magic,rare,unique.",
-  "craftedPolicy": "Zero ordinary generation weight; identified persistently by sourced modifier ID and crafted tag; one per item. Every random-removal branch must permit the fixed outcome; uncertain branches refuse unchanged."
+  "statPolicy": "Published integer display-unit bindings; display_source_value keys are internal, not game stat IDs. Conditional display_condition_present=1 is a presence marker, not a simulated combat effect.",
+  "craftedPolicy": "At most one Crafted. Zero ordinary weight. Uniform eligible removal then uniform valid sourced outcomes. Contempt occupies an ordinary slot and expands the opposite side; cap-loss preserves existing overflow. Ferocity and quality combine multiplicatively from original values with one central rounding, a provisional display assumption. Melancholy displays its external socketed-jewel condition only.",
+  "normalPolicy": "User-approved Normal simulator starting state; enabled_rarity remains magic,rare,unique."
 }

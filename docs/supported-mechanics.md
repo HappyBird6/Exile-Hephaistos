@@ -1,3 +1,5 @@
+Latest checkpoint: [Basic Jewel four bases and Potent Liquid](workbench-basic-jewel-potent-2026-10-04.md). Ruby50/Emerald74/Sapphire58/Diamond160 ordinary candidates, base-specific Liquid13/13/13/3; provisional Ferocity projection and Contempt overflow preservation. Earlier dated scopes below are superseded for these bases.
+
 # 지원 범위
 
 현재 지원하는 기능은 제작 작업대의 재료 표시·선택·검색·즐겨찾기, 영어 아이템 복사 텍스트 분석과 Solar Amulet 확률 탐색이다.

@@ -3,6 +3,9 @@ import { create } from 'zustand'
 export type ItemTextDocument = { id: string; text: string }
 const baseText = 'Item Class: Amulets\nRarity: Normal\nSolar Amulet'
 const baseTexts = {
+  ruby: 'Item Class: Jewels\nRarity: Normal\nRuby',
+  emerald: 'Item Class: Jewels\nRarity: Normal\nEmerald',
+  diamond: 'Item Class: Jewels\nRarity: Normal\nDiamond',
   sapphire: 'Item Class: Jewels\nRarity: Magic\nSapphire',
   solar: baseText,
   ring: 'Item Class: Rings\nRarity: Normal\nIron Ring',
@@ -28,6 +31,9 @@ type Draft = {
     | 'belt'
     | 'helmet'
     | 'ring'
+    | 'ruby'
+    | 'emerald'
+    | 'diamond'
     | 'sapphire'
   baseItemLevel: number
   baseRevision: number
@@ -45,6 +51,9 @@ type Draft = {
       | 'belt'
       | 'helmet'
       | 'ring'
+      | 'ruby'
+      | 'emerald'
+      | 'diamond'
       | 'sapphire',
   ) => void
   setText: (text: string) => void

@@ -1,3 +1,4 @@
+import { jewelEffect } from './basicJewel'
 import type { Definition } from './craftingApi'
 import type { ConcreteItem } from './workbenchApi'
 import { maximumQuality } from './qualityLimit'
@@ -31,6 +32,9 @@ export const catalystBase = (base: string) =>
     'Metadata/Items/Amulets/FourAmulet9',
     'Metadata/Items/Rings/FourRing1',
     'Metadata/Items/Jewels/JewelInt',
+    'Metadata/Items/Jewels/JewelStr',
+    'Metadata/Items/Jewels/JewelDex',
+    'Metadata/Items/Jewels/JewelDiamond',
   ].includes(base)
 
 export function qualityShape(
@@ -90,7 +94,33 @@ export function catalystProjection(
   d: Definition,
   values: Record<string, number>,
   quality?: CatalystQuality | null,
+  state?: ConcreteItem,
 ) {
+  if (/^(ruby|emerald|sapphire|diamond):/.test(d.id) && state) {
+    if (d.tags?.includes('unscalable')) return { values, status: 'UNSCALABLE' }
+    const q =
+      quality &&
+      catalystTypes[quality.type].tags.some((t) => d.tags?.includes(t))
+        ? quality.amount
+        : 0
+    const effect = jewelEffect(state, d.affixType)
+    if (q === 0 && effect === 0)
+      return { values, status: quality ? 'NO_MATCH' : 'NO_TYPED_QUALITY' }
+    return {
+      values: Object.fromEntries(
+        Object.entries(values).map(([id, v]) => [
+          id,
+          roundQualityRatio(
+            BigInt(v) * BigInt(100 + q) * BigInt(100 + effect),
+            10000n,
+          ),
+        ]),
+      ),
+      status: effect
+        ? 'JEWEL_EFFECT_AND_QUALITY_PROVISIONAL'
+        : 'SCALED_INTEGER',
+    }
+  }
   if (!quality) return { values, status: 'NO_TYPED_QUALITY' }
   if (
     Object.hasOwn(values, 'local_maximum_quality_+') ||

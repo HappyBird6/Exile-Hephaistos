@@ -26,6 +26,8 @@ public final class WorkbenchService {
   private final WorkbenchSimulator wandSimulator;
   private final ItemCatalog bow;
   private final WorkbenchSimulator bowSimulator;
+  private final Map<String, ItemCatalog> basicJewels = new HashMap<>();
+  private final Map<String, WorkbenchSimulator> basicJewelSimulators = new HashMap<>();
   private final ItemCatalog sapphire;
   private final WorkbenchSimulator sapphireSimulator;
 
@@ -120,6 +122,46 @@ public final class WorkbenchService {
       ItemCatalog helmet,
       ItemCatalog ring,
       ItemCatalog sapphire) {
+    this(
+        solar,
+        solarSimulator,
+        stocky,
+        bow,
+        wand,
+        body,
+        sceptre,
+        belt,
+        helmet,
+        ring,
+        sapphire,
+        null,
+        null,
+        null);
+  }
+
+  public WorkbenchService(
+      ItemCatalog solar,
+      WorkbenchSimulator solarSimulator,
+      ItemCatalog stocky,
+      ItemCatalog bow,
+      ItemCatalog wand,
+      ItemCatalog body,
+      ItemCatalog sceptre,
+      ItemCatalog belt,
+      ItemCatalog helmet,
+      ItemCatalog ring,
+      ItemCatalog sapphire,
+      ItemCatalog ruby,
+      ItemCatalog emerald,
+      ItemCatalog diamond) {
+    var extras = new ItemCatalog[] {ruby, emerald, diamond};
+    var names = new String[] {"ruby", "emerald", "diamond"};
+    for (int i = 0; i < extras.length; i++)
+      if (extras[i] != null) {
+        var c = extras[i];
+        basicJewels.put(names[i], c);
+        basicJewelSimulators.put(c.base().id(), new WorkbenchSimulator(c, new CraftingEngine(c)));
+      }
     this.sapphire = sapphire;
     this.sapphireSimulator =
         sapphire == null ? null : new WorkbenchSimulator(sapphire, new CraftingEngine(sapphire));
@@ -264,6 +306,7 @@ public final class WorkbenchService {
   }
 
   private ItemCatalog catalog(String base) {
+    if (basicJewels.containsKey(base)) return basicJewels.get(base);
     return switch (base) {
       case "sapphire" -> {
         if (sapphire == null) throw new IllegalArgumentException("Sapphire catalog unavailable");
@@ -304,6 +347,8 @@ public final class WorkbenchService {
   }
 
   private WorkbenchSimulator simulator(ItemState state) {
+    if (state != null && basicJewelSimulators.containsKey(state.baseItemId()))
+      return basicJewelSimulators.get(state.baseItemId());
     if (state != null
         && state.baseItemId().equals(SapphireJewel.BASE_ID)
         && sapphireSimulator != null) return sapphireSimulator;
@@ -341,8 +386,10 @@ public final class WorkbenchService {
 
   public QualityDisplay qualityDisplay(ItemState state) {
     var selected =
-        java.util.stream.Stream.of(
-                solar, stocky, bow, wand, body, sceptre, belt, helmet, ring, sapphire)
+        java.util.stream.Stream.concat(
+                basicJewels.values().stream(),
+                java.util.stream.Stream.of(
+                    solar, stocky, bow, wand, body, sceptre, belt, helmet, ring, sapphire))
             .filter(java.util.Objects::nonNull)
             .filter(c -> c.base().id().equals(state.baseItemId()))
             .findFirst()

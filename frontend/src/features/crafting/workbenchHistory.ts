@@ -1,5 +1,5 @@
 import { supportsConcreteStateShape } from './workbenchStateShape'
-import { sapphireBase, reviewedSapphire } from './sapphireJewel'
+import { isBasicJewel, reviewedBasicJewel } from './basicJewel'
 import { verifiedCatalystQuality } from './catalystQuality'
 import { qualityLimitMatches } from './qualityLimit'
 import type { Initial } from './craftingApi'
@@ -243,7 +243,7 @@ export function verifiedHistoryState(
   try {
     if (
       !supportsConcreteStateShape(state) ||
-      (state.baseItemId === sapphireBase && !reviewedSapphire(state)) ||
+      (isBasicJewel(state.baseItemId) && !reviewedBasicJewel(state)) ||
       !verifiedCatalystQuality(state, initial.modifiers) ||
       (state.snapshotId !== initial.metadata.snapshotId &&
         !initial.compatibleSnapshotIds?.includes(state.snapshotId)) ||
@@ -304,10 +304,12 @@ export function verifiedHistoryState(
         ? 0
         : state.rarity === 'MAGIC'
           ? 1
-          : state.baseItemId === sapphireBase
+          : isBasicJewel(state.baseItemId)
             ? 2
             : 3
-    return p <= capacity && s <= capacity
+    return isBasicJewel(state.baseItemId)
+      ? reviewedBasicJewel(state)
+      : p <= capacity && s <= capacity
   } catch {
     return false
   }

@@ -1764,6 +1764,95 @@
       ],
       "reqlvl": 0,
       "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/eda3ae7d7bcbf97386b10ca31d6f6aee72cacfbaf149c2b3a2a6fdb157ea45da\" href=\"Concentrated_Liquid_Isolation\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/DistilledEmotions/ConcentratedDistilledIsolation.webp\" alt=\"ConcentratedDistilledIsolation\" height=\"16\" />Concentrated Liquid Isolation</a>"
+    },
+    {
+      "Code": "CraftedJewelExposureOnHitWhileRubyEmeraldSocketed",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "JewelStatusOnHitWhileSocketed"
+      ],
+      "str": "Inflict <a data-keyword=\"ElementalDamage\" href=\"Elemental_Damage_Types\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/76ff55a46c9d3d007722fb5ccb09592dc48359db448d433f7e0c8dfc6e94dcbd\">Elemental</a> <a data-keyword=\"Exposure\" href=\"Exposure\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ad5f37ba83eead857dac743f772067d8cfcd1cd10a7d527823fc19986c2de3a8\">Exposure</a> on <a data-keyword=\"Hit\" href=\"Hit_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/396ec0ccc46f63acd9059876455d4a9f7d5108864acf9fc0f4c56be5a6f9cd57\">Hit</a> while you have a Ruby and an Emerald socketed in your tree",
+      "fossil_no": [
+        "elemental"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>"
+      ],
+      "reqlvl": 0,
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/30fa07fea1191833e760a43313293f25aa68aca46d894f1ddd4e769f4874e12d\" href=\"Potent_Liquid_Melancholy\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/DistilledEmotions/UniqueHumansEmotion.webp\" alt=\"UniqueHumansEmotion\" height=\"16\" />Potent Liquid Melancholy</a>"
+    },
+    {
+      "Code": "CraftedJewelSuffixEffect",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "LocalPrefixSuffixEffect"
+      ],
+      "str": "<span class='mod-value'>(40<span class=\"ndash\">—</span>60)</span>% increased Effect of Suffixes",
+      "fossil_no": [],
+      "adds_no": [],
+      "spawn_no": [
+        "default"
+      ],
+      "mod_no": [],
+      "reqlvl": 0,
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/1c252952930dc962cfee6929f4a4f1e1ae6072eaa0544d4a8d5919ccadbcb952\" href=\"Potent_Liquid_Ferocity\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/DistilledEmotions/UniqueConstructsEmotion.webp\" alt=\"UniqueConstructsEmotion\" height=\"16\" />Potent Liquid Ferocity</a>"
+    },
+    {
+      "Code": "CraftedJewelPrefixEffect",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "LocalPrefixSuffixEffect"
+      ],
+      "str": "<span class='mod-value'>(40<span class=\"ndash\">—</span>60)</span>% increased Effect of Prefixes",
+      "fossil_no": [],
+      "adds_no": [],
+      "spawn_no": [
+        "default"
+      ],
+      "mod_no": [],
+      "reqlvl": 0,
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/1c252952930dc962cfee6929f4a4f1e1ae6072eaa0544d4a8d5919ccadbcb952\" href=\"Potent_Liquid_Ferocity\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/DistilledEmotions/UniqueConstructsEmotion.webp\" alt=\"UniqueConstructsEmotion\" height=\"16\" />Potent Liquid Ferocity</a>"
+    },
+    {
+      "Code": "CraftedJewelAdditionalSuffixAllowed",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "MaxPrefixMaxSuffix"
+      ],
+      "str": "<span class='mod-value'>+1</span> Suffix Modifier allowed",
+      "fossil_no": [],
+      "adds_no": [],
+      "spawn_no": [
+        "default"
+      ],
+      "mod_no": [],
+      "reqlvl": 0,
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/49821be8bcf6e65a31dd422e0251d4154b243fae849355c8f4d41a907bc47dcd\" href=\"Potent_Liquid_Contempt\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/DistilledEmotions/UniqueBeastEmotion.webp\" alt=\"UniqueBeastEmotion\" height=\"16\" />Potent Liquid Contempt</a>"
+    },
+    {
+      "Code": "CraftedJewelAdditionalPrefixAllowed",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "MaxPrefixMaxSuffix"
+      ],
+      "str": "<span class='mod-value'>+1</span> Prefix Modifier allowed",
+      "fossil_no": [],
+      "adds_no": [],
+      "spawn_no": [
+        "default"
+      ],
+      "mod_no": [],
+      "reqlvl": 0,
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/49821be8bcf6e65a31dd422e0251d4154b243fae849355c8f4d41a907bc47dcd\" href=\"Potent_Liquid_Contempt\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/DistilledEmotions/UniqueBeastEmotion.webp\" alt=\"UniqueBeastEmotion\" height=\"16\" />Potent Liquid Contempt</a>"
     }
   ]
 }

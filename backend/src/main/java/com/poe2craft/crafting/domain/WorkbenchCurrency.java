@@ -5,6 +5,9 @@ import java.util.Set;
 
 /** Workbench rules are independent of the legacy six-action bucket explorer. */
 public enum WorkbenchCurrency {
+  POTENT_LIQUID_MELANCHOLY(null, 0),
+  POTENT_LIQUID_FEROCITY(null, 0),
+  POTENT_LIQUID_CONTEMPT(null, 0),
   DILUTED_LIQUID_IRE(null, 0),
   DILUTED_LIQUID_GUILT(null, 0),
   DILUTED_LIQUID_GREED(null, 0),
@@ -235,6 +238,16 @@ public enum WorkbenchCurrency {
 
   public List<String> replacementModifiers() {
     return switch (this) {
+      case POTENT_LIQUID_MELANCHOLY ->
+          List.of("sapphire:crafted:CraftedJewelExposureOnHitWhileRubyEmeraldSocketed");
+      case POTENT_LIQUID_FEROCITY ->
+          List.of(
+              "sapphire:crafted:CraftedJewelSuffixEffect",
+              "sapphire:crafted:CraftedJewelPrefixEffect");
+      case POTENT_LIQUID_CONTEMPT ->
+          List.of(
+              "sapphire:crafted:CraftedJewelAdditionalSuffixAllowed",
+              "sapphire:crafted:CraftedJewelAdditionalPrefixAllowed");
       case DILUTED_LIQUID_IRE -> List.of("sapphire:crafted:JewelEnergyShield");
       case DILUTED_LIQUID_GUILT -> List.of("sapphire:crafted:JewelColdDamage");
       case DILUTED_LIQUID_GREED -> List.of("sapphire:crafted:JewelChaosDamage");

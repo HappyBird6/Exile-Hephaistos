@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "snapshotId": "poe2db-sapphire-basic-liquid-20261004-2eaf12518879",
-    "retrievedAt": "2026-10-04T09:43:45.495Z",
+    "snapshotId": "poe2db-sapphire-basic-potent-20261004-6df2eea3976b",
+    "retrievedAt": "2026-10-04T10:25:34.485Z",
     "sourceUrl": "https://poe2db.tw/us/Sapphire",
     "weightPolicy": "USER_APPROVED_UNIFORM_CANDIDATES_NOT_GAME_WEIGHTS",
-    "rawSha256": "2eaf1251887909ea4cad3174f803e73d45341918bfbc401ae39b1d87ccdd7e40",
-    "detailsSha256": "6b969199adc9f71a724df6bfe27585d62fd61b6e3783cc92a062a697ee4d8b0e",
-    "prefixCount": 28,
-    "suffixCount": 40,
+    "rawSha256": "6df2eea3976b76695af45c9b010df76ea447972bc50e4e671029bf6f905ea454",
+    "detailsSha256": "409590a1d44d9382b7b45e4461ca7c8750f4e7caf34e0299c3bc2d6ecb00e26c",
+    "prefixCount": 30,
+    "suffixCount": 43,
     "prefixWeight": 23,
     "suffixWeight": 35
   },
@@ -1767,6 +1767,132 @@
         "crafted"
       ],
       "sourceUrl": "https://poe2db.tw/us/Concentrated_Liquid_Isolation"
+    },
+    {
+      "id": "sapphire:crafted:CraftedJewelExposureOnHitWhileRubyEmeraldSocketed",
+      "name": "Potent Liquid Melancholy (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "JewelStatusOnHitWhileSocketed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Inflict Elemental Exposure on Hit while you have a Ruby and an Emerald socketed in your tree",
+      "stats": [
+        {
+          "id": "display_condition_present",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "elemental",
+        "crafted",
+        "unscalable"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Melancholy"
+    },
+    {
+      "id": "sapphire:crafted:CraftedJewelSuffixEffect",
+      "name": "Potent Liquid Ferocity (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LocalPrefixSuffixEffect"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "(40—60)% increased Effect of Suffixes",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 40,
+          "max": 60
+        }
+      ],
+      "tags": [
+        "crafted",
+        "unscalable"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Ferocity"
+    },
+    {
+      "id": "sapphire:crafted:CraftedJewelPrefixEffect",
+      "name": "Potent Liquid Ferocity (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LocalPrefixSuffixEffect"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "(40—60)% increased Effect of Prefixes",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 40,
+          "max": 60
+        }
+      ],
+      "tags": [
+        "crafted",
+        "unscalable"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Ferocity"
+    },
+    {
+      "id": "sapphire:crafted:CraftedJewelAdditionalSuffixAllowed",
+      "name": "Potent Liquid Contempt (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaxPrefixMaxSuffix"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "+1 Suffix Modifier allowed",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "crafted",
+        "unscalable"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Contempt"
+    },
+    {
+      "id": "sapphire:crafted:CraftedJewelAdditionalPrefixAllowed",
+      "name": "Potent Liquid Contempt (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "MaxPrefixMaxSuffix"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "+1 Prefix Modifier allowed",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "crafted",
+        "unscalable"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Contempt"
     }
   ]
 }

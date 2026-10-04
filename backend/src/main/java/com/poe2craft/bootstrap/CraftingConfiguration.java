@@ -87,7 +87,10 @@ public class CraftingConfiguration {
           ItemCatalogLoader.loadBelt(),
           ItemCatalogLoader.loadHelmet(),
           ItemCatalogLoader.loadRing(),
-          ItemCatalogLoader.loadSapphire());
+          ItemCatalogLoader.loadSapphire(),
+          ItemCatalogLoader.loadBasicJewel("ruby"),
+          ItemCatalogLoader.loadBasicJewel("emerald"),
+          ItemCatalogLoader.loadBasicJewel("diamond"));
     } catch (java.io.IOException e) {
       throw new IllegalStateException("Cannot load Stocky Mitts catalog", e);
     }

@@ -21,7 +21,7 @@ public final class QualityLimitRules {
         && !state.baseItemId().equals(WandEssenceTargets.BASE_ID)
         && !state.baseItemId().equals(SceptreEssenceTargets.BASE_ID)
         && !state.baseItemId().equals(RingEssenceTargets.BASE_ID)
-        && !state.baseItemId().equals(SapphireJewel.BASE_ID))
+        && !BasicJewel.supported(state.baseItemId()))
       return null; // Other catalogs do not inherit a reviewed cap.
     int maximum = 20;
     for (var instance : state.explicits()) {

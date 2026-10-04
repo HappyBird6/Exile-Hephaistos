@@ -1,0 +1,194 @@
+{
+  "baseline": "c691a2ee536f56e544f5383ed5df88b2395000e2",
+  "date": "2026-10-04",
+  "scope": "Ruby/Emerald/Diamond Basic Jewel and Potent Liquid3; Sapphire compatibility",
+  "ordinaryCandidates": {
+    "ruby": 50,
+    "emerald": 74,
+    "sapphire": 58,
+    "diamond": 160
+  },
+  "craftedCandidates": {
+    "ruby": 15,
+    "emerald": 15,
+    "sapphire": 15,
+    "diamond": 5
+  },
+  "backend": {
+    "command": "spotlessApply check generateJooq bootJar",
+    "passed": true,
+    "tests": {
+      "integrationTest": 6,
+      "test": 381
+    }
+  },
+  "frontend": {
+    "npmCi": true,
+    "lint": true,
+    "typecheck": true,
+    "formatCheck": true,
+    "tests": 976,
+    "build": true
+  },
+  "api": {
+    "checks": 9979,
+    "captures": 1251
+  },
+  "browser": {
+    "checks": 392,
+    "pageErrors": [],
+    "screenshots": [
+      "browser-failure-1.png",
+      "browser-failure-2.png",
+      "card-diamond-en.png",
+      "card-diamond-es.png",
+      "card-diamond-ja.png",
+      "card-diamond-ko.png",
+      "card-diamond-zh-CN.png",
+      "card-diamond-zh-TW.png",
+      "card-emerald-en.png",
+      "card-emerald-es.png",
+      "card-emerald-ja.png",
+      "card-emerald-ko.png",
+      "card-emerald-zh-CN.png",
+      "card-emerald-zh-TW.png",
+      "card-ruby-en.png",
+      "card-ruby-es.png",
+      "card-ruby-ja.png",
+      "card-ruby-ko.png",
+      "card-ruby-zh-CN.png",
+      "card-ruby-zh-TW.png",
+      "card-sapphire-en.png",
+      "card-sapphire-es.png",
+      "card-sapphire-ja.png",
+      "card-sapphire-ko.png",
+      "card-sapphire-zh-CN.png",
+      "card-sapphire-zh-TW.png",
+      "contact-diamond.png",
+      "contact-emerald.png",
+      "contact-ruby.png",
+      "contact-sapphire.png",
+      "diamond-en-1440.png",
+      "diamond-en-390.png",
+      "diamond-es-1440.png",
+      "diamond-es-390.png",
+      "diamond-ja-1440.png",
+      "diamond-ja-390.png",
+      "diamond-ko-1440.png",
+      "diamond-ko-390.png",
+      "diamond-overflow.png",
+      "diamond-zh-CN-1440.png",
+      "diamond-zh-CN-390.png",
+      "diamond-zh-TW-1440.png",
+      "diamond-zh-TW-390.png",
+      "emerald-en-1440.png",
+      "emerald-en-390.png",
+      "emerald-es-1440.png",
+      "emerald-es-390.png",
+      "emerald-ja-1440.png",
+      "emerald-ja-390.png",
+      "emerald-ko-1440.png",
+      "emerald-ko-390.png",
+      "emerald-overflow.png",
+      "emerald-zh-CN-1440.png",
+      "emerald-zh-CN-390.png",
+      "emerald-zh-TW-1440.png",
+      "emerald-zh-TW-390.png",
+      "omen-candidates.png",
+      "ruby-en-1440.png",
+      "ruby-en-390.png",
+      "ruby-es-1440.png",
+      "ruby-es-390.png",
+      "ruby-ja-1440.png",
+      "ruby-ja-390.png",
+      "ruby-ko-1440.png",
+      "ruby-ko-390.png",
+      "ruby-overflow.png",
+      "ruby-zh-CN-1440.png",
+      "ruby-zh-CN-390.png",
+      "ruby-zh-TW-1440.png",
+      "ruby-zh-TW-390.png",
+      "sapphire-en-1440.png",
+      "sapphire-en-390.png",
+      "sapphire-es-1440.png",
+      "sapphire-es-390.png",
+      "sapphire-ja-1440.png",
+      "sapphire-ja-390.png",
+      "sapphire-ko-1440.png",
+      "sapphire-ko-390.png",
+      "sapphire-overflow.png",
+      "sapphire-zh-CN-1440.png",
+      "sapphire-zh-CN-390.png",
+      "sapphire-zh-TW-1440.png",
+      "sapphire-zh-TW-390.png"
+    ]
+  },
+  "checkedSourceFiles": 348,
+  "identicalCheckedSources": true,
+  "isolatedProject": "exile-basic-jewel-potent-20261004",
+  "ports": [
+    18880,
+    18881
+  ],
+  "livePortsUntouched": [
+    18080,
+    18081
+  ],
+  "qaOwner": {
+    "owner": "workbench/20261002",
+    "baseHead": "c691a2ee536f56e544f5383ed5df88b2395000e2",
+    "active": false,
+    "project": "exile-basic-jewel-potent-20261004",
+    "ports": [
+      18880,
+      18881
+    ],
+    "servicesStoppedNormally": true,
+    "releasedAt": "2026-10-04T11:00:03.507Z"
+  },
+  "logsDirectory": "E:/WORK/Exile-Hephaistos/codex/basic-jewel-potent-20261004",
+  "failureHistory": [
+    {
+      "log": "backend-check-1.log",
+      "failure": "Missing BasicJewel import",
+      "resolution": "Added import; reran full checks"
+    },
+    {
+      "log": "backend-check-2.log",
+      "failure": "ArchUnit application service depended on catalog infrastructure",
+      "resolution": "Moved catalog loading to bootstrap; reran full checks"
+    },
+    {
+      "log": "browser-failure-1.json",
+      "failure": "Harness selected one-affix Ferocity sample but expected four Alt summaries",
+      "resolution": "Selected actual four-affix response; repeated full browser checks without weakening assertion"
+    },
+    {
+      "log": "browser-failure-2.json",
+      "failure": "Same sparse sample selection in final Omen preview harness",
+      "resolution": "Selected actual four-affix before state; repeated full browser checks without weakening assertion"
+    }
+  ],
+  "provisional": [
+    "1/N after eligibility; actual weights unavailable",
+    "Ferocity matching quality multiplies from original values, one central rounding",
+    "Contempt cap-loss overflow preserves existing affixes; secondary evidence only",
+    "Spanish absent Liquid templates use documented semantic translation"
+  ],
+  "remaining": "Ancient Liquid13; no remote push/merge/deploy/release",
+  "selfReview": "Source identity, category/tags, atomic no-spend, family/slot restrictions, derived values, six languages and history verified",
+  "visuallyInspected": [
+    "contact-ruby.png",
+    "contact-emerald.png",
+    "contact-diamond.png",
+    "contact-sapphire.png",
+    "ruby-ko-390.png",
+    "emerald-es-1440.png",
+    "diamond-zh-CN-390.png",
+    "sapphire-ja-1440.png",
+    "sapphire-overflow.png",
+    "omen-candidates.png"
+  ],
+  "jarSha256": "0f965d30f4bd429168d682aa4471995ebc2c8e3add9f0b745c62638d7d8f03da",
+  "buildWarning": "Vite existing large-chunk warning; build passed without changing warning thresholds"
+}
