@@ -7,6 +7,19 @@ export const basicJewelBases = {
   sapphire: 'Metadata/Items/Jewels/JewelInt',
   diamond: 'Metadata/Items/Jewels/JewelDiamond',
 } as const
+export const timeLostJewelBases = {
+  'time-lost-ruby': 'Metadata/Items/Jewels/JewelRadiusStr',
+  'time-lost-emerald': 'Metadata/Items/Jewels/JewelRadiusDex',
+  'time-lost-sapphire': 'Metadata/Items/Jewels/JewelRadiusInt',
+  'time-lost-diamond': 'Metadata/Items/Jewels/JewelRadiusDiamond',
+} as const
+export const workbenchJewelBases = {
+  ...basicJewelBases,
+  ...timeLostJewelBases,
+} as const
+export function isWorkbenchJewel(base: string): boolean {
+  return Object.values(workbenchJewelBases).some((id) => id === base)
+}
 export function isBasicJewel(base: string): boolean {
   return Object.values(basicJewelBases).some((id) => id === base)
 }
@@ -27,10 +40,22 @@ export function jewelCapacity(state: ConcreteItem, side: string): number {
 }
 export function reviewedBasicJewel(state: ConcreteItem): boolean {
   if (
-    !isBasicJewel(state.baseItemId) ||
+    !isWorkbenchJewel(state.baseItemId) ||
     !['NORMAL', 'MAGIC', 'RARE'].includes(state.rarity) ||
     state.augmentSockets != null ||
-    state.implicits.length !== 0
+    (isBasicJewel(state.baseItemId)
+      ? state.implicits.length !== 0
+      : state.implicits.length !== 1 ||
+        state.implicits[0]?.modifierId !==
+          Object.keys(timeLostJewelBases).find(
+            (b) =>
+              (timeLostJewelBases as Record<string, string>)[b] ===
+              state.baseItemId,
+          ) +
+            ':implicit:base-radius' ||
+        state.implicits[0]?.fractured === true ||
+        Object.keys(state.implicits[0]?.values ?? {}).length !== 1 ||
+        state.implicits[0]?.values.local_jewel_effect_base_radius !== 1000)
   )
     return false
   const rows = definitions as Record<

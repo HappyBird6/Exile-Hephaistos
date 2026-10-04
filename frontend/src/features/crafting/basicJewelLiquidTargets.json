@@ -86,5 +86,137 @@
       "sapphire:crafted:CraftedJewelAdditionalSuffixAllowed",
       "sapphire:crafted:CraftedJewelAdditionalPrefixAllowed"
     ]
+  },
+  "time-lost-ruby": {
+    "ANCIENT_DILUTED_LIQUID_IRE": ["time-lost-ruby:crafted:JewelRadiusArmour"],
+    "ANCIENT_DILUTED_LIQUID_GUILT": [
+      "time-lost-ruby:crafted:JewelRadiusFireDamage"
+    ],
+    "ANCIENT_DILUTED_LIQUID_GREED": [
+      "time-lost-ruby:crafted:JewelRadiusPhysicalDamage"
+    ],
+    "ANCIENT_LIQUID_PARANOIA": [
+      "time-lost-ruby:crafted:JewelRadiusAttackDamage"
+    ],
+    "ANCIENT_LIQUID_ENVY": ["time-lost-ruby:crafted:JewelRadiusLifeCost"],
+    "ANCIENT_LIQUID_DISGUST": [
+      "time-lost-ruby:crafted:JewelRadiusLifeRegeneration"
+    ],
+    "ANCIENT_LIQUID_DESPAIR": ["time-lost-ruby:crafted:JewelRadiusRageonHit"],
+    "ANCIENT_CONCENTRATED_LIQUID_FEAR": [
+      "time-lost-ruby:crafted:JewelRadiusWarcrySpeed"
+    ],
+    "ANCIENT_CONCENTRATED_LIQUID_SUFFERING": [
+      "time-lost-ruby:crafted:JewelRadiusMaximumRage"
+    ],
+    "ANCIENT_CONCENTRATED_LIQUID_ISOLATION": [
+      "time-lost-ruby:crafted:JewelRadiusIncLightningColdToFire"
+    ],
+    "ANCIENT_POTENT_LIQUID_MELANCHOLY": [
+      "time-lost-ruby:crafted:CraftedJewelRadiusExtraLargeSize"
+    ],
+    "ANCIENT_POTENT_LIQUID_FEROCITY": [
+      "time-lost-ruby:crafted:CraftedJewelRadiusFireResistance"
+    ],
+    "ANCIENT_POTENT_LIQUID_CONTEMPT": [
+      "time-lost-ruby:crafted:CraftedJewelAdditionalSuffixAllowed",
+      "time-lost-ruby:crafted:CraftedJewelAdditionalPrefixAllowed"
+    ]
+  },
+  "time-lost-emerald": {
+    "ANCIENT_DILUTED_LIQUID_IRE": [
+      "time-lost-emerald:crafted:JewelRadiusEvasion"
+    ],
+    "ANCIENT_DILUTED_LIQUID_GUILT": [
+      "time-lost-emerald:crafted:JewelRadiusLightningDamage"
+    ],
+    "ANCIENT_DILUTED_LIQUID_GREED": [
+      "time-lost-emerald:crafted:JewelRadiusElementalDamage"
+    ],
+    "ANCIENT_LIQUID_PARANOIA": [
+      "time-lost-emerald:crafted:JewelRadiusAttackSpeed"
+    ],
+    "ANCIENT_LIQUID_ENVY": [
+      "time-lost-emerald:crafted:JewelRadiusCooldownSpeed"
+    ],
+    "ANCIENT_LIQUID_DISGUST": [
+      "time-lost-emerald:crafted:JewelRadiusLifeonKill"
+    ],
+    "ANCIENT_LIQUID_DESPAIR": [
+      "time-lost-emerald:crafted:JewelRadiusAttackCriticalChance"
+    ],
+    "ANCIENT_CONCENTRATED_LIQUID_FEAR": [
+      "time-lost-emerald:crafted:JewelRadiusAttackCriticalDamage"
+    ],
+    "ANCIENT_CONCENTRATED_LIQUID_SUFFERING": [
+      "time-lost-emerald:crafted:JewelRadiusMovementSpeed"
+    ],
+    "ANCIENT_CONCENTRATED_LIQUID_ISOLATION": [
+      "time-lost-emerald:crafted:JewelRadiusIncColdFreToLightning"
+    ],
+    "ANCIENT_POTENT_LIQUID_MELANCHOLY": [
+      "time-lost-emerald:crafted:CraftedJewelRadiusExtraLargeSize"
+    ],
+    "ANCIENT_POTENT_LIQUID_FEROCITY": [
+      "time-lost-emerald:crafted:CraftedJewelRadiusLightningResistance"
+    ],
+    "ANCIENT_POTENT_LIQUID_CONTEMPT": [
+      "time-lost-emerald:crafted:CraftedJewelAdditionalSuffixAllowed",
+      "time-lost-emerald:crafted:CraftedJewelAdditionalPrefixAllowed"
+    ]
+  },
+  "time-lost-sapphire": {
+    "ANCIENT_DILUTED_LIQUID_IRE": [
+      "time-lost-sapphire:crafted:JewelRadiusEnergyShield"
+    ],
+    "ANCIENT_DILUTED_LIQUID_GUILT": [
+      "time-lost-sapphire:crafted:JewelRadiusColdDamage"
+    ],
+    "ANCIENT_DILUTED_LIQUID_GREED": [
+      "time-lost-sapphire:crafted:JewelRadiusChaosDamage"
+    ],
+    "ANCIENT_LIQUID_PARANOIA": [
+      "time-lost-sapphire:crafted:JewelRadiusCastSpeed"
+    ],
+    "ANCIENT_LIQUID_ENVY": [
+      "time-lost-sapphire:crafted:JewelRadiusSpellDamage"
+    ],
+    "ANCIENT_LIQUID_DISGUST": [
+      "time-lost-sapphire:crafted:JewelRadiusManaonKill"
+    ],
+    "ANCIENT_LIQUID_DESPAIR": [
+      "time-lost-sapphire:crafted:JewelRadiusSpellCriticalChance"
+    ],
+    "ANCIENT_CONCENTRATED_LIQUID_FEAR": [
+      "time-lost-sapphire:crafted:JewelRadiusSpellCriticalDamage"
+    ],
+    "ANCIENT_CONCENTRATED_LIQUID_SUFFERING": [
+      "time-lost-sapphire:crafted:JewelRadiusAreaofEffect"
+    ],
+    "ANCIENT_CONCENTRATED_LIQUID_ISOLATION": [
+      "time-lost-sapphire:crafted:JewelRadiusIncLightningFireToCold"
+    ],
+    "ANCIENT_POTENT_LIQUID_MELANCHOLY": [
+      "time-lost-sapphire:crafted:CraftedJewelRadiusExtraLargeSize"
+    ],
+    "ANCIENT_POTENT_LIQUID_FEROCITY": [
+      "time-lost-sapphire:crafted:CraftedJewelRadiusColdResistance"
+    ],
+    "ANCIENT_POTENT_LIQUID_CONTEMPT": [
+      "time-lost-sapphire:crafted:CraftedJewelAdditionalSuffixAllowed",
+      "time-lost-sapphire:crafted:CraftedJewelAdditionalPrefixAllowed"
+    ]
+  },
+  "time-lost-diamond": {
+    "ANCIENT_POTENT_LIQUID_MELANCHOLY": [
+      "time-lost-diamond:crafted:CraftedJewelRadiusExtraLargeSize"
+    ],
+    "ANCIENT_POTENT_LIQUID_FEROCITY": [
+      "time-lost-diamond:crafted:CraftedJewelRadiusChaosResistance"
+    ],
+    "ANCIENT_POTENT_LIQUID_CONTEMPT": [
+      "time-lost-diamond:crafted:CraftedJewelAdditionalSuffixAllowed",
+      "time-lost-diamond:crafted:CraftedJewelAdditionalPrefixAllowed"
+    ]
   }
 }

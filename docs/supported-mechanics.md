@@ -1,4 +1,6 @@
-Latest checkpoint: [Basic Jewel four bases and Potent Liquid](workbench-basic-jewel-potent-2026-10-04.md). Ruby50/Emerald74/Sapphire58/Diamond160 ordinary candidates, base-specific Liquid13/13/13/3; provisional Ferocity projection and Contempt overflow preservation. Earlier dated scopes below are superseded for these bases.
+Latest checkpoint: [Ancient Liquid and Time-Lost Jewel](workbench-ancient-liquid-2026-10-04.md). Time-Lost Ruby53/Emerald77/Sapphire60/Diamond160 ordinary candidates, Ancient Liquid13/13/13/3 with Crafted outcomes14/14/14/4. All26 craft Liquids and reviewed18 ordinary currencies on eight Jewel bases have sourced positive paths. Fixed base radius implicit is preserved; passive-tree effects are conditional text only. Earlier dated scopes below are superseded for these bases.
+
+Previous checkpoint: [Basic Jewel four bases and Potent Liquid](workbench-basic-jewel-potent-2026-10-04.md). Ruby50/Emerald74/Sapphire58/Diamond160 ordinary candidates, base-specific Liquid13/13/13/3; provisional Ferocity projection and Contempt overflow preservation.
 
 # 지원 범위
 

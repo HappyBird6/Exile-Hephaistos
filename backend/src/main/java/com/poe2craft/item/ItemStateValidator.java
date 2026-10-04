@@ -17,7 +17,7 @@ public final class ItemStateValidator {
 
   public List<Violation> validate(ItemState state) {
     var errors = new ArrayList<Violation>();
-    if (BasicJewel.supported(state.baseItemId())
+    if (BasicJewel.supportedCrafting(state.baseItemId())
         && (state.augmentSockets() != null
             || state.explicits().stream().anyMatch(ModifierInstance::fractured)))
       errors.add(
@@ -25,7 +25,7 @@ public final class ItemStateValidator {
               Code.UNSUPPORTED_STATE,
               "",
               "Sapphire socket and fractured states remain unsupported"));
-    if (BasicJewel.supported(state.baseItemId())
+    if (BasicJewel.supportedCrafting(state.baseItemId())
         && state.explicits().stream()
                 .filter(
                     m ->
@@ -84,7 +84,8 @@ public final class ItemStateValidator {
         && state.snapshotId().equals(catalog.metadata().snapshotId())
         && state.baseItemId().equals(catalog.base().id())) {
       var slots = slots(state);
-      if (BasicJewel.supported(state.baseItemId()) && state.rarity() == ItemState.Rarity.RARE
+      if (BasicJewel.supportedCrafting(state.baseItemId())
+              && state.rarity() == ItemState.Rarity.RARE
           ? !BasicJewel.existingCapacity(
               slots.usedPrefixes(), slots.usedSuffixes(), slots.maxPrefixes(), slots.maxSuffixes())
           : slots.usedPrefixes() > slots.maxPrefixes()
@@ -184,7 +185,8 @@ public final class ItemStateValidator {
           case RARE -> catalog.base().rareSuffixes();
           default -> throw new IllegalArgumentException("Unsupported rarity");
         };
-    if (BasicJewel.supported(state.baseItemId()) && state.rarity() == ItemState.Rarity.RARE) {
+    if (BasicJewel.supportedCrafting(state.baseItemId())
+        && state.rarity() == ItemState.Rarity.RARE) {
       var ids = state.explicits().stream().map(ModifierInstance::modifierId).toList();
       maxPrefixes += BasicJewel.extra(ids, AffixType.PREFIX);
       maxSuffixes += BasicJewel.extra(ids, AffixType.SUFFIX);

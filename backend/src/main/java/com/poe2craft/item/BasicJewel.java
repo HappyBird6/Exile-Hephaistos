@@ -18,6 +18,19 @@ public final class BasicJewel {
     return BASES.contains(base);
   }
 
+  public static boolean timeLost(String base) {
+    return Set.of(
+            "Metadata/Items/Jewels/JewelRadiusStr",
+            "Metadata/Items/Jewels/JewelRadiusDex",
+            "Metadata/Items/Jewels/JewelRadiusInt",
+            "Metadata/Items/Jewels/JewelRadiusDiamond")
+        .contains(base);
+  }
+
+  public static boolean supportedCrafting(String base) {
+    return supported(base) || timeLost(base);
+  }
+
   public static int extra(Collection<String> ids, ModifierDefinition.AffixType side) {
     String code =
         side == ModifierDefinition.AffixType.PREFIX

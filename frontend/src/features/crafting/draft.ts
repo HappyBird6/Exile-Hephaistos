@@ -3,6 +3,11 @@ import { create } from 'zustand'
 export type ItemTextDocument = { id: string; text: string }
 const baseText = 'Item Class: Amulets\nRarity: Normal\nSolar Amulet'
 const baseTexts = {
+  'time-lost-ruby': 'Item Class: Jewels\nRarity: Normal\nTime-Lost Ruby',
+  'time-lost-emerald': 'Item Class: Jewels\nRarity: Normal\nTime-Lost Emerald',
+  'time-lost-sapphire':
+    'Item Class: Jewels\nRarity: Normal\nTime-Lost Sapphire',
+  'time-lost-diamond': 'Item Class: Jewels\nRarity: Normal\nTime-Lost Diamond',
   ruby: 'Item Class: Jewels\nRarity: Normal\nRuby',
   emerald: 'Item Class: Jewels\nRarity: Normal\nEmerald',
   diamond: 'Item Class: Jewels\nRarity: Normal\nDiamond',
@@ -22,6 +27,10 @@ type Draft = {
   text: string
   currentText: ItemTextDocument
   base:
+    | 'time-lost-ruby'
+    | 'time-lost-emerald'
+    | 'time-lost-sapphire'
+    | 'time-lost-diamond'
     | 'solar'
     | 'stocky'
     | 'bow'
@@ -42,6 +51,10 @@ type Draft = {
   setBase: (
     itemLevel?: number,
     base?:
+      | 'time-lost-ruby'
+      | 'time-lost-emerald'
+      | 'time-lost-sapphire'
+      | 'time-lost-diamond'
       | 'solar'
       | 'stocky'
       | 'bow'

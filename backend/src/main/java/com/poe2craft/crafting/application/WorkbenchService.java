@@ -154,6 +154,40 @@ public final class WorkbenchService {
       ItemCatalog ruby,
       ItemCatalog emerald,
       ItemCatalog diamond) {
+    this(
+        solar,
+        solarSimulator,
+        stocky,
+        bow,
+        wand,
+        body,
+        sceptre,
+        belt,
+        helmet,
+        ring,
+        sapphire,
+        ruby,
+        emerald,
+        diamond,
+        new ItemCatalog[0]);
+  }
+
+  public WorkbenchService(
+      ItemCatalog solar,
+      WorkbenchSimulator solarSimulator,
+      ItemCatalog stocky,
+      ItemCatalog bow,
+      ItemCatalog wand,
+      ItemCatalog body,
+      ItemCatalog sceptre,
+      ItemCatalog belt,
+      ItemCatalog helmet,
+      ItemCatalog ring,
+      ItemCatalog sapphire,
+      ItemCatalog ruby,
+      ItemCatalog emerald,
+      ItemCatalog diamond,
+      ItemCatalog... timeLost) {
     var extras = new ItemCatalog[] {ruby, emerald, diamond};
     var names = new String[] {"ruby", "emerald", "diamond"};
     for (int i = 0; i < extras.length; i++)
@@ -162,6 +196,13 @@ public final class WorkbenchService {
         basicJewels.put(names[i], c);
         basicJewelSimulators.put(c.base().id(), new WorkbenchSimulator(c, new CraftingEngine(c)));
       }
+    for (var c : timeLost) {
+      String name =
+          "time-lost-"
+              + c.base().name().substring("Time-Lost ".length()).toLowerCase(java.util.Locale.ROOT);
+      basicJewels.put(name, c);
+      basicJewelSimulators.put(c.base().id(), new WorkbenchSimulator(c, new CraftingEngine(c)));
+    }
     this.sapphire = sapphire;
     this.sapphireSimulator =
         sapphire == null ? null : new WorkbenchSimulator(sapphire, new CraftingEngine(sapphire));
@@ -278,16 +319,21 @@ public final class WorkbenchService {
                 catalog.base().id(),
                 level,
                 base.equals("sapphire") ? ItemState.Rarity.MAGIC : ItemState.Rarity.NORMAL,
-                base.equals("ring")
+                BasicJewel.timeLost(catalog.base().id())
                     ? List.of(
                         new ModifierInstance(
-                            RingEssenceTargets.IMPLICIT_ID,
-                            Map.of(
-                                "attack_minimum_added_physical_damage",
-                                1L,
-                                "attack_maximum_added_physical_damage",
-                                4L)))
-                    : List.of(),
+                            catalog.base().implicitModifierId(),
+                            Map.of("local_jewel_effect_base_radius", 1000L)))
+                    : base.equals("ring")
+                        ? List.of(
+                            new ModifierInstance(
+                                RingEssenceTargets.IMPLICIT_ID,
+                                Map.of(
+                                    "attack_minimum_added_physical_damage",
+                                    1L,
+                                    "attack_maximum_added_physical_damage",
+                                    4L)))
+                        : List.of(),
                 List.of(),
                 Set.of());
     var bucket = StateBucket.from(state);

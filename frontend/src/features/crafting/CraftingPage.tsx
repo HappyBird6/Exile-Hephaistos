@@ -57,7 +57,11 @@ import {
   upgradeCompatibleFilms,
 } from './workbenchHistory'
 import type { Films } from './workbenchHistory'
-import { basicJewelBases, isBasicJewel } from './basicJewel'
+import {
+  basicJewelBases,
+  workbenchJewelBases,
+  isWorkbenchJewel,
+} from './basicJewel'
 import { sapphireCastSpeed } from './sapphireJewel'
 import './crafting.css'
 
@@ -67,6 +71,10 @@ function tooltipEvents(id: string) {
 
 const workspaceTabs = ['workbench', 'support', 'explorer'] as const
 const baseSlugs = {
+  'time-lost-ruby': 'Time-Lost Ruby',
+  'time-lost-emerald': 'Time-Lost Emerald',
+  'time-lost-sapphire': 'Time-Lost Sapphire',
+  'time-lost-diamond': 'Time-Lost Diamond',
   ruby: 'Ruby',
   emerald: 'Emerald',
   diamond: 'Diamond',
@@ -117,14 +125,14 @@ export function CraftingPage() {
   const catalogBase =
     draft.source === 'text'
       ? 'solar'
-      : Object.values(basicJewelBases).some(
+      : Object.values(workbenchJewelBases).some(
             (id) => id === storedFrame?.state.baseItemId,
           )
-        ? (Object.keys(basicJewelBases).find(
+        ? (Object.keys(workbenchJewelBases).find(
             (b) =>
-              basicJewelBases[b as keyof typeof basicJewelBases] ===
+              workbenchJewelBases[b as keyof typeof workbenchJewelBases] ===
               storedFrame?.state.baseItemId,
-          ) as keyof typeof basicJewelBases)
+          ) as keyof typeof workbenchJewelBases)
         : storedFrame?.state.baseItemId ===
             'Metadata/Items/Armours/Gloves/FourGlovesStr1'
           ? 'stocky'
@@ -152,7 +160,7 @@ export function CraftingPage() {
                         : storedFrame
                           ? 'solar'
                           : draft.base
-  const baseName = Object.hasOwn(basicJewelBases, catalogBase)
+  const baseName = Object.hasOwn(workbenchJewelBases, catalogBase)
     ? baseSlugs[catalogBase]
     : catalogBase === 'stocky'
       ? 'Stocky Mitts'
@@ -283,6 +291,10 @@ export function CraftingPage() {
       | 'belt'
       | 'helmet'
       | 'ring'
+      | 'time-lost-ruby'
+      | 'time-lost-emerald'
+      | 'time-lost-sapphire'
+      | 'time-lost-diamond'
       | 'ruby'
       | 'emerald'
       | 'diamond'
@@ -310,7 +322,7 @@ export function CraftingPage() {
         return
       const root = {
         ...concreteInitial(data),
-        ...(Object.hasOwn(basicJewelBases, base)
+        ...(Object.hasOwn(workbenchJewelBases, base)
           ? {
               rarity: sapphireRarity,
               explicits:
@@ -352,12 +364,12 @@ export function CraftingPage() {
     const revision = useItemDraft.getState().baseRevision
     placementPending.current = true
     const state = selectedFilm.frames.at(-1)!.state
-    const base = isBasicJewel(state.baseItemId)
-      ? (Object.keys(basicJewelBases).find(
+    const base = isWorkbenchJewel(state.baseItemId)
+      ? (Object.keys(workbenchJewelBases).find(
           (b) =>
-            basicJewelBases[b as keyof typeof basicJewelBases] ===
+            workbenchJewelBases[b as keyof typeof workbenchJewelBases] ===
             state.baseItemId,
-        ) as keyof typeof basicJewelBases)
+        ) as keyof typeof workbenchJewelBases)
       : state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
         ? 'stocky'
         : state.baseItemId === 'Metadata/Items/Rings/FourRing1'
@@ -449,6 +461,10 @@ export function CraftingPage() {
     | 'belt'
     | 'helmet'
     | 'ring'
+    | 'time-lost-ruby'
+    | 'time-lost-emerald'
+    | 'time-lost-sapphire'
+    | 'time-lost-diamond'
     | 'ruby'
     | 'emerald'
     | 'diamond'
@@ -811,7 +827,7 @@ export function CraftingPage() {
             rarity: concrete.rarity,
             name: item?.displayName ?? baseName,
             base: baseName,
-            itemClass: Object.hasOwn(basicJewelBases, catalogBase)
+            itemClass: Object.hasOwn(workbenchJewelBases, catalogBase)
               ? 'Jewels'
               : catalogBase === 'stocky'
                 ? 'Gloves'
@@ -945,7 +961,7 @@ export function CraftingPage() {
                   affixLabel:
                     d.affixType === 'NONE'
                       ? undefined
-                      : `${d.affixType === 'PREFIX' ? 'P' : 'S'}${Object.hasOwn(basicJewelBases, catalogBase) ? '' : d.tier}`,
+                      : `${d.affixType === 'PREFIX' ? 'P' : 'S'}${Object.hasOwn(workbenchJewelBases, catalogBase) ? '' : d.tier}`,
                 }
               })
               .sort((a, b) => {
@@ -1499,11 +1515,17 @@ export function CraftingPage() {
                     {t('notice.glove_alloy_penetration')}
                   </p>
                 )}
-                {Object.hasOwn(basicJewelBases, catalogBase) &&
+                {Object.hasOwn(workbenchJewelBases, catalogBase) &&
                   craftEvidence && (
                     <details className="sapphire-craft-evidence">
                       <summary>{t('ui.sapphire_craft_evidence')}</summary>
-                      <p>{t('notice.sapphire_scope')}</p>
+                      <p>
+                        {t(
+                          catalogBase.startsWith('time-lost-')
+                            ? 'notice.time_lost_scope'
+                            : 'notice.sapphire_scope',
+                        )}
+                      </p>
                       {craftEvidence.events.map((event, index) => (
                         <p key={index}>
                           {event.kind === 'REMOVE' ? '−' : '+'}{' '}
@@ -1572,9 +1594,13 @@ export function CraftingPage() {
                     {t('notice.catalyst_policy')}
                   </p>
                 )}
-                {Object.hasOwn(basicJewelBases, catalogBase) && (
+                {Object.hasOwn(workbenchJewelBases, catalogBase) && (
                   <p className="workbench-feedback">
-                    {t('notice.sapphire_scope')}
+                    {t(
+                      catalogBase.startsWith('time-lost-')
+                        ? 'notice.time_lost_scope'
+                        : 'notice.sapphire_scope',
+                    )}
                   </p>
                 )}
                 {catalogBase === 'solar' && concrete?.catalystQuality && (
@@ -1809,6 +1835,10 @@ export function CraftingPage() {
                           | 'belt'
                           | 'helmet'
                           | 'ring'
+                          | 'time-lost-ruby'
+                          | 'time-lost-emerald'
+                          | 'time-lost-sapphire'
+                          | 'time-lost-diamond'
                           | 'ruby'
                           | 'emerald'
                           | 'diamond'
@@ -1816,6 +1846,18 @@ export function CraftingPage() {
                       )
                     }
                   >
+                    <option value="time-lost-ruby">
+                      {name('Time_Lost_Ruby', 'Time-Lost Ruby')}
+                    </option>
+                    <option value="time-lost-emerald">
+                      {name('Time_Lost_Emerald', 'Time-Lost Emerald')}
+                    </option>
+                    <option value="time-lost-sapphire">
+                      {name('Time_Lost_Sapphire', 'Time-Lost Sapphire')}
+                    </option>
+                    <option value="time-lost-diamond">
+                      {name('Time_Lost_Diamond', 'Time-Lost Diamond')}
+                    </option>
                     <option value="ruby">{name('Ruby', 'Ruby')}</option>
                     <option value="emerald">
                       {name('Emerald', 'Emerald')}
@@ -1854,9 +1896,15 @@ export function CraftingPage() {
                       {name('Iron_Ring', 'Iron Ring')}
                     </option>
                   </select>
-                  {Object.hasOwn(basicJewelBases, baseChoice) && (
+                  {Object.hasOwn(workbenchJewelBases, baseChoice) && (
                     <>
-                      <p>{t('notice.sapphire_scope')}</p>
+                      <p>
+                        {t(
+                          catalogBase.startsWith('time-lost-')
+                            ? 'notice.time_lost_scope'
+                            : 'notice.sapphire_scope',
+                        )}
+                      </p>
                       <label htmlFor="sapphire-rarity">{t('ui.rarity')}</label>
                       <select
                         id="sapphire-rarity"

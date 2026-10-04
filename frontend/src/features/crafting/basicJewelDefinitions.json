@@ -5094,5 +5094,5153 @@
       }
     ],
     "crafted": true
+  },
+  "time-lost-ruby:prefix:greater": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["JewelRadiusLargerRadius"],
+    "stats": [
+      {
+        "id": "local_jewel_effect_base_radius",
+        "min": 150,
+        "max": 150
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:grand": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["JewelRadiusLargerRadius"],
+    "stats": [
+      {
+        "id": "local_jewel_effect_base_radius",
+        "min": 300,
+        "max": 300
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:suffix:of-potency": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["JewelRadiusSmallNodeEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 15,
+        "max": 25
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:suffix:of-supremacy": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["JewelRadiusNotableEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 15,
+        "max": 25
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:blasting": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["AreaOfEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:armoured": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["IncreasedPhysicalDamageReductionRatingPercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:shattering": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["ArmourBreak"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:suffix:resonating": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["ArmourBreakDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:combat": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["AttackDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:bleeding": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["BleedChanceIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:suffix:of-haemophilia": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["BleedDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:protecting": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["IncreasedBlockChance"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:exploiting": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["DamagevsArmourBrokenEnemies"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 4
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:prismatic": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["ElementalDamagePercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:empowering": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["ExertedAttackDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:flaming": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["FireDamagePercentage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:searing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["FireResistancePenetration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:suffix:of-ignition": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["IgniteChanceIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:burning": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["IgniteEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:suffix:of-lengthening": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["SkillEffectDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:suffix:of-fending": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["Knockback"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:suffix:of-sacrifice": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["LifeCost"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:suffix:of-frenzy": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["LifeLeech"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:suffix:of-regeneration": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["LifeRegenerationRate"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:beating": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["SpecificWeaponDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:suffix:of-thumping": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["MaceStun"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 6,
+        "max": 12
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:angry": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["MaximumRage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:clashing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["MeleeDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:companion": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["MinionAreaOfEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:fortuitous": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["MinionLife"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:suffix:of-confidence": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["MinionPhysicalDamageReduction"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:sharpened": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["PhysicalDamagePercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:suffix:of-raging": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["RageOnHit"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:suffix:of-retribution": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["GainRage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:shielding": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["ShieldArmourIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 8,
+        "max": 15
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:suffix:of-stunning": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["StunDamageIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:suffix:of-withstanding": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["IncreasedStunThreshold"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:haemorrhaging": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["BleedingDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:retaliating": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["Thorns"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:shaman-s": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["TotemDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:carved": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["IncreasedTotemLife"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:suffix:of-ancestry": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["SummonTotemCastSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:suffix:of-rallying": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["WarcryCooldownSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:yelling": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["WarcryDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:suffix:of-lungs": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["WarcrySpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:incise": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["IncisionChance"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:suffix:of-valour": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["BannerValourGained"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 8,
+        "max": 12
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:rallying": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["BannerArea"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:suffix:of-inspiring": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["BannerDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 4
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:iconic": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["PresenceRadius"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 8,
+        "max": 12
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:suffix:of-the-wild": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["SpecificWeaponSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:bestial": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["DamageForm"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:prefix:overgrown": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["DamageForm"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-ruby:crafted:JewelRadiusArmour": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["IncreasedPhysicalDamageReductionRatingPercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-ruby:crafted:JewelRadiusFireDamage": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["FireDamagePercentage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-ruby:crafted:JewelRadiusPhysicalDamage": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["PhysicalDamagePercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-ruby:crafted:JewelRadiusAttackDamage": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["AttackDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-ruby:crafted:JewelRadiusLifeCost": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["LifeCost"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-ruby:crafted:JewelRadiusLifeRegeneration": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["LifeRegenerationRate"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-ruby:crafted:JewelRadiusRageonHit": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["RageOnHit"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-ruby:crafted:JewelRadiusWarcrySpeed": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["WarcrySpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-ruby:crafted:JewelRadiusMaximumRage": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["MaximumRage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-ruby:crafted:JewelRadiusIncLightningColdToFire": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["TransformIncreasedDamageInRadius"],
+    "stats": [
+      {
+        "id": "display_condition_present",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-ruby:crafted:CraftedJewelRadiusExtraLargeSize": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["JewelRadiusLargerRadius"],
+    "stats": [
+      {
+        "id": "local_jewel_effect_base_radius",
+        "min": 500,
+        "max": 500
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-ruby:crafted:CraftedJewelRadiusFireResistance": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["FireResistance"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 7
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-ruby:crafted:CraftedJewelAdditionalSuffixAllowed": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "PREFIX",
+    "familyIds": ["MaxPrefixMaxSuffix"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-ruby:crafted:CraftedJewelAdditionalPrefixAllowed": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusStr",
+    "affixType": "SUFFIX",
+    "familyIds": ["MaxPrefixMaxSuffix"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-emerald:prefix:greater": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["JewelRadiusLargerRadius"],
+    "stats": [
+      {
+        "id": "local_jewel_effect_base_radius",
+        "min": 150,
+        "max": 150
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:grand": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["JewelRadiusLargerRadius"],
+    "stats": [
+      {
+        "id": "local_jewel_effect_base_radius",
+        "min": 300,
+        "max": 300
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-potency": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["JewelRadiusSmallNodeEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 15,
+        "max": 25
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-supremacy": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["JewelRadiusNotableEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 15,
+        "max": 25
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:accurate": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["IncreasedAccuracyPercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-ailing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["AilmentChance"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:acrimonious": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["AilmentEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-enduring": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["AilmentThreshold"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-deadliness": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["CriticalStrikeChanceIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-demolishing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["CriticalStrikeMultiplier"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:combat": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["AttackDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-alacrity": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["IncreasedAttackSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:stifling": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["BlindEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-blinding": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["BlindOnHit"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:slaying": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["DamageVsRareOrUnique"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:precise": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["SpecificWeaponAccuracy"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:perforating": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["SpecificWeaponDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-nocking": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["SpecificWeaponSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-chaining": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["ChainFromTerrain"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-the-woodland": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["CharmDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-the-thicker": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["CharmChargesGained"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:verdant": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["CharmDamageWhileUsing"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-chronomancy": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["CooldownRecovery"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:rancorous": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["CriticalAilmentEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:bolting": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["CrossbowDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-reloading": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["CrossbowReloadSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-rapidity": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["CrossbowSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-suffusion": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["DamagingAilmentDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-dazing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["DazeBuildup"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-diminishing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["DebuffTime"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-suffering": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["ElementalAilmentDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:prismatic": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["ElementalDamagePercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:evasive": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["EvasionRatingPercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-decrepifying": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["FasterAilmentDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-gathering": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["BeltFlaskChargesGained"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-prolonging": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["FlaskDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-forking": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["ForkingProjectiles"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:heralding": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["HeraldDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 4
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-recovery": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["FlaskLifeRecovery"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-pathfinding": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["FlaskChargeGenerationPercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:humming": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["LightningDamagePercentage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:surging": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["LightningResistancePenetration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-quenching": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["FlaskManaRecovery"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-fountains": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["FlaskChargeGenerationPercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-thirsting": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["ManaLeechAmount"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-targeting": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["CurseCastSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-tracking": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["MarkDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 4
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:marking": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["CurseEffectiveness"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-speed": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["MovementVelocity"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-piercing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["ChanceToPierce"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-pinning": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["PinBuildup"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-poisoning": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["PoisonChanceIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:venomous": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["PoisonEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-infection": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["PoisonDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:archer-s": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["ProjectileDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:soaring": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["ProjectileSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:monk-s": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["SpecificWeaponDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-glaciers": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["QuarterstaffFreezeBuildup"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-sequencing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["SpecificWeaponSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:fletching": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["EquipmentModifierEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-shocking": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["ShockChanceIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-paralyzing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["ShockDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:jolting": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["ShockEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-hastening": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["SlowPotency"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-spearing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["SpearAttackSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-hunting": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["SpearCriticalDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:spearheaded": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["SpearDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-stoutness": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["IncreasedStunThresholdIfNoRecentStun"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:retreating": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["ProjectileDamageIfMeleeHitRecently"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:engaging": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["MeleeDamageIfProjectileHitRecently"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:parrying": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["AllDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-unsettling": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["ParriedDebuff"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:suffix:of-biding": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["StunThresholdDuringParry"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 8,
+        "max": 12
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:kinship": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["CompanionDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:kindred": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["CompanionLife"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:hazardous": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["HazardDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:prefix:overgrown": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["DamageForm"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-emerald:crafted:JewelRadiusEvasion": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["EvasionRatingPercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-emerald:crafted:JewelRadiusLightningDamage": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["LightningDamagePercentage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-emerald:crafted:JewelRadiusElementalDamage": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["ElementalDamagePercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-emerald:crafted:JewelRadiusAttackSpeed": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["IncreasedAttackSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-emerald:crafted:JewelRadiusCooldownSpeed": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["CooldownRecovery"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 3
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-emerald:crafted:JewelRadiusLifeonKill": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["MaximumLifeOnKillPercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-emerald:crafted:JewelRadiusAttackCriticalChance": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["CriticalStrikeChanceIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-emerald:crafted:JewelRadiusAttackCriticalDamage": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["CriticalStrikeMultiplier"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-emerald:crafted:JewelRadiusMovementSpeed": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["MovementVelocity"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-emerald:crafted:JewelRadiusIncColdFreToLightning": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["TransformIncreasedDamageInRadius"],
+    "stats": [
+      {
+        "id": "display_condition_present",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-emerald:crafted:CraftedJewelRadiusExtraLargeSize": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["JewelRadiusLargerRadius"],
+    "stats": [
+      {
+        "id": "local_jewel_effect_base_radius",
+        "min": 500,
+        "max": 500
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-emerald:crafted:CraftedJewelRadiusLightningResistance": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["LightningResistance"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 7
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-emerald:crafted:CraftedJewelAdditionalSuffixAllowed": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "PREFIX",
+    "familyIds": ["MaxPrefixMaxSuffix"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-emerald:crafted:CraftedJewelAdditionalPrefixAllowed": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDex",
+    "affixType": "SUFFIX",
+    "familyIds": ["MaxPrefixMaxSuffix"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-sapphire:prefix:greater": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["JewelRadiusLargerRadius"],
+    "stats": [
+      {
+        "id": "local_jewel_effect_base_radius",
+        "min": 150,
+        "max": 150
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:grand": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["JewelRadiusLargerRadius"],
+    "stats": [
+      {
+        "id": "local_jewel_effect_base_radius",
+        "min": 300,
+        "max": 300
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-potency-29b8b2c8": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["JewelRadiusSmallNodeEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 15,
+        "max": 25
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-supremacy": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["JewelRadiusNotableEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 15,
+        "max": 25
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-ailing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["AilmentChance"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:acrimonious": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["AilmentEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:blasting": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["AreaOfEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-enchanting": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["IncreasedCastSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:chaotic": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["IncreasedChaosDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-frost": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["IncreasedChillDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 6,
+        "max": 12
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:chilling": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["ColdDamagePercentage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:numbing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["ColdResistancePenetration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:necromantic": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["AllDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:rancorous": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["CriticalAilmentEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-annihilation": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["CriticalStrikeChanceIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-potency-4d14c154": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["CriticalStrikeMultiplier"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-unmaking": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["FormCritMultiplier"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:expanding": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["CurseAreaOfEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 6
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-continuation": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["BaseCurseDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 4
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:hexing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["CurseEffectiveness"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-mind": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["DamageRemovedFromManaBeforeLife"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-suffusion": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["DamagingAilmentDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-diminishing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["DebuffTime"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:prismatic": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["ElementalDamagePercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-generation": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["Energy"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 4
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:shimmering": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["EnergyShieldPercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:serene": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["EnergyShieldDelay"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-decrepifying": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["FasterAilmentDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:focusing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["FocusEnergyShield"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 15,
+        "max": 25
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-freezing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["FreezeDamageIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-snowbreathing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["FreezeThreshold"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 4
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-ignition": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["IgniteChanceIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:burning": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["IgniteEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-lengthening": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["SkillEffectDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-success": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["MaximumLifeOnKillPercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-infusion": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["DamageTakenGainedAsLife"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-osmosis": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["ManaGainedOnKillPercentage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-energy": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["ManaRegeneration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-orchestration": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["MinionAttackSpeedAndCastSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-righteousness": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["MinionChaosResistance"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-marshalling": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["MinionCriticalStrikeChance"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-gripping": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["MinionCriticalStrikeMultiplier"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 6,
+        "max": 12
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:authoritative": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["MinionDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-acclimatisation": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["MinionElementalResistances"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-offering": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["OfferingDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 6,
+        "max": 12
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:sacrificial": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["OfferingLife"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-glaciers": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["QuarterstaffFreezeBuildup"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-shocking": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["ShockChanceIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-paralyzing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["ShockDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:jolting": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["ShockEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-annihilating": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["SpellCriticalStrikeChanceIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:mystic": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["WeaponCasterDamagePrefix"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-barriers": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["StunThresholdfromEnergyShield"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-inuring": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["AilmentThresholdfromEnergyShield"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:triggered": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["DamageWithTriggeredSpells"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:withering": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["WitheredEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:iconic": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["PresenceRadius"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 8,
+        "max": 12
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:suffix:of-the-wild": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["SpecificWeaponSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:bestial": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["DamageForm"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:prefix:overgrown": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["DamageForm"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-sapphire:crafted:JewelRadiusEnergyShield": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["EnergyShieldPercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-sapphire:crafted:JewelRadiusColdDamage": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["ColdDamagePercentage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-sapphire:crafted:JewelRadiusChaosDamage": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["IncreasedChaosDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-sapphire:crafted:JewelRadiusCastSpeed": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["IncreasedCastSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-sapphire:crafted:JewelRadiusSpellDamage": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["WeaponCasterDamagePrefix"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-sapphire:crafted:JewelRadiusManaonKill": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["ManaGainedOnKillPercentage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-sapphire:crafted:JewelRadiusSpellCriticalChance": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["SpellCriticalStrikeChanceIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-sapphire:crafted:JewelRadiusSpellCriticalDamage": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["FormCritMultiplier"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-sapphire:crafted:JewelRadiusAreaofEffect": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["AreaOfEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-sapphire:crafted:JewelRadiusIncLightningFireToCold": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["TransformIncreasedDamageInRadius"],
+    "stats": [
+      {
+        "id": "display_condition_present",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-sapphire:crafted:CraftedJewelRadiusExtraLargeSize": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["JewelRadiusLargerRadius"],
+    "stats": [
+      {
+        "id": "local_jewel_effect_base_radius",
+        "min": 500,
+        "max": 500
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-sapphire:crafted:CraftedJewelRadiusColdResistance": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["ColdResistance"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 7
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-sapphire:crafted:CraftedJewelAdditionalSuffixAllowed": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "PREFIX",
+    "familyIds": ["MaxPrefixMaxSuffix"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-sapphire:crafted:CraftedJewelAdditionalPrefixAllowed": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusInt",
+    "affixType": "SUFFIX",
+    "familyIds": ["MaxPrefixMaxSuffix"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-diamond:prefix:greater": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["JewelRadiusLargerRadius"],
+    "stats": [
+      {
+        "id": "local_jewel_effect_base_radius",
+        "min": 150,
+        "max": 150
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:grand": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["JewelRadiusLargerRadius"],
+    "stats": [
+      {
+        "id": "local_jewel_effect_base_radius",
+        "min": 300,
+        "max": 300
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-potency-29b8b2c8": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["JewelRadiusSmallNodeEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 15,
+        "max": 25
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-supremacy": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["JewelRadiusNotableEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 15,
+        "max": 25
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:accurate": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["IncreasedAccuracyPercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-ailing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["AilmentChance"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:acrimonious": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["AilmentEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-enduring": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["AilmentThreshold"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:blasting": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["AreaOfEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:armoured": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["IncreasedPhysicalDamageReductionRatingPercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:shattering": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["ArmourBreak"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:resonating": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["ArmourBreakDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-deadliness": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["CriticalStrikeChanceIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-demolishing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["CriticalStrikeMultiplier"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:combat": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["AttackDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-alacrity": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["IncreasedAttackSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:bleeding": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["BleedChanceIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-haemophilia": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["BleedDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:stifling": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["BlindEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-blinding": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["BlindOnHit"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:protecting": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["IncreasedBlockChance"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:slaying": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["DamageVsRareOrUnique"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:precise": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["SpecificWeaponAccuracy"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:perforating": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["SpecificWeaponDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-nocking": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["SpecificWeaponSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-enchanting": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["IncreasedCastSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-chaining": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["ChainFromTerrain"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-the-woodland": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["CharmDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-the-thicker": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["CharmChargesGained"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:verdant": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["CharmDamageWhileUsing"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:chaotic": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["IncreasedChaosDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-frost": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["IncreasedChillDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 6,
+        "max": 12
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:chilling": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["ColdDamagePercentage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:numbing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["ColdResistancePenetration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-chronomancy": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["CooldownRecovery"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:necromantic": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["AllDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:rancorous": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["CriticalAilmentEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-annihilation": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["CriticalStrikeChanceIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-potency-4d14c154": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["CriticalStrikeMultiplier"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-unmaking": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["FormCritMultiplier"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:bolting": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["CrossbowDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-reloading": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["CrossbowReloadSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-rapidity": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["CrossbowSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:expanding": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["CurseAreaOfEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 6
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-continuation": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["BaseCurseDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 4
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:hexing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["CurseEffectiveness"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-mind": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["DamageRemovedFromManaBeforeLife"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:exploiting": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["DamagevsArmourBrokenEnemies"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 4
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-suffusion": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["DamagingAilmentDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-dazing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["DazeBuildup"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-diminishing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["DebuffTime"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-suffering": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["ElementalAilmentDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:prismatic": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["ElementalDamagePercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:empowering": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["ExertedAttackDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-generation": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["Energy"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 4
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:shimmering": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["EnergyShieldPercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:serene": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["EnergyShieldDelay"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:evasive": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["EvasionRatingPercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-decrepifying": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["FasterAilmentDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:flaming": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["FireDamagePercentage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:searing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["FireResistancePenetration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-gathering": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["BeltFlaskChargesGained"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-prolonging": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["FlaskDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:focusing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["FocusEnergyShield"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 15,
+        "max": 25
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-forking": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["ForkingProjectiles"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-freezing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["FreezeDamageIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-snowbreathing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["FreezeThreshold"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 4
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:heralding": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["HeraldDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 4
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-ignition": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["IgniteChanceIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:burning": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["IgniteEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-lengthening": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["SkillEffectDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-fending": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["Knockback"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-sacrifice": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["LifeCost"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-recovery": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["FlaskLifeRecovery"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-pathfinding": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["FlaskChargeGenerationPercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-frenzy": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["LifeLeech"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-success": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["MaximumLifeOnKillPercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-infusion": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["DamageTakenGainedAsLife"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-regeneration": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["LifeRegenerationRate"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:humming": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["LightningDamagePercentage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:surging": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["LightningResistancePenetration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:beating": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["SpecificWeaponDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-thumping": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["MaceStun"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 6,
+        "max": 12
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-quenching": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["FlaskManaRecovery"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-fountains": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["FlaskChargeGenerationPercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-thirsting": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["ManaLeechAmount"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-osmosis": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["ManaGainedOnKillPercentage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-energy": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["ManaRegeneration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-targeting": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["CurseCastSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-tracking": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["MarkDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 4
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:marking": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["CurseEffectiveness"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:angry": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["MaximumRage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:clashing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["MeleeDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:companion": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["MinionAreaOfEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-orchestration": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["MinionAttackSpeedAndCastSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-righteousness": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["MinionChaosResistance"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-marshalling": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["MinionCriticalStrikeChance"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-gripping": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["MinionCriticalStrikeMultiplier"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 6,
+        "max": 12
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:authoritative": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["MinionDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:fortuitous": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["MinionLife"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-confidence": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["MinionPhysicalDamageReduction"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-acclimatisation": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["MinionElementalResistances"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-speed": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["MovementVelocity"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-offering": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["OfferingDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 6,
+        "max": 12
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:sacrificial": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["OfferingLife"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:sharpened": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["PhysicalDamagePercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-piercing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["ChanceToPierce"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-pinning": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["PinBuildup"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-poisoning": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["PoisonChanceIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:venomous": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["PoisonEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-infection": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["PoisonDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:archer-s": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["ProjectileDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:soaring": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["ProjectileSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:monk-s": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["SpecificWeaponDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-glaciers": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["QuarterstaffFreezeBuildup"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-sequencing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["SpecificWeaponSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:fletching": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["EquipmentModifierEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-raging": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["RageOnHit"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-retribution": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["GainRage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:shielding": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["ShieldArmourIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 8,
+        "max": 15
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-shocking": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["ShockChanceIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-paralyzing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["ShockDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:jolting": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["ShockEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-hastening": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["SlowPotency"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-spearing": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["SpearAttackSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-hunting": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["SpearCriticalDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:spearheaded": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["SpearDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-annihilating": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["SpellCriticalStrikeChanceIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:mystic": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["WeaponCasterDamagePrefix"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-stunning": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["StunDamageIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-withstanding": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["IncreasedStunThreshold"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-barriers": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["StunThresholdfromEnergyShield"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-inuring": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["AilmentThresholdfromEnergyShield"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-stoutness": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["IncreasedStunThresholdIfNoRecentStun"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:haemorrhaging": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["BleedingDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:retaliating": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["Thorns"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:shaman-s": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["TotemDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:carved": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["IncreasedTotemLife"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-ancestry": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["SummonTotemCastSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:triggered": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["DamageWithTriggeredSpells"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-rallying": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["WarcryCooldownSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:yelling": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["WarcryDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-lungs": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["WarcrySpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:withering": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["WitheredEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:retreating": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["ProjectileDamageIfMeleeHitRecently"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:engaging": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["MeleeDamageIfProjectileHitRecently"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:parrying": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["AllDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-unsettling": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["ParriedDebuff"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-biding": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["StunThresholdDuringParry"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 8,
+        "max": 12
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:kinship": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["CompanionDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:kindred": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["CompanionLife"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:hazardous": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["HazardDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:incise": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["IncisionChance"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 5
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-valour": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["BannerValourGained"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 8,
+        "max": 12
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:rallying": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["BannerArea"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-inspiring": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["BannerDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 4
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:iconic": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["PresenceRadius"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 8,
+        "max": 12
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:suffix:of-the-wild": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["SpecificWeaponSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:bestial": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["DamageForm"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:prefix:overgrown": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["DamageForm"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "time-lost-diamond:crafted:CraftedJewelRadiusExtraLargeSize": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["JewelRadiusLargerRadius"],
+    "stats": [
+      {
+        "id": "local_jewel_effect_base_radius",
+        "min": 500,
+        "max": 500
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-diamond:crafted:CraftedJewelRadiusChaosResistance": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["ChaosResistance"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 4,
+        "max": 5
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-diamond:crafted:CraftedJewelAdditionalSuffixAllowed": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "PREFIX",
+    "familyIds": ["MaxPrefixMaxSuffix"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": true
+  },
+  "time-lost-diamond:crafted:CraftedJewelAdditionalPrefixAllowed": {
+    "baseItemId": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "affixType": "SUFFIX",
+    "familyIds": ["MaxPrefixMaxSuffix"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": true
   }
 }

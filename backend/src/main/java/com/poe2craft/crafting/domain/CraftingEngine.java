@@ -63,7 +63,8 @@ public final class CraftingEngine {
             : state.rarity() == ItemState.Rarity.MAGIC
                 ? catalog.base().magicSuffixes()
                 : catalog.base().rareSuffixes();
-    if (BasicJewel.supported(state.baseItemId()) && state.rarity() == ItemState.Rarity.RARE) {
+    if (BasicJewel.supportedCrafting(state.baseItemId())
+        && state.rarity() == ItemState.Rarity.RARE) {
       maxP += BasicJewel.extra(state.modifierIds(), ModifierDefinition.AffixType.PREFIX);
       maxS += BasicJewel.extra(state.modifierIds(), ModifierDefinition.AffixType.SUFFIX);
       if (!BasicJewel.existingCapacity(p, s, maxP, maxS))

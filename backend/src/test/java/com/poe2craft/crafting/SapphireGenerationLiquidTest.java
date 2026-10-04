@@ -127,7 +127,7 @@ class SapphireGenerationLiquidTest {
                 minimum(SapphireJewel.CAST_SPEED_ID),
                 minimum("sapphire:suffix:of-unmaking")));
     for (var action : WorkbenchCurrency.values()) {
-      if (!action.isLiquid()) continue;
+      if (!action.isLiquid() || action.name().startsWith("ANCIENT_")) continue;
       var result =
           simulator.apply(full, action, Set.of("Omen_of_Sinistral_Crystallisation"), new Random(2));
       assertThat(result.applied()).as(action.name()).isTrue();

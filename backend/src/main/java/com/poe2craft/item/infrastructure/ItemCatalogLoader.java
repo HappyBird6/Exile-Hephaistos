@@ -39,8 +39,15 @@ public final class ItemCatalogLoader {
   }
 
   public static ItemCatalog loadBasicJewel(String base) {
-    if (!java.util.Set.of("ruby", "emerald", "diamond").contains(base))
-      throw new IllegalArgumentException("Unsupported Basic Jewel catalog");
+    if (!java.util.Set.of(
+            "ruby",
+            "emerald",
+            "diamond",
+            "time-lost-ruby",
+            "time-lost-emerald",
+            "time-lost-sapphire",
+            "time-lost-diamond")
+        .contains(base)) throw new IllegalArgumentException("Unsupported Basic Jewel catalog");
     String root = "/catalog/" + base + "/";
     try (var data = ItemCatalogLoader.class.getResourceAsStream(root + "catalog.json");
         var raw = ItemCatalogLoader.class.getResourceAsStream(root + "base.raw.json");

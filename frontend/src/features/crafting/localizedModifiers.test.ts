@@ -1,6 +1,10 @@
 import { describe, expect, it } from 'vitest'
 import catalog from '../../shared/i18n/modifierTemplates.json'
 import sapphire from '../../shared/test/sapphire-catalog.json'
+import timeLostRuby from '../../shared/test/time-lost-ruby-catalog.json'
+import timeLostEmerald from '../../shared/test/time-lost-emerald-catalog.json'
+import timeLostSapphire from '../../shared/test/time-lost-sapphire-catalog.json'
+import timeLostDiamond from '../../shared/test/time-lost-diamond-catalog.json'
 import { locales } from '../../shared/i18n/i18n'
 import type { Definition } from './craftingApi'
 import {
@@ -29,12 +33,23 @@ describe('verified modifier display templates', () => {
     const ids = Object.keys(catalog.definitions)
     const jewelIds = ids.filter((id) => id.startsWith('sapphire:'))
     expect(
-      ids.filter((id) => !/^(ruby|emerald|sapphire|diamond):/.test(id)),
+      ids.filter(
+        (id) =>
+          !/^(ruby|emerald|sapphire|diamond):/.test(id) &&
+          !id.startsWith('time-lost-'),
+      ),
     ).toHaveLength(1485)
     expect(
       ids.filter((id) => /^(ruby|emerald|sapphire|diamond):/.test(id)),
     ).toHaveLength(392)
     expect(jewelIds).toHaveLength(73)
+    const timeLostIds = ids.filter((id) => id.startsWith('time-lost-'))
+    expect(timeLostIds).toHaveLength(400)
+    expect([...timeLostIds].sort()).toEqual(
+      [timeLostRuby, timeLostEmerald, timeLostSapphire, timeLostDiamond]
+        .flatMap((c) => c.modifiers.map((d) => d.id))
+        .sort(),
+    )
     expect([...jewelIds].sort()).toEqual(
       sapphire.modifiers.map((entry) => entry.id).sort(),
     )

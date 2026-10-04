@@ -1,7 +1,7 @@
 import { supportsConcreteStateShape } from './workbenchStateShape'
-import { isBasicJewel, reviewedBasicJewel } from './basicJewel'
+import { isWorkbenchJewel, reviewedBasicJewel } from './basicJewel'
 import { verifiedCatalystQuality } from './catalystQuality'
-import { qualityLimitMatches } from './qualityLimit'
+import { maximumQuality, qualityLimitMatches } from './qualityLimit'
 import type { Initial } from './craftingApi'
 import type { AppliedItem, ConcreteItem } from './workbenchApi'
 import { coupledModelsMatch, workbenchActionNames } from './workbenchApi'
@@ -163,7 +163,13 @@ export function verifiedFrameEvidence(
     if (
       !e ||
       (e.qualityLimit !== undefined &&
-        !qualityLimitMatches(e.qualityLimit, frame.state, initial.modifiers)) ||
+        (e.qualityLimit === null
+          ? maximumQuality(frame.state, initial.modifiers) !== null
+          : !qualityLimitMatches(
+              e.qualityLimit,
+              frame.state,
+              initial.modifiers,
+            ))) ||
       !verifiedHistoryState(frame.state, initial) ||
       e.action !== frame.action ||
       !Object.hasOwn(workbenchActionNames, e.action) ||
@@ -243,7 +249,7 @@ export function verifiedHistoryState(
   try {
     if (
       !supportsConcreteStateShape(state) ||
-      (isBasicJewel(state.baseItemId) && !reviewedBasicJewel(state)) ||
+      (isWorkbenchJewel(state.baseItemId) && !reviewedBasicJewel(state)) ||
       !verifiedCatalystQuality(state, initial.modifiers) ||
       (state.snapshotId !== initial.metadata.snapshotId &&
         !initial.compatibleSnapshotIds?.includes(state.snapshotId)) ||
@@ -304,10 +310,10 @@ export function verifiedHistoryState(
         ? 0
         : state.rarity === 'MAGIC'
           ? 1
-          : isBasicJewel(state.baseItemId)
+          : isWorkbenchJewel(state.baseItemId)
             ? 2
             : 3
-    return isBasicJewel(state.baseItemId)
+    return isWorkbenchJewel(state.baseItemId)
       ? reviewedBasicJewel(state)
       : p <= capacity && s <= capacity
   } catch {

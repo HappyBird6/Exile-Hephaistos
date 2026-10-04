@@ -113,7 +113,7 @@ public final class WorkbenchSimulator {
   }
 
   private List<String> replacementTargets(WorkbenchCurrency action) {
-    if (action.isLiquid() && BasicJewel.supported(catalog.base().id()))
+    if (action.isLiquid())
       return catalog.modifiers().values().stream()
           .filter(
               d -> d.tags().contains("crafted") && d.sourceUrl().equals(action.replacementSource()))
@@ -131,7 +131,10 @@ public final class WorkbenchSimulator {
   }
 
   private String baseRuleVersion() {
-    if (BasicJewel.supported(catalog.base().id())) return "basic-jewel-potent-v3";
+    if (BasicJewel.supportedCrafting(catalog.base().id()))
+      return BasicJewel.timeLost(catalog.base().id())
+          ? "time-lost-ancient-v1"
+          : "basic-jewel-potent-v3";
     if (catalog.base().id().equals(RingEssenceTargets.BASE_ID))
       return "ring-workbench-perfect-essence-v1";
     if (catalog.base().id().equals(HelmetEssenceTargets.BASE_ID))
@@ -149,7 +152,7 @@ public final class WorkbenchSimulator {
   }
 
   public String ledgerVersion() {
-    if (BasicJewel.supported(catalog.base().id()))
+    if (BasicJewel.supportedCrafting(catalog.base().id()))
       return "sapphire-uniform-candidates-and-rolls-v1";
     if (catalog.base().id().equals(RingEssenceTargets.BASE_ID))
       return "ring-unverified-numeric-assumptions-v1";
@@ -179,6 +182,7 @@ public final class WorkbenchSimulator {
     validate(state);
     var omens = parseOmens(activeOmens);
     return Arrays.stream(WorkbenchCurrency.values())
+        .filter(a -> !a.isLiquid() || BasicJewel.supportedCrafting(state.baseItemId()))
         .filter(
             a ->
                 a != WorkbenchCurrency.DIVINE
@@ -226,7 +230,9 @@ public final class WorkbenchSimulator {
     if (action.catalystType() != null) {
       if (action.refinedCatalyst()) {
         if (!BasicJewel.supported(state.baseItemId()))
-          return blocked(action, "Refined catalysts require the supported Sapphire Jewel.");
+          return blocked(
+              action,
+              "Refined catalysts require a supported Basic Jewel with jewel_catalyst source tag.");
         return new Availability(action, true, "");
       }
       if (!state.baseItemId().equals(SolarAmulet.BASE_ID)
@@ -234,16 +240,16 @@ public final class WorkbenchSimulator {
         return blocked(action, "Ordinary catalysts require a supported Ring or Amulet.");
       return new Availability(action, true, "");
     }
-    if (BasicJewel.supported(state.baseItemId())
+    if (BasicJewel.supportedCrafting(state.baseItemId())
         && action.baseAction() == null
         && action != WorkbenchCurrency.ALCHEMY
         && action != WorkbenchCurrency.DIVINE
         && !action.isLiquid())
       return blocked(
           action,
-          "This operation remains outside the reviewed Sapphire basic currency and Liquid scope.");
+          "This operation remains outside the reviewed Jewel basic currency and Liquid scope.");
     if (action.isLiquid() && replacementTargets(action).isEmpty())
-      return blocked(action, "No sourced Liquid outcome for this Basic Jewel base.");
+      return blocked(action, "No sourced Liquid outcome for this Jewel category and base.");
     if (action.isLiquid()
         && state.explicits().stream()
             .anyMatch(m -> catalog.find(m.modifierId()).orElseThrow().tags().contains("crafted")))
@@ -498,7 +504,7 @@ public final class WorkbenchSimulator {
         target.affixType() == ModifierDefinition.AffixType.PREFIX
             ? catalog.base().rarePrefixes()
             : catalog.base().rareSuffixes();
-    if (BasicJewel.supported(state.baseItemId()))
+    if (BasicJewel.supportedCrafting(state.baseItemId()))
       capacity +=
           BasicJewel.extra(
               state.explicits().stream().map(ModifierInstance::modifierId).toList(),
@@ -855,7 +861,7 @@ public final class WorkbenchSimulator {
     var beforeCapPolicy = copy(state, rarity, implicits, explicits);
     var result = qualityCapChangePolicy.afterAcceptedOperation(beforeCapPolicy, catalog);
     validate(result);
-    if (BasicJewel.supported(result.baseItemId())) {
+    if (BasicJewel.supportedCrafting(result.baseItemId())) {
       if (result.explicits().stream()
           .anyMatch(
               m ->
@@ -914,11 +920,11 @@ public final class WorkbenchSimulator {
 
   private void recordSapphireSelection(
       List<ModifierDefinition> candidates, List<Assumption> assumptions) {
-    if (BasicJewel.supported(catalog.base().id()))
+    if (BasicJewel.supportedCrafting(catalog.base().id()))
       assumptions.add(
           new Assumption(
               "sapphire-uniform-candidates-v1",
-              "eligible Basic Jewel ordinary modifier",
+              "eligible per-base Jewel ordinary modifier",
               candidates.size(),
               candidates.stream().map(ModifierDefinition::id).toList(),
               null,

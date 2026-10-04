@@ -1337,6 +1337,54 @@
       "lines": [],
       "itemKey": "Metadata/Items/Jewels/JewelInt",
       "sourceUrl": "https://poe2db.tw/us/Sapphire"
+    },
+    "Time-Lost Ruby": {
+      "name": "Time-Lost Ruby",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusStr",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Ruby"
+    },
+    "Time_Lost_Ruby": {
+      "name": "Time-Lost Ruby",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusStr",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Ruby"
+    },
+    "Time-Lost Emerald": {
+      "name": "Time-Lost Emerald",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDex",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Emerald"
+    },
+    "Time_Lost_Emerald": {
+      "name": "Time-Lost Emerald",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDex",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Emerald"
+    },
+    "Time-Lost Sapphire": {
+      "name": "Time-Lost Sapphire",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusInt",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Sapphire"
+    },
+    "Time_Lost_Sapphire": {
+      "name": "Time-Lost Sapphire",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusInt",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Sapphire"
+    },
+    "Time-Lost Diamond": {
+      "name": "Time-Lost Diamond",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDiamond",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Diamond"
+    },
+    "Time_Lost_Diamond": {
+      "name": "Time-Lost Diamond",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDiamond",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Diamond"
     }
   },
   "ko": {
@@ -2663,6 +2711,54 @@
       "lines": [],
       "itemKey": "Metadata/Items/Jewels/JewelInt",
       "sourceUrl": "https://poe2db.tw/kr/Sapphire"
+    },
+    "Time-Lost Ruby": {
+      "name": "오래된 루비",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusStr",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Ruby"
+    },
+    "Time_Lost_Ruby": {
+      "name": "오래된 루비",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusStr",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Ruby"
+    },
+    "Time-Lost Emerald": {
+      "name": "오래된 에메랄드",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDex",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Emerald"
+    },
+    "Time_Lost_Emerald": {
+      "name": "오래된 에메랄드",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDex",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Emerald"
+    },
+    "Time-Lost Sapphire": {
+      "name": "오래된 사파이어",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusInt",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Sapphire"
+    },
+    "Time_Lost_Sapphire": {
+      "name": "오래된 사파이어",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusInt",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Sapphire"
+    },
+    "Time-Lost Diamond": {
+      "name": "오래된 다이아몬드",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDiamond",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Diamond"
+    },
+    "Time_Lost_Diamond": {
+      "name": "오래된 다이아몬드",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDiamond",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Diamond"
     }
   },
   "zh-CN": {
@@ -3903,6 +3999,54 @@
       "lines": [],
       "itemKey": "Metadata/Items/Jewels/JewelInt",
       "sourceUrl": "https://poe2db.tw/cn/Sapphire"
+    },
+    "Time-Lost Ruby": {
+      "name": "失落的红玉",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusStr",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Ruby"
+    },
+    "Time_Lost_Ruby": {
+      "name": "失落的红玉",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusStr",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Ruby"
+    },
+    "Time-Lost Emerald": {
+      "name": "失落的翡翠",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDex",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Emerald"
+    },
+    "Time_Lost_Emerald": {
+      "name": "失落的翡翠",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDex",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Emerald"
+    },
+    "Time-Lost Sapphire": {
+      "name": "失落的蓝玉",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusInt",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Sapphire"
+    },
+    "Time_Lost_Sapphire": {
+      "name": "失落的蓝玉",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusInt",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Sapphire"
+    },
+    "Time-Lost Diamond": {
+      "name": "失落的宝钻",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDiamond",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Diamond"
+    },
+    "Time_Lost_Diamond": {
+      "name": "失落的宝钻",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDiamond",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Diamond"
     }
   },
   "zh-TW": {
@@ -5139,6 +5283,54 @@
       "lines": [],
       "itemKey": "Metadata/Items/Jewels/JewelInt",
       "sourceUrl": "https://poe2db.tw/tw/Sapphire"
+    },
+    "Time-Lost Ruby": {
+      "name": "時迭紅寶石",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusStr",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Ruby"
+    },
+    "Time_Lost_Ruby": {
+      "name": "時迭紅寶石",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusStr",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Ruby"
+    },
+    "Time-Lost Emerald": {
+      "name": "時迭綠寶石",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDex",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Emerald"
+    },
+    "Time_Lost_Emerald": {
+      "name": "時迭綠寶石",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDex",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Emerald"
+    },
+    "Time-Lost Sapphire": {
+      "name": "時迭藍寶石",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusInt",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Sapphire"
+    },
+    "Time_Lost_Sapphire": {
+      "name": "時迭藍寶石",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusInt",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Sapphire"
+    },
+    "Time-Lost Diamond": {
+      "name": "時迭鑽石",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDiamond",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Diamond"
+    },
+    "Time_Lost_Diamond": {
+      "name": "時迭鑽石",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDiamond",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Diamond"
     }
   },
   "ja": {
@@ -6465,6 +6657,54 @@
       "lines": [],
       "itemKey": "Metadata/Items/Jewels/JewelInt",
       "sourceUrl": "https://poe2db.tw/jp/Sapphire"
+    },
+    "Time-Lost Ruby": {
+      "name": "タイムロストルビー",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusStr",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Ruby"
+    },
+    "Time_Lost_Ruby": {
+      "name": "タイムロストルビー",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusStr",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Ruby"
+    },
+    "Time-Lost Emerald": {
+      "name": "タイムロストエメラルド",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDex",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Emerald"
+    },
+    "Time_Lost_Emerald": {
+      "name": "タイムロストエメラルド",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDex",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Emerald"
+    },
+    "Time-Lost Sapphire": {
+      "name": "タイムロストサファイア",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusInt",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Sapphire"
+    },
+    "Time_Lost_Sapphire": {
+      "name": "タイムロストサファイア",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusInt",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Sapphire"
+    },
+    "Time-Lost Diamond": {
+      "name": "タイムロストダイヤモンド",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDiamond",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Diamond"
+    },
+    "Time_Lost_Diamond": {
+      "name": "タイムロストダイヤモンド",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDiamond",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Diamond"
     }
   },
   "es": {
@@ -7789,6 +8029,54 @@
       "lines": [],
       "itemKey": "Metadata/Items/Jewels/JewelInt",
       "sourceUrl": "https://poe2db.tw/sp/Sapphire"
+    },
+    "Time-Lost Ruby": {
+      "name": "Rubí perdido en el tiempo",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusStr",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Ruby"
+    },
+    "Time_Lost_Ruby": {
+      "name": "Rubí perdido en el tiempo",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusStr",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Ruby"
+    },
+    "Time-Lost Emerald": {
+      "name": "Esmeralda perdida en el tiempo",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDex",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Emerald"
+    },
+    "Time_Lost_Emerald": {
+      "name": "Esmeralda perdida en el tiempo",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDex",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Emerald"
+    },
+    "Time-Lost Sapphire": {
+      "name": "Zafiro perdido en el tiempo",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusInt",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Sapphire"
+    },
+    "Time_Lost_Sapphire": {
+      "name": "Zafiro perdido en el tiempo",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusInt",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Sapphire"
+    },
+    "Time-Lost Diamond": {
+      "name": "Diamante perdido en el tiempo",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDiamond",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Diamond"
+    },
+    "Time_Lost_Diamond": {
+      "name": "Diamante perdido en el tiempo",
+      "lines": [],
+      "itemKey": "Metadata/Items/Jewels/JewelRadiusDiamond",
+      "sourceUrl": "https://poe2db.tw/us/Time-Lost_Diamond"
     }
   }
 }

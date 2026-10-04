@@ -1,7 +1,13 @@
 import { supportsConcreteStateShape } from './workbenchStateShape'
 import displayBindings from '../../shared/i18n/modifierTemplates.json'
 import liquidTargets from './basicJewelLiquidTargets.json'
-import { isBasicJewel, reviewedBasicJewel, jewelCapacity } from './basicJewel'
+import {
+  isBasicJewel,
+  workbenchJewelBases,
+  isWorkbenchJewel,
+  reviewedBasicJewel,
+  jewelCapacity,
+} from './basicJewel'
 import { qualityCapChangeMatches } from './qualityCapChangePolicy'
 import { whittlingCandidates } from './omenRemovalCandidates'
 import {
@@ -26,6 +32,19 @@ export const catalystActionType = (action: WorkbenchAction) => {
 }
 
 export type WorkbenchAction =
+  | 'ANCIENT_DILUTED_LIQUID_IRE'
+  | 'ANCIENT_DILUTED_LIQUID_GUILT'
+  | 'ANCIENT_DILUTED_LIQUID_GREED'
+  | 'ANCIENT_LIQUID_PARANOIA'
+  | 'ANCIENT_LIQUID_ENVY'
+  | 'ANCIENT_LIQUID_DISGUST'
+  | 'ANCIENT_LIQUID_DESPAIR'
+  | 'ANCIENT_CONCENTRATED_LIQUID_FEAR'
+  | 'ANCIENT_CONCENTRATED_LIQUID_SUFFERING'
+  | 'ANCIENT_CONCENTRATED_LIQUID_ISOLATION'
+  | 'ANCIENT_POTENT_LIQUID_MELANCHOLY'
+  | 'ANCIENT_POTENT_LIQUID_FEROCITY'
+  | 'ANCIENT_POTENT_LIQUID_CONTEMPT'
   | 'POTENT_LIQUID_MELANCHOLY'
   | 'POTENT_LIQUID_FEROCITY'
   | 'POTENT_LIQUID_CONTEMPT'
@@ -301,6 +320,21 @@ const replacementEssenceModifiers: Partial<
   ],
 }
 export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
+  Ancient_Diluted_Liquid_Ire: 'ANCIENT_DILUTED_LIQUID_IRE',
+  Ancient_Diluted_Liquid_Guilt: 'ANCIENT_DILUTED_LIQUID_GUILT',
+  Ancient_Diluted_Liquid_Greed: 'ANCIENT_DILUTED_LIQUID_GREED',
+  Ancient_Liquid_Paranoia: 'ANCIENT_LIQUID_PARANOIA',
+  Ancient_Liquid_Envy: 'ANCIENT_LIQUID_ENVY',
+  Ancient_Liquid_Disgust: 'ANCIENT_LIQUID_DISGUST',
+  Ancient_Liquid_Despair: 'ANCIENT_LIQUID_DESPAIR',
+  Ancient_Concentrated_Liquid_Fear: 'ANCIENT_CONCENTRATED_LIQUID_FEAR',
+  Ancient_Concentrated_Liquid_Suffering:
+    'ANCIENT_CONCENTRATED_LIQUID_SUFFERING',
+  Ancient_Concentrated_Liquid_Isolation:
+    'ANCIENT_CONCENTRATED_LIQUID_ISOLATION',
+  Ancient_Potent_Liquid_Melancholy: 'ANCIENT_POTENT_LIQUID_MELANCHOLY',
+  Ancient_Potent_Liquid_Ferocity: 'ANCIENT_POTENT_LIQUID_FEROCITY',
+  Ancient_Potent_Liquid_Contempt: 'ANCIENT_POTENT_LIQUID_CONTEMPT',
   Potent_Liquid_Melancholy: 'POTENT_LIQUID_MELANCHOLY',
   Potent_Liquid_Ferocity: 'POTENT_LIQUID_FEROCITY',
   Potent_Liquid_Contempt: 'POTENT_LIQUID_CONTEMPT',
@@ -435,6 +469,21 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Greater_Essence_of_Opulence: 'GREATER_ESSENCE_OPULENCE',
 }
 export const workbenchActionNames: Record<WorkbenchAction, string> = {
+  ANCIENT_DILUTED_LIQUID_IRE: 'Ancient Diluted Liquid Ire',
+  ANCIENT_DILUTED_LIQUID_GUILT: 'Ancient Diluted Liquid Guilt',
+  ANCIENT_DILUTED_LIQUID_GREED: 'Ancient Diluted Liquid Greed',
+  ANCIENT_LIQUID_PARANOIA: 'Ancient Liquid Paranoia',
+  ANCIENT_LIQUID_ENVY: 'Ancient Liquid Envy',
+  ANCIENT_LIQUID_DISGUST: 'Ancient Liquid Disgust',
+  ANCIENT_LIQUID_DESPAIR: 'Ancient Liquid Despair',
+  ANCIENT_CONCENTRATED_LIQUID_FEAR: 'Ancient Concentrated Liquid Fear',
+  ANCIENT_CONCENTRATED_LIQUID_SUFFERING:
+    'Ancient Concentrated Liquid Suffering',
+  ANCIENT_CONCENTRATED_LIQUID_ISOLATION:
+    'Ancient Concentrated Liquid Isolation',
+  ANCIENT_POTENT_LIQUID_MELANCHOLY: 'Ancient Potent Liquid Melancholy',
+  ANCIENT_POTENT_LIQUID_FEROCITY: 'Ancient Potent Liquid Ferocity',
+  ANCIENT_POTENT_LIQUID_CONTEMPT: 'Ancient Potent Liquid Contempt',
   POTENT_LIQUID_MELANCHOLY: 'Potent Liquid Melancholy',
   POTENT_LIQUID_FEROCITY: 'Potent Liquid Ferocity',
   POTENT_LIQUID_CONTEMPT: 'Potent Liquid Contempt',
@@ -957,17 +1006,9 @@ export async function applyCurrency(
       'stocky-mitts:suffix:essence-abyssal-mark',
     ],
   }
-  const baseName = Object.keys(liquidTargets).find(
+  const baseName = Object.keys(workbenchJewelBases).find(
     (b) =>
-      state.baseItemId ===
-      (
-        {
-          ruby: 'Metadata/Items/Jewels/JewelStr',
-          emerald: 'Metadata/Items/Jewels/JewelDex',
-          diamond: 'Metadata/Items/Jewels/JewelDiamond',
-          sapphire: 'Metadata/Items/Jewels/JewelInt',
-        } as Record<string, string>
-      )[b],
+      (workbenchJewelBases as Record<string, string>)[b] === state.baseItemId,
   )
   const replacementTargets = action.includes('LIQUID_')
     ? baseName
@@ -1000,10 +1041,10 @@ export async function applyCurrency(
     !next ||
     !supportsConcreteStateShape(next) ||
     !verifiedCatalystQuality(next, definitions) ||
-    (isBasicJewel(next.baseItemId) && !reviewedBasicJewel(next)) ||
+    (isWorkbenchJewel(next.baseItemId) && !reviewedBasicJewel(next)) ||
     (v.applied &&
       action.includes('LIQUID_') &&
-      (!isBasicJewel(state.baseItemId) ||
+      (!isWorkbenchJewel(state.baseItemId) ||
         state.explicits.some((m) =>
           definitions[m.modifierId]?.tags?.includes('crafted'),
         ))) ||
@@ -1021,6 +1062,10 @@ export async function applyCurrency(
     (v.qualityLimit !== undefined &&
       (v.qualityLimit === null
         ? ![
+            'Metadata/Items/Jewels/JewelRadiusStr',
+            'Metadata/Items/Jewels/JewelRadiusDex',
+            'Metadata/Items/Jewels/JewelRadiusInt',
+            'Metadata/Items/Jewels/JewelRadiusDiamond',
             'Metadata/Items/Belts/FourBelt1',
             'Metadata/Items/Rings/FourRing1',
           ].includes(next.baseItemId) ||
@@ -1246,7 +1291,7 @@ export async function applyCurrency(
       ? 0
       : next.rarity === 'MAGIC'
         ? 1
-        : isBasicJewel(next.baseItemId)
+        : isWorkbenchJewel(next.baseItemId)
           ? 2
           : 3
   const expectedRarity =
@@ -1277,7 +1322,7 @@ export async function applyCurrency(
               ? 2
               : 1)
   if (
-    (isBasicJewel(next.baseItemId)
+    (isWorkbenchJewel(next.baseItemId)
       ? !reviewedBasicJewel(next)
       : prefixes > capacity || suffixes > capacity) ||
     (v.applied &&
@@ -1617,7 +1662,7 @@ export async function applyCurrency(
     baseAction === 'EXALTED' &&
     activeOmens.includes('Omen_of_Greater_Exaltation') &&
     (state.rarity !== 'RARE' ||
-      state.explicits.length > (isBasicJewel(state.baseItemId) ? 2 : 4) ||
+      state.explicits.length > (isWorkbenchJewel(state.baseItemId) ? 2 : 4) ||
       !sameModifiers(
         state.explicits
           .map((old) =>
@@ -1730,7 +1775,7 @@ export async function applyCurrency(
         removed.length === state.explicits.length &&
         next.explicits.filter(
           (m) => definitions[m.modifierId]?.affixType === side,
-        ).length === (isBasicJewel(state.baseItemId) ? 2 : 3)
+        ).length === (isWorkbenchJewel(state.baseItemId) ? 2 : 3)
     } else if (trigger === 'REGAL') {
       valid &&=
         added.length === 1 &&
@@ -1818,7 +1863,7 @@ export async function applyCurrency(
             intermediate.filter(
               (m) => definitions[m.modifierId]!.affixType === d.affixType,
             ).length <
-              (isBasicJewel(state.baseItemId)
+              (isWorkbenchJewel(state.baseItemId)
                 ? jewelCapacity(
                     { ...state, explicits: intermediate },
                     d.affixType,

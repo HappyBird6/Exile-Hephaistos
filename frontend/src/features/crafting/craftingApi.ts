@@ -176,6 +176,10 @@ export async function loadInitial(
     | 'belt'
     | 'helmet'
     | 'ring'
+    | 'time-lost-ruby'
+    | 'time-lost-emerald'
+    | 'time-lost-sapphire'
+    | 'time-lost-diamond'
     | 'ruby'
     | 'emerald'
     | 'diamond'
@@ -192,9 +196,22 @@ export async function loadInitial(
     !bucket(v.state) ||
     (base !== 'solar'
       ? v.state.baseItemId !==
-          (['ruby', 'emerald', 'diamond'].includes(base)
+          ([
+            'ruby',
+            'emerald',
+            'diamond',
+            'time-lost-ruby',
+            'time-lost-emerald',
+            'time-lost-sapphire',
+            'time-lost-diamond',
+          ].includes(base)
             ? (
                 {
+                  'time-lost-ruby': 'Metadata/Items/Jewels/JewelRadiusStr',
+                  'time-lost-emerald': 'Metadata/Items/Jewels/JewelRadiusDex',
+                  'time-lost-sapphire': 'Metadata/Items/Jewels/JewelRadiusInt',
+                  'time-lost-diamond':
+                    'Metadata/Items/Jewels/JewelRadiusDiamond',
                   ruby: 'Metadata/Items/Jewels/JewelStr',
                   emerald: 'Metadata/Items/Jewels/JewelDex',
                   diamond: 'Metadata/Items/Jewels/JewelDiamond',
@@ -227,7 +244,15 @@ export async function loadInitial(
             v.state.implicits[0].values.attack_maximum_added_physical_damage !==
               4 ||
             v.state.implicits[0].fractured === true
-          : v.state.implicits.length !== 0)
+          : base.startsWith('time-lost-')
+            ? v.state.implicits.length !== 1 ||
+              v.state.implicits[0]?.modifierId !==
+                base + ':implicit:base-radius' ||
+              Object.keys(v.state.implicits[0]?.values ?? {}).length !== 1 ||
+              v.state.implicits[0]?.values.local_jewel_effect_base_radius !==
+                1000 ||
+              v.state.implicits[0]?.fractured === true
+            : v.state.implicits.length !== 0)
       : v.state.implicits.length !== 1) ||
     v.state.itemLevel !== level ||
     !object(v.metadata) ||

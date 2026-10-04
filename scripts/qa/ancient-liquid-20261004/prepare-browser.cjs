@@ -1,0 +1,12 @@
+const fs=require('fs');
+let s=fs.readFileSync('scripts/qa/basic-jewel-potent-20261004/browser.cjs','utf8');
+s=s.replaceAll('18881','18981').replace("['ruby','emerald','diamond','sapphire']","['time-lost-ruby','time-lost-emerald','time-lost-diamond','time-lost-sapphire']");
+s=s.replace("await page.locator('#starting-quality-type').selectOption('CARAPACE');await page.locator('#starting-quality-amount').fill('20');",'');
+s=s.replaceAll("c.action==='POTENT_LIQUID_FEROCITY'","c.action==='ANCIENT_POTENT_LIQUID_FEROCITY'").replace("c.base==='sapphire'","c.base==='time-lost-sapphire'");
+s=s.replace("messages[locale]['notice.sapphire_scope']","messages[locale]['notice.time_lost_scope']");
+s=s.replace('browser-failure-3','browser-failure-1');
+fs.writeFileSync('scripts/qa/ancient-liquid-20261004/browser.cjs',s);
+let api=fs.readFileSync('scripts/qa/basic-jewel-potent-20261004/api.cjs','utf8').replaceAll('18880','18980').replace('/evidence/api-results.json','/evidence/basic-regression-api-results.json');
+fs.writeFileSync('scripts/qa/ancient-liquid-20261004/basic-regression-api.cjs',api);
+let capture=fs.readFileSync('scripts/qa/basic-jewel-potent-20261004/capture-contract.cjs','utf8').replaceAll('basic-jewel-potent-20261004','ancient-liquid-20261004').replaceAll('basic-jewel-potent-responses','ancient-liquid-responses').replaceAll('BasicJewelPotentContract','AncientLiquidContract');
+fs.writeFileSync('scripts/qa/ancient-liquid-20261004/capture-contract.cjs',capture);
