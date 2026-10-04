@@ -1,0 +1,108 @@
+{
+  "page": "Boots_str_int",
+  "url": "https://poe2db.tw/us/Boots_str_int",
+  "retrievedAt": "2026-10-04T14:45:13.917Z",
+  "sha256": "11de8e114925241f742786e51b0949302be0a4aef983bdfc0b1334e3c456c872",
+  "cards": [
+    {
+      "slug": "Padded_Leggings",
+      "card": "Padded LeggingsArmour: 20Energy Shield: 10Requires:  Level 5, 7 Str, 7 Int"
+    },
+    {
+      "slug": "Secured_Leggings",
+      "card": "Secured LeggingsArmour: 41Energy Shield: 15Requires:  Level 16, 14 Str, 14 Int"
+    },
+    {
+      "slug": "Pelt_Leggings",
+      "card": "Pelt LeggingsArmour: 73Energy Shield: 22Requires:  Level 33, 26 Str, 26 Int"
+    },
+    {
+      "slug": "Weaver_Leggings",
+      "card": "Weaver LeggingsArmour: 96Energy Shield: 28Requires:  Level 45, 34 Str, 34 Int"
+    },
+    {
+      "slug": "Gilt_Leggings",
+      "card": "Gilt LeggingsArmour: 109Energy Shield: 31Requires:  Level 52, 38 Str, 38 Int"
+    },
+    {
+      "slug": "Pious_Leggings",
+      "card": "Pious LeggingsArmour: 134Energy Shield: 37Requires:  Level 65, 47 Str, 47 Int"
+    },
+    {
+      "slug": "Ancient_Leggings",
+      "card": "Ancient LeggingsArmour: 134Energy Shield: 37Requires:  Level 65, 56 Str, 56 Int"
+    },
+    {
+      "slug": "Adherent_Leggings",
+      "card": "Adherent LeggingsArmour: 96Energy Shield: 28Requires:  Level 45, 34 Str, 34 Int"
+    },
+    {
+      "slug": "Bound_Leggings",
+      "card": "Bound LeggingsArmour: 107Energy Shield: 31Requires:  Level 51, 38 Str, 38 Int"
+    },
+    {
+      "slug": "Shamanistic_Leggings",
+      "card": "Shamanistic LeggingsArmour: 123Energy Shield: 34Requires:  Level 59, 44 Str, 44 Int"
+    },
+    {
+      "slug": "Faithful_Leggings",
+      "card": "Faithful LeggingsArmour: 134Energy Shield: 37Requires:  Level 65, 47 Str, 47 Int"
+    },
+    {
+      "slug": "Apostle_Leggings",
+      "card": "Apostle LeggingsArmour: 134Energy Shield: 37Requires:  Level 70, 51 Str, 51 Int"
+    },
+    {
+      "slug": "Warlock_Leggings",
+      "card": "Warlock LeggingsArmour: 134Energy Shield: 37Requires:  Level 75, 56 Str, 56 Int"
+    },
+    {
+      "slug": "Cryptic_Leggings",
+      "card": "Cryptic LeggingsArmour: 134Energy Shield: 37Requires:  Level 80, 59 Str, 59 Int"
+    },
+    {
+      "slug": "Runeforged_Padded_Leggings",
+      "card": "Runeforged Padded LeggingsArmour: 20Energy Shield: 10Runic Ward: 17Requires:  Level 5, 7 Str, 7 Int"
+    },
+    {
+      "slug": "Runeforged_Secured_Leggings",
+      "card": "Runeforged Secured LeggingsArmour: 41Energy Shield: 15Runic Ward: 26Requires:  Level 16, 14 Str, 14 Int"
+    },
+    {
+      "slug": "Runeforged_Pelt_Leggings",
+      "card": "Runeforged Pelt LeggingsArmour: 73Energy Shield: 22Runic Ward: 34Requires:  Level 33, 26 Str, 26 Int"
+    },
+    {
+      "slug": "Runeforged_Weaver_Leggings",
+      "card": "Runeforged Weaver LeggingsArmour: 96Energy Shield: 28Runic Ward: 39Requires:  Level 45, 34 Str, 34 Int"
+    },
+    {
+      "slug": "Runeforged_Shamanistic_Leggings",
+      "card": "Runeforged Shamanistic LeggingsArmour: 113Energy Shield: 32Runic Ward: 49Requires:  Level 59, 44 Str, 44 Int"
+    },
+    {
+      "slug": "Runeforged_Faithful_Leggings",
+      "card": "Runeforged Faithful LeggingsArmour: 126Energy Shield: 35Runic Ward: 42Requires:  Level 65, 47 Str, 47 Int"
+    },
+    {
+      "slug": "Runeforged_Apostle_Leggings",
+      "card": "Runeforged Apostle LeggingsArmour: 88Energy Shield: 25Runic Ward: 116Requires:  Level 70, 51 Str, 51 Int"
+    },
+    {
+      "slug": "Runeforged_Warlock_Leggings",
+      "card": "Runeforged Warlock LeggingsArmour: 139Energy Shield: 39Runic Ward: 42Requires:  Level 75, 56 Str, 56 Int"
+    },
+    {
+      "slug": "Runeforged_Cryptic_Leggings",
+      "card": "Runeforged Cryptic LeggingsArmour: 59Energy Shield: 16Runic Ward: 201Requires:  Level 80, 59 Str, 59 Int"
+    },
+    {
+      "slug": "Runemastered_Secured_Leggings",
+      "card": "Runemastered Secured LeggingsArmour: 58Energy Shield: 17Runic Ward: 41Requires:  Level 38, 29 Str, 29 Int5% increased Movement Speed"
+    },
+    {
+      "slug": "Runemastered_Ancient_Leggings",
+      "card": "Runemastered Ancient LeggingsArmour: 107Energy Shield: 30Runic Ward: 53Requires:  Level 65, 56 Str, 56 Int"
+    }
+  ]
+}

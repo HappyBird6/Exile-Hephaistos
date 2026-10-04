@@ -377,7 +377,8 @@
     "class.belts": "Belts",
     "class.rings": "Rings",
     "class.helmets": "Helmets",
-    "class.amulet": "Amulet"
+    "class.amulet": "Amulet",
+    "base.legacy": "Legacy"
   },
   "ko": {
     "language": "언어",
@@ -757,7 +758,8 @@
     "class.belts": "허리띠",
     "class.rings": "반지",
     "class.helmets": "투구",
-    "class.amulet": "목걸이"
+    "class.amulet": "목걸이",
+    "base.legacy": "기존 베이스"
   },
   "zh-CN": {
     "language": "语言",
@@ -1137,7 +1139,8 @@
     "class.belts": "腰带",
     "class.rings": "戒指",
     "class.helmets": "头盔",
-    "class.amulet": "项链"
+    "class.amulet": "项链",
+    "base.legacy": "旧底材"
   },
   "zh-TW": {
     "language": "語言",
@@ -1517,7 +1520,8 @@
     "class.belts": "腰帶",
     "class.rings": "戒指",
     "class.helmets": "頭盔",
-    "class.amulet": "項鍊"
+    "class.amulet": "項鍊",
+    "base.legacy": "舊基底"
   },
   "ja": {
     "language": "言語",
@@ -1897,7 +1901,8 @@
     "class.belts": "ベルト",
     "class.rings": "指輪",
     "class.helmets": "ヘルメット",
-    "class.amulet": "アミュレット"
+    "class.amulet": "アミュレット",
+    "base.legacy": "従来のベース"
   },
   "es": {
     "language": "Idioma",
@@ -2277,6 +2282,7 @@
     "class.belts": "Cinturones",
     "class.rings": "Anillos",
     "class.helmets": "Cascos",
-    "class.amulet": "Amuleto"
+    "class.amulet": "Amuleto",
+    "base.legacy": "Base anterior"
   }
 }

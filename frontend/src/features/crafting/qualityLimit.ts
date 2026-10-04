@@ -1,3 +1,4 @@
+import { topBaseKey } from './topBases'
 import type { Definition } from './craftingApi'
 import type { ConcreteItem } from './workbenchApi'
 
@@ -16,6 +17,7 @@ export function maximumQuality(
   definitions: Record<string, Definition>,
 ): number | null {
   if (
+    !topBaseKey(state.baseItemId) &&
     ![
       solar,
       'Metadata/Items/Jewels/JewelInt',

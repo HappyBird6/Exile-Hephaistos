@@ -1,0 +1,140 @@
+{
+  "page": "Boots_int",
+  "url": "https://poe2db.tw/us/Boots_int",
+  "retrievedAt": "2026-10-04T14:45:09.854Z",
+  "sha256": "e52e6c15587292a69abb78b7e5a36b17e2878902137c35b0e58bc3b41c05e248",
+  "cards": [
+    {
+      "slug": "Straw_Sandals",
+      "card": "Straw SandalsEnergy Shield: 14"
+    },
+    {
+      "slug": "Wrapped_Sandals",
+      "card": "Wrapped SandalsEnergy Shield: 22Requires:  Level 11, 17 Int"
+    },
+    {
+      "slug": "Lattice_Sandals",
+      "card": "Lattice SandalsEnergy Shield: 27Requires:  Level 16, 23 Int"
+    },
+    {
+      "slug": "Silk_Slippers",
+      "card": "Silk SlippersEnergy Shield: 36Requires:  Level 27, 38 Int"
+    },
+    {
+      "slug": "Feathered_Sandals",
+      "card": "Feathered SandalsEnergy Shield: 41Requires:  Level 33, 45 Int"
+    },
+    {
+      "slug": "Flax_Sandals",
+      "card": "Flax SandalsEnergy Shield: 51Requires:  Level 45, 60 Int"
+    },
+    {
+      "slug": "Studded_Sandals",
+      "card": "Studded SandalsEnergy Shield: 57Requires:  Level 52, 69 Int"
+    },
+    {
+      "slug": "Elaborate_Sandals",
+      "card": "Elaborate SandalsEnergy Shield: 68Requires:  Level 65, 86 Int"
+    },
+    {
+      "slug": "Laced_Sandals",
+      "card": "Laced SandalsEnergy Shield: 51Requires:  Level 45, 60 Int"
+    },
+    {
+      "slug": "Bangled_Sandals",
+      "card": "Bangled SandalsEnergy Shield: 56Requires:  Level 51, 68 Int"
+    },
+    {
+      "slug": "Elegant_Slippers",
+      "card": "Elegant SlippersEnergy Shield: 58Requires:  Level 54, 72 Int"
+    },
+    {
+      "slug": "Dunerunner_Sandals",
+      "card": "Dunerunner SandalsEnergy Shield: 63Requires:  Level 59, 78 Int"
+    },
+    {
+      "slug": "Bound_Sandals",
+      "card": "Bound SandalsEnergy Shield: 68Requires:  Level 65, 86 Int"
+    },
+    {
+      "slug": "Luxurious_Slippers",
+      "card": "Luxurious SlippersEnergy Shield: 73Requires:  Level 70, 93 Int"
+    },
+    {
+      "slug": "Sandsworn_Sandals",
+      "card": "Sandsworn SandalsEnergy Shield: 78Requires:  Level 75, 101 Int"
+    },
+    {
+      "slug": "Sekhema_Sandals",
+      "card": "Sekhema SandalsEnergy Shield: 83Requires:  Level 80, 108 Int"
+    },
+    {
+      "slug": "Runeforged_Straw_Sandals",
+      "card": "Runeforged Straw SandalsEnergy Shield: 14Runic Ward: 14"
+    },
+    {
+      "slug": "Runeforged_Wrapped_Sandals",
+      "card": "Runeforged Wrapped SandalsEnergy Shield: 22Runic Ward: 21Requires:  Level 11, 17 Int"
+    },
+    {
+      "slug": "Runeforged_Lattice_Sandals",
+      "card": "Runeforged Lattice SandalsEnergy Shield: 27Runic Ward: 26Requires:  Level 16, 23 Int"
+    },
+    {
+      "slug": "Runeforged_Silk_Slippers",
+      "card": "Runeforged Silk SlippersEnergy Shield: 36Runic Ward: 31Requires:  Level 27, 38 Int"
+    },
+    {
+      "slug": "Runeforged_Feathered_Sandals",
+      "card": "Runeforged Feathered SandalsEnergy Shield: 41Runic Ward: 36Requires:  Level 33, 45 Int"
+    },
+    {
+      "slug": "Runeforged_Flax_Sandals",
+      "card": "Runeforged Flax SandalsEnergy Shield: 51Runic Ward: 39Requires:  Level 45, 60 Int"
+    },
+    {
+      "slug": "Runeforged_Elegant_Slippers",
+      "card": "Runeforged Elegant SlippersEnergy Shield: 51Runic Ward: 54Requires:  Level 54, 72 Int"
+    },
+    {
+      "slug": "Runeforged_Dunerunner_Sandals",
+      "card": "Runeforged Dunerunner SandalsEnergy Shield: 58Runic Ward: 49Requires:  Level 59, 78 Int"
+    },
+    {
+      "slug": "Runeforged_Bound_Sandals",
+      "card": "Runeforged Bound SandalsEnergy Shield: 64Runic Ward: 42Requires:  Level 65, 86 Int"
+    },
+    {
+      "slug": "Runeforged_Luxurious_Slippers",
+      "card": "Runeforged Luxurious SlippersEnergy Shield: 45Runic Ward: 116Requires:  Level 70, 93 Int"
+    },
+    {
+      "slug": "Runeforged_Sandsworn_Sandals",
+      "card": "Runeforged Sandsworn SandalsEnergy Shield: 69Runic Ward: 49Requires:  Level 75, 101 Int"
+    },
+    {
+      "slug": "Runeforged_Sekhema_Sandals",
+      "card": "Runeforged Sekhema SandalsEnergy Shield: 34Runic Ward: 184Requires:  Level 80, 108 Int"
+    },
+    {
+      "slug": "Runemastered_Straw_Sandals",
+      "card": "Runemastered Straw SandalsEnergy Shield: 45Runic Ward: 34Requires:  Level 38, 51 Int5% increased Movement Speed"
+    },
+    {
+      "slug": "Runemastered_Wrapped_Sandals",
+      "card": "Runemastered Wrapped SandalsEnergy Shield: 41Runic Ward: 41Requires:  Level 38, 51 Int5% increased Movement Speed"
+    },
+    {
+      "slug": "Runemastered_Lattice_Sandals",
+      "card": "Runemastered Lattice SandalsEnergy Shield: 34Runic Ward: 34Requires:  Level 38, 51 Int5% increased Movement Speed"
+    },
+    {
+      "slug": "Runemastered_Silk_Slippers",
+      "card": "Runemastered Silk SlippersEnergy Shield: 36Runic Ward: 54Requires:  Level 38, 51 Int"
+    },
+    {
+      "slug": "Runemastered_Feathered_Sandals",
+      "card": "Runemastered Feathered SandalsEnergy Shield: 33Runic Ward: 42Requires:  Level 40, 54 Int"
+    }
+  ]
+}

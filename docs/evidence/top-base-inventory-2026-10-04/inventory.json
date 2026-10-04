@@ -1,0 +1,4506 @@
+[
+  {
+    "page": "Body_Armours_str",
+    "url": "https://poe2db.tw/us/Body_Armours_str",
+    "retrievedAt": "2026-10-04T14:44:21.671Z",
+    "sha256": "d952d73984328a7afbe054072237f40d735e0c0c288bcde5b7b1b62cba6e67c9",
+    "cards": [
+      {
+        "slug": "Rusted_Cuirass",
+        "card": "Rusted CuirassArmour: 45Base Movement Speed: -0.05"
+      },
+      {
+        "slug": "Fur_Plate",
+        "card": "Fur PlateArmour: 66Base Movement Speed: -0.05Requires:  Level 4, 10 Str"
+      },
+      {
+        "slug": "Iron_Cuirass",
+        "card": "Iron CuirassArmour: 115Base Movement Speed: -0.05Requires:  Level 11, 21 Str"
+      },
+      {
+        "slug": "Raider_Plate",
+        "card": "Raider PlateArmour: 150Base Movement Speed: -0.05Requires:  Level 16, 28 Str"
+      },
+      {
+        "slug": "Maraketh_Cuirass",
+        "card": "Maraketh CuirassArmour: 178Base Movement Speed: -0.05Requires:  Level 20, 34 Str"
+      },
+      {
+        "slug": "Steel_Plate",
+        "card": "Steel PlateArmour: 228Base Movement Speed: -0.05Requires:  Level 27, 45 Str"
+      },
+      {
+        "slug": "Full_Plate",
+        "card": "Full PlateArmour: 270Base Movement Speed: -0.05Requires:  Level 33, 54 Str"
+      },
+      {
+        "slug": "Vaal_Cuirass",
+        "card": "Vaal CuirassArmour: 298Base Movement Speed: -0.05Requires:  Level 37, 60 Str"
+      },
+      {
+        "slug": "Juggernaut_Plate",
+        "card": "Juggernaut PlateArmour: 355Base Movement Speed: -0.05Requires:  Level 45, 72 Str"
+      },
+      {
+        "slug": "Chieftain_Cuirass",
+        "card": "Chieftain CuirassArmour: 390Base Movement Speed: -0.05Requires:  Level 50, 80 Str"
+      },
+      {
+        "slug": "Colosseum_Plate",
+        "card": "Colosseum PlateArmour: 404Base Movement Speed: -0.05Requires:  Level 52, 83 Str"
+      },
+      {
+        "slug": "Champion_Cuirass",
+        "card": "Champion CuirassArmour: 446Base Movement Speed: -0.05Requires:  Level 58, 92 Str"
+      },
+      {
+        "slug": "Glorious_Plate",
+        "card": "Glorious PlateArmour: 496Base Movement Speed: -0.05Requires:  Level 65, 121 Str"
+      },
+      {
+        "slug": "Conqueror_Plate",
+        "card": "Conqueror PlateArmour: 496Base Movement Speed: -0.05Requires:  Level 68, 121 Str(30—40)% increased Stun Threshold"
+      },
+      {
+        "slug": "Abyssal_Cuirass",
+        "card": "Abyssal CuirassArmour: 496Base Movement Speed: -0.05Requires:  Level 73, 121 StrRegenerate (1.5—2.5)% of maximum Life per second"
+      },
+      {
+        "slug": "Runemastered_Grasping_Mail",
+        "card": "Runemastered Grasping MailArmour: 421Base Movement Speed: -0.04Runic Ward: 150Requires:  Level 65, 112 StrCan roll Ring ModifiersCatalysts can be applied to this item"
+      },
+      {
+        "slug": "Barbarian_Plate",
+        "card": "Barbarian PlateArmour: 355Base Movement Speed: -0.05Requires:  Level 45, 72 Str"
+      },
+      {
+        "slug": "Rugged_Cuirass",
+        "card": "Rugged CuirassArmour: 376Base Movement Speed: -0.05Requires:  Level 48, 77 Str"
+      },
+      {
+        "slug": "Sandsworn_Cuirass",
+        "card": "Sandsworn CuirassArmour: 397Base Movement Speed: -0.05Requires:  Level 51, 82 Str"
+      },
+      {
+        "slug": "Elegant_Plate",
+        "card": "Elegant PlateArmour: 418Base Movement Speed: -0.05Requires:  Level 54, 86 Str"
+      },
+      {
+        "slug": "Heavy_Plate",
+        "card": "Heavy PlateArmour: 453Base Movement Speed: -0.05Requires:  Level 59, 94 Str"
+      },
+      {
+        "slug": "Stone_Cuirass",
+        "card": "Stone CuirassArmour: 474Base Movement Speed: -0.05Requires:  Level 62, 98 Str"
+      },
+      {
+        "slug": "Soldier_Cuirass",
+        "card": "Soldier CuirassArmour: 570Base Movement Speed: -0.05Requires:  Level 65, 121 Str"
+      },
+      {
+        "slug": "Ornate_Plate",
+        "card": "Ornate PlateArmour: 496Base Movement Speed: -0.05Requires:  Level 70, 121 StrRegenerate (1.5—2.5)% of maximum Life per second"
+      },
+      {
+        "slug": "Utzaal_Cuirass",
+        "card": "Utzaal CuirassArmour: 496Base Movement Speed: -0.05Requires:  Level 75, 121 Str(30—40)% increased Stun Threshold"
+      },
+      {
+        "slug": "Warlord_Cuirass",
+        "card": "Warlord CuirassArmour: 496Base Movement Speed: -0.05Requires:  Level 80, 121 Str+(15—25)% of Armour also applies to Elemental Damage"
+      },
+      {
+        "slug": "Runeforged_Rusted_Cuirass",
+        "card": "Runeforged Rusted CuirassArmour: 45Base Movement Speed: -0.05Runic Ward: 29"
+      },
+      {
+        "slug": "Runeforged_Fur_Plate",
+        "card": "Runeforged Fur PlateArmour: 66Base Movement Speed: -0.05Runic Ward: 33Requires:  Level 4, 10 Str"
+      },
+      {
+        "slug": "Runeforged_Iron_Cuirass",
+        "card": "Runeforged Iron CuirassArmour: 115Base Movement Speed: -0.05Runic Ward: 43Requires:  Level 11, 21 Str"
+      },
+      {
+        "slug": "Runeforged_Raider_Plate",
+        "card": "Runeforged Raider PlateArmour: 150Base Movement Speed: -0.05Runic Ward: 53Requires:  Level 16, 28 Str"
+      },
+      {
+        "slug": "Runeforged_Maraketh_Cuirass",
+        "card": "Runeforged Maraketh CuirassArmour: 178Base Movement Speed: -0.05Runic Ward: 61Requires:  Level 20, 34 Str"
+      },
+      {
+        "slug": "Runeforged_Steel_Plate",
+        "card": "Runeforged Steel PlateArmour: 228Base Movement Speed: -0.05Runic Ward: 64Requires:  Level 27, 45 Str"
+      },
+      {
+        "slug": "Runeforged_Full_Plate",
+        "card": "Runeforged Full PlateArmour: 270Base Movement Speed: -0.05Runic Ward: 69Requires:  Level 33, 54 Str"
+      },
+      {
+        "slug": "Runeforged_Vaal_Cuirass",
+        "card": "Runeforged Vaal CuirassArmour: 298Base Movement Speed: -0.05Runic Ward: 70Requires:  Level 37, 60 Str"
+      },
+      {
+        "slug": "Runeforged_Juggernaut_Plate",
+        "card": "Runeforged Juggernaut PlateArmour: 355Base Movement Speed: -0.05Runic Ward: 76Requires:  Level 45, 72 Str"
+      },
+      {
+        "slug": "Runeforged_Chieftain_Cuirass",
+        "card": "Runeforged Chieftain CuirassArmour: 390Base Movement Speed: -0.05Runic Ward: 69Requires:  Level 50, 80 Str"
+      },
+      {
+        "slug": "Runeforged_Conqueror_Plate",
+        "card": "Runeforged Conqueror PlateArmour: 595Base Movement Speed: -0.05Requires:  Level 68, 121 Str(30—40)% increased Stun Threshold"
+      },
+      {
+        "slug": "Runeforged_Elegant_Plate",
+        "card": "Runeforged Elegant PlateArmour: 401Base Movement Speed: -0.05Runic Ward: 73Requires:  Level 54, 86 Str"
+      },
+      {
+        "slug": "Runeforged_Heavy_Plate",
+        "card": "Runeforged Heavy PlateArmour: 363Base Movement Speed: -0.05Runic Ward: 158Requires:  Level 59, 94 Str"
+      },
+      {
+        "slug": "Runeforged_Stone_Cuirass",
+        "card": "Runeforged Stone CuirassArmour: 417Base Movement Speed: -0.05Runic Ward: 103Requires:  Level 62, 98 Str"
+      },
+      {
+        "slug": "Runeforged_Soldier_Cuirass",
+        "card": "Runeforged Soldier CuirassArmour: 258Base Movement Speed: -0.05Runic Ward: 365Requires:  Level 65, 121 Str"
+      },
+      {
+        "slug": "Runeforged_Ornate_Plate",
+        "card": "Runeforged Ornate PlateArmour: 327Base Movement Speed: -0.05Runic Ward: 236Requires:  Level 70, 121 StrRegenerate (1.5—2.5)% of maximum Life per second"
+      },
+      {
+        "slug": "Runeforged_Utzaal_Cuirass",
+        "card": "Runeforged Utzaal CuirassArmour: 446Base Movement Speed: -0.05Runic Ward: 107Requires:  Level 75, 121 Str(30—40)% increased Stun Threshold"
+      },
+      {
+        "slug": "Runeforged_Warlord_Cuirass",
+        "card": "Runeforged Warlord CuirassArmour: 466Base Movement Speed: -0.05Runic Ward: 86Requires:  Level 80, 121 Str+(15—25)% of Armour also applies to Elemental Damage"
+      },
+      {
+        "slug": "Runemastered_Rusted_Cuirass",
+        "card": "Runemastered Rusted CuirassArmour: 244Base Movement Speed: -0.05Runic Ward: 110Requires:  Level 38, 61 Str"
+      },
+      {
+        "slug": "Runeforged_Fur_Plate",
+        "card": "Runeforged Fur PlateArmour: 275Base Movement Speed: -0.05Runic Ward: 69Requires:  Level 38, 61 Str"
+      },
+      {
+        "slug": "Runemastered_Iron_Cuirass",
+        "card": "Runemastered Iron CuirassArmour: 260Base Movement Speed: -0.05Runic Ward: 55Requires:  Level 38, 61 Str"
+      },
+      {
+        "slug": "Runemastered_Raider_Plate",
+        "card": "Runemastered Raider PlateArmour: 61Base Movement Speed: -0.05Runic Ward: 221Requires:  Level 38, 61 Str"
+      },
+      {
+        "slug": "Runemastered_Maraketh_Cuirass",
+        "card": "Runemastered Maraketh CuirassArmour: 275Base Movement Speed: -0.05Runic Ward: 28Requires:  Level 38, 61 Str"
+      },
+      {
+        "slug": "Runemastered_Steel_Plate",
+        "card": "Runemastered Steel PlateArmour: 271Base Movement Speed: -0.05Runic Ward: 43Requires:  Level 40, 65 Str"
+      },
+      {
+        "slug": "Runemastered_Full_Plate",
+        "card": "Runemastered Full PlateArmour: 231Base Movement Speed: -0.05Runic Ward: 126Requires:  Level 45, 72 Str"
+      },
+      {
+        "slug": "Runemastered_Vaal_Cuirass",
+        "card": "Runemastered Vaal CuirassArmour: 340Base Movement Speed: -0.05Runic Ward: 93Requires:  Level 55, 87 Str"
+      }
+    ]
+  },
+  {
+    "page": "Body_Armours_dex",
+    "url": "https://poe2db.tw/us/Body_Armours_dex",
+    "retrievedAt": "2026-10-04T14:44:30.242Z",
+    "sha256": "b53704f606e4baa35999b64336c92df7beac6db9394812c663370239c2385e4e",
+    "cards": [
+      {
+        "slug": "Leather_Vest",
+        "card": "Leather VestEvasion Rating: 30Base Movement Speed: -0.03"
+      },
+      {
+        "slug": "Quilted_Vest",
+        "card": "Quilted VestEvasion Rating: 49Base Movement Speed: -0.03Requires:  Level 4, 10 Dex"
+      },
+      {
+        "slug": "Pathfinder_Coat",
+        "card": "Pathfinder CoatEvasion Rating: 96Base Movement Speed: -0.03Requires:  Level 11, 21 Dex"
+      },
+      {
+        "slug": "Shrouded_Vest",
+        "card": "Shrouded VestEvasion Rating: 128Base Movement Speed: -0.03Requires:  Level 16, 28 Dex"
+      },
+      {
+        "slug": "Rhoahide_Coat",
+        "card": "Rhoahide CoatEvasion Rating: 168Base Movement Speed: -0.03Requires:  Level 22, 37 Dex"
+      },
+      {
+        "slug": "Studded_Vest",
+        "card": "Studded VestEvasion Rating: 194Base Movement Speed: -0.03Requires:  Level 26, 43 Dex"
+      },
+      {
+        "slug": "Scouts_Vest",
+        "card": "Scout's VestEvasion Rating: 240Base Movement Speed: -0.03Requires:  Level 33, 54 Dex"
+      },
+      {
+        "slug": "Serpentscale_Coat",
+        "card": "Serpentscale CoatEvasion Rating: 260Base Movement Speed: -0.03Requires:  Level 36, 59 Dex"
+      },
+      {
+        "slug": "Corsair_Vest",
+        "card": "Corsair VestEvasion Rating: 320Base Movement Speed: -0.03Requires:  Level 45, 72 Dex"
+      },
+      {
+        "slug": "Smuggler_Coat",
+        "card": "Smuggler CoatEvasion Rating: 359Base Movement Speed: -0.03Requires:  Level 51, 82 Dex"
+      },
+      {
+        "slug": "Strider_Vest",
+        "card": "Strider VestEvasion Rating: 366Base Movement Speed: -0.03Requires:  Level 52, 83 Dex"
+      },
+      {
+        "slug": "Hardleather_Coat",
+        "card": "Hardleather CoatEvasion Rating: 392Base Movement Speed: -0.03Requires:  Level 56, 89 Dex"
+      },
+      {
+        "slug": "Exquisite_Vest",
+        "card": "Exquisite VestEvasion Rating: 451Base Movement Speed: -0.03Requires:  Level 65, 121 Dex"
+      },
+      {
+        "slug": "Mail_Coat",
+        "card": "Mail CoatEvasion Rating: 451Base Movement Speed: -0.03Requires:  Level 68, 121 Dex(20—30)% reduced Slowing Potency of Debuffs on You"
+      },
+      {
+        "slug": "Armoured_Vest",
+        "card": "Armoured VestEvasion Rating: 451Base Movement Speed: -0.03Requires:  Level 73, 121 Dex(30—40)% increased Elemental Ailment Threshold"
+      },
+      {
+        "slug": "Runemastered_Grasping_Mail",
+        "card": "Runemastered Grasping MailEvasion Rating: 384Base Movement Speed: -0.03Runic Ward: 150Requires:  Level 65, 112 DexCan roll Ring ModifiersCatalysts can be applied to this item"
+      },
+      {
+        "slug": "Patchwork_Vest",
+        "card": "Patchwork VestEvasion Rating: 320Base Movement Speed: -0.03Requires:  Level 45, 72 Dex"
+      },
+      {
+        "slug": "Hunting_Coat",
+        "card": "Hunting CoatEvasion Rating: 339Base Movement Speed: -0.03Requires:  Level 48, 77 Dex"
+      },
+      {
+        "slug": "Riding_Coat",
+        "card": "Riding CoatEvasion Rating: 359Base Movement Speed: -0.03Requires:  Level 51, 82 Dex"
+      },
+      {
+        "slug": "Layered_Vest",
+        "card": "Layered VestEvasion Rating: 379Base Movement Speed: -0.03Requires:  Level 54, 86 Dex"
+      },
+      {
+        "slug": "Runner_Vest",
+        "card": "Runner VestEvasion Rating: 412Base Movement Speed: -0.03Requires:  Level 59, 94 Dex"
+      },
+      {
+        "slug": "Lizardscale_Coat",
+        "card": "Lizardscale CoatEvasion Rating: 432Base Movement Speed: -0.03Requires:  Level 62, 98 Dex"
+      },
+      {
+        "slug": "Swiftstalker_Coat",
+        "card": "Swiftstalker CoatEvasion Rating: 451Base Movement Speed: -0.03Requires:  Level 65, 121 Dex(20—30)% reduced Slowing Potency of Debuffs on You"
+      },
+      {
+        "slug": "Slipstrike_Vest",
+        "card": "Slipstrike VestEvasion Rating: 519Base Movement Speed: -0.03Requires:  Level 70, 121 Dex"
+      },
+      {
+        "slug": "Wyrmscale_Coat",
+        "card": "Wyrmscale CoatEvasion Rating: 451Base Movement Speed: -0.03Requires:  Level 75, 121 Dex(30—40)% increased Elemental Ailment Threshold"
+      },
+      {
+        "slug": "Corsair_Coat",
+        "card": "Corsair CoatEvasion Rating: 451Base Movement Speed: -0.03Requires:  Level 80, 121 Dex5% increased Movement Speed"
+      },
+      {
+        "slug": "Runeforged_Leather_Vest",
+        "card": "Runeforged Leather VestEvasion Rating: 30Base Movement Speed: -0.03Runic Ward: 29"
+      },
+      {
+        "slug": "Runeforged_Quilted_Vest",
+        "card": "Runeforged Quilted VestEvasion Rating: 49Base Movement Speed: -0.03Runic Ward: 33Requires:  Level 4, 10 Dex"
+      },
+      {
+        "slug": "Runeforged_Pathfinder_Coat",
+        "card": "Runeforged Pathfinder CoatEvasion Rating: 96Base Movement Speed: -0.03Runic Ward: 43Requires:  Level 11, 21 Dex"
+      },
+      {
+        "slug": "Runeforged_Shrouded_Vest",
+        "card": "Runeforged Shrouded VestEvasion Rating: 128Base Movement Speed: -0.03Runic Ward: 53Requires:  Level 16, 28 Dex"
+      },
+      {
+        "slug": "Runeforged_Rhoahide_Coat",
+        "card": "Runeforged Rhoahide CoatEvasion Rating: 168Base Movement Speed: -0.03Runic Ward: 65Requires:  Level 22, 37 Dex"
+      },
+      {
+        "slug": "Runeforged_Studded_Vest",
+        "card": "Runeforged Studded VestEvasion Rating: 194Base Movement Speed: -0.03Runic Ward: 62Requires:  Level 26, 43 Dex"
+      },
+      {
+        "slug": "Runeforged_Scouts_Vest",
+        "card": "Runeforged Scout's VestEvasion Rating: 240Base Movement Speed: -0.03Runic Ward: 69Requires:  Level 33, 54 Dex"
+      },
+      {
+        "slug": "Runeforged_Serpentscale_Coat",
+        "card": "Runeforged Serpentscale CoatEvasion Rating: 260Base Movement Speed: -0.03Runic Ward: 69Requires:  Level 36, 59 Dex"
+      },
+      {
+        "slug": "Runeforged_Corsair_Vest",
+        "card": "Runeforged Corsair VestEvasion Rating: 320Base Movement Speed: -0.03Runic Ward: 76Requires:  Level 45, 72 Dex"
+      },
+      {
+        "slug": "Runeforged_Smuggler_Coat",
+        "card": "Runeforged Smuggler CoatEvasion Rating: 359Base Movement Speed: -0.03Runic Ward: 70Requires:  Level 51, 82 Dex"
+      },
+      {
+        "slug": "Runeforged_Layered_Vest",
+        "card": "Runeforged Layered VestEvasion Rating: 364Base Movement Speed: -0.03Runic Ward: 73Requires:  Level 54, 86 Dex"
+      },
+      {
+        "slug": "Runeforged_Runner_Vest",
+        "card": "Runeforged Runner VestEvasion Rating: 362Base Movement Speed: -0.03Runic Ward: 119Requires:  Level 59, 94 Dex"
+      },
+      {
+        "slug": "Runeforged_Lizardscale_Coat",
+        "card": "Runeforged Lizardscale CoatEvasion Rating: 345Base Movement Speed: -0.03Runic Ward: 144Requires:  Level 62, 98 Dex"
+      },
+      {
+        "slug": "Runeforged_Swiftstalker_Coat",
+        "card": "Runeforged Swiftstalker CoatEvasion Rating: 442Base Movement Speed: -0.03Runic Ward: 64Requires:  Level 65, 121 Dex(20—30)% reduced Slowing Potency of Debuffs on You"
+      },
+      {
+        "slug": "Runeforged_Slipstrike_Vest",
+        "card": "Runeforged Slipstrike VestEvasion Rating: 226Base Movement Speed: -0.03Runic Ward: 378Requires:  Level 70, 121 Dex"
+      },
+      {
+        "slug": "Runeforged_Wyrmscale_Coat",
+        "card": "Runeforged Wyrmscale CoatEvasion Rating: 298Base Movement Speed: -0.03Runic Ward: 236Requires:  Level 75, 121 Dex(30—40)% increased Elemental Ailment Threshold"
+      },
+      {
+        "slug": "Runeforged_Corsair_Coat",
+        "card": "Runeforged Corsair CoatEvasion Rating: 406Base Movement Speed: -0.03Runic Ward: 107Requires:  Level 80, 121 Dex5% increased Movement Speed"
+      },
+      {
+        "slug": "Runemastered_Leather_Vest",
+        "card": "Runemastered Leather VestEvasion Rating: 82Base Movement Speed: -0.03Runic Ward: 165Requires:  Level 38, 61 Dex"
+      },
+      {
+        "slug": "Runemastered_Quilted_Vest",
+        "card": "Runemastered Quilted VestEvasion Rating: 178Base Movement Speed: -0.03Runic Ward: 152Requires:  Level 38, 61 Dex"
+      },
+      {
+        "slug": "Runemastered_Pathfinder_Coat",
+        "card": "Runemastered Pathfinder CoatEvasion Rating: 219Base Movement Speed: -0.03Runic Ward: 55Requires:  Level 38, 61 Dex"
+      },
+      {
+        "slug": "Runemastered_Shrouded_Vest",
+        "card": "Runemastered Shrouded VestEvasion Rating: 164Base Movement Speed: -0.03Runic Ward: 138Requires:  Level 38, 61 Dex"
+      },
+      {
+        "slug": "Runemastered_Rhoahide_Coat",
+        "card": "Runemastered Rhoahide CoatEvasion Rating: 219Base Movement Speed: -0.03Runic Ward: 69Requires:  Level 38, 61 Dex"
+      },
+      {
+        "slug": "Runemastered_Studded_Vest",
+        "card": "Runemastered Studded VestEvasion Rating: 301Base Movement Speed: -0.03Runic Ward: 29Requires:  Level 40, 65 Dex"
+      },
+      {
+        "slug": "Runemastered_Scouts_Vest",
+        "card": "Runemastered Scout's VestEvasion Rating: 270Base Movement Speed: -0.03Runic Ward: 130Requires:  Level 55, 87 Dex"
+      },
+      {
+        "slug": "Runemastered_Serpentscale_Coat",
+        "card": "Runemastered Serpentscale CoatEvasion Rating: 385Base Movement Speed: -0.03Runic Ward: 19Requires:  Level 55, 87 Dex"
+      },
+      {
+        "slug": "Runemastered_Smuggler_Coat",
+        "card": "Runemastered Smuggler CoatEvasion Rating: 406Base Movement Speed: -0.03Runic Ward: 86Requires:  Level 65, 103 Dex"
+      },
+      {
+        "slug": "Runemastered_Strider_Vest",
+        "card": "Runemastered Strider VestEvasion Rating: 384Base Movement Speed: -0.03Runic Ward: 107Requires:  Level 70, 103 Dex"
+      },
+      {
+        "slug": "Runemastered_Exquisite_Vest",
+        "card": "Runemastered Exquisite VestEvasion Rating: 338Base Movement Speed: -0.03Runic Ward: 86Requires:  Level 70, 121 Dex"
+      },
+      {
+        "slug": "Runemastered_Armoured_Vest",
+        "card": "Runemastered Armoured VestEvasion Rating: 361Base Movement Speed: -0.03Runic Ward: 129Requires:  Level 80, 121 Dex(30—40)% increased Elemental Ailment Threshold"
+      }
+    ]
+  },
+  {
+    "page": "Body_Armours_int",
+    "url": "https://poe2db.tw/us/Body_Armours_int",
+    "retrievedAt": "2026-10-04T14:44:30.931Z",
+    "sha256": "1b988bc47b6ed70db204173cc399630c0da296f894b529e768e72cdde2e7359f",
+    "cards": [
+      {
+        "slug": "Tattered_Robe",
+        "card": "Tattered RobeEnergy Shield: 28Base Movement Speed: -0.03"
+      },
+      {
+        "slug": "Feathered_Robe",
+        "card": "Feathered RobeEnergy Shield: 35Base Movement Speed: -0.03Requires:  Level 5, 11 Int"
+      },
+      {
+        "slug": "Hexers_Robe",
+        "card": "Hexer's RobeEnergy Shield: 45Base Movement Speed: -0.03Requires:  Level 11, 21 Int"
+      },
+      {
+        "slug": "Bone_Raiment",
+        "card": "Bone RaimentEnergy Shield: 54Base Movement Speed: -0.03Requires:  Level 16, 28 Int"
+      },
+      {
+        "slug": "Silk_Robe",
+        "card": "Silk RobeEnergy Shield: 64Base Movement Speed: -0.03Requires:  Level 22, 37 Int"
+      },
+      {
+        "slug": "Keth_Raiment",
+        "card": "Keth RaimentEnergy Shield: 74Base Movement Speed: -0.03Requires:  Level 28, 47 Int"
+      },
+      {
+        "slug": "Votive_Raiment",
+        "card": "Votive RaimentEnergy Shield: 83Base Movement Speed: -0.03Requires:  Level 33, 54 Int"
+      },
+      {
+        "slug": "Altar_Robe",
+        "card": "Altar RobeEnergy Shield: 95Base Movement Speed: -0.03Requires:  Level 40, 65 Int"
+      },
+      {
+        "slug": "Elementalist_Robe",
+        "card": "Elementalist RobeEnergy Shield: 103Base Movement Speed: -0.03Requires:  Level 45, 72 Int"
+      },
+      {
+        "slug": "Mystic_Raiment",
+        "card": "Mystic RaimentEnergy Shield: 110Base Movement Speed: -0.03Requires:  Level 49, 78 Int"
+      },
+      {
+        "slug": "Imperial_Robe",
+        "card": "Imperial RobeEnergy Shield: 115Base Movement Speed: -0.03Requires:  Level 52, 83 Int"
+      },
+      {
+        "slug": "Plated_Raiment",
+        "card": "Plated RaimentEnergy Shield: 126Base Movement Speed: -0.03Requires:  Level 58, 92 Int"
+      },
+      {
+        "slug": "Havoc_Raiment",
+        "card": "Havoc RaimentEnergy Shield: 138Base Movement Speed: -0.03Requires:  Level 65, 121 Int"
+      },
+      {
+        "slug": "Enlightened_Robe",
+        "card": "Enlightened RobeEnergy Shield: 138Base Movement Speed: -0.03Requires:  Level 68, 121 Int(40—50)% increased Mana Regeneration Rate"
+      },
+      {
+        "slug": "Arcane_Raiment",
+        "card": "Arcane RaimentEnergy Shield: 138Base Movement Speed: -0.03Requires:  Level 73, 121 Int(20—25)% increased Energy Shield Recharge Rate"
+      },
+      {
+        "slug": "Runemastered_Grasping_Mail",
+        "card": "Runemastered Grasping MailEnergy Shield: 117Base Movement Speed: -0.04Runic Ward: 150Requires:  Level 65, 112 IntCan roll Ring ModifiersCatalysts can be applied to this item"
+      },
+      {
+        "slug": "Avian_Robe",
+        "card": "Avian RobeEnergy Shield: 103Base Movement Speed: -0.03Requires:  Level 45, 72 Int"
+      },
+      {
+        "slug": "Cursespeakers_Robe",
+        "card": "Cursespeaker's RobeEnergy Shield: 109Base Movement Speed: -0.03Requires:  Level 48, 77 Int"
+      },
+      {
+        "slug": "Luxurious_Robe",
+        "card": "Luxurious RobeEnergy Shield: 114Base Movement Speed: -0.03Requires:  Level 51, 82 Int"
+      },
+      {
+        "slug": "River_Raiment",
+        "card": "River RaimentEnergy Shield: 119Base Movement Speed: -0.03Requires:  Level 54, 86 Int"
+      },
+      {
+        "slug": "Adherents_Raiment",
+        "card": "Adherent's RaimentEnergy Shield: 127Base Movement Speed: -0.03Requires:  Level 59, 94 Int"
+      },
+      {
+        "slug": "Ceremonial_Robe",
+        "card": "Ceremonial RobeEnergy Shield: 132Base Movement Speed: -0.03Requires:  Level 62, 98 Int"
+      },
+      {
+        "slug": "Vile_Robe",
+        "card": "Vile RobeEnergy Shield: 171Base Movement Speed: -0.03Requires:  Level 65, 121 Int"
+      },
+      {
+        "slug": "Flowing_Raiment",
+        "card": "Flowing RaimentEnergy Shield: 153Base Movement Speed: -0.03Requires:  Level 70, 121 Int(40—50)% increased Mana Regeneration Rate"
+      },
+      {
+        "slug": "Sacramental_Robe",
+        "card": "Sacramental RobeEnergy Shield: 153Base Movement Speed: -0.03Requires:  Level 75, 121 Int(20—25)% increased Energy Shield Recharge Rate"
+      },
+      {
+        "slug": "Feathered_Raiment",
+        "card": "Feathered RaimentEnergy Shield: 153Base Movement Speed: -0.03Requires:  Level 80, 121 Int(5—10)% of Damage is taken from Mana before Life"
+      },
+      {
+        "slug": "Runeforged_Tattered_Robe",
+        "card": "Runeforged Tattered RobeEnergy Shield: 28Base Movement Speed: -0.03Runic Ward: 29"
+      },
+      {
+        "slug": "Runeforged_Feathered_Robe",
+        "card": "Runeforged Feathered RobeEnergy Shield: 35Base Movement Speed: -0.03Runic Ward: 35Requires:  Level 5, 11 Int"
+      },
+      {
+        "slug": "Runeforged_Hexers_Robe",
+        "card": "Runeforged Hexer's RobeEnergy Shield: 45Base Movement Speed: -0.03Runic Ward: 43Requires:  Level 11, 21 Int"
+      },
+      {
+        "slug": "Runeforged_Bone_Raiment",
+        "card": "Runeforged Bone RaimentEnergy Shield: 54Base Movement Speed: -0.03Runic Ward: 53Requires:  Level 16, 28 Int"
+      },
+      {
+        "slug": "Runeforged_Silk_Robe",
+        "card": "Runeforged Silk RobeEnergy Shield: 64Base Movement Speed: -0.03Runic Ward: 65Requires:  Level 22, 37 Int"
+      },
+      {
+        "slug": "Runeforged_Keth_Raiment",
+        "card": "Runeforged Keth RaimentEnergy Shield: 74Base Movement Speed: -0.03Runic Ward: 66Requires:  Level 28, 47 Int"
+      },
+      {
+        "slug": "Runeforged_Votive_Raiment",
+        "card": "Runeforged Votive RaimentEnergy Shield: 83Base Movement Speed: -0.03Runic Ward: 69Requires:  Level 33, 54 Int"
+      },
+      {
+        "slug": "Runeforged_Altar_Robe",
+        "card": "Runeforged Altar RobeEnergy Shield: 95Base Movement Speed: -0.03Runic Ward: 75Requires:  Level 40, 65 Int"
+      },
+      {
+        "slug": "Runeforged_Elementalist_Robe",
+        "card": "Runeforged Elementalist RobeEnergy Shield: 103Base Movement Speed: -0.03Runic Ward: 76Requires:  Level 45, 72 Int"
+      },
+      {
+        "slug": "Runeforged_Mystic_Raiment",
+        "card": "Runeforged Mystic RaimentEnergy Shield: 110Base Movement Speed: -0.03Runic Ward: 68Requires:  Level 49, 78 Int"
+      },
+      {
+        "slug": "Runeforged_River_Raiment",
+        "card": "Runeforged River RaimentEnergy Shield: 114Base Movement Speed: -0.03Runic Ward: 73Requires:  Level 54, 86 Int"
+      },
+      {
+        "slug": "Runeforged_Adherents_Raiment",
+        "card": "Runeforged Adherent's RaimentEnergy Shield: 107Base Movement Speed: -0.03Runic Ward: 138Requires:  Level 59, 94 Int"
+      },
+      {
+        "slug": "Runeforged_Ceremonial_Robe",
+        "card": "Runeforged Ceremonial RobeEnergy Shield: 117Base Movement Speed: -0.03Runic Ward: 103Requires:  Level 62, 98 Int"
+      },
+      {
+        "slug": "Runeforged_Vile_Robe",
+        "card": "Runeforged Vile RobeEnergy Shield: 66Base Movement Speed: -0.03Runic Ward: 387Requires:  Level 65, 121 Int"
+      },
+      {
+        "slug": "Runeforged_Flowing_Raiment",
+        "card": "Runeforged Flowing RaimentEnergy Shield: 91Base Movement Speed: -0.03Runic Ward: 236Requires:  Level 70, 121 Int(30—40)% increased Runic Ward Regeneration Rate"
+      },
+      {
+        "slug": "Runeforged_Sacramental_Robe",
+        "card": "Runeforged Sacramental RobeEnergy Shield: 142Base Movement Speed: -0.03Runic Ward: 64Requires:  Level 75, 121 Int(20—25)% increased Energy Shield Recharge Rate"
+      },
+      {
+        "slug": "Runeforged_Feathered_Raiment",
+        "card": "Runeforged Feathered RaimentEnergy Shield: 132Base Movement Speed: -0.03Runic Ward: 133Requires:  Level 80, 121 Int(5—10)% of Damage is taken from Mana before Life"
+      },
+      {
+        "slug": "Runemastered_Tattered_Robe",
+        "card": "Runemastered Tattered RobeEnergy Shield: 9Base Movement Speed: -0.03Runic Ward: 138Requires:  Level 38, 61 Int"
+      },
+      {
+        "slug": "Runemastered_Feathered_Robe",
+        "card": "Runemastered Feathered RobeEnergy Shield: 55Base Movement Speed: -0.03Runic Ward: 99Requires:  Level 38, 61 Int"
+      },
+      {
+        "slug": "Runemastered_Hexers_Robe",
+        "card": "Runemastered Hexer's RobeEnergy Shield: 64Base Movement Speed: -0.03Runic Ward: 83Requires:  Level 38, 61 Int"
+      },
+      {
+        "slug": "Runemastered_Bone_Raiment",
+        "card": "Runemastered Bone RaimentEnergy Shield: 46Base Movement Speed: -0.03Runic Ward: 138Requires:  Level 38, 61 Int"
+      },
+      {
+        "slug": "Runemastered_Silk_Robe",
+        "card": "Runemastered Silk RobeEnergy Shield: 27Base Movement Speed: -0.03Runic Ward: 110Requires:  Level 38, 61 Int"
+      },
+      {
+        "slug": "Runemastered_Keth_Raiment",
+        "card": "Runemastered Keth RaimentEnergy Shield: 73Base Movement Speed: -0.03Runic Ward: 55Requires:  Level 38, 61 Int"
+      },
+      {
+        "slug": "Runemastered_Votive_Raiment",
+        "card": "Runemastered Votive RaimentEnergy Shield: 48Base Movement Speed: -0.03Runic Ward: 186Requires:  Level 55, 87 Int"
+      },
+      {
+        "slug": "Runemastered_Altar_Robe",
+        "card": "Runemastered Altar RobeEnergy Shield: 72Base Movement Speed: -0.03Runic Ward: 149Requires:  Level 55, 87 Int"
+      },
+      {
+        "slug": "Runemastered_Elementalist_Robe",
+        "card": "Runemastered Elementalist RobeEnergy Shield: 96Base Movement Speed: -0.03Runic Ward: 75Requires:  Level 55, 87 Int"
+      },
+      {
+        "slug": "Runemastered_Plated_Raiment",
+        "card": "Runemastered Plated RaimentEnergy Shield: 124Base Movement Speed: -0.03Runic Ward: 43Requires:  Level 65, 103 Int"
+      },
+      {
+        "slug": "Runemastered_Havoc_Raiment",
+        "card": "Runemastered Havoc RaimentEnergy Shield: 96Base Movement Speed: -0.03Runic Ward: 129Requires:  Level 70, 121 Int"
+      },
+      {
+        "slug": "Runemastered_Enlightened_Robe",
+        "card": "Runemastered Enlightened RobeEnergy Shield: 124Base Movement Speed: -0.03Runic Ward: 86Requires:  Level 75, 121 Int(40—50)% increased Mana Regeneration Rate"
+      }
+    ]
+  },
+  {
+    "page": "Body_Armours_str_dex",
+    "url": "https://poe2db.tw/us/Body_Armours_str_dex",
+    "retrievedAt": "2026-10-04T14:44:33.342Z",
+    "sha256": "c7bffd7f68217480a16ea45a44d8e8b58489bcc7f0162535537164dc8380daf3",
+    "cards": [
+      {
+        "slug": "Chain_Mail",
+        "card": "Chain MailArmour: 25Evasion Rating: 16Base Movement Speed: -0.04"
+      },
+      {
+        "slug": "Rogue_Armour",
+        "card": "Rogue ArmourArmour: 63Evasion Rating: 53Base Movement Speed: -0.04Requires:  Level 11, 13 Str, 13 Dex"
+      },
+      {
+        "slug": "Vagabond_Armour",
+        "card": "Vagabond ArmourArmour: 83Evasion Rating: 71Base Movement Speed: -0.04Requires:  Level 16, 17 Str, 17 Dex"
+      },
+      {
+        "slug": "Cloaked_Mail",
+        "card": "Cloaked MailArmour: 121Evasion Rating: 107Base Movement Speed: -0.04Requires:  Level 26, 25 Str, 25 Dex"
+      },
+      {
+        "slug": "Explorer_Armour",
+        "card": "Explorer ArmourArmour: 149Evasion Rating: 132Base Movement Speed: -0.04Requires:  Level 33, 31 Str, 31 Dex"
+      },
+      {
+        "slug": "Scale_Mail",
+        "card": "Scale MailArmour: 164Evasion Rating: 147Base Movement Speed: -0.04Requires:  Level 37, 34 Str, 34 Dex"
+      },
+      {
+        "slug": "Knight_Armour",
+        "card": "Knight ArmourArmour: 195Evasion Rating: 176Base Movement Speed: -0.04Requires:  Level 45, 41 Str, 41 Dex"
+      },
+      {
+        "slug": "Ancestral_Mail",
+        "card": "Ancestral MailArmour: 214Evasion Rating: 194Base Movement Speed: -0.04Requires:  Level 50, 44 Str, 44 Dex"
+      },
+      {
+        "slug": "Lamellar_Mail",
+        "card": "Lamellar MailArmour: 222Evasion Rating: 201Base Movement Speed: -0.04Requires:  Level 52, 46 Str, 46 Dex"
+      },
+      {
+        "slug": "Gladiator_Armour",
+        "card": "Gladiator ArmourArmour: 245Evasion Rating: 223Base Movement Speed: -0.04Requires:  Level 58, 51 Str, 51 Dex"
+      },
+      {
+        "slug": "Heroic_Armour",
+        "card": "Heroic ArmourArmour: 273Evasion Rating: 248Base Movement Speed: -0.04Requires:  Level 65, 67 Str, 67 Dex+(60—80) to maximum Life"
+      },
+      {
+        "slug": "Tournament_Mail",
+        "card": "Tournament MailArmour: 273Evasion Rating: 248Base Movement Speed: -0.04Requires:  Level 68, 67 Str, 67 Dex+(20—25)% to Fire Resistance"
+      },
+      {
+        "slug": "Tournament_Mail",
+        "card": "Tournament MailArmour: 273Evasion Rating: 248Base Movement Speed: -0.04Requires:  Level 68, 67 Str, 67 Dex+(20—25)% to Cold Resistance"
+      },
+      {
+        "slug": "Tournament_Mail",
+        "card": "Tournament MailArmour: 273Evasion Rating: 248Base Movement Speed: -0.04Requires:  Level 68, 67 Str, 67 Dex+(20—25)% to Lightning Resistance"
+      },
+      {
+        "slug": "Slayer_Armour",
+        "card": "Slayer ArmourArmour: 273Evasion Rating: 248Base Movement Speed: -0.04Requires:  Level 73, 67 Str, 67 Dex"
+      },
+      {
+        "slug": "Runeforged_Grasping_Mail",
+        "card": "Runeforged Grasping MailArmour: 232Evasion Rating: 211Base Movement Speed: -0.04Runic Ward: 107Requires:  Level 65, 61 Str, 61 DexCan roll Ring ModifiersCatalysts can be applied to this item"
+      },
+      {
+        "slug": "Ring_Mail",
+        "card": "Ring MailArmour: 195Evasion Rating: 176Base Movement Speed: -0.04Requires:  Level 45, 41 Str, 41 Dex"
+      },
+      {
+        "slug": "Scoundrel_Armour",
+        "card": "Scoundrel ArmourArmour: 207Evasion Rating: 187Base Movement Speed: -0.04Requires:  Level 48, 43 Str, 43 Dex"
+      },
+      {
+        "slug": "Wanderer_Armour",
+        "card": "Wanderer ArmourArmour: 218Evasion Rating: 197Base Movement Speed: -0.04Requires:  Level 51, 45 Str, 45 Dex"
+      },
+      {
+        "slug": "Mantled_Mail",
+        "card": "Mantled MailArmour: 230Evasion Rating: 208Base Movement Speed: -0.04Requires:  Level 54, 48 Str, 48 Dex"
+      },
+      {
+        "slug": "Trailblazer_Armour",
+        "card": "Trailblazer ArmourArmour: 249Evasion Rating: 226Base Movement Speed: -0.04Requires:  Level 59, 52 Str, 52 Dex"
+      },
+      {
+        "slug": "Golden_Mail",
+        "card": "Golden MailArmour: 261Evasion Rating: 237Base Movement Speed: -0.04Requires:  Level 62, 54 Str, 54 Dex"
+      },
+      {
+        "slug": "Dastard_Armour",
+        "card": "Dastard ArmourArmour: 303Evasion Rating: 276Base Movement Speed: -0.04Requires:  Level 65, 67 Str, 67 Dex+(60—80) to maximum Life"
+      },
+      {
+        "slug": "Shrouded_Mail",
+        "card": "Shrouded MailArmour: 273Evasion Rating: 248Base Movement Speed: -0.04Requires:  Level 70, 67 Str, 67 Dex+(20—25)% to Fire Resistance"
+      },
+      {
+        "slug": "Shrouded_Mail",
+        "card": "Shrouded MailArmour: 273Evasion Rating: 248Base Movement Speed: -0.04Requires:  Level 70, 67 Str, 67 Dex+(20—25)% to Cold Resistance"
+      },
+      {
+        "slug": "Shrouded_Mail",
+        "card": "Shrouded MailArmour: 273Evasion Rating: 248Base Movement Speed: -0.04Requires:  Level 70, 67 Str, 67 Dex+(20—25)% to Lightning Resistance"
+      },
+      {
+        "slug": "Death_Mail",
+        "card": "Death MailArmour: 313Evasion Rating: 285Base Movement Speed: -0.04Requires:  Level 75, 67 Str, 67 Dex"
+      },
+      {
+        "slug": "Thane_Mail",
+        "card": "Thane MailArmour: 273Evasion Rating: 248Base Movement Speed: -0.04Requires:  Level 80, 67 Str, 67 DexHits against you have (15—25)% reduced Critical Damage Bonus"
+      },
+      {
+        "slug": "Runeforged_Chain_Mail",
+        "card": "Runeforged Chain MailArmour: 25Evasion Rating: 16Base Movement Speed: -0.04Runic Ward: 29"
+      },
+      {
+        "slug": "Runeforged_Rogue_Armour",
+        "card": "Runeforged Rogue ArmourArmour: 63Evasion Rating: 53Base Movement Speed: -0.04Runic Ward: 43Requires:  Level 11, 13 Str, 13 Dex"
+      },
+      {
+        "slug": "Runeforged_Vagabond_Armour",
+        "card": "Runeforged Vagabond ArmourArmour: 83Evasion Rating: 71Base Movement Speed: -0.04Runic Ward: 53Requires:  Level 16, 17 Str, 17 Dex"
+      },
+      {
+        "slug": "Runeforged_Cloaked_Mail",
+        "card": "Runeforged Cloaked MailArmour: 121Evasion Rating: 107Base Movement Speed: -0.04Runic Ward: 73Requires:  Level 26, 25 Str, 25 Dex"
+      },
+      {
+        "slug": "Runeforged_Explorer_Armour",
+        "card": "Runeforged Explorer ArmourArmour: 149Evasion Rating: 132Base Movement Speed: -0.04Runic Ward: 74Requires:  Level 33, 31 Str, 31 Dex"
+      },
+      {
+        "slug": "Runeforged_Scale_Mail",
+        "card": "Runeforged Scale MailArmour: 164Evasion Rating: 147Base Movement Speed: -0.04Runic Ward: 78Requires:  Level 37, 34 Str, 34 Dex"
+      },
+      {
+        "slug": "Runeforged_Knight_Armour",
+        "card": "Runeforged Knight ArmourArmour: 195Evasion Rating: 176Base Movement Speed: -0.04Runic Ward: 85Requires:  Level 45, 41 Str, 41 Dex"
+      },
+      {
+        "slug": "Runeforged_Ancestral_Mail",
+        "card": "Runeforged Ancestral MailArmour: 214Evasion Rating: 194Base Movement Speed: -0.04Runic Ward: 86Requires:  Level 50, 44 Str, 44 Dex"
+      },
+      {
+        "slug": "Runeforged_Slayer_Armour",
+        "card": "Runeforged Slayer ArmourArmour: 218Evasion Rating: 199Base Movement Speed: -0.04Runic Ward: 107Requires:  Level 73, 67 Str, 67 Dex"
+      },
+      {
+        "slug": "Runeforged_Sacrificial_Regalia",
+        "card": "Runeforged Sacrificial RegaliaArmour: 273Evasion Rating: 248Base Movement Speed: -0.03Runic Ward: 129Requires:  Level 65, 80 Str, 80 Dex+1 to Level of all Corrupted Skill Gems1% increased Maximum Life for each Corrupted Item Equipped"
+      },
+      {
+        "slug": "Runeforged_Mantled_Mail",
+        "card": "Runeforged Mantled MailArmour: 221Evasion Rating: 200Base Movement Speed: -0.04Runic Ward: 73Requires:  Level 54, 48 Str, 48 Dex"
+      },
+      {
+        "slug": "Runeforged_Trailblazer_Armour",
+        "card": "Runeforged Trailblazer ArmourArmour: 199Evasion Rating: 181Base Movement Speed: -0.04Runic Ward: 158Requires:  Level 59, 52 Str, 52 Dex"
+      },
+      {
+        "slug": "Runeforged_Golden_Mail",
+        "card": "Runeforged Golden MailArmour: 235Evasion Rating: 214Base Movement Speed: -0.04Runic Ward: 124Requires:  Level 62, 54 Str, 54 Dex"
+      },
+      {
+        "slug": "Runeforged_Dastard_Armour",
+        "card": "Runeforged Dastard ArmourArmour: 180Evasion Rating: 164Base Movement Speed: -0.04Runic Ward: 236Requires:  Level 65, 67 Str, 67 Dex+(60—80) to maximum Life"
+      },
+      {
+        "slug": "Runeforged_Shrouded_Mail",
+        "card": "Runeforged Shrouded MailArmour: 245Evasion Rating: 223Base Movement Speed: -0.04Runic Ward: 107Requires:  Level 70, 67 Str, 67 Dex+(20—25)% to Fire Resistance"
+      },
+      {
+        "slug": "Runeforged_Shrouded_Mail",
+        "card": "Runeforged Shrouded MailArmour: 245Evasion Rating: 223Base Movement Speed: -0.04Runic Ward: 107Requires:  Level 70, 67 Str, 67 Dex+(20—25)% to Cold Resistance"
+      },
+      {
+        "slug": "Runeforged_Shrouded_Mail",
+        "card": "Runeforged Shrouded MailArmour: 245Evasion Rating: 223Base Movement Speed: -0.04Runic Ward: 107Requires:  Level 70, 67 Str, 67 Dex+(20—25)% to Lightning Resistance"
+      },
+      {
+        "slug": "Runeforged_Death_Mail",
+        "card": "Runeforged Death MailArmour: 120Evasion Rating: 109Base Movement Speed: -0.04Runic Ward: 408Requires:  Level 75, 67 Str, 67 Dex"
+      },
+      {
+        "slug": "Runeforged_Thane_Mail",
+        "card": "Runeforged Thane MailArmour: 267Evasion Rating: 243Base Movement Speed: -0.04Runic Ward: 64Requires:  Level 80, 67 Str, 67 DexHits against you have (15—25)% reduced Critical Damage Bonus"
+      },
+      {
+        "slug": "Runemastered_Chain_Mail",
+        "card": "Runemastered Chain MailArmour: 151Evasion Rating: 135Base Movement Speed: -0.04Runic Ward: 55Requires:  Level 38, 35 Str, 35 Dex"
+      },
+      {
+        "slug": "Runemastered_Rogue_Armour",
+        "card": "Runemastered Rogue ArmourArmour: 118Evasion Rating: 105Base Movement Speed: -0.04Runic Ward: 83Requires:  Level 38, 35 Str, 35 Dex"
+      },
+      {
+        "slug": "Runemastered_Vagabond_Armour",
+        "card": "Runemastered Vagabond ArmourArmour: 143Evasion Rating: 128Base Movement Speed: -0.04Runic Ward: 41Requires:  Level 38, 35 Str, 35 Dex"
+      },
+      {
+        "slug": "Runemastered_Cloaked_Mail",
+        "card": "Runemastered Cloaked MailArmour: 114Evasion Rating: 102Base Movement Speed: -0.04Runic Ward: 115Requires:  Level 40, 36 Str, 36 Dex"
+      },
+      {
+        "slug": "Runemastered_Explorer_Armour",
+        "card": "Runemastered Explorer ArmourArmour: 199Evasion Rating: 180Base Movement Speed: -0.04Runic Ward: 56Requires:  Level 55, 49 Str, 49 Dex"
+      },
+      {
+        "slug": "Runemastered_Scale_Mail",
+        "card": "Runemastered Scale MailArmour: 187Evasion Rating: 170Base Movement Speed: -0.04Runic Ward: 75Requires:  Level 55, 49 Str, 49 Dex"
+      },
+      {
+        "slug": "Runemastered_Knight_Armour",
+        "card": "Runemastered Knight ArmourArmour: 175Evasion Rating: 159Base Movement Speed: -0.04Runic Ward: 93Requires:  Level 55, 49 Str, 49 Dex"
+      },
+      {
+        "slug": "Runemastered_Ancestral_Mail",
+        "card": "Runemastered Ancestral MailArmour: 191Evasion Rating: 174Base Movement Speed: -0.04Runic Ward: 107Requires:  Level 65, 57 Str, 57 Dex"
+      },
+      {
+        "slug": "Runemastered_Heroic_Armour",
+        "card": "Runemastered Heroic ArmourArmour: 136Evasion Rating: 124Base Movement Speed: -0.04Runic Ward: 215Requires:  Level 65, 67 Str, 67 Dex+(60—80) to maximum Life"
+      }
+    ]
+  },
+  {
+    "page": "Body_Armours_str_int",
+    "url": "https://poe2db.tw/us/Body_Armours_str_int",
+    "retrievedAt": "2026-10-04T14:44:47.099Z",
+    "sha256": "982949b93773b710a5d95de33ca4b3de05cc1d8f4ea6bd2f35844cec7b5de55c",
+    "cards": [
+      {
+        "slug": "Pilgrim_Vestments",
+        "card": "Pilgrim VestmentsArmour: 25Energy Shield: 16Base Movement Speed: -0.04"
+      },
+      {
+        "slug": "Pelt_Mantle",
+        "card": "Pelt MantleArmour: 59Energy Shield: 24Base Movement Speed: -0.04Requires:  Level 10, 12 Str, 12 Int"
+      },
+      {
+        "slug": "Mail_Vestments",
+        "card": "Mail VestmentsArmour: 83Energy Shield: 30Base Movement Speed: -0.04Requires:  Level 16, 17 Str, 17 Int"
+      },
+      {
+        "slug": "Shaman_Mantle",
+        "card": "Shaman MantleArmour: 129Energy Shield: 41Base Movement Speed: -0.04Requires:  Level 28, 26 Str, 26 Int"
+      },
+      {
+        "slug": "Ironclad_Vestments",
+        "card": "Ironclad VestmentsArmour: 149Energy Shield: 46Base Movement Speed: -0.04Requires:  Level 33, 31 Str, 31 Int"
+      },
+      {
+        "slug": "Sacrificial_Mantle",
+        "card": "Sacrificial MantleArmour: 160Energy Shield: 48Base Movement Speed: -0.04Requires:  Level 36, 33 Str, 33 Int"
+      },
+      {
+        "slug": "Cleric_Vestments",
+        "card": "Cleric VestmentsArmour: 195Energy Shield: 57Base Movement Speed: -0.04Requires:  Level 45, 41 Str, 41 Int"
+      },
+      {
+        "slug": "Tideseer_Mantle",
+        "card": "Tideseer MantleArmour: 218Energy Shield: 63Base Movement Speed: -0.04Requires:  Level 51, 45 Str, 45 Int"
+      },
+      {
+        "slug": "Gilded_Vestments",
+        "card": "Gilded VestmentsArmour: 222Energy Shield: 63Base Movement Speed: -0.04Requires:  Level 52, 46 Str, 46 Int"
+      },
+      {
+        "slug": "Venerated_Mantle",
+        "card": "Venerated MantleArmour: 230Energy Shield: 65Base Movement Speed: -0.04Requires:  Level 54, 48 Str, 48 Int"
+      },
+      {
+        "slug": "Revered_Vestments",
+        "card": "Revered VestmentsArmour: 273Energy Shield: 76Base Movement Speed: -0.04Requires:  Level 65, 67 Str, 67 Int+1% to all Maximum Elemental Resistances"
+      },
+      {
+        "slug": "Corvus_Mantle",
+        "card": "Corvus MantleArmour: 273Energy Shield: 76Base Movement Speed: -0.04Requires:  Level 68, 67 Str, 67 Int+(20—30) to Spirit"
+      },
+      {
+        "slug": "Zenith_Vestments",
+        "card": "Zenith VestmentsArmour: 273Energy Shield: 76Base Movement Speed: -0.04Requires:  Level 73, 67 Str, 67 Int"
+      },
+      {
+        "slug": "Ornate_Ringmail",
+        "card": "Ornate RingmailArmour: 749Energy Shield: 220Base Movement Speed: -0.04Requires:  Level 43, 45 Str, 45 Int"
+      },
+      {
+        "slug": "Ancient_Mail",
+        "card": "Ancient MailArmour: 273Energy Shield: 76Base Movement Speed: -0.04Requires:  Level 70, 67 Str, 67 Int"
+      },
+      {
+        "slug": "Runeforged_Grasping_Mail",
+        "card": "Runeforged Grasping MailArmour: 232Energy Shield: 64Base Movement Speed: -0.04Runic Ward: 107Requires:  Level 65, 61 Str, 61 IntCan roll Ring ModifiersCatalysts can be applied to this item"
+      },
+      {
+        "slug": "Templar_Vestments",
+        "card": "Templar VestmentsArmour: 195Energy Shield: 57Base Movement Speed: -0.04Requires:  Level 45, 41 Str, 41 Int"
+      },
+      {
+        "slug": "Bearskin_Mantle",
+        "card": "Bearskin MantleArmour: 207Energy Shield: 60Base Movement Speed: -0.04Requires:  Level 48, 43 Str, 43 Int"
+      },
+      {
+        "slug": "Chain_Vestments",
+        "card": "Chain VestmentsArmour: 218Energy Shield: 63Base Movement Speed: -0.04Requires:  Level 51, 45 Str, 45 Int"
+      },
+      {
+        "slug": "Occultist_Mantle",
+        "card": "Occultist MantleArmour: 230Energy Shield: 65Base Movement Speed: -0.04Requires:  Level 54, 48 Str, 48 Int"
+      },
+      {
+        "slug": "Plated_Vestments",
+        "card": "Plated VestmentsArmour: 249Energy Shield: 70Base Movement Speed: -0.04Requires:  Level 59, 52 Str, 52 Int"
+      },
+      {
+        "slug": "Heartcarver_Mantle",
+        "card": "Heartcarver MantleArmour: 261Energy Shield: 73Base Movement Speed: -0.04Requires:  Level 62, 54 Str, 54 Int"
+      },
+      {
+        "slug": "Wolfskin_Mantle",
+        "card": "Wolfskin MantleArmour: 313Energy Shield: 87Base Movement Speed: -0.04Requires:  Level 65, 67 Str, 67 Int"
+      },
+      {
+        "slug": "Conjurer_Mantle",
+        "card": "Conjurer MantleArmour: 273Energy Shield: 76Base Movement Speed: -0.04Requires:  Level 70, 67 Str, 67 Int+(20—30) to Spirit"
+      },
+      {
+        "slug": "Death_Mantle",
+        "card": "Death MantleArmour: 273Energy Shield: 76Base Movement Speed: -0.04Requires:  Level 75, 67 Str, 67 Int+1% to all Maximum Elemental Resistances"
+      },
+      {
+        "slug": "Seastorm_Mantle",
+        "card": "Seastorm MantleArmour: 273Energy Shield: 76Base Movement Speed: -0.04Requires:  Level 80, 67 Str, 67 Int(8—14)% of Damage taken Recouped as Life"
+      },
+      {
+        "slug": "Runeforged_Pilgrim_Vestments",
+        "card": "Runeforged Pilgrim VestmentsArmour: 25Energy Shield: 16Base Movement Speed: -0.04Runic Ward: 29"
+      },
+      {
+        "slug": "Runeforged_Pelt_Mantle",
+        "card": "Runeforged Pelt MantleArmour: 59Energy Shield: 24Base Movement Speed: -0.04Runic Ward: 41Requires:  Level 10, 12 Str, 12 Int"
+      },
+      {
+        "slug": "Runeforged_Mail_Vestments",
+        "card": "Runeforged Mail VestmentsArmour: 83Energy Shield: 30Base Movement Speed: -0.04Runic Ward: 53Requires:  Level 16, 17 Str, 17 Int"
+      },
+      {
+        "slug": "Runeforged_Shaman_Mantle",
+        "card": "Runeforged Shaman MantleArmour: 129Energy Shield: 41Base Movement Speed: -0.04Runic Ward: 77Requires:  Level 28, 26 Str, 26 Int"
+      },
+      {
+        "slug": "Runeforged_Ironclad_Vestments",
+        "card": "Runeforged Ironclad VestmentsArmour: 149Energy Shield: 46Base Movement Speed: -0.04Runic Ward: 74Requires:  Level 33, 31 Str, 31 Int"
+      },
+      {
+        "slug": "Runeforged_Sacrificial_Mantle",
+        "card": "Runeforged Sacrificial MantleArmour: 160Energy Shield: 48Base Movement Speed: -0.04Runic Ward: 77Requires:  Level 36, 33 Str, 33 Int"
+      },
+      {
+        "slug": "Runeforged_Cleric_Vestments",
+        "card": "Runeforged Cleric VestmentsArmour: 195Energy Shield: 57Base Movement Speed: -0.04Runic Ward: 85Requires:  Level 45, 41 Str, 41 Int"
+      },
+      {
+        "slug": "Runeforged_Tideseer_Mantle",
+        "card": "Runeforged Tideseer MantleArmour: 218Energy Shield: 63Base Movement Speed: -0.04Runic Ward: 87Requires:  Level 51, 45 Str, 45 Int"
+      },
+      {
+        "slug": "Runeforged_Sacrificial_Regalia",
+        "card": "Runeforged Sacrificial RegaliaArmour: 273Energy Shield: 76Base Movement Speed: -0.03Runic Ward: 129Requires:  Level 65, 80 Str, 80 Int+1 to Level of all Corrupted Skill Gems(2—4)% increased Chaos Damage for each Corrupted Item Equipped"
+      },
+      {
+        "slug": "Runeforged_Occultist_Mantle",
+        "card": "Runeforged Occultist MantleArmour: 193Energy Shield: 55Base Movement Speed: -0.04Runic Ward: 128Requires:  Level 54, 48 Str, 48 Int"
+      },
+      {
+        "slug": "Runeforged_Plated_Vestments",
+        "card": "Runeforged Plated VestmentsArmour: 199Energy Shield: 56Base Movement Speed: -0.04Runic Ward: 158Requires:  Level 59, 52 Str, 52 Int"
+      },
+      {
+        "slug": "Runeforged_Heartcarver_Mantle",
+        "card": "Runeforged Heartcarver MantleArmour: 230Energy Shield: 64Base Movement Speed: -0.04Runic Ward: 103Requires:  Level 62, 54 Str, 54 Int"
+      },
+      {
+        "slug": "Runeforged_Wolfskin_Mantle",
+        "card": "Runeforged Wolfskin MantleArmour: 114Energy Shield: 32Base Movement Speed: -0.04Runic Ward: 417Requires:  Level 65, 67 Str, 67 Int"
+      },
+      {
+        "slug": "Runeforged_Conjurer_Mantle",
+        "card": "Runeforged Conjurer MantleArmour: 245Energy Shield: 68Base Movement Speed: -0.04Runic Ward: 107Requires:  Level 70, 67 Str, 67 Int+(20—30) to Spirit"
+      },
+      {
+        "slug": "Runeforged_Death_Mantle",
+        "card": "Runeforged Death MantleArmour: 191Energy Shield: 53Base Movement Speed: -0.04Runic Ward: 215Requires:  Level 75, 67 Str, 67 Int+1% to all Maximum Elemental Resistances"
+      },
+      {
+        "slug": "Runeforged_Seastorm_Mantle",
+        "card": "Runeforged Seastorm MantleArmour: 112Energy Shield: 31Base Movement Speed: -0.04Runic Ward: 344Requires:  Level 80, 67 Str, 67 Int(8—14)% of Damage taken Recouped as Life"
+      },
+      {
+        "slug": "Runemastered_Pilgrim_Vestments",
+        "card": "Runemastered Pilgrim VestmentsArmour: 202Energy Shield: 60Base Movement Speed: -0.04Runic Ward: 55Requires:  Level 38, 35 Str, 35 Int"
+      },
+      {
+        "slug": "Runemastered_Mail_Vestments",
+        "card": "Runemastered Mail VestmentsArmour: 118Energy Shield: 35Base Movement Speed: -0.04Runic Ward: 83Requires:  Level 38, 35 Str, 35 Int"
+      },
+      {
+        "slug": "Runemastered_Shaman_Mantle",
+        "card": "Runemastered Shaman MantleArmour: 141Energy Shield: 42Base Movement Speed: -0.04Runic Ward: 44Requires:  Level 38, 35 Str, 35 Int"
+      },
+      {
+        "slug": "Runemastered_Ironclad_Vestments",
+        "card": "Runemastered Ironclad VestmentsArmour: 210Energy Shield: 60Base Movement Speed: -0.04Runic Ward: 37Requires:  Level 55, 49 Str, 49 Int"
+      },
+      {
+        "slug": "Runemastered_Sacrificial_Mantle",
+        "card": "Runemastered Sacrificial MantleArmour: 210Energy Shield: 60Base Movement Speed: -0.04Runic Ward: 37Requires:  Level 55, 49 Str, 49 Int"
+      },
+      {
+        "slug": "Runemastered_Cleric_Vestments",
+        "card": "Runemastered Cleric VestmentsArmour: 187Energy Shield: 53Base Movement Speed: -0.04Runic Ward: 75Requires:  Level 55, 49 Str, 49 Int"
+      },
+      {
+        "slug": "Runemastered_Tideseer_Mantle",
+        "card": "Runemastered Tideseer MantleArmour: 55Energy Shield: 15Base Movement Speed: -0.04Runic Ward: 129Requires:  Level 65, 57 Str, 57 Int"
+      },
+      {
+        "slug": "Runemastered_Gilded_Vestments",
+        "card": "Runemastered Gilded VestmentsArmour: 218Energy Shield: 61Base Movement Speed: -0.04Runic Ward: 86Requires:  Level 65, 57 Str, 57 Int"
+      },
+      {
+        "slug": "Runemastered_Revered_Vestments",
+        "card": "Runemastered Revered VestmentsArmour: 232Energy Shield: 64Base Movement Speed: -0.04Runic Ward: 86Requires:  Level 70, 67 Str, 67 Int+1% to all Maximum Elemental Resistances(30—50)% increased effect of Arcane Surge on you"
+      },
+      {
+        "slug": "Runemastered_Revered_Vestments",
+        "card": "Runemastered Revered VestmentsArmour: 199Energy Shield: 88Base Movement Speed: -0.04Runic Ward: 86Requires:  Level 70, 57 Str, 85 Int+1% to all Maximum Elemental Resistances(10—15)% increased Energy Shield Recharge Rate"
+      },
+      {
+        "slug": "Runemastered_Revered_Vestments",
+        "card": "Runemastered Revered VestmentsArmour: 164Energy Shield: 45Base Movement Speed: -0.04Runic Ward: 301Requires:  Level 70, 67 Str, 67 Int+1% to all Maximum Elemental Resistances"
+      },
+      {
+        "slug": "Runemastered_Corvus_Mantle",
+        "card": "Runemastered Corvus MantleArmour: 218Energy Shield: 61Base Movement Speed: -0.04Runic Ward: 86Requires:  Level 70, 67 Str, 67 Int+(20—30) to Spirit"
+      },
+      {
+        "slug": "Runemastered_Ornate_Ringmail",
+        "card": "Runemastered Ornate RingmailArmour: 725Energy Shield: 206Base Movement Speed: -0.04Runic Ward: 130Requires:  Level 55, 57 Str, 57 Int"
+      },
+      {
+        "slug": "Runemastered_Ancient_Mail",
+        "card": "Runemastered Ancient MailArmour: 218Energy Shield: 61Base Movement Speed: -0.04Runic Ward: 86Requires:  Level 70, 67 Str, 67 Int"
+      }
+    ]
+  },
+  {
+    "page": "Body_Armours_dex_int",
+    "url": "https://poe2db.tw/us/Body_Armours_dex_int",
+    "retrievedAt": "2026-10-04T14:44:47.875Z",
+    "sha256": "749da8ef3bffa5556693523d84cdb02dbfdae7903109b00a9f752c52cee75a1d",
+    "cards": [
+      {
+        "slug": "Hermit_Garb",
+        "card": "Hermit GarbEvasion Rating: 16Energy Shield: 16Base Movement Speed: -0.03"
+      },
+      {
+        "slug": "Waxed_Jacket",
+        "card": "Waxed JacketEvasion Rating: 53Energy Shield: 25Base Movement Speed: -0.03Requires:  Level 11, 13 Dex, 13 Int"
+      },
+      {
+        "slug": "Marabout_Garb",
+        "card": "Marabout GarbEvasion Rating: 71Energy Shield: 30Base Movement Speed: -0.03Requires:  Level 16, 17 Dex, 17 Int"
+      },
+      {
+        "slug": "Wayfarer_Jacket",
+        "card": "Wayfarer JacketEvasion Rating: 114Energy Shield: 41Base Movement Speed: -0.03Requires:  Level 28, 26 Dex, 26 Int"
+      },
+      {
+        "slug": "Anchorite_Garb",
+        "card": "Anchorite GarbEvasion Rating: 132Energy Shield: 46Base Movement Speed: -0.03Requires:  Level 33, 31 Dex, 31 Int"
+      },
+      {
+        "slug": "Scalpers_Jacket",
+        "card": "Scalper's JacketEvasion Rating: 154Energy Shield: 51Base Movement Speed: -0.03Requires:  Level 39, 35 Dex, 35 Int"
+      },
+      {
+        "slug": "Scoundrel_Jacket",
+        "card": "Scoundrel JacketEvasion Rating: 176Energy Shield: 57Base Movement Speed: -0.03Requires:  Level 45, 41 Dex, 41 Int"
+      },
+      {
+        "slug": "Ascetic_Garb",
+        "card": "Ascetic GarbEvasion Rating: 197Energy Shield: 63Base Movement Speed: -0.03Requires:  Level 51, 45 Dex, 45 Int"
+      },
+      {
+        "slug": "Clandestine_Jacket",
+        "card": "Clandestine JacketEvasion Rating: 201Energy Shield: 63Base Movement Speed: -0.03Requires:  Level 52, 46 Dex, 46 Int"
+      },
+      {
+        "slug": "Monastic_Garb",
+        "card": "Monastic GarbEvasion Rating: 216Energy Shield: 67Base Movement Speed: -0.03Requires:  Level 56, 50 Dex, 50 Int"
+      },
+      {
+        "slug": "Torment_Jacket",
+        "card": "Torment JacketEvasion Rating: 248Energy Shield: 76Base Movement Speed: -0.03Requires:  Level 65, 67 Dex, 67 Int"
+      },
+      {
+        "slug": "Devout_Garb",
+        "card": "Devout GarbEvasion Rating: 248Energy Shield: 76Base Movement Speed: -0.03Requires:  Level 68, 67 Dex, 67 Int+(7—13)% to Chaos Resistance"
+      },
+      {
+        "slug": "Assassin_Garb",
+        "card": "Assassin GarbEvasion Rating: 248Energy Shield: 76Base Movement Speed: -0.03Requires:  Level 73, 67 Dex, 67 Int5% increased Movement Speed"
+      },
+      {
+        "slug": "Runeforged_Grasping_Mail",
+        "card": "Runeforged Grasping MailEvasion Rating: 211Energy Shield: 64Base Movement Speed: -0.03Runic Ward: 107Requires:  Level 65, 61 Dex, 61 IntCan roll Ring ModifiersCatalysts can be applied to this item"
+      },
+      {
+        "slug": "Ascetic_Garb",
+        "card": "Ascetic GarbEvasion Rating: 176Energy Shield: 57Base Movement Speed: -0.03Requires:  Level 45, 41 Dex, 41 Int"
+      },
+      {
+        "slug": "Oiled_Jacket",
+        "card": "Oiled JacketEvasion Rating: 187Energy Shield: 60Base Movement Speed: -0.03Requires:  Level 48, 43 Dex, 43 Int"
+      },
+      {
+        "slug": "Evangelist_Garb",
+        "card": "Evangelist GarbEvasion Rating: 197Energy Shield: 63Base Movement Speed: -0.03Requires:  Level 51, 45 Dex, 45 Int"
+      },
+      {
+        "slug": "Itinerant_Jacket",
+        "card": "Itinerant JacketEvasion Rating: 208Energy Shield: 65Base Movement Speed: -0.03Requires:  Level 54, 48 Dex, 48 Int"
+      },
+      {
+        "slug": "Hatungo_Garb",
+        "card": "Hatungo GarbEvasion Rating: 226Energy Shield: 70Base Movement Speed: -0.03Requires:  Level 59, 52 Dex, 52 Int"
+      },
+      {
+        "slug": "Hawkers_Jacket",
+        "card": "Hawker's JacketEvasion Rating: 237Energy Shield: 73Base Movement Speed: -0.03Requires:  Level 62, 54 Dex, 54 Int"
+      },
+      {
+        "slug": "Sleek_Jacket",
+        "card": "Sleek JacketEvasion Rating: 285Energy Shield: 87Base Movement Speed: -0.03Requires:  Level 65, 67 Dex, 67 Int"
+      },
+      {
+        "slug": "Rambler_Jacket",
+        "card": "Rambler JacketEvasion Rating: 248Energy Shield: 76Base Movement Speed: -0.03Requires:  Level 70, 67 Dex, 67 Int+(7—13)% to Chaos Resistance"
+      },
+      {
+        "slug": "Falconers_Jacket",
+        "card": "Falconer's JacketEvasion Rating: 248Energy Shield: 76Base Movement Speed: -0.03Requires:  Level 75, 67 Dex, 67 Int5% increased Movement Speed"
+      },
+      {
+        "slug": "Austere_Garb",
+        "card": "Austere GarbEvasion Rating: 248Energy Shield: 76Base Movement Speed: -0.03Requires:  Level 80, 67 Dex, 67 Int(10—15)% reduced Elemental Ailment Duration on you"
+      },
+      {
+        "slug": "Primal_Markings",
+        "card": "Primal MarkingsEvasion Rating: 268Energy Shield: 82Base Movement Speed: -0.03Requires:  Level 70, 67 Dex, 67 Int"
+      },
+      {
+        "slug": "Runeforged_Hermit_Garb",
+        "card": "Runeforged Hermit GarbEvasion Rating: 16Energy Shield: 16Base Movement Speed: -0.03Runic Ward: 29"
+      },
+      {
+        "slug": "Runeforged_Waxed_Jacket",
+        "card": "Runeforged Waxed JacketEvasion Rating: 53Energy Shield: 25Base Movement Speed: -0.03Runic Ward: 43Requires:  Level 11, 13 Dex, 13 Int"
+      },
+      {
+        "slug": "Runeforged_Marabout_Garb",
+        "card": "Runeforged Marabout GarbEvasion Rating: 71Energy Shield: 30Base Movement Speed: -0.03Runic Ward: 53Requires:  Level 16, 17 Dex, 17 Int"
+      },
+      {
+        "slug": "Runeforged_Wayfarer_Jacket",
+        "card": "Runeforged Wayfarer JacketEvasion Rating: 114Energy Shield: 41Base Movement Speed: -0.03Runic Ward: 77Requires:  Level 28, 26 Dex, 26 Int"
+      },
+      {
+        "slug": "Runeforged_Anchorite_Garb",
+        "card": "Runeforged Anchorite GarbEvasion Rating: 132Energy Shield: 46Base Movement Speed: -0.03Runic Ward: 74Requires:  Level 33, 31 Dex, 31 Int"
+      },
+      {
+        "slug": "Runeforged_Scalpers_Jacket",
+        "card": "Runeforged Scalper's JacketEvasion Rating: 154Energy Shield: 51Base Movement Speed: -0.03Runic Ward: 82Requires:  Level 39, 35 Dex, 35 Int"
+      },
+      {
+        "slug": "Runeforged_Scoundrel_Jacket",
+        "card": "Runeforged Scoundrel JacketEvasion Rating: 176Energy Shield: 57Base Movement Speed: -0.03Runic Ward: 85Requires:  Level 45, 41 Dex, 41 Int"
+      },
+      {
+        "slug": "Runeforged_Ascetic_Garb",
+        "card": "Runeforged Ascetic GarbEvasion Rating: 197Energy Shield: 63Base Movement Speed: -0.03Runic Ward: 87Requires:  Level 51, 45 Dex, 45 Int"
+      },
+      {
+        "slug": "Runeforged_Sacrificial_Regalia",
+        "card": "Runeforged Sacrificial RegaliaEvasion Rating: 248Energy Shield: 76Base Movement Speed: -0.03Runic Ward: 129Requires:  Level 65, 80 Dex, 80 Int+1 to Level of all Corrupted Skill Gems+1% to all Resistances for each Corrupted Item Equipped"
+      },
+      {
+        "slug": "Runeforged_Itinerant_Jacket",
+        "card": "Runeforged Itinerant JacketEvasion Rating: 192Energy Shield: 60Base Movement Speed: -0.03Runic Ward: 92Requires:  Level 54, 48 Dex, 48 Int"
+      },
+      {
+        "slug": "Runeforged_Hatungo_Garb",
+        "card": "Runeforged Hatungo GarbEvasion Rating: 181Energy Shield: 56Base Movement Speed: -0.03Runic Ward: 158Requires:  Level 59, 52 Dex, 52 Int"
+      },
+      {
+        "slug": "Runeforged_Hawkers_Jacket",
+        "card": "Runeforged Hawker's JacketEvasion Rating: 209Energy Shield: 64Base Movement Speed: -0.03Runic Ward: 103Requires:  Level 62, 54 Dex, 54 Int"
+      },
+      {
+        "slug": "Runeforged_Sleek_Jacket",
+        "card": "Runeforged Sleek JacketEvasion Rating: 114Energy Shield: 35Base Movement Speed: -0.03Runic Ward: 395Requires:  Level 65, 67 Dex, 67 Int"
+      },
+      {
+        "slug": "Runeforged_Rambler_Jacket",
+        "card": "Runeforged Rambler JacketEvasion Rating: 223Energy Shield: 68Base Movement Speed: -0.03Runic Ward: 107Requires:  Level 70, 67 Dex, 67 Int+(7—13)% to Chaos Resistance"
+      },
+      {
+        "slug": "Runeforged_Falconers_Jacket",
+        "card": "Runeforged Falconer's JacketEvasion Rating: 186Energy Shield: 57Base Movement Speed: -0.03Runic Ward: 189Requires:  Level 75, 67 Dex, 67 Int5% increased Movement Speed"
+      },
+      {
+        "slug": "Runeforged_Austere_Garb",
+        "card": "Runeforged Austere GarbEvasion Rating: 246Energy Shield: 75Base Movement Speed: -0.03Runic Ward: 86Requires:  Level 80, 67 Dex, 67 Int(10—15)% reduced Elemental Ailment Duration on you"
+      },
+      {
+        "slug": "Runeforged_Primal_Markings",
+        "card": "Runeforged Primal MarkingsEvasion Rating: 236Energy Shield: 72Base Movement Speed: -0.03Runic Ward: 86Requires:  Level 70, 67 Dex, 67 Int"
+      },
+      {
+        "slug": "Runemastered_Hermit_Garb",
+        "card": "Runemastered Hermit GarbEvasion Rating: 135Energy Shield: 45Base Movement Speed: -0.03Runic Ward: 28Requires:  Level 38, 35 Dex, 35 Int"
+      },
+      {
+        "slug": "Runemastered_Waxed_Jacket",
+        "card": "Runemastered Waxed JacketEvasion Rating: 113Energy Shield: 38Base Movement Speed: -0.03Runic Ward: 69Requires:  Level 38, 35 Dex, 35 Int"
+      },
+      {
+        "slug": "Runemastered_Marabout_Garb",
+        "card": "Runemastered Marabout GarbEvasion Rating: 90Energy Shield: 30Base Movement Speed: -0.03Runic Ward: 110Requires:  Level 38, 35 Dex, 35 Int"
+      },
+      {
+        "slug": "Runemastered_Wayfarer_Jacket",
+        "card": "Runemastered Wayfarer JacketEvasion Rating: 134Energy Shield: 44Base Movement Speed: -0.03Runic Ward: 43Requires:  Level 40, 36 Dex, 36 Int"
+      },
+      {
+        "slug": "Runemastered_Anchorite_Garb",
+        "card": "Runemastered Anchorite GarbEvasion Rating: 138Energy Shield: 43Base Movement Speed: -0.03Runic Ward: 130Requires:  Level 55, 49 Dex, 49 Int"
+      },
+      {
+        "slug": "Runemastered_Scalpers_Jacket",
+        "card": "Runemastered Scalper's JacketEvasion Rating: 170Energy Shield: 53Base Movement Speed: -0.03Runic Ward: 75Requires:  Level 55, 49 Dex, 49 Int"
+      },
+      {
+        "slug": "Runemastered_Assassin_Garb",
+        "card": "Runemastered Assassin GarbEvasion Rating: 223Energy Shield: 68Base Movement Speed: -0.03Runic Ward: 43Requires:  Level 73, 67 Dex, 67 Int5% increased Movement Speed"
+      },
+      {
+        "slug": "Runemastered_Primal_Markings",
+        "card": "Runemastered Primal MarkingsEvasion Rating: 223Energy Shield: 68Base Movement Speed: -0.03Runic Ward: 107Requires:  Level 80, 67 Dex, 67 Int"
+      }
+    ]
+  },
+  {
+    "page": "Helmets_str",
+    "url": "https://poe2db.tw/us/Helmets_str",
+    "retrievedAt": "2026-10-04T14:44:49.125Z",
+    "sha256": "21ee17328820a97cc5bfbb47ab8e7bc1919795b2702d17524499f8e7b0cced28",
+    "cards": [
+      {
+        "slug": "Rusted_Greathelm",
+        "card": "Rusted GreathelmArmour: 29"
+      },
+      {
+        "slug": "Soldier_Greathelm",
+        "card": "Soldier GreathelmArmour: 80Requires:  Level 12, 19 Str"
+      },
+      {
+        "slug": "Wrapped_Greathelm",
+        "card": "Wrapped GreathelmArmour: 99Requires:  Level 16, 25 Str"
+      },
+      {
+        "slug": "Spired_Greathelm",
+        "card": "Spired GreathelmArmour: 149Requires:  Level 27, 40 Str"
+      },
+      {
+        "slug": "Elite_Greathelm",
+        "card": "Elite GreathelmArmour: 177Requires:  Level 33, 48 Str"
+      },
+      {
+        "slug": "Warrior_Greathelm",
+        "card": "Warrior GreathelmArmour: 191Requires:  Level 36, 52 Str"
+      },
+      {
+        "slug": "Commander_Greathelm",
+        "card": "Commander GreathelmArmour: 233Requires:  Level 45, 64 Str"
+      },
+      {
+        "slug": "Fierce_Greathelm",
+        "card": "Fierce GreathelmArmour: 260Requires:  Level 51, 73 Str"
+      },
+      {
+        "slug": "Sentinel_Greathelm",
+        "card": "Sentinel GreathelmArmour: 265Requires:  Level 52, 74 Str"
+      },
+      {
+        "slug": "Goliath_Greathelm",
+        "card": "Goliath GreathelmArmour: 288Requires:  Level 57, 81 Str"
+      },
+      {
+        "slug": "Guardian_Greathelm",
+        "card": "Guardian GreathelmArmour: 325Requires:  Level 65, 91 Str"
+      },
+      {
+        "slug": "Corroded_Greathelm",
+        "card": "Corroded GreathelmArmour: 233Requires:  Level 45, 64 Str"
+      },
+      {
+        "slug": "Mercenary_Greathelm",
+        "card": "Mercenary GreathelmArmour: 246Requires:  Level 48, 69 Str"
+      },
+      {
+        "slug": "Homeguard_Greathelm",
+        "card": "Homeguard GreathelmArmour: 260Requires:  Level 51, 73 Str"
+      },
+      {
+        "slug": "Elegant_Greathelm",
+        "card": "Elegant GreathelmArmour: 274Requires:  Level 54, 77 Str"
+      },
+      {
+        "slug": "Noble_Greathelm",
+        "card": "Noble GreathelmArmour: 297Requires:  Level 59, 83 Str"
+      },
+      {
+        "slug": "Warmonger_Greathelm",
+        "card": "Warmonger GreathelmArmour: 325Requires:  Level 65, 91 Str"
+      },
+      {
+        "slug": "Masked_Greathelm",
+        "card": "Masked GreathelmArmour: 341Requires:  Level 70, 99 Str"
+      },
+      {
+        "slug": "Paragon_Greathelm",
+        "card": "Paragon GreathelmArmour: 357Requires:  Level 75, 107 Str"
+      },
+      {
+        "slug": "Imperial_Greathelm",
+        "card": "Imperial GreathelmArmour: 374Requires:  Level 80, 115 Str"
+      },
+      {
+        "slug": "Runeforged_Rusted_Greathelm",
+        "card": "Runeforged Rusted GreathelmArmour: 29Runic Ward: 19"
+      },
+      {
+        "slug": "Runeforged_Soldier_Greathelm",
+        "card": "Runeforged Soldier GreathelmArmour: 80Runic Ward: 29Requires:  Level 12, 19 Str"
+      },
+      {
+        "slug": "Runeforged_Wrapped_Greathelm",
+        "card": "Runeforged Wrapped GreathelmArmour: 99Runic Ward: 35Requires:  Level 16, 25 Str"
+      },
+      {
+        "slug": "Runeforged_Spired_Greathelm",
+        "card": "Runeforged Spired GreathelmArmour: 149Runic Ward: 49Requires:  Level 27, 40 Str"
+      },
+      {
+        "slug": "Runeforged_Elite_Greathelm",
+        "card": "Runeforged Elite GreathelmArmour: 177Runic Ward: 49Requires:  Level 33, 48 Str"
+      },
+      {
+        "slug": "Runeforged_Warrior_Greathelm",
+        "card": "Runeforged Warrior GreathelmArmour: 191Runic Ward: 50Requires:  Level 36, 52 Str"
+      },
+      {
+        "slug": "Runeforged_Commander_Greathelm",
+        "card": "Runeforged Commander GreathelmArmour: 233Runic Ward: 56Requires:  Level 45, 64 Str"
+      },
+      {
+        "slug": "Runeforged_Fierce_Greathelm",
+        "card": "Runeforged Fierce GreathelmArmour: 260Runic Ward: 57Requires:  Level 51, 73 Str"
+      },
+      {
+        "slug": "Runeforged_Elegant_Greathelm",
+        "card": "Runeforged Elegant GreathelmArmour: 252Runic Ward: 60Requires:  Level 54, 77 Str"
+      },
+      {
+        "slug": "Runeforged_Noble_Greathelm",
+        "card": "Runeforged Noble GreathelmArmour: 238Runic Ward: 104Requires:  Level 59, 83 Str"
+      },
+      {
+        "slug": "Runeforged_Warmonger_Greathelm",
+        "card": "Runeforged Warmonger GreathelmArmour: 305Runic Ward: 56Requires:  Level 65, 91 Str"
+      },
+      {
+        "slug": "Runeforged_Masked_Greathelm",
+        "card": "Runeforged Masked GreathelmArmour: 279Runic Ward: 85Requires:  Level 70, 99 Str"
+      },
+      {
+        "slug": "Runeforged_Paragon_Greathelm",
+        "card": "Runeforged Paragon GreathelmArmour: 351Runic Ward: 42Requires:  Level 75, 107 Str"
+      },
+      {
+        "slug": "Runeforged_Imperial_Greathelm",
+        "card": "Runeforged Imperial GreathelmArmour: 169Runic Ward: 240Requires:  Level 80, 115 Str"
+      },
+      {
+        "slug": "Runemastered_Rusted_Greathelm",
+        "card": "Runemastered Rusted GreathelmArmour: 360Runic Ward: 36Requires:  Level 38, 54 Str"
+      },
+      {
+        "slug": "Runemastered_Soldier_Greathelm",
+        "card": "Runemastered Soldier GreathelmArmour: 140Runic Ward: 54Requires:  Level 38, 54 Str"
+      },
+      {
+        "slug": "Runemastered_Wrapped_Greathelm",
+        "card": "Runemastered Wrapped GreathelmArmour: 170Runic Ward: 27Requires:  Level 38, 54 Str"
+      },
+      {
+        "slug": "Runemastered_Spired_Greathelm",
+        "card": "Runemastered Spired GreathelmArmour: 115Runic Ward: 85Requires:  Level 40, 58 Str"
+      },
+      {
+        "slug": "Runemastered_Elite_Greathelm",
+        "card": "Runemastered Elite GreathelmArmour: 209Runic Ward: 61Requires:  Level 55, 78 Str"
+      },
+      {
+        "slug": "Runemastered_Warrior_Greathelm",
+        "card": "Runemastered Warrior GreathelmArmour: 111Runic Ward: 147Requires:  Level 55, 78 Str"
+      },
+      {
+        "slug": "Runemastered_Fierce_Greathelm",
+        "card": "Runemastered Fierce GreathelmArmour: 334Runic Ward: 24Requires:  Level 55, 78 Str"
+      }
+    ]
+  },
+  {
+    "page": "Helmets_dex",
+    "url": "https://poe2db.tw/us/Helmets_dex",
+    "retrievedAt": "2026-10-04T14:44:49.874Z",
+    "sha256": "93eef29bbf47ed5527da38ebe4ceee577ade1c6329667c4ba9321175a3c30aee",
+    "cards": [
+      {
+        "slug": "Shabby_Hood",
+        "card": "Shabby HoodEvasion Rating: 19"
+      },
+      {
+        "slug": "Felt_Cap",
+        "card": "Felt CapEvasion Rating: 58Requires:  Level 10, 17 Dex"
+      },
+      {
+        "slug": "Lace_Hood",
+        "card": "Lace HoodEvasion Rating: 84Requires:  Level 16, 25 Dex"
+      },
+      {
+        "slug": "Swathed_Cap",
+        "card": "Swathed CapEvasion Rating: 127Requires:  Level 26, 38 Dex"
+      },
+      {
+        "slug": "Hunter_Hood",
+        "card": "Hunter HoodEvasion Rating: 158Requires:  Level 33, 48 Dex"
+      },
+      {
+        "slug": "Viper_Cap",
+        "card": "Viper CapEvasion Rating: 179Requires:  Level 38, 54 Dex"
+      },
+      {
+        "slug": "Corsair_Cap",
+        "card": "Corsair CapEvasion Rating: 210Requires:  Level 45, 64 Dex"
+      },
+      {
+        "slug": "Leatherbound_Hood",
+        "card": "Leatherbound HoodEvasion Rating: 231Requires:  Level 50, 71 Dex"
+      },
+      {
+        "slug": "Velvet_Cap",
+        "card": "Velvet CapEvasion Rating: 240Requires:  Level 52, 74 Dex"
+      },
+      {
+        "slug": "Covert_Hood",
+        "card": "Covert HoodEvasion Rating: 257Requires:  Level 56, 79 Dex"
+      },
+      {
+        "slug": "Armoured_Cap",
+        "card": "Armoured CapEvasion Rating: 296Requires:  Level 65, 91 Dex"
+      },
+      {
+        "slug": "Rotted_Hood",
+        "card": "Rotted HoodEvasion Rating: 210Requires:  Level 45, 64 Dex"
+      },
+      {
+        "slug": "Wool_Cap",
+        "card": "Wool CapEvasion Rating: 222Requires:  Level 48, 69 Dex"
+      },
+      {
+        "slug": "Narrow_Hood",
+        "card": "Narrow HoodEvasion Rating: 235Requires:  Level 51, 73 Dex"
+      },
+      {
+        "slug": "Wrapped_Cap",
+        "card": "Wrapped CapEvasion Rating: 248Requires:  Level 54, 77 Dex"
+      },
+      {
+        "slug": "Deerstalker_Hood",
+        "card": "Deerstalker HoodEvasion Rating: 270Requires:  Level 59, 83 Dex"
+      },
+      {
+        "slug": "Woven_Cap",
+        "card": "Woven CapEvasion Rating: 296Requires:  Level 65, 91 Dex"
+      },
+      {
+        "slug": "Desert_Cap",
+        "card": "Desert CapEvasion Rating: 311Requires:  Level 70, 99 Dex"
+      },
+      {
+        "slug": "Trapper_Hood",
+        "card": "Trapper HoodEvasion Rating: 326Requires:  Level 75, 107 Dex"
+      },
+      {
+        "slug": "Freebooter_Cap",
+        "card": "Freebooter CapEvasion Rating: 340Requires:  Level 80, 115 Dex"
+      },
+      {
+        "slug": "Runeforged_Shabby_Hood",
+        "card": "Runeforged Shabby HoodEvasion Rating: 19Runic Ward: 19"
+      },
+      {
+        "slug": "Runeforged_Felt_Cap",
+        "card": "Runeforged Felt CapEvasion Rating: 58Runic Ward: 27Requires:  Level 10, 17 Dex"
+      },
+      {
+        "slug": "Runeforged_Lace_Hood",
+        "card": "Runeforged Lace HoodEvasion Rating: 84Runic Ward: 35Requires:  Level 16, 25 Dex"
+      },
+      {
+        "slug": "Runeforged_Swathed_Cap",
+        "card": "Runeforged Swathed CapEvasion Rating: 127Runic Ward: 48Requires:  Level 26, 38 Dex"
+      },
+      {
+        "slug": "Runeforged_Hunter_Hood",
+        "card": "Runeforged Hunter HoodEvasion Rating: 158Runic Ward: 49Requires:  Level 33, 48 Dex"
+      },
+      {
+        "slug": "Runeforged_Viper_Cap",
+        "card": "Runeforged Viper CapEvasion Rating: 179Runic Ward: 52Requires:  Level 38, 54 Dex"
+      },
+      {
+        "slug": "Runeforged_Corsair_Cap",
+        "card": "Runeforged Corsair CapEvasion Rating: 210Runic Ward: 56Requires:  Level 45, 64 Dex"
+      },
+      {
+        "slug": "Runeforged_Leatherbound_Hood",
+        "card": "Runeforged Leatherbound HoodEvasion Rating: 231Runic Ward: 56Requires:  Level 50, 71 Dex"
+      },
+      {
+        "slug": "Runeforged_Wrapped_Cap",
+        "card": "Runeforged Wrapped CapEvasion Rating: 219Runic Ward: 72Requires:  Level 54, 77 Dex"
+      },
+      {
+        "slug": "Runeforged_Deerstalker_Hood",
+        "card": "Runeforged Deerstalker HoodEvasion Rating: 227Runic Ward: 91Requires:  Level 59, 83 Dex"
+      },
+      {
+        "slug": "Runeforged_Woven_Cap",
+        "card": "Runeforged Woven CapEvasion Rating: 290Runic Ward: 42Requires:  Level 65, 91 Dex"
+      },
+      {
+        "slug": "Runeforged_Desert_Cap",
+        "card": "Runeforged Desert CapEvasion Rating: 243Runic Ward: 99Requires:  Level 70, 99 Dex"
+      },
+      {
+        "slug": "Runeforged_Trapper_Hood",
+        "card": "Runeforged Trapper HoodEvasion Rating: 320Runic Ward: 42Requires:  Level 75, 107 Dex"
+      },
+      {
+        "slug": "Runeforged_Freebooter_Cap",
+        "card": "Runeforged Freebooter CapEvasion Rating: 154Runic Ward: 240Requires:  Level 80, 115 Dex"
+      },
+      {
+        "slug": "Runeforged_Lace_Hood",
+        "card": "Runeforged Lace HoodEvasion Rating: 90Runic Ward: 72Requires:  Level 38, 54 Dex(30—50)% increased Ignite Magnitude"
+      },
+      {
+        "slug": "Runemastered_Felt_Cap",
+        "card": "Runemastered Felt CapEvasion Rating: 134Runic Ward: 54Requires:  Level 38, 54 Dex"
+      },
+      {
+        "slug": "Runemastered_Hunter_Hood",
+        "card": "Runemastered Hunter HoodEvasion Rating: 73Runic Ward: 75Requires:  Level 40, 58 Dex"
+      },
+      {
+        "slug": "Runemastered_Viper_Cap",
+        "card": "Runemastered Viper CapEvasion Rating: 139Runic Ward: 110Requires:  Level 55, 78 Dex"
+      },
+      {
+        "slug": "Runemastered_Corsair_Cap",
+        "card": "Runemastered Corsair CapEvasion Rating: 202Runic Ward: 37Requires:  Level 55, 78 Dex"
+      },
+      {
+        "slug": "Runemastered_Leatherbound_Hood",
+        "card": "Runemastered Leatherbound HoodEvasion Rating: 266Runic Ward: 28Requires:  Level 65, 91 Dex"
+      },
+      {
+        "slug": "Runemastered_Velvet_Cap",
+        "card": "Runemastered Velvet CapEvasion Rating: 222Runic Ward: 70Requires:  Level 65, 91 Dex"
+      },
+      {
+        "slug": "Runemastered_Covert_Hood",
+        "card": "Runemastered Covert HoodEvasion Rating: 129Runic Ward: 124Requires:  Level 56, 79 Dex"
+      },
+      {
+        "slug": "Runemastered_Armoured_Cap",
+        "card": "Runemastered Armoured CapEvasion Rating: 178Runic Ward: 113Requires:  Level 65, 91 Dex"
+      }
+    ]
+  },
+  {
+    "page": "Helmets_int",
+    "url": "https://poe2db.tw/us/Helmets_int",
+    "retrievedAt": "2026-10-04T14:44:51.194Z",
+    "sha256": "d8dc92c911c44dfb48ba45e4da5d3de9bfbb04a6dd96d5bb341d40557d48f285",
+    "cards": [
+      {
+        "slug": "Twig_Circlet",
+        "card": "Twig CircletEnergy Shield: 19"
+      },
+      {
+        "slug": "Wicker_Tiara",
+        "card": "Wicker TiaraEnergy Shield: 29Requires:  Level 10, 17 Int"
+      },
+      {
+        "slug": "Beaded_Circlet",
+        "card": "Beaded CircletEnergy Shield: 35Requires:  Level 16, 25 Int"
+      },
+      {
+        "slug": "Chain_Tiara",
+        "card": "Chain TiaraEnergy Shield: 47Requires:  Level 26, 38 Int"
+      },
+      {
+        "slug": "Feathered_Tiara",
+        "card": "Feathered TiaraEnergy Shield: 54Requires:  Level 33, 48 Int"
+      },
+      {
+        "slug": "Gold_Circlet",
+        "card": "Gold CircletEnergy Shield: 62Requires:  Level 40, 58 Int"
+      },
+      {
+        "slug": "Vermeil_Circlet",
+        "card": "Vermeil CircletEnergy Shield: 68Requires:  Level 45, 64 Int"
+      },
+      {
+        "slug": "Jade_Tiara",
+        "card": "Jade TiaraEnergy Shield: 73Requires:  Level 50, 71 Int"
+      },
+      {
+        "slug": "Noble_Circlet",
+        "card": "Noble CircletEnergy Shield: 76Requires:  Level 52, 74 Int"
+      },
+      {
+        "slug": "Twilight_Tiara",
+        "card": "Twilight TiaraEnergy Shield: 82Requires:  Level 58, 82 Int"
+      },
+      {
+        "slug": "Magus_Tiara",
+        "card": "Magus TiaraEnergy Shield: 90Requires:  Level 65, 91 Int"
+      },
+      {
+        "slug": "Druidic_Circlet",
+        "card": "Druidic CircletEnergy Shield: 68Requires:  Level 45, 64 Int"
+      },
+      {
+        "slug": "Avian_Tiara",
+        "card": "Avian TiaraEnergy Shield: 71Requires:  Level 48, 69 Int"
+      },
+      {
+        "slug": "Desert_Circlet",
+        "card": "Desert CircletEnergy Shield: 75Requires:  Level 51, 73 Int"
+      },
+      {
+        "slug": "Sandsworn_Tiara",
+        "card": "Sandsworn TiaraEnergy Shield: 78Requires:  Level 54, 77 Int"
+      },
+      {
+        "slug": "Jungle_Tiara",
+        "card": "Jungle TiaraEnergy Shield: 84Requires:  Level 59, 83 Int"
+      },
+      {
+        "slug": "Skycrown_Tiara",
+        "card": "Skycrown TiaraEnergy Shield: 90Requires:  Level 65, 91 Int"
+      },
+      {
+        "slug": "Sorcerous_Tiara",
+        "card": "Sorcerous TiaraEnergy Shield: 97Requires:  Level 70, 99 Int"
+      },
+      {
+        "slug": "Kamasan_Tiara",
+        "card": "Kamasan TiaraEnergy Shield: 103Requires:  Level 75, 107 Int"
+      },
+      {
+        "slug": "Ancestral_Tiara",
+        "card": "Ancestral TiaraEnergy Shield: 109Requires:  Level 80, 115 Int"
+      },
+      {
+        "slug": "Runeforged_Twig_Circlet",
+        "card": "Runeforged Twig CircletEnergy Shield: 19Runic Ward: 19"
+      },
+      {
+        "slug": "Runeforged_Wicker_Tiara",
+        "card": "Runeforged Wicker TiaraEnergy Shield: 29Runic Ward: 27Requires:  Level 10, 17 Int"
+      },
+      {
+        "slug": "Runeforged_Beaded_Circlet",
+        "card": "Runeforged Beaded CircletEnergy Shield: 35Runic Ward: 35Requires:  Level 16, 25 Int"
+      },
+      {
+        "slug": "Runeforged_Chain_Tiara",
+        "card": "Runeforged Chain TiaraEnergy Shield: 47Runic Ward: 48Requires:  Level 26, 38 Int"
+      },
+      {
+        "slug": "Runeforged_Feathered_Tiara",
+        "card": "Runeforged Feathered TiaraEnergy Shield: 54Runic Ward: 49Requires:  Level 33, 48 Int"
+      },
+      {
+        "slug": "Runeforged_Gold_Circlet",
+        "card": "Runeforged Gold CircletEnergy Shield: 62Runic Ward: 55Requires:  Level 40, 58 Int"
+      },
+      {
+        "slug": "Runeforged_Vermeil_Circlet",
+        "card": "Runeforged Vermeil CircletEnergy Shield: 68Runic Ward: 56Requires:  Level 45, 64 Int"
+      },
+      {
+        "slug": "Runeforged_Jade_Tiara",
+        "card": "Runeforged Jade TiaraEnergy Shield: 73Runic Ward: 56Requires:  Level 50, 71 Int"
+      },
+      {
+        "slug": "Runeforged_Sandsworn_Tiara",
+        "card": "Runeforged Sandsworn TiaraEnergy Shield: 75Runic Ward: 48Requires:  Level 54, 77 Int"
+      },
+      {
+        "slug": "Runeforged_Jungle_Tiara",
+        "card": "Runeforged Jungle TiaraEnergy Shield: 67Runic Ward: 104Requires:  Level 59, 83 Int"
+      },
+      {
+        "slug": "Runeforged_Skycrown_Tiara",
+        "card": "Runeforged Skycrown TiaraEnergy Shield: 85Runic Ward: 56Requires:  Level 65, 91 Int"
+      },
+      {
+        "slug": "Runeforged_Sorcerous_Tiara",
+        "card": "Runeforged Sorcerous TiaraEnergy Shield: 70Runic Ward: 113Requires:  Level 70, 99 Int"
+      },
+      {
+        "slug": "Runeforged_Kamasan_Tiara",
+        "card": "Runeforged Kamasan TiaraEnergy Shield: 97Runic Ward: 42Requires:  Level 75, 107 Int"
+      },
+      {
+        "slug": "Runeforged_Ancestral_Tiara",
+        "card": "Runeforged Ancestral TiaraEnergy Shield: 47Runic Ward: 240Requires:  Level 80, 115 Int"
+      },
+      {
+        "slug": "Runemastered_Twig_Circlet",
+        "card": "Runemastered Twig CircletEnergy Shield: 48Runic Ward: 36Requires:  Level 38, 54 Int"
+      },
+      {
+        "slug": "Runemastered_Wicker_Tiara",
+        "card": "Runemastered Wicker TiaraEnergy Shield: 45Runic Ward: 45Requires:  Level 38, 54 Int"
+      },
+      {
+        "slug": "Runemastered_Beaded_Circlet",
+        "card": "Runemastered Beaded CircletEnergy Shield: 24Runic Ward: 72Requires:  Level 38, 54 Int"
+      },
+      {
+        "slug": "Runemastered_Chain_Tiara",
+        "card": "Runemastered Chain TiaraEnergy Shield: 62Requires:  Level 40, 58 Int"
+      },
+      {
+        "slug": "Runemastered_Feathered_Tiara",
+        "card": "Runemastered Feathered TiaraEnergy Shield: 32Runic Ward: 98Requires:  Level 55, 78 Int"
+      },
+      {
+        "slug": "Runemastered_Gold_Circlet",
+        "card": "Runemastered Gold CircletEnergy Shield: 16Runic Ward: 196Requires:  Level 55, 78 Int"
+      },
+      {
+        "slug": "Runemastered_Vermeil_Circlet",
+        "card": "Runemastered Vermeil CircletEnergy Shield: 67Runic Ward: 37Requires:  Level 55, 78 Int"
+      },
+      {
+        "slug": "Runemastered_Jade_Tiara",
+        "card": "Runemastered Jade TiaraEnergy Shield: 45Runic Ward: 141Requires:  Level 65, 91 Int"
+      },
+      {
+        "slug": "Runemastered_Twilight_Tiara",
+        "card": "Runemastered Twilight TiaraEnergy Shield: 72Runic Ward: 56Requires:  Level 65, 91 Int"
+      },
+      {
+        "slug": "Runemastered_Magus_Tiara",
+        "card": "Runemastered Magus TiaraEnergy Shield: 68Runic Ward: 70Requires:  Level 65, 91 Int"
+      }
+    ]
+  },
+  {
+    "page": "Helmets_str_dex",
+    "url": "https://poe2db.tw/us/Helmets_str_dex",
+    "retrievedAt": "2026-10-04T14:44:54.605Z",
+    "sha256": "d0965ddd827fd1cadd2a5dffc67e42af074b828182b2c48d49151ede9b9178ed",
+    "cards": [
+      {
+        "slug": "Brimmed_Helm",
+        "card": "Brimmed HelmArmour: 26Evasion Rating: 20Requires:  Level 5, 7 Str, 7 Dex"
+      },
+      {
+        "slug": "Guarded_Helm",
+        "card": "Guarded HelmArmour: 42Evasion Rating: 34Requires:  Level 11, 11 Str, 11 Dex"
+      },
+      {
+        "slug": "Visored_Helm",
+        "card": "Visored HelmArmour: 54Evasion Rating: 46Requires:  Level 16, 15 Str, 15 Dex"
+      },
+      {
+        "slug": "Cowled_Helm",
+        "card": "Cowled HelmArmour: 80Evasion Rating: 70Requires:  Level 26, 22 Str, 22 Dex"
+      },
+      {
+        "slug": "Shielded_Helm",
+        "card": "Shielded HelmArmour: 97Evasion Rating: 87Requires:  Level 33, 27 Str, 27 Dex"
+      },
+      {
+        "slug": "Closed_Helm",
+        "card": "Closed HelmArmour: 128Evasion Rating: 115Requires:  Level 45, 36 Str, 36 Dex"
+      },
+      {
+        "slug": "Decorated_Helm",
+        "card": "Decorated HelmArmour: 146Evasion Rating: 132Requires:  Level 52, 41 Str, 41 Dex"
+      },
+      {
+        "slug": "Gallant_Helm",
+        "card": "Gallant HelmArmour: 179Evasion Rating: 163Requires:  Level 65, 50 Str, 50 Dex"
+      },
+      {
+        "slug": "Ancient_Visor",
+        "card": "Ancient VisorArmour: 179Evasion Rating: 163Requires:  Level 65, 59 Str, 59 Dex"
+      },
+      {
+        "slug": "Domed_Helm",
+        "card": "Domed HelmArmour: 128Evasion Rating: 115Requires:  Level 45, 36 Str, 36 Dex"
+      },
+      {
+        "slug": "Engraved_Helm",
+        "card": "Engraved HelmArmour: 136Evasion Rating: 122Requires:  Level 48, 38 Str, 38 Dex"
+      },
+      {
+        "slug": "Soldier_Helm",
+        "card": "Soldier HelmArmour: 143Evasion Rating: 129Requires:  Level 51, 40 Str, 40 Dex"
+      },
+      {
+        "slug": "Cabalist_Helm",
+        "card": "Cabalist HelmArmour: 151Evasion Rating: 137Requires:  Level 54, 42 Str, 42 Dex"
+      },
+      {
+        "slug": "Cassis_Helm",
+        "card": "Cassis HelmArmour: 163Evasion Rating: 149Requires:  Level 59, 46 Str, 46 Dex"
+      },
+      {
+        "slug": "Warded_Helm",
+        "card": "Warded HelmArmour: 179Evasion Rating: 163Requires:  Level 65, 50 Str, 50 Dex"
+      },
+      {
+        "slug": "Cryptic_Helm",
+        "card": "Cryptic HelmArmour: 188Evasion Rating: 171Requires:  Level 70, 54 Str, 54 Dex"
+      },
+      {
+        "slug": "Champion_Helm",
+        "card": "Champion HelmArmour: 197Evasion Rating: 179Requires:  Level 75, 59 Str, 59 Dex"
+      },
+      {
+        "slug": "Gladiatorial_Helm",
+        "card": "Gladiatorial HelmArmour: 206Evasion Rating: 187Requires:  Level 80, 63 Str, 63 Dex"
+      },
+      {
+        "slug": "Runeforged_Brimmed_Helm",
+        "card": "Runeforged Brimmed HelmArmour: 26Evasion Rating: 20Runic Ward: 26Requires:  Level 5, 7 Str, 7 Dex"
+      },
+      {
+        "slug": "Runeforged_Guarded_Helm",
+        "card": "Runeforged Guarded HelmArmour: 42Evasion Rating: 34Runic Ward: 32Requires:  Level 11, 11 Str, 11 Dex"
+      },
+      {
+        "slug": "Runeforged_Visored_Helm",
+        "card": "Runeforged Visored HelmArmour: 54Evasion Rating: 46Runic Ward: 35Requires:  Level 16, 15 Str, 15 Dex"
+      },
+      {
+        "slug": "Runeforged_Cowled_Helm",
+        "card": "Runeforged Cowled HelmArmour: 80Evasion Rating: 70Runic Ward: 41Requires:  Level 26, 22 Str, 22 Dex"
+      },
+      {
+        "slug": "Runeforged_Shielded_Helm",
+        "card": "Runeforged Shielded HelmArmour: 97Evasion Rating: 87Runic Ward: 44Requires:  Level 33, 27 Str, 27 Dex"
+      },
+      {
+        "slug": "Runeforged_Closed_Helm",
+        "card": "Runeforged Closed HelmArmour: 128Evasion Rating: 115Runic Ward: 52Requires:  Level 45, 36 Str, 36 Dex"
+      },
+      {
+        "slug": "Runeforged_Cabalist_Helm",
+        "card": "Runeforged Cabalist HelmArmour: 121Evasion Rating: 109Runic Ward: 96Requires:  Level 54, 42 Str, 42 Dex"
+      },
+      {
+        "slug": "Runeforged_Gladiatorial_Helm",
+        "card": "Runeforged Gladiatorial HelmArmour: 150Evasion Rating: 137Runic Ward: 65Requires:  Level 59, 46 Str, 46 Dex"
+      },
+      {
+        "slug": "Runeforged_Warded_Helm",
+        "card": "Runeforged Warded HelmArmour: 172Evasion Rating: 156Runic Ward: 48Requires:  Level 65, 50 Str, 50 Dex"
+      },
+      {
+        "slug": "Runeforged_Cryptic_Helm",
+        "card": "Runeforged Cryptic HelmArmour: 154Evasion Rating: 140Runic Ward: 85Requires:  Level 70, 54 Str, 54 Dex"
+      },
+      {
+        "slug": "Runeforged_Champion_Helm",
+        "card": "Runeforged Champion HelmArmour: 186Evasion Rating: 169Runic Ward: 56Requires:  Level 75, 59 Str, 59 Dex"
+      },
+      {
+        "slug": "Runeforged_Gladiatorial_Helm",
+        "card": "Runeforged Gladiatorial HelmArmour: 86Evasion Rating: 78Runic Ward: 254Requires:  Level 80, 63 Str, 63 Dex"
+      },
+      {
+        "slug": "Runemastered_Brimmed_Helm",
+        "card": "Runemastered Brimmed HelmArmour: 44Evasion Rating: 39Runic Ward: 109Requires:  Level 38, 31 Str, 31 Dex"
+      },
+      {
+        "slug": "Runemastered_Guarded_Helm",
+        "card": "Runemastered Guarded HelmArmour: 275Evasion Rating: 247Runic Ward: 36Requires:  Level 38, 31 Str, 31 Dex"
+      },
+      {
+        "slug": "Runemastered_Visored_Helm",
+        "card": "Runemastered Visored HelmArmour: 77Evasion Rating: 69Runic Ward: 54Requires:  Level 38, 31 Str, 31 Dex"
+      },
+      {
+        "slug": "Runemastered_Cowled_Helm",
+        "card": "Runemastered Cowled HelmArmour: 104Evasion Rating: 93Runic Ward: 19Requires:  Level 40, 32 Str, 32 Dex"
+      },
+      {
+        "slug": "Runemastered_Shielded_Helm",
+        "card": "Runemastered Shielded HelmArmour: 107Evasion Rating: 97Runic Ward: 122Requires:  Level 55, 43 Str, 43 Dex"
+      },
+      {
+        "slug": "Runemastered_Decorated_Helm",
+        "card": "Runemastered Decorated HelmArmour: 161Evasion Rating: 146Runic Ward: 70Requires:  Level 65, 50 Str, 50 Dex"
+      },
+      {
+        "slug": "Runemastered_Ancient_Visor",
+        "card": "Runemastered Ancient VisorArmour: 168Evasion Rating: 153Runic Ward: 59Requires:  Level 65, 59 Str, 59 Dex"
+      }
+    ]
+  },
+  {
+    "page": "Helmets_str_int",
+    "url": "https://poe2db.tw/us/Helmets_str_int",
+    "retrievedAt": "2026-10-04T14:44:55.667Z",
+    "sha256": "235c4745aba36f2564cfd549c793e7dddef480eeb6e3d0fde61d021724300ca1",
+    "cards": [
+      {
+        "slug": "Iron_Crown",
+        "card": "Iron CrownArmour: 26Energy Shield: 13Requires:  Level 5, 7 Str, 7 Int"
+      },
+      {
+        "slug": "Horned_Crown",
+        "card": "Horned CrownArmour: 39Energy Shield: 16Requires:  Level 10, 10 Str, 10 Int"
+      },
+      {
+        "slug": "Cultist_Crown",
+        "card": "Cultist CrownArmour: 54Energy Shield: 19Requires:  Level 16, 15 Str, 15 Int"
+      },
+      {
+        "slug": "Martyr_Crown",
+        "card": "Martyr CrownArmour: 85Energy Shield: 27Requires:  Level 28, 23 Str, 23 Int"
+      },
+      {
+        "slug": "Heavy_Crown",
+        "card": "Heavy CrownArmour: 97Energy Shield: 30Requires:  Level 33, 27 Str, 27 Int"
+      },
+      {
+        "slug": "Spiritbone_Crown",
+        "card": "Spiritbone CrownArmour: 128Energy Shield: 37Requires:  Level 45, 36 Str, 36 Int"
+      },
+      {
+        "slug": "Lavish_Crown",
+        "card": "Lavish CrownArmour: 146Energy Shield: 42Requires:  Level 52, 41 Str, 41 Int"
+      },
+      {
+        "slug": "Archon_Crown",
+        "card": "Archon CrownArmour: 179Energy Shield: 50Requires:  Level 65, 50 Str, 50 Int"
+      },
+      {
+        "slug": "Tenebrous_Crown",
+        "card": "Tenebrous CrownArmour: 179Energy Shield: 50Requires:  Level 65, 59 Str, 59 Int"
+      },
+      {
+        "slug": "Mailed_Crown",
+        "card": "Mailed CrownArmour: 128Energy Shield: 37Requires:  Level 45, 36 Str, 36 Int"
+      },
+      {
+        "slug": "Forest_Crown",
+        "card": "Forest CrownArmour: 136Energy Shield: 39Requires:  Level 48, 38 Str, 38 Int"
+      },
+      {
+        "slug": "Zealot_Crown",
+        "card": "Zealot CrownArmour: 143Energy Shield: 41Requires:  Level 51, 40 Str, 40 Int"
+      },
+      {
+        "slug": "Hallowed_Crown",
+        "card": "Hallowed CrownArmour: 151Energy Shield: 43Requires:  Level 54, 42 Str, 42 Int"
+      },
+      {
+        "slug": "Inquisitor_Crown",
+        "card": "Inquisitor CrownArmour: 163Energy Shield: 46Requires:  Level 59, 46 Str, 46 Int"
+      },
+      {
+        "slug": "Druidic_Crown",
+        "card": "Druidic CrownArmour: 179Energy Shield: 50Requires:  Level 65, 50 Str, 50 Int"
+      },
+      {
+        "slug": "Saintly_Crown",
+        "card": "Saintly CrownArmour: 188Energy Shield: 52Requires:  Level 70, 54 Str, 54 Int"
+      },
+      {
+        "slug": "Divine_Crown",
+        "card": "Divine CrownArmour: 197Energy Shield: 55Requires:  Level 75, 59 Str, 59 Int"
+      },
+      {
+        "slug": "Cryptic_Crown",
+        "card": "Cryptic CrownArmour: 206Energy Shield: 57Requires:  Level 80, 63 Str, 63 Int"
+      },
+      {
+        "slug": "Runeforged_Iron_Crown",
+        "card": "Runeforged Iron CrownArmour: 26Energy Shield: 13Runic Ward: 26Requires:  Level 5, 7 Str, 7 Int"
+      },
+      {
+        "slug": "Runeforged_Horned_Crown",
+        "card": "Runeforged Horned CrownArmour: 39Energy Shield: 16Runic Ward: 30Requires:  Level 10, 10 Str, 10 Int"
+      },
+      {
+        "slug": "Runeforged_Cultist_Crown",
+        "card": "Runeforged Cultist CrownArmour: 54Energy Shield: 19Runic Ward: 35Requires:  Level 16, 15 Str, 15 Int"
+      },
+      {
+        "slug": "Runeforged_Martyr_Crown",
+        "card": "Runeforged Martyr CrownArmour: 85Energy Shield: 27Runic Ward: 43Requires:  Level 28, 23 Str, 23 Int"
+      },
+      {
+        "slug": "Runeforged_Heavy_Crown",
+        "card": "Runeforged Heavy CrownArmour: 97Energy Shield: 30Runic Ward: 44Requires:  Level 33, 27 Str, 27 Int"
+      },
+      {
+        "slug": "Runeforged_Spiritbone_Crown",
+        "card": "Runeforged Spiritbone CrownArmour: 128Energy Shield: 37Runic Ward: 52Requires:  Level 45, 36 Str, 36 Int"
+      },
+      {
+        "slug": "Runeforged_Hallowed_Crown",
+        "card": "Runeforged Hallowed CrownArmour: 127Energy Shield: 36Runic Ward: 84Requires:  Level 54, 42 Str, 42 Int"
+      },
+      {
+        "slug": "Runeforged_Inquisitor_Crown",
+        "card": "Runeforged Inquisitor CrownArmour: 157Energy Shield: 44Runic Ward: 52Requires:  Level 59, 46 Str, 46 Int"
+      },
+      {
+        "slug": "Runeforged_Druidic_Crown",
+        "card": "Runeforged Druidic CrownArmour: 168Energy Shield: 47Runic Ward: 56Requires:  Level 65, 50 Str, 50 Int"
+      },
+      {
+        "slug": "Runeforged_Saintly_Crown",
+        "card": "Runeforged Saintly CrownArmour: 139Energy Shield: 39Runic Ward: 113Requires:  Level 70, 54 Str, 54 Int"
+      },
+      {
+        "slug": "Runeforged_Divine_Crown",
+        "card": "Runeforged Divine CrownArmour: 186Energy Shield: 52Runic Ward: 56Requires:  Level 75, 59 Str, 59 Int"
+      },
+      {
+        "slug": "Runeforged_Cryptic_Crown",
+        "card": "Runeforged Cryptic CrownArmour: 86Energy Shield: 24Runic Ward: 254Requires:  Level 80, 63 Str, 63 Int"
+      },
+      {
+        "slug": "Runemastered_Iron_Crown",
+        "card": "Runemastered Iron CrownArmour: 72Energy Shield: 21Runic Ward: 72Requires:  Level 38, 31 Str, 31 Int"
+      },
+      {
+        "slug": "Runemastered_Horned_Crown",
+        "card": "Runemastered Horned CrownArmour: 83Energy Shield: 25Runic Ward: 54Requires:  Level 38, 31 Str, 31 Int"
+      },
+      {
+        "slug": "Runemastered_Cultist_Crown",
+        "card": "Runemastered Cultist CrownArmour: 165Energy Shield: 50Runic Ward: 49Requires:  Level 38, 31 Str, 31 Int"
+      },
+      {
+        "slug": "Runemastered_Martyr_Crown",
+        "card": "Runemastered Martyr CrownArmour: 66Energy Shield: 20Runic Ward: 81Requires:  Level 40, 32 Str, 32 Int"
+      },
+      {
+        "slug": "Runemastered_Heavy_Crown",
+        "card": "Runemastered Heavy CrownArmour: 77Energy Shield: 22Runic Ward: 122Requires:  Level 55, 43 Str, 43 Int"
+      },
+      {
+        "slug": "Runemastered_Spiritbone_Crown",
+        "card": "Runemastered Spiritbone CrownArmour: 116Energy Shield: 32Runic Ward: 113Requires:  Level 65, 50 Str, 50 IntHas 3 Sockets"
+      },
+      {
+        "slug": "Runemastered_Spiritbone_Crown",
+        "card": "Runemastered Spiritbone CrownArmour: 116Energy Shield: 32Runic Ward: 113Requires:  Level 65, 50 Str, 50 Int(25—50)% increased Runic Ward Regeneration Rate+250 Intelligence Requirement100% reduced Duration of Curses on you"
+      },
+      {
+        "slug": "Runemastered_Spiritbone_Crown",
+        "card": "Runemastered Spiritbone CrownArmour: 116Energy Shield: 32Runic Ward: 113Requires:  Level 65, 50 Str, 50 IntEvery 5 seconds, gain a Verisium Infusion"
+      },
+      {
+        "slug": "Runemastered_Tenebrous_Crown",
+        "card": "Runemastered Tenebrous CrownArmour: 143Energy Shield: 40Runic Ward: 56Requires:  Level 65, 59 Str, 59 Int"
+      }
+    ]
+  },
+  {
+    "page": "Helmets_dex_int",
+    "url": "https://poe2db.tw/us/Helmets_dex_int",
+    "retrievedAt": "2026-10-04T14:44:56.406Z",
+    "sha256": "ab4a75092838436e9ebafb3fa5166a9b4d7b44a0591ac95752a8ffafcde6ab56",
+    "cards": [
+      {
+        "slug": "Hewn_Mask",
+        "card": "Hewn MaskEvasion Rating: 20Energy Shield: 13Requires:  Level 5, 7 Dex, 7 Int"
+      },
+      {
+        "slug": "Face_Mask",
+        "card": "Face MaskEvasion Rating: 32Energy Shield: 16Requires:  Level 10, 10 Dex, 10 Int"
+      },
+      {
+        "slug": "Hooded_Mask",
+        "card": "Hooded MaskEvasion Rating: 46Energy Shield: 19Requires:  Level 16, 15 Dex, 15 Int"
+      },
+      {
+        "slug": "Veiled_Mask",
+        "card": "Veiled MaskEvasion Rating: 75Energy Shield: 27Requires:  Level 28, 23 Dex, 23 Int"
+      },
+      {
+        "slug": "Tribal_Mask",
+        "card": "Tribal MaskEvasion Rating: 87Energy Shield: 30Requires:  Level 33, 27 Dex, 27 Int"
+      },
+      {
+        "slug": "Solid_Mask",
+        "card": "Solid MaskEvasion Rating: 115Energy Shield: 37Requires:  Level 45, 36 Dex, 36 Int"
+      },
+      {
+        "slug": "Shaded_Mask",
+        "card": "Shaded MaskEvasion Rating: 132Energy Shield: 42Requires:  Level 52, 41 Dex, 41 Int"
+      },
+      {
+        "slug": "Death_Mask",
+        "card": "Death MaskEvasion Rating: 163Energy Shield: 50Requires:  Level 65, 50 Dex, 50 Int"
+      },
+      {
+        "slug": "Oak_Mask",
+        "card": "Oak MaskEvasion Rating: 115Energy Shield: 37Requires:  Level 45, 36 Dex, 36 Int"
+      },
+      {
+        "slug": "Bandit_Mask",
+        "card": "Bandit MaskEvasion Rating: 122Energy Shield: 39Requires:  Level 48, 38 Dex, 38 Int"
+      },
+      {
+        "slug": "Skulking_Mask",
+        "card": "Skulking MaskEvasion Rating: 129Energy Shield: 41Requires:  Level 51, 40 Dex, 40 Int"
+      },
+      {
+        "slug": "Pariah_Mask",
+        "card": "Pariah MaskEvasion Rating: 137Energy Shield: 43Requires:  Level 54, 42 Dex, 42 Int"
+      },
+      {
+        "slug": "Avian_Mask",
+        "card": "Avian MaskEvasion Rating: 149Energy Shield: 46Requires:  Level 59, 46 Dex, 46 Int"
+      },
+      {
+        "slug": "Brigand_Mask",
+        "card": "Brigand MaskEvasion Rating: 163Energy Shield: 50Requires:  Level 65, 50 Dex, 50 Int"
+      },
+      {
+        "slug": "Faridun_Mask",
+        "card": "Faridun MaskEvasion Rating: 171Energy Shield: 52Requires:  Level 70, 54 Dex, 54 Int"
+      },
+      {
+        "slug": "Soaring_Mask",
+        "card": "Soaring MaskEvasion Rating: 179Energy Shield: 55Requires:  Level 75, 59 Dex, 59 Int"
+      },
+      {
+        "slug": "Grinning_Mask",
+        "card": "Grinning MaskEvasion Rating: 187Energy Shield: 57Requires:  Level 80, 63 Dex, 63 Int"
+      },
+      {
+        "slug": "Runeforged_Hewn_Mask",
+        "card": "Runeforged Hewn MaskEvasion Rating: 20Energy Shield: 13Runic Ward: 26Requires:  Level 5, 7 Dex, 7 Int"
+      },
+      {
+        "slug": "Runeforged_Face_Mask",
+        "card": "Runeforged Face MaskEvasion Rating: 32Energy Shield: 16Runic Ward: 30Requires:  Level 10, 10 Dex, 10 Int"
+      },
+      {
+        "slug": "Runeforged_Hooded_Mask",
+        "card": "Runeforged Hooded MaskEvasion Rating: 46Energy Shield: 19Runic Ward: 35Requires:  Level 16, 15 Dex, 15 Int"
+      },
+      {
+        "slug": "Runeforged_Veiled_Mask",
+        "card": "Runeforged Veiled MaskEvasion Rating: 75Energy Shield: 27Runic Ward: 43Requires:  Level 28, 23 Dex, 23 Int"
+      },
+      {
+        "slug": "Runeforged_Tribal_Mask",
+        "card": "Runeforged Tribal MaskEvasion Rating: 87Energy Shield: 30Runic Ward: 44Requires:  Level 33, 27 Dex, 27 Int"
+      },
+      {
+        "slug": "Runeforged_Solid_Mask",
+        "card": "Runeforged Solid MaskEvasion Rating: 115Energy Shield: 37Runic Ward: 52Requires:  Level 45, 36 Dex, 36 Int"
+      },
+      {
+        "slug": "Runeforged_Pariah_Mask",
+        "card": "Runeforged Pariah MaskEvasion Rating: 126Energy Shield: 39Runic Ward: 60Requires:  Level 54, 42 Dex, 42 Int"
+      },
+      {
+        "slug": "Runeforged_Avian_Mask",
+        "card": "Runeforged Avian MaskEvasion Rating: 125Energy Shield: 39Runic Ward: 91Requires:  Level 59, 46 Dex, 46 Int"
+      },
+      {
+        "slug": "Runeforged_Brigand_Mask",
+        "card": "Runeforged Brigand MaskEvasion Rating: 160Energy Shield: 49Runic Ward: 42Requires:  Level 65, 50 Dex, 50 Int"
+      },
+      {
+        "slug": "Runeforged_Faridun_Mask",
+        "card": "Runeforged Faridun MaskEvasion Rating: 133Energy Shield: 41Runic Ward: 99Requires:  Level 70, 54 Dex, 54 Int"
+      },
+      {
+        "slug": "Runeforged_Soaring_Mask",
+        "card": "Runeforged Soaring MaskEvasion Rating: 169Energy Shield: 52Runic Ward: 56Requires:  Level 75, 59 Dex, 59 Int"
+      },
+      {
+        "slug": "Runeforged_Grinning_Mask",
+        "card": "Runeforged Grinning MaskEvasion Rating: 78Energy Shield: 24Runic Ward: 254Requires:  Level 80, 63 Dex, 63 Int"
+      },
+      {
+        "slug": "Runemastered_Hewn_Mask",
+        "card": "Runemastered Hewn MaskEvasion Rating: 30Energy Shield: 10Runic Ward: 54Requires:  Level 38, 31 Dex, 31 Int"
+      },
+      {
+        "slug": "Runemastered_Face_Mask",
+        "card": "Runemastered Face MaskEvasion Rating: 118Energy Shield: 40Runic Ward: 18Requires:  Level 38, 31 Dex, 31 Int"
+      },
+      {
+        "slug": "Runemastered_Hooded_Mask",
+        "card": "Runemastered Hooded MaskEvasion Rating: 69Energy Shield: 23Runic Ward: 54Requires:  Level 38, 31 Dex, 31 Int"
+      },
+      {
+        "slug": "Runemastered_Veiled_Mask",
+        "card": "Runemastered Veiled MaskEvasion Rating: 78Energy Shield: 26Runic Ward: 57Requires:  Level 40, 32 Dex, 32 Int"
+      },
+      {
+        "slug": "Runemastered_Tribal_Mask",
+        "card": "Runemastered Tribal MaskEvasion Rating: 105Energy Shield: 33Runic Ward: 47Requires:  Level 52, 41 Dex, 41 Int"
+      },
+      {
+        "slug": "Runemastered_Solid_Mask",
+        "card": "Runemastered Solid MaskEvasion Rating: 125Energy Shield: 39Runic Ward: 37Requires:  Level 55, 43 Dex, 43 Int"
+      },
+      {
+        "slug": "Runemastered_Death_Mask",
+        "card": "Runemastered Death MaskEvasion Rating: 130Energy Shield: 40Runic Ward: 70Requires:  Level 65, 50 Dex, 50 Int"
+      }
+    ]
+  },
+  {
+    "page": "Gloves_str",
+    "url": "https://poe2db.tw/us/Gloves_str",
+    "retrievedAt": "2026-10-04T14:44:58.123Z",
+    "sha256": "2be59d90ebc39e7b954cd3e3129d8dbc68c8b785593beb5905c76340775e762d",
+    "cards": [
+      {
+        "slug": "Stocky_Mitts",
+        "card": "Stocky MittsArmour: 15"
+      },
+      {
+        "slug": "Riveted_Mitts",
+        "card": "Riveted MittsArmour: 38Requires:  Level 11, 16 Str"
+      },
+      {
+        "slug": "Tempered_Mitts",
+        "card": "Tempered MittsArmour: 49Requires:  Level 16, 22 Str"
+      },
+      {
+        "slug": "Bolstered_Mitts",
+        "card": "Bolstered MittsArmour: 75Requires:  Level 27, 35 Str"
+      },
+      {
+        "slug": "Moulded_Mitts",
+        "card": "Moulded MittsArmour: 89Requires:  Level 33, 42 Str"
+      },
+      {
+        "slug": "Detailed_Mitts",
+        "card": "Detailed MittsArmour: 116Requires:  Level 45, 56 Str"
+      },
+      {
+        "slug": "Titan_Mitts",
+        "card": "Titan MittsArmour: 132Requires:  Level 52, 64 Str"
+      },
+      {
+        "slug": "Grand_Mitts",
+        "card": "Grand MittsArmour: 162Requires:  Level 65, 80 Str"
+      },
+      {
+        "slug": "Plated_Mitts",
+        "card": "Plated MittsArmour: 116Requires:  Level 45, 56 Str"
+      },
+      {
+        "slug": "Elegant_Mitts",
+        "card": "Elegant MittsArmour: 130Requires:  Level 51, 64 Str"
+      },
+      {
+        "slug": "Ancient_Mitts",
+        "card": "Ancient MittsArmour: 137Requires:  Level 54, 67 Str"
+      },
+      {
+        "slug": "Feathered_Mitts",
+        "card": "Feathered MittsArmour: 149Requires:  Level 59, 73 Str"
+      },
+      {
+        "slug": "Knightly_Mitts",
+        "card": "Knightly MittsArmour: 162Requires:  Level 65, 80 Str"
+      },
+      {
+        "slug": "Ornate_Mitts",
+        "card": "Ornate MittsArmour: 171Requires:  Level 70, 87 Str"
+      },
+      {
+        "slug": "Vaal_Mitts",
+        "card": "Vaal MittsArmour: 179Requires:  Level 75, 94 Str"
+      },
+      {
+        "slug": "Massive_Mitts",
+        "card": "Massive MittsArmour: 187Requires:  Level 80, 101 Str"
+      },
+      {
+        "slug": "Runeforged_Stocky_Mitts",
+        "card": "Runeforged Stocky MittsArmour: 15Runic Ward: 10"
+      },
+      {
+        "slug": "Runeforged_Riveted_Mitts",
+        "card": "Runeforged Riveted MittsArmour: 38Runic Ward: 16Requires:  Level 11, 16 Str"
+      },
+      {
+        "slug": "Runeforged_Tempered_Mitts",
+        "card": "Runeforged Tempered MittsArmour: 49Runic Ward: 17Requires:  Level 16, 22 Str"
+      },
+      {
+        "slug": "Runeforged_Bolstered_Mitts",
+        "card": "Runeforged Bolstered MittsArmour: 75Runic Ward: 21Requires:  Level 27, 35 Str"
+      },
+      {
+        "slug": "Runeforged_Moulded_Mitts",
+        "card": "Runeforged Moulded MittsArmour: 89Runic Ward: 22Requires:  Level 33, 42 Str"
+      },
+      {
+        "slug": "Runeforged_Detailed_Mitts",
+        "card": "Runeforged Detailed MittsArmour: 116Runic Ward: 26Requires:  Level 45, 56 Str"
+      },
+      {
+        "slug": "Runeforged_Ancient_Mitts",
+        "card": "Runeforged Ancient MittsArmour: 110Runic Ward: 48Requires:  Level 54, 67 Str"
+      },
+      {
+        "slug": "Runeforged_Feathered_Mitts",
+        "card": "Runeforged Feathered MittsArmour: 137Runic Ward: 32Requires:  Level 59, 73 Str"
+      },
+      {
+        "slug": "Runeforged_Knightly_Mitts",
+        "card": "Runeforged Knightly MittsArmour: 153Runic Ward: 28Requires:  Level 65, 80 Str"
+      },
+      {
+        "slug": "Runeforged_Ornate_Mitts",
+        "card": "Runeforged Ornate MittsArmour: 120Runic Ward: 63Requires:  Level 70, 87 Str"
+      },
+      {
+        "slug": "Runeforged_Vaal_Mitts",
+        "card": "Runeforged Vaal MittsArmour: 169Runic Ward: 28Requires:  Level 75, 94 Str"
+      },
+      {
+        "slug": "Runeforged_Massive_Mitts",
+        "card": "Runeforged Massive MittsArmour: 78Runic Ward: 127Requires:  Level 80, 101 Str"
+      },
+      {
+        "slug": "Runemastered_Stocky_Mitts",
+        "card": "Runemastered Stocky MittsArmour: 50Runic Ward: 45Requires:  Level 38, 48 Str"
+      },
+      {
+        "slug": "Runemastered_Riveted_Mitts",
+        "card": "Runemastered Riveted MittsArmour: 80Runic Ward: 23Requires:  Level 38, 48 Str"
+      },
+      {
+        "slug": "Runemastered_Tempered_Mitts",
+        "card": "Runemastered Tempered MittsArmour: 95Runic Ward: 23Requires:  Level 38, 48 Str"
+      },
+      {
+        "slug": "Runemastered_Bolstered_Mitts",
+        "card": "Runemastered Bolstered MittsArmour: 80Runic Ward: 27Requires:  Level 38, 48 Str"
+      },
+      {
+        "slug": "Runemastered_Moulded_Mitts",
+        "card": "Runemastered Moulded MittsArmour: 70Runic Ward: 61Requires:  Level 55, 68 Str"
+      },
+      {
+        "slug": "Runemastered_Titan_Mitts",
+        "card": "Runemastered Titan MittsArmour: 114Runic Ward: 49Requires:  Level 65, 80 Str"
+      }
+    ]
+  },
+  {
+    "page": "Gloves_dex",
+    "url": "https://poe2db.tw/us/Gloves_dex",
+    "retrievedAt": "2026-10-04T14:44:58.843Z",
+    "sha256": "d9fabe186bb708867b42cdb2d322842e037c1b0d8f120a100dd2c9fdf6fa9cba",
+    "cards": [
+      {
+        "slug": "Suede_Bracers",
+        "card": "Suede BracersEvasion Rating: 10"
+      },
+      {
+        "slug": "Firm_Bracers",
+        "card": "Firm BracersEvasion Rating: 31Requires:  Level 11, 16 Dex"
+      },
+      {
+        "slug": "Bound_Bracers",
+        "card": "Bound BracersEvasion Rating: 42Requires:  Level 16, 22 Dex"
+      },
+      {
+        "slug": "Sectioned_Bracers",
+        "card": "Sectioned BracersEvasion Rating: 68Requires:  Level 28, 36 Dex"
+      },
+      {
+        "slug": "Spined_Bracers",
+        "card": "Spined BracersEvasion Rating: 79Requires:  Level 33, 42 Dex"
+      },
+      {
+        "slug": "Fine_Bracers",
+        "card": "Fine BracersEvasion Rating: 105Requires:  Level 45, 56 Dex"
+      },
+      {
+        "slug": "Hardened_Bracers",
+        "card": "Hardened BracersEvasion Rating: 120Requires:  Level 52, 64 Dex"
+      },
+      {
+        "slug": "Engraved_Bracers",
+        "card": "Engraved BracersEvasion Rating: 148Requires:  Level 65, 80 Dex"
+      },
+      {
+        "slug": "Hunting_Bracers",
+        "card": "Hunting BracersEvasion Rating: 105Requires:  Level 45, 56 Dex"
+      },
+      {
+        "slug": "Swift_Bracers",
+        "card": "Swift BracersEvasion Rating: 118Requires:  Level 51, 64 Dex"
+      },
+      {
+        "slug": "Refined_Bracers",
+        "card": "Refined BracersEvasion Rating: 124Requires:  Level 54, 67 Dex"
+      },
+      {
+        "slug": "Spiked_Bracers",
+        "card": "Spiked BracersEvasion Rating: 135Requires:  Level 59, 73 Dex"
+      },
+      {
+        "slug": "Stalking_Bracers",
+        "card": "Stalking BracersEvasion Rating: 148Requires:  Level 65, 80 Dex"
+      },
+      {
+        "slug": "Grand_Bracers",
+        "card": "Grand BracersEvasion Rating: 155Requires:  Level 70, 87 Dex"
+      },
+      {
+        "slug": "Barbed_Bracers",
+        "card": "Barbed BracersEvasion Rating: 163Requires:  Level 75, 94 Dex"
+      },
+      {
+        "slug": "Polished_Bracers",
+        "card": "Polished BracersEvasion Rating: 170Requires:  Level 80, 101 Dex"
+      },
+      {
+        "slug": "Runeforged_Suede_Bracers",
+        "card": "Runeforged Suede BracersEvasion Rating: 10Runic Ward: 10"
+      },
+      {
+        "slug": "Runeforged_Firm_Bracers",
+        "card": "Runeforged Firm BracersEvasion Rating: 31Runic Ward: 16Requires:  Level 11, 16 Dex"
+      },
+      {
+        "slug": "Runeforged_Bound_Bracers",
+        "card": "Runeforged Bound BracersEvasion Rating: 42Runic Ward: 17Requires:  Level 16, 22 Dex"
+      },
+      {
+        "slug": "Runeforged_Sectioned_Bracers",
+        "card": "Runeforged Sectioned BracersEvasion Rating: 68Runic Ward: 22Requires:  Level 28, 36 Dex"
+      },
+      {
+        "slug": "Runeforged_Spined_Bracers",
+        "card": "Runeforged Spined BracersEvasion Rating: 79Runic Ward: 22Requires:  Level 33, 42 Dex"
+      },
+      {
+        "slug": "Runeforged_Fine_Bracers",
+        "card": "Runeforged Fine BracersEvasion Rating: 105Runic Ward: 26Requires:  Level 45, 56 Dex"
+      },
+      {
+        "slug": "Runeforged_Engraved_Bracers",
+        "card": "Runeforged Engraved BracersEvasion Rating: 133Runic Ward: 35Requires:  Level 65, 80 Dex"
+      },
+      {
+        "slug": "Runeforged_Refined_Bracers",
+        "card": "Runeforged Refined BracersEvasion Rating: 119Runic Ward: 24Requires:  Level 54, 67 Dex"
+      },
+      {
+        "slug": "Runeforged_Spiked_Bracers",
+        "card": "Runeforged Spiked BracersEvasion Rating: 113Runic Ward: 45Requires:  Level 59, 73 Dex"
+      },
+      {
+        "slug": "Runeforged_Stalking_Bracers",
+        "card": "Runeforged Stalking BracersEvasion Rating: 139Runic Ward: 28Requires:  Level 65, 80 Dex"
+      },
+      {
+        "slug": "Runeforged_Grand_Bracers",
+        "card": "Runeforged Grand BracersEvasion Rating: 109Runic Ward: 63Requires:  Level 70, 87 Dex"
+      },
+      {
+        "slug": "Runeforged_Barbed_Bracers",
+        "card": "Runeforged Barbed BracersEvasion Rating: 148Runic Ward: 35Requires:  Level 75, 94 Dex"
+      },
+      {
+        "slug": "Runeforged_Polished_Bracers",
+        "card": "Runeforged Polished BracersEvasion Rating: 77Runic Ward: 120Requires:  Level 80, 101 Dex"
+      },
+      {
+        "slug": "Runemastered_Suede_Bracers",
+        "card": "Runemastered Suede BracersEvasion Rating: 63Runic Ward: 20Requires:  Level 38, 48 Dex"
+      },
+      {
+        "slug": "Runemastered_Firm_Bracers",
+        "card": "Runemastered Firm BracersEvasion Rating: 63Runic Ward: 27Requires:  Level 38, 48 Dex"
+      },
+      {
+        "slug": "Runemastered_Sectioned_Bracers",
+        "card": "Runemastered Sectioned BracersEvasion Rating: 76Runic Ward: 18Requires:  Level 38, 48 Dex"
+      },
+      {
+        "slug": "Runemastered_Spined_Bracers",
+        "card": "Runemastered Spined BracersEvasion Rating: 72Runic Ward: 18Requires:  Level 38, 48 Dex"
+      },
+      {
+        "slug": "Runemastered_Fine_Bracers",
+        "card": "Runemastered Fine BracersEvasion Rating: 52Runic Ward: 52Requires:  Level 45, 56 Dex"
+      }
+    ]
+  },
+  {
+    "page": "Gloves_int",
+    "url": "https://poe2db.tw/us/Gloves_int",
+    "retrievedAt": "2026-10-04T14:45:00.456Z",
+    "sha256": "23f8a3066489c943b45375be0646c2e95f439ff5193a50b19d30eea751665518",
+    "cards": [
+      {
+        "slug": "Torn_Gloves",
+        "card": "Torn GlovesEnergy Shield: 9"
+      },
+      {
+        "slug": "Sombre_Gloves",
+        "card": "Sombre GlovesEnergy Shield: 15Requires:  Level 12, 17 Int"
+      },
+      {
+        "slug": "Stitched_Gloves",
+        "card": "Stitched GlovesEnergy Shield: 18Requires:  Level 16, 22 Int"
+      },
+      {
+        "slug": "Jewelled_Gloves",
+        "card": "Jewelled GlovesEnergy Shield: 23Requires:  Level 26, 34 Int"
+      },
+      {
+        "slug": "Intricate_Gloves",
+        "card": "Intricate GlovesEnergy Shield: 27Requires:  Level 33, 42 Int"
+      },
+      {
+        "slug": "Pauascale_Gloves",
+        "card": "Pauascale GlovesEnergy Shield: 34Requires:  Level 45, 56 Int"
+      },
+      {
+        "slug": "Embroidered_Gloves",
+        "card": "Embroidered GlovesEnergy Shield: 38Requires:  Level 52, 64 Int"
+      },
+      {
+        "slug": "Adorned_Gloves",
+        "card": "Adorned GlovesEnergy Shield: 45Requires:  Level 65, 80 Int"
+      },
+      {
+        "slug": "Ominous_Gloves",
+        "card": "Ominous GlovesEnergy Shield: 34Requires:  Level 45, 56 Int"
+      },
+      {
+        "slug": "Embellished_Gloves",
+        "card": "Embellished GlovesEnergy Shield: 37Requires:  Level 51, 64 Int"
+      },
+      {
+        "slug": "Baroque_Gloves",
+        "card": "Baroque GlovesEnergy Shield: 39Requires:  Level 54, 67 Int"
+      },
+      {
+        "slug": "Gold_Gloves",
+        "card": "Gold GlovesEnergy Shield: 42Requires:  Level 59, 73 Int"
+      },
+      {
+        "slug": "Grim_Gloves",
+        "card": "Grim GlovesEnergy Shield: 45Requires:  Level 65, 80 Int"
+      },
+      {
+        "slug": "Opulent_Gloves",
+        "card": "Opulent GlovesEnergy Shield: 48Requires:  Level 70, 87 Int"
+      },
+      {
+        "slug": "Vaal_Gloves",
+        "card": "Vaal GlovesEnergy Shield: 51Requires:  Level 75, 94 Int"
+      },
+      {
+        "slug": "Sirenscale_Gloves",
+        "card": "Sirenscale GlovesEnergy Shield: 54Requires:  Level 80, 101 Int"
+      },
+      {
+        "slug": "Runeforged_Torn_Gloves",
+        "card": "Runeforged Torn GlovesEnergy Shield: 9Runic Ward: 10"
+      },
+      {
+        "slug": "Runeforged_Sombre_Gloves",
+        "card": "Runeforged Sombre GlovesEnergy Shield: 15Runic Ward: 17Requires:  Level 12, 17 Int"
+      },
+      {
+        "slug": "Runeforged_Stitched_Gloves",
+        "card": "Runeforged Stitched GlovesEnergy Shield: 18Runic Ward: 17Requires:  Level 16, 22 Int"
+      },
+      {
+        "slug": "Runeforged_Jewelled_Gloves",
+        "card": "Runeforged Jewelled GlovesEnergy Shield: 23Runic Ward: 20Requires:  Level 26, 34 Int"
+      },
+      {
+        "slug": "Runeforged_Intricate_Gloves",
+        "card": "Runeforged Intricate GlovesEnergy Shield: 27Runic Ward: 22Requires:  Level 33, 42 Int"
+      },
+      {
+        "slug": "Runeforged_Pauascale_Gloves",
+        "card": "Runeforged Pauascale GlovesEnergy Shield: 34Runic Ward: 26Requires:  Level 45, 56 Int"
+      },
+      {
+        "slug": "Runeforged_Baroque_Gloves",
+        "card": "Runeforged Baroque GlovesEnergy Shield: 34Runic Ward: 36Requires:  Level 54, 67 Int"
+      },
+      {
+        "slug": "Runeforged_Gold_Gloves",
+        "card": "Runeforged Gold GlovesEnergy Shield: 33Runic Ward: 52Requires:  Level 59, 73 Int"
+      },
+      {
+        "slug": "Runeforged_Grim_Gloves",
+        "card": "Runeforged Grim GlovesEnergy Shield: 42Runic Ward: 28Requires:  Level 65, 80 Int"
+      },
+      {
+        "slug": "Runeforged_Opulent_Gloves",
+        "card": "Runeforged Opulent GlovesEnergy Shield: 33Runic Ward: 63Requires:  Level 70, 87 Int"
+      },
+      {
+        "slug": "Runeforged_Vaal_Gloves",
+        "card": "Runeforged Vaal GlovesEnergy Shield: 49Runic Ward: 21Requires:  Level 75, 94 Int"
+      },
+      {
+        "slug": "Runeforged_Sirenscale_Gloves",
+        "card": "Runeforged Sirenscale GlovesEnergy Shield: 21Runic Ward: 128Requires:  Level 80, 101 Int"
+      },
+      {
+        "slug": "Runemastered_Torn_Gloves",
+        "card": "Runemastered Torn GlovesEnergy Shield: 18Runic Ward: 36Requires:  Level 38, 48 Int"
+      },
+      {
+        "slug": "Runemastered_Sombre_Gloves",
+        "card": "Runemastered Sombre GlovesEnergy Shield: 24Runic Ward: 18Requires:  Level 39, 49 Int"
+      },
+      {
+        "slug": "Runemastered_Stitched_Gloves",
+        "card": "Runemastered Stitched GlovesEnergy Shield: 30Runic Ward: 23Requires:  Level 38, 48 Int"
+      },
+      {
+        "slug": "Runemastered_Jewelled_Gloves",
+        "card": "Runemastered Jewelled GlovesEnergy Shield: 21Runic Ward: 27Requires:  Level 38, 48 Int"
+      },
+      {
+        "slug": "Runemastered_Intricate_Gloves",
+        "card": "Runemastered Intricate GlovesEnergy Shield: 47Runic Ward: 24Requires:  Level 55, 68 Int"
+      },
+      {
+        "slug": "Runemastered_Pauascale_Gloves",
+        "card": "Runemastered Pauascale GlovesEnergy Shield: 30Runic Ward: 31Requires:  Level 55, 68 Int"
+      },
+      {
+        "slug": "Runemastered_Embroidered_Gloves",
+        "card": "Runemastered Embroidered GlovesEnergy Shield: 26Runic Ward: 35Requires:  Level 52, 64 Int"
+      }
+    ]
+  },
+  {
+    "page": "Gloves_str_dex",
+    "url": "https://poe2db.tw/us/Gloves_str_dex",
+    "retrievedAt": "2026-10-04T14:45:02.632Z",
+    "sha256": "a4d00273961ec3e6f1333a0f2b134f3df1be7aefa30c94a60935221ef21e231d",
+    "cards": [
+      {
+        "slug": "Ringmail_Gauntlets",
+        "card": "Ringmail GauntletsArmour: 14Evasion Rating: 11Requires:  Level 6, 6 Str, 6 Dex"
+      },
+      {
+        "slug": "Layered_Gauntlets",
+        "card": "Layered GauntletsArmour: 27Evasion Rating: 23Requires:  Level 16, 13 Str, 13 Dex"
+      },
+      {
+        "slug": "Doubled_Gauntlets",
+        "card": "Doubled GauntletsArmour: 49Evasion Rating: 43Requires:  Level 33, 24 Str, 24 Dex"
+      },
+      {
+        "slug": "Plate_Gauntlets",
+        "card": "Plate GauntletsArmour: 64Evasion Rating: 58Requires:  Level 45, 32 Str, 32 Dex"
+      },
+      {
+        "slug": "Burnished_Gauntlets",
+        "card": "Burnished GauntletsArmour: 73Evasion Rating: 66Requires:  Level 52, 36 Str, 36 Dex"
+      },
+      {
+        "slug": "Ornate_Gauntlets",
+        "card": "Ornate GauntletsArmour: 89Evasion Rating: 81Requires:  Level 65, 44 Str, 44 Dex"
+      },
+      {
+        "slug": "Ancient_Gauntlets",
+        "card": "Ancient GauntletsArmour: 89Evasion Rating: 81Requires:  Level 70, 52 Str, 52 Dex"
+      },
+      {
+        "slug": "Ironmail_Gauntlets",
+        "card": "Ironmail GauntletsArmour: 64Evasion Rating: 58Requires:  Level 45, 32 Str, 32 Dex"
+      },
+      {
+        "slug": "Captain_Gauntlets",
+        "card": "Captain GauntletsArmour: 72Evasion Rating: 65Requires:  Level 51, 35 Str, 35 Dex"
+      },
+      {
+        "slug": "Zealot_Gauntlets",
+        "card": "Zealot GauntletsArmour: 82Evasion Rating: 74Requires:  Level 59, 41 Str, 41 Dex"
+      },
+      {
+        "slug": "Steelmail_Gauntlets",
+        "card": "Steelmail GauntletsArmour: 89Evasion Rating: 81Requires:  Level 65, 44 Str, 44 Dex"
+      },
+      {
+        "slug": "Commander_Gauntlets",
+        "card": "Commander GauntletsArmour: 94Evasion Rating: 85Requires:  Level 70, 48 Str, 48 Dex"
+      },
+      {
+        "slug": "Cultist_Gauntlets",
+        "card": "Cultist GauntletsArmour: 98Evasion Rating: 90Requires:  Level 75, 52 Str, 52 Dex"
+      },
+      {
+        "slug": "Blacksteel_Gauntlets",
+        "card": "Blacksteel GauntletsArmour: 103Evasion Rating: 94Requires:  Level 80, 55 Str, 55 Dex"
+      },
+      {
+        "slug": "Runeforged_Ringmail_Gauntlets",
+        "card": "Runeforged Ringmail GauntletsArmour: 14Evasion Rating: 11Runic Ward: 12Requires:  Level 6, 6 Str, 6 Dex"
+      },
+      {
+        "slug": "Runeforged_Layered_Gauntlets",
+        "card": "Runeforged Layered GauntletsArmour: 27Evasion Rating: 23Runic Ward: 17Requires:  Level 16, 13 Str, 13 Dex"
+      },
+      {
+        "slug": "Runeforged_Doubled_Gauntlets",
+        "card": "Runeforged Doubled GauntletsArmour: 49Evasion Rating: 43Runic Ward: 24Requires:  Level 33, 24 Str, 24 Dex"
+      },
+      {
+        "slug": "Runeforged_Plate_Gauntlets",
+        "card": "Runeforged Plate GauntletsArmour: 64Evasion Rating: 58Runic Ward: 27Requires:  Level 45, 32 Str, 32 Dex"
+      },
+      {
+        "slug": "Runeforged_Zealot_Gauntlets",
+        "card": "Runeforged Zealot GauntletsArmour: 78Evasion Rating: 71Runic Ward: 26Requires:  Level 59, 41 Str, 41 Dex"
+      },
+      {
+        "slug": "Runeforged_Steelmail_Gauntlets",
+        "card": "Runeforged Steelmail GauntletsArmour: 84Evasion Rating: 76Runic Ward: 28Requires:  Level 65, 44 Str, 44 Dex"
+      },
+      {
+        "slug": "Runeforged_Commander_Gauntlets",
+        "card": "Runeforged Commander GauntletsArmour: 66Evasion Rating: 60Runic Ward: 63Requires:  Level 70, 48 Str, 48 Dex"
+      },
+      {
+        "slug": "Runeforged_Cultist_Gauntlets",
+        "card": "Runeforged Cultist GauntletsArmour: 89Evasion Rating: 81Runic Ward: 35Requires:  Level 75, 52 Str, 52 Dex"
+      },
+      {
+        "slug": "Runeforged_Blacksteel_Gauntlets",
+        "card": "Runeforged Blacksteel GauntletsArmour: 36Evasion Rating: 33Runic Ward: 141Requires:  Level 80, 55 Str, 55 Dex"
+      },
+      {
+        "slug": "Runemastered_Ringmail_Gauntlets",
+        "card": "Runemastered Ringmail GauntletsArmour: 44Evasion Rating: 39Runic Ward: 18Requires:  Level 38, 27 Str, 27 Dex"
+      },
+      {
+        "slug": "Runemastered_Layered_Gauntlets",
+        "card": "Runemastered Layered GauntletsArmour: 52Evasion Rating: 47Runic Ward: 14Requires:  Level 38, 27 Str, 27 Dex"
+      },
+      {
+        "slug": "Runemastered_Doubled_Gauntlets",
+        "card": "Runemastered Doubled GauntletsArmour: 61Evasion Rating: 56Runic Ward: 24Requires:  Level 55, 38 Str, 38 Dex"
+      },
+      {
+        "slug": "Runemastered_Plate_Gauntlets",
+        "card": "Runemastered Plate GauntletsArmour: 69Evasion Rating: 63Runic Ward: 12Requires:  Level 55, 38 Str, 38 Dex"
+      },
+      {
+        "slug": "Runemastered_Burnished_Gauntlets",
+        "card": "Runemastered Burnished GauntletsArmour: 36Evasion Rating: 33Runic Ward: 58Requires:  Level 52, 36 Str, 36 Dex"
+      }
+    ]
+  },
+  {
+    "page": "Gloves_str_int",
+    "url": "https://poe2db.tw/us/Gloves_str_int",
+    "retrievedAt": "2026-10-04T14:45:03.398Z",
+    "sha256": "2147fa9d947dfbea45976fe460408b5001835e6d2c51da289f82503cf661f8d7",
+    "cards": [
+      {
+        "slug": "Rope_Cuffs",
+        "card": "Rope CuffsArmour: 13Energy Shield: 6Requires:  Level 5, 6 Str, 6 Int"
+      },
+      {
+        "slug": "Aged_Cuffs",
+        "card": "Aged CuffsArmour: 27Energy Shield: 10Requires:  Level 16, 13 Str, 13 Int"
+      },
+      {
+        "slug": "Goldcast_Cuffs",
+        "card": "Goldcast CuffsArmour: 49Energy Shield: 15Requires:  Level 33, 24 Str, 24 Int"
+      },
+      {
+        "slug": "Kalguuran_Cuffs",
+        "card": "Kalguuran CuffsArmour: 64Energy Shield: 19Requires:  Level 45, 32 Str, 32 Int"
+      },
+      {
+        "slug": "Righteous_Cuffs",
+        "card": "Righteous CuffsArmour: 73Energy Shield: 21Requires:  Level 52, 36 Str, 36 Int"
+      },
+      {
+        "slug": "Signet_Cuffs",
+        "card": "Signet CuffsArmour: 89Energy Shield: 25Requires:  Level 65, 44 Str, 44 Int"
+      },
+      {
+        "slug": "Braided_Cuffs",
+        "card": "Braided CuffsArmour: 64Energy Shield: 19Requires:  Level 45, 32 Str, 32 Int"
+      },
+      {
+        "slug": "Heirloom_Cuffs",
+        "card": "Heirloom CuffsArmour: 72Energy Shield: 21Requires:  Level 51, 35 Str, 35 Int"
+      },
+      {
+        "slug": "Ornate_Cuffs",
+        "card": "Ornate CuffsArmour: 82Energy Shield: 23Requires:  Level 59, 41 Str, 41 Int"
+      },
+      {
+        "slug": "Bound_Cuffs",
+        "card": "Bound CuffsArmour: 89Energy Shield: 25Requires:  Level 65, 44 Str, 44 Int"
+      },
+      {
+        "slug": "Ancient_Cuffs",
+        "card": "Ancient CuffsArmour: 89Energy Shield: 25Requires:  Level 70, 48 Str, 48 Int"
+      },
+      {
+        "slug": "Gleaming_Cuffs",
+        "card": "Gleaming CuffsArmour: 94Energy Shield: 26Requires:  Level 75, 52 Str, 52 Int"
+      },
+      {
+        "slug": "Adherent_Cuffs",
+        "card": "Adherent CuffsArmour: 98Energy Shield: 27Requires:  Level 80, 55 Str, 55 Int"
+      },
+      {
+        "slug": "Tethering_Bands",
+        "card": "Tethering BandsArmour: 98Energy Shield: 27Requires:  Level 65, 55 Str, 55 Int"
+      },
+      {
+        "slug": "Runeforged_Rope_Cuffs",
+        "card": "Runeforged Rope CuffsArmour: 13Energy Shield: 6Runic Ward: 11Requires:  Level 5, 6 Str, 6 Int"
+      },
+      {
+        "slug": "Runeforged_Aged_Cuffs",
+        "card": "Runeforged Aged CuffsArmour: 27Energy Shield: 10Runic Ward: 17Requires:  Level 16, 13 Str, 13 Int"
+      },
+      {
+        "slug": "Runeforged_Goldcast_Cuffs",
+        "card": "Runeforged Goldcast CuffsArmour: 49Energy Shield: 15Runic Ward: 24Requires:  Level 33, 24 Str, 24 Int"
+      },
+      {
+        "slug": "Runeforged_Kalguuran_Cuffs",
+        "card": "Runeforged Kalguuran CuffsArmour: 64Energy Shield: 19Runic Ward: 27Requires:  Level 45, 32 Str, 32 Int"
+      },
+      {
+        "slug": "Runeforged_Ornate_Cuffs",
+        "card": "Runeforged Ornate CuffsArmour: 69Energy Shield: 19Runic Ward: 45Requires:  Level 59, 41 Str, 41 Int"
+      },
+      {
+        "slug": "Runeforged_Bound_Cuffs",
+        "card": "Runeforged Bound CuffsArmour: 84Energy Shield: 23Runic Ward: 28Requires:  Level 65, 44 Str, 44 Int"
+      },
+      {
+        "slug": "Runeforged_Ancient_Cuffs",
+        "card": "Runeforged Ancient CuffsArmour: 66Energy Shield: 18Runic Ward: 63Requires:  Level 70, 48 Str, 48 Int"
+      },
+      {
+        "slug": "Runeforged_Gleaming_Cuffs",
+        "card": "Runeforged Gleaming CuffsArmour: 93Energy Shield: 26Runic Ward: 28Requires:  Level 75, 52 Str, 52 Int"
+      },
+      {
+        "slug": "Runeforged_Adherent_Cuffs",
+        "card": "Runeforged Adherent CuffsArmour: 39Energy Shield: 11Runic Ward: 134Requires:  Level 80, 55 Str, 55 Int"
+      },
+      {
+        "slug": "Runemastered_Rope_Cuffs",
+        "card": "Runemastered Rope CuffsArmour: 33Energy Shield: 10Runic Ward: 36Requires:  Level 38, 27 Str, 27 Int"
+      },
+      {
+        "slug": "Runemastered_Aged_Cuffs",
+        "card": "Runemastered Aged CuffsArmour: 44Energy Shield: 13Runic Ward: 18Requires:  Level 38, 27 Str, 27 Int"
+      },
+      {
+        "slug": "Runemastered_Goldcast_Cuffs",
+        "card": "Runemastered Goldcast CuffsArmour: 77Energy Shield: 22Runic Ward: 37Requires:  Level 55, 38 Str, 38 Int"
+      },
+      {
+        "slug": "Runemastered_Verisium_Cuffs",
+        "card": "Runemastered Verisium CuffsArmour: 73Energy Shield: 21Runic Ward: 12Requires:  Level 55, 38 Str, 38 Int"
+      }
+    ]
+  },
+  {
+    "page": "Gloves_dex_int",
+    "url": "https://poe2db.tw/us/Gloves_dex_int",
+    "retrievedAt": "2026-10-04T14:45:05.181Z",
+    "sha256": "f10d62d80e4a780140f1018e9f2ca2b93363c1961d3d882adc8a54f23cc027d0",
+    "cards": [
+      {
+        "slug": "Gauze_Wraps",
+        "card": "Gauze WrapsEvasion Rating: 9Energy Shield: 6Requires:  Level 4, 6 Dex, 6 Int"
+      },
+      {
+        "slug": "Linen_Wraps",
+        "card": "Linen WrapsEvasion Rating: 23Energy Shield: 10Requires:  Level 16, 13 Dex, 13 Int"
+      },
+      {
+        "slug": "Spiral_Wraps",
+        "card": "Spiral WrapsEvasion Rating: 43Energy Shield: 15Requires:  Level 33, 24 Dex, 24 Int"
+      },
+      {
+        "slug": "Buckled_Wraps",
+        "card": "Buckled WrapsEvasion Rating: 58Energy Shield: 19Requires:  Level 45, 32 Dex, 32 Int"
+      },
+      {
+        "slug": "Furtive_Wraps",
+        "card": "Furtive WrapsEvasion Rating: 66Energy Shield: 21Requires:  Level 52, 36 Dex, 36 Int"
+      },
+      {
+        "slug": "Utility_Wraps",
+        "card": "Utility WrapsEvasion Rating: 81Energy Shield: 25Requires:  Level 65, 44 Dex, 44 Int"
+      },
+      {
+        "slug": "Bandage_Wraps",
+        "card": "Bandage WrapsEvasion Rating: 58Energy Shield: 19Requires:  Level 45, 32 Dex, 32 Int"
+      },
+      {
+        "slug": "Cambric_Wraps",
+        "card": "Cambric WrapsEvasion Rating: 65Energy Shield: 21Requires:  Level 51, 35 Dex, 35 Int"
+      },
+      {
+        "slug": "Adorned_Wraps",
+        "card": "Adorned WrapsEvasion Rating: 74Energy Shield: 23Requires:  Level 59, 41 Dex, 41 Int"
+      },
+      {
+        "slug": "War_Wraps",
+        "card": "War WrapsEvasion Rating: 94Energy Shield: 29Requires:  Level 65, 44 Dex, 44 Int"
+      },
+      {
+        "slug": "Elegant_Wraps",
+        "card": "Elegant WrapsEvasion Rating: 85Energy Shield: 26Requires:  Level 70, 48 Dex, 48 Int"
+      },
+      {
+        "slug": "Vaal_Wraps",
+        "card": "Vaal WrapsEvasion Rating: 90Energy Shield: 27Requires:  Level 75, 52 Dex, 52 Int"
+      },
+      {
+        "slug": "Secured_Wraps",
+        "card": "Secured WrapsEvasion Rating: 94Energy Shield: 29Requires:  Level 80, 55 Dex, 55 Int"
+      },
+      {
+        "slug": "Runeforged_Gauze_Wraps",
+        "card": "Runeforged Gauze WrapsEvasion Rating: 9Energy Shield: 6Runic Ward: 11Requires:  Level 4, 6 Dex, 6 Int"
+      },
+      {
+        "slug": "Runeforged_Linen_Wraps",
+        "card": "Runeforged Linen WrapsEvasion Rating: 23Energy Shield: 10Runic Ward: 17Requires:  Level 16, 13 Dex, 13 Int"
+      },
+      {
+        "slug": "Runeforged_Spiral_Wraps",
+        "card": "Runeforged Spiral WrapsEvasion Rating: 43Energy Shield: 15Runic Ward: 24Requires:  Level 33, 24 Dex, 24 Int"
+      },
+      {
+        "slug": "Runeforged_Buckled_Wraps",
+        "card": "Runeforged Buckled WrapsEvasion Rating: 58Energy Shield: 19Runic Ward: 27Requires:  Level 45, 32 Dex, 32 Int"
+      },
+      {
+        "slug": "Runeforged_Adorned_Wraps",
+        "card": "Runeforged Adorned WrapsEvasion Rating: 65Energy Shield: 20Runic Ward: 39Requires:  Level 59, 41 Dex, 41 Int"
+      },
+      {
+        "slug": "Runeforged_War_Wraps",
+        "card": "Runeforged War WrapsEvasion Rating: 76Energy Shield: 23Runic Ward: 28Requires:  Level 65, 44 Dex, 44 Int"
+      },
+      {
+        "slug": "Runeforged_Elegant_Wraps",
+        "card": "Runeforged Elegant WrapsEvasion Rating: 60Energy Shield: 18Runic Ward: 63Requires:  Level 70, 48 Dex, 48 Int"
+      },
+      {
+        "slug": "Runeforged_Vaal_Wraps",
+        "card": "Runeforged Vaal WrapsEvasion Rating: 85Energy Shield: 26Runic Ward: 28Requires:  Level 75, 52 Dex, 52 Int"
+      },
+      {
+        "slug": "Runeforged_Secured_Wraps",
+        "card": "Runeforged Secured WrapsEvasion Rating: 34Energy Shield: 10Runic Ward: 138Requires:  Level 80, 55 Dex, 55 Int"
+      },
+      {
+        "slug": "Runemastered_Linen_Wraps",
+        "card": "Runemastered Linen WrapsEvasion Rating: 37Energy Shield: 12Runic Ward: 23Requires:  Level 38, 27 Dex, 27 Int"
+      },
+      {
+        "slug": "Runemastered_Spiral_Wraps",
+        "card": "Runemastered Spiral WrapsEvasion Rating: 38Energy Shield: 12Runic Ward: 67Requires:  Level 55, 38 Dex, 38 Int"
+      },
+      {
+        "slug": "Runemastered_Furtive_Wraps",
+        "card": "Runemastered Furtive WrapsEvasion Rating: 56Energy Shield: 17Runic Ward: 24Requires:  Level 55, 38 Dex, 38 Int"
+      },
+      {
+        "slug": "Runemastered_Utility_Wraps",
+        "card": "Runemastered Utility WrapsEvasion Rating: 49Energy Shield: 15Runic Ward: 56Requires:  Level 65, 44 Dex, 44 Int"
+      }
+    ]
+  },
+  {
+    "page": "Boots_str",
+    "url": "https://poe2db.tw/us/Boots_str",
+    "retrievedAt": "2026-10-04T14:45:07.329Z",
+    "sha256": "e85f82c8680a89e8ba78e3764176fe0e791103d8a3a68e9a689d6d9bb71b823a",
+    "cards": [
+      {
+        "slug": "Rough_Greaves",
+        "card": "Rough GreavesArmour: 22"
+      },
+      {
+        "slug": "Iron_Greaves",
+        "card": "Iron GreavesArmour: 57Requires:  Level 11, 17 Str"
+      },
+      {
+        "slug": "Bronze_Greaves",
+        "card": "Bronze GreavesArmour: 74Requires:  Level 16, 23 Str"
+      },
+      {
+        "slug": "Trimmed_Greaves",
+        "card": "Trimmed GreavesArmour: 112Requires:  Level 27, 38 Str"
+      },
+      {
+        "slug": "Stone_Greaves",
+        "card": "Stone GreavesArmour: 133Requires:  Level 33, 45 Str"
+      },
+      {
+        "slug": "Reefsteel_Greaves",
+        "card": "Reefsteel GreavesArmour: 174Requires:  Level 45, 60 Str"
+      },
+      {
+        "slug": "Monument_Greaves",
+        "card": "Monument GreavesArmour: 199Requires:  Level 52, 69 Str"
+      },
+      {
+        "slug": "Totemic_Greaves",
+        "card": "Totemic GreavesArmour: 244Requires:  Level 65, 86 Str"
+      },
+      {
+        "slug": "Plated_Greaves",
+        "card": "Plated GreavesArmour: 174Requires:  Level 45, 60 Str"
+      },
+      {
+        "slug": "Lionheart_Greaves",
+        "card": "Lionheart GreavesArmour: 195Requires:  Level 51, 68 Str"
+      },
+      {
+        "slug": "Elegant_Greaves",
+        "card": "Elegant GreavesArmour: 206Requires:  Level 54, 72 Str"
+      },
+      {
+        "slug": "Carved_Greaves",
+        "card": "Carved GreavesArmour: 223Requires:  Level 59, 78 Str"
+      },
+      {
+        "slug": "Bulwark_Greaves",
+        "card": "Bulwark GreavesArmour: 244Requires:  Level 65, 86 Str"
+      },
+      {
+        "slug": "Ornate_Greaves",
+        "card": "Ornate GreavesArmour: 256Requires:  Level 70, 93 Str"
+      },
+      {
+        "slug": "Vaal_Greaves",
+        "card": "Vaal GreavesArmour: 268Requires:  Level 75, 101 Str"
+      },
+      {
+        "slug": "Tasalian_Greaves",
+        "card": "Tasalian GreavesArmour: 280Requires:  Level 80, 108 Str"
+      },
+      {
+        "slug": "Runeforged_Rough_Greaves",
+        "card": "Runeforged Rough GreavesArmour: 22Runic Ward: 14"
+      },
+      {
+        "slug": "Runeforged_Iron_Greaves",
+        "card": "Runeforged Iron GreavesArmour: 57Runic Ward: 21Requires:  Level 11, 17 Str"
+      },
+      {
+        "slug": "Runeforged_Bronze_Greaves",
+        "card": "Runeforged Bronze GreavesArmour: 74Runic Ward: 26Requires:  Level 16, 23 Str"
+      },
+      {
+        "slug": "Runeforged_Trimmed_Greaves",
+        "card": "Runeforged Trimmed GreavesArmour: 112Runic Ward: 31Requires:  Level 27, 38 Str"
+      },
+      {
+        "slug": "Runeforged_Stone_Greaves",
+        "card": "Runeforged Stone GreavesArmour: 133Runic Ward: 36Requires:  Level 33, 45 Str"
+      },
+      {
+        "slug": "Runeforged_Reefsteel_Greaves",
+        "card": "Runeforged Reefsteel GreavesArmour: 174Runic Ward: 39Requires:  Level 45, 60 Str"
+      },
+      {
+        "slug": "Runeforged_Elegant_Greaves",
+        "card": "Runeforged Elegant GreavesArmour: 189Runic Ward: 45Requires:  Level 54, 72 Str"
+      },
+      {
+        "slug": "Runeforged_Carved_Greaves",
+        "card": "Runeforged Carved GreavesArmour: 178Runic Ward: 78Requires:  Level 59, 78 Str"
+      },
+      {
+        "slug": "Runeforged_Bulwark_Greaves",
+        "card": "Runeforged Bulwark GreavesArmour: 229Runic Ward: 42Requires:  Level 65, 86 Str"
+      },
+      {
+        "slug": "Runeforged_Ornate_Greaves",
+        "card": "Runeforged Ornate GreavesArmour: 161Runic Ward: 116Requires:  Level 70, 93 Str"
+      },
+      {
+        "slug": "Runeforged_Vaal_Greaves",
+        "card": "Runeforged Vaal GreavesArmour: 253Runic Ward: 42Requires:  Level 75, 101 Str"
+      },
+      {
+        "slug": "Runeforged_Tasalian_Greaves",
+        "card": "Runeforged Tasalian GreavesArmour: 127Runic Ward: 180Requires:  Level 80, 108 Str"
+      },
+      {
+        "slug": "Runemastered_Rough_Greaves",
+        "card": "Runemastered Rough GreavesArmour: 150Runic Ward: 27Requires:  Level 38, 51 Str10% increased Movement Speed"
+      },
+      {
+        "slug": "Runemastered_Iron_Greaves",
+        "card": "Runemastered Iron GreavesArmour: 120Runic Ward: 27Requires:  Level 38, 51 Str5% increased Movement Speed"
+      },
+      {
+        "slug": "Runemastered_Bronze_Greaves",
+        "card": "Runemastered Bronze GreavesArmour: 135Runic Ward: 20Requires:  Level 38, 51 Str5% increased Movement Speed"
+      },
+      {
+        "slug": "Runemastered_Trimmed_Greaves",
+        "card": "Runemastered Trimmed GreavesArmour: 79Runic Ward: 71Requires:  Level 40, 54 Str5% increased Movement Speed"
+      },
+      {
+        "slug": "Runemastered_Stone_Greaves",
+        "card": "Runemastered Stone GreavesArmour: 157Runic Ward: 46Requires:  Level 55, 73 Str"
+      }
+    ]
+  },
+  {
+    "page": "Boots_dex",
+    "url": "https://poe2db.tw/us/Boots_dex",
+    "retrievedAt": "2026-10-04T14:45:09.092Z",
+    "sha256": "5919a663814a2801ee45d1b99b06349c68c0a59cb49809d1625db53a2ef19281",
+    "cards": [
+      {
+        "slug": "Rawhide_Boots",
+        "card": "Rawhide BootsEvasion Rating: 15"
+      },
+      {
+        "slug": "Laced_Boots",
+        "card": "Laced BootsEvasion Rating: 47Requires:  Level 11, 17 Dex"
+      },
+      {
+        "slug": "Embossed_Boots",
+        "card": "Embossed BootsEvasion Rating: 63Requires:  Level 16, 23 Dex"
+      },
+      {
+        "slug": "Steeltoe_Boots",
+        "card": "Steeltoe BootsEvasion Rating: 102Requires:  Level 28, 39 Dex"
+      },
+      {
+        "slug": "Lizardscale_Boots",
+        "card": "Lizardscale BootsEvasion Rating: 118Requires:  Level 33, 45 Dex"
+      },
+      {
+        "slug": "Flared_Boots",
+        "card": "Flared BootsEvasion Rating: 157Requires:  Level 45, 60 Dex"
+      },
+      {
+        "slug": "Leatherplate_Boots",
+        "card": "Leatherplate BootsEvasion Rating: 180Requires:  Level 52, 69 Dex"
+      },
+      {
+        "slug": "Embroidered_Boots",
+        "card": "Embroidered BootsEvasion Rating: 222Requires:  Level 65, 86 Dex"
+      },
+      {
+        "slug": "Bound_Boots",
+        "card": "Bound BootsEvasion Rating: 157Requires:  Level 45, 60 Dex"
+      },
+      {
+        "slug": "Sleek_Boots",
+        "card": "Sleek BootsEvasion Rating: 177Requires:  Level 51, 68 Dex"
+      },
+      {
+        "slug": "Studded_Boots",
+        "card": "Studded BootsEvasion Rating: 186Requires:  Level 54, 72 Dex"
+      },
+      {
+        "slug": "Serpentscale_Boots",
+        "card": "Serpentscale BootsEvasion Rating: 203Requires:  Level 59, 78 Dex"
+      },
+      {
+        "slug": "Cinched_Boots",
+        "card": "Cinched BootsEvasion Rating: 222Requires:  Level 65, 86 Dex"
+      },
+      {
+        "slug": "Cavalry_Boots",
+        "card": "Cavalry BootsEvasion Rating: 233Requires:  Level 70, 93 Dex"
+      },
+      {
+        "slug": "Dragonscale_Boots",
+        "card": "Dragonscale BootsEvasion Rating: 244Requires:  Level 75, 101 Dex"
+      },
+      {
+        "slug": "Drakeskin_Boots",
+        "card": "Drakeskin BootsEvasion Rating: 255Requires:  Level 80, 108 Dex"
+      },
+      {
+        "slug": "Runeforged_Rawhide_Boots",
+        "card": "Runeforged Rawhide BootsEvasion Rating: 15Runic Ward: 14"
+      },
+      {
+        "slug": "Runeforged_Laced_Boots",
+        "card": "Runeforged Laced BootsEvasion Rating: 47Runic Ward: 21Requires:  Level 11, 17 Dex"
+      },
+      {
+        "slug": "Runeforged_Embossed_Boots",
+        "card": "Runeforged Embossed BootsEvasion Rating: 63Runic Ward: 26Requires:  Level 16, 23 Dex"
+      },
+      {
+        "slug": "Runeforged_Steeltoe_Boots",
+        "card": "Runeforged Steeltoe BootsEvasion Rating: 102Runic Ward: 32Requires:  Level 28, 39 Dex"
+      },
+      {
+        "slug": "Runeforged_Lizardscale_Boots",
+        "card": "Runeforged Lizardscale BootsEvasion Rating: 118Runic Ward: 36Requires:  Level 33, 45 Dex"
+      },
+      {
+        "slug": "Runeforged_Flared_Boots",
+        "card": "Runeforged Flared BootsEvasion Rating: 157Runic Ward: 39Requires:  Level 45, 60 Dex"
+      },
+      {
+        "slug": "Runeforged_Studded_Boots",
+        "card": "Runeforged Studded BootsEvasion Rating: 179Runic Ward: 36Requires:  Level 54, 72 Dex"
+      },
+      {
+        "slug": "Runeforged_Serpentscale_Boots",
+        "card": "Runeforged Serpentscale BootsEvasion Rating: 170Runic Ward: 68Requires:  Level 59, 78 Dex"
+      },
+      {
+        "slug": "Runeforged_Cinched_Boots",
+        "card": "Runeforged Cinched BootsEvasion Rating: 209Runic Ward: 42Requires:  Level 65, 86 Dex"
+      },
+      {
+        "slug": "Runeforged_Cavalry_Boots",
+        "card": "Runeforged Cavalry BootsEvasion Rating: 146Runic Ward: 116Requires:  Level 70, 93 Dex"
+      },
+      {
+        "slug": "Runeforged_Dragonscale_Boots",
+        "card": "Runeforged Dragonscale BootsEvasion Rating: 222Runic Ward: 53Requires:  Level 75, 101 Dex"
+      },
+      {
+        "slug": "Runeforged_Drakeskin_Boots",
+        "card": "Runeforged Drakeskin BootsEvasion Rating: 124Runic Ward: 169Requires:  Level 80, 108 Dex"
+      },
+      {
+        "slug": "Runemastered_Laced_Boots",
+        "card": "Runemastered Laced BootsEvasion Rating: 54Runic Ward: 81Requires:  Level 38, 51 Dex5% increased Movement Speed"
+      },
+      {
+        "slug": "Runemastered_Embossed_Boots",
+        "card": "Runemastered Embossed BootsEvasion Rating: 94Runic Ward: 41Requires:  Level 38, 51 Dex5% increased Movement Speed"
+      },
+      {
+        "slug": "Runemastered_Steeltoe_Boots",
+        "card": "Runemastered Steeltoe BootsEvasion Rating: 113Runic Ward: 28Requires:  Level 40, 54 Dex"
+      },
+      {
+        "slug": "Runemastered_Lizardscale_Boots",
+        "card": "Runemastered Lizardscale BootsEvasion Rating: 99Runic Ward: 42Requires:  Level 40, 54 Dex"
+      },
+      {
+        "slug": "Runemastered_Cinched_Boots",
+        "card": "Runemastered Cinched BootsEvasion Rating: 178Runic Ward: 74Requires:  Level 65, 86 Dex"
+      }
+    ]
+  },
+  {
+    "page": "Boots_int",
+    "url": "https://poe2db.tw/us/Boots_int",
+    "retrievedAt": "2026-10-04T14:45:09.854Z",
+    "sha256": "e52e6c15587292a69abb78b7e5a36b17e2878902137c35b0e58bc3b41c05e248",
+    "cards": [
+      {
+        "slug": "Straw_Sandals",
+        "card": "Straw SandalsEnergy Shield: 14"
+      },
+      {
+        "slug": "Wrapped_Sandals",
+        "card": "Wrapped SandalsEnergy Shield: 22Requires:  Level 11, 17 Int"
+      },
+      {
+        "slug": "Lattice_Sandals",
+        "card": "Lattice SandalsEnergy Shield: 27Requires:  Level 16, 23 Int"
+      },
+      {
+        "slug": "Silk_Slippers",
+        "card": "Silk SlippersEnergy Shield: 36Requires:  Level 27, 38 Int"
+      },
+      {
+        "slug": "Feathered_Sandals",
+        "card": "Feathered SandalsEnergy Shield: 41Requires:  Level 33, 45 Int"
+      },
+      {
+        "slug": "Flax_Sandals",
+        "card": "Flax SandalsEnergy Shield: 51Requires:  Level 45, 60 Int"
+      },
+      {
+        "slug": "Studded_Sandals",
+        "card": "Studded SandalsEnergy Shield: 57Requires:  Level 52, 69 Int"
+      },
+      {
+        "slug": "Elaborate_Sandals",
+        "card": "Elaborate SandalsEnergy Shield: 68Requires:  Level 65, 86 Int"
+      },
+      {
+        "slug": "Laced_Sandals",
+        "card": "Laced SandalsEnergy Shield: 51Requires:  Level 45, 60 Int"
+      },
+      {
+        "slug": "Bangled_Sandals",
+        "card": "Bangled SandalsEnergy Shield: 56Requires:  Level 51, 68 Int"
+      },
+      {
+        "slug": "Elegant_Slippers",
+        "card": "Elegant SlippersEnergy Shield: 58Requires:  Level 54, 72 Int"
+      },
+      {
+        "slug": "Dunerunner_Sandals",
+        "card": "Dunerunner SandalsEnergy Shield: 63Requires:  Level 59, 78 Int"
+      },
+      {
+        "slug": "Bound_Sandals",
+        "card": "Bound SandalsEnergy Shield: 68Requires:  Level 65, 86 Int"
+      },
+      {
+        "slug": "Luxurious_Slippers",
+        "card": "Luxurious SlippersEnergy Shield: 73Requires:  Level 70, 93 Int"
+      },
+      {
+        "slug": "Sandsworn_Sandals",
+        "card": "Sandsworn SandalsEnergy Shield: 78Requires:  Level 75, 101 Int"
+      },
+      {
+        "slug": "Sekhema_Sandals",
+        "card": "Sekhema SandalsEnergy Shield: 83Requires:  Level 80, 108 Int"
+      },
+      {
+        "slug": "Runeforged_Straw_Sandals",
+        "card": "Runeforged Straw SandalsEnergy Shield: 14Runic Ward: 14"
+      },
+      {
+        "slug": "Runeforged_Wrapped_Sandals",
+        "card": "Runeforged Wrapped SandalsEnergy Shield: 22Runic Ward: 21Requires:  Level 11, 17 Int"
+      },
+      {
+        "slug": "Runeforged_Lattice_Sandals",
+        "card": "Runeforged Lattice SandalsEnergy Shield: 27Runic Ward: 26Requires:  Level 16, 23 Int"
+      },
+      {
+        "slug": "Runeforged_Silk_Slippers",
+        "card": "Runeforged Silk SlippersEnergy Shield: 36Runic Ward: 31Requires:  Level 27, 38 Int"
+      },
+      {
+        "slug": "Runeforged_Feathered_Sandals",
+        "card": "Runeforged Feathered SandalsEnergy Shield: 41Runic Ward: 36Requires:  Level 33, 45 Int"
+      },
+      {
+        "slug": "Runeforged_Flax_Sandals",
+        "card": "Runeforged Flax SandalsEnergy Shield: 51Runic Ward: 39Requires:  Level 45, 60 Int"
+      },
+      {
+        "slug": "Runeforged_Elegant_Slippers",
+        "card": "Runeforged Elegant SlippersEnergy Shield: 51Runic Ward: 54Requires:  Level 54, 72 Int"
+      },
+      {
+        "slug": "Runeforged_Dunerunner_Sandals",
+        "card": "Runeforged Dunerunner SandalsEnergy Shield: 58Runic Ward: 49Requires:  Level 59, 78 Int"
+      },
+      {
+        "slug": "Runeforged_Bound_Sandals",
+        "card": "Runeforged Bound SandalsEnergy Shield: 64Runic Ward: 42Requires:  Level 65, 86 Int"
+      },
+      {
+        "slug": "Runeforged_Luxurious_Slippers",
+        "card": "Runeforged Luxurious SlippersEnergy Shield: 45Runic Ward: 116Requires:  Level 70, 93 Int"
+      },
+      {
+        "slug": "Runeforged_Sandsworn_Sandals",
+        "card": "Runeforged Sandsworn SandalsEnergy Shield: 69Runic Ward: 49Requires:  Level 75, 101 Int"
+      },
+      {
+        "slug": "Runeforged_Sekhema_Sandals",
+        "card": "Runeforged Sekhema SandalsEnergy Shield: 34Runic Ward: 184Requires:  Level 80, 108 Int"
+      },
+      {
+        "slug": "Runemastered_Straw_Sandals",
+        "card": "Runemastered Straw SandalsEnergy Shield: 45Runic Ward: 34Requires:  Level 38, 51 Int5% increased Movement Speed"
+      },
+      {
+        "slug": "Runemastered_Wrapped_Sandals",
+        "card": "Runemastered Wrapped SandalsEnergy Shield: 41Runic Ward: 41Requires:  Level 38, 51 Int5% increased Movement Speed"
+      },
+      {
+        "slug": "Runemastered_Lattice_Sandals",
+        "card": "Runemastered Lattice SandalsEnergy Shield: 34Runic Ward: 34Requires:  Level 38, 51 Int5% increased Movement Speed"
+      },
+      {
+        "slug": "Runemastered_Silk_Slippers",
+        "card": "Runemastered Silk SlippersEnergy Shield: 36Runic Ward: 54Requires:  Level 38, 51 Int"
+      },
+      {
+        "slug": "Runemastered_Feathered_Sandals",
+        "card": "Runemastered Feathered SandalsEnergy Shield: 33Runic Ward: 42Requires:  Level 40, 54 Int"
+      }
+    ]
+  },
+  {
+    "page": "Boots_str_dex",
+    "url": "https://poe2db.tw/us/Boots_str_dex",
+    "retrievedAt": "2026-10-04T14:45:12.233Z",
+    "sha256": "b503e78407f71bda49d0a1e88485c9f365cf22879392bcecb5021d5260466496",
+    "cards": [
+      {
+        "slug": "Mail_Sabatons",
+        "card": "Mail SabatonsArmour: 22Evasion Rating: 17Requires:  Level 6, 7 Str, 7 Dex"
+      },
+      {
+        "slug": "Braced_Sabatons",
+        "card": "Braced SabatonsArmour: 41Evasion Rating: 35Requires:  Level 16, 14 Str, 14 Dex"
+      },
+      {
+        "slug": "Stacked_Sabatons",
+        "card": "Stacked SabatonsArmour: 73Evasion Rating: 65Requires:  Level 33, 26 Str, 26 Dex"
+      },
+      {
+        "slug": "Covered_Sabatons",
+        "card": "Covered SabatonsArmour: 96Evasion Rating: 86Requires:  Level 45, 34 Str, 34 Dex"
+      },
+      {
+        "slug": "Flexile_Sabatons",
+        "card": "Flexile SabatonsArmour: 109Evasion Rating: 99Requires:  Level 52, 38 Str, 38 Dex"
+      },
+      {
+        "slug": "Bold_Sabatons",
+        "card": "Bold SabatonsArmour: 134Evasion Rating: 122Requires:  Level 65, 47 Str, 47 Dex"
+      },
+      {
+        "slug": "Soldiering_Sabatons",
+        "card": "Soldiering SabatonsArmour: 96Evasion Rating: 86Requires:  Level 45, 34 Str, 34 Dex"
+      },
+      {
+        "slug": "Goldwork_Sabatons",
+        "card": "Goldwork SabatonsArmour: 107Evasion Rating: 97Requires:  Level 51, 38 Str, 38 Dex"
+      },
+      {
+        "slug": "Bastion_Sabatons",
+        "card": "Bastion SabatonsArmour: 123Evasion Rating: 111Requires:  Level 59, 44 Str, 44 Dex"
+      },
+      {
+        "slug": "Veteran_Sabatons",
+        "card": "Veteran SabatonsArmour: 134Evasion Rating: 122Requires:  Level 65, 47 Str, 47 Dex"
+      },
+      {
+        "slug": "Noble_Sabatons",
+        "card": "Noble SabatonsArmour: 141Evasion Rating: 128Requires:  Level 70, 51 Str, 51 Dex"
+      },
+      {
+        "slug": "Fortress_Sabatons",
+        "card": "Fortress SabatonsArmour: 147Evasion Rating: 134Requires:  Level 75, 56 Str, 56 Dex"
+      },
+      {
+        "slug": "Blacksteel_Sabatons",
+        "card": "Blacksteel SabatonsArmour: 154Evasion Rating: 140Requires:  Level 80, 59 Str, 59 Dex"
+      },
+      {
+        "slug": "Runeforged_Mail_Sabatons",
+        "card": "Runeforged Mail SabatonsArmour: 22Evasion Rating: 17Runic Ward: 18Requires:  Level 6, 7 Str, 7 Dex"
+      },
+      {
+        "slug": "Runeforged_Braced_Sabatons",
+        "card": "Runeforged Braced SabatonsArmour: 41Evasion Rating: 35Runic Ward: 26Requires:  Level 16, 14 Str, 14 Dex"
+      },
+      {
+        "slug": "Runeforged_Stacked_Sabatons",
+        "card": "Runeforged Stacked SabatonsArmour: 73Evasion Rating: 65Runic Ward: 34Requires:  Level 33, 26 Str, 26 Dex"
+      },
+      {
+        "slug": "Runeforged_Covered_Sabatons",
+        "card": "Runeforged Covered SabatonsArmour: 96Evasion Rating: 86Runic Ward: 39Requires:  Level 45, 34 Str, 34 Dex"
+      },
+      {
+        "slug": "Runeforged_Bastion_Sabatons",
+        "card": "Runeforged Bastion SabatonsArmour: 118Evasion Rating: 107Runic Ward: 39Requires:  Level 59, 44 Str, 44 Dex"
+      },
+      {
+        "slug": "Runeforged_Veteran_Sabatons",
+        "card": "Runeforged Veteran SabatonsArmour: 133Evasion Rating: 121Runic Ward: 42Requires:  Level 65, 47 Str, 47 Dex"
+      },
+      {
+        "slug": "Runeforged_Noble_Sabatons",
+        "card": "Runeforged Noble SabatonsArmour: 95Evasion Rating: 87Runic Ward: 116Requires:  Level 70, 51 Str, 51 Dex"
+      },
+      {
+        "slug": "Runeforged_Fortress_Sabatons",
+        "card": "Runeforged Fortress SabatonsArmour: 129Evasion Rating: 117Runic Ward: 63Requires:  Level 75, 56 Str, 56 Dex"
+      },
+      {
+        "slug": "Runeforged_Blacksteel_Sabatons",
+        "card": "Runeforged Blacksteel SabatonsArmour: 64Evasion Rating: 59Runic Ward: 190Requires:  Level 80, 59 Str, 59 Dex"
+      },
+      {
+        "slug": "Runemastered_Mail_Sabatons",
+        "card": "Runemastered Mail SabatonsArmour: 50Evasion Rating: 44Runic Ward: 54Requires:  Level 38, 29 Str, 29 Dex5% increased Movement Speed"
+      },
+      {
+        "slug": "Runemastered_Braced_Sabatons",
+        "card": "Runemastered Braced SabatonsArmour: 66Evasion Rating: 59Runic Ward: 34Requires:  Level 38, 29 Str, 29 Dex5% increased Movement Speed"
+      },
+      {
+        "slug": "Runemastered_Stacked_Sabatons",
+        "card": "Runemastered Stacked SabatonsArmour: 173Evasion Rating: 155Runic Ward: 21Requires:  Level 40, 30 Str, 30 Dex10% increased Movement Speed"
+      },
+      {
+        "slug": "Runemastered_Covered_Sabatons",
+        "card": "Runemastered Covered SabatonsArmour: 69Evasion Rating: 63Runic Ward: 73Requires:  Level 55, 41 Str, 41 Dex"
+      }
+    ]
+  },
+  {
+    "page": "Boots_str_int",
+    "url": "https://poe2db.tw/us/Boots_str_int",
+    "retrievedAt": "2026-10-04T14:45:13.917Z",
+    "sha256": "11de8e114925241f742786e51b0949302be0a4aef983bdfc0b1334e3c456c872",
+    "cards": [
+      {
+        "slug": "Padded_Leggings",
+        "card": "Padded LeggingsArmour: 20Energy Shield: 10Requires:  Level 5, 7 Str, 7 Int"
+      },
+      {
+        "slug": "Secured_Leggings",
+        "card": "Secured LeggingsArmour: 41Energy Shield: 15Requires:  Level 16, 14 Str, 14 Int"
+      },
+      {
+        "slug": "Pelt_Leggings",
+        "card": "Pelt LeggingsArmour: 73Energy Shield: 22Requires:  Level 33, 26 Str, 26 Int"
+      },
+      {
+        "slug": "Weaver_Leggings",
+        "card": "Weaver LeggingsArmour: 96Energy Shield: 28Requires:  Level 45, 34 Str, 34 Int"
+      },
+      {
+        "slug": "Gilt_Leggings",
+        "card": "Gilt LeggingsArmour: 109Energy Shield: 31Requires:  Level 52, 38 Str, 38 Int"
+      },
+      {
+        "slug": "Pious_Leggings",
+        "card": "Pious LeggingsArmour: 134Energy Shield: 37Requires:  Level 65, 47 Str, 47 Int"
+      },
+      {
+        "slug": "Ancient_Leggings",
+        "card": "Ancient LeggingsArmour: 134Energy Shield: 37Requires:  Level 65, 56 Str, 56 Int"
+      },
+      {
+        "slug": "Adherent_Leggings",
+        "card": "Adherent LeggingsArmour: 96Energy Shield: 28Requires:  Level 45, 34 Str, 34 Int"
+      },
+      {
+        "slug": "Bound_Leggings",
+        "card": "Bound LeggingsArmour: 107Energy Shield: 31Requires:  Level 51, 38 Str, 38 Int"
+      },
+      {
+        "slug": "Shamanistic_Leggings",
+        "card": "Shamanistic LeggingsArmour: 123Energy Shield: 34Requires:  Level 59, 44 Str, 44 Int"
+      },
+      {
+        "slug": "Faithful_Leggings",
+        "card": "Faithful LeggingsArmour: 134Energy Shield: 37Requires:  Level 65, 47 Str, 47 Int"
+      },
+      {
+        "slug": "Apostle_Leggings",
+        "card": "Apostle LeggingsArmour: 134Energy Shield: 37Requires:  Level 70, 51 Str, 51 Int"
+      },
+      {
+        "slug": "Warlock_Leggings",
+        "card": "Warlock LeggingsArmour: 134Energy Shield: 37Requires:  Level 75, 56 Str, 56 Int"
+      },
+      {
+        "slug": "Cryptic_Leggings",
+        "card": "Cryptic LeggingsArmour: 134Energy Shield: 37Requires:  Level 80, 59 Str, 59 Int"
+      },
+      {
+        "slug": "Runeforged_Padded_Leggings",
+        "card": "Runeforged Padded LeggingsArmour: 20Energy Shield: 10Runic Ward: 17Requires:  Level 5, 7 Str, 7 Int"
+      },
+      {
+        "slug": "Runeforged_Secured_Leggings",
+        "card": "Runeforged Secured LeggingsArmour: 41Energy Shield: 15Runic Ward: 26Requires:  Level 16, 14 Str, 14 Int"
+      },
+      {
+        "slug": "Runeforged_Pelt_Leggings",
+        "card": "Runeforged Pelt LeggingsArmour: 73Energy Shield: 22Runic Ward: 34Requires:  Level 33, 26 Str, 26 Int"
+      },
+      {
+        "slug": "Runeforged_Weaver_Leggings",
+        "card": "Runeforged Weaver LeggingsArmour: 96Energy Shield: 28Runic Ward: 39Requires:  Level 45, 34 Str, 34 Int"
+      },
+      {
+        "slug": "Runeforged_Shamanistic_Leggings",
+        "card": "Runeforged Shamanistic LeggingsArmour: 113Energy Shield: 32Runic Ward: 49Requires:  Level 59, 44 Str, 44 Int"
+      },
+      {
+        "slug": "Runeforged_Faithful_Leggings",
+        "card": "Runeforged Faithful LeggingsArmour: 126Energy Shield: 35Runic Ward: 42Requires:  Level 65, 47 Str, 47 Int"
+      },
+      {
+        "slug": "Runeforged_Apostle_Leggings",
+        "card": "Runeforged Apostle LeggingsArmour: 88Energy Shield: 25Runic Ward: 116Requires:  Level 70, 51 Str, 51 Int"
+      },
+      {
+        "slug": "Runeforged_Warlock_Leggings",
+        "card": "Runeforged Warlock LeggingsArmour: 139Energy Shield: 39Runic Ward: 42Requires:  Level 75, 56 Str, 56 Int"
+      },
+      {
+        "slug": "Runeforged_Cryptic_Leggings",
+        "card": "Runeforged Cryptic LeggingsArmour: 59Energy Shield: 16Runic Ward: 201Requires:  Level 80, 59 Str, 59 Int"
+      },
+      {
+        "slug": "Runemastered_Secured_Leggings",
+        "card": "Runemastered Secured LeggingsArmour: 58Energy Shield: 17Runic Ward: 41Requires:  Level 38, 29 Str, 29 Int5% increased Movement Speed"
+      },
+      {
+        "slug": "Runemastered_Ancient_Leggings",
+        "card": "Runemastered Ancient LeggingsArmour: 107Energy Shield: 30Runic Ward: 53Requires:  Level 65, 56 Str, 56 Int"
+      }
+    ]
+  },
+  {
+    "page": "Boots_dex_int",
+    "url": "https://poe2db.tw/us/Boots_dex_int",
+    "retrievedAt": "2026-10-04T14:45:14.848Z",
+    "sha256": "5404c75f1da984471e6afafcc160cf9027bd4dfc9de2e44c1ed6eab6d96bed30",
+    "cards": [
+      {
+        "slug": "Frayed_Shoes",
+        "card": "Frayed ShoesEvasion Rating: 15Energy Shield: 10Requires:  Level 5, 7 Dex, 7 Int"
+      },
+      {
+        "slug": "Threaded_Shoes",
+        "card": "Threaded ShoesEvasion Rating: 35Energy Shield: 15Requires:  Level 16, 14 Dex, 14 Int"
+      },
+      {
+        "slug": "Hunting_Shoes",
+        "card": "Hunting ShoesEvasion Rating: 65Energy Shield: 22Requires:  Level 33, 26 Dex, 26 Int"
+      },
+      {
+        "slug": "Steelpoint_Shoes",
+        "card": "Steelpoint ShoesEvasion Rating: 86Energy Shield: 28Requires:  Level 45, 34 Dex, 34 Int"
+      },
+      {
+        "slug": "Velour_Shoes",
+        "card": "Velour ShoesEvasion Rating: 99Energy Shield: 31Requires:  Level 52, 38 Dex, 38 Int"
+      },
+      {
+        "slug": "Bladed_Shoes",
+        "card": "Bladed ShoesEvasion Rating: 122Energy Shield: 37Requires:  Level 65, 47 Dex, 47 Int"
+      },
+      {
+        "slug": "Wayfarer_Shoes",
+        "card": "Wayfarer ShoesEvasion Rating: 86Energy Shield: 28Requires:  Level 45, 34 Dex, 34 Int"
+      },
+      {
+        "slug": "Silverbuckled_Shoes",
+        "card": "Silverbuckled ShoesEvasion Rating: 97Energy Shield: 31Requires:  Level 51, 38 Dex, 38 Int"
+      },
+      {
+        "slug": "Treerunner_Shoes",
+        "card": "Treerunner ShoesEvasion Rating: 111Energy Shield: 34Requires:  Level 59, 44 Dex, 44 Int"
+      },
+      {
+        "slug": "Wanderer_Shoes",
+        "card": "Wanderer ShoesEvasion Rating: 122Energy Shield: 37Requires:  Level 65, 47 Dex, 47 Int"
+      },
+      {
+        "slug": "Charmed_Shoes",
+        "card": "Charmed ShoesEvasion Rating: 128Energy Shield: 39Requires:  Level 70, 51 Dex, 51 Int"
+      },
+      {
+        "slug": "Quickslip_Shoes",
+        "card": "Quickslip ShoesEvasion Rating: 134Energy Shield: 41Requires:  Level 75, 56 Dex, 56 Int"
+      },
+      {
+        "slug": "Daggerfoot_Shoes",
+        "card": "Daggerfoot ShoesEvasion Rating: 140Energy Shield: 43Requires:  Level 80, 59 Dex, 59 Int"
+      },
+      {
+        "slug": "Runeforged_Frayed_Shoes",
+        "card": "Runeforged Frayed ShoesEvasion Rating: 15Energy Shield: 10Runic Ward: 17Requires:  Level 5, 7 Dex, 7 Int"
+      },
+      {
+        "slug": "Runeforged_Threaded_Shoes",
+        "card": "Runeforged Threaded ShoesEvasion Rating: 35Energy Shield: 15Runic Ward: 26Requires:  Level 16, 14 Dex, 14 Int"
+      },
+      {
+        "slug": "Runeforged_Hunting_Shoes",
+        "card": "Runeforged Hunting ShoesEvasion Rating: 65Energy Shield: 22Runic Ward: 34Requires:  Level 33, 26 Dex, 26 Int"
+      },
+      {
+        "slug": "Runeforged_Steelpoint_Shoes",
+        "card": "Runeforged Steelpoint ShoesEvasion Rating: 86Energy Shield: 28Runic Ward: 39Requires:  Level 45, 34 Dex, 34 Int"
+      },
+      {
+        "slug": "Runeforged_Treerunner_Shoes",
+        "card": "Runeforged Treerunner ShoesEvasion Rating: 98Energy Shield: 30Runic Ward: 58Requires:  Level 59, 44 Dex, 44 Int"
+      },
+      {
+        "slug": "Runeforged_Wanderer_Shoes",
+        "card": "Runeforged Wanderer ShoesEvasion Rating: 115Energy Shield: 35Runic Ward: 42Requires:  Level 65, 47 Dex, 47 Int"
+      },
+      {
+        "slug": "Runeforged_Charmed_Shoes",
+        "card": "Runeforged Charmed ShoesEvasion Rating: 81Energy Shield: 25Runic Ward: 116Requires:  Level 70, 51 Dex, 51 Int"
+      },
+      {
+        "slug": "Runeforged_Quickslip_Shoes",
+        "card": "Runeforged Quickslip ShoesEvasion Rating: 132Energy Shield: 40Runic Ward: 32Requires:  Level 75, 56 Dex, 56 Int"
+      },
+      {
+        "slug": "Runeforged_Daggerfoot_Shoes",
+        "card": "Runeforged Daggerfoot ShoesEvasion Rating: 56Energy Shield: 17Runic Ward: 194Requires:  Level 80, 59 Dex, 59 Int"
+      },
+      {
+        "slug": "Runemastered_Threaded_Shoes",
+        "card": "Runemastered Threaded ShoesEvasion Rating: 55Energy Shield: 19Runic Ward: 34Requires:  Level 38, 29 Dex, 29 Int5% increased Movement Speed"
+      },
+      {
+        "slug": "Runemastered_Hunting_Shoes",
+        "card": "Runemastered Hunting ShoesEvasion Rating: 70Energy Shield: 23Runic Ward: 28Requires:  Level 40, 30 Dex, 30 Int"
+      },
+      {
+        "slug": "Runemastered_Velour_Shoes",
+        "card": "Runemastered Velour ShoesEvasion Rating: 85Energy Shield: 26Runic Ward: 63Requires:  Level 65, 47 Dex, 47 Int"
+      }
+    ]
+  },
+  {
+    "page": "Bows",
+    "url": "https://poe2db.tw/us/Bows",
+    "retrievedAt": "2026-10-04T14:53:04.526Z",
+    "sha256": "3628ad75aa5a9a1eb568f659069f2f5499101afa9a3f046e28f9e672cc8bc74f",
+    "cards": [
+      {
+        "slug": "Crude_Bow",
+        "card": "Crude BowPhysical Damage: 6-9Critical Hit Chance: 5%Attacks per Second: 1.2"
+      },
+      {
+        "slug": "Shortbow",
+        "card": "ShortbowPhysical Damage: 7-14Critical Hit Chance: 5%Attacks per Second: 1.25Requires:  Level 5, 12 Dex"
+      },
+      {
+        "slug": "Warden_Bow",
+        "card": "Warden BowPhysical Damage: 12-20Critical Hit Chance: 5%Attacks per Second: 1.15Requires:  Level 11, 23 Dex(25—35)% chance to Chain an additional time"
+      },
+      {
+        "slug": "Recurve_Bow",
+        "card": "Recurve BowPhysical Damage: 15-31Critical Hit Chance: 5%Attacks per Second: 1.1Requires:  Level 16, 31 Dex"
+      },
+      {
+        "slug": "Composite_Bow",
+        "card": "Composite BowPhysical Damage: 19-31Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 22, 41 Dex"
+      },
+      {
+        "slug": "Dualstring_Bow",
+        "card": "Dualstring BowPhysical Damage: 19-35Critical Hit Chance: 5%Attacks per Second: 1.15Requires:  Level 28, 52 Dex+50% Surpassing chance to fire an additional Arrow"
+      },
+      {
+        "slug": "Cultist_Bow",
+        "card": "Cultist BowPhysical Damage: 22-36Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 33, 60 Dexlocal weapon implicit hidden added maximum chaos damage [19]\nlocal weapon implicit hidden added minimum chaos damage [7]"
+      },
+      {
+        "slug": "Zealot_Bow",
+        "card": "Zealot BowPhysical Damage: 31-47Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 39, 70 Dex"
+      },
+      {
+        "slug": "Artillery_Bow",
+        "card": "Artillery BowPhysical Damage: 39-72Critical Hit Chance: 5%Attacks per Second: 1.1Requires:  Level 45, 80 Dex50% reduced Projectile Range"
+      },
+      {
+        "slug": "Tribal_Bow",
+        "card": "Tribal BowPhysical Damage: 38-57Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 50, 89 Dex"
+      },
+      {
+        "slug": "Greatbow",
+        "card": "GreatbowPhysical Damage: 40-82Critical Hit Chance: 6.5%Attacks per Second: 1.15Requires:  Level 52, 92 Str, 92 Dex"
+      },
+      {
+        "slug": "Double_Limb_Bow",
+        "card": "Double Limb BowPhysical Damage: 42-63Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 56, 99 Dex"
+      },
+      {
+        "slug": "Heavy_Bow",
+        "card": "Heavy BowPhysical Damage: 45-75Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 65, 114 Dex"
+      },
+      {
+        "slug": "Snakewood_Shortbow",
+        "card": "Snakewood ShortbowPhysical Damage: 29-54Critical Hit Chance: 5%Attacks per Second: 1.25Requires:  Level 45, 80 Dex"
+      },
+      {
+        "slug": "Protector_Bow",
+        "card": "Protector BowPhysical Damage: 35-53Critical Hit Chance: 5%Attacks per Second: 1.15Requires:  Level 48, 86 Dex(25—35)% chance to Chain an additional time"
+      },
+      {
+        "slug": "Rider_Bow",
+        "card": "Rider BowPhysical Damage: 36-61Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 51, 91 Dex"
+      },
+      {
+        "slug": "Twin_Bow",
+        "card": "Twin BowPhysical Damage: 32-60Critical Hit Chance: 5%Attacks per Second: 1.15Requires:  Level 54, 96 Dex+50% Surpassing chance to fire an additional Arrow"
+      },
+      {
+        "slug": "Adherent_Bow",
+        "card": "Adherent BowPhysical Damage: 35-59Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 59, 104 Dexlocal weapon implicit hidden added maximum chaos damage [32]\nlocal weapon implicit hidden added minimum chaos damage [14]"
+      },
+      {
+        "slug": "Militant_Bow",
+        "card": "Militant BowPhysical Damage: 46-69Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 62, 109 Dex"
+      },
+      {
+        "slug": "Runeforged_Crude_Bow",
+        "card": "Runeforged Crude BowChaos Damage: 42-62Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 55, 97 Dexlocal weapon implicit hidden % base damage is chaos [100]"
+      },
+      {
+        "slug": "Runeforged_Shortbow",
+        "card": "Runeforged ShortbowPhysical Damage: 30-56Critical Hit Chance: 5%Attacks per Second: 1.25Requires:  Level 38, 68 Dex"
+      },
+      {
+        "slug": "Runeforged_Shortbow",
+        "card": "Runeforged ShortbowPhysical Damage: 44-81Critical Hit Chance: 5%Attacks per Second: 1.4Requires:  Level 55, 97 DexProjectiles have 50% chance for an additional Projectile when Forking"
+      },
+      {
+        "slug": "Runeforged_Warden_Bow",
+        "card": "Runeforged Warden BowPhysical Damage: 38-63Critical Hit Chance: 5%Attacks per Second: 1.15Requires:  Level 40, 72 Dex(25—35)% chance to Chain an additional time"
+      },
+      {
+        "slug": "Runeforged_Recurve_Bow",
+        "card": "Runeforged Recurve BowPhysical Damage: 41-84Critical Hit Chance: 5%Attacks per Second: 1.1Requires:  Level 40, 72 Dex"
+      },
+      {
+        "slug": "Runeforged_Composite_Bow",
+        "card": "Runeforged Composite BowPhysical Damage: 53-88Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 55, 97 Dex"
+      },
+      {
+        "slug": "Runeforged_Dualstring_Bow",
+        "card": "Runeforged Dualstring BowPhysical Damage: 45-83Critical Hit Chance: 6.5%Attacks per Second: 1.15Requires:  Level 55, 97 Dex+50% Surpassing chance to fire an additional Arrow"
+      },
+      {
+        "slug": "Runeforged_Zealot_Bow",
+        "card": "Runeforged Zealot BowPhysical Damage: 44-67Critical Hit Chance: 10%Attacks per Second: 1.2Requires:  Level 55, 97 Dexlocal weapon implicit hidden added maximum chaos damage [19]\nlocal weapon implicit hidden added minimum chaos damage [7]"
+      },
+      {
+        "slug": "Ironwood_Shortbow",
+        "card": "Ironwood ShortbowPhysical Damage: 41-76Critical Hit Chance: 5%Attacks per Second: 1.25Requires:  Level 67, 134 Dex"
+      },
+      {
+        "slug": "Cavalry_Bow",
+        "card": "Cavalry BowPhysical Damage: 49-82Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 72, 149 Dex"
+      },
+      {
+        "slug": "Guardian_Bow",
+        "card": "Guardian BowPhysical Damage: 53-88Critical Hit Chance: 5%Attacks per Second: 1.15Requires:  Level 77, 163 Dex(25—35)% chance to Chain an additional time"
+      },
+      {
+        "slug": "Gemini_Bow",
+        "card": "Gemini BowPhysical Damage: 39-72Critical Hit Chance: 5%Attacks per Second: 1.15Requires:  Level 78, 163 Dex+50% Surpassing chance to fire an additional Arrow"
+      },
+      {
+        "slug": "Fanatic_Bow",
+        "card": "Fanatic BowPhysical Damage: 47-79Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 79, 163 Dexlocal weapon implicit hidden added maximum chaos damage [64]\nlocal weapon implicit hidden added minimum chaos damage [28]"
+      },
+      {
+        "slug": "Warmonger_Bow",
+        "card": "Warmonger BowPhysical Damage: 56-84Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 77, 163 Dex"
+      },
+      {
+        "slug": "Obliterator_Bow",
+        "card": "Obliterator BowPhysical Damage: 62-115Critical Hit Chance: 5%Attacks per Second: 1.1Requires:  Level 78, 163 Dex50% reduced Projectile Range"
+      },
+      {
+        "slug": "Heartwood_Shortbow",
+        "card": "Heartwood ShortbowPhysical Damage: 41-76Critical Hit Chance: 5%Attacks per Second: 1.25Requires:  Level 67, 134 Dex"
+      }
+    ]
+  },
+  {
+    "page": "Wands",
+    "url": "https://poe2db.tw/us/Wands",
+    "retrievedAt": "2026-10-04T14:53:04.849Z",
+    "sha256": "02480ae3454a7f7904668644629e9d035cfef48c60640d06b5ff3e29e538e47f",
+    "cards": [
+      {
+        "slug": "Withered_Wand",
+        "card": "Withered Wand Grants Skill: Chaos Bolt"
+      },
+      {
+        "slug": "Bone_Wand",
+        "card": "Bone WandRequires:  Level 2 Grants Skill: Bone Blast"
+      },
+      {
+        "slug": "Attuned_Wand",
+        "card": "Attuned WandRequires:  Level 2 Grants Skill: Mana Drain"
+      },
+      {
+        "slug": "Siphoning_Wand",
+        "card": "Siphoning WandRequires:  Level 11, 23 Int Grants Skill: Power Siphon"
+      },
+      {
+        "slug": "Volatile_Wand",
+        "card": "Volatile WandRequires:  Level 16, 31 Int Grants Skill: Volatile Dead"
+      },
+      {
+        "slug": "Galvanic_Wand",
+        "card": "Galvanic WandRequires:  Level 25, 46 Int Grants Skill: Galvanic Field"
+      },
+      {
+        "slug": "Acrid_Wand",
+        "card": "Acrid WandRequires:  Level 33, 60 Int Grants Skill: Decompose"
+      },
+      {
+        "slug": "Offering_Wand",
+        "card": "Offering WandRequires:  Level 38, 68 Int Grants Skill: Exsanguinate"
+      },
+      {
+        "slug": "Frigid_Wand",
+        "card": "Frigid WandRequires:  Level 45, 80 Int Grants Skill: Chaos Bolt"
+      },
+      {
+        "slug": "Torture_Wand",
+        "card": "Torture WandRequires:  Level 49, 87 Int Grants Skill: Chaos Bolt"
+      },
+      {
+        "slug": "Critical_Wand",
+        "card": "Critical WandRequires:  Level 52, 92 Int Grants Skill: Chaos Bolt"
+      },
+      {
+        "slug": "Primordial_Wand",
+        "card": "Primordial WandRequires:  Level 56, 99 Int Grants Skill: Wither"
+      },
+      {
+        "slug": "Dueling_Wand",
+        "card": "Dueling WandRequires:  Level 65, 114 Int Grants Skill: Spellslinger"
+      },
+      {
+        "slug": "Twisted_Wand",
+        "card": "Twisted WandRequires:  Level 65, 114 Int Grants Skill: Coiling Bolts"
+      },
+      {
+        "slug": "Runic_Fork",
+        "card": "Runic ForkRequires:  Level 65, 114 Int"
+      },
+      {
+        "slug": "Runemastered_Runic_Fork",
+        "card": "Runemastered Runic ForkRequires:  Level 65, 114 Int(30—50)% chance for Spell Skills to fire 2 additional Projectiles"
+      },
+      {
+        "slug": "Runemastered_Runic_Fork",
+        "card": "Runemastered Runic ForkRequires:  Level 65, 114 Int(30—50)% increased Mana Regeneration Rate"
+      },
+      {
+        "slug": "Runemastered_Runic_Fork",
+        "card": "Runemastered Runic ForkRequires:  Level 65, 114 Int+300 to maximum Runic Ward"
+      }
+    ]
+  },
+  {
+    "page": "Sceptres",
+    "url": "https://poe2db.tw/us/Sceptres",
+    "retrievedAt": "2026-10-04T14:53:05.285Z",
+    "sha256": "52061252ab8ba278ecfaa50bbe630a5cdef9c6a46684bae8de244060167d869f",
+    "cards": [
+      {
+        "slug": "Rattling_Sceptre",
+        "card": "Rattling SceptreSpirit: 100 Grants Skill: Skeletal Warrior"
+      },
+      {
+        "slug": "Stoic_Sceptre",
+        "card": "Stoic SceptreSpirit: 100Requires:  Level 6, 12 Int Grants Skill: Discipline"
+      },
+      {
+        "slug": "Lupine_Sceptre",
+        "card": "Lupine SceptreSpirit: 100Requires:  Level 12, 24 Int Grants Skill: Skeletal Warrior"
+      },
+      {
+        "slug": "Omen_Sceptre",
+        "card": "Omen SceptreSpirit: 100Requires:  Level 16, 12 Str, 25 Int Grants Skill: Malice"
+      },
+      {
+        "slug": "Ochre_Sceptre",
+        "card": "Ochre SceptreSpirit: 100Requires:  Level 21, 40 Int Grants Skill: Skeletal Warrior"
+      },
+      {
+        "slug": "Shrine_Sceptre",
+        "card": "Shrine SceptreSpirit: 100Requires:  Level 26, 17 Str, 38 Int Grants Skill: Purity of Fire"
+      },
+      {
+        "slug": "Shrine_Sceptre",
+        "card": "Shrine SceptreSpirit: 100Requires:  Level 26, 17 Str, 38 Int Grants Skill: Purity of Ice"
+      },
+      {
+        "slug": "Shrine_Sceptre",
+        "card": "Shrine SceptreSpirit: 100Requires:  Level 26, 17 Str, 38 Int Grants Skill: Purity of Lightning"
+      },
+      {
+        "slug": "Devouring_Sceptre",
+        "card": "Devouring SceptreSpirit: 100Requires:  Level 33, 60 Int Grants Skill: Skeletal Warrior"
+      },
+      {
+        "slug": "Clasped_Sceptre",
+        "card": "Clasped SceptreSpirit: 100Requires:  Level 36, 65 Int Grants Skill: Heart of Ice"
+      },
+      {
+        "slug": "Devotional_Sceptre",
+        "card": "Devotional SceptreSpirit: 100Requires:  Level 45, 26 Str, 63 Int Grants Skill: Skeletal Warrior"
+      },
+      {
+        "slug": "Wrath_Sceptre",
+        "card": "Wrath SceptreSpirit: 100Requires:  Level 49, 87 Int Grants Skill: Fulmination"
+      },
+      {
+        "slug": "Aromatic_Sceptre",
+        "card": "Aromatic SceptreSpirit: 100Requires:  Level 52, 92 Int Grants Skill: Skeletal Warrior"
+      },
+      {
+        "slug": "Pious_Sceptre",
+        "card": "Pious SceptreSpirit: 100Requires:  Level 58, 102 Int Grants Skill: Skeletal Warrior"
+      },
+      {
+        "slug": "Hallowed_Sceptre",
+        "card": "Hallowed SceptreSpirit: 100Requires:  Level 65, 114 Int Grants Skill: Skeletal Warrior"
+      },
+      {
+        "slug": "Shrine_Sceptre",
+        "card": "Shrine SceptreSpirit: 100Requires:  Level 26, 17 Str, 38 Int Grants Skill: Impurity"
+      }
+    ]
+  },
+  {
+    "page": "Rings",
+    "url": "https://poe2db.tw/us/Rings",
+    "retrievedAt": "2026-10-04T14:53:05.721Z",
+    "sha256": "eb8bcbc9d87841a43502f5ba95ca3afa016c0c8481e401b2901f2beac933f95f",
+    "cards": [
+      {
+        "slug": "Golden_Hoop",
+        "card": "Golden HoopRequires:  Level 12+(8—12) to all Attributes"
+      },
+      {
+        "slug": "Iron_Ring",
+        "card": "Iron RingAdds 1 to 4 Physical Damage to Attacks"
+      },
+      {
+        "slug": "Lazuli_Ring",
+        "card": "Lazuli Ring+(20—30) to maximum Mana"
+      },
+      {
+        "slug": "Ruby_Ring",
+        "card": "Ruby RingRequires:  Level 8+(20—30)% to Fire Resistance"
+      },
+      {
+        "slug": "Sapphire_Ring",
+        "card": "Sapphire RingRequires:  Level 12+(20—30)% to Cold Resistance"
+      },
+      {
+        "slug": "Topaz_Ring",
+        "card": "Topaz RingRequires:  Level 16+(20—30)% to Lightning Resistance"
+      },
+      {
+        "slug": "Amethyst_Ring",
+        "card": "Amethyst RingRequires:  Level 20+(7—13)% to Chaos Resistance"
+      },
+      {
+        "slug": "Emerald_Ring",
+        "card": "Emerald RingRequires:  Level 26+(120—160) to Accuracy Rating"
+      },
+      {
+        "slug": "Pearl_Ring",
+        "card": "Pearl RingRequires:  Level 32(7—10)% increased Cast Speed"
+      },
+      {
+        "slug": "Prismatic_Ring",
+        "card": "Prismatic RingRequires:  Level 35+(7—10)% to all Elemental Resistances"
+      },
+      {
+        "slug": "Gold_Ring",
+        "card": "Gold RingRequires:  Level 40(6—15)% increased Rarity of Items found"
+      },
+      {
+        "slug": "Unset_Ring",
+        "card": "Unset RingRequires:  Level 44Grants 1 additional Skill Slots"
+      },
+      {
+        "slug": "Abyssal_Signet",
+        "card": "Abyssal SignetRequires:  Level 40Inflict Abyssal Wasting on Hit"
+      },
+      {
+        "slug": "Two-Stone_Ring",
+        "card": "Two-Stone RingRequires:  Level 35+(12—16)% to Fire and Cold Resistances"
+      },
+      {
+        "slug": "Two-Stone_Ring",
+        "card": "Two-Stone RingRequires:  Level 35+(12—16)% to Fire and Lightning Resistances"
+      },
+      {
+        "slug": "Two-Stone_Ring",
+        "card": "Two-Stone RingRequires:  Level 35+(12—16)% to Cold and Lightning Resistances"
+      },
+      {
+        "slug": "Biostatic_Ring",
+        "card": "Biostatic RingRequires:  Level 52+1% to all maximum Resistances"
+      },
+      {
+        "slug": "Vitalic_Ring",
+        "card": "Vitalic RingRequires:  Level 40(4—6)% increased maximum Life"
+      },
+      {
+        "slug": "Mnemonic_Ring",
+        "card": "Mnemonic RingRequires:  Level 40(4—6)% increased maximum Mana"
+      },
+      {
+        "slug": "Kinetic_Ring",
+        "card": "Kinetic RingRequires:  Level 40Adds (6—9) to (11—15) Physical Damage to Attacks"
+      },
+      {
+        "slug": "Oneiric_Ring",
+        "card": "Oneiric RingRequires:  Level 47(11—23)% increased Chaos Damage"
+      },
+      {
+        "slug": "Grasping_Ring",
+        "card": "Grasping RingRequires:  Level 40This item gains bonuses from Socketed Items as though it was Gloves"
+      },
+      {
+        "slug": "Ring",
+        "card": "Ring"
+      },
+      {
+        "slug": "Dusk_Ring",
+        "card": "Dusk Ring+1 Prefix Modifier allowed\n-1 Suffix Modifier allowed"
+      },
+      {
+        "slug": "Gloam_Ring",
+        "card": "Gloam Ring-1 Prefix Modifier allowed\n+1 Suffix Modifier allowed"
+      },
+      {
+        "slug": "Penumbra_Ring",
+        "card": "Penumbra Ring+2 Prefix Modifiers allowed\n-2 Suffix Modifiers allowed"
+      },
+      {
+        "slug": "Tenebrous_Ring",
+        "card": "Tenebrous Ring-2 Prefix Modifiers allowed\n+2 Suffix Modifiers allowed"
+      },
+      {
+        "slug": "Breach_Ring",
+        "card": "Breach RingRequires:  Level 40+20% to Maximum Quality"
+      },
+      {
+        "slug": "Refined_Breach_Ring",
+        "card": "Refined Breach RingRequires:  Level 40+25% to Maximum Quality"
+      }
+    ]
+  },
+  {
+    "page": "Amulets",
+    "url": "https://poe2db.tw/us/Amulets",
+    "retrievedAt": "2026-10-04T14:53:06.363Z",
+    "sha256": "3d4d07f1a10ae9c3d8bdf9d304605db6943a199af0639c742a0f182093cdb1d6",
+    "cards": [
+      {
+        "slug": "Crimson_Amulet",
+        "card": "Crimson Amulet(2—4) Life Regeneration per second"
+      },
+      {
+        "slug": "Azure_Amulet",
+        "card": "Azure Amulet(20—30)% increased Mana Regeneration Rate"
+      },
+      {
+        "slug": "Amber_Amulet",
+        "card": "Amber AmuletRequires:  Level 8+(10—15) to Strength"
+      },
+      {
+        "slug": "Jade_Amulet",
+        "card": "Jade AmuletRequires:  Level 8+(10—15) to Dexterity"
+      },
+      {
+        "slug": "Lapis_Amulet",
+        "card": "Lapis AmuletRequires:  Level 8+(10—15) to Intelligence"
+      },
+      {
+        "slug": "Lunar_Amulet",
+        "card": "Lunar AmuletRequires:  Level 14+(20—30) to maximum Energy Shield"
+      },
+      {
+        "slug": "Bloodstone_Amulet",
+        "card": "Bloodstone AmuletRequires:  Level 18+(30—40) to maximum Life"
+      },
+      {
+        "slug": "Stellar_Amulet",
+        "card": "Stellar AmuletRequires:  Level 25+(5—7) to all Attributes"
+      },
+      {
+        "slug": "Solar_Amulet",
+        "card": "Solar AmuletRequires:  Level 30+(10—15) to Spirit"
+      },
+      {
+        "slug": "Gold_Amulet",
+        "card": "Gold AmuletRequires:  Level 35(12—20)% increased Rarity of Items found"
+      },
+      {
+        "slug": "Pearlescent_Amulet",
+        "card": "Pearlescent AmuletRequires:  Level 8+(7—10)% to all Elemental Resistances"
+      },
+      {
+        "slug": "Veridical_Chain",
+        "card": "Veridical ChainRequires:  Level 52+(30—40) to maximum Runic Ward"
+      },
+      {
+        "slug": "Runemastered_Veridical_Chain",
+        "card": "Runemastered Veridical ChainRequires:  Level 65+(30—40) to maximum Runic Ward+(2—3)% to Maximum Cold Resistance"
+      },
+      {
+        "slug": "Runemastered_Veridical_Chain",
+        "card": "Runemastered Veridical ChainRequires:  Level 65+(30—40) to maximum Runic Ward+(1—2) to Level of all Cold Skills"
+      },
+      {
+        "slug": "Runemastered_Veridical_Chain",
+        "card": "Runemastered Veridical ChainRequires:  Level 65(15—20)% increased maximum Runic Ward"
+      },
+      {
+        "slug": "Lament_Amulet",
+        "card": "Lament AmuletRequires:  Level 42 Grants Skill: Level 11 Arctic Armour Grants Skill: Level 11 Herald of Ash Grants Skill: Level 11 Herald of Ice Grants Skill: Level 11 Herald of Thunder Grants Skill: Level 11 Plague Bearer Grants Skill: Level 11 Barrier Invocation Grants Skill: Level 11 Lingering Illusion Grants Skill: Level 11 Ghost Dance Grants Skill: Level 11 Mana Remnants Grants Skill: Level 11 Magma Barrier Grants Skill: Level 11 Raging Spirits Grants Skill: Level 11 Wind Dancer Grants Skill: Level 11 Cast on Minion Death Grants Skill: Level 11 Scavenged Plating Grants Skill: Level 11 War Banner Grants Skill: Level 11 Defiance Banner Grants Skill: Level 11 Dread Banner Grants Skill: Level 11 Time of Need Grants Skill: Level 11 Attrition Grants Skill: Level 11 Charge Regulation Grants Skill: Level 11 Shard Scavenger Grants Skill: Level 11 Overwhelming Presence Grants Skill: Level 11 Alchemist's Boon Grants Skill: Level 11 Reaper's Invocation Grants Skill: Level 11 Berserk Grants Skill: Level 11 Herald of Plague Grants Skill: Level 11 Herald of Blood Grants Skill: Level 11 Withering Presence Grants Skill: Level 11 Ravenous Swarm Grants Skill: Level 11 Combat Frenzy Grants Skill: Level 11 Trail of Caltrops Grants Skill: Level 11 Convalescence Grants Skill: Level 11 Iron Ward Grants Skill: Level 11 Siphon Elements Grants Skill: Level 11 Briarpatch Grants Skill: Level 11 Savage Fury Grants Skill: Level 11 Barkskin-1 Prefix Modifier allowed"
+      },
+      {
+        "slug": "Portent_Amulet",
+        "card": "Portent AmuletRequires:  Level 42 Grants Skill: Level 11 Wolf Pack Grants Skill: Level 11 Blink Grants Skill: Level 11 Elemental Invocation Grants Skill: Level 11 Elemental Conflux Grants Skill: Level 11 Sacrifice Grants Skill: Level 11 Mirage Archer Grants Skill: Level 11 Feral Invocation-1 Suffix Modifier allowed"
+      },
+      {
+        "slug": "Absent_Amulet",
+        "card": "Absent AmuletRequires:  Level 50 Grants Skill: Level 12 Cast on Elemental Ailment Grants Skill: Level 12 Cast on Critical Grants Skill: Level 12 Cast on Dodge Grants Skill: Level 12 Rhoa Mount Grants Skill: Level 12 Archmage Grants Skill: Level 12 Trinity Grants Skill: Level 12 Eternal Rage-1 Prefix Modifier allowed\n-1 Suffix Modifier allowed"
+      },
+      {
+        "slug": "Corona_Amulet",
+        "card": "Corona AmuletRequires:  Level 40This item gains bonuses from Socketed Items as though it was a Helmet"
+      },
+      {
+        "slug": "Dusk_Amulet",
+        "card": "Dusk Amulet+1 Prefix Modifier allowed\n-1 Suffix Modifier allowed"
+      },
+      {
+        "slug": "Gloam_Amulet",
+        "card": "Gloam Amulet-1 Prefix Modifier allowed\n+1 Suffix Modifier allowed"
+      },
+      {
+        "slug": "Penumbra_Amulet",
+        "card": "Penumbra Amulet+2 Prefix Modifiers allowed\n-2 Suffix Modifiers allowed"
+      },
+      {
+        "slug": "Tenebrous_Amulet",
+        "card": "Tenebrous Amulet-2 Prefix Modifiers allowed\n+2 Suffix Modifiers allowed"
+      },
+      {
+        "slug": "Twisted_Amulet",
+        "card": "Twisted Amulet-1 Prefix Modifier allowed"
+      },
+      {
+        "slug": "Distorted_Amulet",
+        "card": "Distorted Amulet-1 Suffix Modifier allowed"
+      }
+    ]
+  },
+  {
+    "page": "Belts",
+    "url": "https://poe2db.tw/us/Belts",
+    "retrievedAt": "2026-10-04T14:53:06.689Z",
+    "sha256": "be6a88f28069d8e2d4e6413ace182474bf4f8801db79961128c9e9b830fb7c8c",
+    "cards": [
+      {
+        "slug": "Golden_Obi",
+        "card": "Golden ObiRequires:  Level 12Has (1—3) Charm Slots(20—30)% increased Rarity of Items found"
+      },
+      {
+        "slug": "Rawhide_Belt",
+        "card": "Rawhide BeltHas (1—3) Charm Slots(20—30)% increased Life Recovery from Flasks"
+      },
+      {
+        "slug": "Linen_Belt",
+        "card": "Linen BeltHas (1—3) Charm Slots(20—30)% increased Mana Recovery from Flasks"
+      },
+      {
+        "slug": "Wide_Belt",
+        "card": "Wide BeltRequires:  Level 14Has (1—3) Charm Slots(20—30)% increased Flask Charges gained"
+      },
+      {
+        "slug": "Long_Belt",
+        "card": "Long BeltRequires:  Level 20Has (1—3) Charm Slots(15—20)% increased Charm Effect Duration"
+      },
+      {
+        "slug": "Plate_Belt",
+        "card": "Plate BeltRequires:  Level 25Has (1—3) Charm Slots+(140—180) to Armour"
+      },
+      {
+        "slug": "Ornate_Belt",
+        "card": "Ornate BeltRequires:  Level 31Has (1—3) Charm Slots(10—15)% reduced Charm Charges used"
+      },
+      {
+        "slug": "Mail_Belt",
+        "card": "Mail BeltRequires:  Level 40Has (1—3) Charm Slots(10—15)% reduced Flask Charges used"
+      },
+      {
+        "slug": "Double_Belt",
+        "card": "Double BeltRequires:  Level 44Has (1—3) Charm Slots(20—30)% increased Charm Charges gained"
+      },
+      {
+        "slug": "Heavy_Belt",
+        "card": "Heavy BeltRequires:  Level 50Has (1—3) Charm Slots(20—30)% increased Stun Threshold"
+      },
+      {
+        "slug": "Runemastered_Heavy_Belt",
+        "card": "Runemastered Heavy BeltRequires:  Level 65Has (1—3) Charm Slots(20—30)% increased Stun Threshold(15—25)% Life Recovery from Flasks also applies to Runic Ward"
+      },
+      {
+        "slug": "Runemastered_Heavy_Belt",
+        "card": "Runemastered Heavy BeltRequires:  Level 65Has (1—3) Charm Slots(20—30)% increased Stun Threshold(20—40)% increased Runic Ward Regeneration Rate"
+      },
+      {
+        "slug": "Runemastered_Heavy_Belt",
+        "card": "Runemastered Heavy BeltRequires:  Level 65Has (1—3) Charm Slots(20—30)% increased Stun ThresholdRunic Ward recovery can Overflow maximum Runic Ward"
+      },
+      {
+        "slug": "Runemastered_Heavy_Belt",
+        "card": "Runemastered Heavy BeltRequires:  Level 65Has (1—3) Charm Slots(20—30)% increased Stun ThresholdFlasks gain (0.5—1) charges per Second"
+      },
+      {
+        "slug": "Utility_Belt",
+        "card": "Utility BeltRequires:  Level 55Has (1—3) Charm Slots20% of Flask Recovery applied Instantly"
+      },
+      {
+        "slug": "Fine_Belt",
+        "card": "Fine BeltRequires:  Level 62Has (1—3) Charm SlotsFlasks gain 0.17 charges per Second"
+      },
+      {
+        "slug": "Stalking_Belt",
+        "card": "Stalking BeltRequires:  Level 50Has (1—3) Charm SlotsHas 1 Charm SlotsThis item gains bonuses from Socketed Items as though it was Boots"
+      },
+      {
+        "slug": "Invoking_Belt",
+        "card": "Invoking BeltRequires:  Level 32Has (1—3) Charm SlotsHas 1 Charm Slots(8—12)% increased Cast Speed"
+      },
+      {
+        "slug": "Sinew_Belt",
+        "card": "Sinew BeltRequires:  Level 32Has (1—3) Charm SlotsHas 1 Charm Slots+(15—20) to Strength"
+      },
+      {
+        "slug": "Forking_Belt",
+        "card": "Forking BeltRequires:  Level 32Has (1—3) Charm SlotsHas 1 Charm SlotsAdds 1 to (20—30) Lightning damage to Attacks"
+      }
+    ]
+  }
+]

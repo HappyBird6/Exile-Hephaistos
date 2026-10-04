@@ -1,0 +1,228 @@
+{
+  "page": "Body_Armours_int",
+  "url": "https://poe2db.tw/us/Body_Armours_int",
+  "retrievedAt": "2026-10-04T14:44:30.931Z",
+  "sha256": "1b988bc47b6ed70db204173cc399630c0da296f894b529e768e72cdde2e7359f",
+  "cards": [
+    {
+      "slug": "Tattered_Robe",
+      "card": "Tattered RobeEnergy Shield: 28Base Movement Speed: -0.03"
+    },
+    {
+      "slug": "Feathered_Robe",
+      "card": "Feathered RobeEnergy Shield: 35Base Movement Speed: -0.03Requires:  Level 5, 11 Int"
+    },
+    {
+      "slug": "Hexers_Robe",
+      "card": "Hexer's RobeEnergy Shield: 45Base Movement Speed: -0.03Requires:  Level 11, 21 Int"
+    },
+    {
+      "slug": "Bone_Raiment",
+      "card": "Bone RaimentEnergy Shield: 54Base Movement Speed: -0.03Requires:  Level 16, 28 Int"
+    },
+    {
+      "slug": "Silk_Robe",
+      "card": "Silk RobeEnergy Shield: 64Base Movement Speed: -0.03Requires:  Level 22, 37 Int"
+    },
+    {
+      "slug": "Keth_Raiment",
+      "card": "Keth RaimentEnergy Shield: 74Base Movement Speed: -0.03Requires:  Level 28, 47 Int"
+    },
+    {
+      "slug": "Votive_Raiment",
+      "card": "Votive RaimentEnergy Shield: 83Base Movement Speed: -0.03Requires:  Level 33, 54 Int"
+    },
+    {
+      "slug": "Altar_Robe",
+      "card": "Altar RobeEnergy Shield: 95Base Movement Speed: -0.03Requires:  Level 40, 65 Int"
+    },
+    {
+      "slug": "Elementalist_Robe",
+      "card": "Elementalist RobeEnergy Shield: 103Base Movement Speed: -0.03Requires:  Level 45, 72 Int"
+    },
+    {
+      "slug": "Mystic_Raiment",
+      "card": "Mystic RaimentEnergy Shield: 110Base Movement Speed: -0.03Requires:  Level 49, 78 Int"
+    },
+    {
+      "slug": "Imperial_Robe",
+      "card": "Imperial RobeEnergy Shield: 115Base Movement Speed: -0.03Requires:  Level 52, 83 Int"
+    },
+    {
+      "slug": "Plated_Raiment",
+      "card": "Plated RaimentEnergy Shield: 126Base Movement Speed: -0.03Requires:  Level 58, 92 Int"
+    },
+    {
+      "slug": "Havoc_Raiment",
+      "card": "Havoc RaimentEnergy Shield: 138Base Movement Speed: -0.03Requires:  Level 65, 121 Int"
+    },
+    {
+      "slug": "Enlightened_Robe",
+      "card": "Enlightened RobeEnergy Shield: 138Base Movement Speed: -0.03Requires:  Level 68, 121 Int(40—50)% increased Mana Regeneration Rate"
+    },
+    {
+      "slug": "Arcane_Raiment",
+      "card": "Arcane RaimentEnergy Shield: 138Base Movement Speed: -0.03Requires:  Level 73, 121 Int(20—25)% increased Energy Shield Recharge Rate"
+    },
+    {
+      "slug": "Runemastered_Grasping_Mail",
+      "card": "Runemastered Grasping MailEnergy Shield: 117Base Movement Speed: -0.04Runic Ward: 150Requires:  Level 65, 112 IntCan roll Ring ModifiersCatalysts can be applied to this item"
+    },
+    {
+      "slug": "Avian_Robe",
+      "card": "Avian RobeEnergy Shield: 103Base Movement Speed: -0.03Requires:  Level 45, 72 Int"
+    },
+    {
+      "slug": "Cursespeakers_Robe",
+      "card": "Cursespeaker's RobeEnergy Shield: 109Base Movement Speed: -0.03Requires:  Level 48, 77 Int"
+    },
+    {
+      "slug": "Luxurious_Robe",
+      "card": "Luxurious RobeEnergy Shield: 114Base Movement Speed: -0.03Requires:  Level 51, 82 Int"
+    },
+    {
+      "slug": "River_Raiment",
+      "card": "River RaimentEnergy Shield: 119Base Movement Speed: -0.03Requires:  Level 54, 86 Int"
+    },
+    {
+      "slug": "Adherents_Raiment",
+      "card": "Adherent's RaimentEnergy Shield: 127Base Movement Speed: -0.03Requires:  Level 59, 94 Int"
+    },
+    {
+      "slug": "Ceremonial_Robe",
+      "card": "Ceremonial RobeEnergy Shield: 132Base Movement Speed: -0.03Requires:  Level 62, 98 Int"
+    },
+    {
+      "slug": "Vile_Robe",
+      "card": "Vile RobeEnergy Shield: 171Base Movement Speed: -0.03Requires:  Level 65, 121 Int"
+    },
+    {
+      "slug": "Flowing_Raiment",
+      "card": "Flowing RaimentEnergy Shield: 153Base Movement Speed: -0.03Requires:  Level 70, 121 Int(40—50)% increased Mana Regeneration Rate"
+    },
+    {
+      "slug": "Sacramental_Robe",
+      "card": "Sacramental RobeEnergy Shield: 153Base Movement Speed: -0.03Requires:  Level 75, 121 Int(20—25)% increased Energy Shield Recharge Rate"
+    },
+    {
+      "slug": "Feathered_Raiment",
+      "card": "Feathered RaimentEnergy Shield: 153Base Movement Speed: -0.03Requires:  Level 80, 121 Int(5—10)% of Damage is taken from Mana before Life"
+    },
+    {
+      "slug": "Runeforged_Tattered_Robe",
+      "card": "Runeforged Tattered RobeEnergy Shield: 28Base Movement Speed: -0.03Runic Ward: 29"
+    },
+    {
+      "slug": "Runeforged_Feathered_Robe",
+      "card": "Runeforged Feathered RobeEnergy Shield: 35Base Movement Speed: -0.03Runic Ward: 35Requires:  Level 5, 11 Int"
+    },
+    {
+      "slug": "Runeforged_Hexers_Robe",
+      "card": "Runeforged Hexer's RobeEnergy Shield: 45Base Movement Speed: -0.03Runic Ward: 43Requires:  Level 11, 21 Int"
+    },
+    {
+      "slug": "Runeforged_Bone_Raiment",
+      "card": "Runeforged Bone RaimentEnergy Shield: 54Base Movement Speed: -0.03Runic Ward: 53Requires:  Level 16, 28 Int"
+    },
+    {
+      "slug": "Runeforged_Silk_Robe",
+      "card": "Runeforged Silk RobeEnergy Shield: 64Base Movement Speed: -0.03Runic Ward: 65Requires:  Level 22, 37 Int"
+    },
+    {
+      "slug": "Runeforged_Keth_Raiment",
+      "card": "Runeforged Keth RaimentEnergy Shield: 74Base Movement Speed: -0.03Runic Ward: 66Requires:  Level 28, 47 Int"
+    },
+    {
+      "slug": "Runeforged_Votive_Raiment",
+      "card": "Runeforged Votive RaimentEnergy Shield: 83Base Movement Speed: -0.03Runic Ward: 69Requires:  Level 33, 54 Int"
+    },
+    {
+      "slug": "Runeforged_Altar_Robe",
+      "card": "Runeforged Altar RobeEnergy Shield: 95Base Movement Speed: -0.03Runic Ward: 75Requires:  Level 40, 65 Int"
+    },
+    {
+      "slug": "Runeforged_Elementalist_Robe",
+      "card": "Runeforged Elementalist RobeEnergy Shield: 103Base Movement Speed: -0.03Runic Ward: 76Requires:  Level 45, 72 Int"
+    },
+    {
+      "slug": "Runeforged_Mystic_Raiment",
+      "card": "Runeforged Mystic RaimentEnergy Shield: 110Base Movement Speed: -0.03Runic Ward: 68Requires:  Level 49, 78 Int"
+    },
+    {
+      "slug": "Runeforged_River_Raiment",
+      "card": "Runeforged River RaimentEnergy Shield: 114Base Movement Speed: -0.03Runic Ward: 73Requires:  Level 54, 86 Int"
+    },
+    {
+      "slug": "Runeforged_Adherents_Raiment",
+      "card": "Runeforged Adherent's RaimentEnergy Shield: 107Base Movement Speed: -0.03Runic Ward: 138Requires:  Level 59, 94 Int"
+    },
+    {
+      "slug": "Runeforged_Ceremonial_Robe",
+      "card": "Runeforged Ceremonial RobeEnergy Shield: 117Base Movement Speed: -0.03Runic Ward: 103Requires:  Level 62, 98 Int"
+    },
+    {
+      "slug": "Runeforged_Vile_Robe",
+      "card": "Runeforged Vile RobeEnergy Shield: 66Base Movement Speed: -0.03Runic Ward: 387Requires:  Level 65, 121 Int"
+    },
+    {
+      "slug": "Runeforged_Flowing_Raiment",
+      "card": "Runeforged Flowing RaimentEnergy Shield: 91Base Movement Speed: -0.03Runic Ward: 236Requires:  Level 70, 121 Int(30—40)% increased Runic Ward Regeneration Rate"
+    },
+    {
+      "slug": "Runeforged_Sacramental_Robe",
+      "card": "Runeforged Sacramental RobeEnergy Shield: 142Base Movement Speed: -0.03Runic Ward: 64Requires:  Level 75, 121 Int(20—25)% increased Energy Shield Recharge Rate"
+    },
+    {
+      "slug": "Runeforged_Feathered_Raiment",
+      "card": "Runeforged Feathered RaimentEnergy Shield: 132Base Movement Speed: -0.03Runic Ward: 133Requires:  Level 80, 121 Int(5—10)% of Damage is taken from Mana before Life"
+    },
+    {
+      "slug": "Runemastered_Tattered_Robe",
+      "card": "Runemastered Tattered RobeEnergy Shield: 9Base Movement Speed: -0.03Runic Ward: 138Requires:  Level 38, 61 Int"
+    },
+    {
+      "slug": "Runemastered_Feathered_Robe",
+      "card": "Runemastered Feathered RobeEnergy Shield: 55Base Movement Speed: -0.03Runic Ward: 99Requires:  Level 38, 61 Int"
+    },
+    {
+      "slug": "Runemastered_Hexers_Robe",
+      "card": "Runemastered Hexer's RobeEnergy Shield: 64Base Movement Speed: -0.03Runic Ward: 83Requires:  Level 38, 61 Int"
+    },
+    {
+      "slug": "Runemastered_Bone_Raiment",
+      "card": "Runemastered Bone RaimentEnergy Shield: 46Base Movement Speed: -0.03Runic Ward: 138Requires:  Level 38, 61 Int"
+    },
+    {
+      "slug": "Runemastered_Silk_Robe",
+      "card": "Runemastered Silk RobeEnergy Shield: 27Base Movement Speed: -0.03Runic Ward: 110Requires:  Level 38, 61 Int"
+    },
+    {
+      "slug": "Runemastered_Keth_Raiment",
+      "card": "Runemastered Keth RaimentEnergy Shield: 73Base Movement Speed: -0.03Runic Ward: 55Requires:  Level 38, 61 Int"
+    },
+    {
+      "slug": "Runemastered_Votive_Raiment",
+      "card": "Runemastered Votive RaimentEnergy Shield: 48Base Movement Speed: -0.03Runic Ward: 186Requires:  Level 55, 87 Int"
+    },
+    {
+      "slug": "Runemastered_Altar_Robe",
+      "card": "Runemastered Altar RobeEnergy Shield: 72Base Movement Speed: -0.03Runic Ward: 149Requires:  Level 55, 87 Int"
+    },
+    {
+      "slug": "Runemastered_Elementalist_Robe",
+      "card": "Runemastered Elementalist RobeEnergy Shield: 96Base Movement Speed: -0.03Runic Ward: 75Requires:  Level 55, 87 Int"
+    },
+    {
+      "slug": "Runemastered_Plated_Raiment",
+      "card": "Runemastered Plated RaimentEnergy Shield: 124Base Movement Speed: -0.03Runic Ward: 43Requires:  Level 65, 103 Int"
+    },
+    {
+      "slug": "Runemastered_Havoc_Raiment",
+      "card": "Runemastered Havoc RaimentEnergy Shield: 96Base Movement Speed: -0.03Runic Ward: 129Requires:  Level 70, 121 Int"
+    },
+    {
+      "slug": "Runemastered_Enlightened_Robe",
+      "card": "Runemastered Enlightened RobeEnergy Shield: 124Base Movement Speed: -0.03Runic Ward: 86Requires:  Level 75, 121 Int(40—50)% increased Mana Regeneration Rate"
+    }
+  ]
+}

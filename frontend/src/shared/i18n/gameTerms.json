@@ -2145,6 +2145,18 @@
       ],
       "itemKey": "IncursionSocketableExtractorCurrency",
       "sourceUrl": "https://poe2db.tw/us/Orb_of_Extraction"
+    },
+    "Soldier_Cuirass": {
+      "name": "Soldier Cuirass",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Soldier_Cuirass"
+    },
+    "Imperial_Greathelm": {
+      "name": "Imperial Greathelm",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Imperial_Greathelm"
     }
   },
   "ko": {
@@ -4277,6 +4289,18 @@
       ],
       "itemKey": "IncursionSocketableExtractorCurrency",
       "sourceUrl": "https://poe2db.tw/kr/Orb_of_Extraction"
+    },
+    "Soldier_Cuirass": {
+      "name": "병사 흉갑",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Soldier_Cuirass"
+    },
+    "Imperial_Greathelm": {
+      "name": "제국의 대헬름",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Imperial_Greathelm"
     }
   },
   "zh-CN": {
@@ -6307,6 +6331,18 @@
       "lines": ["摧毁一件装备物品，并返还其中镶嵌的所有非插槽绑定的增幅器"],
       "itemKey": "IncursionSocketableExtractorCurrency",
       "sourceUrl": "https://poe2db.tw/cn/Orb_of_Extraction"
+    },
+    "Soldier_Cuirass": {
+      "name": "士兵胸甲",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Soldier_Cuirass"
+    },
+    "Imperial_Greathelm": {
+      "name": "帝国巨盔",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Imperial_Greathelm"
     }
   },
   "zh-TW": {
@@ -8327,6 +8363,18 @@
       "lines": ["摧毀一件裝備物品，返還鑲嵌其中的任何非插槽綁定增幅"],
       "itemKey": "IncursionSocketableExtractorCurrency",
       "sourceUrl": "https://poe2db.tw/tw/Orb_of_Extraction"
+    },
+    "Soldier_Cuirass": {
+      "name": "士兵胸甲",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Soldier_Cuirass"
+    },
+    "Imperial_Greathelm": {
+      "name": "帝國巨盔",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Imperial_Greathelm"
     }
   },
   "ja": {
@@ -10461,6 +10509,18 @@
       ],
       "itemKey": "IncursionSocketableExtractorCurrency",
       "sourceUrl": "https://poe2db.tw/jp/Orb_of_Extraction"
+    },
+    "Soldier_Cuirass": {
+      "name": "兵士の胴鎧",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Soldier_Cuirass"
+    },
+    "Imperial_Greathelm": {
+      "name": "帝国のグレートヘルム",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Imperial_Greathelm"
     }
   },
   "es": {
@@ -12513,6 +12573,18 @@
       "itemKey": "IncursionCorruptionOrb4",
       "sourceUrl": "https://poe2db.tw/sp/Yuguls_Orb_of_Sacrifice",
       "nameProvenance": "OWN_TRANSLATION_SOURCE_NAME_UNAVAILABLE"
+    },
+    "Soldier_Cuirass": {
+      "name": "Coraza de soldado",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Soldier_Cuirass"
+    },
+    "Imperial_Greathelm": {
+      "name": "Gran yelmo imperial",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Imperial_Greathelm"
     }
   }
 }

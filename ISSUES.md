@@ -453,3 +453,13 @@ WB-045 cap 정정 최종 검증: Backend371+6, Frontend369/50files 및 필수 �
 `18a2a3d` UI checkpoint 기반 별도 branch에서 active170/deferred50 이름, Liquid26 이름·설명, 베이스17 이름, modifier2314 bindings/templates1690을 6개 언어로 연결했다. 복합228 및 source-unit/negative103 표시 변환은 stat identity와 source endpoint를 검증했으며 canonical payload·quality·film·game mechanics·English import는 변경하지 않았다. 실제 API JSON 객체 키 순서 차이로 special locale fallback이 발생한 문제도 id/min/max의 엄격한 비교로 수정했다.
 
 Spanish 공식 이름이 없는6항목은 자체 번역 provenance를 표시하고 deferred Verisium 설명은 English source로 명시한다. 신규 active 번역 누락은 pretest coverage guard로 차단한다. 미래 베이스 확대는 최고 티어 대표 기준이며 현재17종을 변경하지 않는다. 출처·예외·검증 이력과 독립 QA 결과는 [remaining localization handoff](docs/i18n-remaining-2026-10-04.md)를 따른다. remote push/merge/live deploy는 수행하지 않는다.
+
+## WB-047 최상위 베이스의 첫 묶음 (2026-10-04)
+
+사용자의 `최상위 베이스들로만`, `베이스 확장 작업 ㄱㄱ`에 따라 기존 17개의 ID/snapshot/film을 보존하고 Soldier Cuirass와 Imperial Greathelm을 별도 Workbench 베이스로 추가한다. Soldier의 최고 기본 Armour와 높은 레벨 implicit sidegrade를 구분한다. source tags를 상세 정의의 ordered Spawn Tags에 대입했고 현재 Body144/Helmet137 ModsView 일반 행·published weights도 기존 풀과 정확히 일치했다. 저티어 base 속성을 복사하지 않는다. source 기본 Armour570/374와 캐릭터 요구 레벨65/80·STR121/115를 six locales로 표시한다. 새 베이스를 old base로 alias하지 않으며 이름/요구치·snapshot source digest·supportedBases를 검토된 manifest로 생성한다.
+
+가역 추천 결정: STR Body의 기본 방어도 대표는 Soldier이며 Warlord의 최대 요구 레벨을 단독 최상위 기준으로 삼지 않는다. 장신구와 innate skill 무기는 distinct implicit/skill 계열을 유지한다. 동급 방어도에 더 낮은 요구치가 있는 Gloves/Boots는 metadata 검토 전에 높은 레벨 이름을 우선하지 않는다. Runeforged/Runemastered·socket-transfer·capacity 변경·Runic Ward·아직 지원하지 않는 weapon/offhand class는 별도 검증 대상으로 남긴다. concrete 후보와 우선순위는 [범위·출처·검증 문서](docs/workbench-top-bases-2026-10-04.md)를 따른다.
+
+이 묶음은 기존 class 규칙의 실제 성공 경로를 검증하는 확장이며 등록만으로 모든 재료 지원을 주장하지 않는다. deferred50·excluded mechanics·Solar Support/Explorer·quality40 보존·rounding·Shift/Alt·film storage는 변경하지 않는다. remote push/merge/deploy는 수행하지 않는다. 다음 묶음은 Massive Mitts 및 나머지 defence archetype부터 진행하는 것을 권장한다.
+
+검증 상태: Backend396/Frontend1749/Browser125 통과, 6locale×2viewport×2base 화면24장 확인. 전체 API probe는 fixture의 생략된 `fractured:false`와 응답 default의 비교 차이로 중단되어 merge-ready가 아니다. 이미 운영 명세의 결함 수정2회를 사용했으므로 추가 fixture 수정·재검증에는 별도 범위 승인이 필요하며 다음 채팅에서 횟수를 초기화하지 않는다. 기존 registry entry220 보존은 source 비교로 통과했으나 runtime registry 전체 비교는 미완료다. 실패 이력과 구체적인 미실행 구간은 위 문서에 기록했다.

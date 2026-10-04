@@ -1,0 +1,208 @@
+{
+  "page": "Body_Armours_dex_int",
+  "url": "https://poe2db.tw/us/Body_Armours_dex_int",
+  "retrievedAt": "2026-10-04T14:44:47.875Z",
+  "sha256": "749da8ef3bffa5556693523d84cdb02dbfdae7903109b00a9f752c52cee75a1d",
+  "cards": [
+    {
+      "slug": "Hermit_Garb",
+      "card": "Hermit GarbEvasion Rating: 16Energy Shield: 16Base Movement Speed: -0.03"
+    },
+    {
+      "slug": "Waxed_Jacket",
+      "card": "Waxed JacketEvasion Rating: 53Energy Shield: 25Base Movement Speed: -0.03Requires:  Level 11, 13 Dex, 13 Int"
+    },
+    {
+      "slug": "Marabout_Garb",
+      "card": "Marabout GarbEvasion Rating: 71Energy Shield: 30Base Movement Speed: -0.03Requires:  Level 16, 17 Dex, 17 Int"
+    },
+    {
+      "slug": "Wayfarer_Jacket",
+      "card": "Wayfarer JacketEvasion Rating: 114Energy Shield: 41Base Movement Speed: -0.03Requires:  Level 28, 26 Dex, 26 Int"
+    },
+    {
+      "slug": "Anchorite_Garb",
+      "card": "Anchorite GarbEvasion Rating: 132Energy Shield: 46Base Movement Speed: -0.03Requires:  Level 33, 31 Dex, 31 Int"
+    },
+    {
+      "slug": "Scalpers_Jacket",
+      "card": "Scalper's JacketEvasion Rating: 154Energy Shield: 51Base Movement Speed: -0.03Requires:  Level 39, 35 Dex, 35 Int"
+    },
+    {
+      "slug": "Scoundrel_Jacket",
+      "card": "Scoundrel JacketEvasion Rating: 176Energy Shield: 57Base Movement Speed: -0.03Requires:  Level 45, 41 Dex, 41 Int"
+    },
+    {
+      "slug": "Ascetic_Garb",
+      "card": "Ascetic GarbEvasion Rating: 197Energy Shield: 63Base Movement Speed: -0.03Requires:  Level 51, 45 Dex, 45 Int"
+    },
+    {
+      "slug": "Clandestine_Jacket",
+      "card": "Clandestine JacketEvasion Rating: 201Energy Shield: 63Base Movement Speed: -0.03Requires:  Level 52, 46 Dex, 46 Int"
+    },
+    {
+      "slug": "Monastic_Garb",
+      "card": "Monastic GarbEvasion Rating: 216Energy Shield: 67Base Movement Speed: -0.03Requires:  Level 56, 50 Dex, 50 Int"
+    },
+    {
+      "slug": "Torment_Jacket",
+      "card": "Torment JacketEvasion Rating: 248Energy Shield: 76Base Movement Speed: -0.03Requires:  Level 65, 67 Dex, 67 Int"
+    },
+    {
+      "slug": "Devout_Garb",
+      "card": "Devout GarbEvasion Rating: 248Energy Shield: 76Base Movement Speed: -0.03Requires:  Level 68, 67 Dex, 67 Int+(7—13)% to Chaos Resistance"
+    },
+    {
+      "slug": "Assassin_Garb",
+      "card": "Assassin GarbEvasion Rating: 248Energy Shield: 76Base Movement Speed: -0.03Requires:  Level 73, 67 Dex, 67 Int5% increased Movement Speed"
+    },
+    {
+      "slug": "Runeforged_Grasping_Mail",
+      "card": "Runeforged Grasping MailEvasion Rating: 211Energy Shield: 64Base Movement Speed: -0.03Runic Ward: 107Requires:  Level 65, 61 Dex, 61 IntCan roll Ring ModifiersCatalysts can be applied to this item"
+    },
+    {
+      "slug": "Ascetic_Garb",
+      "card": "Ascetic GarbEvasion Rating: 176Energy Shield: 57Base Movement Speed: -0.03Requires:  Level 45, 41 Dex, 41 Int"
+    },
+    {
+      "slug": "Oiled_Jacket",
+      "card": "Oiled JacketEvasion Rating: 187Energy Shield: 60Base Movement Speed: -0.03Requires:  Level 48, 43 Dex, 43 Int"
+    },
+    {
+      "slug": "Evangelist_Garb",
+      "card": "Evangelist GarbEvasion Rating: 197Energy Shield: 63Base Movement Speed: -0.03Requires:  Level 51, 45 Dex, 45 Int"
+    },
+    {
+      "slug": "Itinerant_Jacket",
+      "card": "Itinerant JacketEvasion Rating: 208Energy Shield: 65Base Movement Speed: -0.03Requires:  Level 54, 48 Dex, 48 Int"
+    },
+    {
+      "slug": "Hatungo_Garb",
+      "card": "Hatungo GarbEvasion Rating: 226Energy Shield: 70Base Movement Speed: -0.03Requires:  Level 59, 52 Dex, 52 Int"
+    },
+    {
+      "slug": "Hawkers_Jacket",
+      "card": "Hawker's JacketEvasion Rating: 237Energy Shield: 73Base Movement Speed: -0.03Requires:  Level 62, 54 Dex, 54 Int"
+    },
+    {
+      "slug": "Sleek_Jacket",
+      "card": "Sleek JacketEvasion Rating: 285Energy Shield: 87Base Movement Speed: -0.03Requires:  Level 65, 67 Dex, 67 Int"
+    },
+    {
+      "slug": "Rambler_Jacket",
+      "card": "Rambler JacketEvasion Rating: 248Energy Shield: 76Base Movement Speed: -0.03Requires:  Level 70, 67 Dex, 67 Int+(7—13)% to Chaos Resistance"
+    },
+    {
+      "slug": "Falconers_Jacket",
+      "card": "Falconer's JacketEvasion Rating: 248Energy Shield: 76Base Movement Speed: -0.03Requires:  Level 75, 67 Dex, 67 Int5% increased Movement Speed"
+    },
+    {
+      "slug": "Austere_Garb",
+      "card": "Austere GarbEvasion Rating: 248Energy Shield: 76Base Movement Speed: -0.03Requires:  Level 80, 67 Dex, 67 Int(10—15)% reduced Elemental Ailment Duration on you"
+    },
+    {
+      "slug": "Primal_Markings",
+      "card": "Primal MarkingsEvasion Rating: 268Energy Shield: 82Base Movement Speed: -0.03Requires:  Level 70, 67 Dex, 67 Int"
+    },
+    {
+      "slug": "Runeforged_Hermit_Garb",
+      "card": "Runeforged Hermit GarbEvasion Rating: 16Energy Shield: 16Base Movement Speed: -0.03Runic Ward: 29"
+    },
+    {
+      "slug": "Runeforged_Waxed_Jacket",
+      "card": "Runeforged Waxed JacketEvasion Rating: 53Energy Shield: 25Base Movement Speed: -0.03Runic Ward: 43Requires:  Level 11, 13 Dex, 13 Int"
+    },
+    {
+      "slug": "Runeforged_Marabout_Garb",
+      "card": "Runeforged Marabout GarbEvasion Rating: 71Energy Shield: 30Base Movement Speed: -0.03Runic Ward: 53Requires:  Level 16, 17 Dex, 17 Int"
+    },
+    {
+      "slug": "Runeforged_Wayfarer_Jacket",
+      "card": "Runeforged Wayfarer JacketEvasion Rating: 114Energy Shield: 41Base Movement Speed: -0.03Runic Ward: 77Requires:  Level 28, 26 Dex, 26 Int"
+    },
+    {
+      "slug": "Runeforged_Anchorite_Garb",
+      "card": "Runeforged Anchorite GarbEvasion Rating: 132Energy Shield: 46Base Movement Speed: -0.03Runic Ward: 74Requires:  Level 33, 31 Dex, 31 Int"
+    },
+    {
+      "slug": "Runeforged_Scalpers_Jacket",
+      "card": "Runeforged Scalper's JacketEvasion Rating: 154Energy Shield: 51Base Movement Speed: -0.03Runic Ward: 82Requires:  Level 39, 35 Dex, 35 Int"
+    },
+    {
+      "slug": "Runeforged_Scoundrel_Jacket",
+      "card": "Runeforged Scoundrel JacketEvasion Rating: 176Energy Shield: 57Base Movement Speed: -0.03Runic Ward: 85Requires:  Level 45, 41 Dex, 41 Int"
+    },
+    {
+      "slug": "Runeforged_Ascetic_Garb",
+      "card": "Runeforged Ascetic GarbEvasion Rating: 197Energy Shield: 63Base Movement Speed: -0.03Runic Ward: 87Requires:  Level 51, 45 Dex, 45 Int"
+    },
+    {
+      "slug": "Runeforged_Sacrificial_Regalia",
+      "card": "Runeforged Sacrificial RegaliaEvasion Rating: 248Energy Shield: 76Base Movement Speed: -0.03Runic Ward: 129Requires:  Level 65, 80 Dex, 80 Int+1 to Level of all Corrupted Skill Gems+1% to all Resistances for each Corrupted Item Equipped"
+    },
+    {
+      "slug": "Runeforged_Itinerant_Jacket",
+      "card": "Runeforged Itinerant JacketEvasion Rating: 192Energy Shield: 60Base Movement Speed: -0.03Runic Ward: 92Requires:  Level 54, 48 Dex, 48 Int"
+    },
+    {
+      "slug": "Runeforged_Hatungo_Garb",
+      "card": "Runeforged Hatungo GarbEvasion Rating: 181Energy Shield: 56Base Movement Speed: -0.03Runic Ward: 158Requires:  Level 59, 52 Dex, 52 Int"
+    },
+    {
+      "slug": "Runeforged_Hawkers_Jacket",
+      "card": "Runeforged Hawker's JacketEvasion Rating: 209Energy Shield: 64Base Movement Speed: -0.03Runic Ward: 103Requires:  Level 62, 54 Dex, 54 Int"
+    },
+    {
+      "slug": "Runeforged_Sleek_Jacket",
+      "card": "Runeforged Sleek JacketEvasion Rating: 114Energy Shield: 35Base Movement Speed: -0.03Runic Ward: 395Requires:  Level 65, 67 Dex, 67 Int"
+    },
+    {
+      "slug": "Runeforged_Rambler_Jacket",
+      "card": "Runeforged Rambler JacketEvasion Rating: 223Energy Shield: 68Base Movement Speed: -0.03Runic Ward: 107Requires:  Level 70, 67 Dex, 67 Int+(7—13)% to Chaos Resistance"
+    },
+    {
+      "slug": "Runeforged_Falconers_Jacket",
+      "card": "Runeforged Falconer's JacketEvasion Rating: 186Energy Shield: 57Base Movement Speed: -0.03Runic Ward: 189Requires:  Level 75, 67 Dex, 67 Int5% increased Movement Speed"
+    },
+    {
+      "slug": "Runeforged_Austere_Garb",
+      "card": "Runeforged Austere GarbEvasion Rating: 246Energy Shield: 75Base Movement Speed: -0.03Runic Ward: 86Requires:  Level 80, 67 Dex, 67 Int(10—15)% reduced Elemental Ailment Duration on you"
+    },
+    {
+      "slug": "Runeforged_Primal_Markings",
+      "card": "Runeforged Primal MarkingsEvasion Rating: 236Energy Shield: 72Base Movement Speed: -0.03Runic Ward: 86Requires:  Level 70, 67 Dex, 67 Int"
+    },
+    {
+      "slug": "Runemastered_Hermit_Garb",
+      "card": "Runemastered Hermit GarbEvasion Rating: 135Energy Shield: 45Base Movement Speed: -0.03Runic Ward: 28Requires:  Level 38, 35 Dex, 35 Int"
+    },
+    {
+      "slug": "Runemastered_Waxed_Jacket",
+      "card": "Runemastered Waxed JacketEvasion Rating: 113Energy Shield: 38Base Movement Speed: -0.03Runic Ward: 69Requires:  Level 38, 35 Dex, 35 Int"
+    },
+    {
+      "slug": "Runemastered_Marabout_Garb",
+      "card": "Runemastered Marabout GarbEvasion Rating: 90Energy Shield: 30Base Movement Speed: -0.03Runic Ward: 110Requires:  Level 38, 35 Dex, 35 Int"
+    },
+    {
+      "slug": "Runemastered_Wayfarer_Jacket",
+      "card": "Runemastered Wayfarer JacketEvasion Rating: 134Energy Shield: 44Base Movement Speed: -0.03Runic Ward: 43Requires:  Level 40, 36 Dex, 36 Int"
+    },
+    {
+      "slug": "Runemastered_Anchorite_Garb",
+      "card": "Runemastered Anchorite GarbEvasion Rating: 138Energy Shield: 43Base Movement Speed: -0.03Runic Ward: 130Requires:  Level 55, 49 Dex, 49 Int"
+    },
+    {
+      "slug": "Runemastered_Scalpers_Jacket",
+      "card": "Runemastered Scalper's JacketEvasion Rating: 170Energy Shield: 53Base Movement Speed: -0.03Runic Ward: 75Requires:  Level 55, 49 Dex, 49 Int"
+    },
+    {
+      "slug": "Runemastered_Assassin_Garb",
+      "card": "Runemastered Assassin GarbEvasion Rating: 223Energy Shield: 68Base Movement Speed: -0.03Runic Ward: 43Requires:  Level 73, 67 Dex, 67 Int5% increased Movement Speed"
+    },
+    {
+      "slug": "Runemastered_Primal_Markings",
+      "card": "Runemastered Primal MarkingsEvasion Rating: 223Energy Shield: 68Base Movement Speed: -0.03Runic Ward: 107Requires:  Level 80, 67 Dex, 67 Int"
+    }
+  ]
+}

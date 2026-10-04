@@ -1,0 +1,148 @@
+{
+  "page": "Gloves_int",
+  "url": "https://poe2db.tw/us/Gloves_int",
+  "retrievedAt": "2026-10-04T14:45:00.456Z",
+  "sha256": "23f8a3066489c943b45375be0646c2e95f439ff5193a50b19d30eea751665518",
+  "cards": [
+    {
+      "slug": "Torn_Gloves",
+      "card": "Torn GlovesEnergy Shield: 9"
+    },
+    {
+      "slug": "Sombre_Gloves",
+      "card": "Sombre GlovesEnergy Shield: 15Requires:  Level 12, 17 Int"
+    },
+    {
+      "slug": "Stitched_Gloves",
+      "card": "Stitched GlovesEnergy Shield: 18Requires:  Level 16, 22 Int"
+    },
+    {
+      "slug": "Jewelled_Gloves",
+      "card": "Jewelled GlovesEnergy Shield: 23Requires:  Level 26, 34 Int"
+    },
+    {
+      "slug": "Intricate_Gloves",
+      "card": "Intricate GlovesEnergy Shield: 27Requires:  Level 33, 42 Int"
+    },
+    {
+      "slug": "Pauascale_Gloves",
+      "card": "Pauascale GlovesEnergy Shield: 34Requires:  Level 45, 56 Int"
+    },
+    {
+      "slug": "Embroidered_Gloves",
+      "card": "Embroidered GlovesEnergy Shield: 38Requires:  Level 52, 64 Int"
+    },
+    {
+      "slug": "Adorned_Gloves",
+      "card": "Adorned GlovesEnergy Shield: 45Requires:  Level 65, 80 Int"
+    },
+    {
+      "slug": "Ominous_Gloves",
+      "card": "Ominous GlovesEnergy Shield: 34Requires:  Level 45, 56 Int"
+    },
+    {
+      "slug": "Embellished_Gloves",
+      "card": "Embellished GlovesEnergy Shield: 37Requires:  Level 51, 64 Int"
+    },
+    {
+      "slug": "Baroque_Gloves",
+      "card": "Baroque GlovesEnergy Shield: 39Requires:  Level 54, 67 Int"
+    },
+    {
+      "slug": "Gold_Gloves",
+      "card": "Gold GlovesEnergy Shield: 42Requires:  Level 59, 73 Int"
+    },
+    {
+      "slug": "Grim_Gloves",
+      "card": "Grim GlovesEnergy Shield: 45Requires:  Level 65, 80 Int"
+    },
+    {
+      "slug": "Opulent_Gloves",
+      "card": "Opulent GlovesEnergy Shield: 48Requires:  Level 70, 87 Int"
+    },
+    {
+      "slug": "Vaal_Gloves",
+      "card": "Vaal GlovesEnergy Shield: 51Requires:  Level 75, 94 Int"
+    },
+    {
+      "slug": "Sirenscale_Gloves",
+      "card": "Sirenscale GlovesEnergy Shield: 54Requires:  Level 80, 101 Int"
+    },
+    {
+      "slug": "Runeforged_Torn_Gloves",
+      "card": "Runeforged Torn GlovesEnergy Shield: 9Runic Ward: 10"
+    },
+    {
+      "slug": "Runeforged_Sombre_Gloves",
+      "card": "Runeforged Sombre GlovesEnergy Shield: 15Runic Ward: 17Requires:  Level 12, 17 Int"
+    },
+    {
+      "slug": "Runeforged_Stitched_Gloves",
+      "card": "Runeforged Stitched GlovesEnergy Shield: 18Runic Ward: 17Requires:  Level 16, 22 Int"
+    },
+    {
+      "slug": "Runeforged_Jewelled_Gloves",
+      "card": "Runeforged Jewelled GlovesEnergy Shield: 23Runic Ward: 20Requires:  Level 26, 34 Int"
+    },
+    {
+      "slug": "Runeforged_Intricate_Gloves",
+      "card": "Runeforged Intricate GlovesEnergy Shield: 27Runic Ward: 22Requires:  Level 33, 42 Int"
+    },
+    {
+      "slug": "Runeforged_Pauascale_Gloves",
+      "card": "Runeforged Pauascale GlovesEnergy Shield: 34Runic Ward: 26Requires:  Level 45, 56 Int"
+    },
+    {
+      "slug": "Runeforged_Baroque_Gloves",
+      "card": "Runeforged Baroque GlovesEnergy Shield: 34Runic Ward: 36Requires:  Level 54, 67 Int"
+    },
+    {
+      "slug": "Runeforged_Gold_Gloves",
+      "card": "Runeforged Gold GlovesEnergy Shield: 33Runic Ward: 52Requires:  Level 59, 73 Int"
+    },
+    {
+      "slug": "Runeforged_Grim_Gloves",
+      "card": "Runeforged Grim GlovesEnergy Shield: 42Runic Ward: 28Requires:  Level 65, 80 Int"
+    },
+    {
+      "slug": "Runeforged_Opulent_Gloves",
+      "card": "Runeforged Opulent GlovesEnergy Shield: 33Runic Ward: 63Requires:  Level 70, 87 Int"
+    },
+    {
+      "slug": "Runeforged_Vaal_Gloves",
+      "card": "Runeforged Vaal GlovesEnergy Shield: 49Runic Ward: 21Requires:  Level 75, 94 Int"
+    },
+    {
+      "slug": "Runeforged_Sirenscale_Gloves",
+      "card": "Runeforged Sirenscale GlovesEnergy Shield: 21Runic Ward: 128Requires:  Level 80, 101 Int"
+    },
+    {
+      "slug": "Runemastered_Torn_Gloves",
+      "card": "Runemastered Torn GlovesEnergy Shield: 18Runic Ward: 36Requires:  Level 38, 48 Int"
+    },
+    {
+      "slug": "Runemastered_Sombre_Gloves",
+      "card": "Runemastered Sombre GlovesEnergy Shield: 24Runic Ward: 18Requires:  Level 39, 49 Int"
+    },
+    {
+      "slug": "Runemastered_Stitched_Gloves",
+      "card": "Runemastered Stitched GlovesEnergy Shield: 30Runic Ward: 23Requires:  Level 38, 48 Int"
+    },
+    {
+      "slug": "Runemastered_Jewelled_Gloves",
+      "card": "Runemastered Jewelled GlovesEnergy Shield: 21Runic Ward: 27Requires:  Level 38, 48 Int"
+    },
+    {
+      "slug": "Runemastered_Intricate_Gloves",
+      "card": "Runemastered Intricate GlovesEnergy Shield: 47Runic Ward: 24Requires:  Level 55, 68 Int"
+    },
+    {
+      "slug": "Runemastered_Pauascale_Gloves",
+      "card": "Runemastered Pauascale GlovesEnergy Shield: 30Runic Ward: 31Requires:  Level 55, 68 Int"
+    },
+    {
+      "slug": "Runemastered_Embroidered_Gloves",
+      "card": "Runemastered Embroidered GlovesEnergy Shield: 26Runic Ward: 35Requires:  Level 52, 64 Int"
+    }
+  ]
+}

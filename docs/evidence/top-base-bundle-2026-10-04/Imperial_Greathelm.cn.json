@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/cn/Imperial_Greathelm",
+  "retrievedAt": "2026-10-04T14:49:39.304Z",
+  "sha256": "8bf7c4ee585c5bf9178bd5fa5e4456766e9e1e4f9e15fbdce76a6dfd4bcf5c59",
+  "name": "帝国巨盔",
+  "card": "帝国巨盔\n        \n    \n    \n        \n            头盔护甲: 374需求：  等级 80, 115 力量\n        \n\n\n\n        \n            Imperial Greathelm",
+  "requirements": "需求：  等级 80, 115 力量",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "帝国巨盔",
+    "Class": "头盔",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame",
+    "Tags": "str_armour, karui_basetype, helmet, armour",
+    "Icon": "Art/2DItems/Armours/Helmets/Basetypes/HelmetStr07",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, helmet",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Helm",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

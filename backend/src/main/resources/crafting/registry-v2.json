@@ -42,7 +42,9 @@
         "time-lost-ruby",
         "time-lost-emerald",
         "time-lost-sapphire",
-        "time-lost-diamond"
+        "time-lost-diamond",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -81,7 +83,9 @@
         "time-lost-ruby",
         "time-lost-emerald",
         "time-lost-sapphire",
-        "time-lost-diamond"
+        "time-lost-diamond",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -120,7 +124,9 @@
         "time-lost-ruby",
         "time-lost-emerald",
         "time-lost-sapphire",
-        "time-lost-diamond"
+        "time-lost-diamond",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -156,7 +162,9 @@
         "time-lost-ruby",
         "time-lost-emerald",
         "time-lost-sapphire",
-        "time-lost-diamond"
+        "time-lost-diamond",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -195,7 +203,9 @@
         "time-lost-ruby",
         "time-lost-emerald",
         "time-lost-sapphire",
-        "time-lost-diamond"
+        "time-lost-diamond",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -234,7 +244,9 @@
         "time-lost-ruby",
         "time-lost-emerald",
         "time-lost-sapphire",
-        "time-lost-diamond"
+        "time-lost-diamond",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -273,7 +285,9 @@
         "time-lost-ruby",
         "time-lost-emerald",
         "time-lost-sapphire",
-        "time-lost-diamond"
+        "time-lost-diamond",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -318,7 +332,9 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -356,7 +372,9 @@
         "time-lost-ruby",
         "time-lost-emerald",
         "time-lost-sapphire",
-        "time-lost-diamond"
+        "time-lost-diamond",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -395,7 +413,9 @@
         "time-lost-ruby",
         "time-lost-emerald",
         "time-lost-sapphire",
-        "time-lost-diamond"
+        "time-lost-diamond",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -434,7 +454,9 @@
         "time-lost-ruby",
         "time-lost-emerald",
         "time-lost-sapphire",
-        "time-lost-diamond"
+        "time-lost-diamond",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -473,7 +495,9 @@
         "time-lost-ruby",
         "time-lost-emerald",
         "time-lost-sapphire",
-        "time-lost-diamond"
+        "time-lost-diamond",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -512,7 +536,9 @@
         "time-lost-ruby",
         "time-lost-emerald",
         "time-lost-sapphire",
-        "time-lost-diamond"
+        "time-lost-diamond",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -551,7 +577,9 @@
         "time-lost-ruby",
         "time-lost-emerald",
         "time-lost-sapphire",
-        "time-lost-diamond"
+        "time-lost-diamond",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -590,7 +618,9 @@
         "time-lost-ruby",
         "time-lost-emerald",
         "time-lost-sapphire",
-        "time-lost-diamond"
+        "time-lost-diamond",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -629,7 +659,9 @@
         "time-lost-ruby",
         "time-lost-emerald",
         "time-lost-sapphire",
-        "time-lost-diamond"
+        "time-lost-diamond",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -668,7 +700,9 @@
         "time-lost-ruby",
         "time-lost-emerald",
         "time-lost-sapphire",
-        "time-lost-diamond"
+        "time-lost-diamond",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -707,7 +741,9 @@
         "time-lost-ruby",
         "time-lost-emerald",
         "time-lost-sapphire",
-        "time-lost-diamond"
+        "time-lost-diamond",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -746,7 +782,9 @@
         "time-lost-ruby",
         "time-lost-emerald",
         "time-lost-sapphire",
-        "time-lost-diamond"
+        "time-lost-diamond",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -1538,7 +1576,8 @@
       "action": "PERFECT_ESSENCE_BODY",
       "reason": "Verified Rusted Cuirass Perfect result only; source modifier level72 is a conservative simulation gate, not confirmed lower-level game applicability. Uniform unlocked removal plus guaranteed result; source-integer numeric model UNVERIFIED.",
       "supportedBases": [
-        "body"
+        "body",
+        "soldier"
       ],
       "bodyEvidence": {
         "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_the_Body",
@@ -1711,7 +1750,8 @@
       "action": "PERFECT_ESSENCE_RUIN",
       "reason": "Verified Rusted Cuirass Perfect result only; source modifier level72 is a conservative simulation gate, not confirmed lower-level game applicability. Uniform unlocked removal plus guaranteed result; source-integer numeric model UNVERIFIED.",
       "supportedBases": [
-        "body"
+        "body",
+        "soldier"
       ],
       "bodyEvidence": {
         "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Ruin",
@@ -1940,7 +1980,8 @@
       "action": "PERFECT_ESSENCE_SEEKING",
       "reason": "Verified Rusted Cuirass Perfect result only; source modifier level72 is a conservative simulation gate, not confirmed lower-level game applicability. Uniform unlocked removal plus guaranteed result; source-integer numeric model UNVERIFIED.",
       "supportedBases": [
-        "body"
+        "body",
+        "soldier"
       ],
       "bodyEvidence": {
         "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Seeking",
@@ -2229,7 +2270,8 @@
       "action": "PERFECT_ESSENCE_THAWING",
       "reason": "Verified Rusted Greathelm explicit-affix projection only. Conservative source modifier level72; lower-level game applicability unverified. Uniform unlocked removal plus guaranteed result; source-integer numeric model UNVERIFIED. Armour29 and quality maximum20 are source facts only; applied quality, computed Armour and sockets unsupported.",
       "supportedBases": [
-        "helmet"
+        "helmet",
+        "imperial"
       ],
       "helmetEvidence": {
         "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Thawing",
@@ -2906,7 +2948,9 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -2932,7 +2976,9 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -2962,7 +3008,9 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -2992,7 +3040,9 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -3022,7 +3072,9 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -3053,7 +3105,9 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "soldier",
+        "imperial"
       ]
     },
     {
@@ -3083,7 +3137,9 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "soldier",
+        "imperial"
       ]
     },
     {
@@ -3113,7 +3169,9 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "soldier",
+        "imperial"
       ],
       "interactionScope": "Single directional omen with ordinary/Greater/Perfect matching currency. Affix eligibility precedes the existing minimum-added-level group fallback. Other same-trigger combinations remain unverified."
     },
@@ -3144,7 +3202,9 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "soldier",
+        "imperial"
       ],
       "interactionScope": "Single directional omen with ordinary/Greater/Perfect matching currency. Affix eligibility precedes the existing minimum-added-level group fallback. Other same-trigger combinations remain unverified."
     },
@@ -3188,7 +3248,9 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -3218,7 +3280,9 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -3248,7 +3312,9 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -3279,7 +3345,9 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "soldier",
+        "imperial"
       ],
       "interactionScope": "Greater Annulment + Sinistral Annulment supports two distinct unlocked prefixes, based on the audited community example; Dextral uses the symmetric suffix composition model. Requires at least two eligible modifiers on the chosen side; both matching omens consumed on success. Other combinations and one-target behavior remain unverified."
     },
@@ -3309,7 +3377,9 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -3339,7 +3409,9 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "soldier",
+        "imperial"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -3464,7 +3536,8 @@
         "bow",
         "wand",
         "body",
-        "sceptre"
+        "sceptre",
+        "soldier"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -5654,6 +5727,43 @@
         "DESECRATION",
         "ESSENCE_JEWEL"
       ]
+    },
+    "soldier": {
+      "ruleVersion": "body-workbench-perfect-essence-v1",
+      "ledgerVersion": "body-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Soldier_Cuirass",
+      "baseItemId": "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame",
+      "sourceSha256": "95430d41e742c2396aefd7080bae4d3d81e8ba7e0df2fb154467cf436b7c30bd",
+      "baseArmour": 570,
+      "requiredCharacterLevel": 65,
+      "requiredStrength": 121,
+      "qualityMaximum": 20,
+      "implicit": "NONE_IN_REVIEWED_BASE",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_ONLY"
+    },
+    "imperial": {
+      "ruleVersion": "helmet-workbench-perfect-essence-v1",
+      "ledgerVersion": "helmet-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Imperial_Greathelm",
+      "projection": "EXPLICIT_AFFIX_ONLY",
+      "implicit": "NONE_IN_REVIEWED_BASE",
+      "baseArmour": 374,
+      "augmentSockets": null,
+      "qualityMaximum": 20,
+      "unsupported": [
+        "BLESSED",
+        "ARTIFICER",
+        "QUALITY_APPLICATION",
+        "PASTED_MAPPING",
+        "COMBAT"
+      ],
+      "baseItemId": "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame",
+      "sourceSha256": "ba2a8bab50eca40058823c3e5c00c96401bb0433ee87295718c2f7b88386be63",
+      "requiredCharacterLevel": 80,
+      "requiredStrength": 115
     }
   },
   "serviceScope": {

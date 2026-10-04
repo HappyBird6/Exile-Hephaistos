@@ -1,0 +1,120 @@
+{
+  "page": "Gloves_str_dex",
+  "url": "https://poe2db.tw/us/Gloves_str_dex",
+  "retrievedAt": "2026-10-04T14:45:02.632Z",
+  "sha256": "a4d00273961ec3e6f1333a0f2b134f3df1be7aefa30c94a60935221ef21e231d",
+  "cards": [
+    {
+      "slug": "Ringmail_Gauntlets",
+      "card": "Ringmail GauntletsArmour: 14Evasion Rating: 11Requires:  Level 6, 6 Str, 6 Dex"
+    },
+    {
+      "slug": "Layered_Gauntlets",
+      "card": "Layered GauntletsArmour: 27Evasion Rating: 23Requires:  Level 16, 13 Str, 13 Dex"
+    },
+    {
+      "slug": "Doubled_Gauntlets",
+      "card": "Doubled GauntletsArmour: 49Evasion Rating: 43Requires:  Level 33, 24 Str, 24 Dex"
+    },
+    {
+      "slug": "Plate_Gauntlets",
+      "card": "Plate GauntletsArmour: 64Evasion Rating: 58Requires:  Level 45, 32 Str, 32 Dex"
+    },
+    {
+      "slug": "Burnished_Gauntlets",
+      "card": "Burnished GauntletsArmour: 73Evasion Rating: 66Requires:  Level 52, 36 Str, 36 Dex"
+    },
+    {
+      "slug": "Ornate_Gauntlets",
+      "card": "Ornate GauntletsArmour: 89Evasion Rating: 81Requires:  Level 65, 44 Str, 44 Dex"
+    },
+    {
+      "slug": "Ancient_Gauntlets",
+      "card": "Ancient GauntletsArmour: 89Evasion Rating: 81Requires:  Level 70, 52 Str, 52 Dex"
+    },
+    {
+      "slug": "Ironmail_Gauntlets",
+      "card": "Ironmail GauntletsArmour: 64Evasion Rating: 58Requires:  Level 45, 32 Str, 32 Dex"
+    },
+    {
+      "slug": "Captain_Gauntlets",
+      "card": "Captain GauntletsArmour: 72Evasion Rating: 65Requires:  Level 51, 35 Str, 35 Dex"
+    },
+    {
+      "slug": "Zealot_Gauntlets",
+      "card": "Zealot GauntletsArmour: 82Evasion Rating: 74Requires:  Level 59, 41 Str, 41 Dex"
+    },
+    {
+      "slug": "Steelmail_Gauntlets",
+      "card": "Steelmail GauntletsArmour: 89Evasion Rating: 81Requires:  Level 65, 44 Str, 44 Dex"
+    },
+    {
+      "slug": "Commander_Gauntlets",
+      "card": "Commander GauntletsArmour: 94Evasion Rating: 85Requires:  Level 70, 48 Str, 48 Dex"
+    },
+    {
+      "slug": "Cultist_Gauntlets",
+      "card": "Cultist GauntletsArmour: 98Evasion Rating: 90Requires:  Level 75, 52 Str, 52 Dex"
+    },
+    {
+      "slug": "Blacksteel_Gauntlets",
+      "card": "Blacksteel GauntletsArmour: 103Evasion Rating: 94Requires:  Level 80, 55 Str, 55 Dex"
+    },
+    {
+      "slug": "Runeforged_Ringmail_Gauntlets",
+      "card": "Runeforged Ringmail GauntletsArmour: 14Evasion Rating: 11Runic Ward: 12Requires:  Level 6, 6 Str, 6 Dex"
+    },
+    {
+      "slug": "Runeforged_Layered_Gauntlets",
+      "card": "Runeforged Layered GauntletsArmour: 27Evasion Rating: 23Runic Ward: 17Requires:  Level 16, 13 Str, 13 Dex"
+    },
+    {
+      "slug": "Runeforged_Doubled_Gauntlets",
+      "card": "Runeforged Doubled GauntletsArmour: 49Evasion Rating: 43Runic Ward: 24Requires:  Level 33, 24 Str, 24 Dex"
+    },
+    {
+      "slug": "Runeforged_Plate_Gauntlets",
+      "card": "Runeforged Plate GauntletsArmour: 64Evasion Rating: 58Runic Ward: 27Requires:  Level 45, 32 Str, 32 Dex"
+    },
+    {
+      "slug": "Runeforged_Zealot_Gauntlets",
+      "card": "Runeforged Zealot GauntletsArmour: 78Evasion Rating: 71Runic Ward: 26Requires:  Level 59, 41 Str, 41 Dex"
+    },
+    {
+      "slug": "Runeforged_Steelmail_Gauntlets",
+      "card": "Runeforged Steelmail GauntletsArmour: 84Evasion Rating: 76Runic Ward: 28Requires:  Level 65, 44 Str, 44 Dex"
+    },
+    {
+      "slug": "Runeforged_Commander_Gauntlets",
+      "card": "Runeforged Commander GauntletsArmour: 66Evasion Rating: 60Runic Ward: 63Requires:  Level 70, 48 Str, 48 Dex"
+    },
+    {
+      "slug": "Runeforged_Cultist_Gauntlets",
+      "card": "Runeforged Cultist GauntletsArmour: 89Evasion Rating: 81Runic Ward: 35Requires:  Level 75, 52 Str, 52 Dex"
+    },
+    {
+      "slug": "Runeforged_Blacksteel_Gauntlets",
+      "card": "Runeforged Blacksteel GauntletsArmour: 36Evasion Rating: 33Runic Ward: 141Requires:  Level 80, 55 Str, 55 Dex"
+    },
+    {
+      "slug": "Runemastered_Ringmail_Gauntlets",
+      "card": "Runemastered Ringmail GauntletsArmour: 44Evasion Rating: 39Runic Ward: 18Requires:  Level 38, 27 Str, 27 Dex"
+    },
+    {
+      "slug": "Runemastered_Layered_Gauntlets",
+      "card": "Runemastered Layered GauntletsArmour: 52Evasion Rating: 47Runic Ward: 14Requires:  Level 38, 27 Str, 27 Dex"
+    },
+    {
+      "slug": "Runemastered_Doubled_Gauntlets",
+      "card": "Runemastered Doubled GauntletsArmour: 61Evasion Rating: 56Runic Ward: 24Requires:  Level 55, 38 Str, 38 Dex"
+    },
+    {
+      "slug": "Runemastered_Plate_Gauntlets",
+      "card": "Runemastered Plate GauntletsArmour: 69Evasion Rating: 63Runic Ward: 12Requires:  Level 55, 38 Str, 38 Dex"
+    },
+    {
+      "slug": "Runemastered_Burnished_Gauntlets",
+      "card": "Runemastered Burnished GauntletsArmour: 36Evasion Rating: 33Runic Ward: 58Requires:  Level 52, 36 Str, 36 Dex"
+    }
+  ]
+}

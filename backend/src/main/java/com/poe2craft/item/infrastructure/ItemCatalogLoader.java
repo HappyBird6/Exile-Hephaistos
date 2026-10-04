@@ -19,6 +19,66 @@ public final class ItemCatalogLoader {
 
   private ItemCatalogLoader() {}
 
+  /** Reviewed endgame variants retain source modifier identities, never legacy base identities. */
+  public static ItemCatalog loadTopBase(String key) {
+    String id;
+    String name;
+    ItemCatalog pool;
+    switch (key) {
+      case "soldier" -> {
+        id = "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame";
+        name = "Soldier Cuirass";
+        pool = loadBody();
+      }
+      case "imperial" -> {
+        id = "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame";
+        name = "Imperial Greathelm";
+        pool = loadHelmet();
+      }
+      default -> throw new IllegalArgumentException("Unreviewed endgame base");
+    }
+    String sourceDigest;
+    try (var proof = ItemCatalogLoader.class.getResourceAsStream("/catalog/top-bases.json")) {
+      var source = mapper().readTree(proof).get(key);
+      if (!source.get("id").asText().equals(id) || !source.get("name").asText().equals(name))
+        throw new IllegalArgumentException("Reviewed base source identity mismatch");
+      sourceDigest = source.get("sourceSha256").asText();
+      if (!sourceDigest.matches("[0-9a-f]{64}"))
+        throw new IllegalArgumentException("Reviewed base source digest required");
+    } catch (IOException e) {
+      throw new IllegalStateException("Cannot load reviewed base source", e);
+    }
+    var old = pool.metadata();
+    String poolDigest;
+    try {
+      poolDigest =
+          digest(
+              new java.io.ByteArrayInputStream(old.snapshotId().getBytes(StandardCharsets.UTF_8)));
+    } catch (IOException e) {
+      throw new IllegalStateException("Cannot identify reviewed modifier pool", e);
+    }
+    return new ItemCatalog(
+        new ItemCatalog.Metadata(
+            "poe2db-"
+                + key
+                + "-20261004-"
+                + sourceDigest.substring(0, 12)
+                + "-"
+                + poolDigest.substring(0, 12),
+            "2026-10-04",
+            old.sourceUrl(),
+            old.weightPolicy(),
+            old.rawSha256(),
+            old.detailsSha256(),
+            old.prefixCount(),
+            old.suffixCount(),
+            old.prefixWeight(),
+            old.suffixWeight()),
+        new ItemCatalog.BaseItem(
+            id, name, "https://poe2db.tw/us/" + name.replace(' ', '_'), "", 1, 1, 3, 3),
+        new ArrayList<>(pool.modifiers().values()));
+  }
+
   /** Sapphire-only ordinary candidates with explicitly modeled equal selection weights. */
   public static ItemCatalog loadSapphire() {
     try (var data = ItemCatalogLoader.class.getResourceAsStream("/catalog/sapphire/catalog.json");

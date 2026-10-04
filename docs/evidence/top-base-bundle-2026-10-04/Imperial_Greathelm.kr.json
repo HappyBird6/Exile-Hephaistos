@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/kr/Imperial_Greathelm",
+  "retrievedAt": "2026-10-04T14:49:39.127Z",
+  "sha256": "e4cd1d8e02326d35c6353b02207db1a36e603618270087d5862babd569cc0487",
+  "name": "제국의 대헬름",
+  "card": "제국의 대헬름\n        \n    \n    \n        \n            투구방어도: 374요구 사항:  레벨 80, 115 힘\n        \n\n\n\n        \n            Imperial Greathelm",
+  "requirements": "요구 사항:  레벨 80, 115 힘",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "제국의 대헬름",
+    "Class": "투구",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame",
+    "Tags": "str_armour, karui_basetype, helmet, armour",
+    "Icon": "Art/2DItems/Armours/Helmets/Basetypes/HelmetStr07",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, helmet",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Helm",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

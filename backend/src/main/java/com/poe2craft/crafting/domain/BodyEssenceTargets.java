@@ -16,4 +16,9 @@ public final class BodyEssenceTargets {
           List.of("rusted-cuirass:suffix:essence-reduced-incoming-critical-damage"));
 
   private BodyEssenceTargets() {}
+
+  public static boolean supports(String id) {
+    return id.equals(BASE_ID)
+        || id.equals("Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame");
+  }
 }

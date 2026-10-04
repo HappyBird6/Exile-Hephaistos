@@ -3,6 +3,8 @@ import { create } from 'zustand'
 export type ItemTextDocument = { id: string; text: string }
 const baseText = 'Item Class: Amulets\nRarity: Normal\nSolar Amulet'
 const baseTexts = {
+  soldier: 'Item Class: Body Armours\nRarity: Normal\nSoldier Cuirass',
+  imperial: 'Item Class: Helmets\nRarity: Normal\nImperial Greathelm',
   'time-lost-ruby': 'Item Class: Jewels\nRarity: Normal\nTime-Lost Ruby',
   'time-lost-emerald': 'Item Class: Jewels\nRarity: Normal\nTime-Lost Emerald',
   'time-lost-sapphire':
@@ -36,6 +38,8 @@ type Draft = {
     | 'bow'
     | 'wand'
     | 'body'
+    | 'soldier'
+    | 'imperial'
     | 'sceptre'
     | 'belt'
     | 'helmet'
@@ -60,6 +64,8 @@ type Draft = {
       | 'bow'
       | 'wand'
       | 'body'
+      | 'soldier'
+      | 'imperial'
       | 'sceptre'
       | 'belt'
       | 'helmet'

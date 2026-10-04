@@ -137,13 +137,13 @@ public final class WorkbenchSimulator {
           : "basic-jewel-potent-v3";
     if (catalog.base().id().equals(RingEssenceTargets.BASE_ID))
       return "ring-workbench-perfect-essence-v1";
-    if (catalog.base().id().equals(HelmetEssenceTargets.BASE_ID))
+    if (HelmetEssenceTargets.supports(catalog.base().id()))
       return "helmet-workbench-perfect-essence-v1";
     if (catalog.base().id().equals(BeltEssenceTargets.BASE_ID))
       return "belt-workbench-perfect-essence-v1";
     if (catalog.base().id().equals(SceptreEssenceTargets.BASE_ID))
       return "sceptre-workbench-essence-v1";
-    if (catalog.base().id().equals(BodyEssenceTargets.BASE_ID))
+    if (BodyEssenceTargets.supports(catalog.base().id()))
       return "body-workbench-perfect-essence-v1";
     if (catalog.base().id().equals(WandEssenceTargets.BASE_ID)) return "wand-workbench-essence-v1";
     if (catalog.base().id().equals(BowEssenceTargets.BASE_ID))
@@ -156,13 +156,13 @@ public final class WorkbenchSimulator {
       return "sapphire-uniform-candidates-and-rolls-v1";
     if (catalog.base().id().equals(RingEssenceTargets.BASE_ID))
       return "ring-unverified-numeric-assumptions-v1";
-    if (catalog.base().id().equals(HelmetEssenceTargets.BASE_ID))
+    if (HelmetEssenceTargets.supports(catalog.base().id()))
       return "helmet-unverified-numeric-assumptions-v1";
     if (catalog.base().id().equals(BeltEssenceTargets.BASE_ID))
       return "belt-unverified-numeric-assumptions-v1";
     if (catalog.base().id().equals(SceptreEssenceTargets.BASE_ID))
       return "sceptre-unverified-numeric-assumptions-v1";
-    if (catalog.base().id().equals(BodyEssenceTargets.BASE_ID))
+    if (BodyEssenceTargets.supports(catalog.base().id()))
       return "body-unverified-numeric-assumptions-v1";
     if (catalog.base().id().equals(WandEssenceTargets.BASE_ID))
       return "wand-unverified-numeric-assumptions-v1";

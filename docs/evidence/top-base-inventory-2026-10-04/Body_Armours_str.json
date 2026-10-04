@@ -1,0 +1,216 @@
+{
+  "page": "Body_Armours_str",
+  "url": "https://poe2db.tw/us/Body_Armours_str",
+  "retrievedAt": "2026-10-04T14:44:21.671Z",
+  "sha256": "d952d73984328a7afbe054072237f40d735e0c0c288bcde5b7b1b62cba6e67c9",
+  "cards": [
+    {
+      "slug": "Rusted_Cuirass",
+      "card": "Rusted CuirassArmour: 45Base Movement Speed: -0.05"
+    },
+    {
+      "slug": "Fur_Plate",
+      "card": "Fur PlateArmour: 66Base Movement Speed: -0.05Requires:  Level 4, 10 Str"
+    },
+    {
+      "slug": "Iron_Cuirass",
+      "card": "Iron CuirassArmour: 115Base Movement Speed: -0.05Requires:  Level 11, 21 Str"
+    },
+    {
+      "slug": "Raider_Plate",
+      "card": "Raider PlateArmour: 150Base Movement Speed: -0.05Requires:  Level 16, 28 Str"
+    },
+    {
+      "slug": "Maraketh_Cuirass",
+      "card": "Maraketh CuirassArmour: 178Base Movement Speed: -0.05Requires:  Level 20, 34 Str"
+    },
+    {
+      "slug": "Steel_Plate",
+      "card": "Steel PlateArmour: 228Base Movement Speed: -0.05Requires:  Level 27, 45 Str"
+    },
+    {
+      "slug": "Full_Plate",
+      "card": "Full PlateArmour: 270Base Movement Speed: -0.05Requires:  Level 33, 54 Str"
+    },
+    {
+      "slug": "Vaal_Cuirass",
+      "card": "Vaal CuirassArmour: 298Base Movement Speed: -0.05Requires:  Level 37, 60 Str"
+    },
+    {
+      "slug": "Juggernaut_Plate",
+      "card": "Juggernaut PlateArmour: 355Base Movement Speed: -0.05Requires:  Level 45, 72 Str"
+    },
+    {
+      "slug": "Chieftain_Cuirass",
+      "card": "Chieftain CuirassArmour: 390Base Movement Speed: -0.05Requires:  Level 50, 80 Str"
+    },
+    {
+      "slug": "Colosseum_Plate",
+      "card": "Colosseum PlateArmour: 404Base Movement Speed: -0.05Requires:  Level 52, 83 Str"
+    },
+    {
+      "slug": "Champion_Cuirass",
+      "card": "Champion CuirassArmour: 446Base Movement Speed: -0.05Requires:  Level 58, 92 Str"
+    },
+    {
+      "slug": "Glorious_Plate",
+      "card": "Glorious PlateArmour: 496Base Movement Speed: -0.05Requires:  Level 65, 121 Str"
+    },
+    {
+      "slug": "Conqueror_Plate",
+      "card": "Conqueror PlateArmour: 496Base Movement Speed: -0.05Requires:  Level 68, 121 Str(30—40)% increased Stun Threshold"
+    },
+    {
+      "slug": "Abyssal_Cuirass",
+      "card": "Abyssal CuirassArmour: 496Base Movement Speed: -0.05Requires:  Level 73, 121 StrRegenerate (1.5—2.5)% of maximum Life per second"
+    },
+    {
+      "slug": "Runemastered_Grasping_Mail",
+      "card": "Runemastered Grasping MailArmour: 421Base Movement Speed: -0.04Runic Ward: 150Requires:  Level 65, 112 StrCan roll Ring ModifiersCatalysts can be applied to this item"
+    },
+    {
+      "slug": "Barbarian_Plate",
+      "card": "Barbarian PlateArmour: 355Base Movement Speed: -0.05Requires:  Level 45, 72 Str"
+    },
+    {
+      "slug": "Rugged_Cuirass",
+      "card": "Rugged CuirassArmour: 376Base Movement Speed: -0.05Requires:  Level 48, 77 Str"
+    },
+    {
+      "slug": "Sandsworn_Cuirass",
+      "card": "Sandsworn CuirassArmour: 397Base Movement Speed: -0.05Requires:  Level 51, 82 Str"
+    },
+    {
+      "slug": "Elegant_Plate",
+      "card": "Elegant PlateArmour: 418Base Movement Speed: -0.05Requires:  Level 54, 86 Str"
+    },
+    {
+      "slug": "Heavy_Plate",
+      "card": "Heavy PlateArmour: 453Base Movement Speed: -0.05Requires:  Level 59, 94 Str"
+    },
+    {
+      "slug": "Stone_Cuirass",
+      "card": "Stone CuirassArmour: 474Base Movement Speed: -0.05Requires:  Level 62, 98 Str"
+    },
+    {
+      "slug": "Soldier_Cuirass",
+      "card": "Soldier CuirassArmour: 570Base Movement Speed: -0.05Requires:  Level 65, 121 Str"
+    },
+    {
+      "slug": "Ornate_Plate",
+      "card": "Ornate PlateArmour: 496Base Movement Speed: -0.05Requires:  Level 70, 121 StrRegenerate (1.5—2.5)% of maximum Life per second"
+    },
+    {
+      "slug": "Utzaal_Cuirass",
+      "card": "Utzaal CuirassArmour: 496Base Movement Speed: -0.05Requires:  Level 75, 121 Str(30—40)% increased Stun Threshold"
+    },
+    {
+      "slug": "Warlord_Cuirass",
+      "card": "Warlord CuirassArmour: 496Base Movement Speed: -0.05Requires:  Level 80, 121 Str+(15—25)% of Armour also applies to Elemental Damage"
+    },
+    {
+      "slug": "Runeforged_Rusted_Cuirass",
+      "card": "Runeforged Rusted CuirassArmour: 45Base Movement Speed: -0.05Runic Ward: 29"
+    },
+    {
+      "slug": "Runeforged_Fur_Plate",
+      "card": "Runeforged Fur PlateArmour: 66Base Movement Speed: -0.05Runic Ward: 33Requires:  Level 4, 10 Str"
+    },
+    {
+      "slug": "Runeforged_Iron_Cuirass",
+      "card": "Runeforged Iron CuirassArmour: 115Base Movement Speed: -0.05Runic Ward: 43Requires:  Level 11, 21 Str"
+    },
+    {
+      "slug": "Runeforged_Raider_Plate",
+      "card": "Runeforged Raider PlateArmour: 150Base Movement Speed: -0.05Runic Ward: 53Requires:  Level 16, 28 Str"
+    },
+    {
+      "slug": "Runeforged_Maraketh_Cuirass",
+      "card": "Runeforged Maraketh CuirassArmour: 178Base Movement Speed: -0.05Runic Ward: 61Requires:  Level 20, 34 Str"
+    },
+    {
+      "slug": "Runeforged_Steel_Plate",
+      "card": "Runeforged Steel PlateArmour: 228Base Movement Speed: -0.05Runic Ward: 64Requires:  Level 27, 45 Str"
+    },
+    {
+      "slug": "Runeforged_Full_Plate",
+      "card": "Runeforged Full PlateArmour: 270Base Movement Speed: -0.05Runic Ward: 69Requires:  Level 33, 54 Str"
+    },
+    {
+      "slug": "Runeforged_Vaal_Cuirass",
+      "card": "Runeforged Vaal CuirassArmour: 298Base Movement Speed: -0.05Runic Ward: 70Requires:  Level 37, 60 Str"
+    },
+    {
+      "slug": "Runeforged_Juggernaut_Plate",
+      "card": "Runeforged Juggernaut PlateArmour: 355Base Movement Speed: -0.05Runic Ward: 76Requires:  Level 45, 72 Str"
+    },
+    {
+      "slug": "Runeforged_Chieftain_Cuirass",
+      "card": "Runeforged Chieftain CuirassArmour: 390Base Movement Speed: -0.05Runic Ward: 69Requires:  Level 50, 80 Str"
+    },
+    {
+      "slug": "Runeforged_Conqueror_Plate",
+      "card": "Runeforged Conqueror PlateArmour: 595Base Movement Speed: -0.05Requires:  Level 68, 121 Str(30—40)% increased Stun Threshold"
+    },
+    {
+      "slug": "Runeforged_Elegant_Plate",
+      "card": "Runeforged Elegant PlateArmour: 401Base Movement Speed: -0.05Runic Ward: 73Requires:  Level 54, 86 Str"
+    },
+    {
+      "slug": "Runeforged_Heavy_Plate",
+      "card": "Runeforged Heavy PlateArmour: 363Base Movement Speed: -0.05Runic Ward: 158Requires:  Level 59, 94 Str"
+    },
+    {
+      "slug": "Runeforged_Stone_Cuirass",
+      "card": "Runeforged Stone CuirassArmour: 417Base Movement Speed: -0.05Runic Ward: 103Requires:  Level 62, 98 Str"
+    },
+    {
+      "slug": "Runeforged_Soldier_Cuirass",
+      "card": "Runeforged Soldier CuirassArmour: 258Base Movement Speed: -0.05Runic Ward: 365Requires:  Level 65, 121 Str"
+    },
+    {
+      "slug": "Runeforged_Ornate_Plate",
+      "card": "Runeforged Ornate PlateArmour: 327Base Movement Speed: -0.05Runic Ward: 236Requires:  Level 70, 121 StrRegenerate (1.5—2.5)% of maximum Life per second"
+    },
+    {
+      "slug": "Runeforged_Utzaal_Cuirass",
+      "card": "Runeforged Utzaal CuirassArmour: 446Base Movement Speed: -0.05Runic Ward: 107Requires:  Level 75, 121 Str(30—40)% increased Stun Threshold"
+    },
+    {
+      "slug": "Runeforged_Warlord_Cuirass",
+      "card": "Runeforged Warlord CuirassArmour: 466Base Movement Speed: -0.05Runic Ward: 86Requires:  Level 80, 121 Str+(15—25)% of Armour also applies to Elemental Damage"
+    },
+    {
+      "slug": "Runemastered_Rusted_Cuirass",
+      "card": "Runemastered Rusted CuirassArmour: 244Base Movement Speed: -0.05Runic Ward: 110Requires:  Level 38, 61 Str"
+    },
+    {
+      "slug": "Runeforged_Fur_Plate",
+      "card": "Runeforged Fur PlateArmour: 275Base Movement Speed: -0.05Runic Ward: 69Requires:  Level 38, 61 Str"
+    },
+    {
+      "slug": "Runemastered_Iron_Cuirass",
+      "card": "Runemastered Iron CuirassArmour: 260Base Movement Speed: -0.05Runic Ward: 55Requires:  Level 38, 61 Str"
+    },
+    {
+      "slug": "Runemastered_Raider_Plate",
+      "card": "Runemastered Raider PlateArmour: 61Base Movement Speed: -0.05Runic Ward: 221Requires:  Level 38, 61 Str"
+    },
+    {
+      "slug": "Runemastered_Maraketh_Cuirass",
+      "card": "Runemastered Maraketh CuirassArmour: 275Base Movement Speed: -0.05Runic Ward: 28Requires:  Level 38, 61 Str"
+    },
+    {
+      "slug": "Runemastered_Steel_Plate",
+      "card": "Runemastered Steel PlateArmour: 271Base Movement Speed: -0.05Runic Ward: 43Requires:  Level 40, 65 Str"
+    },
+    {
+      "slug": "Runemastered_Full_Plate",
+      "card": "Runemastered Full PlateArmour: 231Base Movement Speed: -0.05Runic Ward: 126Requires:  Level 45, 72 Str"
+    },
+    {
+      "slug": "Runemastered_Vaal_Cuirass",
+      "card": "Runemastered Vaal CuirassArmour: 340Base Movement Speed: -0.05Runic Ward: 93Requires:  Level 55, 87 Str"
+    }
+  ]
+}

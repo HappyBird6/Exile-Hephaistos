@@ -40,6 +40,8 @@ const allowed = new Set(
   inventory.filter((id) => catalog[id] && !deferred.has(id)),
 );
 const bases = {
+  Soldier_Cuirass: "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame",
+  Imperial_Greathelm: "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame",
   Sapphire: "Metadata/Items/Jewels/JewelInt",
   Solar_Amulet: "Metadata/Items/Amulets/FourAmulet9",
   Stocky_Mitts: "Metadata/Items/Armours/Gloves/FourGlovesStr1",

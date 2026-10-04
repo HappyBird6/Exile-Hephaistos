@@ -1,0 +1,48 @@
+{
+  "soldier": {
+    "key": "soldier",
+    "family": "body",
+    "pool": "rusted-cuirass",
+    "slug": "Soldier_Cuirass",
+    "id": "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame",
+    "name": "Soldier Cuirass",
+    "sourceUrl": "https://poe2db.tw/us/Soldier_Cuirass",
+    "sourceSha256": "95430d41e742c2396aefd7080bae4d3d81e8ba7e0df2fb154467cf436b7c30bd",
+    "sourceTags": ["str_armour", "body_armour", "armour"],
+    "armour": 570,
+    "requiredLevel": 65,
+    "strength": 121,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 65, 121 Str",
+      "ko": "요구 사항:  레벨 65, 121 힘",
+      "ja": "装備条件： レベル 65, 121 筋力",
+      "zh-CN": "需求：  等级 65, 121 力量",
+      "zh-TW": "需求:  等級 65, 121 力量",
+      "es": "Requiere:  Nivel 65, 121 Fue"
+    }
+  },
+  "imperial": {
+    "key": "imperial",
+    "family": "helmet",
+    "pool": "rusted-greathelm",
+    "slug": "Imperial_Greathelm",
+    "id": "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame",
+    "name": "Imperial Greathelm",
+    "sourceUrl": "https://poe2db.tw/us/Imperial_Greathelm",
+    "sourceSha256": "ba2a8bab50eca40058823c3e5c00c96401bb0433ee87295718c2f7b88386be63",
+    "sourceTags": ["str_armour", "karui_basetype", "helmet", "armour"],
+    "armour": 374,
+    "requiredLevel": 80,
+    "strength": 115,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 115 Str",
+      "ko": "요구 사항:  레벨 80, 115 힘",
+      "ja": "装備条件： レベル 80, 115 筋力",
+      "zh-CN": "需求：  等级 80, 115 力量",
+      "zh-TW": "需求:  等級 80, 115 力量",
+      "es": "Requiere:  Nivel 80, 115 Fue"
+    }
+  }
+}

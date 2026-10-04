@@ -11,10 +11,17 @@ const results={locales:{},catalogDefinitions:0,compoundBindings:0}
 const defs={}
 for(const dir of fs.readdirSync('backend/src/main/resources/catalog')) {
  const root='backend/src/main/resources/catalog/'+dir
+ if(!fs.statSync(root).isDirectory())continue
  for(const f of fs.readdirSync(root).filter(f=>f==='catalog.json'||f.endsWith('.catalog.json'))) {
   const c=JSON.parse(fs.readFileSync(root+'/'+f,'utf8'))
   if(c.base)for(const l of locales)assert(Object.values(terms[l]).some(t=>t.itemKey===c.base.id),`${l}:base:${c.base.id}`)
   for(const d of c.modifiers??[])defs[d.id]=d
+ }
+}
+for(const base of Object.values(JSON.parse(fs.readFileSync('backend/src/main/resources/catalog/top-bases.json','utf8')))) {
+ for(const l of locales) {
+  assert.equal(terms[l][base.slug]?.itemKey,base.id,`${l}:top-base:${base.id}`)
+  assert(base.requirements[l],`${l}:top-base-requirements:${base.id}`)
  }
 }
 results.catalogDefinitions=Object.keys(defs).length

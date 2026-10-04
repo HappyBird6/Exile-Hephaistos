@@ -1,3 +1,4 @@
+import { topBase } from './topBases'
 export const actions = [
   'TRANSMUTATION',
   'AUGMENTATION',
@@ -172,6 +173,8 @@ export async function loadInitial(
     | 'bow'
     | 'wand'
     | 'body'
+    | 'soldier'
+    | 'imperial'
     | 'sceptre'
     | 'belt'
     | 'helmet'
@@ -196,44 +199,46 @@ export async function loadInitial(
     !bucket(v.state) ||
     (base !== 'solar'
       ? v.state.baseItemId !==
-          ([
-            'ruby',
-            'emerald',
-            'diamond',
-            'time-lost-ruby',
-            'time-lost-emerald',
-            'time-lost-sapphire',
-            'time-lost-diamond',
-          ].includes(base)
-            ? (
-                {
-                  'time-lost-ruby': 'Metadata/Items/Jewels/JewelRadiusStr',
-                  'time-lost-emerald': 'Metadata/Items/Jewels/JewelRadiusDex',
-                  'time-lost-sapphire': 'Metadata/Items/Jewels/JewelRadiusInt',
-                  'time-lost-diamond':
-                    'Metadata/Items/Jewels/JewelRadiusDiamond',
-                  ruby: 'Metadata/Items/Jewels/JewelStr',
-                  emerald: 'Metadata/Items/Jewels/JewelDex',
-                  diamond: 'Metadata/Items/Jewels/JewelDiamond',
-                } as Record<string, string>
-              )[base]
-            : base === 'sapphire'
-              ? 'Metadata/Items/Jewels/JewelInt'
-              : base === 'stocky'
-                ? 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
-                : base === 'ring'
-                  ? 'Metadata/Items/Rings/FourRing1'
-                  : base === 'helmet'
-                    ? 'Metadata/Items/Armours/Helmets/FourHelmetStr1'
-                    : base === 'belt'
-                      ? 'Metadata/Items/Belts/FourBelt1'
-                      : base === 'sceptre'
-                        ? 'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
-                        : base === 'body'
-                          ? 'Metadata/Items/Armours/BodyArmours/FourBodyStr1'
-                          : base === 'wand'
-                            ? 'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
-                            : 'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1') ||
+          (topBase(base)?.id ??
+            ([
+              'ruby',
+              'emerald',
+              'diamond',
+              'time-lost-ruby',
+              'time-lost-emerald',
+              'time-lost-sapphire',
+              'time-lost-diamond',
+            ].includes(base)
+              ? (
+                  {
+                    'time-lost-ruby': 'Metadata/Items/Jewels/JewelRadiusStr',
+                    'time-lost-emerald': 'Metadata/Items/Jewels/JewelRadiusDex',
+                    'time-lost-sapphire':
+                      'Metadata/Items/Jewels/JewelRadiusInt',
+                    'time-lost-diamond':
+                      'Metadata/Items/Jewels/JewelRadiusDiamond',
+                    ruby: 'Metadata/Items/Jewels/JewelStr',
+                    emerald: 'Metadata/Items/Jewels/JewelDex',
+                    diamond: 'Metadata/Items/Jewels/JewelDiamond',
+                  } as Record<string, string>
+                )[base]
+              : base === 'sapphire'
+                ? 'Metadata/Items/Jewels/JewelInt'
+                : base === 'stocky'
+                  ? 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+                  : base === 'ring'
+                    ? 'Metadata/Items/Rings/FourRing1'
+                    : base === 'helmet'
+                      ? 'Metadata/Items/Armours/Helmets/FourHelmetStr1'
+                      : base === 'belt'
+                        ? 'Metadata/Items/Belts/FourBelt1'
+                        : base === 'sceptre'
+                          ? 'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
+                          : base === 'body'
+                            ? 'Metadata/Items/Armours/BodyArmours/FourBodyStr1'
+                            : base === 'wand'
+                              ? 'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
+                              : 'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1')) ||
         (base === 'ring'
           ? v.state.implicits.length !== 1 ||
             v.state.implicits[0]?.modifierId !==

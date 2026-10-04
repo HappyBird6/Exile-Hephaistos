@@ -28,6 +28,8 @@ public final class WorkbenchService {
   private final WorkbenchSimulator bowSimulator;
   private final Map<String, ItemCatalog> basicJewels = new HashMap<>();
   private final Map<String, WorkbenchSimulator> basicJewelSimulators = new HashMap<>();
+  private final Map<String, ItemCatalog> topBases = new HashMap<>();
+  private final Map<String, WorkbenchSimulator> topBaseSimulators = new HashMap<>();
   private final ItemCatalog sapphire;
   private final WorkbenchSimulator sapphireSimulator;
 
@@ -197,6 +199,23 @@ public final class WorkbenchService {
         basicJewelSimulators.put(c.base().id(), new WorkbenchSimulator(c, new CraftingEngine(c)));
       }
     for (var c : timeLost) {
+      if (BodyEssenceTargets.supports(c.base().id())
+          || HelmetEssenceTargets.supports(c.base().id())) {
+        boolean isBody = BodyEssenceTargets.supports(c.base().id());
+        topBases.put(isBody ? "soldier" : "imperial", c);
+        topBaseSimulators.put(
+            c.base().id(),
+            new WorkbenchSimulator(
+                c,
+                new CraftingEngine(c),
+                c.modifiers().values().stream()
+                    .filter(d -> d.stats().size() > 1)
+                    .map(ModifierDefinition::id)
+                    .collect(java.util.stream.Collectors.toSet()),
+                Map.of(),
+                isBody ? BodyEssenceTargets.REPLACEMENTS : Map.of()));
+        continue;
+      }
       String name =
           "time-lost-"
               + c.base().name().substring("Time-Lost ".length()).toLowerCase(java.util.Locale.ROOT);
@@ -352,6 +371,7 @@ public final class WorkbenchService {
   }
 
   private ItemCatalog catalog(String base) {
+    if (topBases.containsKey(base)) return topBases.get(base);
     if (basicJewels.containsKey(base)) return basicJewels.get(base);
     return switch (base) {
       case "sapphire" -> {
@@ -393,6 +413,8 @@ public final class WorkbenchService {
   }
 
   private WorkbenchSimulator simulator(ItemState state) {
+    if (state != null && topBaseSimulators.containsKey(state.baseItemId()))
+      return topBaseSimulators.get(state.baseItemId());
     if (state != null && basicJewelSimulators.containsKey(state.baseItemId()))
       return basicJewelSimulators.get(state.baseItemId());
     if (state != null
@@ -431,6 +453,15 @@ public final class WorkbenchService {
   }
 
   public QualityDisplay qualityDisplay(ItemState state) {
+    if (topBaseSimulators.containsKey(state.baseItemId())) {
+      var selected =
+          catalog(BodyEssenceTargets.supports(state.baseItemId()) ? "soldier" : "imperial");
+      return new QualityDisplay(
+          com.poe2craft.item.CatalystQualityDisplay.VERSION,
+          state,
+          QualityLimitRules.describe(state, selected),
+          com.poe2craft.item.CatalystQualityDisplay.describe(state, selected));
+    }
     var selected =
         java.util.stream.Stream.concat(
                 basicJewels.values().stream(),

@@ -1,0 +1,80 @@
+{
+  "page": "Wands",
+  "url": "https://poe2db.tw/us/Wands",
+  "retrievedAt": "2026-10-04T14:53:04.849Z",
+  "sha256": "02480ae3454a7f7904668644629e9d035cfef48c60640d06b5ff3e29e538e47f",
+  "cards": [
+    {
+      "slug": "Withered_Wand",
+      "card": "Withered Wand Grants Skill: Chaos Bolt"
+    },
+    {
+      "slug": "Bone_Wand",
+      "card": "Bone WandRequires:  Level 2 Grants Skill: Bone Blast"
+    },
+    {
+      "slug": "Attuned_Wand",
+      "card": "Attuned WandRequires:  Level 2 Grants Skill: Mana Drain"
+    },
+    {
+      "slug": "Siphoning_Wand",
+      "card": "Siphoning WandRequires:  Level 11, 23 Int Grants Skill: Power Siphon"
+    },
+    {
+      "slug": "Volatile_Wand",
+      "card": "Volatile WandRequires:  Level 16, 31 Int Grants Skill: Volatile Dead"
+    },
+    {
+      "slug": "Galvanic_Wand",
+      "card": "Galvanic WandRequires:  Level 25, 46 Int Grants Skill: Galvanic Field"
+    },
+    {
+      "slug": "Acrid_Wand",
+      "card": "Acrid WandRequires:  Level 33, 60 Int Grants Skill: Decompose"
+    },
+    {
+      "slug": "Offering_Wand",
+      "card": "Offering WandRequires:  Level 38, 68 Int Grants Skill: Exsanguinate"
+    },
+    {
+      "slug": "Frigid_Wand",
+      "card": "Frigid WandRequires:  Level 45, 80 Int Grants Skill: Chaos Bolt"
+    },
+    {
+      "slug": "Torture_Wand",
+      "card": "Torture WandRequires:  Level 49, 87 Int Grants Skill: Chaos Bolt"
+    },
+    {
+      "slug": "Critical_Wand",
+      "card": "Critical WandRequires:  Level 52, 92 Int Grants Skill: Chaos Bolt"
+    },
+    {
+      "slug": "Primordial_Wand",
+      "card": "Primordial WandRequires:  Level 56, 99 Int Grants Skill: Wither"
+    },
+    {
+      "slug": "Dueling_Wand",
+      "card": "Dueling WandRequires:  Level 65, 114 Int Grants Skill: Spellslinger"
+    },
+    {
+      "slug": "Twisted_Wand",
+      "card": "Twisted WandRequires:  Level 65, 114 Int Grants Skill: Coiling Bolts"
+    },
+    {
+      "slug": "Runic_Fork",
+      "card": "Runic ForkRequires:  Level 65, 114 Int"
+    },
+    {
+      "slug": "Runemastered_Runic_Fork",
+      "card": "Runemastered Runic ForkRequires:  Level 65, 114 Int(30—50)% chance for Spell Skills to fire 2 additional Projectiles"
+    },
+    {
+      "slug": "Runemastered_Runic_Fork",
+      "card": "Runemastered Runic ForkRequires:  Level 65, 114 Int(30—50)% increased Mana Regeneration Rate"
+    },
+    {
+      "slug": "Runemastered_Runic_Fork",
+      "card": "Runemastered Runic ForkRequires:  Level 65, 114 Int+300 to maximum Runic Ward"
+    }
+  ]
+}

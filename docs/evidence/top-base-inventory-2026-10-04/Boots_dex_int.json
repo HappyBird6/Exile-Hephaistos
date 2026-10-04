@@ -1,0 +1,108 @@
+{
+  "page": "Boots_dex_int",
+  "url": "https://poe2db.tw/us/Boots_dex_int",
+  "retrievedAt": "2026-10-04T14:45:14.848Z",
+  "sha256": "5404c75f1da984471e6afafcc160cf9027bd4dfc9de2e44c1ed6eab6d96bed30",
+  "cards": [
+    {
+      "slug": "Frayed_Shoes",
+      "card": "Frayed ShoesEvasion Rating: 15Energy Shield: 10Requires:  Level 5, 7 Dex, 7 Int"
+    },
+    {
+      "slug": "Threaded_Shoes",
+      "card": "Threaded ShoesEvasion Rating: 35Energy Shield: 15Requires:  Level 16, 14 Dex, 14 Int"
+    },
+    {
+      "slug": "Hunting_Shoes",
+      "card": "Hunting ShoesEvasion Rating: 65Energy Shield: 22Requires:  Level 33, 26 Dex, 26 Int"
+    },
+    {
+      "slug": "Steelpoint_Shoes",
+      "card": "Steelpoint ShoesEvasion Rating: 86Energy Shield: 28Requires:  Level 45, 34 Dex, 34 Int"
+    },
+    {
+      "slug": "Velour_Shoes",
+      "card": "Velour ShoesEvasion Rating: 99Energy Shield: 31Requires:  Level 52, 38 Dex, 38 Int"
+    },
+    {
+      "slug": "Bladed_Shoes",
+      "card": "Bladed ShoesEvasion Rating: 122Energy Shield: 37Requires:  Level 65, 47 Dex, 47 Int"
+    },
+    {
+      "slug": "Wayfarer_Shoes",
+      "card": "Wayfarer ShoesEvasion Rating: 86Energy Shield: 28Requires:  Level 45, 34 Dex, 34 Int"
+    },
+    {
+      "slug": "Silverbuckled_Shoes",
+      "card": "Silverbuckled ShoesEvasion Rating: 97Energy Shield: 31Requires:  Level 51, 38 Dex, 38 Int"
+    },
+    {
+      "slug": "Treerunner_Shoes",
+      "card": "Treerunner ShoesEvasion Rating: 111Energy Shield: 34Requires:  Level 59, 44 Dex, 44 Int"
+    },
+    {
+      "slug": "Wanderer_Shoes",
+      "card": "Wanderer ShoesEvasion Rating: 122Energy Shield: 37Requires:  Level 65, 47 Dex, 47 Int"
+    },
+    {
+      "slug": "Charmed_Shoes",
+      "card": "Charmed ShoesEvasion Rating: 128Energy Shield: 39Requires:  Level 70, 51 Dex, 51 Int"
+    },
+    {
+      "slug": "Quickslip_Shoes",
+      "card": "Quickslip ShoesEvasion Rating: 134Energy Shield: 41Requires:  Level 75, 56 Dex, 56 Int"
+    },
+    {
+      "slug": "Daggerfoot_Shoes",
+      "card": "Daggerfoot ShoesEvasion Rating: 140Energy Shield: 43Requires:  Level 80, 59 Dex, 59 Int"
+    },
+    {
+      "slug": "Runeforged_Frayed_Shoes",
+      "card": "Runeforged Frayed ShoesEvasion Rating: 15Energy Shield: 10Runic Ward: 17Requires:  Level 5, 7 Dex, 7 Int"
+    },
+    {
+      "slug": "Runeforged_Threaded_Shoes",
+      "card": "Runeforged Threaded ShoesEvasion Rating: 35Energy Shield: 15Runic Ward: 26Requires:  Level 16, 14 Dex, 14 Int"
+    },
+    {
+      "slug": "Runeforged_Hunting_Shoes",
+      "card": "Runeforged Hunting ShoesEvasion Rating: 65Energy Shield: 22Runic Ward: 34Requires:  Level 33, 26 Dex, 26 Int"
+    },
+    {
+      "slug": "Runeforged_Steelpoint_Shoes",
+      "card": "Runeforged Steelpoint ShoesEvasion Rating: 86Energy Shield: 28Runic Ward: 39Requires:  Level 45, 34 Dex, 34 Int"
+    },
+    {
+      "slug": "Runeforged_Treerunner_Shoes",
+      "card": "Runeforged Treerunner ShoesEvasion Rating: 98Energy Shield: 30Runic Ward: 58Requires:  Level 59, 44 Dex, 44 Int"
+    },
+    {
+      "slug": "Runeforged_Wanderer_Shoes",
+      "card": "Runeforged Wanderer ShoesEvasion Rating: 115Energy Shield: 35Runic Ward: 42Requires:  Level 65, 47 Dex, 47 Int"
+    },
+    {
+      "slug": "Runeforged_Charmed_Shoes",
+      "card": "Runeforged Charmed ShoesEvasion Rating: 81Energy Shield: 25Runic Ward: 116Requires:  Level 70, 51 Dex, 51 Int"
+    },
+    {
+      "slug": "Runeforged_Quickslip_Shoes",
+      "card": "Runeforged Quickslip ShoesEvasion Rating: 132Energy Shield: 40Runic Ward: 32Requires:  Level 75, 56 Dex, 56 Int"
+    },
+    {
+      "slug": "Runeforged_Daggerfoot_Shoes",
+      "card": "Runeforged Daggerfoot ShoesEvasion Rating: 56Energy Shield: 17Runic Ward: 194Requires:  Level 80, 59 Dex, 59 Int"
+    },
+    {
+      "slug": "Runemastered_Threaded_Shoes",
+      "card": "Runemastered Threaded ShoesEvasion Rating: 55Energy Shield: 19Runic Ward: 34Requires:  Level 38, 29 Dex, 29 Int5% increased Movement Speed"
+    },
+    {
+      "slug": "Runemastered_Hunting_Shoes",
+      "card": "Runemastered Hunting ShoesEvasion Rating: 70Energy Shield: 23Runic Ward: 28Requires:  Level 40, 30 Dex, 30 Int"
+    },
+    {
+      "slug": "Runemastered_Velour_Shoes",
+      "card": "Runemastered Velour ShoesEvasion Rating: 85Energy Shield: 26Runic Ward: 63Requires:  Level 65, 47 Dex, 47 Int"
+    }
+  ]
+}

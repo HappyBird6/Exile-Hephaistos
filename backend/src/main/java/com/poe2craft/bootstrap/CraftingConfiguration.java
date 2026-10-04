@@ -94,7 +94,9 @@ public class CraftingConfiguration {
           ItemCatalogLoader.loadBasicJewel("time-lost-ruby"),
           ItemCatalogLoader.loadBasicJewel("time-lost-emerald"),
           ItemCatalogLoader.loadBasicJewel("time-lost-sapphire"),
-          ItemCatalogLoader.loadBasicJewel("time-lost-diamond"));
+          ItemCatalogLoader.loadBasicJewel("time-lost-diamond"),
+          ItemCatalogLoader.loadTopBase("soldier"),
+          ItemCatalogLoader.loadTopBase("imperial"));
     } catch (java.io.IOException e) {
       throw new IllegalStateException("Cannot load Stocky Mitts catalog", e);
     }

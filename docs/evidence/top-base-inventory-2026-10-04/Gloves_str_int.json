@@ -1,0 +1,116 @@
+{
+  "page": "Gloves_str_int",
+  "url": "https://poe2db.tw/us/Gloves_str_int",
+  "retrievedAt": "2026-10-04T14:45:03.398Z",
+  "sha256": "2147fa9d947dfbea45976fe460408b5001835e6d2c51da289f82503cf661f8d7",
+  "cards": [
+    {
+      "slug": "Rope_Cuffs",
+      "card": "Rope CuffsArmour: 13Energy Shield: 6Requires:  Level 5, 6 Str, 6 Int"
+    },
+    {
+      "slug": "Aged_Cuffs",
+      "card": "Aged CuffsArmour: 27Energy Shield: 10Requires:  Level 16, 13 Str, 13 Int"
+    },
+    {
+      "slug": "Goldcast_Cuffs",
+      "card": "Goldcast CuffsArmour: 49Energy Shield: 15Requires:  Level 33, 24 Str, 24 Int"
+    },
+    {
+      "slug": "Kalguuran_Cuffs",
+      "card": "Kalguuran CuffsArmour: 64Energy Shield: 19Requires:  Level 45, 32 Str, 32 Int"
+    },
+    {
+      "slug": "Righteous_Cuffs",
+      "card": "Righteous CuffsArmour: 73Energy Shield: 21Requires:  Level 52, 36 Str, 36 Int"
+    },
+    {
+      "slug": "Signet_Cuffs",
+      "card": "Signet CuffsArmour: 89Energy Shield: 25Requires:  Level 65, 44 Str, 44 Int"
+    },
+    {
+      "slug": "Braided_Cuffs",
+      "card": "Braided CuffsArmour: 64Energy Shield: 19Requires:  Level 45, 32 Str, 32 Int"
+    },
+    {
+      "slug": "Heirloom_Cuffs",
+      "card": "Heirloom CuffsArmour: 72Energy Shield: 21Requires:  Level 51, 35 Str, 35 Int"
+    },
+    {
+      "slug": "Ornate_Cuffs",
+      "card": "Ornate CuffsArmour: 82Energy Shield: 23Requires:  Level 59, 41 Str, 41 Int"
+    },
+    {
+      "slug": "Bound_Cuffs",
+      "card": "Bound CuffsArmour: 89Energy Shield: 25Requires:  Level 65, 44 Str, 44 Int"
+    },
+    {
+      "slug": "Ancient_Cuffs",
+      "card": "Ancient CuffsArmour: 89Energy Shield: 25Requires:  Level 70, 48 Str, 48 Int"
+    },
+    {
+      "slug": "Gleaming_Cuffs",
+      "card": "Gleaming CuffsArmour: 94Energy Shield: 26Requires:  Level 75, 52 Str, 52 Int"
+    },
+    {
+      "slug": "Adherent_Cuffs",
+      "card": "Adherent CuffsArmour: 98Energy Shield: 27Requires:  Level 80, 55 Str, 55 Int"
+    },
+    {
+      "slug": "Tethering_Bands",
+      "card": "Tethering BandsArmour: 98Energy Shield: 27Requires:  Level 65, 55 Str, 55 Int"
+    },
+    {
+      "slug": "Runeforged_Rope_Cuffs",
+      "card": "Runeforged Rope CuffsArmour: 13Energy Shield: 6Runic Ward: 11Requires:  Level 5, 6 Str, 6 Int"
+    },
+    {
+      "slug": "Runeforged_Aged_Cuffs",
+      "card": "Runeforged Aged CuffsArmour: 27Energy Shield: 10Runic Ward: 17Requires:  Level 16, 13 Str, 13 Int"
+    },
+    {
+      "slug": "Runeforged_Goldcast_Cuffs",
+      "card": "Runeforged Goldcast CuffsArmour: 49Energy Shield: 15Runic Ward: 24Requires:  Level 33, 24 Str, 24 Int"
+    },
+    {
+      "slug": "Runeforged_Kalguuran_Cuffs",
+      "card": "Runeforged Kalguuran CuffsArmour: 64Energy Shield: 19Runic Ward: 27Requires:  Level 45, 32 Str, 32 Int"
+    },
+    {
+      "slug": "Runeforged_Ornate_Cuffs",
+      "card": "Runeforged Ornate CuffsArmour: 69Energy Shield: 19Runic Ward: 45Requires:  Level 59, 41 Str, 41 Int"
+    },
+    {
+      "slug": "Runeforged_Bound_Cuffs",
+      "card": "Runeforged Bound CuffsArmour: 84Energy Shield: 23Runic Ward: 28Requires:  Level 65, 44 Str, 44 Int"
+    },
+    {
+      "slug": "Runeforged_Ancient_Cuffs",
+      "card": "Runeforged Ancient CuffsArmour: 66Energy Shield: 18Runic Ward: 63Requires:  Level 70, 48 Str, 48 Int"
+    },
+    {
+      "slug": "Runeforged_Gleaming_Cuffs",
+      "card": "Runeforged Gleaming CuffsArmour: 93Energy Shield: 26Runic Ward: 28Requires:  Level 75, 52 Str, 52 Int"
+    },
+    {
+      "slug": "Runeforged_Adherent_Cuffs",
+      "card": "Runeforged Adherent CuffsArmour: 39Energy Shield: 11Runic Ward: 134Requires:  Level 80, 55 Str, 55 Int"
+    },
+    {
+      "slug": "Runemastered_Rope_Cuffs",
+      "card": "Runemastered Rope CuffsArmour: 33Energy Shield: 10Runic Ward: 36Requires:  Level 38, 27 Str, 27 Int"
+    },
+    {
+      "slug": "Runemastered_Aged_Cuffs",
+      "card": "Runemastered Aged CuffsArmour: 44Energy Shield: 13Runic Ward: 18Requires:  Level 38, 27 Str, 27 Int"
+    },
+    {
+      "slug": "Runemastered_Goldcast_Cuffs",
+      "card": "Runemastered Goldcast CuffsArmour: 77Energy Shield: 22Runic Ward: 37Requires:  Level 55, 38 Str, 38 Int"
+    },
+    {
+      "slug": "Runemastered_Verisium_Cuffs",
+      "card": "Runemastered Verisium CuffsArmour: 73Energy Shield: 21Runic Ward: 12Requires:  Level 55, 38 Str, 38 Int"
+    }
+  ]
+}

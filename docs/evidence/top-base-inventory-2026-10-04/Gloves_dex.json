@@ -1,0 +1,144 @@
+{
+  "page": "Gloves_dex",
+  "url": "https://poe2db.tw/us/Gloves_dex",
+  "retrievedAt": "2026-10-04T14:44:58.843Z",
+  "sha256": "d9fabe186bb708867b42cdb2d322842e037c1b0d8f120a100dd2c9fdf6fa9cba",
+  "cards": [
+    {
+      "slug": "Suede_Bracers",
+      "card": "Suede BracersEvasion Rating: 10"
+    },
+    {
+      "slug": "Firm_Bracers",
+      "card": "Firm BracersEvasion Rating: 31Requires:  Level 11, 16 Dex"
+    },
+    {
+      "slug": "Bound_Bracers",
+      "card": "Bound BracersEvasion Rating: 42Requires:  Level 16, 22 Dex"
+    },
+    {
+      "slug": "Sectioned_Bracers",
+      "card": "Sectioned BracersEvasion Rating: 68Requires:  Level 28, 36 Dex"
+    },
+    {
+      "slug": "Spined_Bracers",
+      "card": "Spined BracersEvasion Rating: 79Requires:  Level 33, 42 Dex"
+    },
+    {
+      "slug": "Fine_Bracers",
+      "card": "Fine BracersEvasion Rating: 105Requires:  Level 45, 56 Dex"
+    },
+    {
+      "slug": "Hardened_Bracers",
+      "card": "Hardened BracersEvasion Rating: 120Requires:  Level 52, 64 Dex"
+    },
+    {
+      "slug": "Engraved_Bracers",
+      "card": "Engraved BracersEvasion Rating: 148Requires:  Level 65, 80 Dex"
+    },
+    {
+      "slug": "Hunting_Bracers",
+      "card": "Hunting BracersEvasion Rating: 105Requires:  Level 45, 56 Dex"
+    },
+    {
+      "slug": "Swift_Bracers",
+      "card": "Swift BracersEvasion Rating: 118Requires:  Level 51, 64 Dex"
+    },
+    {
+      "slug": "Refined_Bracers",
+      "card": "Refined BracersEvasion Rating: 124Requires:  Level 54, 67 Dex"
+    },
+    {
+      "slug": "Spiked_Bracers",
+      "card": "Spiked BracersEvasion Rating: 135Requires:  Level 59, 73 Dex"
+    },
+    {
+      "slug": "Stalking_Bracers",
+      "card": "Stalking BracersEvasion Rating: 148Requires:  Level 65, 80 Dex"
+    },
+    {
+      "slug": "Grand_Bracers",
+      "card": "Grand BracersEvasion Rating: 155Requires:  Level 70, 87 Dex"
+    },
+    {
+      "slug": "Barbed_Bracers",
+      "card": "Barbed BracersEvasion Rating: 163Requires:  Level 75, 94 Dex"
+    },
+    {
+      "slug": "Polished_Bracers",
+      "card": "Polished BracersEvasion Rating: 170Requires:  Level 80, 101 Dex"
+    },
+    {
+      "slug": "Runeforged_Suede_Bracers",
+      "card": "Runeforged Suede BracersEvasion Rating: 10Runic Ward: 10"
+    },
+    {
+      "slug": "Runeforged_Firm_Bracers",
+      "card": "Runeforged Firm BracersEvasion Rating: 31Runic Ward: 16Requires:  Level 11, 16 Dex"
+    },
+    {
+      "slug": "Runeforged_Bound_Bracers",
+      "card": "Runeforged Bound BracersEvasion Rating: 42Runic Ward: 17Requires:  Level 16, 22 Dex"
+    },
+    {
+      "slug": "Runeforged_Sectioned_Bracers",
+      "card": "Runeforged Sectioned BracersEvasion Rating: 68Runic Ward: 22Requires:  Level 28, 36 Dex"
+    },
+    {
+      "slug": "Runeforged_Spined_Bracers",
+      "card": "Runeforged Spined BracersEvasion Rating: 79Runic Ward: 22Requires:  Level 33, 42 Dex"
+    },
+    {
+      "slug": "Runeforged_Fine_Bracers",
+      "card": "Runeforged Fine BracersEvasion Rating: 105Runic Ward: 26Requires:  Level 45, 56 Dex"
+    },
+    {
+      "slug": "Runeforged_Engraved_Bracers",
+      "card": "Runeforged Engraved BracersEvasion Rating: 133Runic Ward: 35Requires:  Level 65, 80 Dex"
+    },
+    {
+      "slug": "Runeforged_Refined_Bracers",
+      "card": "Runeforged Refined BracersEvasion Rating: 119Runic Ward: 24Requires:  Level 54, 67 Dex"
+    },
+    {
+      "slug": "Runeforged_Spiked_Bracers",
+      "card": "Runeforged Spiked BracersEvasion Rating: 113Runic Ward: 45Requires:  Level 59, 73 Dex"
+    },
+    {
+      "slug": "Runeforged_Stalking_Bracers",
+      "card": "Runeforged Stalking BracersEvasion Rating: 139Runic Ward: 28Requires:  Level 65, 80 Dex"
+    },
+    {
+      "slug": "Runeforged_Grand_Bracers",
+      "card": "Runeforged Grand BracersEvasion Rating: 109Runic Ward: 63Requires:  Level 70, 87 Dex"
+    },
+    {
+      "slug": "Runeforged_Barbed_Bracers",
+      "card": "Runeforged Barbed BracersEvasion Rating: 148Runic Ward: 35Requires:  Level 75, 94 Dex"
+    },
+    {
+      "slug": "Runeforged_Polished_Bracers",
+      "card": "Runeforged Polished BracersEvasion Rating: 77Runic Ward: 120Requires:  Level 80, 101 Dex"
+    },
+    {
+      "slug": "Runemastered_Suede_Bracers",
+      "card": "Runemastered Suede BracersEvasion Rating: 63Runic Ward: 20Requires:  Level 38, 48 Dex"
+    },
+    {
+      "slug": "Runemastered_Firm_Bracers",
+      "card": "Runemastered Firm BracersEvasion Rating: 63Runic Ward: 27Requires:  Level 38, 48 Dex"
+    },
+    {
+      "slug": "Runemastered_Sectioned_Bracers",
+      "card": "Runemastered Sectioned BracersEvasion Rating: 76Runic Ward: 18Requires:  Level 38, 48 Dex"
+    },
+    {
+      "slug": "Runemastered_Spined_Bracers",
+      "card": "Runemastered Spined BracersEvasion Rating: 72Runic Ward: 18Requires:  Level 38, 48 Dex"
+    },
+    {
+      "slug": "Runemastered_Fine_Bracers",
+      "card": "Runemastered Fine BracersEvasion Rating: 52Runic Ward: 52Requires:  Level 45, 56 Dex"
+    }
+  ]
+}

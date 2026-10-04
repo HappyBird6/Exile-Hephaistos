@@ -1,0 +1,232 @@
+{
+  "page": "Body_Armours_str_dex",
+  "url": "https://poe2db.tw/us/Body_Armours_str_dex",
+  "retrievedAt": "2026-10-04T14:44:33.342Z",
+  "sha256": "c7bffd7f68217480a16ea45a44d8e8b58489bcc7f0162535537164dc8380daf3",
+  "cards": [
+    {
+      "slug": "Chain_Mail",
+      "card": "Chain MailArmour: 25Evasion Rating: 16Base Movement Speed: -0.04"
+    },
+    {
+      "slug": "Rogue_Armour",
+      "card": "Rogue ArmourArmour: 63Evasion Rating: 53Base Movement Speed: -0.04Requires:  Level 11, 13 Str, 13 Dex"
+    },
+    {
+      "slug": "Vagabond_Armour",
+      "card": "Vagabond ArmourArmour: 83Evasion Rating: 71Base Movement Speed: -0.04Requires:  Level 16, 17 Str, 17 Dex"
+    },
+    {
+      "slug": "Cloaked_Mail",
+      "card": "Cloaked MailArmour: 121Evasion Rating: 107Base Movement Speed: -0.04Requires:  Level 26, 25 Str, 25 Dex"
+    },
+    {
+      "slug": "Explorer_Armour",
+      "card": "Explorer ArmourArmour: 149Evasion Rating: 132Base Movement Speed: -0.04Requires:  Level 33, 31 Str, 31 Dex"
+    },
+    {
+      "slug": "Scale_Mail",
+      "card": "Scale MailArmour: 164Evasion Rating: 147Base Movement Speed: -0.04Requires:  Level 37, 34 Str, 34 Dex"
+    },
+    {
+      "slug": "Knight_Armour",
+      "card": "Knight ArmourArmour: 195Evasion Rating: 176Base Movement Speed: -0.04Requires:  Level 45, 41 Str, 41 Dex"
+    },
+    {
+      "slug": "Ancestral_Mail",
+      "card": "Ancestral MailArmour: 214Evasion Rating: 194Base Movement Speed: -0.04Requires:  Level 50, 44 Str, 44 Dex"
+    },
+    {
+      "slug": "Lamellar_Mail",
+      "card": "Lamellar MailArmour: 222Evasion Rating: 201Base Movement Speed: -0.04Requires:  Level 52, 46 Str, 46 Dex"
+    },
+    {
+      "slug": "Gladiator_Armour",
+      "card": "Gladiator ArmourArmour: 245Evasion Rating: 223Base Movement Speed: -0.04Requires:  Level 58, 51 Str, 51 Dex"
+    },
+    {
+      "slug": "Heroic_Armour",
+      "card": "Heroic ArmourArmour: 273Evasion Rating: 248Base Movement Speed: -0.04Requires:  Level 65, 67 Str, 67 Dex+(60—80) to maximum Life"
+    },
+    {
+      "slug": "Tournament_Mail",
+      "card": "Tournament MailArmour: 273Evasion Rating: 248Base Movement Speed: -0.04Requires:  Level 68, 67 Str, 67 Dex+(20—25)% to Fire Resistance"
+    },
+    {
+      "slug": "Tournament_Mail",
+      "card": "Tournament MailArmour: 273Evasion Rating: 248Base Movement Speed: -0.04Requires:  Level 68, 67 Str, 67 Dex+(20—25)% to Cold Resistance"
+    },
+    {
+      "slug": "Tournament_Mail",
+      "card": "Tournament MailArmour: 273Evasion Rating: 248Base Movement Speed: -0.04Requires:  Level 68, 67 Str, 67 Dex+(20—25)% to Lightning Resistance"
+    },
+    {
+      "slug": "Slayer_Armour",
+      "card": "Slayer ArmourArmour: 273Evasion Rating: 248Base Movement Speed: -0.04Requires:  Level 73, 67 Str, 67 Dex"
+    },
+    {
+      "slug": "Runeforged_Grasping_Mail",
+      "card": "Runeforged Grasping MailArmour: 232Evasion Rating: 211Base Movement Speed: -0.04Runic Ward: 107Requires:  Level 65, 61 Str, 61 DexCan roll Ring ModifiersCatalysts can be applied to this item"
+    },
+    {
+      "slug": "Ring_Mail",
+      "card": "Ring MailArmour: 195Evasion Rating: 176Base Movement Speed: -0.04Requires:  Level 45, 41 Str, 41 Dex"
+    },
+    {
+      "slug": "Scoundrel_Armour",
+      "card": "Scoundrel ArmourArmour: 207Evasion Rating: 187Base Movement Speed: -0.04Requires:  Level 48, 43 Str, 43 Dex"
+    },
+    {
+      "slug": "Wanderer_Armour",
+      "card": "Wanderer ArmourArmour: 218Evasion Rating: 197Base Movement Speed: -0.04Requires:  Level 51, 45 Str, 45 Dex"
+    },
+    {
+      "slug": "Mantled_Mail",
+      "card": "Mantled MailArmour: 230Evasion Rating: 208Base Movement Speed: -0.04Requires:  Level 54, 48 Str, 48 Dex"
+    },
+    {
+      "slug": "Trailblazer_Armour",
+      "card": "Trailblazer ArmourArmour: 249Evasion Rating: 226Base Movement Speed: -0.04Requires:  Level 59, 52 Str, 52 Dex"
+    },
+    {
+      "slug": "Golden_Mail",
+      "card": "Golden MailArmour: 261Evasion Rating: 237Base Movement Speed: -0.04Requires:  Level 62, 54 Str, 54 Dex"
+    },
+    {
+      "slug": "Dastard_Armour",
+      "card": "Dastard ArmourArmour: 303Evasion Rating: 276Base Movement Speed: -0.04Requires:  Level 65, 67 Str, 67 Dex+(60—80) to maximum Life"
+    },
+    {
+      "slug": "Shrouded_Mail",
+      "card": "Shrouded MailArmour: 273Evasion Rating: 248Base Movement Speed: -0.04Requires:  Level 70, 67 Str, 67 Dex+(20—25)% to Fire Resistance"
+    },
+    {
+      "slug": "Shrouded_Mail",
+      "card": "Shrouded MailArmour: 273Evasion Rating: 248Base Movement Speed: -0.04Requires:  Level 70, 67 Str, 67 Dex+(20—25)% to Cold Resistance"
+    },
+    {
+      "slug": "Shrouded_Mail",
+      "card": "Shrouded MailArmour: 273Evasion Rating: 248Base Movement Speed: -0.04Requires:  Level 70, 67 Str, 67 Dex+(20—25)% to Lightning Resistance"
+    },
+    {
+      "slug": "Death_Mail",
+      "card": "Death MailArmour: 313Evasion Rating: 285Base Movement Speed: -0.04Requires:  Level 75, 67 Str, 67 Dex"
+    },
+    {
+      "slug": "Thane_Mail",
+      "card": "Thane MailArmour: 273Evasion Rating: 248Base Movement Speed: -0.04Requires:  Level 80, 67 Str, 67 DexHits against you have (15—25)% reduced Critical Damage Bonus"
+    },
+    {
+      "slug": "Runeforged_Chain_Mail",
+      "card": "Runeforged Chain MailArmour: 25Evasion Rating: 16Base Movement Speed: -0.04Runic Ward: 29"
+    },
+    {
+      "slug": "Runeforged_Rogue_Armour",
+      "card": "Runeforged Rogue ArmourArmour: 63Evasion Rating: 53Base Movement Speed: -0.04Runic Ward: 43Requires:  Level 11, 13 Str, 13 Dex"
+    },
+    {
+      "slug": "Runeforged_Vagabond_Armour",
+      "card": "Runeforged Vagabond ArmourArmour: 83Evasion Rating: 71Base Movement Speed: -0.04Runic Ward: 53Requires:  Level 16, 17 Str, 17 Dex"
+    },
+    {
+      "slug": "Runeforged_Cloaked_Mail",
+      "card": "Runeforged Cloaked MailArmour: 121Evasion Rating: 107Base Movement Speed: -0.04Runic Ward: 73Requires:  Level 26, 25 Str, 25 Dex"
+    },
+    {
+      "slug": "Runeforged_Explorer_Armour",
+      "card": "Runeforged Explorer ArmourArmour: 149Evasion Rating: 132Base Movement Speed: -0.04Runic Ward: 74Requires:  Level 33, 31 Str, 31 Dex"
+    },
+    {
+      "slug": "Runeforged_Scale_Mail",
+      "card": "Runeforged Scale MailArmour: 164Evasion Rating: 147Base Movement Speed: -0.04Runic Ward: 78Requires:  Level 37, 34 Str, 34 Dex"
+    },
+    {
+      "slug": "Runeforged_Knight_Armour",
+      "card": "Runeforged Knight ArmourArmour: 195Evasion Rating: 176Base Movement Speed: -0.04Runic Ward: 85Requires:  Level 45, 41 Str, 41 Dex"
+    },
+    {
+      "slug": "Runeforged_Ancestral_Mail",
+      "card": "Runeforged Ancestral MailArmour: 214Evasion Rating: 194Base Movement Speed: -0.04Runic Ward: 86Requires:  Level 50, 44 Str, 44 Dex"
+    },
+    {
+      "slug": "Runeforged_Slayer_Armour",
+      "card": "Runeforged Slayer ArmourArmour: 218Evasion Rating: 199Base Movement Speed: -0.04Runic Ward: 107Requires:  Level 73, 67 Str, 67 Dex"
+    },
+    {
+      "slug": "Runeforged_Sacrificial_Regalia",
+      "card": "Runeforged Sacrificial RegaliaArmour: 273Evasion Rating: 248Base Movement Speed: -0.03Runic Ward: 129Requires:  Level 65, 80 Str, 80 Dex+1 to Level of all Corrupted Skill Gems1% increased Maximum Life for each Corrupted Item Equipped"
+    },
+    {
+      "slug": "Runeforged_Mantled_Mail",
+      "card": "Runeforged Mantled MailArmour: 221Evasion Rating: 200Base Movement Speed: -0.04Runic Ward: 73Requires:  Level 54, 48 Str, 48 Dex"
+    },
+    {
+      "slug": "Runeforged_Trailblazer_Armour",
+      "card": "Runeforged Trailblazer ArmourArmour: 199Evasion Rating: 181Base Movement Speed: -0.04Runic Ward: 158Requires:  Level 59, 52 Str, 52 Dex"
+    },
+    {
+      "slug": "Runeforged_Golden_Mail",
+      "card": "Runeforged Golden MailArmour: 235Evasion Rating: 214Base Movement Speed: -0.04Runic Ward: 124Requires:  Level 62, 54 Str, 54 Dex"
+    },
+    {
+      "slug": "Runeforged_Dastard_Armour",
+      "card": "Runeforged Dastard ArmourArmour: 180Evasion Rating: 164Base Movement Speed: -0.04Runic Ward: 236Requires:  Level 65, 67 Str, 67 Dex+(60—80) to maximum Life"
+    },
+    {
+      "slug": "Runeforged_Shrouded_Mail",
+      "card": "Runeforged Shrouded MailArmour: 245Evasion Rating: 223Base Movement Speed: -0.04Runic Ward: 107Requires:  Level 70, 67 Str, 67 Dex+(20—25)% to Fire Resistance"
+    },
+    {
+      "slug": "Runeforged_Shrouded_Mail",
+      "card": "Runeforged Shrouded MailArmour: 245Evasion Rating: 223Base Movement Speed: -0.04Runic Ward: 107Requires:  Level 70, 67 Str, 67 Dex+(20—25)% to Cold Resistance"
+    },
+    {
+      "slug": "Runeforged_Shrouded_Mail",
+      "card": "Runeforged Shrouded MailArmour: 245Evasion Rating: 223Base Movement Speed: -0.04Runic Ward: 107Requires:  Level 70, 67 Str, 67 Dex+(20—25)% to Lightning Resistance"
+    },
+    {
+      "slug": "Runeforged_Death_Mail",
+      "card": "Runeforged Death MailArmour: 120Evasion Rating: 109Base Movement Speed: -0.04Runic Ward: 408Requires:  Level 75, 67 Str, 67 Dex"
+    },
+    {
+      "slug": "Runeforged_Thane_Mail",
+      "card": "Runeforged Thane MailArmour: 267Evasion Rating: 243Base Movement Speed: -0.04Runic Ward: 64Requires:  Level 80, 67 Str, 67 DexHits against you have (15—25)% reduced Critical Damage Bonus"
+    },
+    {
+      "slug": "Runemastered_Chain_Mail",
+      "card": "Runemastered Chain MailArmour: 151Evasion Rating: 135Base Movement Speed: -0.04Runic Ward: 55Requires:  Level 38, 35 Str, 35 Dex"
+    },
+    {
+      "slug": "Runemastered_Rogue_Armour",
+      "card": "Runemastered Rogue ArmourArmour: 118Evasion Rating: 105Base Movement Speed: -0.04Runic Ward: 83Requires:  Level 38, 35 Str, 35 Dex"
+    },
+    {
+      "slug": "Runemastered_Vagabond_Armour",
+      "card": "Runemastered Vagabond ArmourArmour: 143Evasion Rating: 128Base Movement Speed: -0.04Runic Ward: 41Requires:  Level 38, 35 Str, 35 Dex"
+    },
+    {
+      "slug": "Runemastered_Cloaked_Mail",
+      "card": "Runemastered Cloaked MailArmour: 114Evasion Rating: 102Base Movement Speed: -0.04Runic Ward: 115Requires:  Level 40, 36 Str, 36 Dex"
+    },
+    {
+      "slug": "Runemastered_Explorer_Armour",
+      "card": "Runemastered Explorer ArmourArmour: 199Evasion Rating: 180Base Movement Speed: -0.04Runic Ward: 56Requires:  Level 55, 49 Str, 49 Dex"
+    },
+    {
+      "slug": "Runemastered_Scale_Mail",
+      "card": "Runemastered Scale MailArmour: 187Evasion Rating: 170Base Movement Speed: -0.04Runic Ward: 75Requires:  Level 55, 49 Str, 49 Dex"
+    },
+    {
+      "slug": "Runemastered_Knight_Armour",
+      "card": "Runemastered Knight ArmourArmour: 175Evasion Rating: 159Base Movement Speed: -0.04Runic Ward: 93Requires:  Level 55, 49 Str, 49 Dex"
+    },
+    {
+      "slug": "Runemastered_Ancestral_Mail",
+      "card": "Runemastered Ancestral MailArmour: 191Evasion Rating: 174Base Movement Speed: -0.04Runic Ward: 107Requires:  Level 65, 57 Str, 57 Dex"
+    },
+    {
+      "slug": "Runemastered_Heroic_Armour",
+      "card": "Runemastered Heroic ArmourArmour: 136Evasion Rating: 124Base Movement Speed: -0.04Runic Ward: 215Requires:  Level 65, 67 Str, 67 Dex+(60—80) to maximum Life"
+    }
+  ]
+}
