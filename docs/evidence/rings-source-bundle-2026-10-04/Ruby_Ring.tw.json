@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/tw/Ruby_Ring",
+  "retrievedAt": "2026-10-04T20:55:02.851Z",
+  "sha256": "df9f7af93ec393a9f60541c25e264276a4325171eeb3b868bc0cbeeb59f2de6a",
+  "name": "紅玉戒指",
+  "card": "紅玉戒指\n        \n    \n    \n        \n            戒指需求:  等級 8+(20—30)%火焰抗性\n        \n\n\n\n        \n            Ruby Ring",
+  "requirements": "需求:  等級 8",
+  "fields": {
+    "DropLevel": "8",
+    "BaseType": "紅玉戒指",
+    "Class": "戒指",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Rings/FourRing3",
+    "Tags": "ring",
+    "Icon": "Art/2DItems/Rings/Basetypes/RubyRing",
+    "Base.base_level": "1",
+    "Base.tag": "default, ring",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Ring",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

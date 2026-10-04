@@ -1031,5 +1031,328 @@
     "physicalDamage": "62-115",
     "criticalHitChance": 5,
     "attacksPerSecond": 1.1
+  },
+  "kinetic": {
+    "key": "kinetic",
+    "slug": "Kinetic_Ring",
+    "pool": "kinetic-ring",
+    "family": "rings",
+    "id": "Metadata/Items/Rings/FourRingB4",
+    "name": "Kinetic Ring",
+    "sourceUrl": "https://poe2db.tw/us/Kinetic_Ring",
+    "sourceSha256": "27c8c847f28bf2440563b9fe9aa42b467e0e4b988f610d0c7021c461c9e64aa1",
+    "sourceTags": ["ring"],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 40,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 40",
+      "ko": "요구 사항:  레벨 40",
+      "ja": "装備条件： レベル 40",
+      "zh-CN": "需求：  等级 40",
+      "zh-TW": "需求:  等級 40",
+      "es": "Requiere:  Nivel 40"
+    },
+    "implicitModifierId": "kinetic:implicit:physicaldamage",
+    "implicitStats": [
+      {
+        "id": "attack_maximum_added_physical_damage",
+        "min": 11,
+        "max": 15
+      },
+      {
+        "id": "attack_minimum_added_physical_damage",
+        "min": 6,
+        "max": 9
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "attack_maximum_added_physical_damage",
+        "min": 11,
+        "max": 15,
+        "locality": "Global"
+      },
+      {
+        "id": "attack_minimum_added_physical_damage",
+        "min": 6,
+        "max": 9,
+        "locality": "Global"
+      }
+    ]
+  },
+  "vitalic": {
+    "key": "vitalic",
+    "slug": "Vitalic_Ring",
+    "pool": "vitalic-ring",
+    "family": "rings",
+    "id": "Metadata/Items/Rings/FourRingB2",
+    "name": "Vitalic Ring",
+    "sourceUrl": "https://poe2db.tw/us/Vitalic_Ring",
+    "sourceSha256": "30e4158207c3f3303c424e8de8b51246a504eb8fc50dcc0ea1d90045d8ec3324",
+    "sourceTags": ["ring"],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 40,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 40",
+      "ko": "요구 사항:  레벨 40",
+      "ja": "装備条件： レベル 40",
+      "zh-CN": "需求：  等级 40",
+      "zh-TW": "需求:  等級 40",
+      "es": "Requiere:  Nivel 40"
+    },
+    "implicitModifierId": "vitalic:implicit:increasedlife",
+    "implicitStats": [
+      {
+        "id": "maximum_life_+%",
+        "min": 4,
+        "max": 6
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "maximum_life_+%",
+        "min": 4,
+        "max": 6,
+        "locality": "Global"
+      }
+    ]
+  },
+  "mnemonic": {
+    "key": "mnemonic",
+    "slug": "Mnemonic_Ring",
+    "pool": "mnemonic-ring",
+    "family": "rings",
+    "id": "Metadata/Items/Rings/FourRingB3",
+    "name": "Mnemonic Ring",
+    "sourceUrl": "https://poe2db.tw/us/Mnemonic_Ring",
+    "sourceSha256": "3aa1f8c90b326bb25fe0776e5753c76fb0718c7bcc04b18a44fe31b5b735f032",
+    "sourceTags": ["ring"],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 40,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 40",
+      "ko": "요구 사항:  레벨 40",
+      "ja": "装備条件： レベル 40",
+      "zh-CN": "需求：  等级 40",
+      "zh-TW": "需求:  等級 40",
+      "es": "Requiere:  Nivel 40"
+    },
+    "implicitModifierId": "mnemonic:implicit:maximummanaincreasepercent",
+    "implicitStats": [
+      {
+        "id": "maximum_mana_+%",
+        "min": 4,
+        "max": 6
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "maximum_mana_+%",
+        "min": 4,
+        "max": 6,
+        "locality": "Global"
+      }
+    ]
+  },
+  "pearl": {
+    "key": "pearl",
+    "slug": "Pearl_Ring",
+    "pool": "pearl-ring",
+    "family": "rings",
+    "id": "Metadata/Items/Rings/FourRing8",
+    "name": "Pearl Ring",
+    "sourceUrl": "https://poe2db.tw/us/Pearl_Ring",
+    "sourceSha256": "00ac2f0e29e19688f4fa60ca38cbde991953c4f88d05fbf4008ea74f4a986d6e",
+    "sourceTags": ["ring"],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 32,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 32",
+      "ko": "요구 사항:  레벨 32",
+      "ja": "装備条件： レベル 32",
+      "zh-CN": "需求：  等级 32",
+      "zh-TW": "需求:  等級 32",
+      "es": "Requiere:  Nivel 32"
+    },
+    "implicitModifierId": "pearl:implicit:increasedcastspeed",
+    "implicitStats": [
+      {
+        "id": "base_cast_speed_+%",
+        "min": 7,
+        "max": 10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_cast_speed_+%",
+        "min": 7,
+        "max": 10,
+        "locality": "Global"
+      }
+    ]
+  },
+  "amethyst": {
+    "key": "amethyst",
+    "slug": "Amethyst_Ring",
+    "pool": "amethyst-ring",
+    "family": "rings",
+    "id": "Metadata/Items/Rings/FourRing6",
+    "name": "Amethyst Ring",
+    "sourceUrl": "https://poe2db.tw/us/Amethyst_Ring",
+    "sourceSha256": "b090a09ccf81abe4a6dfac67e9b25ddef8c4460bc478b4ee26f333f613055fff",
+    "sourceTags": ["ring"],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 20,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 20",
+      "ko": "요구 사항:  레벨 20",
+      "ja": "装備条件： レベル 20",
+      "zh-CN": "需求：  等级 20",
+      "zh-TW": "需求:  等級 20",
+      "es": "Requiere:  Nivel 20"
+    },
+    "implicitModifierId": "amethyst:implicit:chaosresistance",
+    "implicitStats": [
+      {
+        "id": "base_chaos_damage_resistance_%",
+        "min": 7,
+        "max": 13
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_chaos_damage_resistance_%",
+        "min": 7,
+        "max": 13,
+        "locality": "Global"
+      }
+    ]
+  },
+  "prismatic": {
+    "key": "prismatic",
+    "slug": "Prismatic_Ring",
+    "pool": "prismatic-ring",
+    "family": "rings",
+    "id": "Metadata/Items/Rings/FourRing9",
+    "name": "Prismatic Ring",
+    "sourceUrl": "https://poe2db.tw/us/Prismatic_Ring",
+    "sourceSha256": "87b5f6138af8cfacbe69ea8559be56479866646c5ceaaf72c96d7c370ef0d24e",
+    "sourceTags": ["ring"],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 35,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 35",
+      "ko": "요구 사항:  레벨 35",
+      "ja": "装備条件： レベル 35",
+      "zh-CN": "需求：  等级 35",
+      "zh-TW": "需求:  等級 35",
+      "es": "Requiere:  Nivel 35"
+    },
+    "implicitModifierId": "prismatic:implicit:allresistances",
+    "implicitStats": [
+      {
+        "id": "base_resist_all_elements_%",
+        "min": 7,
+        "max": 10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_resist_all_elements_%",
+        "min": 7,
+        "max": 10,
+        "locality": "Global"
+      }
+    ]
+  },
+  "ruby-ring": {
+    "key": "ruby-ring",
+    "slug": "Ruby_Ring",
+    "pool": "ruby-ring-ring",
+    "family": "rings",
+    "id": "Metadata/Items/Rings/FourRing3",
+    "name": "Ruby Ring",
+    "sourceUrl": "https://poe2db.tw/us/Ruby_Ring",
+    "sourceSha256": "875791b723660e90856e634db8d3c5d1b623aa62e4b4bb2150af981ce1e3295f",
+    "sourceTags": ["ring"],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 8,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 8",
+      "ko": "요구 사항:  레벨 8",
+      "ja": "装備条件： レベル 8",
+      "zh-CN": "需求：  等级 8",
+      "zh-TW": "需求:  等級 8",
+      "es": "Requiere:  Nivel 8"
+    },
+    "implicitModifierId": "ruby-ring:implicit:fireresistance",
+    "implicitStats": [
+      {
+        "id": "base_fire_damage_resistance_%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_fire_damage_resistance_%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ]
+  },
+  "two-stone-fire-cold": {
+    "key": "two-stone-fire-cold",
+    "slug": "Two-Stone_Ring",
+    "pool": "two-stone-fire-cold-ring",
+    "family": "rings",
+    "id": "Metadata/Items/Rings/FourRing13a",
+    "name": "Two-Stone Ring",
+    "sourceUrl": "https://poe2db.tw/us/Two-Stone_Ring",
+    "sourceSha256": "e39002dcfed909bd6f94323c902b46f079f117f871405822b978e9fd394e7550",
+    "sourceTags": ["ring"],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 35,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 35",
+      "ko": "요구 사항:  레벨 35",
+      "ja": "装備条件： レベル 35",
+      "zh-CN": "需求：  等级 35",
+      "zh-TW": "需求:  等級 35",
+      "es": "Requiere:  Nivel 35"
+    },
+    "implicitModifierId": "two-stone-fire-cold:implicit:fireandcoldresistance",
+    "implicitStats": [
+      {
+        "id": "fire_and_cold_damage_resistance_%",
+        "min": 12,
+        "max": 16
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "fire_and_cold_damage_resistance_%",
+        "min": 12,
+        "max": 16,
+        "locality": "Global"
+      }
+    ]
   }
 }

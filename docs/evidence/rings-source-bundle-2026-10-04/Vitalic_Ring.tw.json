@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/tw/Vitalic_Ring",
+  "retrievedAt": "2026-10-04T20:54:52.940Z",
+  "sha256": "17d916a45064da3ffb5306b587365343b75fe884e48fd4d7909005beb7def6fd",
+  "name": "維生之戒",
+  "card": "維生之戒\n        \n    \n    \n        \n            戒指需求:  等級 40增加(4—6)%最大生命\n        \n\n        \n        \n            生其血肉，使其堅忍耐受。\n        \n\n\n        \n            Vitalic Ring",
+  "requirements": "需求:  等級 40",
+  "fields": {
+    "DropLevel": "40",
+    "BaseType": "維生之戒",
+    "Class": "戒指",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Rings/FourRingB2",
+    "Tags": "ring",
+    "Icon": "Art/2DItems/Rings/BreachlordRing_Xoph",
+    "Base.base_level": "1",
+    "Base.tag": "default, ring",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Ring",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

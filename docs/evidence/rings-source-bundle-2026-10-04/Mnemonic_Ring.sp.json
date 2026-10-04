@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/sp/Mnemonic_Ring",
+  "retrievedAt": "2026-10-04T20:54:55.158Z",
+  "sha256": "e3f42cb8a38b0b14ee1a60b795bd3fc4ff112eb7eeee4f72b3c0e31f091e23ed",
+  "name": "Anillo mnemotécnico",
+  "card": "Anillo mnemotécnico\n        \n    \n    \n        \n            AnillosRequiere:  Nivel 40Maná máximo aumentado un (4—6)%\n        \n\n        \n        \n            Construye la mente, para que pueda servir.\n        \n\n\n        \n            Mnemonic Ring",
+  "requirements": "Requiere:  Nivel 40",
+  "fields": {
+    "DropLevel": "40",
+    "BaseType": "Anillo mnemotécnico",
+    "Class": "Anillos",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Rings/FourRingB3",
+    "Tags": "ring",
+    "Icon": "Art/2DItems/Rings/BreachlordRing_Esh",
+    "Base.base_level": "1",
+    "Base.tag": "default, ring",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Ring",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

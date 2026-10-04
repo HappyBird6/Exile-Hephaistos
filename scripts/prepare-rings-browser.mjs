@@ -1,0 +1,47 @@
+import fs from 'node:fs'
+const root='E:/WORK/Exile-Hephaistos/codex/rings-qa-20261004'
+const keys="['kinetic', 'vitalic', 'mnemonic', 'pearl', 'amethyst', 'prismatic', 'ruby-ring', 'two-stone-fire-cold']"
+let s=fs.readFileSync('E:/WORK/Exile-Hephaistos/codex/bows-qa-20261004/qa-browser-2.cjs','utf8')
+s=s.replaceAll("['warmonger', 'guardian', 'gemini', 'fanatic', 'obliterator']",keys).replaceAll('19781','19881').replaceAll('46 base selector choices','54 base selector choices').replaceAll('count() === 46','count() === 54').replaceAll("place('warmonger')","place('kinetic')").replaceAll("d.familyIds.includes('PhysicalDamage')","d.familyIds.includes('IncreasedLife')")
+s=s.replace("check(k + ' actual selector creates correct base', active(await history()).frames[0].state.baseItemId === bases[k].id)","check(k + ' actual selector creates correct base', active(await history()).frames[0].state.baseItemId === bases[k].id)\n    check(k+' actual card class Rings',await page.locator('.bench-item-card .item-card__class').innerText()==='Rings')")
+s=s.replace("check(`${k}:${l} all three exact source weapon properties`, bases[k].sourceProperties[l].length === 3 && bases[k].sourceProperties[l].every(property => text.includes(property)))", "check(`${k}:${l} exact implicit line and numeric roll`, await page.locator('.bench-item-card .item-card__line--implicit').count() === 1 && !text.includes('{v0}'))")
+s=s.replace("['Lesser_Essence_of_Abrasion', 'Lesser_Essence_of_Flames']","['Lesser_Essence_of_the_Body', 'Lesser_Essence_of_the_Mind']").replaceAll("use('Perfect_Essence_of_Flames')","use('Perfect_Essence_of_the_Mind')").replaceAll('source-valid Bow Perfect Flames','source-valid Ring Perfect Mind')
+s=s.replace("    const life = defs.find",`    await seed(magic, 'full-suffix-' + k)
+    const blockedBefore=await raw(),blockedFlames=await use('Lesser_Essence_of_Flames')
+    check(k+' source Fire suffix refuses occupied Magic suffix atomically',!blockedFlames.applied && await raw()===blockedBefore)
+    const life = defs.find`)
+s=s.replace("['Perfect_Essence_of_Abrasion', 'Perfect_Essence_of_Ice', 'Perfect_Essence_of_Electricity', 'Perfect_Essence_of_Battle', 'Perfect_Essence_of_Haste']","['Essence_of_Hysteria', 'Essence_of_the_Breach']").replaceAll('exact Bow class target','exact Ring class target')
+s=s.replace("await page.locator(id.includes('Essence') ? '#tab-Essence' : '#tab-Currency').click()", "await page.locator(id.includes('Essence') ? '#tab-Essence' : id.includes('Catalyst') ? '#tab-Catalysts' : '#tab-Currency').click()")
+s=s.replace("id.includes('Essence') ? 'right' : 'left'","id.includes('Essence') || id.includes('Catalyst') ? 'right' : 'left'")
+const from=s.indexOf("  for (const legacy of ["),to=s.indexOf(') {',from)
+s=s.slice(0,from)+"  for (const legacy of Object.keys(oldInitials)"+s.slice(to)
+// Magic Sapphire film legitimately refuses a second Transmutation; all other original bases remain normal roots.
+s=s.replace("const r = await use('Orb_of_Transmutation')\n    check(legacy", "const r = await use(legacy === 'sapphire' ? 'Orb_of_Augmentation' : 'Orb_of_Transmutation')\n    check(legacy")
+const begin=s.indexOf("  await seed(concrete(initials.guardian)")
+const end=s.indexOf("  check('zero browser errors'",begin)
+s=s.slice(0,begin)+`  for (const k of ${keys}) {
+    await seed(concrete(initials[k]), k+'-catalysts')
+    for (const id of ['Flesh_Catalyst','Neural_Catalyst','Carapace_Catalyst','Uul-Netols_Catalyst','Xophs_Catalyst','Tuls_Catalyst','Eshs_Catalyst','Chayulas_Catalyst','Reaver_Catalyst','Sibilant_Catalyst','Skittering_Catalyst','Adaptive_Catalyst','Necrotic_Catalyst']) {
+      const q=await use(id)
+      check(k+' browser accepts Catalyst '+id, q.applied && q.state.catalystQuality.amount===20)
+      await page.waitForFunction(({key,type})=>{const h=JSON.parse(localStorage.getItem(key));return h.films.find(f=>f.id===h.active).frames[h.cursor].state.catalystQuality?.type===type},{key,type:q.state.catalystQuality.type})
+      check(k+' Catalyst leaves implicit roll canonical',JSON.stringify(active(await history()).frames.at(-1).state.implicits)===JSON.stringify(concrete(initials[k]).implicits))
+    }
+    const d=Object.values(initials[k].modifiers).find(d=>d.weight>0 && d.familyIds.includes('Dexterity') && d.requiredItemLevel===1)
+    await seed({...concrete(initials[k]),rarity:'RARE',explicits:[{modifierId:d.id,values:Object.fromEntries(d.stats.map(s=>[s.id,s.min])),fractured:false}]},k+'-overflow')
+    const b=await use('Essence_of_the_Breach');check(k+' browser Breach40',b.applied && b.qualityLimit.maximumQuality===40)
+    const q=await use('Reaver_Catalyst');check(k+' browser quality40',q.applied && q.state.catalystQuality.amount===40)
+    const a=await use('Orb_of_Annulment');check(k+' browser cap loss preserved',a.applied && a.qualityLimit.maximumQuality===20 && a.state.catalystQuality.amount===40)
+    const n=await use('Neural_Catalyst');check(k+' browser overflow type switch preserved',n.applied && n.state.catalystQuality.amount===40)
+    await page.screenshot({path:'/evidence/'+k+'-quality-overflow.png',fullPage:true})
+    await seed(concrete(initials[k]),k+'-blessed')
+    await page.locator('#tab-Omen').click()
+    await page.getByRole('button',{name:terms.en.Omen_of_the_Blessed.name,exact:true}).click()
+    await page.locator('.favorite-slot').first().click()
+    await page.locator('.favorite-slot').first().click({button:'right'})
+    const divine=await use('Divine_Orb')
+    check(k+' Blessed Divine frontend accepts variable implicit',divine.applied && divine.consumedOmens.includes('Omen_of_the_Blessed'))
+  }
+`+s.slice(end)
+const target=`${root}/qa-browser.cjs`;if(fs.existsSync(target))throw Error('Preserve previous browser probe');fs.writeFileSync(target,s)
+console.log('Prepared Ring browser contract: 54 choices, six locales/two widths, all old films and thirteen Catalysts')

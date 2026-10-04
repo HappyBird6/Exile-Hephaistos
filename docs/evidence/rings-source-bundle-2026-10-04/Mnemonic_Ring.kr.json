@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/kr/Mnemonic_Ring",
+  "retrievedAt": "2026-10-04T20:54:54.044Z",
+  "sha256": "0c464b0f6143f5fc2fe44c5bbaea7b9b6384a5280edccd8899d470528f73ff06",
+  "name": "기억 반지",
+  "card": "기억 반지\n        \n    \n    \n        \n            반지요구 사항:  레벨 40최대 마나 (4—6)% 증가\n        \n\n        \n        \n            섬길 수 있도록 정신을 구축하라.\n        \n\n\n        \n            Mnemonic Ring",
+  "requirements": "요구 사항:  레벨 40",
+  "fields": {
+    "DropLevel": "40",
+    "BaseType": "기억 반지",
+    "Class": "반지",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Rings/FourRingB3",
+    "Tags": "ring",
+    "Icon": "Art/2DItems/Rings/BreachlordRing_Esh",
+    "Base.base_level": "1",
+    "Base.tag": "default, ring",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Ring",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

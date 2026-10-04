@@ -1,0 +1,1204 @@
+{
+  "root": "E:/WORK/Exile-Hephaistos/codex/rings-qa-20261004",
+  "pngCount": 289,
+  "contactSheets": 35,
+  "visualReview": {
+    "passed": true,
+    "reviewed": [
+      "browser-attempt-2/contact-card-amethyst-1440.png",
+      "browser-attempt-2/contact-card-amethyst-390.png",
+      "browser-attempt-2/contact-card-kinetic-1440.png",
+      "browser-attempt-2/contact-card-kinetic-390.png",
+      "browser-attempt-2/contact-card-mnemonic-1440.png",
+      "browser-attempt-2/contact-card-mnemonic-390.png",
+      "browser-attempt-2/contact-card-pearl-1440.png",
+      "browser-attempt-2/contact-card-pearl-390.png",
+      "browser-attempt-2/contact-card-prismatic-1440.png",
+      "browser-attempt-2/contact-card-prismatic-390.png",
+      "browser-attempt-2/contact-card-ruby-ring-1440.png",
+      "browser-attempt-2/contact-card-ruby-ring-390.png",
+      "browser-attempt-2/contact-card-two-stone-fire-cold-1440.png",
+      "browser-attempt-2/contact-card-two-stone-fire-cold-390.png",
+      "browser-attempt-2/contact-card-vitalic-1440.png",
+      "browser-attempt-2/contact-card-vitalic-390.png",
+      "browser-attempt-2/contact-full-amethyst.png",
+      "browser-attempt-2/contact-full-kinetic.png",
+      "browser-attempt-2/contact-full-mnemonic.png",
+      "browser-attempt-2/contact-full-pearl.png",
+      "browser-attempt-2/contact-full-prismatic.png",
+      "browser-attempt-2/contact-full-ruby-ring.png",
+      "browser-attempt-2/contact-full-two-stone-fire-cold.png",
+      "browser-attempt-2/contact-full-vitalic.png",
+      "browser-attempt-2/contact-remaining-0.png",
+      "browser-attempt-2/contact-remaining-12.png",
+      "browser-attempt-2/contact-remaining-18.png",
+      "browser-attempt-2/contact-remaining-24.png",
+      "browser-attempt-2/contact-remaining-30.png",
+      "browser-attempt-2/contact-remaining-36.png",
+      "browser-attempt-2/contact-remaining-42.png",
+      "browser-attempt-2/contact-remaining-48.png",
+      "browser-attempt-2/contact-remaining-54.png",
+      "browser-attempt-2/contact-remaining-6.png",
+      "browser-attempt-2/contact-remaining-60.png"
+    ],
+    "findings": "Six locales, desktop/mobile, eight Ring cards, full layouts, old films and overflow states reviewed. No clipping or horizontal overflow observed."
+  },
+  "files": [
+    {
+      "path": "browser-attempt-2/amethyst-en-1440.png",
+      "sha256": "bc4bb04609c184a5924eda504ce920797140aa5d32bea38b4b96010f5bc7a8c2"
+    },
+    {
+      "path": "browser-attempt-2/amethyst-en-390.png",
+      "sha256": "8b8e9451da898adbb644d783a4c1c51a01ea9535d6a30e8064cbf126ba8cbdee"
+    },
+    {
+      "path": "browser-attempt-2/amethyst-es-1440.png",
+      "sha256": "8560c0de59e7c3d047c3630314e4ef10e24804a767708de0dc8f5e1eb9c4dcad"
+    },
+    {
+      "path": "browser-attempt-2/amethyst-es-390.png",
+      "sha256": "8b389ecef7af47962f63276968a00a34a844e8e4ad2a85a48a26e08d27cc6b78"
+    },
+    {
+      "path": "browser-attempt-2/amethyst-ja-1440.png",
+      "sha256": "919b6348a024e1f1fe188630de38a26dc3feb27d8e557e56d11c4751dd07cd05"
+    },
+    {
+      "path": "browser-attempt-2/amethyst-ja-390.png",
+      "sha256": "9154fe5c0cecc1edb176b5b54088d2ecb6adae5969a54025d0ae0f49e751ff2e"
+    },
+    {
+      "path": "browser-attempt-2/amethyst-ko-1440.png",
+      "sha256": "8ccedd27464976998bc3c19eee0c0f024d3acafd4f82f91d97df7ffb109e9a6c"
+    },
+    {
+      "path": "browser-attempt-2/amethyst-ko-390.png",
+      "sha256": "4370b8d13eac11725c788c979570c894da1ffe30a11b623dccbb347374f753d4"
+    },
+    {
+      "path": "browser-attempt-2/amethyst-orange-preview.png",
+      "sha256": "29d997368571748984b80a8e57d0ec3e40f9ac717600fb94d55d8e7d4e8b566b"
+    },
+    {
+      "path": "browser-attempt-2/amethyst-quality-overflow.png",
+      "sha256": "cf9684e23b64631dbace59534144f93482dfa40e70cacc298ae421ec2a300b09"
+    },
+    {
+      "path": "browser-attempt-2/amethyst-zh-CN-1440.png",
+      "sha256": "9e92e27d158fa2e013942375735cb1eea911ed1c2a833f6cd95304d8f450d351"
+    },
+    {
+      "path": "browser-attempt-2/amethyst-zh-CN-390.png",
+      "sha256": "01fa094706d84a85a8bb34ed3aa29ca679c073489f0e5d92c88919389472e36b"
+    },
+    {
+      "path": "browser-attempt-2/amethyst-zh-TW-1440.png",
+      "sha256": "4549d27bc10c0c7cb4f59de305354278416c6bc6f4ae9747ad6409ae2eebc2a3"
+    },
+    {
+      "path": "browser-attempt-2/amethyst-zh-TW-390.png",
+      "sha256": "f3f7a31272e5f8810eaa75702156688bd8dc0948fdc10c8fe71a34ec4e70e9ce"
+    },
+    {
+      "path": "browser-attempt-2/cards/amethyst-en-1440.png",
+      "sha256": "cbf527c1ffcc6063c78fa9ab1743a4ea0b259999eb79c46929f0daf76911a2b0"
+    },
+    {
+      "path": "browser-attempt-2/cards/amethyst-en-390.png",
+      "sha256": "a2b4e5a423e3f24f3a7c0a78173ed9d0cca09886d435bf2335766f2adcd33b8d"
+    },
+    {
+      "path": "browser-attempt-2/cards/amethyst-es-1440.png",
+      "sha256": "797cccc76ce50ae80a6a37e3da480bd665aae5dbb73c63ffb97bb7dd4160d9a8"
+    },
+    {
+      "path": "browser-attempt-2/cards/amethyst-es-390.png",
+      "sha256": "c634a50bca46116c1c18bcfc2b9ace4142f4ab483b9f877774e2ba1f63077c05"
+    },
+    {
+      "path": "browser-attempt-2/cards/amethyst-ja-1440.png",
+      "sha256": "01b47b30f9ff0a0615a7bc70bf2f37784591935562571e9aeabe4bfb5156a6a9"
+    },
+    {
+      "path": "browser-attempt-2/cards/amethyst-ja-390.png",
+      "sha256": "d4d81930fa5810f0afd5b6946b63c3621ee99ab22defbbd0256071cef7ee6904"
+    },
+    {
+      "path": "browser-attempt-2/cards/amethyst-ko-1440.png",
+      "sha256": "18943fa3cbd3c478499a6f8c6822bec3ab3a0618c84e69e6d913e85b963c3872"
+    },
+    {
+      "path": "browser-attempt-2/cards/amethyst-ko-390.png",
+      "sha256": "23a44f9177e094b96f942e11eb5d4ecbf3eebd201ade59725c74bfa4ef1eee45"
+    },
+    {
+      "path": "browser-attempt-2/cards/amethyst-zh-CN-1440.png",
+      "sha256": "7af1b4b97074843698a0ffa59a5996725833678e3c835e91b770f6ba801e6627"
+    },
+    {
+      "path": "browser-attempt-2/cards/amethyst-zh-CN-390.png",
+      "sha256": "84ae10d4cb4a3ce30ea56b12e7585b84fcc74f55b84fa0246a73f9d42a9b65a3"
+    },
+    {
+      "path": "browser-attempt-2/cards/amethyst-zh-TW-1440.png",
+      "sha256": "9d8d3a474e5aa6866a0f8222d631972e71c0fb46d65d38101c47fc19085d6985"
+    },
+    {
+      "path": "browser-attempt-2/cards/amethyst-zh-TW-390.png",
+      "sha256": "2f0003ae0b672976a3d9924b7d177e492a3c3a35dfcb4b337bb5981682e5cba9"
+    },
+    {
+      "path": "browser-attempt-2/cards/kinetic-en-1440.png",
+      "sha256": "d2dd3652219cc3f1be7c07d096cae74893f9fc546277495eb1c425eca42a15de"
+    },
+    {
+      "path": "browser-attempt-2/cards/kinetic-en-390.png",
+      "sha256": "7ec03d14c2266d0a47a04660b147c0b5418f03a400b159f1ec20b8ae31381991"
+    },
+    {
+      "path": "browser-attempt-2/cards/kinetic-es-1440.png",
+      "sha256": "ead1a08bc28718543d9f23f2cc44b7eccf5bc8bfec7f9f551859629acf46f4dd"
+    },
+    {
+      "path": "browser-attempt-2/cards/kinetic-es-390.png",
+      "sha256": "ca9d23c4a5e1928904d484081ce67ea2571858db9d6910ffa9fc2edc6ff26fcb"
+    },
+    {
+      "path": "browser-attempt-2/cards/kinetic-ja-1440.png",
+      "sha256": "d3c5faf2a9af96d680c1632c275f91b685c74a433d229476d0ad20d39bec3464"
+    },
+    {
+      "path": "browser-attempt-2/cards/kinetic-ja-390.png",
+      "sha256": "0602808bd2540e0f472cfc183979d6b49472974d42e8f8f74694406107389be0"
+    },
+    {
+      "path": "browser-attempt-2/cards/kinetic-ko-1440.png",
+      "sha256": "3810a86ba45b73fd9dc4cd23faf92b9d206bf05543fb3bb918cc9d0086a580e5"
+    },
+    {
+      "path": "browser-attempt-2/cards/kinetic-ko-390.png",
+      "sha256": "faf7d8eb294a27d4d852fa1d94c5753cf6e9736906478e666ca12e335d6db067"
+    },
+    {
+      "path": "browser-attempt-2/cards/kinetic-zh-CN-1440.png",
+      "sha256": "577acbf290ca42a0f430b0a64ed4bd87a2b00be745430596936ec5bc66f805fc"
+    },
+    {
+      "path": "browser-attempt-2/cards/kinetic-zh-CN-390.png",
+      "sha256": "de98f0063e09b6449c451039751afbf8429da9f1714d36c11d073accbb750ca6"
+    },
+    {
+      "path": "browser-attempt-2/cards/kinetic-zh-TW-1440.png",
+      "sha256": "ede500c2237961ab5b6762ddf90bc62ca197645f628ffe1d063fca8920cd2228"
+    },
+    {
+      "path": "browser-attempt-2/cards/kinetic-zh-TW-390.png",
+      "sha256": "ad97a7771fd1e17c6385710a356f3339edbe2c573fee02100e3a9dece5b79b59"
+    },
+    {
+      "path": "browser-attempt-2/cards/mnemonic-en-1440.png",
+      "sha256": "fc4c0ea3d59ebcf544c80e211f0872a076fa7ebff857d0abb72b7cafdcde62c6"
+    },
+    {
+      "path": "browser-attempt-2/cards/mnemonic-en-390.png",
+      "sha256": "fc3492cf611f685e7cf030f5b02916df0dbd2c845957de4f6116f7c29b326de8"
+    },
+    {
+      "path": "browser-attempt-2/cards/mnemonic-es-1440.png",
+      "sha256": "1d5155cce90f9e99b61a79588ee8a4ad62e8cd6235e4fe6f1d1f4dea1009a0b7"
+    },
+    {
+      "path": "browser-attempt-2/cards/mnemonic-es-390.png",
+      "sha256": "b1aa66609d5597bed9e7325c20c925f0d3a9e0c2c0299ed524e835d6da0b8261"
+    },
+    {
+      "path": "browser-attempt-2/cards/mnemonic-ja-1440.png",
+      "sha256": "59288d5a528c2fe473a192912ef4f7ea6a244eb35d6d17773c863bbb18af141e"
+    },
+    {
+      "path": "browser-attempt-2/cards/mnemonic-ja-390.png",
+      "sha256": "7e825022b4af9f38039389e74f6b60df894a797ae8491ef3f7da9a42330a03bb"
+    },
+    {
+      "path": "browser-attempt-2/cards/mnemonic-ko-1440.png",
+      "sha256": "19fcede47a1cee5e675bb1ae0f982fd0fd397ae96c060808c91f7c40637987a9"
+    },
+    {
+      "path": "browser-attempt-2/cards/mnemonic-ko-390.png",
+      "sha256": "f4bfe97d3ea986cb27954ac4626494ba1b98952f536cd1b66e51c16eb4d640c9"
+    },
+    {
+      "path": "browser-attempt-2/cards/mnemonic-zh-CN-1440.png",
+      "sha256": "59de4f1171f775f9eb8b845bc7814ecfe4f6fba51f6852020279255fdc8372e1"
+    },
+    {
+      "path": "browser-attempt-2/cards/mnemonic-zh-CN-390.png",
+      "sha256": "3a8d09dd1d4a2a178bacf94ed44dd91a026ca8ef2614b0a784e5fefdbe6e2957"
+    },
+    {
+      "path": "browser-attempt-2/cards/mnemonic-zh-TW-1440.png",
+      "sha256": "9cc9dfe2b3115e367579710f6680f77cee5eb0f7005cba7e5a2869ae5202e31e"
+    },
+    {
+      "path": "browser-attempt-2/cards/mnemonic-zh-TW-390.png",
+      "sha256": "f9f9e7c88629155245395fe05f3dddd3e99efb6493f2d4744e2f06083414cf40"
+    },
+    {
+      "path": "browser-attempt-2/cards/pearl-en-1440.png",
+      "sha256": "9803490e4c64bcbbf5f954f54900de026485fc11e01b5f4c61ad17c4b7b37573"
+    },
+    {
+      "path": "browser-attempt-2/cards/pearl-en-390.png",
+      "sha256": "f7a589ae40bdf5623b074567409b28bc1164ef73489a456e10046851a99bce86"
+    },
+    {
+      "path": "browser-attempt-2/cards/pearl-es-1440.png",
+      "sha256": "1d9dde1cef9d35a2d1f0dde5ce24ba54a1da9cb93ef7f857e8b529bf08476583"
+    },
+    {
+      "path": "browser-attempt-2/cards/pearl-es-390.png",
+      "sha256": "57b03892a528bfaab9358f64c0fe268e68be511fbecb17997a5137e0bb6dcb52"
+    },
+    {
+      "path": "browser-attempt-2/cards/pearl-ja-1440.png",
+      "sha256": "d3f76d463df346e2e6c7c685bb7b1fa87ebd02bf16b23522f796506764ae784d"
+    },
+    {
+      "path": "browser-attempt-2/cards/pearl-ja-390.png",
+      "sha256": "aa2bcd2fc568aaa65ab0a8a2e0781be36a6d91f4dde84ffc1eff090973667bde"
+    },
+    {
+      "path": "browser-attempt-2/cards/pearl-ko-1440.png",
+      "sha256": "775f8afc29cfc1430ba2abdf42d6dcaf3fefeaac7121ef39c870c702d62cd9b9"
+    },
+    {
+      "path": "browser-attempt-2/cards/pearl-ko-390.png",
+      "sha256": "a5b2e0ea265bd7b65c1653bc1704dc8111dd5cd146d32679f00567b075e9e328"
+    },
+    {
+      "path": "browser-attempt-2/cards/pearl-zh-CN-1440.png",
+      "sha256": "8c8c2a3abc99563f90e15ecb4264cbafbfd57f563f025175f730c21a1dc7c84c"
+    },
+    {
+      "path": "browser-attempt-2/cards/pearl-zh-CN-390.png",
+      "sha256": "bc5870508d0b5cda683e68e2d6eae09765814c5e687e125366bb1084923df03e"
+    },
+    {
+      "path": "browser-attempt-2/cards/pearl-zh-TW-1440.png",
+      "sha256": "8df1c62852d69f10cf2fefa4b0a3ef892b5c76222354069febc1426d642e0420"
+    },
+    {
+      "path": "browser-attempt-2/cards/pearl-zh-TW-390.png",
+      "sha256": "912fc10635b70e59b64d2cf711c4f53e0617d0aaf5a14b5e1e2dca7f1d6d3d70"
+    },
+    {
+      "path": "browser-attempt-2/cards/prismatic-en-1440.png",
+      "sha256": "480a014a8d8dafe9a55d48d250b495f42f5d319dd729dbae8871160d1db502f3"
+    },
+    {
+      "path": "browser-attempt-2/cards/prismatic-en-390.png",
+      "sha256": "9717725ca3ddd72c0c4c727fc52b80ae86795740ebc86172b7da204302767692"
+    },
+    {
+      "path": "browser-attempt-2/cards/prismatic-es-1440.png",
+      "sha256": "a03ad7d6dcb96085a84501f20f3c7329b1e860cd00f0dc1eaf277df081e0e3c3"
+    },
+    {
+      "path": "browser-attempt-2/cards/prismatic-es-390.png",
+      "sha256": "b2e94284704ae24a9bd5097dbe8041b63695654a7661c91b8de5b632b3436c7f"
+    },
+    {
+      "path": "browser-attempt-2/cards/prismatic-ja-1440.png",
+      "sha256": "d007dab2a7db3802e063c7bb9aacc829819bc1bdacbefe18b2c5346d1ca4b0e4"
+    },
+    {
+      "path": "browser-attempt-2/cards/prismatic-ja-390.png",
+      "sha256": "a25c6abe8e71c56ab7e95debec7a1c4dd9855c84df1852c3ee0708422febc588"
+    },
+    {
+      "path": "browser-attempt-2/cards/prismatic-ko-1440.png",
+      "sha256": "ed9a40206fcea5222cc1daa89c60703423130ad9db18e7a327f78d294efcd53e"
+    },
+    {
+      "path": "browser-attempt-2/cards/prismatic-ko-390.png",
+      "sha256": "473d54d5d2385d34057ba7bf1a1836711a5629f1939606a98ed15a18193752c6"
+    },
+    {
+      "path": "browser-attempt-2/cards/prismatic-zh-CN-1440.png",
+      "sha256": "81daf91ec8600a8669abdc1f833b311838092b737b76f9caaf011e8d1eb40b2c"
+    },
+    {
+      "path": "browser-attempt-2/cards/prismatic-zh-CN-390.png",
+      "sha256": "696063136d3ba99791d4df403ec9e3c35f78f5b9d0c463b5465a8b54448966c1"
+    },
+    {
+      "path": "browser-attempt-2/cards/prismatic-zh-TW-1440.png",
+      "sha256": "994071b4695862b0bd6e8e6dc65981aa791d4abd33eb7cd7e958ceb41f30c126"
+    },
+    {
+      "path": "browser-attempt-2/cards/prismatic-zh-TW-390.png",
+      "sha256": "00ff03bc4180a02fe134a682d6026aeabebd13a9b69038cb860a2bf2cbf57345"
+    },
+    {
+      "path": "browser-attempt-2/cards/ruby-ring-en-1440.png",
+      "sha256": "4e43feb411d3f7a52b1b6a7abdd582c92e60f971606a19c71e1630397f8afbb7"
+    },
+    {
+      "path": "browser-attempt-2/cards/ruby-ring-en-390.png",
+      "sha256": "285b4a21f3d1409015740d7ea9e1a57dbff184ae53e124267005222c55fdca9c"
+    },
+    {
+      "path": "browser-attempt-2/cards/ruby-ring-es-1440.png",
+      "sha256": "301ceca4437b7fa3fd993da91e077c0771ab8fd1c6625bdae396417332af2694"
+    },
+    {
+      "path": "browser-attempt-2/cards/ruby-ring-es-390.png",
+      "sha256": "fc5d702a7f4ccb5c0509500800ffc53d1af6454cef8b2d32cf3d03fcc1b21cce"
+    },
+    {
+      "path": "browser-attempt-2/cards/ruby-ring-ja-1440.png",
+      "sha256": "97f1398ef38870bfaf7f4cc4b128c464e6dc0bd51d899df2279f2fe408258a55"
+    },
+    {
+      "path": "browser-attempt-2/cards/ruby-ring-ja-390.png",
+      "sha256": "9df65553fc2e421cffbf14df800e70472f077ca79d1ceb1deabf5efedb44fe17"
+    },
+    {
+      "path": "browser-attempt-2/cards/ruby-ring-ko-1440.png",
+      "sha256": "a60b1405dd5de64a0a3b0e012d03b5f0fbb0cfbf9cffbdafa025e6a2343caaa9"
+    },
+    {
+      "path": "browser-attempt-2/cards/ruby-ring-ko-390.png",
+      "sha256": "63b695dec4b39595ef6b0ffd5a98b2173e54074240eb8043b741f5276da99690"
+    },
+    {
+      "path": "browser-attempt-2/cards/ruby-ring-zh-CN-1440.png",
+      "sha256": "94d3310055f28eb028d8532d5880ee497810f7d99f2de21551b2495384cea5fd"
+    },
+    {
+      "path": "browser-attempt-2/cards/ruby-ring-zh-CN-390.png",
+      "sha256": "7c0768c33a6443a4a518dc81778a4e572c31ec1fce6b431d898032b59ca20cb8"
+    },
+    {
+      "path": "browser-attempt-2/cards/ruby-ring-zh-TW-1440.png",
+      "sha256": "acb3beb27304f9efe4c3eab462e55749c71a80c8b7c78551f698e0ed6f343ee8"
+    },
+    {
+      "path": "browser-attempt-2/cards/ruby-ring-zh-TW-390.png",
+      "sha256": "3edfe59f1f1720987e4fa92b7a40169dfd6588e9a5d6ccf681d32677612de2de"
+    },
+    {
+      "path": "browser-attempt-2/cards/two-stone-fire-cold-en-1440.png",
+      "sha256": "5c73487aaad6f97b5a748e476907d0cfa8cf9a95f718b2b3d207c674b8fb484a"
+    },
+    {
+      "path": "browser-attempt-2/cards/two-stone-fire-cold-en-390.png",
+      "sha256": "cd4e00382e4c48f1c94545b4e7cff23607902bc3c11f97f6d11b10e72d5dc30c"
+    },
+    {
+      "path": "browser-attempt-2/cards/two-stone-fire-cold-es-1440.png",
+      "sha256": "fd2718fd6f849aa7c031e93520b4174720c5c72ff83205ce26e00de1e529044f"
+    },
+    {
+      "path": "browser-attempt-2/cards/two-stone-fire-cold-es-390.png",
+      "sha256": "1468212563b15302a7415f8d351398de0a430488574238c4b4906564820f37d8"
+    },
+    {
+      "path": "browser-attempt-2/cards/two-stone-fire-cold-ja-1440.png",
+      "sha256": "62d540b25f83501d84c83fb37170102a102411696a6b3488c2da02031c6954d0"
+    },
+    {
+      "path": "browser-attempt-2/cards/two-stone-fire-cold-ja-390.png",
+      "sha256": "eb9e7262cd2a5d2d6158fe5382aa30b71769d47f7051da85882e04e4a99b93b3"
+    },
+    {
+      "path": "browser-attempt-2/cards/two-stone-fire-cold-ko-1440.png",
+      "sha256": "9d8e962bcdc0853f0c530afcafe6129c80491d94d273aad8bc470d761e302260"
+    },
+    {
+      "path": "browser-attempt-2/cards/two-stone-fire-cold-ko-390.png",
+      "sha256": "d2bf83a69bf41dcb52f20ae2e9e793fe0ae8c67910c82e8f2414e372d7ddcd1a"
+    },
+    {
+      "path": "browser-attempt-2/cards/two-stone-fire-cold-zh-CN-1440.png",
+      "sha256": "ae4e2fc42f57c67ae9f59c8a530d489304046acaf131484e12eb645cf901ce5e"
+    },
+    {
+      "path": "browser-attempt-2/cards/two-stone-fire-cold-zh-CN-390.png",
+      "sha256": "47f8c6f596abe11ec1f0df98875f501cd78989221a5fc9f40147d72563fcf89b"
+    },
+    {
+      "path": "browser-attempt-2/cards/two-stone-fire-cold-zh-TW-1440.png",
+      "sha256": "27f399e4c0dec760b249a1ccd124437d36cf4e5b695a4e604da041b6c77430f7"
+    },
+    {
+      "path": "browser-attempt-2/cards/two-stone-fire-cold-zh-TW-390.png",
+      "sha256": "2160fffa579972669cfca84cf09fea37efcd0d7a9f8baf19a03534924cbdf4d8"
+    },
+    {
+      "path": "browser-attempt-2/cards/vitalic-en-1440.png",
+      "sha256": "58fad6a8b4a0ed5bf8c5e720720b78b83f78e883782f7b70834c9ea3ea7db457"
+    },
+    {
+      "path": "browser-attempt-2/cards/vitalic-en-390.png",
+      "sha256": "b6e1152cd116b93f6e3c1a6a66910ba056d19298df205b0634b8d4b60013ca3a"
+    },
+    {
+      "path": "browser-attempt-2/cards/vitalic-es-1440.png",
+      "sha256": "1dd4c7eb67ff144851057fc32a718663f04f1483eaeb2b98f1b9c8ce5fc9670d"
+    },
+    {
+      "path": "browser-attempt-2/cards/vitalic-es-390.png",
+      "sha256": "f256338e48b58823e8ebf00305d4ca835c35480e004096280b7ee88646b465a8"
+    },
+    {
+      "path": "browser-attempt-2/cards/vitalic-ja-1440.png",
+      "sha256": "7038dc7d0a159744d333dc6871771081b012a030f683d6a6ae3815c4896309d5"
+    },
+    {
+      "path": "browser-attempt-2/cards/vitalic-ja-390.png",
+      "sha256": "18244a627dffa1d1bb44122ea24902f0fcda47be75673e6150ff843d76f85dff"
+    },
+    {
+      "path": "browser-attempt-2/cards/vitalic-ko-1440.png",
+      "sha256": "676f00c0a4954ddf1febaec2a38e848e8c31c20bb8b92b71602f1657c6a469de"
+    },
+    {
+      "path": "browser-attempt-2/cards/vitalic-ko-390.png",
+      "sha256": "f91b55255308b589820029fc11ef3a27595b94aaaa36cdc8ba89c5d765b7b7df"
+    },
+    {
+      "path": "browser-attempt-2/cards/vitalic-zh-CN-1440.png",
+      "sha256": "3424dbe3d0c10052d858eff08b0d24061d328fb0e5e186ac330de90a73d2a48d"
+    },
+    {
+      "path": "browser-attempt-2/cards/vitalic-zh-CN-390.png",
+      "sha256": "58da9f23c01b7f2776d4c1ffe1a508a07aa5ff4626b9791fb69e2650c0342573"
+    },
+    {
+      "path": "browser-attempt-2/cards/vitalic-zh-TW-1440.png",
+      "sha256": "9cebeceedd28b2fa974d2c12c579a94f817521365a863ff8eed847f810652922"
+    },
+    {
+      "path": "browser-attempt-2/cards/vitalic-zh-TW-390.png",
+      "sha256": "dd5722de26b69fe0d2168f083adfd15ff11d0b0cce21c7c1472f1d42e22e2e11"
+    },
+    {
+      "path": "browser-attempt-2/contact-card-amethyst-1440.png",
+      "sha256": "558e4dd1163742a3ff6c17604a7bb5bb1cb5e69eddc607175a614f5d7c2ea450"
+    },
+    {
+      "path": "browser-attempt-2/contact-card-amethyst-390.png",
+      "sha256": "fcfcabb076032ee3430fa3867feb79852eb78e316b07bc235106b604b57176f1"
+    },
+    {
+      "path": "browser-attempt-2/contact-card-kinetic-1440.png",
+      "sha256": "a9557eb7845eb31abbd5c88bc661d82d133d4930fe6e18fd1e4f8f4625ac9c15"
+    },
+    {
+      "path": "browser-attempt-2/contact-card-kinetic-390.png",
+      "sha256": "1821d71a7ae9a08ee5fa4ab1f0a4e0fe72aab4679d976c84cab6bec2764ebc6c"
+    },
+    {
+      "path": "browser-attempt-2/contact-card-mnemonic-1440.png",
+      "sha256": "4e2c8f97de03ff2bcee0678e1ef4273b653d0b1c1738c87d0f8e9372cdada337"
+    },
+    {
+      "path": "browser-attempt-2/contact-card-mnemonic-390.png",
+      "sha256": "29741feaea9837d877fe9ec29bc4ceb52cba8d8e9bf740579c4a773af13451fb"
+    },
+    {
+      "path": "browser-attempt-2/contact-card-pearl-1440.png",
+      "sha256": "aa885ec38992684dbf18c4a11aa1a68edca770b79009d481e377262601cb7443"
+    },
+    {
+      "path": "browser-attempt-2/contact-card-pearl-390.png",
+      "sha256": "a4971360094f5a234bff0e66cccb067380ef31bfa42369886e625fd01ff8e80c"
+    },
+    {
+      "path": "browser-attempt-2/contact-card-prismatic-1440.png",
+      "sha256": "bc3d3fa36a69cac6572781e51c4c0714d86dacf6df4b43b51b046bc66782bbdf"
+    },
+    {
+      "path": "browser-attempt-2/contact-card-prismatic-390.png",
+      "sha256": "193e1137225232a310d33dbd7ee8a63fb0368ba49359d895684e7aca22fddecc"
+    },
+    {
+      "path": "browser-attempt-2/contact-card-ruby-ring-1440.png",
+      "sha256": "3023989805e1a074e940ed5caf539f89ad06fc7b85331dcc7c3b78063673881e"
+    },
+    {
+      "path": "browser-attempt-2/contact-card-ruby-ring-390.png",
+      "sha256": "48b0662cd564d14c23cb1a906e0b97ea6c48a27843e118b036753c62b0f1eaba"
+    },
+    {
+      "path": "browser-attempt-2/contact-card-two-stone-fire-cold-1440.png",
+      "sha256": "b259965235924cb817aade08d6a5a166a27677fd1fc193c1581ba3bdb4bceaff"
+    },
+    {
+      "path": "browser-attempt-2/contact-card-two-stone-fire-cold-390.png",
+      "sha256": "4af58a59a27b40820c682143261e7703b37fb0e2da9eaa7645027ac095f97e73"
+    },
+    {
+      "path": "browser-attempt-2/contact-card-vitalic-1440.png",
+      "sha256": "7a887428e4f3c82e6e11a6e1d0dec79a5515ac9bf7ac93664ecb34b8858a3cf0"
+    },
+    {
+      "path": "browser-attempt-2/contact-card-vitalic-390.png",
+      "sha256": "618041888d2f8a6e5762aa5985f49ba1a5c1db15bfc3f0c5e6d4bab03cdec0cf"
+    },
+    {
+      "path": "browser-attempt-2/contact-full-amethyst.png",
+      "sha256": "bfaa40ab2845638f6066f93d845a539108b68710e2836ab68bc0f649fbd91a64"
+    },
+    {
+      "path": "browser-attempt-2/contact-full-kinetic.png",
+      "sha256": "0a50dddcd6807c7109e6813f261aca59b9896ef9bccdc154efd45f4afe2e0140"
+    },
+    {
+      "path": "browser-attempt-2/contact-full-mnemonic.png",
+      "sha256": "cb2069f5841ca7a81749803e5e9aaf20d7dbb2492d15bb6b8a7b06fcca0446ca"
+    },
+    {
+      "path": "browser-attempt-2/contact-full-pearl.png",
+      "sha256": "ee73dd07716bd8f99f2fdbb9db5485f8d2a381490154f90c35d8d74a92edab34"
+    },
+    {
+      "path": "browser-attempt-2/contact-full-prismatic.png",
+      "sha256": "bd0b53817c40cad8a516b904fb23601aa840046c3abaaa3df6eaa12929696c84"
+    },
+    {
+      "path": "browser-attempt-2/contact-full-ruby-ring.png",
+      "sha256": "da1531daba984a4cb14c5ddc47830474413fda2b57483b9d5f4c8273221ee85b"
+    },
+    {
+      "path": "browser-attempt-2/contact-full-two-stone-fire-cold.png",
+      "sha256": "b338b27d6c8e550359a888f9656af74fcaa912b48b5b66195c91815bdfb4a82c"
+    },
+    {
+      "path": "browser-attempt-2/contact-full-vitalic.png",
+      "sha256": "fded0b733a6d92734c36348b84e0a42137ce2829ae38419a512172b82223232b"
+    },
+    {
+      "path": "browser-attempt-2/contact-remaining-0.png",
+      "sha256": "0d20e3639870ea5176435703a64f368db7ba55d961916bdb631c1e842a755d9f"
+    },
+    {
+      "path": "browser-attempt-2/contact-remaining-12.png",
+      "sha256": "3fc8f20cd4e936d32aa66ebea3fd19eb93c1b64a1742b1801d23460aa2310996"
+    },
+    {
+      "path": "browser-attempt-2/contact-remaining-18.png",
+      "sha256": "c7260c6de78292debf8dd4bfa4f33d0571c34719bdac7ee41322dc0f34f0def1"
+    },
+    {
+      "path": "browser-attempt-2/contact-remaining-24.png",
+      "sha256": "007d0d9c112b84452a57b72bec6ff7d3ac527fa7cf0a505c49021426a004d9c4"
+    },
+    {
+      "path": "browser-attempt-2/contact-remaining-30.png",
+      "sha256": "c017573c4dc051dd4b750859d3c6c9f40c12f610b550dcfe953c352bf8dd6318"
+    },
+    {
+      "path": "browser-attempt-2/contact-remaining-36.png",
+      "sha256": "510f6109de320cde3a120304ceb88c711e792a073d4fbcc8acd08356b8e68500"
+    },
+    {
+      "path": "browser-attempt-2/contact-remaining-42.png",
+      "sha256": "499f9951d55d37630a187b8c1456182266ca75ede2c874238bb9f90a7ec06e0f"
+    },
+    {
+      "path": "browser-attempt-2/contact-remaining-48.png",
+      "sha256": "9f3b7a08ccf8c79157b8ec02832a1cfbacf1029aad1b9f5d5d1717c2ee2a7d9b"
+    },
+    {
+      "path": "browser-attempt-2/contact-remaining-54.png",
+      "sha256": "b739e2fbd359b2f6bae3428aa61f13a670aa65423ef25ca3606bf755806eca1b"
+    },
+    {
+      "path": "browser-attempt-2/contact-remaining-6.png",
+      "sha256": "0913297f5394828c5c8dda1edc16fa1d62fa722ac8adc5e45f33bbd11662d8f8"
+    },
+    {
+      "path": "browser-attempt-2/contact-remaining-60.png",
+      "sha256": "1c1409e5d7b9cfd6050ab062a9e9fb242e4b54517d90ce00cf1299a6f2f93e5a"
+    },
+    {
+      "path": "browser-attempt-2/kinetic-en-1440.png",
+      "sha256": "4bde7beecd7b37227df2ed92e397fbfb1ae9ae9025f1bc61d47f2331ff18ae17"
+    },
+    {
+      "path": "browser-attempt-2/kinetic-en-390.png",
+      "sha256": "bf37164194d59fd6286d3bfb957bd13e2485121dba2103b0008631c55812365e"
+    },
+    {
+      "path": "browser-attempt-2/kinetic-es-1440.png",
+      "sha256": "bd4fe4b25b5546975de3941f186712641da75159f772b6ff769949dde04a4d5a"
+    },
+    {
+      "path": "browser-attempt-2/kinetic-es-390.png",
+      "sha256": "48f9197c29be21b7737d98b566c48b873388502311e1f0e7b8dfe477b8f4119e"
+    },
+    {
+      "path": "browser-attempt-2/kinetic-ja-1440.png",
+      "sha256": "bd4fc1baad2a36dafe5f2ee91cb9de137c563d0fe8aea9d765e1acb8e8282d71"
+    },
+    {
+      "path": "browser-attempt-2/kinetic-ja-390.png",
+      "sha256": "f561831391e107c8d27f14e7a7c750fc768b582e88d86229f8628faf55bea79f"
+    },
+    {
+      "path": "browser-attempt-2/kinetic-ko-1440.png",
+      "sha256": "34c5aaa8a91dcc38dbbfe9e5a415a605a4246996ea3090960e74978c0e52644c"
+    },
+    {
+      "path": "browser-attempt-2/kinetic-ko-390.png",
+      "sha256": "986dfa46bcdfd341106d411e161451ae917d1f6d122e3cc98037a5a6e31e857b"
+    },
+    {
+      "path": "browser-attempt-2/kinetic-orange-preview.png",
+      "sha256": "966b7df0f8573dcf4f39e64ba4e702847b4a3392d073655f668ede4f80c47290"
+    },
+    {
+      "path": "browser-attempt-2/kinetic-quality-overflow.png",
+      "sha256": "2d33acdbbf426a4e599cf8b438f368b3ab2caaada9869eeaefb86d331b34478a"
+    },
+    {
+      "path": "browser-attempt-2/kinetic-zh-CN-1440.png",
+      "sha256": "591710cfddfbb29491bda05121060433b3ee4918401fa4ea3b38ac9d1dd82931"
+    },
+    {
+      "path": "browser-attempt-2/kinetic-zh-CN-390.png",
+      "sha256": "817b7ba526bd154d5de9c5df8607b4929ed0c9c2f2fc4d134d03154710966712"
+    },
+    {
+      "path": "browser-attempt-2/kinetic-zh-TW-1440.png",
+      "sha256": "83734f604f9f0dc4f915fe1118089f0d147e066f976e54e89cb4a4e09c7668b6"
+    },
+    {
+      "path": "browser-attempt-2/kinetic-zh-TW-390.png",
+      "sha256": "ea721260b498540efc2c446e7b05ea725d75b8d31a892474423f60c942fbb091"
+    },
+    {
+      "path": "browser-attempt-2/mnemonic-en-1440.png",
+      "sha256": "12e683e24db9f8833c671fa17c8c28c31be4e5b3506058fb34c98748bf2d1be6"
+    },
+    {
+      "path": "browser-attempt-2/mnemonic-en-390.png",
+      "sha256": "becf098ab3a7accaa6837cc811a534520e7b6ba4c52e9c9424c398f84635a336"
+    },
+    {
+      "path": "browser-attempt-2/mnemonic-es-1440.png",
+      "sha256": "b141061b447efe76f687095575f20fc121e8452cafdcde5b5c327808ab6a11f6"
+    },
+    {
+      "path": "browser-attempt-2/mnemonic-es-390.png",
+      "sha256": "594f6d7ee3cd3f598aeba2274eebcbdba92d616bd0286a42b5b49fafa9b22208"
+    },
+    {
+      "path": "browser-attempt-2/mnemonic-ja-1440.png",
+      "sha256": "f8b48d20177a4004f6b1826c9435b020b763dd1bb052c85f17ddcd3c303294f3"
+    },
+    {
+      "path": "browser-attempt-2/mnemonic-ja-390.png",
+      "sha256": "2c17f0ee11aa0158a171a4798345a14f3544028d26910c0a641d5f3a530f4923"
+    },
+    {
+      "path": "browser-attempt-2/mnemonic-ko-1440.png",
+      "sha256": "589f06acc0333ff3f4573a536931c378eec7253def0f81795df03260bc5a25b3"
+    },
+    {
+      "path": "browser-attempt-2/mnemonic-ko-390.png",
+      "sha256": "bc9f3f51d6534d3fcad2d87473ee23fcd87645aebf064cf26a71c14d7a310e7b"
+    },
+    {
+      "path": "browser-attempt-2/mnemonic-orange-preview.png",
+      "sha256": "af9e5a13db9609ad4e69fe0db3e6298662eebb5c58a69e39617e78a21b811b0c"
+    },
+    {
+      "path": "browser-attempt-2/mnemonic-quality-overflow.png",
+      "sha256": "1a145bcf1b05dabf294c71156abfe47ff9f357b85ad56f916df8b447e2e4eb41"
+    },
+    {
+      "path": "browser-attempt-2/mnemonic-zh-CN-1440.png",
+      "sha256": "929516240b9bfc43b97dc91d4853c81df84a276e7bcb7a5109cb1e928c05cb6e"
+    },
+    {
+      "path": "browser-attempt-2/mnemonic-zh-CN-390.png",
+      "sha256": "afde688cbaf152b9c59ee60de3cb90be49363761d1ca654faa179ad85f48588f"
+    },
+    {
+      "path": "browser-attempt-2/mnemonic-zh-TW-1440.png",
+      "sha256": "39fd5d9407baa2f807fc99a4d99a5f48fb403bf6a53d69162f56a4df38447723"
+    },
+    {
+      "path": "browser-attempt-2/mnemonic-zh-TW-390.png",
+      "sha256": "d223261a4c4cd84d6d843ffe5f8ca5eade3f063ab97741d7454bdf1d5ca9efa2"
+    },
+    {
+      "path": "browser-attempt-2/old-film-adherent.png",
+      "sha256": "4ae5649495c81aa18085f6eb30c54b30b83d1fada617e239bf65994f15488715"
+    },
+    {
+      "path": "browser-attempt-2/old-film-ancestral.png",
+      "sha256": "ca1d8ed13ba8ed8dfd1eceb1256657e79e3d865d15c2ab74917b041cef4dc4c0"
+    },
+    {
+      "path": "browser-attempt-2/old-film-belt.png",
+      "sha256": "498ccb788fecdd15ec2852abbb0720dbcac0d881fbed7155088eaed4352f57bd"
+    },
+    {
+      "path": "browser-attempt-2/old-film-blacksteel-boots.png",
+      "sha256": "d9113760fe1687d0e215b1a06aeec7717fceee7469755828c7e91c5375d53957"
+    },
+    {
+      "path": "browser-attempt-2/old-film-blacksteel-gloves.png",
+      "sha256": "3325f3d531a71280517ff22b1f4f14a163b53d2bb741b80d6185256ffd790c07"
+    },
+    {
+      "path": "browser-attempt-2/old-film-body.png",
+      "sha256": "9465d81c9c9f0a9ae106f2dceefc6cd0ad07dd2568abe97ba327eeedf84b9fa0"
+    },
+    {
+      "path": "browser-attempt-2/old-film-bow.png",
+      "sha256": "b0c5107f78f3291a300bd5469f7e670978b614ede138ba9e657b5f873fddafb7"
+    },
+    {
+      "path": "browser-attempt-2/old-film-cryptic.png",
+      "sha256": "54e7c8331206c0e9e57de7a0e819ac8f47fd0043a77f306fbcd4a5ca544c0eef"
+    },
+    {
+      "path": "browser-attempt-2/old-film-daggerfoot.png",
+      "sha256": "4869152403d0b0964952a05002360bda71501e6f1fb77b4c4fe24129d3f0fad1"
+    },
+    {
+      "path": "browser-attempt-2/old-film-death-mail.png",
+      "sha256": "e1f4a07368a90bc16979da9ec050c5d7b3094eb650e937154dd374b5aa6a47b5"
+    },
+    {
+      "path": "browser-attempt-2/old-film-diamond.png",
+      "sha256": "527a48bb3b21c29ae62b259c8f32ed39a1c8094c2e2acee68f9a1f7aaabd7575"
+    },
+    {
+      "path": "browser-attempt-2/old-film-drakeskin.png",
+      "sha256": "b90e51efcb8f46517a605455a78ae283d06bf135b4d91eae89d2ae49beb79874"
+    },
+    {
+      "path": "browser-attempt-2/old-film-emerald.png",
+      "sha256": "68f887fcfc1a80284f5cd72d61807ba1e089fa4daabbbac531771ded76a30eea"
+    },
+    {
+      "path": "browser-attempt-2/old-film-faithful.png",
+      "sha256": "7eb65692afd8bf5ce3fa56f43bb8c39c414b4c681c0991c65fa1d951938081db"
+    },
+    {
+      "path": "browser-attempt-2/old-film-fanatic.png",
+      "sha256": "4e4eb3de90065ec03737e0272c576d4dc4e72f173b2faf7e0d7ca142ac953857"
+    },
+    {
+      "path": "browser-attempt-2/old-film-freebooter.png",
+      "sha256": "0274496237cc49ac87403db0128ec9c8c3155ed32f513b50ca3f1a2cb0a8156d"
+    },
+    {
+      "path": "browser-attempt-2/old-film-gemini.png",
+      "sha256": "d527239611c9937289b295d727dce6d166cdf75bac4c4a0966da5124743d532e"
+    },
+    {
+      "path": "browser-attempt-2/old-film-gladiatorial.png",
+      "sha256": "fba3e7ccab3f323b20fff8aa251c2dbf81e76faffe906d4aaf9363f86205c146"
+    },
+    {
+      "path": "browser-attempt-2/old-film-grinning.png",
+      "sha256": "55ddf91fa692e7ef521b70b75ea80af6c1ce2d519bc3909d474b8fd24b2a0aeb"
+    },
+    {
+      "path": "browser-attempt-2/old-film-guardian.png",
+      "sha256": "546e24831d44cf286510156ebec46712b949bdeca218a67b9fc0b83896ba5584"
+    },
+    {
+      "path": "browser-attempt-2/old-film-helmet.png",
+      "sha256": "d243018f9d784218ba403fa4e31e86fd19323bc8cdc02cab60b90cb97f2330f0"
+    },
+    {
+      "path": "browser-attempt-2/old-film-imperial.png",
+      "sha256": "821d18813cc1db4aaf19d6fa762224e3db25220a2c7d54a8f6dcfee318bac812"
+    },
+    {
+      "path": "browser-attempt-2/old-film-massive.png",
+      "sha256": "abeb6042fca8a9fdc3220eacedd5cd23d22968e5a1eec5b9dbda7e19670ca08c"
+    },
+    {
+      "path": "browser-attempt-2/old-film-obliterator.png",
+      "sha256": "e01fdc894becafd0a45ea754feb68507ec04ffe1f50c5f0599055d1a41da4b04"
+    },
+    {
+      "path": "browser-attempt-2/old-film-polished.png",
+      "sha256": "8d028ac5328947b3c520ac2766b51a18763e5959592929730a4b6619d354812a"
+    },
+    {
+      "path": "browser-attempt-2/old-film-ring.png",
+      "sha256": "7b288feb323845f43977b99f861a610efb74e6ad0f15e555d4fc96309a05d677"
+    },
+    {
+      "path": "browser-attempt-2/old-film-ruby.png",
+      "sha256": "258f208ced5d79325e6ba5e46ca9181fb0cd15835091652826068d684e3477ed"
+    },
+    {
+      "path": "browser-attempt-2/old-film-sapphire.png",
+      "sha256": "54f4eaa61fbc80965c8a40d8a7b459d20b4654bb93afaec3a82a04c2f0be5075"
+    },
+    {
+      "path": "browser-attempt-2/old-film-sceptre.png",
+      "sha256": "3a02fc49ad9d0ff39ec359c5755ee9b19251cdb95e109d0ebe6ca7acac3a83bf"
+    },
+    {
+      "path": "browser-attempt-2/old-film-sekhema.png",
+      "sha256": "c0a82aa57a6258f8dee045360f653872086d75c8e59f92fea9f615ee86de1453"
+    },
+    {
+      "path": "browser-attempt-2/old-film-sirenscale.png",
+      "sha256": "7778067b88c08de5669d175787f7cf493e11fecdcac23071b7954fb91bd6147a"
+    },
+    {
+      "path": "browser-attempt-2/old-film-sleek.png",
+      "sha256": "d4e1ff057e8ce079121478962fa89f01a6b5072e010ec143b3e5ce6a9ff56a61"
+    },
+    {
+      "path": "browser-attempt-2/old-film-slipstrike.png",
+      "sha256": "a65e84f25174fe7fd8c11b7439c0a47f308347d385d68f536cb4cdd06d34d258"
+    },
+    {
+      "path": "browser-attempt-2/old-film-solar.png",
+      "sha256": "92e1251ecb48615479cc6cda15aa3b899d703766130e8e1a78189ac19c586698"
+    },
+    {
+      "path": "browser-attempt-2/old-film-soldier.png",
+      "sha256": "1f5be3c1aa32fb03c42c05f26c94568177d2d5b7992822f5cf5d23592e966d3f"
+    },
+    {
+      "path": "browser-attempt-2/old-film-stocky.png",
+      "sha256": "5acf20b967d9d9288740b3c632e0b5fdfbe674d773034d52ccf1df66d19139f1"
+    },
+    {
+      "path": "browser-attempt-2/old-film-tasalian.png",
+      "sha256": "fd3f670739f4892c69e888f3bd7142ed9756c8e9fbadaa730dcc15c8d986a8ee"
+    },
+    {
+      "path": "browser-attempt-2/old-film-time-lost-diamond.png",
+      "sha256": "404bd5b0be5e7376cc14d4548136c456c3722ee86e1878381e1f422add54605d"
+    },
+    {
+      "path": "browser-attempt-2/old-film-time-lost-emerald.png",
+      "sha256": "b802de679cf5883c77e7e3b34041986f4c479b74cc3445c99fe427337a695b01"
+    },
+    {
+      "path": "browser-attempt-2/old-film-time-lost-ruby.png",
+      "sha256": "b938bd9b3faffeec2832457f4b5acf1868e2958a66b269075e2852b7aad38761"
+    },
+    {
+      "path": "browser-attempt-2/old-film-time-lost-sapphire.png",
+      "sha256": "dbf5c16c7472fa6f3dde6e8330cb6ef857e52e2ae37d624b6545c9bf8400f414"
+    },
+    {
+      "path": "browser-attempt-2/old-film-vile.png",
+      "sha256": "fe5c2d7f1ea83f2e0017f12c425f3dd59b5dafb31095274015801487abd7c9f0"
+    },
+    {
+      "path": "browser-attempt-2/old-film-wand.png",
+      "sha256": "0df2cf7ad09041f8ca4e3b535e4e180ee993d0522a027a1429479e8a1fa929ad"
+    },
+    {
+      "path": "browser-attempt-2/old-film-war-wraps.png",
+      "sha256": "e39186349c7fa09d18627ca643b949c84e25ae12f8e512e01b7967bad5120c92"
+    },
+    {
+      "path": "browser-attempt-2/old-film-warmonger.png",
+      "sha256": "d7980eca82de406395f9cb83b989fbcfba88b71668f59b758097d8f0a493b137"
+    },
+    {
+      "path": "browser-attempt-2/old-film-wolfskin.png",
+      "sha256": "0b54ae943e538c45dd52621caf2d99e0c0eef7b21df172839410e0464dbe123d"
+    },
+    {
+      "path": "browser-attempt-2/pearl-en-1440.png",
+      "sha256": "2601f00d320f2f67dcfb04d9c795ae64889c2df76804956c368202f895981b24"
+    },
+    {
+      "path": "browser-attempt-2/pearl-en-390.png",
+      "sha256": "a5d4e408d82b6564465fbbda5f33b5539a461eb7a88a93bc4584bb235e4dc2f1"
+    },
+    {
+      "path": "browser-attempt-2/pearl-es-1440.png",
+      "sha256": "c3efdf423febcfcc051013a5751b23c8e2fdca53744e656f5817d46baa85f3be"
+    },
+    {
+      "path": "browser-attempt-2/pearl-es-390.png",
+      "sha256": "a29112d46f5481bf2812f840d009913e3c7259accdb2c954ea387b80713c1b0b"
+    },
+    {
+      "path": "browser-attempt-2/pearl-ja-1440.png",
+      "sha256": "b443f75a27c3d0c792c601864850c547ae2ecb43a1c6b544711728cefe988744"
+    },
+    {
+      "path": "browser-attempt-2/pearl-ja-390.png",
+      "sha256": "65d827fa1ffa38a282a07a61d53a78b75c0e2fc3e903ba061e9a371c8f846b49"
+    },
+    {
+      "path": "browser-attempt-2/pearl-ko-1440.png",
+      "sha256": "c5b2947e400cae27b665b57d4d985c56771d3c80e08ccf8a589d47b6ce119fe4"
+    },
+    {
+      "path": "browser-attempt-2/pearl-ko-390.png",
+      "sha256": "de65c5be565804a8cd52ee4d758dbe7e71f8e3d1dd997e4b089bf1ae3ae7637f"
+    },
+    {
+      "path": "browser-attempt-2/pearl-orange-preview.png",
+      "sha256": "b22b3d8530055324017acacc168fb75f6aa4b8d8d54cc63497a586dbe586ab53"
+    },
+    {
+      "path": "browser-attempt-2/pearl-quality-overflow.png",
+      "sha256": "933125a79bec15f2de49ce21fb029bc34f0951084da753fa59e6a85e2f4f97a9"
+    },
+    {
+      "path": "browser-attempt-2/pearl-zh-CN-1440.png",
+      "sha256": "54690dca171cdec408f3898ee9183d9f9c1165f448bb51dafd4a8f467f7ef024"
+    },
+    {
+      "path": "browser-attempt-2/pearl-zh-CN-390.png",
+      "sha256": "1998333f00a3afe567b2a2467a03aebde167fd4eef91c18e3b9b2348f0f24209"
+    },
+    {
+      "path": "browser-attempt-2/pearl-zh-TW-1440.png",
+      "sha256": "3bb0eba400e97103359fe4e5f7fe1c9a40acbd8a1be6b346f5e12baa7747c210"
+    },
+    {
+      "path": "browser-attempt-2/pearl-zh-TW-390.png",
+      "sha256": "40c73f8dc2a18a1b0456bf846592b9a5bd0a102f78df82042c6c431b83286206"
+    },
+    {
+      "path": "browser-attempt-2/prismatic-en-1440.png",
+      "sha256": "bffcbc10455467547228dc5dce82f42fc175a438b0c36527c43655c91e2088a0"
+    },
+    {
+      "path": "browser-attempt-2/prismatic-en-390.png",
+      "sha256": "aace0858741a8a776ee59744962fd5510890b858cb90768e03cd7fbf5924664f"
+    },
+    {
+      "path": "browser-attempt-2/prismatic-es-1440.png",
+      "sha256": "cc4b09e4188296a50e3a5a04aa6a104ca62c99d000a1d8a9624b85f600c5227c"
+    },
+    {
+      "path": "browser-attempt-2/prismatic-es-390.png",
+      "sha256": "7951a028d0f1634c1cebb619fb5776801f2a1b5da03230b3633f84b3e12f9084"
+    },
+    {
+      "path": "browser-attempt-2/prismatic-ja-1440.png",
+      "sha256": "5da315f089431df2e729763074ea7b078335b1555ee8c14e6ab29a7d038db952"
+    },
+    {
+      "path": "browser-attempt-2/prismatic-ja-390.png",
+      "sha256": "282e7d1f2bad94fb2e05b62b958e3ab0c9436f1b621fa1e01bd86dc48d66d422"
+    },
+    {
+      "path": "browser-attempt-2/prismatic-ko-1440.png",
+      "sha256": "a1c46820b1db7b7131c00711b11dfea56fb2bf2e6dc7ebfc16837df2b49ecffb"
+    },
+    {
+      "path": "browser-attempt-2/prismatic-ko-390.png",
+      "sha256": "630f27d65f2cd570801fd2a5779e57b26ba71ce8729c8ec359b8b1494d6587cb"
+    },
+    {
+      "path": "browser-attempt-2/prismatic-orange-preview.png",
+      "sha256": "34209a52d008048f041dff1201e6d569b2409aad9bbdfac280f2237ba5191fe9"
+    },
+    {
+      "path": "browser-attempt-2/prismatic-quality-overflow.png",
+      "sha256": "0ca80038f7e6247414fe83cc62b8f61198679dce00052c48bdc281d897ecaa89"
+    },
+    {
+      "path": "browser-attempt-2/prismatic-zh-CN-1440.png",
+      "sha256": "a61c39f6814485986aa243a36d97bc2d313c15cb6b6c103961d3af3f5543a5c4"
+    },
+    {
+      "path": "browser-attempt-2/prismatic-zh-CN-390.png",
+      "sha256": "1b98030c557f2f93b46f1eeebca45fe7820c402e4f59debceb70047f325b7078"
+    },
+    {
+      "path": "browser-attempt-2/prismatic-zh-TW-1440.png",
+      "sha256": "d715023fdf5c8508dcd34b7281445600478a13a530622710cfed326ba29304f3"
+    },
+    {
+      "path": "browser-attempt-2/prismatic-zh-TW-390.png",
+      "sha256": "be36f24292b53c56222d0812d4c7fcbdfe32c0fbb966209effa594c66988ce0c"
+    },
+    {
+      "path": "browser-attempt-2/ruby-ring-en-1440.png",
+      "sha256": "8284f19bbbf62c940f71f4264e888915b46acc4d74664d206fa68f6c356ff46d"
+    },
+    {
+      "path": "browser-attempt-2/ruby-ring-en-390.png",
+      "sha256": "d72c1afdd2114a14a9fc86d809cd76e66643fba60dd974bafbfed3aef89c593c"
+    },
+    {
+      "path": "browser-attempt-2/ruby-ring-es-1440.png",
+      "sha256": "c8a1e6fbfe2e31ec1d7ac7fe565207039fd9bdb218a3048268b8ee4f3454d10b"
+    },
+    {
+      "path": "browser-attempt-2/ruby-ring-es-390.png",
+      "sha256": "6c3478195b45ad655c92ea18f406dcc22249bd48034c29f4e4323c9e228a96cf"
+    },
+    {
+      "path": "browser-attempt-2/ruby-ring-ja-1440.png",
+      "sha256": "a8edbb76f8aa0cb4840ad4d4d9aa309b38d00fd167c0a47b59833f6ae4b91c23"
+    },
+    {
+      "path": "browser-attempt-2/ruby-ring-ja-390.png",
+      "sha256": "6ef65ec88e0edf41a2b5228505d5673d9b2fb65d59818f90e3f26ec20a6ca871"
+    },
+    {
+      "path": "browser-attempt-2/ruby-ring-ko-1440.png",
+      "sha256": "088fd45f5b4c983096a680f66a52fdbcea1a06d5ed30179d140992d7ec3f26ff"
+    },
+    {
+      "path": "browser-attempt-2/ruby-ring-ko-390.png",
+      "sha256": "29a639e9a2dbd169107f4339fe4627356ab23ddb22031367b0b8dedb23aa0774"
+    },
+    {
+      "path": "browser-attempt-2/ruby-ring-orange-preview.png",
+      "sha256": "1d5bff09dbe86ef0584d4e3d7e3e40991e816be2264fb3e7a853797d85d98d59"
+    },
+    {
+      "path": "browser-attempt-2/ruby-ring-quality-overflow.png",
+      "sha256": "67c3bfb1d96bde5dcbb5edd322d833dff3e686fd97b7f4fada639564d2f65d1c"
+    },
+    {
+      "path": "browser-attempt-2/ruby-ring-zh-CN-1440.png",
+      "sha256": "29d98551b45c919deb41d04fe19a98538a34cd62de1ecd88b747949d2f70454f"
+    },
+    {
+      "path": "browser-attempt-2/ruby-ring-zh-CN-390.png",
+      "sha256": "e4b7b9d5d85fbcada4e2f501ab9f8d07c6d0bc9acbc749846008839c4a79fc5a"
+    },
+    {
+      "path": "browser-attempt-2/ruby-ring-zh-TW-1440.png",
+      "sha256": "a3f874353631e300bf6e47696837b70365399fcf874e139bbd256376a29fea08"
+    },
+    {
+      "path": "browser-attempt-2/ruby-ring-zh-TW-390.png",
+      "sha256": "54e1714af4f4d2bfce72a68a7ff0b34b04a308d005061e4a9fbb6b0287f39695"
+    },
+    {
+      "path": "browser-attempt-2/two-stone-fire-cold-en-1440.png",
+      "sha256": "4afa5f66ccec35ecf1344b9bd24345cfc7012ac7d7e05ba3a9bd8bee20be99d1"
+    },
+    {
+      "path": "browser-attempt-2/two-stone-fire-cold-en-390.png",
+      "sha256": "ce393e5fdb043c06ae8a05288e2103efd19a7c71d66262cbe1081c475a1613db"
+    },
+    {
+      "path": "browser-attempt-2/two-stone-fire-cold-es-1440.png",
+      "sha256": "8343f1f3188ed7f26e6ed3d10ca4ae5f4aaa2f43c105919e3bb17388369ad797"
+    },
+    {
+      "path": "browser-attempt-2/two-stone-fire-cold-es-390.png",
+      "sha256": "0383ae9c0c6700b5b2efc29f1f324fe4387983709e0d9e13f49a33a7639b8660"
+    },
+    {
+      "path": "browser-attempt-2/two-stone-fire-cold-ja-1440.png",
+      "sha256": "be7367254a86a23f89081818847b7ac8dd0eb7f19d4f46ff9a6b8ff908a519b8"
+    },
+    {
+      "path": "browser-attempt-2/two-stone-fire-cold-ja-390.png",
+      "sha256": "717b6a9450777e8d1b14488e9930f639c2f681d638eb930cc0780e58a146c5a9"
+    },
+    {
+      "path": "browser-attempt-2/two-stone-fire-cold-ko-1440.png",
+      "sha256": "bd128a4086c815c285808bd0488384f2c793ac96365f71bdbaa37dfc2f8a6686"
+    },
+    {
+      "path": "browser-attempt-2/two-stone-fire-cold-ko-390.png",
+      "sha256": "eebc76b4d8ef985293e9c20a76c7c6c5cbed03f0523f810b4ea4280c4e2bd1aa"
+    },
+    {
+      "path": "browser-attempt-2/two-stone-fire-cold-orange-preview.png",
+      "sha256": "04acda4f3873d00eadc87e354d2ffaf20a867a235ad4f433c23e2b4bc85eb3af"
+    },
+    {
+      "path": "browser-attempt-2/two-stone-fire-cold-quality-overflow.png",
+      "sha256": "b8f60c3b8eb7b6fa0ba17e3cbc9e1fc10fdc4c739db71de73b6cc9f35b5e817d"
+    },
+    {
+      "path": "browser-attempt-2/two-stone-fire-cold-zh-CN-1440.png",
+      "sha256": "8aac83fcb466e7e423bd21f1c80d3c308efd761521c87f0bdfeb687a053335cb"
+    },
+    {
+      "path": "browser-attempt-2/two-stone-fire-cold-zh-CN-390.png",
+      "sha256": "8c298a5756172d0c78f1609dcf0599f6e5400d1d86b2381c04631dd0e31bca2f"
+    },
+    {
+      "path": "browser-attempt-2/two-stone-fire-cold-zh-TW-1440.png",
+      "sha256": "949e23d79c3316c93dabc439e3e5cd36e46ad34b260465abd36f49e1dc7b664e"
+    },
+    {
+      "path": "browser-attempt-2/two-stone-fire-cold-zh-TW-390.png",
+      "sha256": "e4381751b3891374e1072e440c3413e5ce6741a554b9cb5278ff4d5f1e5b2389"
+    },
+    {
+      "path": "browser-attempt-2/vitalic-en-1440.png",
+      "sha256": "7ba66ad94d29a378571084c0b32218c5161f24a3b19012332e67d4a79ae8c8a5"
+    },
+    {
+      "path": "browser-attempt-2/vitalic-en-390.png",
+      "sha256": "500ca0d48b1557bb2b95961b06520846f3ba11c200c0d1763029a163fc4b0fe1"
+    },
+    {
+      "path": "browser-attempt-2/vitalic-es-1440.png",
+      "sha256": "f36f08d883dedab81387d4bbde9737d90d78d658fc2fd0cc8fcac41e5115d84e"
+    },
+    {
+      "path": "browser-attempt-2/vitalic-es-390.png",
+      "sha256": "de96c0a78252d37af098955e36ca6e3cd36a6daf0718138dafb7aca17203e917"
+    },
+    {
+      "path": "browser-attempt-2/vitalic-ja-1440.png",
+      "sha256": "3de0895a911bc820848f40d1a38fbd848dbb3abb9d1bfe0d9af29ec28f1bd2cb"
+    },
+    {
+      "path": "browser-attempt-2/vitalic-ja-390.png",
+      "sha256": "221ec702719ced71558a33304c844db4fbf12ee8354ca724cebb285a8971c0fd"
+    },
+    {
+      "path": "browser-attempt-2/vitalic-ko-1440.png",
+      "sha256": "cd03d492cf7920cf919f9b73c0449e747a75044dd97d72132a0230a0bdedee25"
+    },
+    {
+      "path": "browser-attempt-2/vitalic-ko-390.png",
+      "sha256": "59b67e8dc2e79e762ba07771d8fe22a31f28abbfd9c9fb09d6c07de53aa22eac"
+    },
+    {
+      "path": "browser-attempt-2/vitalic-orange-preview.png",
+      "sha256": "75787cee5dded1b6c559d0d662d0e6d7c00d83ca8c0897664cecb967601ba384"
+    },
+    {
+      "path": "browser-attempt-2/vitalic-quality-overflow.png",
+      "sha256": "0311b4fba510688c6013ffd3f3759fa97c7b4851c2899d2f73895e0bfd2a48b4"
+    },
+    {
+      "path": "browser-attempt-2/vitalic-zh-CN-1440.png",
+      "sha256": "6f810bde0202da23fd0ccd33af307171fef50655aa0ae304a6bacce610f92a02"
+    },
+    {
+      "path": "browser-attempt-2/vitalic-zh-CN-390.png",
+      "sha256": "b5e9a270d6f10458d18806d93c24ab805952916ec770cc0a148bb7fec9431030"
+    },
+    {
+      "path": "browser-attempt-2/vitalic-zh-TW-1440.png",
+      "sha256": "8e7e63a19dde649593704a2372d100faf052a14d61f6b1aecf36c444fee164b1"
+    },
+    {
+      "path": "browser-attempt-2/vitalic-zh-TW-390.png",
+      "sha256": "f005fda690b1cde21a987366e7e3850cc3bb4d1b91e28b3f25f2e635e75b42eb"
+    }
+  ]
+}

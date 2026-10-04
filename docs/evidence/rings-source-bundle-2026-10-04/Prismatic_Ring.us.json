@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/us/Prismatic_Ring",
+  "retrievedAt": "2026-10-04T20:54:59.708Z",
+  "sha256": "87b5f6138af8cfacbe69ea8559be56479866646c5ceaaf72c96d7c370ef0d24e",
+  "name": "Prismatic Ring",
+  "card": "Prismatic Ring\n        \n    \n    \n        \n            RingsRequires:  Level 35+(7—10)% to all Elemental Resistances",
+  "requirements": "Requires:  Level 35",
+  "fields": {
+    "DropLevel": "35",
+    "BaseType": "Prismatic Ring",
+    "Class": "Rings",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Rings/FourRing9",
+    "Tags": "ring",
+    "Icon": "Art/2DItems/Rings/Basetypes/PrismaticRing",
+    "Base.base_level": "1",
+    "Base.tag": "default, ring",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Ring",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

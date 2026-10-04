@@ -1,0 +1,98 @@
+[
+  {
+    "key": "kinetic",
+    "id": "Metadata/Items/Rings/FourRingB4",
+    "ordinary": 203,
+    "special": 5,
+    "implicit": "kinetic:implicit:physicaldamage",
+    "fixedActions": 23,
+    "replacementActions": 4,
+    "locales": 6,
+    "provenance": "EXACT_SOURCE_ROWS_AND_REUSED_VERIFIED_DETAILS",
+    "fallbackExceptions": []
+  },
+  {
+    "key": "vitalic",
+    "id": "Metadata/Items/Rings/FourRingB2",
+    "ordinary": 203,
+    "special": 5,
+    "implicit": "vitalic:implicit:increasedlife",
+    "fixedActions": 23,
+    "replacementActions": 4,
+    "locales": 6,
+    "provenance": "EXACT_SOURCE_ROWS_AND_REUSED_VERIFIED_DETAILS",
+    "fallbackExceptions": []
+  },
+  {
+    "key": "mnemonic",
+    "id": "Metadata/Items/Rings/FourRingB3",
+    "ordinary": 203,
+    "special": 5,
+    "implicit": "mnemonic:implicit:maximummanaincreasepercent",
+    "fixedActions": 23,
+    "replacementActions": 4,
+    "locales": 6,
+    "provenance": "EXACT_SOURCE_ROWS_AND_REUSED_VERIFIED_DETAILS",
+    "fallbackExceptions": []
+  },
+  {
+    "key": "pearl",
+    "id": "Metadata/Items/Rings/FourRing8",
+    "ordinary": 203,
+    "special": 5,
+    "implicit": "pearl:implicit:increasedcastspeed",
+    "fixedActions": 23,
+    "replacementActions": 4,
+    "locales": 6,
+    "provenance": "EXACT_SOURCE_ROWS_AND_REUSED_VERIFIED_DETAILS",
+    "fallbackExceptions": []
+  },
+  {
+    "key": "amethyst",
+    "id": "Metadata/Items/Rings/FourRing6",
+    "ordinary": 203,
+    "special": 5,
+    "implicit": "amethyst:implicit:chaosresistance",
+    "fixedActions": 23,
+    "replacementActions": 4,
+    "locales": 6,
+    "provenance": "EXACT_SOURCE_ROWS_AND_REUSED_VERIFIED_DETAILS",
+    "fallbackExceptions": []
+  },
+  {
+    "key": "prismatic",
+    "id": "Metadata/Items/Rings/FourRing9",
+    "ordinary": 203,
+    "special": 5,
+    "implicit": "prismatic:implicit:allresistances",
+    "fixedActions": 23,
+    "replacementActions": 4,
+    "locales": 6,
+    "provenance": "EXACT_SOURCE_ROWS_AND_REUSED_VERIFIED_DETAILS",
+    "fallbackExceptions": []
+  },
+  {
+    "key": "ruby-ring",
+    "id": "Metadata/Items/Rings/FourRing3",
+    "ordinary": 203,
+    "special": 5,
+    "implicit": "ruby-ring:implicit:fireresistance",
+    "fixedActions": 23,
+    "replacementActions": 4,
+    "locales": 6,
+    "provenance": "EXACT_SOURCE_ROWS_AND_REUSED_VERIFIED_DETAILS",
+    "fallbackExceptions": []
+  },
+  {
+    "key": "two-stone-fire-cold",
+    "id": "Metadata/Items/Rings/FourRing13a",
+    "ordinary": 203,
+    "special": 5,
+    "implicit": "two-stone-fire-cold:implicit:fireandcoldresistance",
+    "fixedActions": 23,
+    "replacementActions": 4,
+    "locales": 6,
+    "provenance": "EXACT_SOURCE_ROWS_AND_REUSED_VERIFIED_DETAILS",
+    "fallbackExceptions": []
+  }
+]

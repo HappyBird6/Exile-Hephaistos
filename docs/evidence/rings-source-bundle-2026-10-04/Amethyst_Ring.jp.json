@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/jp/Amethyst_Ring",
+  "retrievedAt": "2026-10-04T20:54:58.255Z",
+  "sha256": "1e69fd966f86df61e1d6c2781f265837425cfbcaef1fe6aa4b240e4ce572d0fe",
+  "name": "アメジストの指輪",
+  "card": "アメジストの指輪\n        \n    \n    \n        \n            指輪装備条件： レベル 20混沌耐性 +(7—13)%\n        \n\n\n\n        \n            Amethyst Ring",
+  "requirements": "装備条件： レベル 20",
+  "fields": {
+    "DropLevel": "20",
+    "BaseType": "アメジストの指輪",
+    "Class": "指輪",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Rings/FourRing6",
+    "Tags": "ring",
+    "Icon": "Art/2DItems/Rings/Basetypes/AmethystRing",
+    "Base.base_level": "1",
+    "Base.tag": "default, ring",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Ring",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

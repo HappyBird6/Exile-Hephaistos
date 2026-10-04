@@ -26,6 +26,14 @@ const baseTexts = {
   gemini: 'Item Class: Bows\nRarity: Normal\nGemini Bow',
   fanatic: 'Item Class: Bows\nRarity: Normal\nFanatic Bow',
   obliterator: 'Item Class: Bows\nRarity: Normal\nObliterator Bow',
+  kinetic: 'Item Class: Rings\nRarity: Normal\nKinetic Ring',
+  vitalic: 'Item Class: Rings\nRarity: Normal\nVitalic Ring',
+  mnemonic: 'Item Class: Rings\nRarity: Normal\nMnemonic Ring',
+  pearl: 'Item Class: Rings\nRarity: Normal\nPearl Ring',
+  amethyst: 'Item Class: Rings\nRarity: Normal\nAmethyst Ring',
+  prismatic: 'Item Class: Rings\nRarity: Normal\nPrismatic Ring',
+  'ruby-ring': 'Item Class: Rings\nRarity: Normal\nRuby Ring',
+  'two-stone-fire-cold': 'Item Class: Rings\nRarity: Normal\nTwo-Stone Ring',
   freebooter: 'Item Class: Helmets\nRarity: Normal\nFreebooter Cap',
   gladiatorial: 'Item Class: Helmets\nRarity: Normal\nGladiatorial Helm',
   grinning: 'Item Class: Helmets\nRarity: Normal\nGrinning Mask',
@@ -89,6 +97,14 @@ type Draft = {
     | 'gemini'
     | 'fanatic'
     | 'obliterator'
+    | 'kinetic'
+    | 'vitalic'
+    | 'mnemonic'
+    | 'pearl'
+    | 'amethyst'
+    | 'prismatic'
+    | 'ruby-ring'
+    | 'two-stone-fire-cold'
     | 'freebooter'
     | 'gladiatorial'
     | 'grinning'
@@ -142,6 +158,14 @@ type Draft = {
       | 'gemini'
       | 'fanatic'
       | 'obliterator'
+      | 'kinetic'
+      | 'vitalic'
+      | 'mnemonic'
+      | 'pearl'
+      | 'amethyst'
+      | 'prismatic'
+      | 'ruby-ring'
+      | 'two-stone-fire-cold'
       | 'freebooter'
       | 'gladiatorial'
       | 'grinning'

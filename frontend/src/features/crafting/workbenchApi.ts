@@ -989,7 +989,7 @@ export async function applyCurrency(
   const reviewedKey = topBaseKey(state.baseItemId)
   const reviewedTargets =
     reviewedKey &&
-    ['gloves', 'helmets', 'body', 'boots', 'bows'].includes(
+    ['gloves', 'helmets', 'body', 'boots', 'bows', 'rings'].includes(
       topBase(reviewedKey)?.family ?? '',
     )
       ? (
@@ -1118,7 +1118,8 @@ export async function applyCurrency(
       state.baseItemId === 'Metadata/Items/Belts/FourBelt1') ||
     (v.applied &&
       action === 'PERFECT_ESSENCE_MIND' &&
-      state.baseItemId !== 'Metadata/Items/Rings/FourRing1') ||
+      state.baseItemId !== 'Metadata/Items/Rings/FourRing1' &&
+      topBase(reviewedKey ?? '')?.family !== 'rings') ||
     (v.applied &&
       action === 'PERFECT_ESSENCE_THAWING' &&
       state.baseItemId !== 'Metadata/Items/Armours/Helmets/FourHelmetStr1' &&

@@ -1,4 +1,4 @@
-import { topBaseKey } from './topBases'
+import { topBase, topBaseKey } from './topBases'
 import type { Definition } from './craftingApi'
 import type { ConcreteItem } from './workbenchApi'
 
@@ -39,7 +39,8 @@ export function maximumQuality(
     if (!Object.hasOwn(instance.values, stat)) continue
     const d = definitions[instance.modifierId]
     if (
-      state.baseItemId !== solar ||
+      (state.baseItemId !== solar &&
+        topBase(topBaseKey(state.baseItemId) ?? '')?.family !== 'rings') ||
       instance.modifierId !== breach ||
       d?.affixType !== 'PREFIX' ||
       d.familyIds.length !== 1 ||

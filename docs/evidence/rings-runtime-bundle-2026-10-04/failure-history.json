@@ -1,0 +1,49 @@
+{
+  "failuresPreserved": true,
+  "attempts": [
+    {
+      "attempt": "source fetch",
+      "issue": "Restricted network EACCES",
+      "resolution": "Authorized public-source escalation to a fresh isolated path"
+    },
+    {
+      "attempt": "implicit proof parsing",
+      "issue": "Craft Tags use plain badges, not crafting data-tag attributes",
+      "resolution": "Inspected actual source HTML; parse exact Craft Tags section"
+    },
+    {
+      "attempt": "source eligibility preflight",
+      "issue": "Detail Spawn Tags numeric domain differs from published class DropChance",
+      "resolution": "Check ordered Ring eligibility and published class weights separately, retaining both exact source values"
+    },
+    {
+      "attempt": "backend-check-1",
+      "issue": "New Hysteria EXPLICIT tier0 rejected by existing strict constructor; Catalyst registry test retained old allowed roster",
+      "resolution": "Correct EXPLICIT tier1; add exact eight sourced Ring keys to registry expected set; preserve XML report and logs"
+    },
+    {
+      "attempt": "frontend-check-1",
+      "issue": "Two historical display coverage totals omitted exact added Ring binding sets; all new Ring tests passed",
+      "resolution": "Keep all previous assertions; assert exact additional eight implicit IDs and one Hysteria binding, and seven additional single-stat projections; preserve original complete failure log"
+    },
+    {
+      "attempt": "api-check-1",
+      "issue": "Boundary probe adapted request to Hysteria source level54 but its atomic expected-state fixture still used Bow level71",
+      "resolution": "Replace both request and expected fixture with exact source requiredItemLevel minus1; keep atomic equality assertion; preserve first API log"
+    },
+    {
+      "attempt": "runtime self-review",
+      "issue": "Two frontend class projections defaulted reviewed Ring to Amulet despite correct catalog identity",
+      "resolution": "Use exact reviewed rings family for item card and input class; rerun Frontend required checks and assert actual class in browser"
+    },
+    {
+      "attempt": "browser-attempt-1",
+      "issue": "Bow-derived Magic Dexterity suffix fixture incorrectly expected Ring Flames suffix to fit a full Magic suffix slot; first96 locale/width captures passed",
+      "resolution": "Use sourced Mind prefix for a valid positive path and retain Flames as an explicit atomic slot-refusal assertion; preserve complete first capture directory and failure JSON"
+    }
+  ],
+  "logsRoot": "E:/WORK/Exile-Hephaistos/codex/rings-qa-20261004",
+  "priorOutputOverwriteDenialBinding": true,
+  "permissionBypass": false,
+  "skippedTests": 0
+}

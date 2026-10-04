@@ -134,6 +134,7 @@ public final class WorkbenchSimulator {
   }
 
   private String baseRuleVersion() {
+    if (ReviewedRings.supports(catalog.base().id())) return "distinct-rings-workbench-v1";
     if (ReviewedBows.supports(catalog.base().id())) return "endgame-bows-workbench-v1";
     if (ReviewedBoots.supports(catalog.base().id())) return "boots-workbench-uniform-v1";
     if (ReviewedBodies.supports(catalog.base().id())) return "body-workbench-uniform-v1";
@@ -160,6 +161,8 @@ public final class WorkbenchSimulator {
   }
 
   public String ledgerVersion() {
+    if (ReviewedRings.supports(catalog.base().id()))
+      return "ring-unverified-numeric-assumptions-v1";
     if (ReviewedBows.supports(catalog.base().id())) return "bow-unverified-numeric-assumptions-v1";
     if (ReviewedBoots.supports(catalog.base().id()))
       return "boots-uniform-candidates-unverified-rolls-v1";
@@ -253,7 +256,8 @@ public final class WorkbenchSimulator {
         return new Availability(action, true, "");
       }
       if (!state.baseItemId().equals(SolarAmulet.BASE_ID)
-          && !state.baseItemId().equals(RingEssenceTargets.BASE_ID))
+          && !state.baseItemId().equals(RingEssenceTargets.BASE_ID)
+          && !ReviewedRings.supports(state.baseItemId()))
         return blocked(action, "Ordinary catalysts require a supported Ring or Amulet.");
       return new Availability(action, true, "");
     }

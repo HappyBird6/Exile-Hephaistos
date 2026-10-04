@@ -40576,6 +40576,180 @@
           "divisor": -1
         }
       ]
+    },
+    "ring:suffix:essence-hysteria-mana-regeneration": {
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 50,
+          "max": 59
+        }
+      ],
+      "englishText": "(50—59)% increased Mana Regeneration Rate",
+      "values": ["(50—59)"],
+      "template": "modifier.56723a0ea8489efe",
+      "sourceCode": "ManaRegeneration5"
+    },
+    "kinetic:implicit:physicaldamage": {
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 11,
+          "max": 15
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 6,
+          "max": 9
+        }
+      ],
+      "englishText": "Adds (6—9) to (11—15) Physical Damage to Attacks",
+      "values": ["(6—9)", "(11—15)"],
+      "template": "rings.kinetic.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "vitalic:implicit:increasedlife": {
+      "stats": [
+        {
+          "id": "maximum_life_+%",
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "englishText": "(4—6)% increased maximum Life",
+      "values": ["(4—6)"],
+      "template": "rings.vitalic.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "maximum_life_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "mnemonic:implicit:maximummanaincreasepercent": {
+      "stats": [
+        {
+          "id": "maximum_mana_+%",
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "englishText": "(4—6)% increased maximum Mana",
+      "values": ["(4—6)"],
+      "template": "rings.mnemonic.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "maximum_mana_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "pearl:implicit:increasedcastspeed": {
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 7,
+          "max": 10
+        }
+      ],
+      "englishText": "(7—10)% increased Cast Speed",
+      "values": ["(7—10)"],
+      "template": "rings.pearl.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_cast_speed_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "amethyst:implicit:chaosresistance": {
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 7,
+          "max": 13
+        }
+      ],
+      "englishText": "+(7—13)% to Chaos Resistance",
+      "values": ["+(7—13)"],
+      "template": "rings.amethyst.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "prismatic:implicit:allresistances": {
+      "stats": [
+        {
+          "id": "base_resist_all_elements_%",
+          "min": 7,
+          "max": 10
+        }
+      ],
+      "englishText": "+(7—10)% to all Elemental Resistances",
+      "values": ["+(7—10)"],
+      "template": "rings.prismatic.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_resist_all_elements_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "ruby-ring:implicit:fireresistance": {
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "englishText": "+(20—30)% to Fire Resistance",
+      "values": ["+(20—30)"],
+      "template": "rings.ruby-ring.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "two-stone-fire-cold:implicit:fireandcoldresistance": {
+      "stats": [
+        {
+          "id": "fire_and_cold_damage_resistance_%",
+          "min": 12,
+          "max": 16
+        }
+      ],
+      "englishText": "+(12—16)% to Fire and Cold Resistances",
+      "values": ["+(12—16)"],
+      "template": "rings.two-stone-fire-cold.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "fire_and_cold_damage_resistance_%",
+          "divisor": 1
+        }
+      ]
     }
   },
   "templates": {
@@ -48327,6 +48501,38 @@
       "bows.obliterator.implicit": {
         "name": "Obliterator Bow",
         "template": "{v0}% reduced Projectile Range"
+      },
+      "rings.kinetic.implicit": {
+        "name": "Kinetic Ring",
+        "template": "Adds {v0} to {v1} Physical Damage to Attacks"
+      },
+      "rings.vitalic.implicit": {
+        "name": "Vitalic Ring",
+        "template": "{v0}% increased maximum Life"
+      },
+      "rings.mnemonic.implicit": {
+        "name": "Mnemonic Ring",
+        "template": "{v0}% increased maximum Mana"
+      },
+      "rings.pearl.implicit": {
+        "name": "Pearl Ring",
+        "template": "{v0}% increased Cast Speed"
+      },
+      "rings.amethyst.implicit": {
+        "name": "Amethyst Ring",
+        "template": "{v0}% to Chaos Resistance"
+      },
+      "rings.prismatic.implicit": {
+        "name": "Prismatic Ring",
+        "template": "{v0}% to all Elemental Resistances"
+      },
+      "rings.ruby-ring.implicit": {
+        "name": "Ruby Ring",
+        "template": "{v0}% to Fire Resistance"
+      },
+      "rings.two-stone-fire-cold.implicit": {
+        "name": "Two-Stone Ring",
+        "template": "{v0}% to Fire and Cold Resistances"
       }
     },
     "ko": {
@@ -56077,6 +56283,38 @@
       "bows.obliterator.implicit": {
         "name": "절멸자 활",
         "template": "투사체 사거리 {v0}% 감소"
+      },
+      "rings.kinetic.implicit": {
+        "name": "역학 반지",
+        "template": "공격 시 물리 피해 {v0}~{v1} 추가"
+      },
+      "rings.vitalic.implicit": {
+        "name": "활력 반지",
+        "template": "최대 생명력 {v0}% 증가"
+      },
+      "rings.mnemonic.implicit": {
+        "name": "기억 반지",
+        "template": "최대 마나 {v0}% 증가"
+      },
+      "rings.pearl.implicit": {
+        "name": "진주 반지",
+        "template": "시전 속도 {v0}% 증가"
+      },
+      "rings.amethyst.implicit": {
+        "name": "자수정 반지",
+        "template": "카오스 저항 {v0}%"
+      },
+      "rings.prismatic.implicit": {
+        "name": "분광 반지",
+        "template": "모든 원소 저항 {v0}%"
+      },
+      "rings.ruby-ring.implicit": {
+        "name": "루비 반지",
+        "template": "화염 저항 {v0}%"
+      },
+      "rings.two-stone-fire-cold.implicit": {
+        "name": "쌍보석 반지",
+        "template": "화염 및 냉기 저항 {v0}%"
       }
     },
     "zh-CN": {
@@ -63827,6 +64065,38 @@
       "bows.obliterator.implicit": {
         "name": "毁灭者之弓",
         "template": "投射物射程降低 {v0}%"
+      },
+      "rings.kinetic.implicit": {
+        "name": "动能戒指",
+        "template": "攻击附加 {v0} - {v1} 物理伤害"
+      },
+      "rings.vitalic.implicit": {
+        "name": "活力戒指",
+        "template": "生命上限提高 {v0}%"
+      },
+      "rings.mnemonic.implicit": {
+        "name": "记忆戒指",
+        "template": "魔力上限提高 {v0}%"
+      },
+      "rings.pearl.implicit": {
+        "name": "珠玉戒指",
+        "template": "施法速度提高 {v0}%"
+      },
+      "rings.amethyst.implicit": {
+        "name": "紫晶戒指",
+        "template": "混沌抗性 {v0}%"
+      },
+      "rings.prismatic.implicit": {
+        "name": "三相戒指",
+        "template": "所有元素抗性 {v0}%"
+      },
+      "rings.ruby-ring.implicit": {
+        "name": "红玉戒指",
+        "template": "火焰抗性 {v0}%"
+      },
+      "rings.two-stone-fire-cold.implicit": {
+        "name": "双玉戒指",
+        "template": "{v0}% 火焰与冰霜抗性"
       }
     },
     "zh-TW": {
@@ -71577,6 +71847,38 @@
       "bows.obliterator.implicit": {
         "name": "毀滅者之弓",
         "template": "減少{v0}%投射物範圍"
+      },
+      "rings.kinetic.implicit": {
+        "name": "動力之戒",
+        "template": "攻擊附加{v0}至{v1}物理傷害"
+      },
+      "rings.vitalic.implicit": {
+        "name": "維生之戒",
+        "template": "增加{v0}%最大生命"
+      },
+      "rings.mnemonic.implicit": {
+        "name": "憶念之戒",
+        "template": "增加{v0}%最大魔力"
+      },
+      "rings.pearl.implicit": {
+        "name": "珍珠戒指",
+        "template": "增加{v0}%施法速度"
+      },
+      "rings.amethyst.implicit": {
+        "name": "紫晶戒指",
+        "template": "{v0}%混沌抗性"
+      },
+      "rings.prismatic.implicit": {
+        "name": "三相戒指",
+        "template": "{v0}%全元素抗性"
+      },
+      "rings.ruby-ring.implicit": {
+        "name": "紅玉戒指",
+        "template": "{v0}%火焰抗性"
+      },
+      "rings.two-stone-fire-cold.implicit": {
+        "name": "雙玉戒指",
+        "template": "{v0}%火焰與冰冷抗性"
       }
     },
     "ja": {
@@ -79327,6 +79629,38 @@
       "bows.obliterator.implicit": {
         "name": "殲滅者の弓",
         "template": "投射物の範囲が{v0}%減少する"
+      },
+      "rings.kinetic.implicit": {
+        "name": "キネティックリング",
+        "template": "{v0}から{v1}の物理ダメージをアタックに追加する"
+      },
+      "rings.vitalic.implicit": {
+        "name": "バイタリックリング",
+        "template": "最大ライフが{v0}%増加する"
+      },
+      "rings.mnemonic.implicit": {
+        "name": "ニーモニックリング",
+        "template": "最大マナが{v0}%増加する"
+      },
+      "rings.pearl.implicit": {
+        "name": "真珠の指輪",
+        "template": "キャストスピードが{v0}%増加する"
+      },
+      "rings.amethyst.implicit": {
+        "name": "アメジストの指輪",
+        "template": "混沌耐性 {v0}%"
+      },
+      "rings.prismatic.implicit": {
+        "name": "プリズムの指輪",
+        "template": "全ての元素耐性 {v0}%"
+      },
+      "rings.ruby-ring.implicit": {
+        "name": "ルビーの指輪",
+        "template": "火耐性 {v0}%"
+      },
+      "rings.two-stone-fire-cold.implicit": {
+        "name": "ツーストーンリング",
+        "template": "火および冷気耐性 {v0}%"
       }
     },
     "es": {
@@ -87077,6 +87411,38 @@
       "bows.obliterator.implicit": {
         "name": "Arco obliterador",
         "template": "Alcance de los proyectiles reducido un {v0}%"
+      },
+      "rings.kinetic.implicit": {
+        "name": "Anillo cinético",
+        "template": "Agrega de {v0} a {v1} de daño físico a los ataques"
+      },
+      "rings.vitalic.implicit": {
+        "name": "Anillo vital",
+        "template": "Vida máxima aumentada un {v0}%"
+      },
+      "rings.mnemonic.implicit": {
+        "name": "Anillo mnemotécnico",
+        "template": "Maná máximo aumentado un {v0}%"
+      },
+      "rings.pearl.implicit": {
+        "name": "Anillo de perla",
+        "template": "Velocidad de lanzamiento de hechizos aumentada un {v0}%"
+      },
+      "rings.amethyst.implicit": {
+        "name": "Anillo de amatista",
+        "template": "{v0}% a la resistencia al caos"
+      },
+      "rings.prismatic.implicit": {
+        "name": "Anillo prismático",
+        "template": "{v0}% a todas las resistencias elementales"
+      },
+      "rings.ruby-ring.implicit": {
+        "name": "Anillo de rubí",
+        "template": "{v0}% a la resistencia al fuego"
+      },
+      "rings.two-stone-fire-cold.implicit": {
+        "name": "Anillo de dos piedras",
+        "template": "{v0}% a las resistencias al fuego y al hielo"
       }
     }
   }

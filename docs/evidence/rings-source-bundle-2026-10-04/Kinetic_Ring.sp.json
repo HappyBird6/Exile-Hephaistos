@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/sp/Kinetic_Ring",
+  "retrievedAt": "2026-10-04T20:54:51.272Z",
+  "sha256": "b29991411006cd17eda625bff9a0e18ca24e9fcc8f4b4ee224ba1c723e305fba",
+  "name": "Anillo cinético",
+  "card": "Anillo cinético\n        \n    \n    \n        \n            AnillosRequiere:  Nivel 40Agrega de (6—9) a (11—15) de daño físico a los ataques\n        \n\n        \n        \n            Afila la garra, para que pueda desgarrar.\n        \n\n\n        \n            Kinetic Ring",
+  "requirements": "Requiere:  Nivel 40",
+  "fields": {
+    "DropLevel": "40",
+    "BaseType": "Anillo cinético",
+    "Class": "Anillos",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Rings/FourRingB4",
+    "Tags": "ring",
+    "Icon": "Art/2DItems/Rings/BreachlordRing_UulNetol",
+    "Base.base_level": "1",
+    "Base.tag": "default, ring",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Ring",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

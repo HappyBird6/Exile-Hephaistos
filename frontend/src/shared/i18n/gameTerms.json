@@ -2319,6 +2319,54 @@
       "lines": [],
       "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow9Endgame",
       "sourceUrl": "https://poe2db.tw/us/Obliterator_Bow"
+    },
+    "Kinetic_Ring": {
+      "name": "Kinetic Ring",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB4",
+      "sourceUrl": "https://poe2db.tw/us/Kinetic_Ring"
+    },
+    "Vitalic_Ring": {
+      "name": "Vitalic Ring",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB2",
+      "sourceUrl": "https://poe2db.tw/us/Vitalic_Ring"
+    },
+    "Mnemonic_Ring": {
+      "name": "Mnemonic Ring",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB3",
+      "sourceUrl": "https://poe2db.tw/us/Mnemonic_Ring"
+    },
+    "Pearl_Ring": {
+      "name": "Pearl Ring",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing8",
+      "sourceUrl": "https://poe2db.tw/us/Pearl_Ring"
+    },
+    "Amethyst_Ring": {
+      "name": "Amethyst Ring",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing6",
+      "sourceUrl": "https://poe2db.tw/us/Amethyst_Ring"
+    },
+    "Prismatic_Ring": {
+      "name": "Prismatic Ring",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing9",
+      "sourceUrl": "https://poe2db.tw/us/Prismatic_Ring"
+    },
+    "Ruby_Ring": {
+      "name": "Ruby Ring",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing3",
+      "sourceUrl": "https://poe2db.tw/us/Ruby_Ring"
+    },
+    "Two-Stone_Ring": {
+      "name": "Two-Stone Ring",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing13a",
+      "sourceUrl": "https://poe2db.tw/us/Two-Stone_Ring"
     }
   },
   "ko": {
@@ -4625,6 +4673,54 @@
       "lines": [],
       "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow9Endgame",
       "sourceUrl": "https://poe2db.tw/kr/Obliterator_Bow"
+    },
+    "Kinetic_Ring": {
+      "name": "역학 반지",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB4",
+      "sourceUrl": "https://poe2db.tw/kr/Kinetic_Ring"
+    },
+    "Vitalic_Ring": {
+      "name": "활력 반지",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB2",
+      "sourceUrl": "https://poe2db.tw/kr/Vitalic_Ring"
+    },
+    "Mnemonic_Ring": {
+      "name": "기억 반지",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB3",
+      "sourceUrl": "https://poe2db.tw/kr/Mnemonic_Ring"
+    },
+    "Pearl_Ring": {
+      "name": "진주 반지",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing8",
+      "sourceUrl": "https://poe2db.tw/kr/Pearl_Ring"
+    },
+    "Amethyst_Ring": {
+      "name": "자수정 반지",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing6",
+      "sourceUrl": "https://poe2db.tw/kr/Amethyst_Ring"
+    },
+    "Prismatic_Ring": {
+      "name": "분광 반지",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing9",
+      "sourceUrl": "https://poe2db.tw/kr/Prismatic_Ring"
+    },
+    "Ruby_Ring": {
+      "name": "루비 반지",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing3",
+      "sourceUrl": "https://poe2db.tw/kr/Ruby_Ring"
+    },
+    "Two-Stone_Ring": {
+      "name": "쌍보석 반지",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing13a",
+      "sourceUrl": "https://poe2db.tw/kr/Two-Stone_Ring"
     }
   },
   "zh-CN": {
@@ -6829,6 +6925,54 @@
       "lines": [],
       "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow9Endgame",
       "sourceUrl": "https://poe2db.tw/cn/Obliterator_Bow"
+    },
+    "Kinetic_Ring": {
+      "name": "动能戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB4",
+      "sourceUrl": "https://poe2db.tw/cn/Kinetic_Ring"
+    },
+    "Vitalic_Ring": {
+      "name": "活力戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB2",
+      "sourceUrl": "https://poe2db.tw/cn/Vitalic_Ring"
+    },
+    "Mnemonic_Ring": {
+      "name": "记忆戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB3",
+      "sourceUrl": "https://poe2db.tw/cn/Mnemonic_Ring"
+    },
+    "Pearl_Ring": {
+      "name": "珠玉戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing8",
+      "sourceUrl": "https://poe2db.tw/cn/Pearl_Ring"
+    },
+    "Amethyst_Ring": {
+      "name": "紫晶戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing6",
+      "sourceUrl": "https://poe2db.tw/cn/Amethyst_Ring"
+    },
+    "Prismatic_Ring": {
+      "name": "三相戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing9",
+      "sourceUrl": "https://poe2db.tw/cn/Prismatic_Ring"
+    },
+    "Ruby_Ring": {
+      "name": "红玉戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing3",
+      "sourceUrl": "https://poe2db.tw/cn/Ruby_Ring"
+    },
+    "Two-Stone_Ring": {
+      "name": "双玉戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing13a",
+      "sourceUrl": "https://poe2db.tw/cn/Two-Stone_Ring"
     }
   },
   "zh-TW": {
@@ -9023,6 +9167,54 @@
       "lines": [],
       "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow9Endgame",
       "sourceUrl": "https://poe2db.tw/tw/Obliterator_Bow"
+    },
+    "Kinetic_Ring": {
+      "name": "動力之戒",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB4",
+      "sourceUrl": "https://poe2db.tw/tw/Kinetic_Ring"
+    },
+    "Vitalic_Ring": {
+      "name": "維生之戒",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB2",
+      "sourceUrl": "https://poe2db.tw/tw/Vitalic_Ring"
+    },
+    "Mnemonic_Ring": {
+      "name": "憶念之戒",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB3",
+      "sourceUrl": "https://poe2db.tw/tw/Mnemonic_Ring"
+    },
+    "Pearl_Ring": {
+      "name": "珍珠戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing8",
+      "sourceUrl": "https://poe2db.tw/tw/Pearl_Ring"
+    },
+    "Amethyst_Ring": {
+      "name": "紫晶戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing6",
+      "sourceUrl": "https://poe2db.tw/tw/Amethyst_Ring"
+    },
+    "Prismatic_Ring": {
+      "name": "三相戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing9",
+      "sourceUrl": "https://poe2db.tw/tw/Prismatic_Ring"
+    },
+    "Ruby_Ring": {
+      "name": "紅玉戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing3",
+      "sourceUrl": "https://poe2db.tw/tw/Ruby_Ring"
+    },
+    "Two-Stone_Ring": {
+      "name": "雙玉戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing13a",
+      "sourceUrl": "https://poe2db.tw/tw/Two-Stone_Ring"
     }
   },
   "ja": {
@@ -11331,6 +11523,54 @@
       "lines": [],
       "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow9Endgame",
       "sourceUrl": "https://poe2db.tw/jp/Obliterator_Bow"
+    },
+    "Kinetic_Ring": {
+      "name": "キネティックリング",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB4",
+      "sourceUrl": "https://poe2db.tw/jp/Kinetic_Ring"
+    },
+    "Vitalic_Ring": {
+      "name": "バイタリックリング",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB2",
+      "sourceUrl": "https://poe2db.tw/jp/Vitalic_Ring"
+    },
+    "Mnemonic_Ring": {
+      "name": "ニーモニックリング",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB3",
+      "sourceUrl": "https://poe2db.tw/jp/Mnemonic_Ring"
+    },
+    "Pearl_Ring": {
+      "name": "真珠の指輪",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing8",
+      "sourceUrl": "https://poe2db.tw/jp/Pearl_Ring"
+    },
+    "Amethyst_Ring": {
+      "name": "アメジストの指輪",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing6",
+      "sourceUrl": "https://poe2db.tw/jp/Amethyst_Ring"
+    },
+    "Prismatic_Ring": {
+      "name": "プリズムの指輪",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing9",
+      "sourceUrl": "https://poe2db.tw/jp/Prismatic_Ring"
+    },
+    "Ruby_Ring": {
+      "name": "ルビーの指輪",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing3",
+      "sourceUrl": "https://poe2db.tw/jp/Ruby_Ring"
+    },
+    "Two-Stone_Ring": {
+      "name": "ツーストーンリング",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing13a",
+      "sourceUrl": "https://poe2db.tw/jp/Two-Stone_Ring"
     }
   },
   "es": {
@@ -13557,6 +13797,54 @@
       "lines": [],
       "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow9Endgame",
       "sourceUrl": "https://poe2db.tw/sp/Obliterator_Bow"
+    },
+    "Kinetic_Ring": {
+      "name": "Anillo cinético",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB4",
+      "sourceUrl": "https://poe2db.tw/sp/Kinetic_Ring"
+    },
+    "Vitalic_Ring": {
+      "name": "Anillo vital",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB2",
+      "sourceUrl": "https://poe2db.tw/sp/Vitalic_Ring"
+    },
+    "Mnemonic_Ring": {
+      "name": "Anillo mnemotécnico",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB3",
+      "sourceUrl": "https://poe2db.tw/sp/Mnemonic_Ring"
+    },
+    "Pearl_Ring": {
+      "name": "Anillo de perla",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing8",
+      "sourceUrl": "https://poe2db.tw/sp/Pearl_Ring"
+    },
+    "Amethyst_Ring": {
+      "name": "Anillo de amatista",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing6",
+      "sourceUrl": "https://poe2db.tw/sp/Amethyst_Ring"
+    },
+    "Prismatic_Ring": {
+      "name": "Anillo prismático",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing9",
+      "sourceUrl": "https://poe2db.tw/sp/Prismatic_Ring"
+    },
+    "Ruby_Ring": {
+      "name": "Anillo de rubí",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing3",
+      "sourceUrl": "https://poe2db.tw/sp/Ruby_Ring"
+    },
+    "Two-Stone_Ring": {
+      "name": "Anillo de dos piedras",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing13a",
+      "sourceUrl": "https://poe2db.tw/sp/Two-Stone_Ring"
     }
   }
 }

@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/sp/Prismatic_Ring",
+  "retrievedAt": "2026-10-04T20:55:01.149Z",
+  "sha256": "9d19fe159e794e48225ab808b057bc0494b53daba42795d44c3178dab83afdb9",
+  "name": "Anillo prismático",
+  "card": "Anillo prismático\n        \n    \n    \n        \n            AnillosRequiere:  Nivel 35+(7—10)% a todas las resistencias elementales\n        \n\n\n\n        \n            Prismatic Ring",
+  "requirements": "Requiere:  Nivel 35",
+  "fields": {
+    "DropLevel": "35",
+    "BaseType": "Anillo prismático",
+    "Class": "Anillos",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Rings/FourRing9",
+    "Tags": "ring",
+    "Icon": "Art/2DItems/Rings/Basetypes/PrismaticRing",
+    "Base.base_level": "1",
+    "Base.tag": "default, ring",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Ring",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

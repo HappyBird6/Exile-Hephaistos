@@ -1,4 +1,5 @@
-최신 base 확장: [Bow 5종](workbench-bows-bundle-2026-10-04.md). Workbench 46 bases; 선택된 highest-tier armour 24종과 Bow 5종을 제공한다. 개별 weapon property·implicit·source pool·6locale·기존 film을 보존하며 Support/Explorer는 Solar-only. Ring8·Amulet7·Wand/Sceptre·Belt 및 다른 equipment category는 후속 source 검증 범위다.
+최신 base 확장: [Ring 8종](workbench-rings-bundle-2026-10-04.md). Workbench 54 bases; Ring은 distinct implicit category 선택 범위이며 전체 catalog 완료가 아니다. 신규 8종의 전체 pool·Catalyst13·source Essence·6locale·기존 film을 보존하며 Support/Explorer는 Solar-only, active170/deferred50은 유지한다. Amulet7·Wand/Sceptre·Belt 및 다른 equipment category는 후속 source 검증 범위다.
+
 
 최신 base 확장: [Evasion Gloves / Helmets 6종](workbench-evasion-armour-bundle-2026-10-04.md). Workbench 28 bases, Gloves의 일반 defence archetype 6종 완료, Helmet evasion 3종 추가. 전체 eligible pool·6locale·class별 Essence·기존 film을 유지하며 Support/Explorer는 Solar-only다.
 

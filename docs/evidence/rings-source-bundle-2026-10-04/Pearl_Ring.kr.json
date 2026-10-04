@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/kr/Pearl_Ring",
+  "retrievedAt": "2026-10-04T20:54:55.989Z",
+  "sha256": "5fb87ae6bea54382041ff82cb670fe3c27a6be1a27295d751daee1277f6b158d",
+  "name": "진주 반지",
+  "card": "진주 반지\n        \n    \n    \n        \n            반지요구 사항:  레벨 32시전 속도 (7—10)% 증가\n        \n\n\n\n        \n            Pearl Ring",
+  "requirements": "요구 사항:  레벨 32",
+  "fields": {
+    "DropLevel": "32",
+    "BaseType": "진주 반지",
+    "Class": "반지",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Rings/FourRing8",
+    "Tags": "ring",
+    "Icon": "Art/2DItems/Rings/Basetypes/PearlRing",
+    "Base.base_level": "1",
+    "Base.tag": "default, ring",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Ring",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

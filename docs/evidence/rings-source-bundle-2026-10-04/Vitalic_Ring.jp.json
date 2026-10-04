@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/jp/Vitalic_Ring",
+  "retrievedAt": "2026-10-04T20:54:52.377Z",
+  "sha256": "f0a44599392b99bb2f468297eda5ec80c369bec7b5a5feaec1d0c32086d04cf8",
+  "name": "バイタリックリング",
+  "card": "バイタリックリング\n        \n    \n    \n        \n            指輪装備条件： レベル 40最大ライフが(4—6)%増加する\n        \n\n        \n        \n            肉体を育て、耐えさせよ。\n        \n\n\n        \n            Vitalic Ring",
+  "requirements": "装備条件： レベル 40",
+  "fields": {
+    "DropLevel": "40",
+    "BaseType": "バイタリックリング",
+    "Class": "指輪",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Rings/FourRingB2",
+    "Tags": "ring",
+    "Icon": "Art/2DItems/Rings/BreachlordRing_Xoph",
+    "Base.base_level": "1",
+    "Base.tag": "default, ring",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Ring",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

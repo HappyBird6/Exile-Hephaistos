@@ -39,8 +39,28 @@ describe('verified modifier display templates', () => {
           !/^(ruby|emerald|sapphire|diamond):/.test(id) &&
           !id.startsWith('time-lost-'),
       ),
-      // Preserve 1,777 historical equipment bindings and add four sourced Bow implicits.
-    ).toHaveLength(1781)
+      // Preserve all 1,781 historical equipment bindings and add the exact nine Ring bindings.
+    ).toHaveLength(1790)
+    expect(
+      ids
+        .filter(
+          (id) =>
+            /^(kinetic|vitalic|mnemonic|pearl|amethyst|prismatic|ruby-ring|two-stone-fire-cold):implicit:/.test(
+              id,
+            ) || id === 'ring:suffix:essence-hysteria-mana-regeneration',
+        )
+        .sort(),
+    ).toEqual([
+      'amethyst:implicit:chaosresistance',
+      'kinetic:implicit:physicaldamage',
+      'mnemonic:implicit:maximummanaincreasepercent',
+      'pearl:implicit:increasedcastspeed',
+      'prismatic:implicit:allresistances',
+      'ring:suffix:essence-hysteria-mana-regeneration',
+      'ruby-ring:implicit:fireresistance',
+      'two-stone-fire-cold:implicit:fireandcoldresistance',
+      'vitalic:implicit:increasedlife',
+    ])
     expect(
       ids
         .filter((id) =>

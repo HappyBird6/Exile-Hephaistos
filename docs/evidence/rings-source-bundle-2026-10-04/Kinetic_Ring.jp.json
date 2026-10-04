@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/jp/Kinetic_Ring",
+  "retrievedAt": "2026-10-04T20:54:50.446Z",
+  "sha256": "eadf2ee8c8eb46306828cd69cf920784b84f103c986e7c737f1222d41a41be13",
+  "name": "キネティックリング",
+  "card": "キネティックリング\n        \n    \n    \n        \n            指輪装備条件： レベル 40(6—9)から(11—15)の物理ダメージをアタックに追加する\n        \n\n        \n        \n            爪を研ぎ、引き裂かせよ。\n        \n\n\n        \n            Kinetic Ring",
+  "requirements": "装備条件： レベル 40",
+  "fields": {
+    "DropLevel": "40",
+    "BaseType": "キネティックリング",
+    "Class": "指輪",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Rings/FourRingB4",
+    "Tags": "ring",
+    "Icon": "Art/2DItems/Rings/BreachlordRing_UulNetol",
+    "Base.base_level": "1",
+    "Base.tag": "default, ring",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Ring",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

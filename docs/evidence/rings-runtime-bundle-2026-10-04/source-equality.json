@@ -1,0 +1,1998 @@
+{
+  "passed": true,
+  "count": 498,
+  "files": [
+    {
+      "path": "backend/src/codegen/java/com/poe2craft/codegen/GenerateJooq.java",
+      "sha256": "7b6c303a5661ae8c651865eb48cb661d34a802df5077879472783c8f19ca480e"
+    },
+    {
+      "path": "backend/src/integrationTest/java/com/poe2craft/InfrastructureIntegrationTest.java",
+      "sha256": "10ab00b9e9e2993834fb95678758f49c11314231485ac463674f26d1a18ce7d4"
+    },
+    {
+      "path": "backend/src/integrationTest/java/com/poe2craft/SyntheticProbe.java",
+      "sha256": "6d3f050eed77841df6c6fe0eae447d2ab0bcbc9c8c28bab39a7a9da29cfddcb1"
+    },
+    {
+      "path": "backend/src/integrationTest/resources/db/testmigration/V202609210002__synthetic_transaction_probe.sql",
+      "sha256": "dacbdbe038dc31390b25733292578d12909ec01e2a59ef76745b934f7a5664ea"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/bootstrap/CraftingConfiguration.java",
+      "sha256": "517b627a4c0577fc9e9061e57630271dd109224c9c0e72df9d07a3450b071790"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/bootstrap/SupportConfiguration.java",
+      "sha256": "9519c0846652b3416bc5b73b166b60e6d6382859766d51971e815134736dd21d"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/application/AdditionPoolCache.java",
+      "sha256": "2d12437f14bebae65f89f04f2e4c98859510cb1b0cd096af66c7ce650983885b"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/application/AdditionPoolStore.java",
+      "sha256": "749303cf10a851878f2861baf761f7e0dc14984a268c9044d9ac98e8aab06cf5"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/application/GraphExplorer.java",
+      "sha256": "6c4f7efbbf9ec98a6063842658b9ba9132855c2322d447a93d31d229eb017313"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/application/SupportRecommendations.java",
+      "sha256": "695f088e75506f60fc75e744618268e013c9f107ddbbb83414d56060b12059da"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/application/TransitionCache.java",
+      "sha256": "614b325fedcf748fc1fcc7d98fb20231868343d05bff2579460c0588ad693a15"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/application/WorkbenchService.java",
+      "sha256": "4e4226867bcf04e710ebf9453a674de314a36cc53c73a45d361cff560d5912ca"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/action/ExaltedAction.java",
+      "sha256": "7b53f40ba17cbcce73257d673d3e2214e7955eef626c55af4ec8d1a09e290918"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/AdditionRules.java",
+      "sha256": "fe53995d614e0bd2e0d5d7c7a5bf134e65cdcb6f4797bec0d6715ddaf78f5a9b"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/AdditionTransitions.java",
+      "sha256": "d8b05c4d55d193b63097fee59a0a0b8c31d4bb9bb639c381f3d790c9891d482c"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/AugmentSocketRules.java",
+      "sha256": "7fa1a32e6e95e0e4cbe109f6a34460c2096f26cc7c2558053da84d9184f6a0b7"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/BeltEssenceTargets.java",
+      "sha256": "88ac1bf67cfca17e19a2d6787214125f923c0477215c7a22458a3f210d1a51d0"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/BodyEssenceTargets.java",
+      "sha256": "6cf1b5e6dd53502e037816b8a35e301a112458389d98edf251d95c81a4c8c5c5"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/BowEssenceTargets.java",
+      "sha256": "d5eeab8f4db8759f7181a49cf33bd7ff0956a25fc404995e70decfa9e0b8021e"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/CoupledStatRollModel.java",
+      "sha256": "f932e3591351b1e1b6c7cd38b8d4bd9980c5ee4222274b2d309f293a9d6007f1"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/CraftingAction.java",
+      "sha256": "b739029bd984d8748f161a9948d8d9fa01cd87002096ba0b60c6c32ddc3e1daf"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/CraftingEngine.java",
+      "sha256": "a4dfeb500372f1c878753c406ff7ad7d13d9ce2ff095632b98fe05206c925094"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/HelmetEssenceTargets.java",
+      "sha256": "a61aa4c85dcc14b8390d5903a9e7b5c55b151f03ac1779ec4b79bd89d10819d4"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/ModifierPoolResolver.java",
+      "sha256": "f097e40139dcca36571048f51faafe47d8286e2aa9092be08edeb8d5f1d2e222"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/QualityCapChangePolicy.java",
+      "sha256": "e272e71f36cecd7e3f3d7bb622852b2c2ece4d8fbaf3e388e8ac3b50d8e40234"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/QualityLimitRules.java",
+      "sha256": "c1bc5c0c4b464c8d5baf3da2d11473f5b0bb7d6802cbaf04a7d7c92f462dee85"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/RingEssenceTargets.java",
+      "sha256": "aacafeebd2242658e85bfc5734557fc611427b58e3c1d88a99c263e80c204792"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/SceptreEssenceTargets.java",
+      "sha256": "ef3bdeea6c35b0575d225057ad4fc0231ff019f8caaed68645e6ec82d3f25f1e"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/StateBucket.java",
+      "sha256": "ac92f07d8d488d6bc042bebb0b8acf4c08157fed2a9ad267ab0833e87616ff22"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/StockyEssenceTargets.java",
+      "sha256": "2837691e59e817e60bca879b8b3416e7bbf97046022945f88599f26b213f3983"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/SupportGoals.java",
+      "sha256": "7f4e775862ae7f9005a05c1d217c1f25aa9f3750c10788ac0a13bb6bc77a8e49"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/WandEssenceTargets.java",
+      "sha256": "cbb547579c38f7a048c57ccc525b9a714cf0afb9053a8bcab1ec8bc1d9fcd83b"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/WorkbenchCurrency.java",
+      "sha256": "e25a9aaaa77f5c965a6080685f681ee199d31370884e285d31315ebf3951c4b4"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/WorkbenchOmen.java",
+      "sha256": "94807c457b82043c03cc645b82eff812cc34024aa7b4ddcf4de930eea6f85d55"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/WorkbenchSimulator.java",
+      "sha256": "12490665fdb5a7504b92d3332066e09c8108edcbc5affc86dbce71f13f898f89"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/infrastructure/CraftingRegistryLoader.java",
+      "sha256": "f6377876a25f2f72bc4f592cfaaa462c5e27fbb6b3490907bfa8b64df8854b1e"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/infrastructure/JdbcAdditionPoolStore.java",
+      "sha256": "4811610cd7687d63e802c10e48e2e28932dfd2b3f278f64771cb2e05a6035617"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/presentation/CraftingController.java",
+      "sha256": "7128decdd5e79651edc1ce0401d7e9623f6d7755d4628002e66f719fdb3f831a"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/presentation/CraftingErrors.java",
+      "sha256": "03350346da95e0f7815873d8b8d690f8d485c217d18b9692b1e8363f0717a46a"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/presentation/SupportController.java",
+      "sha256": "25e493adda6a36bf15fa6750170e9af98edc2ecc0a05583864706a22611ab26f"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/presentation/SupportRecommendationController.java",
+      "sha256": "1507f10ea0547cd4f531245caa42dbe1f95fbade181a8ec30079d6a83f45528c"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/presentation/WorkbenchController.java",
+      "sha256": "e917f7b42941d5d3feb9cc1b8dcdb7cdda1465dce39c2a2b61c62f074844cca1"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/currencyrule/CurrencyRuleDefinition.java",
+      "sha256": "3b3a97ae97eedec52762c7b6d66340cd0dd832ddcb15373c18856fa3024eb74b"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/BasicJewel.java",
+      "sha256": "4b9f5d21c02a4131b4bf6a4f5d034d13a601aa32cb18e9b710f4fea597040a53"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/CatalystQuality.java",
+      "sha256": "3b19245cfe1274c968a6b368778a9dec09fdc1b24db5c302e94bf8171130c9e0"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/CatalystQualityDisplay.java",
+      "sha256": "a6cfa86d9eb8c01fcadc1db17b535de0871f37c664a06f926c0fd746019b0210"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/infrastructure/ItemCatalogLoader.java",
+      "sha256": "d0c43291e1685a2ae52c203d7b8033da96135697d6ec5ac3433ba724eb3da6eb"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/ItemCatalog.java",
+      "sha256": "725f45dc176ca4a8454ee1a72186d9327b6fd57fabc1500d80f6b22780cc6101"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/ItemModels.java",
+      "sha256": "6ebdba96ae0501e63b9392f3cf6596a50056e8e477a1f65478072c0b3d96e3ac"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/ItemState.java",
+      "sha256": "b50bfe48a54d3c8bfd76cc3e3a6e519c1f1a4e98f0e094a2b05d20a021b0ab6a"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/ItemStateValidator.java",
+      "sha256": "3ff8170b6db66a1ae460644f8aa8fe271012b67b38a02ded526b1d947a323588"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/Modifier.java",
+      "sha256": "8daf94220d9a108f2aa1254f8319f76677c137dea7d852f26a4098cd4d786ede"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/ModifierDefinition.java",
+      "sha256": "5e45361bfd46882aac091597b44934afa78ff13f0df6d54d788b32d772ff470f"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/ModifierInstance.java",
+      "sha256": "6a2e52c7f8bfa1eec4212f891877f10e89f55c3a9e03b07c39fa668f50b4ed32"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/QualityRoundingPolicy.java",
+      "sha256": "5a4b2ea01e2b915e18402bd46b1d359d5d09cee578712b178f70ba6190571bb8"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/ReviewedBodies.java",
+      "sha256": "47cab0231a4b38e4142b90fff764cd5d16ecede43767e03d18e726080bb86bf3"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/ReviewedBoots.java",
+      "sha256": "12d0db7c856c1af341186344f842b4979ac17cf783f5e7caaf9d60e2cf36042b"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/ReviewedBows.java",
+      "sha256": "5c26fc29e6c23c9f884e0068ffdad71dd5a54051fe6b12bb8b461e64617a5f1a"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/ReviewedGloves.java",
+      "sha256": "152dc69e079ededafef62372e94a2285e2826ef376fea5aeecda81cf326599eb"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/ReviewedHelmets.java",
+      "sha256": "da17d9909177b652fc412ceca3f963d78721b2e6d43097b3c554d745a67d2602"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/ReviewedRings.java",
+      "sha256": "1257b4c64614a6bb30f358c567f0c0a63d80584895ccd32401a90448f5002223"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/SapphireJewel.java",
+      "sha256": "f1555e69341f062eef4ad37adf1efae863dfe66e6190953a49e03864a870c90a"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/SolarAmulet.java",
+      "sha256": "9e0e2a972928ce40314018668cef441f56823bc11c539dcc9a308cdfb7bb96e7"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/SolarTextMapper.java",
+      "sha256": "9a6ae6932a4b3b325a7a26d83511a23ee46739c61f297cfa013cb0ea59662e71"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/testparser/ItemTextController.java",
+      "sha256": "180aa007731f958a996f027d46562e9b04f82c1fc31ca1d1319053b0b0bdca6a"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/testparser/ItemTextErrors.java",
+      "sha256": "037e79add412c8cea30736a8f1f6ca283ed288fe1d349e9b71682ca34683b67d"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/testparser/ItemTextService.java",
+      "sha256": "9ce65df18958eed88b6c39953c86f9052db948f29f617a71256b88392fa4ff85"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/Poe2CraftApplication.java",
+      "sha256": "cebbd5a9382e34b6643c214e701d93c02f2369850749f6ab5b98be9971cd70ea"
+    },
+    {
+      "path": "backend/src/main/resources/application.yaml",
+      "sha256": "82e513bfda56bce8eac7f92fe634f0376661b8c4e18a99d70a19cc85e246808b"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/adherent-cuffs/base.raw.json",
+      "sha256": "adcffc62663165d5d9b6a3fd17235d6452c8b11160ac3a5095201d68835979e2"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/adherent-cuffs/catalog.json",
+      "sha256": "34aea0e8c097e1d2acd2f68131478249fe66364c45f9884059ebf7f32c036168"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/adherent-cuffs/details.raw.json",
+      "sha256": "e110bf2602b83c23d5e298f9e9668aedb8cdcf1bbf40d05f414443789826c9bc"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/amethyst-ring/base.raw.json",
+      "sha256": "504b72aa3d45ba8bc8793c17b1c4059a215a9ea50e63fdc5b1ffee08e65079f0"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/amethyst-ring/catalog.json",
+      "sha256": "85875e75c6906dcd781f8340e3b8764e7667ddbe95ead9370bff91d12430382f"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/amethyst-ring/details.raw.json",
+      "sha256": "1b6185b7cfcf6b093e2ae47d569c6021fc4a57d36433fbca526ee354e2d6687f"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/ancestral-tiara/base.raw.json",
+      "sha256": "e1beac91a0488e4ed5bab31a38775dd15983e07142951031c4536385d55a8405"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/ancestral-tiara/catalog.json",
+      "sha256": "7290b06c968144e3ecf311ae26d8f35c520f943ee26696f114f3520619d4b674"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/ancestral-tiara/details.raw.json",
+      "sha256": "8d79533c7da89993541c367fc0d0cd295c633dccae63baf528d648c80b1c58b3"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/attuned-wand/base-proof.json",
+      "sha256": "e050b16b6a700981000ac787ed7a30518fa0635bc401fefbb7bac43459736020"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/attuned-wand/base.raw.json",
+      "sha256": "c0db9e3bcda5c22ceb37bc21397a96a969dbe8f3a9e0cc4fd5bcbca8aa19d806"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/attuned-wand/catalog.json",
+      "sha256": "7a567718904e40a201fd4923c24a3439300f5eefe15db0b6dd39aa226ba51c27"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/attuned-wand/details.raw.json",
+      "sha256": "31b99d8eea5b8f652bb93f8fd18442b30492d87032905482a003ba04837a55d8"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/attuned-wand/essence-proof.json",
+      "sha256": "b268ae3f49d4213d8251ef4d5a5915a9075a6fe920a1faa8116d5fc2e63423b5"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/attuned-wand/perfect-essences.catalog.json",
+      "sha256": "f9fffab0a509e6b34dd6a1f825ac73dca9dae017fc010282c69c8d4c18837a8f"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/attuned-wand/perfect-essences.raw.json",
+      "sha256": "662df7573407ee448428d062a800bc641a23850262517f93c82fdb1e92b44bd7"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/blacksteel-gauntlets/base.raw.json",
+      "sha256": "8891cd065ebaac8d004e957f3ebf5b864734f9ff82f84a4e4d439ae5f5730e6f"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/blacksteel-gauntlets/catalog.json",
+      "sha256": "061b3eb71566ceb6d7204aebd91d7c8c4b8d128957270a9207e8845a352bf43e"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/blacksteel-gauntlets/details.raw.json",
+      "sha256": "3e59ea9f2b5123557920844ce1ce4c17072819459f9f9c575982e1dd3bf996c8"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/blacksteel-sabatons/base.raw.json",
+      "sha256": "2eab074ce4a2bd46e8f72843ec39da596f12ea1f4d190cacc7289326b5e11c6a"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/blacksteel-sabatons/catalog.json",
+      "sha256": "960758538ccaa0280470e1eb88558161f7c4af228f73832a0bc3e09b28294cf3"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/blacksteel-sabatons/details.raw.json",
+      "sha256": "31fcd3e59846ed45a93910401c65970cfc4cf3374808cdd849d0a44a5fe038d2"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/crude-bow/base.raw.json",
+      "sha256": "417390c5ebe40011abfefa66869c68d15b0d1f1564d811d2ad55fb9d2430800f"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/crude-bow/basic-essence-proof.json",
+      "sha256": "e4d9db0cb49b1a3a77878c151569053a79f4a89f048caf9e22a1297fed2c6a1e"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/crude-bow/catalog.json",
+      "sha256": "363935e4fd934b907138e46dc24002e5b3b2bda290ef9f21ae59fcce1a2e8198"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/crude-bow/details.raw.json",
+      "sha256": "504f7b2fe11c97a62935505921a0d4cdc2b26b232d14c1797dfddd29b07d4b93"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/crude-bow/perfect-essences.catalog.json",
+      "sha256": "5a3de785d8411feef2a0dcf396ca014ea7b7f5714b18534bad596c4c773e811f"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/crude-bow/perfect-essences.raw.json",
+      "sha256": "dd984fc65df04439eccc7eebd00df46ee31d36cdacb047d5c32b8aaa58505c25"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/crude-bow/roll-model-review.json",
+      "sha256": "a1c38d7379503b286100958fd70d980fd05ef7deb371a5a61abad9e55c906c3a"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/cryptic-crown/base.raw.json",
+      "sha256": "76ffb9c9db529faff5bdcc415f2958d5480239daca1d726944da04ea00eb2127"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/cryptic-crown/catalog.json",
+      "sha256": "1eb27a8f44720a0a1b75cbcf50213d0dd215115a4d0885459a7958c399c2d1d1"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/cryptic-crown/details.raw.json",
+      "sha256": "46a342f265fc10ad8a8fb2f41d087a76fb0b439a119f7498dee731b7204e460e"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/daggerfoot-shoes/base.raw.json",
+      "sha256": "0328739702830492e2e2ccb60eabbd7e45148f6fd89a51a7a258720b1e50def7"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/daggerfoot-shoes/catalog.json",
+      "sha256": "1eec6ad20a33bb53ec1a63462cf92cbd37f2e30e260fd940df58f238ce9e198f"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/daggerfoot-shoes/details.raw.json",
+      "sha256": "5417848699bc6c1c95f81be66463008c27ce58ec5c9a1f0c9933c07102e6399b"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/death-mail/base.raw.json",
+      "sha256": "49722459c2dc49daab2a5627c3d7d7dd594a18355d65f86e69f10e6124fdcc21"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/death-mail/catalog.json",
+      "sha256": "8a44ee4ac5b61924874f3b65fd56f2d3720491d40d899451474d665c9916994a"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/death-mail/details.raw.json",
+      "sha256": "c5d072f169682a74b66e4b04c1bd58e6059ef9652dd8964f022f540114a2c2b6"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/diamond/base.raw.json",
+      "sha256": "ede747edd595fe7af3263b4d2b7079c112d3acc3d746946b1e2fae1d464a44bb"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/diamond/catalog.json",
+      "sha256": "81105f090d2d9423696191bcfbb5749e35ad03fe945b1e8d6a20528634e3c121"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/diamond/details.raw.json",
+      "sha256": "85189426d7cdd761d89cfcd10b120ad15209baaf9fd3273b71adfe04903173ab"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/drakeskin-boots/base.raw.json",
+      "sha256": "088ad193d6ff5b181c3c6dad2f2b73bb3ccc582c5cbadd5382d73e936f90d569"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/drakeskin-boots/catalog.json",
+      "sha256": "46eda6c87b9b40d6b37ddbcb7111563c88ea9ae906d9500b314b0c3292675f89"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/drakeskin-boots/details.raw.json",
+      "sha256": "3ff21d557f0daaeba3f0196595930a528c32e7834446e32ea471c53abbde7f65"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/emerald/base.raw.json",
+      "sha256": "77cd7d0cb0b206affb3852e137dcc78942c5796a687505eec3cc8b323868a672"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/emerald/catalog.json",
+      "sha256": "0588611fbd1ab5cd1c2b36755a9242d3b42bc3d95521a9b09c5b633c20421b71"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/emerald/details.raw.json",
+      "sha256": "e8f1ea2addc16b2e3e93295a6080f9046207ee06b46bc972dd5af4d415b9b95f"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/faithful-leggings/base.raw.json",
+      "sha256": "7d50e96456cb66b92d8475f8ef2fef6f6d239392fb18537aa75a110b6d41088d"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/faithful-leggings/catalog.json",
+      "sha256": "46cc27ed7d473d7dd5e825ab1841aa016a390e4cdd61fe8b5aada4e1bc2df509"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/faithful-leggings/details.raw.json",
+      "sha256": "b27067a47a84428f3705b85fe430747a447bf04e1f283a713c969674be93adb2"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/fanatic-bow/base.raw.json",
+      "sha256": "417390c5ebe40011abfefa66869c68d15b0d1f1564d811d2ad55fb9d2430800f"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/fanatic-bow/catalog.json",
+      "sha256": "8532b097c52c979272fed6702147e5f20c7c76267e7e89fc1c76afe146b3603e"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/fanatic-bow/details.raw.json",
+      "sha256": "cec6aee0b6549b14fec31a2bc7534206c7df1ea1f1abf6471e7618da24f0f71e"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/freebooter-cap/base.raw.json",
+      "sha256": "b81312355e789330879421caf66abc20f5b07570f3e19dbd8a0415672e27c3e1"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/freebooter-cap/catalog.json",
+      "sha256": "61b55da3b614e53ca4e2345dae80df4ab4597c5f4a5910be892b17c2d1914991"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/freebooter-cap/details.raw.json",
+      "sha256": "bb949e6fbef77ed4246cea1812777fc0bc24f9e7fd8b78f5ca4840292d9351d7"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/gemini-bow/base.raw.json",
+      "sha256": "417390c5ebe40011abfefa66869c68d15b0d1f1564d811d2ad55fb9d2430800f"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/gemini-bow/catalog.json",
+      "sha256": "3a59174e4eb500acc5c6d002241f808bf4f3caccb8a64a33d95593ad431b80dc"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/gemini-bow/details.raw.json",
+      "sha256": "ad35c04fbfad0e79ecb863fcdc4972853c59fac9a24908258c5bc08bdf5134c3"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/gladiatorial-helm/base.raw.json",
+      "sha256": "6b42770f209e118a40d6f7fc416876183007b181bcfe304f6bf8bb6ba8a5db2d"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/gladiatorial-helm/catalog.json",
+      "sha256": "21c263a30fb040d46e7047b155dbb2ae23c82d87a7f94b7e5d8fdc6368dce994"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/gladiatorial-helm/details.raw.json",
+      "sha256": "dc327f70470403d76315c0a7dc864dbabe101ca89499098d1e3e60fddfa811a6"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/grinning-mask/base.raw.json",
+      "sha256": "5e8832637f48586ab2f4d29c08e3d2fb20e2527d47dd90bddabaa1c0201b23af"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/grinning-mask/catalog.json",
+      "sha256": "4f37f9a33ff534e5b3981c0f6d39eadb2696b8c965e4e2ba134c2df045c8c9e3"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/grinning-mask/details.raw.json",
+      "sha256": "3a16ef7f3b0bab1b93c85b1ac223a8b118e8561c999c0467d2050af4b0720a08"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/guardian-bow/base.raw.json",
+      "sha256": "417390c5ebe40011abfefa66869c68d15b0d1f1564d811d2ad55fb9d2430800f"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/guardian-bow/catalog.json",
+      "sha256": "64c8840bedb0f8015828462fd91ae4c7ea04a1493c17c278884a5451e7283797"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/guardian-bow/details.raw.json",
+      "sha256": "4e378f5f4a7b210d998c932ba342078d5f36c97a6d12564e203783c0aa8bc554"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/iron-ring/base-proof.json",
+      "sha256": "7f307ba0f496a831c6e9d7da92fe2e3294ddabc27927b23c006ffec201e74211"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/iron-ring/base.raw.json",
+      "sha256": "504b72aa3d45ba8bc8793c17b1c4059a215a9ea50e63fdc5b1ffee08e65079f0"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/iron-ring/catalog.json",
+      "sha256": "3dd61a6952abe0283249bd2deb44e33d27e93ee71f90c7dcfc5b89ac7503bd8b"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/iron-ring/details.raw.json",
+      "sha256": "1b0e93d484051879913e78e0aa4a572e086ccf986084790e4bb8126505e2847a"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/iron-ring/essence-proof.json",
+      "sha256": "f7ae1ed8c21ad12a5da60d2c466f84bd025bd77027619c5ccbe6cb25e73ae9e8"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/iron-ring/perfect-essences.catalog.json",
+      "sha256": "d2ad89a18e1a1977f5744e444785bf3dc3f3d6ef8601a774545d882679488b56"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/iron-ring/perfect-essences.raw.json",
+      "sha256": "f7ae1ed8c21ad12a5da60d2c466f84bd025bd77027619c5ccbe6cb25e73ae9e8"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/kinetic-ring/base.raw.json",
+      "sha256": "504b72aa3d45ba8bc8793c17b1c4059a215a9ea50e63fdc5b1ffee08e65079f0"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/kinetic-ring/catalog.json",
+      "sha256": "0433b387c28253aff47278bd0ecd5675cf08c5cf6b9cbe8a06ed46cdfc7bc483"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/kinetic-ring/details.raw.json",
+      "sha256": "496b4079ebbb1d8265c7ba0b8faa56ccbec66577f422d931fc1b82e7cd1ed1c4"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/massive-mitts/base.raw.json",
+      "sha256": "19efde46860a31f344f55758c8484c6a2a3c188de36393423e8d011d406ba7d3"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/massive-mitts/catalog.json",
+      "sha256": "de86e378c86f8f87377dc724efe7e716877a698de5d156cb4e36fc6bf93fee9c"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/massive-mitts/details.raw.json",
+      "sha256": "30d517d58b038aafb4dcf1df9210832b406788f5b47c34562ed3f91cf2a7cc58"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/mnemonic-ring/base.raw.json",
+      "sha256": "504b72aa3d45ba8bc8793c17b1c4059a215a9ea50e63fdc5b1ffee08e65079f0"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/mnemonic-ring/catalog.json",
+      "sha256": "d8bd19e359c77bcd6110f431c8179eb0366a5817f7a7db48811b27b8c47725d7"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/mnemonic-ring/details.raw.json",
+      "sha256": "25fed335b16f84102310c03a2eb4f2dca94f1da1fb495b0d2c29515c57902149"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/obliterator-bow/base.raw.json",
+      "sha256": "417390c5ebe40011abfefa66869c68d15b0d1f1564d811d2ad55fb9d2430800f"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/obliterator-bow/catalog.json",
+      "sha256": "706143262240099824d6c6827bd8941f00a74a25b858802e6643c51e5a3d147e"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/obliterator-bow/details.raw.json",
+      "sha256": "5fee0fdbb1c8a35490eec9159024baa4c70538d344d76c51fb6f9d9da342af8b"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/pearl-ring/base.raw.json",
+      "sha256": "504b72aa3d45ba8bc8793c17b1c4059a215a9ea50e63fdc5b1ffee08e65079f0"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/pearl-ring/catalog.json",
+      "sha256": "ae41710637b6e50b0e2e0e7ac5c520768b9fa0cc4eeef53a3cbe8250271c5913"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/pearl-ring/details.raw.json",
+      "sha256": "b6919f5f30f06dda18df86e599a12d81cde25fbb0dfda142dde2491ec213012d"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/polished-bracers/base.raw.json",
+      "sha256": "5d0d65ffffe4b503bedea6837da9fcd7d5e288ca0dcfd5dd9358c4e874f34dba"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/polished-bracers/catalog.json",
+      "sha256": "081a58fa81fb3be53ff66205990e6e7b9a1734f778d9713bccc24494a8391aef"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/polished-bracers/details.raw.json",
+      "sha256": "e59e634258870f572f2eee6fb2d87d04b14251d00deca3b4ae1b30ddec29e4af"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/prismatic-ring/base.raw.json",
+      "sha256": "504b72aa3d45ba8bc8793c17b1c4059a215a9ea50e63fdc5b1ffee08e65079f0"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/prismatic-ring/catalog.json",
+      "sha256": "253c0e42d1fd8f0d06d8398b46dfed4a47adff02f03c9ffbd1d1eb4096179acb"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/prismatic-ring/details.raw.json",
+      "sha256": "19b0b68cd351663db366eb83a91d278ccab8054a6c5d222cc49bade325eb2579"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rattling-sceptre/base-proof.json",
+      "sha256": "dd56ae3a2f7899c9577ce45bed192f9720f1af047b20694145714ac7a0e021b0"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rattling-sceptre/base.raw.json",
+      "sha256": "8042c018040e987be4046c5ce49fa3690b2e3ad6718f63013f2669f80f0f92f5"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rattling-sceptre/catalog.json",
+      "sha256": "7749d44a8c83951bd07955a35fe8a26500333227caa3069a6833e95e35b14c71"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rattling-sceptre/details.raw.json",
+      "sha256": "7b75a79dcc1fea291595fe4555be7768019e904219ffe9b15638c7ee1f790e6a"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rattling-sceptre/essence-proof.json",
+      "sha256": "e3ffb64aa084e014403103417aa289d6f955df81173af6eb4910c19aedd3ff91"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rattling-sceptre/perfect-essences.catalog.json",
+      "sha256": "1c9f49f13fd0b437385eb0a55a8a0538d6aafcdf1b881bf11760b426a3fe4217"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rattling-sceptre/perfect-essences.raw.json",
+      "sha256": "4647324722e0681e1bf41eabc300e69d959621b95ad5c750fd7cf73c2a381be2"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rawhide-belt/base-proof.json",
+      "sha256": "a7a18b1d7b570bbffc9506ceb0bc4470a7eb2e6b1a1f56ae031b4641c7a69146"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rawhide-belt/base.raw.json",
+      "sha256": "2ee4229e650b26a3bf08c3c22ba33a847a5359b647c24c6694bf25679fa4f990"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rawhide-belt/catalog.json",
+      "sha256": "6f3888ca9f8110ab1894ebdba4f0bf764c9372155922124567b44f606d2e81f5"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rawhide-belt/details.raw.json",
+      "sha256": "f122833551ab451f269d991f6f9a0ea470da0813b25603afb930feff21f7d226"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rawhide-belt/essence-proof.json",
+      "sha256": "46792dfd05dcb1e6fd8b4fd9be9af5258345a5aac9bfe1cc6b2ff5878c851358"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rawhide-belt/perfect-essences.catalog.json",
+      "sha256": "103360c3613dfece140b7d868b9af79200afba8a4a083eeedc7d7c8c456eedd3"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rawhide-belt/perfect-essences.raw.json",
+      "sha256": "46792dfd05dcb1e6fd8b4fd9be9af5258345a5aac9bfe1cc6b2ff5878c851358"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/ruby/base.raw.json",
+      "sha256": "c6eff1a9f30a4e44f39daa731a9d53a30e87b55c778f3ea28f1a1f587c600b7e"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/ruby/catalog.json",
+      "sha256": "1aa9b9e64a13e93f4c7340c6812f6fa11bf6541eb0037a5917c66b94e314a21a"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/ruby/details.raw.json",
+      "sha256": "3d2ba8ca8ee2e676ea8f7c4c7e29171cd8fdbe2ee41a1e76b28329be8dc7c2ee"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/ruby-ring-ring/base.raw.json",
+      "sha256": "504b72aa3d45ba8bc8793c17b1c4059a215a9ea50e63fdc5b1ffee08e65079f0"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/ruby-ring-ring/catalog.json",
+      "sha256": "3698b2b0fd5c825742d55b55f7d00e6c1e744faa42ee528dcb7af3d919e22c7a"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/ruby-ring-ring/details.raw.json",
+      "sha256": "9013be9ea6e6335a822ea7faf4bac172d69f5dd44dd0e69cf986755a58b5739e"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rusted-cuirass/base-proof.json",
+      "sha256": "854d5822b24748f46c1d7e33a2129d33d93355b098edf12ff12e717a217c56a1"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rusted-cuirass/base.raw.json",
+      "sha256": "d7167bf9f969bc893dea6b3c439d30ea6bf60a44eeb9ac146da67148e596a43d"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rusted-cuirass/catalog.json",
+      "sha256": "bec6a9f8352c6130cc211db8da510699334da0fe59f81db8f6954859b0f2b668"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rusted-cuirass/details.raw.json",
+      "sha256": "53e93866ed46009e84750e4c8e79ea200667e55749993668ecede92308cde466"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rusted-cuirass/essence-proof.json",
+      "sha256": "7291b4e1d1cddbc3f1561b4f34cf8afadca02eb7331d74a3734770ed0cf4a1ba"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rusted-cuirass/perfect-essences.catalog.json",
+      "sha256": "79406af66081ae97df17a91975a82b47bb1389b52f6928d832f04c96203d4274"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rusted-cuirass/perfect-essences.raw.json",
+      "sha256": "7291b4e1d1cddbc3f1561b4f34cf8afadca02eb7331d74a3734770ed0cf4a1ba"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rusted-greathelm/base-proof.json",
+      "sha256": "b51d42fd02b21cf669e519743833b6bc3623c3fc937b92b220c76a998e7980f3"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rusted-greathelm/base.raw.json",
+      "sha256": "b0d1721814d5d6e474e38c22589d832e0c6982c6cccdbd61270fb4c8dde8f7cc"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rusted-greathelm/catalog.json",
+      "sha256": "0076e08775e59566ec4374ac7808ab55f62de34502c61c270358e09ec98482d5"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rusted-greathelm/details.raw.json",
+      "sha256": "9b659cdd16035ba4a96323426c606244529b22307abb0f41068d91d61eb5768e"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rusted-greathelm/essence-proof.json",
+      "sha256": "19cace75f41855b78d2dad52ddd637e64837263cddf8c100b7543a9878f9b943"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rusted-greathelm/perfect-essences.catalog.json",
+      "sha256": "01fcc92e5fb6176b9bf7f0abd7869be7168fb40edb32cc5f97d4805dc7bcf869"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/rusted-greathelm/perfect-essences.raw.json",
+      "sha256": "19cace75f41855b78d2dad52ddd637e64837263cddf8c100b7543a9878f9b943"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/sapphire/base.raw.json",
+      "sha256": "6df2eea3976b76695af45c9b010df76ea447972bc50e4e671029bf6f905ea454"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/sapphire/catalog.json",
+      "sha256": "dafe95e7d1dd5dc22e5f61fe1d75967c6a6d2f0932d2755fc950dc1855f5d80f"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/sapphire/details.raw.json",
+      "sha256": "409590a1d44d9382b7b45e4461ca7c8750f4e7caf34e0299c3bc2d6ecb00e26c"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/sekhema-sandals/base.raw.json",
+      "sha256": "87f74c49f8bc55745f56f48f06a966e6ed3f03014318c1df8108816adc6c1271"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/sekhema-sandals/catalog.json",
+      "sha256": "155c4f8b89160105e98b0c075aeec9eeb8fd5d16d17da3ad174ae216349b3931"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/sekhema-sandals/details.raw.json",
+      "sha256": "07e07f6e5783cc4ddca0ef5b6a1def6c5b5b815ec1e0055a033d4feef09de767"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/sirenscale-gloves/base.raw.json",
+      "sha256": "e3c28c5201c69d56002e8246e1cbf77ec269d3949e07f54ecc22f737f6bda222"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/sirenscale-gloves/catalog.json",
+      "sha256": "e17f80c6a8c7cc1860dc73ddda56fe6a2f7b2c589c245a71be0591df6eed564d"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/sirenscale-gloves/details.raw.json",
+      "sha256": "81b8b4057124fbe1ef25316d53471be19edb092801045d7aefef2910706b230a"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/sleek-jacket/base.raw.json",
+      "sha256": "93570d397a4175eb09ec53497294bad4ff25bbf38238de09e4b8d766e153b4b9"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/sleek-jacket/catalog.json",
+      "sha256": "dfa87b84546dc3956b3fecbd2ca94d396e7d111b00c51ee81e8619e83c7a0207"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/sleek-jacket/details.raw.json",
+      "sha256": "b4121b81c69926d4ec2cd67a6b6ee0e6cb5d96df708ff677e2cd9ad20c1d3a22"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/slipstrike-vest/base.raw.json",
+      "sha256": "fea5190019bafe3eb5f37775c382104a9d44196263ce31aad9c9042e348ead35"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/slipstrike-vest/catalog.json",
+      "sha256": "51b57039782d4c994aef9309904aabe7c70197d84354f8492bcff1b4b7266a2e"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/slipstrike-vest/details.raw.json",
+      "sha256": "829d0fba4b648fc08a1855a7d8296131572aa5ef25418c9843505769c7a95c65"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/solar-amulet/abyss-essence.catalog.json",
+      "sha256": "a0e2964aa014caf91413c024a1f363f0dbac9d9a7627cce2b6d2bfda724a45de"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/solar-amulet/abyss-essence.raw.json",
+      "sha256": "f71969ce6f113361edf0f5a14e1b92d80e552c8f433e21485d1a35a2372eb548"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/solar-amulet/base.raw.json",
+      "sha256": "945483629d385e81018be9d807b5262da8ac180b4d8d02db2e44a1bbc6133816"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/solar-amulet/breach-essence.catalog.json",
+      "sha256": "49d34ad6c52a97930ce0a922d665363648e5bc892b3afb37261f9c5ee7d4f558"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/solar-amulet/breach-essence.raw.json",
+      "sha256": "9ef56d4a7169cd71ca4b20527fa8447a4666e890ce3776eefdc792d7b54d8778"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/solar-amulet/catalog.json",
+      "sha256": "5562c61495b012e67566417aaa60e0e2cb569ca28515a74e970ca0fd9a16dfe8"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/solar-amulet/details.raw.json",
+      "sha256": "7dbc4c5ff9a687b7e6c66318260e937b958354c6575fa6e43b689deae5191598"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/solar-amulet/perfect-enhancement.catalog.json",
+      "sha256": "47890f7d08a32e422eea5be32ae95b9ffd6f5a54172402646a1e85883a685e1c"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/solar-amulet/perfect-enhancement.raw.json",
+      "sha256": "187593819b25cec41f7f782920e4685bbdbbbda4ed896765244d5212bc6c8fa5"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/solar-amulet/perfect-infinite.catalog.json",
+      "sha256": "f49d929b5a49fcc4532df07fcadc43352c72e734f66ea3a6792276e15176e7fa"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/solar-amulet/perfect-infinite.raw.json",
+      "sha256": "18dd1e515063bbcbb0cffa72bc09ddaa1d721d1cc0c50ba5bf9e96c109e08362"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/solar-amulet/runic-alloy.catalog.json",
+      "sha256": "374bfc7c87d9e3c861e4d97e5892546acfaacf35ed63a390088f7dc9c1d7557f"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/solar-amulet/runic-alloy.raw.json",
+      "sha256": "93e01255ebc42a26a9bf9ed9f4e17c3f825b0573b8727b9b7c2f168e30ece19f"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/stocky-mitts/abyss-essence.catalog.json",
+      "sha256": "252fe88da0b341e2e0a4b9914241565555928c8dd359f051245922c3527e5286"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/stocky-mitts/abyss-essence.raw.json",
+      "sha256": "f3732daca675ba114fc702276c0ad4730a1401e662d39f3808740a814841ccd4"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/stocky-mitts/base.raw.json",
+      "sha256": "19efde46860a31f344f55758c8484c6a2a3c188de36393423e8d011d406ba7d3"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/stocky-mitts/basic-essence-proof.json",
+      "sha256": "763b30940b76cdcbe4938c1ef2f980821fd90452676bbf91961f5b43e8f19329"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/stocky-mitts/catalog.json",
+      "sha256": "476ec574457de8d2019c89e16d257198962d4c2ee56499de4ad329ad5e5faeb9"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/stocky-mitts/details.raw.json",
+      "sha256": "10c2aafe1b5fcc22cf92ddab47f146b419c6fb6b6bc77da1b7f50822571b96cf"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/stocky-mitts/horror-essence.catalog.json",
+      "sha256": "86b8910a3094e6f23a53ef29dba366d9bf3da3b1db75b9860941682bed15f49d"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/stocky-mitts/horror-essence.raw.json",
+      "sha256": "871c235ca9af82a1b4caccdfdcfe27ad28ba57c2946f35417dc270eb68e1d50f"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/stocky-mitts/horror-material-proof.json",
+      "sha256": "fea6bc0eca719b11ec66189005ba7e030e0cc2975af73abb90f4dc30e90c24a7"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/stocky-mitts/hysteria-proof.json",
+      "sha256": "d018854f542176c4b0d1e72bde982fe48f3049637c8c2a2dfbcba57e6acf18ea"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/stocky-mitts/perfect-grounding-opulence-material-proof.json",
+      "sha256": "ec261db0b311d605d86c6c49c4e89079382e5ea09eb0004bc1aea83305a2658e"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/stocky-mitts/perfect-grounding-opulence.catalog.json",
+      "sha256": "be9d028782ef122a3b3099ce71ff2e1670813fcfe788dd1b0167c7ea8c259827"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/stocky-mitts/perfect-grounding-opulence.raw.json",
+      "sha256": "27d72d44f22ce03d63626b3a93d49d1430fdd833a2dae5fc4c9760962a688d30"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/stocky-mitts/prismatic-alloy-material-proof.json",
+      "sha256": "723c6803b2be4752c52e2f4dcb055e9e3bb2e5d9956e8105618f2039c095001f"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/stocky-mitts/prismatic-alloy.catalog.json",
+      "sha256": "ba8800d55082df22d7c83cb2feca1f3c4d0ab0b8dd14dab6d441d2b82510a073"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/stocky-mitts/prismatic-alloy.raw.json",
+      "sha256": "38425decc7fc27e25aba0ff15d06b640f628387b32b61c9cee90b7b673d2a873"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/stocky-mitts/reviewed-alloys-material-proof.json",
+      "sha256": "56dc6650b59d05705b22ece3d16d2ee9899ca576bae78f230e682eb1337ee3f2"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/stocky-mitts/reviewed-alloys.catalog.json",
+      "sha256": "b9a492a730ba99b1b9badf50c22195f798e8a045f0820854683d275b5c1d7a1d"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/stocky-mitts/reviewed-alloys.raw.json",
+      "sha256": "9d12e4a4beed7235a43dc682bca8d3b38761bcb5d7fbb83df029be51f591df4d"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/stocky-mitts/roll-model-review.json",
+      "sha256": "85094830fa50f1ac5ecd376500e419675ec16c63ccf710b26daf78ae4f12f954"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/stocky-mitts/scalar-alloys-material-proof.json",
+      "sha256": "5a2a052f4041ec2fec7fa42289d0bf52a7913cb7e1820f4620365f79b15e52c2"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/stocky-mitts/scalar-alloys.catalog.json",
+      "sha256": "9d9743c7412e3d3f5eebedd777254a2a4ea0081dbef241017be4bee44a93e20e"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/stocky-mitts/scalar-alloys.raw.json",
+      "sha256": "1d0316cd396eee84f10d662c3b7ea220fbd93b56b66adbf332fd6a81a46d436b"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/tasalian-greaves/base.raw.json",
+      "sha256": "a0902c002a1d0d81e46e0c0f0312dd7ce225c0143c0e19354990a95291fa1327"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/tasalian-greaves/catalog.json",
+      "sha256": "9e0432992ea14a64c5bd6ee2cd245a09ff137108194ce4a537052b741ab231c9"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/tasalian-greaves/details.raw.json",
+      "sha256": "4134882173311e2cd7f9e74a011fdd18a96f100654474cb27bdb5bfaac94d8a7"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/time-lost-diamond/base.raw.json",
+      "sha256": "133c4300ca8a304646452d8c8a4e8e43c74c5196675c37a06902f1bcdd3e0a2d"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/time-lost-diamond/catalog.json",
+      "sha256": "66bfc9d596c5f96a7e0692849524f18bfe44b9e443b7d944ae617eb542d03a79"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/time-lost-diamond/details.raw.json",
+      "sha256": "40a4278bbd80bdce0504126203b21acd3fb59741c616f87f55984c76285f61b0"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/time-lost-emerald/base.raw.json",
+      "sha256": "dcaf5e8e98cddd6ea66a9c55dac8b5c2e8ebab7e15a1a262f67d67e0e0df935d"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/time-lost-emerald/catalog.json",
+      "sha256": "42495c331e1922dbb730323ce8c4f7a94d05c20165cc02221dbbe4b6581a476b"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/time-lost-emerald/details.raw.json",
+      "sha256": "ba8472d52a4903e948677b9cf183e1805ef587b2a1bcffe26846f7fb04e16dec"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/time-lost-ruby/base.raw.json",
+      "sha256": "7cadbd1d219a19a5e7c911d0872003ada91838c988156a99326fd9d1883d3737"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/time-lost-ruby/catalog.json",
+      "sha256": "1e7b2d88f0f7837248fd7ddd61016f597e90cdc60cb985d157d9852ec1fa403d"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/time-lost-ruby/details.raw.json",
+      "sha256": "cea0e3bca3ac5f8fea38a8067ec20680e75f7dd35049c92e177a2a99bec9d646"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/time-lost-sapphire/base.raw.json",
+      "sha256": "87dc443c5fcf3135168ee60f38974140481991547edd998c76cc15d7b2b29cfb"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/time-lost-sapphire/catalog.json",
+      "sha256": "3bb1b66a7b5f5dad8292c95bd30b01ceae473a416502637f36cf2a09547790f3"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/time-lost-sapphire/details.raw.json",
+      "sha256": "89bd0545e77c749b7c4168b23bbcebd879d34593b035b7d32a2b721ef316c479"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/top-base-essences.json",
+      "sha256": "d9f562bab8d59179f130062916e978cb66482131203f2a4ad31baa401186f4fa"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/top-bases.json",
+      "sha256": "f7b1a9054c76fc341e00a48e31e4fc3403f5b530b506483615aa936d7e339eac"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/two-stone-fire-cold-ring/base.raw.json",
+      "sha256": "504b72aa3d45ba8bc8793c17b1c4059a215a9ea50e63fdc5b1ffee08e65079f0"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/two-stone-fire-cold-ring/catalog.json",
+      "sha256": "75af576704d4a4b3ce530c7214a6eff27396205bf3b159297e599a5cbd4dfdc5"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/two-stone-fire-cold-ring/details.raw.json",
+      "sha256": "b917496245bdd225ee3c7f33450b9c15ea02f6c062785881b866c2230adb8b2b"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/vile-robe/base.raw.json",
+      "sha256": "5205a7532a37ff1276f5555961aaca129d7739cd8923388632d2205bec37f8da"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/vile-robe/catalog.json",
+      "sha256": "8e5a18b82335077a3929b705bf554c58ca220fd544f8ddac5f03aa11fc2e22ce"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/vile-robe/details.raw.json",
+      "sha256": "107b5fd987dec2a9dcd42bb7ed1d2d1ac7c5b0e226a32aede4f0a98e3ee98769"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/vitalic-ring/base.raw.json",
+      "sha256": "504b72aa3d45ba8bc8793c17b1c4059a215a9ea50e63fdc5b1ffee08e65079f0"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/vitalic-ring/catalog.json",
+      "sha256": "c107e7af88e060df1c4c3642a819d56c18286cab3d988751b6cfb0af957dbe09"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/vitalic-ring/details.raw.json",
+      "sha256": "2e975578f8f195c17e6efe328b1c8c02344ef73cd597c40161a9d2a539ce04a9"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/war-wraps/base.raw.json",
+      "sha256": "1c11531498f4aa683b79b8c44b2e560e25ea69f4ae978c0db89e4278f39719ff"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/war-wraps/catalog.json",
+      "sha256": "ad26454ab1cd11c4ed1cfc9e85951df8f87f7448169fe63f527cb36209dd1fc6"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/war-wraps/details.raw.json",
+      "sha256": "acac37bfaeeb182634f8888f15c9bd6626fc20d7b8e84b0439ed8958d6428144"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/warmonger-bow/base.raw.json",
+      "sha256": "417390c5ebe40011abfefa66869c68d15b0d1f1564d811d2ad55fb9d2430800f"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/warmonger-bow/catalog.json",
+      "sha256": "d3858e29194b2941fe981f4d6cf2476de405bc99345364687c01390fcdf6196f"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/warmonger-bow/details.raw.json",
+      "sha256": "e6b8c0c5b8c01310769acdee313210b66d59c7d49a68dc9ffa0937ed5411a522"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/wolfskin-mantle/base.raw.json",
+      "sha256": "66b5fb02e6e03881a91fde56e596e0d81d39267825cb486c3a8f1e9a96b6a7c1"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/wolfskin-mantle/catalog.json",
+      "sha256": "cb9c348947ccfde7963636c1212c4dbae8dd29a7b3711c4dd3af7183910aaa4b"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/wolfskin-mantle/details.raw.json",
+      "sha256": "91c032c292a5a288c7ee3c59c6ce460ccc0f044270fe1b036356018166a72d5e"
+    },
+    {
+      "path": "backend/src/main/resources/crafting/registry-v1.json",
+      "sha256": "7107cd9f9fecb79d1996bd0882324f71a9c8a2dc351e090d3b7397ca8e4d2819"
+    },
+    {
+      "path": "backend/src/main/resources/crafting/registry-v2.json",
+      "sha256": "667c19d2b8306693a5830b9ab6cdeb93b814d2a971f8a7e7252087e8d64c1c9e"
+    },
+    {
+      "path": "backend/src/main/resources/db/migration/V202609210001__bootstrap_module_schemas.sql",
+      "sha256": "15f4b0bce17ef8963f8811edc25f7782915cbc3218a83b8ff5d1c6169c7eabaa"
+    },
+    {
+      "path": "backend/src/main/resources/db/migration/V202609220001__season_admin_crawl.sql",
+      "sha256": "684bf8c44a60907a0d446bc70a0433501c33ef0f642518e24211b3641ce3d501"
+    },
+    {
+      "path": "backend/src/main/resources/db/migration/V202610010001__support_addition_pool.sql",
+      "sha256": "fb990404b2661e20a4352ae30ee9fd4a4d482a17d1a59e051f5aec6e96cbafb1"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/ArchitectureTest.java",
+      "sha256": "8a5a3148246480ef4271734f2a6ff2cb995a583317cc9a7b55ecd94f3a75c8bd"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/bootstrap/ReviewedBodyHelmetBundleTest.java",
+      "sha256": "475188b0c3bbf39705ddcfbd7e94a96c98f7006ba69ae40f3a846f42754ce58f"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/bootstrap/ReviewedGlovesWorkbenchTest.java",
+      "sha256": "4e3cad93bff83330c12af3de9d3b36e5d758b742da817ea5db56c5be6144f5fb"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/bootstrap/ReviewedHelmetsWorkbenchTest.java",
+      "sha256": "01a6d73fce717694cdfd5c59d3703fae26b905ca41f9cfacd654c888cc1428b7"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/bootstrap/TopBaseWorkbenchTest.java",
+      "sha256": "984f05436e18229444975031ec5d60772099b6de7442d5118ebbf781cff8a1b9"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/AbyssEssenceTest.java",
+      "sha256": "0e4a62739b7f6044854d57a495394301dc978a390dbfe95d48fc9aa0c7f1798b"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/AdditionTransitionsTest.java",
+      "sha256": "0a84ab944802b04a7d5b779f9234572f1d0cdc395d24d98c4f5d3de67713a012"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/AncientLiquidTest.java",
+      "sha256": "5c2790771c96a30e363466b47242e66a12051b4479707057fae9fa224fccd3cf"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/ArtificerTest.java",
+      "sha256": "fbac2feb5cb4fbb68836db7d363dab7d446492842922f92ea615b7ed7e1f1633"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/BasicJewelPotentTest.java",
+      "sha256": "360cbc0e45dd635472d32c7de9bb42dc8d097ac84a7cc759b8bf9c141cb4fc44"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/BodyEssenceTest.java",
+      "sha256": "c0d0e7fc3fe907915e1d940a6926fb2761762cda538e5cef1189d6e99ca6aee7"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/BowEssenceTest.java",
+      "sha256": "22eb15143fcf4e78634c74e48843ba493d3e42c2c205e45e8cf504a1f50725a8"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/BowPerfectEssenceTest.java",
+      "sha256": "5151b202c45dd189a5d0e820ad5ab924740a7cc04920be0824f8f4cd472739be"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/BreachEssenceTest.java",
+      "sha256": "7df22152f1b1921f0cb753584b102c70cdc68a6321159481c31189708d55607b"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/CatalystRegistryTest.java",
+      "sha256": "667e20a4091a14c7bfa706bc51d3510ea2947b23910dba316a7f9084d4f3d3fc"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/CoupledStatRollModelTest.java",
+      "sha256": "d02f039669e176f63ccb55cd0af60ea3785843648ced577c3fc7dc71645f45d9"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/CraftingControllerTest.java",
+      "sha256": "7bea24369cc2b6e377e0d4bf011c9e36ebcaf49cd7369fe956f2b7a77e43f5ee"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/CraftingEngineTest.java",
+      "sha256": "dbfa1a6603cdd7f8f7b1b7b779b7641c009019a3c233ee54cd59ca7d7bbce7ec"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/CrystallisationTest.java",
+      "sha256": "c47c79de8007cc49dd3ffd23b66b3d3de44853b2d3316a748d99df33c7bacd9b"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/FracturingTest.java",
+      "sha256": "a6de25640a9622f0cd5835520480d1c9ee7fe2ee28a8208f700bf695cc51d647"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/GreaterExaltationTest.java",
+      "sha256": "f70b3fd51177acf5a4af2869cf9788de32f790093154b14094e50f238911de3f"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/HomogenisingTest.java",
+      "sha256": "05906fd2409cee8f8a27dc8a78ed8b49c5730c74f1b09b759585548e1e0b6d46"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/HysteriaEssenceTest.java",
+      "sha256": "8cf4035f55947ba24414953bc9300db2c307a853d66c66132f20dd12beb14658"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/InfiniteEssenceTest.java",
+      "sha256": "115dfd50b226200d0c712933c63699f0d21c4cbc37d5e7ac523472fde5b1d427"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/IronRingEssenceTest.java",
+      "sha256": "13c226be79cffd2e8b1926cbb2545ea64c5e45a64551354d334a878f9dff5cbc"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/LegacyFiveTest.java",
+      "sha256": "b342a25423c86f1b17ab798d8ba2d99c6d8bf33693865137ed7fbc3a3f187dd2"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/MindRuinEssenceTest.java",
+      "sha256": "312b782c82cc19afb83090cc88f49a90e691384ddbb0c3d34dfb10df47fdf26d"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/OmenCompositionTest.java",
+      "sha256": "bf5c02a59c5b4238879fe2b7f2664fccb343d11fa8f997eb8ff9e6e3eccc8077"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/OpulenceEssenceTest.java",
+      "sha256": "08631bda1f8080d3a31aa12546d6416592d7a95b02b9f1980ccc15372ab0f6ea"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/PerfectEnhancementEssenceTest.java",
+      "sha256": "2709678cc9dfa476cc2ed3cee54ac09d965164013d17ec408e71eada3e2ebe78"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/PerfectInfiniteEssenceTest.java",
+      "sha256": "f5c9fac11804b15b3540b1d5c4bf56225b051473aa4708e63e857fa959f32c30"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/QualityCapChangeTest.java",
+      "sha256": "e1302e7927163aee989ac308c56cfb64436a3ce594cdbee926f40cc35f04e67d"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/QualityLimitTest.java",
+      "sha256": "91f198d78fb14a654efdb84fb4f0ce2ee56f2e36fddd4f6d04dbd9bb69db5ceb"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/RattlingSceptreEssenceTest.java",
+      "sha256": "7f0048e3002a790448c432cc1d2efeff9da04eb1fcf14d923837ddd500b226d1"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/RawhideBeltEssenceTest.java",
+      "sha256": "f8c1b0a7bea8c068e4df4ca277046d06fb263498c70b98073d75dc9ffc7e746d"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/ResistanceEssenceTest.java",
+      "sha256": "1a59c3057f9a0dce9dfc6666b4498d97f3fbc2b59a8e4aad11b7da9091fcdd59"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/ReviewedBootsTest.java",
+      "sha256": "53d44509283801f032726084187f9c1d7d1f815fe63bbd6c256a8e7cdda5c708"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/ReviewedBowsTest.java",
+      "sha256": "15a75a4d0f36f1710ce03780db18b48bd9d2f064c5f6f7dfc5fed7524c97ada4"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/ReviewedRingsTest.java",
+      "sha256": "db89fa8f9d650e10760ba18ff6de74ce4e7131d3805fae94d441ef4c4f2c8c82"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/RunicAlloyTest.java",
+      "sha256": "c4a13d241cce3b17227ea61fcd3cefca8d17f3af63cd15e09f984bdcc1c59cff"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/RustedCuirassEssenceTest.java",
+      "sha256": "8007d22f2fca13e0c88882979125d7093d26a49840e8a67a3de0639f69cf2669"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/RustedGreathelmEssenceTest.java",
+      "sha256": "17f0d487bd614b880f5a34321c54118f0823018bdfa28f144cc1349de6d73a7f"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/SapphireCatalystTest.java",
+      "sha256": "a342c1acc531bf66afce87dc2b82af174e171ad7a27367b8728c20d26268dcf9"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/SapphireExistingCurrencyTest.java",
+      "sha256": "1d8b8f252012e251b4849c9e45934f2e80f55a9c6acb9d99332b514571d05f51"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/SapphireGenerationLiquidTest.java",
+      "sha256": "871e6c63b0d7a058b5e5c1afe06f404ba81bd8cc061a0c27886014aefc609cad"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/StockyAbyssTest.java",
+      "sha256": "02d50ec2f73750c04bc4b2375ce6c310ea3396c12bd96e6145c04762a469f57d"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/StockyCyclonicAlloyTest.java",
+      "sha256": "58a68577f6d888129c27eb799c2743413364a36fcf518bed4b48c0acd2a81cf7"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/StockyExpansiveAlloyTest.java",
+      "sha256": "d96f264f0de9ac3c7e1253cc17f2fc83b030385bae6423ce86ffc863fad45dd8"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/StockyHorrorTest.java",
+      "sha256": "ca16aacf5386b3af384d33519051e78054975729828831e9c795180743bde499"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/StockyHysteriaTest.java",
+      "sha256": "367bccd8516fcef6271f99223b810545165f14c366ec23a1389fd2e1b1f35055"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/StockyMysticAlloyTest.java",
+      "sha256": "94f83891a3006ed9d98affecfb32aba4e8c7a1194dbdba2e0f87fbb2e1d9eebe"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/StockyPerfectGloveEssenceTest.java",
+      "sha256": "d5b1f86bbecebbcf7deb5b4f872663ccad5bcce3b29200f24f2eb1944ca6def1"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/StockyPrismaticAlloyTest.java",
+      "sha256": "ec8f17edbf74694ffe1ebe236a4555823011eba56cd003fa3c2bef2cc2e7aaaf"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/StockyReviewedAlloyTest.java",
+      "sha256": "8717d60e2b251d925963d4f737d8eaab40506c54cece23adaac12f2c618178e8"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/StockyWorkbenchTest.java",
+      "sha256": "9d8036efd70a42945532d0055ab92ce47c96b8e029818875840a969dc86694ab"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/SupportControllerTest.java",
+      "sha256": "03e5f4e3176e53f7af032e8e5fa96f234848151a095c928cf21b56549fcc004c"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/SupportGoalsTest.java",
+      "sha256": "a395053d7dad1e68968551535cec15ac53040ccffaca5df845b992b8ef6c1f2b"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/SupportRecommendationsTest.java",
+      "sha256": "7b3c7504c7a40baec1236e614d5fd6a692ec7e5e41d7e74be2eaf3ec26807b25"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/WandEssenceTest.java",
+      "sha256": "39bd1eab42b7b877e684b6d12340aa7b6d96641bf400f5092685cf04d5eb4da4"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/WorkbenchControllerTest.java",
+      "sha256": "30d2718e637b7782a72c2d0efb3de80a515b0e37249f2ddf6630ec107d18e409"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/WorkbenchExtensionTest.java",
+      "sha256": "fac492328013a5746ddf84713b79db54f19e52f2f606e4daa41e103382690553"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/WorkbenchSimulatorTest.java",
+      "sha256": "f3bcd0980fec5092c88c28efc460d57930278ae3ef3331d625bd8164f25ed50d"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/item/CatalystQualityTest.java",
+      "sha256": "57853af46dd44063b5c550ddb3c934613c7491f613e35925f018a01fe6ea3db5"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/item/ItemCatalogTest.java",
+      "sha256": "322c9a43febfd8ddbd18d55a985aafda0d9fab063e23556ec8b9cff4569eede5"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/item/ItemStateTest.java",
+      "sha256": "65735c12682b359896e264f9eeb8fa04e8c1ef55bb59d35341dfa7616e8a21d4"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/item/NoImplicitBaseTest.java",
+      "sha256": "50a05d60f6fb8a8efddb43e7fc3a044d3b66897fc57fb13a9e0a06e5f38b5b88"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/item/SolarTextMapperTest.java",
+      "sha256": "babe90a38e1fc75bec0cbdf36bddf767fdecb472e1ce4b0ec8919e8efc7b1c22"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/item/SpecialModifierCatalogTest.java",
+      "sha256": "de7fed042c11024faa111854800a6961c3b86144ddcd4d319e9992b68c1c6f70"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/item/StockyMittsCatalogTest.java",
+      "sha256": "bd6d518524ade551812f47495d4551a8c08aac4e19700a1d6302a7feb696c5b9"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/item/testparser/ItemTextControllerTest.java",
+      "sha256": "76942936aeecc90d7b64ae8c16a5c4a2d50e4530e81075ed264dd099f563f599"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/item/testparser/ItemTextServiceTest.java",
+      "sha256": "b74bf1bc4c80729df85b6c63c90057474747519313ab42ca3e6c90ddac6fef40"
+    },
+    {
+      "path": "backend/src/test/resources/item-text/pob-issue-2117.txt",
+      "sha256": "a8f674d8b3b2f4641eb6d9ee6eb5f58bcb8b18ca7e1c465e30b62009a698e457"
+    },
+    {
+      "path": "frontend/src/app/App.test.tsx",
+      "sha256": "3ea3f59119761d5c8ee974e9b07849c03e0b57c2f963368fcdd783b92f343080"
+    },
+    {
+      "path": "frontend/src/app/App.tsx",
+      "sha256": "a04e5057b33e72352948a96e603a377d7d011be3bbb8140aa0555db41f596d30"
+    },
+    {
+      "path": "frontend/src/app/AppProviders.tsx",
+      "sha256": "663b20db5d22f2038ebc9b3f201e1a5c22eaacc4b4dae227bc90aafbfc772953"
+    },
+    {
+      "path": "frontend/src/app/styles.css",
+      "sha256": "d4d68bde2aeb2aabc9d6b5be89b5d2685fa3330a81f94becf9f1f43098bea874"
+    },
+    {
+      "path": "frontend/src/features/crafting/AbyssEssence.test.ts",
+      "sha256": "a2afb97989b9ac1aff7fa43f8e47bf5989b6c01f996d6ae4ea74f133cbd42a3d"
+    },
+    {
+      "path": "frontend/src/features/crafting/AncientLiquidContract.test.ts",
+      "sha256": "080de20d4afd0958212dc1d1ac60de4e9680eb0011dbe87943a6febbbf127bd5"
+    },
+    {
+      "path": "frontend/src/features/crafting/Artificer.test.ts",
+      "sha256": "4b8d5f35c60916a95cc77e2402d781fc8111d4d049229ef36beee148031f736f"
+    },
+    {
+      "path": "frontend/src/features/crafting/basicJewel.test.ts",
+      "sha256": "57d0004f3e0537f3ccbca257941c79264fd062900afd2561b6403592e78f1c6b"
+    },
+    {
+      "path": "frontend/src/features/crafting/basicJewel.ts",
+      "sha256": "c9388ca2cc051efff2939133b357904af15990c966a70babd1d0e11b45fdff6c"
+    },
+    {
+      "path": "frontend/src/features/crafting/basicJewelDefinitions.json",
+      "sha256": "c1d2a80c9032bc7e05be248a11f275c113747763fbcaca2a25f97ad4aec72cdb"
+    },
+    {
+      "path": "frontend/src/features/crafting/basicJewelLiquidTargets.json",
+      "sha256": "e07b2191fa2cc5d7d4d4f853874fed4ec3f8997501b98d59d930262ddc398d0a"
+    },
+    {
+      "path": "frontend/src/features/crafting/BasicJewelPotentContract.test.ts",
+      "sha256": "fed159235917a6500bbabcc53d3bf7b64775a0f0a05c34dcc59041120e2e1708"
+    },
+    {
+      "path": "frontend/src/features/crafting/BeltEssence.test.ts",
+      "sha256": "21460ada9a8c4d9565ed3b77233d30ddfa6f30750c9b9417a0cf2025738948be"
+    },
+    {
+      "path": "frontend/src/features/crafting/BodyEssence.test.ts",
+      "sha256": "55efc4e2a4a6443c3e03cd8d844239f368d1fdaddb15b787aa6dfc805871e599"
+    },
+    {
+      "path": "frontend/src/features/crafting/BowPerfectEssence.test.ts",
+      "sha256": "08c77a40ba90ae6c1a9dc1baf9af5310f6a715049401f4521d58b67c584a4b0b"
+    },
+    {
+      "path": "frontend/src/features/crafting/BowWorkbenchContract.test.ts",
+      "sha256": "3fdf74ebaf9b31253aa86c56c2953c0306f965442d2c18cefcbce4ab3a8c60e8"
+    },
+    {
+      "path": "frontend/src/features/crafting/BreachEssence.test.ts",
+      "sha256": "e43f34d5c3dc72371ee3a0b371e7387634bf90cebefaf8506b051ffc0ded84cf"
+    },
+    {
+      "path": "frontend/src/features/crafting/catalystPolicy.test.tsx",
+      "sha256": "af84373287bcae91f0415b16f27496a8b474d771945d58274e9485968f080a87"
+    },
+    {
+      "path": "frontend/src/features/crafting/catalystQuality.test.tsx",
+      "sha256": "f2e4694eb1020116c811d76d9cd644083aea522d0f7556720bbe79b5bd28903d"
+    },
+    {
+      "path": "frontend/src/features/crafting/catalystQuality.ts",
+      "sha256": "efb866cd741b262327a5b8e636ec94e2cdc7b2e180c9f92957b8bdaca75b4ac9"
+    },
+    {
+      "path": "frontend/src/features/crafting/CoupledRollContract.test.ts",
+      "sha256": "4e80de4d532af2ee16afdca3f8a67e634a0c141d5cf9d10f2e197ba1957cd8c0"
+    },
+    {
+      "path": "frontend/src/features/crafting/craft-support.css",
+      "sha256": "fdcb38d74a629b5dc7d9ee8d87e21179db4ee4946241c2a8b5ce2be500cdd965"
+    },
+    {
+      "path": "frontend/src/features/crafting/crafting-explorer.css",
+      "sha256": "ede5c00285f2c83d2633dec365961554d5094e4ad47a77b1456cd0c61daca49d"
+    },
+    {
+      "path": "frontend/src/features/crafting/crafting.css",
+      "sha256": "6a335ee1ece5077b50f1cc32ac00484e00f4c6c644a9007f642e06164f46b559"
+    },
+    {
+      "path": "frontend/src/features/crafting/craftingApi.ts",
+      "sha256": "c9951ee0e489fc5408f2d66cc74dc0788cfb9ca5f69fbac55eb8750953658afa"
+    },
+    {
+      "path": "frontend/src/features/crafting/CraftingExplorer.test.tsx",
+      "sha256": "ca6255791e9c81931ce89d67f47af22456e8690467c5896803902fdb92899807"
+    },
+    {
+      "path": "frontend/src/features/crafting/CraftingExplorer.tsx",
+      "sha256": "3935317550359db28faeca9a99c95e3349f3102c3a59be8a8ef78a36301aab0a"
+    },
+    {
+      "path": "frontend/src/features/crafting/CraftingPage.tsx",
+      "sha256": "9a8bb4eac1dfdb2752c32748a66d3e91d241de9904f76e18202c3773195602ec"
+    },
+    {
+      "path": "frontend/src/features/crafting/craftProbabilityEvidence.test.ts",
+      "sha256": "bcd953a6d21a5859aabc7820ff084bce3b26e7a3e42274c88f06ee29ea62500a"
+    },
+    {
+      "path": "frontend/src/features/crafting/craftProbabilityEvidence.ts",
+      "sha256": "2eb4c2011d1421ea07145a3f06dff31e0ed9092eee82d4ecfc1b3cb7ee721c72"
+    },
+    {
+      "path": "frontend/src/features/crafting/CraftSupport.test.tsx",
+      "sha256": "dca56185b9e30bbdecbe78c3507af79e086478f4ff8612dc53d886909a4d2e1c"
+    },
+    {
+      "path": "frontend/src/features/crafting/CraftSupport.tsx",
+      "sha256": "d725f9eff99d77b50a2ad196cbaee9ef2150a37f9bd9084b840489c6165fc129"
+    },
+    {
+      "path": "frontend/src/features/crafting/currencies.ts",
+      "sha256": "bcc00a27695f5e6ec899da0e2157a4bfc52d8a24357199d3ec5b673868bf2bdd"
+    },
+    {
+      "path": "frontend/src/features/crafting/CurrencyImage.tsx",
+      "sha256": "5a00367823034df4e80948e69549e3f21ed80869a6036240af6eebb627732eca"
+    },
+    {
+      "path": "frontend/src/features/crafting/currencyNames.ts",
+      "sha256": "4a5569c96f57ef57a739356c609e9687355c7ae970f9a6a741b3dbef3817246f"
+    },
+    {
+      "path": "frontend/src/features/crafting/draft.ts",
+      "sha256": "603562a1d4fcc9669247496af1604cc6920345ae84b7799d788426c55064bdd8"
+    },
+    {
+      "path": "frontend/src/features/crafting/Fracturing.test.ts",
+      "sha256": "d1d6bc63a47d9f3385d68f1ae988431bbcf3ccc4098f148ae8c257ec25af1be9"
+    },
+    {
+      "path": "frontend/src/features/crafting/GreaterExaltation.test.ts",
+      "sha256": "4d637157b771bcba9205619718dd8db94a8e6fc477b63cd9de9fe9987bd6e8d3"
+    },
+    {
+      "path": "frontend/src/features/crafting/HelmetEssence.test.ts",
+      "sha256": "588a2b2b824b4e603971ecd65c81c3a5782880a96e4c8fd4ca32eb24f4561b78"
+    },
+    {
+      "path": "frontend/src/features/crafting/Homogenising.test.tsx",
+      "sha256": "59a4cdc97d89fe564654f46eb07f7dd972b3df3461a8d78c58362803f5ecc282"
+    },
+    {
+      "path": "frontend/src/features/crafting/HysteriaEssence.test.ts",
+      "sha256": "db74aca178a873b016580bcffb8ce91b508c408f11f62023137ab8b44cb97dea"
+    },
+    {
+      "path": "frontend/src/features/crafting/item-card.css",
+      "sha256": "0bd61f6637b0196411981d35e29922cdc0abac271ddbc8cbfd4036852f0d6ae4"
+    },
+    {
+      "path": "frontend/src/features/crafting/ItemCard.test.tsx",
+      "sha256": "662dff8ad0e87a11a5a33e2312136dcfb5b1e5b8077f0f88c4ba4a04cae4d236"
+    },
+    {
+      "path": "frontend/src/features/crafting/ItemCard.tsx",
+      "sha256": "582bd0f78e44cb56885b85560328af17923b0d63f3f304dd39b387481fb2518d"
+    },
+    {
+      "path": "frontend/src/features/crafting/itemCardData.ts",
+      "sha256": "f83de3a47e817818c6cc2a21d9f01068f2d7f05aeb910842560e0141afbfa0aa"
+    },
+    {
+      "path": "frontend/src/features/crafting/itemModels.ts",
+      "sha256": "e7d3c24b7328e6fd80673690d61d73975c3d421a7a583823a993ec00e229cdb1"
+    },
+    {
+      "path": "frontend/src/features/crafting/itemTextApi.ts",
+      "sha256": "aec0f9f99df63bebc3bfddc1bbff3fce590efc87d38f263cec2fa82ee786d2e5"
+    },
+    {
+      "path": "frontend/src/features/crafting/ItemTextImport.test.tsx",
+      "sha256": "5b042388fe30718e9520ed9e2fc117681a80407f0d6f2bc2463b93d9e1633cb3"
+    },
+    {
+      "path": "frontend/src/features/crafting/LegacyFive.test.ts",
+      "sha256": "90add048667e6e46376f32a037661b893fec6bf2935579a746c5a9e49d4c85e2"
+    },
+    {
+      "path": "frontend/src/features/crafting/localizedCrafting.ts",
+      "sha256": "ac53f3bac123683e4299b6e718a2ecc58efcccd527bae0b33bfd0bd7fc8ceaf5"
+    },
+    {
+      "path": "frontend/src/features/crafting/localizedModifiers.test.ts",
+      "sha256": "7a3b55c9d3aeb8ff203176de88ed37b42420c82adb56664be01b23addd87b5c1"
+    },
+    {
+      "path": "frontend/src/features/crafting/localizedModifiers.ts",
+      "sha256": "4b8c4e66b93cfc6108539fdd54b119360e0a670a57cee3bce066dbe2e98ea94a"
+    },
+    {
+      "path": "frontend/src/features/crafting/materials.ts",
+      "sha256": "ff2d1024e5691e596f545745ffa6cfeabf1e156917a9767833f328524f3744e3"
+    },
+    {
+      "path": "frontend/src/features/crafting/MaterialStash.test.tsx",
+      "sha256": "d519f5bbc798484dc39e40a266bee82447ad5a4b040edd57d180c86a78743dd0"
+    },
+    {
+      "path": "frontend/src/features/crafting/MaterialTooltip.tsx",
+      "sha256": "c73590f14415d7f90b9091055f6ee7ab6c92ed402b91e214f99d31d84065c8f2"
+    },
+    {
+      "path": "frontend/src/features/crafting/materialTooltips.json",
+      "sha256": "e36476a95c284273efffe470695b89313449673549d56eb335b7fce8fda3627c"
+    },
+    {
+      "path": "frontend/src/features/crafting/OmenComposition.test.tsx",
+      "sha256": "dc6042504e1be5efdaad018a8930dbaa8f286034a3c0b4503b604cf90673197a"
+    },
+    {
+      "path": "frontend/src/features/crafting/omenRemovalCandidates.ts",
+      "sha256": "cf6002a1d0ba77d2be141029ad53a4a86fa4cee94a7c000312b2bb9ae20f97ce"
+    },
+    {
+      "path": "frontend/src/features/crafting/outcomeGroups.test.ts",
+      "sha256": "27deb02e585fc1330076e2a78ef9ba583370db78374f515b8c3a9575de159052"
+    },
+    {
+      "path": "frontend/src/features/crafting/outcomeGroups.ts",
+      "sha256": "81b3f545994d60673517c1362fa7f2974325bf85d0094cb9ee264ed103d546e8"
+    },
+    {
+      "path": "frontend/src/features/crafting/ParsedItemDetails.tsx",
+      "sha256": "8c8d52fb55a9b84b63fc9a88373fec55fc5cde3fd9c39be45224c000d394e1ad"
+    },
+    {
+      "path": "frontend/src/features/crafting/PerfectEnhancementEssence.test.ts",
+      "sha256": "07425254ec74ed46d7b4e529add12f689bd6826f322b102c53c2c06234558000"
+    },
+    {
+      "path": "frontend/src/features/crafting/PerfectInfiniteEssence.test.ts",
+      "sha256": "a5bc0e1b897aab6b6502e119951c96041e0087903ba372ff77694a4137ad2700"
+    },
+    {
+      "path": "frontend/src/features/crafting/qualityCapChangePolicy.ts",
+      "sha256": "efd68c19d3513d58e22eff0e83b5543f6733f94719170f3f421457171c52a89d"
+    },
+    {
+      "path": "frontend/src/features/crafting/qualityLimit.test.ts",
+      "sha256": "7d77e1813ad22155d22f1c8b1380826bc6af0ea31fa3fb8ce928101bf8e3254c"
+    },
+    {
+      "path": "frontend/src/features/crafting/qualityLimit.ts",
+      "sha256": "be73cccfd7930a8f4352e031487006804258eb286dd2c6bd7a55987f791dbfac"
+    },
+    {
+      "path": "frontend/src/features/crafting/qualityRoundingPolicy.ts",
+      "sha256": "74ee47941b453a112dae2cd722e9e00458422eb0a5d57d0cdce251ef21ea9928"
+    },
+    {
+      "path": "frontend/src/features/crafting/refinedCatalyst.test.ts",
+      "sha256": "99b57ba0080b157fced5421af6ec8e3082986d636e462b347a52469390f1f0bc"
+    },
+    {
+      "path": "frontend/src/features/crafting/remainingDisplay.test.tsx",
+      "sha256": "c7ad628611aae2f91790548c9cc0de240d87b6c44b0a4e7d311b04a27e842a33"
+    },
+    {
+      "path": "frontend/src/features/crafting/reviewedGloves.test.ts",
+      "sha256": "a012b2e98cf0a1ed3811e705252b6a660abc22fb3328326685693b05fd8dff45"
+    },
+    {
+      "path": "frontend/src/features/crafting/ReviewedRings.test.ts",
+      "sha256": "45dca2d630ceed3bed39e4da4a3475a50f6c856d4b23506519a49f1e99a39b5a"
+    },
+    {
+      "path": "frontend/src/features/crafting/RingEssence.test.ts",
+      "sha256": "e16ac11f80bb5cde0402b5475390330c8ca4573d890f69eb661141360b6d33e7"
+    },
+    {
+      "path": "frontend/src/features/crafting/RunicAlloy.test.ts",
+      "sha256": "63992a1537fc88de793ab6ca4bdb9b71256a906ba05a9abfe155248243d8ef1e"
+    },
+    {
+      "path": "frontend/src/features/crafting/sapphireDefinitions.json",
+      "sha256": "29f0fad046333f840ccd1139f42ec2cfc0707468815a1575a5cdce1645f7bee3"
+    },
+    {
+      "path": "frontend/src/features/crafting/sapphireGeneration.test.ts",
+      "sha256": "ea9349f578b888aa831ecd23940a6c3c4919bb7af3b72f0445bf057979256af0"
+    },
+    {
+      "path": "frontend/src/features/crafting/SapphireGenerationContract.test.ts",
+      "sha256": "731435d076c1bf374d463ae50ec56e32a7ccb48f9f3a0b1c9da5952ee5ca6f2b"
+    },
+    {
+      "path": "frontend/src/features/crafting/sapphireJewel.ts",
+      "sha256": "b4dbbbb5467faeffeb1c64a7245364fbdba3aa90899c23b747053566a94dc0fd"
+    },
+    {
+      "path": "frontend/src/features/crafting/SceptreEssence.test.ts",
+      "sha256": "696d4080cf49dd10785e99164d4eddb3cd2b74a437e207e9c717acfe18d496b0"
+    },
+    {
+      "path": "frontend/src/features/crafting/ServiceMessage.tsx",
+      "sha256": "ffbe863dc772299a305a69bed0ff59f324d29055cd03df9842dd6b2ab08be88a"
+    },
+    {
+      "path": "frontend/src/features/crafting/serviceMessages.ts",
+      "sha256": "490b2d473c91d9a1ae13736b3122b32efc7229162cb540b4cc20f59bd2a3ba15"
+    },
+    {
+      "path": "frontend/src/features/crafting/serviceScope.test.ts",
+      "sha256": "1b04c7a0a67ca167981d3bc8db480e34b3404894c4b2a0e5605951802f7381c0"
+    },
+    {
+      "path": "frontend/src/features/crafting/serviceScope.ts",
+      "sha256": "0e015a4ffb66fed2cd70d7b32ddcff22e79781fd95ddbe72d66d0fc9fefe4e9b"
+    },
+    {
+      "path": "frontend/src/features/crafting/StockyAbyss.test.ts",
+      "sha256": "4f7430392ca51c818488e98ad63514a2850c2d27f558e6578204cfdbee64361a"
+    },
+    {
+      "path": "frontend/src/features/crafting/StockyCyclonicAlloy.test.ts",
+      "sha256": "8ed2514f68ef4a8eb0c9aa951a5e0d88175d6bfbeded5fb56d5c4f020344f1bf"
+    },
+    {
+      "path": "frontend/src/features/crafting/StockyExpansiveAlloy.test.ts",
+      "sha256": "9f5673bf202066fea42eab63b106547585da1f363c66db06daedb282816892b0"
+    },
+    {
+      "path": "frontend/src/features/crafting/StockyHorror.test.ts",
+      "sha256": "b93965089e26b667464631cbecc7fb075dfd94879fd122162166e0168b7b4ef7"
+    },
+    {
+      "path": "frontend/src/features/crafting/StockyHysteria.test.ts",
+      "sha256": "fc7e44e8741dd865e8ad348e731709e9eabade1c3bd923ca5e03f7266ea7ce94"
+    },
+    {
+      "path": "frontend/src/features/crafting/StockyMysticAlloy.test.ts",
+      "sha256": "625b842ae48bf6e5d2b0b4433204033ce3c41d14a0e8a9d6ce9cabc41bea3112"
+    },
+    {
+      "path": "frontend/src/features/crafting/StockyPerfectGloveEssence.test.ts",
+      "sha256": "987d1702a9335dc1ddd1a72f00f14d492d3c690f7ff0274129c40aac40bc4ed6"
+    },
+    {
+      "path": "frontend/src/features/crafting/StockyPrismaticAlloy.test.ts",
+      "sha256": "5fa1a3035cca4b0f9ace6b74a084669389aa039d1e003dab84ef8310c6a50dcf"
+    },
+    {
+      "path": "frontend/src/features/crafting/StockyReviewedAlloys.test.ts",
+      "sha256": "c1d1f303d0f2279e2c39423167f9f19ab87d302c5d11c9381b13101064a8343d"
+    },
+    {
+      "path": "frontend/src/features/crafting/StockyWorkbenchContract.test.ts",
+      "sha256": "c235d8c4b7c0d87cae709b8bf3480f18e7861d8c68b234a2d049c818444f0521"
+    },
+    {
+      "path": "frontend/src/features/crafting/supportApi.ts",
+      "sha256": "c0a567e3af930a96b82e48ec03b790bbcbd253e81811bfd19b23f9ad44eb5ee5"
+    },
+    {
+      "path": "frontend/src/features/crafting/topBaseEssences.json",
+      "sha256": "b4595119fb811c48ba580addef6010121620f1cf9a925863b98e13d8522c75c9"
+    },
+    {
+      "path": "frontend/src/features/crafting/topBases.json",
+      "sha256": "ffb139e3d4daf939d0872c9f667953385444c4ad867bfa1a157643c99a8ad011"
+    },
+    {
+      "path": "frontend/src/features/crafting/topBases.test.ts",
+      "sha256": "8f3123767ad08c542b1300c231637f811d5095c1a7004a6d48ec061011dc65bf"
+    },
+    {
+      "path": "frontend/src/features/crafting/topBases.ts",
+      "sha256": "7f2163af6617eddb71dbb277ab43245cdb2c0f6f0ad06afca6a6791c0f1852be"
+    },
+    {
+      "path": "frontend/src/features/crafting/useItemTextImport.ts",
+      "sha256": "f75a5f754317fa6e73da54352791d72688648d34c21db694c41652a55c636f00"
+    },
+    {
+      "path": "frontend/src/features/crafting/WandEssence.test.ts",
+      "sha256": "270c50058505faa8ba864ecfb15e9187243d296bf774dcb6d8c4d84b3924852d"
+    },
+    {
+      "path": "frontend/src/features/crafting/Workbench.test.tsx",
+      "sha256": "abda31ccedb7fc393068b92a60c9db4d427ca2b23065e9a7bb5505e7c8a32368"
+    },
+    {
+      "path": "frontend/src/features/crafting/workbenchApi.ts",
+      "sha256": "52d05dab90d390ba4e32787275554203dbaefd04521691aa628de07888ed8186"
+    },
+    {
+      "path": "frontend/src/features/crafting/WorkbenchExtension.test.tsx",
+      "sha256": "58bc2a07137cd25f5304cfe0a79f113ccacc35e84bb62aa1a9e827ea618c8310"
+    },
+    {
+      "path": "frontend/src/features/crafting/workbenchHistory.test.ts",
+      "sha256": "4dd48eb6e45563f43efed839322e6f8006db030676d0a04f52e9f13fb4529c3f"
+    },
+    {
+      "path": "frontend/src/features/crafting/workbenchHistory.ts",
+      "sha256": "350f91b28c191d89831dd23617a5fcb0dbc96a9a517145f8484bd45500b20fc0"
+    },
+    {
+      "path": "frontend/src/features/crafting/workbenchStateShape.test.ts",
+      "sha256": "fff20443047374d9826fac442dc4e0fb79d6b659b0612f15802329f26a1b1380"
+    },
+    {
+      "path": "frontend/src/features/crafting/workbenchStateShape.ts",
+      "sha256": "64cba1504014a4e91c2de2ee744f0a0a7c429aca3d17258fe0cec583156b231f"
+    },
+    {
+      "path": "frontend/src/main.tsx",
+      "sha256": "94858baa977c6622508fa0c852ebf51149971dd258676749d1a2fe63035b7a1c"
+    },
+    {
+      "path": "frontend/src/shared/i18n/gameTerms.json",
+      "sha256": "3cfc7ac3cb5007e53f0732958d9d5d5ba25c01f2fabf657a17478b1d2ddf197a"
+    },
+    {
+      "path": "frontend/src/shared/i18n/i18n.css",
+      "sha256": "897efa357aec3b88c27a52757dd5b369e7a1441273b3e3e98f74bddd8fe06f9c"
+    },
+    {
+      "path": "frontend/src/shared/i18n/i18n.test.tsx",
+      "sha256": "2b13b6da12823694c5c8f76d85234a21797004da48c042e14d44f98f8c52f5a2"
+    },
+    {
+      "path": "frontend/src/shared/i18n/i18n.ts",
+      "sha256": "7645c9fd1692c9e4990c8f4d7ac09ff11bf6b4a3be561b901695e7259d74b2d8"
+    },
+    {
+      "path": "frontend/src/shared/i18n/LocaleSelector.test.tsx",
+      "sha256": "1c702eb83b0f3c679792dcdff7d66b49775c9ca913d545a1d08db1820178a4c6"
+    },
+    {
+      "path": "frontend/src/shared/i18n/LocaleSelector.tsx",
+      "sha256": "85d9a70d70dee3f60df03fa55f26408f9a8a8096bde89d31cdf08a9fc8c4a749"
+    },
+    {
+      "path": "frontend/src/shared/i18n/messages.json",
+      "sha256": "e6165a1688125465d84b13bced306235a6050ec16ff2f282a684528ca602168c"
+    },
+    {
+      "path": "frontend/src/shared/i18n/modifierTemplates.json",
+      "sha256": "ca56a92f5202462164212c772538bd1240410d7aed20bbbc909b03f4e917ed00"
+    },
+    {
+      "path": "frontend/src/shared/test/ancient-liquid-responses.json",
+      "sha256": "637dc2fa9203c95510dccbf9f3ca244029bec2682933315e6369c1afb8a9d4ef"
+    },
+    {
+      "path": "frontend/src/shared/test/basic-jewel-potent-responses.json",
+      "sha256": "e80bbcad1ac4c87040bafef79ed05e784d4aff7c7360686e4f11eddfdb6a82dd"
+    },
+    {
+      "path": "frontend/src/shared/test/belt-essence-responses.json",
+      "sha256": "2d6ee239d81bd12ef8fcf6350e5a151d7421a0407bc4fd1e7747ea3194727940"
+    },
+    {
+      "path": "frontend/src/shared/test/body-essence-responses.json",
+      "sha256": "33a5faab0770dfbc2c46795ca9dc301c0e6921961db6a212a17a2bbb01c2c5b1"
+    },
+    {
+      "path": "frontend/src/shared/test/bow-cold-essence-response.json",
+      "sha256": "bdc407c31dc1b5ed9aeae23b5c8d0667ddb5a2728cb1e7c8e0b0730b4f386606"
+    },
+    {
+      "path": "frontend/src/shared/test/bow-perfect-essence-responses.json",
+      "sha256": "6e1bc466b89ae2051ed7b26a195146bf851a0d687bf1291c4b1489d85c855e8d"
+    },
+    {
+      "path": "frontend/src/shared/test/craftingFixtures.ts",
+      "sha256": "d400722a35232212addc57d23e530c917d038e62395939841c31c3f1d3e86ad3"
+    },
+    {
+      "path": "frontend/src/shared/test/diamond-catalog.json",
+      "sha256": "042c4bf7944ae457e8efabcea268031025c1eb1c59aa2aa2be1938a3a4366143"
+    },
+    {
+      "path": "frontend/src/shared/test/emerald-catalog.json",
+      "sha256": "9968f14e429bccaed9ec904a4407447f72c0d59bdd03c8ca1098de3ce15c7507"
+    },
+    {
+      "path": "frontend/src/shared/test/helmet-essence-responses.json",
+      "sha256": "723008adde2fdd152a092b653e5a34eb9ec77e70c4840b3eb6aabdcf0863174e"
+    },
+    {
+      "path": "frontend/src/shared/test/ring-essence-responses.json",
+      "sha256": "b8c6c3129743314d1852d841debaadb07324f330b9c9e5edd9637c135bb406a6"
+    },
+    {
+      "path": "frontend/src/shared/test/ruby-catalog.json",
+      "sha256": "70808f9eafb44dc6bc4994a4b213f1ec9e88277593d395b3cdec8aef94a4b425"
+    },
+    {
+      "path": "frontend/src/shared/test/sapphire-catalog.json",
+      "sha256": "476c290e82b13b190d940656164550b30294455eff598ac74bf8ff37ea00270d"
+    },
+    {
+      "path": "frontend/src/shared/test/sapphire-generation-responses.json",
+      "sha256": "a40772de1cccac86eac7a3d32e0e4a57c7434656edd02ceef9a1c3e7b9cbf69a"
+    },
+    {
+      "path": "frontend/src/shared/test/sceptre-essence-responses.json",
+      "sha256": "3943c8a63c51c3919ce1e72e078d26d534f66140850aaf4d9b41a337329e8450"
+    },
+    {
+      "path": "frontend/src/shared/test/setup.ts",
+      "sha256": "91528fc29185055ddd7646b53789c6df4139823a13f7951582d7eb673ef904f8"
+    },
+    {
+      "path": "frontend/src/shared/test/time-lost-diamond-catalog.json",
+      "sha256": "99a0aa12cde38668533c50b2073e3e8ed636f2216af4bd9e3c772049584e6fd6"
+    },
+    {
+      "path": "frontend/src/shared/test/time-lost-emerald-catalog.json",
+      "sha256": "2a8f4d26aad64723bef48dade28f05dce5acad0603354ebebcb1b20be6a12ba0"
+    },
+    {
+      "path": "frontend/src/shared/test/time-lost-ruby-catalog.json",
+      "sha256": "c36680e6c58cac512050332488ba0e257d4b4a35e5c0d5f19c056ae43d051827"
+    },
+    {
+      "path": "frontend/src/shared/test/time-lost-sapphire-catalog.json",
+      "sha256": "6124155d06bf72969fc3802f3f73ff7a64cd6713738284a18b31b473b9d97fd9"
+    },
+    {
+      "path": "frontend/src/shared/test/wand-essence-responses.json",
+      "sha256": "be0e17bf823cde2d7bfcbae89126cd91a518890649139009bcf3cf5387d48db3"
+    }
+  ]
+}

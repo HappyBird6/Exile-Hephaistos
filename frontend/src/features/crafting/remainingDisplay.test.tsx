@@ -22,15 +22,21 @@ type DisplayBinding = {
 }
 const bindings: Record<string, DisplayBinding> = catalog.definitions
 describe('remaining display coverage', () => {
-  it('renders all 378 compound bindings at min/middle/max in all locales with canonical values preserved', () => {
+  it('renders all 379 compound bindings at min/middle/max in all locales with canonical values preserved', () => {
     const compound = Object.entries(bindings).filter(
       ([, b]) =>
         b.valueStats &&
         b.stats.length > 1 &&
         b.stats.some((s) => s.min !== s.max),
     )
-    // Preserve 342 historical bindings and cover 36 new source-verified Boots compound bindings.
-    expect(compound).toHaveLength(378)
+    // Preserve all 378 historical bindings and add the exact Kinetic source compound.
+    expect(compound).toHaveLength(379)
+    expect(compound.filter(([id]) => id.startsWith('kinetic:'))).toEqual([
+      [
+        'kinetic:implicit:physicaldamage',
+        bindings['kinetic:implicit:physicaldamage'],
+      ],
+    ])
     for (const [id, b] of compound) {
       const d: Definition = {
         id,
@@ -71,8 +77,26 @@ describe('remaining display coverage', () => {
     const single = Object.entries(bindings).filter(
       ([, b]) => b.valueStats && b.stats.length === 1,
     )
-    // Preserve all 208 historical bindings and add three exact Bow single-stat projections.
-    expect(single).toHaveLength(211)
+    // Preserve all 211 historical bindings and add seven exact Ring single-stat implicits.
+    expect(single).toHaveLength(218)
+    expect(
+      single
+        .filter(([id]) =>
+          /^(vitalic|mnemonic|pearl|amethyst|prismatic|ruby-ring|two-stone-fire-cold):implicit:/.test(
+            id,
+          ),
+        )
+        .map(([id]) => id)
+        .sort(),
+    ).toEqual([
+      'amethyst:implicit:chaosresistance',
+      'mnemonic:implicit:maximummanaincreasepercent',
+      'pearl:implicit:increasedcastspeed',
+      'prismatic:implicit:allresistances',
+      'ruby-ring:implicit:fireresistance',
+      'two-stone-fire-cold:implicit:fireandcoldresistance',
+      'vitalic:implicit:increasedlife',
+    ])
     expect(
       single
         .filter(([id]) =>

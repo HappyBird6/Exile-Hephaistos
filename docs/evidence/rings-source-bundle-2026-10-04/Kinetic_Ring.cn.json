@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/cn/Kinetic_Ring",
+  "retrievedAt": "2026-10-04T20:54:50.724Z",
+  "sha256": "ec701ca0427d5ca6f568e191fb58022c12b916503cbf761710f632f77cffb18d",
+  "name": "动能戒指",
+  "card": "动能戒指\n        \n    \n    \n        \n            戒指需求：  等级 40攻击附加 (6—9) - (11—15) 物理伤害\n        \n\n        \n        \n            磨砺利爪，使其得以撕裂。\n        \n\n\n        \n            Kinetic Ring",
+  "requirements": "需求：  等级 40",
+  "fields": {
+    "DropLevel": "40",
+    "BaseType": "动能戒指",
+    "Class": "戒指",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Rings/FourRingB4",
+    "Tags": "ring",
+    "Icon": "Art/2DItems/Rings/BreachlordRing_UulNetol",
+    "Base.base_level": "1",
+    "Base.tag": "default, ring",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Ring",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

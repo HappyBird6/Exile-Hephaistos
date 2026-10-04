@@ -2539,5 +2539,757 @@
         "stocky-mitts:suffix:essence-abyssal-mark"
       ]
     }
+  },
+  "kinetic": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "iron-ring:prefix:healthy"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "iron-ring:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "iron-ring:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-wrestler",
+        "iron-ring:suffix:of-the-lynx",
+        "iron-ring:suffix:of-the-student"
+      ],
+      "ESSENCE_BODY": [
+        "iron-ring:prefix:robust"
+      ],
+      "ESSENCE_MIND": [
+        "iron-ring:prefix:opalescent"
+      ],
+      "ESSENCE_RUIN": [
+        "iron-ring:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-lion",
+        "iron-ring:suffix:of-the-falcon",
+        "iron-ring:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "iron-ring:prefix:gentian"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "iron-ring:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-goliath",
+        "iron-ring:suffix:of-the-leopard",
+        "iron-ring:suffix:of-the-sage"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-maelstrom"
+      ],
+      "LESSER_ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-plunder"
+      ],
+      "ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-raiding"
+      ],
+      "GREATER_ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-archaeology"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_MIND": [
+        "iron-ring:prefix:essence-increased-maximum-mana"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_BREACH": [
+        "amulet:prefix:essence-maximum-quality"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "ring:suffix:essence-hysteria-mana-regeneration"
+      ]
+    }
+  },
+  "vitalic": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "iron-ring:prefix:healthy"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "iron-ring:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "iron-ring:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-wrestler",
+        "iron-ring:suffix:of-the-lynx",
+        "iron-ring:suffix:of-the-student"
+      ],
+      "ESSENCE_BODY": [
+        "iron-ring:prefix:robust"
+      ],
+      "ESSENCE_MIND": [
+        "iron-ring:prefix:opalescent"
+      ],
+      "ESSENCE_RUIN": [
+        "iron-ring:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-lion",
+        "iron-ring:suffix:of-the-falcon",
+        "iron-ring:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "iron-ring:prefix:gentian"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "iron-ring:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-goliath",
+        "iron-ring:suffix:of-the-leopard",
+        "iron-ring:suffix:of-the-sage"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-maelstrom"
+      ],
+      "LESSER_ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-plunder"
+      ],
+      "ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-raiding"
+      ],
+      "GREATER_ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-archaeology"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_MIND": [
+        "iron-ring:prefix:essence-increased-maximum-mana"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_BREACH": [
+        "amulet:prefix:essence-maximum-quality"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "ring:suffix:essence-hysteria-mana-regeneration"
+      ]
+    }
+  },
+  "mnemonic": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "iron-ring:prefix:healthy"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "iron-ring:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "iron-ring:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-wrestler",
+        "iron-ring:suffix:of-the-lynx",
+        "iron-ring:suffix:of-the-student"
+      ],
+      "ESSENCE_BODY": [
+        "iron-ring:prefix:robust"
+      ],
+      "ESSENCE_MIND": [
+        "iron-ring:prefix:opalescent"
+      ],
+      "ESSENCE_RUIN": [
+        "iron-ring:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-lion",
+        "iron-ring:suffix:of-the-falcon",
+        "iron-ring:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "iron-ring:prefix:gentian"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "iron-ring:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-goliath",
+        "iron-ring:suffix:of-the-leopard",
+        "iron-ring:suffix:of-the-sage"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-maelstrom"
+      ],
+      "LESSER_ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-plunder"
+      ],
+      "ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-raiding"
+      ],
+      "GREATER_ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-archaeology"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_MIND": [
+        "iron-ring:prefix:essence-increased-maximum-mana"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_BREACH": [
+        "amulet:prefix:essence-maximum-quality"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "ring:suffix:essence-hysteria-mana-regeneration"
+      ]
+    }
+  },
+  "pearl": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "iron-ring:prefix:healthy"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "iron-ring:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "iron-ring:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-wrestler",
+        "iron-ring:suffix:of-the-lynx",
+        "iron-ring:suffix:of-the-student"
+      ],
+      "ESSENCE_BODY": [
+        "iron-ring:prefix:robust"
+      ],
+      "ESSENCE_MIND": [
+        "iron-ring:prefix:opalescent"
+      ],
+      "ESSENCE_RUIN": [
+        "iron-ring:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-lion",
+        "iron-ring:suffix:of-the-falcon",
+        "iron-ring:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "iron-ring:prefix:gentian"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "iron-ring:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-goliath",
+        "iron-ring:suffix:of-the-leopard",
+        "iron-ring:suffix:of-the-sage"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-maelstrom"
+      ],
+      "LESSER_ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-plunder"
+      ],
+      "ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-raiding"
+      ],
+      "GREATER_ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-archaeology"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_MIND": [
+        "iron-ring:prefix:essence-increased-maximum-mana"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_BREACH": [
+        "amulet:prefix:essence-maximum-quality"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "ring:suffix:essence-hysteria-mana-regeneration"
+      ]
+    }
+  },
+  "amethyst": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "iron-ring:prefix:healthy"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "iron-ring:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "iron-ring:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-wrestler",
+        "iron-ring:suffix:of-the-lynx",
+        "iron-ring:suffix:of-the-student"
+      ],
+      "ESSENCE_BODY": [
+        "iron-ring:prefix:robust"
+      ],
+      "ESSENCE_MIND": [
+        "iron-ring:prefix:opalescent"
+      ],
+      "ESSENCE_RUIN": [
+        "iron-ring:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-lion",
+        "iron-ring:suffix:of-the-falcon",
+        "iron-ring:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "iron-ring:prefix:gentian"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "iron-ring:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-goliath",
+        "iron-ring:suffix:of-the-leopard",
+        "iron-ring:suffix:of-the-sage"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-maelstrom"
+      ],
+      "LESSER_ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-plunder"
+      ],
+      "ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-raiding"
+      ],
+      "GREATER_ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-archaeology"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_MIND": [
+        "iron-ring:prefix:essence-increased-maximum-mana"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_BREACH": [
+        "amulet:prefix:essence-maximum-quality"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "ring:suffix:essence-hysteria-mana-regeneration"
+      ]
+    }
+  },
+  "prismatic": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "iron-ring:prefix:healthy"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "iron-ring:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "iron-ring:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-wrestler",
+        "iron-ring:suffix:of-the-lynx",
+        "iron-ring:suffix:of-the-student"
+      ],
+      "ESSENCE_BODY": [
+        "iron-ring:prefix:robust"
+      ],
+      "ESSENCE_MIND": [
+        "iron-ring:prefix:opalescent"
+      ],
+      "ESSENCE_RUIN": [
+        "iron-ring:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-lion",
+        "iron-ring:suffix:of-the-falcon",
+        "iron-ring:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "iron-ring:prefix:gentian"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "iron-ring:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-goliath",
+        "iron-ring:suffix:of-the-leopard",
+        "iron-ring:suffix:of-the-sage"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-maelstrom"
+      ],
+      "LESSER_ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-plunder"
+      ],
+      "ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-raiding"
+      ],
+      "GREATER_ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-archaeology"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_MIND": [
+        "iron-ring:prefix:essence-increased-maximum-mana"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_BREACH": [
+        "amulet:prefix:essence-maximum-quality"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "ring:suffix:essence-hysteria-mana-regeneration"
+      ]
+    }
+  },
+  "ruby-ring": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "iron-ring:prefix:healthy"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "iron-ring:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "iron-ring:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-wrestler",
+        "iron-ring:suffix:of-the-lynx",
+        "iron-ring:suffix:of-the-student"
+      ],
+      "ESSENCE_BODY": [
+        "iron-ring:prefix:robust"
+      ],
+      "ESSENCE_MIND": [
+        "iron-ring:prefix:opalescent"
+      ],
+      "ESSENCE_RUIN": [
+        "iron-ring:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-lion",
+        "iron-ring:suffix:of-the-falcon",
+        "iron-ring:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "iron-ring:prefix:gentian"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "iron-ring:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-goliath",
+        "iron-ring:suffix:of-the-leopard",
+        "iron-ring:suffix:of-the-sage"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-maelstrom"
+      ],
+      "LESSER_ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-plunder"
+      ],
+      "ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-raiding"
+      ],
+      "GREATER_ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-archaeology"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_MIND": [
+        "iron-ring:prefix:essence-increased-maximum-mana"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_BREACH": [
+        "amulet:prefix:essence-maximum-quality"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "ring:suffix:essence-hysteria-mana-regeneration"
+      ]
+    }
+  },
+  "two-stone-fire-cold": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "iron-ring:prefix:healthy"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "iron-ring:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "iron-ring:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-wrestler",
+        "iron-ring:suffix:of-the-lynx",
+        "iron-ring:suffix:of-the-student"
+      ],
+      "ESSENCE_BODY": [
+        "iron-ring:prefix:robust"
+      ],
+      "ESSENCE_MIND": [
+        "iron-ring:prefix:opalescent"
+      ],
+      "ESSENCE_RUIN": [
+        "iron-ring:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-lion",
+        "iron-ring:suffix:of-the-falcon",
+        "iron-ring:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "iron-ring:prefix:gentian"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "iron-ring:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "iron-ring:suffix:of-the-goliath",
+        "iron-ring:suffix:of-the-leopard",
+        "iron-ring:suffix:of-the-sage"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "iron-ring:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "iron-ring:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "iron-ring:suffix:of-the-maelstrom"
+      ],
+      "LESSER_ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-plunder"
+      ],
+      "ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-raiding"
+      ],
+      "GREATER_ESSENCE_OPULENCE": [
+        "iron-ring:suffix:of-archaeology"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_MIND": [
+        "iron-ring:prefix:essence-increased-maximum-mana"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_BREACH": [
+        "amulet:prefix:essence-maximum-quality"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "ring:suffix:essence-hysteria-mana-regeneration"
+      ]
+    }
   }
 }

@@ -96,6 +96,14 @@ const baseSlugs = {
   gemini: 'Gemini_Bow',
   fanatic: 'Fanatic_Bow',
   obliterator: 'Obliterator_Bow',
+  kinetic: 'Kinetic_Ring',
+  vitalic: 'Vitalic_Ring',
+  mnemonic: 'Mnemonic_Ring',
+  pearl: 'Pearl_Ring',
+  amethyst: 'Amethyst_Ring',
+  prismatic: 'Prismatic_Ring',
+  'ruby-ring': 'Ruby_Ring',
+  'two-stone-fire-cold': 'Two-Stone_Ring',
   freebooter: 'Freebooter_Cap',
   gladiatorial: 'Gladiatorial_Helm',
   grinning: 'Grinning_Mask',
@@ -346,6 +354,14 @@ export function CraftingPage() {
       | 'gemini'
       | 'fanatic'
       | 'obliterator'
+      | 'kinetic'
+      | 'vitalic'
+      | 'mnemonic'
+      | 'pearl'
+      | 'amethyst'
+      | 'prismatic'
+      | 'ruby-ring'
+      | 'two-stone-fire-cold'
       | 'freebooter'
       | 'gladiatorial'
       | 'grinning'
@@ -548,6 +564,14 @@ export function CraftingPage() {
     | 'gemini'
     | 'fanatic'
     | 'obliterator'
+    | 'kinetic'
+    | 'vitalic'
+    | 'mnemonic'
+    | 'pearl'
+    | 'amethyst'
+    | 'prismatic'
+    | 'ruby-ring'
+    | 'two-stone-fire-cold'
     | 'freebooter'
     | 'gladiatorial'
     | 'grinning'
@@ -944,7 +968,8 @@ export function CraftingPage() {
                         ? 'Sceptres'
                         : catalogBase === 'belt'
                           ? 'Belts'
-                          : catalogBase === 'ring'
+                          : catalogBase === 'ring' ||
+                              topBase(catalogBase)?.family === 'rings'
                             ? 'Rings'
                             : catalogBase === 'helmet' ||
                                 catalogBase === 'imperial' ||
@@ -1926,7 +1951,8 @@ export function CraftingPage() {
                                   ? 'Sceptres'
                                   : catalogBase === 'belt'
                                     ? 'Belts'
-                                    : catalogBase === 'ring'
+                                    : catalogBase === 'ring' ||
+                                        topBase(catalogBase)?.family === 'rings'
                                       ? 'Rings'
                                       : catalogBase === 'helmet' ||
                                           catalogBase === 'imperial' ||
@@ -2045,6 +2071,14 @@ export function CraftingPage() {
                           | 'gemini'
                           | 'fanatic'
                           | 'obliterator'
+                          | 'kinetic'
+                          | 'vitalic'
+                          | 'mnemonic'
+                          | 'pearl'
+                          | 'amethyst'
+                          | 'prismatic'
+                          | 'ruby-ring'
+                          | 'two-stone-fire-cold'
                           | 'freebooter'
                           | 'gladiatorial'
                           | 'grinning'

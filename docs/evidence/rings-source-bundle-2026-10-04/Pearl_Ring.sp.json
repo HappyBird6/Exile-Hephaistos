@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/sp/Pearl_Ring",
+  "retrievedAt": "2026-10-04T20:54:57.106Z",
+  "sha256": "bf34d24a90f8edc1baa1c9504d7207496b80981a0616fecf66c0d722421c1af8",
+  "name": "Anillo de perla",
+  "card": "Anillo de perla\n        \n    \n    \n        \n            AnillosRequiere:  Nivel 32Velocidad de lanzamiento de hechizos aumentada un (7—10)%\n        \n\n\n\n        \n            Pearl Ring",
+  "requirements": "Requiere:  Nivel 32",
+  "fields": {
+    "DropLevel": "32",
+    "BaseType": "Anillo de perla",
+    "Class": "Anillos",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Rings/FourRing8",
+    "Tags": "ring",
+    "Icon": "Art/2DItems/Rings/Basetypes/PearlRing",
+    "Base.base_level": "1",
+    "Base.tag": "default, ring",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Ring",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

@@ -352,7 +352,9 @@ public final class WorkbenchService {
                                     1L,
                                     "attack_maximum_added_physical_damage",
                                     4L)))
-                        : ReviewedBows.supports(catalog.base().id()) && catalog.base().hasImplicit()
+                        : (ReviewedBows.supports(catalog.base().id())
+                                    || ReviewedRings.supports(catalog.base().id()))
+                                && catalog.base().hasImplicit()
                             ? List.of(
                                 new ModifierInstance(
                                     catalog.base().implicitModifierId(),
@@ -474,7 +476,10 @@ public final class WorkbenchService {
                         key,
                         ReviewedBodies.BASES.getOrDefault(
                             key,
-                            ReviewedBoots.BASES.getOrDefault(key, ReviewedBows.BASES.get(key))))))
+                            ReviewedBoots.BASES.getOrDefault(
+                                key,
+                                ReviewedBows.BASES.getOrDefault(
+                                    key, ReviewedRings.BASES.get(key)))))))
         || topBases.containsKey(key))
       throw new IllegalArgumentException("Unreviewed or duplicate armour registration");
     var simulator =

@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/jp/Ruby_Ring",
+  "retrievedAt": "2026-10-04T20:55:02.285Z",
+  "sha256": "9ad4abb6599572174384996142e4294e3b7adf93e62764690813295c2bcbba5c",
+  "name": "ルビーの指輪",
+  "card": "ルビーの指輪\n        \n    \n    \n        \n            指輪装備条件： レベル 8火耐性 +(20—30)%\n        \n\n\n\n        \n            Ruby Ring",
+  "requirements": "装備条件： レベル 8",
+  "fields": {
+    "DropLevel": "8",
+    "BaseType": "ルビーの指輪",
+    "Class": "指輪",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Rings/FourRing3",
+    "Tags": "ring",
+    "Icon": "Art/2DItems/Rings/Basetypes/RubyRing",
+    "Base.base_level": "1",
+    "Base.tag": "default, ring",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Ring",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}
