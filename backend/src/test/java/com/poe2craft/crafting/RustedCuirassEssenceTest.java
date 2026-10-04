@@ -183,7 +183,7 @@ class RustedCuirassEssenceTest {
               m -> assertThat(catalog.find(m.modifierId()).orElseThrow().weight()).isPositive());
       assertThat(new ItemStateValidator(catalog).validate(r.state())).isEmpty();
     }
-    assertThat(simulator.actions(state(82, ItemState.Rarity.NORMAL), Set.of())).hasSize(22);
+    assertThat(simulator.actions(state(82, ItemState.Rarity.NORMAL), Set.of())).hasSize(48);
     assertThat(
             simulator
                 .apply(
@@ -212,7 +212,7 @@ class RustedCuirassEssenceTest {
     assertThat(service.initial("body", 82).qualityLimit().maximumQuality()).isEqualTo(20);
     assertThat(service.initial("body", 82).ruleVersion())
         .isEqualTo(
-            "body-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1");
+            "body-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1");
     assertThat(service.initial("bow", 82).modifiers()).hasSize(146);
     assertThat(service.initial("wand", 82).modifiers()).hasSize(187);
     assertThat(service.initial("stocky", 82).modifiers()).hasSize(194);

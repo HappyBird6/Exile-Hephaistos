@@ -99,7 +99,8 @@ public final class WorkbenchSimulator {
   }
 
   public String ruleVersion() {
-    return baseRuleVersion() + "-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1";
+    return baseRuleVersion()
+        + "-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1";
   }
 
   private String baseRuleVersion() {
@@ -191,10 +192,24 @@ public final class WorkbenchSimulator {
 
   private Availability availability(
       ItemState state, WorkbenchCurrency action, List<WorkbenchOmen> omens) {
-    if (state.catalystQuality() != null)
+    if (action.catalystType() != null) {
+      if (action.refinedCatalyst())
+        return blocked(
+            action, "Refined catalysts require a Jewel; no reviewed Jewel catalog is available.");
+      if (!state.baseItemId().equals(SolarAmulet.BASE_ID)
+          && !state.baseItemId().equals(RingEssenceTargets.BASE_ID))
+        return blocked(action, "Ordinary catalysts require a supported Ring or Amulet.");
+      return new Availability(action, true, "");
+    }
+    if (state.catalystQuality() != null
+        && (action.baseAction() == CraftingAction.ANNULMENT
+            || action.baseAction() == CraftingAction.CHAOS
+            || !replacementTargets(action).isEmpty())
+        && removalCandidates(state, matching(action, omens)).stream()
+            .anyMatch(m -> lowersCapBelowQuality(state, m)))
       return blocked(
           action,
-          "Currency interactions with catalyst quality are not verified. Existing quality and rolls are preserved.");
+          "Removing the maximum-quality modifier while quality exceeds the remaining cap needs game verification.");
     if (action == WorkbenchCurrency.DIVINE && state.baseItemId().equals(BeltEssenceTargets.BASE_ID))
       return blocked(
           action,
@@ -219,9 +234,9 @@ public final class WorkbenchSimulator {
             "Greater Exaltation is supported only with at least two free explicit slots; the one-slot interaction needs verification.");
       var originalTags =
           matches.contains(WorkbenchOmen.HOMOGENISING_EXALTATION)
-              ? additionRules.existingTags(StateBucket.from(state))
+              ? additionRules.existingTags(affixBucket(state))
               : Set.<String>of();
-      var first = additionRules.poolWithTags(StateBucket.from(state), action, originalTags);
+      var first = additionRules.poolWithTags(affixBucket(state), action, originalTags);
       if (first.isEmpty()) return blocked(action, "No verified first addition pool.");
       for (var candidate : first) {
         var next = new ArrayList<>(state.explicits());
@@ -230,7 +245,7 @@ public final class WorkbenchSimulator {
         next.add(new ModifierInstance(candidate.id(), values));
         if (additionRules
             .poolWithTags(
-                StateBucket.from(copy(state, state.rarity(), state.implicits(), next)),
+                affixBucket(copy(state, state.rarity(), state.implicits(), next)),
                 action,
                 originalTags)
             .isEmpty())
@@ -241,7 +256,7 @@ public final class WorkbenchSimulator {
     if (AdditionRules.isAddition(action)) {
       var plan =
           additionRules.plan(
-              StateBucket.from(state),
+              affixBucket(state),
               action,
               omens.stream().map(WorkbenchOmen::id).collect(java.util.stream.Collectors.toSet()));
       return new Availability(action, plan.available(), plan.reason());
@@ -440,7 +455,7 @@ public final class WorkbenchSimulator {
 
   public List<ModifierDefinition> pool(
       ItemState state, WorkbenchCurrency currency, WorkbenchOmen omen) {
-    return additionRules.pool(StateBucket.from(state), currency, omen);
+    return additionRules.pool(affixBucket(state), currency, omen);
   }
 
   private List<ModifierInstance> removalCandidates(ItemState state, WorkbenchOmen omen) {
@@ -497,6 +512,35 @@ public final class WorkbenchSimulator {
           List.of(),
           allIds,
           QualityLimitRules.describe(state, catalog));
+    if (action.catalystType() != null) {
+      var quality =
+          new CatalystQuality(
+              action.catalystType(), QualityLimitRules.describe(state, catalog).maximumQuality());
+      var next =
+          new ItemState(
+              state.snapshotId(),
+              state.baseItemId(),
+              state.itemLevel(),
+              state.rarity(),
+              state.implicits(),
+              state.explicits(),
+              state.conditions(),
+              state.augmentSockets(),
+              quality);
+      return new Result(
+          ruleVersion(),
+          ledgerVersion(),
+          state.snapshotId(),
+          next,
+          action,
+          true,
+          "Simulator policy: one use sets maximum quality and replaces its type; this is not the actual one-use game effect.",
+          List.of(),
+          List.of(),
+          List.of(),
+          allIds,
+          QualityLimitRules.describe(next, catalog));
+    }
     var matched = matching(action, omens);
     if (action == WorkbenchCurrency.ARTIFICER) {
       var next =
@@ -690,12 +734,12 @@ public final class WorkbenchSimulator {
         int additions = WorkbenchOmen.verifiedDoubleAddition(matched) ? 2 : 1;
         var homogenising = matched.stream().anyMatch(WorkbenchOmen::homogenising);
         var originalTags =
-            homogenising ? additionRules.existingTags(StateBucket.from(state)) : Set.<String>of();
+            homogenising ? additionRules.existingTags(affixBucket(state)) : Set.<String>of();
         for (int i = 0; i < additions; i++) {
           var intermediate = copy(state, rarity, implicits, explicits);
           var candidates =
               WorkbenchOmen.verifiedDoubleAddition(matched)
-                  ? additionRules.poolWithTags(StateBucket.from(intermediate), action, originalTags)
+                  ? additionRules.poolWithTags(affixBucket(intermediate), action, originalTags)
                   : pool(
                       intermediate,
                       action,
@@ -772,6 +816,37 @@ public final class WorkbenchSimulator {
                   ? "Each integer in this single-stat source range is a modeled candidate; no published roll weights."
                   : "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain."));
     return new ModifierInstance(definition.id(), Map.of(range.id(), value));
+  }
+
+  private boolean lowersCapBelowQuality(ItemState state, ModifierInstance removed) {
+    if (!removed.values().containsKey(QualityLimitRules.STAT_ID)) return false;
+    var remaining = state.explicits().stream().filter(m -> !m.equals(removed)).toList();
+    var without =
+        new ItemState(
+            state.snapshotId(),
+            state.baseItemId(),
+            state.itemLevel(),
+            state.rarity(),
+            state.implicits(),
+            remaining,
+            state.conditions(),
+            state.augmentSockets(),
+            null);
+    var limit = QualityLimitRules.describe(without, catalog);
+    return limit == null || state.catalystQuality().amount() > limit.maximumQuality();
+  }
+
+  // Affix probabilities use canonical rolls/tags only; quality is retained by copy, outside this
+  // projection.
+  private static StateBucket affixBucket(ItemState state) {
+    return new StateBucket(
+        state.snapshotId(),
+        state.baseItemId(),
+        state.itemLevel(),
+        state.rarity(),
+        state.implicits(),
+        state.explicits().stream().map(ModifierInstance::modifierId).toList(),
+        state.conditions());
   }
 
   private static ItemState copy(

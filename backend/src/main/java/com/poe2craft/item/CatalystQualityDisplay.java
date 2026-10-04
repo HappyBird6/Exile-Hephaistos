@@ -7,7 +7,7 @@ import java.util.Set;
 
 /** Bounded display projection. Stored values, source ranges and weights are never scaled. */
 public final class CatalystQualityDisplay {
-  public static final String VERSION = "catalyst-quality-display-v1";
+  public static final String VERSION = "catalyst-quality-display-round-v2";
   // Reviewed whole-number display units only. Regeneration/leech source units and skill levels
   // deliberately stay out; a matching tag alone does not prove scalable integer display units.
   private static final Set<String> INTEGER_STATS =
@@ -76,10 +76,10 @@ public final class CatalystQualityDisplay {
             (id, value) ->
                 scaled.put(
                     id,
-                    BigInteger.valueOf(value)
-                        .multiply(BigInteger.valueOf(100L + quality.amount()))
-                        .divide(BigInteger.valueOf(100))
-                        .longValueExact()));
+                    QualityRoundingPolicy.roundRatio(
+                        BigInteger.valueOf(value)
+                            .multiply(BigInteger.valueOf(100L + quality.amount())),
+                        BigInteger.valueOf(100))));
     return new Projection(m.modifierId(), m.values(), scaled, "SCALED_INTEGER");
   }
 

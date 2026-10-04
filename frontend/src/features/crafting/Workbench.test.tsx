@@ -50,15 +50,16 @@ describe('Workbench actual application', () => {
     await screen.findByText(
       /Model probability uses published PoE2DB table weights/,
     )
-    fireEvent.click(screen.getByText('Last craft and roll assumptions'))
     for (const element of screen.getAllByText(/not verified game odds/))
       expect(element).toBeVisible()
     expect(
-      screen.getByRole('link', { name: 'PoE2DB modifier table' }),
-    ).toHaveAttribute('href', 'https://poe2db.tw/us/Amulets')
+      screen.queryByText('Last craft and roll assumptions'),
+    ).not.toBeInTheDocument()
     expect(
-      screen.getByText(/ordered Spawn Tags establish eligibility only/),
-    ).toBeVisible()
+      screen.getAllByText(
+        /Model probability uses published PoE2DB table weights/,
+      ),
+    ).toHaveLength(1)
   })
   it('does not replace the draft or saved films when a base response arrives after unmount', async () => {
     let release: ((value: Response) => void) | undefined
@@ -160,12 +161,12 @@ describe('Workbench actual application', () => {
     await waitFor(() =>
       expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
     )
-    fireEvent.click(screen.getByText('Last craft and roll assumptions'))
-    expect(screen.getByText(/Unverified coupled roll model/)).toHaveTextContent(
+    expect(
+      screen.queryByText('Last craft and roll assumptions'),
+    ).not.toBeInTheDocument()
+    expect(localStorage.getItem(historyStorageKey)).toContain('WB-001')
+    expect(localStorage.getItem(historyStorageKey)).toContain(
       'not rounded outcomes',
-    )
-    expect(screen.getByText(/Unverified coupled roll model/)).toHaveTextContent(
-      'WB-001',
     )
     const stored = window.localStorage.getItem(historyStorageKey)
     expect(stored).not.toBeNull()
@@ -175,9 +176,8 @@ describe('Workbench actual application', () => {
       expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
     )
     expect(window.localStorage.getItem(historyStorageKey)).toBe(stored)
-    fireEvent.click(screen.getByText('Last craft and roll assumptions'))
-    expect(screen.getByText(/Unverified coupled roll model/)).toHaveTextContent(
-      'Sampled ratio 7000/10000',
+    expect(localStorage.getItem(historyStorageKey)).toContain(
+      '"ratioTick":7000',
     )
   })
   it('preserves the original future when crafting from a prior step and restores films after remount', async () => {

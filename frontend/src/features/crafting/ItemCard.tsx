@@ -20,6 +20,9 @@ function Lines({
           key={line.id}
           className={`item-card__line item-card__line--${flags && /^(Corrupted|Twice Corrupted)$/.test(line.text.trim()) ? 'corrupted' : (line.kind ?? 'property')}${line.removalCandidate ? ' item-card__line--removal-candidate' : ''}`}
           data-removal-candidate={line.removalCandidate ? line.id : undefined}
+          data-fractured={
+            line.fractured || line.kind === 'fractured' ? true : undefined
+          }
           title={line.removalCandidate ? t('omen.candidate_title') : undefined}
         >
           {line.affixLabel && (
@@ -27,11 +30,21 @@ function Lines({
           )}
           {line.detail ? (
             <details className="item-card__modifier-detail">
-              <summary>{line.text}</summary>
+              <summary>
+                {(line.fractured || line.kind === 'fractured') && (
+                  <span className="sr-only">{t('ui.fractured')}: </span>
+                )}
+                {line.text}
+              </summary>
               <span>{line.detail}</span>
             </details>
           ) : (
-            line.text
+            <>
+              {(line.fractured || line.kind === 'fractured') && (
+                <span className="sr-only">{t('ui.fractured')}: </span>
+              )}
+              {line.text}
+            </>
           )}
         </div>
       ))}
@@ -43,13 +56,21 @@ function Lines({
 export function ItemCard({
   item,
   baseItemId,
+  showOriginalOrder = false,
 }: {
   item: ItemCardData
   baseItemId?: string
+  showOriginalOrder?: boolean
 }) {
   const { t, name } = useI18n()
   const implicit = item.modifiers.filter((line) => line.kind === 'implicit')
   const other = item.modifiers.filter((line) => line.kind !== 'implicit')
+  if (!showOriginalOrder)
+    other.sort(
+      (a, b) =>
+        Number(Boolean(b.fractured || b.kind === 'fractured')) -
+        Number(Boolean(a.fractured || a.kind === 'fractured')),
+    )
   const doubleHeader =
     (item.rarity === 'RARE' || item.rarity === 'UNIQUE') &&
     item.base &&

@@ -12,10 +12,6 @@ import { maximumQuality } from './qualityLimit'
 import { catalystTypes, catalystProjection } from './catalystQuality'
 import type { CatalystQuality } from './catalystQuality'
 import { currencyNames } from './currencyNames'
-import {
-  craftProbabilityEvidence,
-  modifierWeightSources,
-} from './craftProbabilityEvidence'
 import { skipToken, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useRef, useState } from 'react'
 import { ItemCard } from './ItemCard'
@@ -193,8 +189,31 @@ export function CraftingPage() {
   const [pointer, setPointer] = useState<{ x: number; y: number } | null>(null)
   const [inputMode, setInputMode] = useState<'base' | 'text'>('base')
   const [inputOpen, setInputOpen] = useState(false)
+  const inputOpener = useRef<HTMLElement | null>(null)
   const [announcement, setAnnouncement] = useState('')
   const [altHeld, setAltHeld] = useState(false)
+  const [stashSpace, setStashSpace] = useState(0)
+  useEffect(() => {
+    const page = document.querySelector('.craft-page')
+    if (!page) return
+    const measure = () => {
+      const spare =
+        window.innerHeight -
+        page.getBoundingClientRect().bottom -
+        window.scrollY +
+        stashSpace
+      setStashSpace(Math.max(0, Math.min(24, Math.floor(spare))))
+    }
+    const observer =
+      typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(measure)
+    observer?.observe(page)
+    window.addEventListener('resize', measure)
+    measure()
+    return () => {
+      observer?.disconnect()
+      window.removeEventListener('resize', measure)
+    }
+  }, [stashSpace, view])
   const [pendingApplication, setApplying] = useState<{
     controller: AbortController
     revision: number
@@ -550,7 +569,6 @@ export function CraftingPage() {
                     .join(', '),
                 })
               : '',
-            result.assumptions.length ? t('craft.uniform') : '',
           ]
             .filter(Boolean)
             .join(' '),
@@ -636,7 +654,7 @@ export function CraftingPage() {
   function closeInput() {
     imported.invalidate()
     setInputOpen(false)
-    inputToggle.current?.focus()
+    ;(inputOpener.current ?? inputToggle.current)?.focus()
   }
   function placeFavorite(index: number) {
     if (!held) {
@@ -842,8 +860,8 @@ export function CraftingPage() {
             ],
             requirements: [],
             flags: [],
-            modifiers: [...concrete.implicits, ...concrete.explicits].map(
-              (m, i) => {
+            modifiers: [...concrete.implicits, ...concrete.explicits]
+              .map((m, i) => {
                 const d = initial.data!.modifiers[m.modifierId]!
                 const projection = catalystProjection(
                   d,
@@ -860,7 +878,8 @@ export function CraftingPage() {
                   removalCandidate:
                     i >= concrete.implicits.length &&
                     removalCandidates.includes(m.modifierId),
-                  text: `${'fractured' in m && m.fractured ? '[Fractured] ' : ''}${altHeld ? localizedModifierText(d) : displayText}`,
+                  text: altHeld ? localizedModifierText(d) : displayText,
+                  fractured: 'fractured' in m && Boolean(m.fractured),
                   detail: concrete.catalystQuality
                     ? `Original roll: ${rolledText(d, m.values)}\nQuality display: ${projection.status}. Secondary source model; game engine precision is not guaranteed.`
                     : undefined,
@@ -873,8 +892,18 @@ export function CraftingPage() {
                       ? undefined
                       : `${d.affixType === 'PREFIX' ? 'P' : 'S'}${d.tier}`,
                 }
-              },
-            ),
+              })
+              .sort((a, b) => {
+                const rank = (line: typeof a) =>
+                  !altHeld && line.fractured
+                    ? -1
+                    : line.kind === 'implicit'
+                      ? 0
+                      : line.affixLabel?.startsWith('P')
+                        ? 1
+                        : 2
+                return rank(a) - rank(b)
+              }),
           }
         : null
 
@@ -1038,9 +1067,38 @@ export function CraftingPage() {
               {t('ui.show_tooltips')}
             </label>
           </div>
+          <div className="workbench-session-entry">
+            <button
+              type="button"
+              disabled={applying !== null}
+              onClick={(event) => {
+                inputOpener.current = event.currentTarget
+                imported.invalidate()
+                setInputMode('base')
+                setBaseChoice(catalogBase)
+                setInputOpen(true)
+              }}
+            >
+              {t('ui.select_base')}
+            </button>
+            <button
+              type="button"
+              disabled={applying !== null}
+              onClick={() => {
+                imported.invalidate()
+                void startBase(catalogLevel, catalogBase)
+              }}
+            >
+              {t('ui.new_craft')}
+            </button>
+          </div>
           <div className="stash-board">
             <div className="stash-viewport">
-              <div className="stash-canvas" aria-label={t('ui.currency_stash')}>
+              <div
+                className="stash-canvas"
+                style={{ marginBottom: stashSpace }}
+                aria-label={t('ui.currency_stash')}
+              >
                 <div
                   id="material-list"
                   role="tabpanel"
@@ -1134,9 +1192,9 @@ export function CraftingPage() {
                               ordinary currency. Greater Exaltation with
                               Homogenising uses pre-craft tags for both
                               additions. Only reviewed combinations are enabled;
-                              catalyst quality interactions remain unsupported.
-                              Failed requests preserve resources here; actual
-                              game failure consumption is unverified.{' '}
+                              Catalysing Exaltation remains unsupported. Failed
+                              requests preserve resources here; actual game
+                              failure consumption is unverified.{' '}
                               <a
                                 href="https://www.pathofexile.com/forum/view-thread/3883495/filter-account-type/staff"
                                 target="_blank"
@@ -1234,7 +1292,10 @@ export function CraftingPage() {
                     className="item-input-toggle"
                     aria-expanded={inputOpen}
                     aria-controls="item-input-panel"
-                    onClick={() => setInputOpen((open) => !open)}
+                    onClick={(event) => {
+                      inputOpener.current = event.currentTarget
+                      setInputOpen((open) => !open)
+                    }}
                   >
                     {t('ui.edit_item')}
                   </button>
@@ -1289,119 +1350,7 @@ export function CraftingPage() {
                   ))}
                 </div>
               </div>
-            </div>
-            <div className="bench-lower">
-              <div className="bench-item-card">
-                <div className="workbench-film-controls">
-                  <button
-                    type="button"
-                    aria-label={t('ui.previous_crafting_step')}
-                    disabled={
-                      !film ||
-                      filmState.history.cursor === 0 ||
-                      applying !== null
-                    }
-                    onClick={() => browse(filmState.history.cursor - 1)}
-                  >
-                    ‹
-                  </button>
-                  <span>
-                    {film
-                      ? t('film.step', {
-                          step: filmState.history.cursor,
-                          total: film.frames.length - 1,
-                        })
-                      : t('ui.new_craft')}
-                  </span>
-                  <button
-                    type="button"
-                    aria-label={t('ui.next_crafting_step')}
-                    disabled={
-                      !film ||
-                      filmState.history.cursor === film.frames.length - 1 ||
-                      applying !== null
-                    }
-                    onClick={() => browse(filmState.history.cursor + 1)}
-                  >
-                    ›
-                  </button>
-                </div>
-                {filmState.history.films.length > 0 && (
-                  <label className="workbench-film-select">
-                    {t('ui.crafting_session')}
-                    <select
-                      aria-label={t('ui.crafting_session')}
-                      value={film?.id ?? ''}
-                      disabled={applying !== null}
-                      onChange={(event) => void restoreFilm(event.target.value)}
-                    >
-                      <option value="" disabled>
-                        {t('ui.new_craft')}
-                      </option>
-                      {filmState.history.films.map((entry, index) => (
-                        <option key={entry.id} value={entry.id}>
-                          {t('film.session', { index: index + 1 })} ·{' '}
-                          {t('crafts', { count: entry.frames.length - 1 })}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
-                )}
-                {filmState.error && (
-                  <p role="alert">{uiText(filmState.error)}</p>
-                )}
-                {storedFrame && initial.data && !restoredValid && (
-                  <p role="alert">{t('notice.saved_catalog')}</p>
-                )}
-                {card ? (
-                  <ItemCard
-                    item={card}
-                    {...(concrete
-                      ? { baseItemId: baseSlugs[catalogBase] }
-                      : {})}
-                  />
-                ) : (
-                  <ItemCard
-                    baseItemId={baseSlugs[catalogBase]}
-                    item={{
-                      rarity: 'NORMAL',
-                      name: baseName,
-                      base: baseName,
-                      itemClass:
-                        catalogBase === 'stocky'
-                          ? 'Gloves'
-                          : catalogBase === 'bow'
-                            ? 'Bows'
-                            : catalogBase === 'wand'
-                              ? 'Wands'
-                              : catalogBase === 'body'
-                                ? 'Body Armours'
-                                : catalogBase === 'sceptre'
-                                  ? 'Sceptres'
-                                  : catalogBase === 'belt'
-                                    ? 'Belts'
-                                    : catalogBase === 'ring'
-                                      ? 'Rings'
-                                      : catalogBase === 'helmet'
-                                        ? 'Helmets'
-                                        : 'Amulet',
-                      itemLevel: draft.baseItemLevel,
-                      properties: [],
-                      requirements: [],
-                      modifiers:
-                        catalogBase !== 'solar'
-                          ? []
-                          : [
-                              {
-                                id: 'spirit',
-                                text: '+15 to Spirit',
-                                kind: 'implicit',
-                              },
-                            ],
-                      flags: [],
-                    }}
-                  />
-                )}
+              <div className="workbench-feedback-panel">
                 {draft.activeOmens.includes('Omen_of_Whittling') && (
                   <p className="workbench-feedback">
                     {removalCandidates.length > 0
@@ -1541,20 +1490,10 @@ export function CraftingPage() {
                 {catalogBase === 'ring' && (
                   <p className="workbench-feedback">{t('notice.ring_scope')}</p>
                 )}
-                {concrete?.catalystQuality && (
+                {(concrete?.catalystQuality ||
+                  selected?.id.endsWith('_Catalyst')) && (
                   <p className="workbench-feedback">
-                    Existing catalyst quality is retained. Matching reviewed
-                    integer stats use a separate quality multiplier and
-                    truncation. Original rolls remain in modifier details; other
-                    stats stay unscaled. Currency interactions and catalyst
-                    application are not verified, so crafting is blocked.{' '}
-                    <a
-                      href="https://www.poe2wiki.net/wiki/Quality"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {t('ui.quality_source')}
-                    </a>
+                    {t('notice.catalyst_policy')}
                   </p>
                 )}
                 {catalogBase === 'helmet' && (
@@ -1584,81 +1523,120 @@ export function CraftingPage() {
                     {t('notice.glove_scope')}
                   </p>
                 )}
-                {craftEvidence && (
-                  <details className="workbench-assumptions">
-                    <summary>{t('ui.last_craft_and_roll_assumptions')}</summary>
-                    <p>
-                      {localizedAction(craftEvidence.action)} {t('ui.applied')}{' '}
-                      {uiText(craftProbabilityEvidence(craftEvidence).text)}
-                    </p>
-                    {craftProbabilityEvidence(craftEvidence).weighted && (
-                      <p>
-                        <a
-                          href={modifierWeightSources[catalogBase]}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          {t('ui.poe2db_modifier_table')}
-                        </a>
-                        : published DropChance values supply model weights;
-                        ordered Spawn Tags establish eligibility only. The
-                        difference between these source fields remains
-                        unresolved.
-                      </p>
-                    )}
-                    <p>
-                      {craftEvidence.ruleVersion} /{' '}
-                      {craftEvidence.ledgerVersion}
-                    </p>
-                    {craftEvidence.consumedOmens.length > 0 && (
-                      <p>
-                        {' '}
-                        {t('ui.consumed_omens')}{' '}
-                        {craftEvidence.consumedOmens
-                          .map((id) => name(id, id.replaceAll('_', ' ')))
-                          .join(', ')}
-                      </p>
-                    )}
-                    {craftEvidence.assumptions.length ? (
-                      craftEvidence.assumptions.map((a, i) => (
-                        <p key={`${a.id}-${i}`}>
-                          {a.id === 'tiered-omen-composition-v1'
-                            ? t('omen.composition_model')
-                            : a.id === 'legacy-alchemy-order-v1'
-                              ? t('omen.draw_order_model')
-                              : a.id === 'user-coupled-ratio-half-up-v1'
-                                ? 'Unverified coupled roll model'
-                                : a.id === 'assumed-source-integer-roll-v1'
-                                  ? 'Unverified source-unit roll model'
-                                  : 'Uniform assumption'}
-                          : {a.candidateUnit}
-                          {[
-                            'tiered-omen-composition-v1',
-                            'legacy-alchemy-order-v1',
-                          ].includes(a.id)
-                            ? '. '
-                            : `, N = ${a.n}, each candidate = 1/${a.n}. `}
-                          {a.id === 'user-coupled-ratio-half-up-v1' &&
-                          a.min !== null
-                            ? `Assumed ratio ticks ${a.min} to ${a.max}. `
-                            : ''}
-                          {a.reason}{' '}
-                          {a.ratioTick != null
-                            ? `Sampled ratio ${a.ratioTick}/10000. `
-                            : ''}
-                          <a
-                            href={a.sourceUrl}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            {t('ui.source')}
-                          </a>
-                        </p>
-                      ))
-                    ) : (
-                      <p>{t('notice.no_uniform_fallback')}</p>
-                    )}
-                  </details>
+              </div>
+            </div>
+            <div className="bench-lower">
+              <div className="bench-item-card">
+                <div className="workbench-film-controls">
+                  <button
+                    type="button"
+                    aria-label={t('ui.previous_crafting_step')}
+                    disabled={
+                      !film ||
+                      filmState.history.cursor === 0 ||
+                      applying !== null
+                    }
+                    onClick={() => browse(filmState.history.cursor - 1)}
+                  >
+                    ‹
+                  </button>
+                  <span>
+                    {film
+                      ? t('film.step', {
+                          step: filmState.history.cursor,
+                          total: film.frames.length - 1,
+                        })
+                      : t('ui.new_craft')}
+                  </span>
+                  <button
+                    type="button"
+                    aria-label={t('ui.next_crafting_step')}
+                    disabled={
+                      !film ||
+                      filmState.history.cursor === film.frames.length - 1 ||
+                      applying !== null
+                    }
+                    onClick={() => browse(filmState.history.cursor + 1)}
+                  >
+                    ›
+                  </button>
+                </div>
+                {filmState.history.films.length > 0 && (
+                  <label className="workbench-film-select">
+                    {t('ui.crafting_session')}
+                    <select
+                      aria-label={t('ui.crafting_session')}
+                      value={film?.id ?? ''}
+                      disabled={applying !== null}
+                      onChange={(event) => void restoreFilm(event.target.value)}
+                    >
+                      <option value="" disabled>
+                        {t('ui.new_craft')}
+                      </option>
+                      {filmState.history.films.map((entry, index) => (
+                        <option key={entry.id} value={entry.id}>
+                          {t('film.session', { index: index + 1 })} ·{' '}
+                          {t('crafts', { count: entry.frames.length - 1 })}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                )}
+                {filmState.error && (
+                  <p role="alert">{uiText(filmState.error)}</p>
+                )}
+                {storedFrame && initial.data && !restoredValid && (
+                  <p role="alert">{t('notice.saved_catalog')}</p>
+                )}
+                {card ? (
+                  <ItemCard
+                    item={card}
+                    showOriginalOrder={altHeld}
+                    {...(concrete
+                      ? { baseItemId: baseSlugs[catalogBase] }
+                      : {})}
+                  />
+                ) : (
+                  <ItemCard
+                    baseItemId={baseSlugs[catalogBase]}
+                    item={{
+                      rarity: 'NORMAL',
+                      name: baseName,
+                      base: baseName,
+                      itemClass:
+                        catalogBase === 'stocky'
+                          ? 'Gloves'
+                          : catalogBase === 'bow'
+                            ? 'Bows'
+                            : catalogBase === 'wand'
+                              ? 'Wands'
+                              : catalogBase === 'body'
+                                ? 'Body Armours'
+                                : catalogBase === 'sceptre'
+                                  ? 'Sceptres'
+                                  : catalogBase === 'belt'
+                                    ? 'Belts'
+                                    : catalogBase === 'ring'
+                                      ? 'Rings'
+                                      : catalogBase === 'helmet'
+                                        ? 'Helmets'
+                                        : 'Amulet',
+                      itemLevel: draft.baseItemLevel,
+                      properties: [],
+                      requirements: [],
+                      modifiers:
+                        catalogBase !== 'solar'
+                          ? []
+                          : [
+                              {
+                                id: 'spirit',
+                                text: '+15 to Spirit',
+                                kind: 'implicit',
+                              },
+                            ],
+                      flags: [],
+                    }}
+                  />
                 )}
               </div>
             </div>

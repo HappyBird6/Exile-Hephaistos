@@ -285,8 +285,12 @@ describe('Crafting probability explorer', () => {
     expect(
       screen.getByRole('tab', { name: 'Crafting Workbench' }),
     ).toHaveAttribute('aria-selected', 'true')
-    fireEvent.click(screen.getByText('Last craft and roll assumptions'))
-    expect(screen.getByText(/Uniform assumption: life, N = 11/)).toBeVisible()
+    expect(
+      screen.queryByText('Last craft and roll assumptions'),
+    ).not.toBeInTheDocument()
+    expect(localStorage.getItem('hephaistos.workbench.films.v1')).toContain(
+      '"n":11',
+    )
     fireEvent.click(
       screen.getByRole('button', { name: 'Orb of Transmutation' }),
     )

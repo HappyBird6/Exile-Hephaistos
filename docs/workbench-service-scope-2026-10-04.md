@@ -1,3 +1,5 @@
+> 현재 후속 구현: [Catalyst 및 UX 정책](workbench-catalyst-ux-2026-10-04.md). 서비스 선택144/registry220/제외76은 유지한다. ordinary catalyst13의 최대 품질 적용을 추가해 실행 가능한 종류는131이며, refined13은 Jewel 전용이나 현재 Jewel catalog가 없어 명시적으로 거절한다. 아래118/26 및 중단 문구는 이전 checkpoint 이력이다. 최종 검증은 후속 문서와 evidence를 따른다.
+
 # Workbench 최신 범위와 legacy 징조 5종 — 2026-10-04
 
 **최종 검증 완료된 로컬 구현**이다. 최신 사용자 지시로 기폭제 서비스 제외가 취소됐으므로 기존 메뉴·typed 품질 입력·품질 미리보기 API를 보존한다. 실제 기폭제 적용과 새 UX는 다음 묶음이다. 사용자 테스트 중인 서버와 실제 브라우저 저장소는 변경하지 않았다.

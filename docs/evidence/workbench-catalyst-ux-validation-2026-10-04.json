@@ -1,0 +1,113 @@
+{
+  "baseline": "47b183a59b9802efa37f4cc53cb3222206affdf4",
+  "branch": "workbench/20261002",
+  "sourceEquivalence": {
+    "frontend": {
+      "count": 338,
+      "mismatches": []
+    },
+    "backend": {
+      "count": 214,
+      "mismatches": []
+    }
+  },
+  "backend": {
+    "test": {
+      "tests": 364,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "integrationTest": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "jarSha256": "c0538e07e8994e28b90986aaab0d11c0222d30526d853aad4c39168a969a24a4",
+  "frontendLog": "recovery2-fe.log",
+  "frontend": {
+    "tests": 362,
+    "files": 49,
+    "checks": "npm ci/lint/typecheck/format:check/test -- --run/build"
+  },
+  "frontendFinalDelta": {
+    "changedInputs": [
+      "crafting.css: center feedback below item slot",
+      "messages.json: correct three old catalyst notices in all six locales"
+    ],
+    "checks": "lint/typecheck/format:check/targeted test -- --run/build",
+    "testFiles": 3,
+    "tests": 22,
+    "buildLog": "final-build.log",
+    "targetedTests": [
+      "i18n.test.tsx",
+      "catalystPolicy.test.tsx",
+      "catalystQuality.test.tsx"
+    ],
+    "fullSuiteBeforeFinalCssAndNoticeDelta": true
+  },
+  "backendLog": "recovery2-backend.log",
+  "failureHistory": [
+    "first-fe.log: new test formatter",
+    "recovery1-fe.log: one dialog selector ambiguity,361/362 passed",
+    "first-backend.log: obsolete ruleVersion expectations",
+    "recovery1-backend.log: obsolete Controller typed-quality refusal and action count",
+    "catalyst-api-failure.json: QA initial endpoint omitted workbench segment; fixed harness",
+    "browser-first-failure.json: removed Last craft UI label; assert retained response evidence instead",
+    "catalyst-browser-first-failure.json: QA locator matched hidden item input preview",
+    "catalyst-browser-second-failure.json: QA initially picked up material instead of using existing favorites selection flow"
+  ],
+  "runtime": {
+    "omen-api": {
+      "checks": 640,
+      "pageErrors": []
+    },
+    "catalyst-api": {
+      "checks": 1004,
+      "pageErrors": []
+    },
+    "browser": {
+      "checks": 125,
+      "pageErrors": []
+    },
+    "i18n-browser": {
+      "checks": 224,
+      "pageErrors": []
+    },
+    "catalyst-browser": {
+      "checks": 113,
+      "pageErrors": []
+    }
+  },
+  "counts": {
+    "registry": 220,
+    "active": 144,
+    "deferred": 76,
+    "positiveBehavior": 131,
+    "jewelGated": 13,
+    "catalystRoutes": 26,
+    "ordinaryPositive": 13,
+    "refinedExplicitJewelRefusal": 13,
+    "supportedBaseCatalogs": 9
+  },
+  "preserved": [
+    "user18080/18081",
+    "userbrowser/localStorage",
+    "DBvolumes",
+    ".env",
+    "originalcheckout",
+    "omen source rules",
+    "all six locales",
+    "canonical rolls and catalog weights"
+  ],
+  "remaining": [
+    "no reviewed Jewel catalog for refined positive application",
+    "above-cap loss needs game evidence",
+    "unreviewed numeric units/negative/mixed quality projections",
+    "actual one-use quality increments intentionally not modeled",
+    "existing WB-042 and i18n limits"
+  ],
+  "selfReview": "Requirements, scoped diff, source identity, preserved catalogs, canonical values, film transitions and actual screenshots reviewed by sole implementer."
+}

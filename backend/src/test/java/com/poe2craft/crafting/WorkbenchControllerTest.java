@@ -122,13 +122,13 @@ class WorkbenchControllerTest {
         .andExpect(jsonPath("$.state.catalystQuality.type").value("FLESH"))
         .andExpect(jsonPath("$.state.explicits[0].values.base_maximum_life").value(29))
         .andExpect(jsonPath("$.state.explicits[0].fractured").value(true))
-        .andExpect(jsonPath("$.modifiers[1].displayedValues.base_maximum_life").value(34));
+        .andExpect(jsonPath("$.modifiers[1].displayedValues.base_maximum_life").value(35));
     mvc.perform(
             post("/api/v1/crafting/workbench/apply")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsBytes(Map.of("state", state, "action", "DIVINE"))))
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.applied").value(false))
+        .andExpect(jsonPath("$.applied").value(true))
         .andExpect(jsonPath("$.state.catalystQuality.amount").value(20))
         .andExpect(jsonPath("$.state.explicits[0].values.base_maximum_life").value(29));
     for (String bad :
@@ -223,7 +223,7 @@ class WorkbenchControllerTest {
         .andExpect(
             jsonPath("$.ruleVersion")
                 .value(
-                    "solar-workbench-abyss-essence-v16-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1"));
+                    "solar-workbench-abyss-essence-v16-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1"));
     mvc.perform(
             post("/api/v1/crafting/workbench/apply")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -264,7 +264,7 @@ class WorkbenchControllerTest {
                             "activeOmens",
                             java.util.List.of()))))
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.length()").value(49));
+        .andExpect(jsonPath("$.length()").value(75));
   }
 
   @org.junit.jupiter.params.ParameterizedTest

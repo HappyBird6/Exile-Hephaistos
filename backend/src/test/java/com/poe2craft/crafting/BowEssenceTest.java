@@ -126,10 +126,10 @@ class BowEssenceTest {
       assertThat(new ItemStateValidator(catalog).validate(result.state())).isEmpty();
     }
     assertThat(simulator.actions(state(82, ItemState.Rarity.NORMAL, List.of()), Set.of()))
-        .hasSize(46);
+        .hasSize(72);
     var solar = ItemCatalogLoader.loadDefault();
     var old = new WorkbenchSimulator(solar, new CraftingEngine(solar));
-    assertThat(old.actions(SolarAmulet.initial(solar, 82, 15), Set.of())).hasSize(49);
+    assertThat(old.actions(SolarAmulet.initial(solar, 82, 15), Set.of())).hasSize(75);
     assertThat(
             old.apply(
                     SolarAmulet.initial(solar, 82, 15),

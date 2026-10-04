@@ -1,12 +1,28 @@
 import { supportsConcreteStateShape } from './workbenchStateShape'
 import { whittlingCandidates } from './omenRemovalCandidates'
+import {
+  catalystBase,
+  catalystTypes,
+  verifiedCatalystQuality,
+} from './catalystQuality'
 import type { CatalystQuality } from './catalystQuality'
 import { maximumQuality, qualityLimitMatches } from './qualityLimit'
 import type { QualityLimit } from './qualityLimit'
 import { currencyActions, actionNames } from './craftingApi'
 import type { Action, Bucket, Definition, Initial } from './craftingApi'
 
+export type CatalystAction =
+  | `CATALYST_${keyof typeof catalystTypes}`
+  | `REFINED_CATALYST_${keyof typeof catalystTypes}`
+export const catalystActionType = (action: WorkbenchAction) => {
+  const type = action.replace(/^REFINED_/, '').replace(/^CATALYST_/, '')
+  return Object.hasOwn(catalystTypes, type)
+    ? (type as CatalystQuality['type'])
+    : null
+}
+
 export type WorkbenchAction =
+  | CatalystAction
   | 'PERFECT_ESSENCE_MIND'
   | 'PERFECT_ESSENCE_THAWING'
   | 'PERFECT_ESSENCE_INSULATION'
@@ -256,6 +272,32 @@ const replacementEssenceModifiers: Partial<
   ],
 }
 export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
+  Flesh_Catalyst: 'CATALYST_FLESH',
+  Refined_Flesh_Catalyst: 'REFINED_CATALYST_FLESH',
+  Neural_Catalyst: 'CATALYST_NEURAL',
+  Refined_Neural_Catalyst: 'REFINED_CATALYST_NEURAL',
+  Carapace_Catalyst: 'CATALYST_CARAPACE',
+  Refined_Carapace_Catalyst: 'REFINED_CATALYST_CARAPACE',
+  'Uul-Netols_Catalyst': 'CATALYST_UUL_NETOL',
+  'Refined_Uul-Netols_Catalyst': 'REFINED_CATALYST_UUL_NETOL',
+  Xophs_Catalyst: 'CATALYST_XOPH',
+  Refined_Xophs_Catalyst: 'REFINED_CATALYST_XOPH',
+  Tuls_Catalyst: 'CATALYST_TUL',
+  Refined_Tuls_Catalyst: 'REFINED_CATALYST_TUL',
+  Eshs_Catalyst: 'CATALYST_ESH',
+  Refined_Eshs_Catalyst: 'REFINED_CATALYST_ESH',
+  Chayulas_Catalyst: 'CATALYST_CHAYULA',
+  Refined_Chayulas_Catalyst: 'REFINED_CATALYST_CHAYULA',
+  Reaver_Catalyst: 'CATALYST_REAVER',
+  Refined_Reaver_Catalyst: 'REFINED_CATALYST_REAVER',
+  Sibilant_Catalyst: 'CATALYST_SIBILANT',
+  Refined_Sibilant_Catalyst: 'REFINED_CATALYST_SIBILANT',
+  Skittering_Catalyst: 'CATALYST_SKITTERING',
+  Refined_Skittering_Catalyst: 'REFINED_CATALYST_SKITTERING',
+  Adaptive_Catalyst: 'CATALYST_ADAPTIVE',
+  Refined_Adaptive_Catalyst: 'REFINED_CATALYST_ADAPTIVE',
+  Necrotic_Catalyst: 'CATALYST_NECROTIC',
+  Refined_Necrotic_Catalyst: 'REFINED_CATALYST_NECROTIC',
   Lesser_Essence_of_Abrasion: 'LESSER_ESSENCE_ABRASION',
   Essence_of_Abrasion: 'ESSENCE_ABRASION',
   Greater_Essence_of_Abrasion: 'GREATER_ESSENCE_ABRASION',
@@ -351,6 +393,32 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Greater_Essence_of_Opulence: 'GREATER_ESSENCE_OPULENCE',
 }
 export const workbenchActionNames: Record<WorkbenchAction, string> = {
+  CATALYST_FLESH: 'Flesh Catalyst',
+  REFINED_CATALYST_FLESH: 'Refined Flesh Catalyst',
+  CATALYST_NEURAL: 'Neural Catalyst',
+  REFINED_CATALYST_NEURAL: 'Refined Neural Catalyst',
+  CATALYST_CARAPACE: 'Carapace Catalyst',
+  REFINED_CATALYST_CARAPACE: 'Refined Carapace Catalyst',
+  CATALYST_UUL_NETOL: 'Uul-Netols Catalyst',
+  REFINED_CATALYST_UUL_NETOL: 'Refined Uul-Netols Catalyst',
+  CATALYST_XOPH: 'Xophs Catalyst',
+  REFINED_CATALYST_XOPH: 'Refined Xophs Catalyst',
+  CATALYST_TUL: 'Tuls Catalyst',
+  REFINED_CATALYST_TUL: 'Refined Tuls Catalyst',
+  CATALYST_ESH: 'Eshs Catalyst',
+  REFINED_CATALYST_ESH: 'Refined Eshs Catalyst',
+  CATALYST_CHAYULA: 'Chayulas Catalyst',
+  REFINED_CATALYST_CHAYULA: 'Refined Chayulas Catalyst',
+  CATALYST_REAVER: 'Reaver Catalyst',
+  REFINED_CATALYST_REAVER: 'Refined Reaver Catalyst',
+  CATALYST_SIBILANT: 'Sibilant Catalyst',
+  REFINED_CATALYST_SIBILANT: 'Refined Sibilant Catalyst',
+  CATALYST_SKITTERING: 'Skittering Catalyst',
+  REFINED_CATALYST_SKITTERING: 'Refined Skittering Catalyst',
+  CATALYST_ADAPTIVE: 'Adaptive Catalyst',
+  REFINED_CATALYST_ADAPTIVE: 'Refined Adaptive Catalyst',
+  CATALYST_NECROTIC: 'Necrotic Catalyst',
+  REFINED_CATALYST_NECROTIC: 'Refined Necrotic Catalyst',
   PERFECT_ESSENCE_MIND: 'Perfect Essence of the Mind',
   PERFECT_ESSENCE_THAWING: 'Perfect Essence of Thawing',
   PERFECT_ESSENCE_INSULATION: 'Perfect Essence of Insulation',
@@ -775,10 +843,7 @@ export async function applyCurrency(
     throw new Error(
       'This item contains unsupported properties. Its state has not been changed.',
     )
-  if (state.catalystQuality != null)
-    throw new Error(
-      'Currency interactions with catalyst quality are not verified. Existing quality and rolls are preserved.',
-    )
+
   const response = await fetch('/api/v1/crafting/workbench/apply', {
     method: 'POST',
     signal,
@@ -862,7 +927,10 @@ export async function applyCurrency(
   if (
     !next ||
     !supportsConcreteStateShape(next) ||
-    next.catalystQuality != null ||
+    !verifiedCatalystQuality(next, definitions) ||
+    (catalystActionType(action) === null &&
+      (next.catalystQuality?.type !== state.catalystQuality?.type ||
+        next.catalystQuality?.amount !== state.catalystQuality?.amount)) ||
     (state.baseItemId === 'Metadata/Items/Rings/FourRing1' &&
       (!sameModifiers(next.implicits, state.implicits) ||
         next.implicits.length !== 1 ||
@@ -1036,6 +1104,25 @@ export async function applyCurrency(
     throw new Error(
       'Could not verify the applied item. Your item is unchanged. Please retry.',
     )
+  const catalystType = catalystActionType(action)
+  if (
+    catalystType &&
+    (!sameModifiers(next.explicits, state.explicits) ||
+      next.rarity !== state.rarity ||
+      v.events.length !== 0 ||
+      v.assumptions.length !== 0 ||
+      v.consumedOmens.length !== 0 ||
+      (v.applied
+        ? action.startsWith('REFINED_') ||
+          !catalystBase(state.baseItemId) ||
+          next.catalystQuality?.type !== catalystType ||
+          next.catalystQuality?.amount !== maximumQuality(state, definitions)
+        : next.catalystQuality?.type !== state.catalystQuality?.type ||
+          next.catalystQuality?.amount !== state.catalystQuality?.amount))
+  )
+    throw new Error(
+      'Could not verify the catalyst policy. Your item is unchanged.',
+    )
   if (!coupledModelsMatch(v, definitions))
     throw new Error(
       'Could not verify the coupled roll model. Your item is unchanged. Please retry.',
@@ -1094,6 +1181,7 @@ export async function applyCurrency(
               action === 'DIVINE' ||
               action === 'ARTIFICER' ||
               action === 'FRACTURING' ||
+              catalystActionType(action) !== null ||
               replacementTargets.length > 0
             ? 0
             : baseAction === 'EXALTED' &&

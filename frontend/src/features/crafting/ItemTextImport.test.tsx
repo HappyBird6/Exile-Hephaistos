@@ -303,7 +303,11 @@ describe('Item text import', () => {
     submit()
     await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1))
     const first = fetchMock.mock.calls[0]?.[1]?.signal
-    fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
+    fireEvent.click(
+      within(screen.getByRole('dialog')).getByRole('button', {
+        name: 'Select base',
+      }),
+    )
     expect(first?.aborted).toBe(true)
     fireEvent.click(screen.getByRole('button', { name: /Place base/ }))
     expect(useItemDraft.getState().source).toBe('base')

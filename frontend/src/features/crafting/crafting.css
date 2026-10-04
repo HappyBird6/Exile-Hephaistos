@@ -1206,3 +1206,42 @@ dialog.item-input-panel::backdrop {
 .workbench-omens p {
   margin-top: 0;
 }
+
+.workbench-session-entry {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 16px;
+  background: #171c16;
+}
+.workbench-session-entry button {
+  padding: 9px 16px;
+  border: 1px solid #b39860;
+  border-radius: 4px;
+  background: #303629;
+  color: #f0dfb5;
+}
+.workbench-session-entry button:focus-visible {
+  outline: 2px solid #f0dfb5;
+  outline-offset: 3px;
+}
+.workbench-feedback-panel {
+  padding: 0 16px 12px;
+  text-align: center;
+  color: #b9beb1;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.workbench-feedback-panel p {
+  margin: 8px 0 0;
+}
+.item-card .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

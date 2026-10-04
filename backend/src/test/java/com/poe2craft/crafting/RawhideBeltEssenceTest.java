@@ -179,7 +179,7 @@ class RawhideBeltEssenceTest {
               m -> assertThat(catalog.find(m.modifierId()).orElseThrow().weight()).isPositive());
       assertThat(new ItemStateValidator(catalog).validate(r.state())).isEmpty();
     }
-    assertThat(simulator.actions(state(82, ItemState.Rarity.NORMAL), Set.of())).hasSize(19);
+    assertThat(simulator.actions(state(82, ItemState.Rarity.NORMAL), Set.of())).hasSize(45);
     assertThat(
             simulator
                 .apply(
@@ -210,7 +210,7 @@ class RawhideBeltEssenceTest {
     assertThat(service.initial("belt", 82).qualityLimit()).isNull();
     assertThat(service.initial("belt", 82).ruleVersion())
         .isEqualTo(
-            "belt-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1");
+            "belt-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1");
     assertThat(service.initial("bow", 82).modifiers()).hasSize(146);
     assertThat(service.initial("wand", 82).modifiers()).hasSize(187);
     assertThat(service.initial("stocky", 82).modifiers()).hasSize(194);

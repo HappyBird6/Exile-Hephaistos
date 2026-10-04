@@ -25,7 +25,7 @@ class CatalystQualityTest {
   }
 
   @Test
-  void originalRollsStayInSourceBoundsWhileDerivedIntegerDisplayTruncates() {
+  void originalRollsStayInSourceBoundsWhileDerivedIntegerDisplayRoundsProvisionally() {
     var item =
         state(
             CatalystQuality.Type.FLESH,
@@ -39,7 +39,7 @@ class CatalystQualityTest {
             .findFirst()
             .orElseThrow();
     assertThat(result.originalValues()).containsEntry("base_maximum_life", 29L);
-    assertThat(result.displayedValues()).containsEntry("base_maximum_life", 34L);
+    assertThat(result.displayedValues()).containsEntry("base_maximum_life", 35L);
     assertThat(result.status()).isEqualTo("SCALED_INTEGER");
     assertThat(item.explicits()).isEqualTo(copy);
     assertThat(new ItemStateValidator(catalog).validate(item)).isEmpty();
@@ -87,8 +87,13 @@ class CatalystQualityTest {
   }
 
   @Test
-  void refusalPreservesQualityOriginalsOmensAndDoesNotDrawRandomnessOrProjectLossily() {
-    var item = state(CatalystQuality.Type.FLESH, 20, List.of());
+  void catalystSetsMaximumReplacesTypeAndPreservesOriginalsAndOmensWithoutDrawing() {
+    var item =
+        state(
+            CatalystQuality.Type.FLESH,
+            7,
+            List.of(
+                new ModifierInstance("amulet:prefix:healthy", Map.of("base_maximum_life", 29L))));
     var sim = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
     var random =
         new Random() {
@@ -96,16 +101,70 @@ class CatalystQualityTest {
           public long nextLong(long bound) {
             throw new AssertionError("Must not roll");
           }
+
+          @Override
+          public int nextInt(int bound) {
+            throw new AssertionError("Must not roll");
+          }
         };
-    var result =
-        sim.apply(item, WorkbenchCurrency.EXALTED, Set.of("Omen_of_Sinistral_Exaltation"), random);
-    assertThat(result.applied()).isFalse();
-    assertThat(result.state()).isSameAs(item);
-    assertThat(result.events()).isEmpty();
-    assertThat(result.consumedOmens()).isEmpty();
-    assertThat(result.remainingOmens()).containsExactly("Omen_of_Sinistral_Exaltation");
-    assertThat(sim.actions(item, Set.of())).allMatch(a -> !a.available());
+    for (var type : CatalystQuality.Type.values()) {
+      var result =
+          sim.apply(
+              item,
+              WorkbenchCurrency.valueOf("CATALYST_" + type),
+              Set.of("Omen_of_Sinistral_Exaltation"),
+              random);
+      assertThat(result.applied()).isTrue();
+      assertThat(result.state().catalystQuality()).isEqualTo(new CatalystQuality(type, 20));
+      assertThat(result.state().explicits()).isEqualTo(item.explicits());
+      assertThat(result.events()).isEmpty();
+      assertThat(result.consumedOmens()).isEmpty();
+      assertThat(result.remainingOmens()).containsExactly("Omen_of_Sinistral_Exaltation");
+      var repeated =
+          sim.apply(
+              result.state(), WorkbenchCurrency.valueOf("CATALYST_" + type), Set.of(), random);
+      assertThat(repeated.state()).isEqualTo(result.state());
+      assertThat(
+              sim.apply(
+                      item, WorkbenchCurrency.valueOf("REFINED_CATALYST_" + type), Set.of(), random)
+                  .applied())
+          .isFalse();
+    }
     assertThatThrownBy(() -> StateBucket.from(item)).isInstanceOf(IllegalArgumentException.class);
+    var added = sim.apply(item, WorkbenchCurrency.EXALTED, Set.of(), new Random(1));
+    assertThat(added.applied()).isTrue();
+    assertThat(added.state().catalystQuality()).isEqualTo(item.catalystQuality());
+    assertThat(added.state().explicits()).containsAll(item.explicits());
+  }
+
+  @Test
+  void provisionalRoundingUsesHalfUpForSignedRatios() {
+    var denominator = java.math.BigInteger.valueOf(100);
+    assertThat(QualityRoundingPolicy.roundRatio(java.math.BigInteger.valueOf(3480), denominator))
+        .isEqualTo(35);
+    assertThat(QualityRoundingPolicy.roundRatio(java.math.BigInteger.valueOf(150), denominator))
+        .isEqualTo(2);
+    assertThat(QualityRoundingPolicy.roundRatio(java.math.BigInteger.valueOf(-150), denominator))
+        .isEqualTo(-2);
+    assertThat(QualityRoundingPolicy.roundRatio(java.math.BigInteger.valueOf(4060), denominator))
+        .isEqualTo(41);
+  }
+
+  @Test
+  void maximumCapAndUnknownCapRemovalBoundaryAreRetained() {
+    var breach =
+        new ModifierInstance(QualityLimitRules.BREACH_ID, Map.of(QualityLimitRules.STAT_ID, 20L));
+    var item = state(CatalystQuality.Type.FLESH, 20, List.of(breach));
+    var sim = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
+    var result = sim.apply(item, WorkbenchCurrency.CATALYST_NEURAL, Set.of(), new Random(1));
+    assertThat(result.state().catalystQuality().amount()).isEqualTo(40);
+    assertThat(result.state().explicits()).containsExactly(breach);
+    assertThat(
+            sim.apply(result.state(), WorkbenchCurrency.ANNULMENT, Set.of(), new Random(1))
+                .applied())
+        .isFalse();
+    assertThat(sim.apply(item, WorkbenchCurrency.ANNULMENT, Set.of(), new Random(1)).applied())
+        .isTrue();
   }
 
   @Test

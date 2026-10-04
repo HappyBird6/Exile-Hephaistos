@@ -51,8 +51,10 @@
 .item-card__line--desecrated {
   color: #9999ff;
 }
+.item-card__line[data-fractured],
+.item-card__line[data-fractured] .item-card__affix,
 .item-card__line--fractured {
-  color: #d4b572;
+  color: #b8bbc0;
 }
 .item-card__line--removal-candidate,
 .item-card__line--removal-candidate .item-card__affix {

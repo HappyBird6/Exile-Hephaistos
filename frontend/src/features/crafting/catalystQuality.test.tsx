@@ -91,10 +91,10 @@ const d: Definition = {
   tags: ['life'],
   weight: 1000,
 }
-it('derives once with truncation and retains the source roll and bounds', () => {
+it('derives once with provisional rounding and retains the source roll and bounds', () => {
   const values = { base_maximum_life: 29 }
   expect(catalystProjection(d, values, { type: 'FLESH', amount: 20 })).toEqual({
-    values: { base_maximum_life: 34 },
+    values: { base_maximum_life: 35 },
     status: 'SCALED_INTEGER',
   })
   expect(values).toEqual({ base_maximum_life: 29 })
@@ -114,7 +114,7 @@ it('derives once with truncation and retains the source roll and bounds', () => 
       { base_maximum_energy_shield: 29 },
       { type: 'CARAPACE', amount: 20 },
     ).values,
-  ).toEqual({ base_maximum_energy_shield: 34 })
+  ).toEqual({ base_maximum_energy_shield: 35 })
 })
 it.each([
   { ...d, tags: ['life', 'unscalable'] },
@@ -141,7 +141,7 @@ it.each([
     ).toBe(values)
   },
 )
-it('preserves typed and legacy frames without rewriting storage and blocks unverified currency use before fetch', async () => {
+it('preserves typed and legacy frames without rewriting storage and sends supported typed-quality currency use', async () => {
   const state = {
     ...root,
     catalystQuality: { type: 'FLESH' as const, amount: 20 },
@@ -157,7 +157,7 @@ it('preserves typed and legacy frames without rewriting storage and blocks unver
     verifiedHistoryState(restored.films[0]!.frames[0]!.state, reviewedInitial),
   ).toBe(true)
   expect(localStorage.getItem(historyStorageKey)).toBe(bytes)
-  const fetch = vi.fn()
+  const fetch = vi.fn().mockRejectedValue(new Error('Request reached server'))
   vi.stubGlobal('fetch', fetch)
   await expect(
     applyCurrency(
@@ -166,8 +166,8 @@ it('preserves typed and legacy frames without rewriting storage and blocks unver
       reviewedInitial.modifiers,
       new AbortController().signal,
     ),
-  ).rejects.toThrow('interactions')
-  expect(fetch).not.toHaveBeenCalled()
+  ).rejects.toThrow('Request reached server')
+  expect(fetch).toHaveBeenCalledOnce()
   expect(
     verifiedCatalystQuality(
       { ...state, catalystQuality: { type: 'FLESH', amount: 21 } },

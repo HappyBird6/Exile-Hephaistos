@@ -4,7 +4,7 @@ import { materials, specialEssences, essenceRows } from './materials'
 import { legacyFiveIds, legacyOmenIds, workbenchOmens } from './workbenchApi'
 
 describe('current service scope', () => {
-  it('retains source inventory while excluding eleven deferred identities and all catalyst sources', () => {
+  it('retains all 26 catalysts while excluding eleven deferred identities', () => {
     const catalysts = materials.filter((m) => m.category === 'Catalysts')
     expect(catalysts).toHaveLength(26)
     expect(deferredServiceIds.size).toBe(11)

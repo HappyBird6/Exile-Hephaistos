@@ -3,6 +3,8 @@
 > 최신 사용자 지시 (2026-10-04): 기폭제 서비스 제외 취소. 현재144 = 기본111 + legacy7 + 기폭제 미구현26, 보류76 = 기존65 + 신규11, registry220/구현체126. 기존 기폭제 메뉴·typed 품질 입력/API·film·모델·테스트 보존. 실제 적용과 UX는 사용자 피드백 수집 후 조정. Catalysing 및 Necromancy2·훼손 신규 개발은 계속 보류. 이번5는 구현 checkpoint이며 최종 FE/API/browser 검증 미완료. [최신 범위](workbench-service-scope-2026-10-04.md).
 
 
+> Historical foundation checkpoint. The later [catalyst and UX policy](workbench-catalyst-ux-2026-10-04.md) supersedes this document's truncation, catalyst-action deferral and blanket typed-quality crafting refusal. Canonical rolls and archive compatibility remain preserved.
+
 This implements already present quality state, bounded derived display and film preservation, not catalyst application. Nine bases, current111/155, pending44 and exclusions65 (including eight preserved Alloys) are unchanged. The thirteen ordinary catalysts remain pending actions.
 
 ## Verified evidence and limits

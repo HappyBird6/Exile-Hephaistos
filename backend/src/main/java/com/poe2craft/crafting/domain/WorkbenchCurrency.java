@@ -5,6 +5,32 @@ import java.util.Set;
 
 /** Workbench rules are independent of the legacy six-action bucket explorer. */
 public enum WorkbenchCurrency {
+  CATALYST_FLESH(null, 0),
+  REFINED_CATALYST_FLESH(null, 0),
+  CATALYST_NEURAL(null, 0),
+  REFINED_CATALYST_NEURAL(null, 0),
+  CATALYST_CARAPACE(null, 0),
+  REFINED_CATALYST_CARAPACE(null, 0),
+  CATALYST_UUL_NETOL(null, 0),
+  REFINED_CATALYST_UUL_NETOL(null, 0),
+  CATALYST_XOPH(null, 0),
+  REFINED_CATALYST_XOPH(null, 0),
+  CATALYST_TUL(null, 0),
+  REFINED_CATALYST_TUL(null, 0),
+  CATALYST_ESH(null, 0),
+  REFINED_CATALYST_ESH(null, 0),
+  CATALYST_CHAYULA(null, 0),
+  REFINED_CATALYST_CHAYULA(null, 0),
+  CATALYST_REAVER(null, 0),
+  REFINED_CATALYST_REAVER(null, 0),
+  CATALYST_SIBILANT(null, 0),
+  REFINED_CATALYST_SIBILANT(null, 0),
+  CATALYST_SKITTERING(null, 0),
+  REFINED_CATALYST_SKITTERING(null, 0),
+  CATALYST_ADAPTIVE(null, 0),
+  REFINED_CATALYST_ADAPTIVE(null, 0),
+  CATALYST_NECROTIC(null, 0),
+  REFINED_CATALYST_NECROTIC(null, 0),
   PERFECT_ESSENCE_MIND(null, 0),
   PERFECT_ESSENCE_THAWING(null, 0),
   PERFECT_ESSENCE_INSULATION(null, 0),
@@ -266,6 +292,17 @@ public enum WorkbenchCurrency {
       case PERFECT_ESSENCE_INFINITE -> "https://poe2db.tw/us/Perfect_Essence_of_the_Infinite";
       default -> throw new IllegalArgumentException("Not a supported replacement essence");
     };
+  }
+
+  public com.poe2craft.item.CatalystQuality.Type catalystType() {
+    String id = name().replaceFirst("^REFINED_", "");
+    return id.startsWith("CATALYST_")
+        ? com.poe2craft.item.CatalystQuality.Type.valueOf(id.substring(9))
+        : null;
+  }
+
+  public boolean refinedCatalyst() {
+    return name().startsWith("REFINED_CATALYST_");
   }
 
   public String replacementSource() {

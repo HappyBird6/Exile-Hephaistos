@@ -1,6 +1,7 @@
 import type { Definition } from './craftingApi'
 import type { ConcreteItem } from './workbenchApi'
 import { maximumQuality } from './qualityLimit'
+import { roundQualityRatio } from './qualityRoundingPolicy'
 
 export const catalystTypes = {
   FLESH: { name: 'Flesh', tags: ['life'] },
@@ -24,7 +25,7 @@ export type CatalystQuality = {
   type: keyof typeof catalystTypes
   amount: number
 }
-export const catalystQualityVersion = 'catalyst-quality-display-v1'
+export const catalystQualityVersion = 'catalyst-quality-display-round-v2'
 export const catalystBase = (base: string) =>
   [
     'Metadata/Items/Amulets/FourAmulet9',
@@ -117,7 +118,7 @@ export function catalystProjection(
   const displayed = Object.fromEntries(
     Object.entries(values).map(([id, value]) => [
       id,
-      Number((BigInt(value) * BigInt(100 + quality.amount)) / 100n),
+      roundQualityRatio(BigInt(value) * BigInt(100 + quality.amount), 100n),
     ]),
   )
   if (!Object.values(displayed).every(Number.isSafeInteger))
