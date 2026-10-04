@@ -7,6 +7,8 @@ public final class HelmetEssenceTargets {
   private HelmetEssenceTargets() {}
 
   public static boolean supports(String id) {
-    return id.equals(BASE_ID) || id.equals("Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame");
+    return com.poe2craft.item.ReviewedHelmets.supports(id)
+        || id.equals(BASE_ID)
+        || id.equals("Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame");
   }
 }

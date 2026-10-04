@@ -146,5 +146,202 @@
       "zh-TW": "需求:  等級 80, 55 力量, 55 智慧",
       "es": "Requiere:  Nivel 80, 55 Fue, 55 Int"
     }
+  },
+  "polished": {
+    "key": "polished",
+    "slug": "Polished_Bracers",
+    "archetype": "dex",
+    "pool": "polished-bracers",
+    "family": "gloves",
+    "id": "Metadata/Items/Armours/Gloves/FourGlovesDex6Endgame",
+    "name": "Polished Bracers",
+    "sourceUrl": "https://poe2db.tw/us/Polished_Bracers",
+    "sourceSha256": "ec8acaf4281317b4883f685b89bd37519376f3a78d2aceeb26a2b1cb21f25bb2",
+    "sourceTags": [
+      "dex_armour",
+      "karui_basetype",
+      "gloves",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 0,
+    "requiredLevel": 80,
+    "strength": 0,
+    "intelligence": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 101 Dex",
+      "ko": "요구 사항:  레벨 80, 101 민첩",
+      "ja": "装備条件： レベル 80, 101 器用さ",
+      "zh-CN": "需求：  等级 80, 101 敏捷",
+      "zh-TW": "需求:  等級 80, 101 敏捷",
+      "es": "Requiere:  Nivel 80, 101 Des"
+    },
+    "evasion": 170,
+    "dexterity": 101
+  },
+  "blacksteel-gloves": {
+    "key": "blacksteel-gloves",
+    "slug": "Blacksteel_Gauntlets",
+    "archetype": "str_dex",
+    "pool": "blacksteel-gauntlets",
+    "family": "gloves",
+    "id": "Metadata/Items/Armours/Gloves/FourGlovesStrDex4Endgame",
+    "name": "Blacksteel Gauntlets",
+    "sourceUrl": "https://poe2db.tw/us/Blacksteel_Gauntlets",
+    "sourceSha256": "04c265cd0b58b10e4b495fb976bb069797a5d30ba1b6084522539b65b66e95d5",
+    "sourceTags": [
+      "str_dex_armour",
+      "karui_basetype",
+      "gloves",
+      "armour"
+    ],
+    "armour": 103,
+    "energyShield": 0,
+    "requiredLevel": 80,
+    "strength": 55,
+    "intelligence": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 55 Str, 55 Dex",
+      "ko": "요구 사항:  레벨 80, 55 힘, 55 민첩",
+      "ja": "装備条件： レベル 80, 55 筋力, 55 器用さ",
+      "zh-CN": "需求：  等级 80, 55 力量, 55 敏捷",
+      "zh-TW": "需求:  等級 80, 55 力量, 55 敏捷",
+      "es": "Requiere:  Nivel 80, 55 Fue, 55 Des"
+    },
+    "evasion": 94,
+    "dexterity": 55
+  },
+  "war-wraps": {
+    "key": "war-wraps",
+    "slug": "War_Wraps",
+    "archetype": "dex_int",
+    "pool": "war-wraps",
+    "family": "gloves",
+    "id": "Metadata/Items/Armours/Gloves/FourGlovesDexInt1Endgame",
+    "name": "War Wraps",
+    "sourceUrl": "https://poe2db.tw/us/War_Wraps",
+    "sourceSha256": "2d2b191c4188e15a9d28e1030ca2065525226143a37f989d220352c5cd7d7cca",
+    "sourceTags": [
+      "dex_int_armour",
+      "gloves",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 29,
+    "requiredLevel": 65,
+    "strength": 0,
+    "intelligence": 44,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 65, 44 Dex, 44 Int",
+      "ko": "요구 사항:  레벨 65, 44 민첩, 44 지능",
+      "ja": "装備条件： レベル 65, 44 器用さ, 44 知性",
+      "zh-CN": "需求：  等级 65, 44 敏捷, 44 智慧",
+      "zh-TW": "需求:  等級 65, 44 敏捷, 44 智慧",
+      "es": "Requiere:  Nivel 65, 44 Des, 44 Int"
+    },
+    "evasion": 94,
+    "dexterity": 44
+  },
+  "freebooter": {
+    "key": "freebooter",
+    "slug": "Freebooter_Cap",
+    "archetype": "dex",
+    "pool": "freebooter-cap",
+    "family": "helmets",
+    "id": "Metadata/Items/Armours/Helmets/FourHelmetDex7Endgame",
+    "name": "Freebooter Cap",
+    "sourceUrl": "https://poe2db.tw/us/Freebooter_Cap",
+    "sourceSha256": "819ac0492069db7faeaac4c14e1f37f92889084bb8022a2e9aee53f7d85cc0d5",
+    "sourceTags": [
+      "dex_armour",
+      "karui_basetype",
+      "helmet",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 0,
+    "requiredLevel": 80,
+    "strength": 0,
+    "intelligence": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 115 Dex",
+      "ko": "요구 사항:  레벨 80, 115 민첩",
+      "ja": "装備条件： レベル 80, 115 器用さ",
+      "zh-CN": "需求：  等级 80, 115 敏捷",
+      "zh-TW": "需求:  等級 80, 115 敏捷",
+      "es": "Requiere:  Nivel 80, 115 Des"
+    },
+    "evasion": 340,
+    "dexterity": 115
+  },
+  "gladiatorial": {
+    "key": "gladiatorial",
+    "slug": "Gladiatorial_Helm",
+    "archetype": "str_dex",
+    "pool": "gladiatorial-helm",
+    "family": "helmets",
+    "id": "Metadata/Items/Armours/Helmets/FourHelmetStrDex6Endgame",
+    "name": "Gladiatorial Helm",
+    "sourceUrl": "https://poe2db.tw/us/Gladiatorial_Helm",
+    "sourceSha256": "3d0b24237f9b901afcb7c8084d49c2b687084dedde7079637fd2f4e3f0eee83c",
+    "sourceTags": [
+      "str_dex_armour",
+      "karui_basetype",
+      "helmet",
+      "armour"
+    ],
+    "armour": 206,
+    "energyShield": 0,
+    "requiredLevel": 80,
+    "strength": 63,
+    "intelligence": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 63 Str, 63 Dex",
+      "ko": "요구 사항:  레벨 80, 63 힘, 63 민첩",
+      "ja": "装備条件： レベル 80, 63 筋力, 63 器用さ",
+      "zh-CN": "需求：  等级 80, 63 力量, 63 敏捷",
+      "zh-TW": "需求:  等級 80, 63 力量, 63 敏捷",
+      "es": "Requiere:  Nivel 80, 63 Fue, 63 Des"
+    },
+    "evasion": 187,
+    "dexterity": 63
+  },
+  "grinning": {
+    "key": "grinning",
+    "slug": "Grinning_Mask",
+    "archetype": "dex_int",
+    "pool": "grinning-mask",
+    "family": "helmets",
+    "id": "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame",
+    "name": "Grinning Mask",
+    "sourceUrl": "https://poe2db.tw/us/Grinning_Mask",
+    "sourceSha256": "3078bd0e431c072261eef610372b74ba02fd0a6e8ba77ecad8b59409fa937d55",
+    "sourceTags": [
+      "dex_int_armour",
+      "karui_basetype",
+      "helmet",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 57,
+    "requiredLevel": 80,
+    "strength": 0,
+    "intelligence": 63,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 63 Dex, 63 Int",
+      "ko": "요구 사항:  레벨 80, 63 민첩, 63 지능",
+      "ja": "装備条件： レベル 80, 63 器用さ, 63 知性",
+      "zh-CN": "需求：  等级 80, 63 敏捷, 63 智慧",
+      "zh-TW": "需求:  等級 80, 63 敏捷, 63 智慧",
+      "es": "Requiere:  Nivel 80, 63 Des, 63 Int"
+    },
+    "evasion": 187,
+    "dexterity": 63
   }
 }

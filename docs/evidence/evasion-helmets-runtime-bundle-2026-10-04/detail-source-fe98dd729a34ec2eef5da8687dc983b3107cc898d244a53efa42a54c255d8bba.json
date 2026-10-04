@@ -1,0 +1,58 @@
+{
+  "code": null,
+  "sourceId": "fe98dd729a34ec2eef5da8687dc983b3107cc898d244a53efa42a54c255d8bba",
+  "url": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/fe98dd729a34ec2eef5da8687dc983b3107cc898d244a53efa42a54c255d8bba",
+  "retrievedAt": "2026-10-04T17:13:13.971Z",
+  "sha256": "fe98dd729a34ec2eef5da8687dc983b3107cc898d244a53efa42a54c255d8bba",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(79<span class=\"ndash\">—</span>94)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/5b6ec6eb65a018369b5ec769fa88051ee7f93c3ef1dd5a6a834c75baaa97d247\">Evasion</a> Rating<br><span class='mod-value'>+(26<span class=\"ndash\">—</span>29)</span> to maximum <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9a5ff1400bc71ec138a670ac8572505962d009bf3c5e15a9e1069755cbaeda17\">Energy Shield</a></span></h5>   <span data-tabname=\"Spirit's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Spirit's\n<tr><th>Family<td>BaseLocalDefences\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>54 (Effective: 43)\n<tr><th>Gold Price<td>883\n<tr><th>Stats<td><li>local energy shield <span class=\"badge bg-primary\">26 <span class=\"ndash\">—</span> 29</span> <span class=\"badge bg-secondary\">Local</span></li><li>local base evasion rating <span class=\"badge bg-primary\">79 <span class=\"ndash\">—</span> 94</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>boots: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>dex_int_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Evasion</span> <span class='badge bg-primary'>Energy Shield</span> </table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Spirit's",
+      "Family": "BaseLocalDefences",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "54 (Effective: 43)",
+      "Gold Price": "883",
+      "Stats": "local energy shield 26 — 29 Locallocal base evasion rating 79 — 94 Local",
+      "Spawn Tags": "boots: 0 gloves: 0 dex_int_armour: 1 str_dex_int_armour: 1 default: 0",
+      "Craft Tags": "defences Evasion Energy Shield"
+    },
+    "stats": [
+      {
+        "id": "local_energy_shield",
+        "min": 26,
+        "max": 29,
+        "locality": "Local"
+      },
+      {
+        "id": "local_base_evasion_rating",
+        "min": 79,
+        "max": 94,
+        "locality": "Local"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "boots",
+        "weight": 0
+      },
+      {
+        "tag": "gloves",
+        "weight": 0
+      },
+      {
+        "tag": "dex_int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "str_dex_int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "+(79—94) to Evasion Rating\n+(26—29) to maximum Energy Shield"
+  }
+}

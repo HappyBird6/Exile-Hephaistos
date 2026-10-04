@@ -1,0 +1,50 @@
+{
+  "code": null,
+  "sourceId": "e8f5f9e520d18ff4bb8a0534ecdada43704f6a6da0f14e2f59c447d8f05caaf7",
+  "url": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/e8f5f9e520d18ff4bb8a0534ecdada43704f6a6da0f14e2f59c447d8f05caaf7",
+  "retrievedAt": "2026-10-04T17:09:10.063Z",
+  "sha256": "e8f5f9e520d18ff4bb8a0534ecdada43704f6a6da0f14e2f59c447d8f05caaf7",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(11<span class=\"ndash\">—</span>41)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/5b6ec6eb65a018369b5ec769fa88051ee7f93c3ef1dd5a6a834c75baaa97d247\">Evasion</a> Rating<br><span class='mod-value'>+(9<span class=\"ndash\">—</span>15)</span> to maximum <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9a5ff1400bc71ec138a670ac8572505962d009bf3c5e15a9e1069755cbaeda17\">Energy Shield</a></span></h5>   <span data-tabname=\"Nymph's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Nymph's\n<tr><th>Family<td>BaseLocalDefences\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>16 (Effective: 12)\n<tr><th>Gold Price<td>264\n<tr><th>Stats<td><li>local energy shield <span class=\"badge bg-primary\">9 <span class=\"ndash\">—</span> 15</span> <span class=\"badge bg-secondary\">Local</span></li><li>local base evasion rating <span class=\"badge bg-primary\">11 <span class=\"ndash\">—</span> 41</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>dex_int_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Evasion</span> <span class='badge bg-primary'>Energy Shield</span> \n<tr><td>Fists of Stone<td>Has <span class='mod-value'>+2</span> to [Evasion] Rating per player level<br>Has <span class='mod-value'>+1</span> to maximum [EnergyShield|Energy Shield] per player level</table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Nymph's",
+      "Family": "BaseLocalDefences",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "16 (Effective: 12)",
+      "Gold Price": "264",
+      "Stats": "local energy shield 9 — 15 Locallocal base evasion rating 11 — 41 Local",
+      "Spawn Tags": "dex_int_armour: 1 str_dex_int_armour: 1 default: 0",
+      "Craft Tags": "defences Evasion Energy Shield"
+    },
+    "stats": [
+      {
+        "id": "local_energy_shield",
+        "min": 9,
+        "max": 15,
+        "locality": "Local"
+      },
+      {
+        "id": "local_base_evasion_rating",
+        "min": 11,
+        "max": 41,
+        "locality": "Local"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "dex_int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "str_dex_int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "+(11—41) to Evasion Rating\n+(9—15) to maximum Energy Shield"
+  }
+}

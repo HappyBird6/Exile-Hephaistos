@@ -134,6 +134,7 @@ public final class WorkbenchSimulator {
   }
 
   private String baseRuleVersion() {
+    if (ReviewedHelmets.supports(catalog.base().id())) return "helmets-workbench-uniform-v1";
     if (ReviewedGloves.supports(catalog.base().id())) return "gloves-workbench-uniform-v1";
     if (BasicJewel.supportedCrafting(catalog.base().id()))
       return BasicJewel.timeLost(catalog.base().id())
@@ -156,6 +157,8 @@ public final class WorkbenchSimulator {
   }
 
   public String ledgerVersion() {
+    if (ReviewedHelmets.supports(catalog.base().id()))
+      return "helmets-uniform-candidates-unverified-rolls-v1";
     if (ReviewedGloves.supports(catalog.base().id()))
       return "gloves-uniform-candidates-unverified-rolls-v1";
     if (BasicJewel.supportedCrafting(catalog.base().id()))
@@ -926,6 +929,17 @@ public final class WorkbenchSimulator {
 
   private void recordSapphireSelection(
       List<ModifierDefinition> candidates, List<Assumption> assumptions) {
+    if (ReviewedHelmets.supports(catalog.base().id()))
+      assumptions.add(
+          new Assumption(
+              "helmets-uniform-candidates-v1",
+              "eligible per-base Helmet ordinary modifier",
+              candidates.size(),
+              candidates.stream().map(ModifierDefinition::id).sorted().toList(),
+              null,
+              null,
+              catalog.metadata().sourceUrl(),
+              "USER-APPROVED SIMULATOR MODEL: equal 1/N among eligible Helmet modifiers after family, side and level restrictions. Actual game spawn weights are unavailable; published DropChance is not a verified game weight."));
     if (BasicJewel.supportedCrafting(catalog.base().id())
         || ReviewedGloves.supports(catalog.base().id()))
       assumptions.add(

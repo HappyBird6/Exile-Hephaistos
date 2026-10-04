@@ -1,0 +1,62 @@
+{
+  "code": null,
+  "sourceId": "d3643a93e6e8816ccac204febc0b3bb9cc02581d953ffe12fa55350862aa8a29",
+  "url": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/d3643a93e6e8816ccac204febc0b3bb9cc02581d953ffe12fa55350862aa8a29",
+  "retrievedAt": "2026-10-04T17:13:15.443Z",
+  "sha256": "d3643a93e6e8816ccac204febc0b3bb9cc02581d953ffe12fa55350862aa8a29",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(6<span class=\"ndash\">—</span>13)</span>% increased <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> and <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a><br><span class='mod-value'>+(6<span class=\"ndash\">—</span>8)</span> to maximum Mana</span></h5>   <span data-tabname=\"Vulture's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Vulture's\n<tr><th>Family<td>BaseLocalDefencesAndMana\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>8 (Effective: 6)\n<tr><th>Gold Price<td>180\n<tr><th>Stats<td><li>base maximum mana <span class=\"badge bg-primary\">6 <span class=\"ndash\">—</span> 8</span> <span class=\"badge bg-secondary\">Global</span></li><li>local evasion and energy shield +% <span class=\"badge bg-primary\">6 <span class=\"ndash\">—</span> 13</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 0</span> <span class='badge bg-primary'>shield: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>boots: 0</span> <span class='badge bg-primary'>dex_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> <span class='badge bg-primary'>Evasion</span> <span class='badge bg-primary'>Energy Shield</span> </table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Vulture's",
+      "Family": "BaseLocalDefencesAndMana",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "8 (Effective: 6)",
+      "Gold Price": "180",
+      "Stats": "base maximum mana 6 — 8 Globallocal evasion and energy shield +% 6 — 13 Local",
+      "Spawn Tags": "body_armour: 0 shield: 0 gloves: 0 boots: 0 dex_int_armour: 1 default: 0",
+      "Craft Tags": "defences resource Mana Evasion Energy Shield"
+    },
+    "stats": [
+      {
+        "id": "base_maximum_mana",
+        "min": 6,
+        "max": 8,
+        "locality": "Global"
+      },
+      {
+        "id": "local_evasion_and_energy_shield_+%",
+        "min": 6,
+        "max": 13,
+        "locality": "Local"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "body_armour",
+        "weight": 0
+      },
+      {
+        "tag": "shield",
+        "weight": 0
+      },
+      {
+        "tag": "gloves",
+        "weight": 0
+      },
+      {
+        "tag": "boots",
+        "weight": 0
+      },
+      {
+        "tag": "dex_int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "(6—13)% increased Evasion and Energy Shield\n+(6—8) to maximum Mana"
+  }
+}

@@ -39,8 +39,8 @@ describe('verified modifier display templates', () => {
           !/^(ruby|emerald|sapphire|diamond):/.test(id) &&
           !id.startsWith('time-lost-'),
       ),
-      // 1,522 historical equipment bindings plus 39 source-verified Gloves bindings.
-    ).toHaveLength(1561)
+      // 1,561 historical equipment bindings plus 70 Gloves and 21 Helmet bindings.
+    ).toHaveLength(1652)
     expect(
       ids.filter((id) => /^(ruby|emerald|sapphire|diamond):/.test(id)),
     ).toHaveLength(392)

@@ -446,13 +446,17 @@ public final class WorkbenchService {
   /**
    * Bootstrap registration uses source-reviewed catalog identities and per-class essence targets.
    */
-  public void registerReviewedGloves(
+  public void registerReviewedArmour(
       String key,
       ItemCatalog catalog,
       Map<WorkbenchCurrency, List<String>> fixed,
       Map<WorkbenchCurrency, List<String>> replacements) {
-    if (!catalog.base().id().equals(ReviewedGloves.BASES.get(key)) || topBases.containsKey(key))
-      throw new IllegalArgumentException("Unreviewed or duplicate Gloves registration");
+    if (!catalog
+            .base()
+            .id()
+            .equals(ReviewedGloves.BASES.getOrDefault(key, ReviewedHelmets.BASES.get(key)))
+        || topBases.containsKey(key))
+      throw new IllegalArgumentException("Unreviewed or duplicate armour registration");
     var simulator =
         new WorkbenchSimulator(
             catalog,

@@ -7,6 +7,8 @@ type TopBase = {
   slug: string
   family: string
   armour: number
+  evasion?: number
+  dexterity?: number
   energyShield?: number
   strength: number
   intelligence?: number
@@ -23,3 +25,7 @@ export const reviewedGloveKeys = (Object.keys(data) as TopBaseKey[]).filter(
 export function topBaseKey(id: string | undefined): TopBaseKey | undefined {
   return (Object.keys(data) as TopBaseKey[]).find((key) => data[key].id === id)
 }
+
+export const reviewedArmourKeys = (Object.keys(data) as TopBaseKey[]).filter(
+  (key) => ['gloves', 'helmets'].includes(data[key].family),
+)

@@ -1,4 +1,4 @@
-import { topBase, topBaseKey, reviewedGloveKeys } from './topBases'
+import { topBase, topBaseKey, reviewedArmourKeys } from './topBases'
 import { ServiceMessage } from './ServiceMessage'
 import { serviceText } from './serviceMessages'
 import {
@@ -78,6 +78,12 @@ const baseSlugs = {
   massive: 'Massive_Mitts',
   sirenscale: 'Sirenscale_Gloves',
   adherent: 'Adherent_Cuffs',
+  freebooter: 'Freebooter_Cap',
+  gladiatorial: 'Gladiatorial_Helm',
+  grinning: 'Grinning_Mask',
+  polished: 'Polished_Bracers',
+  'blacksteel-gloves': 'Blacksteel_Gauntlets',
+  'war-wraps': 'War_Wraps',
   'time-lost-ruby': 'Time-Lost Ruby',
   'time-lost-emerald': 'Time-Lost Emerald',
   'time-lost-sapphire': 'Time-Lost Sapphire',
@@ -302,6 +308,12 @@ export function CraftingPage() {
       | 'massive'
       | 'sirenscale'
       | 'adherent'
+      | 'freebooter'
+      | 'gladiatorial'
+      | 'grinning'
+      | 'polished'
+      | 'blacksteel-gloves'
+      | 'war-wraps'
       | 'sceptre'
       | 'belt'
       | 'helmet'
@@ -480,6 +492,12 @@ export function CraftingPage() {
     | 'massive'
     | 'sirenscale'
     | 'adherent'
+    | 'freebooter'
+    | 'gladiatorial'
+    | 'grinning'
+    | 'polished'
+    | 'blacksteel-gloves'
+    | 'war-wraps'
     | 'sceptre'
     | 'belt'
     | 'helmet'
@@ -870,12 +888,15 @@ export function CraftingPage() {
                           : catalogBase === 'ring'
                             ? 'Rings'
                             : catalogBase === 'helmet' ||
-                                catalogBase === 'imperial'
+                                catalogBase === 'imperial' ||
+                                topBase(catalogBase)?.family === 'helmets'
                               ? 'Helmets'
                               : 'Amulet',
             itemLevel: concrete.itemLevel,
             properties: [
-              ...(topBase(catalogBase)?.family === 'gloves'
+              ...(['gloves', 'helmets'].includes(
+                topBase(catalogBase)?.family ?? '',
+              )
                 ? [
                     ...(topBase(catalogBase)!.armour > 0
                       ? [
@@ -883,6 +904,16 @@ export function CraftingPage() {
                             id: 'base-armour',
                             text: t('base.armour', {
                               value: topBase(catalogBase)!.armour,
+                            }),
+                          },
+                        ]
+                      : []),
+                    ...((topBase(catalogBase)!.evasion ?? 0) > 0
+                      ? [
+                          {
+                            id: 'base-evasion',
+                            text: t('base.evasion', {
+                              value: topBase(catalogBase)!.evasion!,
                             }),
                           },
                         ]
@@ -1825,7 +1856,9 @@ export function CraftingPage() {
                                     : catalogBase === 'ring'
                                       ? 'Rings'
                                       : catalogBase === 'helmet' ||
-                                          catalogBase === 'imperial'
+                                          catalogBase === 'imperial' ||
+                                          topBase(catalogBase)?.family ===
+                                            'helmets'
                                         ? 'Helmets'
                                         : 'Amulet',
                       itemLevel: draft.baseItemLevel,
@@ -1918,6 +1951,12 @@ export function CraftingPage() {
                           | 'massive'
                           | 'sirenscale'
                           | 'adherent'
+                          | 'freebooter'
+                          | 'gladiatorial'
+                          | 'grinning'
+                          | 'polished'
+                          | 'blacksteel-gloves'
+                          | 'war-wraps'
                           | 'sceptre'
                           | 'belt'
                           | 'helmet'
@@ -1967,7 +2006,7 @@ export function CraftingPage() {
                     <option value="wand">
                       {name('Attuned_Wand', 'Attuned Wand')}
                     </option>
-                    {reviewedGloveKeys.map((key) => (
+                    {reviewedArmourKeys.map((key) => (
                       <option key={key} value={key}>
                         {name(topBase(key)!.slug, topBase(key)!.name)}
                       </option>

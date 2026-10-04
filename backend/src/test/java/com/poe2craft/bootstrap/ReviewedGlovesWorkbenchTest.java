@@ -35,7 +35,8 @@ class ReviewedGlovesWorkbenchTest {
   }
 
   @ParameterizedTest
-  @ValueSource(strings = {"massive", "sirenscale", "adherent"})
+  @ValueSource(
+      strings = {"massive", "sirenscale", "adherent", "polished", "blacksteel-gloves", "war-wraps"})
   void fullPoolUniformCraftingAndLegacyIsolation(String key) {
     var c = ItemCatalogLoader.loadTopBase(key);
     var service = service();
@@ -44,7 +45,11 @@ class ReviewedGlovesWorkbenchTest {
         switch (key) {
           case "massive" -> 182;
           case "sirenscale" -> 178;
-          default -> 188;
+          case "adherent" -> 188;
+          case "polished" -> 174;
+          case "blacksteel-gloves" -> 184;
+          case "war-wraps" -> 180;
+          default -> throw new IllegalArgumentException(key);
         };
     assertThat(c.modifiers()).hasSize(ordinary + 4);
     assertThat(c.modifiers().values().stream().filter(d -> d.weight() > 0))
@@ -101,7 +106,8 @@ class ReviewedGlovesWorkbenchTest {
   }
 
   @ParameterizedTest
-  @ValueSource(strings = {"massive", "sirenscale", "adherent"})
+  @ValueSource(
+      strings = {"massive", "sirenscale", "adherent", "polished", "blacksteel-gloves", "war-wraps"})
   void sourceEssencesClassRefusalFracturesAndLowLevel(String key) {
     var c = ItemCatalogLoader.loadTopBase(key);
     var service = service();
@@ -139,7 +145,13 @@ class ReviewedGlovesWorkbenchTest {
       if (action == WorkbenchCurrency.LESSER_ESSENCE_ENHANCEMENT) {
         var target = c.find(result.events().getLast().modifierId()).orElseThrow();
         assertThat(target.familyIds()).contains("DefencesPercent");
-        assertThat(target.text()).contains(key.equals("massive") ? "Armour" : "Energy Shield");
+        assertThat(target.text())
+            .contains(
+                switch (key) {
+                  case "massive", "blacksteel-gloves" -> "Armour";
+                  case "polished" -> "Evasion";
+                  default -> "Energy Shield";
+                });
       }
     }
     var lowMagic =

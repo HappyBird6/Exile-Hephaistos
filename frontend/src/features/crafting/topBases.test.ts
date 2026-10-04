@@ -10,6 +10,12 @@ describe('reviewed endgame base identities', () => {
     'massive',
     'sirenscale',
     'adherent',
+    'polished',
+    'blacksteel-gloves',
+    'war-wraps',
+    'freebooter',
+    'gladiatorial',
+    'grinning',
   ] as const)('preserves source facts and six languages for %s', (key) => {
     const base = topBase(key)!
     expect(topBaseKey(base.id)).toBe(key)
@@ -26,6 +32,7 @@ describe('reviewed endgame base identities', () => {
         (text) =>
           text.includes(String(base.requiredLevel)) &&
           (base.strength === 0 || text.includes(String(base.strength))) &&
+          (!base.dexterity || text.includes(String(base.dexterity))) &&
           (!base.intelligence || text.includes(String(base.intelligence))),
       ),
     ).toBe(true)

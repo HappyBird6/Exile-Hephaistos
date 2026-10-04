@@ -1,0 +1,16 @@
+{
+  "project": "exile-evasion-gloves-20261004",
+  "ports": [
+    19480,
+    19481
+  ],
+  "qaServicesStopped": true,
+  "slotReleased": true,
+  "releasedAt": "2026-10-04T17:47:22.902Z",
+  "livePorts": [
+    18080,
+    18081
+  ],
+  "liveContainersPreserved": true,
+  "remotePushMergeDeploy": false
+}

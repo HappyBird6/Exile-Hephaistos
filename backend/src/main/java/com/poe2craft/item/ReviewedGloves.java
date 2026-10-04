@@ -8,7 +8,10 @@ public final class ReviewedGloves {
       Map.of(
           "massive", "Metadata/Items/Armours/Gloves/FourGlovesStr6Endgame",
           "sirenscale", "Metadata/Items/Armours/Gloves/FourGlovesInt6Endgame",
-          "adherent", "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame");
+          "adherent", "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame",
+          "polished", "Metadata/Items/Armours/Gloves/FourGlovesDex6Endgame",
+          "blacksteel-gloves", "Metadata/Items/Armours/Gloves/FourGlovesStrDex4Endgame",
+          "war-wraps", "Metadata/Items/Armours/Gloves/FourGlovesDexInt1Endgame");
 
   private ReviewedGloves() {}
 

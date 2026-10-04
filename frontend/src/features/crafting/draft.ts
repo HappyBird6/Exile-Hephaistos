@@ -8,6 +8,13 @@ const baseTexts = {
   massive: 'Item Class: Gloves\nRarity: Normal\nMassive Mitts',
   sirenscale: 'Item Class: Gloves\nRarity: Normal\nSirenscale Gloves',
   adherent: 'Item Class: Gloves\nRarity: Normal\nAdherent Cuffs',
+  freebooter: 'Item Class: Helmets\nRarity: Normal\nFreebooter Cap',
+  gladiatorial: 'Item Class: Helmets\nRarity: Normal\nGladiatorial Helm',
+  grinning: 'Item Class: Helmets\nRarity: Normal\nGrinning Mask',
+  polished: 'Item Class: Gloves\nRarity: Normal\nPolished Bracers',
+  'blacksteel-gloves':
+    'Item Class: Gloves\nRarity: Normal\nBlacksteel Gauntlets',
+  'war-wraps': 'Item Class: Gloves\nRarity: Normal\nWar Wraps',
   'time-lost-ruby': 'Item Class: Jewels\nRarity: Normal\nTime-Lost Ruby',
   'time-lost-emerald': 'Item Class: Jewels\nRarity: Normal\nTime-Lost Emerald',
   'time-lost-sapphire':
@@ -46,6 +53,12 @@ type Draft = {
     | 'massive'
     | 'sirenscale'
     | 'adherent'
+    | 'freebooter'
+    | 'gladiatorial'
+    | 'grinning'
+    | 'polished'
+    | 'blacksteel-gloves'
+    | 'war-wraps'
     | 'sceptre'
     | 'belt'
     | 'helmet'
@@ -75,6 +88,12 @@ type Draft = {
       | 'massive'
       | 'sirenscale'
       | 'adherent'
+      | 'freebooter'
+      | 'gladiatorial'
+      | 'grinning'
+      | 'polished'
+      | 'blacksteel-gloves'
+      | 'war-wraps'
       | 'sceptre'
       | 'belt'
       | 'helmet'

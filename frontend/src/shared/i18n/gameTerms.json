@@ -2175,6 +2175,42 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame",
       "sourceUrl": "https://poe2db.tw/us/Adherent_Cuffs"
+    },
+    "Polished_Bracers": {
+      "name": "Polished Bracers",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Polished_Bracers"
+    },
+    "Blacksteel_Gauntlets": {
+      "name": "Blacksteel Gauntlets",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStrDex4Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Blacksteel_Gauntlets"
+    },
+    "War_Wraps": {
+      "name": "War Wraps",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesDexInt1Endgame",
+      "sourceUrl": "https://poe2db.tw/us/War_Wraps"
+    },
+    "Freebooter_Cap": {
+      "name": "Freebooter Cap",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetDex7Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Freebooter_Cap"
+    },
+    "Gladiatorial_Helm": {
+      "name": "Gladiatorial Helm",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStrDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Gladiatorial_Helm"
+    },
+    "Grinning_Mask": {
+      "name": "Grinning Mask",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Grinning_Mask"
     }
   },
   "ko": {
@@ -4337,6 +4373,42 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame",
       "sourceUrl": "https://poe2db.tw/kr/Adherent_Cuffs"
+    },
+    "Polished_Bracers": {
+      "name": "광택 나는 팔보호구",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Polished_Bracers"
+    },
+    "Blacksteel_Gauntlets": {
+      "name": "검은강철 건틀릿",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStrDex4Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Blacksteel_Gauntlets"
+    },
+    "War_Wraps": {
+      "name": "전쟁 싸개",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesDexInt1Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/War_Wraps"
+    },
+    "Freebooter_Cap": {
+      "name": "무뢰한 모자",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetDex7Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Freebooter_Cap"
+    },
+    "Gladiatorial_Helm": {
+      "name": "검투사 헬름",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStrDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Gladiatorial_Helm"
+    },
+    "Grinning_Mask": {
+      "name": "웃는 가면",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Grinning_Mask"
     }
   },
   "zh-CN": {
@@ -6397,6 +6469,42 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame",
       "sourceUrl": "https://poe2db.tw/cn/Adherent_Cuffs"
+    },
+    "Polished_Bracers": {
+      "name": "闪耀护腕",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Polished_Bracers"
+    },
+    "Blacksteel_Gauntlets": {
+      "name": "黑钢手甲",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStrDex4Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Blacksteel_Gauntlets"
+    },
+    "War_Wraps": {
+      "name": "战争裹手",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesDexInt1Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/War_Wraps"
+    },
+    "Freebooter_Cap": {
+      "name": "劫掠者之帽",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetDex7Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Freebooter_Cap"
+    },
+    "Gladiatorial_Helm": {
+      "name": "角斗士头盔",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStrDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Gladiatorial_Helm"
+    },
+    "Grinning_Mask": {
+      "name": "狞笑面罩",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Grinning_Mask"
     }
   },
   "zh-TW": {
@@ -8447,6 +8555,42 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame",
       "sourceUrl": "https://poe2db.tw/tw/Adherent_Cuffs"
+    },
+    "Polished_Bracers": {
+      "name": "亮澤護腕",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Polished_Bracers"
+    },
+    "Blacksteel_Gauntlets": {
+      "name": "烏鐵護手",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStrDex4Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Blacksteel_Gauntlets"
+    },
+    "War_Wraps": {
+      "name": "戰爭裹手",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesDexInt1Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/War_Wraps"
+    },
+    "Freebooter_Cap": {
+      "name": "劫掠者便帽",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetDex7Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Freebooter_Cap"
+    },
+    "Gladiatorial_Helm": {
+      "name": "衛士之盔",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStrDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Gladiatorial_Helm"
+    },
+    "Grinning_Mask": {
+      "name": "獰笑之面",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Grinning_Mask"
     }
   },
   "ja": {
@@ -10611,6 +10755,42 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame",
       "sourceUrl": "https://poe2db.tw/jp/Adherent_Cuffs"
+    },
+    "Polished_Bracers": {
+      "name": "磨かれた弓籠手",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Polished_Bracers"
+    },
+    "Blacksteel_Gauntlets": {
+      "name": "ブラックスティールガントレット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStrDex4Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Blacksteel_Gauntlets"
+    },
+    "War_Wraps": {
+      "name": "ウォーラップ",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesDexInt1Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/War_Wraps"
+    },
+    "Freebooter_Cap": {
+      "name": "海賊の帽子",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetDex7Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Freebooter_Cap"
+    },
+    "Gladiatorial_Helm": {
+      "name": "剣闘士の兜",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStrDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Gladiatorial_Helm"
+    },
+    "Grinning_Mask": {
+      "name": "嘲笑の仮面",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Grinning_Mask"
     }
   },
   "es": {
@@ -12693,6 +12873,42 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame",
       "sourceUrl": "https://poe2db.tw/sp/Adherent_Cuffs"
+    },
+    "Polished_Bracers": {
+      "name": "Brazales pulidas",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Polished_Bracers"
+    },
+    "Blacksteel_Gauntlets": {
+      "name": "Guanteletes de acero negro",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesStrDex4Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Blacksteel_Gauntlets"
+    },
+    "War_Wraps": {
+      "name": "Vendajes de guerra",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Gloves/FourGlovesDexInt1Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/War_Wraps"
+    },
+    "Freebooter_Cap": {
+      "name": "Gorro de saqueador",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetDex7Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Freebooter_Cap"
+    },
+    "Gladiatorial_Helm": {
+      "name": "Yelmo gladiatoria",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetStrDex6Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Gladiatorial_Helm"
+    },
+    "Grinning_Mask": {
+      "name": "Máscara sonriente",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Grinning_Mask"
     }
   }
 }

@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "comparedDocuments": 24,
+  "assertions": "Complete pools, stable source IDs, historical definitions and templates, hashes, snapshots and source timestamps are identical after cached replay"
+}

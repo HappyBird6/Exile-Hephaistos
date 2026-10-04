@@ -36,11 +36,14 @@ public final class ItemCatalogLoader {
         pool = loadHelmet();
       }
       default -> {
-        if (!com.poe2craft.item.ReviewedGloves.BASES.containsKey(key))
+        if (!com.poe2craft.item.ReviewedGloves.BASES.containsKey(key)
+            && !com.poe2craft.item.ReviewedHelmets.BASES.containsKey(key))
           throw new IllegalArgumentException("Unreviewed endgame base");
         try (var proof = ItemCatalogLoader.class.getResourceAsStream("/catalog/top-bases.json")) {
           var source = mapper().readTree(proof).get(key);
-          id = com.poe2craft.item.ReviewedGloves.BASES.get(key);
+          id =
+              com.poe2craft.item.ReviewedGloves.BASES.getOrDefault(
+                  key, com.poe2craft.item.ReviewedHelmets.BASES.get(key));
           name = source.get("name").asText();
           String root = "/catalog/" + source.get("pool").asText() + "/";
           try (var data = ItemCatalogLoader.class.getResourceAsStream(root + "catalog.json");
@@ -50,9 +53,9 @@ public final class ItemCatalogLoader {
             pool = load(data, raw, details);
           }
           if (!pool.base().id().equals(id) || !pool.base().name().equals(name))
-            throw new IllegalArgumentException("Reviewed Gloves catalog identity mismatch");
+            throw new IllegalArgumentException("Reviewed armour catalog identity mismatch");
         } catch (IOException e) {
-          throw new IllegalStateException("Cannot load reviewed Gloves catalog", e);
+          throw new IllegalStateException("Cannot load reviewed armour catalog", e);
         }
       }
     }

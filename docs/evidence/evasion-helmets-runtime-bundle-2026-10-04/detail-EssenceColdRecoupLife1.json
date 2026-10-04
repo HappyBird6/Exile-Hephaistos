@@ -1,0 +1,35 @@
+{
+  "code": "EssenceColdRecoupLife1",
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceColdRecoupLife1",
+  "retrievedAt": "2026-10-04T17:12:19.340Z",
+  "sha256": "9cbbab1dc8112c8c1adf2f2f3a7df5610fb364a59bfa7300531a1eb76c85d4aa",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(26<span class=\"ndash\">—</span>30)</span>% of <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage taken <a data-keyword=\"Recoup\" href=\"Recoup\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3c83824668de5af953edb328359ea3c64e3076d5589052471bb7d5ce14727322\">Recouped</a> as Life</span></h5>   <span data-tabname=\"of the Essence\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Essence\n<tr><th>Family<td>ColdDamageTakenRecoupedAsLife\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>cold damage taken goes to life over 4 seconds % <span class=\"badge bg-primary\">26 <span class=\"ndash\">—</span> 30</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Cold</span> </table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "of the Essence",
+      "Family": "ColdDamageTakenRecoupedAsLife",
+      "Domains": "Item (1)",
+      "GenerationType": "Suffix (2)",
+      "Req. level": "72 (Effective: 57)",
+      "Gold Price": "3266",
+      "Stats": "cold damage taken goes to life over 4 seconds % 26 — 30 Global",
+      "Spawn Tags": "default: 0",
+      "Craft Tags": "resource Life Elemental Cold"
+    },
+    "stats": [
+      {
+        "id": "cold_damage_taken_goes_to_life_over_4_seconds_%",
+        "min": 26,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "(26—30)% of Cold Damage taken Recouped as Life"
+  }
+}

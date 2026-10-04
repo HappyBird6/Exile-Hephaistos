@@ -1,0 +1,58 @@
+{
+  "code": null,
+  "sourceId": "1f2136e4ee698ce804b481a9e239c699678f1a6b8c8942d38dce1b63e9efb22e",
+  "url": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/1f2136e4ee698ce804b481a9e239c699678f1a6b8c8942d38dce1b63e9efb22e",
+  "retrievedAt": "2026-10-04T17:12:59.251Z",
+  "sha256": "1f2136e4ee698ce804b481a9e239c699678f1a6b8c8942d38dce1b63e9efb22e",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(86<span class=\"ndash\">—</span>102)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/eb07d7bed5df994c783915a2b4446076746834995f74021f2cb2decc2466d8f7\">Armour</a><br><span class='mod-value'>+(79<span class=\"ndash\">—</span>94)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/5b6ec6eb65a018369b5ec769fa88051ee7f93c3ef1dd5a6a834c75baaa97d247\">Evasion</a> Rating</span></h5>   <span data-tabname=\"Sturdy\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Sturdy\n<tr><th>Family<td>BaseLocalDefences\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>54 (Effective: 43)\n<tr><th>Gold Price<td>883\n<tr><th>Stats<td><li>local base evasion rating <span class=\"badge bg-primary\">79 <span class=\"ndash\">—</span> 94</span> <span class=\"badge bg-secondary\">Local</span></li><li>local base physical damage reduction rating <span class=\"badge bg-primary\">86 <span class=\"ndash\">—</span> 102</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>boots: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>str_dex_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Armour</span> <span class='badge bg-primary'>Evasion</span> </table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Sturdy",
+      "Family": "BaseLocalDefences",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "54 (Effective: 43)",
+      "Gold Price": "883",
+      "Stats": "local base evasion rating 79 — 94 Locallocal base physical damage reduction rating 86 — 102 Local",
+      "Spawn Tags": "boots: 0 gloves: 0 str_dex_armour: 1 str_dex_int_armour: 1 default: 0",
+      "Craft Tags": "defences Armour Evasion"
+    },
+    "stats": [
+      {
+        "id": "local_base_evasion_rating",
+        "min": 79,
+        "max": 94,
+        "locality": "Local"
+      },
+      {
+        "id": "local_base_physical_damage_reduction_rating",
+        "min": 86,
+        "max": 102,
+        "locality": "Local"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "boots",
+        "weight": 0
+      },
+      {
+        "tag": "gloves",
+        "weight": 0
+      },
+      {
+        "tag": "str_dex_armour",
+        "weight": 1
+      },
+      {
+        "tag": "str_dex_int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "+(86—102) to Armour\n+(79—94) to Evasion Rating"
+  }
+}
