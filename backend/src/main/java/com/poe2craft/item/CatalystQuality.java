@@ -39,6 +39,7 @@ public record CatalystQuality(Type type, int amount) {
     return base.equals(SolarAmulet.BASE_ID)
         || base.equals("Metadata/Items/Rings/FourRing1")
         || ReviewedRings.supports(base)
+        || ReviewedAmulets.supports(base)
         || BasicJewel.supported(base);
   }
 }

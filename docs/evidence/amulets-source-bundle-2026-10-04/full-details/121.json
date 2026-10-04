@@ -1,0 +1,30 @@
+{
+  "row": {
+    "Name": "Protective",
+    "Level": "2",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "EnergyShieldPercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(10<span class=\"ndash\">—</span>14)</span>% increased maximum <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a>",
+    "fossil_no": [
+      "defences",
+      "energy_shield"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "amulet",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingenergy_shield\" data-tag=\"energy_shield\">Energy Shield</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5b40327cae872a127ca453519acc9472dcf68f022b2b254107223244454a2085"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5b40327cae872a127ca453519acc9472dcf68f022b2b254107223244454a2085",
+  "retrievedAt": "2026-10-04T22:02:26.779Z",
+  "sha256": "5b40327cae872a127ca453519acc9472dcf68f022b2b254107223244454a2085",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(10<span class=\"ndash\">—</span>14)</span>% increased maximum <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9a5ff1400bc71ec138a670ac8572505962d009bf3c5e15a9e1069755cbaeda17\">Energy Shield</a></span></h5>   <span data-tabname=\"Protective\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Protective\n<tr><th>Family<td>EnergyShieldPercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>2 (Effective: 1)\n<tr><th>Gold Price<td>197\n<tr><th>Stats<td><li>maximum energy shield +% <span class=\"badge bg-primary\">10 <span class=\"ndash\">—</span> 14</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Energy Shield</span> </table>  </div></div>"
+}

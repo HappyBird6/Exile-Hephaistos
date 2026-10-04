@@ -1,0 +1,35 @@
+{
+  "row": {
+    "Name": "of Recuperation",
+    "Level": "58",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LifeRegeneration"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(18.1<span class=\"ndash\">—</span>23)</span> Life Regeneration per second",
+    "fossil_no": [
+      "flat_life_regen",
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "helmet",
+      "boots",
+      "belt",
+      "amulet",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/fb3df008bb8a0d1daa13f6acde5bd6580fbe2c48a4d28e2aed3ef2a5ae1e1028"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/fb3df008bb8a0d1daa13f6acde5bd6580fbe2c48a4d28e2aed3ef2a5ae1e1028",
+  "retrievedAt": "2026-10-04T22:02:41.100Z",
+  "sha256": "fb3df008bb8a0d1daa13f6acde5bd6580fbe2c48a4d28e2aed3ef2a5ae1e1028",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(18.1<span class=\"ndash\">—</span>23)</span> Life Regeneration per second</span></h5>   <span data-tabname=\"of Recuperation\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Recuperation\n<tr><th>Family<td>LifeRegeneration\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>58 (Effective: 46)\n<tr><th>Gold Price<td>1169\n<tr><th>Stats<td><li>base life regeneration rate per minute <span class=\"badge bg-primary\">1086 <span class=\"ndash\">—</span> 1380</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>flat_life_regen</i></span> <span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> </table>  </div></div>"
+}

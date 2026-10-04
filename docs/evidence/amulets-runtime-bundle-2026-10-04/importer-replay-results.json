@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "count": 14,
+  "checks": [
+    "backend/src/main/resources/catalog/top-bases.json",
+    "backend/src/main/resources/catalog/top-base-essences.json",
+    "backend/src/main/resources/crafting/registry-v2.json",
+    "frontend/src/shared/i18n/gameTerms.json",
+    "frontend/src/shared/i18n/modifierTemplates.json",
+    "deferred50 exactly unchanged",
+    "exact seven new implicits and Hysteria binding",
+    "stellar source identity and218 definitions/six locales",
+    "amber source identity and218 definitions/six locales",
+    "bloodstone source identity and218 definitions/six locales",
+    "lunar source identity and218 definitions/six locales",
+    "azure source identity and218 definitions/six locales",
+    "crimson source identity and218 definitions/six locales",
+    "pearlescent source identity and218 definitions/six locales"
+  ],
+  "added": [
+    "amber:implicit:strength",
+    "amulet:suffix:essence-hysteria-life-recoup",
+    "azure:implicit:manaregeneration",
+    "bloodstone:implicit:increasedlife",
+    "crimson:implicit:liferegeneration",
+    "lunar:implicit:increasedenergyshield",
+    "pearlescent:implicit:allresistances",
+    "stellar:implicit:allattributes"
+  ]
+}

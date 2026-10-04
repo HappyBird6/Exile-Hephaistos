@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/us/Azure_Amulet",
+  "retrievedAt": "2026-10-04T21:52:36.788Z",
+  "sha256": "9a780eba692859c1930398140505dd17efd64c1d9e8a67de18e28dc66c6a1974",
+  "name": "Azure Amulet",
+  "card": "Azure Amulet\n        \n    \n    \n        \n            Amulets(20—30)% increased Mana Regeneration Rate",
+  "requirements": "",
+  "fields": {
+    "DropLevel": "1",
+    "BaseType": "Azure Amulet",
+    "Class": "Amulets",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Amulets/FourAmulet2",
+    "Tags": "amulet",
+    "Icon": "Art/2DItems/Amulets/Basetypes/AzureAmulet",
+    "Base.base_level": "1",
+    "Base.tag": "default, amulet",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Amulet",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

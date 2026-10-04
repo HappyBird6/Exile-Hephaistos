@@ -32,6 +32,23 @@ function definition(id: keyof typeof catalog.definitions): Definition {
 describe('verified modifier display templates', () => {
   it('covers every ordinary catalog definition in all six locales', () => {
     const ids = Object.keys(catalog.definitions)
+    expect(
+      Object.keys(catalog.definitions)
+        .filter((id) =>
+          /^(stellar|amber|bloodstone|lunar|azure|crimson|pearlescent):implicit:/.test(
+            id,
+          ),
+        )
+        .sort(),
+    ).toEqual([
+      'amber:implicit:strength',
+      'azure:implicit:manaregeneration',
+      'bloodstone:implicit:increasedlife',
+      'crimson:implicit:liferegeneration',
+      'lunar:implicit:increasedenergyshield',
+      'pearlescent:implicit:allresistances',
+      'stellar:implicit:allattributes',
+    ])
     const jewelIds = ids.filter((id) => id.startsWith('sapphire:'))
     expect(
       ids.filter(
@@ -40,7 +57,7 @@ describe('verified modifier display templates', () => {
           !id.startsWith('time-lost-'),
       ),
       // Preserve all 1,781 historical equipment bindings and add the exact nine Ring bindings.
-    ).toHaveLength(1790)
+    ).toHaveLength(1798)
     expect(
       ids
         .filter(

@@ -19,6 +19,7 @@ public final class QualityLimitRules {
         && !ReviewedBoots.supports(state.baseItemId())
         && !ReviewedBows.supports(state.baseItemId())
         && !ReviewedRings.supports(state.baseItemId())
+        && !ReviewedAmulets.supports(state.baseItemId())
         && !state.baseItemId().equals(BowEssenceTargets.BASE_ID)
         && !HelmetEssenceTargets.supports(state.baseItemId())
         && !BodyEssenceTargets.supports(state.baseItemId())
@@ -32,7 +33,8 @@ public final class QualityLimitRules {
       if (!instance.values().containsKey(STAT_ID)) continue;
       var definition = catalog.find(instance.modifierId()).orElseThrow();
       if ((!state.baseItemId().equals(SolarAmulet.BASE_ID)
-              && !ReviewedRings.supports(state.baseItemId()))
+              && !ReviewedRings.supports(state.baseItemId())
+              && !ReviewedAmulets.supports(state.baseItemId()))
           || !instance.modifierId().equals(BREACH_ID)
           || !definition.familyIds().equals(java.util.Set.of("LocalMaximumQuality"))
           || definition.affixType() != ModifierDefinition.AffixType.PREFIX

@@ -40750,6 +40750,152 @@
           "divisor": 1
         }
       ]
+    },
+    "amulet:suffix:essence-hysteria-life-recoup": {
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_life_over_4_seconds_%",
+          "min": 19,
+          "max": 21
+        }
+      ],
+      "englishText": "(19—21)% of Damage taken Recouped as Life",
+      "values": ["(19—21)"],
+      "template": "modifier.cfde96c1102be309",
+      "sourceCode": null
+    },
+    "stellar:implicit:allattributes": {
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 5,
+          "max": 7
+        }
+      ],
+      "englishText": "+(5—7) to all Attributes",
+      "values": ["+(5—7)"],
+      "template": "amulets.stellar.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "additional_all_attributes",
+          "divisor": 1
+        }
+      ]
+    },
+    "amber:implicit:strength": {
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "englishText": "+(10—15) to Strength",
+      "values": ["+(10—15)"],
+      "template": "amulets.amber.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "additional_strength",
+          "divisor": 1
+        }
+      ]
+    },
+    "bloodstone:implicit:increasedlife": {
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 30,
+          "max": 40
+        }
+      ],
+      "englishText": "+(30—40) to maximum Life",
+      "values": ["+(30—40)"],
+      "template": "amulets.bloodstone.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    "lunar:implicit:increasedenergyshield": {
+      "stats": [
+        {
+          "id": "base_maximum_energy_shield",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "englishText": "+(20—30) to maximum Energy Shield",
+      "values": ["+(20—30)"],
+      "template": "amulets.lunar.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_maximum_energy_shield",
+          "divisor": 1
+        }
+      ]
+    },
+    "azure:implicit:manaregeneration": {
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "englishText": "(20—30)% increased Mana Regeneration Rate",
+      "values": ["(20—30)"],
+      "template": "amulets.azure.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "crimson:implicit:liferegeneration": {
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 120,
+          "max": 240
+        }
+      ],
+      "englishText": "(2—4) Life Regeneration per second",
+      "values": ["(2—4)"],
+      "template": "amulets.crimson.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "divisor": 60
+        }
+      ]
+    },
+    "pearlescent:implicit:allresistances": {
+      "stats": [
+        {
+          "id": "base_resist_all_elements_%",
+          "min": 7,
+          "max": 10
+        }
+      ],
+      "englishText": "+(7—10)% to all Elemental Resistances",
+      "values": ["+(7—10)"],
+      "template": "amulets.pearlescent.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_resist_all_elements_%",
+          "divisor": 1
+        }
+      ]
     }
   },
   "templates": {
@@ -48533,6 +48679,34 @@
       "rings.two-stone-fire-cold.implicit": {
         "name": "Two-Stone Ring",
         "template": "{v0}% to Fire and Cold Resistances"
+      },
+      "amulets.stellar.implicit": {
+        "name": "Stellar Amulet",
+        "template": "{v0} to all Attributes"
+      },
+      "amulets.amber.implicit": {
+        "name": "Amber Amulet",
+        "template": "{v0} to Strength"
+      },
+      "amulets.bloodstone.implicit": {
+        "name": "Bloodstone Amulet",
+        "template": "{v0} to maximum Life"
+      },
+      "amulets.lunar.implicit": {
+        "name": "Lunar Amulet",
+        "template": "{v0} to maximum Energy Shield"
+      },
+      "amulets.azure.implicit": {
+        "name": "Azure Amulet",
+        "template": "{v0}% increased Mana Regeneration Rate"
+      },
+      "amulets.crimson.implicit": {
+        "name": "Crimson Amulet",
+        "template": "{v0} Life Regeneration per second"
+      },
+      "amulets.pearlescent.implicit": {
+        "name": "Pearlescent Amulet",
+        "template": "{v0}% to all Elemental Resistances"
       }
     },
     "ko": {
@@ -56315,6 +56489,34 @@
       "rings.two-stone-fire-cold.implicit": {
         "name": "쌍보석 반지",
         "template": "화염 및 냉기 저항 {v0}%"
+      },
+      "amulets.stellar.implicit": {
+        "name": "별의 목걸이",
+        "template": "모든 능력치 {v0}"
+      },
+      "amulets.amber.implicit": {
+        "name": "호박 목걸이",
+        "template": "힘 {v0}"
+      },
+      "amulets.bloodstone.implicit": {
+        "name": "혈석 목걸이",
+        "template": "생명력 최대치 {v0}"
+      },
+      "amulets.lunar.implicit": {
+        "name": "달의 목걸이",
+        "template": "에너지 보호막 최대치 {v0}"
+      },
+      "amulets.azure.implicit": {
+        "name": "담청색 목걸이",
+        "template": "마나 재생 속도 {v0}% 증가"
+      },
+      "amulets.crimson.implicit": {
+        "name": "진홍색 목걸이",
+        "template": "1초마다 생명력 {v0} 재생"
+      },
+      "amulets.pearlescent.implicit": {
+        "name": "진줏빛 목걸이",
+        "template": "모든 원소 저항 {v0}%"
       }
     },
     "zh-CN": {
@@ -64097,6 +64299,34 @@
       "rings.two-stone-fire-cold.implicit": {
         "name": "双玉戒指",
         "template": "{v0}% 火焰与冰霜抗性"
+      },
+      "amulets.stellar.implicit": {
+        "name": "星辉项链",
+        "template": "{v0} 全属性"
+      },
+      "amulets.amber.implicit": {
+        "name": "琥珀项链",
+        "template": "{v0} 力量"
+      },
+      "amulets.bloodstone.implicit": {
+        "name": "血岩项链",
+        "template": "{v0} 生命上限"
+      },
+      "amulets.lunar.implicit": {
+        "name": "月影项链",
+        "template": "{v0} 能量护盾上限"
+      },
+      "amulets.azure.implicit": {
+        "name": "碧蓝项链",
+        "template": "魔力再生率提高 {v0}%"
+      },
+      "amulets.crimson.implicit": {
+        "name": "赤红项链",
+        "template": "生命每秒再生 {v0}"
+      },
+      "amulets.pearlescent.implicit": {
+        "name": "珠光项链",
+        "template": "所有元素抗性 {v0}%"
       }
     },
     "zh-TW": {
@@ -71879,6 +72109,34 @@
       "rings.two-stone-fire-cold.implicit": {
         "name": "雙玉戒指",
         "template": "{v0}%火焰與冰冷抗性"
+      },
+      "amulets.stellar.implicit": {
+        "name": "恆星項鍊",
+        "template": "{v0}點全部能力值"
+      },
+      "amulets.amber.implicit": {
+        "name": "琥珀護身符",
+        "template": "{v0}點力量"
+      },
+      "amulets.bloodstone.implicit": {
+        "name": "血石項鍊",
+        "template": "{v0}最大生命"
+      },
+      "amulets.lunar.implicit": {
+        "name": "月神項鍊",
+        "template": "{v0}最大能量護盾"
+      },
+      "amulets.azure.implicit": {
+        "name": "蒼藍項鍊",
+        "template": "增加{v0}%魔力回復率"
+      },
+      "amulets.crimson.implicit": {
+        "name": "赤紅項鍊",
+        "template": "{v0}每秒生命回復"
+      },
+      "amulets.pearlescent.implicit": {
+        "name": "珠光項鍊",
+        "template": "{v0}%全元素抗性"
       }
     },
     "ja": {
@@ -79661,6 +79919,34 @@
       "rings.two-stone-fire-cold.implicit": {
         "name": "ツーストーンリング",
         "template": "火および冷気耐性 {v0}%"
+      },
+      "amulets.stellar.implicit": {
+        "name": "星のアミュレット",
+        "template": "全ての能力値 {v0}"
+      },
+      "amulets.amber.implicit": {
+        "name": "琥珀のアミュレット",
+        "template": "筋力 {v0}"
+      },
+      "amulets.bloodstone.implicit": {
+        "name": "血石のアミュレット",
+        "template": "最大ライフ {v0}"
+      },
+      "amulets.lunar.implicit": {
+        "name": "月のアミュレット",
+        "template": "最大エナジーシールド {v0}"
+      },
+      "amulets.azure.implicit": {
+        "name": "深青のアミュレット",
+        "template": "マナ自動回復レートが{v0}%増加する"
+      },
+      "amulets.crimson.implicit": {
+        "name": "深紅のアミュレット",
+        "template": "毎秒{v0}のライフを自動回復する"
+      },
+      "amulets.pearlescent.implicit": {
+        "name": "真珠のアミュレット",
+        "template": "全ての元素耐性 {v0}%"
       }
     },
     "es": {
@@ -87443,6 +87729,34 @@
       "rings.two-stone-fire-cold.implicit": {
         "name": "Anillo de dos piedras",
         "template": "{v0}% a las resistencias al fuego y al hielo"
+      },
+      "amulets.stellar.implicit": {
+        "name": "Amuleto estelar",
+        "template": "{v0} a todos los atributos"
+      },
+      "amulets.amber.implicit": {
+        "name": "Amuleto de ámbar",
+        "template": "{v0} a la fuerza"
+      },
+      "amulets.bloodstone.implicit": {
+        "name": "Amuleto de piedra de sangre",
+        "template": "{v0} a la vida máxima"
+      },
+      "amulets.lunar.implicit": {
+        "name": "Amuleto lunar",
+        "template": "{v0} al escudo de energía máximo"
+      },
+      "amulets.azure.implicit": {
+        "name": "Amuleto azur",
+        "template": "Velocidad de regeneración de maná aumentada un {v0}%"
+      },
+      "amulets.crimson.implicit": {
+        "name": "Amuleto carmesí",
+        "template": "Regeneras {v0} de vida por segundo"
+      },
+      "amulets.pearlescent.implicit": {
+        "name": "Amuleto nacarado",
+        "template": "{v0}% a todas las resistencias elementales"
       }
     }
   }

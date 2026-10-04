@@ -3291,5 +3291,719 @@
         "ring:suffix:essence-hysteria-mana-regeneration"
       ]
     }
+  },
+  "stellar": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "amulet:prefix:healthy"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "amulet:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "amulet:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "amulet:suffix:of-the-wrestler",
+        "amulet:suffix:of-the-lynx",
+        "amulet:suffix:of-the-student"
+      ],
+      "ESSENCE_BODY": [
+        "amulet:prefix:robust"
+      ],
+      "ESSENCE_MIND": [
+        "amulet:prefix:opalescent"
+      ],
+      "ESSENCE_RUIN": [
+        "amulet:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "amulet:suffix:of-the-lion",
+        "amulet:suffix:of-the-falcon",
+        "amulet:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_BODY": [
+        "amulet:prefix:rotund"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "amulet:prefix:gentian"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "amulet:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "amulet:suffix:of-the-goliath",
+        "amulet:suffix:of-the-leopard",
+        "amulet:suffix:of-the-sage"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "amulet:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "amulet:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "amulet:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "amulet:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "amulet:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "amulet:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "amulet:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "amulet:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "amulet:suffix:of-the-maelstrom"
+      ],
+      "LESSER_ESSENCE_OPULENCE": [
+        "amulet:suffix:of-plunder"
+      ],
+      "ESSENCE_OPULENCE": [
+        "amulet:suffix:of-raiding"
+      ],
+      "GREATER_ESSENCE_OPULENCE": [
+        "amulet:suffix:of-archaeology"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_INFINITE": [
+        "amulet:suffix:essence-percent-strength",
+        "amulet:suffix:essence-percent-dexterity",
+        "amulet:suffix:essence-percent-intelligence"
+      ],
+      "PERFECT_ESSENCE_ENHANCEMENT": [
+        "amulet:prefix:essence-global-defences"
+      ],
+      "ESSENCE_BREACH": [
+        "amulet:prefix:essence-maximum-quality"
+      ],
+      "ESSENCE_ABYSS": [
+        "amulet:prefix:essence-abyssal-mark",
+        "amulet:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "amulet:suffix:essence-hysteria-life-recoup"
+      ]
+    }
+  },
+  "amber": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "amulet:prefix:healthy"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "amulet:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "amulet:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "amulet:suffix:of-the-wrestler",
+        "amulet:suffix:of-the-lynx",
+        "amulet:suffix:of-the-student"
+      ],
+      "ESSENCE_BODY": [
+        "amulet:prefix:robust"
+      ],
+      "ESSENCE_MIND": [
+        "amulet:prefix:opalescent"
+      ],
+      "ESSENCE_RUIN": [
+        "amulet:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "amulet:suffix:of-the-lion",
+        "amulet:suffix:of-the-falcon",
+        "amulet:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_BODY": [
+        "amulet:prefix:rotund"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "amulet:prefix:gentian"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "amulet:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "amulet:suffix:of-the-goliath",
+        "amulet:suffix:of-the-leopard",
+        "amulet:suffix:of-the-sage"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "amulet:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "amulet:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "amulet:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "amulet:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "amulet:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "amulet:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "amulet:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "amulet:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "amulet:suffix:of-the-maelstrom"
+      ],
+      "LESSER_ESSENCE_OPULENCE": [
+        "amulet:suffix:of-plunder"
+      ],
+      "ESSENCE_OPULENCE": [
+        "amulet:suffix:of-raiding"
+      ],
+      "GREATER_ESSENCE_OPULENCE": [
+        "amulet:suffix:of-archaeology"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_INFINITE": [
+        "amulet:suffix:essence-percent-strength",
+        "amulet:suffix:essence-percent-dexterity",
+        "amulet:suffix:essence-percent-intelligence"
+      ],
+      "PERFECT_ESSENCE_ENHANCEMENT": [
+        "amulet:prefix:essence-global-defences"
+      ],
+      "ESSENCE_BREACH": [
+        "amulet:prefix:essence-maximum-quality"
+      ],
+      "ESSENCE_ABYSS": [
+        "amulet:prefix:essence-abyssal-mark",
+        "amulet:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "amulet:suffix:essence-hysteria-life-recoup"
+      ]
+    }
+  },
+  "bloodstone": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "amulet:prefix:healthy"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "amulet:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "amulet:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "amulet:suffix:of-the-wrestler",
+        "amulet:suffix:of-the-lynx",
+        "amulet:suffix:of-the-student"
+      ],
+      "ESSENCE_BODY": [
+        "amulet:prefix:robust"
+      ],
+      "ESSENCE_MIND": [
+        "amulet:prefix:opalescent"
+      ],
+      "ESSENCE_RUIN": [
+        "amulet:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "amulet:suffix:of-the-lion",
+        "amulet:suffix:of-the-falcon",
+        "amulet:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_BODY": [
+        "amulet:prefix:rotund"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "amulet:prefix:gentian"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "amulet:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "amulet:suffix:of-the-goliath",
+        "amulet:suffix:of-the-leopard",
+        "amulet:suffix:of-the-sage"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "amulet:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "amulet:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "amulet:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "amulet:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "amulet:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "amulet:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "amulet:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "amulet:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "amulet:suffix:of-the-maelstrom"
+      ],
+      "LESSER_ESSENCE_OPULENCE": [
+        "amulet:suffix:of-plunder"
+      ],
+      "ESSENCE_OPULENCE": [
+        "amulet:suffix:of-raiding"
+      ],
+      "GREATER_ESSENCE_OPULENCE": [
+        "amulet:suffix:of-archaeology"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_INFINITE": [
+        "amulet:suffix:essence-percent-strength",
+        "amulet:suffix:essence-percent-dexterity",
+        "amulet:suffix:essence-percent-intelligence"
+      ],
+      "PERFECT_ESSENCE_ENHANCEMENT": [
+        "amulet:prefix:essence-global-defences"
+      ],
+      "ESSENCE_BREACH": [
+        "amulet:prefix:essence-maximum-quality"
+      ],
+      "ESSENCE_ABYSS": [
+        "amulet:prefix:essence-abyssal-mark",
+        "amulet:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "amulet:suffix:essence-hysteria-life-recoup"
+      ]
+    }
+  },
+  "lunar": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "amulet:prefix:healthy"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "amulet:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "amulet:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "amulet:suffix:of-the-wrestler",
+        "amulet:suffix:of-the-lynx",
+        "amulet:suffix:of-the-student"
+      ],
+      "ESSENCE_BODY": [
+        "amulet:prefix:robust"
+      ],
+      "ESSENCE_MIND": [
+        "amulet:prefix:opalescent"
+      ],
+      "ESSENCE_RUIN": [
+        "amulet:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "amulet:suffix:of-the-lion",
+        "amulet:suffix:of-the-falcon",
+        "amulet:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_BODY": [
+        "amulet:prefix:rotund"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "amulet:prefix:gentian"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "amulet:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "amulet:suffix:of-the-goliath",
+        "amulet:suffix:of-the-leopard",
+        "amulet:suffix:of-the-sage"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "amulet:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "amulet:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "amulet:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "amulet:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "amulet:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "amulet:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "amulet:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "amulet:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "amulet:suffix:of-the-maelstrom"
+      ],
+      "LESSER_ESSENCE_OPULENCE": [
+        "amulet:suffix:of-plunder"
+      ],
+      "ESSENCE_OPULENCE": [
+        "amulet:suffix:of-raiding"
+      ],
+      "GREATER_ESSENCE_OPULENCE": [
+        "amulet:suffix:of-archaeology"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_INFINITE": [
+        "amulet:suffix:essence-percent-strength",
+        "amulet:suffix:essence-percent-dexterity",
+        "amulet:suffix:essence-percent-intelligence"
+      ],
+      "PERFECT_ESSENCE_ENHANCEMENT": [
+        "amulet:prefix:essence-global-defences"
+      ],
+      "ESSENCE_BREACH": [
+        "amulet:prefix:essence-maximum-quality"
+      ],
+      "ESSENCE_ABYSS": [
+        "amulet:prefix:essence-abyssal-mark",
+        "amulet:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "amulet:suffix:essence-hysteria-life-recoup"
+      ]
+    }
+  },
+  "azure": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "amulet:prefix:healthy"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "amulet:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "amulet:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "amulet:suffix:of-the-wrestler",
+        "amulet:suffix:of-the-lynx",
+        "amulet:suffix:of-the-student"
+      ],
+      "ESSENCE_BODY": [
+        "amulet:prefix:robust"
+      ],
+      "ESSENCE_MIND": [
+        "amulet:prefix:opalescent"
+      ],
+      "ESSENCE_RUIN": [
+        "amulet:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "amulet:suffix:of-the-lion",
+        "amulet:suffix:of-the-falcon",
+        "amulet:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_BODY": [
+        "amulet:prefix:rotund"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "amulet:prefix:gentian"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "amulet:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "amulet:suffix:of-the-goliath",
+        "amulet:suffix:of-the-leopard",
+        "amulet:suffix:of-the-sage"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "amulet:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "amulet:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "amulet:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "amulet:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "amulet:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "amulet:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "amulet:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "amulet:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "amulet:suffix:of-the-maelstrom"
+      ],
+      "LESSER_ESSENCE_OPULENCE": [
+        "amulet:suffix:of-plunder"
+      ],
+      "ESSENCE_OPULENCE": [
+        "amulet:suffix:of-raiding"
+      ],
+      "GREATER_ESSENCE_OPULENCE": [
+        "amulet:suffix:of-archaeology"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_INFINITE": [
+        "amulet:suffix:essence-percent-strength",
+        "amulet:suffix:essence-percent-dexterity",
+        "amulet:suffix:essence-percent-intelligence"
+      ],
+      "PERFECT_ESSENCE_ENHANCEMENT": [
+        "amulet:prefix:essence-global-defences"
+      ],
+      "ESSENCE_BREACH": [
+        "amulet:prefix:essence-maximum-quality"
+      ],
+      "ESSENCE_ABYSS": [
+        "amulet:prefix:essence-abyssal-mark",
+        "amulet:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "amulet:suffix:essence-hysteria-life-recoup"
+      ]
+    }
+  },
+  "crimson": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "amulet:prefix:healthy"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "amulet:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "amulet:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "amulet:suffix:of-the-wrestler",
+        "amulet:suffix:of-the-lynx",
+        "amulet:suffix:of-the-student"
+      ],
+      "ESSENCE_BODY": [
+        "amulet:prefix:robust"
+      ],
+      "ESSENCE_MIND": [
+        "amulet:prefix:opalescent"
+      ],
+      "ESSENCE_RUIN": [
+        "amulet:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "amulet:suffix:of-the-lion",
+        "amulet:suffix:of-the-falcon",
+        "amulet:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_BODY": [
+        "amulet:prefix:rotund"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "amulet:prefix:gentian"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "amulet:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "amulet:suffix:of-the-goliath",
+        "amulet:suffix:of-the-leopard",
+        "amulet:suffix:of-the-sage"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "amulet:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "amulet:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "amulet:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "amulet:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "amulet:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "amulet:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "amulet:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "amulet:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "amulet:suffix:of-the-maelstrom"
+      ],
+      "LESSER_ESSENCE_OPULENCE": [
+        "amulet:suffix:of-plunder"
+      ],
+      "ESSENCE_OPULENCE": [
+        "amulet:suffix:of-raiding"
+      ],
+      "GREATER_ESSENCE_OPULENCE": [
+        "amulet:suffix:of-archaeology"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_INFINITE": [
+        "amulet:suffix:essence-percent-strength",
+        "amulet:suffix:essence-percent-dexterity",
+        "amulet:suffix:essence-percent-intelligence"
+      ],
+      "PERFECT_ESSENCE_ENHANCEMENT": [
+        "amulet:prefix:essence-global-defences"
+      ],
+      "ESSENCE_BREACH": [
+        "amulet:prefix:essence-maximum-quality"
+      ],
+      "ESSENCE_ABYSS": [
+        "amulet:prefix:essence-abyssal-mark",
+        "amulet:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "amulet:suffix:essence-hysteria-life-recoup"
+      ]
+    }
+  },
+  "pearlescent": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "amulet:prefix:healthy"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "amulet:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "amulet:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "amulet:suffix:of-the-wrestler",
+        "amulet:suffix:of-the-lynx",
+        "amulet:suffix:of-the-student"
+      ],
+      "ESSENCE_BODY": [
+        "amulet:prefix:robust"
+      ],
+      "ESSENCE_MIND": [
+        "amulet:prefix:opalescent"
+      ],
+      "ESSENCE_RUIN": [
+        "amulet:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "amulet:suffix:of-the-lion",
+        "amulet:suffix:of-the-falcon",
+        "amulet:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_BODY": [
+        "amulet:prefix:rotund"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "amulet:prefix:gentian"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "amulet:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "amulet:suffix:of-the-goliath",
+        "amulet:suffix:of-the-leopard",
+        "amulet:suffix:of-the-sage"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "amulet:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "amulet:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "amulet:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "amulet:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "amulet:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "amulet:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "amulet:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "amulet:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "amulet:suffix:of-the-maelstrom"
+      ],
+      "LESSER_ESSENCE_OPULENCE": [
+        "amulet:suffix:of-plunder"
+      ],
+      "ESSENCE_OPULENCE": [
+        "amulet:suffix:of-raiding"
+      ],
+      "GREATER_ESSENCE_OPULENCE": [
+        "amulet:suffix:of-archaeology"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_INFINITE": [
+        "amulet:suffix:essence-percent-strength",
+        "amulet:suffix:essence-percent-dexterity",
+        "amulet:suffix:essence-percent-intelligence"
+      ],
+      "PERFECT_ESSENCE_ENHANCEMENT": [
+        "amulet:prefix:essence-global-defences"
+      ],
+      "ESSENCE_BREACH": [
+        "amulet:prefix:essence-maximum-quality"
+      ],
+      "ESSENCE_ABYSS": [
+        "amulet:prefix:essence-abyssal-mark",
+        "amulet:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "amulet:suffix:essence-hysteria-life-recoup"
+      ]
+    }
   }
 }

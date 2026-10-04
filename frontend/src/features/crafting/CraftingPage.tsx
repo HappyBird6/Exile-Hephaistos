@@ -96,6 +96,13 @@ const baseSlugs = {
   gemini: 'Gemini_Bow',
   fanatic: 'Fanatic_Bow',
   obliterator: 'Obliterator_Bow',
+  stellar: 'Stellar_Amulet',
+  amber: 'Amber_Amulet',
+  bloodstone: 'Bloodstone_Amulet',
+  lunar: 'Lunar_Amulet',
+  azure: 'Azure_Amulet',
+  crimson: 'Crimson_Amulet',
+  pearlescent: 'Pearlescent_Amulet',
   kinetic: 'Kinetic_Ring',
   vitalic: 'Vitalic_Ring',
   mnemonic: 'Mnemonic_Ring',
@@ -354,6 +361,13 @@ export function CraftingPage() {
       | 'gemini'
       | 'fanatic'
       | 'obliterator'
+      | 'stellar'
+      | 'amber'
+      | 'bloodstone'
+      | 'lunar'
+      | 'azure'
+      | 'crimson'
+      | 'pearlescent'
       | 'kinetic'
       | 'vitalic'
       | 'mnemonic'
@@ -564,6 +578,13 @@ export function CraftingPage() {
     | 'gemini'
     | 'fanatic'
     | 'obliterator'
+    | 'stellar'
+    | 'amber'
+    | 'bloodstone'
+    | 'lunar'
+    | 'azure'
+    | 'crimson'
+    | 'pearlescent'
     | 'kinetic'
     | 'vitalic'
     | 'mnemonic'
@@ -977,7 +998,9 @@ export function CraftingPage() {
                               ? 'Helmets'
                               : topBase(catalogBase)?.family === 'boots'
                                 ? 'Boots'
-                                : 'Amulet',
+                                : topBase(catalogBase)?.family === 'amulets'
+                                  ? 'Amulets'
+                                  : 'Amulet',
             itemLevel: concrete.itemLevel,
             properties: [
               ...(topBase(catalogBase)?.sourceProperties?.[locale] ?? []).map(
@@ -1962,7 +1985,10 @@ export function CraftingPage() {
                                         : topBase(catalogBase)?.family ===
                                             'boots'
                                           ? 'Boots'
-                                          : 'Amulet',
+                                          : topBase(catalogBase)?.family ===
+                                              'amulets'
+                                            ? 'Amulets'
+                                            : 'Amulet',
                       itemLevel: draft.baseItemLevel,
                       properties: [],
                       requirements: [],
@@ -2071,6 +2097,13 @@ export function CraftingPage() {
                           | 'gemini'
                           | 'fanatic'
                           | 'obliterator'
+                          | 'stellar'
+                          | 'amber'
+                          | 'bloodstone'
+                          | 'lunar'
+                          | 'azure'
+                          | 'crimson'
+                          | 'pearlescent'
                           | 'kinetic'
                           | 'vitalic'
                           | 'mnemonic'

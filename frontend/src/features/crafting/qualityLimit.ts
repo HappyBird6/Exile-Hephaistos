@@ -40,7 +40,9 @@ export function maximumQuality(
     const d = definitions[instance.modifierId]
     if (
       (state.baseItemId !== solar &&
-        topBase(topBaseKey(state.baseItemId) ?? '')?.family !== 'rings') ||
+        !['rings', 'amulets'].includes(
+          topBase(topBaseKey(state.baseItemId) ?? '')?.family ?? '',
+        )) ||
       instance.modifierId !== breach ||
       d?.affixType !== 'PREFIX' ||
       d.familyIds.length !== 1 ||

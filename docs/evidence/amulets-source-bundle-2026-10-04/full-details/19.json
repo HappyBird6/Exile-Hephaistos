@@ -1,0 +1,43 @@
+{
+  "row": {
+    "Name": "of the Augur",
+    "Level": "33",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "Intelligence"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(17<span class=\"ndash\">—</span>20)</span> to <a data-keyword=\"Intelligence\" href=\"Intelligence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/35ecc1ff28e8ee7386e67bec70cdc12f96a62d638a35d71ab8156e96f0f5e08a\">Intelligence</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "helmet",
+      "int_armour",
+      "str_int_armour",
+      "dex_int_armour",
+      "str_dex_int_armour",
+      "dagger",
+      "warstaff",
+      "flail",
+      "wand",
+      "staff",
+      "sceptre",
+      "trap",
+      "talisman",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a686cefe9bc9ab858922c37e91eb273248e03f90523b3852ab5f00ec49a50c99"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a686cefe9bc9ab858922c37e91eb273248e03f90523b3852ab5f00ec49a50c99",
+  "retrievedAt": "2026-10-04T22:01:20.411Z",
+  "sha256": "a686cefe9bc9ab858922c37e91eb273248e03f90523b3852ab5f00ec49a50c99",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(17<span class=\"ndash\">—</span>20)</span> to <a data-keyword=\"Intelligence\" href=\"Intelligence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/35ecc1ff28e8ee7386e67bec70cdc12f96a62d638a35d71ab8156e96f0f5e08a\">Intelligence</a></span></h5>   <span data-tabname=\"of the Augur\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Augur\n<tr><th>Family<td>Intelligence\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>33 (Effective: 26)\n<tr><th>Gold Price<td>520\n<tr><th>Stats<td><li>additional intelligence <span class=\"badge bg-primary\">17 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>int_armour: 1</span> <span class='badge bg-primary'>str_int_armour: 1</span> <span class='badge bg-primary'>dex_int_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>dagger: 1</span> <span class='badge bg-primary'>warstaff: 1</span> <span class='badge bg-primary'>flail: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>sceptre: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>talisman: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attribute</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(17<span class=\"ndash\">—</span>20)</span>% increased [CooldownRecovery|Cooldown Recovery Rate]</table>  </div></div>"
+}

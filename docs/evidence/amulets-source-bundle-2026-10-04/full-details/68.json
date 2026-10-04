@@ -1,0 +1,35 @@
+{
+  "row": {
+    "Name": "of Bameth",
+    "Level": "81",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ChaosResistance"
+    ],
+    "DropChance": "250",
+    "str": "<span class='mod-value'>+(24<span class=\"ndash\">—</span>27)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Chaos Resistance</a>",
+    "fossil_no": [
+      "chaos_resistance",
+      "chaos",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0d72e641fa39c3df5883680aa5e639fdc2843ea86b05d43e8598511618e58c0e"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0d72e641fa39c3df5883680aa5e639fdc2843ea86b05d43e8598511618e58c0e",
+  "retrievedAt": "2026-10-04T22:01:52.837Z",
+  "sha256": "0d72e641fa39c3df5883680aa5e639fdc2843ea86b05d43e8598511618e58c0e",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(24<span class=\"ndash\">—</span>27)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/84ff16d8aeeb61c6cd1c5a881495ab9e03153c83989fb54629cfeeeb8e92266e\">Chaos Resistance</a></span></h5>   <span data-tabname=\"of Bameth\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Bameth\n<tr><th>Family<td>ChaosResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>81 (Effective: 64)\n<tr><th>Gold Price<td>3492\n<tr><th>Stats<td><li>base chaos damage resistance % <span class=\"badge bg-primary\">24 <span class=\"ndash\">—</span> 27</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>armour: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>chaos_resistance</i></span> <span class='badge bg-primary'>Chaos</span> <span class='badge bg-primary'>Resistance</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>+2</span>% to [MaximumResistances|Maximum Chaos Resistance]<br><span class='mod-value'>+(22<span class=\"ndash\">—</span>25)</span>% to [Resistances|Chaos Resistance]</table>  </div></div>"
+}

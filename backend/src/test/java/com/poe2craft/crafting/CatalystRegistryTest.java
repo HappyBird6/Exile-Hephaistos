@@ -19,6 +19,9 @@ class CatalystRegistryTest {
     ReviewedRings.BASES
         .keySet()
         .forEach(key -> catalogs.put(key, ItemCatalogLoader.loadTopBase(key)));
+    ReviewedAmulets.BASES
+        .keySet()
+        .forEach(key -> catalogs.put(key, ItemCatalogLoader.loadTopBase(key)));
     for (var base :
         List.of(
             "ruby",
@@ -52,7 +55,14 @@ class CatalystRegistryTest {
                   "amethyst",
                   "prismatic",
                   "ruby-ring",
-                  "two-stone-fire-cold");
+                  "two-stone-fire-cold",
+                  "stellar",
+                  "amber",
+                  "bloodstone",
+                  "lunar",
+                  "azure",
+                  "crimson",
+                  "pearlescent");
       var declared = new HashSet<String>();
       entry.path("supportedBases").forEach(b -> declared.add(b.asText()));
       assertThat(declared).isEqualTo(expected);

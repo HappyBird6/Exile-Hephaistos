@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/sp/Amber_Amulet",
+  "retrievedAt": "2026-10-04T21:52:32.142Z",
+  "sha256": "813737bbd081c7d90d0f90c658c38f36f0a0f21c7d532b35fe7169394bd9ab66",
+  "name": "Amuleto de ámbar",
+  "card": "Amuleto de ámbar\n        \n    \n    \n        \n            AmuletosRequiere:  Nivel 8+(10—15) a la fuerza\n        \n\n\n\n        \n            Amber Amulet",
+  "requirements": "Requiere:  Nivel 8",
+  "fields": {
+    "DropLevel": "8",
+    "BaseType": "Amuleto de ámbar",
+    "Class": "Amuletos",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Amulets/FourAmulet3",
+    "Tags": "amulet",
+    "Icon": "Art/2DItems/Amulets/Basetypes/AmberAmulet",
+    "Base.base_level": "1",
+    "Base.tag": "default, amulet",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Amulet",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5",
+    "Amuleto nacarado": "1x Amuleto de jade \n1x Amuleto de ámbar \n1x Amuleto de lapislázuli"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "row": {
+    "Name": "of the Comet",
+    "Level": "33",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "AllAttributes"
+    ],
+    "DropChance": "800",
+    "str": "<span class='mod-value'>+(11<span class=\"ndash\">—</span>13)</span> to all <a data-keyword=\"Attributes\" href=\"Attributes\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a6f6a0f82c449e0ba1131901454bb89e680e14457cbae3c6c0b24b126a93f8dc\">Attributes</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "amulet",
+      "ring",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ed81699b5f7d81c665340c5b9c2f514f482f8deb2e6fd8e84cba95383db3e3d6"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ed81699b5f7d81c665340c5b9c2f514f482f8deb2e6fd8e84cba95383db3e3d6",
+  "retrievedAt": "2026-10-04T22:01:25.568Z",
+  "sha256": "ed81699b5f7d81c665340c5b9c2f514f482f8deb2e6fd8e84cba95383db3e3d6",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(11<span class=\"ndash\">—</span>13)</span> to all <a data-keyword=\"Attributes\" href=\"Attributes\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/70e56c747691e9ab76391fbe4cccc92a41bed557efd7b61a4ebbeef5ca0fa6ce\">Attributes</a></span></h5>   <span data-tabname=\"of the Comet\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Comet\n<tr><th>Family<td>AllAttributes\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>33 (Effective: 26)\n<tr><th>Gold Price<td>695\n<tr><th>Stats<td><li>additional all attributes <span class=\"badge bg-primary\">11 <span class=\"ndash\">—</span> 13</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attribute</span> </table>  </div></div>"
+}

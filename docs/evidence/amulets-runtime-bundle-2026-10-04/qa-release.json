@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "releasedAt": "2026-10-04T22:57:04.494Z",
+  "project": "exile-amulets-20261004",
+  "qaContainersRemaining": 0,
+  "live": [
+    {
+      "id": "c8e74d399af207f171b43577a6106ebd341942ca00658a246dc8dfa55a9c83b4",
+      "name": "/exile-workbench-qa-20261002-frontend-1",
+      "startedAt": "2026-10-04T13:18:17.193444193Z",
+      "image": "exile-workbench-qa-20261002-frontend:latest",
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "18081"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c4bbebf6e190002f7536eaa9b60aac1df4d684a7287d7d75470a491fc2c4a408",
+      "name": "/exile-workbench-qa-20261002-app-1",
+      "startedAt": "2026-10-04T12:43:17.378679745Z",
+      "image": "exile-hephaistos-app:latest",
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "18080"
+          }
+        ]
+      }
+    },
+    {
+      "id": "747188687b03c214715c9ab66d6286fd890bba81d6247c618e5afd39d32c0eba",
+      "name": "/exile-workbench-qa-20261002-postgres-1",
+      "startedAt": "2026-10-02T11:57:41.487690943Z",
+      "image": "postgres:17.6-alpine",
+      "ports": {
+        "5432/tcp": null
+      }
+    },
+    {
+      "id": "9f0962732bc25e1b9e06acbac0fe47fd43e33a835e304962081e7c09a9222a1f",
+      "name": "/exile-workbench-qa-20261002-redis-1",
+      "startedAt": "2026-10-02T11:57:41.223275862Z",
+      "image": "redis:7.4.5-alpine",
+      "ports": {
+        "6379/tcp": null
+      }
+    }
+  ],
+  "qaPorts": [
+    19980,
+    19981
+  ],
+  "volumeRemoval": false,
+  "remoteOperations": false
+}

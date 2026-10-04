@@ -40,6 +40,7 @@ public final class ItemStateValidator {
       int cap =
           state.baseItemId().equals(SolarAmulet.BASE_ID)
                   || ReviewedRings.supports(state.baseItemId())
+                  || ReviewedAmulets.supports(state.baseItemId())
               ? 40
               : 20;
       if (!CatalystQuality.supportedBase(state.baseItemId())

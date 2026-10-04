@@ -26,6 +26,13 @@ const baseTexts = {
   gemini: 'Item Class: Bows\nRarity: Normal\nGemini Bow',
   fanatic: 'Item Class: Bows\nRarity: Normal\nFanatic Bow',
   obliterator: 'Item Class: Bows\nRarity: Normal\nObliterator Bow',
+  stellar: 'Item Class: Amulets\nRarity: Normal\nStellar Amulet',
+  amber: 'Item Class: Amulets\nRarity: Normal\nAmber Amulet',
+  bloodstone: 'Item Class: Amulets\nRarity: Normal\nBloodstone Amulet',
+  lunar: 'Item Class: Amulets\nRarity: Normal\nLunar Amulet',
+  azure: 'Item Class: Amulets\nRarity: Normal\nAzure Amulet',
+  crimson: 'Item Class: Amulets\nRarity: Normal\nCrimson Amulet',
+  pearlescent: 'Item Class: Amulets\nRarity: Normal\nPearlescent Amulet',
   kinetic: 'Item Class: Rings\nRarity: Normal\nKinetic Ring',
   vitalic: 'Item Class: Rings\nRarity: Normal\nVitalic Ring',
   mnemonic: 'Item Class: Rings\nRarity: Normal\nMnemonic Ring',
@@ -97,6 +104,13 @@ type Draft = {
     | 'gemini'
     | 'fanatic'
     | 'obliterator'
+    | 'stellar'
+    | 'amber'
+    | 'bloodstone'
+    | 'lunar'
+    | 'azure'
+    | 'crimson'
+    | 'pearlescent'
     | 'kinetic'
     | 'vitalic'
     | 'mnemonic'
@@ -158,6 +172,13 @@ type Draft = {
       | 'gemini'
       | 'fanatic'
       | 'obliterator'
+      | 'stellar'
+      | 'amber'
+      | 'bloodstone'
+      | 'lunar'
+      | 'azure'
+      | 'crimson'
+      | 'pearlescent'
       | 'kinetic'
       | 'vitalic'
       | 'mnemonic'

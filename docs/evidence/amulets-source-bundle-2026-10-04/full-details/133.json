@@ -1,0 +1,31 @@
+{
+  "row": {
+    "Name": "of the Overseer",
+    "Level": "75",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "IncreaseSocketedGemLevel"
+    ],
+    "DropChance": "100",
+    "str": "<span class='mod-value'>+3</span> to Level of all <a data-keyword=\"Minion\" href=\"Minions\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a2261570ef8ba8d3abbee0bd6e5a91eef55342d89c3eb0524d7f3d337cad6dbe\">Minion</a> Skills",
+    "fossil_no": [
+      "minion",
+      "gem"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "amulet",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingminion\" data-tag=\"minion\">Minion</span>",
+      "<span class=\"badge bg-primary craftinggem\" data-tag=\"gem\">Gem</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/cb31fa6b8a698a5e9078674cc7d18886664bb2aebb5ae58fe96f8ef84ed0383e"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/cb31fa6b8a698a5e9078674cc7d18886664bb2aebb5ae58fe96f8ef84ed0383e",
+  "retrievedAt": "2026-10-04T22:02:33.027Z",
+  "sha256": "cb31fa6b8a698a5e9078674cc7d18886664bb2aebb5ae58fe96f8ef84ed0383e",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+3</span> to Level of all <a data-keyword=\"Minion\" href=\"Minions\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/179d90d6cb522bea85b3c512f976d06200112ad83f3d5daa20ee196395973bc0\">Minion</a> Skills</span></h5>   <span data-tabname=\"of the Overseer\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Overseer\n<tr><th>Family<td>IncreaseSocketedGemLevel\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>75 (Effective: 60)\n<tr><th>Gold Price<td>5202\n<tr><th>Stats<td><li>minion skill gem level + <span class=\"badge bg-primary\">3 <span class=\"ndash\">—</span> 3</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Minion</span> <span class='badge bg-primary'>Gem</span> </table>  </div></div>"
+}

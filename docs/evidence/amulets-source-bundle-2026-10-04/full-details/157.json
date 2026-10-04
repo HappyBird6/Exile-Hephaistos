@@ -1,0 +1,33 @@
+{
+  "row": {
+    "Name": "Reliable",
+    "Level": "11",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedAccuracy"
+    ],
+    "DropChance": "800",
+    "str": "<span class='mod-value'>+(33<span class=\"ndash\">—</span>60)</span> to <a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/4a439d13631e43c7f47aab345a7e6b64877fb0209f2c42901d14cd9d9f36da1c\">Accuracy</a> Rating",
+    "fossil_no": [
+      "attack"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "gloves",
+      "helmet",
+      "ring",
+      "amulet",
+      "quiver",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/abcdb0bd40835de14d7d72ff877d52fe08a5ed7221603912318521b1820f09a7"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/abcdb0bd40835de14d7d72ff877d52fe08a5ed7221603912318521b1820f09a7",
+  "retrievedAt": "2026-10-04T22:02:48.061Z",
+  "sha256": "abcdb0bd40835de14d7d72ff877d52fe08a5ed7221603912318521b1820f09a7",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(33<span class=\"ndash\">—</span>60)</span> to <a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1a4f5bc1f70388cf7fa92ae0011aa254123c6eac7301490a64434db571a3605d\">Accuracy</a> Rating</span></h5>   <span data-tabname=\"Reliable\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Reliable\n<tr><th>Family<td>IncreasedAccuracy\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>11 (Effective: 8)\n<tr><th>Gold Price<td>212\n<tr><th>Stats<td><li>accuracy rating <span class=\"badge bg-primary\">33 <span class=\"ndash\">—</span> 60</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attack</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(15<span class=\"ndash\">—</span>17)</span>% chance to [Blind] Enemies on [HitDamage|Hit] with [Attack|Attacks]</table>  </div></div>"
+}

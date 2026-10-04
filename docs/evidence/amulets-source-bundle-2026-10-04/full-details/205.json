@@ -1,0 +1,33 @@
+{
+  "row": {
+    "Name": "of Expertise",
+    "Level": "35",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "IncreasedCastSpeed"
+    ],
+    "DropChance": 1,
+    "str": "<span class='mod-value'>(16<span class=\"ndash\">—</span>18)</span>% increased Cast Speed",
+    "fossil_no": [
+      "caster_speed",
+      "caster",
+      "speed"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+      "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f9cc8f99556243f02c9baa675a2194675f3e3424efa8f0c0a9136202b0911f42"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f9cc8f99556243f02c9baa675a2194675f3e3424efa8f0c0a9136202b0911f42",
+  "retrievedAt": "2026-10-04T22:03:19.008Z",
+  "sha256": "f9cc8f99556243f02c9baa675a2194675f3e3424efa8f0c0a9136202b0911f42",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(16<span class=\"ndash\">—</span>18)</span>% increased Cast Speed</span></h5>   <span data-tabname=\"of Expertise\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Expertise\n<tr><th>Family<td>IncreasedCastSpeed\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>35 (Effective: 28)\n<tr><th>Gold Price<td>593\n<tr><th>Stats<td><li>base cast speed +% <span class=\"badge bg-primary\">16 <span class=\"ndash\">—</span> 18</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_speed</i></span> <span class='badge bg-primary'>Caster</span> <span class='badge bg-primary'>Speed</span> </table>  </div></div>"
+}

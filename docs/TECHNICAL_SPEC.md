@@ -1,4 +1,4 @@
-최신 base 확장: [Ring 8종](workbench-rings-bundle-2026-10-04.md). Workbench 54 bases; Ring은 distinct implicit category 선택 범위이며 전체 catalog 완료가 아니다. 신규 8종의 전체 pool·Catalyst13·source Essence·6locale·기존 film을 보존하며 Support/Explorer는 Solar-only, active170/deferred50은 유지한다. Amulet7·Wand/Sceptre·Belt 및 다른 equipment category는 후속 source 검증 범위다.
+최신 base 확장: [Amulet 7종](workbench-amulets-bundle-2026-10-04.md). Workbench 61 bases; jewelry는 distinct implicit sidegrade 선택 범위이며 전체 catalog 완료가 아니다. 신규 Amulet7의 전체 ordinary209·source-valid special8·Catalyst13·6locale·기존54개 film을 보존한다. Support/Explorer는 Solar-only, active170/deferred50은 유지한다. Wand/Sceptre skill family·Belt 및 다른 equipment category는 후속 source 검증 범위다.
 
 
 # Exile-Hephaistos 기술 명세

@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/sp/Lunar_Amulet",
+  "retrievedAt": "2026-10-04T21:52:36.205Z",
+  "sha256": "88099afe54850cf6426de19f8db146b8c3f294bae1d7d905cea729a410f57c36",
+  "name": "Amuleto lunar",
+  "card": "Amuleto lunar\n        \n    \n    \n        \n            AmuletosRequiere:  Nivel 14+(20—30) al escudo de energía máximo\n        \n\n\n\n        \n            Lunar Amulet",
+  "requirements": "Requiere:  Nivel 14",
+  "fields": {
+    "DropLevel": "14",
+    "BaseType": "Amuleto lunar",
+    "Class": "Amuletos",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Amulets/FourAmulet6",
+    "Tags": "amulet",
+    "Icon": "Art/2DItems/Amulets/Basetypes/LunarAmulet",
+    "Base.base_level": "1",
+    "Base.tag": "default, amulet",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Amulet",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

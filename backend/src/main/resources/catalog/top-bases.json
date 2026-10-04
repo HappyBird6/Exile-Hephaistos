@@ -1614,5 +1614,292 @@
         "locality": "Global"
       }
     ]
+  },
+  "stellar": {
+    "key": "stellar",
+    "slug": "Stellar_Amulet",
+    "pool": "stellar-amulet",
+    "family": "amulets",
+    "id": "Metadata/Items/Amulets/FourAmulet8",
+    "name": "Stellar Amulet",
+    "sourceUrl": "https://poe2db.tw/us/Stellar_Amulet",
+    "sourceSha256": "830a070858d78718c61429fd0e2130c3865569592d6f8a9f6e04ae4b9968eacf",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 25,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 25",
+      "ko": "요구 사항:  레벨 25",
+      "ja": "装備条件： レベル 25",
+      "zh-CN": "需求：  等级 25",
+      "zh-TW": "需求:  等級 25",
+      "es": "Requiere:  Nivel 25"
+    },
+    "implicitModifierId": "stellar:implicit:allattributes",
+    "implicitStats": [
+      {
+        "id": "additional_all_attributes",
+        "min": 5,
+        "max": 7
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "additional_all_attributes",
+        "min": 5,
+        "max": 7,
+        "locality": "Global"
+      }
+    ]
+  },
+  "amber": {
+    "key": "amber",
+    "slug": "Amber_Amulet",
+    "pool": "amber-amulet",
+    "family": "amulets",
+    "id": "Metadata/Items/Amulets/FourAmulet3",
+    "name": "Amber Amulet",
+    "sourceUrl": "https://poe2db.tw/us/Amber_Amulet",
+    "sourceSha256": "0da8e73974bc45e7282e9280bfa56a9f3fc2f4dd66e5befbbc09cb77915d24f9",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 8,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 8",
+      "ko": "요구 사항:  레벨 8",
+      "ja": "装備条件： レベル 8",
+      "zh-CN": "需求：  等级 8",
+      "zh-TW": "需求:  等級 8",
+      "es": "Requiere:  Nivel 8"
+    },
+    "implicitModifierId": "amber:implicit:strength",
+    "implicitStats": [
+      {
+        "id": "additional_strength",
+        "min": 10,
+        "max": 15
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "additional_strength",
+        "min": 10,
+        "max": 15,
+        "locality": "Global"
+      }
+    ]
+  },
+  "bloodstone": {
+    "key": "bloodstone",
+    "slug": "Bloodstone_Amulet",
+    "pool": "bloodstone-amulet",
+    "family": "amulets",
+    "id": "Metadata/Items/Amulets/FourAmulet7",
+    "name": "Bloodstone Amulet",
+    "sourceUrl": "https://poe2db.tw/us/Bloodstone_Amulet",
+    "sourceSha256": "92c27288fc1160bd78016acddd0ec79b52167056ebd96080a416fefc5f7913a1",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 18,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 18",
+      "ko": "요구 사항:  레벨 18",
+      "ja": "装備条件： レベル 18",
+      "zh-CN": "需求：  等级 18",
+      "zh-TW": "需求:  等級 18",
+      "es": "Requiere:  Nivel 18"
+    },
+    "implicitModifierId": "bloodstone:implicit:increasedlife",
+    "implicitStats": [
+      {
+        "id": "base_maximum_life",
+        "min": 30,
+        "max": 40
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_maximum_life",
+        "min": 30,
+        "max": 40,
+        "locality": "Global"
+      }
+    ]
+  },
+  "lunar": {
+    "key": "lunar",
+    "slug": "Lunar_Amulet",
+    "pool": "lunar-amulet",
+    "family": "amulets",
+    "id": "Metadata/Items/Amulets/FourAmulet6",
+    "name": "Lunar Amulet",
+    "sourceUrl": "https://poe2db.tw/us/Lunar_Amulet",
+    "sourceSha256": "c383d5bc88adc97d2c697d225da44cf190ea14b89c138086578de4c6ea9bbc4f",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 14,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 14",
+      "ko": "요구 사항:  레벨 14",
+      "ja": "装備条件： レベル 14",
+      "zh-CN": "需求：  等级 14",
+      "zh-TW": "需求:  等級 14",
+      "es": "Requiere:  Nivel 14"
+    },
+    "implicitModifierId": "lunar:implicit:increasedenergyshield",
+    "implicitStats": [
+      {
+        "id": "base_maximum_energy_shield",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_maximum_energy_shield",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ]
+  },
+  "azure": {
+    "key": "azure",
+    "slug": "Azure_Amulet",
+    "pool": "azure-amulet",
+    "family": "amulets",
+    "id": "Metadata/Items/Amulets/FourAmulet2",
+    "name": "Azure Amulet",
+    "sourceUrl": "https://poe2db.tw/us/Azure_Amulet",
+    "sourceSha256": "9a780eba692859c1930398140505dd17efd64c1d9e8a67de18e28dc66c6a1974",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "implicitModifierId": "azure:implicit:manaregeneration",
+    "implicitStats": [
+      {
+        "id": "mana_regeneration_rate_+%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "mana_regeneration_rate_+%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ]
+  },
+  "crimson": {
+    "key": "crimson",
+    "slug": "Crimson_Amulet",
+    "pool": "crimson-amulet",
+    "family": "amulets",
+    "id": "Metadata/Items/Amulets/FourAmulet1",
+    "name": "Crimson Amulet",
+    "sourceUrl": "https://poe2db.tw/us/Crimson_Amulet",
+    "sourceSha256": "d9c1cd280d66744b67f9285ca75a2c5d56c3512de9386da58568ad77027b867f",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "implicitModifierId": "crimson:implicit:liferegeneration",
+    "implicitStats": [
+      {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 120,
+        "max": 240
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 120,
+        "max": 240,
+        "locality": "Global"
+      }
+    ]
+  },
+  "pearlescent": {
+    "key": "pearlescent",
+    "slug": "Pearlescent_Amulet",
+    "pool": "pearlescent-amulet",
+    "family": "amulets",
+    "id": "Metadata/Items/Amulets/FourAmulet11",
+    "name": "Pearlescent Amulet",
+    "sourceUrl": "https://poe2db.tw/us/Pearlescent_Amulet",
+    "sourceSha256": "93e7aa1d15c444b234763b6292f32107ed01cad6161c744f5c28df20ccaf5145",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 8,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 8",
+      "ko": "요구 사항:  레벨 8",
+      "ja": "装備条件： レベル 8",
+      "zh-CN": "需求：  等级 8",
+      "zh-TW": "需求:  等級 8",
+      "es": "Requiere:  Nivel 8"
+    },
+    "implicitModifierId": "pearlescent:implicit:allresistances",
+    "implicitStats": [
+      {
+        "id": "base_resist_all_elements_%",
+        "min": 7,
+        "max": 10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_resist_all_elements_%",
+        "min": 7,
+        "max": 10,
+        "locality": "Global"
+      }
+    ]
   }
 }

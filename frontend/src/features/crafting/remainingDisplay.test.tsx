@@ -77,8 +77,25 @@ describe('remaining display coverage', () => {
     const single = Object.entries(bindings).filter(
       ([, b]) => b.valueStats && b.stats.length === 1,
     )
+    expect(
+      Object.keys(catalog.definitions)
+        .filter((id) =>
+          /^(stellar|amber|bloodstone|lunar|azure|crimson|pearlescent):implicit:/.test(
+            id,
+          ),
+        )
+        .sort(),
+    ).toEqual([
+      'amber:implicit:strength',
+      'azure:implicit:manaregeneration',
+      'bloodstone:implicit:increasedlife',
+      'crimson:implicit:liferegeneration',
+      'lunar:implicit:increasedenergyshield',
+      'pearlescent:implicit:allresistances',
+      'stellar:implicit:allattributes',
+    ])
     // Preserve all 211 historical bindings and add seven exact Ring single-stat implicits.
-    expect(single).toHaveLength(218)
+    expect(single).toHaveLength(225)
     expect(
       single
         .filter(([id]) =>

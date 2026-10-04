@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "checks": [
+    "209 exact full stat tables and ordered Amulet eligibility; published weights retained separately",
+    "en source-matched209 ordinary templates",
+    "ko source-matched209 ordinary templates",
+    "ja source-matched209 ordinary templates",
+    "zh-CN source-matched209 ordinary templates",
+    "zh-TW source-matched209 ordinary templates",
+    "es source-matched209 ordinary templates",
+    "stellar complete pool and source-specific implicit, six locale coverage",
+    "amber complete pool and source-specific implicit, six locale coverage",
+    "bloodstone complete pool and source-specific implicit, six locale coverage",
+    "lunar complete pool and source-specific implicit, six locale coverage",
+    "azure complete pool and source-specific implicit, six locale coverage",
+    "crimson complete pool and source-specific implicit, six locale coverage",
+    "pearlescent complete pool and source-specific implicit, six locale coverage"
+  ],
+  "count": 14
+}

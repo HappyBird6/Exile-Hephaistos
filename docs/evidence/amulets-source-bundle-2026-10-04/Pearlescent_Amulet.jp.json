@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/jp/Pearlescent_Amulet",
+  "retrievedAt": "2026-10-04T21:52:41.447Z",
+  "sha256": "b22b42d849844491eee4b3b3581c67061cdc602bd5f666436b0697f646c6b535",
+  "name": "真珠のアミュレット",
+  "card": "真珠のアミュレット\n        \n    \n    \n        \n            アミュレット装備条件： レベル 8全ての元素耐性 +(7—10)%\n        \n\n\n\n        \n            Pearlescent Amulet",
+  "requirements": "装備条件： レベル 8",
+  "fields": {
+    "DropLevel": "8",
+    "BaseType": "真珠のアミュレット",
+    "Class": "アミュレット",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Amulets/FourAmulet11",
+    "Tags": "amulet",
+    "Icon": "Art/2DItems/Amulets/Basetypes/PearlescentAmulet",
+    "Base.base_level": "1",
+    "Base.tag": "default, amulet",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Amulet",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5",
+    "真珠のアミュレット": "1x 翡翠のアミュレット \n1x 琥珀のアミュレット \n1x 瑠璃のアミュレット"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/cn/Amber_Amulet",
+  "retrievedAt": "2026-10-04T21:52:31.562Z",
+  "sha256": "ab85ddd1e9d14f41dc8de57e74c77ca4ee3feefc991e84fe10f85311d71fb9b3",
+  "name": "琥珀项链",
+  "card": "琥珀项链\n        \n    \n    \n        \n            项链需求：  等级 8+(10—15) 力量\n        \n\n\n\n        \n            Amber Amulet",
+  "requirements": "需求：  等级 8",
+  "fields": {
+    "DropLevel": "8",
+    "BaseType": "琥珀项链",
+    "Class": "项链",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Amulets/FourAmulet3",
+    "Tags": "amulet",
+    "Icon": "Art/2DItems/Amulets/Basetypes/AmberAmulet",
+    "Base.base_level": "1",
+    "Base.tag": "default, amulet",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Amulet",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5",
+    "珠光项链": "1x 翠玉项链 \n1x 琥珀项链 \n1x 海玉项链"
+  }
+}

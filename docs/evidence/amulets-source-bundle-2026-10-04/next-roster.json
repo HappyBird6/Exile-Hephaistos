@@ -1,0 +1,434 @@
+[
+  {
+    "slug": "Golden_Obi",
+    "id": "Metadata/Items/Belts/BeltDemigods1",
+    "class": "Belts",
+    "sourceUrl": "https://poe2db.tw/us/Golden_Obi",
+    "card": "BeltsRequires:  Level 12Has (1—3) Charm Slots(20—30)% increased Rarity of Items found",
+    "sourceSha256": "6f59c864be56f75682b63d6439baa2f13a4c04b0a1d13f938dcf6f865199bb44"
+  },
+  {
+    "slug": "Rawhide_Belt",
+    "id": "Metadata/Items/Belts/FourBelt1",
+    "class": "Belts",
+    "sourceUrl": "https://poe2db.tw/us/Rawhide_Belt",
+    "card": "BeltsHas (1—3) Charm Slots(20—30)% increased Life Recovery from Flasks",
+    "sourceSha256": "26a8560ccc5861496355e183c0eabc3f6c5959d5e56dfef4e32c51dd997b448e"
+  },
+  {
+    "slug": "Utility_Belt",
+    "id": "Metadata/Items/Belts/FourBelt10",
+    "class": "Belts",
+    "sourceUrl": "https://poe2db.tw/us/Utility_Belt",
+    "card": "BeltsRequires:  Level 55Has (1—3) Charm Slots20% of Flask Recovery applied Instantly",
+    "sourceSha256": "686b4edf86ed6e2080b62c60e2b317cf6d9ff22635cdfa7f7aaf0dd62bc560fe"
+  },
+  {
+    "slug": "Fine_Belt",
+    "id": "Metadata/Items/Belts/FourBelt11",
+    "class": "Belts",
+    "sourceUrl": "https://poe2db.tw/us/Fine_Belt",
+    "card": "BeltsRequires:  Level 62Has (1—3) Charm SlotsFlasks gain 0.17 charges per Second",
+    "sourceSha256": "f347f3183961047a25ec33d85af3f17f910f65657a4c031af92e1561f6364035"
+  },
+  {
+    "slug": "Linen_Belt",
+    "id": "Metadata/Items/Belts/FourBelt2",
+    "class": "Belts",
+    "sourceUrl": "https://poe2db.tw/us/Linen_Belt",
+    "card": "BeltsHas (1—3) Charm Slots(20—30)% increased Mana Recovery from Flasks",
+    "sourceSha256": "e2cb6e57c2ce8953f1a00faa47af59bca6b2470ec1c0f86a0cad046ee3168bc4"
+  },
+  {
+    "slug": "Wide_Belt",
+    "id": "Metadata/Items/Belts/FourBelt3",
+    "class": "Belts",
+    "sourceUrl": "https://poe2db.tw/us/Wide_Belt",
+    "card": "BeltsRequires:  Level 14Has (1—3) Charm Slots(20—30)% increased Flask Charges gained",
+    "sourceSha256": "74196f2e18f60c0df271c4f77fa651a9f3a0a51db38bdf4079caf9f57cb66236"
+  },
+  {
+    "slug": "Long_Belt",
+    "id": "Metadata/Items/Belts/FourBelt4",
+    "class": "Belts",
+    "sourceUrl": "https://poe2db.tw/us/Long_Belt",
+    "card": "BeltsRequires:  Level 20Has (1—3) Charm Slots(15—20)% increased Charm Effect Duration",
+    "sourceSha256": "f40eca4cc66eb245793b8541d18e74657aecd9032e2471cd8b934e6df0e83e2e"
+  },
+  {
+    "slug": "Plate_Belt",
+    "id": "Metadata/Items/Belts/FourBelt5",
+    "class": "Belts",
+    "sourceUrl": "https://poe2db.tw/us/Plate_Belt",
+    "card": "BeltsRequires:  Level 25Has (1—3) Charm Slots+(140—180) to Armour",
+    "sourceSha256": "821c564748676bf44bb8022e877cdc7b939fc2b706b83fb18b977345d5c9db53"
+  },
+  {
+    "slug": "Ornate_Belt",
+    "id": "Metadata/Items/Belts/FourBelt6",
+    "class": "Belts",
+    "sourceUrl": "https://poe2db.tw/us/Ornate_Belt",
+    "card": "BeltsRequires:  Level 31Has (1—3) Charm Slots(10—15)% reduced Charm Charges used",
+    "sourceSha256": "7dd3d5f9ee670c8612bcbcb9bf7c6f5c68abc33013a6a905931d55635ceab145"
+  },
+  {
+    "slug": "Mail_Belt",
+    "id": "Metadata/Items/Belts/FourBelt7",
+    "class": "Belts",
+    "sourceUrl": "https://poe2db.tw/us/Mail_Belt",
+    "card": "BeltsRequires:  Level 40Has (1—3) Charm Slots(10—15)% reduced Flask Charges used",
+    "sourceSha256": "04f55613cbf0dc6e4c3f98a4bbffb752afe4b1a46e4c1f9c0b13d838ef7776b3"
+  },
+  {
+    "slug": "Double_Belt",
+    "id": "Metadata/Items/Belts/FourBelt8",
+    "class": "Belts",
+    "sourceUrl": "https://poe2db.tw/us/Double_Belt",
+    "card": "BeltsRequires:  Level 44Has (1—3) Charm Slots(20—30)% increased Charm Charges gained",
+    "sourceSha256": "b472ee02bdddc407ad8953561a1fa18ae72e1515045f23c89b510549f5b3f631"
+  },
+  {
+    "slug": "Heavy_Belt",
+    "id": "Metadata/Items/Belts/FourBelt9",
+    "class": "Belts",
+    "sourceUrl": "https://poe2db.tw/us/Heavy_Belt",
+    "card": "BeltsRequires:  Level 50Has (1—3) Charm Slots(20—30)% increased Stun Threshold",
+    "sourceSha256": "cefe465ca381be8fd49b7d818a848b00c7a2e8b217f50e39db6d4cd3e16c33c3"
+  },
+  {
+    "slug": "Runemastered_Heavy_Belt",
+    "id": "Metadata/Items/Belts/FourBelt9VerisiumUnique1",
+    "class": "Belts",
+    "sourceUrl": "https://poe2db.tw/us/Runemastered_Heavy_Belt",
+    "card": "BeltsRequires:  Level 65Has (1—3) Charm Slots(20—30)% increased Stun Threshold(15—25)% Life Recovery from Flasks also applies to Runic Ward",
+    "sourceSha256": "3498c46747dbb326c95a9e671c8cf348cf6a70e131c8482470cf087ce828d373"
+  },
+  {
+    "slug": "Runemastered_Heavy_Belt",
+    "id": "Metadata/Items/Belts/FourBelt9VerisiumUnique2",
+    "class": "Belts",
+    "sourceUrl": "https://poe2db.tw/us/Runemastered_Heavy_Belt",
+    "card": "BeltsRequires:  Level 65Has (1—3) Charm Slots(20—30)% increased Stun Threshold(20—40)% increased Runic Ward Regeneration Rate",
+    "sourceSha256": "3498c46747dbb326c95a9e671c8cf348cf6a70e131c8482470cf087ce828d373"
+  },
+  {
+    "slug": "Runemastered_Heavy_Belt",
+    "id": "Metadata/Items/Belts/FourBelt9VerisiumUnique3",
+    "class": "Belts",
+    "sourceUrl": "https://poe2db.tw/us/Runemastered_Heavy_Belt",
+    "card": "BeltsRequires:  Level 65Has (1—3) Charm Slots(20—30)% increased Stun ThresholdRunic Ward recovery can Overflow maximum Runic Ward",
+    "sourceSha256": "3498c46747dbb326c95a9e671c8cf348cf6a70e131c8482470cf087ce828d373"
+  },
+  {
+    "slug": "Runemastered_Heavy_Belt",
+    "id": "Metadata/Items/Belts/FourBelt9VerisiumUnique4",
+    "class": "Belts",
+    "sourceUrl": "https://poe2db.tw/us/Runemastered_Heavy_Belt",
+    "card": "BeltsRequires:  Level 65Has (1—3) Charm Slots(20—30)% increased Stun ThresholdFlasks gain (0.5—1) charges per Second",
+    "sourceSha256": "3498c46747dbb326c95a9e671c8cf348cf6a70e131c8482470cf087ce828d373"
+  },
+  {
+    "slug": "Stalking_Belt",
+    "id": "Metadata/Items/Belts/FourBeltB1",
+    "class": "Belts",
+    "sourceUrl": "https://poe2db.tw/us/Stalking_Belt",
+    "card": "BeltsRequires:  Level 50Has (1—3) Charm SlotsHas 1 Charm SlotsThis item gains bonuses from Socketed Items as though it was Boots It is our steps that stir.",
+    "sourceSha256": "066e7af005abd8e48db3c0b8b7f540cc12a43ca932d7b256543fb05a491b00f9"
+  },
+  {
+    "slug": "Invoking_Belt",
+    "id": "Metadata/Items/Belts/FourBeltB2",
+    "class": "Belts",
+    "sourceUrl": "https://poe2db.tw/us/Invoking_Belt",
+    "card": "BeltsRequires:  Level 32Has (1—3) Charm SlotsHas 1 Charm Slots(8—12)% increased Cast Speed It is our hands that join.",
+    "sourceSha256": "29f2b6aa04a0527a31838a5489504d08841ad2899cadb58ecea16c0c88da84ee"
+  },
+  {
+    "slug": "Sinew_Belt",
+    "id": "Metadata/Items/Belts/FourBeltB3",
+    "class": "Belts",
+    "sourceUrl": "https://poe2db.tw/us/Sinew_Belt",
+    "card": "BeltsRequires:  Level 32Has (1—3) Charm SlotsHas 1 Charm Slots+(15—20) to Strength It is our flesh that binds.",
+    "sourceSha256": "10cb6f5fd5259461f1136c3bceb65fb1c3cb78dd1f41eb640ac0e0869ac2e759"
+  },
+  {
+    "slug": "Forking_Belt",
+    "id": "Metadata/Items/Belts/FourBeltB4",
+    "class": "Belts",
+    "sourceUrl": "https://poe2db.tw/us/Forking_Belt",
+    "card": "BeltsRequires:  Level 32Has (1—3) Charm SlotsHas 1 Charm SlotsAdds 1 to (20—30) Lightning damage to Attacks It is our mind that splits.",
+    "sourceSha256": "8bb691188d1722443ab565ba3a051dd4db772e0c0a70660d0742153abcbe199b"
+  },
+  {
+    "slug": "Rattling_Sceptre",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1",
+    "class": "Sceptres",
+    "sourceUrl": "https://poe2db.tw/us/Rattling_Sceptre",
+    "card": "SceptresSpirit: 100 Grants Skill: Skeletal Warrior",
+    "sourceSha256": "688ceb6ac7e126e0b1d3f0e3b255d05ff4cc8c9f949eca8088bbe53eebd2a410"
+  },
+  {
+    "slug": "Wrath_Sceptre",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
+    "class": "Sceptres",
+    "sourceUrl": "https://poe2db.tw/us/Wrath_Sceptre",
+    "card": "SceptresSpirit: 100Requires:  Level 49, 87 Int Grants Skill: Fulmination",
+    "sourceSha256": "a71c56c66e38e37d0e40934a19e16b3edc5e85ab9ebc405c052f1bee7421f049"
+  },
+  {
+    "slug": "Aromatic_Sceptre",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre11",
+    "class": "Sceptres",
+    "sourceUrl": "https://poe2db.tw/us/Aromatic_Sceptre",
+    "card": "SceptresSpirit: 100Requires:  Level 52, 92 Int Grants Skill: Skeletal Warrior",
+    "sourceSha256": "262204f84f573c2d8c6bf13271352a9b607a448f1c2119aea110b5f2eef687c1"
+  },
+  {
+    "slug": "Pious_Sceptre",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre12",
+    "class": "Sceptres",
+    "sourceUrl": "https://poe2db.tw/us/Pious_Sceptre",
+    "card": "SceptresSpirit: 100Requires:  Level 58, 102 Int Grants Skill: Skeletal Warrior",
+    "sourceSha256": "e309fc7a86abfc159747374717ba03c925cd66d5ff94815de829a0a879ab1438"
+  },
+  {
+    "slug": "Hallowed_Sceptre",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13",
+    "class": "Sceptres",
+    "sourceUrl": "https://poe2db.tw/us/Hallowed_Sceptre",
+    "card": "SceptresSpirit: 100Requires:  Level 65, 114 Int Grants Skill: Skeletal Warrior",
+    "sourceSha256": "4c04097849a61464e8ed64ff7bed0642c1c1d7fb1876677b46ab031b8b5247d9"
+  },
+  {
+    "slug": "Stoic_Sceptre",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2",
+    "class": "Sceptres",
+    "sourceUrl": "https://poe2db.tw/us/Stoic_Sceptre",
+    "card": "SceptresSpirit: 100Requires:  Level 6, 12 Int Grants Skill: Discipline",
+    "sourceSha256": "565b3f449093610fc9f70aac16fa015e23fc9a30dddcceaee6637aca7659d787"
+  },
+  {
+    "slug": "Lupine_Sceptre",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre3",
+    "class": "Sceptres",
+    "sourceUrl": "https://poe2db.tw/us/Lupine_Sceptre",
+    "card": "SceptresSpirit: 100Requires:  Level 12, 24 Int Grants Skill: Skeletal Warrior",
+    "sourceSha256": "67a332abb2ed1c4beda75dbb00f4af94e110adfe135108c9d82d2df62f424c4d"
+  },
+  {
+    "slug": "Omen_Sceptre",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4",
+    "class": "Sceptres",
+    "sourceUrl": "https://poe2db.tw/us/Omen_Sceptre",
+    "card": "SceptresSpirit: 100Requires:  Level 16, 12 Str, 25 Int Grants Skill: Malice",
+    "sourceSha256": "c9408471252657a614606bf4daab30f3fb1e179bd13ed3338afdfe390068b28a"
+  },
+  {
+    "slug": "Ochre_Sceptre",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre5",
+    "class": "Sceptres",
+    "sourceUrl": "https://poe2db.tw/us/Ochre_Sceptre",
+    "card": "SceptresSpirit: 100Requires:  Level 21, 40 Int Grants Skill: Skeletal Warrior",
+    "sourceSha256": "5753fb813cd2a64f057f5169c9c6ac7da85905690d42e489d9b48ea21d2c14d9"
+  },
+  {
+    "slug": "Shrine_Sceptre",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a",
+    "class": "Sceptres",
+    "sourceUrl": "https://poe2db.tw/us/Shrine_Sceptre",
+    "card": "SceptresSpirit: 100Requires:  Level 26, 17 Str, 38 Int Grants Skill: Purity of Fire",
+    "sourceSha256": "4540a688d4b84fed275d8674bb2c5bdd46da6acf3e4bf91406f8e9eee534cb9c"
+  },
+  {
+    "slug": "Shrine_Sceptre",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b",
+    "class": "Sceptres",
+    "sourceUrl": "https://poe2db.tw/us/Shrine_Sceptre",
+    "card": "SceptresSpirit: 100Requires:  Level 26, 17 Str, 38 Int Grants Skill: Purity of Ice",
+    "sourceSha256": "4540a688d4b84fed275d8674bb2c5bdd46da6acf3e4bf91406f8e9eee534cb9c"
+  },
+  {
+    "slug": "Shrine_Sceptre",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c",
+    "class": "Sceptres",
+    "sourceUrl": "https://poe2db.tw/us/Shrine_Sceptre",
+    "card": "SceptresSpirit: 100Requires:  Level 26, 17 Str, 38 Int Grants Skill: Purity of Lightning",
+    "sourceSha256": "4540a688d4b84fed275d8674bb2c5bdd46da6acf3e4bf91406f8e9eee534cb9c"
+  },
+  {
+    "slug": "Devouring_Sceptre",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre7",
+    "class": "Sceptres",
+    "sourceUrl": "https://poe2db.tw/us/Devouring_Sceptre",
+    "card": "SceptresSpirit: 100Requires:  Level 33, 60 Int Grants Skill: Skeletal Warrior",
+    "sourceSha256": "18d04655a98f385065f77f12d3538bae370f99071cca5930ee6b0021d64dce9a"
+  },
+  {
+    "slug": "Clasped_Sceptre",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8",
+    "class": "Sceptres",
+    "sourceUrl": "https://poe2db.tw/us/Clasped_Sceptre",
+    "card": "SceptresSpirit: 100Requires:  Level 36, 65 Int Grants Skill: Heart of Ice",
+    "sourceSha256": "1a244ae120b2976453a1dfd98e4ddc3b09e71d7bf3be9a6eac51c3601ba45d97"
+  },
+  {
+    "slug": "Devotional_Sceptre",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre9",
+    "class": "Sceptres",
+    "sourceUrl": "https://poe2db.tw/us/Devotional_Sceptre",
+    "card": "SceptresSpirit: 100Requires:  Level 45, 26 Str, 63 Int Grants Skill: Skeletal Warrior",
+    "sourceSha256": "5ca578d71ce737f34c35bfb0e5c377b4aa1beff5e6b31c9668f4439cf15029b6"
+  },
+  {
+    "slug": "Shrine_Sceptre",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptreUnique1",
+    "class": "Sceptres",
+    "sourceUrl": "https://poe2db.tw/us/Shrine_Sceptre",
+    "card": "SceptresSpirit: 100Requires:  Level 26, 17 Str, 38 Int Grants Skill: Impurity",
+    "sourceSha256": "4540a688d4b84fed275d8674bb2c5bdd46da6acf3e4bf91406f8e9eee534cb9c"
+  },
+  {
+    "slug": "Withered_Wand",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand1",
+    "class": "Wands",
+    "sourceUrl": "https://poe2db.tw/us/Withered_Wand",
+    "card": "Wands Grants Skill: Chaos Bolt",
+    "sourceSha256": "fe453d99eb667ea1377ba0110314e8e85240d13c53df3185b35f4d4a57f05073"
+  },
+  {
+    "slug": "Torture_Wand",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand10",
+    "class": "Wands",
+    "sourceUrl": "https://poe2db.tw/us/Torture_Wand",
+    "card": "WandsRequires:  Level 49, 87 Int Grants Skill: Chaos Bolt",
+    "sourceSha256": "36a6282c96dd16e6ed643346a0247a6f3796841f9c7f6598cd89aaa5cc5a0e50"
+  },
+  {
+    "slug": "Critical_Wand",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand11",
+    "class": "Wands",
+    "sourceUrl": "https://poe2db.tw/us/Critical_Wand",
+    "card": "WandsRequires:  Level 52, 92 Int Grants Skill: Chaos Bolt",
+    "sourceSha256": "05690e0e2a9623b428ed7e8d56fc7b47c7f76f491173fee549ec8c4e29b73da4"
+  },
+  {
+    "slug": "Primordial_Wand",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand12",
+    "class": "Wands",
+    "sourceUrl": "https://poe2db.tw/us/Primordial_Wand",
+    "card": "WandsRequires:  Level 56, 99 Int Grants Skill: Wither",
+    "sourceSha256": "6510e4583862f4b21bf490e46dd35076f7883696a00fc72733f1c5d0134c91af"
+  },
+  {
+    "slug": "Dueling_Wand",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13",
+    "class": "Wands",
+    "sourceUrl": "https://poe2db.tw/us/Dueling_Wand",
+    "card": "WandsRequires:  Level 65, 114 Int Grants Skill: Spellslinger",
+    "sourceSha256": "16d2efe97d49377eced68cd813d237e9c118e1bcc93c11403a6c6efff749be83"
+  },
+  {
+    "slug": "Bone_Wand",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2",
+    "class": "Wands",
+    "sourceUrl": "https://poe2db.tw/us/Bone_Wand",
+    "card": "WandsRequires:  Level 2 Grants Skill: Bone Blast",
+    "sourceSha256": "e179d36bf2806dc30b35a9d9f2b8fbd3381365b8f4d19e925fd4fb22f56b236a"
+  },
+  {
+    "slug": "Attuned_Wand",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+    "class": "Wands",
+    "sourceUrl": "https://poe2db.tw/us/Attuned_Wand",
+    "card": "WandsRequires:  Level 2 Grants Skill: Mana Drain",
+    "sourceSha256": "5cb603755d7363f07c9dc68beaf828d6447c1f99b4615d96dc70966200dec7a9"
+  },
+  {
+    "slug": "Siphoning_Wand",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand4",
+    "class": "Wands",
+    "sourceUrl": "https://poe2db.tw/us/Siphoning_Wand",
+    "card": "WandsRequires:  Level 11, 23 Int Grants Skill: Power Siphon",
+    "sourceSha256": "316cbee9318d7722e1249c0c7c6f588018e7d0c56eab03bbda34438bdbcbbadc"
+  },
+  {
+    "slug": "Volatile_Wand",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand5",
+    "class": "Wands",
+    "sourceUrl": "https://poe2db.tw/us/Volatile_Wand",
+    "card": "WandsRequires:  Level 16, 31 Int Grants Skill: Volatile Dead",
+    "sourceSha256": "7c67796b10a5c45d79f1838b41c394d37e8b8671e4e0933ea88367d2174ba970"
+  },
+  {
+    "slug": "Galvanic_Wand",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand6",
+    "class": "Wands",
+    "sourceUrl": "https://poe2db.tw/us/Galvanic_Wand",
+    "card": "WandsRequires:  Level 25, 46 Int Grants Skill: Galvanic Field",
+    "sourceSha256": "3254de9cbfba4dfee2ea44d8cfd59497b1a1c8fbcd45f9121d4aab2b6085cb0a"
+  },
+  {
+    "slug": "Acrid_Wand",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7",
+    "class": "Wands",
+    "sourceUrl": "https://poe2db.tw/us/Acrid_Wand",
+    "card": "WandsRequires:  Level 33, 60 Int Grants Skill: Decompose",
+    "sourceSha256": "917690e55ab02332c949649fef2702e4cf3f2605e123b92f89540e25da519564"
+  },
+  {
+    "slug": "Offering_Wand",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand8",
+    "class": "Wands",
+    "sourceUrl": "https://poe2db.tw/us/Offering_Wand",
+    "card": "WandsRequires:  Level 38, 68 Int Grants Skill: Exsanguinate",
+    "sourceSha256": "11094ec0772172d103b1b1fe3db02a961cadf6ec56a84a93e47b278e780d3701"
+  },
+  {
+    "slug": "Frigid_Wand",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand9",
+    "class": "Wands",
+    "sourceUrl": "https://poe2db.tw/us/Frigid_Wand",
+    "card": "WandsRequires:  Level 45, 80 Int Grants Skill: Chaos Bolt",
+    "sourceSha256": "8d5d0b08c468a347f0de487a17da11b1cb2b403e238a735abe4822c017ac683e"
+  },
+  {
+    "slug": "Twisted_Wand",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWandUnique1",
+    "class": "Wands",
+    "sourceUrl": "https://poe2db.tw/us/Twisted_Wand",
+    "card": "WandsRequires:  Level 65, 114 Int Grants Skill: Coiling Bolts",
+    "sourceSha256": "e217d500e4e8196136bec6994a86f2d55983fe7db245b5daa00dfb0cd0e81652"
+  },
+  {
+    "slug": "Runic_Fork",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWandUnique2",
+    "class": "Wands",
+    "sourceUrl": "https://poe2db.tw/us/Runic_Fork",
+    "card": "WandsRequires:  Level 65, 114 Int",
+    "sourceSha256": "27040d1141f6738c1082b03c5ecbfec253689b6f670e353a7782a31362a11a28"
+  },
+  {
+    "slug": "Runemastered_Runic_Fork",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWandUnique2VerisiumUnique1",
+    "class": "Wands",
+    "sourceUrl": "https://poe2db.tw/us/Runemastered_Runic_Fork",
+    "card": "WandsRequires:  Level 65, 114 Int(30—50)% chance for Spell Skills to fire 2 additional Projectiles",
+    "sourceSha256": "f303de3b213e09a417cc13e4c9a6e0874548561567ae3b88a279e5591c6f53b7"
+  },
+  {
+    "slug": "Runemastered_Runic_Fork",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWandUnique2VerisiumUnique2",
+    "class": "Wands",
+    "sourceUrl": "https://poe2db.tw/us/Runemastered_Runic_Fork",
+    "card": "WandsRequires:  Level 65, 114 Int(30—50)% increased Mana Regeneration Rate",
+    "sourceSha256": "f303de3b213e09a417cc13e4c9a6e0874548561567ae3b88a279e5591c6f53b7"
+  },
+  {
+    "slug": "Runemastered_Runic_Fork",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWandUnique2VerisiumUnique3",
+    "class": "Wands",
+    "sourceUrl": "https://poe2db.tw/us/Runemastered_Runic_Fork",
+    "card": "WandsRequires:  Level 65, 114 Int+300 to maximum Runic Ward",
+    "sourceSha256": "f303de3b213e09a417cc13e4c9a6e0874548561567ae3b88a279e5591c6f53b7"
+  }
+]

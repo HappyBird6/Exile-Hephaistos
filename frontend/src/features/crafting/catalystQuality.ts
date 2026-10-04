@@ -1,7 +1,7 @@
 import ringManifest from './topBases.json'
 const ringImplicitIds = Object.fromEntries(
   Object.entries(ringManifest)
-    .filter(([, b]) => b.family === 'rings')
+    .filter(([, b]) => ['rings', 'amulets'].includes(b.family))
     .map(([k, b]) => [
       k,
       'implicitModifierId' in b ? b.implicitModifierId : '',
@@ -45,7 +45,8 @@ export const catalystBase = (base: string) =>
     'Metadata/Items/Jewels/JewelStr',
     'Metadata/Items/Jewels/JewelDex',
     'Metadata/Items/Jewels/JewelDiamond',
-  ].includes(base) || topBase(topBaseKey(base) ?? '')?.family === 'rings'
+  ].includes(base) ||
+  ['rings', 'amulets'].includes(topBase(topBaseKey(base) ?? '')?.family ?? '')
 
 export function qualityShape(
   value: unknown,
@@ -74,7 +75,9 @@ export function verifiedCatalystQuality(
     cap !== null &&
     state.catalystQuality.amount <=
       (state.baseItemId === 'Metadata/Items/Amulets/FourAmulet9' ||
-      topBase(topBaseKey(state.baseItemId) ?? '')?.family === 'rings'
+      ['rings', 'amulets'].includes(
+        topBase(topBaseKey(state.baseItemId) ?? '')?.family ?? '',
+      )
         ? 40
         : cap)
   )

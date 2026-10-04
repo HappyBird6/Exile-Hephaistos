@@ -36,7 +36,7 @@ export function topBaseKey(id: string | undefined): TopBaseKey | undefined {
 export const reviewedArmourKeys = (Object.keys(data) as TopBaseKey[]).filter(
   (key) =>
     key !== 'soldier' &&
-    ['gloves', 'helmets', 'body', 'boots', 'bows', 'rings'].includes(
+    ['gloves', 'helmets', 'body', 'boots', 'bows', 'rings', 'amulets'].includes(
       data[key].family,
     ),
 )

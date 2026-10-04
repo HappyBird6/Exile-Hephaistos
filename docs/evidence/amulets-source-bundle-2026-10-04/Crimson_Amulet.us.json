@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/us/Crimson_Amulet",
+  "retrievedAt": "2026-10-04T21:52:38.825Z",
+  "sha256": "d9c1cd280d66744b67f9285ca75a2c5d56c3512de9386da58568ad77027b867f",
+  "name": "Crimson Amulet",
+  "card": "Crimson Amulet\n        \n    \n    \n        \n            Amulets(2—4) Life Regeneration per second",
+  "requirements": "",
+  "fields": {
+    "DropLevel": "1",
+    "BaseType": "Crimson Amulet",
+    "Class": "Amulets",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Amulets/FourAmulet1",
+    "Tags": "amulet",
+    "Icon": "Art/2DItems/Amulets/Basetypes/CrimsonAmulet",
+    "Base.base_level": "1",
+    "Base.tag": "default, amulet",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Amulet",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

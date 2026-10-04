@@ -1,0 +1,39 @@
+{
+  "row": {
+    "Name": "Beryl",
+    "Level": "1",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedMana"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(10<span class=\"ndash\">—</span>14)</span> to maximum Mana",
+    "fossil_no": [
+      "resource",
+      "mana"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "belt",
+      "helmet",
+      "gloves",
+      "boots",
+      "focus",
+      "sceptre",
+      "wand",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a3db9c2caeec255e1441412183054baf36982320f5854dcf57cdcd276fb8dcd7"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a3db9c2caeec255e1441412183054baf36982320f5854dcf57cdcd276fb8dcd7",
+  "retrievedAt": "2026-10-04T22:02:01.056Z",
+  "sha256": "a3db9c2caeec255e1441412183054baf36982320f5854dcf57cdcd276fb8dcd7",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(10<span class=\"ndash\">—</span>14)</span> to maximum Mana</span></h5>   <span data-tabname=\"Beryl\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Beryl\n<tr><th>Family<td>IncreasedMana\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>1\n<tr><th>Gold Price<td>118\n<tr><th>Stats<td><li>base maximum mana <span class=\"badge bg-primary\">10 <span class=\"ndash\">—</span> 14</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>sceptre: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(10<span class=\"ndash\">—</span>11)</span>% more [Attack|Attack] damage while on [LowMana|Low Mana]</table>  </div></div>"
+}

@@ -1,0 +1,28 @@
+{
+  "url": "https://poe2db.tw/sp/Bloodstone_Amulet",
+  "retrievedAt": "2026-10-04T21:52:34.180Z",
+  "sha256": "8d90d4ac602766ccfc3384f8631ef4eb42283383ea1b098c5457443915e22873",
+  "name": "Amuleto de piedra de sangre",
+  "card": "Amuleto de piedra de sangre\n        \n    \n    \n        \n            AmuletosRequiere:  Nivel 18+(30—40) a la vida máxima\n        \n\n\n\n        \n            Bloodstone Amulet",
+  "requirements": "Requiere:  Nivel 18",
+  "fields": {
+    "ID": "BrequelTreeAmulets40d",
+    "Icon": "Art/2DItems/Amulets/Basetypes/BloodstoneAmulet",
+    "PassiveSkillsHash": "46738",
+    "DropLevel": "18",
+    "BaseType": "Amuleto de piedra de sangre",
+    "Class": "Amuletos",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Amulets/FourAmulet7",
+    "Tags": "amulet",
+    "Base.base_level": "1",
+    "Base.tag": "default, amulet",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Amulet",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

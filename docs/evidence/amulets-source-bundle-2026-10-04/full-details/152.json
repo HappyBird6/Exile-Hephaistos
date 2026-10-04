@@ -1,0 +1,36 @@
+{
+  "row": {
+    "Name": "of Elation",
+    "Level": "29",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ManaRegeneration"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(30<span class=\"ndash\">—</span>39)</span>% increased Mana Regeneration Rate",
+    "fossil_no": [
+      "resource",
+      "mana"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "focus",
+      "sceptre",
+      "wand",
+      "trap",
+      "genesis_tree_caster",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b886a6a7a0ac9a57c8c2f6d5ba9c83f3ef69a81f3a77d3bcace934b687871023"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b886a6a7a0ac9a57c8c2f6d5ba9c83f3ef69a81f3a77d3bcace934b687871023",
+  "retrievedAt": "2026-10-04T22:02:44.598Z",
+  "sha256": "b886a6a7a0ac9a57c8c2f6d5ba9c83f3ef69a81f3a77d3bcace934b687871023",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(30<span class=\"ndash\">—</span>39)</span>% increased Mana Regeneration Rate</span></h5>   <span data-tabname=\"of Elation\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Elation\n<tr><th>Family<td>ManaRegeneration\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>29 (Effective: 23)\n<tr><th>Gold Price<td>301\n<tr><th>Stats<td><li>mana regeneration rate +% <span class=\"badge bg-primary\">30 <span class=\"ndash\">—</span> 39</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>sceptre: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>genesis_tree_caster: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> </table>  </div></div>"
+}

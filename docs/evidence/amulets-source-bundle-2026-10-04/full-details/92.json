@@ -1,0 +1,31 @@
+{
+  "row": {
+    "Name": "Zaffre",
+    "Level": "75",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedMana"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(165<span class=\"ndash\">—</span>179)</span> to maximum Mana",
+    "fossil_no": [
+      "resource",
+      "mana"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/15be79d2c24818b96683e707d3fb6adf8cab754a80c382adab44f4dee99bc7d9"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/15be79d2c24818b96683e707d3fb6adf8cab754a80c382adab44f4dee99bc7d9",
+  "retrievedAt": "2026-10-04T22:02:08.270Z",
+  "sha256": "15be79d2c24818b96683e707d3fb6adf8cab754a80c382adab44f4dee99bc7d9",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(165<span class=\"ndash\">—</span>179)</span> to maximum Mana</span></h5>   <span data-tabname=\"Zaffre\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Zaffre\n<tr><th>Family<td>IncreasedMana\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>75 (Effective: 60)\n<tr><th>Gold Price<td>4316\n<tr><th>Stats<td><li>base maximum mana <span class=\"badge bg-primary\">165 <span class=\"ndash\">—</span> 179</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> </table>  </div></div>"
+}

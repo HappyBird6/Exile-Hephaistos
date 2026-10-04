@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/kr/Pearlescent_Amulet",
+  "retrievedAt": "2026-10-04T21:52:41.155Z",
+  "sha256": "55db2013314e84422bcdc79117d1763728e7592dbb3e715ef28826ae3b167d63",
+  "name": "진줏빛 목걸이",
+  "card": "진줏빛 목걸이\n        \n    \n    \n        \n            목걸이요구 사항:  레벨 8모든 원소 저항 +(7—10)%\n        \n\n\n\n        \n            Pearlescent Amulet",
+  "requirements": "요구 사항:  레벨 8",
+  "fields": {
+    "DropLevel": "8",
+    "BaseType": "진줏빛 목걸이",
+    "Class": "목걸이",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Amulets/FourAmulet11",
+    "Tags": "amulet",
+    "Icon": "Art/2DItems/Amulets/Basetypes/PearlescentAmulet",
+    "Base.base_level": "1",
+    "Base.tag": "default, amulet",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Amulet",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5",
+    "진줏빛 목걸이": "1x 비취 목걸이 \n1x 호박 목걸이 \n1x 청금석 목걸이"
+  }
+}

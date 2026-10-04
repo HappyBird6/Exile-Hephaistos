@@ -2367,6 +2367,48 @@
       "lines": [],
       "itemKey": "Metadata/Items/Rings/FourRing13a",
       "sourceUrl": "https://poe2db.tw/us/Two-Stone_Ring"
+    },
+    "Stellar_Amulet": {
+      "name": "Stellar Amulet",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet8",
+      "sourceUrl": "https://poe2db.tw/us/Stellar_Amulet"
+    },
+    "Amber_Amulet": {
+      "name": "Amber Amulet",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet3",
+      "sourceUrl": "https://poe2db.tw/us/Amber_Amulet"
+    },
+    "Bloodstone_Amulet": {
+      "name": "Bloodstone Amulet",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet7",
+      "sourceUrl": "https://poe2db.tw/us/Bloodstone_Amulet"
+    },
+    "Lunar_Amulet": {
+      "name": "Lunar Amulet",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet6",
+      "sourceUrl": "https://poe2db.tw/us/Lunar_Amulet"
+    },
+    "Azure_Amulet": {
+      "name": "Azure Amulet",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet2",
+      "sourceUrl": "https://poe2db.tw/us/Azure_Amulet"
+    },
+    "Crimson_Amulet": {
+      "name": "Crimson Amulet",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet1",
+      "sourceUrl": "https://poe2db.tw/us/Crimson_Amulet"
+    },
+    "Pearlescent_Amulet": {
+      "name": "Pearlescent Amulet",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet11",
+      "sourceUrl": "https://poe2db.tw/us/Pearlescent_Amulet"
     }
   },
   "ko": {
@@ -4721,6 +4763,48 @@
       "lines": [],
       "itemKey": "Metadata/Items/Rings/FourRing13a",
       "sourceUrl": "https://poe2db.tw/kr/Two-Stone_Ring"
+    },
+    "Stellar_Amulet": {
+      "name": "별의 목걸이",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet8",
+      "sourceUrl": "https://poe2db.tw/kr/Stellar_Amulet"
+    },
+    "Amber_Amulet": {
+      "name": "호박 목걸이",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet3",
+      "sourceUrl": "https://poe2db.tw/kr/Amber_Amulet"
+    },
+    "Bloodstone_Amulet": {
+      "name": "혈석 목걸이",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet7",
+      "sourceUrl": "https://poe2db.tw/kr/Bloodstone_Amulet"
+    },
+    "Lunar_Amulet": {
+      "name": "달의 목걸이",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet6",
+      "sourceUrl": "https://poe2db.tw/kr/Lunar_Amulet"
+    },
+    "Azure_Amulet": {
+      "name": "담청색 목걸이",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet2",
+      "sourceUrl": "https://poe2db.tw/kr/Azure_Amulet"
+    },
+    "Crimson_Amulet": {
+      "name": "진홍색 목걸이",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet1",
+      "sourceUrl": "https://poe2db.tw/kr/Crimson_Amulet"
+    },
+    "Pearlescent_Amulet": {
+      "name": "진줏빛 목걸이",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet11",
+      "sourceUrl": "https://poe2db.tw/kr/Pearlescent_Amulet"
     }
   },
   "zh-CN": {
@@ -6973,6 +7057,48 @@
       "lines": [],
       "itemKey": "Metadata/Items/Rings/FourRing13a",
       "sourceUrl": "https://poe2db.tw/cn/Two-Stone_Ring"
+    },
+    "Stellar_Amulet": {
+      "name": "星辉项链",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet8",
+      "sourceUrl": "https://poe2db.tw/cn/Stellar_Amulet"
+    },
+    "Amber_Amulet": {
+      "name": "琥珀项链",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet3",
+      "sourceUrl": "https://poe2db.tw/cn/Amber_Amulet"
+    },
+    "Bloodstone_Amulet": {
+      "name": "血岩项链",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet7",
+      "sourceUrl": "https://poe2db.tw/cn/Bloodstone_Amulet"
+    },
+    "Lunar_Amulet": {
+      "name": "月影项链",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet6",
+      "sourceUrl": "https://poe2db.tw/cn/Lunar_Amulet"
+    },
+    "Azure_Amulet": {
+      "name": "碧蓝项链",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet2",
+      "sourceUrl": "https://poe2db.tw/cn/Azure_Amulet"
+    },
+    "Crimson_Amulet": {
+      "name": "赤红项链",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet1",
+      "sourceUrl": "https://poe2db.tw/cn/Crimson_Amulet"
+    },
+    "Pearlescent_Amulet": {
+      "name": "珠光项链",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet11",
+      "sourceUrl": "https://poe2db.tw/cn/Pearlescent_Amulet"
     }
   },
   "zh-TW": {
@@ -9215,6 +9341,48 @@
       "lines": [],
       "itemKey": "Metadata/Items/Rings/FourRing13a",
       "sourceUrl": "https://poe2db.tw/tw/Two-Stone_Ring"
+    },
+    "Stellar_Amulet": {
+      "name": "恆星項鍊",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet8",
+      "sourceUrl": "https://poe2db.tw/tw/Stellar_Amulet"
+    },
+    "Amber_Amulet": {
+      "name": "琥珀護身符",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet3",
+      "sourceUrl": "https://poe2db.tw/tw/Amber_Amulet"
+    },
+    "Bloodstone_Amulet": {
+      "name": "血石項鍊",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet7",
+      "sourceUrl": "https://poe2db.tw/tw/Bloodstone_Amulet"
+    },
+    "Lunar_Amulet": {
+      "name": "月神項鍊",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet6",
+      "sourceUrl": "https://poe2db.tw/tw/Lunar_Amulet"
+    },
+    "Azure_Amulet": {
+      "name": "蒼藍項鍊",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet2",
+      "sourceUrl": "https://poe2db.tw/tw/Azure_Amulet"
+    },
+    "Crimson_Amulet": {
+      "name": "赤紅項鍊",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet1",
+      "sourceUrl": "https://poe2db.tw/tw/Crimson_Amulet"
+    },
+    "Pearlescent_Amulet": {
+      "name": "珠光項鍊",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet11",
+      "sourceUrl": "https://poe2db.tw/tw/Pearlescent_Amulet"
     }
   },
   "ja": {
@@ -11571,6 +11739,48 @@
       "lines": [],
       "itemKey": "Metadata/Items/Rings/FourRing13a",
       "sourceUrl": "https://poe2db.tw/jp/Two-Stone_Ring"
+    },
+    "Stellar_Amulet": {
+      "name": "星のアミュレット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet8",
+      "sourceUrl": "https://poe2db.tw/jp/Stellar_Amulet"
+    },
+    "Amber_Amulet": {
+      "name": "琥珀のアミュレット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet3",
+      "sourceUrl": "https://poe2db.tw/jp/Amber_Amulet"
+    },
+    "Bloodstone_Amulet": {
+      "name": "血石のアミュレット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet7",
+      "sourceUrl": "https://poe2db.tw/jp/Bloodstone_Amulet"
+    },
+    "Lunar_Amulet": {
+      "name": "月のアミュレット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet6",
+      "sourceUrl": "https://poe2db.tw/jp/Lunar_Amulet"
+    },
+    "Azure_Amulet": {
+      "name": "深青のアミュレット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet2",
+      "sourceUrl": "https://poe2db.tw/jp/Azure_Amulet"
+    },
+    "Crimson_Amulet": {
+      "name": "深紅のアミュレット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet1",
+      "sourceUrl": "https://poe2db.tw/jp/Crimson_Amulet"
+    },
+    "Pearlescent_Amulet": {
+      "name": "真珠のアミュレット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet11",
+      "sourceUrl": "https://poe2db.tw/jp/Pearlescent_Amulet"
     }
   },
   "es": {
@@ -13845,6 +14055,48 @@
       "lines": [],
       "itemKey": "Metadata/Items/Rings/FourRing13a",
       "sourceUrl": "https://poe2db.tw/sp/Two-Stone_Ring"
+    },
+    "Stellar_Amulet": {
+      "name": "Amuleto estelar",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet8",
+      "sourceUrl": "https://poe2db.tw/sp/Stellar_Amulet"
+    },
+    "Amber_Amulet": {
+      "name": "Amuleto de ámbar",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet3",
+      "sourceUrl": "https://poe2db.tw/sp/Amber_Amulet"
+    },
+    "Bloodstone_Amulet": {
+      "name": "Amuleto de piedra de sangre",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet7",
+      "sourceUrl": "https://poe2db.tw/sp/Bloodstone_Amulet"
+    },
+    "Lunar_Amulet": {
+      "name": "Amuleto lunar",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet6",
+      "sourceUrl": "https://poe2db.tw/sp/Lunar_Amulet"
+    },
+    "Azure_Amulet": {
+      "name": "Amuleto azur",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet2",
+      "sourceUrl": "https://poe2db.tw/sp/Azure_Amulet"
+    },
+    "Crimson_Amulet": {
+      "name": "Amuleto carmesí",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet1",
+      "sourceUrl": "https://poe2db.tw/sp/Crimson_Amulet"
+    },
+    "Pearlescent_Amulet": {
+      "name": "Amuleto nacarado",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet11",
+      "sourceUrl": "https://poe2db.tw/sp/Pearlescent_Amulet"
     }
   }
 }

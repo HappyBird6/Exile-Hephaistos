@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/kr/Azure_Amulet",
+  "retrievedAt": "2026-10-04T21:52:37.079Z",
+  "sha256": "983562a3db69caa8db37794e5175991d18f170d20ace4b045905c18a0746510e",
+  "name": "담청색 목걸이",
+  "card": "담청색 목걸이\n        \n    \n    \n        \n            목걸이마나 재생 속도 (20—30)% 증가\n        \n\n\n\n        \n            Azure Amulet",
+  "requirements": "",
+  "fields": {
+    "DropLevel": "1",
+    "BaseType": "담청색 목걸이",
+    "Class": "목걸이",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Amulets/FourAmulet2",
+    "Tags": "amulet",
+    "Icon": "Art/2DItems/Amulets/Basetypes/AzureAmulet",
+    "Base.base_level": "1",
+    "Base.tag": "default, amulet",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Amulet",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}
