@@ -27,3 +27,6 @@
 새 endpoint와 UI는 stable material ID→명시적 action mapping, Problem Details, source/probability disclosure, late response 취소·Alt/Shift·film/undo/redo·local orange Omen preview·6언어를 유지한다. 격리 복사본·독점 heavy QA로 BE/FE 필수 검사와 API/browser positive/negative coverage를 순차 수행한다. live18080/18081·개인 browser/storage·DB volume·원본 repo·원격 반영은 건드리지 않는다. 모든27종이 요청되었지만 위 미확인 의미는 지원 완료로 표시하지 않는다.
 
 원문 HTML/raw ModsView와 SHA256는 `codex/quality-preserve-20261004`에 보존했다. `Crafted` 페이지404도 source 실패 기록으로 유지한다. 다음 채팅은 해당 증거와 인벤토리를 재사용하고 최신 source 변경을 비교한다.
+
+
+현재 진행 갱신: Sapphire JL-01의 ordinary58/실제 슬롯/기본18종과 JL-02 Basic Liquid10을 [새 구현 명세](workbench-sapphire-generation-liquid-2026-10-04.md)에서 다룬다. 기존 Annul/Divine 전용 handoff는 이 부분에서 superseded. Liquid inventory27은 Basic13+Ancient13+unrelated Liquid Verisium1이다. raw15/14는 modifier outcome 행 수이며 currency 수가 아니다. JL-03~05는 잔여다.

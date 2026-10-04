@@ -20455,7 +20455,879 @@
       ],
       "englishText": "(2—4)% increased Cast Speed",
       "values": ["(2—4)"],
-      "template": "sapphire-existing-cast-speed-v1"
+      "template": "sapphire-source-f7b7781dd719133d",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-ailing": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "englishText": "(5—15)% increased chance to inflict Ailments",
+      "values": ["(5—15)"],
+      "template": "sapphire-source-2f51dd3e7760b02b",
+      "sourceCode": null
+    },
+    "sapphire:prefix:acrimonious": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "englishText": "(5—15)% increased Magnitude of Ailments you inflict",
+      "values": ["(5—15)"],
+      "template": "sapphire-source-db71f07bb5fc29fc",
+      "sourceCode": null
+    },
+    "sapphire:prefix:blasting": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "englishText": "(4—6)% increased Area of Effect",
+      "values": ["(4—6)"],
+      "template": "sapphire-source-cd6beef13793a86c",
+      "sourceCode": null
+    },
+    "sapphire:prefix:chaotic": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 7,
+          "max": 13
+        }
+      ],
+      "englishText": "(7—13)% increased Chaos Damage",
+      "values": ["(7—13)"],
+      "template": "sapphire-source-4430aaf73d10901b",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-frost": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "englishText": "(15—25)% increased Chill Duration on Enemies",
+      "values": ["(15—25)"],
+      "template": "sapphire-source-73bfcfcce4943ad3",
+      "sourceCode": null
+    },
+    "sapphire:prefix:chilling": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "englishText": "(5—15)% increased Cold Damage",
+      "values": ["(5—15)"],
+      "template": "sapphire-source-7e138e57e1a29a49",
+      "sourceCode": null
+    },
+    "sapphire:prefix:numbing": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "englishText": "Damage Penetrates (5—10)% Cold Resistance",
+      "values": ["(5—10)"],
+      "template": "sapphire-source-ba9e7fe2c6d7e4fb",
+      "sourceCode": null
+    },
+    "sapphire:prefix:necromantic": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "englishText": "(10—20)% increased Damage if you have Consumed a Corpse Recently",
+      "values": ["(10—20)"],
+      "template": "sapphire-source-fdd1cdc1d3bf3599",
+      "sourceCode": null
+    },
+    "sapphire:prefix:rancorous": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "englishText": "(10—20)% increased Magnitude of Damaging Ailments you inflict with Critical Hits",
+      "values": ["(10—20)"],
+      "template": "sapphire-source-5d930efe5aadbe2c",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-annihilation": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "englishText": "(5—15)% increased Critical Hit Chance",
+      "values": ["(5—15)"],
+      "template": "sapphire-source-c7b1f1973e53f65c",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-potency": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "englishText": "(10—20)% increased Critical Damage Bonus",
+      "values": ["(10—20)"],
+      "template": "sapphire-source-4392c6a8176ebfde",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-unmaking": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "englishText": "(10—20)% increased Critical Spell Damage Bonus",
+      "values": ["(10—20)"],
+      "template": "sapphire-source-d5bb1c5fca1927b8",
+      "sourceCode": null
+    },
+    "sapphire:prefix:expanding": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 8,
+          "max": 12
+        }
+      ],
+      "englishText": "(8—12)% increased Area of Effect of Curses",
+      "values": ["(8—12)"],
+      "template": "sapphire-source-4769ac0b858242c3",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-chanting": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "englishText": "(5—15)% faster Curse Activation",
+      "values": ["(5—15)"],
+      "template": "sapphire-source-8970a97a93f09b6f",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-continuation": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "englishText": "(15—25)% increased Curse Duration",
+      "values": ["(15—25)"],
+      "template": "sapphire-source-3e16f951167041ba",
+      "sourceCode": null
+    },
+    "sapphire:prefix:hexing": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "englishText": "(2—4)% increased Curse Magnitudes",
+      "values": ["(2—4)"],
+      "template": "sapphire-source-15886d598e6bbc06",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-mind": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "englishText": "(2—4)% of Damage is taken from Mana before Life",
+      "values": ["(2—4)"],
+      "template": "sapphire-source-95fb723bf4aec705",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-suffusion": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "englishText": "(5—10)% increased Duration of Damaging Ailments on Enemies",
+      "values": ["(5—10)"],
+      "template": "sapphire-source-494ae8866d398525",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-diminishing": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "englishText": "Debuffs on you expire (5—10)% faster",
+      "values": ["(5—10)"],
+      "template": "sapphire-source-4e74e5d888aeb639",
+      "sourceCode": null
+    },
+    "sapphire:prefix:prismatic": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "englishText": "(5—15)% increased Elemental Damage",
+      "values": ["(5—15)"],
+      "template": "sapphire-source-007f218f136aff40",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-generation": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 4,
+          "max": 8
+        }
+      ],
+      "englishText": "Meta Skills gain (4—8)% increased Energy",
+      "values": ["(4—8)"],
+      "template": "sapphire-source-1abfb34d3f4cc83a",
+      "sourceCode": null
+    },
+    "sapphire:prefix:shimmering": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "englishText": "(10—20)% increased maximum Energy Shield",
+      "values": ["(10—20)"],
+      "template": "sapphire-source-280f8dad99d0cf6a",
+      "sourceCode": null
+    },
+    "sapphire:prefix:serene": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "englishText": "(10—15)% faster start of Energy Shield Recharge",
+      "values": ["(10—15)"],
+      "template": "sapphire-source-fb849063fa4ba68c",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-decrepifying": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 3,
+          "max": 7
+        }
+      ],
+      "englishText": "Damaging Ailments deal damage (3—7)% faster",
+      "values": ["(3—7)"],
+      "template": "sapphire-source-0cc8d507e34d241a",
+      "sourceCode": null
+    },
+    "sapphire:prefix:focusing": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 30,
+          "max": 50
+        }
+      ],
+      "englishText": "(30—50)% increased Energy Shield from Equipped Focus",
+      "values": ["(30—50)"],
+      "template": "sapphire-source-858dd4ff47688eec",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-freezing": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "englishText": "(10—20)% increased Freeze Buildup",
+      "values": ["(10—20)"],
+      "template": "sapphire-source-6d726bc380dfa6ab",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-snowbreathing": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 18,
+          "max": 32
+        }
+      ],
+      "englishText": "(18—32)% increased Freeze Threshold",
+      "values": ["(18—32)"],
+      "template": "sapphire-source-496fbebaed752772",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-ignition": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "englishText": "(10—20)% increased Flammability Magnitude",
+      "values": ["(10—20)"],
+      "template": "sapphire-source-6f78d09e4fc2a333",
+      "sourceCode": null
+    },
+    "sapphire:prefix:burning": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "englishText": "(5—15)% increased Ignite Magnitude",
+      "values": ["(5—15)"],
+      "template": "sapphire-source-1551f7b1cfc51b33",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-lengthening": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "englishText": "(5—10)% increased Skill Effect Duration",
+      "values": ["(5—10)"],
+      "template": "sapphire-source-4e639a479fb23231",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-success": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "englishText": "Recover (1—2)% of maximum Life on Kill",
+      "values": ["(1—2)"],
+      "template": "sapphire-source-9a2739c1de7c81ce",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-infusion": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "englishText": "(2—3)% of Damage taken Recouped as Life",
+      "values": ["(2—3)"],
+      "template": "sapphire-source-18c2fffbd6dce036",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-osmosis": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "englishText": "Recover (1—2)% of maximum Mana on Kill",
+      "values": ["(1—2)"],
+      "template": "sapphire-source-b443a1481c5247da",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-energy": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "englishText": "(5—15)% increased Mana Regeneration Rate",
+      "values": ["(5—15)"],
+      "template": "sapphire-source-fb386eb7fefea5f8",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-the-kraken": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "+1% to Maximum Cold Resistance",
+      "values": ["+1"],
+      "template": "sapphire-source-9bb8edb3753dec05",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-orchestration": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "englishText": "Minions have (2—4)% increased Attack and Cast Speed",
+      "values": ["(2—4)"],
+      "template": "sapphire-source-3a325be26c2380df",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-righteousness": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 7,
+          "max": 13
+        }
+      ],
+      "englishText": "Minions have +(7—13)% to Chaos Resistance",
+      "values": ["+(7—13)"],
+      "template": "sapphire-source-6ce43a003a240838",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-marshalling": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "englishText": "Minions have (10—20)% increased Critical Hit Chance",
+      "values": ["(10—20)"],
+      "template": "sapphire-source-e20118aebd077356",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-gripping": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "englishText": "Minions have (15—25)% increased Critical Damage Bonus",
+      "values": ["(15—25)"],
+      "template": "sapphire-source-853d7396a08f6b7e",
+      "sourceCode": null
+    },
+    "sapphire:prefix:authoritative": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "englishText": "Minions deal (5—15)% increased Damage",
+      "values": ["(5—15)"],
+      "template": "sapphire-source-852f2fe3c9964720",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-acclimatisation": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "englishText": "Minions have +(5—10)% to all Elemental Resistances",
+      "values": ["+(5—10)"],
+      "template": "sapphire-source-0b7e2c7edb0413a6",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-offering": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "englishText": "Offering Skills have (15—25)% increased Duration",
+      "values": ["(15—25)"],
+      "template": "sapphire-source-9361c2514f57754c",
+      "sourceCode": null
+    },
+    "sapphire:prefix:sacrificial": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "englishText": "Offerings have (15—25)% increased Maximum Life",
+      "values": ["(15—25)"],
+      "template": "sapphire-source-d871cf30cef66d0c",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-glaciers": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "englishText": "(10—20)% increased Freeze Buildup with Quarterstaves",
+      "values": ["(10—20)"],
+      "template": "sapphire-source-0cdee3590700a256",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-shocking": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "englishText": "(10—20)% increased chance to Shock",
+      "values": ["(10—20)"],
+      "template": "sapphire-source-946013928573f4da",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-paralyzing": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "englishText": "(15—25)% increased Shock Duration",
+      "values": ["(15—25)"],
+      "template": "sapphire-source-f5cfd8342e2043b2",
+      "sourceCode": null
+    },
+    "sapphire:prefix:jolting": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "englishText": "(10—15)% increased Magnitude of Shock you inflict",
+      "values": ["(10—15)"],
+      "template": "sapphire-source-e950fce0c43995d7",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-annihilating": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "englishText": "(5—15)% increased Critical Hit Chance for Spells",
+      "values": ["(5—15)"],
+      "template": "sapphire-source-36a1906fee226ab5",
+      "sourceCode": null
+    },
+    "sapphire:prefix:mystic": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "englishText": "(5—15)% increased Spell Damage",
+      "values": ["(5—15)"],
+      "template": "sapphire-source-4ea7c34a55f4c695",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-barriers": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "englishText": "Gain additional Stun Threshold equal to (5—15)% of maximum Energy Shield",
+      "values": ["(5—15)"],
+      "template": "sapphire-source-3d770c139b237d9d",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-inuring": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "englishText": "Gain additional Ailment Threshold equal to (5—15)% of maximum Energy Shield",
+      "values": ["(5—15)"],
+      "template": "sapphire-source-e63d25133f830f75",
+      "sourceCode": null
+    },
+    "sapphire:prefix:triggered": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 18
+        }
+      ],
+      "englishText": "Triggered Spells deal (10—18)% increased Spell Damage",
+      "values": ["(10—18)"],
+      "template": "sapphire-source-4759d929bbdad825",
+      "sourceCode": null
+    },
+    "sapphire:prefix:withering": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "englishText": "(5—10)% increased Withered Magnitude",
+      "values": ["(5—10)"],
+      "template": "sapphire-source-2b926b8622028cee",
+      "sourceCode": null
+    },
+    "sapphire:prefix:iconic": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "englishText": "(15—25)% increased Presence Area of Effect",
+      "values": ["(15—25)"],
+      "template": "sapphire-source-7fd91118882ae05e",
+      "sourceCode": null
+    },
+    "sapphire:suffix:of-the-wild": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "englishText": "(2—4)% increased Skill Speed while Shapeshifted",
+      "values": ["(2—4)"],
+      "template": "sapphire-source-f0501cc040640534",
+      "sourceCode": null
+    },
+    "sapphire:prefix:bestial": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "englishText": "(5—15)% increased Damage while Shapeshifted",
+      "values": ["(5—15)"],
+      "template": "sapphire-source-8d4d0e9fd66b271c",
+      "sourceCode": null
+    },
+    "sapphire:prefix:overgrown": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "englishText": "(5—15)% increased Damage with Plant Skills",
+      "values": ["(5—15)"],
+      "template": "sapphire-source-02c4aee5ab676a65",
+      "sourceCode": null
+    },
+    "sapphire:crafted:JewelEnergyShield": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "englishText": "(10—20)% increased maximum Energy Shield",
+      "values": ["(10—20)"],
+      "template": "sapphire-source-3cdead6fa2299be0",
+      "sourceCode": "JewelEnergyShield"
+    },
+    "sapphire:crafted:JewelColdDamage": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "englishText": "(5—15)% increased Cold Damage",
+      "values": ["(5—15)"],
+      "template": "sapphire-source-d0e00e141c1a40df",
+      "sourceCode": "JewelColdDamage"
+    },
+    "sapphire:crafted:JewelChaosDamage": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 7,
+          "max": 13
+        }
+      ],
+      "englishText": "(7—13)% increased Chaos Damage",
+      "values": ["(7—13)"],
+      "template": "sapphire-source-8edef712b4e18052",
+      "sourceCode": "JewelChaosDamage"
+    },
+    "sapphire:crafted:JewelCastSpeed": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "englishText": "(2—4)% increased Cast Speed",
+      "values": ["(2—4)"],
+      "template": "sapphire-source-eec0d5fe5b21f6bf",
+      "sourceCode": "JewelCastSpeed"
+    },
+    "sapphire:crafted:JewelSpellDamage": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "englishText": "(5—15)% increased Spell Damage",
+      "values": ["(5—15)"],
+      "template": "sapphire-source-fd5b1d212239e7f4",
+      "sourceCode": "JewelSpellDamage"
+    },
+    "sapphire:crafted:JewelManaonKill": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "englishText": "Recover (1—2)% of maximum Mana on Kill",
+      "values": ["(1—2)"],
+      "template": "sapphire-source-4ed91ee75f9514fc",
+      "sourceCode": "JewelManaonKill"
+    },
+    "sapphire:crafted:JewelSpellCriticalChance": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "englishText": "(5—15)% increased Critical Hit Chance for Spells",
+      "values": ["(5—15)"],
+      "template": "sapphire-source-91d5277273bd22e4",
+      "sourceCode": "JewelSpellCriticalChance"
+    },
+    "sapphire:crafted:JewelSpellCriticalDamage": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "englishText": "(10—20)% increased Critical Spell Damage Bonus",
+      "values": ["(10—20)"],
+      "template": "sapphire-source-5ee60393c47691a4",
+      "sourceCode": "JewelSpellCriticalDamage"
+    },
+    "sapphire:crafted:JewelAreaofEffect": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "englishText": "(4—6)% increased Area of Effect",
+      "values": ["(4—6)"],
+      "template": "sapphire-source-6d59506bed943a35",
+      "sourceCode": "JewelAreaofEffect"
+    },
+    "sapphire:crafted:JewelMaximumColdResistance": {
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "+1% to Maximum Cold Resistance",
+      "values": ["+1"],
+      "template": "sapphire-source-a6b816fdd11bd31d",
+      "sourceCode": "JewelMaximumColdResistance"
     }
   },
   "templates": {
@@ -23631,6 +24503,278 @@
       "sapphire-existing-cast-speed-v1": {
         "name": "of Enchanting",
         "template": "{v0}% increased Cast Speed"
+      },
+      "sapphire-source-2f51dd3e7760b02b": {
+        "name": "of Ailing",
+        "template": "{v0}% increased chance to inflict Ailments"
+      },
+      "sapphire-source-db71f07bb5fc29fc": {
+        "name": "Acrimonious",
+        "template": "{v0}% increased Magnitude of Ailments you inflict"
+      },
+      "sapphire-source-cd6beef13793a86c": {
+        "name": "Blasting",
+        "template": "{v0}% increased Area of Effect"
+      },
+      "sapphire-source-f7b7781dd719133d": {
+        "name": "of Enchanting",
+        "template": "{v0}% increased Cast Speed"
+      },
+      "sapphire-source-4430aaf73d10901b": {
+        "name": "Chaotic",
+        "template": "{v0}% increased Chaos Damage"
+      },
+      "sapphire-source-73bfcfcce4943ad3": {
+        "name": "of Frost",
+        "template": "{v0}% increased Chill Duration on Enemies"
+      },
+      "sapphire-source-7e138e57e1a29a49": {
+        "name": "Chilling",
+        "template": "{v0}% increased Cold Damage"
+      },
+      "sapphire-source-ba9e7fe2c6d7e4fb": {
+        "name": "Numbing",
+        "template": "Damage Penetrates {v0}% Cold Resistance"
+      },
+      "sapphire-source-fdd1cdc1d3bf3599": {
+        "name": "Necromantic",
+        "template": "{v0}% increased Damage if you have Consumed a Corpse Recently"
+      },
+      "sapphire-source-5d930efe5aadbe2c": {
+        "name": "Rancorous",
+        "template": "{v0}% increased Magnitude of Damaging Ailments you inflict with Critical Hits"
+      },
+      "sapphire-source-c7b1f1973e53f65c": {
+        "name": "of Annihilation",
+        "template": "{v0}% increased Critical Hit Chance"
+      },
+      "sapphire-source-4392c6a8176ebfde": {
+        "name": "of Potency",
+        "template": "{v0}% increased Critical Damage Bonus"
+      },
+      "sapphire-source-d5bb1c5fca1927b8": {
+        "name": "of Unmaking",
+        "template": "{v0}% increased Critical Spell Damage Bonus"
+      },
+      "sapphire-source-4769ac0b858242c3": {
+        "name": "Expanding",
+        "template": "{v0}% increased Area of Effect of Curses"
+      },
+      "sapphire-source-8970a97a93f09b6f": {
+        "name": "of Chanting",
+        "template": "{v0}% faster Curse Activation"
+      },
+      "sapphire-source-3e16f951167041ba": {
+        "name": "of Continuation",
+        "template": "{v0}% increased Curse Duration"
+      },
+      "sapphire-source-15886d598e6bbc06": {
+        "name": "Hexing",
+        "template": "{v0}% increased Curse Magnitudes"
+      },
+      "sapphire-source-95fb723bf4aec705": {
+        "name": "of Mind",
+        "template": "{v0}% of Damage is taken from Mana before Life"
+      },
+      "sapphire-source-494ae8866d398525": {
+        "name": "of Suffusion",
+        "template": "{v0}% increased Duration of Damaging Ailments on Enemies"
+      },
+      "sapphire-source-4e74e5d888aeb639": {
+        "name": "of Diminishing",
+        "template": "Debuffs on you expire {v0}% faster"
+      },
+      "sapphire-source-007f218f136aff40": {
+        "name": "Prismatic",
+        "template": "{v0}% increased Elemental Damage"
+      },
+      "sapphire-source-1abfb34d3f4cc83a": {
+        "name": "of Generation",
+        "template": "Meta Skills gain {v0}% increased Energy"
+      },
+      "sapphire-source-280f8dad99d0cf6a": {
+        "name": "Shimmering",
+        "template": "{v0}% increased maximum Energy Shield"
+      },
+      "sapphire-source-fb849063fa4ba68c": {
+        "name": "Serene",
+        "template": "{v0}% faster start of Energy Shield Recharge"
+      },
+      "sapphire-source-0cc8d507e34d241a": {
+        "name": "of Decrepifying",
+        "template": "Damaging Ailments deal damage {v0}% faster"
+      },
+      "sapphire-source-858dd4ff47688eec": {
+        "name": "Focusing",
+        "template": "{v0}% increased Energy Shield from Equipped Focus"
+      },
+      "sapphire-source-6d726bc380dfa6ab": {
+        "name": "of Freezing",
+        "template": "{v0}% increased Freeze Buildup"
+      },
+      "sapphire-source-496fbebaed752772": {
+        "name": "of Snowbreathing",
+        "template": "{v0}% increased Freeze Threshold"
+      },
+      "sapphire-source-6f78d09e4fc2a333": {
+        "name": "of Ignition",
+        "template": "{v0}% increased Flammability Magnitude"
+      },
+      "sapphire-source-1551f7b1cfc51b33": {
+        "name": "Burning",
+        "template": "{v0}% increased Ignite Magnitude"
+      },
+      "sapphire-source-4e639a479fb23231": {
+        "name": "of Lengthening",
+        "template": "{v0}% increased Skill Effect Duration"
+      },
+      "sapphire-source-9a2739c1de7c81ce": {
+        "name": "of Success",
+        "template": "Recover {v0}% of maximum Life on Kill"
+      },
+      "sapphire-source-18c2fffbd6dce036": {
+        "name": "of Infusion",
+        "template": "{v0}% of Damage taken Recouped as Life"
+      },
+      "sapphire-source-b443a1481c5247da": {
+        "name": "of Osmosis",
+        "template": "Recover {v0}% of maximum Mana on Kill"
+      },
+      "sapphire-source-fb386eb7fefea5f8": {
+        "name": "of Energy",
+        "template": "{v0}% increased Mana Regeneration Rate"
+      },
+      "sapphire-source-9bb8edb3753dec05": {
+        "name": "of the Kraken",
+        "template": "{v0}% to Maximum Cold Resistance"
+      },
+      "sapphire-source-3a325be26c2380df": {
+        "name": "of Orchestration",
+        "template": "Minions have {v0}% increased Attack and Cast Speed"
+      },
+      "sapphire-source-6ce43a003a240838": {
+        "name": "of Righteousness",
+        "template": "Minions have {v0}% to Chaos Resistance"
+      },
+      "sapphire-source-e20118aebd077356": {
+        "name": "of Marshalling",
+        "template": "Minions have {v0}% increased Critical Hit Chance"
+      },
+      "sapphire-source-853d7396a08f6b7e": {
+        "name": "of Gripping",
+        "template": "Minions have {v0}% increased Critical Damage Bonus"
+      },
+      "sapphire-source-852f2fe3c9964720": {
+        "name": "Authoritative",
+        "template": "Minions deal {v0}% increased Damage"
+      },
+      "sapphire-source-0b7e2c7edb0413a6": {
+        "name": "of Acclimatisation",
+        "template": "Minions have {v0}% to all Elemental Resistances"
+      },
+      "sapphire-source-9361c2514f57754c": {
+        "name": "of Offering",
+        "template": "Offering Skills have {v0}% increased Duration"
+      },
+      "sapphire-source-d871cf30cef66d0c": {
+        "name": "Sacrificial",
+        "template": "Offerings have {v0}% increased Maximum Life"
+      },
+      "sapphire-source-0cdee3590700a256": {
+        "name": "of Glaciers",
+        "template": "{v0}% increased Freeze Buildup with Quarterstaves"
+      },
+      "sapphire-source-946013928573f4da": {
+        "name": "of Shocking",
+        "template": "{v0}% increased chance to Shock"
+      },
+      "sapphire-source-f5cfd8342e2043b2": {
+        "name": "of Paralyzing",
+        "template": "{v0}% increased Shock Duration"
+      },
+      "sapphire-source-e950fce0c43995d7": {
+        "name": "Jolting",
+        "template": "{v0}% increased Magnitude of Shock you inflict"
+      },
+      "sapphire-source-36a1906fee226ab5": {
+        "name": "of Annihilating",
+        "template": "{v0}% increased Critical Hit Chance for Spells"
+      },
+      "sapphire-source-4ea7c34a55f4c695": {
+        "name": "Mystic",
+        "template": "{v0}% increased Spell Damage"
+      },
+      "sapphire-source-3d770c139b237d9d": {
+        "name": "of Barriers",
+        "template": "Gain additional Stun Threshold equal to {v0}% of maximum Energy Shield"
+      },
+      "sapphire-source-e63d25133f830f75": {
+        "name": "of Inuring",
+        "template": "Gain additional Ailment Threshold equal to {v0}% of maximum Energy Shield"
+      },
+      "sapphire-source-4759d929bbdad825": {
+        "name": "Triggered",
+        "template": "Triggered Spells deal {v0}% increased Spell Damage"
+      },
+      "sapphire-source-2b926b8622028cee": {
+        "name": "Withering",
+        "template": "{v0}% increased Withered Magnitude"
+      },
+      "sapphire-source-7fd91118882ae05e": {
+        "name": "Iconic",
+        "template": "{v0}% increased Presence Area of Effect"
+      },
+      "sapphire-source-f0501cc040640534": {
+        "name": "of the Wild",
+        "template": "{v0}% increased Skill Speed while Shapeshifted"
+      },
+      "sapphire-source-8d4d0e9fd66b271c": {
+        "name": "Bestial",
+        "template": "{v0}% increased Damage while Shapeshifted"
+      },
+      "sapphire-source-02c4aee5ab676a65": {
+        "name": "Overgrown",
+        "template": "{v0}% increased Damage with Plant Skills"
+      },
+      "sapphire-source-3cdead6fa2299be0": {
+        "name": "Diluted Liquid Ire",
+        "template": "{v0}% increased maximum Energy Shield"
+      },
+      "sapphire-source-d0e00e141c1a40df": {
+        "name": "Diluted Liquid Guilt",
+        "template": "{v0}% increased Cold Damage"
+      },
+      "sapphire-source-8edef712b4e18052": {
+        "name": "Diluted Liquid Greed",
+        "template": "{v0}% increased Chaos Damage"
+      },
+      "sapphire-source-eec0d5fe5b21f6bf": {
+        "name": "Liquid Paranoia",
+        "template": "{v0}% increased Cast Speed"
+      },
+      "sapphire-source-fd5b1d212239e7f4": {
+        "name": "Liquid Envy",
+        "template": "{v0}% increased Spell Damage"
+      },
+      "sapphire-source-4ed91ee75f9514fc": {
+        "name": "Liquid Disgust",
+        "template": "Recover {v0}% of maximum Mana on Kill"
+      },
+      "sapphire-source-91d5277273bd22e4": {
+        "name": "Liquid Despair",
+        "template": "{v0}% increased Critical Hit Chance for Spells"
+      },
+      "sapphire-source-5ee60393c47691a4": {
+        "name": "Concentrated Liquid Fear",
+        "template": "{v0}% increased Critical Spell Damage Bonus"
+      },
+      "sapphire-source-6d59506bed943a35": {
+        "name": "Concentrated Liquid Suffering",
+        "template": "{v0}% increased Area of Effect"
+      },
+      "sapphire-source-a6b816fdd11bd31d": {
+        "name": "Concentrated Liquid Isolation",
+        "template": "{v0}% to Maximum Cold Resistance"
       }
     },
     "ko": {
@@ -26805,6 +27949,278 @@
       "sapphire-existing-cast-speed-v1": {
         "name": "- 인챈트",
         "template": "시전 속도 {v0}% 증가"
+      },
+      "sapphire-source-2f51dd3e7760b02b": {
+        "name": "- 병",
+        "template": "상태 이상 유발 확률 {v0}% 증가"
+      },
+      "sapphire-source-db71f07bb5fc29fc": {
+        "name": "격론의",
+        "template": "플레이어가 유발하는 상태 이상의 강도 {v0}% 증가"
+      },
+      "sapphire-source-cd6beef13793a86c": {
+        "name": "폭발하는",
+        "template": "효과 범위 {v0}% 증가"
+      },
+      "sapphire-source-f7b7781dd719133d": {
+        "name": "- 인챈트",
+        "template": "시전 속도 {v0}% 증가"
+      },
+      "sapphire-source-4430aaf73d10901b": {
+        "name": "혼돈의",
+        "template": "카오스 피해 {v0}% 증가"
+      },
+      "sapphire-source-73bfcfcce4943ad3": {
+        "name": "- 서리",
+        "template": "적에게 적용되는 냉각 지속시간 {v0}% 증가"
+      },
+      "sapphire-source-7e138e57e1a29a49": {
+        "name": "냉각시키는",
+        "template": "냉기 피해 {v0}% 증가"
+      },
+      "sapphire-source-ba9e7fe2c6d7e4fb": {
+        "name": "무감각",
+        "template": "피해가 냉기 저항 {v0}% 관통"
+      },
+      "sapphire-source-fdd1cdc1d3bf3599": {
+        "name": "강령술",
+        "template": "최근 4초 이내 시신을 소모한 경우 피해 {v0}% 증가"
+      },
+      "sapphire-source-5d930efe5aadbe2c": {
+        "name": "앙심을 품은",
+        "template": "플레이어가 치명타 명중으로 유발하는 피해를 주는 상태 이상의 강도 {v0}% 증가"
+      },
+      "sapphire-source-c7b1f1973e53f65c": {
+        "name": "- 전멸",
+        "template": "치명타 확률 {v0}% 증가"
+      },
+      "sapphire-source-4392c6a8176ebfde": {
+        "name": "- 잠재력",
+        "template": "치명타 피해 보너스 {v0}% 증가"
+      },
+      "sapphire-source-d5bb1c5fca1927b8": {
+        "name": "- 멸망",
+        "template": "주문 치명타 피해 보너스 {v0}% 증가"
+      },
+      "sapphire-source-4769ac0b858242c3": {
+        "name": "확장하는",
+        "template": "저주의 효과 범위 {v0}% 증가"
+      },
+      "sapphire-source-8970a97a93f09b6f": {
+        "name": "- 노래",
+        "template": "저주 활성화 속도 {v0}% 가속"
+      },
+      "sapphire-source-3e16f951167041ba": {
+        "name": "- 계속",
+        "template": "저주 지속시간 {v0}% 증가"
+      },
+      "sapphire-source-15886d598e6bbc06": {
+        "name": "사술의",
+        "template": "저주 강도 {v0}% 증가"
+      },
+      "sapphire-source-95fb723bf4aec705": {
+        "name": "- 정신",
+        "template": "받는 피해의 {v0}%를 생명력 대신 마나로 소모"
+      },
+      "sapphire-source-494ae8866d398525": {
+        "name": "- 확산",
+        "template": "적에게 적용되는 피해를 주는 상태 이상의 지속시간 {v0}% 증가"
+      },
+      "sapphire-source-4e74e5d888aeb639": {
+        "name": "- 체감",
+        "template": "플레이어에게 적용되는 디버프가 {v0}% 더 빠르게 만료됨"
+      },
+      "sapphire-source-007f218f136aff40": {
+        "name": "분광",
+        "template": "원소 피해 {v0}% 증가"
+      },
+      "sapphire-source-1abfb34d3f4cc83a": {
+        "name": "- 생성",
+        "template": "메타 스킬의 에너지 획득 {v0}% 증가"
+      },
+      "sapphire-source-280f8dad99d0cf6a": {
+        "name": "일렁이는",
+        "template": "에너지 보호막 최대치 {v0}% 증가"
+      },
+      "sapphire-source-fb849063fa4ba68c": {
+        "name": "고요한",
+        "template": "에너지 보호막 재충전 시작 속도 {v0}% 가속"
+      },
+      "sapphire-source-0cc8d507e34d241a": {
+        "name": "- 노쇠",
+        "template": "피해를 주는 상태 이상의 피해 {v0}%만큼 가속"
+      },
+      "sapphire-source-858dd4ff47688eec": {
+        "name": "집중하는",
+        "template": "장착한 집중구로 얻는 에너지 보호막 {v0}% 증가"
+      },
+      "sapphire-source-6d726bc380dfa6ab": {
+        "name": "- 동결",
+        "template": "동결 축적 {v0}% 증가"
+      },
+      "sapphire-source-496fbebaed752772": {
+        "name": "- 눈숨결",
+        "template": "동결 한계치 {v0}% 증가"
+      },
+      "sapphire-source-6f78d09e4fc2a333": {
+        "name": "- 점화",
+        "template": "인화성 강도 {v0}% 증가"
+      },
+      "sapphire-source-1551f7b1cfc51b33": {
+        "name": "화상",
+        "template": "점화 강도 {v0}% 증가"
+      },
+      "sapphire-source-4e639a479fb23231": {
+        "name": "- 늘이기",
+        "template": "스킬 효과 지속시간 {v0}% 증가"
+      },
+      "sapphire-source-9a2739c1de7c81ce": {
+        "name": "- 성공",
+        "template": "처치 시 생명력의 {v0}% 회복"
+      },
+      "sapphire-source-18c2fffbd6dce036": {
+        "name": "- 주입",
+        "template": "받은 피해의 {v0}%를 생명력으로 회생"
+      },
+      "sapphire-source-b443a1481c5247da": {
+        "name": "- 삼투",
+        "template": "처치 시 마나의 {v0}% 회복"
+      },
+      "sapphire-source-fb386eb7fefea5f8": {
+        "name": "- 에너지",
+        "template": "마나 재생 속도 {v0}% 증가"
+      },
+      "sapphire-source-9bb8edb3753dec05": {
+        "name": "- 크라켄",
+        "template": "냉기 저항 최대치 {v0}%"
+      },
+      "sapphire-source-3a325be26c2380df": {
+        "name": "- 조직화",
+        "template": "소환수의 공격 및 시전 속도 {v0}% 증가"
+      },
+      "sapphire-source-6ce43a003a240838": {
+        "name": "- 정의",
+        "template": "소환수의 카오스 저항 {v0}%"
+      },
+      "sapphire-source-e20118aebd077356": {
+        "name": "- 통제",
+        "template": "소환수의 치명타 명중 확률 {v0}% 증가"
+      },
+      "sapphire-source-853d7396a08f6b7e": {
+        "name": "- 손아귀",
+        "template": "소환수의 치명타 피해 보너스 {v0}% 증가"
+      },
+      "sapphire-source-852f2fe3c9964720": {
+        "name": "권위적인",
+        "template": "소환수가 주는 피해 {v0}% 증가"
+      },
+      "sapphire-source-0b7e2c7edb0413a6": {
+        "name": "- 순응",
+        "template": "소환수 모든 원소 저항 {v0}%"
+      },
+      "sapphire-source-9361c2514f57754c": {
+        "name": "- 공물",
+        "template": "공물 스킬의 지속시간 {v0}% 증가"
+      },
+      "sapphire-source-d871cf30cef66d0c": {
+        "name": "희생하는",
+        "template": "공물의 최대 생명력 {v0}% 증가"
+      },
+      "sapphire-source-0cdee3590700a256": {
+        "name": "- 빙하",
+        "template": "육척봉 사용 시 동결 축적 {v0}% 증가"
+      },
+      "sapphire-source-946013928573f4da": {
+        "name": "- 감전",
+        "template": "감전 확률 {v0}% 증가"
+      },
+      "sapphire-source-f5cfd8342e2043b2": {
+        "name": "- 마비",
+        "template": "감전 지속시간 {v0}% 증가"
+      },
+      "sapphire-source-e950fce0c43995d7": {
+        "name": "각성시키는",
+        "template": "플레이어가 유발하는 감전의 강도 {v0}% 증가"
+      },
+      "sapphire-source-36a1906fee226ab5": {
+        "name": "- 절멸",
+        "template": "주문 치명타 명중 확률 {v0}% 증가"
+      },
+      "sapphire-source-4ea7c34a55f4c695": {
+        "name": "신비한",
+        "template": "주문 피해 {v0}% 증가"
+      },
+      "sapphire-source-3d770c139b237d9d": {
+        "name": "- 방벽",
+        "template": "최대 에너지 보호막의 {v0}%와 동일한 추가 기절 한계치 획득"
+      },
+      "sapphire-source-e63d25133f830f75": {
+        "name": "- 발효",
+        "template": "최대 에너지 보호막의 {v0}%와 동일한 추가 상태 이상 한계치 획득"
+      },
+      "sapphire-source-4759d929bbdad825": {
+        "name": "발동한",
+        "template": "발동형 주문으로 주는 주문 피해 {v0}% 증가"
+      },
+      "sapphire-source-2b926b8622028cee": {
+        "name": "고사시키는",
+        "template": "위축 강도 {v0}% 증가"
+      },
+      "sapphire-source-7fd91118882ae05e": {
+        "name": "우상의",
+        "template": "접근 효과 범위 {v0}% 증가"
+      },
+      "sapphire-source-f0501cc040640534": {
+        "name": "- 황야",
+        "template": "형태 변환 상태일 때 스킬 속도 {v0}% 증가"
+      },
+      "sapphire-source-8d4d0e9fd66b271c": {
+        "name": "야성적인",
+        "template": "형태 변환 상태일 때 피해 {v0}% 증가"
+      },
+      "sapphire-source-02c4aee5ab676a65": {
+        "name": "웃자란",
+        "template": "식물 스킬의 피해 {v0}% 증가"
+      },
+      "sapphire-source-3cdead6fa2299be0": {
+        "name": "희석된 액체 진노",
+        "template": "에너지 보호막 최대치 {v0}% 증가"
+      },
+      "sapphire-source-d0e00e141c1a40df": {
+        "name": "희석된 액체 죄책감",
+        "template": "냉기 피해 {v0}% 증가"
+      },
+      "sapphire-source-8edef712b4e18052": {
+        "name": "희석된 액체 탐욕",
+        "template": "카오스 피해 {v0}% 증가"
+      },
+      "sapphire-source-eec0d5fe5b21f6bf": {
+        "name": "액체 집착",
+        "template": "시전 속도 {v0}% 증가"
+      },
+      "sapphire-source-fd5b1d212239e7f4": {
+        "name": "액체 선망",
+        "template": "주문 피해 {v0}% 증가"
+      },
+      "sapphire-source-4ed91ee75f9514fc": {
+        "name": "액체 혐오",
+        "template": "처치 시 마나의 {v0}% 회복"
+      },
+      "sapphire-source-91d5277273bd22e4": {
+        "name": "액체 절망",
+        "template": "주문 치명타 명중 확률 {v0}% 증가"
+      },
+      "sapphire-source-5ee60393c47691a4": {
+        "name": "농축된 액체 두려움",
+        "template": "주문 치명타 피해 보너스 {v0}% 증가"
+      },
+      "sapphire-source-6d59506bed943a35": {
+        "name": "농축된 액체 고통",
+        "template": "효과 범위 {v0}% 증가"
+      },
+      "sapphire-source-a6b816fdd11bd31d": {
+        "name": "농축된 액체 고립",
+        "template": "냉기 저항 최대치 {v0}%"
       }
     },
     "zh-CN": {
@@ -29979,6 +31395,278 @@
       "sapphire-existing-cast-speed-v1": {
         "name": "咒术之",
         "template": "施法速度提高 {v0}%"
+      },
+      "sapphire-source-2f51dd3e7760b02b": {
+        "name": "病弱之",
+        "template": "造成异常状态的几率提高 {v0}%"
+      },
+      "sapphire-source-db71f07bb5fc29fc": {
+        "name": "尖刻的",
+        "template": "你造成的异常状态强度提高 {v0}%"
+      },
+      "sapphire-source-cd6beef13793a86c": {
+        "name": "爆破的",
+        "template": "效果区域提高 {v0}%"
+      },
+      "sapphire-source-f7b7781dd719133d": {
+        "name": "咒术之",
+        "template": "施法速度提高 {v0}%"
+      },
+      "sapphire-source-4430aaf73d10901b": {
+        "name": "混沌的",
+        "template": "混沌伤害提高 {v0}%"
+      },
+      "sapphire-source-73bfcfcce4943ad3": {
+        "name": "冰霜之",
+        "template": "敌人被冰缓的持续时间提高 {v0}%"
+      },
+      "sapphire-source-7e138e57e1a29a49": {
+        "name": "冰冷的",
+        "template": "冰霜伤害提高 {v0}%"
+      },
+      "sapphire-source-ba9e7fe2c6d7e4fb": {
+        "name": "麻木的",
+        "template": "伤害穿透 {v0}% 冰霜抗性"
+      },
+      "sapphire-source-fdd1cdc1d3bf3599": {
+        "name": "通灵的",
+        "template": "若你近期内有消耗灵柩，则伤害提高 {v0}%"
+      },
+      "sapphire-source-5d930efe5aadbe2c": {
+        "name": "冤仇的",
+        "template": "你的暴击造成的伤害性异常状态强度提高 {v0}%"
+      },
+      "sapphire-source-c7b1f1973e53f65c": {
+        "name": "歼灭之",
+        "template": "暴击率提高 {v0}%"
+      },
+      "sapphire-source-4392c6a8176ebfde": {
+        "name": "强力之",
+        "template": "暴击伤害加成提高 {v0}%"
+      },
+      "sapphire-source-d5bb1c5fca1927b8": {
+        "name": "解构之",
+        "template": "法术暴击伤害加成提高 {v0}%"
+      },
+      "sapphire-source-4769ac0b858242c3": {
+        "name": "扩展的",
+        "template": "诅咒的效果范围提高 {v0}%"
+      },
+      "sapphire-source-8970a97a93f09b6f": {
+        "name": "吟咒之",
+        "template": "诅咒激活速度加快 {v0}%"
+      },
+      "sapphire-source-3e16f951167041ba": {
+        "name": "延续之",
+        "template": "诅咒持续时间提高 {v0}%"
+      },
+      "sapphire-source-15886d598e6bbc06": {
+        "name": "魔蛊的",
+        "template": "诅咒强度提高 {v0}%"
+      },
+      "sapphire-source-95fb723bf4aec705": {
+        "name": "心灵之",
+        "template": "{v0}% 的伤害优先从魔力扣除"
+      },
+      "sapphire-source-494ae8866d398525": {
+        "name": "弥散之",
+        "template": "敌人受到伤害性异常状态的持续时间提高 {v0}%"
+      },
+      "sapphire-source-4e74e5d888aeb639": {
+        "name": "消减之",
+        "template": "你身上的减益消失速度加快 {v0}%"
+      },
+      "sapphire-source-007f218f136aff40": {
+        "name": "虹光的",
+        "template": "元素伤害提高 {v0}%"
+      },
+      "sapphire-source-1abfb34d3f4cc83a": {
+        "name": "予能之",
+        "template": "非凡技能获得的能量提高 {v0}%"
+      },
+      "sapphire-source-280f8dad99d0cf6a": {
+        "name": "闪光的",
+        "template": "能量护盾上限提高 {v0}%"
+      },
+      "sapphire-source-fb849063fa4ba68c": {
+        "name": "宁静的",
+        "template": "能量护盾充能时间提前 {v0}%"
+      },
+      "sapphire-source-0cc8d507e34d241a": {
+        "name": "朽迈之",
+        "template": "伤害型异常状态生效速度加快 {v0}%"
+      },
+      "sapphire-source-858dd4ff47688eec": {
+        "name": "聚焦的",
+        "template": "装备法器的能量护盾提高 {v0}%"
+      },
+      "sapphire-source-6d726bc380dfa6ab": {
+        "name": "冰冻之",
+        "template": "冻结积蓄值提高 {v0}%"
+      },
+      "sapphire-source-496fbebaed752772": {
+        "name": "雪息之",
+        "template": "冻结阈值提高 {v0}%"
+      },
+      "sapphire-source-6f78d09e4fc2a333": {
+        "name": "点燃之",
+        "template": "易燃强度提高 {v0}%"
+      },
+      "sapphire-source-1551f7b1cfc51b33": {
+        "name": "燃烧的",
+        "template": "点燃强度提高 {v0}%"
+      },
+      "sapphire-source-4e639a479fb23231": {
+        "name": "冗长之",
+        "template": "技能效果持续时间提高 {v0}%"
+      },
+      "sapphire-source-9a2739c1de7c81ce": {
+        "name": "成功之",
+        "template": "生命在击败敌人时恢复 {v0}%"
+      },
+      "sapphire-source-18c2fffbd6dce036": {
+        "name": "灌输之",
+        "template": "将所受伤害的{v0}%吸纳为生命"
+      },
+      "sapphire-source-b443a1481c5247da": {
+        "name": "逆渗透之",
+        "template": "魔力在击败敌人时恢复 {v0}%"
+      },
+      "sapphire-source-fb386eb7fefea5f8": {
+        "name": "能量之",
+        "template": "魔力再生率提高 {v0}%"
+      },
+      "sapphire-source-9bb8edb3753dec05": {
+        "name": "海怪之",
+        "template": "{v0}% 冰霜抗性上限"
+      },
+      "sapphire-source-3a325be26c2380df": {
+        "name": "协调之",
+        "template": "召唤生物的攻击和施法速度提高 {v0}%"
+      },
+      "sapphire-source-6ce43a003a240838": {
+        "name": "正义之",
+        "template": "召唤生物有 {v0}% 混沌抗性"
+      },
+      "sapphire-source-e20118aebd077356": {
+        "name": "编排之",
+        "template": "召唤生物的暴击率提高 {v0}%"
+      },
+      "sapphire-source-853d7396a08f6b7e": {
+        "name": "抓取之",
+        "template": "召唤生物的暴击伤害加成提高 {v0}%"
+      },
+      "sapphire-source-852f2fe3c9964720": {
+        "name": "权威的",
+        "template": "召唤生物的伤害提高 {v0}%"
+      },
+      "sapphire-source-0b7e2c7edb0413a6": {
+        "name": "驯化之",
+        "template": "召唤生物有 {v0}% 元素抗性"
+      },
+      "sapphire-source-9361c2514f57754c": {
+        "name": "奉献之",
+        "template": "奉献技能的持续时间提高 {v0}%"
+      },
+      "sapphire-source-d871cf30cef66d0c": {
+        "name": "牺牲的",
+        "template": "奉献的生命上限提高 {v0}%"
+      },
+      "sapphire-source-0cdee3590700a256": {
+        "name": "冰川之",
+        "template": "节杖的冻结积蓄值提高 {v0}%"
+      },
+      "sapphire-source-946013928573f4da": {
+        "name": "导电之",
+        "template": "感电几率提高 {v0}%"
+      },
+      "sapphire-source-f5cfd8342e2043b2": {
+        "name": "痹体之",
+        "template": "感电持续时间提高 {v0}%"
+      },
+      "sapphire-source-e950fce0c43995d7": {
+        "name": "震颤的",
+        "template": "你造成的感电强度提高 {v0}%"
+      },
+      "sapphire-source-36a1906fee226ab5": {
+        "name": "摧残之",
+        "template": "法术暴击率提高 {v0}%"
+      },
+      "sapphire-source-4ea7c34a55f4c695": {
+        "name": "秘言的",
+        "template": "法术伤害提高 {v0}%"
+      },
+      "sapphire-source-3d770c139b237d9d": {
+        "name": "屏障之",
+        "template": "获得相当于能量护盾上限 {v0}% 的晕眩阈值"
+      },
+      "sapphire-source-e63d25133f830f75": {
+        "name": "侵略之",
+        "template": "获得额外异常状态阈值，相当于能量护盾上限的 {v0}%"
+      },
+      "sapphire-source-4759d929bbdad825": {
+        "name": "触发的",
+        "template": "被触发法术的法术伤害提高 {v0}%"
+      },
+      "sapphire-source-2b926b8622028cee": {
+        "name": "萧瑟的",
+        "template": "死亡凋零强度提高 {v0}%"
+      },
+      "sapphire-source-7fd91118882ae05e": {
+        "name": "象征的",
+        "template": "在场范围提高 {v0}%"
+      },
+      "sapphire-source-f0501cc040640534": {
+        "name": "荒野之",
+        "template": "变形时，技能速度提高 {v0}%"
+      },
+      "sapphire-source-8d4d0e9fd66b271c": {
+        "name": "兽性",
+        "template": "变形时伤害提高 {v0}%"
+      },
+      "sapphire-source-02c4aee5ab676a65": {
+        "name": "蔓生",
+        "template": "植物技能的伤害提高 {v0}%"
+      },
+      "sapphire-source-3cdead6fa2299be0": {
+        "name": "稀释的液化愤怒",
+        "template": "能量护盾上限提高 {v0}%"
+      },
+      "sapphire-source-d0e00e141c1a40df": {
+        "name": "稀释的液化内疚",
+        "template": "冰霜伤害提高 {v0}%"
+      },
+      "sapphire-source-8edef712b4e18052": {
+        "name": "稀释的液化贪婪",
+        "template": "混沌伤害提高 {v0}%"
+      },
+      "sapphire-source-eec0d5fe5b21f6bf": {
+        "name": "液化偏执",
+        "template": "施法速度提高 {v0}%"
+      },
+      "sapphire-source-fd5b1d212239e7f4": {
+        "name": "液化嫉妒",
+        "template": "法术伤害提高 {v0}%"
+      },
+      "sapphire-source-4ed91ee75f9514fc": {
+        "name": "液化憎恶",
+        "template": "魔力在击败敌人时恢复 {v0}%"
+      },
+      "sapphire-source-91d5277273bd22e4": {
+        "name": "液化绝望",
+        "template": "法术暴击率提高 {v0}%"
+      },
+      "sapphire-source-5ee60393c47691a4": {
+        "name": "浓缩的液化恐惧",
+        "template": "法术暴击伤害加成提高 {v0}%"
+      },
+      "sapphire-source-6d59506bed943a35": {
+        "name": "浓缩的液化痛苦",
+        "template": "效果区域提高 {v0}%"
+      },
+      "sapphire-source-a6b816fdd11bd31d": {
+        "name": "浓缩的液化孤独",
+        "template": "{v0}% 冰霜抗性上限"
       }
     },
     "zh-TW": {
@@ -33153,6 +34841,278 @@
       "sapphire-existing-cast-speed-v1": {
         "name": "咒術之",
         "template": "增加{v0}%施法速度"
+      },
+      "sapphire-source-2f51dd3e7760b02b": {
+        "name": "染病之",
+        "template": "增加{v0}%造成異常狀態的機率"
+      },
+      "sapphire-source-db71f07bb5fc29fc": {
+        "name": "激烈的",
+        "template": "增加{v0}%你所施加之異常狀態的幅度"
+      },
+      "sapphire-source-cd6beef13793a86c": {
+        "name": "爆破的",
+        "template": "增加{v0}%範圍效果"
+      },
+      "sapphire-source-f7b7781dd719133d": {
+        "name": "咒術之",
+        "template": "增加{v0}%施法速度"
+      },
+      "sapphire-source-4430aaf73d10901b": {
+        "name": "混沌的",
+        "template": "增加{v0}%混沌傷害"
+      },
+      "sapphire-source-73bfcfcce4943ad3": {
+        "name": "冰霜之",
+        "template": "增加{v0}%敵人身上的冰緩持續時間"
+      },
+      "sapphire-source-7e138e57e1a29a49": {
+        "name": "冰緩",
+        "template": "增加{v0}%冰冷傷害"
+      },
+      "sapphire-source-ba9e7fe2c6d7e4fb": {
+        "name": "麻木的",
+        "template": "傷害穿透{v0}%冰冷抗性"
+      },
+      "sapphire-source-fdd1cdc1d3bf3599": {
+        "name": "靈能的",
+        "template": "若你近期消耗過屍體，增加{v0}%傷害"
+      },
+      "sapphire-source-5d930efe5aadbe2c": {
+        "name": "怨恨的",
+        "template": "增加{v0}%你以暴擊施加之傷害型異常狀態的幅度"
+      },
+      "sapphire-source-c7b1f1973e53f65c": {
+        "name": "殲滅之",
+        "template": "增加{v0}%暴擊率"
+      },
+      "sapphire-source-4392c6a8176ebfde": {
+        "name": "強力之",
+        "template": "增加{v0}%暴擊傷害加成"
+      },
+      "sapphire-source-d5bb1c5fca1927b8": {
+        "name": "奪位之",
+        "template": "增加{v0}%法術暴擊傷害加成"
+      },
+      "sapphire-source-4769ac0b858242c3": {
+        "name": "擴張的",
+        "template": "增加{v0}%詛咒範圍效果"
+      },
+      "sapphire-source-8970a97a93f09b6f": {
+        "name": "詠唱之",
+        "template": "詛咒啟動速度加快{v0}%"
+      },
+      "sapphire-source-3e16f951167041ba": {
+        "name": "延續之",
+        "template": "增加{v0}%詛咒持續時間"
+      },
+      "sapphire-source-15886d598e6bbc06": {
+        "name": "咒術的",
+        "template": "增加{v0}%詛咒幅度"
+      },
+      "sapphire-source-95fb723bf4aec705": {
+        "name": "心靈之",
+        "template": "生命值所受的{v0}%傷害由魔力扣除"
+      },
+      "sapphire-source-494ae8866d398525": {
+        "name": "遍布之",
+        "template": "增加{v0}%敵人身上的傷害型異常狀態持續時間"
+      },
+      "sapphire-source-4e74e5d888aeb639": {
+        "name": "遞減之",
+        "template": "你身上的減益效果加快{v0}%失效"
+      },
+      "sapphire-source-007f218f136aff40": {
+        "name": "三相",
+        "template": "增加{v0}%元素傷害"
+      },
+      "sapphire-source-1abfb34d3f4cc83a": {
+        "name": "產生之",
+        "template": "增加{v0}%主要技能獲得能量"
+      },
+      "sapphire-source-280f8dad99d0cf6a": {
+        "name": "閃閃發光的",
+        "template": "增加{v0}%最大能量護盾"
+      },
+      "sapphire-source-fb849063fa4ba68c": {
+        "name": "寧靜的",
+        "template": "能量護盾開始充能速度加快{v0}%"
+      },
+      "sapphire-source-0cc8d507e34d241a": {
+        "name": "衰老之",
+        "template": "傷害型異常狀態造成傷害加速{v0}%"
+      },
+      "sapphire-source-858dd4ff47688eec": {
+        "name": "專注的",
+        "template": "增加{v0}%來自已裝備法器的能量護盾"
+      },
+      "sapphire-source-6d726bc380dfa6ab": {
+        "name": "急凍的",
+        "template": "增加{v0}%冰凍累積"
+      },
+      "sapphire-source-496fbebaed752772": {
+        "name": "雪息之",
+        "template": "增加{v0}%冰凍門檻"
+      },
+      "sapphire-source-6f78d09e4fc2a333": {
+        "name": "引火之",
+        "template": "增加{v0}%易燃幅度"
+      },
+      "sapphire-source-1551f7b1cfc51b33": {
+        "name": "爆燃",
+        "template": "增加{v0}%點燃幅度"
+      },
+      "sapphire-source-4e639a479fb23231": {
+        "name": "加長之",
+        "template": "增加{v0}%技能效果持續時間"
+      },
+      "sapphire-source-9a2739c1de7c81ce": {
+        "name": "成功之",
+        "template": "擊殺時恢復{v0}%生命"
+      },
+      "sapphire-source-18c2fffbd6dce036": {
+        "name": "注入之",
+        "template": "承受的{v0}%傷害補償為生命"
+      },
+      "sapphire-source-b443a1481c5247da": {
+        "name": "逆滲透之",
+        "template": "擊殺時恢復{v0}%魔力"
+      },
+      "sapphire-source-fb386eb7fefea5f8": {
+        "name": "能量之",
+        "template": "增加{v0}%魔力回復率"
+      },
+      "sapphire-source-9bb8edb3753dec05": {
+        "name": "海怪之",
+        "template": "{v0}%最大冰冷抗性"
+      },
+      "sapphire-source-3a325be26c2380df": {
+        "name": "協調之",
+        "template": "召喚物增加{v0}%攻擊和施法速度"
+      },
+      "sapphire-source-6ce43a003a240838": {
+        "name": "正義之",
+        "template": "召喚物{v0}%混沌抗性"
+      },
+      "sapphire-source-e20118aebd077356": {
+        "name": "編排之",
+        "template": "增加{v0}%召喚物的暴擊率"
+      },
+      "sapphire-source-853d7396a08f6b7e": {
+        "name": "抓握之",
+        "template": "召喚物增加{v0}%暴擊傷害加成"
+      },
+      "sapphire-source-852f2fe3c9964720": {
+        "name": "權威的",
+        "template": "增加{v0}%召喚物造成的傷害"
+      },
+      "sapphire-source-0b7e2c7edb0413a6": {
+        "name": "馴化之",
+        "template": "召喚物{v0}%全部元素抗性"
+      },
+      "sapphire-source-9361c2514f57754c": {
+        "name": "奉獻之",
+        "template": "奉獻技能增加{v0}%持續時間"
+      },
+      "sapphire-source-d871cf30cef66d0c": {
+        "name": "犧牲的",
+        "template": "奉獻增加{v0}%最大生命"
+      },
+      "sapphire-source-0cdee3590700a256": {
+        "name": "冰川之",
+        "template": "增加{v0}%細杖的冰凍累積"
+      },
+      "sapphire-source-946013928573f4da": {
+        "name": "感電之",
+        "template": "增加{v0}%感電機率"
+      },
+      "sapphire-source-f5cfd8342e2043b2": {
+        "name": "癱瘓之",
+        "template": "增加{v0}%感電持續時間"
+      },
+      "sapphire-source-e950fce0c43995d7": {
+        "name": "顛簸的",
+        "template": "增加{v0}%你所施加之感電的幅度"
+      },
+      "sapphire-source-36a1906fee226ab5": {
+        "name": "殲滅之",
+        "template": "增加{v0}%法術暴擊率"
+      },
+      "sapphire-source-4ea7c34a55f4c695": {
+        "name": "神秘的",
+        "template": "增加{v0}%法術傷害"
+      },
+      "sapphire-source-3d770c139b237d9d": {
+        "name": "屏障之",
+        "template": "獲得等同於最大能量護盾{v0}%的額外暈眩門檻"
+      },
+      "sapphire-source-e63d25133f830f75": {
+        "name": "習慣之",
+        "template": "獲得等同於最大能量護盾{v0}%的額外異常狀態門檻"
+      },
+      "sapphire-source-4759d929bbdad825": {
+        "name": "觸發的",
+        "template": "觸發法術增加{v0}%造成的法術傷害"
+      },
+      "sapphire-source-2b926b8622028cee": {
+        "name": "凋零的",
+        "template": "增加{v0}%凋零幅度"
+      },
+      "sapphire-source-7fd91118882ae05e": {
+        "name": "經典的",
+        "template": "增加{v0}%存在範圍的範圍效果"
+      },
+      "sapphire-source-f0501cc040640534": {
+        "name": "荒野之",
+        "template": "你變形期間，增加{v0}%技能速度"
+      },
+      "sapphire-source-8d4d0e9fd66b271c": {
+        "name": "獸性的",
+        "template": "變形期間增加{v0}%傷害"
+      },
+      "sapphire-source-02c4aee5ab676a65": {
+        "name": "茂盛的",
+        "template": "植物技能增加{v0}%傷害"
+      },
+      "sapphire-source-3cdead6fa2299be0": {
+        "name": "稀釋的液態憤怒",
+        "template": "增加{v0}%最大能量護盾"
+      },
+      "sapphire-source-d0e00e141c1a40df": {
+        "name": "稀釋的液態罪惡",
+        "template": "增加{v0}%冰冷傷害"
+      },
+      "sapphire-source-8edef712b4e18052": {
+        "name": "稀釋的液態貪婪",
+        "template": "增加{v0}%混沌傷害"
+      },
+      "sapphire-source-eec0d5fe5b21f6bf": {
+        "name": "液態偏執",
+        "template": "增加{v0}%施法速度"
+      },
+      "sapphire-source-fd5b1d212239e7f4": {
+        "name": "液態忌妒",
+        "template": "增加{v0}%法術傷害"
+      },
+      "sapphire-source-4ed91ee75f9514fc": {
+        "name": "液態厭惡",
+        "template": "擊殺時恢復{v0}%魔力"
+      },
+      "sapphire-source-91d5277273bd22e4": {
+        "name": "液態絕望",
+        "template": "增加{v0}%法術暴擊率"
+      },
+      "sapphire-source-5ee60393c47691a4": {
+        "name": "濃縮液態恐懼",
+        "template": "增加{v0}%法術暴擊傷害加成"
+      },
+      "sapphire-source-6d59506bed943a35": {
+        "name": "濃縮液態苦難",
+        "template": "增加{v0}%範圍效果"
+      },
+      "sapphire-source-a6b816fdd11bd31d": {
+        "name": "濃縮液態孤立",
+        "template": "{v0}%最大冰冷抗性"
       }
     },
     "ja": {
@@ -36327,6 +38287,278 @@
       "sapphire-existing-cast-speed-v1": {
         "name": "魔法の",
         "template": "キャストスピードが{v0}%増加する"
+      },
+      "sapphire-source-2f51dd3e7760b02b": {
+        "name": "病気の",
+        "template": "状態異常を付与する確率が{v0}%増加する"
+      },
+      "sapphire-source-db71f07bb5fc29fc": {
+        "name": "痛烈な",
+        "template": "プレイヤーが付与した状態異常の強度が{v0}%増加する"
+      },
+      "sapphire-source-cd6beef13793a86c": {
+        "name": "爆破する",
+        "template": "効果範囲が{v0}%増加する"
+      },
+      "sapphire-source-f7b7781dd719133d": {
+        "name": "魔法の",
+        "template": "キャストスピードが{v0}%増加する"
+      },
+      "sapphire-source-4430aaf73d10901b": {
+        "name": "混沌とした",
+        "template": "混沌ダメージが{v0}%増加する"
+      },
+      "sapphire-source-73bfcfcce4943ad3": {
+        "name": "霜の",
+        "template": "敵に対する冷却の持続時間が{v0}%増加する"
+      },
+      "sapphire-source-7e138e57e1a29a49": {
+        "name": "冷却する",
+        "template": "冷気ダメージが{v0}%増加する"
+      },
+      "sapphire-source-ba9e7fe2c6d7e4fb": {
+        "name": "麻痺させる",
+        "template": "ダメージは{v0}%の冷気耐性を貫通する"
+      },
+      "sapphire-source-fdd1cdc1d3bf3599": {
+        "name": "降霊術の",
+        "template": "直近死体を消費していればダメージが{v0}%増加する"
+      },
+      "sapphire-source-5d930efe5aadbe2c": {
+        "name": "恨みのある",
+        "template": "プレイヤーがクリティカルヒットで付与したダメージ性状態異常の強度が{v0}%増加する"
+      },
+      "sapphire-source-c7b1f1973e53f65c": {
+        "name": "撃滅の",
+        "template": "クリティカルヒット率が{v0}%増加する"
+      },
+      "sapphire-source-4392c6a8176ebfde": {
+        "name": "有効性の",
+        "template": "クリティカルダメージボーナスが{v0}%増加する"
+      },
+      "sapphire-source-d5bb1c5fca1927b8": {
+        "name": "帰無の",
+        "template": "スペルクリティカルダメージボーナスが{v0}%増加する"
+      },
+      "sapphire-source-4769ac0b858242c3": {
+        "name": "拡大する",
+        "template": "呪いの効果範囲が{v0}%増加する"
+      },
+      "sapphire-source-8970a97a93f09b6f": {
+        "name": "付呪の",
+        "template": "呪いのアクティベーションが{v0}%速くなる"
+      },
+      "sapphire-source-3e16f951167041ba": {
+        "name": "存続の",
+        "template": "呪いの持続時間が{v0}%増加する"
+      },
+      "sapphire-source-15886d598e6bbc06": {
+        "name": "呪う",
+        "template": "呪いの強度が{v0}%増加する"
+      },
+      "sapphire-source-95fb723bf4aec705": {
+        "name": "精神の",
+        "template": "ダメージの{v0}%をライフより先にマナで受ける"
+      },
+      "sapphire-source-494ae8866d398525": {
+        "name": "漲りの",
+        "template": "敵に付与したダメージ性状態異常の持続時間が{v0}%増加する"
+      },
+      "sapphire-source-4e74e5d888aeb639": {
+        "name": "逓減の",
+        "template": "プレイヤーに対するデバフは{v0}%速く消える"
+      },
+      "sapphire-source-007f218f136aff40": {
+        "name": "多彩な",
+        "template": "元素ダメージが{v0}%増加する"
+      },
+      "sapphire-source-1abfb34d3f4cc83a": {
+        "name": "発生の",
+        "template": "メタスキルの獲得エネルギーが{v0}%増加する"
+      },
+      "sapphire-source-280f8dad99d0cf6a": {
+        "name": "揺らめく",
+        "template": "最大エナジーシールドが{v0}%増加する"
+      },
+      "sapphire-source-fb849063fa4ba68c": {
+        "name": "穏やかな",
+        "template": "エナジーシールドのリチャージが{v0}%速く始まる"
+      },
+      "sapphire-source-0cc8d507e34d241a": {
+        "name": "劣化の",
+        "template": "ダメージ性状態異常がダメージを与える速度が{v0}%速くなる"
+      },
+      "sapphire-source-858dd4ff47688eec": {
+        "name": "集束する",
+        "template": "装備中のフォーカスから得られるエナジーシールドが{v0}%増加する"
+      },
+      "sapphire-source-6d726bc380dfa6ab": {
+        "name": "凍結の",
+        "template": "凍結蓄積が{v0}%増加する"
+      },
+      "sapphire-source-496fbebaed752772": {
+        "name": "雪吹雪の",
+        "template": "凍結閾値が{v0}%増加する"
+      },
+      "sapphire-source-6f78d09e4fc2a333": {
+        "name": "発火の",
+        "template": "可燃性の強度が{v0}%増加する"
+      },
+      "sapphire-source-1551f7b1cfc51b33": {
+        "name": "燃える",
+        "template": "発火の強度が{v0}%増加する"
+      },
+      "sapphire-source-4e639a479fb23231": {
+        "name": "伸延の",
+        "template": "スキル効果持続時間が{v0}%増加する"
+      },
+      "sapphire-source-9a2739c1de7c81ce": {
+        "name": "成功の",
+        "template": "敵を倒した時にライフの{v0}%を回復する"
+      },
+      "sapphire-source-18c2fffbd6dce036": {
+        "name": "注入の",
+        "template": "受けたダメージの{v0}%をライフとして回収する"
+      },
+      "sapphire-source-b443a1481c5247da": {
+        "name": "浸透の",
+        "template": "敵を倒した時にマナの{v0}%を回復する"
+      },
+      "sapphire-source-fb386eb7fefea5f8": {
+        "name": "エネルギーの",
+        "template": "マナ自動回復レートが{v0}%増加する"
+      },
+      "sapphire-source-9bb8edb3753dec05": {
+        "name": "クラーケンの",
+        "template": "冷気耐性の最大値 {v0}%"
+      },
+      "sapphire-source-3a325be26c2380df": {
+        "name": "指揮の",
+        "template": "ミニオンのアタックスピードおよびキャストスピードが{v0}%増加する"
+      },
+      "sapphire-source-6ce43a003a240838": {
+        "name": "正義感の",
+        "template": "ミニオンの混沌耐性 {v0}%"
+      },
+      "sapphire-source-e20118aebd077356": {
+        "name": "先導の",
+        "template": "ミニオンのクリティカルヒット率が{v0}%増加する"
+      },
+      "sapphire-source-853d7396a08f6b7e": {
+        "name": "握りの",
+        "template": "ミニオンのクリティカルダメージボーナスが{v0}%増える"
+      },
+      "sapphire-source-852f2fe3c9964720": {
+        "name": "権威ある",
+        "template": "ミニオンのダメージが{v0}%増加する"
+      },
+      "sapphire-source-0b7e2c7edb0413a6": {
+        "name": "順応の",
+        "template": "ミニオンの全ての元素耐性 {v0}%"
+      },
+      "sapphire-source-9361c2514f57754c": {
+        "name": "供物の",
+        "template": "オファリングスキルの持続時間が{v0}%増加する"
+      },
+      "sapphire-source-d871cf30cef66d0c": {
+        "name": "供犠の",
+        "template": "オファリングは最大ライフが{v0}%増加する"
+      },
+      "sapphire-source-0cdee3590700a256": {
+        "name": "氷河の",
+        "template": "クォータースタッフによる凍結蓄積が{v0}%増加する"
+      },
+      "sapphire-source-946013928573f4da": {
+        "name": "感電の",
+        "template": "感電付与確率が{v0}%増加する"
+      },
+      "sapphire-source-f5cfd8342e2043b2": {
+        "name": "麻痺の",
+        "template": "感電持続時間が{v0}%増加する"
+      },
+      "sapphire-source-e950fce0c43995d7": {
+        "name": "動揺させる",
+        "template": "プレイヤーが付与した感電の強度が{v0}%増加する"
+      },
+      "sapphire-source-36a1906fee226ab5": {
+        "name": "殲滅の",
+        "template": "スペルのクリティカルヒット率が{v0}%増加する"
+      },
+      "sapphire-source-4ea7c34a55f4c695": {
+        "name": "神秘の",
+        "template": "スペルダメージが{v0}%増加する"
+      },
+      "sapphire-source-3d770c139b237d9d": {
+        "name": "隔壁の",
+        "template": "最大エナジーシールドの{v0}%と同量の追加スタン閾値を獲得する"
+      },
+      "sapphire-source-e63d25133f830f75": {
+        "name": "慣れの",
+        "template": "最大エナジーシールドの{v0}%と同量の追加状態異常閾値を獲得する"
+      },
+      "sapphire-source-4759d929bbdad825": {
+        "name": "誘発された",
+        "template": "トリガーで発動したスペルのスペルダメージが{v0}%増加する"
+      },
+      "sapphire-source-2b926b8622028cee": {
+        "name": "萎れる",
+        "template": "衰弱の強度が{v0}%増加する"
+      },
+      "sapphire-source-7fd91118882ae05e": {
+        "name": "象徴的な",
+        "template": "存在下の効果範囲が{v0}%増加する"
+      },
+      "sapphire-source-f0501cc040640534": {
+        "name": "野生の",
+        "template": "シェープシフト状態の間スキルスピードが{v0}%増加する"
+      },
+      "sapphire-source-8d4d0e9fd66b271c": {
+        "name": "獣的な",
+        "template": "シェープシフト状態の間ダメージが{v0}%増加する"
+      },
+      "sapphire-source-02c4aee5ab676a65": {
+        "name": "生い茂る",
+        "template": "プラントスキルのダメージが{v0}%増加する"
+      },
+      "sapphire-source-3cdead6fa2299be0": {
+        "name": "希釈された液化した怒り",
+        "template": "最大エナジーシールドが{v0}%増加する"
+      },
+      "sapphire-source-d0e00e141c1a40df": {
+        "name": "希釈された液化した罪悪感",
+        "template": "冷気ダメージが{v0}%増加する"
+      },
+      "sapphire-source-8edef712b4e18052": {
+        "name": "希釈された液化した貪欲",
+        "template": "混沌ダメージが{v0}%増加する"
+      },
+      "sapphire-source-eec0d5fe5b21f6bf": {
+        "name": "液化した偏執症",
+        "template": "キャストスピードが{v0}%増加する"
+      },
+      "sapphire-source-fd5b1d212239e7f4": {
+        "name": "液化した嫉妬",
+        "template": "スペルダメージが{v0}%増加する"
+      },
+      "sapphire-source-4ed91ee75f9514fc": {
+        "name": "液化した嫌悪",
+        "template": "敵を倒した時にマナの{v0}%を回復する"
+      },
+      "sapphire-source-91d5277273bd22e4": {
+        "name": "液化した絶望",
+        "template": "スペルのクリティカルヒット率が{v0}%増加する"
+      },
+      "sapphire-source-5ee60393c47691a4": {
+        "name": "濃縮された液化した恐怖",
+        "template": "スペルクリティカルダメージボーナスが{v0}%増加する"
+      },
+      "sapphire-source-6d59506bed943a35": {
+        "name": "濃縮された液化した苦悩",
+        "template": "効果範囲が{v0}%増加する"
+      },
+      "sapphire-source-a6b816fdd11bd31d": {
+        "name": "濃縮された液化した孤立感",
+        "template": "冷気耐性の最大値 {v0}%"
       }
     },
     "es": {
@@ -39501,6 +41733,278 @@
       "sapphire-existing-cast-speed-v1": {
         "name": "de encantamiento",
         "template": "Velocidad de lanzamiento de hechizos aumentada un {v0}%"
+      },
+      "sapphire-source-2f51dd3e7760b02b": {
+        "name": "de aflicción",
+        "template": "Probabilidad de aplicar estados alterados aumentada un {v0}%"
+      },
+      "sapphire-source-db71f07bb5fc29fc": {
+        "name": "{agrio}{agria}{agrios}{agrias}",
+        "template": "Magnitud de los estados alterados que aplicas aumentada un {v0}%"
+      },
+      "sapphire-source-cd6beef13793a86c": {
+        "name": "{explosivo}{explosiva}{explosivos}{explosivas}",
+        "template": "Área de efecto aumentada un {v0}%"
+      },
+      "sapphire-source-f7b7781dd719133d": {
+        "name": "de encantamiento",
+        "template": "Velocidad de lanzamiento de hechizos aumentada un {v0}%"
+      },
+      "sapphire-source-4430aaf73d10901b": {
+        "name": "{caótico}{caótica}{caóticos}{caóticas}",
+        "template": "Daño de caos aumentado un {v0}%"
+      },
+      "sapphire-source-73bfcfcce4943ad3": {
+        "name": "de escarcha",
+        "template": "Duración del escarchamiento en los enemigos aumentada un {v0}%"
+      },
+      "sapphire-source-7e138e57e1a29a49": {
+        "name": "{helador}{heladora}{heladores}{heladoras}",
+        "template": "Daño de hielo aumentado un {v0}%"
+      },
+      "sapphire-source-ba9e7fe2c6d7e4fb": {
+        "name": "{entumecedor}{entumecedora}{Entumecedores}{entumecedoras}",
+        "template": "El daño penetra el {v0}% de la resistencia al hielo"
+      },
+      "sapphire-source-fdd1cdc1d3bf3599": {
+        "name": "{nigromántico}{nigromántica}{nigrománticos}{nigrománticas}",
+        "template": "Daño aumentado un {v0}% si has consumido un cadáver recientemente"
+      },
+      "sapphire-source-5d930efe5aadbe2c": {
+        "name": "{rencoroso}{rencorosa}{rencorosos}{rencorosas}",
+        "template": "Magnitud de los estados alterados dañinos que aplicas con los impactos críticos aumentada un {v0}%"
+      },
+      "sapphire-source-c7b1f1973e53f65c": {
+        "name": "de aniquilación",
+        "template": "Probabilidad de impacto crítico aumentada un {v0}%"
+      },
+      "sapphire-source-4392c6a8176ebfde": {
+        "name": "de potencia",
+        "template": "Bonificación de daño crítico aumentada un {v0}%"
+      },
+      "sapphire-source-d5bb1c5fca1927b8": {
+        "name": "de desintegración",
+        "template": "Bonificación de daño crítico de los hechizos aumentada un {v0}%"
+      },
+      "sapphire-source-4769ac0b858242c3": {
+        "name": "{expansor}{expansora}{expansores}{expansoras}",
+        "template": "Área de efecto de las maldiciones aumentada un {v0}%"
+      },
+      "sapphire-source-8970a97a93f09b6f": {
+        "name": "de conjuración",
+        "template": "La activación de las maldiciones es un {v0}% más rápida"
+      },
+      "sapphire-source-3e16f951167041ba": {
+        "name": "de continuación",
+        "template": "Duración de la maldición aumentada un {v0}%"
+      },
+      "sapphire-source-15886d598e6bbc06": {
+        "name": "{maldecidor}{maldecidora}{maldecidores}{maldecidoras}",
+        "template": "Magnitudes de las maldiciones aumentadas un {v0}%"
+      },
+      "sapphire-source-95fb723bf4aec705": {
+        "name": "de mente",
+        "template": "El {v0}% daño lo recibe el maná antes que la vida"
+      },
+      "sapphire-source-494ae8866d398525": {
+        "name": "de perfusión",
+        "template": "Duración de los estados alterados en los enemigos aumentada un {v0}%"
+      },
+      "sapphire-source-4e74e5d888aeb639": {
+        "name": "de disminución",
+        "template": "Los efectos nocivos expiran un {v0}% más rápido sobre ti"
+      },
+      "sapphire-source-007f218f136aff40": {
+        "name": "{prismático}{prismática}{prismáticos}{prismáticas}",
+        "template": "Daño elemental aumentado un {v0}%"
+      },
+      "sapphire-source-1abfb34d3f4cc83a": {
+        "name": "de generación",
+        "template": "Las metahabilidades ganan energía aumentada un {v0}%"
+      },
+      "sapphire-source-280f8dad99d0cf6a": {
+        "name": "{Titilante}{Titilantes}",
+        "template": "Escudo de energía máximo aumentado un {v0}%"
+      },
+      "sapphire-source-fb849063fa4ba68c": {
+        "name": "{sereno}{serena}{serenos}{serenas}",
+        "template": "El inicio de la recarga del escudo de energía es un {v0}% más rápido"
+      },
+      "sapphire-source-0cc8d507e34d241a": {
+        "name": "de decrepitación",
+        "template": "Los estados alterados dañinos infligen su daño un {v0}% más rápido"
+      },
+      "sapphire-source-858dd4ff47688eec": {
+        "name": "{enfocado}{enfocada}{enfocados}{enfocadas}",
+        "template": "Escudo de energía del foco equipado aumentado un {v0}%"
+      },
+      "sapphire-source-6d726bc380dfa6ab": {
+        "name": "de congelamiento",
+        "template": "Acumulación de congelamiento aumentada un {v0}%"
+      },
+      "sapphire-source-496fbebaed752772": {
+        "name": "de aliento nevado",
+        "template": "Umbral de congelamiento aumentado un {v0}%"
+      },
+      "sapphire-source-6f78d09e4fc2a333": {
+        "name": "de ignición",
+        "template": "Magnitud de la inflamabilidad aumentada un {v0}%"
+      },
+      "sapphire-source-1551f7b1cfc51b33": {
+        "name": "{candente}{candentes}",
+        "template": "Magnitud de la quemadura aumentada un {v0}%"
+      },
+      "sapphire-source-4e639a479fb23231": {
+        "name": "de alargamiento",
+        "template": "Duración de los efectos de las habilidades aumentada un {v0}%"
+      },
+      "sapphire-source-9a2739c1de7c81ce": {
+        "name": "de éxito",
+        "template": "Recuperas un {v0}% de vida al matar"
+      },
+      "sapphire-source-18c2fffbd6dce036": {
+        "name": "de infusión",
+        "template": "El {v0}% del daño recibido se recobra como vida"
+      },
+      "sapphire-source-b443a1481c5247da": {
+        "name": "de ósmosis",
+        "template": "Recuperas un {v0}% de maná al matar"
+      },
+      "sapphire-source-fb386eb7fefea5f8": {
+        "name": "de energía",
+        "template": "Velocidad de regeneración de maná aumentada un {v0}%"
+      },
+      "sapphire-source-9bb8edb3753dec05": {
+        "name": "del kraken",
+        "template": "{v0}% a la resistencia al hielo máxima"
+      },
+      "sapphire-source-3a325be26c2380df": {
+        "name": "de organización",
+        "template": "Los esbirros tienen las velocidades de ataque y lanzamiento de hechizos aumentadas un {v0}%"
+      },
+      "sapphire-source-6ce43a003a240838": {
+        "name": "de rectitud",
+        "template": "Los esbirros tienen {v0}% a la resistencia al caos"
+      },
+      "sapphire-source-e20118aebd077356": {
+        "name": "de alineación",
+        "template": "Los esbirros tienen la probabilidad de impacto crítico aumentada un {v0}%"
+      },
+      "sapphire-source-853d7396a08f6b7e": {
+        "name": "de fascinación",
+        "template": "Los esbirros tienen la bonificación de daño crítico aumentada un {v0}%"
+      },
+      "sapphire-source-852f2fe3c9964720": {
+        "name": "{autoritario}{autoritaria}{autoritarios}{autoritarias}",
+        "template": "Los esbirros infligen el daño aumentado un {v0}%"
+      },
+      "sapphire-source-0b7e2c7edb0413a6": {
+        "name": "de aclimatación",
+        "template": "Los esbirros tienen {v0}% a todas las resistencias elementales"
+      },
+      "sapphire-source-9361c2514f57754c": {
+        "name": "de ofrenda",
+        "template": "Las habilidades de ofrenda tienen su duración aumentada un {v0}%"
+      },
+      "sapphire-source-d871cf30cef66d0c": {
+        "name": "{sacrificial}{sacrificiales}",
+        "template": "Las ofrendas tienen la vida máxima aumentada un {v0}%"
+      },
+      "sapphire-source-0cdee3590700a256": {
+        "name": "de glaciares",
+        "template": "Acumulación de congelamiento aumentada un {v0}% con bastones"
+      },
+      "sapphire-source-946013928573f4da": {
+        "name": "de electrocución",
+        "template": "Probabilidad de electrocutar aumentada un {v0}%"
+      },
+      "sapphire-source-f5cfd8342e2043b2": {
+        "name": "de paralización",
+        "template": "Duración de la electrocución aumentada un {v0}%"
+      },
+      "sapphire-source-e950fce0c43995d7": {
+        "name": "{sacudidor}{sacudidora}{sacudidores}{sacudidoras}",
+        "template": "Magnitud de la electrocución que aplicas aumentada un {v0}%"
+      },
+      "sapphire-source-36a1906fee226ab5": {
+        "name": "de aniquilación",
+        "template": "Probabilidad de impacto crítico de los hechizos aumentada un {v0}%"
+      },
+      "sapphire-source-4ea7c34a55f4c695": {
+        "name": "{místico}{mística}{místicos}{místicas}",
+        "template": "Daño de hechizos aumentado un {v0}%"
+      },
+      "sapphire-source-3d770c139b237d9d": {
+        "name": "de barreras",
+        "template": "Ganas umbral de aturdimiento adicional equivalente al {v0}% de tu escudo de energía máximo"
+      },
+      "sapphire-source-e63d25133f830f75": {
+        "name": "de acostumbramiento",
+        "template": "Ganas umbral de estados alterados adicional equivalente al {v0}% de tu escudo de energía máximo"
+      },
+      "sapphire-source-4759d929bbdad825": {
+        "name": "{activado}{activada}{activados}{activadas}",
+        "template": "Los hechizos activados infligen el daño de hechizos aumentado un {v0}%"
+      },
+      "sapphire-source-2b926b8622028cee": {
+        "name": "{marchitante}{marchitantes}",
+        "template": "Magnitud de marchito aumentada un {v0}%"
+      },
+      "sapphire-source-7fd91118882ae05e": {
+        "name": "{icónico}{icónica}{icónicos}{icónicas}",
+        "template": "Área de efecto de la presencia aumentada un {v0}%"
+      },
+      "sapphire-source-f0501cc040640534": {
+        "name": "de las tierras salvajes",
+        "template": "Velocidad de las habilidades aumentada un {v0}% mientras estés transformado"
+      },
+      "sapphire-source-8d4d0e9fd66b271c": {
+        "name": "Bestial",
+        "template": "Daño aumentado un {v0}% mientras estés transformado"
+      },
+      "sapphire-source-02c4aee5ab676a65": {
+        "name": "{sobrecrecido}{sobrecrecida}{sobrecrecidos}{sobrecrecidas}",
+        "template": "Daño aumentado un {v0}% con las habilidades de planta"
+      },
+      "sapphire-source-3cdead6fa2299be0": {
+        "name": "{Titilante}{Titilantes}",
+        "template": "Escudo de energía máximo aumentado un {v0}%"
+      },
+      "sapphire-source-d0e00e141c1a40df": {
+        "name": "{helador}{heladora}{heladores}{heladoras}",
+        "template": "Daño de hielo aumentado un {v0}%"
+      },
+      "sapphire-source-8edef712b4e18052": {
+        "name": "{caótico}{caótica}{caóticos}{caóticas}",
+        "template": "Daño de caos aumentado un {v0}%"
+      },
+      "sapphire-source-eec0d5fe5b21f6bf": {
+        "name": "de encantamiento",
+        "template": "Velocidad de lanzamiento de hechizos aumentada un {v0}%"
+      },
+      "sapphire-source-fd5b1d212239e7f4": {
+        "name": "{místico}{mística}{místicos}{místicas}",
+        "template": "Daño de hechizos aumentado un {v0}%"
+      },
+      "sapphire-source-4ed91ee75f9514fc": {
+        "name": "de ósmosis",
+        "template": "Recuperas un {v0}% de maná al matar"
+      },
+      "sapphire-source-91d5277273bd22e4": {
+        "name": "de aniquilación",
+        "template": "Probabilidad de impacto crítico de los hechizos aumentada un {v0}%"
+      },
+      "sapphire-source-5ee60393c47691a4": {
+        "name": "de desintegración",
+        "template": "Bonificación de daño crítico de los hechizos aumentada un {v0}%"
+      },
+      "sapphire-source-6d59506bed943a35": {
+        "name": "{explosivo}{explosiva}{explosivos}{explosivas}",
+        "template": "Área de efecto aumentada un {v0}%"
+      },
+      "sapphire-source-a6b816fdd11bd31d": {
+        "name": "del kraken",
+        "template": "{v0}% a la resistencia al hielo máxima"
       }
     }
   }

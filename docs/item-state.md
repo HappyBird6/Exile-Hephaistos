@@ -192,3 +192,8 @@ API 테스트는 번들 초기 상태, 전체 전이, 잘못된 요청·상태, 
 ## Sapphire 기존 아이템과 quality cap 변경
 
 Workbench 한정 Sapphire Magic/Rare 시작 아이템은 옵션 없음 또는 source-backed Cast Speed suffix 한 개를 입력할 수 있다. Normal/Unique/특수 Jewel·전체 Jewel pool·일반 Jewel crafting은 현재 미지원이며 0P/1S는 제품 편집 제한이다. refined13은 한 번 사용 시 max20, 유형 교체, 원래 roll 보존과 중앙 HALF_UP 표시 정책을 따른다. 사용자 확인에 따라 cap modifier 제거 후 기존 품질·유형을 보존하고 cap 증가 시 자동 충전하지 않는다. 제거 후보/확률은 그대로이며 film은 before/after 및 기존 probability ledger를 보존한다. [정정 규칙](workbench-quality-preserve-2026-10-04.md). Jewel 기본 제작과 Liquid는 [다음 묶음](workbench-jewel-liquid-next-2026-10-04.md)에서 재개하며 Essence는 제외한다.
+
+
+## Sapphire 일반 생성 및 Basic Liquid 범위 갱신
+
+2026-10-04: 위 existing-suffix 편집 제한은 Sapphire Workbench에서 superseded. normal58 후보와 Magic1P/1S·Rare2P/2S, 기본 화폐18종·Basic Liquid10을 지원한다. weight는 사용자 승인 균등 simulator 모델이며 실제 game weight가 아니다. Crafted는 item당 하나이고 ordinary 생성에서 제외하며 기존 film ID/roll을 보존한다. [상세 구현·출처·가역 정책·잔여 범위](workbench-sapphire-generation-liquid-2026-10-04.md). CraftSupport/StateExplorer·다른 Jewel bases·Potent·Ancient는 이 갱신에 포함하지 않는다.

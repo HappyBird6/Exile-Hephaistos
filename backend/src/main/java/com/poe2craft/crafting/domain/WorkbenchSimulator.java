@@ -125,8 +125,7 @@ public final class WorkbenchSimulator {
   }
 
   private String baseRuleVersion() {
-    if (catalog.base().id().equals(SapphireJewel.BASE_ID))
-      return "sapphire-existing-reroll-removal-v1";
+    if (catalog.base().id().equals(SapphireJewel.BASE_ID)) return "sapphire-basic-liquid-v2";
     if (catalog.base().id().equals(RingEssenceTargets.BASE_ID))
       return "ring-workbench-perfect-essence-v1";
     if (catalog.base().id().equals(HelmetEssenceTargets.BASE_ID))
@@ -144,6 +143,8 @@ public final class WorkbenchSimulator {
   }
 
   public String ledgerVersion() {
+    if (catalog.base().id().equals(SapphireJewel.BASE_ID))
+      return "sapphire-uniform-candidates-and-rolls-v1";
     if (catalog.base().id().equals(RingEssenceTargets.BASE_ID))
       return "ring-unverified-numeric-assumptions-v1";
     if (catalog.base().id().equals(HelmetEssenceTargets.BASE_ID))
@@ -207,6 +208,7 @@ public final class WorkbenchSimulator {
             o ->
                 o.trigger() == action
                     || (o.trigger() == WorkbenchCurrency.ESSENCE_HYSTERIA
+                        && !action.isLiquid()
                         && !action.replacementEssenceModifiers().isEmpty())
                     || (action.baseAction() != null
                         && o.trigger().baseAction() == action.baseAction()))
@@ -227,11 +229,19 @@ public final class WorkbenchSimulator {
       return new Availability(action, true, "");
     }
     if (state.baseItemId().equals(SapphireJewel.BASE_ID)
-        && action != WorkbenchCurrency.ANNULMENT
-        && action != WorkbenchCurrency.DIVINE)
+        && action.baseAction() == null
+        && action != WorkbenchCurrency.ALCHEMY
+        && action != WorkbenchCurrency.DIVINE
+        && !action.isLiquid())
       return blocked(
           action,
-          "Sapphire currently supports reviewed existing-modifier Annulment and Divine only; additions, full slot rules and the generation pool need verification.");
+          "This operation remains outside the reviewed Sapphire basic currency and Liquid scope.");
+    if (action.isLiquid()
+        && state.explicits().stream()
+            .anyMatch(m -> catalog.find(m.modifierId()).orElseThrow().tags().contains("crafted")))
+      return blocked(
+          action,
+          "Remove the existing Crafted modifier first; repeated Liquid replacement semantics need verification.");
     if (qualityCapChangePolicy == QualityCapChangePolicy.REJECT_OVERCAP
         && state.catalystQuality() != null
         && (action.baseAction() == CraftingAction.ANNULMENT
@@ -315,7 +325,7 @@ public final class WorkbenchSimulator {
           replacementTargets(action).stream().map(id -> catalog.find(id).orElseThrow()).toList();
       if (targets.stream().anyMatch(target -> state.itemLevel() < target.requiredItemLevel()))
         return blocked(action, "Essence below the catalog modifier item level is unsupported.");
-      var candidates = removalCandidates(state, omen);
+      var candidates = replacementRemovalCandidates(state, action, omen);
       if (candidates.isEmpty()) return blocked(action, "No non-Fractured explicit can be removed.");
       for (var removed : candidates) {
         var rest = new ArrayList<>(state.explicits());
@@ -485,6 +495,21 @@ public final class WorkbenchSimulator {
             .noneMatch(d -> !Collections.disjoint(d.familyIds(), target.familyIds()));
   }
 
+  private List<ModifierInstance> replacementRemovalCandidates(
+      ItemState state, WorkbenchCurrency action, WorkbenchOmen omen) {
+    var candidates = removalCandidates(state, omen);
+    if (!action.isLiquid()) return candidates;
+    var target = catalog.find(replacementTargets(action).getFirst()).orElseThrow();
+    return candidates.stream()
+        .filter(
+            removed -> {
+              var rest = new ArrayList<>(state.explicits());
+              rest.remove(removed);
+              return canAddFixed(copy(state, state.rarity(), state.implicits(), rest), target);
+            })
+        .toList();
+  }
+
   public List<ModifierDefinition> pool(
       ItemState state, WorkbenchCurrency currency, WorkbenchOmen omen) {
     return additionRules.pool(affixBucket(state), currency, omen);
@@ -611,7 +636,7 @@ public final class WorkbenchSimulator {
             ? ItemState.Rarity.RARE
             : upgrade(state, action);
     if (!replacementTargets(action).isEmpty()) {
-      var candidates = removalCandidates(state, omen);
+      var candidates = replacementRemovalCandidates(state, action, omen);
       var removed = candidates.get(random.nextInt(candidates.size()));
       explicits.remove(removed);
       events.add(new Event("REMOVE", removed.modifierId(), Map.of(), 1.0 / candidates.size()));
@@ -624,7 +649,9 @@ public final class WorkbenchSimulator {
               null,
               null,
               omen == null ? action.replacementSource() : "https://poe2db.tw/us/" + omen.id(),
-              "Uniform among non-Fractured explicit instances; every removal branch must accept every sourced modifier outcome. No published removal weights."));
+              action.isLiquid()
+                  ? "USER-APPROVED SIMULATOR MODEL: uniform among removals that leave a legal Crafted side and family. Failed branches are excluded before sampling; actual game retry/failure and removal weights are unknown. One Crafted modifier per item."
+                  : "Uniform among non-Fractured explicit instances; every removal branch must accept every sourced modifier outcome. No published removal weights."));
       var targets = replacementTargets(action);
       var definition =
           catalog
@@ -700,6 +727,7 @@ public final class WorkbenchSimulator {
             pool(intermediate, action, omen == null ? null : alchemySide(intermediate, omen));
         if (candidates.isEmpty())
           throw new IllegalArgumentException("Alchemy needs a complete four-modifier pool");
+        recordSapphireSelection(candidates, assumptions);
         long total = candidates.stream().mapToLong(ModifierDefinition::weight).sum();
         long draw = random.nextLong(total);
         var chosen = candidates.getLast();
@@ -778,6 +806,7 @@ public final class WorkbenchSimulator {
                       intermediate,
                       action,
                       action.baseAction() == CraftingAction.CHAOS ? null : omen);
+          recordSapphireSelection(candidates, assumptions);
           long total = candidates.stream().mapToLong(ModifierDefinition::weight).sum();
           long draw = random.nextLong(total);
           var chosen = candidates.getLast();
@@ -824,6 +853,21 @@ public final class WorkbenchSimulator {
         consumed,
         remaining,
         QualityLimitRules.describe(result, catalog));
+  }
+
+  private void recordSapphireSelection(
+      List<ModifierDefinition> candidates, List<Assumption> assumptions) {
+    if (catalog.base().id().equals(SapphireJewel.BASE_ID))
+      assumptions.add(
+          new Assumption(
+              "sapphire-uniform-candidates-v1",
+              "eligible Sapphire ordinary modifier",
+              candidates.size(),
+              candidates.stream().map(ModifierDefinition::id).toList(),
+              null,
+              null,
+              "https://poe2db.tw/us/Sapphire",
+              "USER-APPROVED SIMULATOR MODEL: equal 1/N among the eligible normal-section candidates after family, side and level restrictions. Actual game spawn weights are unavailable; DropChance=1 is not a verified weight."));
   }
 
   private ModifierInstance roll(

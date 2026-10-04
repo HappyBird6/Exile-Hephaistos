@@ -29,9 +29,19 @@ describe('verified modifier display templates', () => {
     const ids = Object.keys(catalog.definitions)
     const jewelIds = ids.filter((id) => id.startsWith('sapphire:'))
     expect(ids.filter((id) => !id.startsWith('sapphire:'))).toHaveLength(1485)
-    expect(jewelIds).toEqual(['sapphire:suffix:of-enchanting'])
-    expect(sapphire.modifiers.map((entry) => entry.id)).toEqual(jewelIds)
-    const source = sapphire.modifiers[0]
+    expect(jewelIds).toHaveLength(68)
+    expect([...jewelIds].sort()).toEqual(
+      sapphire.modifiers.map((entry) => entry.id).sort(),
+    )
+    expect(sapphire.modifiers.filter((entry) => entry.weight > 0)).toHaveLength(
+      58,
+    )
+    expect(
+      sapphire.modifiers.filter((entry) => entry.tags.includes('crafted')),
+    ).toHaveLength(10)
+    const source = sapphire.modifiers.find(
+      (entry) => entry.id === 'sapphire:suffix:of-enchanting',
+    )!
     if (!source) throw new Error('Source-backed Sapphire modifier is missing')
     const binding = catalog.definitions['sapphire:suffix:of-enchanting']
     expect(binding.englishText).toBe(source.text)

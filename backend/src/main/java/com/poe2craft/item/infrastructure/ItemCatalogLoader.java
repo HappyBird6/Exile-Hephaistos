@@ -19,13 +19,18 @@ public final class ItemCatalogLoader {
 
   private ItemCatalogLoader() {}
 
-  /** One source-verified existing suffix; all generation weights remain zero. */
+  /** Sapphire-only ordinary candidates with explicitly modeled equal selection weights. */
   public static ItemCatalog loadSapphire() {
     try (var data = ItemCatalogLoader.class.getResourceAsStream("/catalog/sapphire/catalog.json");
         var raw = ItemCatalogLoader.class.getResourceAsStream("/catalog/sapphire/base.raw.json");
         var details =
             ItemCatalogLoader.class.getResourceAsStream("/catalog/sapphire/details.raw.json")) {
-      return load(data, raw, details);
+      var catalog = load(data, raw, details);
+      return new ItemCatalog(
+          catalog.metadata(),
+          catalog.base(),
+          new ArrayList<>(catalog.modifiers().values()),
+          List.of("poe2db-sapphire-editor-20261004-63e81efc2080"));
     } catch (IOException e) {
       throw new IllegalStateException("Cannot load Sapphire starting-item catalog", e);
     }

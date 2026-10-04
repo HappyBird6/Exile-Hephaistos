@@ -13,9 +13,19 @@ export const modifierWeightSources = {
 } as const
 
 export function craftProbabilityEvidence(
-  evidence: Pick<AppliedItem, 'action' | 'events'>,
+  evidence: Pick<AppliedItem, 'action' | 'events'> &
+    Partial<Pick<AppliedItem, 'snapshotId'>>,
 ) {
   if (evidence.events.some((event) => event.kind === 'ADD')) {
+    if (
+      evidence.snapshotId?.startsWith('poe2db-sapphire-') ||
+      evidence.action.includes('LIQUID_')
+    ) {
+      return {
+        weighted: false,
+        text: 'Explicit Sapphire simulator model: uniform eligible candidates and legal Liquid removals. Actual game weights and failed-removal behavior are unverified; assumptions are listed below.',
+      }
+    }
     if (
       evidence.action.includes('ESSENCE') ||
       evidence.action.endsWith('_ALLOY')

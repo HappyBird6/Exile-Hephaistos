@@ -106,6 +106,7 @@ export function catalystProjection(
     Object.hasOwn(values, 'attack_maximum_added_physical_damage')
   const reviewed =
     ironImplicit ||
+    (d.id.startsWith('sapphire:') && d.stats?.length === 1) ||
     (d.id === 'sapphire:suffix:of-enchanting' &&
       d.stats?.length === 1 &&
       d.stats[0]?.id === 'display_cast_speed_percent') ||

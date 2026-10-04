@@ -1,0 +1,66 @@
+{
+  "baseHead": "3208ff40d583d72ab7c77eb1baea595d644fb9a9",
+  "snapshotId": "poe2db-sapphire-basic-liquid-20261004-2eaf12518879",
+  "ordinary": {
+    "count": 58,
+    "prefix": 23,
+    "suffix": 35,
+    "weightPolicy": "USER_APPROVED_UNIFORM_CANDIDATES_NOT_GAME_WEIGHTS"
+  },
+  "positiveBasicCurrencies": 18,
+  "positiveBasicLiquids": 10,
+  "backend": {
+    "unit": 378,
+    "integration": 6,
+    "command": "spotlessApply check generateJooq bootJar"
+  },
+  "frontend": {
+    "tests": 464,
+    "npmCi": true,
+    "lint": true,
+    "typecheck": true,
+    "formatCheck": true,
+    "build": true
+  },
+  "api": 752,
+  "browser": 83,
+  "priorQualityAndOmenRegression": 640,
+  "sourceFilesVerified": 328,
+  "jarSha256": "cbece056616754c000e56b84c8aa28829cff82518df32752be6d37236526eebf",
+  "evidenceDirectory": "E:/WORK/Exile-Hephaistos/codex/sapphire-generation-20261004",
+  "screenshots": [
+    "en-1440.png",
+    "en-390.png",
+    "ko-1440.png",
+    "ko-390.png",
+    "zh-CN-1440.png",
+    "zh-CN-390.png",
+    "zh-TW-1440.png",
+    "zh-TW-390.png",
+    "ja-1440.png",
+    "ja-390.png",
+    "es-1440.png",
+    "es-390.png"
+  ],
+  "isolatedProject": "exile-sapphire-generation-20261004",
+  "livePortsPreserved": [
+    18080,
+    18081
+  ],
+  "recoveryHistory": [
+    "Node22 EBADENGINE: corrected to required Node24",
+    "Previous one-modifier localization assertion: replaced by exact 68-source-definition assertion",
+    "QA Whittling trigger: corrected Annulment input to existing Chaos trigger",
+    "QA Liquid label lookup: added existing product registry fallback",
+    "Early backend sync attempt interrupted; final full backend checks passed"
+  ],
+  "remaining": [
+    "Ruby/Emerald/Diamond eligible pools",
+    "Potent Melancholy/Ferocity/Contempt with insertion cap versus preserved overflow",
+    "Ancient13 Time-Lost mechanics"
+  ],
+  "review": "Self review; no independent review claim",
+  "deployment": "No push, merge, deploy or live update",
+  "isolatedServicesStoppedNormally": true,
+  "buildWarning": "Existing >500kB Vite chunk warning remains; no suppression"
+}

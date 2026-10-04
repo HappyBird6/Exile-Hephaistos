@@ -436,3 +436,12 @@ WB-045 최종 검증: 명시된 사용자 계속 작업 지시에 따라 bounded
 WB-045 사용자 정정(2026-10-04): maximum40→20 시 stored quality40을 보존한다. 기존 clamp 가정은 superseded. 기본 정책과 API/film 입력 검증을 reachable quality 범위로 분리했고 Catalyst 반복/전환은 max(existing,currentCap) simulator 정책으로 기존40을 보존한다. 실제 Catalyst 전환 효과는 추가 근거 대기다. [정정 명세](docs/workbench-quality-preserve-2026-10-04.md), [다음 Jewel/Liquid 계획](docs/workbench-jewel-liquid-next-2026-10-04.md)을 따른다. Essence Jewel 제외 유지; Liquid27과 첫 Currency tab 기본 제작은 다음 fresh chat에서 재개한다. 이전 모든 조합 지원을 주장하지 않는다.
 
 WB-045 cap 정정 최종 검증: Backend371+6, Frontend369/50files 및 필수 검사/build, API2108, browser594/pageerror0 PASS. cap20의40 보존·13종 Catalyst 반복/전환·잘못된 새 입력·원본29/표시41·film undo/redo/reload·6언어1440/390 검증. 실패3건과 source 동등성은 [정정 validation evidence](docs/evidence/workbench-quality-preserve-validation-2026-10-04.json)에 기록한다. local commit만 수행하고 격리 서비스 정상 종료·heavy QA 해제·사용자18080/18081 보존.
+
+
+## WB-046 Sapphire 일반 생성 + Basic Liquid10 (2026-10-04)
+
+이전 existing-suffix Annul/Divine만으로 JL-01을 완료하지 않는다. 이번 묶음은 Sapphire normal58(23P/35S), Magic1P/1S·Rare2P/2S, 기본 화폐18종과 Rare Sapphire Basic Liquid10의 실제 positive 경로를 구현한다. Crafted identity·one-per-item cap·side/family 충돌·Divine/Annul/Chaos·film/6언어를 포함한다. [구현 및 출처](docs/workbench-sapphire-generation-liquid-2026-10-04.md).
+
+사용자 승인 가역 정책: 게임 weight 부재는 명시적 후보1/N으로 계산한다. DropChance1을 검증된 game weight로 주장하지 않는다. Liquid는 제거 후 보장 Crafted를 추가할 수 있는 legal 분기에서 균등 선택하며, 게임 무효 분기의 소비/재시도는 미검증이다. 기존 Crafted가 있는 두 번째 Liquid는 무소모 거절한다. Normal Sapphire 시작과 display-unit integer/Catalyst precision은 명시적 simulator 모델이다. 기존 quality40/cap20 보존과 max(existing,currentCap) 정책은 유지한다.
+
+잔여: Ruby/Emerald/Diamond 및 Potent3·Ancient13, Contempt cap-loss overflow 유지/추가 슬롯·Ferocity opposite-side scaling·Melancholy tree 조건·Time-Lost radius와 Small/Notable 범위. Liquid27은 Basic13+Ancient13+unrelated Verisium1이며 raw outcome 수15/14와 currency 수13/13을 구분한다. Essence-on-Jewel·Fracturing/socket 특례·Vaal/Hinekora/Desecration은 계속 제외한다.

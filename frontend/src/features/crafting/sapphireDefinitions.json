@@ -1,0 +1,818 @@
+{
+  "sapphire:suffix:of-ailing": {
+    "affixType": "SUFFIX",
+    "familyIds": ["AilmentChance"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 15
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:prefix:acrimonious": {
+    "affixType": "PREFIX",
+    "familyIds": ["AilmentEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 15
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:prefix:blasting": {
+    "affixType": "PREFIX",
+    "familyIds": ["AreaOfEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 4,
+        "max": 6
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-enchanting": {
+    "affixType": "SUFFIX",
+    "familyIds": ["IncreasedCastSpeed"],
+    "stats": [
+      {
+        "id": "display_cast_speed_percent",
+        "min": 2,
+        "max": 4
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:prefix:chaotic": {
+    "affixType": "PREFIX",
+    "familyIds": ["IncreasedChaosDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 7,
+        "max": 13
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-frost": {
+    "affixType": "SUFFIX",
+    "familyIds": ["IncreasedChillDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 15,
+        "max": 25
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:prefix:chilling": {
+    "affixType": "PREFIX",
+    "familyIds": ["ColdDamagePercentage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 15
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:prefix:numbing": {
+    "affixType": "PREFIX",
+    "familyIds": ["ColdResistancePenetration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:prefix:necromantic": {
+    "affixType": "PREFIX",
+    "familyIds": ["AllDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 10,
+        "max": 20
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:prefix:rancorous": {
+    "affixType": "PREFIX",
+    "familyIds": ["CriticalAilmentEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 10,
+        "max": 20
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-annihilation": {
+    "affixType": "SUFFIX",
+    "familyIds": ["CriticalStrikeChanceIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 15
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-potency": {
+    "affixType": "SUFFIX",
+    "familyIds": ["CriticalStrikeMultiplier"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 10,
+        "max": 20
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-unmaking": {
+    "affixType": "SUFFIX",
+    "familyIds": ["FormCritMultiplier"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 10,
+        "max": 20
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:prefix:expanding": {
+    "affixType": "PREFIX",
+    "familyIds": ["CurseAreaOfEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 8,
+        "max": 12
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-chanting": {
+    "affixType": "SUFFIX",
+    "familyIds": ["CurseDelay"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 15
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-continuation": {
+    "affixType": "SUFFIX",
+    "familyIds": ["BaseCurseDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 15,
+        "max": 25
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:prefix:hexing": {
+    "affixType": "PREFIX",
+    "familyIds": ["CurseEffectiveness"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 4
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-mind": {
+    "affixType": "SUFFIX",
+    "familyIds": ["DamageRemovedFromManaBeforeLife"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 4
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-suffusion": {
+    "affixType": "SUFFIX",
+    "familyIds": ["DamagingAilmentDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-diminishing": {
+    "affixType": "SUFFIX",
+    "familyIds": ["DebuffTime"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:prefix:prismatic": {
+    "affixType": "PREFIX",
+    "familyIds": ["ElementalDamagePercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 15
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-generation": {
+    "affixType": "SUFFIX",
+    "familyIds": ["Energy"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 4,
+        "max": 8
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:prefix:shimmering": {
+    "affixType": "PREFIX",
+    "familyIds": ["EnergyShieldPercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 10,
+        "max": 20
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:prefix:serene": {
+    "affixType": "PREFIX",
+    "familyIds": ["EnergyShieldDelay"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 10,
+        "max": 15
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-decrepifying": {
+    "affixType": "SUFFIX",
+    "familyIds": ["FasterAilmentDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 3,
+        "max": 7
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:prefix:focusing": {
+    "affixType": "PREFIX",
+    "familyIds": ["FocusEnergyShield"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 30,
+        "max": 50
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-freezing": {
+    "affixType": "SUFFIX",
+    "familyIds": ["FreezeDamageIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 10,
+        "max": 20
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-snowbreathing": {
+    "affixType": "SUFFIX",
+    "familyIds": ["FreezeThreshold"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 18,
+        "max": 32
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-ignition": {
+    "affixType": "SUFFIX",
+    "familyIds": ["IgniteChanceIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 10,
+        "max": 20
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:prefix:burning": {
+    "affixType": "PREFIX",
+    "familyIds": ["IgniteEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 15
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-lengthening": {
+    "affixType": "SUFFIX",
+    "familyIds": ["SkillEffectDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-success": {
+    "affixType": "SUFFIX",
+    "familyIds": ["MaximumLifeOnKillPercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-infusion": {
+    "affixType": "SUFFIX",
+    "familyIds": ["DamageTakenGainedAsLife"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-osmosis": {
+    "affixType": "SUFFIX",
+    "familyIds": ["ManaGainedOnKillPercentage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-energy": {
+    "affixType": "SUFFIX",
+    "familyIds": ["ManaRegeneration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 15
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-the-kraken": {
+    "affixType": "SUFFIX",
+    "familyIds": ["MaximumColdResist"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-orchestration": {
+    "affixType": "SUFFIX",
+    "familyIds": ["MinionAttackSpeedAndCastSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 4
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-righteousness": {
+    "affixType": "SUFFIX",
+    "familyIds": ["MinionChaosResistance"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 7,
+        "max": 13
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-marshalling": {
+    "affixType": "SUFFIX",
+    "familyIds": ["MinionCriticalStrikeChance"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 10,
+        "max": 20
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-gripping": {
+    "affixType": "SUFFIX",
+    "familyIds": ["MinionCriticalStrikeMultiplier"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 15,
+        "max": 25
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:prefix:authoritative": {
+    "affixType": "PREFIX",
+    "familyIds": ["MinionDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 15
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-acclimatisation": {
+    "affixType": "SUFFIX",
+    "familyIds": ["MinionElementalResistances"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-offering": {
+    "affixType": "SUFFIX",
+    "familyIds": ["OfferingDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 15,
+        "max": 25
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:prefix:sacrificial": {
+    "affixType": "PREFIX",
+    "familyIds": ["OfferingLife"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 15,
+        "max": 25
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-glaciers": {
+    "affixType": "SUFFIX",
+    "familyIds": ["QuarterstaffFreezeBuildup"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 10,
+        "max": 20
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-shocking": {
+    "affixType": "SUFFIX",
+    "familyIds": ["ShockChanceIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 10,
+        "max": 20
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-paralyzing": {
+    "affixType": "SUFFIX",
+    "familyIds": ["ShockDuration"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 15,
+        "max": 25
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:prefix:jolting": {
+    "affixType": "PREFIX",
+    "familyIds": ["ShockEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 10,
+        "max": 15
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-annihilating": {
+    "affixType": "SUFFIX",
+    "familyIds": ["SpellCriticalStrikeChanceIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 15
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:prefix:mystic": {
+    "affixType": "PREFIX",
+    "familyIds": ["WeaponCasterDamagePrefix"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 15
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-barriers": {
+    "affixType": "SUFFIX",
+    "familyIds": ["StunThresholdfromEnergyShield"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 15
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-inuring": {
+    "affixType": "SUFFIX",
+    "familyIds": ["AilmentThresholdfromEnergyShield"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 15
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:prefix:triggered": {
+    "affixType": "PREFIX",
+    "familyIds": ["DamageWithTriggeredSpells"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 10,
+        "max": 18
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:prefix:withering": {
+    "affixType": "PREFIX",
+    "familyIds": ["WitheredEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:prefix:iconic": {
+    "affixType": "PREFIX",
+    "familyIds": ["PresenceRadius"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 15,
+        "max": 25
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:suffix:of-the-wild": {
+    "affixType": "SUFFIX",
+    "familyIds": ["SpecificWeaponSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 4
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:prefix:bestial": {
+    "affixType": "PREFIX",
+    "familyIds": ["DamageForm"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 15
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:prefix:overgrown": {
+    "affixType": "PREFIX",
+    "familyIds": ["DamageForm"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 15
+      }
+    ],
+    "crafted": false
+  },
+  "sapphire:crafted:JewelEnergyShield": {
+    "affixType": "PREFIX",
+    "familyIds": ["EnergyShieldPercent"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 10,
+        "max": 20
+      }
+    ],
+    "crafted": true
+  },
+  "sapphire:crafted:JewelColdDamage": {
+    "affixType": "PREFIX",
+    "familyIds": ["ColdDamagePercentage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 15
+      }
+    ],
+    "crafted": true
+  },
+  "sapphire:crafted:JewelChaosDamage": {
+    "affixType": "PREFIX",
+    "familyIds": ["IncreasedChaosDamage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 7,
+        "max": 13
+      }
+    ],
+    "crafted": true
+  },
+  "sapphire:crafted:JewelCastSpeed": {
+    "affixType": "SUFFIX",
+    "familyIds": ["IncreasedCastSpeed"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 2,
+        "max": 4
+      }
+    ],
+    "crafted": true
+  },
+  "sapphire:crafted:JewelSpellDamage": {
+    "affixType": "PREFIX",
+    "familyIds": ["WeaponCasterDamagePrefix"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 15
+      }
+    ],
+    "crafted": true
+  },
+  "sapphire:crafted:JewelManaonKill": {
+    "affixType": "SUFFIX",
+    "familyIds": ["ManaGainedOnKillPercentage"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "crafted": true
+  },
+  "sapphire:crafted:JewelSpellCriticalChance": {
+    "affixType": "SUFFIX",
+    "familyIds": ["SpellCriticalStrikeChanceIncrease"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 5,
+        "max": 15
+      }
+    ],
+    "crafted": true
+  },
+  "sapphire:crafted:JewelSpellCriticalDamage": {
+    "affixType": "SUFFIX",
+    "familyIds": ["FormCritMultiplier"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 10,
+        "max": 20
+      }
+    ],
+    "crafted": true
+  },
+  "sapphire:crafted:JewelAreaofEffect": {
+    "affixType": "PREFIX",
+    "familyIds": ["AreaOfEffect"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 4,
+        "max": 6
+      }
+    ],
+    "crafted": true
+  },
+  "sapphire:crafted:JewelMaximumColdResistance": {
+    "affixType": "SUFFIX",
+    "familyIds": ["MaximumColdResist"],
+    "stats": [
+      {
+        "id": "display_source_value",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "crafted": true
+  }
+}

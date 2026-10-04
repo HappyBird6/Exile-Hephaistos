@@ -53,10 +53,11 @@ class SapphireCatalystTest {
   }
 
   @Test
-  void emptyJewelHasNoInventedMatchingAffixAndGeneralCraftingIsUnavailable() {
+  void emptyJewelHasNoInventedMatchingAffixAndOrdinaryCatalystsRemainUnavailable() {
     var root = item(ItemState.Rarity.MAGIC, List.of());
-    assertThat(catalog.modifiers().values()).allMatch(d -> d.weight() == 0);
+    assertThat(catalog.modifiers().values().stream().filter(d -> d.weight() > 0)).hasSize(58);
     for (var a : WorkbenchCurrency.values()) {
+      if (a.catalystType() == null) continue;
       var result = sim.apply(root, a, Set.of(), new Random(1));
       assertThat(result.applied()).isEqualTo(a.refinedCatalyst());
       assertThat(result.state().explicits()).isEmpty();
@@ -93,8 +94,10 @@ class SapphireCatalystTest {
   }
 
   @Test
-  void normalUniqueSpecialAndAboveCapStatesAreNotSupported() {
-    for (var rarity : List.of(ItemState.Rarity.NORMAL, ItemState.Rarity.UNIQUE))
+  void uniqueSpecialAndAboveCapStatesAreNotSupported() {
+    assertThat(new ItemStateValidator(catalog).validate(item(ItemState.Rarity.NORMAL, List.of())))
+        .isEmpty();
+    for (var rarity : List.of(ItemState.Rarity.UNIQUE))
       assertThat(new ItemStateValidator(catalog).validate(item(rarity, List.of()))).isNotEmpty();
     var root = item(ItemState.Rarity.MAGIC, List.of());
     var overcap =

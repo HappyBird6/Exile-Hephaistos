@@ -24,6 +24,16 @@ export const catalystActionType = (action: WorkbenchAction) => {
 }
 
 export type WorkbenchAction =
+  | 'DILUTED_LIQUID_IRE'
+  | 'DILUTED_LIQUID_GUILT'
+  | 'DILUTED_LIQUID_GREED'
+  | 'LIQUID_PARANOIA'
+  | 'LIQUID_ENVY'
+  | 'LIQUID_DISGUST'
+  | 'LIQUID_DESPAIR'
+  | 'CONCENTRATED_LIQUID_FEAR'
+  | 'CONCENTRATED_LIQUID_SUFFERING'
+  | 'CONCENTRATED_LIQUID_ISOLATION'
   | CatalystAction
   | 'PERFECT_ESSENCE_MIND'
   | 'PERFECT_ESSENCE_THAWING'
@@ -232,6 +242,18 @@ const sceptreFixedEssenceModifiers: Partial<Record<WorkbenchAction, string>> = {
 const replacementEssenceModifiers: Partial<
   Record<WorkbenchAction, readonly string[]>
 > = {
+  DILUTED_LIQUID_IRE: ['sapphire:crafted:JewelEnergyShield'],
+  DILUTED_LIQUID_GUILT: ['sapphire:crafted:JewelColdDamage'],
+  DILUTED_LIQUID_GREED: ['sapphire:crafted:JewelChaosDamage'],
+  LIQUID_PARANOIA: ['sapphire:crafted:JewelCastSpeed'],
+  LIQUID_ENVY: ['sapphire:crafted:JewelSpellDamage'],
+  LIQUID_DISGUST: ['sapphire:crafted:JewelManaonKill'],
+  LIQUID_DESPAIR: ['sapphire:crafted:JewelSpellCriticalChance'],
+  CONCENTRATED_LIQUID_FEAR: ['sapphire:crafted:JewelSpellCriticalDamage'],
+  CONCENTRATED_LIQUID_SUFFERING: ['sapphire:crafted:JewelAreaofEffect'],
+  CONCENTRATED_LIQUID_ISOLATION: [
+    'sapphire:crafted:JewelMaximumColdResistance',
+  ],
   PERFECT_ESSENCE_MIND: ['iron-ring:prefix:essence-increased-maximum-mana'],
   PERFECT_ESSENCE_THAWING: [
     'rusted-greathelm:suffix:essence-cold-damage-recouped-as-life',
@@ -274,6 +296,16 @@ const replacementEssenceModifiers: Partial<
   ],
 }
 export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
+  Diluted_Liquid_Ire: 'DILUTED_LIQUID_IRE',
+  Diluted_Liquid_Guilt: 'DILUTED_LIQUID_GUILT',
+  Diluted_Liquid_Greed: 'DILUTED_LIQUID_GREED',
+  Liquid_Paranoia: 'LIQUID_PARANOIA',
+  Liquid_Envy: 'LIQUID_ENVY',
+  Liquid_Disgust: 'LIQUID_DISGUST',
+  Liquid_Despair: 'LIQUID_DESPAIR',
+  Concentrated_Liquid_Fear: 'CONCENTRATED_LIQUID_FEAR',
+  Concentrated_Liquid_Suffering: 'CONCENTRATED_LIQUID_SUFFERING',
+  Concentrated_Liquid_Isolation: 'CONCENTRATED_LIQUID_ISOLATION',
   Flesh_Catalyst: 'CATALYST_FLESH',
   Refined_Flesh_Catalyst: 'REFINED_CATALYST_FLESH',
   Neural_Catalyst: 'CATALYST_NEURAL',
@@ -395,6 +427,16 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Greater_Essence_of_Opulence: 'GREATER_ESSENCE_OPULENCE',
 }
 export const workbenchActionNames: Record<WorkbenchAction, string> = {
+  DILUTED_LIQUID_IRE: 'Diluted Liquid Ire',
+  DILUTED_LIQUID_GUILT: 'Diluted Liquid Guilt',
+  DILUTED_LIQUID_GREED: 'Diluted Liquid Greed',
+  LIQUID_PARANOIA: 'Liquid Paranoia',
+  LIQUID_ENVY: 'Liquid Envy',
+  LIQUID_DISGUST: 'Liquid Disgust',
+  LIQUID_DESPAIR: 'Liquid Despair',
+  CONCENTRATED_LIQUID_FEAR: 'Concentrated Liquid Fear',
+  CONCENTRATED_LIQUID_SUFFERING: 'Concentrated Liquid Suffering',
+  CONCENTRATED_LIQUID_ISOLATION: 'Concentrated Liquid Isolation',
   CATALYST_FLESH: 'Flesh Catalyst',
   REFINED_CATALYST_FLESH: 'Refined Flesh Catalyst',
   CATALYST_NEURAL: 'Neural Catalyst',
@@ -931,6 +973,12 @@ export async function applyCurrency(
     !supportsConcreteStateShape(next) ||
     !verifiedCatalystQuality(next, definitions) ||
     (next.baseItemId === sapphireBase && !reviewedSapphire(next)) ||
+    (v.applied &&
+      action.includes('LIQUID_') &&
+      (state.baseItemId !== sapphireBase ||
+        state.explicits.some((m) =>
+          m.modifierId.startsWith('sapphire:crafted:'),
+        ))) ||
     (catalystActionType(action) === null &&
       !qualityCapChangeMatches(state, v, definitions)) ||
     (state.baseItemId === 'Metadata/Items/Rings/FourRing1' &&
@@ -1167,7 +1215,13 @@ export async function applyCurrency(
     else suffixes++
   }
   const capacity =
-    next.rarity === 'NORMAL' ? 0 : next.rarity === 'MAGIC' ? 1 : 3
+    next.rarity === 'NORMAL'
+      ? 0
+      : next.rarity === 'MAGIC'
+        ? 1
+        : next.baseItemId === sapphireBase
+          ? 2
+          : 3
   const expectedRarity =
     baseAction === 'TRANSMUTATION'
       ? 'MAGIC'
@@ -1235,6 +1289,7 @@ export async function applyCurrency(
           'CYCLONIC_ALLOY',
           'MYSTIC_ALLOY',
         ].includes(action) &&
+        !action.includes('LIQUID_') &&
         o.trigger === 'ESSENCE_HYSTERIA' &&
         activeOmens.includes(o.id),
     )
@@ -1247,7 +1302,21 @@ export async function applyCurrency(
     const candidates = state.explicits.filter(
       (m) =>
         !m.fractured &&
-        (!side || definitions[m.modifierId]?.affixType === side),
+        (!side || definitions[m.modifierId]?.affixType === side) &&
+        (!action.includes('LIQUID_') ||
+          replacementTargets.every((id) => {
+            const target = definitions[id]
+            if (!target) return false
+            const rest = state.explicits
+              .filter((old) => old.modifierId !== m.modifierId)
+              .map((old) => definitions[old.modifierId]!)
+            return (
+              rest.filter((d) => d.affixType === target.affixType).length < 2 &&
+              rest.every(
+                (d) => !d.familyIds.some((f) => target.familyIds.includes(f)),
+              )
+            )
+          })),
     )
     const removed = v.events[0]
     const added = v.events[1]
@@ -1495,7 +1564,7 @@ export async function applyCurrency(
     baseAction === 'EXALTED' &&
     activeOmens.includes('Omen_of_Greater_Exaltation') &&
     (state.rarity !== 'RARE' ||
-      state.explicits.length > 4 ||
+      state.explicits.length > (state.baseItemId === sapphireBase ? 2 : 4) ||
       !sameModifiers(
         state.explicits
           .map((old) =>
@@ -1608,7 +1677,7 @@ export async function applyCurrency(
         removed.length === state.explicits.length &&
         next.explicits.filter(
           (m) => definitions[m.modifierId]?.affixType === side,
-        ).length === 3
+        ).length === (state.baseItemId === sapphireBase ? 2 : 3)
     } else if (trigger === 'REGAL') {
       valid &&=
         added.length === 1 &&
@@ -1695,7 +1764,7 @@ export async function applyCurrency(
             !d.familyIds.some((family) => existingFamilies.has(family)) &&
             intermediate.filter(
               (m) => definitions[m.modifierId]!.affixType === d.affixType,
-            ).length < 3 &&
+            ).length < (state.baseItemId === sapphireBase ? 2 : 3) &&
             (originalTags.size === 0 ||
               d.tags?.some((tag) => originalTags.has(tag))),
         )

@@ -1,16 +1,25 @@
 {
   "sourceUrl": "https://poe2db.tw/us/Sapphire",
-  "enabledRarity": [
-    "magic",
-    "rare",
-    "unique"
+  "eligibleSection": "normal",
+  "excludedSections": [
+    "corrupted",
+    "desecrated",
+    "liquid"
   ],
-  "tags": [
-    "jewel",
-    "intjewel"
-  ],
-  "editorScope": "Magic or Rare; zero or one reviewed existing suffix. These editor bounds are not full game affix capacities.",
-  "statIdentity": "display_cast_speed_percent is an internal display-unit key derived from the published 2–4% Cast Speed text, not a verified game stat ID.",
-  "weightPolicy": "Zero excludes this display-only definition from all generation; published DropChance is not imported as a probability weight.",
-  "tierPolicy": "One reviewed row; tier 1 is a local row ordinal, not a game tier claim."
+  "weightPolicy": "USER_APPROVED_UNIFORM_CANDIDATES_NOT_GAME_WEIGHTS; DropChance=1 is not imported as a verified weight",
+  "slots": {
+    "magic": [
+      1,
+      1
+    ],
+    "rare": [
+      2,
+      2
+    ],
+    "source": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/dev/src/Classes/Item.lua",
+    "status": "corroborated simulator model"
+  },
+  "statPolicy": "Single published display-unit range per row; display_source_value is an internal key, not a verified game stat ID. Minion attack and cast speed uses one shared published magnitude.",
+  "normalPolicy": "Normal Sapphire is a user-approved reversible simulator starting state; PoE2DB enabled_rarity lists magic,rare,unique.",
+  "craftedPolicy": "Zero ordinary generation weight; identified persistently by sourced modifier ID and crafted tag; one per item. Every random-removal branch must permit the fixed outcome; uncertain branches refuse unchanged."
 }

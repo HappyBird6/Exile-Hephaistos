@@ -276,7 +276,7 @@ export function CraftingPage() {
       | 'ring'
       | 'sapphire' = 'solar',
     catalystQuality: CatalystQuality | null = null,
-    sapphireRarity: 'MAGIC' | 'RARE' = 'MAGIC',
+    sapphireRarity: 'NORMAL' | 'MAGIC' | 'RARE' = 'MAGIC',
     castSpeed: number | null = null,
   ) {
     const request = ++placementRequest.current
@@ -420,9 +420,9 @@ export function CraftingPage() {
     '',
   )
   const [qualityAmount, setQualityAmount] = useState('0')
-  const [sapphireRarity, setSapphireRarity] = useState<'MAGIC' | 'RARE'>(
-    'MAGIC',
-  )
+  const [sapphireRarity, setSapphireRarity] = useState<
+    'NORMAL' | 'MAGIC' | 'RARE'
+  >('MAGIC')
   const [sapphireAffix, setSapphireAffix] = useState(false)
   const [sapphireRoll, setSapphireRoll] = useState('2')
   const [baseChoice, setBaseChoice] = useState<
@@ -920,7 +920,9 @@ export function CraftingPage() {
                   kind:
                     i < concrete.implicits.length
                       ? ('implicit' as const)
-                      : ('explicit' as const),
+                      : d.tags?.includes('crafted')
+                        ? ('crafted' as const)
+                        : ('explicit' as const),
                   affixLabel:
                     d.affixType === 'NONE'
                       ? undefined
@@ -1478,6 +1480,26 @@ export function CraftingPage() {
                     {t('notice.glove_alloy_penetration')}
                   </p>
                 )}
+                {catalogBase === 'sapphire' && craftEvidence && (
+                  <details className="sapphire-craft-evidence">
+                    <summary>{t('ui.sapphire_craft_evidence')}</summary>
+                    <p>{t('notice.sapphire_scope')}</p>
+                    {craftEvidence.events.map((event, index) => (
+                      <p key={index}>
+                        {event.kind === 'REMOVE' ? '−' : '+'}{' '}
+                        {initial.data?.modifiers[event.modifierId]
+                          ? localizedModifierText(
+                              initial.data.modifiers[event.modifierId]!,
+                              event.kind === 'REMOVE'
+                                ? undefined
+                                : event.values,
+                            )
+                          : event.modifierId}{' '}
+                        ({(event.selectionProbability * 100).toFixed(2)}%)
+                      </p>
+                    ))}
+                  </details>
+                )}
                 {!canCraft && <p>{t('notice.pasted_display')}</p>}
                 {draft.source === 'text' && !mapping.data?.mapped && (
                   <button
@@ -1810,21 +1832,25 @@ export function CraftingPage() {
                         id="sapphire-rarity"
                         value={sapphireRarity}
                         onChange={(e) =>
-                          setSapphireRarity(e.target.value as 'MAGIC' | 'RARE')
+                          setSapphireRarity(
+                            e.target.value as 'NORMAL' | 'MAGIC' | 'RARE',
+                          )
                         }
                       >
+                        <option value="NORMAL">{t('ui.normal')}</option>
                         <option value="MAGIC">{t('ui.magic')}</option>
                         <option value="RARE">{t('ui.rare')}</option>
                       </select>
                       <label>
                         <input
                           type="checkbox"
-                          checked={sapphireAffix}
+                          checked={sapphireAffix && sapphireRarity !== 'NORMAL'}
+                          disabled={sapphireRarity === 'NORMAL'}
                           onChange={(e) => setSapphireAffix(e.target.checked)}
                         />
                         {t('ui.sapphire_existing_suffix')}
                       </label>
-                      {sapphireAffix && (
+                      {sapphireAffix && sapphireRarity !== 'NORMAL' && (
                         <>
                           <label htmlFor="sapphire-roll">
                             {t('ui.sapphire_cast_speed')}
@@ -1908,6 +1934,7 @@ export function CraftingPage() {
                     disabled={
                       (baseChoice === 'sapphire' &&
                         sapphireAffix &&
+                        sapphireRarity !== 'NORMAL' &&
                         (sapphireRoll.trim() === '' ||
                           !Number.isInteger(Number(sapphireRoll)) ||
                           Number(sapphireRoll) < 2 ||
@@ -1936,7 +1963,9 @@ export function CraftingPage() {
                           ? { type: qualityType, amount: Number(qualityAmount) }
                           : null,
                         sapphireRarity,
-                        sapphireAffix ? Number(sapphireRoll) : null,
+                        sapphireAffix && sapphireRarity !== 'NORMAL'
+                          ? Number(sapphireRoll)
+                          : null,
                       )
                       setPreviewRequest({ count: 0, action: null })
                       setSelected(null)

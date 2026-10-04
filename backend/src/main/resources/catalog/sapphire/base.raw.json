@@ -1,6 +1,5 @@
 {
   "sourceUrl": "https://poe2db.tw/us/Sapphire",
-  "pageSha256": "563d79c0d6bc1c0899a6cab22b73c24e9a5d1cdaf3c70ad1701238f5768ba6c8",
   "baseitem": {
     "ItemType": "Metadata/Items/Jewels/JewelInt",
     "Code": "Sapphire",
@@ -13,30 +12,1758 @@
     "attr": [],
     "tags": null
   },
-  "selectedExistingAffix": {
-    "Name": "of Enchanting",
-    "Level": "1",
-    "ModGenerationTypeID": "2",
-    "ModFamilyList": [
-      "IncreasedCastSpeed"
-    ],
-    "DropChance": 1,
-    "str": "<span class='mod-value'>(2<span class=\"ndash\">—</span>4)</span>% increased Cast Speed",
-    "fossil_no": [
-      "caster_speed",
-      "caster",
-      "speed"
-    ],
-    "adds_no": [],
-    "spawn_no": [
-      "intjewel",
-      "default"
-    ],
-    "mod_no": [
-      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
-      "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
-    ],
-    "mod_fossil_item": [],
-    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e4ea5426c228f5cb0c1474726fbc38c23e7bb1138dbf13a4a49647c562ecc3cf"
-  }
+  "normal": [
+    {
+      "Name": "of Ailing",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "AilmentChance"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(5<span class=\"ndash\">—</span>15)</span>% increased chance to inflict <a data-keyword=\"Ailments\" href=\"Ailments\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/33dcd444b2e7ff97407ccb62e003624591afb9ab545ef8328d0693781dbcf165\">Ailments</a>",
+      "fossil_no": [
+        "ailment"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "dexjewel",
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2cb0d253c07cb0a34afddbf435e68483693caa54c2dbedd84e971ddaf65943c3"
+    },
+    {
+      "Name": "Acrimonious",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "AilmentEffect"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(5<span class=\"ndash\">—</span>15)</span>% increased <a data-keyword=\"BuffMagnitude\" href=\"Buff_Debuff_Magnitude\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6ddd7dbb8996529f934041ebd9ccc413104a06d1266ab7a3ec342dfdc4e3c6b4\">Magnitude</a> of <a data-keyword=\"Ailments\" href=\"Ailments\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/33dcd444b2e7ff97407ccb62e003624591afb9ab545ef8328d0693781dbcf165\">Ailments</a> you inflict",
+      "fossil_no": [
+        "damage",
+        "ailment"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "dexjewel",
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/fd398bf5a9d833a6f5d15ef21dc837c2d1d00bbd0366c07a4d8decb18d997559"
+    },
+    {
+      "Name": "Blasting",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "AreaOfEffect"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(4<span class=\"ndash\">—</span>6)</span>% increased Area of Effect",
+      "fossil_no": [],
+      "adds_no": [],
+      "spawn_no": [
+        "strjewel",
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/46e25dee58ebbd7b669acd122190ccf07df0f6664bc6c89c228be6a927d85583"
+    },
+    {
+      "Name": "of Enchanting",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "IncreasedCastSpeed"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(2<span class=\"ndash\">—</span>4)</span>% increased Cast Speed",
+      "fossil_no": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+        "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e4ea5426c228f5cb0c1474726fbc38c23e7bb1138dbf13a4a49647c562ecc3cf"
+    },
+    {
+      "Name": "Chaotic",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "IncreasedChaosDamage"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(7<span class=\"ndash\">—</span>13)</span>% increased <a data-keyword=\"Chaos\" href=\"Chaos_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/d5e91fde5dc8d1d0b9cfdb8a42b1eda58c5d5c3b17836c8aa5ea96385c550943\">Chaos</a> Damage",
+      "fossil_no": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f82a6d7a556da1979b2270849e047fff6b8b8ce3afbd239e7385a23cbebce045"
+    },
+    {
+      "Name": "of Frost",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "IncreasedChillDuration"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(15<span class=\"ndash\">—</span>25)</span>% increased <a data-keyword=\"Chill\" href=\"Chill\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/b6892078a6d8fc7a957d2b63ab9e155c8b4b9fb170114c044f90eb5585a29998\">Chill</a> Duration on Enemies",
+      "fossil_no": [
+        "elemental",
+        "cold",
+        "ailment"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+        "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/42a1c82085fdfae9f0dd2717abfc9b7118ebcac9322db66747d8fc3b5a04c658"
+    },
+    {
+      "Name": "Chilling",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "ColdDamagePercentage"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(5<span class=\"ndash\">—</span>15)</span>% increased <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage",
+      "fossil_no": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2f135b654f8a7d807d1a1bf06b3690be48499edeb9bd50305f02e76a6c26f3a8"
+    },
+    {
+      "Name": "Numbing",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "ColdResistancePenetration"
+      ],
+      "DropChance": 1,
+      "str": "Damage <a data-keyword=\"Penetration\" href=\"Resistance_Penetration\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/61cad452424fd9ab42dc6ccd019cb270ea5ffa1cfd677025af273da0b58938b7\">Penetrates</a> <span class='mod-value'>(5<span class=\"ndash\">—</span>10)</span>% <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a>",
+      "fossil_no": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/49731376c6f5687555e6f7a0e78341bb4e77ffc6a57f7133aa7779e1df6e9f2c"
+    },
+    {
+      "Name": "Necromantic",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "AllDamage"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(10<span class=\"ndash\">—</span>20)</span>% increased Damage if you have Consumed a <a data-keyword=\"Corpse\" href=\"Corpses\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/22ae48ad5d7d2ceb0f98386e25c174e7b0d153cc3f9dc4a04a0e1fbb9294589a\">Corpse</a> <a data-keyword=\"Recently\" href=\"Recently\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/5e4b89b0e6873233a0df8cd30f363c3211ef8a88d8267f2b2170b2e45d11942c\">Recently</a>",
+      "fossil_no": [
+        "damage"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/1949ad16226a7be731dabbe46eb7a12d9cd74f6852a56cd229ee9eaa2fcca599"
+    },
+    {
+      "Name": "Rancorous",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "CriticalAilmentEffect"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(10<span class=\"ndash\">—</span>20)</span>% increased <a data-keyword=\"BuffMagnitude\" href=\"Buff_Debuff_Magnitude\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6ddd7dbb8996529f934041ebd9ccc413104a06d1266ab7a3ec342dfdc4e3c6b4\">Magnitude</a> of <a data-keyword=\"DamagingAilments\" href=\"Damaging_Ailments\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ec5e9d82eabc293b2cf78ba733657df5ded01e8791138e8c82803c4a0d0dfade\">Damaging Ailments</a> you inflict with <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hits</a>",
+      "fossil_no": [
+        "damage",
+        "critical",
+        "ailment"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "dexjewel",
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>",
+        "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/bdd523789ab60c031b98a4e38e483127d95f8d7fa66c876bf31f919d600de062"
+    },
+    {
+      "Name": "of Annihilation",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "CriticalStrikeChanceIncrease"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(5<span class=\"ndash\">—</span>15)</span>% increased <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit</a> Chance",
+      "fossil_no": [
+        "critical"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a085d4e1fea2983bc270bd90b2d64b094a1d5322b55362fab9c04c5380368921"
+    },
+    {
+      "Name": "of Potency",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "CriticalStrikeMultiplier"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(10<span class=\"ndash\">—</span>20)</span>% increased <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244\">Critical Damage Bonus</a>",
+      "fossil_no": [
+        "damage",
+        "critical"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/dad0708652410f86728f483413722da4629203ca944a33ff58a3734e498826e6"
+    },
+    {
+      "Name": "of Unmaking",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "FormCritMultiplier"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(10<span class=\"ndash\">—</span>20)</span>% increased <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244\">Critical Spell Damage Bonus</a>",
+      "fossil_no": [
+        "caster_critical",
+        "caster_damage",
+        "damage",
+        "caster",
+        "critical"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+        "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ed4ea208f5630ee5562bd256ac981ade873f9751d20ab5b38199f7730de6746b"
+    },
+    {
+      "Name": "Expanding",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "CurseAreaOfEffect"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(8<span class=\"ndash\">—</span>12)</span>% increased Area of Effect of <a data-keyword=\"Curse\" href=\"Curses\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/97160559c71e27b47ecc2ac9aab94c0f29353084979269e128927171380c7020\">Curses</a>",
+      "fossil_no": [
+        "caster",
+        "curse"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+        "<span class=\"badge bg-primary craftingcurse\" data-tag=\"curse\">Curse</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/bb1811cffa086345d71978fb593ba1cd21d15ef005195033d64a0cdf99937d8d"
+    },
+    {
+      "Name": "of Chanting",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "CurseDelay"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(5<span class=\"ndash\">—</span>15)</span>% faster <a data-keyword=\"Curse\" href=\"Curses\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/97160559c71e27b47ecc2ac9aab94c0f29353084979269e128927171380c7020\">Curse</a> Activation",
+      "fossil_no": [
+        "caster",
+        "curse"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+        "<span class=\"badge bg-primary craftingcurse\" data-tag=\"curse\">Curse</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/16e6b6e51682edc001ded5d68076ff68b85e910c162fb7f98d302860feb2c6ca"
+    },
+    {
+      "Name": "of Continuation",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "BaseCurseDuration"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(15<span class=\"ndash\">—</span>25)</span>% increased <a data-keyword=\"Curse\" href=\"Curses\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/97160559c71e27b47ecc2ac9aab94c0f29353084979269e128927171380c7020\">Curse</a> Duration",
+      "fossil_no": [
+        "caster",
+        "curse"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+        "<span class=\"badge bg-primary craftingcurse\" data-tag=\"curse\">Curse</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/619a41f50d7b600ea5344ab2fee5efc4ce9ecfb9c5154914bcf7e4370268efb4"
+    },
+    {
+      "Name": "Hexing",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "CurseEffectiveness"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(2<span class=\"ndash\">—</span>4)</span>% increased <a data-keyword=\"Curse\" href=\"Curses\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/97160559c71e27b47ecc2ac9aab94c0f29353084979269e128927171380c7020\">Curse</a> <a data-keyword=\"BuffMagnitude\" href=\"Buff_Debuff_Magnitude\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6ddd7dbb8996529f934041ebd9ccc413104a06d1266ab7a3ec342dfdc4e3c6b4\">Magnitudes</a>",
+      "fossil_no": [
+        "caster",
+        "curse"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+        "<span class=\"badge bg-primary craftingcurse\" data-tag=\"curse\">Curse</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6e1c3ff3032f84db263b1beae0ad9bb094a4c15ed182bd0d0cf18ee4c5046435"
+    },
+    {
+      "Name": "of Mind",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "DamageRemovedFromManaBeforeLife"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(2<span class=\"ndash\">—</span>4)</span>% of Damage is taken from Mana before Life",
+      "fossil_no": [
+        "resource",
+        "life",
+        "mana"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>",
+        "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/45ae90ba175d147d71890fb16ff49f461065f5eb8e3da47733d5e06376521e58"
+    },
+    {
+      "Name": "of Suffusion",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "DamagingAilmentDuration"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(5<span class=\"ndash\">—</span>10)</span>% increased Duration of <a data-keyword=\"DamagingAilments\" href=\"Damaging_Ailments\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ec5e9d82eabc293b2cf78ba733657df5ded01e8791138e8c82803c4a0d0dfade\">Damaging Ailments</a> on Enemies",
+      "fossil_no": [
+        "ailment"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "dexjewel",
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/19dd48f518875def003ef6479bdde13bd8925a3da5451f104d10446ce1a8aa1d"
+    },
+    {
+      "Name": "of Diminishing",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "DebuffTime"
+      ],
+      "DropChance": 1,
+      "str": "<a data-keyword=\"Debuff\" href=\"Debuffs\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ca9a93058e0715631a4ba0105eadf5e237b590f0c14080cf7fac0724ee35e3cb\">Debuffs</a> on you expire <span class='mod-value'>(5<span class=\"ndash\">—</span>10)</span>% faster",
+      "fossil_no": [],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "dexjewel",
+        "default"
+      ],
+      "mod_no": [],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0094078a67e9ac671d74373dbec8ef24dfeff8580ff91c542ab414756d8b5a67"
+    },
+    {
+      "Name": "Prismatic",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "ElementalDamagePercent"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(5<span class=\"ndash\">—</span>15)</span>% increased <a data-keyword=\"ElementalDamage\" href=\"Elemental_Damage_Types\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/76ff55a46c9d3d007722fb5ccb09592dc48359db448d433f7e0c8dfc6e94dcbd\">Elemental Damage</a>",
+      "fossil_no": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "strjewel",
+        "intjewel",
+        "dexjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+        "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+        "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b009e92695e9860a256bacac0dafe9daf1ad9f124c137cd1c7c37f018b44378f"
+    },
+    {
+      "Name": "of Generation",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "Energy"
+      ],
+      "DropChance": 1,
+      "str": "<a data-keyword=\"Meta\" href=\"Meta_Gems\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/73143b29a225ff9156bda33ca076b85dfc3ed096381dcf868fd9924301e5fcb0\">Meta</a> Skills gain <span class='mod-value'>(4<span class=\"ndash\">—</span>8)</span>% increased <a data-keyword=\"Energy\" href=\"Energy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3b00fe7e2b0d05de58843969f4e1567d14886d175e3bdf9fb0cb01d67ee38615\">Energy</a>",
+      "fossil_no": [],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f2de99c71d7efff075d6951418fb956e05bf0105234c2613b2ee799f6ae97f85"
+    },
+    {
+      "Name": "Shimmering",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "EnergyShieldPercent"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(10<span class=\"ndash\">—</span>20)</span>% increased maximum <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a>",
+      "fossil_no": [
+        "defences",
+        "energy_shield"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingenergy_shield\" data-tag=\"energy_shield\">Energy Shield</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/381a40d3487984f4f62bdadd5d7e451e3d35b2fd230e415c345287ca09d17fb6"
+    },
+    {
+      "Name": "Serene",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "EnergyShieldDelay"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(10<span class=\"ndash\">—</span>15)</span>% <a data-keyword=\"FasterESRechargeStart\" href=\"Faster_Start_of_Energy_Shield_Recharge\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6cee69100e3b5b76135622e7156f13a1ec0379378609b51aa3d94cf54e5a54d7\">faster start of Energy Shield Recharge</a>",
+      "fossil_no": [
+        "defences",
+        "energy_shield"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingenergy_shield\" data-tag=\"energy_shield\">Energy Shield</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/1a3cb0386ec8edf2821c83ea5fb639b00d0035a36c0ae00525d5bc599f5ea793"
+    },
+    {
+      "Name": "of Decrepifying",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "FasterAilmentDamage"
+      ],
+      "DropChance": 1,
+      "str": "<a data-keyword=\"DamagingAilments\" href=\"Damaging_Ailments\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ec5e9d82eabc293b2cf78ba733657df5ded01e8791138e8c82803c4a0d0dfade\">Damaging Ailments</a> deal damage <span class='mod-value'>(3<span class=\"ndash\">—</span>7)</span>% faster",
+      "fossil_no": [
+        "damage",
+        "ailment"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "dexjewel",
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/734fb9d10c29b057eb9c9d2a6d50cd09870bba84848c4152b1dcdda049954024"
+    },
+    {
+      "Name": "Focusing",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "FocusEnergyShield"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(30<span class=\"ndash\">—</span>50)</span>% increased <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a> from Equipped <a data-keyword=\"Focus\" href=\"Foci\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/36c975f6ad062a052e70efe86d966eaa718e04448b7feff948e719df48e8e349\">Focus</a>",
+      "fossil_no": [
+        "defences",
+        "energy_shield"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingenergy_shield\" data-tag=\"energy_shield\">Energy Shield</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/de2b432a91ade820e1dbe1a9b4fa980b3e35e436277f434f4f9cad7fd2b1df43"
+    },
+    {
+      "Name": "of Freezing",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "FreezeDamageIncrease"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(10<span class=\"ndash\">—</span>20)</span>% increased <a data-keyword=\"Freeze\" href=\"Freeze\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/011683cb90b62a1cbc72829d6e7b38990ef9bb565d22951ceaa5330e787374b5\">Freeze</a> Buildup",
+      "fossil_no": [
+        "elemental",
+        "cold",
+        "ailment"
+      ],
+      "adds_no": [
+        "no_fire_spell_mods",
+        "no_lightning_spell_mods",
+        "no_chaos_spell_mods"
+      ],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+        "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6c525a4192b8f047641f382dfac5903afb79dfb96c25b935610b452d46d1dd30"
+    },
+    {
+      "Name": "of Snowbreathing",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "FreezeThreshold"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(18<span class=\"ndash\">—</span>32)</span>% increased <a data-keyword=\"FreezeThreshold\" href=\"Freeze_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/95706941c330149eda0901353a598ce8b8e7431133c99a8a6e19f5f0e5c6ad4f\">Freeze Threshold</a>",
+      "fossil_no": [
+        "elemental",
+        "cold",
+        "ailment"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+        "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d93b3421106e531baed5003cb3071099f2bde2793e0c33ccbadbf3e8724cbe0d"
+    },
+    {
+      "Name": "of Ignition",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "IgniteChanceIncrease"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(10<span class=\"ndash\">—</span>20)</span>% increased <a data-keyword=\"Flammability\" href=\"Flammability\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/07dd7e513f82d4a29de61a932044031e5b0ae6dd0e84301b9aecbee9717285e7\">Flammability</a> <a data-keyword=\"BuffMagnitude\" href=\"Buff_Debuff_Magnitude\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6ddd7dbb8996529f934041ebd9ccc413104a06d1266ab7a3ec342dfdc4e3c6b4\">Magnitude</a>",
+      "fossil_no": [
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "adds_no": [
+        "no_cold_spell_mods",
+        "no_lightning_spell_mods",
+        "no_chaos_spell_mods"
+      ],
+      "spawn_no": [
+        "strjewel",
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+        "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e415f5ad8032abd068fa9b22cc2fbce0d6a481f5fdb18b6a3f9bc1b6844ba49e"
+    },
+    {
+      "Name": "Burning",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "IgniteEffect"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(5<span class=\"ndash\">—</span>15)</span>% increased <a data-keyword=\"Ignite\" href=\"Ignite\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3c9defd13111e72aa1053f711ddb623e66f2d9ebb88504493a12e406351be025\">Ignite</a> <a data-keyword=\"BuffMagnitude\" href=\"Buff_Debuff_Magnitude\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6ddd7dbb8996529f934041ebd9ccc413104a06d1266ab7a3ec342dfdc4e3c6b4\">Magnitude</a>",
+      "fossil_no": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "strjewel",
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+        "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b68653c51f31953b3d912b9e79aed4949f91eb029e78da84c3ef6273d0ab0b90"
+    },
+    {
+      "Name": "of Lengthening",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "SkillEffectDuration"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(5<span class=\"ndash\">—</span>10)</span>% increased Skill Effect Duration",
+      "fossil_no": [],
+      "adds_no": [],
+      "spawn_no": [
+        "strjewel",
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/591f2ce707e99e1be65b4fdbd2b686ab7de9cc754d5a5dd143b987973f22bebd"
+    },
+    {
+      "Name": "of Success",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "MaximumLifeOnKillPercent"
+      ],
+      "DropChance": 1,
+      "str": "Recover <span class='mod-value'>(1<span class=\"ndash\">—</span>2)</span>% of maximum Life on Kill",
+      "fossil_no": [
+        "resource",
+        "life"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3f0756e4f76da894949d224857226dc42e8d9e46bbe6c0157a15340afb7958c4"
+    },
+    {
+      "Name": "of Infusion",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "DamageTakenGainedAsLife"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(2<span class=\"ndash\">—</span>3)</span>% of Damage taken <a data-keyword=\"Recoup\" href=\"Recoup\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3c83824668de5af953edb328359ea3c64e3076d5589052471bb7d5ce14727322\">Recouped</a> as Life",
+      "fossil_no": [
+        "resource",
+        "life"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/21bfe3daf08672683b4093271ec550452bdbe9c51b1b29d40b0b314a16f90345"
+    },
+    {
+      "Name": "of Osmosis",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "ManaGainedOnKillPercentage"
+      ],
+      "DropChance": 1,
+      "str": "Recover <span class='mod-value'>(1<span class=\"ndash\">—</span>2)</span>% of maximum Mana on Kill",
+      "fossil_no": [
+        "resource",
+        "mana"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/66eed97dd2b3b2ec396d358883b2c008a3ae5aa389ce08200440a2510c13fc8a"
+    },
+    {
+      "Name": "of Energy",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "ManaRegeneration"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(5<span class=\"ndash\">—</span>15)</span>% increased Mana Regeneration Rate",
+      "fossil_no": [
+        "resource",
+        "mana"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2626c9c0cf0d4ebc0567e3f5e9948d3a619127ea3eec8aee4968e8206f62a5ca"
+    },
+    {
+      "Name": "of the Kraken",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "MaximumColdResist"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>+1</span>% to <a data-keyword=\"MaximumResistances\" href=\"Maximum_Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/10cfc4a861abfa43e56fa517c085678b0a54d64ffccc7e940f7616a55e2e17da\">Maximum Cold Resistance</a>",
+      "fossil_no": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3235949ad566ea66af4f33f75dc206c757669fcc0d3de9e82406f1ad69b4b160"
+    },
+    {
+      "Name": "of Orchestration",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "MinionAttackSpeedAndCastSpeed"
+      ],
+      "DropChance": 1,
+      "str": "<a data-keyword=\"Minion\" href=\"Minions\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a2261570ef8ba8d3abbee0bd6e5a91eef55342d89c3eb0524d7f3d337cad6dbe\">Minions</a> have <span class='mod-value'>(2<span class=\"ndash\">—</span>4)</span>% increased <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attack</a> and Cast Speed",
+      "fossil_no": [
+        "caster_speed",
+        "minion_speed",
+        "attack",
+        "caster",
+        "speed",
+        "minion"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>",
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+        "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>",
+        "<span class=\"badge bg-primary craftingminion\" data-tag=\"minion\">Minion</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/01a6a4c01e605e6894133b51fb45ab46ac3e17a5e6534938dacaa9d327674b62"
+    },
+    {
+      "Name": "of Righteousness",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "MinionChaosResistance"
+      ],
+      "DropChance": 1,
+      "str": "<a data-keyword=\"Minion\" href=\"Minions\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a2261570ef8ba8d3abbee0bd6e5a91eef55342d89c3eb0524d7f3d337cad6dbe\">Minions</a> have <span class='mod-value'>+(7<span class=\"ndash\">—</span>13)</span>% to <a data-keyword=\"Chaos\" href=\"Chaos_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/d5e91fde5dc8d1d0b9cfdb8a42b1eda58c5d5c3b17836c8aa5ea96385c550943\">Chaos</a> <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Resistance</a>",
+      "fossil_no": [
+        "chaos_resistance",
+        "minion_resistance",
+        "chaos",
+        "resistance",
+        "minion"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>",
+        "<span class=\"badge bg-primary craftingminion\" data-tag=\"minion\">Minion</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4e05109db3fff920859bef2d2e3568481e84223134e628cc49b12d2db0181d35"
+    },
+    {
+      "Name": "of Marshalling",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "MinionCriticalStrikeChance"
+      ],
+      "DropChance": 1,
+      "str": "<a data-keyword=\"Minion\" href=\"Minions\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a2261570ef8ba8d3abbee0bd6e5a91eef55342d89c3eb0524d7f3d337cad6dbe\">Minions</a> have <span class='mod-value'>(10<span class=\"ndash\">—</span>20)</span>% increased <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit Chance</a>",
+      "fossil_no": [
+        "minion",
+        "critical"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingminion\" data-tag=\"minion\">Minion</span>",
+        "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e124bee6157ce61bb24221975eca412d5ee0665109be35de57f7b0150a915dae"
+    },
+    {
+      "Name": "of Gripping",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "MinionCriticalStrikeMultiplier"
+      ],
+      "DropChance": 1,
+      "str": "<a data-keyword=\"Minion\" href=\"Minions\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a2261570ef8ba8d3abbee0bd6e5a91eef55342d89c3eb0524d7f3d337cad6dbe\">Minions</a> have <span class='mod-value'>(15<span class=\"ndash\">—</span>25)</span>% increased <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244\">Critical Damage Bonus</a>",
+      "fossil_no": [
+        "minion_damage",
+        "damage",
+        "minion",
+        "critical"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingminion\" data-tag=\"minion\">Minion</span>",
+        "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/991688d0c8250bb932105c3427462524076c208bcaf6e61250149d49355d0994"
+    },
+    {
+      "Name": "Authoritative",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "MinionDamage"
+      ],
+      "DropChance": 1,
+      "str": "<a data-keyword=\"Minion\" href=\"Minions\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a2261570ef8ba8d3abbee0bd6e5a91eef55342d89c3eb0524d7f3d337cad6dbe\">Minions</a> deal <span class='mod-value'>(5<span class=\"ndash\">—</span>15)</span>% increased Damage",
+      "fossil_no": [
+        "minion_damage",
+        "damage",
+        "minion"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingminion\" data-tag=\"minion\">Minion</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ae83f7a2583ce8c71526e7cc47aa4a22502b73744f13b9ad148370d22ccb00d1"
+    },
+    {
+      "Name": "of Acclimatisation",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "MinionElementalResistances"
+      ],
+      "DropChance": 1,
+      "str": "<a data-keyword=\"Minion\" href=\"Minions\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a2261570ef8ba8d3abbee0bd6e5a91eef55342d89c3eb0524d7f3d337cad6dbe\">Minions</a> have <span class='mod-value'>+(5<span class=\"ndash\">—</span>10)</span>% to all Elemental <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Resistances</a>",
+      "fossil_no": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "minion_resistance",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "resistance",
+        "minion"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+        "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+        "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>",
+        "<span class=\"badge bg-primary craftingminion\" data-tag=\"minion\">Minion</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d4577b49d9252722ac37ccae52046267653c23f6b5a70663dc2dadec04f3a455"
+    },
+    {
+      "Name": "of Offering",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "OfferingDuration"
+      ],
+      "DropChance": 1,
+      "str": "<a data-keyword=\"Offering\" href=\"Offering_Skills\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/999766372740756c06400abe73306e15d4b12487fc1ed7270930925977c06022\">Offering</a> Skills have <span class='mod-value'>(15<span class=\"ndash\">—</span>25)</span>% increased Duration",
+      "fossil_no": [
+        "minion"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingminion\" data-tag=\"minion\">Minion</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6f08e25bdf0664717100bfd0551cd38a4eefbea7e7c0c84da069064b7e463da3"
+    },
+    {
+      "Name": "Sacrificial",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "OfferingLife"
+      ],
+      "DropChance": 1,
+      "str": "<a data-keyword=\"Offering\" href=\"Offering_Skills\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/999766372740756c06400abe73306e15d4b12487fc1ed7270930925977c06022\">Offerings</a> have <span class='mod-value'>(15<span class=\"ndash\">—</span>25)</span>% increased Maximum Life",
+      "fossil_no": [
+        "resource",
+        "life",
+        "minion"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>",
+        "<span class=\"badge bg-primary craftingminion\" data-tag=\"minion\">Minion</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/96af4eea65b4378e3bbeda618692ea9dc762a00adc4dcad5437aef6992af930d"
+    },
+    {
+      "Name": "of Glaciers",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "QuarterstaffFreezeBuildup"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(10<span class=\"ndash\">—</span>20)</span>% increased <a data-keyword=\"Freeze\" href=\"Freeze\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/011683cb90b62a1cbc72829d6e7b38990ef9bb565d22951ceaa5330e787374b5\">Freeze</a> Buildup with <a data-keyword=\"Quarterstaff\" href=\"Quarterstaves\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/588d8248632d50dbb7ba71327e224fa0d0c83dcd6db6d3f7a189caa553c6decd\">Quarterstaves</a>",
+      "fossil_no": [
+        "elemental",
+        "cold",
+        "ailment"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "dexjewel",
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+        "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9385b643197d9e2006a10d20f775a6a3f433209e0b75e0d32e97bf79ee6cb903"
+    },
+    {
+      "Name": "of Shocking",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "ShockChanceIncrease"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(10<span class=\"ndash\">—</span>20)</span>% increased chance to <a data-keyword=\"Shock\" href=\"Shock\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e16c3f539d98714e992b7a2fa61432625e69a665759f8dc5831558b71b21c1f2\">Shock</a>",
+      "fossil_no": [
+        "elemental",
+        "lightning",
+        "ailment"
+      ],
+      "adds_no": [
+        "no_fire_spell_mods",
+        "no_cold_spell_mods",
+        "no_chaos_spell_mods"
+      ],
+      "spawn_no": [
+        "dexjewel",
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+        "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/40c7f3c6e5e0bd89bf478c8d4fdcfde16859ef5d86225bd7c98b604ea9ad4da8"
+    },
+    {
+      "Name": "of Paralyzing",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "ShockDuration"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(15<span class=\"ndash\">—</span>25)</span>% increased <a data-keyword=\"Shock\" href=\"Shock\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e16c3f539d98714e992b7a2fa61432625e69a665759f8dc5831558b71b21c1f2\">Shock</a> Duration",
+      "fossil_no": [
+        "elemental",
+        "lightning",
+        "ailment"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "dexjewel",
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+        "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6ed2093a15f01cab992da21fa1a3c27fe74794b3829f3391b97cf5db8d099410"
+    },
+    {
+      "Name": "Jolting",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "ShockEffect"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(10<span class=\"ndash\">—</span>15)</span>% increased <a data-keyword=\"BuffMagnitude\" href=\"Buff_Debuff_Magnitude\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6ddd7dbb8996529f934041ebd9ccc413104a06d1266ab7a3ec342dfdc4e3c6b4\">Magnitude</a> of <a data-keyword=\"Shock\" href=\"Shock\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e16c3f539d98714e992b7a2fa61432625e69a665759f8dc5831558b71b21c1f2\">Shock</a> you inflict",
+      "fossil_no": [
+        "elemental",
+        "lightning",
+        "ailment"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "dexjewel",
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+        "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/850e800353436864583c6639f61b682bb4f336f7eaac5ba2e298804922988375"
+    },
+    {
+      "Name": "of Annihilating",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "SpellCriticalStrikeChanceIncrease"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(5<span class=\"ndash\">—</span>15)</span>% increased <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit Chance</a> for <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spells</a>",
+      "fossil_no": [
+        "caster_critical",
+        "caster",
+        "critical"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+        "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/59ad600c5dff03d1cd8dc7a8c124982c2d12aaf519ddc820276169f3246b3a50"
+    },
+    {
+      "Name": "Mystic",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "WeaponCasterDamagePrefix"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(5<span class=\"ndash\">—</span>15)</span>% increased <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Damage",
+      "fossil_no": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/cdca08bef3b642342e79a9f573c5ad1b71ddadc461e6f38eae3ec59140edae7d"
+    },
+    {
+      "Name": "of Barriers",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "StunThresholdfromEnergyShield"
+      ],
+      "DropChance": 1,
+      "str": "Gain additional <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/316a7a69eefcbd428676307b835263fc26186fee563e3838fb17fd8b29742b43\">Stun Threshold</a> equal to <span class='mod-value'>(5<span class=\"ndash\">—</span>15)</span>% of maximum <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a>",
+      "fossil_no": [],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7cf221c9da16f7dbac20a003b0057836409f618a1e025b0f102e87ba22e8140f"
+    },
+    {
+      "Name": "of Inuring",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "AilmentThresholdfromEnergyShield"
+      ],
+      "DropChance": 1,
+      "str": "Gain additional <a data-keyword=\"AilmentThreshold\" href=\"Elemental_Ailment_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/abfe0d42cce8f3c5e18e0b036a20a3a17fc92fb7427dd55d3d1247d6964f3ed5\">Ailment Threshold</a> equal to <span class='mod-value'>(5<span class=\"ndash\">—</span>15)</span>% of maximum <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a>",
+      "fossil_no": [
+        "ailment"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9dfa9339c6307113b80912dda2f0bdf7862b0d01800c02b306976d71d97ee67c"
+    },
+    {
+      "Name": "Triggered",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "DamageWithTriggeredSpells"
+      ],
+      "DropChance": 1,
+      "str": "<a data-keyword=\"Trigger\" href=\"Triggered_Skills\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/d992f1fb94363ec4b3b1bc0a3a52350dc564b934399a343e9e0bc8f6fb347fa5\">Triggered</a> <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spells</a> deal <span class='mod-value'>(10<span class=\"ndash\">—</span>18)</span>% increased <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Damage",
+      "fossil_no": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5370a2facf47421e19747b8122723c3baffaa1d25f2a639a944af86169cb7819"
+    },
+    {
+      "Name": "Withering",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "WitheredEffect"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(5<span class=\"ndash\">—</span>10)</span>% increased <a data-keyword=\"Withered\" href=\"Withered\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/74ce79455fc4b383f705735e00279d6ae7e4bd885309f33711f72ba6af6a566f\">Withered</a> <a data-keyword=\"BuffMagnitude\" href=\"Buff_Debuff_Magnitude\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6ddd7dbb8996529f934041ebd9ccc413104a06d1266ab7a3ec342dfdc4e3c6b4\">Magnitude</a>",
+      "fossil_no": [
+        "chaos"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0a95372e534294bc4938e6681fe3e46d6c29603fec72a802f45167dbb54b7f2f"
+    },
+    {
+      "Name": "Iconic",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "PresenceRadius"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(15<span class=\"ndash\">—</span>25)</span>% increased <a data-keyword=\"Presence\" href=\"Presence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/7dcbc7de023224f0f506877302060b1aaa814dd225382c87c2ea241a5bb299e7\">Presence</a> Area of Effect",
+      "fossil_no": [
+        "aura"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "strjewel",
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingaura\" data-tag=\"aura\">Aura</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e861546e33a8d0d0a8762ddd575ad0e8908290ad2f6fb57c6d141efdb6329a5f"
+    },
+    {
+      "Name": "of the Wild",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "SpecificWeaponSpeed"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(2<span class=\"ndash\">—</span>4)</span>% increased <a data-keyword=\"SkillSpeed\" href=\"Skill_Speed\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/c7ef832840749f2a1f2acd330aab71cd6ef8dc920bf324a972fe487c70c50735\">Skill Speed</a> while <a data-keyword=\"Shapeshift\" href=\"Shapeshifting\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/94e132cadc8ec86974f34656e598c863806c8f5640941218dfc58a44d31853e8\">Shapeshifted</a>",
+      "fossil_no": [
+        "speed"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "strjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/340da9a26dcd10769af0c137044ccbb602da8dad7c3ea948cb0f88d6c435fa7c"
+    },
+    {
+      "Name": "Bestial",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "DamageForm"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(5<span class=\"ndash\">—</span>15)</span>% increased Damage while <a data-keyword=\"Shapeshift\" href=\"Shapeshifting\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/94e132cadc8ec86974f34656e598c863806c8f5640941218dfc58a44d31853e8\">Shapeshifted</a>",
+      "fossil_no": [
+        "damage"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "strjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6ac80e8530a02b0928de22de9e6e5c8307e421fa22ddeb0f72481da1ecc5ee66"
+    },
+    {
+      "Name": "Overgrown",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "DamageForm"
+      ],
+      "DropChance": 1,
+      "str": "<span class='mod-value'>(5<span class=\"ndash\">—</span>15)</span>% increased Damage with <a data-keyword=\"Plant\" href=\"Plant_Skills_and_Overgrowth\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8c6b8c4126a7f85da0a5b1415fbf87890b07d5fc764c5fcaed146b6f3f3f88da\">Plant</a> Skills",
+      "fossil_no": [
+        "damage"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "strjewel",
+        "dexjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e2f88f322e8fcbee4fac391372cab0442782c463ded7a725998efbe9cd531812"
+    }
+  ],
+  "liquid": [
+    {
+      "Code": "JewelEnergyShield",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "EnergyShieldPercent"
+      ],
+      "str": "<span class='mod-value'>(10<span class=\"ndash\">—</span>20)</span>% increased maximum <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a>",
+      "fossil_no": [
+        "defences",
+        "energy_shield"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingenergy_shield\" data-tag=\"energy_shield\">Energy Shield</span>"
+      ],
+      "reqlvl": 0,
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/01c4a453a9e37a932a113f5b20db60a92bd42b7c802f11ada3540a44c7a91b75\" href=\"Diluted_Liquid_Ire\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/DistilledEmotions/DilutedDistilledIre.webp\" alt=\"DilutedDistilledIre\" height=\"16\" />Diluted Liquid Ire</a>"
+    },
+    {
+      "Code": "JewelColdDamage",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "ColdDamagePercentage"
+      ],
+      "str": "<span class='mod-value'>(5<span class=\"ndash\">—</span>15)</span>% increased <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage",
+      "fossil_no": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>"
+      ],
+      "reqlvl": 0,
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/864b3c1ebf8eb33e6596e8c86fd43cda04e7d5b110a3c8ef0051bcf39a54f681\" href=\"Diluted_Liquid_Guilt\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/DistilledEmotions/DilutedDistilledGuilt.webp\" alt=\"DilutedDistilledGuilt\" height=\"16\" />Diluted Liquid Guilt</a>"
+    },
+    {
+      "Code": "JewelChaosDamage",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "IncreasedChaosDamage"
+      ],
+      "str": "<span class='mod-value'>(7<span class=\"ndash\">—</span>13)</span>% increased <a data-keyword=\"Chaos\" href=\"Chaos_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/d5e91fde5dc8d1d0b9cfdb8a42b1eda58c5d5c3b17836c8aa5ea96385c550943\">Chaos</a> Damage",
+      "fossil_no": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>"
+      ],
+      "reqlvl": 0,
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/4b132ba51502127592cbba4c3d6c8698937279e3f223f4dc9f92ebad84d47dfb\" href=\"Diluted_Liquid_Greed\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/DistilledEmotions/DilutedDistilledGreed.webp\" alt=\"DilutedDistilledGreed\" height=\"16\" />Diluted Liquid Greed</a>"
+    },
+    {
+      "Code": "JewelCastSpeed",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "IncreasedCastSpeed"
+      ],
+      "str": "<span class='mod-value'>(2<span class=\"ndash\">—</span>4)</span>% increased Cast Speed",
+      "fossil_no": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+        "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+      ],
+      "reqlvl": 0,
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/a47908cca3edb92d59d8d90f59af479112153a40c50d87c5909108fdd99efe28\" href=\"Liquid_Paranoia\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/DistilledEmotions/DistilledParanoia.webp\" alt=\"DistilledParanoia\" height=\"16\" />Liquid Paranoia</a>"
+    },
+    {
+      "Code": "JewelSpellDamage",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "WeaponCasterDamagePrefix"
+      ],
+      "str": "<span class='mod-value'>(5<span class=\"ndash\">—</span>15)</span>% increased <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Damage",
+      "fossil_no": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>"
+      ],
+      "reqlvl": 0,
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/06b9e9a5a6bc4bb0f12231ee4a2c1ae356e57fd2709eabe82b0c26a7adab1f31\" href=\"Liquid_Envy\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/DistilledEmotions/DistilledEnvy.webp\" alt=\"DistilledEnvy\" height=\"16\" />Liquid Envy</a>"
+    },
+    {
+      "Code": "JewelManaonKill",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "ManaGainedOnKillPercentage"
+      ],
+      "str": "Recover <span class='mod-value'>(1<span class=\"ndash\">—</span>2)</span>% of maximum Mana on Kill",
+      "fossil_no": [
+        "resource",
+        "mana"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+      ],
+      "reqlvl": 0,
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/b4b64d89faf50ebe10ddf8a0192ac313ac4f157c7f19c6e35d4d62bfdf728f76\" href=\"Liquid_Disgust\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/DistilledEmotions/DistilledDisgust.webp\" alt=\"DistilledDisgust\" height=\"16\" />Liquid Disgust</a>"
+    },
+    {
+      "Code": "JewelSpellCriticalChance",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "SpellCriticalStrikeChanceIncrease"
+      ],
+      "str": "<span class='mod-value'>(5<span class=\"ndash\">—</span>15)</span>% increased <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit Chance</a> for <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spells</a>",
+      "fossil_no": [
+        "caster_critical",
+        "caster",
+        "critical"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+        "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+      ],
+      "reqlvl": 0,
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/40c6bc5b3868ee45b1b46207b9a42599c52912d62e2383b9bb6a1de1cb67227f\" href=\"Liquid_Despair\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/DistilledEmotions/DistilledDespair.webp\" alt=\"DistilledDespair\" height=\"16\" />Liquid Despair</a>"
+    },
+    {
+      "Code": "JewelSpellCriticalDamage",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "FormCritMultiplier"
+      ],
+      "str": "<span class='mod-value'>(10<span class=\"ndash\">—</span>20)</span>% increased <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244\">Critical Spell Damage Bonus</a>",
+      "fossil_no": [
+        "caster_critical",
+        "caster_damage",
+        "damage",
+        "caster",
+        "critical"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+        "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+      ],
+      "reqlvl": 0,
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/1498cb6d883e8e8294d6e81c51b4fa6e2685f83422b3fbb871d1e9d25c8a4148\" href=\"Concentrated_Liquid_Fear\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/DistilledEmotions/ConcentratedDistilledFear.webp\" alt=\"ConcentratedDistilledFear\" height=\"16\" />Concentrated Liquid Fear</a>"
+    },
+    {
+      "Code": "JewelAreaofEffect",
+      "Level": "1",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "AreaOfEffect"
+      ],
+      "str": "<span class='mod-value'>(4<span class=\"ndash\">—</span>6)</span>% increased Area of Effect",
+      "fossil_no": [],
+      "adds_no": [],
+      "spawn_no": [
+        "strjewel",
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [],
+      "reqlvl": 0,
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/97d16d91df31fda744bcf21892ae11575b721a2e5a2d50b1f7741899771eec70\" href=\"Concentrated_Liquid_Suffering\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/DistilledEmotions/ConcentratedDistilledSuffering.webp\" alt=\"ConcentratedDistilledSuffering\" height=\"16\" />Concentrated Liquid Suffering</a>"
+    },
+    {
+      "Code": "JewelMaximumColdResistance",
+      "Level": "1",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "MaximumColdResist"
+      ],
+      "str": "<span class='mod-value'>+1</span>% to <a data-keyword=\"MaximumResistances\" href=\"Maximum_Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/10cfc4a861abfa43e56fa517c085678b0a54d64ffccc7e940f7616a55e2e17da\">Maximum Cold Resistance</a>",
+      "fossil_no": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "intjewel",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "reqlvl": 0,
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/eda3ae7d7bcbf97386b10ca31d6f6aee72cacfbaf149c2b3a2a6fdb157ea45da\" href=\"Concentrated_Liquid_Isolation\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/DistilledEmotions/ConcentratedDistilledIsolation.webp\" alt=\"ConcentratedDistilledIsolation\" height=\"16\" />Concentrated Liquid Isolation</a>"
+    }
+  ]
 }

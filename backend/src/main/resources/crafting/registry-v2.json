@@ -34,7 +34,8 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "sapphire"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -65,7 +66,8 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "sapphire"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -96,7 +98,8 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "sapphire"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -124,7 +127,8 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "sapphire"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -155,7 +159,8 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "sapphire"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -186,7 +191,8 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "sapphire"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -217,7 +223,8 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "sapphire"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -292,7 +299,8 @@
         "body",
         "sceptre",
         "helmet",
-        "ring"
+        "ring",
+        "sapphire"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -323,7 +331,8 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "sapphire"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -354,7 +363,8 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "sapphire"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -385,7 +395,8 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "sapphire"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -416,7 +427,8 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "sapphire"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -447,7 +459,8 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "sapphire"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -478,7 +491,8 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "sapphire"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -509,7 +523,8 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "sapphire"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -540,7 +555,8 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "sapphire"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -571,7 +587,8 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "sapphire"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -602,7 +619,8 @@
         "sceptre",
         "belt",
         "helmet",
-        "ring"
+        "ring",
+        "sapphire"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -3861,11 +3879,16 @@
       "sourceRetrievedAt": "2026-09-23T07:20:35.589496+00:00",
       "sourceSha256": "75bd5388d4b39ec2d9ae205866d4116696f3b9c259421b21309efd8edbfa8e1b",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_APPLICABLE",
+      "action": "DILUTED_LIQUID_IRE",
+      "reason": "Sapphire fixed Crafted result; one Crafted cap. Explicit uniform legal-removal simulator model; repeated Crafted replacement is unsupported.",
+      "serviceScope": "ACTIVE",
+      "supportedBases": [
+        "sapphire"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Diluted_Liquid_Ire",
+      "ruleVerifiedAt": "2026-10-04"
     },
     {
       "id": "Diluted_Liquid_Guilt",
@@ -3876,11 +3899,16 @@
       "sourceRetrievedAt": "2026-09-23T07:20:35.589496+00:00",
       "sourceSha256": "75bd5388d4b39ec2d9ae205866d4116696f3b9c259421b21309efd8edbfa8e1b",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_APPLICABLE",
+      "action": "DILUTED_LIQUID_GUILT",
+      "reason": "Sapphire fixed Crafted result; one Crafted cap. Explicit uniform legal-removal simulator model; repeated Crafted replacement is unsupported.",
+      "serviceScope": "ACTIVE",
+      "supportedBases": [
+        "sapphire"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Diluted_Liquid_Guilt",
+      "ruleVerifiedAt": "2026-10-04"
     },
     {
       "id": "Diluted_Liquid_Greed",
@@ -3891,11 +3919,16 @@
       "sourceRetrievedAt": "2026-09-23T07:20:35.589496+00:00",
       "sourceSha256": "75bd5388d4b39ec2d9ae205866d4116696f3b9c259421b21309efd8edbfa8e1b",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_APPLICABLE",
+      "action": "DILUTED_LIQUID_GREED",
+      "reason": "Sapphire fixed Crafted result; one Crafted cap. Explicit uniform legal-removal simulator model; repeated Crafted replacement is unsupported.",
+      "serviceScope": "ACTIVE",
+      "supportedBases": [
+        "sapphire"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Diluted_Liquid_Greed",
+      "ruleVerifiedAt": "2026-10-04"
     },
     {
       "id": "Liquid_Paranoia",
@@ -3906,11 +3939,16 @@
       "sourceRetrievedAt": "2026-09-23T07:20:35.589496+00:00",
       "sourceSha256": "75bd5388d4b39ec2d9ae205866d4116696f3b9c259421b21309efd8edbfa8e1b",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_APPLICABLE",
+      "action": "LIQUID_PARANOIA",
+      "reason": "Sapphire fixed Crafted result; one Crafted cap. Explicit uniform legal-removal simulator model; repeated Crafted replacement is unsupported.",
+      "serviceScope": "ACTIVE",
+      "supportedBases": [
+        "sapphire"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Liquid_Paranoia",
+      "ruleVerifiedAt": "2026-10-04"
     },
     {
       "id": "Liquid_Envy",
@@ -3921,11 +3959,16 @@
       "sourceRetrievedAt": "2026-09-23T07:20:35.589496+00:00",
       "sourceSha256": "75bd5388d4b39ec2d9ae205866d4116696f3b9c259421b21309efd8edbfa8e1b",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_APPLICABLE",
+      "action": "LIQUID_ENVY",
+      "reason": "Sapphire fixed Crafted result; one Crafted cap. Explicit uniform legal-removal simulator model; repeated Crafted replacement is unsupported.",
+      "serviceScope": "ACTIVE",
+      "supportedBases": [
+        "sapphire"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Liquid_Envy",
+      "ruleVerifiedAt": "2026-10-04"
     },
     {
       "id": "Liquid_Disgust",
@@ -3936,11 +3979,16 @@
       "sourceRetrievedAt": "2026-09-23T07:20:35.589496+00:00",
       "sourceSha256": "75bd5388d4b39ec2d9ae205866d4116696f3b9c259421b21309efd8edbfa8e1b",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_APPLICABLE",
+      "action": "LIQUID_DISGUST",
+      "reason": "Sapphire fixed Crafted result; one Crafted cap. Explicit uniform legal-removal simulator model; repeated Crafted replacement is unsupported.",
+      "serviceScope": "ACTIVE",
+      "supportedBases": [
+        "sapphire"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Liquid_Disgust",
+      "ruleVerifiedAt": "2026-10-04"
     },
     {
       "id": "Liquid_Despair",
@@ -3951,11 +3999,16 @@
       "sourceRetrievedAt": "2026-09-23T07:20:35.589496+00:00",
       "sourceSha256": "75bd5388d4b39ec2d9ae205866d4116696f3b9c259421b21309efd8edbfa8e1b",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_APPLICABLE",
+      "action": "LIQUID_DESPAIR",
+      "reason": "Sapphire fixed Crafted result; one Crafted cap. Explicit uniform legal-removal simulator model; repeated Crafted replacement is unsupported.",
+      "serviceScope": "ACTIVE",
+      "supportedBases": [
+        "sapphire"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Liquid_Despair",
+      "ruleVerifiedAt": "2026-10-04"
     },
     {
       "id": "Concentrated_Liquid_Fear",
@@ -3966,11 +4019,16 @@
       "sourceRetrievedAt": "2026-09-23T07:20:35.589496+00:00",
       "sourceSha256": "75bd5388d4b39ec2d9ae205866d4116696f3b9c259421b21309efd8edbfa8e1b",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_APPLICABLE",
+      "action": "CONCENTRATED_LIQUID_FEAR",
+      "reason": "Sapphire fixed Crafted result; one Crafted cap. Explicit uniform legal-removal simulator model; repeated Crafted replacement is unsupported.",
+      "serviceScope": "ACTIVE",
+      "supportedBases": [
+        "sapphire"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Concentrated_Liquid_Fear",
+      "ruleVerifiedAt": "2026-10-04"
     },
     {
       "id": "Concentrated_Liquid_Suffering",
@@ -3981,11 +4039,16 @@
       "sourceRetrievedAt": "2026-09-23T07:20:35.589496+00:00",
       "sourceSha256": "75bd5388d4b39ec2d9ae205866d4116696f3b9c259421b21309efd8edbfa8e1b",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_APPLICABLE",
+      "action": "CONCENTRATED_LIQUID_SUFFERING",
+      "reason": "Sapphire fixed Crafted result; one Crafted cap. Explicit uniform legal-removal simulator model; repeated Crafted replacement is unsupported.",
+      "serviceScope": "ACTIVE",
+      "supportedBases": [
+        "sapphire"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Concentrated_Liquid_Suffering",
+      "ruleVerifiedAt": "2026-10-04"
     },
     {
       "id": "Concentrated_Liquid_Isolation",
@@ -3996,11 +4059,16 @@
       "sourceRetrievedAt": "2026-09-23T07:20:35.589496+00:00",
       "sourceSha256": "75bd5388d4b39ec2d9ae205866d4116696f3b9c259421b21309efd8edbfa8e1b",
       "registrationStatus": "REGISTERED",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_APPLICABLE",
+      "action": "CONCENTRATED_LIQUID_ISOLATION",
+      "reason": "Sapphire fixed Crafted result; one Crafted cap. Explicit uniform legal-removal simulator model; repeated Crafted replacement is unsupported.",
+      "serviceScope": "ACTIVE",
+      "supportedBases": [
+        "sapphire"
+      ],
+      "ruleSource": "https://poe2db.tw/us/Concentrated_Liquid_Isolation",
+      "ruleVerifiedAt": "2026-10-04"
     },
     {
       "id": "Ancient_Diluted_Liquid_Ire",
@@ -4014,8 +4082,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "reason": "Registered Liquid inventory; Potent and Ancient mechanics remain unsupported. Registration is not implementation.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Ancient_Diluted_Liquid_Guilt",
@@ -4029,8 +4097,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "reason": "Registered Liquid inventory; Potent and Ancient mechanics remain unsupported. Registration is not implementation.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Ancient_Diluted_Liquid_Greed",
@@ -4044,8 +4112,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "reason": "Registered Liquid inventory; Potent and Ancient mechanics remain unsupported. Registration is not implementation.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Ancient_Liquid_Paranoia",
@@ -4059,8 +4127,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "reason": "Registered Liquid inventory; Potent and Ancient mechanics remain unsupported. Registration is not implementation.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Ancient_Liquid_Envy",
@@ -4074,8 +4142,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "reason": "Registered Liquid inventory; Potent and Ancient mechanics remain unsupported. Registration is not implementation.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Ancient_Liquid_Disgust",
@@ -4089,8 +4157,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "reason": "Registered Liquid inventory; Potent and Ancient mechanics remain unsupported. Registration is not implementation.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Ancient_Liquid_Despair",
@@ -4104,8 +4172,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "reason": "Registered Liquid inventory; Potent and Ancient mechanics remain unsupported. Registration is not implementation.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Ancient_Concentrated_Liquid_Fear",
@@ -4119,8 +4187,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "reason": "Registered Liquid inventory; Potent and Ancient mechanics remain unsupported. Registration is not implementation.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Ancient_Concentrated_Liquid_Suffering",
@@ -4134,8 +4202,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "reason": "Registered Liquid inventory; Potent and Ancient mechanics remain unsupported. Registration is not implementation.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Ancient_Concentrated_Liquid_Isolation",
@@ -4149,8 +4217,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "reason": "Registered Liquid inventory; Potent and Ancient mechanics remain unsupported. Registration is not implementation.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Potent_Liquid_Melancholy",
@@ -4164,8 +4232,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "reason": "Registered Liquid inventory; Potent and Ancient mechanics remain unsupported. Registration is not implementation.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Potent_Liquid_Ferocity",
@@ -4179,8 +4247,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "reason": "Registered Liquid inventory; Potent and Ancient mechanics remain unsupported. Registration is not implementation.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Potent_Liquid_Contempt",
@@ -4194,8 +4262,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "reason": "Registered Liquid inventory; Potent and Ancient mechanics remain unsupported. Registration is not implementation.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Ancient_Potent_Liquid_Melancholy",
@@ -4209,8 +4277,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "reason": "Registered Liquid inventory; Potent and Ancient mechanics remain unsupported. Registration is not implementation.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Ancient_Potent_Liquid_Ferocity",
@@ -4224,8 +4292,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "reason": "Registered Liquid inventory; Potent and Ancient mechanics remain unsupported. Registration is not implementation.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Ancient_Potent_Liquid_Contempt",
@@ -4239,8 +4307,8 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "reason": "Registered Liquid inventory; Potent and Ancient mechanics remain unsupported. Registration is not implementation.",
+      "serviceScope": "ACTIVE"
     },
     {
       "id": "Liquid_Verisium",
@@ -4254,7 +4322,7 @@
       "effectStatus": "PENDING_RULE_VERIFICATION",
       "solarStatus": "NOT_VALIDATED",
       "action": null,
-      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "reason": "This is unrelated to Basic/Time-Lost Jewel crafting.",
       "serviceScope": "DEFERRED"
     },
     {

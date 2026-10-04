@@ -1,27 +1,87 @@
 {
   "metadata": {
-    "snapshotId": "poe2db-sapphire-editor-20261004-63e81efc2080",
-    "retrievedAt": "2026-10-04T07:53:59.566Z",
+    "snapshotId": "poe2db-sapphire-basic-liquid-20261004-2eaf12518879",
+    "retrievedAt": "2026-10-04T09:43:45.495Z",
     "sourceUrl": "https://poe2db.tw/us/Sapphire",
-    "weightPolicy": "STARTING_ITEM_ONLY_NO_GENERATION",
-    "rawSha256": "63e81efc20809f89140e85e04dffac49b31f0806e59fb8ca09b97c87de077efc",
-    "detailsSha256": "a3ae4d06c3c3b45e04bf537c1cbdedcef8c3865d46a72ede23f9bf87e1019b71",
-    "prefixCount": 0,
-    "suffixCount": 1,
-    "prefixWeight": 0,
-    "suffixWeight": 0
+    "weightPolicy": "USER_APPROVED_UNIFORM_CANDIDATES_NOT_GAME_WEIGHTS",
+    "rawSha256": "2eaf1251887909ea4cad3174f803e73d45341918bfbc401ae39b1d87ccdd7e40",
+    "detailsSha256": "6b969199adc9f71a724df6bfe27585d62fd61b6e3783cc92a062a697ee4d8b0e",
+    "prefixCount": 28,
+    "suffixCount": 40,
+    "prefixWeight": 23,
+    "suffixWeight": 35
   },
   "base": {
     "id": "Metadata/Items/Jewels/JewelInt",
     "name": "Sapphire",
     "sourceUrl": "https://poe2db.tw/us/Sapphire",
     "implicitModifierId": "",
-    "magicPrefixes": 0,
+    "magicPrefixes": 1,
     "magicSuffixes": 1,
-    "rarePrefixes": 0,
-    "rareSuffixes": 1
+    "rarePrefixes": 2,
+    "rareSuffixes": 2
   },
   "modifiers": [
+    {
+      "id": "sapphire:suffix:of-ailing",
+      "name": "of Ailing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["AilmentChance"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased chance to inflict Ailments",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": ["ailment"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2cb0d253c07cb0a34afddbf435e68483693caa54c2dbedd84e971ddaf65943c3"
+    },
+    {
+      "id": "sapphire:prefix:acrimonious",
+      "name": "Acrimonious",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["AilmentEffect"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Magnitude of Ailments you inflict",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": ["damage", "ailment"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/fd398bf5a9d833a6f5d15ef21dc837c2d1d00bbd0366c07a4d8decb18d997559"
+    },
+    {
+      "id": "sapphire:prefix:blasting",
+      "name": "Blasting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["AreaOfEffect"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(4—6)% increased Area of Effect",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/46e25dee58ebbd7b669acd122190ccf07df0f6664bc6c89c228be6a927d85583"
+    },
     {
       "id": "sapphire:suffix:of-enchanting",
       "name": "of Enchanting",
@@ -29,7 +89,7 @@
       "affixType": "SUFFIX",
       "familyIds": ["IncreasedCastSpeed"],
       "requiredItemLevel": 1,
-      "weight": 0,
+      "weight": 1,
       "tier": 1,
       "text": "(2—4)% increased Cast Speed",
       "stats": [
@@ -40,7 +100,1345 @@
         }
       ],
       "tags": ["caster_speed", "caster", "speed"],
-      "sourceUrl": "https://poe2db.tw/us/Sapphire"
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e4ea5426c228f5cb0c1474726fbc38c23e7bb1138dbf13a4a49647c562ecc3cf"
+    },
+    {
+      "id": "sapphire:prefix:chaotic",
+      "name": "Chaotic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["IncreasedChaosDamage"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(7—13)% increased Chaos Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 7,
+          "max": 13
+        }
+      ],
+      "tags": ["chaos_damage", "damage", "chaos"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f82a6d7a556da1979b2270849e047fff6b8b8ce3afbd239e7385a23cbebce045"
+    },
+    {
+      "id": "sapphire:suffix:of-frost",
+      "name": "of Frost",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["IncreasedChillDuration"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(15—25)% increased Chill Duration on Enemies",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": ["elemental", "cold", "ailment"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/42a1c82085fdfae9f0dd2717abfc9b7118ebcac9322db66747d8fc3b5a04c658"
+    },
+    {
+      "id": "sapphire:prefix:chilling",
+      "name": "Chilling",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["ColdDamagePercentage"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Cold Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": ["elemental_damage", "damage", "elemental", "cold"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2f135b654f8a7d807d1a1bf06b3690be48499edeb9bd50305f02e76a6c26f3a8"
+    },
+    {
+      "id": "sapphire:prefix:numbing",
+      "name": "Numbing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["ColdResistancePenetration"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Damage Penetrates (5—10)% Cold Resistance",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": ["elemental_damage", "damage", "elemental", "cold"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/49731376c6f5687555e6f7a0e78341bb4e77ffc6a57f7133aa7779e1df6e9f2c"
+    },
+    {
+      "id": "sapphire:prefix:necromantic",
+      "name": "Necromantic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["AllDamage"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Damage if you have Consumed a Corpse Recently",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": ["damage"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/1949ad16226a7be731dabbe46eb7a12d9cd74f6852a56cd229ee9eaa2fcca599"
+    },
+    {
+      "id": "sapphire:prefix:rancorous",
+      "name": "Rancorous",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["CriticalAilmentEffect"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Magnitude of Damaging Ailments you inflict with Critical Hits",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": ["damage", "critical", "ailment"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/bdd523789ab60c031b98a4e38e483127d95f8d7fa66c876bf31f919d600de062"
+    },
+    {
+      "id": "sapphire:suffix:of-annihilation",
+      "name": "of Annihilation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["CriticalStrikeChanceIncrease"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Critical Hit Chance",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": ["critical"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a085d4e1fea2983bc270bd90b2d64b094a1d5322b55362fab9c04c5380368921"
+    },
+    {
+      "id": "sapphire:suffix:of-potency",
+      "name": "of Potency",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["CriticalStrikeMultiplier"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Critical Damage Bonus",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": ["damage", "critical"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/dad0708652410f86728f483413722da4629203ca944a33ff58a3734e498826e6"
+    },
+    {
+      "id": "sapphire:suffix:of-unmaking",
+      "name": "of Unmaking",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["FormCritMultiplier"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Critical Spell Damage Bonus",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "caster_critical",
+        "caster_damage",
+        "damage",
+        "caster",
+        "critical"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ed4ea208f5630ee5562bd256ac981ade873f9751d20ab5b38199f7730de6746b"
+    },
+    {
+      "id": "sapphire:prefix:expanding",
+      "name": "Expanding",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["CurseAreaOfEffect"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(8—12)% increased Area of Effect of Curses",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 8,
+          "max": 12
+        }
+      ],
+      "tags": ["caster", "curse"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/bb1811cffa086345d71978fb593ba1cd21d15ef005195033d64a0cdf99937d8d"
+    },
+    {
+      "id": "sapphire:suffix:of-chanting",
+      "name": "of Chanting",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["CurseDelay"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% faster Curse Activation",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": ["caster", "curse"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/16e6b6e51682edc001ded5d68076ff68b85e910c162fb7f98d302860feb2c6ca"
+    },
+    {
+      "id": "sapphire:suffix:of-continuation",
+      "name": "of Continuation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["BaseCurseDuration"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(15—25)% increased Curse Duration",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": ["caster", "curse"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/619a41f50d7b600ea5344ab2fee5efc4ce9ecfb9c5154914bcf7e4370268efb4"
+    },
+    {
+      "id": "sapphire:prefix:hexing",
+      "name": "Hexing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["CurseEffectiveness"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(2—4)% increased Curse Magnitudes",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": ["caster", "curse"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6e1c3ff3032f84db263b1beae0ad9bb094a4c15ed182bd0d0cf18ee4c5046435"
+    },
+    {
+      "id": "sapphire:suffix:of-mind",
+      "name": "of Mind",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["DamageRemovedFromManaBeforeLife"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(2—4)% of Damage is taken from Mana before Life",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": ["resource", "life", "mana"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/45ae90ba175d147d71890fb16ff49f461065f5eb8e3da47733d5e06376521e58"
+    },
+    {
+      "id": "sapphire:suffix:of-suffusion",
+      "name": "of Suffusion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["DamagingAilmentDuration"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—10)% increased Duration of Damaging Ailments on Enemies",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": ["ailment"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/19dd48f518875def003ef6479bdde13bd8925a3da5451f104d10446ce1a8aa1d"
+    },
+    {
+      "id": "sapphire:suffix:of-diminishing",
+      "name": "of Diminishing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["DebuffTime"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Debuffs on you expire (5—10)% faster",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0094078a67e9ac671d74373dbec8ef24dfeff8580ff91c542ab414756d8b5a67"
+    },
+    {
+      "id": "sapphire:prefix:prismatic",
+      "name": "Prismatic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["ElementalDamagePercent"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Elemental Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b009e92695e9860a256bacac0dafe9daf1ad9f124c137cd1c7c37f018b44378f"
+    },
+    {
+      "id": "sapphire:suffix:of-generation",
+      "name": "of Generation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["Energy"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Meta Skills gain (4—8)% increased Energy",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 4,
+          "max": 8
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f2de99c71d7efff075d6951418fb956e05bf0105234c2613b2ee799f6ae97f85"
+    },
+    {
+      "id": "sapphire:prefix:shimmering",
+      "name": "Shimmering",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["EnergyShieldPercent"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased maximum Energy Shield",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": ["defences", "energy_shield"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/381a40d3487984f4f62bdadd5d7e451e3d35b2fd230e415c345287ca09d17fb6"
+    },
+    {
+      "id": "sapphire:prefix:serene",
+      "name": "Serene",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["EnergyShieldDelay"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—15)% faster start of Energy Shield Recharge",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": ["defences", "energy_shield"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/1a3cb0386ec8edf2821c83ea5fb639b00d0035a36c0ae00525d5bc599f5ea793"
+    },
+    {
+      "id": "sapphire:suffix:of-decrepifying",
+      "name": "of Decrepifying",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["FasterAilmentDamage"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Damaging Ailments deal damage (3—7)% faster",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 3,
+          "max": 7
+        }
+      ],
+      "tags": ["damage", "ailment"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/734fb9d10c29b057eb9c9d2a6d50cd09870bba84848c4152b1dcdda049954024"
+    },
+    {
+      "id": "sapphire:prefix:focusing",
+      "name": "Focusing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["FocusEnergyShield"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(30—50)% increased Energy Shield from Equipped Focus",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 30,
+          "max": 50
+        }
+      ],
+      "tags": ["defences", "energy_shield"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/de2b432a91ade820e1dbe1a9b4fa980b3e35e436277f434f4f9cad7fd2b1df43"
+    },
+    {
+      "id": "sapphire:suffix:of-freezing",
+      "name": "of Freezing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["FreezeDamageIncrease"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Freeze Buildup",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": ["elemental", "cold", "ailment"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6c525a4192b8f047641f382dfac5903afb79dfb96c25b935610b452d46d1dd30"
+    },
+    {
+      "id": "sapphire:suffix:of-snowbreathing",
+      "name": "of Snowbreathing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["FreezeThreshold"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(18—32)% increased Freeze Threshold",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 18,
+          "max": 32
+        }
+      ],
+      "tags": ["elemental", "cold", "ailment"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d93b3421106e531baed5003cb3071099f2bde2793e0c33ccbadbf3e8724cbe0d"
+    },
+    {
+      "id": "sapphire:suffix:of-ignition",
+      "name": "of Ignition",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["IgniteChanceIncrease"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Flammability Magnitude",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": ["elemental", "fire", "ailment"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e415f5ad8032abd068fa9b22cc2fbce0d6a481f5fdb18b6a3f9bc1b6844ba49e"
+    },
+    {
+      "id": "sapphire:prefix:burning",
+      "name": "Burning",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["IgniteEffect"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Ignite Magnitude",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": ["elemental_damage", "damage", "elemental", "fire", "ailment"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b68653c51f31953b3d912b9e79aed4949f91eb029e78da84c3ef6273d0ab0b90"
+    },
+    {
+      "id": "sapphire:suffix:of-lengthening",
+      "name": "of Lengthening",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["SkillEffectDuration"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—10)% increased Skill Effect Duration",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/591f2ce707e99e1be65b4fdbd2b686ab7de9cc754d5a5dd143b987973f22bebd"
+    },
+    {
+      "id": "sapphire:suffix:of-success",
+      "name": "of Success",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["MaximumLifeOnKillPercent"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Recover (1—2)% of maximum Life on Kill",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": ["resource", "life"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3f0756e4f76da894949d224857226dc42e8d9e46bbe6c0157a15340afb7958c4"
+    },
+    {
+      "id": "sapphire:suffix:of-infusion",
+      "name": "of Infusion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["DamageTakenGainedAsLife"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(2—3)% of Damage taken Recouped as Life",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": ["resource", "life"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/21bfe3daf08672683b4093271ec550452bdbe9c51b1b29d40b0b314a16f90345"
+    },
+    {
+      "id": "sapphire:suffix:of-osmosis",
+      "name": "of Osmosis",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["ManaGainedOnKillPercentage"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Recover (1—2)% of maximum Mana on Kill",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": ["resource", "mana"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/66eed97dd2b3b2ec396d358883b2c008a3ae5aa389ce08200440a2510c13fc8a"
+    },
+    {
+      "id": "sapphire:suffix:of-energy",
+      "name": "of Energy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["ManaRegeneration"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Mana Regeneration Rate",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": ["resource", "mana"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2626c9c0cf0d4ebc0567e3f5e9948d3a619127ea3eec8aee4968e8206f62a5ca"
+    },
+    {
+      "id": "sapphire:suffix:of-the-kraken",
+      "name": "of the Kraken",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["MaximumColdResist"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "+1% to Maximum Cold Resistance",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3235949ad566ea66af4f33f75dc206c757669fcc0d3de9e82406f1ad69b4b160"
+    },
+    {
+      "id": "sapphire:suffix:of-orchestration",
+      "name": "of Orchestration",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["MinionAttackSpeedAndCastSpeed"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Minions have (2—4)% increased Attack and Cast Speed",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "minion_speed",
+        "attack",
+        "caster",
+        "speed",
+        "minion"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/01a6a4c01e605e6894133b51fb45ab46ac3e17a5e6534938dacaa9d327674b62"
+    },
+    {
+      "id": "sapphire:suffix:of-righteousness",
+      "name": "of Righteousness",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["MinionChaosResistance"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Minions have +(7—13)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 7,
+          "max": 13
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "minion_resistance",
+        "chaos",
+        "resistance",
+        "minion"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4e05109db3fff920859bef2d2e3568481e84223134e628cc49b12d2db0181d35"
+    },
+    {
+      "id": "sapphire:suffix:of-marshalling",
+      "name": "of Marshalling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["MinionCriticalStrikeChance"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Minions have (10—20)% increased Critical Hit Chance",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": ["minion", "critical"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e124bee6157ce61bb24221975eca412d5ee0665109be35de57f7b0150a915dae"
+    },
+    {
+      "id": "sapphire:suffix:of-gripping",
+      "name": "of Gripping",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["MinionCriticalStrikeMultiplier"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Minions have (15—25)% increased Critical Damage Bonus",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": ["minion_damage", "damage", "minion", "critical"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/991688d0c8250bb932105c3427462524076c208bcaf6e61250149d49355d0994"
+    },
+    {
+      "id": "sapphire:prefix:authoritative",
+      "name": "Authoritative",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["MinionDamage"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Minions deal (5—15)% increased Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": ["minion_damage", "damage", "minion"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ae83f7a2583ce8c71526e7cc47aa4a22502b73744f13b9ad148370d22ccb00d1"
+    },
+    {
+      "id": "sapphire:suffix:of-acclimatisation",
+      "name": "of Acclimatisation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["MinionElementalResistances"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Minions have +(5—10)% to all Elemental Resistances",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "minion_resistance",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "resistance",
+        "minion"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d4577b49d9252722ac37ccae52046267653c23f6b5a70663dc2dadec04f3a455"
+    },
+    {
+      "id": "sapphire:suffix:of-offering",
+      "name": "of Offering",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["OfferingDuration"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Offering Skills have (15—25)% increased Duration",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": ["minion"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6f08e25bdf0664717100bfd0551cd38a4eefbea7e7c0c84da069064b7e463da3"
+    },
+    {
+      "id": "sapphire:prefix:sacrificial",
+      "name": "Sacrificial",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["OfferingLife"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Offerings have (15—25)% increased Maximum Life",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": ["resource", "life", "minion"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/96af4eea65b4378e3bbeda618692ea9dc762a00adc4dcad5437aef6992af930d"
+    },
+    {
+      "id": "sapphire:suffix:of-glaciers",
+      "name": "of Glaciers",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["QuarterstaffFreezeBuildup"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Freeze Buildup with Quarterstaves",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": ["elemental", "cold", "ailment"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9385b643197d9e2006a10d20f775a6a3f433209e0b75e0d32e97bf79ee6cb903"
+    },
+    {
+      "id": "sapphire:suffix:of-shocking",
+      "name": "of Shocking",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["ShockChanceIncrease"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased chance to Shock",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": ["elemental", "lightning", "ailment"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/40c7f3c6e5e0bd89bf478c8d4fdcfde16859ef5d86225bd7c98b604ea9ad4da8"
+    },
+    {
+      "id": "sapphire:suffix:of-paralyzing",
+      "name": "of Paralyzing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["ShockDuration"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(15—25)% increased Shock Duration",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": ["elemental", "lightning", "ailment"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6ed2093a15f01cab992da21fa1a3c27fe74794b3829f3391b97cf5db8d099410"
+    },
+    {
+      "id": "sapphire:prefix:jolting",
+      "name": "Jolting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["ShockEffect"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—15)% increased Magnitude of Shock you inflict",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": ["elemental", "lightning", "ailment"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/850e800353436864583c6639f61b682bb4f336f7eaac5ba2e298804922988375"
+    },
+    {
+      "id": "sapphire:suffix:of-annihilating",
+      "name": "of Annihilating",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["SpellCriticalStrikeChanceIncrease"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Critical Hit Chance for Spells",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": ["caster_critical", "caster", "critical"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/59ad600c5dff03d1cd8dc7a8c124982c2d12aaf519ddc820276169f3246b3a50"
+    },
+    {
+      "id": "sapphire:prefix:mystic",
+      "name": "Mystic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["WeaponCasterDamagePrefix"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": ["caster_damage", "damage", "caster"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/cdca08bef3b642342e79a9f573c5ad1b71ddadc461e6f38eae3ec59140edae7d"
+    },
+    {
+      "id": "sapphire:suffix:of-barriers",
+      "name": "of Barriers",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["StunThresholdfromEnergyShield"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Gain additional Stun Threshold equal to (5—15)% of maximum Energy Shield",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7cf221c9da16f7dbac20a003b0057836409f618a1e025b0f102e87ba22e8140f"
+    },
+    {
+      "id": "sapphire:suffix:of-inuring",
+      "name": "of Inuring",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["AilmentThresholdfromEnergyShield"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Gain additional Ailment Threshold equal to (5—15)% of maximum Energy Shield",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": ["ailment"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9dfa9339c6307113b80912dda2f0bdf7862b0d01800c02b306976d71d97ee67c"
+    },
+    {
+      "id": "sapphire:prefix:triggered",
+      "name": "Triggered",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["DamageWithTriggeredSpells"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Triggered Spells deal (10—18)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 18
+        }
+      ],
+      "tags": ["caster_damage", "damage", "caster"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5370a2facf47421e19747b8122723c3baffaa1d25f2a639a944af86169cb7819"
+    },
+    {
+      "id": "sapphire:prefix:withering",
+      "name": "Withering",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["WitheredEffect"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—10)% increased Withered Magnitude",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": ["chaos"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0a95372e534294bc4938e6681fe3e46d6c29603fec72a802f45167dbb54b7f2f"
+    },
+    {
+      "id": "sapphire:prefix:iconic",
+      "name": "Iconic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["PresenceRadius"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(15—25)% increased Presence Area of Effect",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": ["aura"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e861546e33a8d0d0a8762ddd575ad0e8908290ad2f6fb57c6d141efdb6329a5f"
+    },
+    {
+      "id": "sapphire:suffix:of-the-wild",
+      "name": "of the Wild",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["SpecificWeaponSpeed"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(2—4)% increased Skill Speed while Shapeshifted",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": ["speed"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/340da9a26dcd10769af0c137044ccbb602da8dad7c3ea948cb0f88d6c435fa7c"
+    },
+    {
+      "id": "sapphire:prefix:bestial",
+      "name": "Bestial",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["DamageForm"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Damage while Shapeshifted",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": ["damage"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6ac80e8530a02b0928de22de9e6e5c8307e421fa22ddeb0f72481da1ecc5ee66"
+    },
+    {
+      "id": "sapphire:prefix:overgrown",
+      "name": "Overgrown",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["DamageForm"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Damage with Plant Skills",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": ["damage"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e2f88f322e8fcbee4fac391372cab0442782c463ded7a725998efbe9cd531812"
+    },
+    {
+      "id": "sapphire:crafted:JewelEnergyShield",
+      "name": "Diluted Liquid Ire (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["EnergyShieldPercent"],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "(10—20)% increased maximum Energy Shield",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": ["defences", "energy_shield", "crafted"],
+      "sourceUrl": "https://poe2db.tw/us/Diluted_Liquid_Ire"
+    },
+    {
+      "id": "sapphire:crafted:JewelColdDamage",
+      "name": "Diluted Liquid Guilt (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["ColdDamagePercentage"],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "(5—15)% increased Cold Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": ["elemental_damage", "damage", "elemental", "cold", "crafted"],
+      "sourceUrl": "https://poe2db.tw/us/Diluted_Liquid_Guilt"
+    },
+    {
+      "id": "sapphire:crafted:JewelChaosDamage",
+      "name": "Diluted Liquid Greed (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["IncreasedChaosDamage"],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "(7—13)% increased Chaos Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 7,
+          "max": 13
+        }
+      ],
+      "tags": ["chaos_damage", "damage", "chaos", "crafted"],
+      "sourceUrl": "https://poe2db.tw/us/Diluted_Liquid_Greed"
+    },
+    {
+      "id": "sapphire:crafted:JewelCastSpeed",
+      "name": "Liquid Paranoia (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["IncreasedCastSpeed"],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "(2—4)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": ["caster_speed", "caster", "speed", "crafted"],
+      "sourceUrl": "https://poe2db.tw/us/Liquid_Paranoia"
+    },
+    {
+      "id": "sapphire:crafted:JewelSpellDamage",
+      "name": "Liquid Envy (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["WeaponCasterDamagePrefix"],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "(5—15)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": ["caster_damage", "damage", "caster", "crafted"],
+      "sourceUrl": "https://poe2db.tw/us/Liquid_Envy"
+    },
+    {
+      "id": "sapphire:crafted:JewelManaonKill",
+      "name": "Liquid Disgust (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["ManaGainedOnKillPercentage"],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Recover (1—2)% of maximum Mana on Kill",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": ["resource", "mana", "crafted"],
+      "sourceUrl": "https://poe2db.tw/us/Liquid_Disgust"
+    },
+    {
+      "id": "sapphire:crafted:JewelSpellCriticalChance",
+      "name": "Liquid Despair (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["SpellCriticalStrikeChanceIncrease"],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "(5—15)% increased Critical Hit Chance for Spells",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": ["caster_critical", "caster", "critical", "crafted"],
+      "sourceUrl": "https://poe2db.tw/us/Liquid_Despair"
+    },
+    {
+      "id": "sapphire:crafted:JewelSpellCriticalDamage",
+      "name": "Concentrated Liquid Fear (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["FormCritMultiplier"],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "(10—20)% increased Critical Spell Damage Bonus",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "caster_critical",
+        "caster_damage",
+        "damage",
+        "caster",
+        "critical",
+        "crafted"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Concentrated_Liquid_Fear"
+    },
+    {
+      "id": "sapphire:crafted:JewelAreaofEffect",
+      "name": "Concentrated Liquid Suffering (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["AreaOfEffect"],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "(4—6)% increased Area of Effect",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "tags": ["crafted"],
+      "sourceUrl": "https://poe2db.tw/us/Concentrated_Liquid_Suffering"
+    },
+    {
+      "id": "sapphire:crafted:JewelMaximumColdResistance",
+      "name": "Concentrated Liquid Isolation (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["MaximumColdResist"],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "+1% to Maximum Cold Resistance",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance",
+        "crafted"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Concentrated_Liquid_Isolation"
     }
   ]
 }

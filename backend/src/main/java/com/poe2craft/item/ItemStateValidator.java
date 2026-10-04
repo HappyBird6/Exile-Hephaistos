@@ -18,15 +18,24 @@ public final class ItemStateValidator {
   public List<Violation> validate(ItemState state) {
     var errors = new ArrayList<Violation>();
     if (state.baseItemId().equals(SapphireJewel.BASE_ID)
-        && (state.rarity() != ItemState.Rarity.MAGIC && state.rarity() != ItemState.Rarity.RARE
-            || state.augmentSockets() != null
-            || state.explicits().size() > 1
+        && (state.augmentSockets() != null
             || state.explicits().stream().anyMatch(ModifierInstance::fractured)))
       errors.add(
           new Violation(
               Code.UNSUPPORTED_STATE,
               "",
-              "Sapphire editing supports only Magic/Rare and at most one reviewed existing suffix"));
+              "Sapphire socket and fractured states remain unsupported"));
+    if (state.baseItemId().equals(SapphireJewel.BASE_ID)
+        && state.explicits().stream()
+                .filter(
+                    m ->
+                        catalog
+                            .find(m.modifierId())
+                            .map(d -> d.tags().contains("crafted"))
+                            .orElse(false))
+                .count()
+            > 1)
+      errors.add(new Violation(Code.UNSUPPORTED_STATE, "", "Only one Crafted modifier is allowed"));
     if (state.catalystQuality() != null) {
       int cap = state.baseItemId().equals(SolarAmulet.BASE_ID) ? 40 : 20;
       if (!CatalystQuality.supportedBase(state.baseItemId())

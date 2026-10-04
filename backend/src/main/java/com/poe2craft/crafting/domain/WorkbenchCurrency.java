@@ -5,6 +5,16 @@ import java.util.Set;
 
 /** Workbench rules are independent of the legacy six-action bucket explorer. */
 public enum WorkbenchCurrency {
+  DILUTED_LIQUID_IRE(null, 0),
+  DILUTED_LIQUID_GUILT(null, 0),
+  DILUTED_LIQUID_GREED(null, 0),
+  LIQUID_PARANOIA(null, 0),
+  LIQUID_ENVY(null, 0),
+  LIQUID_DISGUST(null, 0),
+  LIQUID_DESPAIR(null, 0),
+  CONCENTRATED_LIQUID_FEAR(null, 0),
+  CONCENTRATED_LIQUID_SUFFERING(null, 0),
+  CONCENTRATED_LIQUID_ISOLATION(null, 0),
   CATALYST_FLESH(null, 0),
   REFINED_CATALYST_FLESH(null, 0),
   CATALYST_NEURAL(null, 0),
@@ -203,7 +213,11 @@ public enum WorkbenchCurrency {
   }
 
   public List<String> replacementEssenceModifiers() {
-    return isAlloy() ? List.of() : replacementModifiers();
+    return isAlloy() || isLiquid() ? List.of() : replacementModifiers();
+  }
+
+  public boolean isLiquid() {
+    return name().contains("LIQUID_");
   }
 
   public boolean isAlloy() {
@@ -221,6 +235,16 @@ public enum WorkbenchCurrency {
 
   public List<String> replacementModifiers() {
     return switch (this) {
+      case DILUTED_LIQUID_IRE -> List.of("sapphire:crafted:JewelEnergyShield");
+      case DILUTED_LIQUID_GUILT -> List.of("sapphire:crafted:JewelColdDamage");
+      case DILUTED_LIQUID_GREED -> List.of("sapphire:crafted:JewelChaosDamage");
+      case LIQUID_PARANOIA -> List.of("sapphire:crafted:JewelCastSpeed");
+      case LIQUID_ENVY -> List.of("sapphire:crafted:JewelSpellDamage");
+      case LIQUID_DISGUST -> List.of("sapphire:crafted:JewelManaonKill");
+      case LIQUID_DESPAIR -> List.of("sapphire:crafted:JewelSpellCriticalChance");
+      case CONCENTRATED_LIQUID_FEAR -> List.of("sapphire:crafted:JewelSpellCriticalDamage");
+      case CONCENTRATED_LIQUID_SUFFERING -> List.of("sapphire:crafted:JewelAreaofEffect");
+      case CONCENTRATED_LIQUID_ISOLATION -> List.of("sapphire:crafted:JewelMaximumColdResistance");
       case PERFECT_ESSENCE_THAWING ->
           List.of("rusted-greathelm:suffix:essence-cold-damage-recouped-as-life");
       case PERFECT_ESSENCE_MIND -> List.of("iron-ring:prefix:essence-increased-maximum-mana");
@@ -306,6 +330,15 @@ public enum WorkbenchCurrency {
   }
 
   public String replacementSource() {
+    if (isLiquid()) {
+      String id =
+          java.util.Arrays.stream(name().split("_"))
+              .map(
+                  part ->
+                      part.substring(0, 1) + part.substring(1).toLowerCase(java.util.Locale.ROOT))
+              .collect(java.util.stream.Collectors.joining("_"));
+      return "https://poe2db.tw/us/" + id;
+    }
     return switch (this) {
       case EXPANSIVE_ALLOY -> "https://poe2db.tw/us/Expansive_Alloy";
       case CYCLONIC_ALLOY -> "https://poe2db.tw/us/Cyclonic_Alloy";

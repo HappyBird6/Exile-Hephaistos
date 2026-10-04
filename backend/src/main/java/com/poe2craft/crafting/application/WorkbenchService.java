@@ -257,14 +257,7 @@ public final class WorkbenchService {
         bucket.id(),
         bucket,
         catalog.modifiers(),
-        base.equals("sapphire")
-            ? java.util.Arrays.stream(CraftingAction.values())
-                .map(
-                    a ->
-                        new CraftingEngine.Availability(
-                            a, false, "General Jewel crafting is unavailable."))
-                .toList()
-            : engine.actions(bucket),
+        engine.actions(bucket),
         catalog.compatibleSnapshotIds(),
         QualityLimitRules.describe(state, catalog),
         base.equals("stocky") ? 0 : null);

@@ -300,7 +300,13 @@ export function verifiedHistoryState(
       }
     }
     const capacity =
-      state.rarity === 'NORMAL' ? 0 : state.rarity === 'MAGIC' ? 1 : 3
+      state.rarity === 'NORMAL'
+        ? 0
+        : state.rarity === 'MAGIC'
+          ? 1
+          : state.baseItemId === sapphireBase
+            ? 2
+            : 3
     return p <= capacity && s <= capacity
   } catch {
     return false
