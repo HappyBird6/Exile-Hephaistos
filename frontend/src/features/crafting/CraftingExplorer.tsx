@@ -9,6 +9,7 @@ import { useRef, useState } from 'react'
 import { localizedAction } from './localizedCrafting'
 import { CurrencyImage } from './CurrencyImage'
 import { currencies } from './currencies'
+import { localizedModifierText } from './localizedModifiers'
 import { groupOutcomes, modifierSummary } from './outcomeGroups'
 import { skipToken, useQuery, useQueryClient } from '@tanstack/react-query'
 import { ItemCard } from './ItemCard'
@@ -34,7 +35,7 @@ function describe(state: Bucket, definitions: Record<string, Definition>) {
         .map((id) => {
           const d = definitions[id]
           return d
-            ? `${d.affixType === 'PREFIX' ? 'P' : 'S'} T${d.tier} ${d.text}`
+            ? `${d.affixType === 'PREFIX' ? 'P' : 'S'} T${d.tier} ${localizedModifierText(d)}`
             : id
         })
         .join(' · ')
@@ -153,7 +154,9 @@ export function CraftingExplorer({
           },
           ...position.state.modifierIds.map((id) => ({
             id,
-            text: definitions[id]?.text ?? id,
+            text: definitions[id]
+              ? localizedModifierText(definitions[id]!)
+              : id,
             kind: 'explicit' as const,
             affixLabel: `${definitions[id]?.affixType === 'PREFIX' ? 'P' : 'S'}${definitions[id]?.tier ?? '?'}`,
           })),
@@ -372,7 +375,7 @@ export function CraftingExplorer({
                             {group.outcomes[0]!.state.modifierIds.map((id) =>
                               definitions[id]
                                 ? modifierSummary(
-                                    definitions[id]!.text,
+                                    localizedModifierText(definitions[id]!),
                                     definitions[id]!.stats,
                                   )
                                 : id,

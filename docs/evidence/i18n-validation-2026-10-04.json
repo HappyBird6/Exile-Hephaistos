@@ -5,18 +5,37 @@
   "localeOrder": ["en", "ko", "zh-CN", "zh-TW", "ja", "es"],
   "serviceUiKeysPerLocale": 289,
   "sourceCoverage": {
-    "en": { "names": 153, "materialDescriptions": 144 },
-    "ko": { "names": 153, "materialDescriptions": 144 },
-    "zh-CN": { "names": 153, "materialDescriptions": 144 },
-    "zh-TW": { "names": 153, "materialDescriptions": 144 },
-    "ja": { "names": 153, "materialDescriptions": 144 },
-    "es": { "names": 152, "materialDescriptions": 142 }
+    "en": {
+      "names": 153,
+      "materialDescriptions": 144
+    },
+    "ko": {
+      "names": 153,
+      "materialDescriptions": 144
+    },
+    "zh-CN": {
+      "names": 153,
+      "materialDescriptions": 144
+    },
+    "zh-TW": {
+      "names": 153,
+      "materialDescriptions": 144
+    },
+    "ja": {
+      "names": 153,
+      "materialDescriptions": 144
+    },
+    "es": {
+      "names": 152,
+      "materialDescriptions": 142
+    }
   },
   "passed": [
     "Read-only TypeScript source compilation with project dependency versions: zero diagnostics",
     "Six-locale message key parity and ID/asset identifier consistency",
     "Changed JSX source syntax diagnostics: zero",
-    "Changed frontend files formatted in the isolated worktree"
+    "Changed frontend files formatted in the isolated worktree",
+    "Updated adapter and added test-source TypeScript compilation: zero diagnostics"
   ],
   "failed": [],
   "notRun": [
@@ -29,18 +48,25 @@
     "API and serialized film schemas",
     "crafting rules and eligibility",
     "service exclusions",
-    "game modifier/stat text",
     "dependency lockfile",
     "127.0.0.1:18080 and 18081",
     "user browser and localStorage",
     "DB volumes",
     ".env",
-    "other writers' source and output"
+    "other writers' source and output",
+    "canonical game modifier/stat data and numeric rules"
   ],
   "knownGaps": [
     "Spanish Refined_Necrotic_Catalyst name and description are unverified and use English fallback",
     "Spanish Necrotic_Catalyst description uses English fallback",
-    "Modifier text, certain source/legacy explanations and server reason/error text remain English",
-    "Item text import remains English-only"
-  ]
+    "Item text import remains English-only",
+    "37 special/implicit definitions have English fallback; multi-stat variable rolls retain canonical source-unit text with only affix name localized",
+    "Certain source/legacy explanations and server reason/error text remain English"
+  ],
+  "modifierCoverage": {
+    "ordinaryDefinitions": 1485,
+    "verifiedPerLocale": 1485,
+    "templatesPerLocale": 792,
+    "specialOrImplicitEnglishFallback": 37
+  }
 }

@@ -6,6 +6,7 @@ import {
 } from '../../shared/i18n/i18n'
 import { LocaleSelector } from '../../shared/i18n/LocaleSelector'
 import { localizedAction, catalystItemIds } from './localizedCrafting'
+import { localizedModifierText } from './localizedModifiers'
 import { inServiceScope } from './serviceScope'
 import { maximumQuality } from './qualityLimit'
 import { catalystTypes, catalystProjection } from './catalystQuality'
@@ -847,10 +848,10 @@ export function CraftingPage() {
                   projection.status === 'SCALED_INTEGER' &&
                   d.id === 'iron-ring:implicit:added-physical-damage-to-attacks'
                     ? `Adds ${projection.values.attack_minimum_added_physical_damage} to ${projection.values.attack_maximum_added_physical_damage} Physical Damage to Attacks`
-                    : rolledText(d, projection.values)
+                    : localizedModifierText(d, projection.values)
                 return {
                   id: m.modifierId,
-                  text: `${'fractured' in m && m.fractured ? '[Fractured] ' : ''}${altHeld ? d.text : displayText}`,
+                  text: `${'fractured' in m && m.fractured ? '[Fractured] ' : ''}${altHeld ? localizedModifierText(d) : displayText}`,
                   detail: concrete.catalystQuality
                     ? `Original roll: ${rolledText(d, m.values)}\nQuality display: ${projection.status}. Secondary source model; game engine precision is not guaranteed.`
                     : undefined,

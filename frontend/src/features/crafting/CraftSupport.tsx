@@ -6,6 +6,7 @@ import type { Bucket } from './craftingApi'
 import { mapSolarText } from './workbenchApi'
 import { assessGoal, loadSupportFamilies, recommendGoal } from './supportApi'
 import { localizedAction } from './localizedCrafting'
+import { localizedModifierText } from './localizedModifiers'
 import { workbenchOmens } from './workbenchApi'
 import type {
   GoalAssessment,
@@ -83,6 +84,18 @@ export function CraftSupport({ active }: { active: boolean }) {
   const used = new Set(
     [...goal.required, ...goal.candidates].map((c) => c.family),
   )
+  function familyExample(
+    family: NonNullable<typeof families.data>[number],
+    example: string,
+  ) {
+    // Resolve through the API-provided stable tier ID; source text only verifies
+    // which example that tier represents, and is never an API/grouping key.
+    const tier = family.tiers.find((entry) => entry.exampleText === example)
+    const definition = tier && initial.data?.modifiers[tier.modifierId]
+    return definition && definition.text === example
+      ? localizedModifierText(definition)
+      : example
+  }
   function conditions(kind: 'required' | 'candidates') {
     return (
       <fieldset>
@@ -131,7 +144,9 @@ export function CraftSupport({ active }: { active: boolean }) {
                 </select>
                 <small>
                   {family?.affix.toLowerCase()} {t('ui.family_source_example')}{' '}
-                  {family?.effectExamples[0]}
+                  {family &&
+                    family.effectExamples[0] &&
+                    familyExample(family, family.effectExamples[0])}
                 </small>
                 {family && family.effectExamples.length > 1 && (
                   <div className="support-family-variants">
@@ -139,7 +154,7 @@ export function CraftSupport({ active }: { active: boolean }) {
                     <p>{t('notice.family_examples')}</p>
                     <ul>
                       {family.effectExamples.map((example) => (
-                        <li key={example}>{example}</li>
+                        <li key={example}>{familyExample(family, example)}</li>
                       ))}
                     </ul>
                   </div>
@@ -366,8 +381,9 @@ export function CraftSupport({ active }: { active: boolean }) {
               <p>{t('notice.manual_rolls')}</p>
               {manual.map((id, index) => (
                 <p key={id}>
-                  {initial.data?.modifiers[id]?.text} · T
-                  {initial.data?.modifiers[id]?.tier}{' '}
+                  {initial.data?.modifiers[id] &&
+                    localizedModifierText(initial.data.modifiers[id])}{' '}
+                  · T{initial.data?.modifiers[id]?.tier}{' '}
                   <button
                     type="button"
                     data-remove-condition
@@ -413,7 +429,12 @@ export function CraftSupport({ active }: { active: boolean }) {
                       )
                       .map((t) => (
                         <option value={t.modifierId} key={t.modifierId}>
-                          {f.id} · T{t.tier} · {t.exampleText}
+                          {f.id} · T{t.tier} ·{' '}
+                          {initial.data?.modifiers[t.modifierId]
+                            ? localizedModifierText(
+                                initial.data.modifiers[t.modifierId]!,
+                              )
+                            : t.exampleText}
                         </option>
                       )),
                   )}
