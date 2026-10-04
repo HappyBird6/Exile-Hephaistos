@@ -1009,9 +1009,6 @@ export function CraftingPage() {
             <small>{t('ui.path_of_exile_2_crafting_workbench')}</small>
           </span>
         </a>
-        <a className="admin-link" href="/admin">
-          {t('ui.admin')}
-        </a>
         <LocaleSelector />
       </header>
       <nav className="workspace-nav" aria-label={t('ui.main_navigation')}>
@@ -1062,6 +1059,9 @@ export function CraftingPage() {
             </button>
           ))}
         </div>
+        <a className="workspace-admin" href="/admin">
+          {t('ui.admin')}
+        </a>
       </nav>
       <div className="craft-title">
         <div>
@@ -1089,7 +1089,7 @@ export function CraftingPage() {
         hidden={view !== 'workbench'}
         onContextMenu={(event) => event.preventDefault()}
       >
-        <div className="stash-panel">
+        <div className="stash-panel" style={{ marginBottom: stashSpace }}>
           <div className="panel-heading stash-heading">
             <div
               role="tablist"
@@ -1138,38 +1138,9 @@ export function CraftingPage() {
               {t('ui.show_tooltips')}
             </label>
           </div>
-          <div className="workbench-session-entry">
-            <button
-              type="button"
-              disabled={applying !== null}
-              onClick={(event) => {
-                inputOpener.current = event.currentTarget
-                imported.invalidate()
-                setInputMode('base')
-                setBaseChoice(catalogBase)
-                setInputOpen(true)
-              }}
-            >
-              {t('ui.select_base')}
-            </button>
-            <button
-              type="button"
-              disabled={applying !== null}
-              onClick={() => {
-                imported.invalidate()
-                void startBase(catalogLevel, catalogBase)
-              }}
-            >
-              {t('ui.new_craft')}
-            </button>
-          </div>
           <div className="stash-board">
             <div className="stash-viewport">
-              <div
-                className="stash-canvas"
-                style={{ marginBottom: stashSpace }}
-                aria-label={t('ui.currency_stash')}
-              >
+              <div className="stash-canvas" aria-label={t('ui.currency_stash')}>
                 <div
                   id="material-list"
                   role="tabpanel"
@@ -1421,7 +1392,12 @@ export function CraftingPage() {
                   ))}
                 </div>
               </div>
-              <div className="workbench-feedback-panel">
+              <div
+                className="workbench-feedback-panel"
+                tabIndex={0}
+                role="region"
+                aria-label={t('ui.crafting_notes')}
+              >
                 {draft.activeOmens.includes('Omen_of_Whittling') && (
                   <p className="workbench-feedback">
                     {removalCandidates.length > 0
@@ -1651,6 +1627,31 @@ export function CraftingPage() {
               </div>
             </div>
             <div className="bench-lower">
+              <div className="workbench-session-entry">
+                <button
+                  type="button"
+                  disabled={applying !== null}
+                  onClick={(event) => {
+                    inputOpener.current = event.currentTarget
+                    imported.invalidate()
+                    setInputMode('base')
+                    setBaseChoice(catalogBase)
+                    setInputOpen(true)
+                  }}
+                >
+                  {t('ui.select_base')}
+                </button>
+                <button
+                  type="button"
+                  disabled={applying !== null}
+                  onClick={() => {
+                    imported.invalidate()
+                    void startBase(catalogLevel, catalogBase)
+                  }}
+                >
+                  {t('ui.new_craft')}
+                </button>
+              </div>
               <div className="bench-item-card">
                 <div className="workbench-film-controls">
                   <button

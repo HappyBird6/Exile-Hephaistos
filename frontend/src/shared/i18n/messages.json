@@ -303,7 +303,8 @@
     "notice.quality_cap_change": "Losing the maximum-quality modifier preserves current quality, type and original rolls. A larger cap does not refill quality. Simulator catalyst reuse preserves higher existing quality.",
     "notice.catalyst_no_match": "No matching reviewed modifier. The quality type is applied; no displayed modifier is enhanced.",
     "ui.sapphire_craft_evidence": "Last Sapphire craft · simulator probabilities",
-    "notice.time_lost_scope": "Time-Lost Jewels: Ruby 53, Emerald 77, Sapphire 60, Diamond 160 ordinary candidates; Magic 1P/1S, Rare 2P/2S. Rare Ruby/Emerald/Sapphire support Ancient Liquid 13; Diamond supports Ancient Potent 3. One Crafted occupies an ordinary slot. Odds use disclosed 1/N after legal removal/outcome filtering; game weights are unavailable. Ancient Ferocity grants Notable resistance; Melancholy upgrades Radius to Very Large. Small/Notable and transformed damage effects are conditional text; the passive tree is not simulated. Contempt cap loss preserves existing overflow. Catalysts and Basic Liquids do not apply."
+    "notice.time_lost_scope": "Time-Lost Jewels: Ruby 53, Emerald 77, Sapphire 60, Diamond 160 ordinary candidates; Magic 1P/1S, Rare 2P/2S. Rare Ruby/Emerald/Sapphire support Ancient Liquid 13; Diamond supports Ancient Potent 3. One Crafted occupies an ordinary slot. Odds use disclosed 1/N after legal removal/outcome filtering; game weights are unavailable. Ancient Ferocity grants Notable resistance; Melancholy upgrades Radius to Very Large. Small/Notable and transformed damage effects are conditional text; the passive tree is not simulated. Contempt cap loss preserves existing overflow. Catalysts and Basic Liquids do not apply.",
+    "ui.crafting_notes": "Crafting notes"
   },
   "ko": {
     "language": "언어",
@@ -609,7 +610,8 @@
     "notice.quality_cap_change": "최대 품질 옵션이 제거되어도 현재 품질·유형·원본 roll을 유지합니다. 상한 증가 시 자동 충전하지 않습니다. Simulator Catalyst 재사용은 기존의 더 높은 품질을 보존합니다.",
     "notice.catalyst_no_match": "일치하는 검증 옵션이 없습니다. 품질 유형은 적용되지만 표시 옵션은 강화되지 않습니다.",
     "ui.sapphire_craft_evidence": "최근 Sapphire 제작 · simulator 확률",
-    "notice.time_lost_scope": "Time-Lost Jewel: Ruby 53·Emerald 77·Sapphire 60·Diamond 160 일반 후보, Magic 1P/1S·Rare 2P/2S. Rare Ruby/Emerald/Sapphire는 Ancient Liquid 13종, Diamond는 Ancient Potent 3종을 지원합니다. Crafted 하나가 일반 슬롯을 사용합니다. 게임 weight가 없어 합법적인 제거·outcome 필터 후 공개된 1/N 모델을 사용합니다. Ancient Ferocity는 Notable Resistance, Melancholy는 Very Large Radius입니다. Small/Notable·변환 효과는 조건부 텍스트만 표시하고 passive tree는 계산하지 않습니다. Contempt 제거 후 overflow는 보존합니다. Catalyst·Basic Liquid는 적용되지 않습니다."
+    "notice.time_lost_scope": "Time-Lost Jewel: Ruby 53·Emerald 77·Sapphire 60·Diamond 160 일반 후보, Magic 1P/1S·Rare 2P/2S. Rare Ruby/Emerald/Sapphire는 Ancient Liquid 13종, Diamond는 Ancient Potent 3종을 지원합니다. Crafted 하나가 일반 슬롯을 사용합니다. 게임 weight가 없어 합법적인 제거·outcome 필터 후 공개된 1/N 모델을 사용합니다. Ancient Ferocity는 Notable Resistance, Melancholy는 Very Large Radius입니다. Small/Notable·변환 효과는 조건부 텍스트만 표시하고 passive tree는 계산하지 않습니다. Contempt 제거 후 overflow는 보존합니다. Catalyst·Basic Liquid는 적용되지 않습니다.",
+    "ui.crafting_notes": "제작 안내"
   },
   "zh-CN": {
     "language": "语言",
@@ -915,7 +917,8 @@
     "notice.quality_cap_change": "移除最大品质词缀后保留当前品质、类型和原始数值。上限增加不会自动补充品质。模拟器催化剂再次使用保留已有的更高品质。",
     "notice.catalyst_no_match": "没有匹配的已验证词缀。品质类型已应用，但显示词缀不会增强。",
     "ui.sapphire_craft_evidence": "最近Sapphire制作 · 模拟概率",
-    "notice.time_lost_scope": "Time-Lost Jewel：Ruby 53、Emerald 77、Sapphire 60、Diamond 160 个普通候选；Magic 1P/1S，Rare 2P/2S。Rare Ruby/Emerald/Sapphire 支持13种 Ancient Liquid，Diamond 支持3种 Ancient Potent。最多一个 Crafted，占用普通词缀槽。游戏权重未知，合法移除与结果筛选后使用公开1/N模型。Ancient Ferocity 给予范围内显著天赋抗性，Melancholy 将半径升级为非常大。Small/Notable及伤害转换仅显示条件，不模拟天赋树。移除 Contempt 保留已有超限词缀。Catalyst 和 Basic Liquid 不适用。"
+    "notice.time_lost_scope": "Time-Lost Jewel：Ruby 53、Emerald 77、Sapphire 60、Diamond 160 个普通候选；Magic 1P/1S，Rare 2P/2S。Rare Ruby/Emerald/Sapphire 支持13种 Ancient Liquid，Diamond 支持3种 Ancient Potent。最多一个 Crafted，占用普通词缀槽。游戏权重未知，合法移除与结果筛选后使用公开1/N模型。Ancient Ferocity 给予范围内显著天赋抗性，Melancholy 将半径升级为非常大。Small/Notable及伤害转换仅显示条件，不模拟天赋树。移除 Contempt 保留已有超限词缀。Catalyst 和 Basic Liquid 不适用。",
+    "ui.crafting_notes": "制作说明"
   },
   "zh-TW": {
     "language": "語言",
@@ -1221,7 +1224,8 @@
     "notice.quality_cap_change": "移除最大品質詞綴後保留目前品質、類型和原始數值。上限增加不會自動補充品質。模擬器催化劑再次使用保留既有的較高品質。",
     "notice.catalyst_no_match": "沒有符合的已驗證詞綴。品質類型已套用，但顯示詞綴不會增強。",
     "ui.sapphire_craft_evidence": "最近Sapphire製作 · 模擬機率",
-    "notice.time_lost_scope": "Time-Lost Jewel：Ruby 53、Emerald 77、Sapphire 60、Diamond 160 個普通候選；Magic 1P/1S，Rare 2P/2S。Rare Ruby/Emerald/Sapphire 支援13種 Ancient Liquid，Diamond 支援3種 Ancient Potent。最多一個 Crafted，佔用普通詞綴槽。遊戲權重未知，合法移除與結果篩選後使用公開1/N模型。Ancient Ferocity 給予範圍內核心天賦抗性，Melancholy 將半徑升級為非常大。Small/Notable及傷害轉換僅顯示條件，不模擬天賦樹。移除 Contempt 保留已有超限詞綴。Catalyst 和 Basic Liquid 不適用。"
+    "notice.time_lost_scope": "Time-Lost Jewel：Ruby 53、Emerald 77、Sapphire 60、Diamond 160 個普通候選；Magic 1P/1S，Rare 2P/2S。Rare Ruby/Emerald/Sapphire 支援13種 Ancient Liquid，Diamond 支援3種 Ancient Potent。最多一個 Crafted，佔用普通詞綴槽。遊戲權重未知，合法移除與結果篩選後使用公開1/N模型。Ancient Ferocity 給予範圍內核心天賦抗性，Melancholy 將半徑升級為非常大。Small/Notable及傷害轉換僅顯示條件，不模擬天賦樹。移除 Contempt 保留已有超限詞綴。Catalyst 和 Basic Liquid 不適用。",
+    "ui.crafting_notes": "製作說明"
   },
   "ja": {
     "language": "言語",
@@ -1527,7 +1531,8 @@
     "notice.quality_cap_change": "最大品質モッドが除去されても現在の品質、種類、元の値を保持します。上限増加で品質は自動補充されません。シミュレーターでのカタリスト再使用は既存の高い品質を保持します。",
     "notice.catalyst_no_match": "一致する確認済みモッドがありません。品質の種類は適用されますが、表示モッドは強化されません。",
     "ui.sapphire_craft_evidence": "直近のSapphireクラフト · シミュレータ確率",
-    "notice.time_lost_scope": "Time-Lost Jewel：Ruby 53、Emerald 77、Sapphire 60、Diamond 160 の通常候補。Magic 1P/1S、Rare 2P/2S。Rare Ruby/Emerald/Sapphire は Ancient Liquid 13種、Diamond は Ancient Potent 3種に対応。Crafted は1個で通常スロットを使います。ゲームの重みは不明で、合法な削除と結果の選別後に公開1/Nモデルを使用。Ancient Ferocity は範囲内の Notable に耐性を付与、Melancholy は Radius を Very Large に変更します。Small/Notable と変換は条件のみ表示し、パッシブツリーを計算しません。Contempt 削除後の既存超過は保持。Catalyst と Basic Liquid は対象外。"
+    "notice.time_lost_scope": "Time-Lost Jewel：Ruby 53、Emerald 77、Sapphire 60、Diamond 160 の通常候補。Magic 1P/1S、Rare 2P/2S。Rare Ruby/Emerald/Sapphire は Ancient Liquid 13種、Diamond は Ancient Potent 3種に対応。Crafted は1個で通常スロットを使います。ゲームの重みは不明で、合法な削除と結果の選別後に公開1/Nモデルを使用。Ancient Ferocity は範囲内の Notable に耐性を付与、Melancholy は Radius を Very Large に変更します。Small/Notable と変換は条件のみ表示し、パッシブツリーを計算しません。Contempt 削除後の既存超過は保持。Catalyst と Basic Liquid は対象外。",
+    "ui.crafting_notes": "クラフトの案内"
   },
   "es": {
     "language": "Idioma",
@@ -1833,6 +1838,7 @@
     "notice.quality_cap_change": "Quitar el modificador de calidad máxima conserva calidad actual, tipo y valores originales. Subir el límite no repone calidad. Reutilizar catalizadores en el simulador conserva la calidad superior existente.",
     "notice.catalyst_no_match": "No hay modificadores verificados coincidentes. Se aplica el tipo de calidad; ningún modificador mostrado se mejora.",
     "ui.sapphire_craft_evidence": "Última fabricación Sapphire · probabilidades del simulador",
-    "notice.time_lost_scope": "Time-Lost Jewels: Ruby 53, Emerald 77, Sapphire 60, Diamond 160 candidatos ordinarios; Magic 1P/1S, Rare 2P/2S. Rare Ruby/Emerald/Sapphire admiten Ancient Liquid 13; Diamond admite Ancient Potent 3. Un Crafted ocupa un espacio ordinario. Sin pesos del juego, se declara 1/N tras filtrar eliminaciones y resultados legales. Ancient Ferocity otorga resistencia a Notables; Melancholy mejora el radio a muy grande. Small/Notable y las conversiones se muestran como condiciones, sin simular el árbol pasivo. Al eliminar Contempt se conserva el exceso existente. Catalyst y Basic Liquid no son aplicables."
+    "notice.time_lost_scope": "Time-Lost Jewels: Ruby 53, Emerald 77, Sapphire 60, Diamond 160 candidatos ordinarios; Magic 1P/1S, Rare 2P/2S. Rare Ruby/Emerald/Sapphire admiten Ancient Liquid 13; Diamond admite Ancient Potent 3. Un Crafted ocupa un espacio ordinario. Sin pesos del juego, se declara 1/N tras filtrar eliminaciones y resultados legales. Ancient Ferocity otorga resistencia a Notables; Melancholy mejora el radio a muy grande. Small/Notable y las conversiones se muestran como condiciones, sin simular el árbol pasivo. Al eliminar Contempt se conserva el exceso existente. Catalyst y Basic Liquid no son aplicables.",
+    "ui.crafting_notes": "Notas de fabricación"
   }
 }

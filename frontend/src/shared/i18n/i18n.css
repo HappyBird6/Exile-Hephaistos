@@ -1,16 +1,74 @@
 .locale-selector {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   font-size: 0.85rem;
   white-space: nowrap;
 }
-.locale-selector select {
-  max-width: 11rem;
-  padding: 0.35rem;
-  color: inherit;
-  background: #171919;
-  border: 1px solid #595c55;
+.locale-trigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  color: #d8d3c4;
+  background: #1c211e;
+  border: 1px solid #4d5145;
+  border-radius: 6px;
+  font: inherit;
+  cursor: pointer;
+}
+.locale-trigger:hover,
+.locale-trigger[aria-expanded='true'] {
+  border-color: #a68f5c;
+  background: #272c23;
+}
+.locale-icon,
+.locale-chevron {
+  color: #bea773;
+}
+.locale-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  z-index: 60;
+  min-width: 208px;
+  max-width: calc(100vw - 24px);
+  padding: 6px;
+  background: #1a201c;
+  border: 1px solid #675d43;
+  border-radius: 8px;
+  box-shadow: 0 12px 36px #0009;
+}
+.locale-menu-label {
+  display: block;
+  padding: 6px 10px;
+  color: #a9aa98;
+  font-size: 11px;
+}
+.locale-menu button {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #d8d3c4;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.locale-menu button[aria-checked='true'] {
+  color: #efdcad;
+  background: #313529;
+}
+.locale-menu button:hover,
+.locale-menu button:focus-visible {
+  background: #3b4032;
+  outline: 1px solid #b39a64;
+  outline-offset: -1px;
 }
 .locale-disclosure {
   margin: 0 0 1rem;

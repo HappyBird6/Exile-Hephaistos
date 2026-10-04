@@ -1,0 +1,691 @@
+{
+  "baseline": "7d27d6ce0a9fe35ab8f7d5dad15366416c10c725",
+  "scope": "UI only; no crafting model/catalog/history schema changes",
+  "frontend": {
+    "npmCi": true,
+    "lint": true,
+    "typecheck": true,
+    "formatCheck": true,
+    "testFiles": 56,
+    "tests": 1741,
+    "build": true,
+    "sourceMatchesValidatedCopy": true,
+    "log": "ui-feedback-qa-20261004/frontend-check-final.log",
+    "buildWarning": "Existing large localized bundle warning; no chunk splitting changes requested"
+  },
+  "browser": {
+    "checks": 733,
+    "errors": [],
+    "profile": "fresh disposable Playwright contexts",
+    "measurements": [
+      {
+        "locale": "en",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 108
+      },
+      {
+        "locale": "en",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 108
+      },
+      {
+        "locale": "en",
+        "viewport": {
+          "width": 1440,
+          "height": 1100
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 108
+      },
+      {
+        "locale": "en",
+        "viewport": {
+          "width": 1440,
+          "height": 1400
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 24,
+        "allocatedGap": 24,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 108
+      },
+      {
+        "locale": "en",
+        "viewport": {
+          "width": 1024,
+          "height": 768
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 126
+      },
+      {
+        "locale": "en",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 180
+      },
+      {
+        "locale": "ko",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 90
+      },
+      {
+        "locale": "ko",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 108
+      },
+      {
+        "locale": "ko",
+        "viewport": {
+          "width": 1440,
+          "height": 1100
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 108
+      },
+      {
+        "locale": "ko",
+        "viewport": {
+          "width": 1440,
+          "height": 1400
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 24,
+        "allocatedGap": 24,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 108
+      },
+      {
+        "locale": "ko",
+        "viewport": {
+          "width": 1024,
+          "height": 768
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 108
+      },
+      {
+        "locale": "ko",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 162
+      },
+      {
+        "locale": "zh-CN",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 90
+      },
+      {
+        "locale": "zh-CN",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 90
+      },
+      {
+        "locale": "zh-CN",
+        "viewport": {
+          "width": 1440,
+          "height": 1100
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 90
+      },
+      {
+        "locale": "zh-CN",
+        "viewport": {
+          "width": 1440,
+          "height": 1400
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 24,
+        "allocatedGap": 24,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 90
+      },
+      {
+        "locale": "zh-CN",
+        "viewport": {
+          "width": 1024,
+          "height": 768
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 108
+      },
+      {
+        "locale": "zh-CN",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 126
+      },
+      {
+        "locale": "zh-TW",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 90
+      },
+      {
+        "locale": "zh-TW",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 90
+      },
+      {
+        "locale": "zh-TW",
+        "viewport": {
+          "width": 1440,
+          "height": 1100
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 90
+      },
+      {
+        "locale": "zh-TW",
+        "viewport": {
+          "width": 1440,
+          "height": 1400
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 24,
+        "allocatedGap": 24,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 90
+      },
+      {
+        "locale": "zh-TW",
+        "viewport": {
+          "width": 1024,
+          "height": 768
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 108
+      },
+      {
+        "locale": "zh-TW",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 126
+      },
+      {
+        "locale": "ja",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 90
+      },
+      {
+        "locale": "ja",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 108
+      },
+      {
+        "locale": "ja",
+        "viewport": {
+          "width": 1440,
+          "height": 1100
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 108
+      },
+      {
+        "locale": "ja",
+        "viewport": {
+          "width": 1440,
+          "height": 1400
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 24,
+        "allocatedGap": 24,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 108
+      },
+      {
+        "locale": "ja",
+        "viewport": {
+          "width": 1024,
+          "height": 768
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 126
+      },
+      {
+        "locale": "ja",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 180
+      },
+      {
+        "locale": "es",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 108
+      },
+      {
+        "locale": "es",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 108
+      },
+      {
+        "locale": "es",
+        "viewport": {
+          "width": 1440,
+          "height": 1100
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 108
+      },
+      {
+        "locale": "es",
+        "viewport": {
+          "width": 1440,
+          "height": 1400
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 24,
+        "allocatedGap": 24,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 108
+      },
+      {
+        "locale": "es",
+        "viewport": {
+          "width": 1024,
+          "height": 768
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 144
+      },
+      {
+        "locale": "es",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "hoverBorderShift": 0,
+        "selectionBorderShift": 0,
+        "clearBorderShift": 0,
+        "externalGap": 0,
+        "allocatedGap": 0,
+        "feedbackHeight": 84,
+        "feedbackScrollHeight": 216
+      }
+    ],
+    "baselineFeedback": {
+      "before": {
+        ".stash-panel": {
+          "bottom": 1111.671875,
+          "height": 748.59375,
+          "margin": "0px"
+        },
+        ".workbench-feedback-panel": {
+          "bottom": 1110.671875,
+          "height": 12,
+          "margin": "0px"
+        },
+        ".stash-canvas": {
+          "bottom": 1074.671875,
+          "height": 589.40625,
+          "margin": "24px"
+        }
+      },
+      "selected": {
+        ".stash-panel": {
+          "bottom": 1173.671875,
+          "height": 810.59375,
+          "margin": "0px"
+        },
+        ".workbench-feedback-panel": {
+          "bottom": 1172.671875,
+          "height": 74,
+          "margin": "0px"
+        },
+        ".stash-canvas": {
+          "bottom": 1074.671875,
+          "height": 589.40625,
+          "margin": "24px"
+        }
+      },
+      "cleared": {
+        ".stash-panel": {
+          "bottom": 1129.671875,
+          "height": 766.59375,
+          "margin": "0px"
+        },
+        ".workbench-feedback-panel": {
+          "bottom": 1128.671875,
+          "height": 30,
+          "margin": "0px"
+        },
+        ".stash-canvas": {
+          "bottom": 1074.671875,
+          "height": 589.40625,
+          "margin": "24px"
+        }
+      }
+    },
+    "longTextKeyboard": [
+      {
+        "locale": "es",
+        "initial": {
+          "scrollTop": 0,
+          "scrollHeight": 172,
+          "clientHeight": 84,
+          "bottom": 1156.390625
+        },
+        "end": {
+          "scrollTop": 88,
+          "bottom": 1156.390625
+        }
+      },
+      {
+        "locale": "zh-CN",
+        "initial": {
+          "scrollTop": 0,
+          "scrollHeight": 100,
+          "clientHeight": 84,
+          "bottom": 913.140625
+        },
+        "end": {
+          "scrollTop": 16,
+          "bottom": 913.140625
+        }
+      },
+      {
+        "locale": "zh-TW",
+        "initial": {
+          "scrollTop": 0,
+          "scrollHeight": 100,
+          "clientHeight": 84,
+          "bottom": 913.140625
+        },
+        "end": {
+          "scrollTop": 16,
+          "bottom": 913.140625
+        }
+      },
+      {
+        "locale": "ja",
+        "initial": {
+          "scrollTop": 0,
+          "scrollHeight": 136,
+          "clientHeight": 84,
+          "bottom": 1068.3125
+        },
+        "end": {
+          "scrollTop": 52,
+          "bottom": 1068.3125
+        }
+      }
+    ]
+  },
+  "runtime": {
+    "project": "exile-ui-feedback-20261004",
+    "ports": [
+      19080,
+      19081
+    ],
+    "backend": "isolated byte copy of published master runtime jar",
+    "livePortsPreserved": [
+      18080,
+      18081
+    ],
+    "servicesStoppedNormally": true,
+    "backendJarSha256": "cfd8ff6a59e262e1cc560a937821fd2a45ef5400afcadbdbaf0fede131e10d9d",
+    "publishedJarMatches": true,
+    "liveServicesStillRunning": true
+  },
+  "review": {
+    "kind": "self-review",
+    "screenshotsVisuallyInspected": [
+      "six viewport contact sheets covering all 36 combinations",
+      "six locale menu contact sheet",
+      "English desktop/mobile and Korean 1920x1080 originals",
+      "Spanish/CJK mobile long descriptions and visible tooltip viewport captures",
+      "Admin screenshot"
+    ],
+    "backendChecks": "Not run: backend source unchanged; master runtime jar used for browser integration",
+    "windowsScriptChecks": "Not applicable: no Windows execution script changes"
+  },
+  "failureHistory": {
+    "implementationRepairRounds": 2,
+    "failures": [
+      {
+        "stage": "first frontend lint after formatting",
+        "error": "LocaleSelector.tsx: no-unexpected-multiline at indexed querySelectorAll expression",
+        "fix": "Store querySelectorAll result in a local variable before optional indexed focus",
+        "status": "lint passed on retry"
+      },
+      {
+        "stage": "first complete unit run",
+        "error": "LocaleSelector outside focus test asserted before React flushed a focus-driven state update; 1740 of 1741 tests passed",
+        "fix": "Wrap the imperative focus action in Testing Library act while retaining all assertions",
+        "status": "All 1741 tests passed on final run"
+      },
+      {
+        "stage": "baseline measurement setup",
+        "error": "PowerShell/Node inline quoting failed; follow-on baseline-roomy script did not exist",
+        "fix": "Use file-backed scripts via apply_patch",
+        "status": "baseline measurement completed"
+      },
+      {
+        "stage": "visual QA screenshot capture",
+        "error": "Full-page capture scrolls the document and dismisses the fixed tooltip via its scroll handler",
+        "fix": "Retain original capture and save visible tooltip viewport captures under new filenames",
+        "status": "resolved; verified visually"
+      }
+    ]
+  }
+}
