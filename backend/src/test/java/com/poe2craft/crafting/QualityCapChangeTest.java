@@ -29,19 +29,24 @@ class QualityCapChangeTest {
   }
 
   @Test
-  void selectedRemovalClampsWithoutMutatingBeforeOrRefillingWhenCapGrows() {
+  void selectedRemovalPreservesWithoutMutatingBeforeOrRefillingWhenCapGrows() {
     var before = state(List.of(breach), 40);
     for (var action : List.of(WorkbenchCurrency.ANNULMENT, WorkbenchCurrency.CHAOS)) {
       var result = sim.apply(before, action, Set.of(), new Random(1));
       assertThat(result.applied()).isTrue();
       assertThat(result.state().catalystQuality())
-          .isEqualTo(new CatalystQuality(CatalystQuality.Type.FLESH, 20));
+          .isEqualTo(new CatalystQuality(CatalystQuality.Type.FLESH, 40));
       assertThat(result.events().getFirst().selectionProbability()).isEqualTo(1.0);
       assertThat(result.assumptions())
-          .anyMatch(
-              a ->
-                  a.id().equals(QualityCapChangePolicy.VERSION)
-                      && a.reason().contains("UNVERIFIED"));
+          .noneMatch(a -> a.id().equals(QualityCapChangePolicy.VERSION));
+      assertThat(new ItemStateValidator(catalog).validate(result.state())).isEmpty();
+      for (var catalyst :
+          List.of(WorkbenchCurrency.CATALYST_FLESH, WorkbenchCurrency.CATALYST_NEURAL)) {
+        var repeated = sim.apply(result.state(), catalyst, Set.of(), new Random(1));
+        assertThat(repeated.applied()).isTrue();
+        assertThat(repeated.state().catalystQuality().amount()).isEqualTo(40);
+        assertThat(repeated.state().catalystQuality().type()).isEqualTo(catalyst.catalystType());
+      }
     }
     assertThat(before.catalystQuality().amount()).isEqualTo(40);
     assertThat(before.explicits()).containsExactly(breach);
@@ -67,7 +72,7 @@ class QualityCapChangeTest {
   }
 
   @Test
-  void omenFilteredCandidatesKeepTheirOriginalOddsAndOnlyChosenCapLossClamps() {
+  void omenFilteredCandidatesKeepTheirOriginalOddsAndChosenCapLossPreserves() {
     var suffix =
         new ModifierInstance("amulet:suffix:of-the-wrestler", Map.of("additional_strength", 9L));
     var before = state(List.of(breach, suffix), 40);
@@ -85,7 +90,7 @@ class QualityCapChangeTest {
             WorkbenchCurrency.ANNULMENT,
             Set.of("Omen_of_Sinistral_Annulment"),
             new Random(1));
-    assertThat(prefixOnly.state().catalystQuality().amount()).isEqualTo(20);
+    assertThat(prefixOnly.state().catalystQuality().amount()).isEqualTo(40);
     assertThat(prefixOnly.state().explicits()).containsExactly(suffix);
     assertThat(prefixOnly.events().getFirst().selectionProbability()).isEqualTo(1.0);
     var both = sim.apply(before, WorkbenchCurrency.ANNULMENT, Set.of(), new Random(1));
@@ -96,6 +101,13 @@ class QualityCapChangeTest {
                 a.id().equals("uniform-removal-v1")
                     && a.candidates().contains(QualityLimitRules.BREACH_ID)
                     && a.n() == 2);
+  }
+
+  @Test
+  void rejectsUnreachableQualityWithoutTreatingCurrentCapAsStoredCeiling() {
+    assertThat(new ItemStateValidator(catalog).validate(state(List.of(), 40))).isEmpty();
+    assertThat(new ItemStateValidator(catalog).validate(state(List.of(), 41))).isNotEmpty();
+    assertThat(new ItemStateValidator(catalog).validate(state(List.of(), 100))).isNotEmpty();
   }
 
   @Test

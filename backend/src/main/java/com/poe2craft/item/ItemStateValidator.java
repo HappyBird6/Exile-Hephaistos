@@ -28,21 +28,14 @@ public final class ItemStateValidator {
               "",
               "Sapphire editing supports only Magic/Rare and at most one reviewed existing suffix"));
     if (state.catalystQuality() != null) {
-      int cap = 20;
-      if (state.baseItemId().equals(SolarAmulet.BASE_ID)
-          && state.explicits().stream()
-              .anyMatch(
-                  m ->
-                      m.modifierId().equals("amulet:prefix:essence-maximum-quality")
-                          && m.values().equals(java.util.Map.of("local_maximum_quality_+", 20L))))
-        cap = 40;
+      int cap = state.baseItemId().equals(SolarAmulet.BASE_ID) ? 40 : 20;
       if (!CatalystQuality.supportedBase(state.baseItemId())
           || state.catalystQuality().amount() > cap)
         errors.add(
             new Violation(
                 Code.UNSUPPORTED_STATE,
                 "",
-                "Unsupported catalyst quality or amount above reviewed cap"));
+                "Unsupported catalyst quality or amount above reviewed reachable maximum"));
     }
     if (!state.snapshotId().equals(catalog.metadata().snapshotId())) {
       errors.add(new Violation(Code.SNAPSHOT_MISMATCH, "", "State and catalog snapshots differ"));

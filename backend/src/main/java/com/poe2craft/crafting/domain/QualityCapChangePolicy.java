@@ -2,41 +2,18 @@ package com.poe2craft.crafting.domain;
 
 import com.poe2craft.item.*;
 
-/** Replaceable simulator choice; cap-removal behavior has not been verified in game. */
+/** User-confirmed cap loss preserves quality; catalyst reuse remains a simulator policy. */
 public enum QualityCapChangePolicy {
-  CLAMP_TO_CURRENT_CAP,
+  PRESERVE_EXISTING,
   REJECT_OVERCAP;
-
-  public static final String VERSION = "unverified-quality-cap-clamp-v1";
-  public static final QualityCapChangePolicy DEFAULT = CLAMP_TO_CURRENT_CAP;
+  public static final String VERSION = "user-confirmed-quality-cap-preserve-v2";
+  public static final QualityCapChangePolicy DEFAULT = PRESERVE_EXISTING;
 
   public ItemState afterAcceptedOperation(ItemState state, ItemCatalog catalog) {
-    if (state.catalystQuality() == null || this == REJECT_OVERCAP) return state;
-    var untyped =
-        new ItemState(
-            state.snapshotId(),
-            state.baseItemId(),
-            state.itemLevel(),
-            state.rarity(),
-            state.implicits(),
-            state.explicits(),
-            state.conditions(),
-            state.augmentSockets(),
-            null);
-    var limit = QualityLimitRules.describe(untyped, catalog);
-    if (limit == null) throw new IllegalArgumentException("Quality cap unavailable");
-    var quality = state.catalystQuality();
-    int amount = Math.min(quality.amount(), limit.maximumQuality());
-    if (amount == quality.amount()) return state;
-    return new ItemState(
-        state.snapshotId(),
-        state.baseItemId(),
-        state.itemLevel(),
-        state.rarity(),
-        state.implicits(),
-        state.explicits(),
-        state.conditions(),
-        state.augmentSockets(),
-        new CatalystQuality(quality.type(), amount));
+    return state;
+  }
+
+  public int catalystAmount(ItemState state, int cap) {
+    return Math.max(cap, state.catalystQuality() == null ? 0 : state.catalystQuality().amount());
   }
 }

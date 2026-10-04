@@ -232,32 +232,34 @@ const clamp = {
     },
   ],
 }
-it('verifies cap loss ledger against both states and refuses missing or forged evidence', () => {
-  expect(qualityCapChangeMatches(before, clamp, capDefinitions)).toBe(true)
+it('preserves quality after cap loss and rejects clamp, forged type and old ledger', () => {
+  const preserved = {
+    ...clamp,
+    state: { ...clamp.state, catalystQuality: before.catalystQuality },
+    assumptions: [],
+  }
+  expect(qualityCapChangeMatches(before, preserved, capDefinitions)).toBe(true)
+  expect(qualityCapChangeMatches(before, clamp, capDefinitions)).toBe(false)
   expect(
     qualityCapChangeMatches(
       before,
-      { ...clamp, assumptions: [] },
+      { ...preserved, assumptions: clamp.assumptions },
       capDefinitions,
     ),
-  ).toBe(false)
-  expect(
-    qualityCapChangeMatches(before, { ...clamp, events: [] }, capDefinitions),
   ).toBe(false)
   expect(
     qualityCapChangeMatches(
       before,
       {
-        ...clamp,
+        ...preserved,
         state: {
-          ...clamp.state,
-          catalystQuality: { type: 'NEURAL', amount: 20 },
+          ...preserved.state,
+          catalystQuality: { type: 'NEURAL', amount: 40 },
         },
       },
       capDefinitions,
     ),
   ).toBe(false)
-  expect(before.catalystQuality?.amount).toBe(40)
 })
 it('accepts non-autorefill after cap growth and rejects forged automatic quality increase', () => {
   const low = {

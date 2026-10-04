@@ -58,7 +58,8 @@ export function verifiedCatalystQuality(
   return (
     catalystBase(state.baseItemId) &&
     cap !== null &&
-    state.catalystQuality.amount <= cap
+    state.catalystQuality.amount <=
+      (state.baseItemId === 'Metadata/Items/Amulets/FourAmulet9' ? 40 : cap)
   )
 }
 const integerStats = new Set([

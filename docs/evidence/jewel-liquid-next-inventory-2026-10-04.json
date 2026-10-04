@@ -1,0 +1,1444 @@
+{
+  "status": "PREPARATION_ONLY_NO_NEW_SUPPORT",
+  "retrievedAt": "2026-10-04T09:04:34.384Z",
+  "currencyFirstTab": [
+    "Artificers_Orb",
+    "Orb_of_Transmutation",
+    "Orb_of_Augmentation",
+    "Orb_of_Annulment",
+    "Orb_of_Alchemy",
+    "Regal_Orb",
+    "Exalted_Orb",
+    "Chaos_Orb",
+    "Vaal_Orb",
+    "Fracturing_Orb",
+    "Divine_Orb",
+    "Greater_Orb_of_Transmutation",
+    "Perfect_Orb_of_Transmutation",
+    "Greater_Orb_of_Augmentation",
+    "Perfect_Orb_of_Augmentation",
+    "Greater_Regal_Orb",
+    "Perfect_Regal_Orb",
+    "Greater_Exalted_Orb",
+    "Perfect_Exalted_Orb",
+    "Greater_Chaos_Orb",
+    "Perfect_Chaos_Orb",
+    "Hinekoras_Lock"
+  ],
+  "liquids": [
+    {
+      "id": "Diluted_Liquid_Ire",
+      "name": "Diluted Liquid Ire",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: (10—20)% increased Armour",
+        "Sapphire Prefix: (10—20)% increased maximum Energy Shield",
+        "Emerald Prefix: (10—20)% increased Evasion Rating"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Diluted_Liquid_Ire",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Diluted_Liquid_Guilt",
+      "name": "Diluted Liquid Guilt",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: (5—15)% increased Fire Damage",
+        "Sapphire Prefix: (5—15)% increased Cold Damage",
+        "Emerald Prefix: (5—15)% increased Lightning Damage"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Diluted_Liquid_Guilt",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Diluted_Liquid_Greed",
+      "name": "Diluted Liquid Greed",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: (5—15)% increased Global Physical Damage",
+        "Sapphire Prefix: (7—13)% increased Chaos Damage",
+        "Emerald Prefix: (5—15)% increased Elemental Damage"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Diluted_Liquid_Greed",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Liquid_Paranoia",
+      "name": "Liquid Paranoia",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: (5—15)% increased Attack Damage",
+        "Sapphire Suffix: (2—4)% increased Cast Speed",
+        "Emerald Suffix: (2—4)% increased Attack Speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Liquid_Paranoia",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Liquid_Envy",
+      "name": "Liquid Envy",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Suffix: (4—6)% of Skill Mana Costs Converted to Life Costs",
+        "Sapphire Prefix: (5—15)% increased Spell Damage",
+        "Emerald Suffix: (3—5)% increased Cooldown Recovery Rate"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Liquid_Envy",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Liquid_Disgust",
+      "name": "Liquid Disgust",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Suffix: (5—10)% increased Life Regeneration rate",
+        "Sapphire Suffix: Recover (1—2)% of maximum Mana on Kill",
+        "Emerald Suffix: Recover (1—2)% of maximum Life on Kill"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Liquid_Disgust",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Liquid_Despair",
+      "name": "Liquid Despair",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Suffix: Gain 1 Rage on Melee Hit",
+        "Sapphire Suffix: (5—15)% increased Critical Hit Chance for Spells",
+        "Emerald Suffix: (6—16)% increased Critical Hit Chance for Attacks"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Liquid_Despair",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Concentrated_Liquid_Fear",
+      "name": "Concentrated Liquid Fear",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Suffix: (10—20)% increased Warcry Speed",
+        "Sapphire Suffix: (10—20)% increased Critical Spell Damage Bonus",
+        "Emerald Suffix: (10—20)% increased Critical Damage Bonus for Attack Damage"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Concentrated_Liquid_Fear",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Concentrated_Liquid_Suffering",
+      "name": "Concentrated Liquid Suffering",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: +(1—2) to Maximum Rage",
+        "Sapphire Prefix: (4—6)% increased Area of Effect",
+        "Emerald Suffix: (1—2)% increased Movement Speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Concentrated_Liquid_Suffering",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Concentrated_Liquid_Isolation",
+      "name": "Concentrated Liquid Isolation",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Suffix: +1% to Maximum Fire Resistance",
+        "Sapphire Suffix: +1% to Maximum Cold Resistance",
+        "Emerald Suffix: +1% to Maximum Lightning Resistance",
+        "Diamond Suffix: +1% to Maximum Chaos Resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Concentrated_Liquid_Isolation",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Ancient_Diluted_Liquid_Ire",
+      "name": "Ancient Diluted Liquid Ire",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: Small Passive Skills in Radius also grant (2—3)% increased Armour",
+        "Sapphire Prefix: Small Passive Skills in Radius also grant (2—3)% increased maximum Energy Shield",
+        "Emerald Prefix: Small Passive Skills in Radius also grant (2—3)% increased Evasion Rating"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Ire",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Ancient_Diluted_Liquid_Guilt",
+      "name": "Ancient Diluted Liquid Guilt",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: Small Passive Skills in Radius also grant (1—2)% increased Fire Damage",
+        "Sapphire Prefix: Small Passive Skills in Radius also grant (1—2)% increased Cold Damage",
+        "Emerald Prefix: Small Passive Skills in Radius also grant (1—2)% increased Lightning Damage"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Guilt",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Ancient_Diluted_Liquid_Greed",
+      "name": "Ancient Diluted Liquid Greed",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: Small Passive Skills in Radius also grant (1—2)% increased Global Physical Damage",
+        "Sapphire Prefix: Small Passive Skills in Radius also grant (1—2)% increased Chaos Damage",
+        "Emerald Prefix: Small Passive Skills in Radius also grant (1—2)% increased Elemental Damage"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Greed",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Ancient_Liquid_Paranoia",
+      "name": "Ancient Liquid Paranoia",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: Small Passive Skills in Radius also grant (1—2)% increased Attack Damage",
+        "Sapphire Suffix: Notable Passive Skills in Radius also grant (1—2)% increased Cast Speed",
+        "Emerald Suffix: Notable Passive Skills in Radius also grant (1—2)% increased Attack Speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Paranoia",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Ancient_Liquid_Envy",
+      "name": "Ancient Liquid Envy",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Suffix: Notable Passive Skills in Radius also grant (2—3)% of Skill Mana Costs Converted to Life Costs",
+        "Sapphire Prefix: Small Passive Skills in Radius also grant (1—2)% increased Spell Damage",
+        "Emerald Suffix: Notable Passive Skills in Radius also grant (1—3)% increased Cooldown Recovery Rate"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Envy",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Ancient_Liquid_Disgust",
+      "name": "Ancient Liquid Disgust",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Suffix: Notable Passive Skills in Radius also grant (3—5)% increased Life Regeneration rate",
+        "Sapphire Suffix: Notable Passive Skills in Radius also grant Recover 1% of maximum Mana on Kill",
+        "Emerald Suffix: Notable Passive Skills in Radius also grant Recover 1% of maximum Life on Kill"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Disgust",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Ancient_Liquid_Despair",
+      "name": "Ancient Liquid Despair",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Suffix: Notable Passive Skills in Radius also grant Gain 1 Rage on Melee Hit",
+        "Sapphire Suffix: Notable Passive Skills in Radius also grant (3—7)% increased Critical Hit Chance for Spells",
+        "Emerald Suffix: Notable Passive Skills in Radius also grant (3—7)% increased Critical Hit Chance for Attacks"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Despair",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Ancient_Concentrated_Liquid_Fear",
+      "name": "Ancient Concentrated Liquid Fear",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Suffix: Small Passive Skills in Radius also grant (2—3)% increased Warcry Speed",
+        "Sapphire Suffix: Notable Passive Skills in Radius also grant (5—10)% increased Critical Spell Damage Bonus",
+        "Emerald Suffix: Notable Passive Skills in Radius also grant (5—10)% increased Critical Damage Bonus for Attack Damage"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Fear",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Ancient_Concentrated_Liquid_Suffering",
+      "name": "Ancient Concentrated Liquid Suffering",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: Notable Passive Skills in Radius also grant +1 to Maximum Rage",
+        "Sapphire Prefix: Notable Passive Skills in Radius also grant (2—3)% increased Area of Effect",
+        "Emerald Suffix: Notable Passive Skills in Radius also grant 1% increased Movement Speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Suffering",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Ancient_Concentrated_Liquid_Isolation",
+      "name": "Ancient Concentrated Liquid Isolation",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: Increases and Reductions to\n Cold and Lightning Damage in Radius are transformed to apply to Fire Damage",
+        "Sapphire Prefix: Increases and Reductions to\n Fire and Lightning Damage in Radius are transformed to apply to Cold Damage",
+        "Emerald Prefix: Increases and Reductions to\n Cold and Fire Damage in Radius are transformed to apply to Lightning Damage"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Isolation",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Potent_Liquid_Melancholy",
+      "name": "Potent Liquid Melancholy",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Suffix: Debilitate Enemies on Hit while you have an Emerald and a Sapphire socketed in your tree",
+        "Sapphire Suffix: Inflict Elemental Exposure on Hit while you have a Ruby and an Emerald socketed in your tree",
+        "Emerald Suffix: Blind Enemies on Hit while you have a Ruby and a Sapphire socketed in your tree"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Melancholy",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Potent_Liquid_Ferocity",
+      "name": "Potent Liquid Ferocity",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: (40—60)% increased Effect of Suffixes",
+        "Ruby Suffix: (40—60)% increased Effect of Prefixes",
+        "Sapphire Prefix: (40—60)% increased Effect of Suffixes",
+        "Sapphire Suffix: (40—60)% increased Effect of Prefixes",
+        "Emerald Prefix: (40—60)% increased Effect of Suffixes",
+        "Emerald Suffix: (40—60)% increased Effect of Prefixes",
+        "Diamond Prefix: (40—60)% increased Effect of Suffixes",
+        "Diamond Suffix: (40—60)% increased Effect of Prefixes"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Ferocity",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Potent_Liquid_Contempt",
+      "name": "Potent Liquid Contempt",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Basic Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: +1 Suffix Modifier allowed",
+        "Ruby Suffix: +1 Prefix Modifier allowed",
+        "Sapphire Prefix: +1 Suffix Modifier allowed",
+        "Sapphire Suffix: +1 Prefix Modifier allowed",
+        "Emerald Prefix: +1 Suffix Modifier allowed",
+        "Emerald Suffix: +1 Prefix Modifier allowed",
+        "Diamond Prefix: +1 Suffix Modifier allowed",
+        "Diamond Suffix: +1 Prefix Modifier allowed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Contempt",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Ancient_Potent_Liquid_Melancholy",
+      "name": "Ancient Potent Liquid Melancholy",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: Upgrades Radius to Very Large\nlocal jewel effect base radius [500]",
+        "Sapphire Prefix: Upgrades Radius to Very Large\nlocal jewel effect base radius [500]",
+        "Emerald Prefix: Upgrades Radius to Very Large\nlocal jewel effect base radius [500]",
+        "Diamond Prefix: Upgrades Radius to Very Large\nlocal jewel effect base radius [500]"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Potent_Liquid_Melancholy",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Ancient_Potent_Liquid_Ferocity",
+      "name": "Ancient Potent Liquid Ferocity",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Suffix: Notable Passive Skills in Radius also grant +(5—7)% to Fire Resistance",
+        "Sapphire Suffix: Notable Passive Skills in Radius also grant +(5—7)% to Cold Resistance",
+        "Emerald Suffix: Notable Passive Skills in Radius also grant +(5—7)% to Lightning Resistance",
+        "Diamond Suffix: Notable Passive Skills in Radius also grant +(4—5)% to Chaos Resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Potent_Liquid_Ferocity",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Ancient_Potent_Liquid_Contempt",
+      "name": "Ancient Potent Liquid Contempt",
+      "lines": [
+        "Stack Size: 1 / 10",
+        "Removes a random modifer and Augments a Rare Time-Lost Jewel with a\n\nnew guaranteed Crafted modifier",
+        "Ruby Prefix: +1 Suffix Modifier allowed",
+        "Ruby Suffix: +1 Prefix Modifier allowed",
+        "Sapphire Prefix: +1 Suffix Modifier allowed",
+        "Sapphire Suffix: +1 Prefix Modifier allowed",
+        "Emerald Prefix: +1 Suffix Modifier allowed",
+        "Emerald Suffix: +1 Prefix Modifier allowed",
+        "Diamond Prefix: +1 Suffix Modifier allowed",
+        "Diamond Suffix: +1 Prefix Modifier allowed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Potent_Liquid_Contempt",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    },
+    {
+      "id": "Liquid_Verisium",
+      "name": "Liquid Verisium",
+      "lines": [
+        "Stack Size: 1 / 20",
+        "Immediately start a Runic Remnant Encounter with a random Runic Inscription"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Liquid_Verisium",
+      "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+    }
+  ],
+  "sourcePages": [
+    {
+      "key": "Liquid_Emotions",
+      "url": "https://poe2db.tw/us/Liquid_Emotions",
+      "status": 200,
+      "sha256": "eec098ad51a60b2d1c10f0f1d35c7ff1051ebeb1636a6fb04d574ca6c6dd43a6"
+    },
+    {
+      "key": "Basic_Jewel",
+      "url": "https://poe2db.tw/us/Basic_Jewel",
+      "status": 200,
+      "sha256": "df5e370122fd0e6d8a80a124060805485ef37990c2092efd28bccbd2fc446695"
+    },
+    {
+      "key": "Jewels",
+      "url": "https://poe2db.tw/us/Jewels",
+      "status": 200,
+      "sha256": "ef3948284953126c87f871bf13105974ad5d9a35ff92ff67a26525c4d36871b8"
+    },
+    {
+      "key": "Sapphire",
+      "url": "https://poe2db.tw/us/Sapphire",
+      "status": 200,
+      "sha256": "6efe86eac8d9ac65ca845f2e9694e5b5760522e94db85ccc3f765cea438b54fd"
+    },
+    {
+      "key": "Ruby",
+      "url": "https://poe2db.tw/us/Ruby",
+      "status": 200,
+      "sha256": "8fbd51032ab6e740850750c67db24be4f71bac5699ee6a4df4794cafa370e477"
+    },
+    {
+      "key": "Emerald",
+      "url": "https://poe2db.tw/us/Emerald",
+      "status": 200,
+      "sha256": "d901f325cc6ea491b799bedc449873e24a43403ebdce362ad4dfd21996325224"
+    },
+    {
+      "key": "Diamond",
+      "url": "https://poe2db.tw/us/Diamond",
+      "status": 200,
+      "sha256": "e6a7703e45ccca584903e31f0ca0adf8f7998bf566f5ee4dda928b4a127ca430"
+    },
+    {
+      "key": "Currency",
+      "url": "https://poe2db.tw/us/Currency",
+      "status": 200,
+      "sha256": "3c024abda3ae5fc985900a84400a72b91aca7696eaf5d38f77b956ad01874692"
+    },
+    {
+      "key": "Crafted",
+      "url": "https://poe2db.tw/us/Crafted",
+      "status": 404,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "key": "Orb_of_Transmutation",
+      "url": "https://poe2db.tw/us/Orb_of_Transmutation",
+      "status": 200,
+      "sha256": "9ba45377aa4adc3dd6f35d30312e06f8c5035a2a09e3709be480ec117de19b92"
+    },
+    {
+      "key": "Greater_Orb_of_Transmutation",
+      "url": "https://poe2db.tw/us/Greater_Orb_of_Transmutation",
+      "status": 200,
+      "sha256": "6f538b41e966f455520646d0e438694b46b2efbaeccb5807fcb59fead1cc22c0"
+    },
+    {
+      "key": "Perfect_Orb_of_Transmutation",
+      "url": "https://poe2db.tw/us/Perfect_Orb_of_Transmutation",
+      "status": 200,
+      "sha256": "fd57cce4855330b258c0d5cc0581911c87044a50a815f2bf172fc024763354bd"
+    },
+    {
+      "key": "Orb_of_Alchemy",
+      "url": "https://poe2db.tw/us/Orb_of_Alchemy",
+      "status": 200,
+      "sha256": "cd40f9af439437493315d81eb430427a3953ca54a5b57ce62c68ff1b59fb7257"
+    }
+  ],
+  "pools": {
+    "Sapphire": {
+      "base": {
+        "ItemType": "Metadata/Items/Jewels/JewelInt",
+        "Code": "Sapphire",
+        "ModDomainsID": "11",
+        "ItemVisualIdentityID": "11536",
+        "ItemClassesID": "42",
+        "cn": "Jewel",
+        "IconPath": "",
+        "link_name": "<a class=\"whiteitem Jewel\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/fb2d76a5cde045f267c8a9c3c6114778d01a8ff4d603bbebe1f6fae1cdff706c\" href=\"Sapphire\">Sapphire</a><span data-tabname=\"Sapphire Modifiers\"></span>",
+        "attr": [],
+        "tags": null
+      },
+      "sections": {
+        "ids": 2,
+        "normal": 58,
+        "corrupted": 11,
+        "desecrated": 32,
+        "breach_otherworldly": 0,
+        "breach_minion": 0,
+        "breach_caster": 0,
+        "corruption_upgrade": 7,
+        "master": 0,
+        "essence": 0,
+        "delve": 0,
+        "incursion": 0,
+        "elder": 0,
+        "shaper": 0,
+        "crusader": 0,
+        "redeemer": 0,
+        "hunter": 0,
+        "warlord": 0,
+        "veiled": 0,
+        "scourgeup": 0,
+        "scourgedown": 0,
+        "bestiary": 0,
+        "haunted": 0,
+        "sentinel": 0,
+        "synthesis": 0,
+        "synthesis_corrupted": 0,
+        "infamous": 0,
+        "searing": 0,
+        "eater": 0,
+        "enchant": 0,
+        "warbands": 0,
+        "graft_corrupted": 0,
+        "perfect_essence": 0,
+        "liquid": 15,
+        "chronomancy": 0,
+        "marksman": 0,
+        "decay": 0,
+        "soul": 0,
+        "destruction": 0,
+        "berserking": 0,
+        "rotmother": 0,
+        "socketable": 0,
+        "bonded": 0
+      }
+    },
+    "Ruby": {
+      "base": {
+        "ItemType": "Metadata/Items/Jewels/JewelStr",
+        "Code": "Ruby",
+        "ModDomainsID": "11",
+        "ItemVisualIdentityID": "11534",
+        "ItemClassesID": "42",
+        "cn": "Jewel",
+        "IconPath": "",
+        "link_name": "<a class=\"whiteitem Jewel\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/8d9706c0a4c0b81941b48bed1e5909b013c2ff147388dfd7578cda9597b73cc6\" href=\"Ruby\">Ruby</a><span data-tabname=\"Ruby Modifiers\"></span>",
+        "attr": [],
+        "tags": null
+      },
+      "sections": {
+        "ids": 2,
+        "normal": 50,
+        "corrupted": 11,
+        "desecrated": 32,
+        "breach_otherworldly": 0,
+        "breach_minion": 0,
+        "breach_caster": 0,
+        "corruption_upgrade": 7,
+        "master": 0,
+        "essence": 0,
+        "delve": 0,
+        "incursion": 0,
+        "elder": 0,
+        "shaper": 0,
+        "crusader": 0,
+        "redeemer": 0,
+        "hunter": 0,
+        "warlord": 0,
+        "veiled": 0,
+        "scourgeup": 0,
+        "scourgedown": 0,
+        "bestiary": 0,
+        "haunted": 0,
+        "sentinel": 0,
+        "synthesis": 0,
+        "synthesis_corrupted": 0,
+        "infamous": 0,
+        "searing": 0,
+        "eater": 0,
+        "enchant": 0,
+        "warbands": 0,
+        "graft_corrupted": 0,
+        "perfect_essence": 0,
+        "liquid": 15,
+        "chronomancy": 0,
+        "marksman": 0,
+        "decay": 0,
+        "soul": 0,
+        "destruction": 0,
+        "berserking": 0,
+        "rotmother": 0,
+        "socketable": 0,
+        "bonded": 0
+      }
+    },
+    "Emerald": {
+      "base": {
+        "ItemType": "Metadata/Items/Jewels/JewelDex",
+        "Code": "Emerald",
+        "ModDomainsID": "11",
+        "ItemVisualIdentityID": "11535",
+        "ItemClassesID": "42",
+        "cn": "Jewel",
+        "IconPath": "",
+        "link_name": "<a class=\"whiteitem Jewel\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/3a0a7d2eea231274379a445d0655836ac8407e575d660eeda145ebdf00b784e9\" href=\"Emerald\">Emerald</a><span data-tabname=\"Emerald Modifiers\"></span>",
+        "attr": [],
+        "tags": null
+      },
+      "sections": {
+        "ids": 2,
+        "normal": 74,
+        "corrupted": 11,
+        "desecrated": 32,
+        "breach_otherworldly": 0,
+        "breach_minion": 0,
+        "breach_caster": 0,
+        "corruption_upgrade": 7,
+        "master": 0,
+        "essence": 0,
+        "delve": 0,
+        "incursion": 0,
+        "elder": 0,
+        "shaper": 0,
+        "crusader": 0,
+        "redeemer": 0,
+        "hunter": 0,
+        "warlord": 0,
+        "veiled": 0,
+        "scourgeup": 0,
+        "scourgedown": 0,
+        "bestiary": 0,
+        "haunted": 0,
+        "sentinel": 0,
+        "synthesis": 0,
+        "synthesis_corrupted": 0,
+        "infamous": 0,
+        "searing": 0,
+        "eater": 0,
+        "enchant": 0,
+        "warbands": 0,
+        "graft_corrupted": 0,
+        "perfect_essence": 0,
+        "liquid": 15,
+        "chronomancy": 0,
+        "marksman": 0,
+        "decay": 0,
+        "soul": 0,
+        "destruction": 0,
+        "berserking": 0,
+        "rotmother": 0,
+        "socketable": 0,
+        "bonded": 0
+      }
+    },
+    "Diamond": {
+      "base": {
+        "ItemType": "Metadata/Items/Jewels/JewelDiamond",
+        "Code": "Diamond",
+        "ModDomainsID": "11",
+        "ItemVisualIdentityID": "11537",
+        "ItemClassesID": "42",
+        "cn": "Jewel",
+        "IconPath": "",
+        "link_name": "<a class=\"whiteitem Jewel\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/6a630272b05945ce2864d73102f2b250b2a2963eb0ac9424a5c5cf632a900919\" href=\"Diamond\">Diamond</a><span data-tabname=\"Diamond Modifiers\"></span>",
+        "attr": [],
+        "tags": null
+      },
+      "sections": {
+        "ids": 5,
+        "normal": 160,
+        "corrupted": 11,
+        "desecrated": 32,
+        "breach_otherworldly": 0,
+        "breach_minion": 0,
+        "breach_caster": 0,
+        "corruption_upgrade": 7,
+        "master": 0,
+        "essence": 0,
+        "delve": 0,
+        "incursion": 0,
+        "elder": 0,
+        "shaper": 0,
+        "crusader": 0,
+        "redeemer": 0,
+        "hunter": 0,
+        "warlord": 0,
+        "veiled": 0,
+        "scourgeup": 0,
+        "scourgedown": 0,
+        "bestiary": 0,
+        "haunted": 0,
+        "sentinel": 0,
+        "synthesis": 0,
+        "synthesis_corrupted": 0,
+        "infamous": 0,
+        "searing": 0,
+        "eater": 0,
+        "enchant": 0,
+        "warbands": 0,
+        "graft_corrupted": 0,
+        "perfect_essence": 0,
+        "liquid": 5,
+        "chronomancy": 0,
+        "marksman": 0,
+        "decay": 0,
+        "soul": 0,
+        "destruction": 0,
+        "berserking": 0,
+        "rotmother": 0,
+        "socketable": 0,
+        "bonded": 0
+      }
+    }
+  },
+  "constraints": [
+    "Normal rarity and ordinary 1/1 Magic, 2/2 Rare slot capacities need direct current-game evidence before expanding editor",
+    "DropChance is not automatically an eligible spawn weight",
+    "Separate per-base normal, crafted, desecrated, corrupted and Time-Lost pools",
+    "Liquid modifiers must retain source Code/family/side/base eligibility; raw captured pools remain in isolated QA directory",
+    "User authorizes known candidate sets with unknown weights as disclosed 1/N; does not authorize fabricated eligibility",
+    "Ancient14 require separate Time-Lost catalog; basic13 require Rare Basic Jewel",
+    "No Essence for Jewels; no server update; deferred Vaal/Hinekora/Desecration remain deferred"
+  ],
+  "liquidModifierRows": {
+    "Sapphire": [
+      {
+        "currencyId": "Diluted_Liquid_Ire",
+        "sourceCode": "JewelEnergyShield",
+        "side": "PREFIX",
+        "families": [
+          "EnergyShieldPercent"
+        ],
+        "spawn": [
+          "intjewel",
+          "default"
+        ],
+        "text": "(10—20)% increased maximum Energy Shield",
+        "sourceUrl": "https://poe2db.tw/us/Sapphire"
+      },
+      {
+        "currencyId": "Diluted_Liquid_Guilt",
+        "sourceCode": "JewelColdDamage",
+        "side": "PREFIX",
+        "families": [
+          "ColdDamagePercentage"
+        ],
+        "spawn": [
+          "intjewel",
+          "default"
+        ],
+        "text": "(5—15)% increased Cold Damage",
+        "sourceUrl": "https://poe2db.tw/us/Sapphire"
+      },
+      {
+        "currencyId": "Diluted_Liquid_Greed",
+        "sourceCode": "JewelChaosDamage",
+        "side": "PREFIX",
+        "families": [
+          "IncreasedChaosDamage"
+        ],
+        "spawn": [
+          "intjewel",
+          "default"
+        ],
+        "text": "(7—13)% increased Chaos Damage",
+        "sourceUrl": "https://poe2db.tw/us/Sapphire"
+      },
+      {
+        "currencyId": "Liquid_Paranoia",
+        "sourceCode": "JewelCastSpeed",
+        "side": "SUFFIX",
+        "families": [
+          "IncreasedCastSpeed"
+        ],
+        "spawn": [
+          "intjewel",
+          "default"
+        ],
+        "text": "(2—4)% increased Cast Speed",
+        "sourceUrl": "https://poe2db.tw/us/Sapphire"
+      },
+      {
+        "currencyId": "Liquid_Envy",
+        "sourceCode": "JewelSpellDamage",
+        "side": "PREFIX",
+        "families": [
+          "WeaponCasterDamagePrefix"
+        ],
+        "spawn": [
+          "intjewel",
+          "default"
+        ],
+        "text": "(5—15)% increased Spell Damage",
+        "sourceUrl": "https://poe2db.tw/us/Sapphire"
+      },
+      {
+        "currencyId": "Liquid_Disgust",
+        "sourceCode": "JewelManaonKill",
+        "side": "SUFFIX",
+        "families": [
+          "ManaGainedOnKillPercentage"
+        ],
+        "spawn": [
+          "intjewel",
+          "default"
+        ],
+        "text": "Recover (1—2)% of maximum Mana on Kill",
+        "sourceUrl": "https://poe2db.tw/us/Sapphire"
+      },
+      {
+        "currencyId": "Liquid_Despair",
+        "sourceCode": "JewelSpellCriticalChance",
+        "side": "SUFFIX",
+        "families": [
+          "SpellCriticalStrikeChanceIncrease"
+        ],
+        "spawn": [
+          "intjewel",
+          "default"
+        ],
+        "text": "(5—15)% increased Critical Hit Chance for Spells",
+        "sourceUrl": "https://poe2db.tw/us/Sapphire"
+      },
+      {
+        "currencyId": "Concentrated_Liquid_Fear",
+        "sourceCode": "JewelSpellCriticalDamage",
+        "side": "SUFFIX",
+        "families": [
+          "FormCritMultiplier"
+        ],
+        "spawn": [
+          "intjewel",
+          "default"
+        ],
+        "text": "(10—20)% increased Critical Spell Damage Bonus",
+        "sourceUrl": "https://poe2db.tw/us/Sapphire"
+      },
+      {
+        "currencyId": "Concentrated_Liquid_Suffering",
+        "sourceCode": "JewelAreaofEffect",
+        "side": "PREFIX",
+        "families": [
+          "AreaOfEffect"
+        ],
+        "spawn": [
+          "strjewel",
+          "intjewel",
+          "default"
+        ],
+        "text": "(4—6)% increased Area of Effect",
+        "sourceUrl": "https://poe2db.tw/us/Sapphire"
+      },
+      {
+        "currencyId": "Concentrated_Liquid_Isolation",
+        "sourceCode": "JewelMaximumColdResistance",
+        "side": "SUFFIX",
+        "families": [
+          "MaximumColdResist"
+        ],
+        "spawn": [
+          "intjewel",
+          "default"
+        ],
+        "text": "+1% to Maximum Cold Resistance",
+        "sourceUrl": "https://poe2db.tw/us/Sapphire"
+      },
+      {
+        "currencyId": "Potent_Liquid_Melancholy",
+        "sourceCode": "CraftedJewelExposureOnHitWhileRubyEmeraldSocketed",
+        "side": "SUFFIX",
+        "families": [
+          "JewelStatusOnHitWhileSocketed"
+        ],
+        "spawn": [
+          "default"
+        ],
+        "text": "Inflict Elemental Exposure on Hit while you have a Ruby and an Emerald socketed in your tree",
+        "sourceUrl": "https://poe2db.tw/us/Sapphire"
+      },
+      {
+        "currencyId": "Potent_Liquid_Ferocity",
+        "sourceCode": "CraftedJewelSuffixEffect",
+        "side": "PREFIX",
+        "families": [
+          "LocalPrefixSuffixEffect"
+        ],
+        "spawn": [
+          "default"
+        ],
+        "text": "(40—60)% increased Effect of Suffixes",
+        "sourceUrl": "https://poe2db.tw/us/Sapphire"
+      },
+      {
+        "currencyId": "Potent_Liquid_Ferocity",
+        "sourceCode": "CraftedJewelPrefixEffect",
+        "side": "SUFFIX",
+        "families": [
+          "LocalPrefixSuffixEffect"
+        ],
+        "spawn": [
+          "default"
+        ],
+        "text": "(40—60)% increased Effect of Prefixes",
+        "sourceUrl": "https://poe2db.tw/us/Sapphire"
+      },
+      {
+        "currencyId": "Potent_Liquid_Contempt",
+        "sourceCode": "CraftedJewelAdditionalSuffixAllowed",
+        "side": "PREFIX",
+        "families": [
+          "MaxPrefixMaxSuffix"
+        ],
+        "spawn": [
+          "default"
+        ],
+        "text": "+1 Suffix Modifier allowed",
+        "sourceUrl": "https://poe2db.tw/us/Sapphire"
+      },
+      {
+        "currencyId": "Potent_Liquid_Contempt",
+        "sourceCode": "CraftedJewelAdditionalPrefixAllowed",
+        "side": "SUFFIX",
+        "families": [
+          "MaxPrefixMaxSuffix"
+        ],
+        "spawn": [
+          "default"
+        ],
+        "text": "+1 Prefix Modifier allowed",
+        "sourceUrl": "https://poe2db.tw/us/Sapphire"
+      }
+    ],
+    "Ruby": [
+      {
+        "currencyId": "Diluted_Liquid_Ire",
+        "sourceCode": "JewelArmour",
+        "side": "PREFIX",
+        "families": [
+          "IncreasedPhysicalDamageReductionRatingPercent"
+        ],
+        "spawn": [
+          "strjewel",
+          "default"
+        ],
+        "text": "(10—20)% increased Armour",
+        "sourceUrl": "https://poe2db.tw/us/Ruby"
+      },
+      {
+        "currencyId": "Diluted_Liquid_Guilt",
+        "sourceCode": "JewelFireDamage",
+        "side": "PREFIX",
+        "families": [
+          "FireDamagePercentage"
+        ],
+        "spawn": [
+          "strjewel",
+          "default"
+        ],
+        "text": "(5—15)% increased Fire Damage",
+        "sourceUrl": "https://poe2db.tw/us/Ruby"
+      },
+      {
+        "currencyId": "Diluted_Liquid_Greed",
+        "sourceCode": "JewelPhysicalDamage",
+        "side": "PREFIX",
+        "families": [
+          "PhysicalDamagePercent"
+        ],
+        "spawn": [
+          "strjewel",
+          "default"
+        ],
+        "text": "(5—15)% increased Global Physical Damage",
+        "sourceUrl": "https://poe2db.tw/us/Ruby"
+      },
+      {
+        "currencyId": "Liquid_Paranoia",
+        "sourceCode": "JewelAttackDamage",
+        "side": "PREFIX",
+        "families": [
+          "AttackDamage"
+        ],
+        "spawn": [
+          "strjewel",
+          "dexjewel",
+          "default"
+        ],
+        "text": "(5—15)% increased Attack Damage",
+        "sourceUrl": "https://poe2db.tw/us/Ruby"
+      },
+      {
+        "currencyId": "Liquid_Envy",
+        "sourceCode": "JewelLifeCost",
+        "side": "SUFFIX",
+        "families": [
+          "LifeCost"
+        ],
+        "spawn": [
+          "strjewel",
+          "default"
+        ],
+        "text": "(4—6)% of Skill Mana Costs Converted to Life Costs",
+        "sourceUrl": "https://poe2db.tw/us/Ruby"
+      },
+      {
+        "currencyId": "Liquid_Disgust",
+        "sourceCode": "JewelLifeRegeneration",
+        "side": "SUFFIX",
+        "families": [
+          "LifeRegenerationRate"
+        ],
+        "spawn": [
+          "strjewel",
+          "default"
+        ],
+        "text": "(5—10)% increased Life Regeneration rate",
+        "sourceUrl": "https://poe2db.tw/us/Ruby"
+      },
+      {
+        "currencyId": "Liquid_Despair",
+        "sourceCode": "JewelRageonHit",
+        "side": "SUFFIX",
+        "families": [
+          "RageOnHit"
+        ],
+        "spawn": [
+          "strjewel",
+          "default"
+        ],
+        "text": "Gain 1 Rage on Melee Hit",
+        "sourceUrl": "https://poe2db.tw/us/Ruby"
+      },
+      {
+        "currencyId": "Concentrated_Liquid_Fear",
+        "sourceCode": "JewelWarcrySpeed",
+        "side": "SUFFIX",
+        "families": [
+          "WarcrySpeed"
+        ],
+        "spawn": [
+          "strjewel",
+          "default"
+        ],
+        "text": "(10—20)% increased Warcry Speed",
+        "sourceUrl": "https://poe2db.tw/us/Ruby"
+      },
+      {
+        "currencyId": "Concentrated_Liquid_Suffering",
+        "sourceCode": "JewelMaximumRage",
+        "side": "PREFIX",
+        "families": [
+          "MaximumRage"
+        ],
+        "spawn": [
+          "strjewel",
+          "default"
+        ],
+        "text": "+(1—2) to Maximum Rage",
+        "sourceUrl": "https://poe2db.tw/us/Ruby"
+      },
+      {
+        "currencyId": "Concentrated_Liquid_Isolation",
+        "sourceCode": "JewelMaximumFireResistance",
+        "side": "SUFFIX",
+        "families": [
+          "MaximumFireResist"
+        ],
+        "spawn": [
+          "strjewel",
+          "default"
+        ],
+        "text": "+1% to Maximum Fire Resistance",
+        "sourceUrl": "https://poe2db.tw/us/Ruby"
+      },
+      {
+        "currencyId": "Potent_Liquid_Melancholy",
+        "sourceCode": "CraftedJewelDebilitateOnHitWhileEmeraldSapphireSocketed",
+        "side": "SUFFIX",
+        "families": [
+          "JewelStatusOnHitWhileSocketed"
+        ],
+        "spawn": [
+          "default"
+        ],
+        "text": "Debilitate Enemies on Hit while you have an Emerald and a Sapphire socketed in your tree",
+        "sourceUrl": "https://poe2db.tw/us/Ruby"
+      },
+      {
+        "currencyId": "Potent_Liquid_Ferocity",
+        "sourceCode": "CraftedJewelSuffixEffect",
+        "side": "PREFIX",
+        "families": [
+          "LocalPrefixSuffixEffect"
+        ],
+        "spawn": [
+          "default"
+        ],
+        "text": "(40—60)% increased Effect of Suffixes",
+        "sourceUrl": "https://poe2db.tw/us/Ruby"
+      },
+      {
+        "currencyId": "Potent_Liquid_Ferocity",
+        "sourceCode": "CraftedJewelPrefixEffect",
+        "side": "SUFFIX",
+        "families": [
+          "LocalPrefixSuffixEffect"
+        ],
+        "spawn": [
+          "default"
+        ],
+        "text": "(40—60)% increased Effect of Prefixes",
+        "sourceUrl": "https://poe2db.tw/us/Ruby"
+      },
+      {
+        "currencyId": "Potent_Liquid_Contempt",
+        "sourceCode": "CraftedJewelAdditionalSuffixAllowed",
+        "side": "PREFIX",
+        "families": [
+          "MaxPrefixMaxSuffix"
+        ],
+        "spawn": [
+          "default"
+        ],
+        "text": "+1 Suffix Modifier allowed",
+        "sourceUrl": "https://poe2db.tw/us/Ruby"
+      },
+      {
+        "currencyId": "Potent_Liquid_Contempt",
+        "sourceCode": "CraftedJewelAdditionalPrefixAllowed",
+        "side": "SUFFIX",
+        "families": [
+          "MaxPrefixMaxSuffix"
+        ],
+        "spawn": [
+          "default"
+        ],
+        "text": "+1 Prefix Modifier allowed",
+        "sourceUrl": "https://poe2db.tw/us/Ruby"
+      }
+    ],
+    "Emerald": [
+      {
+        "currencyId": "Diluted_Liquid_Ire",
+        "sourceCode": "JewelEvasion",
+        "side": "PREFIX",
+        "families": [
+          "EvasionRatingPercent"
+        ],
+        "spawn": [
+          "dexjewel",
+          "default"
+        ],
+        "text": "(10—20)% increased Evasion Rating",
+        "sourceUrl": "https://poe2db.tw/us/Emerald"
+      },
+      {
+        "currencyId": "Diluted_Liquid_Guilt",
+        "sourceCode": "JewelLightningDamage",
+        "side": "PREFIX",
+        "families": [
+          "LightningDamagePercentage"
+        ],
+        "spawn": [
+          "dexjewel",
+          "default"
+        ],
+        "text": "(5—15)% increased Lightning Damage",
+        "sourceUrl": "https://poe2db.tw/us/Emerald"
+      },
+      {
+        "currencyId": "Diluted_Liquid_Greed",
+        "sourceCode": "JewelElementalDamage",
+        "side": "PREFIX",
+        "families": [
+          "ElementalDamagePercent"
+        ],
+        "spawn": [
+          "strjewel",
+          "intjewel",
+          "dexjewel",
+          "default"
+        ],
+        "text": "(5—15)% increased Elemental Damage",
+        "sourceUrl": "https://poe2db.tw/us/Emerald"
+      },
+      {
+        "currencyId": "Liquid_Paranoia",
+        "sourceCode": "JewelAttackSpeed",
+        "side": "SUFFIX",
+        "families": [
+          "IncreasedAttackSpeed"
+        ],
+        "spawn": [
+          "dexjewel",
+          "default"
+        ],
+        "text": "(2—4)% increased Attack Speed",
+        "sourceUrl": "https://poe2db.tw/us/Emerald"
+      },
+      {
+        "currencyId": "Liquid_Envy",
+        "sourceCode": "JewelCooldownSpeed",
+        "side": "SUFFIX",
+        "families": [
+          "CooldownRecovery"
+        ],
+        "spawn": [
+          "dexjewel",
+          "default"
+        ],
+        "text": "(3—5)% increased Cooldown Recovery Rate",
+        "sourceUrl": "https://poe2db.tw/us/Emerald"
+      },
+      {
+        "currencyId": "Liquid_Disgust",
+        "sourceCode": "JewelLifeonKill",
+        "side": "SUFFIX",
+        "families": [
+          "MaximumLifeOnKillPercent"
+        ],
+        "spawn": [
+          "intjewel",
+          "default"
+        ],
+        "text": "Recover (1—2)% of maximum Life on Kill",
+        "sourceUrl": "https://poe2db.tw/us/Emerald"
+      },
+      {
+        "currencyId": "Liquid_Despair",
+        "sourceCode": "JewelAttackCriticalChance",
+        "side": "SUFFIX",
+        "families": [
+          "CriticalStrikeChanceIncrease"
+        ],
+        "spawn": [
+          "dexjewel",
+          "default"
+        ],
+        "text": "(6—16)% increased Critical Hit Chance for Attacks",
+        "sourceUrl": "https://poe2db.tw/us/Emerald"
+      },
+      {
+        "currencyId": "Concentrated_Liquid_Fear",
+        "sourceCode": "JewelAttackCriticalDamage",
+        "side": "SUFFIX",
+        "families": [
+          "CriticalStrikeMultiplier"
+        ],
+        "spawn": [
+          "dexjewel",
+          "default"
+        ],
+        "text": "(10—20)% increased Critical Damage Bonus for Attack Damage",
+        "sourceUrl": "https://poe2db.tw/us/Emerald"
+      },
+      {
+        "currencyId": "Concentrated_Liquid_Suffering",
+        "sourceCode": "JewelMovementSpeed",
+        "side": "SUFFIX",
+        "families": [
+          "MovementVelocity"
+        ],
+        "spawn": [
+          "dexjewel",
+          "default"
+        ],
+        "text": "(1—2)% increased Movement Speed",
+        "sourceUrl": "https://poe2db.tw/us/Emerald"
+      },
+      {
+        "currencyId": "Concentrated_Liquid_Isolation",
+        "sourceCode": "JewelMaximumLightningResistance",
+        "side": "SUFFIX",
+        "families": [
+          "MaximumLightningResistance"
+        ],
+        "spawn": [
+          "dexjewel",
+          "default"
+        ],
+        "text": "+1% to Maximum Lightning Resistance",
+        "sourceUrl": "https://poe2db.tw/us/Emerald"
+      },
+      {
+        "currencyId": "Potent_Liquid_Melancholy",
+        "sourceCode": "CraftedJewelBlindOnHitWhileRubySapphireSocketed",
+        "side": "SUFFIX",
+        "families": [
+          "JewelStatusOnHitWhileSocketed",
+          "BlindOnHit"
+        ],
+        "spawn": [
+          "default"
+        ],
+        "text": "Blind Enemies on Hit while you have a Ruby and a Sapphire socketed in your tree",
+        "sourceUrl": "https://poe2db.tw/us/Emerald"
+      },
+      {
+        "currencyId": "Potent_Liquid_Ferocity",
+        "sourceCode": "CraftedJewelSuffixEffect",
+        "side": "PREFIX",
+        "families": [
+          "LocalPrefixSuffixEffect"
+        ],
+        "spawn": [
+          "default"
+        ],
+        "text": "(40—60)% increased Effect of Suffixes",
+        "sourceUrl": "https://poe2db.tw/us/Emerald"
+      },
+      {
+        "currencyId": "Potent_Liquid_Ferocity",
+        "sourceCode": "CraftedJewelPrefixEffect",
+        "side": "SUFFIX",
+        "families": [
+          "LocalPrefixSuffixEffect"
+        ],
+        "spawn": [
+          "default"
+        ],
+        "text": "(40—60)% increased Effect of Prefixes",
+        "sourceUrl": "https://poe2db.tw/us/Emerald"
+      },
+      {
+        "currencyId": "Potent_Liquid_Contempt",
+        "sourceCode": "CraftedJewelAdditionalSuffixAllowed",
+        "side": "PREFIX",
+        "families": [
+          "MaxPrefixMaxSuffix"
+        ],
+        "spawn": [
+          "default"
+        ],
+        "text": "+1 Suffix Modifier allowed",
+        "sourceUrl": "https://poe2db.tw/us/Emerald"
+      },
+      {
+        "currencyId": "Potent_Liquid_Contempt",
+        "sourceCode": "CraftedJewelAdditionalPrefixAllowed",
+        "side": "SUFFIX",
+        "families": [
+          "MaxPrefixMaxSuffix"
+        ],
+        "spawn": [
+          "default"
+        ],
+        "text": "+1 Prefix Modifier allowed",
+        "sourceUrl": "https://poe2db.tw/us/Emerald"
+      }
+    ],
+    "Diamond": [
+      {
+        "currencyId": "Concentrated_Liquid_Isolation",
+        "sourceCode": "CraftedJewelMaximumChaosResistance",
+        "side": "SUFFIX",
+        "families": [
+          "MaximumChaosResistance"
+        ],
+        "spawn": [
+          "default"
+        ],
+        "text": "+1% to Maximum Chaos Resistance",
+        "sourceUrl": "https://poe2db.tw/us/Diamond"
+      },
+      {
+        "currencyId": "Potent_Liquid_Ferocity",
+        "sourceCode": "CraftedJewelSuffixEffect",
+        "side": "PREFIX",
+        "families": [
+          "LocalPrefixSuffixEffect"
+        ],
+        "spawn": [
+          "default"
+        ],
+        "text": "(40—60)% increased Effect of Suffixes",
+        "sourceUrl": "https://poe2db.tw/us/Diamond"
+      },
+      {
+        "currencyId": "Potent_Liquid_Ferocity",
+        "sourceCode": "CraftedJewelPrefixEffect",
+        "side": "SUFFIX",
+        "families": [
+          "LocalPrefixSuffixEffect"
+        ],
+        "spawn": [
+          "default"
+        ],
+        "text": "(40—60)% increased Effect of Prefixes",
+        "sourceUrl": "https://poe2db.tw/us/Diamond"
+      },
+      {
+        "currencyId": "Potent_Liquid_Contempt",
+        "sourceCode": "CraftedJewelAdditionalSuffixAllowed",
+        "side": "PREFIX",
+        "families": [
+          "MaxPrefixMaxSuffix"
+        ],
+        "spawn": [
+          "default"
+        ],
+        "text": "+1 Suffix Modifier allowed",
+        "sourceUrl": "https://poe2db.tw/us/Diamond"
+      },
+      {
+        "currencyId": "Potent_Liquid_Contempt",
+        "sourceCode": "CraftedJewelAdditionalPrefixAllowed",
+        "side": "SUFFIX",
+        "families": [
+          "MaxPrefixMaxSuffix"
+        ],
+        "spawn": [
+          "default"
+        ],
+        "text": "+1 Prefix Modifier allowed",
+        "sourceUrl": "https://poe2db.tw/us/Diamond"
+      }
+    ]
+  },
+  "additionalSourcePages": [
+    {
+      "key": "Crafting",
+      "url": "https://poe2db.tw/us/Crafting",
+      "status": 200,
+      "sha256": "56120d19072ed18da76306deb04830f9745708c31fdc932e5c0d922d893e5dad"
+    },
+    {
+      "key": "RarityPopup",
+      "url": "https://poe2db.tw/us/?s=Data%5CKeywordPopups%2FItemRarity",
+      "status": 200,
+      "sha256": "c772750db0f207e414b4fc76800a7d2ef3fb846170e05894f34dc44da0181b19"
+    },
+    {
+      "key": "EquipmentPopup",
+      "url": "https://poe2db.tw/us/Equipment",
+      "status": 200,
+      "sha256": "c6de168ee2f61816890c3a88665ddf85cf4e9fe798b9e53b682dc14a7ba2ab4e"
+    },
+    {
+      "key": "PoBItem",
+      "url": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/dev/src/Classes/Item.lua",
+      "status": 200,
+      "sha256": "adbf835b11a26d282ab503e0d2d7507726a3a39a95af11613de5cf6683b33154"
+    }
+  ]
+}

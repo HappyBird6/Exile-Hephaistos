@@ -66,7 +66,7 @@ class CatalystQualityTest {
   }
 
   @Test
-  void breachCapIsUnscalableAndAboveDefaultNeedsTheActualRetainedBreach() {
+  void breachCapIsUnscalableAndPreservesReachableInheritedQuality() {
     var breach =
         new ModifierInstance(
             "amulet:prefix:essence-maximum-quality", Map.of("local_maximum_quality_+", 20L));
@@ -82,7 +82,7 @@ class CatalystQualityTest {
         .isEqualTo("UNSCALABLE");
     assertThat(
             new ItemStateValidator(catalog)
-                .validate(state(CatalystQuality.Type.FLESH, 21, List.of())))
+                .validate(state(CatalystQuality.Type.FLESH, 41, List.of())))
         .isNotEmpty();
   }
 

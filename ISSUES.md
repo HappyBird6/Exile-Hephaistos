@@ -415,7 +415,7 @@ Final combined checkpoint: six-language branch integrated once into `workbench/2
 - 권장 UX 적용: stash 위에 Select base/New craft를 노출한다. New craft는 현재 base/level의 새 Normal root를 만들어 이전 film을 보존한다. 과거 frame 제작은 기존 linear film 분리 규칙을 유지한다. 설명은 중앙 item 영역 아래, affix 카드와 분리한다. 여유 높이에만 최대24px을 추가하며 resize 시 다시 계산한다. 회색 Fractured와 숨은 의미 설명, Alt prefix/suffix 복귀를 유지한다. rollback은 해당 UI/CSS 변경으로 가능하며 저장 schema나 DB migration은 없다.
 - 검증 진행 및 실패 이력은 [구현/검증 기록](docs/workbench-catalyst-ux-2026-10-04.md)에 기록한다. 이전 checkpoint와 실패 기록은 삭제하지 않는다.
 
-## WB-045 — Sapphire 편집 경계와 cap 삭제 simulator 모델 검증 대기
+## WB-045 — Sapphire 편집 경계 대기 / cap 삭제 품질 보존 정정
 
 - 모바일 검토용 권장 결정 적용: Sapphire Magic/Rare 시작 아이템에서 옵션 없음 또는 검증된 Cast Speed suffix 하나만 입력한다. 실제 Jewel 전체 slot/pool/특수 Jewel/Unique 제작은 열지 않는다. Normal은 source rarity 목록에 없으므로 거절한다. catalog의0P/1S는 제품 편집 제한이다. 후속 증거와 사용자 결정으로 편집 범위를 확장하거나 Sapphire dispatch를 제거할 수 있다.
 - source identity가 확인된 suffix의2–4% 표시 단위만 사용한다. CDN hover403 때문에 game stat ID는 미확인이다. 내부 `display_cast_speed_percent` key를 game stat로 주장하지 않는다. generation weight는0으로 두고 실제 게임 odds를 추측하지 않는다. Sibilant/Skittering 외11종의 NO_MATCH와 빈 아이템의 NO_MATCH는 정당한 결과다.
@@ -424,3 +424,8 @@ Final combined checkpoint: six-language branch integrated once into `workbench/2
 - 기존 UI/6언어/film/exclusions 유지. CraftSupport/StateExplorer, Desecration/Vaal/Hinekora/Liquid/Catalysing/Necromancy는 추가하지 않는다. 지원144는 최소 한 검증 base에서 동작하는 수이며 모든 base×currency 지원 의미가 아니다. 최종 QA 결과는 후속 문서/evidence에서 확인한다.
 
 WB-045 최종 검증: 명시된 사용자 계속 작업 지시에 따라 bounded recovery 완료. 기존 1485 binding은 모두 그대로이며 source-backed Sapphire 1건의 identity/원문/stat 범위/6언어 coverage를 검증한다. Backend370+6, Frontend369 및 필수 검사/build, API2090, browser565, page error0 PASS. 6언어1440/390px·Rare 편집·cap film 화면 검토 완료. 실패 이력과 복구 내역은 [최종 evidence](docs/evidence/workbench-refined-catalyst-validation-2026-10-04.json)에 보존한다. 지원144는 최소 한 검증된 base에서의 positive 지원이며 모든 조합을 뜻하지 않는다. game clamp 증거와 full Jewel crafting pool은 여전히 판단/증거 gap이다. 격리 서비스 종료·heavy QA 해제·사용자18080/18081 보존; 원격 반영 없음.
+
+
+WB-045 사용자 정정(2026-10-04): maximum40→20 시 stored quality40을 보존한다. 기존 clamp 가정은 superseded. 기본 정책과 API/film 입력 검증을 reachable quality 범위로 분리했고 Catalyst 반복/전환은 max(existing,currentCap) simulator 정책으로 기존40을 보존한다. 실제 Catalyst 전환 효과는 추가 근거 대기다. [정정 명세](docs/workbench-quality-preserve-2026-10-04.md), [다음 Jewel/Liquid 계획](docs/workbench-jewel-liquid-next-2026-10-04.md)을 따른다. Essence Jewel 제외 유지; Liquid27과 첫 Currency tab 기본 제작은 다음 fresh chat에서 재개한다. 이전 모든 조합 지원을 주장하지 않는다.
+
+WB-045 cap 정정 최종 검증: Backend371+6, Frontend369/50files 및 필수 검사/build, API2108, browser594/pageerror0 PASS. cap20의40 보존·13종 Catalyst 반복/전환·잘못된 새 입력·원본29/표시41·film undo/redo/reload·6언어1440/390 검증. 실패3건과 source 동등성은 [정정 validation evidence](docs/evidence/workbench-quality-preserve-validation-2026-10-04.json)에 기록한다. local commit만 수행하고 격리 서비스 정상 종료·heavy QA 해제·사용자18080/18081 보존.

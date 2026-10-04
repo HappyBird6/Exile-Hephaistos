@@ -11,4 +11,4 @@ PoE2DB 게시 가중치를 계산 기준으로 채택한다. 데이터 누락을
 
 ## Workbench refined catalyst 범위
 
-Sapphire Magic/Rare의 제한된 기존 아이템 편집과 refined catalyst13을 지원한다. 일반 catalyst는 검증된 Ring/Amulet 범위이며 refined는 Sapphire에만 적용한다. 빈 affix와 일치하지 않는 유형의 NO_MATCH는 유효하다. 일반 Jewel crafting·특수 Jewel·CraftSupport/StateExplorer 확장은 포함하지 않는다. Solar cap40 modifier 제거 후 품질20 clamp는 game 검증 규칙이 아닌 교체 가능한 simulator 모델이다. [상세 명세와 검증](workbench-refined-catalyst-2026-10-04.md).
+Sapphire Magic/Rare의 제한된 기존 아이템 편집과 refined catalyst13을 지원한다. 일반 catalyst는 검증된 Ring/Amulet 범위이며 refined는 Sapphire에만 적용한다. 빈 affix와 일치하지 않는 유형의 NO_MATCH는 유효하다. 일반 Jewel crafting·특수 Jewel·CraftSupport/StateExplorer 확장은 현재 포함하지 않는다. 사용자 정정으로 Solar cap40 modifier 제거 후 기존 품질40을 보존하며 입력은 확인된 도달 범위로 검증한다. Catalyst 재사용·전환은 max(existing,currentCap)의 simulator 편의 정책이다. [정정 명세와 검증](workbench-quality-preserve-2026-10-04.md). Jewel 기본 제작과 Liquid는 사용자 요청에 따라 [다음 묶음](workbench-jewel-liquid-next-2026-10-04.md)에서 재개하며 Essence는 Jewel에 적용하지 않는다.

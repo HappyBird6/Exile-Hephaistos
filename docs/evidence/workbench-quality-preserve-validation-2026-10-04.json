@@ -1,0 +1,140 @@
+{
+  "status": "PASS_FINAL_ISOLATED_VALIDATION",
+  "branch": "workbench/20261002",
+  "baseline": "4e03cd75ea8a1a94866e385ef220bd5f25964b67",
+  "qaDirectory": "E:/WORK/Exile-Hephaistos/codex/quality-preserve-20261004",
+  "policy": {
+    "id": "user-confirmed-quality-cap-preserve-v2",
+    "source": "User exact instruction 2026-10-04: maximum40 to20 retains quality40",
+    "afterOperation": "Preserve amount/type/canonical surviving rolls; do not alter candidates or odds; no whole-action rejection in default policy",
+    "catalystReuse": "Central reversible simulator convenience policy max(existing,currentCap), selected type; actual game repeat/switch still unverified",
+    "inputBoundary": "Reviewed reachable Solar integer0..40; Ring/Sapphire0..20; malformed shapes/types/rolls/base/snapshot remain rejected; stateless history provenance not fabricated",
+    "legacyFilms": "Keep existing stored amounts; previously clamped20 is not guessed back to40"
+  },
+  "backend": {
+    "command": "./gradlew --no-daemon spotlessApply check generateJooq bootJar",
+    "test": {
+      "tests": 371,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "integrationTest": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "frontend": {
+    "runtime": "node:24-bookworm",
+    "npmCi": "PASS",
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "formatCheck": "PASS",
+    "unit": 369,
+    "files": 50,
+    "build": "PASS",
+    "notice": "Existing large dictionary chunk warning retained"
+  },
+  "checks": {
+    "omen-api-results": {
+      "passed": 640,
+      "errors": 0,
+      "sha256": "ba3b65a822d59a7b1f54e987a2adf3e4383695856f771ae941049be60c6f3962"
+    },
+    "catalyst-api-results": {
+      "passed": 1004,
+      "errors": 0,
+      "sha256": "34f0282ff1dde6db261a52200fd58d94c6235f4fbb55d2f9131eea48aed5c2c5"
+    },
+    "refined-api-results": {
+      "passed": 464,
+      "errors": 0,
+      "sha256": "5244400326bff21531a19ff25a8ddf7741f49f3460ed1c0eb4afafc64e44d9c3"
+    },
+    "browser-results": {
+      "passed": 125,
+      "errors": 0,
+      "sha256": "354c0c239c1f398844a26bec490bc92554aee0619e328d972f47d63062c2d041"
+    },
+    "i18n-browser-results": {
+      "passed": 224,
+      "errors": 0,
+      "sha256": "16b65383b2a301207c617f47bb38e6ae7bb4cb9d7f8818bc8b8a8798da85688d"
+    },
+    "catalyst-browser-results": {
+      "passed": 113,
+      "errors": 0,
+      "sha256": "375bd48911893832ed58524779339e51eb5513d7429b8cd7f257df3b3f640618"
+    },
+    "refined-browser-results": {
+      "passed": 132,
+      "errors": 0,
+      "sha256": "4302e8855d04441f92ff4528562480f74fac42fe43687cdae385fd1e10d17312"
+    }
+  },
+  "apiTotal": 2108,
+  "browserTotal": 594,
+  "sourceEquivalence": {
+    "backend": {
+      "files": 215,
+      "allMatch": true
+    },
+    "frontend": {
+      "files": 107,
+      "allMatch": true
+    },
+    "jarSha256": "4aec8a1a1546b6554d7dac7eb4f001fabefff7770e24492b56c900cf06b96793",
+    "checkedAndRuntimeJarSha256": "4aec8a1a1546b6554d7dac7eb4f001fabefff7770e24492b56c900cf06b96793"
+  },
+  "screenshots": {
+    "generated": "All6locales preserved-cap1440/390 and Sapphire1440/390",
+    "inspected": "English desktop and all non-English390 preserved-cap screenshots",
+    "result": "Current cap20 and stored typed quality40 are readable; no horizontal overflow; existing stash scrolling/film layout and pre-existing image fallback retained"
+  },
+  "recoveryHistory": [
+    {
+      "attempt": 1,
+      "stage": "Backend",
+      "reason": "Eight version assertions retained old clamp ruleVersion; replaced with exact new preserve suffix; first log/XML retained",
+      "evidence": "backend-first-failure.log; backend-first-test-results"
+    },
+    {
+      "attempt": 2,
+      "stage": "Catalyst API",
+      "reason": "Legacy harness expected selected cap loss to clamp20; now asserts preserved40; product source unchanged",
+      "evidence": "catalyst-api-first-failure.log; catalyst-api-failure.json"
+    },
+    {
+      "attempt": 3,
+      "stage": "New projection harness",
+      "reason": "New assertion selected first response row (Spirit implicit), corrected to Life modifier ID; API had already returned original29/display41; product source unchanged",
+      "evidence": "refined-api-first-failure.log; refined-api-first-failure.json"
+    }
+  ],
+  "recoveryAuthorization": "Explicit standing continuous-work instruction permits scoped recoverable fixes; no permission denial bypass and no count reset",
+  "scope": {
+    "supportedSelectableActions": 144,
+    "meaning": "Prior minimum-one-positive-base coverage retained; no claim all base/currency combinations work",
+    "jewelLiquid": "Source-backed next plan only; no new Liquid or normal Jewel support in this bundle",
+    "essenceJewel": "EXCLUDED"
+  },
+  "composeConfigQuiet": "PASS",
+  "ownedRuntimeStarted": true,
+  "ownedQaContainersRemaining": 0,
+  "heavyQaSlotReleased": true,
+  "userServicesPreserved": [
+    18080,
+    18081
+  ],
+  "remotePushMergeDeploy": "NOT_PERFORMED",
+  "remainingEvidenceGaps": [
+    "Catalyst repeat/switch actual-game behavior",
+    "Jewel normal rarity/side slot rules need current-game confirmation; PoB4 total is corroboration only",
+    "Per-base eligible generation weights/complete stable stat mapping",
+    "Liquid crafted uniqueness/collisions, removal exceptions, potent direction odds, dynamic slots and Time-Lost radius semantics"
+  ],
+  "projectSkills": "No .agents/skills directory exists in supplied checkout or indicated workspace root",
+  "selfReview": "Requirement/diff/evidence reviewed; no blocker for cap correction. Jewel/Liquid evidence gaps are preparation boundaries, not implemented support."
+}

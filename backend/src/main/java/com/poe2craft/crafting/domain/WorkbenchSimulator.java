@@ -119,8 +119,8 @@ public final class WorkbenchSimulator {
   public String ruleVersion() {
     return baseRuleVersion()
         + "-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1"
-        + (qualityCapChangePolicy == QualityCapChangePolicy.CLAMP_TO_CURRENT_CAP
-            ? "-quality-cap-clamp-v1"
+        + (qualityCapChangePolicy == QualityCapChangePolicy.PRESERVE_EXISTING
+            ? "-quality-cap-preserve-v2"
             : "-quality-cap-reject-v1");
   }
 
@@ -544,7 +544,9 @@ public final class WorkbenchSimulator {
     if (action.catalystType() != null) {
       var quality =
           new CatalystQuality(
-              action.catalystType(), QualityLimitRules.describe(state, catalog).maximumQuality());
+              action.catalystType(),
+              qualityCapChangePolicy.catalystAmount(
+                  state, QualityLimitRules.describe(state, catalog).maximumQuality()));
       var next =
           new ItemState(
               state.snapshotId(),
@@ -563,7 +565,7 @@ public final class WorkbenchSimulator {
           next,
           action,
           true,
-          "Simulator policy: one use sets maximum quality and replaces its type; this is not the actual one-use game effect.",
+          "Simulator policy: one use sets at least maximum quality, preserves inherited higher quality and replaces its type; this is not the actual one-use game effect.",
           List.of(),
           List.of(),
           List.of(),
@@ -792,17 +794,6 @@ public final class WorkbenchSimulator {
     }
     var beforeCapPolicy = copy(state, rarity, implicits, explicits);
     var result = qualityCapChangePolicy.afterAcceptedOperation(beforeCapPolicy, catalog);
-    if (!Objects.equals(result.catalystQuality(), beforeCapPolicy.catalystQuality()))
-      assumptions.add(
-          new Assumption(
-              QualityCapChangePolicy.VERSION,
-              "quality amount",
-              1,
-              List.of(),
-              (long) result.catalystQuality().amount(),
-              (long) beforeCapPolicy.catalystQuality().amount(),
-              "https://poe2db.tw/us/Quality",
-              "UNVERIFIED simulator policy: after the accepted operation quality is clamped to the remaining cap; type and original rolls are retained. A later cap increase does not refill quality. The source establishes the cap, not removal behavior."));
     validate(result);
     if (action.minimumModifierLevel() > 0 && !matched.isEmpty())
       assumptions.add(

@@ -1,3 +1,5 @@
+> 2026-10-04 사용자 정정: 아래 clamp/REJECT 가정은 과거 구현 기록이다. 현재 기본 정책은 기존 품질 보존이며 [정정 명세](workbench-quality-preserve-2026-10-04.md)를 따른다. Liquid/Jewel 기본 제작 범위도 [다음 계획](workbench-jewel-liquid-next-2026-10-04.md)에서 재개한다. 이전 validation JSON은 당시 실행 증거로 보존한다.
+
 # Sapphire refined catalyst와 quality cap 변경 모델
 
 기준 `1b8a8884aa1ce13e260c0b1d4422cfa6f9174349`, branch `workbench/20261002`, 단독 writer. 기존 실패·복구 이력과 제외 범위를 유지한다. 사용자의 중단 없는 후속 작업 및 가역 추천 결정 지시에 따라 구현한다. remote push/merge/deploy/release는 범위 밖이다.

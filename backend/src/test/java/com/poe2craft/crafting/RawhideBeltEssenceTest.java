@@ -210,7 +210,7 @@ class RawhideBeltEssenceTest {
     assertThat(service.initial("belt", 82).qualityLimit()).isNull();
     assertThat(service.initial("belt", 82).ruleVersion())
         .isEqualTo(
-            "belt-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-clamp-v1");
+            "belt-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2");
     assertThat(service.initial("bow", 82).modifiers()).hasSize(146);
     assertThat(service.initial("wand", 82).modifiers()).hasSize(187);
     assertThat(service.initial("stocky", 82).modifiers()).hasSize(194);

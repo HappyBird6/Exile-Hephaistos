@@ -1119,7 +1119,11 @@ export async function applyCurrency(
             (state.baseItemId === sapphireBase) ||
           !catalystBase(state.baseItemId) ||
           next.catalystQuality?.type !== catalystType ||
-          next.catalystQuality?.amount !== maximumQuality(state, definitions)
+          next.catalystQuality?.amount !==
+            Math.max(
+              state.catalystQuality?.amount ?? 0,
+              maximumQuality(state, definitions) ?? 0,
+            )
         : next.catalystQuality?.type !== state.catalystQuality?.type ||
           next.catalystQuality?.amount !== state.catalystQuality?.amount))
   )

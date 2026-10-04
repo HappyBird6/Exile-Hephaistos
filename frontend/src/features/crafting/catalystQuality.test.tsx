@@ -170,7 +170,7 @@ it('preserves typed and legacy frames without rewriting storage and sends suppor
   expect(fetch).toHaveBeenCalledOnce()
   expect(
     verifiedCatalystQuality(
-      { ...state, catalystQuality: { type: 'FLESH', amount: 21 } },
+      { ...state, catalystQuality: { type: 'FLESH', amount: 41 } },
       reviewedInitial.modifiers,
     ),
   ).toBe(false)
