@@ -1,0 +1,60 @@
+{
+  "row": {
+    "Name": "of the Champion",
+    "Level": "74",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "StunDamageIncrease"
+    ],
+    "DropChance": "1000",
+    "str": "Causes <span class='mod-value'>(71<span class=\"ndash\">—</span>80)</span>% increased <a data-keyword=\"Stun\" href=\"Stun\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2ee96f67bd8f6686e4f503e78cef409a2735ea3415a4fac84f4aea10b5189aba\">Stun</a> Buildup",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "ranged",
+      "weapon",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/71eaa37af57034d9466f920858e963a7befe9b8483f64bf627f8fdd0c3102094"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/tw/Poe_Data_Mods_hover/1d292aae36206b27d1e7d5a929fbdc203b0dd28b617f3ba96e9e214fc1ed59bc",
+  "textLocale": "tw",
+  "detailText": "增加(71—80)%暈眩累積",
+  "retrievedAt": "2026-10-05T07:07:56.140Z",
+  "sha256": "1d292aae36206b27d1e7d5a929fbdc203b0dd28b617f3ba96e9e214fc1ed59bc",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>增加<span class='mod-value'>(71<span class=\"ndash\">—</span>80)</span>%<a data-keyword=\"Stun\" href=\"Stun\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/tw/Poe_Data_KeywordPopups_hover/c2a4a86690230dbbd3dcebbcccaf475d0ed0a20961671881c365b2a045fc7824\">暈眩</a>累積</span></h5>   <span data-tabname=\"冠軍之\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>冠軍之\n<tr><th>Family<td>StunDamageIncrease\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>後綴 (2)\n<tr><th>Req. level<td>74 (Effective: 59)\n<tr><th>Gold Price<td>2336\n<tr><th>Stats<td><li>local hit damage stun multiplier +% <span class=\"badge bg-primary\">71 <span class=\"ndash\">—</span> 80</span> <span class=\"badge bg-secondary\">區域</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ranged: 0</span> <span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "fields": {
+    "Name": "冠軍之",
+    "Family": "StunDamageIncrease",
+    "Domains": "物品 (1)",
+    "GenerationType": "後綴 (2)",
+    "Req. level": "74 (Effective: 59)",
+    "Gold Price": "2336",
+    "Stats": "local hit damage stun multiplier +% 71 — 80 區域",
+    "Spawn Tags": "ranged: 0 weapon: 1 default: 0"
+  },
+  "stats": [
+    {
+      "id": "local_hit_damage_stun_multiplier_+%",
+      "min": 71,
+      "max": 80,
+      "locality": "區域"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "ranged",
+      "weight": 0
+    },
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

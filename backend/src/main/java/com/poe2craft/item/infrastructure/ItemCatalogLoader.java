@@ -48,7 +48,8 @@ public final class ItemCatalogLoader {
             && !com.poe2craft.item.ReviewedBelts.BASES.containsKey(key)
             && !com.poe2craft.item.ReviewedCrossbows.BASES.containsKey(key)
             && !com.poe2craft.item.ReviewedOffhands.BASES.containsKey(key)
-            && !com.poe2craft.item.ReviewedQuivers.BASES.containsKey(key))
+            && !com.poe2craft.item.ReviewedQuivers.BASES.containsKey(key)
+            && !com.poe2craft.item.ReviewedMaces.BASES.containsKey(key))
           throw new IllegalArgumentException("Unreviewed endgame base");
         try (var proof = ItemCatalogLoader.class.getResourceAsStream("/catalog/top-bases.json")) {
           var source = mapper().readTree(proof).get(key);
@@ -84,6 +85,8 @@ public final class ItemCatalogLoader {
                                                                           com.poe2craft.item
                                                                               .ReviewedQuivers.BASES
                                                                               .get(key)))))))))))));
+          if (com.poe2craft.item.ReviewedMaces.BASES.containsKey(key))
+            id = com.poe2craft.item.ReviewedMaces.BASES.get(key);
           name = source.get("name").asText();
           String root = "/catalog/" + source.get("pool").asText() + "/";
           try (var data = ItemCatalogLoader.class.getResourceAsStream(root + "catalog.json");
@@ -124,14 +127,16 @@ public final class ItemCatalogLoader {
             "poe2db-"
                 + key
                 + ((com.poe2craft.item.ReviewedOffhands.supports(id)
-                        || com.poe2craft.item.ReviewedQuivers.supports(id))
+                        || com.poe2craft.item.ReviewedQuivers.supports(id)
+                        || com.poe2craft.item.ReviewedMaces.supports(id))
                     ? "-20261005-"
                     : "-20261004-")
                 + sourceDigest.substring(0, 12)
                 + "-"
                 + poolDigest.substring(0, 12),
             (com.poe2craft.item.ReviewedOffhands.supports(id)
-                    || com.poe2craft.item.ReviewedQuivers.supports(id))
+                    || com.poe2craft.item.ReviewedQuivers.supports(id)
+                    || com.poe2craft.item.ReviewedMaces.supports(id))
                 ? old.retrievedAt()
                 : "2026-10-04",
             old.sourceUrl(),

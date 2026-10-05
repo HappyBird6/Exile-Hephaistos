@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/sp/Ruination_Maul",
+  "retrievedAt": "2026-10-05T07:02:59.574Z",
+  "sha256": "89b3c0147f79c93b5deadbdc5088b73b55cb6cd0ca640727a3c64ec9e16c0358",
+  "variants": [
+    {
+      "name": "Mazo de ruina",
+      "card": "Mazo de ruina\n        \n    \n    \n        \n            Mazas a dos manosDaño físico: 104-127Probabilidad de impacto crítico: 8%Ataques por segundo: 1.1Alcance de arma: 1.5Requiere:  Nivel 79, 163 FueLos enemigos explotan al morir cuando los matas con un impacto crítico e infligen el 10% de su vida como daño físico\n        \n\n\n\n        \n            Ruination Maul",
+      "requirements": "Requiere:  Nivel 79, 163 Fue",
+      "properties": [
+        "Mazas a dos manos",
+        "Daño físico: 104-127",
+        "Probabilidad de impacto crítico: 8%",
+        "Ataques por segundo: 1.1",
+        "Alcance de arma: 1.5"
+      ],
+      "fields": {
+        "DropLevel": "79",
+        "BaseType": "Mazo de ruina",
+        "Class": "Mazas a dos manos",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace8Endgame",
+        "Tags": "mace, two_hand_weapon, twohand, weapon",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/TwoHandMaces/Basetypes/2HMace08",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, twohand, mace, two_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ]
+}

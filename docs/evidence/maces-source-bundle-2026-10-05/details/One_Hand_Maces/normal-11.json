@@ -1,0 +1,101 @@
+{
+  "row": {
+    "Name": "of the Skilled",
+    "Level": "52",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LocalAttributeRequirements"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>30</span>% reduced <a data-keyword=\"Attributes\" href=\"Attributes\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a6f6a0f82c449e0ba1131901454bb89e680e14457cbae3c6c0b24b126a93f8dc\">Attribute</a> Requirements",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "wand",
+      "staff",
+      "sceptre",
+      "body_armour",
+      "helmet",
+      "shield",
+      "focus",
+      "gloves",
+      "boots",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a3847cf6d70d11786eabfe1d31bd3684103650e5ae1a00771ea2982822651034"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedLocalAttributeRequirements4",
+  "textLocale": "us",
+  "detailText": "30% reduced Attribute Requirements",
+  "retrievedAt": "2026-10-05T07:01:34.402Z",
+  "sha256": "f6e3447f8f8dd9553fcc2a9a6d3b21ad84dcbac09c450e5f6e69febeb911402b",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>30</span>% reduced <a data-keyword=\"Attributes\" href=\"Attributes\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a6f6a0f82c449e0ba1131901454bb89e680e14457cbae3c6c0b24b126a93f8dc\">Attribute</a> Requirements</span></h5>   <span data-tabname=\"of the Skilled\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Skilled\n<tr><th>Family<td>LocalAttributeRequirements\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>52 (Effective: 41)\n<tr><th>Gold Price<td>1550\n<tr><th>Stats<td><li>local attribute requirements +% <span class=\"badge bg-primary\">-30 <span class=\"ndash\">—</span> -30</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>sceptre: 1</span> <span class='badge bg-primary'>body_armour: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>shield: 1</span> <span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>+(21<span class=\"ndash\">—</span>25)</span> to all [Attributes|Attributes]</table>  </div></div>",
+  "fields": {
+    "Name": "of the Skilled",
+    "Family": "LocalAttributeRequirements",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "52 (Effective: 41)",
+    "Gold Price": "1550",
+    "Stats": "local attribute requirements +% -30 — -30 Local",
+    "Spawn Tags": "weapon: 1 wand: 1 staff: 1 sceptre: 1 body_armour: 1 helmet: 1 shield: 1 focus: 1 gloves: 1 boots: 1 default: 0"
+  },
+  "code": "ReducedLocalAttributeRequirements4",
+  "stats": [
+    {
+      "id": "local_attribute_requirements_+%",
+      "min": -30,
+      "max": -30,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "sceptre",
+      "weight": 1
+    },
+    {
+      "tag": "body_armour",
+      "weight": 1
+    },
+    {
+      "tag": "helmet",
+      "weight": 1
+    },
+    {
+      "tag": "shield",
+      "weight": 1
+    },
+    {
+      "tag": "focus",
+      "weight": 1
+    },
+    {
+      "tag": "gloves",
+      "weight": 1
+    },
+    {
+      "tag": "boots",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -31,12 +31,24 @@ describe('remaining display coverage', () => {
     )
     // Preserve all historical bindings and cover 50 new Crossbow compounds.
     expect(
-      compound.filter(([id]) => !/^(crossbow|.+-crossbow|offhand):/.test(id)),
+      compound.filter(
+        ([id]) =>
+          !/^(crossbow|.+-crossbow|offhand|one-hand-maces|two-hand-maces|fortified-hammer|strife-pick|akoyan-club|ruination-maul|fanatic-greathammer|tawhoan-greatclub):/.test(
+            id,
+          ),
+      ),
     ).toHaveLength(382)
     expect(
       compound.filter(([id]) => /^(crossbow|.+-crossbow):/.test(id)),
     ).toHaveLength(50)
     expect(compound.filter(([id]) => id.startsWith('offhand:'))).toHaveLength(4)
+    expect(
+      compound.filter(([id]) =>
+        /^(one-hand-maces|two-hand-maces|fortified-hammer|strife-pick|akoyan-club|ruination-maul|fanatic-greathammer|tawhoan-greatclub):/.test(
+          id,
+        ),
+      ),
+    ).toHaveLength(0)
     expect(compound).toHaveLength(436)
     expect(compound.filter(([id]) => id.startsWith('kinetic:'))).toEqual([
       [
@@ -104,7 +116,10 @@ describe('remaining display coverage', () => {
     // Preserve all historical bindings and cover 18 new numeric Crossbow bindings.
     expect(
       single.filter(
-        ([id]) => !/^(crossbow|.+-crossbow|offhand|quiver|.+-quiver):/.test(id),
+        ([id]) =>
+          !/^(crossbow|.+-crossbow|offhand|quiver|.+-quiver|one-hand-maces|two-hand-maces|fortified-hammer|strife-pick|akoyan-club|ruination-maul|fanatic-greathammer|tawhoan-greatclub):/.test(
+            id,
+          ),
       ),
     ).toHaveLength(234)
     expect(
@@ -114,7 +129,14 @@ describe('remaining display coverage', () => {
     expect(
       single.filter(([id]) => /^(quiver|.+-quiver):/.test(id)),
     ).toHaveLength(38)
-    expect(single).toHaveLength(317)
+    expect(
+      single.filter(([id]) =>
+        /^(one-hand-maces|two-hand-maces|fortified-hammer|strife-pick|akoyan-club|ruination-maul|fanatic-greathammer|tawhoan-greatclub):/.test(
+          id,
+        ),
+      ),
+    ).toHaveLength(24)
+    expect(single).toHaveLength(341)
     expect(
       single
         .filter(([id]) =>

@@ -1,0 +1,114 @@
+{
+  "row": {
+    "Name": "Freezing",
+    "Level": "46",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "ColdDamage"
+    ],
+    "DropChance": "800",
+    "str": "Adds <span class='mod-value'>(17<span class=\"ndash\">—</span>20)</span> to <span class='mod-value'>(26<span class=\"ndash\">—</span>32)</span> <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage",
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "cold",
+      "attack"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "bow",
+      "two_hand_weapon",
+      "sword",
+      "axe",
+      "mace",
+      "spear",
+      "claw",
+      "dagger",
+      "flail",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/1d63381a888652566dfdf320bc1d9044733f4b718bff5e1bda4f4ffe3827d83d"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalAddedColdDamage5",
+  "textLocale": "us",
+  "detailText": "Adds (17—20) to (26—32) Cold Damage",
+  "retrievedAt": "2026-10-05T07:02:14.214Z",
+  "sha256": "1d63381a888652566dfdf320bc1d9044733f4b718bff5e1bda4f4ffe3827d83d",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Adds <span class='mod-value'>(17<span class=\"ndash\">—</span>20)</span> to <span class='mod-value'>(26<span class=\"ndash\">—</span>32)</span> <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage</span></h5>   <span data-tabname=\"Freezing\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Freezing\n<tr><th>Family<td>ColdDamage\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>46 (Effective: 36)\n<tr><th>Gold Price<td>417\n<tr><th>Stats<td><li>local maximum added cold damage <span class=\"badge bg-primary\">26 <span class=\"ndash\">—</span> 32</span> <span class=\"badge bg-secondary\">Local</span></li><li>local minimum added cold damage <span class=\"badge bg-primary\">17 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>bow: 1</span> <span class='badge bg-primary'>two_hand_weapon: 0</span> <span class='badge bg-primary'>sword: 1</span> <span class='badge bg-primary'>axe: 1</span> <span class='badge bg-primary'>mace: 1</span> <span class='badge bg-primary'>spear: 1</span> <span class='badge bg-primary'>claw: 1</span> <span class='badge bg-primary'>dagger: 1</span> <span class='badge bg-primary'>flail: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Cold</span> <span class='badge bg-primary'>Attack</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Freezing",
+    "Family": "ColdDamage",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "46 (Effective: 36)",
+    "Gold Price": "417",
+    "Stats": "local maximum added cold damage 26 — 32 Locallocal minimum added cold damage 17 — 20 Local",
+    "Spawn Tags": "bow: 1 two_hand_weapon: 0 sword: 1 axe: 1 mace: 1 spear: 1 claw: 1 dagger: 1 flail: 1 default: 0",
+    "Craft Tags": "elemental_damage Damage Elemental Cold Attack"
+  },
+  "code": "LocalAddedColdDamage5",
+  "stats": [
+    {
+      "id": "local_maximum_added_cold_damage",
+      "min": 26,
+      "max": 32,
+      "locality": "Local"
+    },
+    {
+      "id": "local_minimum_added_cold_damage",
+      "min": 17,
+      "max": 20,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "bow",
+      "weight": 1
+    },
+    {
+      "tag": "two_hand_weapon",
+      "weight": 0
+    },
+    {
+      "tag": "sword",
+      "weight": 1
+    },
+    {
+      "tag": "axe",
+      "weight": 1
+    },
+    {
+      "tag": "mace",
+      "weight": 1
+    },
+    {
+      "tag": "spear",
+      "weight": 1
+    },
+    {
+      "tag": "claw",
+      "weight": 1
+    },
+    {
+      "tag": "dagger",
+      "weight": 1
+    },
+    {
+      "tag": "flail",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

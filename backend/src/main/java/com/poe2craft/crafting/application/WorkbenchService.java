@@ -358,7 +358,8 @@ public final class WorkbenchService {
                                     || ReviewedBelts.supports(catalog.base().id())
                                     || ReviewedCrossbows.supports(catalog.base().id())
                                     || ReviewedOffhands.supports(catalog.base().id())
-                                    || ReviewedQuivers.supports(catalog.base().id()))
+                                    || ReviewedQuivers.supports(catalog.base().id())
+                                    || ReviewedMaces.supports(catalog.base().id()))
                                 && catalog.base().hasImplicit()
                             ? List.of(
                                 new ModifierInstance(
@@ -471,36 +472,37 @@ public final class WorkbenchService {
       ItemCatalog catalog,
       Map<WorkbenchCurrency, List<String>> fixed,
       Map<WorkbenchCurrency, List<String>> replacements) {
-    if (!catalog
-            .base()
-            .id()
-            .equals(
-                ReviewedGloves.BASES.getOrDefault(
-                    key,
-                    ReviewedHelmets.BASES.getOrDefault(
+    if ((!ReviewedMaces.BASES.getOrDefault(key, "").equals(catalog.base().id())
+            && !catalog
+                .base()
+                .id()
+                .equals(
+                    ReviewedGloves.BASES.getOrDefault(
                         key,
-                        ReviewedBodies.BASES.getOrDefault(
+                        ReviewedHelmets.BASES.getOrDefault(
                             key,
-                            ReviewedBoots.BASES.getOrDefault(
+                            ReviewedBodies.BASES.getOrDefault(
                                 key,
-                                ReviewedBows.BASES.getOrDefault(
+                                ReviewedBoots.BASES.getOrDefault(
                                     key,
-                                    ReviewedRings.BASES.getOrDefault(
+                                    ReviewedBows.BASES.getOrDefault(
                                         key,
-                                        ReviewedAmulets.BASES.getOrDefault(
+                                        ReviewedRings.BASES.getOrDefault(
                                             key,
-                                            ReviewedSceptres.BASES.getOrDefault(
+                                            ReviewedAmulets.BASES.getOrDefault(
                                                 key,
-                                                ReviewedWands.BASES.getOrDefault(
+                                                ReviewedSceptres.BASES.getOrDefault(
                                                     key,
-                                                    ReviewedBelts.BASES.getOrDefault(
+                                                    ReviewedWands.BASES.getOrDefault(
                                                         key,
-                                                        ReviewedCrossbows.BASES.getOrDefault(
+                                                        ReviewedBelts.BASES.getOrDefault(
                                                             key,
-                                                            ReviewedOffhands.BASES.getOrDefault(
+                                                            ReviewedCrossbows.BASES.getOrDefault(
                                                                 key,
-                                                                ReviewedQuivers.BASES.get(
-                                                                    key))))))))))))))
+                                                                ReviewedOffhands.BASES.getOrDefault(
+                                                                    key,
+                                                                    ReviewedQuivers.BASES.get(
+                                                                        key)))))))))))))))
         || topBases.containsKey(key))
       throw new IllegalArgumentException("Unreviewed or duplicate armour registration");
     var simulator =

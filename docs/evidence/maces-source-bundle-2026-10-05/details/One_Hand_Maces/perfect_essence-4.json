@@ -1,0 +1,60 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "72",
+    "DropChance": 0,
+    "ModGenerationTypeID": "2",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "fossil_no": [
+      "attack"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/51cb77059044f332703fc01057fe4bb9931f7e28715d18b9ffbcf9dd0dc077b6\" href=\"Perfect_Essence_of_Battle\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/AttackEssencePerfect.webp\" alt=\"AttackEssencePerfect\" height=\"16\" />Perfect Essence of Battle</a>",
+    "Code": "EssenceAttackSkillLevel1H1",
+    "ModFamilyList": [
+      "IncreaseSocketedGemLevel"
+    ],
+    "str": "<span class='mod-value'>+2</span> to Level of all <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attack</a> Skills",
+    "adds_no": [],
+    "spawn_no": [
+      "default"
+    ],
+    "reqlvl": 57,
+    "IsPerfect": "1",
+    "IsAlloy": false,
+    "Removes": true
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAttackSkillLevel1H1",
+  "textLocale": "us",
+  "detailText": "+2 to Level of all Attack Skills",
+  "retrievedAt": "2026-10-05T07:09:49.630Z",
+  "sha256": "483afdaa8e5f8673f1894af7b9c23f5bc68b494fac22b362639b0c2b6baa22f8",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+2</span> to Level of all <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attack</a> Skills</span></h5>   <span data-tabname=\"of the Essence\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Essence\n<tr><th>Family<td>IncreaseSocketedGemLevel\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>attack skill gem level + <span class=\"badge bg-primary\">2 <span class=\"ndash\">—</span> 2</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attack</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of the Essence",
+    "Family": "IncreaseSocketedGemLevel",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "72 (Effective: 57)",
+    "Gold Price": "3266",
+    "Stats": "attack skill gem level + 2 — 2 Global",
+    "Spawn Tags": "default: 0",
+    "Craft Tags": "Attack"
+  },
+  "code": "EssenceAttackSkillLevel1H1",
+  "stats": [
+    {
+      "id": "attack_skill_gem_level_+",
+      "min": 2,
+      "max": 2,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

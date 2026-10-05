@@ -1,0 +1,44 @@
+{
+  "baseHead": "3c40950098146be6b2b80fda3ec54c380f833927",
+  "failureHistory": [
+    {
+      "phase": "initial public source fetch",
+      "result": "sandbox EACCES; no source file saved",
+      "resolution": "Authorized public read completed through normal require_escalated review"
+    },
+    {
+      "phase": "Two Hand normal29 detail collection",
+      "result": "Existing Spanish fallback proof was compared with English text; exact assertion failed before saving",
+      "resolution": "Carry verified textLocale with prior fallback URL and verify localized level, families and exact text; resume only missing evidence"
+    },
+    {
+      "phase": "implicit parser preparation",
+      "result": "Source Unscalable Value suffix after locality was absent from previous parser shape",
+      "resolution": "Capture canonical stats through locality without requiring an immediate closing li; retain source warning in raw proof and audit; assert every implicit has stats"
+    },
+    {
+      "phase": "import report counter review",
+      "result": "First verification.json reused counter inherited a Crossbow prefix filter; catalog data were correct",
+      "resolution": "Preserve first import evidence; corrected script uses current class prefix. Source audit and historical preservation prove exact definitions, families, stats, tags and weights independently"
+    },
+    {
+      "phase": "first Frontend check",
+      "result": "Lint passed; TypeScript rejected Mace keys missing from existing setBase and page selector union copies",
+      "resolution": "Add the exact six keys at every existing union boundary; preserve frontend-check-4.log and rerun all required Frontend checks to frontend-check-2.log"
+    }
+  ],
+  "reviewCorrections": [
+    {
+      "phase": "formatter synchronization proof",
+      "result": "Whitespace-only comparison treated Prettier parentheses/trailing commas as a difference; first AST proof also included SourceFile.text containing all source bytes",
+      "resolution": "Compare emitted TypeScript semantic trees with parenthesized expression wrappers removed and full-file text excluded as source metadata; string/numeric literals, identifiers and all children remain exact. Semantic proof passed and all723 tested source inputs matched byte-for-byte"
+    },
+    {
+      "phase": "first direct screenshot review",
+      "result": "878 browser checks passed, but Mace base weapon properties missed existing explicit not-computed display wrapper",
+      "resolution": "Add both Mace families to that exact wrapper, preserve browser-attempt-1 and passed build, rerun full Frontend checks/build and browser in new evidence path with180 exact localized not-computed label assertions"
+    }
+  ],
+  "scope": "Six ordinary representative endgame Maces; class12 and17 complete pools; no combat simulation or excluded/deferred expansion",
+  "gitBoundary": "Local branch commit only; no push, merge or deploy"
+}

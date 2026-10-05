@@ -1,0 +1,901 @@
+{
+  "directory": "E:/WORK/Exile-Hephaistos/codex/maces-qa-20261005/browser-attempt-2",
+  "files": [
+    {
+      "file": "akoyan-club-en-1440.png",
+      "sha256": "6cd773f2bf6737376162f24c006b11228569c7b6baf85c33505e8c40a29642dc"
+    },
+    {
+      "file": "akoyan-club-en-390.png",
+      "sha256": "db6c9f2c54fbb379380fb35947d06c8d14dff5ff925ef95ffd24d262c61af931"
+    },
+    {
+      "file": "akoyan-club-es-1440.png",
+      "sha256": "946d486992264e995ad0e54c192c7b2a3b2acfc105f9c7a51926daa2aec47e14"
+    },
+    {
+      "file": "akoyan-club-es-390.png",
+      "sha256": "f6bb29f39b95c363373a5e7f174e235cc07655464dd2f4eac57e4bd57a250a55"
+    },
+    {
+      "file": "akoyan-club-ja-1440.png",
+      "sha256": "45e7ad8217930bd9b4f699f05bd4178f46086425ff82a93caf9d444556ef5167"
+    },
+    {
+      "file": "akoyan-club-ja-390.png",
+      "sha256": "d847fa3cc2084c422321312adc59bc52292242fc0ae8a13b610f329aa916ce3b"
+    },
+    {
+      "file": "akoyan-club-ko-1440.png",
+      "sha256": "53be2d1d91285e05f834e15fcc62a37a3c2691574facee411d5bee916383df9f"
+    },
+    {
+      "file": "akoyan-club-ko-390.png",
+      "sha256": "6c011dc3e35ced7a760c8799d2b5052489e3eb88454366ddbe4c641e8132ca56"
+    },
+    {
+      "file": "akoyan-club-zh-CN-1440.png",
+      "sha256": "b41b789433aec258bef929d884d120c37ee081a378a8baad0064d0fd364e2397"
+    },
+    {
+      "file": "akoyan-club-zh-CN-390.png",
+      "sha256": "d806975cf491e53faa520f800d8c6430bca69c39c5fd760c09391468cfea5f37"
+    },
+    {
+      "file": "akoyan-club-zh-TW-1440.png",
+      "sha256": "5a680a4b74b7622e07ca4e51e10fe656655bfeeb422245456091abf1fa9fd67f"
+    },
+    {
+      "file": "akoyan-club-zh-TW-390.png",
+      "sha256": "1659de294b2f41bdbfe6a2f863859c195044c2db56437754ea67e93749c1b45f"
+    },
+    {
+      "file": "contact-cards-0.png",
+      "sha256": "e2c659b96815d3c1e1a85b32e6a987abd46ad42baf99e2791515556d6aacc871"
+    },
+    {
+      "file": "contact-cards-12.png",
+      "sha256": "71b79367cd368aebe4b2b60afbe7b8510ee406fafbdd9e204df1dc9e0b39236d"
+    },
+    {
+      "file": "contact-cards-18.png",
+      "sha256": "ac872ec4f446fc85d8a470c3b8e7796ea39f7b1941b4ccaa0e6ce46a499f96a5"
+    },
+    {
+      "file": "contact-cards-24.png",
+      "sha256": "ef4f8332c6762d41898d87cc71c11b87fe0a2dbf4ef264749a7cf2f619503f6b"
+    },
+    {
+      "file": "contact-cards-30.png",
+      "sha256": "fa3787d05a6d69ed284320f79a5a2f1cf2e268c9bd31f98fa4b3aa46591d88a0"
+    },
+    {
+      "file": "contact-cards-36.png",
+      "sha256": "cde8d128ae4e35268c4635a1cac5233fb6e84fbf3e6d54dd405821a04d202f56"
+    },
+    {
+      "file": "contact-cards-42.png",
+      "sha256": "526659a118d149c28a174c336aa69fb64d062b729dfcb108604849ab8b3ee239"
+    },
+    {
+      "file": "contact-cards-48.png",
+      "sha256": "614053cce3fda4bcd9da4cbf9170488b38f7099648623da8082bfd4a5ed766df"
+    },
+    {
+      "file": "contact-cards-54.png",
+      "sha256": "5e38398c6348e3e95ad03e5c603c4be1abdd8442329bb93cb1d93e459193a6bb"
+    },
+    {
+      "file": "contact-cards-6.png",
+      "sha256": "92eab55c4c42a932134551af3f4704ece84583108d5a173cd5fcc716431397c2"
+    },
+    {
+      "file": "contact-cards-60.png",
+      "sha256": "c2a6643c0e11f78441a7f260dcaea4c335eb97f0b3d284daedf4fa4eca70b89a"
+    },
+    {
+      "file": "contact-cards-66.png",
+      "sha256": "487b693c395b509b9cca0b9947db79f665014a36d8d33b0a4dbbabfa944ad747"
+    },
+    {
+      "file": "contact-cards-72.png",
+      "sha256": "5ab68c38c1fb5422060797d9f13a6792eb8b6e352a149d9b980e801ad13effa8"
+    },
+    {
+      "file": "contact-cards-78.png",
+      "sha256": "d12b0b9d02db269b65041495d947d71b0c82a79aec43e8acc61ed417761ad57f"
+    },
+    {
+      "file": "contact-cards-84.png",
+      "sha256": "7d67e19f4465d3e3257a044e811ff1c5ad5dbdd15092229bb77edcc18f0e69d9"
+    },
+    {
+      "file": "contact-full-0.png",
+      "sha256": "07a1703f622bf0e4734927ceaa706b58fab1895a21b1ad0b537f4958e46d479b"
+    },
+    {
+      "file": "contact-full-12.png",
+      "sha256": "e69b5d79a61113b013574c2759d3fdb819a5bfa304df3171fd2acd00253e1601"
+    },
+    {
+      "file": "contact-full-18.png",
+      "sha256": "ced72f5db03182c3b88a18a2e164053167d065f47ac9d0bb789f54748c63caa2"
+    },
+    {
+      "file": "contact-full-24.png",
+      "sha256": "9ca9fd94d71b7fa8759cf823bbffbfde12aa73f3b6e7a326d3d31f24deaa3602"
+    },
+    {
+      "file": "contact-full-30.png",
+      "sha256": "331940752b3cd77af452427d96b6446a612cc8ad99c07468d912f7e0a70753f8"
+    },
+    {
+      "file": "contact-full-36.png",
+      "sha256": "9a4ca23f53b9d0bbd87d85adddbaf8912e19faddadffc4f69fe75aae1cddb12c"
+    },
+    {
+      "file": "contact-full-42.png",
+      "sha256": "d191234d9227706ad8b2679da6daeda531a341f4e831a37154f9447c2eed6d63"
+    },
+    {
+      "file": "contact-full-48.png",
+      "sha256": "cd83111d7acc5696523f2409528aa885b615cde50fc924d3a9cc0ae54a5886cf"
+    },
+    {
+      "file": "contact-full-54.png",
+      "sha256": "c07f35a812b1b12aa26ef98be3ece5b0c201aeecf571db7f65445205779db03a"
+    },
+    {
+      "file": "contact-full-6.png",
+      "sha256": "7ad1dfb66d52375f72a07d5b73eaf70f1f9b9e38b677ca9960451191d403c4b4"
+    },
+    {
+      "file": "contact-full-60.png",
+      "sha256": "446dc5cd0f9aca21ae47ac3256a50e2c97b9760286f415edbeec0f30fc0ee382"
+    },
+    {
+      "file": "contact-full-66.png",
+      "sha256": "c53a2a8ce97453c4da6a04b38476359c75e3d47fcc6ac4f15d85e968f4cee289"
+    },
+    {
+      "file": "contact-full-72.png",
+      "sha256": "6e5ad439ea173fec50a48e32a94c7c7482fc4f88f7847c5d94192c9c3cab92dc"
+    },
+    {
+      "file": "contact-full-78.png",
+      "sha256": "8fe0cb1dfdf95f3210ee40383781c6592406c8c5fb0f4747da19ce975021a42b"
+    },
+    {
+      "file": "contact-full-84.png",
+      "sha256": "6ebc6eeac3574abbeae2dbfe8f30bcefbcdbca63d730c99403b43ef763205633"
+    },
+    {
+      "file": "contact-full-90.png",
+      "sha256": "c1f4503d2f2dba6e265020e250a9f16a6d0e94c64b961a4d63aa277c7573c33c"
+    },
+    {
+      "file": "contact-full-96.png",
+      "sha256": "baaa1dced638c7f94aa0640be61fee843491dc38a300319b98a0e218d9be25d7"
+    },
+    {
+      "file": "fanatic-greathammer-en-1440.png",
+      "sha256": "ff5655156670eca19f8db39406ba092976a26f2fed5d40000d9081b55a667b38"
+    },
+    {
+      "file": "fanatic-greathammer-en-390.png",
+      "sha256": "f63f0009b454be42c1e09ee7f305c465e3d5f43f70bf41fccddd4e43a5765ae1"
+    },
+    {
+      "file": "fanatic-greathammer-es-1440.png",
+      "sha256": "f7e6421523438397d2d9b44245fbce5bf2bba816a245b95add3d324dfa39d2de"
+    },
+    {
+      "file": "fanatic-greathammer-es-390.png",
+      "sha256": "799f64e1563bec4af27edcf8b65ab161297388424b251e0500bf82c89c61652d"
+    },
+    {
+      "file": "fanatic-greathammer-ja-1440.png",
+      "sha256": "6fdc383adc2dc6443178bf9e34db761e0b5495ce76ae4353d41c01d49b5efa66"
+    },
+    {
+      "file": "fanatic-greathammer-ja-390.png",
+      "sha256": "da6bd52754753925c6cfba69e71183c17fcef70c79155fab5fbdf0fde70af01f"
+    },
+    {
+      "file": "fanatic-greathammer-ko-1440.png",
+      "sha256": "72864c75a5a9222c77b85f5df4cc2c0b84b1e24da9b459f6437c6933a0b4be8e"
+    },
+    {
+      "file": "fanatic-greathammer-ko-390.png",
+      "sha256": "6a1ed7a668c72bc49930fd9d1fc563186eb2d4bc80b51cb33efa06d3eabad17b"
+    },
+    {
+      "file": "fanatic-greathammer-zh-CN-1440.png",
+      "sha256": "dee3512fc1a02e3c15828042045608bb06e5e0edf1fb8a999aa9052af7246412"
+    },
+    {
+      "file": "fanatic-greathammer-zh-CN-390.png",
+      "sha256": "481b6aed170973f0732d94737f29dcbe226156e7c2b950875a023e8f7cc89dcf"
+    },
+    {
+      "file": "fanatic-greathammer-zh-TW-1440.png",
+      "sha256": "5972561616b7fc7fa91f30d02394d2b3f70948e8f2b53f1567f238cbdf559266"
+    },
+    {
+      "file": "fanatic-greathammer-zh-TW-390.png",
+      "sha256": "3451706582d7ca740522313d8c9803f003aafdd8f30e8719eda2f1d0e78fabd4"
+    },
+    {
+      "file": "fortified-hammer-en-1440.png",
+      "sha256": "884d3881c2e00bfef4f65787a3c28e0432349ab947e084ee441126280b202e87"
+    },
+    {
+      "file": "fortified-hammer-en-390.png",
+      "sha256": "329c7a80bc7e724a7b5b5ecce3f9e93fbfd181fd27bf27a8562373266f3df4e7"
+    },
+    {
+      "file": "fortified-hammer-es-1440.png",
+      "sha256": "07670abba24e830a6754029f7cf15c02e1b81c060efaeb6258b4a880e570bb1e"
+    },
+    {
+      "file": "fortified-hammer-es-390.png",
+      "sha256": "bdbf28392db10404dad72f03b9c1eba916f666e4139f153385627bc9732a547d"
+    },
+    {
+      "file": "fortified-hammer-ja-1440.png",
+      "sha256": "616801046369850ac0881c453ef5274b1cb4ddd52519fafd089d910c11671f3d"
+    },
+    {
+      "file": "fortified-hammer-ja-390.png",
+      "sha256": "cf97c18d1b2e9537617574bf8dd5687a6ef67cad625594878e01d22397f089cd"
+    },
+    {
+      "file": "fortified-hammer-ko-1440.png",
+      "sha256": "582f5894b054c802a9f92365328be0c2cbe0d48b8ea575f1dd94809e5d913e52"
+    },
+    {
+      "file": "fortified-hammer-ko-390.png",
+      "sha256": "f00a654f7b84241ab734e23d21b24ca1eee592454a268bf2af2d0b904e6ac5b5"
+    },
+    {
+      "file": "fortified-hammer-zh-CN-1440.png",
+      "sha256": "fb4ffb259429d91e6394108f7e2a07c9d8396a6a732b25c5425d3641f3845886"
+    },
+    {
+      "file": "fortified-hammer-zh-CN-390.png",
+      "sha256": "ba211ab8a3d2e0b86c7f961487049280a185f474b99428a8c426c6af2a116415"
+    },
+    {
+      "file": "fortified-hammer-zh-TW-1440.png",
+      "sha256": "11c19452f6cab706ab24c7d07a080976ede4232ff229eeb5e090adfe878ef6c3"
+    },
+    {
+      "file": "fortified-hammer-zh-TW-390.png",
+      "sha256": "651bcf7e37e114a566541826e3254e7782256ce3c35ff8afb36177e5aca566c9"
+    },
+    {
+      "file": "legacy-hallowed-en.png",
+      "sha256": "0676192ff02d5f52f2b276b470823768c1d58cfa6663667995d2dd74ed801458"
+    },
+    {
+      "file": "legacy-hallowed-es.png",
+      "sha256": "4ac4030b0123a548df3320f24070cd1b341da6870e013f53e90c189a65f4e169"
+    },
+    {
+      "file": "legacy-hallowed-ja.png",
+      "sha256": "8baf7a05b7e691686916c9b17d6ebe164511131f6f5c8fe2f21740eed8007bc0"
+    },
+    {
+      "file": "legacy-hallowed-ko.png",
+      "sha256": "47a2f3020f57cb0eb72344a0ab2606efcb23b5959f8e2c89c2ceb0e958861ee9"
+    },
+    {
+      "file": "legacy-hallowed-zh-CN.png",
+      "sha256": "86753e6c45da0cd113cec9fa3276c5a23c3d1e5d91f79c793fb3faa894bf1ad6"
+    },
+    {
+      "file": "legacy-hallowed-zh-TW.png",
+      "sha256": "d51bb981c8b58e9d13e335a1c524d283766d9b6575a62639e57db693db2041f4"
+    },
+    {
+      "file": "legacy-sceptre-en.png",
+      "sha256": "a2e26bbdf1c0131f64aab47a98aaf8be04475e44984bb2aeeff1d5f87ec81f67"
+    },
+    {
+      "file": "legacy-sceptre-es.png",
+      "sha256": "d04db04d69998555634c045cffb2fa1a62afba9a80841d1f5fb8a3ec349d65b8"
+    },
+    {
+      "file": "legacy-sceptre-ja.png",
+      "sha256": "a0091926c4f237b5189db8505c2d400c825f6192d9afc8af6e30311d44a1268f"
+    },
+    {
+      "file": "legacy-sceptre-ko.png",
+      "sha256": "96ff86b3a6b31611ed5316135ab8e30c248f87e2527e5e588648f7f27246bfb9"
+    },
+    {
+      "file": "legacy-sceptre-zh-CN.png",
+      "sha256": "998a366576d1e2d0a3f1077f1adec3c315188314f0b2c3e5be09771c1aabd9c8"
+    },
+    {
+      "file": "legacy-sceptre-zh-TW.png",
+      "sha256": "47493a7a70e1b74a23ddd8b5995e54e890ec54ddc1ab6819aa251555b38dff16"
+    },
+    {
+      "file": "legacy-wand-en.png",
+      "sha256": "179882629550479e602f55335179daf8dc9518013672c686109eefba71ac6b3c"
+    },
+    {
+      "file": "legacy-wand-es.png",
+      "sha256": "8016efe5d702a1fa863ae6e562fb244cf969db55cfb0e8bd64c1cacee1527300"
+    },
+    {
+      "file": "legacy-wand-ja.png",
+      "sha256": "0533b619576f6db192e52497921a5268343025c7069ca733bdec13d38d0fbf96"
+    },
+    {
+      "file": "legacy-wand-ko.png",
+      "sha256": "9c9c68be7f93a75dc37787259324b418e9b25ed475bdf5c300d273d1a67f3c3d"
+    },
+    {
+      "file": "legacy-wand-zh-CN.png",
+      "sha256": "f52bcff9e95862c1ec37659eb1da3b5db756da49386c0704d957c3732c153064"
+    },
+    {
+      "file": "legacy-wand-zh-TW.png",
+      "sha256": "3fa86f1717101502f1824364fb38659d1d36ed0b2eff29be088d2d4fc5c872a4"
+    },
+    {
+      "file": "ruination-maul-en-1440.png",
+      "sha256": "259e23ef744a4011f55c19991c39492338e688ae824da777c28ea948bae53135"
+    },
+    {
+      "file": "ruination-maul-en-390.png",
+      "sha256": "262f824ac89b312f831a8ba93953df7fccd5fa02412772ee49c8ddc4ba1135bc"
+    },
+    {
+      "file": "ruination-maul-es-1440.png",
+      "sha256": "eb088a2beb14680f85245a753670a1e2f1fbf80215e7f1a4b44c1d53549720da"
+    },
+    {
+      "file": "ruination-maul-es-390.png",
+      "sha256": "d745efb1ebd7cfa86de71acf711b10d42fac18b6813336cd304af66a9ce8ca73"
+    },
+    {
+      "file": "ruination-maul-ja-1440.png",
+      "sha256": "dda59d650909df9f59afdb0dcde986dcd7b90434fb0b434e75bfd0e34fb423e5"
+    },
+    {
+      "file": "ruination-maul-ja-390.png",
+      "sha256": "579c7c002480d8af1bbecfd36cb726195798c4fdb0ec946fe9298aaaa9c3c89e"
+    },
+    {
+      "file": "ruination-maul-ko-1440.png",
+      "sha256": "accb58429c78e60c13770cb0383563ea966bd41ccf913181443ec55a56afffd9"
+    },
+    {
+      "file": "ruination-maul-ko-390.png",
+      "sha256": "eb9162c14f3f1e102f81cd04fb983b5124239517a83378f70d73c00b7927ef80"
+    },
+    {
+      "file": "ruination-maul-zh-CN-1440.png",
+      "sha256": "30dd39c29035ab0cc03f03c1233a3120a93c079281dc06ab9578f25d4dc9c598"
+    },
+    {
+      "file": "ruination-maul-zh-CN-390.png",
+      "sha256": "64b74d8a10fe2dc327cb21c2f6bc2ded35f5237240ab643c1d6aa70034637274"
+    },
+    {
+      "file": "ruination-maul-zh-TW-1440.png",
+      "sha256": "3a20615ea4695b5c443beaa9f52a3e45889770077accb006b25c00bdb39413ec"
+    },
+    {
+      "file": "ruination-maul-zh-TW-390.png",
+      "sha256": "02347e5fcbc56634f104f746fa88b9253aa64ab2a613382fa2b6f0d815a97508"
+    },
+    {
+      "file": "solar-overflow-en.png",
+      "sha256": "7bc322794e952e0af9257c6d20cf6c4bc3155d10666d209b8bcb13498004d671"
+    },
+    {
+      "file": "solar-overflow-es.png",
+      "sha256": "6b11ec7e14b92e027bdb23369eb4fe842db97fd41f5c6f3f109472b14cbc5c38"
+    },
+    {
+      "file": "solar-overflow-ja.png",
+      "sha256": "2ace48612c3f33e7892a0bddcdef3f55c720acb6403135b4002a27d07393e1ff"
+    },
+    {
+      "file": "solar-overflow-ko.png",
+      "sha256": "866c125fb5a9f1acdd1985b17e0d51ad21900024c2a2bc90af0c58f760be83dc"
+    },
+    {
+      "file": "solar-overflow-zh-CN.png",
+      "sha256": "0037ebb40f92d58f322139f1c66ff6d8bcb2e8a53392ae19f9849a8f17ce0bae"
+    },
+    {
+      "file": "solar-overflow-zh-TW.png",
+      "sha256": "c948d36dc6d82dc4c274ae7238dd3227e2ec086c2dba2fb285ba6e75d1cb7054"
+    },
+    {
+      "file": "strife-pick-en-1440.png",
+      "sha256": "072566c4436af416d4dd3fb6e3b6a9088673104e7b5ed3a4a95846b9fd461d1f"
+    },
+    {
+      "file": "strife-pick-en-390.png",
+      "sha256": "f9bf40b76457cec69ee5afe192189f2f4e3c3b759a1d782f23dbaf2305423875"
+    },
+    {
+      "file": "strife-pick-es-1440.png",
+      "sha256": "8a2d6d22779ccca90526bf33f96c9e5efe4f81a9d5d263cd45b617195d484334"
+    },
+    {
+      "file": "strife-pick-es-390.png",
+      "sha256": "96ac9a57864971a526efed502e7aee8fefdcdf43f2e2ce44f6b8bc836de8e369"
+    },
+    {
+      "file": "strife-pick-ja-1440.png",
+      "sha256": "1131a5613979f4fdd35a60a5b6b66fc4328b39d2a673793f5097b1d2eaf8f047"
+    },
+    {
+      "file": "strife-pick-ja-390.png",
+      "sha256": "c797359bc75c4cd955a6853a223a3936c57a8ad407a0573223fa86d2ac1fd90e"
+    },
+    {
+      "file": "strife-pick-ko-1440.png",
+      "sha256": "fdb8c3ba0c6917cc3cd7884a48ecf3c931a9f7e1cda9c8032888aa8dd434c52f"
+    },
+    {
+      "file": "strife-pick-ko-390.png",
+      "sha256": "df4d4bed32cd81c90cd5b7eccfcff805e20bae5de534042d47fc820032842a42"
+    },
+    {
+      "file": "strife-pick-orange-en.png",
+      "sha256": "74dc54242b9a048839e6d61a44d1377cedd0937c1ba989c1ae962f2d1cb5b7f9"
+    },
+    {
+      "file": "strife-pick-orange-es.png",
+      "sha256": "c496169e78989635ec6a8821e2da2dabeb481b931e099c7d4fe43793ad930e34"
+    },
+    {
+      "file": "strife-pick-orange-ja.png",
+      "sha256": "7a44e92d68cdf34a8e68909d6bd17493c478f4d85afbae52330fe7e1151af1f3"
+    },
+    {
+      "file": "strife-pick-orange-ko.png",
+      "sha256": "2ac0da60f451b461aac8add20be5ad2dad0836ddc8cc88aeb74952ccaa5e53d6"
+    },
+    {
+      "file": "strife-pick-orange-zh-CN.png",
+      "sha256": "619a869d17ec659fa216bace0d1e22b9864c68d49e34bfe1ecdd897f4604f271"
+    },
+    {
+      "file": "strife-pick-orange-zh-TW.png",
+      "sha256": "03e6745de5a008fd24d1c779bb8c124b9eb041f5fc52b0c37e6d99b5d6c7f728"
+    },
+    {
+      "file": "strife-pick-zh-CN-1440.png",
+      "sha256": "c8e9695cf6bc49b71fa6d033378b9e14f4879f8804681ae2c0c6952ba8312dcd"
+    },
+    {
+      "file": "strife-pick-zh-CN-390.png",
+      "sha256": "968d2f169e18d46a481ad3435f606bd73666fc1b706767a56391bfa2e4e3bb32"
+    },
+    {
+      "file": "strife-pick-zh-TW-1440.png",
+      "sha256": "651a6f411ce089d544d1de3004e159bd67c1a9829b18c252504a18f33ca8bc1c"
+    },
+    {
+      "file": "strife-pick-zh-TW-390.png",
+      "sha256": "b98b27e43402811def4e2d70464a541c572ab2c896aee80c423ef981fa79b22f"
+    },
+    {
+      "file": "tawhoan-greatclub-en-1440.png",
+      "sha256": "e042569ef1ef9560ba303aa7a5072debf2f25c34aadc73bd285699c63d798585"
+    },
+    {
+      "file": "tawhoan-greatclub-en-390.png",
+      "sha256": "b3aded3cc1157d1f0b6335066d947c6555253d2b3b9d76e28ae00472b3b515eb"
+    },
+    {
+      "file": "tawhoan-greatclub-es-1440.png",
+      "sha256": "0932340cc2b8e909cd4f6bfd34402b0e6e450f19f95fd8b0096767dc9c17318d"
+    },
+    {
+      "file": "tawhoan-greatclub-es-390.png",
+      "sha256": "5fab43026512135fd5258bece5f9ce5089a89176e5fbd1297eb59ef94990e4a1"
+    },
+    {
+      "file": "tawhoan-greatclub-ja-1440.png",
+      "sha256": "50d2cb024ef59957173b050a7f23f0d58081b7d796167fd4e5206ee878509669"
+    },
+    {
+      "file": "tawhoan-greatclub-ja-390.png",
+      "sha256": "9c4b04694500e32c3566969ea3134677a32e7b492bad61d25ba8ae4c388fe5f9"
+    },
+    {
+      "file": "tawhoan-greatclub-ko-1440.png",
+      "sha256": "ce7e975314311c4f633e74c0de25fe0badc520f701f0eb68c8fcf286397ad126"
+    },
+    {
+      "file": "tawhoan-greatclub-ko-390.png",
+      "sha256": "0ec01ea9e2f66f9664df6e2fe2b806d421c3739da9f0506cf63360b6ac4f2807"
+    },
+    {
+      "file": "tawhoan-greatclub-zh-CN-1440.png",
+      "sha256": "3890a0c7cf69d62704d82d8699d307b5422c66e5961db87688b06778b3c6bd38"
+    },
+    {
+      "file": "tawhoan-greatclub-zh-CN-390.png",
+      "sha256": "f69bd0d63bd52423deb262365ff228cb5980ceaeed9cfc7d13a94eb5fefed54a"
+    },
+    {
+      "file": "tawhoan-greatclub-zh-TW-1440.png",
+      "sha256": "9a14ad7623e841ee235800d65c87d72f7e824286055cbd9dc6305c18f3348065"
+    },
+    {
+      "file": "tawhoan-greatclub-zh-TW-390.png",
+      "sha256": "4c35ed672971023b0ca26c279322243199ddc23f71d815e93cd6c63be4a5a9e0"
+    },
+    {
+      "file": "cards/akoyan-club-en-1440.png",
+      "sha256": "fbd97ad6856e645f070c9b7ad65a0cd76a18a9ffa8eccfc41205d15d063e99aa"
+    },
+    {
+      "file": "cards/akoyan-club-en-390.png",
+      "sha256": "9748da1590bc6ff7da53e0f51929a7fadbd8c6eeea537d671b538c7e14811032"
+    },
+    {
+      "file": "cards/akoyan-club-es-1440.png",
+      "sha256": "e8b250bea2b8212c3527a07306a150887766eee7bc201a69e15bb9f1bcab5f66"
+    },
+    {
+      "file": "cards/akoyan-club-es-390.png",
+      "sha256": "cb1eeea204b21ff8cd68bf5c1842bee3705a20efa727d3bad11fcafc188963c9"
+    },
+    {
+      "file": "cards/akoyan-club-ja-1440.png",
+      "sha256": "54ac8d6428bd8b765216e271fa1893cf1afb246151b6ba9d9ad521acc0b6240b"
+    },
+    {
+      "file": "cards/akoyan-club-ja-390.png",
+      "sha256": "18741736b98de82c2af045da8b24484b93aa4746197aad01a13aebf2d0e10279"
+    },
+    {
+      "file": "cards/akoyan-club-ko-1440.png",
+      "sha256": "956e7ffaf252953051d637e589f619ae020e31636205511c9f79745b9677f142"
+    },
+    {
+      "file": "cards/akoyan-club-ko-390.png",
+      "sha256": "875c77f82b3544b713100e647f5d965763f04959af94c592f72176326c3600b7"
+    },
+    {
+      "file": "cards/akoyan-club-zh-CN-1440.png",
+      "sha256": "b459cd1108fae9403b4d3343f9a2f1dc545093b838f3791330155e2a7824bdb8"
+    },
+    {
+      "file": "cards/akoyan-club-zh-CN-390.png",
+      "sha256": "226126271284ec12b9a76b64f1030a012b3367e2422ef9e2a680fe7bd7adad2e"
+    },
+    {
+      "file": "cards/akoyan-club-zh-TW-1440.png",
+      "sha256": "730f1aedcdc53c7eba387e56a28911bc8554f6199b300bca26c0656c01313bf5"
+    },
+    {
+      "file": "cards/akoyan-club-zh-TW-390.png",
+      "sha256": "e8a456377474ff824666a850bafad92830203dc700788a729b0d08a1ae894866"
+    },
+    {
+      "file": "cards/fanatic-greathammer-en-1440.png",
+      "sha256": "8254738a4131b7b77ee4848cbd0d3c640e3c6e285b7388f52b70e1e193b66605"
+    },
+    {
+      "file": "cards/fanatic-greathammer-en-390.png",
+      "sha256": "809e9fb5cf7c60c8aa5985d6953e380926421bad55c8af1a5959fdb904da7dbf"
+    },
+    {
+      "file": "cards/fanatic-greathammer-es-1440.png",
+      "sha256": "cb85be7c8710c900a4f62167e37a69ced8c6a0036ccdf132c0703ecbbe6065ed"
+    },
+    {
+      "file": "cards/fanatic-greathammer-es-390.png",
+      "sha256": "d875e43e88fd6a3b75cd2714a04610e33b1f5e181d07600df2caf4ba37728fc7"
+    },
+    {
+      "file": "cards/fanatic-greathammer-ja-1440.png",
+      "sha256": "1a8ed5a275ec344ea2f0162cc6bda4d9de1e05a18a4a7b8e2368d6ebe9bab1c8"
+    },
+    {
+      "file": "cards/fanatic-greathammer-ja-390.png",
+      "sha256": "64d95ff6449e5a1c829fe3c3010748dd9010d5e2e100a3e2ed9c553acad13627"
+    },
+    {
+      "file": "cards/fanatic-greathammer-ko-1440.png",
+      "sha256": "3a7e27605a21cb64b7cc2523c48d23e17425c74e8f2bf3f7d7b7ceaf48ba1243"
+    },
+    {
+      "file": "cards/fanatic-greathammer-ko-390.png",
+      "sha256": "eba792af8b7fd6adeadb13858f576e33908a852426a7ef70624f9f1b1bd8359c"
+    },
+    {
+      "file": "cards/fanatic-greathammer-zh-CN-1440.png",
+      "sha256": "bbccb29ca8b1605f4c60cd4554a86f1d0c92afe625e8d2a9ab44855d6600e05e"
+    },
+    {
+      "file": "cards/fanatic-greathammer-zh-CN-390.png",
+      "sha256": "a4e6e90d3dc083194878714320cfb95f58c140d42d45539dd06a0da06cbc4a8e"
+    },
+    {
+      "file": "cards/fanatic-greathammer-zh-TW-1440.png",
+      "sha256": "70657c8dfb7219589f73f00a3b8262a0c168ecede834030cecfc7bb2bca88ebd"
+    },
+    {
+      "file": "cards/fanatic-greathammer-zh-TW-390.png",
+      "sha256": "d8dd76cbeedcca46f954a33413b5abe4c04fa779ee56d5d524b0ad28d88a9258"
+    },
+    {
+      "file": "cards/fortified-hammer-en-1440.png",
+      "sha256": "9e6920dcce2d0de2d94f40e85b604d47744c8c4a956a9eae7d3da9919b7c85f6"
+    },
+    {
+      "file": "cards/fortified-hammer-en-390.png",
+      "sha256": "4ee8b8683bf47b48f9485306604fa0f71c968aaae8269058e7d20fd393fce13f"
+    },
+    {
+      "file": "cards/fortified-hammer-es-1440.png",
+      "sha256": "d81bfb8f06666bd14964c31e652a8c6cf3fcfcb708c909a192eb145f2f15f871"
+    },
+    {
+      "file": "cards/fortified-hammer-es-390.png",
+      "sha256": "ccb3eabd641b5926c2e9d61cb5dfc785cb31fbb4f053df17e2146f32327ec794"
+    },
+    {
+      "file": "cards/fortified-hammer-ja-1440.png",
+      "sha256": "cc4d02db46f58d81e0c0b0c3a0f6df6ae382e8308eb68ddf3c7fabb017c9cc06"
+    },
+    {
+      "file": "cards/fortified-hammer-ja-390.png",
+      "sha256": "b65774abf30b024ecc26286ca9d48a4008ce83c40878b7f3e16c33f05a605f28"
+    },
+    {
+      "file": "cards/fortified-hammer-ko-1440.png",
+      "sha256": "6db85e259ff5597433f6d35dcef3379841b2eb15374e958464d1a64fcf3d3a59"
+    },
+    {
+      "file": "cards/fortified-hammer-ko-390.png",
+      "sha256": "a91fca8fdd7bdcddbbe7b7c5670cb0263d83a842e7e686625e53801db6370f2e"
+    },
+    {
+      "file": "cards/fortified-hammer-zh-CN-1440.png",
+      "sha256": "6937030d5b3f63e5c03c8b4a24ccb381b6a1bc8637752a47ac2cece6f6d6d441"
+    },
+    {
+      "file": "cards/fortified-hammer-zh-CN-390.png",
+      "sha256": "54c6f97fb037eed63f94fbc54c5926ac534e67ff032109ca7bbbb55506f211e6"
+    },
+    {
+      "file": "cards/fortified-hammer-zh-TW-1440.png",
+      "sha256": "a21394cc15dc8f073cc0029b7efd90ba3faaf5db172f00fb3d0e803d7832dce1"
+    },
+    {
+      "file": "cards/fortified-hammer-zh-TW-390.png",
+      "sha256": "7bfca867fd19c015b563601283254133576f8ad149610909094447d92bbb9531"
+    },
+    {
+      "file": "cards/legacy-hallowed-en.png",
+      "sha256": "56d22ab103d68ed1e743f9f487b5448e2a77cd966e1fcb1da667a8e50ac48697"
+    },
+    {
+      "file": "cards/legacy-hallowed-es.png",
+      "sha256": "f78bfd08ff1027bcd6d8bc465723a239ee50ef2c58f103ec5117a6871aeb9921"
+    },
+    {
+      "file": "cards/legacy-hallowed-ja.png",
+      "sha256": "d6f9efd46dcd74b6aaa2186e81660bb5a1cd786befc7f403a1765acbf7b0ca63"
+    },
+    {
+      "file": "cards/legacy-hallowed-ko.png",
+      "sha256": "9c3cdc57b91826e314f29ffd05e29259f6f8af0f8c6b21196ea61af3ad6e410a"
+    },
+    {
+      "file": "cards/legacy-hallowed-zh-CN.png",
+      "sha256": "f3b91931d6feaf1dad4d611275749f57bbb7724b8f6faeb173de5f66c9062390"
+    },
+    {
+      "file": "cards/legacy-hallowed-zh-TW.png",
+      "sha256": "ede0518723a3821ef891fb48f84286a04abcbf68e854ca849c1ebdabe02de13f"
+    },
+    {
+      "file": "cards/legacy-sceptre-en.png",
+      "sha256": "f6f34129e47686f93ce45847d2c00a337eae59f92140f37cdcadf997220d2c0f"
+    },
+    {
+      "file": "cards/legacy-sceptre-es.png",
+      "sha256": "eb76de623dfd7fdb85479ac542088d822c9aa9ac9841e472a35f71958ad45b5d"
+    },
+    {
+      "file": "cards/legacy-sceptre-ja.png",
+      "sha256": "141aa5c295d7113533d935eb8788fb496e8841bd9dde995634ccabf0a705daa9"
+    },
+    {
+      "file": "cards/legacy-sceptre-ko.png",
+      "sha256": "63c3f951fdd4c98b45841a66bb3f2383e627fb34105624508b324f39056aaf16"
+    },
+    {
+      "file": "cards/legacy-sceptre-zh-CN.png",
+      "sha256": "bcb0111429fcb6ff47d49c4241044fe61650742ba27c59016d837ed29fab4e29"
+    },
+    {
+      "file": "cards/legacy-sceptre-zh-TW.png",
+      "sha256": "6aa4507744ac96a4f106d0a4d84a65bcc80659e38780461c544e0a15e6b3ea85"
+    },
+    {
+      "file": "cards/legacy-wand-en.png",
+      "sha256": "75fa8718e260ab61ec9fa3ec1116a260ad44c4cd4ef7ee5149b78b2ab96f5af6"
+    },
+    {
+      "file": "cards/legacy-wand-es.png",
+      "sha256": "30522a2801103d323d8c5e371423262848f39fd31f29f24cf3809b08800222d8"
+    },
+    {
+      "file": "cards/legacy-wand-ja.png",
+      "sha256": "f4b1e81cdd9a52d59aefd835dbfa7c7f24126bef74feb7f7302fa3e9c65ef832"
+    },
+    {
+      "file": "cards/legacy-wand-ko.png",
+      "sha256": "71a5f85b6c6fa965df0d81453c873415508a977c3a978b89dd930615b415cbd6"
+    },
+    {
+      "file": "cards/legacy-wand-zh-CN.png",
+      "sha256": "2b2a1642a5d45da963c369a8f80dfd3a2fab3ab49da733bc4b2694cf0f56d248"
+    },
+    {
+      "file": "cards/legacy-wand-zh-TW.png",
+      "sha256": "128f61678e41362405f889b7f20e6774aae2c31a5bc371438a572df2cd5ffae2"
+    },
+    {
+      "file": "cards/ruination-maul-en-1440.png",
+      "sha256": "352241ff88c2bb30285d2f1d77249faf64191fdfa8276ca0ff72d9d03f063bca"
+    },
+    {
+      "file": "cards/ruination-maul-en-390.png",
+      "sha256": "0c6a02f9f6c322af7cacac83aec1b3228c72f6ec6388c7fe80dec843ec6bfd79"
+    },
+    {
+      "file": "cards/ruination-maul-es-1440.png",
+      "sha256": "e8518b391905788803d4277a686f7fa822100c38912958a1a4248bbd8728a2e4"
+    },
+    {
+      "file": "cards/ruination-maul-es-390.png",
+      "sha256": "99d6fcff9d3935a7588b72b01696a5d25cf793ad73fea3f9438ba314e6d5caac"
+    },
+    {
+      "file": "cards/ruination-maul-ja-1440.png",
+      "sha256": "26bdee29cf29be4cbaac8f46259b25845a1e6bc1366e05e4f9fedd09566bd6f2"
+    },
+    {
+      "file": "cards/ruination-maul-ja-390.png",
+      "sha256": "2e1cf6ae0f5c6d06627b9d02609d452ad7bddaadd269aba4b9472f15c1016e0c"
+    },
+    {
+      "file": "cards/ruination-maul-ko-1440.png",
+      "sha256": "06d1987893b7478db24e2fbbe812dbc00586ff3b90079cf7399fcc4706ed3f6b"
+    },
+    {
+      "file": "cards/ruination-maul-ko-390.png",
+      "sha256": "27e5bb751bc0755d2a70155487494d48a2c150de5f870e73b437ada726c4a041"
+    },
+    {
+      "file": "cards/ruination-maul-zh-CN-1440.png",
+      "sha256": "f0f873cb249f66f1067305df84cacf6a048239a65482deca969b3f236d083cc8"
+    },
+    {
+      "file": "cards/ruination-maul-zh-CN-390.png",
+      "sha256": "8ca2dd45c28b5fbd287efd19f25520b2356ac783f5189b519da0d880418ddfd6"
+    },
+    {
+      "file": "cards/ruination-maul-zh-TW-1440.png",
+      "sha256": "7f8fcd93a1a64f347b6af38d128535ec04898543da53a4471adffcf17139b370"
+    },
+    {
+      "file": "cards/ruination-maul-zh-TW-390.png",
+      "sha256": "fad66ecdf3bb18a9187f4a03416138b1011033f94b3d3359bbf178f013620f43"
+    },
+    {
+      "file": "cards/strife-pick-en-1440.png",
+      "sha256": "4dea5b21fb87b0f22be5e74dfb7240b2777f4486467d5fae064def52da060eba"
+    },
+    {
+      "file": "cards/strife-pick-en-390.png",
+      "sha256": "adf7833861740bef35a09f6a447b4132716174b26815da49d8fcd218f08e573a"
+    },
+    {
+      "file": "cards/strife-pick-es-1440.png",
+      "sha256": "2fb2b9200cdbeec687e5714845ea816291f2d125c960aefb709399a113671318"
+    },
+    {
+      "file": "cards/strife-pick-es-390.png",
+      "sha256": "f9d09c1e1840f1070e38a4b036c530aeb5ecbb76f0e325bc9fba93ff229935b7"
+    },
+    {
+      "file": "cards/strife-pick-ja-1440.png",
+      "sha256": "5733f1df85d97977f116e5c92c6857e9e549ee648bff3b930d0fbbfffb502cc3"
+    },
+    {
+      "file": "cards/strife-pick-ja-390.png",
+      "sha256": "23cb4d234d60fa41b94a7fef9b7bcbf2a2afbef28062ce550d91df7544a4b12d"
+    },
+    {
+      "file": "cards/strife-pick-ko-1440.png",
+      "sha256": "a4521ffbaf73234e2a27018ba767a813db097c6cc0e57ca357191a820e68b9f8"
+    },
+    {
+      "file": "cards/strife-pick-ko-390.png",
+      "sha256": "6d685ad656f0e9a04cae54ff4d1190647c3c6ec7d4748cd5aacc6d99ec017c5e"
+    },
+    {
+      "file": "cards/strife-pick-zh-CN-1440.png",
+      "sha256": "b42dc418c8c90203a5b435f4948e50860b3f2289a73ec73aa4f0e34c297a4d7c"
+    },
+    {
+      "file": "cards/strife-pick-zh-CN-390.png",
+      "sha256": "c17180f8974d8c2cdda75e440804a4db5bb2d608867ecace3bf76ead7a5b97e2"
+    },
+    {
+      "file": "cards/strife-pick-zh-TW-1440.png",
+      "sha256": "c7632f269920a7a655e95c9e0e274692bf932ed164bfa864802ec0c146f56c5d"
+    },
+    {
+      "file": "cards/strife-pick-zh-TW-390.png",
+      "sha256": "0a949755002cd36351ea1218e12963161c6d11f0056d403297d3116788b2284c"
+    },
+    {
+      "file": "cards/tawhoan-greatclub-en-1440.png",
+      "sha256": "53a1c5167f511b7fc7b92c9cd03e84f1014ef0250ea294a75a65eb5d752f2af3"
+    },
+    {
+      "file": "cards/tawhoan-greatclub-en-390.png",
+      "sha256": "d7c6860b77333290304a480182fdcbbe4eb26a2a896bd36f0a92d9bc813bc16a"
+    },
+    {
+      "file": "cards/tawhoan-greatclub-es-1440.png",
+      "sha256": "d501549e23e5f305cd1312138d610b30ad731e3a532204a35b33585055150745"
+    },
+    {
+      "file": "cards/tawhoan-greatclub-es-390.png",
+      "sha256": "59bf811ec62bfde3ea5e459fa58bc68ac0048fc6ddad974c6361c77cfd64526a"
+    },
+    {
+      "file": "cards/tawhoan-greatclub-ja-1440.png",
+      "sha256": "9c5e7c7f0fdacd80798b6fbfbcd63ed62b307c30b56d185fa9dbcf78fc205eaf"
+    },
+    {
+      "file": "cards/tawhoan-greatclub-ja-390.png",
+      "sha256": "0e5ba0b0fefafeba43ca64325a6c89be2551380132409b4920f9bd9f9a122484"
+    },
+    {
+      "file": "cards/tawhoan-greatclub-ko-1440.png",
+      "sha256": "43a2f6cd95eca3754b6c55fb6ece8caeb5db603c5518206bd9085141a79ef478"
+    },
+    {
+      "file": "cards/tawhoan-greatclub-ko-390.png",
+      "sha256": "264cb158b378095e599c56d042c1f998aba6213beb6d72cbf80f08a3aeb87211"
+    },
+    {
+      "file": "cards/tawhoan-greatclub-zh-CN-1440.png",
+      "sha256": "a99c72d933e5ca8110eb5fce9d406e456e8f4033e9983d2fc1f3504d645365e3"
+    },
+    {
+      "file": "cards/tawhoan-greatclub-zh-CN-390.png",
+      "sha256": "11e2dd86cd0f8fef126f37028fbf4a893a3bd7bd02d03c4ad25b71447dbe9a78"
+    },
+    {
+      "file": "cards/tawhoan-greatclub-zh-TW-1440.png",
+      "sha256": "c80ac8da9616c4bf8f2f1f5ed0f8e292319d755f0b20b5ae640eaab93bcb9e44"
+    },
+    {
+      "file": "cards/tawhoan-greatclub-zh-TW-390.png",
+      "sha256": "1d80eb770f076ba1b094b2fed4ddbfdbffe27551a5879f477802ed8b664a69a0"
+    }
+  ]
+}

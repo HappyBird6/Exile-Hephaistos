@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/us/Fanatic_Greathammer",
+  "retrievedAt": "2026-10-05T07:00:16.315Z",
+  "sha256": "268926f0e4b692ec535be95453f83fc2aef376bdf5937a30c6b4a8c02455d062",
+  "variants": [
+    {
+      "name": "Fanatic Greathammer",
+      "card": "Fanatic Greathammer\n        \n    \n    \n        \n            Two Hand MacesPhysical Damage: 101-137Critical Hit Chance: 5%Attacks per Second: 1.05Weapon Range: 1.5Requires:  Level 78, 163 StrStrikes deal Splash Damage",
+      "requirements": "Requires:  Level 78, 163 Str",
+      "properties": [
+        "Two Hand Maces",
+        "Physical Damage: 101-137",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.05",
+        "Weapon Range: 1.5"
+      ],
+      "fields": {
+        "DropLevel": "78",
+        "BaseType": "Fanatic Greathammer",
+        "Class": "Two Hand Maces",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace5Endgame",
+        "Tags": "mace, two_hand_weapon, twohand, weapon",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/TwoHandMaces/Basetypes/2HMace05",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, twohand, mace, two_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ]
+}

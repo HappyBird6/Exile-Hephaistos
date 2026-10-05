@@ -160,6 +160,16 @@ public class CraftingConfiguration {
               reviewedEssences(manifest.get(key).get("replacements")));
         }
       }
+      try (var source = getClass().getResourceAsStream("/catalog/top-base-essences.json")) {
+        var manifest = new com.fasterxml.jackson.databind.ObjectMapper().readTree(source);
+        for (var key : com.poe2craft.item.ReviewedMaces.BASES.keySet()) {
+          service.registerReviewedArmour(
+              key,
+              ItemCatalogLoader.loadTopBase(key),
+              reviewedEssences(manifest.get(key).get("fixed")),
+              reviewedEssences(manifest.get(key).get("replacements")));
+        }
+      }
       return service;
     } catch (java.io.IOException e) {
       throw new IllegalStateException("Cannot load Stocky Mitts catalog", e);

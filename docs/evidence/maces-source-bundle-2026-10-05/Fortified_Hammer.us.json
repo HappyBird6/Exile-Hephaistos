@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/us/Fortified_Hammer",
+  "retrievedAt": "2026-10-05T07:00:13.426Z",
+  "sha256": "83bd5d4566393979c7ec4630ae257d3a24c048fdf95a28caad4b61dc60e3b5dc",
+  "variants": [
+    {
+      "name": "Fortified Hammer",
+      "card": "Fortified Hammer\n        \n    \n    \n        \n            One Hand MacesPhysical Damage: 60-73Critical Hit Chance: 5%Attacks per Second: 1.4Weapon Range: 1.3Requires:  Level 79, 163 Str40% chance to Daze on Hit",
+      "requirements": "Requires:  Level 79, 163 Str",
+      "properties": [
+        "One Hand Maces",
+        "Physical Damage: 60-73",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.3"
+      ],
+      "fields": {
+        "DropLevel": "79",
+        "BaseType": "Fortified Hammer",
+        "Class": "One Hand Maces",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace8Endgame",
+        "Tags": "mace, one_hand_weapon, onehand, weapon",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/OneHandMaces/Basetypes/1HMace08",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, onehand, mace, one_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      }
+    }
+  ]
+}

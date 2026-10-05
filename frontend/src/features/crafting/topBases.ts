@@ -53,5 +53,7 @@ export const reviewedArmourKeys = (Object.keys(data) as TopBaseKey[]).filter(
       'bucklers',
       'foci',
       'quivers',
+      'one-hand-maces',
+      'two-hand-maces',
     ].includes(data[key].family),
 )

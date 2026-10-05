@@ -1,0 +1,56 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "65",
+    "DropChance": 0,
+    "ModGenerationTypeID": "2",
+    "mod_no": [],
+    "fossil_no": [],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/40e98e7b2170e0d0573381a7b1582ea54a634c90c2a2b57857909fc391c77537\" href=\"The_Runefathers_Alloy\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/Alloy3.webp\" alt=\"Alloy3\" height=\"16\" />The Runefather's Alloy</a>",
+    "Code": "AlloyRetainGlory1",
+    "ModFamilyList": [
+      "GloryChanceToNotConsume"
+    ],
+    "str": "<span class='mod-value'>(60<span class=\"ndash\">—</span>75)</span>% chance for Skills to retain 40% of <a data-keyword=\"Glory\" href=\"Glory\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/80861d2a3e7c82bdf33af215441a86d247063c4e11760a9d20fb52ac62ae2385\">Glory</a> on use",
+    "adds_no": [],
+    "spawn_no": [
+      "default"
+    ],
+    "reqlvl": 52,
+    "IsPerfect": "0",
+    "IsAlloy": true,
+    "Removes": true
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyRetainGlory1",
+  "textLocale": "us",
+  "detailText": "(60—75)% chance for Skills to retain 40% of Glory on use",
+  "retrievedAt": "2026-10-05T07:09:58.441Z",
+  "sha256": "253ba27c3efc81fe963422d4a5d99593cb0d488b31fe07c893a2317510397fe9",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(60<span class=\"ndash\">—</span>75)</span>% chance for Skills to retain 40% of <a data-keyword=\"Glory\" href=\"Glory\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/80861d2a3e7c82bdf33af215441a86d247063c4e11760a9d20fb52ac62ae2385\">Glory</a> on use</span></h5>   <span data-tabname=\"of the Stars\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Stars\n<tr><th>Family<td>GloryChanceToNotConsume\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>65 (Effective: 52)\n<tr><th>Gold Price<td>1422\n<tr><th>Stats<td><li>chance to retain 40% of glory on use % <span class=\"badge bg-primary\">60 <span class=\"ndash\">—</span> 75</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of the Stars",
+    "Family": "GloryChanceToNotConsume",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "65 (Effective: 52)",
+    "Gold Price": "1422",
+    "Stats": "chance to retain 40% of glory on use % 60 — 75 Global",
+    "Spawn Tags": "default: 0"
+  },
+  "code": "AlloyRetainGlory1",
+  "stats": [
+    {
+      "id": "chance_to_retain_40%_of_glory_on_use_%",
+      "min": 60,
+      "max": 75,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

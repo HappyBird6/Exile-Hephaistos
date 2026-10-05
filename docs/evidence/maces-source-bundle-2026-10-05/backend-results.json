@@ -1,0 +1,15 @@
+{
+  "command": "sh gradlew --no-daemon spotlessApply check generateJooq bootJar",
+  "test": {
+    "tests": 482,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "integrationTest": {
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

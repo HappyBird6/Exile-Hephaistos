@@ -44363,6 +44363,527 @@
       "values": [],
       "template": "quivers.broadhead-quiver:implicit:base",
       "sourceCode": null
+    },
+    "one-hand-maces:suffix:of-dueling:419c809044ec": {
+      "stats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "+1 to Level of all Melee Skills",
+      "values": ["+1"],
+      "template": "maces.one-hand-maces:suffix:of-dueling:419c809044ec",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "one-hand-maces:suffix:of-conflict:c5175b7af283": {
+      "stats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "englishText": "+2 to Level of all Melee Skills",
+      "values": ["+2"],
+      "template": "maces.one-hand-maces:suffix:of-conflict:c5175b7af283",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "one-hand-maces:suffix:of-battle:53f27c0918aa": {
+      "stats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "englishText": "+3 to Level of all Melee Skills",
+      "values": ["+3"],
+      "template": "maces.one-hand-maces:suffix:of-battle:53f27c0918aa",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "one-hand-maces:suffix:of-war:f89528968e12": {
+      "stats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "min": 4,
+          "max": 4
+        }
+      ],
+      "englishText": "+4 to Level of all Melee Skills",
+      "values": ["+4"],
+      "template": "maces.one-hand-maces:suffix:of-war:f89528968e12",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "one-hand-maces:suffix:of-fame:LocalIncreasedAttackSpeed6": {
+      "stats": [
+        {
+          "id": "local_attack_speed_+%",
+          "min": 20,
+          "max": 22
+        }
+      ],
+      "englishText": "(20—22)% increased Attack Speed",
+      "values": ["(20—22)"],
+      "template": "maces.one-hand-maces:suffix:of-fame:LocalIncreasedAttackSpeed6",
+      "sourceCode": "LocalIncreasedAttackSpeed6",
+      "valueStats": [
+        {
+          "id": "local_attack_speed_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "one-hand-maces:suffix:of-infamy:LocalIncreasedAttackSpeed7": {
+      "stats": [
+        {
+          "id": "local_attack_speed_+%",
+          "min": 23,
+          "max": 25
+        }
+      ],
+      "englishText": "(23—25)% increased Attack Speed",
+      "values": ["(23—25)"],
+      "template": "maces.one-hand-maces:suffix:of-infamy:LocalIncreasedAttackSpeed7",
+      "sourceCode": "LocalIncreasedAttackSpeed7",
+      "valueStats": [
+        {
+          "id": "local_attack_speed_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "one-hand-maces:suffix:of-celebration:LocalIncreasedAttackSpeed8": {
+      "stats": [
+        {
+          "id": "local_attack_speed_+%",
+          "min": 26,
+          "max": 28
+        }
+      ],
+      "englishText": "(26—28)% increased Attack Speed",
+      "values": ["(26—28)"],
+      "template": "maces.one-hand-maces:suffix:of-celebration:LocalIncreasedAttackSpeed8",
+      "sourceCode": "LocalIncreasedAttackSpeed8",
+      "valueStats": [
+        {
+          "id": "local_attack_speed_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "one-hand-maces:suffix:of-impact:149bfccf4e97": {
+      "stats": [
+        {
+          "id": "local_base_stun_duration_+%",
+          "min": 11,
+          "max": 13
+        }
+      ],
+      "englishText": "(11—13)% increased Stun Duration",
+      "values": ["(11—13)"],
+      "template": "maces.one-hand-maces:suffix:of-impact:149bfccf4e97",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_base_stun_duration_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "one-hand-maces:suffix:of-dazing:StunDuration2": {
+      "stats": [
+        {
+          "id": "local_base_stun_duration_+%",
+          "min": 14,
+          "max": 16
+        }
+      ],
+      "englishText": "(14—16)% increased Stun Duration",
+      "values": ["(14—16)"],
+      "template": "maces.one-hand-maces:suffix:of-dazing:StunDuration2",
+      "sourceCode": "StunDuration2",
+      "valueStats": [
+        {
+          "id": "local_base_stun_duration_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "one-hand-maces:suffix:of-stunning:StunDuration3": {
+      "stats": [
+        {
+          "id": "local_base_stun_duration_+%",
+          "min": 17,
+          "max": 19
+        }
+      ],
+      "englishText": "(17—19)% increased Stun Duration",
+      "values": ["(17—19)"],
+      "template": "maces.one-hand-maces:suffix:of-stunning:StunDuration3",
+      "sourceCode": "StunDuration3",
+      "valueStats": [
+        {
+          "id": "local_base_stun_duration_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "one-hand-maces:suffix:of-slamming:StunDuration4": {
+      "stats": [
+        {
+          "id": "local_base_stun_duration_+%",
+          "min": 20,
+          "max": 22
+        }
+      ],
+      "englishText": "(20—22)% increased Stun Duration",
+      "values": ["(20—22)"],
+      "template": "maces.one-hand-maces:suffix:of-slamming:StunDuration4",
+      "sourceCode": "StunDuration4",
+      "valueStats": [
+        {
+          "id": "local_base_stun_duration_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "one-hand-maces:suffix:of-staggering:a5a4562fee23": {
+      "stats": [
+        {
+          "id": "local_base_stun_duration_+%",
+          "min": 23,
+          "max": 26
+        }
+      ],
+      "englishText": "(23—26)% increased Stun Duration",
+      "values": ["(23—26)"],
+      "template": "maces.one-hand-maces:suffix:of-staggering:a5a4562fee23",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_base_stun_duration_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "one-hand-maces:suffix:of-the-concussion:336cb628d3bc": {
+      "stats": [
+        {
+          "id": "local_base_stun_duration_+%",
+          "min": 27,
+          "max": 30
+        }
+      ],
+      "englishText": "(27—30)% increased Stun Duration",
+      "values": ["(27—30)"],
+      "template": "maces.one-hand-maces:suffix:of-the-concussion:336cb628d3bc",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_base_stun_duration_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "one-hand-maces:suffix:of-the-pugilist:StunDamageIncrease1": {
+      "stats": [
+        {
+          "id": "local_hit_damage_stun_multiplier_+%",
+          "min": 21,
+          "max": 30
+        }
+      ],
+      "englishText": "Causes (21—30)% increased Stun Buildup",
+      "values": ["(21—30)"],
+      "template": "maces.one-hand-maces:suffix:of-the-pugilist:StunDamageIncrease1",
+      "sourceCode": "StunDamageIncrease1",
+      "valueStats": [
+        {
+          "id": "local_hit_damage_stun_multiplier_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "one-hand-maces:suffix:of-the-brawler:452f5fe1185c": {
+      "stats": [
+        {
+          "id": "local_hit_damage_stun_multiplier_+%",
+          "min": 31,
+          "max": 40
+        }
+      ],
+      "englishText": "Causes (31—40)% increased Stun Buildup",
+      "values": ["(31—40)"],
+      "template": "maces.one-hand-maces:suffix:of-the-brawler:452f5fe1185c",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_hit_damage_stun_multiplier_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "one-hand-maces:suffix:of-the-boxer:StunDamageIncrease3": {
+      "stats": [
+        {
+          "id": "local_hit_damage_stun_multiplier_+%",
+          "min": 41,
+          "max": 50
+        }
+      ],
+      "englishText": "Causes (41—50)% increased Stun Buildup",
+      "values": ["(41—50)"],
+      "template": "maces.one-hand-maces:suffix:of-the-boxer:StunDamageIncrease3",
+      "sourceCode": "StunDamageIncrease3",
+      "valueStats": [
+        {
+          "id": "local_hit_damage_stun_multiplier_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "one-hand-maces:suffix:of-the-combatant:42332323c029": {
+      "stats": [
+        {
+          "id": "local_hit_damage_stun_multiplier_+%",
+          "min": 51,
+          "max": 60
+        }
+      ],
+      "englishText": "Causes (51—60)% increased Stun Buildup",
+      "values": ["(51—60)"],
+      "template": "maces.one-hand-maces:suffix:of-the-combatant:42332323c029",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_hit_damage_stun_multiplier_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "one-hand-maces:suffix:of-the-gladiator:a6094362ce98": {
+      "stats": [
+        {
+          "id": "local_hit_damage_stun_multiplier_+%",
+          "min": 61,
+          "max": 70
+        }
+      ],
+      "englishText": "Causes (61—70)% increased Stun Buildup",
+      "values": ["(61—70)"],
+      "template": "maces.one-hand-maces:suffix:of-the-gladiator:a6094362ce98",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_hit_damage_stun_multiplier_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "one-hand-maces:suffix:of-the-champion:9e3b3690b59e": {
+      "stats": [
+        {
+          "id": "local_hit_damage_stun_multiplier_+%",
+          "min": 71,
+          "max": 80
+        }
+      ],
+      "englishText": "Causes (71—80)% increased Stun Buildup",
+      "values": ["(71—80)"],
+      "template": "maces.one-hand-maces:suffix:of-the-champion:9e3b3690b59e",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_hit_damage_stun_multiplier_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "fortified-hammer:implicit:base": {
+      "stats": [
+        {
+          "id": "local_weapon_daze_chance_%",
+          "min": 40,
+          "max": 40
+        }
+      ],
+      "englishText": "40% chance to Daze on Hit",
+      "values": [],
+      "template": "maces.fortified-hammer:implicit:base",
+      "sourceCode": null
+    },
+    "strife-pick:implicit:base": {
+      "stats": [
+        {
+          "id": "local_critical_strike_multiplier_+",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "englishText": "+(5—10)% to Critical Damage Bonus",
+      "values": ["+(5—10)"],
+      "template": "maces.strife-pick:implicit:base",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_critical_strike_multiplier_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "akoyan-club:implicit:base": {
+      "stats": [
+        {
+          "id": "local_always_hit",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "Always Hits",
+      "values": [],
+      "template": "maces.akoyan-club:implicit:base",
+      "sourceCode": null
+    },
+    "two-hand-maces:suffix:of-dueling:GlobalMeleeSkillGemLevelTwoHandWeapon2": {
+      "stats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "englishText": "+2 to Level of all Melee Skills",
+      "values": ["+2"],
+      "template": "maces.two-hand-maces:suffix:of-dueling:GlobalMeleeSkillGemLevelTwoHandWeapon2",
+      "sourceCode": "GlobalMeleeSkillGemLevelTwoHandWeapon2",
+      "valueStats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "two-hand-maces:suffix:of-conflict:GlobalMeleeSkillGemLevelTwoHandWeapon3": {
+      "stats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "englishText": "+3 to Level of all Melee Skills",
+      "values": ["+3"],
+      "template": "maces.two-hand-maces:suffix:of-conflict:GlobalMeleeSkillGemLevelTwoHandWeapon3",
+      "sourceCode": "GlobalMeleeSkillGemLevelTwoHandWeapon3",
+      "valueStats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "two-hand-maces:suffix:of-battle:GlobalMeleeSkillGemLevelTwoHandWeapon4": {
+      "stats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "min": 4,
+          "max": 4
+        }
+      ],
+      "englishText": "+4 to Level of all Melee Skills",
+      "values": ["+4"],
+      "template": "maces.two-hand-maces:suffix:of-battle:GlobalMeleeSkillGemLevelTwoHandWeapon4",
+      "sourceCode": "GlobalMeleeSkillGemLevelTwoHandWeapon4",
+      "valueStats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "two-hand-maces:suffix:of-war:GlobalMeleeSkillGemLevelTwoHandWeapon5": {
+      "stats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "min": 5,
+          "max": 5
+        }
+      ],
+      "englishText": "+5 to Level of all Melee Skills",
+      "values": ["+5"],
+      "template": "maces.two-hand-maces:suffix:of-war:GlobalMeleeSkillGemLevelTwoHandWeapon5",
+      "sourceCode": "GlobalMeleeSkillGemLevelTwoHandWeapon5",
+      "valueStats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "ruination-maul:implicit:base": {
+      "stats": [
+        {
+          "id": "local_explode_on_kill_with_crit_%_physical_damage_to_deal",
+          "min": 10,
+          "max": 10
+        }
+      ],
+      "englishText": "Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage",
+      "values": [],
+      "template": "maces.ruination-maul:implicit:base",
+      "sourceCode": null
+    },
+    "fanatic-greathammer:implicit:base": {
+      "stats": [
+        {
+          "id": "melee_splash",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "Strikes deal Splash Damage",
+      "values": [],
+      "template": "maces.fanatic-greathammer:implicit:base",
+      "sourceCode": null
+    },
+    "tawhoan-greatclub:implicit:base": {
+      "stats": [
+        {
+          "id": "warcry_empowers_next_x_melee_attacks",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "Warcries Empower 1 additional Attacks",
+      "values": [],
+      "template": "maces.tawhoan-greatclub:implicit:base",
+      "sourceCode": null
     }
   },
   "templates": {
@@ -52798,6 +53319,122 @@
       "quivers.broadhead-quiver:implicit:base": {
         "name": "Broadhead Quiver",
         "template": "Adds 1 to 3 Physical Damage to Attacks"
+      },
+      "maces.one-hand-maces:suffix:of-dueling:419c809044ec": {
+        "name": "of Dueling",
+        "template": "{v0} to Level of all Melee Skills"
+      },
+      "maces.one-hand-maces:suffix:of-conflict:c5175b7af283": {
+        "name": "of Conflict",
+        "template": "{v0} to Level of all Melee Skills"
+      },
+      "maces.one-hand-maces:suffix:of-battle:53f27c0918aa": {
+        "name": "of Battle",
+        "template": "{v0} to Level of all Melee Skills"
+      },
+      "maces.one-hand-maces:suffix:of-war:f89528968e12": {
+        "name": "of War",
+        "template": "{v0} to Level of all Melee Skills"
+      },
+      "maces.one-hand-maces:suffix:of-fame:LocalIncreasedAttackSpeed6": {
+        "name": "of Fame",
+        "template": "{v0}% increased Attack Speed"
+      },
+      "maces.one-hand-maces:suffix:of-infamy:LocalIncreasedAttackSpeed7": {
+        "name": "of Infamy",
+        "template": "{v0}% increased Attack Speed"
+      },
+      "maces.one-hand-maces:suffix:of-celebration:LocalIncreasedAttackSpeed8": {
+        "name": "of Celebration",
+        "template": "{v0}% increased Attack Speed"
+      },
+      "maces.one-hand-maces:suffix:of-impact:149bfccf4e97": {
+        "name": "of Impact",
+        "template": "{v0}% increased Stun Duration"
+      },
+      "maces.one-hand-maces:suffix:of-dazing:StunDuration2": {
+        "name": "of Dazing",
+        "template": "{v0}% increased Stun Duration"
+      },
+      "maces.one-hand-maces:suffix:of-stunning:StunDuration3": {
+        "name": "of Stunning",
+        "template": "{v0}% increased Stun Duration"
+      },
+      "maces.one-hand-maces:suffix:of-slamming:StunDuration4": {
+        "name": "of Slamming",
+        "template": "{v0}% increased Stun Duration"
+      },
+      "maces.one-hand-maces:suffix:of-staggering:a5a4562fee23": {
+        "name": "of Staggering",
+        "template": "{v0}% increased Stun Duration"
+      },
+      "maces.one-hand-maces:suffix:of-the-concussion:336cb628d3bc": {
+        "name": "of the Concussion",
+        "template": "{v0}% increased Stun Duration"
+      },
+      "maces.one-hand-maces:suffix:of-the-pugilist:StunDamageIncrease1": {
+        "name": "of the Pugilist",
+        "template": "Causes {v0}% increased Stun Buildup"
+      },
+      "maces.one-hand-maces:suffix:of-the-brawler:452f5fe1185c": {
+        "name": "of the Brawler",
+        "template": "Causes {v0}% increased Stun Buildup"
+      },
+      "maces.one-hand-maces:suffix:of-the-boxer:StunDamageIncrease3": {
+        "name": "of the Boxer",
+        "template": "Causes {v0}% increased Stun Buildup"
+      },
+      "maces.one-hand-maces:suffix:of-the-combatant:42332323c029": {
+        "name": "of the Combatant",
+        "template": "Causes {v0}% increased Stun Buildup"
+      },
+      "maces.one-hand-maces:suffix:of-the-gladiator:a6094362ce98": {
+        "name": "of the Gladiator",
+        "template": "Causes {v0}% increased Stun Buildup"
+      },
+      "maces.one-hand-maces:suffix:of-the-champion:9e3b3690b59e": {
+        "name": "of the Champion",
+        "template": "Causes {v0}% increased Stun Buildup"
+      },
+      "maces.fortified-hammer:implicit:base": {
+        "name": "Fortified Hammer",
+        "template": "40% chance to Daze on Hit"
+      },
+      "maces.strife-pick:implicit:base": {
+        "name": "Strife Pick",
+        "template": "{v0}% to Critical Damage Bonus"
+      },
+      "maces.akoyan-club:implicit:base": {
+        "name": "Akoyan Club",
+        "template": "Always Hits"
+      },
+      "maces.two-hand-maces:suffix:of-dueling:GlobalMeleeSkillGemLevelTwoHandWeapon2": {
+        "name": "of Dueling",
+        "template": "{v0} to Level of all Melee Skills"
+      },
+      "maces.two-hand-maces:suffix:of-conflict:GlobalMeleeSkillGemLevelTwoHandWeapon3": {
+        "name": "of Conflict",
+        "template": "{v0} to Level of all Melee Skills"
+      },
+      "maces.two-hand-maces:suffix:of-battle:GlobalMeleeSkillGemLevelTwoHandWeapon4": {
+        "name": "of Battle",
+        "template": "{v0} to Level of all Melee Skills"
+      },
+      "maces.two-hand-maces:suffix:of-war:GlobalMeleeSkillGemLevelTwoHandWeapon5": {
+        "name": "of War",
+        "template": "{v0} to Level of all Melee Skills"
+      },
+      "maces.ruination-maul:implicit:base": {
+        "name": "Ruination Maul",
+        "template": "Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage"
+      },
+      "maces.fanatic-greathammer:implicit:base": {
+        "name": "Fanatic Greathammer",
+        "template": "Strikes deal Splash Damage"
+      },
+      "maces.tawhoan-greatclub:implicit:base": {
+        "name": "Tawhoan Greatclub",
+        "template": "Warcries Empower 1 additional Attacks"
       }
     },
     "ko": {
@@ -61232,6 +61869,122 @@
       "quivers.broadhead-quiver:implicit:base": {
         "name": "Broadhead Quiver",
         "template": "공격 시 물리 피해 1~3 추가"
+      },
+      "maces.one-hand-maces:suffix:of-dueling:419c809044ec": {
+        "name": "of Dueling",
+        "template": "모든 근접 스킬 레벨 {v0}"
+      },
+      "maces.one-hand-maces:suffix:of-conflict:c5175b7af283": {
+        "name": "of Conflict",
+        "template": "모든 근접 스킬 레벨 {v0}"
+      },
+      "maces.one-hand-maces:suffix:of-battle:53f27c0918aa": {
+        "name": "of Battle",
+        "template": "모든 근접 스킬 레벨 {v0}"
+      },
+      "maces.one-hand-maces:suffix:of-war:f89528968e12": {
+        "name": "of War",
+        "template": "모든 근접 스킬 레벨 {v0}"
+      },
+      "maces.one-hand-maces:suffix:of-fame:LocalIncreasedAttackSpeed6": {
+        "name": "of Fame",
+        "template": "공격 속도 {v0}% 증가"
+      },
+      "maces.one-hand-maces:suffix:of-infamy:LocalIncreasedAttackSpeed7": {
+        "name": "of Infamy",
+        "template": "공격 속도 {v0}% 증가"
+      },
+      "maces.one-hand-maces:suffix:of-celebration:LocalIncreasedAttackSpeed8": {
+        "name": "of Celebration",
+        "template": "공격 속도 {v0}% 증가"
+      },
+      "maces.one-hand-maces:suffix:of-impact:149bfccf4e97": {
+        "name": "of Impact",
+        "template": "기절 지속시간 {v0}% 증가"
+      },
+      "maces.one-hand-maces:suffix:of-dazing:StunDuration2": {
+        "name": "of Dazing",
+        "template": "기절 지속시간 {v0}% 증가"
+      },
+      "maces.one-hand-maces:suffix:of-stunning:StunDuration3": {
+        "name": "of Stunning",
+        "template": "기절 지속시간 {v0}% 증가"
+      },
+      "maces.one-hand-maces:suffix:of-slamming:StunDuration4": {
+        "name": "of Slamming",
+        "template": "기절 지속시간 {v0}% 증가"
+      },
+      "maces.one-hand-maces:suffix:of-staggering:a5a4562fee23": {
+        "name": "of Staggering",
+        "template": "기절 지속시간 {v0}% 증가"
+      },
+      "maces.one-hand-maces:suffix:of-the-concussion:336cb628d3bc": {
+        "name": "of the Concussion",
+        "template": "기절 지속시간 {v0}% 증가"
+      },
+      "maces.one-hand-maces:suffix:of-the-pugilist:StunDamageIncrease1": {
+        "name": "of the Pugilist",
+        "template": "유발하는 기절 축적 {v0}% 증가"
+      },
+      "maces.one-hand-maces:suffix:of-the-brawler:452f5fe1185c": {
+        "name": "of the Brawler",
+        "template": "유발하는 기절 축적 {v0}% 증가"
+      },
+      "maces.one-hand-maces:suffix:of-the-boxer:StunDamageIncrease3": {
+        "name": "of the Boxer",
+        "template": "유발하는 기절 축적 {v0}% 증가"
+      },
+      "maces.one-hand-maces:suffix:of-the-combatant:42332323c029": {
+        "name": "of the Combatant",
+        "template": "유발하는 기절 축적 {v0}% 증가"
+      },
+      "maces.one-hand-maces:suffix:of-the-gladiator:a6094362ce98": {
+        "name": "of the Gladiator",
+        "template": "유발하는 기절 축적 {v0}% 증가"
+      },
+      "maces.one-hand-maces:suffix:of-the-champion:9e3b3690b59e": {
+        "name": "of the Champion",
+        "template": "유발하는 기절 축적 {v0}% 증가"
+      },
+      "maces.fortified-hammer:implicit:base": {
+        "name": "Fortified Hammer",
+        "template": "명중 시 40% 확률로 혼미"
+      },
+      "maces.strife-pick:implicit:base": {
+        "name": "Strife Pick",
+        "template": "치명타 피해 보너스 {v0}%"
+      },
+      "maces.akoyan-club:implicit:base": {
+        "name": "Akoyan Club",
+        "template": "항상 명중"
+      },
+      "maces.two-hand-maces:suffix:of-dueling:GlobalMeleeSkillGemLevelTwoHandWeapon2": {
+        "name": "of Dueling",
+        "template": "모든 근접 스킬 레벨 {v0}"
+      },
+      "maces.two-hand-maces:suffix:of-conflict:GlobalMeleeSkillGemLevelTwoHandWeapon3": {
+        "name": "of Conflict",
+        "template": "모든 근접 스킬 레벨 {v0}"
+      },
+      "maces.two-hand-maces:suffix:of-battle:GlobalMeleeSkillGemLevelTwoHandWeapon4": {
+        "name": "of Battle",
+        "template": "모든 근접 스킬 레벨 {v0}"
+      },
+      "maces.two-hand-maces:suffix:of-war:GlobalMeleeSkillGemLevelTwoHandWeapon5": {
+        "name": "of War",
+        "template": "모든 근접 스킬 레벨 {v0}"
+      },
+      "maces.ruination-maul:implicit:base": {
+        "name": "Ruination Maul",
+        "template": "치명타 처치 시 적이 폭발하여 생명력의 10%를 물리 피해로 줌"
+      },
+      "maces.fanatic-greathammer:implicit:base": {
+        "name": "Fanatic Greathammer",
+        "template": "타격이 방사 피해를 줌"
+      },
+      "maces.tawhoan-greatclub:implicit:base": {
+        "name": "Tawhoan Greatclub",
+        "template": "함성이 공격 1회 추가로 강화"
       }
     },
     "zh-CN": {
@@ -69666,6 +70419,122 @@
       "quivers.broadhead-quiver:implicit:base": {
         "name": "Broadhead Quiver",
         "template": "攻击附加 1 - 3 物理伤害"
+      },
+      "maces.one-hand-maces:suffix:of-dueling:419c809044ec": {
+        "name": "of Dueling",
+        "template": "所有近战技能等级 {v0}"
+      },
+      "maces.one-hand-maces:suffix:of-conflict:c5175b7af283": {
+        "name": "of Conflict",
+        "template": "所有近战技能等级 {v0}"
+      },
+      "maces.one-hand-maces:suffix:of-battle:53f27c0918aa": {
+        "name": "of Battle",
+        "template": "所有近战技能等级 {v0}"
+      },
+      "maces.one-hand-maces:suffix:of-war:f89528968e12": {
+        "name": "of War",
+        "template": "所有近战技能等级 {v0}"
+      },
+      "maces.one-hand-maces:suffix:of-fame:LocalIncreasedAttackSpeed6": {
+        "name": "of Fame",
+        "template": "攻击速度提高 {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-infamy:LocalIncreasedAttackSpeed7": {
+        "name": "of Infamy",
+        "template": "攻击速度提高 {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-celebration:LocalIncreasedAttackSpeed8": {
+        "name": "of Celebration",
+        "template": "攻击速度提高 {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-impact:149bfccf4e97": {
+        "name": "of Impact",
+        "template": "晕眩持续时间提高 {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-dazing:StunDuration2": {
+        "name": "of Dazing",
+        "template": "晕眩持续时间提高 {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-stunning:StunDuration3": {
+        "name": "of Stunning",
+        "template": "晕眩持续时间提高 {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-slamming:StunDuration4": {
+        "name": "of Slamming",
+        "template": "晕眩持续时间提高 {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-staggering:a5a4562fee23": {
+        "name": "of Staggering",
+        "template": "晕眩持续时间提高 {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-the-concussion:336cb628d3bc": {
+        "name": "of the Concussion",
+        "template": "晕眩持续时间提高 {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-the-pugilist:StunDamageIncrease1": {
+        "name": "of the Pugilist",
+        "template": "造成的晕眩积蓄值提高 {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-the-brawler:452f5fe1185c": {
+        "name": "of the Brawler",
+        "template": "造成的晕眩积蓄值提高 {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-the-boxer:StunDamageIncrease3": {
+        "name": "of the Boxer",
+        "template": "造成的晕眩积蓄值提高 {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-the-combatant:42332323c029": {
+        "name": "of the Combatant",
+        "template": "造成的晕眩积蓄值提高 {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-the-gladiator:a6094362ce98": {
+        "name": "of the Gladiator",
+        "template": "造成的晕眩积蓄值提高 {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-the-champion:9e3b3690b59e": {
+        "name": "of the Champion",
+        "template": "造成的晕眩积蓄值提高 {v0}%"
+      },
+      "maces.fortified-hammer:implicit:base": {
+        "name": "Fortified Hammer",
+        "template": "击中时有 40% 的几率使目标恍惚"
+      },
+      "maces.strife-pick:implicit:base": {
+        "name": "Strife Pick",
+        "template": "{v0}% 暴击伤害加成"
+      },
+      "maces.akoyan-club:implicit:base": {
+        "name": "Akoyan Club",
+        "template": "必定命中"
+      },
+      "maces.two-hand-maces:suffix:of-dueling:GlobalMeleeSkillGemLevelTwoHandWeapon2": {
+        "name": "of Dueling",
+        "template": "所有近战技能等级 {v0}"
+      },
+      "maces.two-hand-maces:suffix:of-conflict:GlobalMeleeSkillGemLevelTwoHandWeapon3": {
+        "name": "of Conflict",
+        "template": "所有近战技能等级 {v0}"
+      },
+      "maces.two-hand-maces:suffix:of-battle:GlobalMeleeSkillGemLevelTwoHandWeapon4": {
+        "name": "of Battle",
+        "template": "所有近战技能等级 {v0}"
+      },
+      "maces.two-hand-maces:suffix:of-war:GlobalMeleeSkillGemLevelTwoHandWeapon5": {
+        "name": "of War",
+        "template": "所有近战技能等级 {v0}"
+      },
+      "maces.ruination-maul:implicit:base": {
+        "name": "Ruination Maul",
+        "template": "暴击击败敌人时触发爆炸，造成相当于其生命 10% 的物理伤害"
+      },
+      "maces.fanatic-greathammer:implicit:base": {
+        "name": "Fanatic Greathammer",
+        "template": "打击造成溅射伤害"
+      },
+      "maces.tawhoan-greatclub:implicit:base": {
+        "name": "Tawhoan Greatclub",
+        "template": "战吼额外被强化 1 次攻击"
       }
     },
     "zh-TW": {
@@ -78100,6 +78969,122 @@
       "quivers.broadhead-quiver:implicit:base": {
         "name": "Broadhead Quiver",
         "template": "攻擊附加1至3物理傷害"
+      },
+      "maces.one-hand-maces:suffix:of-dueling:419c809044ec": {
+        "name": "of Dueling",
+        "template": "全部近戰技能的等級{v0}"
+      },
+      "maces.one-hand-maces:suffix:of-conflict:c5175b7af283": {
+        "name": "of Conflict",
+        "template": "全部近戰技能的等級{v0}"
+      },
+      "maces.one-hand-maces:suffix:of-battle:53f27c0918aa": {
+        "name": "of Battle",
+        "template": "全部近戰技能的等級{v0}"
+      },
+      "maces.one-hand-maces:suffix:of-war:f89528968e12": {
+        "name": "of War",
+        "template": "全部近戰技能的等級{v0}"
+      },
+      "maces.one-hand-maces:suffix:of-fame:LocalIncreasedAttackSpeed6": {
+        "name": "of Fame",
+        "template": "增加{v0}%攻擊速度"
+      },
+      "maces.one-hand-maces:suffix:of-infamy:LocalIncreasedAttackSpeed7": {
+        "name": "of Infamy",
+        "template": "增加{v0}%攻擊速度"
+      },
+      "maces.one-hand-maces:suffix:of-celebration:LocalIncreasedAttackSpeed8": {
+        "name": "of Celebration",
+        "template": "增加{v0}%攻擊速度"
+      },
+      "maces.one-hand-maces:suffix:of-impact:149bfccf4e97": {
+        "name": "of Impact",
+        "template": "增加{v0}%暈眩持續時間"
+      },
+      "maces.one-hand-maces:suffix:of-dazing:StunDuration2": {
+        "name": "of Dazing",
+        "template": "增加{v0}%暈眩持續時間"
+      },
+      "maces.one-hand-maces:suffix:of-stunning:StunDuration3": {
+        "name": "of Stunning",
+        "template": "增加{v0}%暈眩持續時間"
+      },
+      "maces.one-hand-maces:suffix:of-slamming:StunDuration4": {
+        "name": "of Slamming",
+        "template": "增加{v0}%暈眩持續時間"
+      },
+      "maces.one-hand-maces:suffix:of-staggering:a5a4562fee23": {
+        "name": "of Staggering",
+        "template": "增加{v0}%暈眩持續時間"
+      },
+      "maces.one-hand-maces:suffix:of-the-concussion:336cb628d3bc": {
+        "name": "of the Concussion",
+        "template": "增加{v0}%暈眩持續時間"
+      },
+      "maces.one-hand-maces:suffix:of-the-pugilist:StunDamageIncrease1": {
+        "name": "of the Pugilist",
+        "template": "增加{v0}%暈眩累積"
+      },
+      "maces.one-hand-maces:suffix:of-the-brawler:452f5fe1185c": {
+        "name": "of the Brawler",
+        "template": "增加{v0}%暈眩累積"
+      },
+      "maces.one-hand-maces:suffix:of-the-boxer:StunDamageIncrease3": {
+        "name": "of the Boxer",
+        "template": "增加{v0}%暈眩累積"
+      },
+      "maces.one-hand-maces:suffix:of-the-combatant:42332323c029": {
+        "name": "of the Combatant",
+        "template": "增加{v0}%暈眩累積"
+      },
+      "maces.one-hand-maces:suffix:of-the-gladiator:a6094362ce98": {
+        "name": "of the Gladiator",
+        "template": "增加{v0}%暈眩累積"
+      },
+      "maces.one-hand-maces:suffix:of-the-champion:9e3b3690b59e": {
+        "name": "of the Champion",
+        "template": "增加{v0}%暈眩累積"
+      },
+      "maces.fortified-hammer:implicit:base": {
+        "name": "Fortified Hammer",
+        "template": "擊中時有40%機率造成目眩"
+      },
+      "maces.strife-pick:implicit:base": {
+        "name": "Strife Pick",
+        "template": "{v0}%的暴擊傷害加成"
+      },
+      "maces.akoyan-club:implicit:base": {
+        "name": "Akoyan Club",
+        "template": "必定擊中"
+      },
+      "maces.two-hand-maces:suffix:of-dueling:GlobalMeleeSkillGemLevelTwoHandWeapon2": {
+        "name": "of Dueling",
+        "template": "全部近戰技能的等級{v0}"
+      },
+      "maces.two-hand-maces:suffix:of-conflict:GlobalMeleeSkillGemLevelTwoHandWeapon3": {
+        "name": "of Conflict",
+        "template": "全部近戰技能的等級{v0}"
+      },
+      "maces.two-hand-maces:suffix:of-battle:GlobalMeleeSkillGemLevelTwoHandWeapon4": {
+        "name": "of Battle",
+        "template": "全部近戰技能的等級{v0}"
+      },
+      "maces.two-hand-maces:suffix:of-war:GlobalMeleeSkillGemLevelTwoHandWeapon5": {
+        "name": "of War",
+        "template": "全部近戰技能的等級{v0}"
+      },
+      "maces.ruination-maul:implicit:base": {
+        "name": "Ruination Maul",
+        "template": "透過暴擊擊殺敵人時使其爆炸，造成等同於其10%生命的物理傷害"
+      },
+      "maces.fanatic-greathammer:implicit:base": {
+        "name": "Fanatic Greathammer",
+        "template": "打擊造成擴散傷害"
+      },
+      "maces.tawhoan-greatclub:implicit:base": {
+        "name": "Tawhoan Greatclub",
+        "template": "戰吼強化額外1次攻擊"
       }
     },
     "ja": {
@@ -86534,6 +87519,122 @@
       "quivers.broadhead-quiver:implicit:base": {
         "name": "Broadhead Quiver",
         "template": "1から3の物理ダメージをアタックに追加する"
+      },
+      "maces.one-hand-maces:suffix:of-dueling:419c809044ec": {
+        "name": "of Dueling",
+        "template": "全ての近接スキルのレベル {v0}"
+      },
+      "maces.one-hand-maces:suffix:of-conflict:c5175b7af283": {
+        "name": "of Conflict",
+        "template": "全ての近接スキルのレベル {v0}"
+      },
+      "maces.one-hand-maces:suffix:of-battle:53f27c0918aa": {
+        "name": "of Battle",
+        "template": "全ての近接スキルのレベル {v0}"
+      },
+      "maces.one-hand-maces:suffix:of-war:f89528968e12": {
+        "name": "of War",
+        "template": "全ての近接スキルのレベル {v0}"
+      },
+      "maces.one-hand-maces:suffix:of-fame:LocalIncreasedAttackSpeed6": {
+        "name": "of Fame",
+        "template": "アタックスピードが{v0}%増加する"
+      },
+      "maces.one-hand-maces:suffix:of-infamy:LocalIncreasedAttackSpeed7": {
+        "name": "of Infamy",
+        "template": "アタックスピードが{v0}%増加する"
+      },
+      "maces.one-hand-maces:suffix:of-celebration:LocalIncreasedAttackSpeed8": {
+        "name": "of Celebration",
+        "template": "アタックスピードが{v0}%増加する"
+      },
+      "maces.one-hand-maces:suffix:of-impact:149bfccf4e97": {
+        "name": "of Impact",
+        "template": "スタン持続時間が{v0}%増加する"
+      },
+      "maces.one-hand-maces:suffix:of-dazing:StunDuration2": {
+        "name": "of Dazing",
+        "template": "スタン持続時間が{v0}%増加する"
+      },
+      "maces.one-hand-maces:suffix:of-stunning:StunDuration3": {
+        "name": "of Stunning",
+        "template": "スタン持続時間が{v0}%増加する"
+      },
+      "maces.one-hand-maces:suffix:of-slamming:StunDuration4": {
+        "name": "of Slamming",
+        "template": "スタン持続時間が{v0}%増加する"
+      },
+      "maces.one-hand-maces:suffix:of-staggering:a5a4562fee23": {
+        "name": "of Staggering",
+        "template": "スタン持続時間が{v0}%増加する"
+      },
+      "maces.one-hand-maces:suffix:of-the-concussion:336cb628d3bc": {
+        "name": "of the Concussion",
+        "template": "スタン持続時間が{v0}%増加する"
+      },
+      "maces.one-hand-maces:suffix:of-the-pugilist:StunDamageIncrease1": {
+        "name": "of the Pugilist",
+        "template": "引き起こすスタン蓄積が{v0}%増加する"
+      },
+      "maces.one-hand-maces:suffix:of-the-brawler:452f5fe1185c": {
+        "name": "of the Brawler",
+        "template": "引き起こすスタン蓄積が{v0}%増加する"
+      },
+      "maces.one-hand-maces:suffix:of-the-boxer:StunDamageIncrease3": {
+        "name": "of the Boxer",
+        "template": "引き起こすスタン蓄積が{v0}%増加する"
+      },
+      "maces.one-hand-maces:suffix:of-the-combatant:42332323c029": {
+        "name": "of the Combatant",
+        "template": "引き起こすスタン蓄積が{v0}%増加する"
+      },
+      "maces.one-hand-maces:suffix:of-the-gladiator:a6094362ce98": {
+        "name": "of the Gladiator",
+        "template": "引き起こすスタン蓄積が{v0}%増加する"
+      },
+      "maces.one-hand-maces:suffix:of-the-champion:9e3b3690b59e": {
+        "name": "of the Champion",
+        "template": "引き起こすスタン蓄積が{v0}%増加する"
+      },
+      "maces.fortified-hammer:implicit:base": {
+        "name": "Fortified Hammer",
+        "template": "ヒット時に40%の確率で眩暈を付与する"
+      },
+      "maces.strife-pick:implicit:base": {
+        "name": "Strife Pick",
+        "template": "クリティカルダメージボーナス {v0}%"
+      },
+      "maces.akoyan-club:implicit:base": {
+        "name": "Akoyan Club",
+        "template": "常にヒットする"
+      },
+      "maces.two-hand-maces:suffix:of-dueling:GlobalMeleeSkillGemLevelTwoHandWeapon2": {
+        "name": "of Dueling",
+        "template": "全ての近接スキルのレベル {v0}"
+      },
+      "maces.two-hand-maces:suffix:of-conflict:GlobalMeleeSkillGemLevelTwoHandWeapon3": {
+        "name": "of Conflict",
+        "template": "全ての近接スキルのレベル {v0}"
+      },
+      "maces.two-hand-maces:suffix:of-battle:GlobalMeleeSkillGemLevelTwoHandWeapon4": {
+        "name": "of Battle",
+        "template": "全ての近接スキルのレベル {v0}"
+      },
+      "maces.two-hand-maces:suffix:of-war:GlobalMeleeSkillGemLevelTwoHandWeapon5": {
+        "name": "of War",
+        "template": "全ての近接スキルのレベル {v0}"
+      },
+      "maces.ruination-maul:implicit:base": {
+        "name": "Ruination Maul",
+        "template": "クリティカルキル時に敵を爆発させ、そのライフの10%を物理ダメージとして与える"
+      },
+      "maces.fanatic-greathammer:implicit:base": {
+        "name": "Fanatic Greathammer",
+        "template": "ストライクはスプラッシュダメージを与える"
+      },
+      "maces.tawhoan-greatclub:implicit:base": {
+        "name": "Tawhoan Greatclub",
+        "template": "ウォークライはアタックを追加で1回強化する"
       }
     },
     "es": {
@@ -94968,6 +96069,122 @@
       "quivers.broadhead-quiver:implicit:base": {
         "name": "Broadhead Quiver",
         "template": "Agrega de 1 a 3 de daño físico a los ataques"
+      },
+      "maces.one-hand-maces:suffix:of-dueling:419c809044ec": {
+        "name": "of Dueling",
+        "template": "{v0} al nivel de todas las habilidades cuerpo a cuerpo"
+      },
+      "maces.one-hand-maces:suffix:of-conflict:c5175b7af283": {
+        "name": "of Conflict",
+        "template": "{v0} al nivel de todas las habilidades cuerpo a cuerpo"
+      },
+      "maces.one-hand-maces:suffix:of-battle:53f27c0918aa": {
+        "name": "of Battle",
+        "template": "{v0} al nivel de todas las habilidades cuerpo a cuerpo"
+      },
+      "maces.one-hand-maces:suffix:of-war:f89528968e12": {
+        "name": "of War",
+        "template": "{v0} al nivel de todas las habilidades cuerpo a cuerpo"
+      },
+      "maces.one-hand-maces:suffix:of-fame:LocalIncreasedAttackSpeed6": {
+        "name": "of Fame",
+        "template": "Velocidad de ataque aumentada un {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-infamy:LocalIncreasedAttackSpeed7": {
+        "name": "of Infamy",
+        "template": "Velocidad de ataque aumentada un {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-celebration:LocalIncreasedAttackSpeed8": {
+        "name": "of Celebration",
+        "template": "Velocidad de ataque aumentada un {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-impact:149bfccf4e97": {
+        "name": "of Impact",
+        "template": "Duración del aturdimiento aumentada un {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-dazing:StunDuration2": {
+        "name": "of Dazing",
+        "template": "Duración del aturdimiento aumentada un {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-stunning:StunDuration3": {
+        "name": "of Stunning",
+        "template": "Duración del aturdimiento aumentada un {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-slamming:StunDuration4": {
+        "name": "of Slamming",
+        "template": "Duración del aturdimiento aumentada un {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-staggering:a5a4562fee23": {
+        "name": "of Staggering",
+        "template": "Duración del aturdimiento aumentada un {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-the-concussion:336cb628d3bc": {
+        "name": "of the Concussion",
+        "template": "Duración del aturdimiento aumentada un {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-the-pugilist:StunDamageIncrease1": {
+        "name": "of the Pugilist",
+        "template": "Acumulación de aturdimiento aumentada un {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-the-brawler:452f5fe1185c": {
+        "name": "of the Brawler",
+        "template": "Acumulación de aturdimiento aumentada un {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-the-boxer:StunDamageIncrease3": {
+        "name": "of the Boxer",
+        "template": "Acumulación de aturdimiento aumentada un {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-the-combatant:42332323c029": {
+        "name": "of the Combatant",
+        "template": "Acumulación de aturdimiento aumentada un {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-the-gladiator:a6094362ce98": {
+        "name": "of the Gladiator",
+        "template": "Acumulación de aturdimiento aumentada un {v0}%"
+      },
+      "maces.one-hand-maces:suffix:of-the-champion:9e3b3690b59e": {
+        "name": "of the Champion",
+        "template": "Acumulación de aturdimiento aumentada un {v0}%"
+      },
+      "maces.fortified-hammer:implicit:base": {
+        "name": "Fortified Hammer",
+        "template": "40% de probabilidad de desorientar al impactar"
+      },
+      "maces.strife-pick:implicit:base": {
+        "name": "Strife Pick",
+        "template": "{v0}% a la bonificación de daño crítico"
+      },
+      "maces.akoyan-club:implicit:base": {
+        "name": "Akoyan Club",
+        "template": "Siempre impacta"
+      },
+      "maces.two-hand-maces:suffix:of-dueling:GlobalMeleeSkillGemLevelTwoHandWeapon2": {
+        "name": "of Dueling",
+        "template": "{v0} al nivel de todas las habilidades cuerpo a cuerpo"
+      },
+      "maces.two-hand-maces:suffix:of-conflict:GlobalMeleeSkillGemLevelTwoHandWeapon3": {
+        "name": "of Conflict",
+        "template": "{v0} al nivel de todas las habilidades cuerpo a cuerpo"
+      },
+      "maces.two-hand-maces:suffix:of-battle:GlobalMeleeSkillGemLevelTwoHandWeapon4": {
+        "name": "of Battle",
+        "template": "{v0} al nivel de todas las habilidades cuerpo a cuerpo"
+      },
+      "maces.two-hand-maces:suffix:of-war:GlobalMeleeSkillGemLevelTwoHandWeapon5": {
+        "name": "of War",
+        "template": "{v0} al nivel de todas las habilidades cuerpo a cuerpo"
+      },
+      "maces.ruination-maul:implicit:base": {
+        "name": "Ruination Maul",
+        "template": "Los enemigos explotan al morir cuando los matas con un impacto crítico e infligen el 10% de su vida como daño físico"
+      },
+      "maces.fanatic-greathammer:implicit:base": {
+        "name": "Fanatic Greathammer",
+        "template": "Los golpes infligen daño colateral"
+      },
+      "maces.tawhoan-greatclub:implicit:base": {
+        "name": "Tawhoan Greatclub",
+        "template": "Los gritos de guerra potencian un ataque adicional"
       }
     }
   }

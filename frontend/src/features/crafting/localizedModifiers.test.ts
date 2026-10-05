@@ -58,7 +58,7 @@ describe('verified modifier display templates', () => {
     expect(
       ids.filter(
         (id) =>
-          !/^(ruby|emerald|sapphire|diamond|crossbow|.+-crossbow|offhand|quiver|.+-quiver):/.test(
+          !/^(ruby|emerald|sapphire|diamond|crossbow|.+-crossbow|offhand|quiver|.+-quiver|one-hand-maces|two-hand-maces|fortified-hammer|strife-pick|akoyan-club|ruination-maul|fanatic-greathammer|tawhoan-greatclub):/.test(
             id,
           ) && !id.startsWith('time-lost-'),
       ),
@@ -66,7 +66,7 @@ describe('verified modifier display templates', () => {
     expect(
       ids.filter(
         (id) =>
-          !/^(ruby|emerald|sapphire|diamond|offhand|quiver|.+-quiver):/.test(
+          !/^(ruby|emerald|sapphire|diamond|offhand|quiver|.+-quiver|one-hand-maces|two-hand-maces|fortified-hammer|strife-pick|akoyan-club|ruination-maul|fanatic-greathammer|tawhoan-greatclub):/.test(
             id,
           ) && !id.startsWith('time-lost-'),
       ),
@@ -78,7 +78,7 @@ describe('verified modifier display templates', () => {
           !/^(ruby|emerald|sapphire|diamond):/.test(id) &&
           !id.startsWith('time-lost-'),
       ),
-    ).toHaveLength(1955)
+    ).toHaveLength(1984)
     expect(
       ids
         .filter(

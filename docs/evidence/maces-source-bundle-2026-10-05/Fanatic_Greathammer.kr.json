@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/kr/Fanatic_Greathammer",
+  "retrievedAt": "2026-10-05T07:00:29.424Z",
+  "sha256": "0af0180a85474e80dfab0989d6ac4d1638b65bac9055ba81c5c77bfb424087e5",
+  "variants": [
+    {
+      "name": "광신도 대망치",
+      "card": "광신도 대망치\n        \n    \n    \n        \n            양손 철퇴물리 피해: 101-137치명타 명중 확률: 5%초당 공격 횟수: 1.05무기 범위: 1.5요구 사항:  레벨 78, 163 힘타격이 방사 피해를 줌\n        \n\n\n\n        \n            Fanatic Greathammer",
+      "requirements": "요구 사항:  레벨 78, 163 힘",
+      "properties": [
+        "양손 철퇴",
+        "물리 피해: 101-137",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.05",
+        "무기 범위: 1.5"
+      ],
+      "fields": {
+        "DropLevel": "78",
+        "BaseType": "광신도 대망치",
+        "Class": "양손 철퇴",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace5Endgame",
+        "Tags": "mace, two_hand_weapon, twohand, weapon",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/TwoHandMaces/Basetypes/2HMace05",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, twohand, mace, two_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ]
+}

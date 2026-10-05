@@ -1,0 +1,133 @@
+{
+  "passed": true,
+  "totalBases": 119,
+  "previousBases": 113,
+  "addedBases": 6,
+  "backendUnit": 482,
+  "backendIntegration": 6,
+  "frontendTests": 1909,
+  "apiChecks": 2773,
+  "browserChecks": 1058,
+  "oldFilledChecks": 25,
+  "pageErrors": 0,
+  "originalScreenshots": 192,
+  "contactSheets": 32,
+  "finalInputs": "final-qa-inputs-3.json",
+  "services": [
+    {
+      "name": "exile-maces-20261005-frontend-1",
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-10-05T07:34:39.107631342Z",
+      "FinishedAt": "2026-10-05T07:59:05.507512527Z"
+    },
+    {
+      "name": "exile-maces-20261005-app-1",
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 143,
+      "Error": "",
+      "StartedAt": "2026-10-05T07:34:38.909812966Z",
+      "FinishedAt": "2026-10-05T07:59:05.936317795Z"
+    },
+    {
+      "name": "exile-maces-20261005-postgres-1",
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-10-05T07:34:33.16305148Z",
+      "FinishedAt": "2026-10-05T07:59:06.234922702Z",
+      "Health": {
+        "Status": "unhealthy",
+        "FailingStreak": 0,
+        "Log": [
+          {
+            "Start": "2026-10-05T07:58:45.748930877Z",
+            "End": "2026-10-05T07:58:45.78884356Z",
+            "ExitCode": 0,
+            "Output": "/var/run/postgresql:5432 - accepting connections\n"
+          },
+          {
+            "Start": "2026-10-05T07:58:50.789979851Z",
+            "End": "2026-10-05T07:58:50.828705272Z",
+            "ExitCode": 0,
+            "Output": "/var/run/postgresql:5432 - accepting connections\n"
+          },
+          {
+            "Start": "2026-10-05T07:58:55.829906049Z",
+            "End": "2026-10-05T07:58:55.867104093Z",
+            "ExitCode": 0,
+            "Output": "/var/run/postgresql:5432 - accepting connections\n"
+          },
+          {
+            "Start": "2026-10-05T07:59:00.868522019Z",
+            "End": "2026-10-05T07:59:00.905947863Z",
+            "ExitCode": 0,
+            "Output": "/var/run/postgresql:5432 - accepting connections\n"
+          },
+          {
+            "Start": "2026-10-05T07:59:05.906972371Z",
+            "End": "2026-10-05T07:59:05.94584059Z",
+            "ExitCode": 0,
+            "Output": "/var/run/postgresql:5432 - accepting connections\n"
+          }
+        ]
+      }
+    },
+    {
+      "name": "exile-maces-20261005-redis-1",
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-10-05T07:34:32.920235076Z",
+      "FinishedAt": "2026-10-05T07:59:06.213010464Z"
+    }
+  ],
+  "qaOwner": {
+    "active": false,
+    "project": "exile-maces-20261005",
+    "ports": [
+      20780,
+      20781
+    ],
+    "baseHead": "3c40950098146be6b2b80fda3ec54c380f833927",
+    "authorization": "Sole writer; isolated sequential QA",
+    "releasedAt": "2026-10-05T08:00:23.280Z"
+  },
+  "livePreserved": true,
+  "logs": [
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/maces-qa-20261005/backend-check-1.log",
+      "sha256": "3f5f78022318ef9ad6498dd3ba8f4d33c69a71537678d5c14ab8273d36db5f24"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/maces-qa-20261005/frontend-check-3.log",
+      "sha256": "15d1f8b53ae9a293791a59ffdf381dc39cb77e4c02ebd280d24eb7a3b6db5bf5"
+    }
+  ],
+  "remoteActions": false
+}

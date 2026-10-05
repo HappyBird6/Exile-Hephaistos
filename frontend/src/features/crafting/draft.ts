@@ -3,6 +3,16 @@ import { create } from 'zustand'
 export type ItemTextDocument = { id: string; text: string }
 const baseText = 'Item Class: Amulets\nRarity: Normal\nSolar Amulet'
 const baseTexts = {
+  'fortified-hammer':
+    'Item Class: One Hand Maces\nRarity: Normal\nFortified Hammer',
+  'strife-pick': 'Item Class: One Hand Maces\nRarity: Normal\nStrife Pick',
+  'akoyan-club': 'Item Class: One Hand Maces\nRarity: Normal\nAkoyan Club',
+  'ruination-maul':
+    'Item Class: Two Hand Maces\nRarity: Normal\nRuination Maul',
+  'fanatic-greathammer':
+    'Item Class: Two Hand Maces\nRarity: Normal\nFanatic Greathammer',
+  'tawhoan-greatclub':
+    'Item Class: Two Hand Maces\nRarity: Normal\nTawhoan Greatclub',
   soldier: 'Item Class: Body Armours\nRarity: Normal\nSoldier Cuirass',
   imperial: 'Item Class: Helmets\nRarity: Normal\nImperial Greathelm',
   massive: 'Item Class: Gloves\nRarity: Normal\nMassive Mitts',
@@ -204,6 +214,12 @@ type Draft = {
     | 'sacral-quiver'
     | 'fire-quiver'
     | 'broadhead-quiver'
+    | 'fortified-hammer'
+    | 'strife-pick'
+    | 'akoyan-club'
+    | 'ruination-maul'
+    | 'fanatic-greathammer'
+    | 'tawhoan-greatclub'
     | 'bone'
     | 'siphoning'
     | 'volatile'
@@ -324,6 +340,12 @@ type Draft = {
       | 'sacral-quiver'
       | 'fire-quiver'
       | 'broadhead-quiver'
+      | 'fortified-hammer'
+      | 'strife-pick'
+      | 'akoyan-club'
+      | 'ruination-maul'
+      | 'fanatic-greathammer'
+      | 'tawhoan-greatclub'
       | 'bone'
       | 'siphoning'
       | 'volatile'

@@ -73,6 +73,12 @@ function tooltipEvents(id: string) {
 
 const workspaceTabs = ['workbench', 'support', 'explorer'] as const
 const baseSlugs = {
+  'fortified-hammer': 'Fortified_Hammer',
+  'strife-pick': 'Strife_Pick',
+  'akoyan-club': 'Akoyan_Club',
+  'ruination-maul': 'Ruination_Maul',
+  'fanatic-greathammer': 'Fanatic_Greathammer',
+  'tawhoan-greatclub': 'Tawhoan_Greatclub',
   soldier: 'Soldier_Cuirass',
   imperial: 'Imperial_Greathelm',
   massive: 'Massive_Mitts',
@@ -457,6 +463,12 @@ export function CraftingPage() {
       | 'sacral-quiver'
       | 'fire-quiver'
       | 'broadhead-quiver'
+      | 'fortified-hammer'
+      | 'strife-pick'
+      | 'akoyan-club'
+      | 'ruination-maul'
+      | 'fanatic-greathammer'
+      | 'tawhoan-greatclub'
       | 'bone'
       | 'siphoning'
       | 'volatile'
@@ -726,6 +738,12 @@ export function CraftingPage() {
     | 'sacral-quiver'
     | 'fire-quiver'
     | 'broadhead-quiver'
+    | 'fortified-hammer'
+    | 'strife-pick'
+    | 'akoyan-club'
+    | 'ruination-maul'
+    | 'fanatic-greathammer'
+    | 'tawhoan-greatclub'
     | 'bone'
     | 'siphoning'
     | 'volatile'
@@ -1128,8 +1146,13 @@ export function CraftingPage() {
             rarity: concrete.rarity,
             name: item?.displayName ?? baseName,
             base: baseName,
-            itemClass:
-              topBase(catalogBase)?.family === 'quivers'
+            itemClass: ['one-hand-maces', 'two-hand-maces'].includes(
+              topBase(catalogBase)?.family ?? '',
+            )
+              ? topBase(catalogBase)?.family === 'one-hand-maces'
+                ? 'One Hand Maces'
+                : 'Two Hand Maces'
+              : topBase(catalogBase)?.family === 'quivers'
                 ? 'Quivers'
                 : Object.hasOwn(workbenchJewelBases, catalogBase)
                   ? 'Jewels'
@@ -1188,6 +1211,8 @@ export function CraftingPage() {
                 .map((text, i) => ({
                   id: 'source-property-' + i,
                   text: [
+                    'one-hand-maces',
+                    'two-hand-maces',
                     'bows',
                     'crossbows',
                     'shields',
@@ -2160,8 +2185,13 @@ export function CraftingPage() {
                       rarity: 'NORMAL',
                       name: baseName,
                       base: baseName,
-                      itemClass:
-                        topBase(catalogBase)?.family === 'quivers'
+                      itemClass: ['one-hand-maces', 'two-hand-maces'].includes(
+                        topBase(catalogBase)?.family ?? '',
+                      )
+                        ? topBase(catalogBase)?.family === 'one-hand-maces'
+                          ? 'One Hand Maces'
+                          : 'Two Hand Maces'
+                        : topBase(catalogBase)?.family === 'quivers'
                           ? 'Quivers'
                           : ['shields', 'bucklers', 'foci'].includes(
                                 topBase(catalogBase)?.family ?? '',
@@ -2363,6 +2393,12 @@ export function CraftingPage() {
                           | 'sacral-quiver'
                           | 'fire-quiver'
                           | 'broadhead-quiver'
+                          | 'fortified-hammer'
+                          | 'strife-pick'
+                          | 'akoyan-club'
+                          | 'ruination-maul'
+                          | 'fanatic-greathammer'
+                          | 'tawhoan-greatclub'
                           | 'bone'
                           | 'siphoning'
                           | 'volatile'

@@ -1,0 +1,132 @@
+{
+  "row": {
+    "Name": "of the Bear",
+    "Level": "22",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "Strength"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(13<span class=\"ndash\">—</span>16)</span> to <a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/adc68348c13b27b1b831c2ce4caf358d08d796def82d1d95491b336d8a926849\">Strength</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "belt",
+      "str_armour",
+      "str_dex_armour",
+      "str_int_armour",
+      "str_dex_int_armour",
+      "mace",
+      "axe",
+      "sword",
+      "spear",
+      "flail",
+      "crossbow",
+      "sceptre",
+      "talisman",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/29ba214a7b45c488d1e36ce8f94d78f5ae45256a3359a9dece67d87ea29d898f"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/29ba214a7b45c488d1e36ce8f94d78f5ae45256a3359a9dece67d87ea29d898f",
+  "textLocale": "us",
+  "detailText": "+(13—16) to Strength",
+  "retrievedAt": "2026-10-05T07:01:28.648Z",
+  "sha256": "29ba214a7b45c488d1e36ce8f94d78f5ae45256a3359a9dece67d87ea29d898f",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(13<span class=\"ndash\">—</span>16)</span> to <a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/7cef0789eb2239cf8b253adcdbee1dfa291c16da7045fecda6603754f8073383\">Strength</a></span></h5>   <span data-tabname=\"of the Bear\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Bear\n<tr><th>Family<td>Strength\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>22 (Effective: 17)\n<tr><th>Gold Price<td>346\n<tr><th>Stats<td><li>additional strength <span class=\"badge bg-primary\">13 <span class=\"ndash\">—</span> 16</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>str_armour: 1</span> <span class='badge bg-primary'>str_dex_armour: 1</span> <span class='badge bg-primary'>str_int_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>mace: 1</span> <span class='badge bg-primary'>axe: 1</span> <span class='badge bg-primary'>sword: 1</span> <span class='badge bg-primary'>spear: 1</span> <span class='badge bg-primary'>flail: 1</span> <span class='badge bg-primary'>crossbow: 1</span> <span class='badge bg-primary'>sceptre: 1</span> <span class='badge bg-primary'>talisman: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attribute</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(14<span class=\"ndash\">—</span>16)</span>% increased Area of Effect for [Attack|Attacks]</table>  </div></div>",
+  "fields": {
+    "Name": "of the Bear",
+    "Family": "Strength",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "22 (Effective: 17)",
+    "Gold Price": "346",
+    "Stats": "additional strength 13 — 16 Global",
+    "Spawn Tags": "ring: 1 amulet: 1 belt: 1 str_armour: 1 str_dex_armour: 1 str_int_armour: 1 str_dex_int_armour: 1 mace: 1 axe: 1 sword: 1 spear: 1 flail: 1 crossbow: 1 sceptre: 1 talisman: 1 default: 0",
+    "Craft Tags": "Attribute"
+  },
+  "code": "Strength3",
+  "stats": [
+    {
+      "id": "additional_strength",
+      "min": 13,
+      "max": 16,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "amulet",
+      "weight": 1
+    },
+    {
+      "tag": "belt",
+      "weight": 1
+    },
+    {
+      "tag": "str_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "mace",
+      "weight": 1
+    },
+    {
+      "tag": "axe",
+      "weight": 1
+    },
+    {
+      "tag": "sword",
+      "weight": 1
+    },
+    {
+      "tag": "spear",
+      "weight": 1
+    },
+    {
+      "tag": "flail",
+      "weight": 1
+    },
+    {
+      "tag": "crossbow",
+      "weight": 1
+    },
+    {
+      "tag": "sceptre",
+      "weight": 1
+    },
+    {
+      "tag": "talisman",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

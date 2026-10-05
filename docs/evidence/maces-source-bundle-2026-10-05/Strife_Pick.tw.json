@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/tw/Strife_Pick",
+  "retrievedAt": "2026-10-05T07:01:40.986Z",
+  "sha256": "4ef100841cf2f2ea66c878126c20fa7b9be83e9c90dcf88235e75c1fece52d4f",
+  "variants": [
+    {
+      "name": "鬥爭鎬",
+      "card": "鬥爭鎬\n        \n    \n    \n        \n            單手錘物理傷害: 49-66暴擊率: 7%每秒攻擊次數: 1.45武器範圍: 1.3需求:  等級 78, 163 力量+(5—10)%的暴擊傷害加成\n        \n\n\n\n        \n            Strife Pick",
+      "requirements": "需求:  等級 78, 163 力量",
+      "properties": [
+        "單手錘",
+        "物理傷害: 49-66",
+        "暴擊率: 7%",
+        "每秒攻擊次數: 1.45",
+        "武器範圍: 1.3"
+      ],
+      "fields": {
+        "DropLevel": "78",
+        "BaseType": "鬥爭鎬",
+        "Class": "單手錘",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace5Endgame",
+        "Tags": "mace, one_hand_weapon, onehand, weapon",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/OneHandMaces/Basetypes/1HMace05",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, onehand, mace, one_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      }
+    }
+  ]
+}

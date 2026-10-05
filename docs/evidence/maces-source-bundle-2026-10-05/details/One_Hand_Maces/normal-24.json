@@ -1,0 +1,114 @@
+{
+  "row": {
+    "Name": "Smoking",
+    "Level": "16",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "FireDamage"
+    ],
+    "DropChance": "1200",
+    "str": "Adds <span class='mod-value'>(7<span class=\"ndash\">—</span>11)</span> to <span class='mod-value'>(13<span class=\"ndash\">—</span>19)</span> <a data-keyword=\"Fire\" href=\"Fire_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/b5d8acaae74359659060318919bfa3de84e8587e6fa6487df3f2423250d85c87\">Fire</a> Damage",
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "fire",
+      "attack"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "bow",
+      "two_hand_weapon",
+      "sword",
+      "axe",
+      "mace",
+      "spear",
+      "claw",
+      "dagger",
+      "flail",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/01b5b371053adc14024448abee559132287b72e65a99da49ce739b2bbd714711"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalAddedFireDamage3",
+  "textLocale": "us",
+  "detailText": "Adds (7—11) to (13—19) Fire Damage",
+  "retrievedAt": "2026-10-05T07:01:56.300Z",
+  "sha256": "dd36b35772e30285e624e3d5f0369677a78b2dc6a05ad642262f8e46d842f124",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Adds <span class='mod-value'>(7<span class=\"ndash\">—</span>11)</span> to <span class='mod-value'>(13<span class=\"ndash\">—</span>19)</span> <a data-keyword=\"Fire\" href=\"Fire_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/b5d8acaae74359659060318919bfa3de84e8587e6fa6487df3f2423250d85c87\">Fire</a> Damage</span></h5>   <span data-tabname=\"Smoking\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Smoking\n<tr><th>Family<td>FireDamage\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>16 (Effective: 12)\n<tr><th>Gold Price<td>208\n<tr><th>Stats<td><li>local maximum added fire damage <span class=\"badge bg-primary\">13 <span class=\"ndash\">—</span> 19</span> <span class=\"badge bg-secondary\">Local</span></li><li>local minimum added fire damage <span class=\"badge bg-primary\">7 <span class=\"ndash\">—</span> 11</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>bow: 1</span> <span class='badge bg-primary'>two_hand_weapon: 0</span> <span class='badge bg-primary'>sword: 1</span> <span class='badge bg-primary'>axe: 1</span> <span class='badge bg-primary'>mace: 1</span> <span class='badge bg-primary'>spear: 1</span> <span class='badge bg-primary'>claw: 1</span> <span class='badge bg-primary'>dagger: 1</span> <span class='badge bg-primary'>flail: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Fire</span> <span class='badge bg-primary'>Attack</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Smoking",
+    "Family": "FireDamage",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "16 (Effective: 12)",
+    "Gold Price": "208",
+    "Stats": "local maximum added fire damage 13 — 19 Locallocal minimum added fire damage 7 — 11 Local",
+    "Spawn Tags": "bow: 1 two_hand_weapon: 0 sword: 1 axe: 1 mace: 1 spear: 1 claw: 1 dagger: 1 flail: 1 default: 0",
+    "Craft Tags": "elemental_damage Damage Elemental Fire Attack"
+  },
+  "code": "LocalAddedFireDamage3",
+  "stats": [
+    {
+      "id": "local_maximum_added_fire_damage",
+      "min": 13,
+      "max": 19,
+      "locality": "Local"
+    },
+    {
+      "id": "local_minimum_added_fire_damage",
+      "min": 7,
+      "max": 11,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "bow",
+      "weight": 1
+    },
+    {
+      "tag": "two_hand_weapon",
+      "weight": 0
+    },
+    {
+      "tag": "sword",
+      "weight": 1
+    },
+    {
+      "tag": "axe",
+      "weight": 1
+    },
+    {
+      "tag": "mace",
+      "weight": 1
+    },
+    {
+      "tag": "spear",
+      "weight": 1
+    },
+    {
+      "tag": "claw",
+      "weight": 1
+    },
+    {
+      "tag": "dagger",
+      "weight": 1
+    },
+    {
+      "tag": "flail",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}
