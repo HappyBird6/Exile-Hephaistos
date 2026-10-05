@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/sp/Dueling_Wand",
+  "retrievedAt": "2026-10-05T00:06:52.082Z",
+  "sha256": "a57508637642a81551f50afc930061de77e35d6d2561eb356ac909e650aca0dc",
+  "name": "Varita de duelo",
+  "card": "Varita de duelo\n        \n    \n    \n        \n            VaritasRequiere:  Nivel 65, 114 Int Otorga la habilidad: Lanzahechizos\n        \n\n\n\n        \n            Dueling Wand",
+  "requirements": "Requiere:  Nivel 65, 114 Int",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "Varita de duelo",
+    "Class": "Varitas",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13",
+    "Tags": "wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand13",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

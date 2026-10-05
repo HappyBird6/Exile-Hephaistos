@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/cn/Volatile_Wand",
+  "retrievedAt": "2026-10-05T00:06:43.664Z",
+  "sha256": "19bee9a58eb94c8fade30345b92782ddf195495efbe68b1d874e3b0f0498d5f3",
+  "name": "易变法杖",
+  "card": "易变法杖\n        \n    \n    \n        \n            法杖需求：  等级 16, 31 智慧 获得技能: 灵体火球\n        \n\n\n\n        \n            Volatile Wand",
+  "requirements": "需求：  等级 16, 31 智慧",
+  "fields": {
+    "DropLevel": "16",
+    "BaseType": "易变法杖",
+    "Class": "法杖",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand5",
+    "Tags": "no_cold_spell_mods, no_lightning_spell_mods, no_chaos_spell_mods, no_physical_spell_mods, fire_implicit_skill, wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand05",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/tw/Acrid_Wand",
+  "retrievedAt": "2026-10-05T00:06:47.580Z",
+  "sha256": "a01bb3f15c3356bdf863b0517a14dbc5e3aea922fae39be454e408075e65910c",
+  "name": "刺鼻法杖",
+  "card": "刺鼻法杖\n        \n    \n    \n        \n            法杖需求:  等級 33, 60 智慧 賦予技能: 分解\n        \n\n\n\n        \n            Acrid Wand",
+  "requirements": "需求:  等級 33, 60 智慧",
+  "fields": {
+    "DropLevel": "33",
+    "BaseType": "刺鼻法杖",
+    "Class": "法杖",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7",
+    "Tags": "wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand07",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

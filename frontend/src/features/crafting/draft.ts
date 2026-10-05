@@ -27,6 +27,15 @@ const baseTexts = {
   fanatic: 'Item Class: Bows\nRarity: Normal\nFanatic Bow',
   obliterator: 'Item Class: Bows\nRarity: Normal\nObliterator Bow',
   hallowed: 'Item Class: Sceptres\nRarity: Normal\nHallowed Sceptre',
+  bone: 'Item Class: Wands\nRarity: Normal\nBone Wand',
+  siphoning: 'Item Class: Wands\nRarity: Normal\nSiphoning Wand',
+  volatile: 'Item Class: Wands\nRarity: Normal\nVolatile Wand',
+  galvanic: 'Item Class: Wands\nRarity: Normal\nGalvanic Wand',
+  acrid: 'Item Class: Wands\nRarity: Normal\nAcrid Wand',
+  offering: 'Item Class: Wands\nRarity: Normal\nOffering Wand',
+  critical: 'Item Class: Wands\nRarity: Normal\nCritical Wand',
+  primordial: 'Item Class: Wands\nRarity: Normal\nPrimordial Wand',
+  dueling: 'Item Class: Wands\nRarity: Normal\nDueling Wand',
   stellar: 'Item Class: Amulets\nRarity: Normal\nStellar Amulet',
   amber: 'Item Class: Amulets\nRarity: Normal\nAmber Amulet',
   bloodstone: 'Item Class: Amulets\nRarity: Normal\nBloodstone Amulet',
@@ -106,6 +115,15 @@ type Draft = {
     | 'fanatic'
     | 'obliterator'
     | 'hallowed'
+    | 'bone'
+    | 'siphoning'
+    | 'volatile'
+    | 'galvanic'
+    | 'acrid'
+    | 'offering'
+    | 'critical'
+    | 'primordial'
+    | 'dueling'
     | 'stellar'
     | 'amber'
     | 'bloodstone'
@@ -175,6 +193,15 @@ type Draft = {
       | 'fanatic'
       | 'obliterator'
       | 'hallowed'
+      | 'bone'
+      | 'siphoning'
+      | 'volatile'
+      | 'galvanic'
+      | 'acrid'
+      | 'offering'
+      | 'critical'
+      | 'primordial'
+      | 'dueling'
       | 'stellar'
       | 'amber'
       | 'bloodstone'

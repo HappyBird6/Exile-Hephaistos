@@ -1,0 +1,4931 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-acrid-wand-20261005-641813d89f8edefe",
+    "retrievedAt": "2026-10-05T00:06:34.784Z",
+    "sourceUrl": "https://poe2db.tw/us/Wands",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "c0db9e3bcda5c22ceb37bc21397a96a969dbe8f3a9e0cc4fd5bcbca8aa19d806",
+    "detailsSha256": "4f4b042bd6fb70ea32b8a82a7fef5165bcac670678fc9e0da96f6ee47cee1cf2",
+    "prefixCount": 84,
+    "suffixCount": 103,
+    "prefixWeight": 41400,
+    "suffixWeight": 73000
+  },
+  "base": {
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7",
+    "name": "Acrid Wand",
+    "sourceUrl": "https://poe2db.tw/us/Acrid_Wand",
+    "implicitModifierId": "",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifiers": [
+    {
+      "id": "attuned-wand:suffix:of-the-pupil",
+      "name": "of the Pupil",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(5—8) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence1"
+    },
+    {
+      "id": "attuned-wand:suffix:of-the-student",
+      "name": "of the Student",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(9—12) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence2"
+    },
+    {
+      "id": "attuned-wand:suffix:of-the-prodigy",
+      "name": "of the Prodigy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(13—16) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 13,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence3"
+    },
+    {
+      "id": "attuned-wand:suffix:of-the-augur",
+      "name": "of the Augur",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(17—20) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 17,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence4"
+    },
+    {
+      "id": "attuned-wand:suffix:of-the-philosopher",
+      "name": "of the Philosopher",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(21—24) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence5"
+    },
+    {
+      "id": "attuned-wand:suffix:of-the-sage",
+      "name": "of the Sage",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(25—27) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 25,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence6"
+    },
+    {
+      "id": "attuned-wand:suffix:of-the-savant",
+      "name": "of the Savant",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(28—30) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 28,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence7"
+    },
+    {
+      "id": "attuned-wand:suffix:of-the-virtuoso",
+      "name": "of the Virtuoso",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(31—33) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 31,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence8"
+    },
+    {
+      "id": "attuned-wand:prefix:beryl",
+      "name": "Beryl",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 11,
+      "text": "+(10—14) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana1"
+    },
+    {
+      "id": "attuned-wand:prefix:cobalt",
+      "name": "Cobalt",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 6,
+      "weight": 1000,
+      "tier": 10,
+      "text": "+(15—24) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 15,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana2"
+    },
+    {
+      "id": "attuned-wand:prefix:azure",
+      "name": "Azure",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 9,
+      "text": "+(25—34) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 25,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana3"
+    },
+    {
+      "id": "attuned-wand:prefix:teal",
+      "name": "Teal",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(35—54) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 35,
+          "max": 54
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana4"
+    },
+    {
+      "id": "attuned-wand:prefix:cerulean",
+      "name": "Cerulean",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(55—64) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 55,
+          "max": 64
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana5"
+    },
+    {
+      "id": "attuned-wand:prefix:aqua",
+      "name": "Aqua",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(65—79) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 65,
+          "max": 79
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana6"
+    },
+    {
+      "id": "attuned-wand:prefix:opalescent",
+      "name": "Opalescent",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(80—89) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 80,
+          "max": 89
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana7"
+    },
+    {
+      "id": "attuned-wand:prefix:gentian",
+      "name": "Gentian",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(90—104) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 90,
+          "max": 104
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana8"
+    },
+    {
+      "id": "attuned-wand:prefix:chalybeous",
+      "name": "Chalybeous",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(105—124) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 105,
+          "max": 124
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana9"
+    },
+    {
+      "id": "attuned-wand:prefix:mazarine",
+      "name": "Mazarine",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(125—149) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 125,
+          "max": 149
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana10"
+    },
+    {
+      "id": "attuned-wand:prefix:blue",
+      "name": "Blue",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(150—164) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 150,
+          "max": 164
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana11"
+    },
+    {
+      "id": "attuned-wand:suffix:of-the-worthy",
+      "name": "of the Worthy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LocalAttributeRequirements"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1000,
+      "tier": 5,
+      "text": "15% reduced Attribute Requirements",
+      "stats": [
+        {
+          "id": "local_attribute_requirements_+%",
+          "min": -15,
+          "max": -15
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedLocalAttributeRequirements1"
+    },
+    {
+      "id": "attuned-wand:suffix:of-the-apt",
+      "name": "of the Apt",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LocalAttributeRequirements"
+      ],
+      "requiredItemLevel": 32,
+      "weight": 1000,
+      "tier": 4,
+      "text": "20% reduced Attribute Requirements",
+      "stats": [
+        {
+          "id": "local_attribute_requirements_+%",
+          "min": -20,
+          "max": -20
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedLocalAttributeRequirements2"
+    },
+    {
+      "id": "attuned-wand:suffix:of-the-talented",
+      "name": "of the Talented",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LocalAttributeRequirements"
+      ],
+      "requiredItemLevel": 40,
+      "weight": 1000,
+      "tier": 3,
+      "text": "25% reduced Attribute Requirements",
+      "stats": [
+        {
+          "id": "local_attribute_requirements_+%",
+          "min": -25,
+          "max": -25
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedLocalAttributeRequirements3"
+    },
+    {
+      "id": "attuned-wand:suffix:of-the-skilled",
+      "name": "of the Skilled",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LocalAttributeRequirements"
+      ],
+      "requiredItemLevel": 52,
+      "weight": 1000,
+      "tier": 2,
+      "text": "30% reduced Attribute Requirements",
+      "stats": [
+        {
+          "id": "local_attribute_requirements_+%",
+          "min": -30,
+          "max": -30
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedLocalAttributeRequirements4"
+    },
+    {
+      "id": "attuned-wand:suffix:of-the-proficient",
+      "name": "of the Proficient",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LocalAttributeRequirements"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 1,
+      "text": "35% reduced Attribute Requirements",
+      "stats": [
+        {
+          "id": "local_attribute_requirements_+%",
+          "min": -35,
+          "max": -35
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedLocalAttributeRequirements5"
+    },
+    {
+      "id": "attuned-wand:prefix:apprentice-s",
+      "name": "Apprentice's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponCasterDamagePrefix"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "(25—34)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 25,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon1"
+    },
+    {
+      "id": "attuned-wand:prefix:adept-s",
+      "name": "Adept's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponCasterDamagePrefix"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 7,
+      "text": "(35—44)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 35,
+          "max": 44
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon2"
+    },
+    {
+      "id": "attuned-wand:prefix:scholar-s",
+      "name": "Scholar's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponCasterDamagePrefix"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(45—54)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 45,
+          "max": 54
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon3"
+    },
+    {
+      "id": "attuned-wand:prefix:professor-s",
+      "name": "Professor's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponCasterDamagePrefix"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 600,
+      "tier": 5,
+      "text": "(55—64)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 55,
+          "max": 64
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon4"
+    },
+    {
+      "id": "attuned-wand:prefix:occultist-s",
+      "name": "Occultist's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponCasterDamagePrefix"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 400,
+      "tier": 4,
+      "text": "(65—74)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 65,
+          "max": 74
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon5"
+    },
+    {
+      "id": "attuned-wand:prefix:incanter-s",
+      "name": "Incanter's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponCasterDamagePrefix"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 200,
+      "tier": 3,
+      "text": "(75—89)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 75,
+          "max": 89
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon6"
+    },
+    {
+      "id": "attuned-wand:prefix:glyphic",
+      "name": "Glyphic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponCasterDamagePrefix"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 100,
+      "tier": 2,
+      "text": "(90—104)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 90,
+          "max": 104
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon7"
+    },
+    {
+      "id": "attuned-wand:prefix:runic",
+      "name": "Runic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponCasterDamagePrefix"
+      ],
+      "requiredItemLevel": 80,
+      "weight": 50,
+      "tier": 1,
+      "text": "(105—119)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 105,
+          "max": 119
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon8_"
+    },
+    {
+      "id": "attuned-wand:prefix:caster-s",
+      "name": "Caster's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpellDamageAndMana"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 1000,
+      "tier": 7,
+      "text": "(15—19)% increased Spell Damage+(17—20) to maximum Mana",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 15,
+          "max": 19
+        },
+        {
+          "id": "base_maximum_mana",
+          "min": 17,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "resource",
+        "mana",
+        "damage",
+        "caster"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageAndManaOnWeapon1"
+    },
+    {
+      "id": "attuned-wand:prefix:conjuror-s",
+      "name": "Conjuror's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpellDamageAndMana"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(20—24)% increased Spell Damage+(21—24) to maximum Mana",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 20,
+          "max": 24
+        },
+        {
+          "id": "base_maximum_mana",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "resource",
+        "mana",
+        "damage",
+        "caster"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageAndManaOnWeapon2"
+    },
+    {
+      "id": "attuned-wand:prefix:wizard-s",
+      "name": "Wizard's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpellDamageAndMana"
+      ],
+      "requiredItemLevel": 23,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(25—29)% increased Spell Damage+(25—28) to maximum Mana",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 25,
+          "max": 29
+        },
+        {
+          "id": "base_maximum_mana",
+          "min": 25,
+          "max": 28
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "resource",
+        "mana",
+        "damage",
+        "caster"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageAndManaOnWeapon3"
+    },
+    {
+      "id": "attuned-wand:prefix:warlock-s",
+      "name": "Warlock's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpellDamageAndMana"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 600,
+      "tier": 4,
+      "text": "(30—34)% increased Spell Damage+(29—33) to maximum Mana",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 30,
+          "max": 34
+        },
+        {
+          "id": "base_maximum_mana",
+          "min": 29,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "resource",
+        "mana",
+        "damage",
+        "caster"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageAndManaOnWeapon4"
+    },
+    {
+      "id": "attuned-wand:prefix:mage-s",
+      "name": "Mage's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpellDamageAndMana"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 400,
+      "tier": 3,
+      "text": "(35—39)% increased Spell Damage+(34—37) to maximum Mana",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 35,
+          "max": 39
+        },
+        {
+          "id": "base_maximum_mana",
+          "min": 34,
+          "max": 37
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "resource",
+        "mana",
+        "damage",
+        "caster"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageAndManaOnWeapon5"
+    },
+    {
+      "id": "attuned-wand:prefix:archmage-s",
+      "name": "Archmage's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpellDamageAndMana"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 200,
+      "tier": 2,
+      "text": "(40—44)% increased Spell Damage+(38—41) to maximum Mana",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 40,
+          "max": 44
+        },
+        {
+          "id": "base_maximum_mana",
+          "min": 38,
+          "max": 41
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "resource",
+        "mana",
+        "damage",
+        "caster"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageAndManaOnWeapon6"
+    },
+    {
+      "id": "attuned-wand:prefix:lich-s",
+      "name": "Lich's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpellDamageAndMana"
+      ],
+      "requiredItemLevel": 80,
+      "weight": 100,
+      "tier": 1,
+      "text": "(45—49)% increased Spell Damage+(42—45) to maximum Mana",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 45,
+          "max": 49
+        },
+        {
+          "id": "base_maximum_mana",
+          "min": 42,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "resource",
+        "mana",
+        "damage",
+        "caster"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageAndManaOnWeapon7"
+    },
+    {
+      "id": "attuned-wand:prefix:searing",
+      "name": "Searing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 500,
+      "tier": 8,
+      "text": "(25—34)% increased Fire Damage",
+      "stats": [
+        {
+          "id": "fire_damage_+%",
+          "min": 25,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireDamagePrefixOnWeapon1"
+    },
+    {
+      "id": "attuned-wand:prefix:sizzling",
+      "name": "Sizzling",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 500,
+      "tier": 7,
+      "text": "(35—44)% increased Fire Damage",
+      "stats": [
+        {
+          "id": "fire_damage_+%",
+          "min": 35,
+          "max": 44
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireDamagePrefixOnWeapon2"
+    },
+    {
+      "id": "attuned-wand:prefix:blistering",
+      "name": "Blistering",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 6,
+      "text": "(45—54)% increased Fire Damage",
+      "stats": [
+        {
+          "id": "fire_damage_+%",
+          "min": 45,
+          "max": 54
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireDamagePrefixOnWeapon3"
+    },
+    {
+      "id": "attuned-wand:prefix:cauterising",
+      "name": "Cauterising",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 400,
+      "tier": 5,
+      "text": "(55—64)% increased Fire Damage",
+      "stats": [
+        {
+          "id": "fire_damage_+%",
+          "min": 55,
+          "max": 64
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireDamagePrefixOnWeapon4"
+    },
+    {
+      "id": "attuned-wand:prefix:smoldering",
+      "name": "Smoldering",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 300,
+      "tier": 4,
+      "text": "(65—74)% increased Fire Damage",
+      "stats": [
+        {
+          "id": "fire_damage_+%",
+          "min": 65,
+          "max": 74
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireDamagePrefixOnWeapon5_"
+    },
+    {
+      "id": "attuned-wand:prefix:magmatic",
+      "name": "Magmatic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 200,
+      "tier": 3,
+      "text": "(75—89)% increased Fire Damage",
+      "stats": [
+        {
+          "id": "fire_damage_+%",
+          "min": 75,
+          "max": 89
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireDamagePrefixOnWeapon6"
+    },
+    {
+      "id": "attuned-wand:prefix:volcanic",
+      "name": "Volcanic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 100,
+      "tier": 2,
+      "text": "(90—104)% increased Fire Damage",
+      "stats": [
+        {
+          "id": "fire_damage_+%",
+          "min": 90,
+          "max": 104
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireDamagePrefixOnWeapon7_"
+    },
+    {
+      "id": "attuned-wand:prefix:pyromancer-s",
+      "name": "Pyromancer's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 50,
+      "tier": 1,
+      "text": "(105—119)% increased Fire Damage",
+      "stats": [
+        {
+          "id": "fire_damage_+%",
+          "min": 105,
+          "max": 119
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireDamagePrefixOnWeapon8_"
+    },
+    {
+      "id": "attuned-wand:prefix:bitter",
+      "name": "Bitter",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 500,
+      "tier": 8,
+      "text": "(25—34)% increased Cold Damage",
+      "stats": [
+        {
+          "id": "cold_damage_+%",
+          "min": 25,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdDamagePrefixOnWeapon1"
+    },
+    {
+      "id": "attuned-wand:prefix:biting",
+      "name": "Biting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 500,
+      "tier": 7,
+      "text": "(35—44)% increased Cold Damage",
+      "stats": [
+        {
+          "id": "cold_damage_+%",
+          "min": 35,
+          "max": 44
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdDamagePrefixOnWeapon2"
+    },
+    {
+      "id": "attuned-wand:prefix:alpine",
+      "name": "Alpine",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 6,
+      "text": "(45—54)% increased Cold Damage",
+      "stats": [
+        {
+          "id": "cold_damage_+%",
+          "min": 45,
+          "max": 54
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdDamagePrefixOnWeapon3_"
+    },
+    {
+      "id": "attuned-wand:prefix:snowy",
+      "name": "Snowy",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 400,
+      "tier": 5,
+      "text": "(55—64)% increased Cold Damage",
+      "stats": [
+        {
+          "id": "cold_damage_+%",
+          "min": 55,
+          "max": 64
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdDamagePrefixOnWeapon4"
+    },
+    {
+      "id": "attuned-wand:prefix:hailing",
+      "name": "Hailing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 300,
+      "tier": 4,
+      "text": "(65—74)% increased Cold Damage",
+      "stats": [
+        {
+          "id": "cold_damage_+%",
+          "min": 65,
+          "max": 74
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdDamagePrefixOnWeapon5_"
+    },
+    {
+      "id": "attuned-wand:prefix:arctic",
+      "name": "Arctic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 200,
+      "tier": 3,
+      "text": "(75—89)% increased Cold Damage",
+      "stats": [
+        {
+          "id": "cold_damage_+%",
+          "min": 75,
+          "max": 89
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdDamagePrefixOnWeapon6"
+    },
+    {
+      "id": "attuned-wand:prefix:crystalline",
+      "name": "Crystalline",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 100,
+      "tier": 2,
+      "text": "(90—104)% increased Cold Damage",
+      "stats": [
+        {
+          "id": "cold_damage_+%",
+          "min": 90,
+          "max": 104
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdDamagePrefixOnWeapon7"
+    },
+    {
+      "id": "attuned-wand:prefix:cryomancer-s",
+      "name": "Cryomancer's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 50,
+      "tier": 1,
+      "text": "(105—119)% increased Cold Damage",
+      "stats": [
+        {
+          "id": "cold_damage_+%",
+          "min": 105,
+          "max": 119
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdDamagePrefixOnWeapon8"
+    },
+    {
+      "id": "attuned-wand:prefix:charged",
+      "name": "Charged",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 500,
+      "tier": 8,
+      "text": "(25—34)% increased Lightning Damage",
+      "stats": [
+        {
+          "id": "lightning_damage_+%",
+          "min": 25,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningDamagePrefixOnWeapon1_"
+    },
+    {
+      "id": "attuned-wand:prefix:hissing",
+      "name": "Hissing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 500,
+      "tier": 7,
+      "text": "(35—44)% increased Lightning Damage",
+      "stats": [
+        {
+          "id": "lightning_damage_+%",
+          "min": 35,
+          "max": 44
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningDamagePrefixOnWeapon2"
+    },
+    {
+      "id": "attuned-wand:prefix:bolting",
+      "name": "Bolting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 6,
+      "text": "(45—54)% increased Lightning Damage",
+      "stats": [
+        {
+          "id": "lightning_damage_+%",
+          "min": 45,
+          "max": 54
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningDamagePrefixOnWeapon3"
+    },
+    {
+      "id": "attuned-wand:prefix:coursing",
+      "name": "Coursing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 400,
+      "tier": 5,
+      "text": "(55—64)% increased Lightning Damage",
+      "stats": [
+        {
+          "id": "lightning_damage_+%",
+          "min": 55,
+          "max": 64
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningDamagePrefixOnWeapon4"
+    },
+    {
+      "id": "attuned-wand:prefix:striking",
+      "name": "Striking",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 300,
+      "tier": 4,
+      "text": "(65—74)% increased Lightning Damage",
+      "stats": [
+        {
+          "id": "lightning_damage_+%",
+          "min": 65,
+          "max": 74
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningDamagePrefixOnWeapon5"
+    },
+    {
+      "id": "attuned-wand:prefix:smiting",
+      "name": "Smiting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 200,
+      "tier": 3,
+      "text": "(75—89)% increased Lightning Damage",
+      "stats": [
+        {
+          "id": "lightning_damage_+%",
+          "min": 75,
+          "max": 89
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningDamagePrefixOnWeapon6"
+    },
+    {
+      "id": "attuned-wand:prefix:ionising",
+      "name": "Ionising",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 100,
+      "tier": 2,
+      "text": "(90—104)% increased Lightning Damage",
+      "stats": [
+        {
+          "id": "lightning_damage_+%",
+          "min": 90,
+          "max": 104
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningDamagePrefixOnWeapon7"
+    },
+    {
+      "id": "attuned-wand:prefix:electromancer-s",
+      "name": "Electromancer's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 50,
+      "tier": 1,
+      "text": "(105—119)% increased Lightning Damage",
+      "stats": [
+        {
+          "id": "lightning_damage_+%",
+          "min": 105,
+          "max": 119
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningDamagePrefixOnWeapon8"
+    },
+    {
+      "id": "attuned-wand:prefix:impure",
+      "name": "Impure",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 500,
+      "tier": 8,
+      "text": "(25—34)% increased Chaos Damage",
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 25,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosDamagePrefixOnWeapon1"
+    },
+    {
+      "id": "attuned-wand:prefix:tainted",
+      "name": "Tainted",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 500,
+      "tier": 7,
+      "text": "(35—44)% increased Chaos Damage",
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 35,
+          "max": 44
+        }
+      ],
+      "tags": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosDamagePrefixOnWeapon2"
+    },
+    {
+      "id": "attuned-wand:prefix:clouded",
+      "name": "Clouded",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 6,
+      "text": "(45—54)% increased Chaos Damage",
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 45,
+          "max": 54
+        }
+      ],
+      "tags": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosDamagePrefixOnWeapon3"
+    },
+    {
+      "id": "attuned-wand:prefix:darkened",
+      "name": "Darkened",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 400,
+      "tier": 5,
+      "text": "(55—64)% increased Chaos Damage",
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 55,
+          "max": 64
+        }
+      ],
+      "tags": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosDamagePrefixOnWeapon4"
+    },
+    {
+      "id": "attuned-wand:prefix:malignant:chaosdamageprefixonweapon5",
+      "name": "Malignant",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 300,
+      "tier": 4,
+      "text": "(65—74)% increased Chaos Damage",
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 65,
+          "max": 74
+        }
+      ],
+      "tags": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosDamagePrefixOnWeapon5"
+    },
+    {
+      "id": "attuned-wand:prefix:vile",
+      "name": "Vile",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 200,
+      "tier": 3,
+      "text": "(75—89)% increased Chaos Damage",
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 75,
+          "max": 89
+        }
+      ],
+      "tags": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosDamagePrefixOnWeapon6"
+    },
+    {
+      "id": "attuned-wand:prefix:twisted",
+      "name": "Twisted",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 100,
+      "tier": 2,
+      "text": "(90—104)% increased Chaos Damage",
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 90,
+          "max": 104
+        }
+      ],
+      "tags": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosDamagePrefixOnWeapon7"
+    },
+    {
+      "id": "attuned-wand:prefix:malevolent",
+      "name": "Malevolent",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 50,
+      "tier": 1,
+      "text": "(105—119)% increased Chaos Damage",
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 105,
+          "max": 119
+        }
+      ],
+      "tags": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosDamagePrefixOnWeapon8"
+    },
+    {
+      "id": "attuned-wand:prefix:punishing",
+      "name": "Punishing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 500,
+      "tier": 8,
+      "text": "(25—34)% increased Spell Physical Damage",
+      "stats": [
+        {
+          "id": "spell_physical_damage_+%",
+          "min": 25,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FPhysicalDamagePrefixOnWeapon1"
+    },
+    {
+      "id": "attuned-wand:prefix:unforgiving",
+      "name": "Unforgiving",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 500,
+      "tier": 7,
+      "text": "(35—44)% increased Spell Physical Damage",
+      "stats": [
+        {
+          "id": "spell_physical_damage_+%",
+          "min": 35,
+          "max": 44
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FPhysicalDamagePrefixOnWeapon2"
+    },
+    {
+      "id": "attuned-wand:prefix:vengeful",
+      "name": "Vengeful",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 6,
+      "text": "(45—54)% increased Spell Physical Damage",
+      "stats": [
+        {
+          "id": "spell_physical_damage_+%",
+          "min": 45,
+          "max": 54
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FPhysicalDamagePrefixOnWeapon3"
+    },
+    {
+      "id": "attuned-wand:prefix:sadistic",
+      "name": "Sadistic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 400,
+      "tier": 5,
+      "text": "(55—64)% increased Spell Physical Damage",
+      "stats": [
+        {
+          "id": "spell_physical_damage_+%",
+          "min": 55,
+          "max": 64
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FPhysicalDamagePrefixOnWeapon4"
+    },
+    {
+      "id": "attuned-wand:prefix:pitiless",
+      "name": "Pitiless",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 300,
+      "tier": 4,
+      "text": "(65—74)% increased Spell Physical Damage",
+      "stats": [
+        {
+          "id": "spell_physical_damage_+%",
+          "min": 65,
+          "max": 74
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FPhysicalDamagePrefixOnWeapon5"
+    },
+    {
+      "id": "attuned-wand:prefix:agonising",
+      "name": "Agonising",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 200,
+      "tier": 3,
+      "text": "(75—89)% increased Spell Physical Damage",
+      "stats": [
+        {
+          "id": "spell_physical_damage_+%",
+          "min": 75,
+          "max": 89
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FPhysicalDamagePrefixOnWeapon6"
+    },
+    {
+      "id": "attuned-wand:prefix:oppressor-s",
+      "name": "Oppressor's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 100,
+      "tier": 2,
+      "text": "(90—104)% increased Spell Physical Damage",
+      "stats": [
+        {
+          "id": "spell_physical_damage_+%",
+          "min": 90,
+          "max": 104
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FPhysicalDamagePrefixOnWeapon7"
+    },
+    {
+      "id": "attuned-wand:prefix:torturer-s",
+      "name": "Torturer's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponDamageTypePrefix"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 50,
+      "tier": 1,
+      "text": "(105—119)% increased Spell Physical Damage",
+      "stats": [
+        {
+          "id": "spell_physical_damage_+%",
+          "min": 105,
+          "max": 119
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FPhysicalDamagePrefixOnWeapon8"
+    },
+    {
+      "id": "attuned-wand:suffix:of-the-mage",
+      "name": "of the Mage",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 5,
+      "weight": 200,
+      "tier": 7,
+      "text": "+1 to Level of all Spell Skills",
+      "stats": [
+        {
+          "id": "spell_skill_gem_level_+",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalSpellGemsLevelWeapon1"
+    },
+    {
+      "id": "attuned-wand:suffix:of-the-enchanter",
+      "name": "of the Enchanter",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 150,
+      "tier": 5,
+      "text": "+2 to Level of all Spell Skills",
+      "stats": [
+        {
+          "id": "spell_skill_gem_level_+",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalSpellGemsLevelWeapon2"
+    },
+    {
+      "id": "attuned-wand:suffix:of-the-sorcerer",
+      "name": "of the Sorcerer",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 100,
+      "tier": 3,
+      "text": "+3 to Level of all Spell Skills",
+      "stats": [
+        {
+          "id": "spell_skill_gem_level_+",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalSpellGemsLevelWeapon3"
+    },
+    {
+      "id": "attuned-wand:suffix:of-the-wizard",
+      "name": "of the Wizard",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 78,
+      "weight": 50,
+      "tier": 2,
+      "text": "+4 to Level of all Spell Skills",
+      "stats": [
+        {
+          "id": "spell_skill_gem_level_+",
+          "min": 4,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalSpellGemsLevelWeapon4"
+    },
+    {
+      "id": "attuned-wand:suffix:of-coals",
+      "name": "of Coals",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+1 to Level of all Fire Spell Skills",
+      "stats": [
+        {
+          "id": "fire_spell_skill_gem_level_+",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalFireSpellGemsLevelWeapon1"
+    },
+    {
+      "id": "attuned-wand:suffix:of-cinders",
+      "name": "of Cinders",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 750,
+      "tier": 6,
+      "text": "+2 to Level of all Fire Spell Skills",
+      "stats": [
+        {
+          "id": "fire_spell_skill_gem_level_+",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalFireSpellGemsLevelWeapon2"
+    },
+    {
+      "id": "attuned-wand:suffix:of-flames",
+      "name": "of Flames",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 500,
+      "tier": 4,
+      "text": "+3 to Level of all Fire Spell Skills",
+      "stats": [
+        {
+          "id": "fire_spell_skill_gem_level_+",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalFireSpellGemsLevelWeapon3"
+    },
+    {
+      "id": "attuned-wand:suffix:of-immolation",
+      "name": "of Immolation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 250,
+      "tier": 3,
+      "text": "+4 to Level of all Fire Spell Skills",
+      "stats": [
+        {
+          "id": "fire_spell_skill_gem_level_+",
+          "min": 4,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalFireSpellGemsLevelWeapon4"
+    },
+    {
+      "id": "attuned-wand:suffix:of-inferno",
+      "name": "of Inferno",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 100,
+      "tier": 1,
+      "text": "+5 to Level of all Fire Spell Skills",
+      "stats": [
+        {
+          "id": "fire_spell_skill_gem_level_+",
+          "min": 5,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalFireSpellGemsLevelWeapon5"
+    },
+    {
+      "id": "attuned-wand:suffix:of-snow",
+      "name": "of Snow",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+1 to Level of all Cold Spell Skills",
+      "stats": [
+        {
+          "id": "cold_spell_skill_gem_level_+",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalColdSpellGemsLevelWeapon1"
+    },
+    {
+      "id": "attuned-wand:suffix:of-sleet",
+      "name": "of Sleet",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 750,
+      "tier": 6,
+      "text": "+2 to Level of all Cold Spell Skills",
+      "stats": [
+        {
+          "id": "cold_spell_skill_gem_level_+",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalColdSpellGemsLevelWeapon2"
+    },
+    {
+      "id": "attuned-wand:suffix:of-ice",
+      "name": "of Ice",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 500,
+      "tier": 4,
+      "text": "+3 to Level of all Cold Spell Skills",
+      "stats": [
+        {
+          "id": "cold_spell_skill_gem_level_+",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalColdSpellGemsLevelWeapon3"
+    },
+    {
+      "id": "attuned-wand:suffix:of-rime",
+      "name": "of Rime",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 250,
+      "tier": 3,
+      "text": "+4 to Level of all Cold Spell Skills",
+      "stats": [
+        {
+          "id": "cold_spell_skill_gem_level_+",
+          "min": 4,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalColdSpellGemsLevelWeapon4"
+    },
+    {
+      "id": "attuned-wand:suffix:of-frostbite",
+      "name": "of Frostbite",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 100,
+      "tier": 1,
+      "text": "+5 to Level of all Cold Spell Skills",
+      "stats": [
+        {
+          "id": "cold_spell_skill_gem_level_+",
+          "min": 5,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalColdSpellGemsLevelWeapon5"
+    },
+    {
+      "id": "attuned-wand:suffix:of-sparks",
+      "name": "of Sparks",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+1 to Level of all Lightning Spell Skills",
+      "stats": [
+        {
+          "id": "lightning_spell_skill_gem_level_+",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "elemental",
+        "lightning",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalLightningSpellGemsLevelWeapon1"
+    },
+    {
+      "id": "attuned-wand:suffix:of-static",
+      "name": "of Static",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 750,
+      "tier": 6,
+      "text": "+2 to Level of all Lightning Spell Skills",
+      "stats": [
+        {
+          "id": "lightning_spell_skill_gem_level_+",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "elemental",
+        "lightning",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalLightningSpellGemsLevelWeapon2"
+    },
+    {
+      "id": "attuned-wand:suffix:of-electricity",
+      "name": "of Electricity",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 500,
+      "tier": 4,
+      "text": "+3 to Level of all Lightning Spell Skills",
+      "stats": [
+        {
+          "id": "lightning_spell_skill_gem_level_+",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "elemental",
+        "lightning",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalLightningSpellGemsLevelWeapon3"
+    },
+    {
+      "id": "attuned-wand:suffix:of-voltage",
+      "name": "of Voltage",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 250,
+      "tier": 3,
+      "text": "+4 to Level of all Lightning Spell Skills",
+      "stats": [
+        {
+          "id": "lightning_spell_skill_gem_level_+",
+          "min": 4,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "elemental",
+        "lightning",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalLightningSpellGemsLevelWeapon4"
+    },
+    {
+      "id": "attuned-wand:suffix:of-thunder",
+      "name": "of Thunder",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 100,
+      "tier": 1,
+      "text": "+5 to Level of all Lightning Spell Skills",
+      "stats": [
+        {
+          "id": "lightning_spell_skill_gem_level_+",
+          "min": 5,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "elemental",
+        "lightning",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalLightningSpellGemsLevelWeapon5"
+    },
+    {
+      "id": "attuned-wand:suffix:of-anarchy",
+      "name": "of Anarchy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+1 to Level of all Chaos Spell Skills",
+      "stats": [
+        {
+          "id": "chaos_spell_skill_gem_level_+",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "chaos",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalChaosSpellGemsLevelWeapon1"
+    },
+    {
+      "id": "attuned-wand:suffix:of-turmoil",
+      "name": "of Turmoil",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 750,
+      "tier": 6,
+      "text": "+2 to Level of all Chaos Spell Skills",
+      "stats": [
+        {
+          "id": "chaos_spell_skill_gem_level_+",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "chaos",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalChaosSpellGemsLevelWeapon2"
+    },
+    {
+      "id": "attuned-wand:suffix:of-ruin:globalchaosspellgemslevelweapon3",
+      "name": "of Ruin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 500,
+      "tier": 4,
+      "text": "+3 to Level of all Chaos Spell Skills",
+      "stats": [
+        {
+          "id": "chaos_spell_skill_gem_level_+",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "chaos",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalChaosSpellGemsLevelWeapon3"
+    },
+    {
+      "id": "attuned-wand:suffix:of-havoc:globalchaosspellgemslevelweapon4",
+      "name": "of Havoc",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 250,
+      "tier": 3,
+      "text": "+4 to Level of all Chaos Spell Skills",
+      "stats": [
+        {
+          "id": "chaos_spell_skill_gem_level_+",
+          "min": 4,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "chaos",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalChaosSpellGemsLevelWeapon4"
+    },
+    {
+      "id": "attuned-wand:suffix:of-armageddon",
+      "name": "of Armageddon",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 100,
+      "tier": 1,
+      "text": "+5 to Level of all Chaos Spell Skills",
+      "stats": [
+        {
+          "id": "chaos_spell_skill_gem_level_+",
+          "min": 5,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "chaos",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalChaosSpellGemsLevelWeapon5"
+    },
+    {
+      "id": "attuned-wand:suffix:of-agony",
+      "name": "of Agony",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+1 to Level of all Physical Spell Skills",
+      "stats": [
+        {
+          "id": "physical_spell_skill_gem_level_+",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "physical",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalPhysicalSpellGemsLevelWeapon1"
+    },
+    {
+      "id": "attuned-wand:suffix:of-suffering",
+      "name": "of Suffering",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 750,
+      "tier": 6,
+      "text": "+2 to Level of all Physical Spell Skills",
+      "stats": [
+        {
+          "id": "physical_spell_skill_gem_level_+",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "physical",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalPhysicalSpellGemsLevelWeapon2"
+    },
+    {
+      "id": "attuned-wand:suffix:of-torment",
+      "name": "of Torment",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 500,
+      "tier": 4,
+      "text": "+3 to Level of all Physical Spell Skills",
+      "stats": [
+        {
+          "id": "physical_spell_skill_gem_level_+",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "physical",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalPhysicalSpellGemsLevelWeapon3"
+    },
+    {
+      "id": "attuned-wand:suffix:of-desolation",
+      "name": "of Desolation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 250,
+      "tier": 3,
+      "text": "+4 to Level of all Physical Spell Skills",
+      "stats": [
+        {
+          "id": "physical_spell_skill_gem_level_+",
+          "min": 4,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "physical",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalPhysicalSpellGemsLevelWeapon4"
+    },
+    {
+      "id": "attuned-wand:suffix:of-grief",
+      "name": "of Grief",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 100,
+      "tier": 1,
+      "text": "+5 to Level of all Physical Spell Skills",
+      "stats": [
+        {
+          "id": "physical_spell_skill_gem_level_+",
+          "min": 5,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "physical",
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalPhysicalSpellGemsLevelWeapon5"
+    },
+    {
+      "id": "attuned-wand:suffix:of-excitement",
+      "name": "of Excitement",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(10—19)% increased Mana Regeneration Rate",
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 10,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaRegeneration1"
+    },
+    {
+      "id": "attuned-wand:suffix:of-joy",
+      "name": "of Joy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(20—29)% increased Mana Regeneration Rate",
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 20,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaRegeneration2"
+    },
+    {
+      "id": "attuned-wand:suffix:of-elation",
+      "name": "of Elation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 29,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(30—39)% increased Mana Regeneration Rate",
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 30,
+          "max": 39
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaRegeneration3"
+    },
+    {
+      "id": "attuned-wand:suffix:of-bliss",
+      "name": "of Bliss",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 42,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(40—49)% increased Mana Regeneration Rate",
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 40,
+          "max": 49
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaRegeneration4"
+    },
+    {
+      "id": "attuned-wand:suffix:of-euphoria",
+      "name": "of Euphoria",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1000,
+      "tier": 2,
+      "text": "(50—59)% increased Mana Regeneration Rate",
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 50,
+          "max": 59
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaRegeneration5"
+    },
+    {
+      "id": "attuned-wand:suffix:of-nirvana",
+      "name": "of Nirvana",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 79,
+      "weight": 1000,
+      "tier": 1,
+      "text": "(60—69)% increased Mana Regeneration Rate",
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 60,
+          "max": 69
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaRegeneration6"
+    },
+    {
+      "id": "attuned-wand:suffix:of-success",
+      "name": "of Success",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 750,
+      "tier": 8,
+      "text": "Gain (4—6) Life per enemy killed",
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath1"
+    },
+    {
+      "id": "attuned-wand:suffix:of-victory",
+      "name": "of Victory",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 750,
+      "tier": 7,
+      "text": "Gain (7—9) Life per enemy killed",
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 7,
+          "max": 9
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath2"
+    },
+    {
+      "id": "attuned-wand:suffix:of-triumph",
+      "name": "of Triumph",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 750,
+      "tier": 6,
+      "text": "Gain (10—18) Life per enemy killed",
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 10,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath3"
+    },
+    {
+      "id": "attuned-wand:suffix:of-conquest",
+      "name": "of Conquest",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 750,
+      "tier": 5,
+      "text": "Gain (19—28) Life per enemy killed",
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 19,
+          "max": 28
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath4"
+    },
+    {
+      "id": "attuned-wand:suffix:of-vanquishing",
+      "name": "of Vanquishing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 750,
+      "tier": 4,
+      "text": "Gain (29—40) Life per enemy killed",
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 29,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath5"
+    },
+    {
+      "id": "attuned-wand:suffix:of-valour",
+      "name": "of Valour",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 750,
+      "tier": 3,
+      "text": "Gain (41—53) Life per enemy killed",
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 41,
+          "max": 53
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath6"
+    },
+    {
+      "id": "attuned-wand:suffix:of-glory",
+      "name": "of Glory",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 750,
+      "tier": 2,
+      "text": "Gain (54—68) Life per enemy killed",
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 54,
+          "max": 68
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath7"
+    },
+    {
+      "id": "attuned-wand:suffix:of-legend",
+      "name": "of Legend",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 77,
+      "weight": 750,
+      "tier": 1,
+      "text": "Gain (69—84) Life per enemy killed",
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 69,
+          "max": 84
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath8"
+    },
+    {
+      "id": "attuned-wand:suffix:of-absorption",
+      "name": "of Absorption",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 750,
+      "tier": 8,
+      "text": "Gain (2—3) Mana per enemy killed",
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaGainedFromEnemyDeath1"
+    },
+    {
+      "id": "attuned-wand:suffix:of-osmosis",
+      "name": "of Osmosis",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 12,
+      "weight": 750,
+      "tier": 7,
+      "text": "Gain (4—5) Mana per enemy killed",
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 4,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaGainedFromEnemyDeath2"
+    },
+    {
+      "id": "attuned-wand:suffix:of-infusion",
+      "name": "of Infusion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 23,
+      "weight": 750,
+      "tier": 6,
+      "text": "Gain (6—9) Mana per enemy killed",
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 6,
+          "max": 9
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaGainedFromEnemyDeath3"
+    },
+    {
+      "id": "attuned-wand:suffix:of-enveloping",
+      "name": "of Enveloping",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 34,
+      "weight": 750,
+      "tier": 5,
+      "text": "Gain (10—14) Mana per enemy killed",
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaGainedFromEnemyDeath4"
+    },
+    {
+      "id": "attuned-wand:suffix:of-consumption",
+      "name": "of Consumption",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 750,
+      "tier": 4,
+      "text": "Gain (15—20) Mana per enemy killed",
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaGainedFromEnemyDeath5"
+    },
+    {
+      "id": "attuned-wand:suffix:of-siphoning",
+      "name": "of Siphoning",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 56,
+      "weight": 750,
+      "tier": 3,
+      "text": "Gain (21—27) Mana per enemy killed",
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 21,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaGainedFromEnemyDeath6"
+    },
+    {
+      "id": "attuned-wand:suffix:of-devouring",
+      "name": "of Devouring",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 67,
+      "weight": 750,
+      "tier": 2,
+      "text": "Gain (28—35) Mana per enemy killed",
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 28,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaGainedFromEnemyDeath7"
+    },
+    {
+      "id": "attuned-wand:suffix:of-assimilation",
+      "name": "of Assimilation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 78,
+      "weight": 750,
+      "tier": 1,
+      "text": "Gain (36—45) Mana per enemy killed",
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 36,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaGainedFromEnemyDeath8"
+    },
+    {
+      "id": "attuned-wand:suffix:of-talent",
+      "name": "of Talent",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 7,
+      "text": "(9—12)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeed1"
+    },
+    {
+      "id": "attuned-wand:suffix:of-nimbleness",
+      "name": "of Nimbleness",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 15,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(13—16)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 13,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeed2"
+    },
+    {
+      "id": "attuned-wand:suffix:of-expertise",
+      "name": "of Expertise",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 30,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(17—20)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 17,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeed3"
+    },
+    {
+      "id": "attuned-wand:suffix:of-sortilege",
+      "name": "of Sortilege",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(21—24)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeed4"
+    },
+    {
+      "id": "attuned-wand:suffix:of-legerdemain",
+      "name": "of Legerdemain",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(25—28)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 25,
+          "max": 28
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeed5"
+    },
+    {
+      "id": "attuned-wand:suffix:of-prestidigitation",
+      "name": "of Prestidigitation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 500,
+      "tier": 2,
+      "text": "(29—32)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 29,
+          "max": 32
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeed6"
+    },
+    {
+      "id": "attuned-wand:suffix:of-finesse",
+      "name": "of Finesse",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 80,
+      "weight": 250,
+      "tier": 1,
+      "text": "(33—35)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 33,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeed7"
+    },
+    {
+      "id": "attuned-wand:suffix:of-menace",
+      "name": "of Menace",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SpellCriticalStrikeChanceIncrease"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(27—33)% increased Critical Hit Chance for Spells",
+      "stats": [
+        {
+          "id": "spell_critical_strike_chance_+%",
+          "min": 27,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "caster_critical",
+        "caster",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeChance1"
+    },
+    {
+      "id": "attuned-wand:suffix:of-havoc:spellcriticalstrikechance2",
+      "name": "of Havoc",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SpellCriticalStrikeChanceIncrease"
+      ],
+      "requiredItemLevel": 21,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(34—39)% increased Critical Hit Chance for Spells",
+      "stats": [
+        {
+          "id": "spell_critical_strike_chance_+%",
+          "min": 34,
+          "max": 39
+        }
+      ],
+      "tags": [
+        "caster_critical",
+        "caster",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeChance2"
+    },
+    {
+      "id": "attuned-wand:suffix:of-disaster",
+      "name": "of Disaster",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SpellCriticalStrikeChanceIncrease"
+      ],
+      "requiredItemLevel": 28,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(40—46)% increased Critical Hit Chance for Spells",
+      "stats": [
+        {
+          "id": "spell_critical_strike_chance_+%",
+          "min": 40,
+          "max": 46
+        }
+      ],
+      "tags": [
+        "caster_critical",
+        "caster",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeChance3"
+    },
+    {
+      "id": "attuned-wand:suffix:of-calamity",
+      "name": "of Calamity",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SpellCriticalStrikeChanceIncrease"
+      ],
+      "requiredItemLevel": 41,
+      "weight": 500,
+      "tier": 3,
+      "text": "(47—53)% increased Critical Hit Chance for Spells",
+      "stats": [
+        {
+          "id": "spell_critical_strike_chance_+%",
+          "min": 47,
+          "max": 53
+        }
+      ],
+      "tags": [
+        "caster_critical",
+        "caster",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeChance4"
+    },
+    {
+      "id": "attuned-wand:suffix:of-ruin:spellcriticalstrikechance5",
+      "name": "of Ruin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SpellCriticalStrikeChanceIncrease"
+      ],
+      "requiredItemLevel": 59,
+      "weight": 250,
+      "tier": 2,
+      "text": "(54—59)% increased Critical Hit Chance for Spells",
+      "stats": [
+        {
+          "id": "spell_critical_strike_chance_+%",
+          "min": 54,
+          "max": 59
+        }
+      ],
+      "tags": [
+        "caster_critical",
+        "caster",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeChance5"
+    },
+    {
+      "id": "attuned-wand:suffix:of-unmaking",
+      "name": "of Unmaking",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SpellCriticalStrikeChanceIncrease"
+      ],
+      "requiredItemLevel": 76,
+      "weight": 125,
+      "tier": 1,
+      "text": "(60—73)% increased Critical Hit Chance for Spells",
+      "stats": [
+        {
+          "id": "spell_critical_strike_chance_+%",
+          "min": 60,
+          "max": 73
+        }
+      ],
+      "tags": [
+        "caster_critical",
+        "caster",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeChance6_"
+    },
+    {
+      "id": "attuned-wand:suffix:of-ire",
+      "name": "of Ire",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(10—14)% increased Critical Spell Damage Bonus",
+      "stats": [
+        {
+          "id": "base_spell_critical_strike_multiplier_+",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "caster_critical",
+        "caster",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeMultiplier1"
+    },
+    {
+      "id": "attuned-wand:suffix:of-anger",
+      "name": "of Anger",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 21,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(15—19)% increased Critical Spell Damage Bonus",
+      "stats": [
+        {
+          "id": "base_spell_critical_strike_multiplier_+",
+          "min": 15,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "caster_critical",
+        "caster",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeMultiplier2"
+    },
+    {
+      "id": "attuned-wand:suffix:of-rage",
+      "name": "of Rage",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 30,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(20—24)% increased Critical Spell Damage Bonus",
+      "stats": [
+        {
+          "id": "base_spell_critical_strike_multiplier_+",
+          "min": 20,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "caster_critical",
+        "caster",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeMultiplier3"
+    },
+    {
+      "id": "attuned-wand:suffix:of-fury",
+      "name": "of Fury",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 500,
+      "tier": 3,
+      "text": "(25—29)% increased Critical Spell Damage Bonus",
+      "stats": [
+        {
+          "id": "base_spell_critical_strike_multiplier_+",
+          "min": 25,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "caster_critical",
+        "caster",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeMultiplier4"
+    },
+    {
+      "id": "attuned-wand:suffix:of-ferocity",
+      "name": "of Ferocity",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 59,
+      "weight": 250,
+      "tier": 2,
+      "text": "(30—34)% increased Critical Spell Damage Bonus",
+      "stats": [
+        {
+          "id": "base_spell_critical_strike_multiplier_+",
+          "min": 30,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "caster_critical",
+        "caster",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeMultiplier5"
+    },
+    {
+      "id": "attuned-wand:suffix:of-destruction",
+      "name": "of Destruction",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 73,
+      "weight": 125,
+      "tier": 1,
+      "text": "(35—39)% increased Critical Spell Damage Bonus",
+      "stats": [
+        {
+          "id": "base_spell_critical_strike_multiplier_+",
+          "min": 35,
+          "max": 39
+        }
+      ],
+      "tags": [
+        "caster_critical",
+        "caster",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeMultiplier6"
+    },
+    {
+      "id": "attuned-wand:suffix:of-warmth",
+      "name": "of Warmth",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightRadiusAndManaRegeneration"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(8—12)% increased Mana Regeneration Rate5% increased Light Radius",
+      "stats": [
+        {
+          "id": "light_radius_+%",
+          "min": 5,
+          "max": 5
+        },
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 8,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightRadiusAndManaRegeneration1"
+    },
+    {
+      "id": "attuned-wand:suffix:of-kindling",
+      "name": "of Kindling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightRadiusAndManaRegeneration"
+      ],
+      "requiredItemLevel": 15,
+      "weight": 1000,
+      "tier": 2,
+      "text": "(13—17)% increased Mana Regeneration Rate10% increased Light Radius",
+      "stats": [
+        {
+          "id": "light_radius_+%",
+          "min": 10,
+          "max": 10
+        },
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 13,
+          "max": 17
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightRadiusAndManaRegeneration2"
+    },
+    {
+      "id": "attuned-wand:suffix:of-the-hearth",
+      "name": "of the Hearth",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightRadiusAndManaRegeneration"
+      ],
+      "requiredItemLevel": 30,
+      "weight": 1000,
+      "tier": 1,
+      "text": "(18—22)% increased Mana Regeneration Rate15% increased Light Radius",
+      "stats": [
+        {
+          "id": "light_radius_+%",
+          "min": 15,
+          "max": 15
+        },
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 18,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightRadiusAndManaRegeneration3"
+    },
+    {
+      "id": "attuned-wand:suffix:of-ignition",
+      "name": "of Ignition",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IgniteChanceIncrease"
+      ],
+      "requiredItemLevel": 15,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(51—60)% increased Flammability Magnitude",
+      "stats": [
+        {
+          "id": "ignite_chance_+%",
+          "min": 51,
+          "max": 60
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIgniteChanceIncrease1"
+    },
+    {
+      "id": "attuned-wand:suffix:of-scorching",
+      "name": "of Scorching",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IgniteChanceIncrease"
+      ],
+      "requiredItemLevel": 30,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(61—70)% increased Flammability Magnitude",
+      "stats": [
+        {
+          "id": "ignite_chance_+%",
+          "min": 61,
+          "max": 70
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIgniteChanceIncrease2"
+    },
+    {
+      "id": "attuned-wand:suffix:of-incineration",
+      "name": "of Incineration",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IgniteChanceIncrease"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(71—80)% increased Flammability Magnitude",
+      "stats": [
+        {
+          "id": "ignite_chance_+%",
+          "min": 71,
+          "max": 80
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIgniteChanceIncrease3"
+    },
+    {
+      "id": "attuned-wand:suffix:of-combustion",
+      "name": "of Combustion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IgniteChanceIncrease"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 500,
+      "tier": 2,
+      "text": "(81—90)% increased Flammability Magnitude",
+      "stats": [
+        {
+          "id": "ignite_chance_+%",
+          "min": 81,
+          "max": 90
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIgniteChanceIncrease4"
+    },
+    {
+      "id": "attuned-wand:suffix:of-conflagration",
+      "name": "of Conflagration",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IgniteChanceIncrease"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 500,
+      "tier": 1,
+      "text": "(91—100)% increased Flammability Magnitude",
+      "stats": [
+        {
+          "id": "ignite_chance_+%",
+          "min": 91,
+          "max": 100
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIgniteChanceIncrease5"
+    },
+    {
+      "id": "attuned-wand:suffix:of-freezing",
+      "name": "of Freezing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FreezeDamageIncrease"
+      ],
+      "requiredItemLevel": 15,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(31—40)% increased Freeze Buildup",
+      "stats": [
+        {
+          "id": "hit_damage_freeze_multiplier_+%",
+          "min": 31,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFreezeDamageIncrease1"
+    },
+    {
+      "id": "attuned-wand:suffix:of-bleakness",
+      "name": "of Bleakness",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FreezeDamageIncrease"
+      ],
+      "requiredItemLevel": 30,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(41—50)% increased Freeze Buildup",
+      "stats": [
+        {
+          "id": "hit_damage_freeze_multiplier_+%",
+          "min": 41,
+          "max": 50
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFreezeDamageIncrease2"
+    },
+    {
+      "id": "attuned-wand:suffix:of-the-glacier",
+      "name": "of the Glacier",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FreezeDamageIncrease"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(51—60)% increased Freeze Buildup",
+      "stats": [
+        {
+          "id": "hit_damage_freeze_multiplier_+%",
+          "min": 51,
+          "max": 60
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFreezeDamageIncrease3"
+    },
+    {
+      "id": "attuned-wand:suffix:of-the-hyperboreal",
+      "name": "of the Hyperboreal",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FreezeDamageIncrease"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 500,
+      "tier": 2,
+      "text": "(61—70)% increased Freeze Buildup",
+      "stats": [
+        {
+          "id": "hit_damage_freeze_multiplier_+%",
+          "min": 61,
+          "max": 70
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFreezeDamageIncrease4"
+    },
+    {
+      "id": "attuned-wand:suffix:of-the-arctic",
+      "name": "of the Arctic",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FreezeDamageIncrease"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 500,
+      "tier": 1,
+      "text": "(71—80)% increased Freeze Buildup",
+      "stats": [
+        {
+          "id": "hit_damage_freeze_multiplier_+%",
+          "min": 71,
+          "max": 80
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFreezeDamageIncrease5"
+    },
+    {
+      "id": "attuned-wand:suffix:of-shocking",
+      "name": "of Shocking",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ShockChanceIncrease"
+      ],
+      "requiredItemLevel": 15,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(51—60)% increased chance to Shock",
+      "stats": [
+        {
+          "id": "shock_chance_+%",
+          "min": 51,
+          "max": 60
+        }
+      ],
+      "tags": [
+        "elemental",
+        "lightning",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FShockChanceIncrease1"
+    },
+    {
+      "id": "attuned-wand:suffix:of-zapping",
+      "name": "of Zapping",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ShockChanceIncrease"
+      ],
+      "requiredItemLevel": 30,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(61—70)% increased chance to Shock",
+      "stats": [
+        {
+          "id": "shock_chance_+%",
+          "min": 61,
+          "max": 70
+        }
+      ],
+      "tags": [
+        "elemental",
+        "lightning",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FShockChanceIncrease2"
+    },
+    {
+      "id": "attuned-wand:suffix:of-electrocution",
+      "name": "of Electrocution",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ShockChanceIncrease"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(71—80)% increased chance to Shock",
+      "stats": [
+        {
+          "id": "shock_chance_+%",
+          "min": 71,
+          "max": 80
+        }
+      ],
+      "tags": [
+        "elemental",
+        "lightning",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FShockChanceIncrease3"
+    },
+    {
+      "id": "attuned-wand:suffix:of-voltages",
+      "name": "of Voltages",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ShockChanceIncrease"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 500,
+      "tier": 2,
+      "text": "(81—90)% increased chance to Shock",
+      "stats": [
+        {
+          "id": "shock_chance_+%",
+          "min": 81,
+          "max": 90
+        }
+      ],
+      "tags": [
+        "elemental",
+        "lightning",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FShockChanceIncrease4"
+    },
+    {
+      "id": "attuned-wand:suffix:of-the-thunderbolt",
+      "name": "of the Thunderbolt",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ShockChanceIncrease"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 500,
+      "tier": 1,
+      "text": "(91—100)% increased chance to Shock",
+      "stats": [
+        {
+          "id": "shock_chance_+%",
+          "min": 91,
+          "max": 100
+        }
+      ],
+      "tags": [
+        "elemental",
+        "lightning",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FShockChanceIncrease5"
+    },
+    {
+      "id": "attuned-wand:prefix:fervent",
+      "name": "Fervent",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 5,
+      "weight": 500,
+      "tier": 6,
+      "text": "Gain (13—15)% of Damage as Extra Fire Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_fire",
+          "min": 13,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageGainedAsFire1"
+    },
+    {
+      "id": "attuned-wand:prefix:ardent",
+      "name": "Ardent",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 5,
+      "text": "Gain (16—18)% of Damage as Extra Fire Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_fire",
+          "min": 16,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageGainedAsFire2"
+    },
+    {
+      "id": "attuned-wand:prefix:fanatic-s",
+      "name": "Fanatic's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 4,
+      "text": "Gain (19—21)% of Damage as Extra Fire Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_fire",
+          "min": 19,
+          "max": 21
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageGainedAsFire3"
+    },
+    {
+      "id": "attuned-wand:prefix:zealot-s",
+      "name": "Zealot's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 3,
+      "text": "Gain (22—24)% of Damage as Extra Fire Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_fire",
+          "min": 22,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageGainedAsFire4"
+    },
+    {
+      "id": "attuned-wand:prefix:infernal",
+      "name": "Infernal",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 500,
+      "tier": 2,
+      "text": "Gain (25—27)% of Damage as Extra Fire Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_fire",
+          "min": 25,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageGainedAsFire5"
+    },
+    {
+      "id": "attuned-wand:prefix:flamebound",
+      "name": "Flamebound",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 80,
+      "weight": 500,
+      "tier": 1,
+      "text": "Gain (28—30)% of Damage as Extra Fire Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_fire",
+          "min": 28,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageGainedAsFire6"
+    },
+    {
+      "id": "attuned-wand:prefix:malignant:spelldamagegainedascold1",
+      "name": "Malignant",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 5,
+      "weight": 500,
+      "tier": 6,
+      "text": "Gain (13—15)% of Damage as Extra Cold Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_cold",
+          "min": 13,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageGainedAsCold1"
+    },
+    {
+      "id": "attuned-wand:prefix:pernicious",
+      "name": "Pernicious",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 5,
+      "text": "Gain (16—18)% of Damage as Extra Cold Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_cold",
+          "min": 16,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageGainedAsCold2"
+    },
+    {
+      "id": "attuned-wand:prefix:destructive",
+      "name": "Destructive",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 4,
+      "text": "Gain (19—21)% of Damage as Extra Cold Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_cold",
+          "min": 19,
+          "max": 21
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageGainedAsCold3"
+    },
+    {
+      "id": "attuned-wand:prefix:malicious",
+      "name": "Malicious",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 3,
+      "text": "Gain (22—24)% of Damage as Extra Cold Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_cold",
+          "min": 22,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageGainedAsCold4"
+    },
+    {
+      "id": "attuned-wand:prefix:ruthless",
+      "name": "Ruthless",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 500,
+      "tier": 2,
+      "text": "Gain (25—27)% of Damage as Extra Cold Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_cold",
+          "min": 25,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageGainedAsCold5"
+    },
+    {
+      "id": "attuned-wand:prefix:frostbound",
+      "name": "Frostbound",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 80,
+      "weight": 500,
+      "tier": 1,
+      "text": "Gain (28—30)% of Damage as Extra Cold Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_cold",
+          "min": 28,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageGainedAsCold6"
+    },
+    {
+      "id": "attuned-wand:prefix:deadly",
+      "name": "Deadly",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 5,
+      "weight": 500,
+      "tier": 6,
+      "text": "Gain (13—15)% of Damage as Extra Lightning Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
+          "min": 13,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageGainedAsLightning1"
+    },
+    {
+      "id": "attuned-wand:prefix:lethal",
+      "name": "Lethal",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 5,
+      "text": "Gain (16—18)% of Damage as Extra Lightning Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
+          "min": 16,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageGainedAsLightning2"
+    },
+    {
+      "id": "attuned-wand:prefix:fatal",
+      "name": "Fatal",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 4,
+      "text": "Gain (19—21)% of Damage as Extra Lightning Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
+          "min": 19,
+          "max": 21
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageGainedAsLightning3"
+    },
+    {
+      "id": "attuned-wand:prefix:vorpal",
+      "name": "Vorpal",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 3,
+      "text": "Gain (22—24)% of Damage as Extra Lightning Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
+          "min": 22,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageGainedAsLightning4"
+    },
+    {
+      "id": "attuned-wand:prefix:electrifying",
+      "name": "Electrifying",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 500,
+      "tier": 2,
+      "text": "Gain (25—27)% of Damage as Extra Lightning Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
+          "min": 25,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageGainedAsLightning5"
+    },
+    {
+      "id": "attuned-wand:prefix:stormbound",
+      "name": "Stormbound",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 80,
+      "weight": 500,
+      "tier": 1,
+      "text": "Gain (28—30)% of Damage as Extra Lightning Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
+          "min": 28,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageGainedAsLightning6"
+    },
+    {
+      "id": "attuned-wand:suffix:essence-spell-skill-level",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "+3 to Level of all Spell Skills",
+      "stats": [
+        {
+          "id": "spell_skill_gem_level_+",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceSpellSkillLevel1H1"
+    },
+    {
+      "id": "attuned-wand:suffix:essence-mana-cost-efficiency",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaCostEfficiency"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(18—20)% increased Mana Cost Efficiency",
+      "stats": [
+        {
+          "id": "base_mana_cost_efficiency_+%",
+          "min": 18,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceManaCostReduction"
+    }
+  ]
+}

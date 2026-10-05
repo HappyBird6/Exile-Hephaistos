@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/sp/Siphoning_Wand",
+  "retrievedAt": "2026-10-05T00:06:50.051Z",
+  "sha256": "65db0a6a5ccaa6cf8eabe0909e56a3e7fe30151b604744a27657c4bd77aba96c",
+  "name": "Varita de robo",
+  "card": "Varita de robo\n        \n    \n    \n        \n            VaritasRequiere:  Nivel 11, 23 Int Otorga la habilidad: Robo de poder\n        \n\n\n\n        \n            Siphoning Wand",
+  "requirements": "Requiere:  Nivel 11, 23 Int",
+  "fields": {
+    "DropLevel": "11",
+    "BaseType": "Varita de robo",
+    "Class": "Varitas",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand4",
+    "Tags": "wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand04",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

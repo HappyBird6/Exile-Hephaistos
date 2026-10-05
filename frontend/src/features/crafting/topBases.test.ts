@@ -30,6 +30,15 @@ describe('reviewed endgame base identities', () => {
     'faithful',
     'daggerfoot',
     'hallowed',
+    'bone',
+    'siphoning',
+    'volatile',
+    'galvanic',
+    'acrid',
+    'offering',
+    'critical',
+    'primordial',
+    'dueling',
   ] as const)('preserves source facts and six languages for %s', (key) => {
     const base = topBase(key)!
     expect(topBaseKey(base.id)).toBe(key)

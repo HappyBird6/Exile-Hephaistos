@@ -998,6 +998,7 @@ export async function applyCurrency(
       'rings',
       'amulets',
       'sceptres',
+      'wands',
     ].includes(topBase(reviewedKey)?.family ?? '')
       ? (
           reviewedEssenceTargets as Record<

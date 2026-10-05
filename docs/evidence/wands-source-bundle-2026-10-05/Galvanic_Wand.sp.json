@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/sp/Galvanic_Wand",
+  "retrievedAt": "2026-10-05T00:06:50.632Z",
+  "sha256": "7e7b7b2a19573c3921a74d33cb193b113487caae3f7e355cb880ad4fc8f9b3b7",
+  "name": "Varita galvánica",
+  "card": "Varita galvánica\n        \n    \n    \n        \n            VaritasRequiere:  Nivel 25, 46 Int Otorga la habilidad: Campo galvánico\n        \n\n\n\n        \n            Galvanic Wand",
+  "requirements": "Requiere:  Nivel 25, 46 Int",
+  "fields": {
+    "DropLevel": "25",
+    "BaseType": "Varita galvánica",
+    "Class": "Varitas",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand6",
+    "Tags": "no_fire_spell_mods, no_cold_spell_mods, no_chaos_spell_mods, no_physical_spell_mods, wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand06",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

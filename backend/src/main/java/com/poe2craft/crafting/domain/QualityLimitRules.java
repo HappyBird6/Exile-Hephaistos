@@ -21,6 +21,7 @@ public final class QualityLimitRules {
         && !ReviewedRings.supports(state.baseItemId())
         && !ReviewedAmulets.supports(state.baseItemId())
         && !ReviewedSceptres.supports(state.baseItemId())
+        && !ReviewedWands.supports(state.baseItemId())
         && !state.baseItemId().equals(BowEssenceTargets.BASE_ID)
         && !HelmetEssenceTargets.supports(state.baseItemId())
         && !BodyEssenceTargets.supports(state.baseItemId())

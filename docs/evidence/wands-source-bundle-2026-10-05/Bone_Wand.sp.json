@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/sp/Bone_Wand",
+  "retrievedAt": "2026-10-05T00:06:49.763Z",
+  "sha256": "285414c184068a52cfa4088cd4d4fc29579182dda4b2ffc3fac02cf137ba6658",
+  "name": "Varita de hueso",
+  "card": "Varita de hueso\n        \n    \n    \n        \n            VaritasRequiere:  Nivel 2, 7 Int Otorga la habilidad: Explosión de huesos\n        \n\n\n\n        \n            Bone Wand",
+  "requirements": "Requiere:  Nivel 2, 7 Int",
+  "fields": {
+    "DropLevel": "2",
+    "BaseType": "Varita de hueso",
+    "Class": "Varitas",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2",
+    "Tags": "no_fire_spell_mods, no_cold_spell_mods, no_lightning_spell_mods, no_chaos_spell_mods, wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand02",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

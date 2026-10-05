@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/kr/Critical_Wand",
+  "retrievedAt": "2026-10-05T00:06:38.430Z",
+  "sha256": "6394dbfe3a1487bcb12ece152e5d2d03ffb4e8732cdee855fcaa1d82818b5339",
+  "name": "치명적인 마법봉",
+  "card": "치명적인 마법봉\n        \n    \n    \n        \n            마법봉요구 사항:  레벨 52, 92 지능 스킬 부여: 카오스 화살\n        \n\n\n\n        \n            Critical Wand",
+  "requirements": "요구 사항:  레벨 52, 92 지능",
+  "fields": {
+    "DropLevel": "52",
+    "BaseType": "치명적인 마법봉",
+    "Class": "마법봉",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand11",
+    "Tags": "wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand11",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

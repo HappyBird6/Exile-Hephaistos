@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/us/Galvanic_Wand",
+  "retrievedAt": "2026-10-05T00:06:34.492Z",
+  "sha256": "5383b4492ada7963ee0380cae367a505f258e8032f9d34876ae83e3fc98cad08",
+  "name": "Galvanic Wand",
+  "card": "Galvanic Wand\n        \n    \n    \n        \n            WandsRequires:  Level 25, 46 Int Grants Skill: Galvanic Field",
+  "requirements": "Requires:  Level 25, 46 Int",
+  "fields": {
+    "DropLevel": "25",
+    "BaseType": "Galvanic Wand",
+    "Class": "Wands",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand6",
+    "Tags": "no_fire_spell_mods, no_cold_spell_mods, no_chaos_spell_mods, no_physical_spell_mods, lightning_implicit_skill, wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand06",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

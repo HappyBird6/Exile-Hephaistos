@@ -463,3 +463,9 @@ Spanish 공식 이름이 없는6항목은 자체 번역 provenance를 표시하�
 이 묶음은 기존 class 규칙의 실제 성공 경로를 검증하는 확장이며 등록만으로 모든 재료 지원을 주장하지 않는다. deferred50·excluded mechanics·Solar Support/Explorer·quality40 보존·rounding·Shift/Alt·film storage는 변경하지 않는다. remote push/merge/deploy는 수행하지 않는다. 다음 묶음은 Massive Mitts 및 나머지 defence archetype부터 진행하는 것을 권장한다.
 
 최종 검증 상태: Backend396/Frontend1749/Browser125/API87 통과, 6locale×2viewport×2base 화면24장 확인. 첫 commit의 `fractured:false` fixture 비교 중단은 부모가 명시적으로 승인한 bounded recovery로 해결했다. 생략/false의 실제 API 동등성과 모든 기존 상태·roll·소모 assertion을 유지했고 runtime registry 및 기존220 entry 보존도 통과했다. Imperial은 source 일반137+special1=138개이며 초기 기록의 special3을 바로잡았다. 실패 로그와 준비 오류·승인 근거는 위 문서에 보존한다. 제품 코드는 recovery에서 변경하지 않았다. 자체 QA service는 종료했고 원격 반영은 수행하지 않았다.
+
+## WB-048 Wand nine skill-family expansion (2026-10-05)
+
+Wand9 skill-family를 추가해 총71 bases를 제공한다. ordered Spawn Tags로 일반 pool을118/123/185개로 구분했고 기존 Attuned modifier ID·family·tier·range·weight를 보존했다. granted skill은 표시용 property이며 affix나 combat 계산으로 전환하지 않는다. Spanish Bone/Offering 요구치2건은 원문 증거를 유지하고 English canonical 값으로 표시한다. Infinite 특수 target은 source가 있으나 기존 Attuned 지원 범위를 유지했다. Twisted/Runic Fork/Runemastered의 실제 ordinary availability는 별도 확인 대상으로 남긴다. [Wand bundle](docs/workbench-wands-bundle-2026-10-05.md)에 출처·정책·정확한 다음 Sceptre7/Belt/class gap을 기록했다.
+
+Backend441+integration6, Frontend1820, API539, Browser719가 통과했고228 screenshot을38 contact sheets로 pixels 검사했다. 기존62 initial 응답·film·번역·registry220/deferred50·Solar-only Support/Explorer·quality40/rounding·Shift/Alt·local orange를 보존했다. 첫 Backend accessor 오류와 첫 Frontend Node22 engine 거부 로그는 유지했다. 조건을 완화하지 않고 수정/Node24로 전체 검증을 통과했다. remote push/merge/deploy는 수행하지 않는다.

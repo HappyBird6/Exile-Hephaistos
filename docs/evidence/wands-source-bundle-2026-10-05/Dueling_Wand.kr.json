@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/kr/Dueling_Wand",
+  "retrievedAt": "2026-10-05T00:06:39.011Z",
+  "sha256": "f9c31b0e2fea9186b9a76b95ee6ccd1236e155c216c860e061390da2a7c65c29",
+  "name": "결투 마법봉",
+  "card": "결투 마법봉\n        \n    \n    \n        \n            마법봉요구 사항:  레벨 65, 114 지능 스킬 부여: 주문투척\n        \n\n\n\n        \n            Dueling Wand",
+  "requirements": "요구 사항:  레벨 65, 114 지능",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "결투 마법봉",
+    "Class": "마법봉",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13",
+    "Tags": "wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand13",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

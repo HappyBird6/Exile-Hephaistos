@@ -45,5 +45,6 @@ export const reviewedArmourKeys = (Object.keys(data) as TopBaseKey[]).filter(
       'rings',
       'amulets',
       'sceptres',
+      'wands',
     ].includes(data[key].family),
 )

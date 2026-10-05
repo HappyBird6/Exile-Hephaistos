@@ -1659,5 +1659,333 @@
       "zh-TW": ["精魂: 100", "賦予技能: 骷髏戰士"],
       "es": ["Espíritu: 100", "Otorga la habilidad: Guerrero esqueleto"]
     }
+  },
+  "bone": {
+    "key": "bone",
+    "slug": "Bone_Wand",
+    "pool": "bone-wand",
+    "family": "wands",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2",
+    "name": "Bone Wand",
+    "sourceUrl": "https://poe2db.tw/us/Bone_Wand",
+    "sourceSha256": "cfe72ccc35baa41e4530a2f8fbee24326457058968e0211af7d2cb96e144fb5a",
+    "sourceTags": [
+      "no_fire_spell_mods",
+      "no_cold_spell_mods",
+      "no_lightning_spell_mods",
+      "no_chaos_spell_mods",
+      "physical_implicit_skill",
+      "wand",
+      "onehand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 0,
+    "requiredLevel": 2,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 2",
+      "ko": "요구 사항:  레벨 2",
+      "ja": "装備条件： レベル 2",
+      "zh-CN": "需求：  等级 2",
+      "zh-TW": "需求:  等級 2",
+      "es": "Requiere:  Nivel 2"
+    },
+    "sourceProperties": {
+      "en": ["Grants Skill: Bone Blast"],
+      "ko": ["스킬 부여: 뼈 폭발"],
+      "ja": ["スキルを付与: ボーンブラスト"],
+      "zh-CN": ["获得技能: 针刺爆发"],
+      "zh-TW": ["賦予技能: 骨之爆破"],
+      "es": ["Otorga la habilidad: Explosión de huesos"]
+    }
+  },
+  "siphoning": {
+    "key": "siphoning",
+    "slug": "Siphoning_Wand",
+    "pool": "siphoning-wand",
+    "family": "wands",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand4",
+    "name": "Siphoning Wand",
+    "sourceUrl": "https://poe2db.tw/us/Siphoning_Wand",
+    "sourceSha256": "ae26469c192d54bf9cf75e46717918299c9b1ff947ec4353d88b22d4f60b9e58",
+    "sourceTags": ["wand", "onehand"],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 23,
+    "requiredLevel": 11,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 11, 23 Int",
+      "ko": "요구 사항:  레벨 11, 23 지능",
+      "ja": "装備条件： レベル 11, 23 知性",
+      "zh-CN": "需求：  等级 11, 23 智慧",
+      "zh-TW": "需求:  等級 11, 23 智慧",
+      "es": "Requiere:  Nivel 11, 23 Int"
+    },
+    "sourceProperties": {
+      "en": ["Grants Skill: Power Siphon"],
+      "ko": ["스킬 부여: 권능 착취"],
+      "ja": ["スキルを付与: パワーサイフォン"],
+      "zh-CN": ["获得技能: 力量抽取"],
+      "zh-TW": ["賦予技能: 力量抽取"],
+      "es": ["Otorga la habilidad: Robo de poder"]
+    }
+  },
+  "volatile": {
+    "key": "volatile",
+    "slug": "Volatile_Wand",
+    "pool": "volatile-wand",
+    "family": "wands",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand5",
+    "name": "Volatile Wand",
+    "sourceUrl": "https://poe2db.tw/us/Volatile_Wand",
+    "sourceSha256": "0e219ffc48ae886175c32516d034e5b8200dc90eb3fd9dd15372e8e7fc6827e6",
+    "sourceTags": [
+      "no_cold_spell_mods",
+      "no_lightning_spell_mods",
+      "no_chaos_spell_mods",
+      "no_physical_spell_mods",
+      "fire_implicit_skill",
+      "wand",
+      "onehand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 31,
+    "requiredLevel": 16,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 16, 31 Int",
+      "ko": "요구 사항:  레벨 16, 31 지능",
+      "ja": "装備条件： レベル 16, 31 知性",
+      "zh-CN": "需求：  等级 16, 31 智慧",
+      "zh-TW": "需求:  等級 16, 31 智慧",
+      "es": "Requiere:  Nivel 16, 31 Int"
+    },
+    "sourceProperties": {
+      "en": ["Grants Skill: Volatile Dead"],
+      "ko": ["스킬 부여: 시체 불덩이"],
+      "ja": ["スキルを付与: ボラタイルデッド"],
+      "zh-CN": ["获得技能: 灵体火球"],
+      "zh-TW": ["賦予技能: 致命之息"],
+      "es": ["Otorga la habilidad: Muertos volátiles"]
+    }
+  },
+  "galvanic": {
+    "key": "galvanic",
+    "slug": "Galvanic_Wand",
+    "pool": "galvanic-wand",
+    "family": "wands",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand6",
+    "name": "Galvanic Wand",
+    "sourceUrl": "https://poe2db.tw/us/Galvanic_Wand",
+    "sourceSha256": "5383b4492ada7963ee0380cae367a505f258e8032f9d34876ae83e3fc98cad08",
+    "sourceTags": [
+      "no_fire_spell_mods",
+      "no_cold_spell_mods",
+      "no_chaos_spell_mods",
+      "no_physical_spell_mods",
+      "lightning_implicit_skill",
+      "wand",
+      "onehand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 46,
+    "requiredLevel": 25,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 25, 46 Int",
+      "ko": "요구 사항:  레벨 25, 46 지능",
+      "ja": "装備条件： レベル 25, 46 知性",
+      "zh-CN": "需求：  等级 25, 46 智慧",
+      "zh-TW": "需求:  等級 25, 46 智慧",
+      "es": "Requiere:  Nivel 25, 46 Int"
+    },
+    "sourceProperties": {
+      "en": ["Grants Skill: Galvanic Field"],
+      "ko": ["스킬 부여: 충격장"],
+      "ja": ["スキルを付与: ガルヴァニックフィールド"],
+      "zh-CN": ["获得技能: 电流场"],
+      "zh-TW": ["賦予技能: 電光領域"],
+      "es": ["Otorga la habilidad: Campo galvánico"]
+    }
+  },
+  "acrid": {
+    "key": "acrid",
+    "slug": "Acrid_Wand",
+    "pool": "acrid-wand",
+    "family": "wands",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7",
+    "name": "Acrid Wand",
+    "sourceUrl": "https://poe2db.tw/us/Acrid_Wand",
+    "sourceSha256": "ca5b9779c6fd75fe1559f9ad04d8f208950db9f3c7749290de5bcf8c22120d0c",
+    "sourceTags": ["wand", "onehand"],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 60,
+    "requiredLevel": 33,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 33, 60 Int",
+      "ko": "요구 사항:  레벨 33, 60 지능",
+      "ja": "装備条件： レベル 33, 60 知性",
+      "zh-CN": "需求：  等级 33, 60 智慧",
+      "zh-TW": "需求:  等級 33, 60 智慧",
+      "es": "Requiere:  Nivel 33, 60 Int"
+    },
+    "sourceProperties": {
+      "en": ["Grants Skill: Decompose"],
+      "ko": ["스킬 부여: 부패"],
+      "ja": ["スキルを付与: デコンポーズ"],
+      "zh-CN": ["获得技能: 降解"],
+      "zh-TW": ["賦予技能: 分解"],
+      "es": ["Otorga la habilidad: Descomposición"]
+    }
+  },
+  "offering": {
+    "key": "offering",
+    "slug": "Offering_Wand",
+    "pool": "offering-wand",
+    "family": "wands",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand8",
+    "name": "Offering Wand",
+    "sourceUrl": "https://poe2db.tw/us/Offering_Wand",
+    "sourceSha256": "872ce1dc13fb40d9b3838dbd7863c93b4302123ff7a2b15790ddb546139ce4b9",
+    "sourceTags": [
+      "no_fire_spell_mods",
+      "no_cold_spell_mods",
+      "no_lightning_spell_mods",
+      "no_chaos_spell_mods",
+      "physical_implicit_skill",
+      "wand",
+      "onehand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 68,
+    "requiredLevel": 38,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 38, 68 Int",
+      "ko": "요구 사항:  레벨 38, 68 지능",
+      "ja": "装備条件： レベル 38, 68 知性",
+      "zh-CN": "需求：  等级 38, 68 智慧",
+      "zh-TW": "需求:  等級 38, 68 智慧",
+      "es": "Requiere:  Nivel 38, 68 Int"
+    },
+    "sourceProperties": {
+      "en": ["Grants Skill: Exsanguinate"],
+      "ko": ["스킬 부여: 방혈"],
+      "ja": ["スキルを付与: イグザングイネイト"],
+      "zh-CN": ["获得技能: 赤炼魔光"],
+      "zh-TW": ["賦予技能: 抽血"],
+      "es": ["Otorga la habilidad: Desangrar"]
+    }
+  },
+  "critical": {
+    "key": "critical",
+    "slug": "Critical_Wand",
+    "pool": "critical-wand",
+    "family": "wands",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand11",
+    "name": "Critical Wand",
+    "sourceUrl": "https://poe2db.tw/us/Critical_Wand",
+    "sourceSha256": "7b24268c6d085268c0c6a1c533baaece6a5cbb7f22b0fef4a8d2c3e66ddd9e9f",
+    "sourceTags": ["wand", "onehand"],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 92,
+    "requiredLevel": 52,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 52, 92 Int",
+      "ko": "요구 사항:  레벨 52, 92 지능",
+      "ja": "装備条件： レベル 52, 92 知性",
+      "zh-CN": "需求：  等级 52, 92 智慧",
+      "zh-TW": "需求:  等級 52, 92 智慧",
+      "es": "Requiere:  Nivel 52, 92 Int"
+    },
+    "sourceProperties": {
+      "en": ["Grants Skill: Chaos Bolt"],
+      "ko": ["스킬 부여: 카오스 화살"],
+      "ja": ["スキルを付与: カオスボルト"],
+      "zh-CN": ["获得技能: 混沌箭"],
+      "zh-TW": ["賦予技能: 混沌弩箭"],
+      "es": ["Otorga la habilidad: Descarga de caos"]
+    }
+  },
+  "primordial": {
+    "key": "primordial",
+    "slug": "Primordial_Wand",
+    "pool": "primordial-wand",
+    "family": "wands",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand12",
+    "name": "Primordial Wand",
+    "sourceUrl": "https://poe2db.tw/us/Primordial_Wand",
+    "sourceSha256": "c1160e129684983a4b363162fbcdc50f83cd376ee6d834c3de5293005e4bf636",
+    "sourceTags": [
+      "no_fire_spell_mods",
+      "no_cold_spell_mods",
+      "no_lightning_spell_mods",
+      "no_physical_spell_mods",
+      "chaos_implicit_skill",
+      "wand",
+      "onehand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 99,
+    "requiredLevel": 56,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 56, 99 Int",
+      "ko": "요구 사항:  레벨 56, 99 지능",
+      "ja": "装備条件： レベル 56, 99 知性",
+      "zh-CN": "需求：  等级 56, 99 智慧",
+      "zh-TW": "需求:  等級 56, 99 智慧",
+      "es": "Requiere:  Nivel 56, 99 Int"
+    },
+    "sourceProperties": {
+      "en": ["Grants Skill: Wither"],
+      "ko": ["스킬 부여: 위축"],
+      "ja": ["スキルを付与: ウィザー"],
+      "zh-CN": ["获得技能: 死亡凋零"],
+      "zh-TW": ["賦予技能: 死亡凋零"],
+      "es": ["Otorga la habilidad: Marchitar"]
+    }
+  },
+  "dueling": {
+    "key": "dueling",
+    "slug": "Dueling_Wand",
+    "pool": "dueling-wand",
+    "family": "wands",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13",
+    "name": "Dueling Wand",
+    "sourceUrl": "https://poe2db.tw/us/Dueling_Wand",
+    "sourceSha256": "a514c92f4bdf3469568fdf7165b9b06e8b5a86e66479b81d70bebebc1684ba56",
+    "sourceTags": ["wand", "onehand"],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 114,
+    "requiredLevel": 65,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 65, 114 Int",
+      "ko": "요구 사항:  레벨 65, 114 지능",
+      "ja": "装備条件： レベル 65, 114 知性",
+      "zh-CN": "需求：  等级 65, 114 智慧",
+      "zh-TW": "需求:  等級 65, 114 智慧",
+      "es": "Requiere:  Nivel 65, 114 Int"
+    },
+    "sourceProperties": {
+      "en": ["Grants Skill: Spellslinger"],
+      "ko": ["스킬 부여: 주문투척"],
+      "ja": ["スキルを付与: スペルスリンガー"],
+      "zh-CN": ["获得技能: 法术节魔"],
+      "zh-TW": ["賦予技能: 拋法者"],
+      "es": ["Otorga la habilidad: Lanzahechizos"]
+    }
   }
 }

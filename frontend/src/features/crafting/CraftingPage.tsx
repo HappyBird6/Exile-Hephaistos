@@ -97,6 +97,15 @@ const baseSlugs = {
   fanatic: 'Fanatic_Bow',
   obliterator: 'Obliterator_Bow',
   hallowed: 'Hallowed_Sceptre',
+  bone: 'Bone_Wand',
+  siphoning: 'Siphoning_Wand',
+  volatile: 'Volatile_Wand',
+  galvanic: 'Galvanic_Wand',
+  acrid: 'Acrid_Wand',
+  offering: 'Offering_Wand',
+  critical: 'Critical_Wand',
+  primordial: 'Primordial_Wand',
+  dueling: 'Dueling_Wand',
   stellar: 'Stellar_Amulet',
   amber: 'Amber_Amulet',
   bloodstone: 'Bloodstone_Amulet',
@@ -216,7 +225,7 @@ export function CraftingPage() {
         ? 'Stocky Mitts'
         : catalogBase === 'bow' || topBase(catalogBase)?.family === 'bows'
           ? 'Crude Bow'
-          : catalogBase === 'wand'
+          : catalogBase === 'wand' || topBase(catalogBase)?.family === 'wands'
             ? 'Attuned Wand'
             : catalogBase === 'body' ||
                 catalogBase === 'soldier' ||
@@ -364,6 +373,15 @@ export function CraftingPage() {
       | 'fanatic'
       | 'obliterator'
       | 'hallowed'
+      | 'bone'
+      | 'siphoning'
+      | 'volatile'
+      | 'galvanic'
+      | 'acrid'
+      | 'offering'
+      | 'critical'
+      | 'primordial'
+      | 'dueling'
       | 'stellar'
       | 'amber'
       | 'bloodstone'
@@ -582,6 +600,15 @@ export function CraftingPage() {
     | 'fanatic'
     | 'obliterator'
     | 'hallowed'
+    | 'bone'
+    | 'siphoning'
+    | 'volatile'
+    | 'galvanic'
+    | 'acrid'
+    | 'offering'
+    | 'critical'
+    | 'primordial'
+    | 'dueling'
     | 'stellar'
     | 'amber'
     | 'bloodstone'
@@ -983,7 +1010,8 @@ export function CraftingPage() {
                 : catalogBase === 'bow' ||
                     topBase(catalogBase)?.family === 'bows'
                   ? 'Bows'
-                  : catalogBase === 'wand'
+                  : catalogBase === 'wand' ||
+                      topBase(catalogBase)?.family === 'wands'
                     ? 'Wands'
                     : catalogBase === 'body' ||
                         catalogBase === 'soldier' ||
@@ -1970,7 +1998,8 @@ export function CraftingPage() {
                           : catalogBase === 'bow' ||
                               topBase(catalogBase)?.family === 'bows'
                             ? 'Bows'
-                            : catalogBase === 'wand'
+                            : catalogBase === 'wand' ||
+                                topBase(catalogBase)?.family === 'wands'
                               ? 'Wands'
                               : catalogBase === 'body' ||
                                   catalogBase === 'soldier' ||
@@ -2105,6 +2134,15 @@ export function CraftingPage() {
                           | 'fanatic'
                           | 'obliterator'
                           | 'hallowed'
+                          | 'bone'
+                          | 'siphoning'
+                          | 'volatile'
+                          | 'galvanic'
+                          | 'acrid'
+                          | 'offering'
+                          | 'critical'
+                          | 'primordial'
+                          | 'dueling'
                           | 'stellar'
                           | 'amber'
                           | 'bloodstone'

@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/us/Offering_Wand",
+  "retrievedAt": "2026-10-05T00:06:35.072Z",
+  "sha256": "872ce1dc13fb40d9b3838dbd7863c93b4302123ff7a2b15790ddb546139ce4b9",
+  "name": "Offering Wand",
+  "card": "Offering Wand\n        \n    \n    \n        \n            WandsRequires:  Level 38, 68 Int Grants Skill: Exsanguinate",
+  "requirements": "Requires:  Level 38, 68 Int",
+  "fields": {
+    "DropLevel": "38",
+    "BaseType": "Offering Wand",
+    "Class": "Wands",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand8",
+    "Tags": "no_fire_spell_mods, no_cold_spell_mods, no_lightning_spell_mods, no_chaos_spell_mods, physical_implicit_skill, wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand08",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

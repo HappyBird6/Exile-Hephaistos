@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/kr/Primordial_Wand",
+  "retrievedAt": "2026-10-05T00:06:38.723Z",
+  "sha256": "9d19174bc4a034204d17f6881e499b71fd136c63c466da5f868f1acd12982ceb",
+  "name": "태고의 마법봉",
+  "card": "태고의 마법봉\n        \n    \n    \n        \n            마법봉요구 사항:  레벨 56, 99 지능 스킬 부여: 위축\n        \n\n\n\n        \n            Primordial Wand",
+  "requirements": "요구 사항:  레벨 56, 99 지능",
+  "fields": {
+    "DropLevel": "56",
+    "BaseType": "태고의 마법봉",
+    "Class": "마법봉",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand12",
+    "Tags": "no_fire_spell_mods, no_cold_spell_mods, no_lightning_spell_mods, no_physical_spell_mods, chaos_implicit_skill, wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand12",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

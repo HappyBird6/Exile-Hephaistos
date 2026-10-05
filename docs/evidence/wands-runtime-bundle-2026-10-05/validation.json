@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "totalBases": 71,
+  "addedBases": [
+    "Bone",
+    "Siphoning",
+    "Volatile",
+    "Galvanic",
+    "Acrid",
+    "Offering",
+    "Critical",
+    "Primordial",
+    "Dueling"
+  ],
+  "backendUnitArchitecture": 441,
+  "backendIntegration": 6,
+  "frontendTests": 1820,
+  "apiChecks": 539,
+  "browserChecks": 719,
+  "browserErrors": [],
+  "matchingValidatedSourceFiles": 556,
+  "screenshots": 228,
+  "visuallyReviewedContactSheets": 38,
+  "jarSha256": "655e142121e57ae5968c0c2d27127f0de729bbc8a671050eb6564697bfed33c8",
+  "qaRoot": "E:/WORK/Exile-Hephaistos/codex/wands-qa-20261005",
+  "qaProject": "exile-wands-20261005",
+  "qaPorts": [
+    20180,
+    20181
+  ],
+  "commands": [
+    "check generateJooq bootJar",
+    "npm ci; lint; typecheck; format:check; test -- --run; build",
+    "docker compose config --quiet"
+  ],
+  "preservedFailureLogs": [
+    "backend-check-1.log: corrected new test accessor",
+    "frontend-check-1.log: old Node22 image rejected by current engine requirement"
+  ],
+  "successfulLogs": [
+    "backend-check-2.log",
+    "frontend-check-2.log"
+  ],
+  "preservation": "Existing62 initial API responses, data/translations/registry220/deferred50, old films, Solar-only Support/Explorer, Shift/Alt, orange preview, Solar quality40 and HALF_UP all verified",
+  "remainingScope": "Sceptre7, Belt and broader class gaps; unique/runeforged availability remains separate. See scope document."
+}

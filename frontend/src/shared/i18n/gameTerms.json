@@ -2415,6 +2415,60 @@
       "lines": ["Spirit: 100", "Grants Skill: Skeletal Warrior"],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13",
       "sourceUrl": "https://poe2db.tw/us/Hallowed_Sceptre"
+    },
+    "Bone_Wand": {
+      "name": "Bone Wand",
+      "lines": ["Grants Skill: Bone Blast"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2",
+      "sourceUrl": "https://poe2db.tw/us/Bone_Wand"
+    },
+    "Siphoning_Wand": {
+      "name": "Siphoning Wand",
+      "lines": ["Grants Skill: Power Siphon"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand4",
+      "sourceUrl": "https://poe2db.tw/us/Siphoning_Wand"
+    },
+    "Volatile_Wand": {
+      "name": "Volatile Wand",
+      "lines": ["Grants Skill: Volatile Dead"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand5",
+      "sourceUrl": "https://poe2db.tw/us/Volatile_Wand"
+    },
+    "Galvanic_Wand": {
+      "name": "Galvanic Wand",
+      "lines": ["Grants Skill: Galvanic Field"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand6",
+      "sourceUrl": "https://poe2db.tw/us/Galvanic_Wand"
+    },
+    "Acrid_Wand": {
+      "name": "Acrid Wand",
+      "lines": ["Grants Skill: Decompose"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7",
+      "sourceUrl": "https://poe2db.tw/us/Acrid_Wand"
+    },
+    "Offering_Wand": {
+      "name": "Offering Wand",
+      "lines": ["Grants Skill: Exsanguinate"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand8",
+      "sourceUrl": "https://poe2db.tw/us/Offering_Wand"
+    },
+    "Critical_Wand": {
+      "name": "Critical Wand",
+      "lines": ["Grants Skill: Chaos Bolt"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand11",
+      "sourceUrl": "https://poe2db.tw/us/Critical_Wand"
+    },
+    "Primordial_Wand": {
+      "name": "Primordial Wand",
+      "lines": ["Grants Skill: Wither"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand12",
+      "sourceUrl": "https://poe2db.tw/us/Primordial_Wand"
+    },
+    "Dueling_Wand": {
+      "name": "Dueling Wand",
+      "lines": ["Grants Skill: Spellslinger"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13",
+      "sourceUrl": "https://poe2db.tw/us/Dueling_Wand"
     }
   },
   "ko": {
@@ -4817,6 +4871,60 @@
       "lines": ["정신력: 100", "스킬 부여: 해골 전사"],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13",
       "sourceUrl": "https://poe2db.tw/kr/Hallowed_Sceptre"
+    },
+    "Bone_Wand": {
+      "name": "뼈 마법봉",
+      "lines": ["스킬 부여: 뼈 폭발"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2",
+      "sourceUrl": "https://poe2db.tw/kr/Bone_Wand"
+    },
+    "Siphoning_Wand": {
+      "name": "착취 마법봉",
+      "lines": ["스킬 부여: 권능 착취"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand4",
+      "sourceUrl": "https://poe2db.tw/kr/Siphoning_Wand"
+    },
+    "Volatile_Wand": {
+      "name": "폭발성 마법봉",
+      "lines": ["스킬 부여: 시체 불덩이"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand5",
+      "sourceUrl": "https://poe2db.tw/kr/Volatile_Wand"
+    },
+    "Galvanic_Wand": {
+      "name": "충격 마법봉",
+      "lines": ["스킬 부여: 충격장"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand6",
+      "sourceUrl": "https://poe2db.tw/kr/Galvanic_Wand"
+    },
+    "Acrid_Wand": {
+      "name": "매서운 마법봉",
+      "lines": ["스킬 부여: 부패"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7",
+      "sourceUrl": "https://poe2db.tw/kr/Acrid_Wand"
+    },
+    "Offering_Wand": {
+      "name": "공물 마법봉",
+      "lines": ["스킬 부여: 방혈"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand8",
+      "sourceUrl": "https://poe2db.tw/kr/Offering_Wand"
+    },
+    "Critical_Wand": {
+      "name": "치명적인 마법봉",
+      "lines": ["스킬 부여: 카오스 화살"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand11",
+      "sourceUrl": "https://poe2db.tw/kr/Critical_Wand"
+    },
+    "Primordial_Wand": {
+      "name": "태고의 마법봉",
+      "lines": ["스킬 부여: 위축"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand12",
+      "sourceUrl": "https://poe2db.tw/kr/Primordial_Wand"
+    },
+    "Dueling_Wand": {
+      "name": "결투 마법봉",
+      "lines": ["스킬 부여: 주문투척"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13",
+      "sourceUrl": "https://poe2db.tw/kr/Dueling_Wand"
     }
   },
   "zh-CN": {
@@ -7117,6 +7225,60 @@
       "lines": ["精魂: 100", "获得技能: 魔侍武士"],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13",
       "sourceUrl": "https://poe2db.tw/cn/Hallowed_Sceptre"
+    },
+    "Bone_Wand": {
+      "name": "钙石法杖",
+      "lines": ["获得技能: 针刺爆发"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2",
+      "sourceUrl": "https://poe2db.tw/cn/Bone_Wand"
+    },
+    "Siphoning_Wand": {
+      "name": "虹吸法杖",
+      "lines": ["获得技能: 力量抽取"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand4",
+      "sourceUrl": "https://poe2db.tw/cn/Siphoning_Wand"
+    },
+    "Volatile_Wand": {
+      "name": "易变法杖",
+      "lines": ["获得技能: 灵体火球"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand5",
+      "sourceUrl": "https://poe2db.tw/cn/Volatile_Wand"
+    },
+    "Galvanic_Wand": {
+      "name": "电流法杖",
+      "lines": ["获得技能: 电流场"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand6",
+      "sourceUrl": "https://poe2db.tw/cn/Galvanic_Wand"
+    },
+    "Acrid_Wand": {
+      "name": "刻薄法杖",
+      "lines": ["获得技能: 降解"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7",
+      "sourceUrl": "https://poe2db.tw/cn/Acrid_Wand"
+    },
+    "Offering_Wand": {
+      "name": "供奉法杖",
+      "lines": ["获得技能: 赤炼魔光"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand8",
+      "sourceUrl": "https://poe2db.tw/cn/Offering_Wand"
+    },
+    "Critical_Wand": {
+      "name": "批判法杖",
+      "lines": ["获得技能: 混沌箭"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand11",
+      "sourceUrl": "https://poe2db.tw/cn/Critical_Wand"
+    },
+    "Primordial_Wand": {
+      "name": "始源法杖",
+      "lines": ["获得技能: 死亡凋零"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand12",
+      "sourceUrl": "https://poe2db.tw/cn/Primordial_Wand"
+    },
+    "Dueling_Wand": {
+      "name": "决斗法杖",
+      "lines": ["获得技能: 法术节魔"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13",
+      "sourceUrl": "https://poe2db.tw/cn/Dueling_Wand"
     }
   },
   "zh-TW": {
@@ -9407,6 +9569,60 @@
       "lines": ["精魂: 100", "賦予技能: 骷髏戰士"],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13",
       "sourceUrl": "https://poe2db.tw/tw/Hallowed_Sceptre"
+    },
+    "Bone_Wand": {
+      "name": "骸骨法杖",
+      "lines": ["賦予技能: 骨之爆破"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2",
+      "sourceUrl": "https://poe2db.tw/tw/Bone_Wand"
+    },
+    "Siphoning_Wand": {
+      "name": "虹吸法杖",
+      "lines": ["賦予技能: 力量抽取"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand4",
+      "sourceUrl": "https://poe2db.tw/tw/Siphoning_Wand"
+    },
+    "Volatile_Wand": {
+      "name": "失衡法杖",
+      "lines": ["賦予技能: 致命之息"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand5",
+      "sourceUrl": "https://poe2db.tw/tw/Volatile_Wand"
+    },
+    "Galvanic_Wand": {
+      "name": "電能法杖",
+      "lines": ["賦予技能: 電光領域"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand6",
+      "sourceUrl": "https://poe2db.tw/tw/Galvanic_Wand"
+    },
+    "Acrid_Wand": {
+      "name": "刺鼻法杖",
+      "lines": ["賦予技能: 分解"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7",
+      "sourceUrl": "https://poe2db.tw/tw/Acrid_Wand"
+    },
+    "Offering_Wand": {
+      "name": "奉獻法杖",
+      "lines": ["賦予技能: 抽血"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand8",
+      "sourceUrl": "https://poe2db.tw/tw/Offering_Wand"
+    },
+    "Critical_Wand": {
+      "name": "致命法杖",
+      "lines": ["賦予技能: 混沌弩箭"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand11",
+      "sourceUrl": "https://poe2db.tw/tw/Critical_Wand"
+    },
+    "Primordial_Wand": {
+      "name": "原始法杖",
+      "lines": ["賦予技能: 死亡凋零"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand12",
+      "sourceUrl": "https://poe2db.tw/tw/Primordial_Wand"
+    },
+    "Dueling_Wand": {
+      "name": "單挑法杖",
+      "lines": ["賦予技能: 拋法者"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13",
+      "sourceUrl": "https://poe2db.tw/tw/Dueling_Wand"
     }
   },
   "ja": {
@@ -11811,6 +12027,60 @@
       "lines": ["スピリット: 100", "スキルを付与: スケルトンウォーリアー"],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13",
       "sourceUrl": "https://poe2db.tw/jp/Hallowed_Sceptre"
+    },
+    "Bone_Wand": {
+      "name": "骨のワンド",
+      "lines": ["スキルを付与: ボーンブラスト"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2",
+      "sourceUrl": "https://poe2db.tw/jp/Bone_Wand"
+    },
+    "Siphoning_Wand": {
+      "name": "吸収のワンド",
+      "lines": ["スキルを付与: パワーサイフォン"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand4",
+      "sourceUrl": "https://poe2db.tw/jp/Siphoning_Wand"
+    },
+    "Volatile_Wand": {
+      "name": "爆発性のワンド",
+      "lines": ["スキルを付与: ボラタイルデッド"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand5",
+      "sourceUrl": "https://poe2db.tw/jp/Volatile_Wand"
+    },
+    "Galvanic_Wand": {
+      "name": "電撃のワンド",
+      "lines": ["スキルを付与: ガルヴァニックフィールド"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand6",
+      "sourceUrl": "https://poe2db.tw/jp/Galvanic_Wand"
+    },
+    "Acrid_Wand": {
+      "name": "腐食のワンド",
+      "lines": ["スキルを付与: デコンポーズ"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7",
+      "sourceUrl": "https://poe2db.tw/jp/Acrid_Wand"
+    },
+    "Offering_Wand": {
+      "name": "供物のワンド",
+      "lines": ["スキルを付与: イグザングイネイト"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand8",
+      "sourceUrl": "https://poe2db.tw/jp/Offering_Wand"
+    },
+    "Critical_Wand": {
+      "name": "致命のワンド",
+      "lines": ["スキルを付与: カオスボルト"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand11",
+      "sourceUrl": "https://poe2db.tw/jp/Critical_Wand"
+    },
+    "Primordial_Wand": {
+      "name": "原始のワンド",
+      "lines": ["スキルを付与: ウィザー"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand12",
+      "sourceUrl": "https://poe2db.tw/jp/Primordial_Wand"
+    },
+    "Dueling_Wand": {
+      "name": "決闘のワンド",
+      "lines": ["スキルを付与: スペルスリンガー"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13",
+      "sourceUrl": "https://poe2db.tw/jp/Dueling_Wand"
     }
   },
   "es": {
@@ -14133,6 +14403,60 @@
       "lines": ["Espíritu: 100", "Otorga la habilidad: Guerrero esqueleto"],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13",
       "sourceUrl": "https://poe2db.tw/sp/Hallowed_Sceptre"
+    },
+    "Bone_Wand": {
+      "name": "Varita de hueso",
+      "lines": ["Otorga la habilidad: Explosión de huesos"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2",
+      "sourceUrl": "https://poe2db.tw/sp/Bone_Wand"
+    },
+    "Siphoning_Wand": {
+      "name": "Varita de robo",
+      "lines": ["Otorga la habilidad: Robo de poder"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand4",
+      "sourceUrl": "https://poe2db.tw/sp/Siphoning_Wand"
+    },
+    "Volatile_Wand": {
+      "name": "Varita volátil",
+      "lines": ["Otorga la habilidad: Muertos volátiles"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand5",
+      "sourceUrl": "https://poe2db.tw/sp/Volatile_Wand"
+    },
+    "Galvanic_Wand": {
+      "name": "Varita galvánica",
+      "lines": ["Otorga la habilidad: Campo galvánico"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand6",
+      "sourceUrl": "https://poe2db.tw/sp/Galvanic_Wand"
+    },
+    "Acrid_Wand": {
+      "name": "Varita ácrida",
+      "lines": ["Otorga la habilidad: Descomposición"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7",
+      "sourceUrl": "https://poe2db.tw/sp/Acrid_Wand"
+    },
+    "Offering_Wand": {
+      "name": "Varita de ofrenda",
+      "lines": ["Otorga la habilidad: Desangrar"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand8",
+      "sourceUrl": "https://poe2db.tw/sp/Offering_Wand"
+    },
+    "Critical_Wand": {
+      "name": "Varita crítica",
+      "lines": ["Otorga la habilidad: Descarga de caos"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand11",
+      "sourceUrl": "https://poe2db.tw/sp/Critical_Wand"
+    },
+    "Primordial_Wand": {
+      "name": "Varita primordial",
+      "lines": ["Otorga la habilidad: Marchitar"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand12",
+      "sourceUrl": "https://poe2db.tw/sp/Primordial_Wand"
+    },
+    "Dueling_Wand": {
+      "name": "Varita de duelo",
+      "lines": ["Otorga la habilidad: Lanzahechizos"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13",
+      "sourceUrl": "https://poe2db.tw/sp/Dueling_Wand"
     }
   }
 }

@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/us/Dueling_Wand",
+  "retrievedAt": "2026-10-05T00:06:35.949Z",
+  "sha256": "a514c92f4bdf3469568fdf7165b9b06e8b5a86e66479b81d70bebebc1684ba56",
+  "name": "Dueling Wand",
+  "card": "Dueling Wand\n        \n    \n    \n        \n            WandsRequires:  Level 65, 114 Int Grants Skill: Spellslinger",
+  "requirements": "Requires:  Level 65, 114 Int",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "Dueling Wand",
+    "Class": "Wands",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13",
+    "Tags": "wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand13",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

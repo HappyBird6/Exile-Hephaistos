@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/jp/Acrid_Wand",
+  "retrievedAt": "2026-10-05T00:06:41.047Z",
+  "sha256": "6f9accdd92d8f40f6cfb9faedee45a2023e8097d8be033eec6b1e7433982982f",
+  "name": "腐食のワンド",
+  "card": "腐食のワンド\n        \n    \n    \n        \n            ワンド装備条件： レベル 33, 60 知性 スキルを付与: デコンポーズ\n        \n\n\n\n        \n            Acrid Wand",
+  "requirements": "装備条件： レベル 33, 60 知性",
+  "fields": {
+    "DropLevel": "33",
+    "BaseType": "腐食のワンド",
+    "Class": "ワンド",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7",
+    "Tags": "wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand07",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

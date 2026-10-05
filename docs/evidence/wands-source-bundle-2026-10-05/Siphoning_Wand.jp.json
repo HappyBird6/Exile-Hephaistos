@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/jp/Siphoning_Wand",
+  "retrievedAt": "2026-10-05T00:06:40.176Z",
+  "sha256": "8e1052eec444b6eb4eca11579fb89e71740e188314cf69a5a1774da70ca7f79e",
+  "name": "吸収のワンド",
+  "card": "吸収のワンド\n        \n    \n    \n        \n            ワンド装備条件： レベル 11, 23 知性 スキルを付与: パワーサイフォン\n        \n\n\n\n        \n            Siphoning Wand",
+  "requirements": "装備条件： レベル 11, 23 知性",
+  "fields": {
+    "DropLevel": "11",
+    "BaseType": "吸収のワンド",
+    "Class": "ワンド",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand4",
+    "Tags": "wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand04",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

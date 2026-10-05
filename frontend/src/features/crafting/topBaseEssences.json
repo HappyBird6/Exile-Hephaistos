@@ -1991,5 +1991,212 @@
         "rattling-sceptre:suffix:essence-aura-magnitude"
       ]
     }
+  },
+  "bone": {
+    "fixed": {
+      "LESSER_ESSENCE_SORCERY": ["attuned-wand:prefix:adept-s"],
+      "ESSENCE_SORCERY": ["attuned-wand:prefix:professor-s"],
+      "GREATER_ESSENCE_SORCERY": ["attuned-wand:prefix:incanter-s"],
+      "LESSER_ESSENCE_SEEKING": [
+        "attuned-wand:suffix:of-havoc:spellcriticalstrikechance2"
+      ],
+      "ESSENCE_SEEKING": ["attuned-wand:suffix:of-disaster"],
+      "GREATER_ESSENCE_SEEKING": ["attuned-wand:suffix:of-calamity"],
+      "LESSER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-nimbleness"],
+      "ESSENCE_ALACRITY": ["attuned-wand:suffix:of-expertise"],
+      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_SORCERY": [
+        "attuned-wand:suffix:essence-spell-skill-level"
+      ],
+      "PERFECT_ESSENCE_ALACRITY": [
+        "attuned-wand:suffix:essence-mana-cost-efficiency"
+      ]
+    }
+  },
+  "siphoning": {
+    "fixed": {
+      "LESSER_ESSENCE_SORCERY": ["attuned-wand:prefix:adept-s"],
+      "ESSENCE_SORCERY": ["attuned-wand:prefix:professor-s"],
+      "GREATER_ESSENCE_SORCERY": ["attuned-wand:prefix:incanter-s"],
+      "LESSER_ESSENCE_SEEKING": [
+        "attuned-wand:suffix:of-havoc:spellcriticalstrikechance2"
+      ],
+      "ESSENCE_SEEKING": ["attuned-wand:suffix:of-disaster"],
+      "GREATER_ESSENCE_SEEKING": ["attuned-wand:suffix:of-calamity"],
+      "LESSER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-nimbleness"],
+      "ESSENCE_ALACRITY": ["attuned-wand:suffix:of-expertise"],
+      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_SORCERY": [
+        "attuned-wand:suffix:essence-spell-skill-level"
+      ],
+      "PERFECT_ESSENCE_ALACRITY": [
+        "attuned-wand:suffix:essence-mana-cost-efficiency"
+      ]
+    }
+  },
+  "volatile": {
+    "fixed": {
+      "LESSER_ESSENCE_SORCERY": ["attuned-wand:prefix:adept-s"],
+      "ESSENCE_SORCERY": ["attuned-wand:prefix:professor-s"],
+      "GREATER_ESSENCE_SORCERY": ["attuned-wand:prefix:incanter-s"],
+      "LESSER_ESSENCE_SEEKING": [
+        "attuned-wand:suffix:of-havoc:spellcriticalstrikechance2"
+      ],
+      "ESSENCE_SEEKING": ["attuned-wand:suffix:of-disaster"],
+      "GREATER_ESSENCE_SEEKING": ["attuned-wand:suffix:of-calamity"],
+      "LESSER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-nimbleness"],
+      "ESSENCE_ALACRITY": ["attuned-wand:suffix:of-expertise"],
+      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_SORCERY": [
+        "attuned-wand:suffix:essence-spell-skill-level"
+      ],
+      "PERFECT_ESSENCE_ALACRITY": [
+        "attuned-wand:suffix:essence-mana-cost-efficiency"
+      ]
+    }
+  },
+  "galvanic": {
+    "fixed": {
+      "LESSER_ESSENCE_SORCERY": ["attuned-wand:prefix:adept-s"],
+      "ESSENCE_SORCERY": ["attuned-wand:prefix:professor-s"],
+      "GREATER_ESSENCE_SORCERY": ["attuned-wand:prefix:incanter-s"],
+      "LESSER_ESSENCE_SEEKING": [
+        "attuned-wand:suffix:of-havoc:spellcriticalstrikechance2"
+      ],
+      "ESSENCE_SEEKING": ["attuned-wand:suffix:of-disaster"],
+      "GREATER_ESSENCE_SEEKING": ["attuned-wand:suffix:of-calamity"],
+      "LESSER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-nimbleness"],
+      "ESSENCE_ALACRITY": ["attuned-wand:suffix:of-expertise"],
+      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_SORCERY": [
+        "attuned-wand:suffix:essence-spell-skill-level"
+      ],
+      "PERFECT_ESSENCE_ALACRITY": [
+        "attuned-wand:suffix:essence-mana-cost-efficiency"
+      ]
+    }
+  },
+  "acrid": {
+    "fixed": {
+      "LESSER_ESSENCE_SORCERY": ["attuned-wand:prefix:adept-s"],
+      "ESSENCE_SORCERY": ["attuned-wand:prefix:professor-s"],
+      "GREATER_ESSENCE_SORCERY": ["attuned-wand:prefix:incanter-s"],
+      "LESSER_ESSENCE_SEEKING": [
+        "attuned-wand:suffix:of-havoc:spellcriticalstrikechance2"
+      ],
+      "ESSENCE_SEEKING": ["attuned-wand:suffix:of-disaster"],
+      "GREATER_ESSENCE_SEEKING": ["attuned-wand:suffix:of-calamity"],
+      "LESSER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-nimbleness"],
+      "ESSENCE_ALACRITY": ["attuned-wand:suffix:of-expertise"],
+      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_SORCERY": [
+        "attuned-wand:suffix:essence-spell-skill-level"
+      ],
+      "PERFECT_ESSENCE_ALACRITY": [
+        "attuned-wand:suffix:essence-mana-cost-efficiency"
+      ]
+    }
+  },
+  "offering": {
+    "fixed": {
+      "LESSER_ESSENCE_SORCERY": ["attuned-wand:prefix:adept-s"],
+      "ESSENCE_SORCERY": ["attuned-wand:prefix:professor-s"],
+      "GREATER_ESSENCE_SORCERY": ["attuned-wand:prefix:incanter-s"],
+      "LESSER_ESSENCE_SEEKING": [
+        "attuned-wand:suffix:of-havoc:spellcriticalstrikechance2"
+      ],
+      "ESSENCE_SEEKING": ["attuned-wand:suffix:of-disaster"],
+      "GREATER_ESSENCE_SEEKING": ["attuned-wand:suffix:of-calamity"],
+      "LESSER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-nimbleness"],
+      "ESSENCE_ALACRITY": ["attuned-wand:suffix:of-expertise"],
+      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_SORCERY": [
+        "attuned-wand:suffix:essence-spell-skill-level"
+      ],
+      "PERFECT_ESSENCE_ALACRITY": [
+        "attuned-wand:suffix:essence-mana-cost-efficiency"
+      ]
+    }
+  },
+  "critical": {
+    "fixed": {
+      "LESSER_ESSENCE_SORCERY": ["attuned-wand:prefix:adept-s"],
+      "ESSENCE_SORCERY": ["attuned-wand:prefix:professor-s"],
+      "GREATER_ESSENCE_SORCERY": ["attuned-wand:prefix:incanter-s"],
+      "LESSER_ESSENCE_SEEKING": [
+        "attuned-wand:suffix:of-havoc:spellcriticalstrikechance2"
+      ],
+      "ESSENCE_SEEKING": ["attuned-wand:suffix:of-disaster"],
+      "GREATER_ESSENCE_SEEKING": ["attuned-wand:suffix:of-calamity"],
+      "LESSER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-nimbleness"],
+      "ESSENCE_ALACRITY": ["attuned-wand:suffix:of-expertise"],
+      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_SORCERY": [
+        "attuned-wand:suffix:essence-spell-skill-level"
+      ],
+      "PERFECT_ESSENCE_ALACRITY": [
+        "attuned-wand:suffix:essence-mana-cost-efficiency"
+      ]
+    }
+  },
+  "primordial": {
+    "fixed": {
+      "LESSER_ESSENCE_SORCERY": ["attuned-wand:prefix:adept-s"],
+      "ESSENCE_SORCERY": ["attuned-wand:prefix:professor-s"],
+      "GREATER_ESSENCE_SORCERY": ["attuned-wand:prefix:incanter-s"],
+      "LESSER_ESSENCE_SEEKING": [
+        "attuned-wand:suffix:of-havoc:spellcriticalstrikechance2"
+      ],
+      "ESSENCE_SEEKING": ["attuned-wand:suffix:of-disaster"],
+      "GREATER_ESSENCE_SEEKING": ["attuned-wand:suffix:of-calamity"],
+      "LESSER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-nimbleness"],
+      "ESSENCE_ALACRITY": ["attuned-wand:suffix:of-expertise"],
+      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_SORCERY": [
+        "attuned-wand:suffix:essence-spell-skill-level"
+      ],
+      "PERFECT_ESSENCE_ALACRITY": [
+        "attuned-wand:suffix:essence-mana-cost-efficiency"
+      ]
+    }
+  },
+  "dueling": {
+    "fixed": {
+      "LESSER_ESSENCE_SORCERY": ["attuned-wand:prefix:adept-s"],
+      "ESSENCE_SORCERY": ["attuned-wand:prefix:professor-s"],
+      "GREATER_ESSENCE_SORCERY": ["attuned-wand:prefix:incanter-s"],
+      "LESSER_ESSENCE_SEEKING": [
+        "attuned-wand:suffix:of-havoc:spellcriticalstrikechance2"
+      ],
+      "ESSENCE_SEEKING": ["attuned-wand:suffix:of-disaster"],
+      "GREATER_ESSENCE_SEEKING": ["attuned-wand:suffix:of-calamity"],
+      "LESSER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-nimbleness"],
+      "ESSENCE_ALACRITY": ["attuned-wand:suffix:of-expertise"],
+      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_SORCERY": [
+        "attuned-wand:suffix:essence-spell-skill-level"
+      ],
+      "PERFECT_ESSENCE_ALACRITY": [
+        "attuned-wand:suffix:essence-mana-cost-efficiency"
+      ]
+    }
   }
 }

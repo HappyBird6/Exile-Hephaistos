@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/sp/Volatile_Wand",
+  "retrievedAt": "2026-10-05T00:06:50.342Z",
+  "sha256": "57092c09492d9aee606a5ce7ae6b5b085bf0380cf23549e1b9f9bc8c5e916345",
+  "name": "Varita volátil",
+  "card": "Varita volátil\n        \n    \n    \n        \n            VaritasRequiere:  Nivel 16, 31 Int Otorga la habilidad: Muertos volátiles\n        \n\n\n\n        \n            Volatile Wand",
+  "requirements": "Requiere:  Nivel 16, 31 Int",
+  "fields": {
+    "DropLevel": "16",
+    "BaseType": "Varita volátil",
+    "Class": "Varitas",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand5",
+    "Tags": "no_cold_spell_mods, no_lightning_spell_mods, no_chaos_spell_mods, no_physical_spell_mods, wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand05",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

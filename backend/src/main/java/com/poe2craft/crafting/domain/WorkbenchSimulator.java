@@ -155,7 +155,8 @@ public final class WorkbenchSimulator {
         || ReviewedSceptres.supports(catalog.base().id()))) return "sceptre-workbench-essence-v1";
     if (BodyEssenceTargets.supports(catalog.base().id()))
       return "body-workbench-perfect-essence-v1";
-    if (catalog.base().id().equals(WandEssenceTargets.BASE_ID)) return "wand-workbench-essence-v1";
+    if ((catalog.base().id().equals(WandEssenceTargets.BASE_ID)
+        || ReviewedWands.supports(catalog.base().id()))) return "wand-workbench-essence-v1";
     if (catalog.base().id().equals(BowEssenceTargets.BASE_ID))
       return "bow-workbench-perfect-essence-v2";
     return coupledModifierIds.isEmpty() ? RULE_VERSION : "stocky-workbench-artificer-v26";
@@ -188,7 +189,8 @@ public final class WorkbenchSimulator {
       return "sceptre-unverified-numeric-assumptions-v1";
     if (BodyEssenceTargets.supports(catalog.base().id()))
       return "body-unverified-numeric-assumptions-v1";
-    if (catalog.base().id().equals(WandEssenceTargets.BASE_ID))
+    if ((catalog.base().id().equals(WandEssenceTargets.BASE_ID)
+        || ReviewedWands.supports(catalog.base().id())))
       return "wand-unverified-numeric-assumptions-v1";
     if (catalog.base().id().equals(BowEssenceTargets.BASE_ID))
       return "bow-unverified-numeric-assumptions-v1";
