@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/us/Dreaming_Quarterstaff",
+  "retrievedAt": "2026-10-05T08:05:46.099Z",
+  "sha256": "a376725ec4e4b2170b81fa4dd6a7b548cbfcbe2489a9e0c23b3182b5c6bd2984",
+  "variants": [
+    {
+      "name": "Dreaming Quarterstaff",
+      "card": "Dreaming Quarterstaff\n        \n    \n    \n        \n            QuarterstavesPhysical Damage: 99-133Critical Hit Chance: 0%Attacks per Second: 1.5Weapon Range: 1.4Requires:  Level 78, 127 Dex, 50 Int",
+      "requirements": "Requires:  Level 78, 127 Dex, 50 Int",
+      "properties": [
+        "Quarterstaves",
+        "Physical Damage: 99-133",
+        "Critical Hit Chance: 0%",
+        "Attacks per Second: 1.5",
+        "Weapon Range: 1.4"
+      ],
+      "fields": {
+        "DropLevel": "78",
+        "BaseType": "Dreaming Quarterstaff",
+        "Class": "Quarterstaves",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff10Endgame",
+        "Tags": "karui_basetype, warstaff, two_hand_weapon, twohand, weapon",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/WarStaves/Warstaff10",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, twohand, warstaff, two_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ]
+}

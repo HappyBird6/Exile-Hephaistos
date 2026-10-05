@@ -1,0 +1,76 @@
+{
+  "row": {
+    "Name": "Devastating",
+    "Level": "81",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedWeaponElementalDamagePercent"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(87<span class=\"ndash\">—</span>100)</span>% increased <a data-keyword=\"ElementalDamage\" href=\"Elemental_Damage_Types\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/76ff55a46c9d3d007722fb5ccb09592dc48359db448d433f7e0c8dfc6e94dcbd\">Elemental</a> Damage with <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attacks</a>",
+    "fossil_no": [
+      "elemental_damage",
+      "has_attack_mod",
+      "damage",
+      "elemental",
+      "fire",
+      "cold",
+      "lightning"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "bow",
+      "one_hand_weapon",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2c8f79c2039a9c790253c1aee764f4f5ff5513e77aa743de9d7516c2aef5c0a7"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FWeaponElementalDamage6_",
+  "textLocale": "us",
+  "detailText": "(87—100)% increased Elemental Damage with Attacks",
+  "retrievedAt": "2026-10-05T08:14:25.546Z",
+  "sha256": "34bc6d4df9d6704bc9afcf8f5099833dffb3de7a52134111a5ae3e1630c28067",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(87<span class=\"ndash\">—</span>100)</span>% increased <a data-keyword=\"ElementalDamage\" href=\"Elemental_Damage_Types\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/76ff55a46c9d3d007722fb5ccb09592dc48359db448d433f7e0c8dfc6e94dcbd\">Elemental</a> Damage with <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attacks</a></span></h5>   <span data-tabname=\"Devastating\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Devastating\n<tr><th>Family<td>IncreasedWeaponElementalDamagePercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>81 (Effective: 64)\n<tr><th>Gold Price<td>3264\n<tr><th>Stats<td><li>elemental damage with attack skills +% <span class=\"badge bg-primary\">87 <span class=\"ndash\">—</span> 100</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>bow: 1</span> <span class='badge bg-primary'>one_hand_weapon: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'><i>has_attack_mod</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Fire</span> <span class='badge bg-primary'>Cold</span> <span class='badge bg-primary'>Lightning</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Devastating",
+    "Family": "IncreasedWeaponElementalDamagePercent",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "81 (Effective: 64)",
+    "Gold Price": "3264",
+    "Stats": "elemental damage with attack skills +% 87 — 100 Global",
+    "Spawn Tags": "bow: 1 one_hand_weapon: 1 default: 0",
+    "Craft Tags": "elemental_damage has_attack_mod Damage Elemental Fire Cold Lightning"
+  },
+  "code": "WeaponElementalDamage6_",
+  "stats": [
+    {
+      "id": "elemental_damage_with_attack_skills_+%",
+      "min": 87,
+      "max": 100,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "bow",
+      "weight": 1
+    },
+    {
+      "tag": "one_hand_weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

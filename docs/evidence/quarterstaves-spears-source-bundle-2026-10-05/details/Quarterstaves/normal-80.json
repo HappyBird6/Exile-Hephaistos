@@ -1,0 +1,66 @@
+{
+  "row": {
+    "Name": "of the Locust",
+    "Level": "21",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LifeLeech"
+    ],
+    "DropChance": "1000",
+    "str": "<a data-keyword=\"LifeLeech\" href=\"Life_Leech\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e5b3dfbf49268bde1e13b933b6283bbfc420c8b88bf73c7c376df596103e7907\">Leeches</a> <span class='mod-value'>(6<span class=\"ndash\">—</span>6.9)</span>% of <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage as Life",
+    "fossil_no": [
+      "resource",
+      "life",
+      "physical",
+      "attack"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>",
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>",
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/69635b58831efab4c35a4e3a48f58ce49a8617b8338217087a0d2a853729b029"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeLeechLocal2",
+  "textLocale": "us",
+  "detailText": "Leeches (6—6.9)% of Physical Damage as Life",
+  "retrievedAt": "2026-10-05T08:08:48.215Z",
+  "sha256": "408bcaa3499a713bd01932d8ce28cdc6095a49bf8f4bc49a0ae772c1611018e2",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"LifeLeech\" href=\"Life_Leech\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e5b3dfbf49268bde1e13b933b6283bbfc420c8b88bf73c7c376df596103e7907\">Leeches</a> <span class='mod-value'>(6<span class=\"ndash\">—</span>6.9)</span>% of <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage as Life</span></h5>   <span data-tabname=\"of the Locust\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Locust\n<tr><th>Family<td>LifeLeech\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>21 (Effective: 16)\n<tr><th>Gold Price<td>745\n<tr><th>Stats<td><li>local life leech from physical damage permyriad <span class=\"badge bg-primary\">600 <span class=\"ndash\">—</span> 690</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> <span class='badge bg-primary'>Physical</span> <span class='badge bg-primary'>Attack</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of the Locust",
+    "Family": "LifeLeech",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "21 (Effective: 16)",
+    "Gold Price": "745",
+    "Stats": "local life leech from physical damage permyriad 600 — 690 Local",
+    "Spawn Tags": "weapon: 1 default: 0",
+    "Craft Tags": "resource Life Physical Attack"
+  },
+  "code": "LifeLeechLocal2",
+  "stats": [
+    {
+      "id": "local_life_leech_from_physical_damage_permyriad",
+      "min": 600,
+      "max": 690,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

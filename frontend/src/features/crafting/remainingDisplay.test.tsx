@@ -33,7 +33,7 @@ describe('remaining display coverage', () => {
     expect(
       compound.filter(
         ([id]) =>
-          !/^(crossbow|.+-crossbow|offhand|one-hand-maces|two-hand-maces|fortified-hammer|strife-pick|akoyan-club|ruination-maul|fanatic-greathammer|tawhoan-greatclub):/.test(
+          !/^(crossbow|.+-crossbow|offhand|one-hand-maces|two-hand-maces|fortified-hammer|strife-pick|akoyan-club|ruination-maul|fanatic-greathammer|tawhoan-greatclub|quarterstaves|spears|aegis-quarterstaff|bolting-quarterstaff|dreaming-quarterstaff|grand-spear|flying-spear|akoyan-spear):/.test(
             id,
           ),
       ),
@@ -49,7 +49,14 @@ describe('remaining display coverage', () => {
         ),
       ),
     ).toHaveLength(0)
-    expect(compound).toHaveLength(436)
+    expect(
+      compound.filter(([id]) =>
+        /^(quarterstaves|spears|aegis-quarterstaff|bolting-quarterstaff|dreaming-quarterstaff|grand-spear|flying-spear|akoyan-spear):/.test(
+          id,
+        ),
+      ),
+    ).toHaveLength(1)
+    expect(compound).toHaveLength(437)
     expect(compound.filter(([id]) => id.startsWith('kinetic:'))).toEqual([
       [
         'kinetic:implicit:physicaldamage',
@@ -117,7 +124,7 @@ describe('remaining display coverage', () => {
     expect(
       single.filter(
         ([id]) =>
-          !/^(crossbow|.+-crossbow|offhand|quiver|.+-quiver|one-hand-maces|two-hand-maces|fortified-hammer|strife-pick|akoyan-club|ruination-maul|fanatic-greathammer|tawhoan-greatclub):/.test(
+          !/^(crossbow|.+-crossbow|offhand|quiver|.+-quiver|one-hand-maces|two-hand-maces|fortified-hammer|strife-pick|akoyan-club|ruination-maul|fanatic-greathammer|tawhoan-greatclub|quarterstaves|spears|aegis-quarterstaff|bolting-quarterstaff|dreaming-quarterstaff|grand-spear|flying-spear|akoyan-spear):/.test(
             id,
           ),
       ),
@@ -136,7 +143,14 @@ describe('remaining display coverage', () => {
         ),
       ),
     ).toHaveLength(24)
-    expect(single).toHaveLength(341)
+    expect(
+      single.filter(([id]) =>
+        /^(quarterstaves|spears|aegis-quarterstaff|bolting-quarterstaff|dreaming-quarterstaff|grand-spear|flying-spear|akoyan-spear):/.test(
+          id,
+        ),
+      ),
+    ).toHaveLength(1)
+    expect(single).toHaveLength(342)
     expect(
       single
         .filter(([id]) =>

@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/tw/Dreaming_Quarterstaff",
+  "retrievedAt": "2026-10-05T08:05:58.139Z",
+  "sha256": "dcfa30c2289d1d12d8d4a3be0652b0e046811a62fed86474a7e97ed9084e5b58",
+  "variants": [
+    {
+      "name": "夢境細杖",
+      "card": "夢境細杖\n        \n    \n    \n        \n            細杖物理傷害: 99-133暴擊率: 0%每秒攻擊次數: 1.5武器範圍: 1.4需求:  等級 78, 127 敏捷, 50 智慧\n        \n\n\n\n        \n            Dreaming Quarterstaff",
+      "requirements": "需求:  等級 78, 127 敏捷, 50 智慧",
+      "properties": [
+        "細杖",
+        "物理傷害: 99-133",
+        "暴擊率: 0%",
+        "每秒攻擊次數: 1.5",
+        "武器範圍: 1.4"
+      ],
+      "fields": {
+        "DropLevel": "78",
+        "BaseType": "夢境細杖",
+        "Class": "細杖",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff10Endgame",
+        "Tags": "karui_basetype, warstaff, two_hand_weapon, twohand, weapon",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/WarStaves/Warstaff10",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, twohand, warstaff, two_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ]
+}

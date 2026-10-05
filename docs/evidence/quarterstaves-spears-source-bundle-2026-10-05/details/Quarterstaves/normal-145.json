@@ -1,0 +1,60 @@
+{
+  "row": {
+    "Name": "of the Concussion",
+    "Level": "71",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "StunDurationIncreasePercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(27<span class=\"ndash\">—</span>30)</span>% increased <a data-keyword=\"Stun\" href=\"Stun\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2ee96f67bd8f6686e4f503e78cef409a2735ea3415a4fac84f4aea10b5189aba\">Stun</a> Duration",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "ranged",
+      "weapon",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c528d53efec352a876aae2fba0c7d6307e4529a07e9e50c2f8c75d65ea3c38fb"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/tw/Poe_Data_Mods_hover/53da4cba9de19beff63c2cc9e6cece71f7978d29bb570f6154a241b582292a96",
+  "textLocale": "tw",
+  "detailText": "增加(27—30)%暈眩持續時間",
+  "retrievedAt": "2026-10-05T08:11:16.276Z",
+  "sha256": "53da4cba9de19beff63c2cc9e6cece71f7978d29bb570f6154a241b582292a96",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>增加<span class='mod-value'>(27<span class=\"ndash\">—</span>30)</span>%<a data-keyword=\"Stun\" href=\"Stun\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/tw/Poe_Data_KeywordPopups_hover/e561ee316e191ba7d97aae75a37dd8780ba6eb78d600112afcedf123fa677165\">暈眩</a>持續時間</span></h5>   <span data-tabname=\"頭昏腦脹之\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>頭昏腦脹之\n<tr><th>Family<td>StunDurationIncreasePercent\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>後綴 (2)\n<tr><th>Req. level<td>71 (Effective: 56)\n<tr><th>Gold Price<td>2121\n<tr><th>Stats<td><li>local base stun duration +% <span class=\"badge bg-primary\">27 <span class=\"ndash\">—</span> 30</span> <span class=\"badge bg-secondary\">區域</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ranged: 0</span> <span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "fields": {
+    "Name": "頭昏腦脹之",
+    "Family": "StunDurationIncreasePercent",
+    "Domains": "物品 (1)",
+    "GenerationType": "後綴 (2)",
+    "Req. level": "71 (Effective: 56)",
+    "Gold Price": "2121",
+    "Stats": "local base stun duration +% 27 — 30 區域",
+    "Spawn Tags": "ranged: 0 weapon: 1 default: 0"
+  },
+  "stats": [
+    {
+      "id": "local_base_stun_duration_+%",
+      "min": 27,
+      "max": 30,
+      "locality": "區域"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "ranged",
+      "weight": 0
+    },
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

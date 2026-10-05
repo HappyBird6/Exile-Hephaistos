@@ -1,0 +1,61 @@
+{
+  "row": {
+    "Name": "of the Marksman",
+    "Level": "55",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "IncreaseSocketedGemLevel"
+    ],
+    "DropChance": "125",
+    "str": "<span class='mod-value'>+3</span> to Level of all <a data-keyword=\"Projectile\" href=\"Projectile\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6124c367861336198eb93986587a408c328b03ee40940391c8b1200cb730f966\">Projectile</a> Skills",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "bow",
+      "spear",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a5dad95aabf97819c31d93f4073168750ca1d8561eb3685b036b611536a5735c"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalProjectileSkillGemLevelWeapon4",
+  "textLocale": "us",
+  "detailText": "+3 to Level of all Projectile Skills",
+  "retrievedAt": "2026-10-05T08:14:16.454Z",
+  "sha256": "38b1ab63290e55f8e8642a2dbb02297b1d5185aef3930ad9641adac89f7752d8",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+3</span> to Level of all <a data-keyword=\"Projectile\" href=\"Projectile\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6124c367861336198eb93986587a408c328b03ee40940391c8b1200cb730f966\">Projectile</a> Skills</span></h5>   <span data-tabname=\"of the Marksman\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Marksman\n<tr><th>Family<td>IncreaseSocketedGemLevel\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>55 (Effective: 44)\n<tr><th>Gold Price<td>2404\n<tr><th>Stats<td><li>projectile skill gem level + <span class=\"badge bg-primary\">3 <span class=\"ndash\">—</span> 3</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>bow: 1</span> <span class='badge bg-primary'>spear: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of the Marksman",
+    "Family": "IncreaseSocketedGemLevel",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "55 (Effective: 44)",
+    "Gold Price": "2404",
+    "Stats": "projectile skill gem level + 3 — 3 Global",
+    "Spawn Tags": "bow: 1 spear: 1 default: 0"
+  },
+  "code": "GlobalProjectileSkillGemLevelWeapon4",
+  "stats": [
+    {
+      "id": "projectile_skill_gem_level_+",
+      "min": 3,
+      "max": 3,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "bow",
+      "weight": 1
+    },
+    {
+      "tag": "spear",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

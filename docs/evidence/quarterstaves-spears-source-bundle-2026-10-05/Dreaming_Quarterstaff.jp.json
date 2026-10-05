@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/jp/Dreaming_Quarterstaff",
+  "retrievedAt": "2026-10-05T08:05:52.153Z",
+  "sha256": "a0c34c4e4de126bd5bf1d8397c8590cfc779cafb3efb496f3d27439318f25477",
+  "variants": [
+    {
+      "name": "夢見るクォータースタッフ",
+      "card": "夢見るクォータースタッフ\n        \n    \n    \n        \n            クォータースタッフ物理ダメージ: 99-133クリティカルヒット率: 0%秒間アタック回数: 1.5武器攻撃距離: 1.4装備条件： レベル 78, 127 器用さ, 50 知性\n        \n\n\n\n        \n            Dreaming Quarterstaff",
+      "requirements": "装備条件： レベル 78, 127 器用さ, 50 知性",
+      "properties": [
+        "クォータースタッフ",
+        "物理ダメージ: 99-133",
+        "クリティカルヒット率: 0%",
+        "秒間アタック回数: 1.5",
+        "武器攻撃距離: 1.4"
+      ],
+      "fields": {
+        "DropLevel": "78",
+        "BaseType": "夢見るクォータースタッフ",
+        "Class": "クォータースタッフ",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff10Endgame",
+        "Tags": "karui_basetype, warstaff, two_hand_weapon, twohand, weapon",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/WarStaves/Warstaff10",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, twohand, warstaff, two_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ]
+}

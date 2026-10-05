@@ -1,0 +1,61 @@
+{
+  "row": {
+    "Name": "of Slamming",
+    "Level": "44",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "StunDurationIncreasePercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(20<span class=\"ndash\">—</span>22)</span>% increased <a data-keyword=\"Stun\" href=\"Stun\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2ee96f67bd8f6686e4f503e78cef409a2735ea3415a4fac84f4aea10b5189aba\">Stun</a> Duration",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "ranged",
+      "weapon",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e14ec6dd34f2b43465c7ab56d6f334b0359c8e1eb02a3d00708becdf74c3dafa"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FStunDuration4",
+  "textLocale": "jp",
+  "detailText": "スタン持続時間が(20—22)%増加する",
+  "retrievedAt": "2026-10-05T08:11:08.722Z",
+  "sha256": "7cb49fab86cd10c442f4c13b889438309f5cd903647633e8e4243ffaf870aae9",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Stun\" href=\"Stun\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/4b56c8d004654ba65919f96d02589dc8faa6478716790d2843060cedc2b2ef9c\">スタン</a>持続時間が<span class='mod-value'>(20<span class=\"ndash\">—</span>22)</span>%増加する</span></h5>   <span data-tabname=\"叩きつけの\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>叩きつけの\n<tr><th>Family<td>StunDurationIncreasePercent\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>サフィックス (2)\n<tr><th>Req. level<td>44 (Effective: 35)\n<tr><th>Gold Price<td>844\n<tr><th>Stats<td><li>local base stun duration +% <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 22</span> <span class=\"badge bg-secondary\">ローカル</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ranged: 0</span> <span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "fields": {
+    "Name": "叩きつけの",
+    "Family": "StunDurationIncreasePercent",
+    "Domains": "アイテム (1)",
+    "GenerationType": "サフィックス (2)",
+    "Req. level": "44 (Effective: 35)",
+    "Gold Price": "844",
+    "Stats": "local base stun duration +% 20 — 22 ローカル",
+    "Spawn Tags": "ranged: 0 weapon: 1 default: 0"
+  },
+  "code": "StunDuration4",
+  "stats": [
+    {
+      "id": "local_base_stun_duration_+%",
+      "min": 20,
+      "max": 22,
+      "locality": "ローカル"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "ranged",
+      "weight": 0
+    },
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

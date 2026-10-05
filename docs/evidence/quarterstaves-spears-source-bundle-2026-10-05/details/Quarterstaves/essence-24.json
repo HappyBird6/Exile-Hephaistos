@@ -1,0 +1,72 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "60",
+    "DropChance": 0,
+    "ModGenerationTypeID": "2",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>",
+      "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+    ],
+    "fossil_no": [
+      "attack",
+      "speed"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/3be1415285d111433cf000d22c62eaac55f7ade8a844dc6f94941e957592e23a\" href=\"Greater_Essence_of_Haste\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterSpeedEssence.webp\" alt=\"GreaterSpeedEssence\" height=\"16\" />Greater Essence of Haste</a>",
+    "Code": "LocalIncreasedAttackSpeed7",
+    "ModFamilyList": [
+      "IncreasedAttackSpeed"
+    ],
+    "str": "<span class='mod-value'>(23<span class=\"ndash\">—</span>25)</span>% increased <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attack</a> Speed",
+    "adds_no": [],
+    "spawn_no": [
+      "ranged",
+      "weapon",
+      "default"
+    ],
+    "reqlvl": 48,
+    "IsPerfect": "0",
+    "IsAlloy": false,
+    "Removes": false
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedAttackSpeed7",
+  "textLocale": "us",
+  "detailText": "(23—25)% increased Attack Speed",
+  "retrievedAt": "2026-10-05T08:12:14.491Z",
+  "sha256": "9f5af9bfd3cb75166c72151284618111f436623afeb72be41e189bed13ab7ec0",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(23<span class=\"ndash\">—</span>25)</span>% increased <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attack</a> Speed</span></h5>   <span data-tabname=\"of Infamy\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Infamy\n<tr><th>Family<td>IncreasedAttackSpeed\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>2931\n<tr><th>Stats<td><li>local attack speed +% <span class=\"badge bg-primary\">23 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ranged: 0</span> <span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attack</span> <span class='badge bg-primary'>Speed</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Infamy",
+    "Family": "IncreasedAttackSpeed",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "60 (Effective: 48)",
+    "Gold Price": "2931",
+    "Stats": "local attack speed +% 23 — 25 Local",
+    "Spawn Tags": "ranged: 0 weapon: 1 default: 0",
+    "Craft Tags": "Attack Speed"
+  },
+  "code": "LocalIncreasedAttackSpeed7",
+  "stats": [
+    {
+      "id": "local_attack_speed_+%",
+      "min": 23,
+      "max": 25,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "ranged",
+      "weight": 0
+    },
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

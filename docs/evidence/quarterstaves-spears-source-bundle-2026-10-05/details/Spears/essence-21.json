@@ -1,0 +1,118 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "60",
+    "DropChance": 0,
+    "ModGenerationTypeID": "1",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "lightning",
+      "attack"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/e72a06ee7840f92d3249b352924303418ef57af7a09ea44394a4e1d5c9d56ab4\" href=\"Greater_Essence_of_Electricity\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterLightningEssence.webp\" alt=\"GreaterLightningEssence\" height=\"16\" />Greater Essence of Electricity</a>",
+    "Code": "LocalAddedLightningDamage7",
+    "ModFamilyList": [
+      "LightningDamage"
+    ],
+    "str": "Adds <span class='mod-value'>(1<span class=\"ndash\">—</span>6)</span> to <span class='mod-value'>(85<span class=\"ndash\">—</span>107)</span> <a data-keyword=\"Lightning\" href=\"Lightning_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1d5815b2f2bd5f23d99d435288c3b41e79adf38037cf8d2a266bc276f527201d\">Lightning</a> Damage",
+    "adds_no": [],
+    "spawn_no": [
+      "bow",
+      "two_hand_weapon",
+      "sword",
+      "axe",
+      "mace",
+      "spear",
+      "claw",
+      "dagger",
+      "flail",
+      "default"
+    ],
+    "reqlvl": 48,
+    "IsPerfect": "0",
+    "IsAlloy": false,
+    "Removes": false
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalAddedLightningDamage7",
+  "textLocale": "us",
+  "detailText": "Adds (1—6) to (85—107) Lightning Damage",
+  "retrievedAt": "2026-10-05T08:14:29.042Z",
+  "sha256": "11f35ae01c775b22b5ec9b6cd9cc7b3f31c0d9f350b4725e0ab9b133c61e5a10",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Adds <span class='mod-value'>(1<span class=\"ndash\">—</span>6)</span> to <span class='mod-value'>(85<span class=\"ndash\">—</span>107)</span> <a data-keyword=\"Lightning\" href=\"Lightning_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1d5815b2f2bd5f23d99d435288c3b41e79adf38037cf8d2a266bc276f527201d\">Lightning</a> Damage</span></h5>   <span data-tabname=\"Shocking\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Shocking\n<tr><th>Family<td>LightningDamage\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>857\n<tr><th>Stats<td><li>local maximum added lightning damage <span class=\"badge bg-primary\">85 <span class=\"ndash\">—</span> 107</span> <span class=\"badge bg-secondary\">Local</span></li><li>local minimum added lightning damage <span class=\"badge bg-primary\">1 <span class=\"ndash\">—</span> 6</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>bow: 1</span> <span class='badge bg-primary'>two_hand_weapon: 0</span> <span class='badge bg-primary'>sword: 1</span> <span class='badge bg-primary'>axe: 1</span> <span class='badge bg-primary'>mace: 1</span> <span class='badge bg-primary'>spear: 1</span> <span class='badge bg-primary'>claw: 1</span> <span class='badge bg-primary'>dagger: 1</span> <span class='badge bg-primary'>flail: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Lightning</span> <span class='badge bg-primary'>Attack</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Shocking",
+    "Family": "LightningDamage",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "60 (Effective: 48)",
+    "Gold Price": "857",
+    "Stats": "local maximum added lightning damage 85 — 107 Locallocal minimum added lightning damage 1 — 6 Local",
+    "Spawn Tags": "bow: 1 two_hand_weapon: 0 sword: 1 axe: 1 mace: 1 spear: 1 claw: 1 dagger: 1 flail: 1 default: 0",
+    "Craft Tags": "elemental_damage Damage Elemental Lightning Attack"
+  },
+  "code": "LocalAddedLightningDamage7",
+  "stats": [
+    {
+      "id": "local_maximum_added_lightning_damage",
+      "min": 85,
+      "max": 107,
+      "locality": "Local"
+    },
+    {
+      "id": "local_minimum_added_lightning_damage",
+      "min": 1,
+      "max": 6,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "bow",
+      "weight": 1
+    },
+    {
+      "tag": "two_hand_weapon",
+      "weight": 0
+    },
+    {
+      "tag": "sword",
+      "weight": 1
+    },
+    {
+      "tag": "axe",
+      "weight": 1
+    },
+    {
+      "tag": "mace",
+      "weight": 1
+    },
+    {
+      "tag": "spear",
+      "weight": 1
+    },
+    {
+      "tag": "claw",
+      "weight": 1
+    },
+    {
+      "tag": "dagger",
+      "weight": 1
+    },
+    {
+      "tag": "flail",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

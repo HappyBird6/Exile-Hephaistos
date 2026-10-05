@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/us/Bolting_Quarterstaff",
+  "retrievedAt": "2026-10-05T08:05:45.808Z",
+  "sha256": "752e3041a0613ccb882a94b6ad31af67d94a60d6fca78e91ca1a5398d5e50837",
+  "variants": [
+    {
+      "name": "Bolting Quarterstaff",
+      "card": "Bolting Quarterstaff\n        \n    \n    \n        \n            QuarterstavesPhysical Damage: 24-97Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 78, 127 Dex, 50 Intlocal weapon implicit hidden added maximum lightning damage [100]\nlocal weapon implicit hidden added minimum lightning damage [1]",
+      "requirements": "Requires:  Level 78, 127 Dex, 50 Int",
+      "properties": [
+        "Quarterstaves",
+        "Physical Damage: 24-97",
+        "Critical Hit Chance: 10%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.4"
+      ],
+      "fields": {
+        "DropLevel": "78",
+        "BaseType": "Bolting Quarterstaff",
+        "Class": "Quarterstaves",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff4Endgame",
+        "Tags": "warstaff, two_hand_weapon, twohand, weapon",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/WarStaves/Warstaff04",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, twohand, warstaff, two_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ]
+}

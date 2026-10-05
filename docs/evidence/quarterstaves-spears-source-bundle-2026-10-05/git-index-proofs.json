@@ -1,0 +1,197 @@
+{
+  "passed": true,
+  "files": [
+    {
+      "file": "Aegis_Quarterstaff.cn.html",
+      "sha256": "35e60d4f4088280f03a7549194b7b406345cbdc5b09625d3d74b0401306244ca"
+    },
+    {
+      "file": "Aegis_Quarterstaff.jp.html",
+      "sha256": "29cca8e1d4c6b78c8d2cfd20776fa0d9448a97f49ec95ae9a3aa8ec857f4bd63"
+    },
+    {
+      "file": "Aegis_Quarterstaff.kr.html",
+      "sha256": "160c431b3285bbf66cd480a6ea281c498e082f72f022e947960283c9dabddb43"
+    },
+    {
+      "file": "Aegis_Quarterstaff.sp.html",
+      "sha256": "7686ffa56dd23a9aadd2ec0969d69e0a9eceb5cbf302cfb765991e87dd45172a"
+    },
+    {
+      "file": "Aegis_Quarterstaff.tw.html",
+      "sha256": "27b9de04d6a65e3b956eaabcca3a1b984ea15ab5cd8106b04ff3da06b9bdea00"
+    },
+    {
+      "file": "Aegis_Quarterstaff.us.html",
+      "sha256": "3885efd4b725c3cee263a3d71ee544d4a4442ecbae7598f9c3b1a2060e9a48c6"
+    },
+    {
+      "file": "Akoyan_Spear.cn.html",
+      "sha256": "95b510bd3e4fa10528f4e89e0d827821bac470debc2a73743a2666b796e0145a"
+    },
+    {
+      "file": "Akoyan_Spear.jp.html",
+      "sha256": "45bc57b2e371d9d9d751809caa68d9f12c1b24476de3d975e614275c0beb5748"
+    },
+    {
+      "file": "Akoyan_Spear.kr.html",
+      "sha256": "978bd24de5c8066409a0da478dff4848be5aea28671a4512a1a08aa914912531"
+    },
+    {
+      "file": "Akoyan_Spear.sp.html",
+      "sha256": "6efd0dd0b0de376a327dc0ba140e8f4cab6d3b75cd523c5ffe6f84da8aba11af"
+    },
+    {
+      "file": "Akoyan_Spear.tw.html",
+      "sha256": "354bf01f20be341fa1ca080ee058266814fa4096e362d49bd9f7daa89191a2d5"
+    },
+    {
+      "file": "Akoyan_Spear.us.html",
+      "sha256": "f51097cf3dcdf074a419738a5f9a9e5ef3e9fc4cc91ecfebbd3002d4329e12f0"
+    },
+    {
+      "file": "Bolting_Quarterstaff.cn.html",
+      "sha256": "f0ab41d1686d715cfdc2da1f2ad00805557810818e9da5ced06b9a8dcd01d2cc"
+    },
+    {
+      "file": "Bolting_Quarterstaff.jp.html",
+      "sha256": "323d6960f31f433014270f29defbfc19a589e92819e3deb43ec2ef2534f320f8"
+    },
+    {
+      "file": "Bolting_Quarterstaff.kr.html",
+      "sha256": "edffcea931cfa7de78310d134b0ca0e6aa10040422ea5c95fea54f17db39ce38"
+    },
+    {
+      "file": "Bolting_Quarterstaff.sp.html",
+      "sha256": "48e29b22ea6e46461c924a786d706e3eabbe356cb9e95f09299f2b43e4ebab66"
+    },
+    {
+      "file": "Bolting_Quarterstaff.tw.html",
+      "sha256": "1aa270f6933be3b416b101dfa80a8e7dd449541f6fada10ef708aea5ae3bb64f"
+    },
+    {
+      "file": "Bolting_Quarterstaff.us.html",
+      "sha256": "752e3041a0613ccb882a94b6ad31af67d94a60d6fca78e91ca1a5398d5e50837"
+    },
+    {
+      "file": "Dreaming_Quarterstaff.cn.html",
+      "sha256": "4a32c96fef95c4fff74dbab442e9d07c82236ee20e899936901f6682c5f04a09"
+    },
+    {
+      "file": "Dreaming_Quarterstaff.jp.html",
+      "sha256": "a0c34c4e4de126bd5bf1d8397c8590cfc779cafb3efb496f3d27439318f25477"
+    },
+    {
+      "file": "Dreaming_Quarterstaff.kr.html",
+      "sha256": "a2aa6fb15d9f80801bfd584e4174f4fd1c16f95f5980b11c377834aaf0f4c03e"
+    },
+    {
+      "file": "Dreaming_Quarterstaff.sp.html",
+      "sha256": "17791d37504f02e4a9ba6cd4a6ebc92733cdbd65a5d4187459b5b98f098a8bac"
+    },
+    {
+      "file": "Dreaming_Quarterstaff.tw.html",
+      "sha256": "dcfa30c2289d1d12d8d4a3be0652b0e046811a62fed86474a7e97ed9084e5b58"
+    },
+    {
+      "file": "Dreaming_Quarterstaff.us.html",
+      "sha256": "a376725ec4e4b2170b81fa4dd6a7b548cbfcbe2489a9e0c23b3182b5c6bd2984"
+    },
+    {
+      "file": "Flying_Spear.cn.html",
+      "sha256": "8f344b1fb81dbd3d2c0012837ee84c5092629bdd35e91d279fa2521bfd416397"
+    },
+    {
+      "file": "Flying_Spear.jp.html",
+      "sha256": "e6293457e9c53cfb882ab94bb0a60d8e3ceec8660cc738e835122a9ec265ff60"
+    },
+    {
+      "file": "Flying_Spear.kr.html",
+      "sha256": "2d8a81c266f27f3213d1b82488b1a4fbbab71b70366660b28df042126d3329bd"
+    },
+    {
+      "file": "Flying_Spear.sp.html",
+      "sha256": "7ce4cbd79e53605714c730c3360c737f9fb80d0d87138b126d72229a24348c9f"
+    },
+    {
+      "file": "Flying_Spear.tw.html",
+      "sha256": "79afdeb7446de4ca34dcf737088fd5f7747948edd940a1023c3cade9ea23dd7b"
+    },
+    {
+      "file": "Flying_Spear.us.html",
+      "sha256": "ca6151f65ebcfc644d85f5df34eca05b62e0683ddb4c90d665f6d0f5fb7a5bba"
+    },
+    {
+      "file": "Grand_Spear.cn.html",
+      "sha256": "7299e9e249d24479424bd5d59342f4dc875beeb3222054c8a6ad1cd552ead266"
+    },
+    {
+      "file": "Grand_Spear.jp.html",
+      "sha256": "61d074e1a1bb567b98364a260d8f87eb70fbf359ea8194e3b741a97398c53514"
+    },
+    {
+      "file": "Grand_Spear.kr.html",
+      "sha256": "53e0fdef5b8aaae54d47ba6f8acd554950a812d5284171174464136f67020d5b"
+    },
+    {
+      "file": "Grand_Spear.sp.html",
+      "sha256": "f4a06c6682d00581868040582c51f12bd614ed7c46ef223411c7b5b6e2b2bee0"
+    },
+    {
+      "file": "Grand_Spear.tw.html",
+      "sha256": "74d3e2850399126debe70020d737143799776914ef3a7596f918405af086b45c"
+    },
+    {
+      "file": "Grand_Spear.us.html",
+      "sha256": "37c053bf3b1535bc0dcf9396c9a1c142486ed623bb3255329cffa0fd83c6151e"
+    },
+    {
+      "file": "Quarterstaves.cn.html",
+      "sha256": "7490017f7448b178a8462bfddebee17ef7602df7f2850e29bf38dea6b906fbec"
+    },
+    {
+      "file": "Quarterstaves.jp.html",
+      "sha256": "5ac9d2cd8204732cf0fb573e444366da11459628cfa5972bd2e5d3ccd0db2bd8"
+    },
+    {
+      "file": "Quarterstaves.kr.html",
+      "sha256": "d827adfa0f25450b22bb9b9dedeb7c471314d1f11d0f09c05a770f0ea0559597"
+    },
+    {
+      "file": "Quarterstaves.sp.html",
+      "sha256": "80797cbf1efab926b76ff13d676e6af3bdff2125a4543732b149464e6e6a9b04"
+    },
+    {
+      "file": "Quarterstaves.tw.html",
+      "sha256": "6115d7a5320fc2804a525cd73f3359a857f4a7f4946afbfa0b181eaa1b387ab3"
+    },
+    {
+      "file": "Quarterstaves.us.html",
+      "sha256": "700a34e857fad7eed916a4d11d48b01b1a132642f6c7a1ae0057817648358908"
+    },
+    {
+      "file": "Spears.cn.html",
+      "sha256": "356ca0e5e8548f5070272921f5499c8805c866096dd9ff2b14a05de1e5abad79"
+    },
+    {
+      "file": "Spears.jp.html",
+      "sha256": "2ce045cdaac79a29ee8baac625a3287ad2867eadaad5698f1ed3ecc2b612ec9a"
+    },
+    {
+      "file": "Spears.kr.html",
+      "sha256": "743aca95448960f792d662f4ca4e90f44badbf1b258c8378c0469a420f3af44d"
+    },
+    {
+      "file": "Spears.sp.html",
+      "sha256": "53b53eb3441fedfb5d1a6c5e1038a253cf7372baca61243553f2aff614563787"
+    },
+    {
+      "file": "Spears.tw.html",
+      "sha256": "2b48230dc49e93ca74c047ba2e3d6c2a76cbcd5a1b9c67013aea068e3b0926ab"
+    },
+    {
+      "file": "Spears.us.html",
+      "sha256": "09ea5322cbd10b24deaafe2d28b66879e77a3d8ee7d29aee1a2d3b8ca069ae59"
+    }
+  ]
+}

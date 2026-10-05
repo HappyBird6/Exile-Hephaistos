@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/tw/Akoyan_Spear",
+  "retrievedAt": "2026-10-05T08:05:59.013Z",
+  "sha256": "354bf01f20be341fa1ca080ee058266814fa4096e362d49bd9f7daa89191a2d5",
+  "variants": [
+    {
+      "name": "艾古亞長矛",
+      "card": "艾古亞長矛\n        \n    \n    \n        \n            長矛物理傷害: 39-72暴擊率: 7%每秒攻擊次數: 1.6武器範圍: 1.5需求:  等級 78, 50 力量, 127 敏捷, 90 智慧 賦予技能: 長矛投擲\n        \n\n\n\n        \n            Akoyan Spear",
+      "requirements": "需求:  等級 78, 50 力量, 127 敏捷, 90 智慧",
+      "properties": [
+        "長矛",
+        "物理傷害: 39-72",
+        "暴擊率: 7%",
+        "每秒攻擊次數: 1.6",
+        "武器範圍: 1.5"
+      ],
+      "fields": {
+        "DropLevel": "78",
+        "BaseType": "艾古亞長矛",
+        "Class": "長矛",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame",
+        "Tags": "karui_basetype, spear, one_hand_weapon, onehand, weapon",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/OneHandSpears/1HSpear10",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, onehand, spear, one_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      }
+    }
+  ]
+}

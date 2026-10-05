@@ -162,7 +162,11 @@ public class CraftingConfiguration {
       }
       try (var source = getClass().getResourceAsStream("/catalog/top-base-essences.json")) {
         var manifest = new com.fasterxml.jackson.databind.ObjectMapper().readTree(source);
-        for (var key : com.poe2craft.item.ReviewedMaces.BASES.keySet()) {
+        for (var key :
+            java.util.stream.Stream.concat(
+                    com.poe2craft.item.ReviewedMaces.BASES.keySet().stream(),
+                    com.poe2craft.item.ReviewedQuarterstavesSpears.BASES.keySet().stream())
+                .toList()) {
           service.registerReviewedArmour(
               key,
               ItemCatalogLoader.loadTopBase(key),

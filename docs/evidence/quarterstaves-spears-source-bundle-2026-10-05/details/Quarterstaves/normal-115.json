@@ -1,0 +1,68 @@
+{
+  "row": {
+    "Name": "of Celebration",
+    "Level": "77",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "IncreasedAttackSpeed"
+    ],
+    "DropChance": "100",
+    "str": "<span class='mod-value'>(26<span class=\"ndash\">—</span>28)</span>% increased <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attack</a> Speed",
+    "fossil_no": [
+      "attack",
+      "speed"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ranged",
+      "weapon",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>",
+      "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/190a09fc632e764bcdf8d19e5e1dd3ad0a71af4b2e2f6f5ef5a22757e9f52688"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedAttackSpeed8",
+  "textLocale": "us",
+  "detailText": "(26—28)% increased Attack Speed",
+  "retrievedAt": "2026-10-05T08:10:12.093Z",
+  "sha256": "7d9211d51cf28149d9bd99cbc2a1c487f758d7eed29cff1e1622e8476c2cc895",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(26<span class=\"ndash\">—</span>28)</span>% increased <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attack</a> Speed</span></h5>   <span data-tabname=\"of Celebration\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Celebration\n<tr><th>Family<td>IncreasedAttackSpeed\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>77 (Effective: 61)\n<tr><th>Gold Price<td>5845\n<tr><th>Stats<td><li>local attack speed +% <span class=\"badge bg-primary\">26 <span class=\"ndash\">—</span> 28</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ranged: 0</span> <span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attack</span> <span class='badge bg-primary'>Speed</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Celebration",
+    "Family": "IncreasedAttackSpeed",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "77 (Effective: 61)",
+    "Gold Price": "5845",
+    "Stats": "local attack speed +% 26 — 28 Local",
+    "Spawn Tags": "ranged: 0 weapon: 1 default: 0",
+    "Craft Tags": "Attack Speed"
+  },
+  "code": "LocalIncreasedAttackSpeed8",
+  "stats": [
+    {
+      "id": "local_attack_speed_+%",
+      "min": 26,
+      "max": 28,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "ranged",
+      "weight": 0
+    },
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

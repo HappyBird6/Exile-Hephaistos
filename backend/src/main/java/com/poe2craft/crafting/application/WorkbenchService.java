@@ -359,7 +359,8 @@ public final class WorkbenchService {
                                     || ReviewedCrossbows.supports(catalog.base().id())
                                     || ReviewedOffhands.supports(catalog.base().id())
                                     || ReviewedQuivers.supports(catalog.base().id())
-                                    || ReviewedMaces.supports(catalog.base().id()))
+                                    || ReviewedMaces.supports(catalog.base().id())
+                                    || ReviewedQuarterstavesSpears.supports(catalog.base().id()))
                                 && catalog.base().hasImplicit()
                             ? List.of(
                                 new ModifierInstance(
@@ -472,7 +473,9 @@ public final class WorkbenchService {
       ItemCatalog catalog,
       Map<WorkbenchCurrency, List<String>> fixed,
       Map<WorkbenchCurrency, List<String>> replacements) {
-    if ((!ReviewedMaces.BASES.getOrDefault(key, "").equals(catalog.base().id())
+    if ((!ReviewedMaces.BASES
+                .getOrDefault(key, ReviewedQuarterstavesSpears.BASES.getOrDefault(key, ""))
+                .equals(catalog.base().id())
             && !catalog
                 .base()
                 .id()

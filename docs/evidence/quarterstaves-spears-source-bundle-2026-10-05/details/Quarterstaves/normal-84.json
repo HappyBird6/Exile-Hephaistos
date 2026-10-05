@@ -1,0 +1,66 @@
+{
+  "row": {
+    "Name": "of the Parched",
+    "Level": "21",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ManaLeech"
+    ],
+    "DropChance": "1000",
+    "str": "<a data-keyword=\"ManaLeech\" href=\"Mana_Leech\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e031dafccf311a55ea568d1f20d604182ae510d25bba3038d56d56ee845b124d\">Leeches</a> <span class='mod-value'>(5<span class=\"ndash\">—</span>5.9)</span>% of <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage as Mana",
+    "fossil_no": [
+      "resource",
+      "mana",
+      "physical",
+      "attack"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>",
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>",
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/515b9a3049e01c3c014c51fcd71b75adbb31ce46cfffb5a6049c14cc2a7b1c2d"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaLeechLocal2",
+  "textLocale": "us",
+  "detailText": "Leeches (5—5.9)% of Physical Damage as Mana",
+  "retrievedAt": "2026-10-05T08:08:55.865Z",
+  "sha256": "1f21885656faaa886864efe6f764ab74bc5ff4e21d0c3526874c34c850d22881",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"ManaLeech\" href=\"Mana_Leech\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e031dafccf311a55ea568d1f20d604182ae510d25bba3038d56d56ee845b124d\">Leeches</a> <span class='mod-value'>(5<span class=\"ndash\">—</span>5.9)</span>% of <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage as Mana</span></h5>   <span data-tabname=\"of the Parched\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Parched\n<tr><th>Family<td>ManaLeech\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>21 (Effective: 16)\n<tr><th>Gold Price<td>735\n<tr><th>Stats<td><li>local mana leech from physical damage permyriad <span class=\"badge bg-primary\">500 <span class=\"ndash\">—</span> 590</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> <span class='badge bg-primary'>Physical</span> <span class='badge bg-primary'>Attack</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of the Parched",
+    "Family": "ManaLeech",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "21 (Effective: 16)",
+    "Gold Price": "735",
+    "Stats": "local mana leech from physical damage permyriad 500 — 590 Local",
+    "Spawn Tags": "weapon: 1 default: 0",
+    "Craft Tags": "resource Mana Physical Attack"
+  },
+  "code": "ManaLeechLocal2",
+  "stats": [
+    {
+      "id": "local_mana_leech_from_physical_damage_permyriad",
+      "min": 500,
+      "max": 590,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

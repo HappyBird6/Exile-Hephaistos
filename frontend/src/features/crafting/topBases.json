@@ -4914,5 +4914,607 @@
     "weaponRange": 1.5,
     "ordinarySocketMaximum": 2,
     "classId": 17
+  },
+  "aegis-quarterstaff": {
+    "key": "aegis-quarterstaff",
+    "slug": "Aegis_Quarterstaff",
+    "pool": "aegis-quarterstaff",
+    "family": "quarterstaves",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff8Endgame",
+    "name": "Aegis Quarterstaff",
+    "sourceUrl": "https://poe2db.tw/us/Aegis_Quarterstaff",
+    "sourceSha256": "3885efd4b725c3cee263a3d71ee544d4a4442ecbae7598f9c3b1a2060e9a48c6",
+    "sourceTags": ["warstaff", "two_hand_weapon", "twohand", "weapon"],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 127,
+    "intelligence": 50,
+    "requiredLevel": 79,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 79, 127 Dex, 50 Int",
+      "ko": "요구 사항:  레벨 79, 127 민첩, 50 지능",
+      "ja": "装備条件： レベル 79, 127 器用さ, 50 知性",
+      "zh-CN": "需求：  等级 79, 127 敏捷, 50 智慧",
+      "zh-TW": "需求:  等級 79, 127 敏捷, 50 智慧",
+      "es": "Requiere:  Nivel 79, 127 Des, 50 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Quarterstaves",
+        "Physical Damage: 58-97",
+        "Critical Hit Chance: 10%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.4"
+      ],
+      "ko": [
+        "육척봉",
+        "물리 피해: 58-97",
+        "치명타 명중 확률: 10%",
+        "초당 공격 횟수: 1.4",
+        "무기 범위: 1.4"
+      ],
+      "ja": [
+        "クォータースタッフ",
+        "物理ダメージ: 58-97",
+        "クリティカルヒット率: 10%",
+        "秒間アタック回数: 1.4",
+        "武器攻撃距離: 1.4"
+      ],
+      "zh-CN": [
+        "节杖",
+        "物理伤害: 58-97",
+        "暴击率: 10%",
+        "每秒攻击次数: 1.4",
+        "武器范围: 1.4"
+      ],
+      "zh-TW": [
+        "細杖",
+        "物理傷害: 58-97",
+        "暴擊率: 10%",
+        "每秒攻擊次數: 1.4",
+        "武器範圍: 1.4"
+      ],
+      "es": [
+        "Bastones",
+        "Daño físico: 58-97",
+        "Probabilidad de impacto crítico: 10%",
+        "Ataques por segundo: 1.4",
+        "Alcance de arma: 1.4"
+      ]
+    },
+    "implicitModifierId": "aegis-quarterstaff:implicit:base",
+    "implicitStats": [
+      {
+        "id": "additional_block_%",
+        "min": 12,
+        "max": 18
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "additional_block_%",
+        "min": 12,
+        "max": 18,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "58-97",
+    "criticalHitChance": 10,
+    "attacksPerSecond": 1.4,
+    "weaponRange": 1.4,
+    "ordinarySocketMaximum": 2,
+    "classId": 58
+  },
+  "bolting-quarterstaff": {
+    "key": "bolting-quarterstaff",
+    "slug": "Bolting_Quarterstaff",
+    "pool": "bolting-quarterstaff",
+    "family": "quarterstaves",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff4Endgame",
+    "name": "Bolting Quarterstaff",
+    "sourceUrl": "https://poe2db.tw/us/Bolting_Quarterstaff",
+    "sourceSha256": "752e3041a0613ccb882a94b6ad31af67d94a60d6fca78e91ca1a5398d5e50837",
+    "sourceTags": ["warstaff", "two_hand_weapon", "twohand", "weapon"],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 127,
+    "intelligence": 50,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 127 Dex, 50 Int",
+      "ko": "요구 사항:  레벨 78, 127 민첩, 50 지능",
+      "ja": "装備条件： レベル 78, 127 器用さ, 50 知性",
+      "zh-CN": "需求：  等级 78, 127 敏捷, 50 智慧",
+      "zh-TW": "需求:  等級 78, 127 敏捷, 50 智慧",
+      "es": "Requiere:  Nivel 78, 127 Des, 50 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Quarterstaves",
+        "Physical Damage: 24-97",
+        "Critical Hit Chance: 10%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.4"
+      ],
+      "ko": [
+        "육척봉",
+        "물리 피해: 24-97",
+        "치명타 명중 확률: 10%",
+        "초당 공격 횟수: 1.4",
+        "무기 범위: 1.4"
+      ],
+      "ja": [
+        "クォータースタッフ",
+        "物理ダメージ: 24-97",
+        "クリティカルヒット率: 10%",
+        "秒間アタック回数: 1.4",
+        "武器攻撃距離: 1.4"
+      ],
+      "zh-CN": [
+        "节杖",
+        "物理伤害: 24-97",
+        "暴击率: 10%",
+        "每秒攻击次数: 1.4",
+        "武器范围: 1.4"
+      ],
+      "zh-TW": [
+        "細杖",
+        "物理傷害: 24-97",
+        "暴擊率: 10%",
+        "每秒攻擊次數: 1.4",
+        "武器範圍: 1.4"
+      ],
+      "es": [
+        "Bastones",
+        "Daño físico: 24-97",
+        "Probabilidad de impacto crítico: 10%",
+        "Ataques por segundo: 1.4",
+        "Alcance de arma: 1.4"
+      ]
+    },
+    "implicitModifierId": "bolting-quarterstaff:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_weapon_implicit_hidden_added_maximum_lightning_damage",
+        "min": 100,
+        "max": 100
+      },
+      {
+        "id": "local_weapon_implicit_hidden_added_minimum_lightning_damage",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_weapon_implicit_hidden_added_maximum_lightning_damage",
+        "min": 100,
+        "max": 100,
+        "locality": "Local"
+      },
+      {
+        "id": "local_weapon_implicit_hidden_added_minimum_lightning_damage",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "24-97",
+    "criticalHitChance": 10,
+    "attacksPerSecond": 1.4,
+    "weaponRange": 1.4,
+    "ordinarySocketMaximum": 2,
+    "classId": 58
+  },
+  "dreaming-quarterstaff": {
+    "key": "dreaming-quarterstaff",
+    "slug": "Dreaming_Quarterstaff",
+    "pool": "dreaming-quarterstaff",
+    "family": "quarterstaves",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff10Endgame",
+    "name": "Dreaming Quarterstaff",
+    "sourceUrl": "https://poe2db.tw/us/Dreaming_Quarterstaff",
+    "sourceSha256": "a376725ec4e4b2170b81fa4dd6a7b548cbfcbe2489a9e0c23b3182b5c6bd2984",
+    "sourceTags": [
+      "karui_basetype",
+      "warstaff",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 127,
+    "intelligence": 50,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 127 Dex, 50 Int",
+      "ko": "요구 사항:  레벨 78, 127 민첩, 50 지능",
+      "ja": "装備条件： レベル 78, 127 器用さ, 50 知性",
+      "zh-CN": "需求：  等级 78, 127 敏捷, 50 智慧",
+      "zh-TW": "需求:  等級 78, 127 敏捷, 50 智慧",
+      "es": "Requiere:  Nivel 78, 127 Des, 50 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Quarterstaves",
+        "Physical Damage: 99-133",
+        "Critical Hit Chance: 0%",
+        "Attacks per Second: 1.5",
+        "Weapon Range: 1.4"
+      ],
+      "ko": [
+        "육척봉",
+        "물리 피해: 99-133",
+        "치명타 명중 확률: 0%",
+        "초당 공격 횟수: 1.5",
+        "무기 범위: 1.4"
+      ],
+      "ja": [
+        "クォータースタッフ",
+        "物理ダメージ: 99-133",
+        "クリティカルヒット率: 0%",
+        "秒間アタック回数: 1.5",
+        "武器攻撃距離: 1.4"
+      ],
+      "zh-CN": [
+        "节杖",
+        "物理伤害: 99-133",
+        "暴击率: 0%",
+        "每秒攻击次数: 1.5",
+        "武器范围: 1.4"
+      ],
+      "zh-TW": [
+        "細杖",
+        "物理傷害: 99-133",
+        "暴擊率: 0%",
+        "每秒攻擊次數: 1.5",
+        "武器範圍: 1.4"
+      ],
+      "es": [
+        "Bastones",
+        "Daño físico: 99-133",
+        "Probabilidad de impacto crítico: 0%",
+        "Ataques por segundo: 1.5",
+        "Alcance de arma: 1.4"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "physicalDamage": "99-133",
+    "criticalHitChance": 0,
+    "attacksPerSecond": 1.5,
+    "weaponRange": 1.4,
+    "ordinarySocketMaximum": 2,
+    "classId": 58
+  },
+  "grand-spear": {
+    "key": "grand-spear",
+    "slug": "Grand_Spear",
+    "pool": "grand-spear",
+    "family": "spears",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear8Endgame",
+    "name": "Grand Spear",
+    "sourceUrl": "https://poe2db.tw/us/Grand_Spear",
+    "sourceSha256": "37c053bf3b1535bc0dcf9396c9a1c142486ed623bb3255329cffa0fd83c6151e",
+    "sourceTags": ["spear", "one_hand_weapon", "onehand", "weapon"],
+    "armour": 0,
+    "strength": 68,
+    "dexterity": 109,
+    "intelligence": 0,
+    "requiredLevel": 79,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 79, 68 Str, 109 Dex",
+      "ko": "요구 사항:  레벨 79, 68 힘, 109 민첩",
+      "ja": "装備条件： レベル 79, 68 筋力, 109 器用さ",
+      "zh-CN": "需求：  等级 79, 68 力量, 109 敏捷",
+      "zh-TW": "需求:  等級 79, 68 力量, 109 敏捷",
+      "es": "Requiere:  Nivel 79, 68 Fue, 109 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spears",
+        "Physical Damage: 56-84",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.5"
+      ],
+      "ko": [
+        "창",
+        "물리 피해: 56-84",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.4",
+        "무기 범위: 1.5"
+      ],
+      "ja": [
+        "スピア",
+        "物理ダメージ: 56-84",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.4",
+        "武器攻撃距離: 1.5"
+      ],
+      "zh-CN": [
+        "战矛",
+        "物理伤害: 56-84",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.4",
+        "武器范围: 1.5"
+      ],
+      "zh-TW": [
+        "長矛",
+        "物理傷害: 56-84",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.4",
+        "武器範圍: 1.5"
+      ],
+      "es": [
+        "Lanzas",
+        "Daño físico: 56-84",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.4",
+        "Alcance de arma: 1.5"
+      ]
+    },
+    "implicitModifierId": "grand-spear:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_display_grants_spear_throw_skill",
+        "min": 1,
+        "max": 1
+      },
+      {
+        "id": "local_+%_weapon_range",
+        "min": 25,
+        "max": 25
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_display_grants_spear_throw_skill",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      },
+      {
+        "id": "local_+%_weapon_range",
+        "min": 25,
+        "max": 25,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "56-84",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.4,
+    "weaponRange": 1.5,
+    "ordinarySocketMaximum": 1,
+    "classId": 79,
+    "skillLines": {
+      "en": ["Grants Skill: Spear Throw"],
+      "ko": ["스킬 부여: 창 투척"],
+      "ja": ["スキルを付与: スピアスロー"],
+      "zh-CN": ["获得技能: 战矛飞掷"],
+      "zh-TW": ["賦予技能: 長矛投擲"],
+      "es": ["Otorga la habilidad: Lanzamiento de lanza"]
+    }
+  },
+  "flying-spear": {
+    "key": "flying-spear",
+    "slug": "Flying_Spear",
+    "pool": "flying-spear",
+    "family": "spears",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear5Endgame",
+    "name": "Flying Spear",
+    "sourceUrl": "https://poe2db.tw/us/Flying_Spear",
+    "sourceSha256": "ca6151f65ebcfc644d85f5df34eca05b62e0683ddb4c90d665f6d0f5fb7a5bba",
+    "sourceTags": ["spear", "one_hand_weapon", "onehand", "weapon"],
+    "armour": 0,
+    "strength": 50,
+    "dexterity": 127,
+    "intelligence": 0,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 50 Str, 127 Dex",
+      "ko": "요구 사항:  레벨 78, 50 힘, 127 민첩",
+      "ja": "装備条件： レベル 78, 50 筋力, 127 器用さ",
+      "zh-CN": "需求：  等级 78, 50 力量, 127 敏捷",
+      "zh-TW": "需求:  等級 78, 50 力量, 127 敏捷",
+      "es": "Requiere:  Nivel 78, 50 Fue, 127 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spears",
+        "Physical Damage: 46-77",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.6",
+        "Weapon Range: 1.5"
+      ],
+      "ko": [
+        "창",
+        "물리 피해: 46-77",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.6",
+        "무기 범위: 1.5"
+      ],
+      "ja": [
+        "スピア",
+        "物理ダメージ: 46-77",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.6",
+        "武器攻撃距離: 1.5"
+      ],
+      "zh-CN": [
+        "战矛",
+        "物理伤害: 46-77",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.6",
+        "武器范围: 1.5"
+      ],
+      "zh-TW": [
+        "長矛",
+        "物理傷害: 46-77",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.6",
+        "武器範圍: 1.5"
+      ],
+      "es": [
+        "Lanzas",
+        "Daño físico: 46-77",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.6",
+        "Alcance de arma: 1.5"
+      ]
+    },
+    "implicitModifierId": "flying-spear:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_display_grants_spear_throw_skill",
+        "min": 1,
+        "max": 1
+      },
+      {
+        "id": "local_projectile_speed_+%",
+        "min": 25,
+        "max": 35
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_display_grants_spear_throw_skill",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      },
+      {
+        "id": "local_projectile_speed_+%",
+        "min": 25,
+        "max": 35,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "46-77",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.6,
+    "weaponRange": 1.5,
+    "ordinarySocketMaximum": 1,
+    "classId": 79,
+    "skillLines": {
+      "en": ["Grants Skill: Spear Throw"],
+      "ko": ["스킬 부여: 창 투척"],
+      "ja": ["スキルを付与: スピアスロー"],
+      "zh-CN": ["获得技能: 战矛飞掷"],
+      "zh-TW": ["賦予技能: 長矛投擲"],
+      "es": ["Otorga la habilidad: Lanzamiento de lanza"]
+    }
+  },
+  "akoyan-spear": {
+    "key": "akoyan-spear",
+    "slug": "Akoyan_Spear",
+    "pool": "akoyan-spear",
+    "family": "spears",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame",
+    "name": "Akoyan Spear",
+    "sourceUrl": "https://poe2db.tw/us/Akoyan_Spear",
+    "sourceSha256": "f51097cf3dcdf074a419738a5f9a9e5ef3e9fc4cc91ecfebbd3002d4329e12f0",
+    "sourceTags": [
+      "karui_basetype",
+      "spear",
+      "one_hand_weapon",
+      "onehand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 50,
+    "dexterity": 127,
+    "intelligence": 90,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 50 Str, 127 Dex, 90 Int",
+      "ko": "요구 사항:  레벨 78, 50 힘, 127 민첩, 90 지능",
+      "ja": "装備条件： レベル 78, 50 筋力, 127 器用さ, 90 知性",
+      "zh-CN": "需求：  等级 78, 50 力量, 127 敏捷, 90 智慧",
+      "zh-TW": "需求:  等級 78, 50 力量, 127 敏捷, 90 智慧",
+      "es": "Requiere:  Nivel 78, 50 Fue, 127 Des, 90 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spears",
+        "Physical Damage: 39-72",
+        "Critical Hit Chance: 7%",
+        "Attacks per Second: 1.6",
+        "Weapon Range: 1.5"
+      ],
+      "ko": [
+        "창",
+        "물리 피해: 39-72",
+        "치명타 명중 확률: 7%",
+        "초당 공격 횟수: 1.6",
+        "무기 범위: 1.5"
+      ],
+      "ja": [
+        "スピア",
+        "物理ダメージ: 39-72",
+        "クリティカルヒット率: 7%",
+        "秒間アタック回数: 1.6",
+        "武器攻撃距離: 1.5"
+      ],
+      "zh-CN": [
+        "战矛",
+        "物理伤害: 39-72",
+        "暴击率: 7%",
+        "每秒攻击次数: 1.6",
+        "武器范围: 1.5"
+      ],
+      "zh-TW": [
+        "長矛",
+        "物理傷害: 39-72",
+        "暴擊率: 7%",
+        "每秒攻擊次數: 1.6",
+        "武器範圍: 1.5"
+      ],
+      "es": [
+        "Lanzas",
+        "Daño físico: 39-72",
+        "Probabilidad de impacto crítico: 7%",
+        "Ataques por segundo: 1.6",
+        "Alcance de arma: 1.5"
+      ]
+    },
+    "implicitModifierId": "akoyan-spear:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_display_grants_spear_throw_skill",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_display_grants_spear_throw_skill",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "39-72",
+    "criticalHitChance": 7,
+    "attacksPerSecond": 1.6,
+    "weaponRange": 1.5,
+    "ordinarySocketMaximum": 1,
+    "classId": 79,
+    "skillLines": {
+      "en": ["Grants Skill: Spear Throw"],
+      "ko": ["스킬 부여: 창 투척"],
+      "ja": ["スキルを付与: スピアスロー"],
+      "zh-CN": ["获得技能: 战矛飞掷"],
+      "zh-TW": ["賦予技能: 長矛投擲"],
+      "es": ["Otorga la habilidad: Lanzamiento de lanza"]
+    }
   }
 }

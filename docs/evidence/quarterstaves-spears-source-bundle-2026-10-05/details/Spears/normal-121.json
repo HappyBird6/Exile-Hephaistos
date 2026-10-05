@@ -1,0 +1,62 @@
+{
+  "row": {
+    "Name": "Reliable",
+    "Level": "13",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedAccuracy"
+    ],
+    "DropChance": "800",
+    "str": "<span class='mod-value'>+(33<span class=\"ndash\">—</span>60)</span> to <a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/4a439d13631e43c7f47aab345a7e6b64877fb0209f2c42901d14cd9d9f36da1c\">Accuracy</a> Rating",
+    "fossil_no": [
+      "attack"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6380aca6b506608482edac29c7e71c5485379765849b294244bc93b6c2b95f57"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedAccuracy2",
+  "textLocale": "us",
+  "detailText": "+(33—60) to Accuracy Rating",
+  "retrievedAt": "2026-10-05T08:10:14.884Z",
+  "sha256": "b017243f7bd74573c1c6ae81251688f65b71f3713af49927863e66b9e1f905e5",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(33<span class=\"ndash\">—</span>60)</span> to <a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/4a439d13631e43c7f47aab345a7e6b64877fb0209f2c42901d14cd9d9f36da1c\">Accuracy</a> Rating</span></h5>   <span data-tabname=\"Reliable\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Reliable\n<tr><th>Family<td>IncreasedAccuracy\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>13 (Effective: 10)\n<tr><th>Gold Price<td>156\n<tr><th>Stats<td><li>local accuracy rating <span class=\"badge bg-primary\">33 <span class=\"ndash\">—</span> 60</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attack</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Reliable",
+    "Family": "IncreasedAccuracy",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "13 (Effective: 10)",
+    "Gold Price": "156",
+    "Stats": "local accuracy rating 33 — 60 Local",
+    "Spawn Tags": "weapon: 1 default: 0",
+    "Craft Tags": "Attack"
+  },
+  "code": "LocalIncreasedAccuracy2",
+  "stats": [
+    {
+      "id": "local_accuracy_rating",
+      "min": 33,
+      "max": 60,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

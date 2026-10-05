@@ -73,6 +73,12 @@ function tooltipEvents(id: string) {
 
 const workspaceTabs = ['workbench', 'support', 'explorer'] as const
 const baseSlugs = {
+  'aegis-quarterstaff': 'Aegis_Quarterstaff',
+  'bolting-quarterstaff': 'Bolting_Quarterstaff',
+  'dreaming-quarterstaff': 'Dreaming_Quarterstaff',
+  'grand-spear': 'Grand_Spear',
+  'flying-spear': 'Flying_Spear',
+  'akoyan-spear': 'Akoyan_Spear',
   'fortified-hammer': 'Fortified_Hammer',
   'strife-pick': 'Strife_Pick',
   'akoyan-club': 'Akoyan_Club',
@@ -469,6 +475,12 @@ export function CraftingPage() {
       | 'ruination-maul'
       | 'fanatic-greathammer'
       | 'tawhoan-greatclub'
+      | 'aegis-quarterstaff'
+      | 'bolting-quarterstaff'
+      | 'dreaming-quarterstaff'
+      | 'grand-spear'
+      | 'flying-spear'
+      | 'akoyan-spear'
       | 'bone'
       | 'siphoning'
       | 'volatile'
@@ -744,6 +756,12 @@ export function CraftingPage() {
     | 'ruination-maul'
     | 'fanatic-greathammer'
     | 'tawhoan-greatclub'
+    | 'aegis-quarterstaff'
+    | 'bolting-quarterstaff'
+    | 'dreaming-quarterstaff'
+    | 'grand-spear'
+    | 'flying-spear'
+    | 'akoyan-spear'
     | 'bone'
     | 'siphoning'
     | 'volatile'
@@ -1152,55 +1170,62 @@ export function CraftingPage() {
               ? topBase(catalogBase)?.family === 'one-hand-maces'
                 ? 'One Hand Maces'
                 : 'Two Hand Maces'
-              : topBase(catalogBase)?.family === 'quivers'
-                ? 'Quivers'
-                : Object.hasOwn(workbenchJewelBases, catalogBase)
-                  ? 'Jewels'
-                  : ['shields', 'bucklers', 'foci'].includes(
-                        topBase(catalogBase)?.family ?? '',
-                      )
-                    ? (
-                        {
-                          shields: 'Shields',
-                          bucklers: 'Bucklers',
-                          foci: 'Foci',
-                        } as Record<string, string>
-                      )[topBase(catalogBase)!.family]!
-                    : topBase(catalogBase)?.family === 'crossbows'
-                      ? 'Crossbows'
-                      : catalogBase === 'stocky' ||
-                          topBase(catalogBase)?.family === 'gloves'
-                        ? 'Gloves'
-                        : catalogBase === 'bow' ||
-                            topBase(catalogBase)?.family === 'bows'
-                          ? 'Bows'
-                          : catalogBase === 'wand' ||
-                              topBase(catalogBase)?.family === 'wands'
-                            ? 'Wands'
-                            : catalogBase === 'body' ||
-                                catalogBase === 'soldier' ||
-                                topBase(catalogBase)?.family === 'body'
-                              ? 'Body Armours'
-                              : catalogBase === 'sceptre' ||
-                                  topBase(catalogBase)?.family === 'sceptres'
-                                ? 'Sceptres'
-                                : catalogBase === 'belt' ||
-                                    topBase(catalogBase)?.family === 'belts'
-                                  ? 'Belts'
-                                  : catalogBase === 'ring' ||
-                                      topBase(catalogBase)?.family === 'rings'
-                                    ? 'Rings'
-                                    : catalogBase === 'helmet' ||
-                                        catalogBase === 'imperial' ||
-                                        topBase(catalogBase)?.family ===
-                                          'helmets'
-                                      ? 'Helmets'
-                                      : topBase(catalogBase)?.family === 'boots'
-                                        ? 'Boots'
-                                        : topBase(catalogBase)?.family ===
-                                            'amulets'
-                                          ? 'Amulets'
-                                          : 'Amulet',
+              : topBase(catalogBase)?.family === 'quarterstaves'
+                ? 'Quarterstaves'
+                : topBase(catalogBase)?.family === 'spears'
+                  ? 'Spears'
+                  : topBase(catalogBase)?.family === 'quivers'
+                    ? 'Quivers'
+                    : Object.hasOwn(workbenchJewelBases, catalogBase)
+                      ? 'Jewels'
+                      : ['shields', 'bucklers', 'foci'].includes(
+                            topBase(catalogBase)?.family ?? '',
+                          )
+                        ? (
+                            {
+                              shields: 'Shields',
+                              bucklers: 'Bucklers',
+                              foci: 'Foci',
+                            } as Record<string, string>
+                          )[topBase(catalogBase)!.family]!
+                        : topBase(catalogBase)?.family === 'crossbows'
+                          ? 'Crossbows'
+                          : catalogBase === 'stocky' ||
+                              topBase(catalogBase)?.family === 'gloves'
+                            ? 'Gloves'
+                            : catalogBase === 'bow' ||
+                                topBase(catalogBase)?.family === 'bows'
+                              ? 'Bows'
+                              : catalogBase === 'wand' ||
+                                  topBase(catalogBase)?.family === 'wands'
+                                ? 'Wands'
+                                : catalogBase === 'body' ||
+                                    catalogBase === 'soldier' ||
+                                    topBase(catalogBase)?.family === 'body'
+                                  ? 'Body Armours'
+                                  : catalogBase === 'sceptre' ||
+                                      topBase(catalogBase)?.family ===
+                                        'sceptres'
+                                    ? 'Sceptres'
+                                    : catalogBase === 'belt' ||
+                                        topBase(catalogBase)?.family === 'belts'
+                                      ? 'Belts'
+                                      : catalogBase === 'ring' ||
+                                          topBase(catalogBase)?.family ===
+                                            'rings'
+                                        ? 'Rings'
+                                        : catalogBase === 'helmet' ||
+                                            catalogBase === 'imperial' ||
+                                            topBase(catalogBase)?.family ===
+                                              'helmets'
+                                          ? 'Helmets'
+                                          : topBase(catalogBase)?.family ===
+                                              'boots'
+                                            ? 'Boots'
+                                            : topBase(catalogBase)?.family ===
+                                                'amulets'
+                                              ? 'Amulets'
+                                              : 'Amulet',
             itemLevel: concrete.itemLevel,
             properties: [
               ...(topBase(catalogBase)?.sourceProperties?.[locale] ?? [])
@@ -1211,6 +1236,8 @@ export function CraftingPage() {
                 .map((text, i) => ({
                   id: 'source-property-' + i,
                   text: [
+                    'quarterstaves',
+                    'spears',
                     'one-hand-maces',
                     'two-hand-maces',
                     'bows',
@@ -2399,6 +2426,12 @@ export function CraftingPage() {
                           | 'ruination-maul'
                           | 'fanatic-greathammer'
                           | 'tawhoan-greatclub'
+                          | 'aegis-quarterstaff'
+                          | 'bolting-quarterstaff'
+                          | 'dreaming-quarterstaff'
+                          | 'grand-spear'
+                          | 'flying-spear'
+                          | 'akoyan-spear'
                           | 'bone'
                           | 'siphoning'
                           | 'volatile'

@@ -44884,6 +44884,102 @@
       "values": [],
       "template": "maces.tawhoan-greatclub:implicit:base",
       "sourceCode": null
+    },
+    "aegis-quarterstaff:implicit:base": {
+      "stats": [
+        {
+          "id": "additional_block_%",
+          "min": 12,
+          "max": 18
+        }
+      ],
+      "englishText": "+(12—18)% to Block chance",
+      "values": ["+(12—18)"],
+      "template": "quarterstaves-spears.aegis-quarterstaff:implicit:base",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "additional_block_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "bolting-quarterstaff:implicit:base": {
+      "stats": [
+        {
+          "id": "local_weapon_implicit_hidden_added_maximum_lightning_damage",
+          "min": 100,
+          "max": 100
+        },
+        {
+          "id": "local_weapon_implicit_hidden_added_minimum_lightning_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "local weapon implicit hidden added maximum lightning damage [100]\nlocal weapon implicit hidden added minimum lightning damage [1]",
+      "values": [],
+      "template": "quarterstaves-spears.bolting-quarterstaff:implicit:base",
+      "sourceCode": null
+    },
+    "grand-spear:implicit:base": {
+      "stats": [
+        {
+          "id": "local_display_grants_spear_throw_skill",
+          "min": 1,
+          "max": 1
+        },
+        {
+          "id": "local_+%_weapon_range",
+          "min": 25,
+          "max": 25
+        }
+      ],
+      "englishText": "local display grants spear throw skill [1]\n25% increased Melee Strike Range with this weapon",
+      "values": [],
+      "template": "quarterstaves-spears.grand-spear:implicit:base",
+      "sourceCode": null
+    },
+    "flying-spear:implicit:base": {
+      "stats": [
+        {
+          "id": "local_display_grants_spear_throw_skill",
+          "min": 1,
+          "max": 1
+        },
+        {
+          "id": "local_projectile_speed_+%",
+          "min": 25,
+          "max": 35
+        }
+      ],
+      "englishText": "local display grants spear throw skill [1]\n(25—35)% increased Projectile Speed with this Weapon",
+      "values": ["1", "(25—35)"],
+      "template": "quarterstaves-spears.flying-spear:implicit:base",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "local_display_grants_spear_throw_skill",
+          "divisor": 1
+        },
+        {
+          "id": "local_projectile_speed_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "akoyan-spear:implicit:base": {
+      "stats": [
+        {
+          "id": "local_display_grants_spear_throw_skill",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "local display grants spear throw skill [1]",
+      "values": [],
+      "template": "quarterstaves-spears.akoyan-spear:implicit:base",
+      "sourceCode": null
     }
   },
   "templates": {
@@ -53435,6 +53531,26 @@
       "maces.tawhoan-greatclub:implicit:base": {
         "name": "Tawhoan Greatclub",
         "template": "Warcries Empower 1 additional Attacks"
+      },
+      "quarterstaves-spears.aegis-quarterstaff:implicit:base": {
+        "name": "Aegis Quarterstaff",
+        "template": "{v0}% to Block chance"
+      },
+      "quarterstaves-spears.bolting-quarterstaff:implicit:base": {
+        "name": "Bolting Quarterstaff",
+        "template": "local weapon implicit hidden added maximum lightning damage [100]\nlocal weapon implicit hidden added minimum lightning damage [1]"
+      },
+      "quarterstaves-spears.grand-spear:implicit:base": {
+        "name": "Grand Spear",
+        "template": "local display grants spear throw skill [1]\n25% increased Melee Strike Range with this weapon"
+      },
+      "quarterstaves-spears.flying-spear:implicit:base": {
+        "name": "Flying Spear",
+        "template": "local display grants spear throw skill [{v0}]\n{v1}% increased Projectile Speed with this Weapon"
+      },
+      "quarterstaves-spears.akoyan-spear:implicit:base": {
+        "name": "Akoyan Spear",
+        "template": "local display grants spear throw skill [1]"
       }
     },
     "ko": {
@@ -61985,6 +62101,26 @@
       "maces.tawhoan-greatclub:implicit:base": {
         "name": "Tawhoan Greatclub",
         "template": "함성이 공격 1회 추가로 강화"
+      },
+      "quarterstaves-spears.aegis-quarterstaff:implicit:base": {
+        "name": "Aegis Quarterstaff",
+        "template": "막기 확률 {v0}%"
+      },
+      "quarterstaves-spears.bolting-quarterstaff:implicit:base": {
+        "name": "Bolting Quarterstaff",
+        "template": "local weapon implicit hidden added maximum lightning damage [100]\nlocal weapon implicit hidden added minimum lightning damage [1]"
+      },
+      "quarterstaves-spears.grand-spear:implicit:base": {
+        "name": "Grand Spear",
+        "template": "local display grants spear throw skill [1]\n이 무기 사용 시 근접 타격 범위 25% 증가"
+      },
+      "quarterstaves-spears.flying-spear:implicit:base": {
+        "name": "Flying Spear",
+        "template": "local display grants spear throw skill [{v0}]\n이 무기의 투사체 속도 {v1}% 증가"
+      },
+      "quarterstaves-spears.akoyan-spear:implicit:base": {
+        "name": "Akoyan Spear",
+        "template": "local display grants spear throw skill [1]"
       }
     },
     "zh-CN": {
@@ -70535,6 +70671,26 @@
       "maces.tawhoan-greatclub:implicit:base": {
         "name": "Tawhoan Greatclub",
         "template": "战吼额外被强化 1 次攻击"
+      },
+      "quarterstaves-spears.aegis-quarterstaff:implicit:base": {
+        "name": "Aegis Quarterstaff",
+        "template": "格挡几率 {v0}%"
+      },
+      "quarterstaves-spears.bolting-quarterstaff:implicit:base": {
+        "name": "Bolting Quarterstaff",
+        "template": "local weapon implicit hidden added maximum lightning damage [100]\nlocal weapon implicit hidden added minimum lightning damage [1]"
+      },
+      "quarterstaves-spears.grand-spear:implicit:base": {
+        "name": "Grand Spear",
+        "template": "local display grants spear throw skill [1]\n此武器的近战打击范围提高 25%"
+      },
+      "quarterstaves-spears.flying-spear:implicit:base": {
+        "name": "Flying Spear",
+        "template": "local display grants spear throw skill [{v0}]\n此武器的投射物速度提高 {v1}%"
+      },
+      "quarterstaves-spears.akoyan-spear:implicit:base": {
+        "name": "Akoyan Spear",
+        "template": "local display grants spear throw skill [1]"
       }
     },
     "zh-TW": {
@@ -79085,6 +79241,26 @@
       "maces.tawhoan-greatclub:implicit:base": {
         "name": "Tawhoan Greatclub",
         "template": "戰吼強化額外1次攻擊"
+      },
+      "quarterstaves-spears.aegis-quarterstaff:implicit:base": {
+        "name": "Aegis Quarterstaff",
+        "template": "{v0}%至格擋率"
+      },
+      "quarterstaves-spears.bolting-quarterstaff:implicit:base": {
+        "name": "Bolting Quarterstaff",
+        "template": "local weapon implicit hidden added maximum lightning damage [100]\nlocal weapon implicit hidden added minimum lightning damage [1]"
+      },
+      "quarterstaves-spears.grand-spear:implicit:base": {
+        "name": "Grand Spear",
+        "template": "local display grants spear throw skill [1]\n此武器增加25%近戰打擊範圍"
+      },
+      "quarterstaves-spears.flying-spear:implicit:base": {
+        "name": "Flying Spear",
+        "template": "local display grants spear throw skill [{v0}]\n增加{v1}%此武器的投射物速度"
+      },
+      "quarterstaves-spears.akoyan-spear:implicit:base": {
+        "name": "Akoyan Spear",
+        "template": "local display grants spear throw skill [1]"
       }
     },
     "ja": {
@@ -87635,6 +87811,26 @@
       "maces.tawhoan-greatclub:implicit:base": {
         "name": "Tawhoan Greatclub",
         "template": "ウォークライはアタックを追加で1回強化する"
+      },
+      "quarterstaves-spears.aegis-quarterstaff:implicit:base": {
+        "name": "Aegis Quarterstaff",
+        "template": "ブロック率 {v0}%"
+      },
+      "quarterstaves-spears.bolting-quarterstaff:implicit:base": {
+        "name": "Bolting Quarterstaff",
+        "template": "local weapon implicit hidden added maximum lightning damage [100]\nlocal weapon implicit hidden added minimum lightning damage [1]"
+      },
+      "quarterstaves-spears.grand-spear:implicit:base": {
+        "name": "Grand Spear",
+        "template": "local display grants spear throw skill [1]\nこの武器の近接ストライク距離が25%増加する"
+      },
+      "quarterstaves-spears.flying-spear:implicit:base": {
+        "name": "Flying Spear",
+        "template": "local display grants spear throw skill [{v0}]\nこの武器による投射物スピードが{v1}%増加する"
+      },
+      "quarterstaves-spears.akoyan-spear:implicit:base": {
+        "name": "Akoyan Spear",
+        "template": "local display grants spear throw skill [1]"
       }
     },
     "es": {
@@ -96185,6 +96381,26 @@
       "maces.tawhoan-greatclub:implicit:base": {
         "name": "Tawhoan Greatclub",
         "template": "Los gritos de guerra potencian un ataque adicional"
+      },
+      "quarterstaves-spears.aegis-quarterstaff:implicit:base": {
+        "name": "Aegis Quarterstaff",
+        "template": "{v0}% a la probabilidad de bloqueo"
+      },
+      "quarterstaves-spears.bolting-quarterstaff:implicit:base": {
+        "name": "Bolting Quarterstaff",
+        "template": "local weapon implicit hidden added maximum lightning damage [100]\nlocal weapon implicit hidden added minimum lightning damage [1]"
+      },
+      "quarterstaves-spears.grand-spear:implicit:base": {
+        "name": "Grand Spear",
+        "template": "local display grants spear throw skill [1]\nAlcance de los golpes cuerpo a cuerpo aumentado un 25% con esta arma"
+      },
+      "quarterstaves-spears.flying-spear:implicit:base": {
+        "name": "Flying Spear",
+        "template": "local display grants spear throw skill [{v0}]\nVelocidad de proyectiles aumentada un {v1}% con esta arma"
+      },
+      "quarterstaves-spears.akoyan-spear:implicit:base": {
+        "name": "Akoyan Spear",
+        "template": "local display grants spear throw skill [1]"
       }
     }
   }

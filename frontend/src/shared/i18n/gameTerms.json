@@ -2850,6 +2850,81 @@
       ],
       "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace10Endgame",
       "sourceUrl": "https://poe2db.tw/us/Tawhoan_Greatclub"
+    },
+    "Aegis_Quarterstaff": {
+      "name": "Aegis Quarterstaff",
+      "lines": [
+        "Quarterstaves",
+        "Physical Damage: 58-97",
+        "Critical Hit Chance: 10%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.4"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff8Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Aegis_Quarterstaff"
+    },
+    "Bolting_Quarterstaff": {
+      "name": "Bolting Quarterstaff",
+      "lines": [
+        "Quarterstaves",
+        "Physical Damage: 24-97",
+        "Critical Hit Chance: 10%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.4"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff4Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Bolting_Quarterstaff"
+    },
+    "Dreaming_Quarterstaff": {
+      "name": "Dreaming Quarterstaff",
+      "lines": [
+        "Quarterstaves",
+        "Physical Damage: 99-133",
+        "Critical Hit Chance: 0%",
+        "Attacks per Second: 1.5",
+        "Weapon Range: 1.4"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff10Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Dreaming_Quarterstaff"
+    },
+    "Grand_Spear": {
+      "name": "Grand Spear",
+      "lines": [
+        "Spears",
+        "Physical Damage: 56-84",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.5",
+        "Grants Skill: Spear Throw"
+      ],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear8Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Grand_Spear"
+    },
+    "Flying_Spear": {
+      "name": "Flying Spear",
+      "lines": [
+        "Spears",
+        "Physical Damage: 46-77",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.6",
+        "Weapon Range: 1.5",
+        "Grants Skill: Spear Throw"
+      ],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear5Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Flying_Spear"
+    },
+    "Akoyan_Spear": {
+      "name": "Akoyan Spear",
+      "lines": [
+        "Spears",
+        "Physical Damage: 39-72",
+        "Critical Hit Chance: 7%",
+        "Attacks per Second: 1.6",
+        "Weapon Range: 1.5",
+        "Grants Skill: Spear Throw"
+      ],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Akoyan_Spear"
     }
   },
   "ko": {
@@ -5683,6 +5758,81 @@
       ],
       "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace10Endgame",
       "sourceUrl": "https://poe2db.tw/kr/Tawhoan_Greatclub"
+    },
+    "Aegis_Quarterstaff": {
+      "name": "비호 육척봉",
+      "lines": [
+        "육척봉",
+        "물리 피해: 58-97",
+        "치명타 명중 확률: 10%",
+        "초당 공격 횟수: 1.4",
+        "무기 범위: 1.4"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff8Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Aegis_Quarterstaff"
+    },
+    "Bolting_Quarterstaff": {
+      "name": "번갯불의 육척봉",
+      "lines": [
+        "육척봉",
+        "물리 피해: 24-97",
+        "치명타 명중 확률: 10%",
+        "초당 공격 횟수: 1.4",
+        "무기 범위: 1.4"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff4Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Bolting_Quarterstaff"
+    },
+    "Dreaming_Quarterstaff": {
+      "name": "몽환의 육척봉",
+      "lines": [
+        "육척봉",
+        "물리 피해: 99-133",
+        "치명타 명중 확률: 0%",
+        "초당 공격 횟수: 1.5",
+        "무기 범위: 1.4"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff10Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Dreaming_Quarterstaff"
+    },
+    "Grand_Spear": {
+      "name": "우수한 창",
+      "lines": [
+        "창",
+        "물리 피해: 56-84",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.4",
+        "무기 범위: 1.5",
+        "스킬 부여: 창 투척"
+      ],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear8Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Grand_Spear"
+    },
+    "Flying_Spear": {
+      "name": "비행 창",
+      "lines": [
+        "창",
+        "물리 피해: 46-77",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.6",
+        "무기 범위: 1.5",
+        "스킬 부여: 창 투척"
+      ],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear5Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Flying_Spear"
+    },
+    "Akoyan_Spear": {
+      "name": "아코야의 창",
+      "lines": [
+        "창",
+        "물리 피해: 39-72",
+        "치명타 명중 확률: 7%",
+        "초당 공격 횟수: 1.6",
+        "무기 범위: 1.5",
+        "스킬 부여: 창 투척"
+      ],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Akoyan_Spear"
     }
   },
   "zh-CN": {
@@ -8414,6 +8564,81 @@
       ],
       "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace10Endgame",
       "sourceUrl": "https://poe2db.tw/cn/Tawhoan_Greatclub"
+    },
+    "Aegis_Quarterstaff": {
+      "name": "神盾节杖",
+      "lines": [
+        "节杖",
+        "物理伤害: 58-97",
+        "暴击率: 10%",
+        "每秒攻击次数: 1.4",
+        "武器范围: 1.4"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff8Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Aegis_Quarterstaff"
+    },
+    "Bolting_Quarterstaff": {
+      "name": "霹雳节杖",
+      "lines": [
+        "节杖",
+        "物理伤害: 24-97",
+        "暴击率: 10%",
+        "每秒攻击次数: 1.4",
+        "武器范围: 1.4"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff4Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Bolting_Quarterstaff"
+    },
+    "Dreaming_Quarterstaff": {
+      "name": "梦境节杖",
+      "lines": [
+        "节杖",
+        "物理伤害: 99-133",
+        "暴击率: 0%",
+        "每秒攻击次数: 1.5",
+        "武器范围: 1.4"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff10Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Dreaming_Quarterstaff"
+    },
+    "Grand_Spear": {
+      "name": "宏伟战矛",
+      "lines": [
+        "战矛",
+        "物理伤害: 56-84",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.4",
+        "武器范围: 1.5",
+        "获得技能: 战矛飞掷"
+      ],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear8Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Grand_Spear"
+    },
+    "Flying_Spear": {
+      "name": "飞行战矛",
+      "lines": [
+        "战矛",
+        "物理伤害: 46-77",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.6",
+        "武器范围: 1.5",
+        "获得技能: 战矛飞掷"
+      ],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear5Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Flying_Spear"
+    },
+    "Akoyan_Spear": {
+      "name": "阿科扬战矛",
+      "lines": [
+        "战矛",
+        "物理伤害: 39-72",
+        "暴击率: 7%",
+        "每秒攻击次数: 1.6",
+        "武器范围: 1.5",
+        "获得技能: 战矛飞掷"
+      ],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Akoyan_Spear"
     }
   },
   "zh-TW": {
@@ -11135,6 +11360,81 @@
       ],
       "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace10Endgame",
       "sourceUrl": "https://poe2db.tw/tw/Tawhoan_Greatclub"
+    },
+    "Aegis_Quarterstaff": {
+      "name": "神禦細杖",
+      "lines": [
+        "細杖",
+        "物理傷害: 58-97",
+        "暴擊率: 10%",
+        "每秒攻擊次數: 1.4",
+        "武器範圍: 1.4"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff8Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Aegis_Quarterstaff"
+    },
+    "Bolting_Quarterstaff": {
+      "name": "雷霆細杖",
+      "lines": [
+        "細杖",
+        "物理傷害: 24-97",
+        "暴擊率: 10%",
+        "每秒攻擊次數: 1.4",
+        "武器範圍: 1.4"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff4Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Bolting_Quarterstaff"
+    },
+    "Dreaming_Quarterstaff": {
+      "name": "夢境細杖",
+      "lines": [
+        "細杖",
+        "物理傷害: 99-133",
+        "暴擊率: 0%",
+        "每秒攻擊次數: 1.5",
+        "武器範圍: 1.4"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff10Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Dreaming_Quarterstaff"
+    },
+    "Grand_Spear": {
+      "name": "宏偉長矛",
+      "lines": [
+        "長矛",
+        "物理傷害: 56-84",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.4",
+        "武器範圍: 1.5",
+        "賦予技能: 長矛投擲"
+      ],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear8Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Grand_Spear"
+    },
+    "Flying_Spear": {
+      "name": "翱翔長矛",
+      "lines": [
+        "長矛",
+        "物理傷害: 46-77",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.6",
+        "武器範圍: 1.5",
+        "賦予技能: 長矛投擲"
+      ],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear5Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Flying_Spear"
+    },
+    "Akoyan_Spear": {
+      "name": "艾古亞長矛",
+      "lines": [
+        "長矛",
+        "物理傷害: 39-72",
+        "暴擊率: 7%",
+        "每秒攻擊次數: 1.6",
+        "武器範圍: 1.5",
+        "賦予技能: 長矛投擲"
+      ],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Akoyan_Spear"
     }
   },
   "ja": {
@@ -13970,6 +14270,81 @@
       ],
       "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace10Endgame",
       "sourceUrl": "https://poe2db.tw/jp/Tawhoan_Greatclub"
+    },
+    "Aegis_Quarterstaff": {
+      "name": "イージスクォータースタッフ",
+      "lines": [
+        "クォータースタッフ",
+        "物理ダメージ: 58-97",
+        "クリティカルヒット率: 10%",
+        "秒間アタック回数: 1.4",
+        "武器攻撃距離: 1.4"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff8Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Aegis_Quarterstaff"
+    },
+    "Bolting_Quarterstaff": {
+      "name": "雷撃のクォータースタッフ",
+      "lines": [
+        "クォータースタッフ",
+        "物理ダメージ: 24-97",
+        "クリティカルヒット率: 10%",
+        "秒間アタック回数: 1.4",
+        "武器攻撃距離: 1.4"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff4Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Bolting_Quarterstaff"
+    },
+    "Dreaming_Quarterstaff": {
+      "name": "夢見るクォータースタッフ",
+      "lines": [
+        "クォータースタッフ",
+        "物理ダメージ: 99-133",
+        "クリティカルヒット率: 0%",
+        "秒間アタック回数: 1.5",
+        "武器攻撃距離: 1.4"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff10Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Dreaming_Quarterstaff"
+    },
+    "Grand_Spear": {
+      "name": "グランドスピア",
+      "lines": [
+        "スピア",
+        "物理ダメージ: 56-84",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.4",
+        "武器攻撃距離: 1.5",
+        "スキルを付与: スピアスロー"
+      ],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear8Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Grand_Spear"
+    },
+    "Flying_Spear": {
+      "name": "フレイングスピア",
+      "lines": [
+        "スピア",
+        "物理ダメージ: 46-77",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.6",
+        "武器攻撃距離: 1.5",
+        "スキルを付与: スピアスロー"
+      ],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear5Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Flying_Spear"
+    },
+    "Akoyan_Spear": {
+      "name": "アコヤのスピア",
+      "lines": [
+        "スピア",
+        "物理ダメージ: 39-72",
+        "クリティカルヒット率: 7%",
+        "秒間アタック回数: 1.6",
+        "武器攻撃距離: 1.5",
+        "スキルを付与: スピアスロー"
+      ],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Akoyan_Spear"
     }
   },
   "es": {
@@ -16727,6 +17102,81 @@
       ],
       "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace10Endgame",
       "sourceUrl": "https://poe2db.tw/sp/Tawhoan_Greatclub"
+    },
+    "Aegis_Quarterstaff": {
+      "name": "Bastón de égida",
+      "lines": [
+        "Bastones",
+        "Daño físico: 58-97",
+        "Probabilidad de impacto crítico: 10%",
+        "Ataques por segundo: 1.4",
+        "Alcance de arma: 1.4"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff8Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Aegis_Quarterstaff"
+    },
+    "Bolting_Quarterstaff": {
+      "name": "Bastón tormentoso experto",
+      "lines": [
+        "Bastones",
+        "Daño físico: 24-97",
+        "Probabilidad de impacto crítico: 10%",
+        "Ataques por segundo: 1.4",
+        "Alcance de arma: 1.4"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff4Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Bolting_Quarterstaff"
+    },
+    "Dreaming_Quarterstaff": {
+      "name": "Bastón soñador",
+      "lines": [
+        "Bastones",
+        "Daño físico: 99-133",
+        "Probabilidad de impacto crítico: 0%",
+        "Ataques por segundo: 1.5",
+        "Alcance de arma: 1.4"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff10Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Dreaming_Quarterstaff"
+    },
+    "Grand_Spear": {
+      "name": "Lanza grandiosa",
+      "lines": [
+        "Lanzas",
+        "Daño físico: 56-84",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.4",
+        "Alcance de arma: 1.5",
+        "Otorga la habilidad: Lanzamiento de lanza"
+      ],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear8Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Grand_Spear"
+    },
+    "Flying_Spear": {
+      "name": "Lanza voladora",
+      "lines": [
+        "Lanzas",
+        "Daño físico: 46-77",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.6",
+        "Alcance de arma: 1.5",
+        "Otorga la habilidad: Lanzamiento de lanza"
+      ],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear5Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Flying_Spear"
+    },
+    "Akoyan_Spear": {
+      "name": "Lanza akoyana",
+      "lines": [
+        "Lanzas",
+        "Daño físico: 39-72",
+        "Probabilidad de impacto crítico: 7%",
+        "Ataques por segundo: 1.6",
+        "Alcance de arma: 1.5",
+        "Otorga la habilidad: Lanzamiento de lanza"
+      ],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Akoyan_Spear"
     }
   }
 }

@@ -11,3 +11,5 @@ docs/evidence/offhands-source-bundle-2026-10-05/*.html -text whitespace=cr-at-eo
 docs/evidence/quivers-source-bundle-2026-10-05/*.html -text whitespace=cr-at-eol
 # Preserve checksum-bound Mace responses including mixed newlines.
 docs/evidence/maces-source-bundle-2026-10-05/*.html -text whitespace=cr-at-eol
+# Preserve checksum-bound Quarterstaff/Spear responses including mixed newlines.
+docs/evidence/quarterstaves-spears-source-bundle-2026-10-05/*.html -text whitespace=cr-at-eol

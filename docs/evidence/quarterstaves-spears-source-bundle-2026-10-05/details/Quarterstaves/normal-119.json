@@ -1,0 +1,61 @@
+{
+  "row": {
+    "Name": "Deliberate",
+    "Level": "26",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedAccuracy"
+    ],
+    "DropChance": "800",
+    "str": "<span class='mod-value'>+(85<span class=\"ndash\">—</span>123)</span> to <a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/4a439d13631e43c7f47aab345a7e6b64877fb0209f2c42901d14cd9d9f36da1c\">Accuracy</a> Rating",
+    "fossil_no": [
+      "attack"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b3c3eda7b91bbc93cf45b5b70d801dd225ef04959f3090f146efd7e6b2b83084"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedAccuracy4",
+  "textLocale": "us",
+  "detailText": "+(85—123) to Accuracy Rating",
+  "retrievedAt": "2026-10-05T08:10:18.192Z",
+  "sha256": "581c714b8ec8126129b913979c72c1f7b3b043c4cf39e57e542bfbc955d7a98a",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(85<span class=\"ndash\">—</span>123)</span> to <a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/4a439d13631e43c7f47aab345a7e6b64877fb0209f2c42901d14cd9d9f36da1c\">Accuracy</a> Rating</span></h5>   <span data-tabname=\"Deliberate\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Deliberate\n<tr><th>Family<td>IncreasedAccuracy\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>26 (Effective: 20)\n<tr><th>Gold Price<td>381\n<tr><th>Stats<td><li>local accuracy rating <span class=\"badge bg-primary\">85 <span class=\"ndash\">—</span> 123</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attack</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Deliberate",
+    "Family": "IncreasedAccuracy",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "26 (Effective: 20)",
+    "Gold Price": "381",
+    "Stats": "local accuracy rating 85 — 123 Local",
+    "Spawn Tags": "weapon: 1 default: 0",
+    "Craft Tags": "Attack"
+  },
+  "code": "LocalIncreasedAccuracy4",
+  "stats": [
+    {
+      "id": "local_accuracy_rating",
+      "min": 85,
+      "max": 123,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

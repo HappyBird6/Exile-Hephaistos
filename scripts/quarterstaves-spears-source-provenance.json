@@ -1,0 +1,27 @@
+{
+  "baseHead": "2fe3f86d101ef8f3f35636470a9e4789ae7c7edf",
+  "failureHistory": [
+    {
+      "phase": "initial public source collection",
+      "result": "Sandbox network EACCES; no source file saved",
+      "resolution": "Normal require_escalated review allowed public PoE2DB reads into the new evidence directory"
+    },
+    {
+      "phase": "Backend formatter synchronization",
+      "result": "Whitespace-only assertion rejected formatter-added Javadoc stars in the new class comment",
+      "resolution": "Reviewed exact comment-only difference, applied formatted Javadoc to the source and reran the unchanged assertion successfully"
+    },
+    {
+      "phase": "Frontend check 1",
+      "result": "Node22/npm10 violated the existing strict Node24/npm11 engine requirement at npm ci",
+      "resolution": "Preserved frontend-check-1.log and reran required checks with the existing Node24 image into frontend-check-2.log"
+    }
+  ],
+  "reviewCorrections": [
+    "Before Frontend checks, corrected the new classes being accidentally included in the Mace itemClass condition; source property disclosure is separately applied to Quarterstaves and Spears",
+    "Updated the new importer generator to restrict generic registry additions to existing supported-base arrays; global Homogenising entries remain structurally unchanged",
+    "Dreaming has no implicit; API and browser probes assert that valid empty source state instead of requiring a fabricated implicit",
+    "Spears preserve both canonical display-grants-Spear-Throw stats and six-locale source skill lines"
+  ],
+  "preservation": "Existing output directories, logs, evidence and denied overwrite boundary are preserved. No skip, weakened game-value assertion, remote action or unrelated Docker stop is used."
+}

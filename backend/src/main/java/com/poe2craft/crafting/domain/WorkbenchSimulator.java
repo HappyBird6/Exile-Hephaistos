@@ -134,6 +134,8 @@ public final class WorkbenchSimulator {
   }
 
   private String baseRuleVersion() {
+    if (ReviewedQuarterstavesSpears.supports(catalog.base().id()))
+      return "quarterstaves-spears-workbench-v1";
     if (ReviewedMaces.supports(catalog.base().id())) return "maces-workbench-v1";
     if (ReviewedQuivers.supports(catalog.base().id())) return "quiver-workbench-v1";
     if (ReviewedOffhands.supports(catalog.base().id())) return "offhand-workbench-v1";
@@ -168,6 +170,8 @@ public final class WorkbenchSimulator {
   }
 
   public String ledgerVersion() {
+    if (ReviewedQuarterstavesSpears.supports(catalog.base().id()))
+      return "quarterstaves-spears-unverified-numeric-assumptions-v1";
     if (ReviewedMaces.supports(catalog.base().id()))
       return "maces-unverified-numeric-assumptions-v1";
     if (ReviewedQuivers.supports(catalog.base().id()))

@@ -1,0 +1,77 @@
+{
+  "row": {
+    "Name": "Annealed",
+    "Level": "54",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "PhysicalDamage"
+    ],
+    "DropChance": "600",
+    "str": "Adds <span class='mod-value'>(19<span class=\"ndash\">—</span>29)</span> to <span class='mod-value'>(33<span class=\"ndash\">—</span>49)</span> <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage",
+    "fossil_no": [
+      "physical_damage",
+      "damage",
+      "physical",
+      "attack"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "bow",
+      "two_hand_weapon",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>",
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/eae07a48901ccccaedd07539e15ffab0b00502e212021b16c23b0856d872afe2"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalAddedPhysicalDamageTwoHand6",
+  "textLocale": "us",
+  "detailText": "Adds (19—29) to (33—49) Physical Damage",
+  "retrievedAt": "2026-10-05T08:06:57.238Z",
+  "sha256": "4dc3d3fa00abcfad805930b54f3b2847b3ccb781a1e7a8769a2ec62e116ad678",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Adds <span class='mod-value'>(19<span class=\"ndash\">—</span>29)</span> to <span class='mod-value'>(33<span class=\"ndash\">—</span>49)</span> <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage</span></h5>   <span data-tabname=\"Annealed\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Annealed\n<tr><th>Family<td>PhysicalDamage\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>54 (Effective: 43)\n<tr><th>Gold Price<td>667\n<tr><th>Stats<td><li>local maximum added physical damage <span class=\"badge bg-primary\">33 <span class=\"ndash\">—</span> 49</span> <span class=\"badge bg-secondary\">Local</span></li><li>local minimum added physical damage <span class=\"badge bg-primary\">19 <span class=\"ndash\">—</span> 29</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>bow: 0</span> <span class='badge bg-primary'>two_hand_weapon: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>physical_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Physical</span> <span class='badge bg-primary'>Attack</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Annealed",
+    "Family": "PhysicalDamage",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "54 (Effective: 43)",
+    "Gold Price": "667",
+    "Stats": "local maximum added physical damage 33 — 49 Locallocal minimum added physical damage 19 — 29 Local",
+    "Spawn Tags": "bow: 0 two_hand_weapon: 1 default: 0",
+    "Craft Tags": "physical_damage Damage Physical Attack"
+  },
+  "code": "LocalAddedPhysicalDamageTwoHand6",
+  "stats": [
+    {
+      "id": "local_maximum_added_physical_damage",
+      "min": 33,
+      "max": 49,
+      "locality": "Local"
+    },
+    {
+      "id": "local_minimum_added_physical_damage",
+      "min": 19,
+      "max": 29,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "bow",
+      "weight": 0
+    },
+    {
+      "tag": "two_hand_weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

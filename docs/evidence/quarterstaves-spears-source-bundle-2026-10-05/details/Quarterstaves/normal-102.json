@@ -1,0 +1,82 @@
+{
+  "row": {
+    "Name": "of Devouring",
+    "Level": "67",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ManaGainedFromEnemyDeath"
+    ],
+    "DropChance": "750",
+    "str": "Gain <span class='mod-value'>(28<span class=\"ndash\">—</span>35)</span> Mana per enemy killed",
+    "fossil_no": [
+      "resource",
+      "mana"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "wand",
+      "staff",
+      "gloves",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3085122ac2fcd555b7e0bbaf8a572dd79216759c67bee344f44e2b8c947bf9dd"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaGainedFromEnemyDeath7",
+  "textLocale": "us",
+  "detailText": "Gain (28—35) Mana per enemy killed",
+  "retrievedAt": "2026-10-05T08:09:44.576Z",
+  "sha256": "3085122ac2fcd555b7e0bbaf8a572dd79216759c67bee344f44e2b8c947bf9dd",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Gain <span class='mod-value'>(28<span class=\"ndash\">—</span>35)</span> Mana per enemy killed</span></h5>   <span data-tabname=\"of Devouring\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Devouring\n<tr><th>Family<td>ManaGainedFromEnemyDeath\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>67 (Effective: 53)\n<tr><th>Gold Price<td>2175\n<tr><th>Stats<td><li>base mana gained on enemy death <span class=\"badge bg-primary\">28 <span class=\"ndash\">—</span> 35</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> \n<tr><td>Fists of Stone<td>Recover <span class='mod-value'>2</span>% of maximum Mana on Kill</table>  </div></div>",
+  "fields": {
+    "Name": "of Devouring",
+    "Family": "ManaGainedFromEnemyDeath",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "67 (Effective: 53)",
+    "Gold Price": "2175",
+    "Stats": "base mana gained on enemy death 28 — 35 Global",
+    "Spawn Tags": "weapon: 1 wand: 1 staff: 1 gloves: 1 trap: 1 default: 0",
+    "Craft Tags": "resource Mana"
+  },
+  "code": "ManaGainedFromEnemyDeath7",
+  "stats": [
+    {
+      "id": "base_mana_gained_on_enemy_death",
+      "min": 28,
+      "max": 35,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "gloves",
+      "weight": 1
+    },
+    {
+      "tag": "trap",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

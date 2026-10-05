@@ -1,0 +1,243 @@
+{
+  "passed": true,
+  "checkedAt": "2026-10-05T08:16:10.679Z",
+  "classes": [
+    {
+      "page": "Quarterstaves",
+      "classId": 58,
+      "ordinary": 158,
+      "essence": 31,
+      "perfectEssence": 14
+    },
+    {
+      "page": "Spears",
+      "classId": 79,
+      "ordinary": 162,
+      "essence": 31,
+      "perfectEssence": 14
+    }
+  ],
+  "bases": [
+    {
+      "key": "aegis-quarterstaff",
+      "classId": 58,
+      "ordinary": 158,
+      "sourceTags": [
+        "warstaff",
+        "two_hand_weapon",
+        "twohand",
+        "weapon"
+      ],
+      "implicit": [
+        {
+          "id": "additional_block_%",
+          "min": 12,
+          "max": 18
+        }
+      ],
+      "localities": [
+        {
+          "id": "additional_block_%",
+          "min": 12,
+          "max": 18,
+          "locality": "Global"
+        }
+      ],
+      "properties": [
+        "Quarterstaves",
+        "Physical Damage: 58-97",
+        "Critical Hit Chance: 10%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.4"
+      ]
+    },
+    {
+      "key": "bolting-quarterstaff",
+      "classId": 58,
+      "ordinary": 158,
+      "sourceTags": [
+        "warstaff",
+        "two_hand_weapon",
+        "twohand",
+        "weapon"
+      ],
+      "implicit": [
+        {
+          "id": "local_weapon_implicit_hidden_added_maximum_lightning_damage",
+          "min": 100,
+          "max": 100
+        },
+        {
+          "id": "local_weapon_implicit_hidden_added_minimum_lightning_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "localities": [
+        {
+          "id": "local_weapon_implicit_hidden_added_maximum_lightning_damage",
+          "min": 100,
+          "max": 100,
+          "locality": "Local"
+        },
+        {
+          "id": "local_weapon_implicit_hidden_added_minimum_lightning_damage",
+          "min": 1,
+          "max": 1,
+          "locality": "Local"
+        }
+      ],
+      "properties": [
+        "Quarterstaves",
+        "Physical Damage: 24-97",
+        "Critical Hit Chance: 10%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.4"
+      ]
+    },
+    {
+      "key": "dreaming-quarterstaff",
+      "classId": 58,
+      "ordinary": 158,
+      "sourceTags": [
+        "karui_basetype",
+        "warstaff",
+        "two_hand_weapon",
+        "twohand",
+        "weapon"
+      ],
+      "implicit": [],
+      "localities": [],
+      "properties": [
+        "Quarterstaves",
+        "Physical Damage: 99-133",
+        "Critical Hit Chance: 0%",
+        "Attacks per Second: 1.5",
+        "Weapon Range: 1.4"
+      ]
+    },
+    {
+      "key": "grand-spear",
+      "classId": 79,
+      "ordinary": 162,
+      "sourceTags": [
+        "spear",
+        "one_hand_weapon",
+        "onehand",
+        "weapon"
+      ],
+      "implicit": [
+        {
+          "id": "local_display_grants_spear_throw_skill",
+          "min": 1,
+          "max": 1
+        },
+        {
+          "id": "local_+%_weapon_range",
+          "min": 25,
+          "max": 25
+        }
+      ],
+      "localities": [
+        {
+          "id": "local_display_grants_spear_throw_skill",
+          "min": 1,
+          "max": 1,
+          "locality": "Local"
+        },
+        {
+          "id": "local_+%_weapon_range",
+          "min": 25,
+          "max": 25,
+          "locality": "Local"
+        }
+      ],
+      "properties": [
+        "Spears",
+        "Physical Damage: 56-84",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.5"
+      ]
+    },
+    {
+      "key": "flying-spear",
+      "classId": 79,
+      "ordinary": 162,
+      "sourceTags": [
+        "spear",
+        "one_hand_weapon",
+        "onehand",
+        "weapon"
+      ],
+      "implicit": [
+        {
+          "id": "local_display_grants_spear_throw_skill",
+          "min": 1,
+          "max": 1
+        },
+        {
+          "id": "local_projectile_speed_+%",
+          "min": 25,
+          "max": 35
+        }
+      ],
+      "localities": [
+        {
+          "id": "local_display_grants_spear_throw_skill",
+          "min": 1,
+          "max": 1,
+          "locality": "Local"
+        },
+        {
+          "id": "local_projectile_speed_+%",
+          "min": 25,
+          "max": 35,
+          "locality": "Local"
+        }
+      ],
+      "properties": [
+        "Spears",
+        "Physical Damage: 46-77",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.6",
+        "Weapon Range: 1.5"
+      ]
+    },
+    {
+      "key": "akoyan-spear",
+      "classId": 79,
+      "ordinary": 162,
+      "sourceTags": [
+        "karui_basetype",
+        "spear",
+        "one_hand_weapon",
+        "onehand",
+        "weapon"
+      ],
+      "implicit": [
+        {
+          "id": "local_display_grants_spear_throw_skill",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "localities": [
+        {
+          "id": "local_display_grants_spear_throw_skill",
+          "min": 1,
+          "max": 1,
+          "locality": "Local"
+        }
+      ],
+      "properties": [
+        "Spears",
+        "Physical Damage: 39-72",
+        "Critical Hit Chance: 7%",
+        "Attacks per Second: 1.6",
+        "Weapon Range: 1.5"
+      ]
+    }
+  ],
+  "scope": "Complete ordinary and Essence source; Local/Global are display semantics without combat simulation"
+}

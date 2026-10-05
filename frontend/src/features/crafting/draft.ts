@@ -3,6 +3,15 @@ import { create } from 'zustand'
 export type ItemTextDocument = { id: string; text: string }
 const baseText = 'Item Class: Amulets\nRarity: Normal\nSolar Amulet'
 const baseTexts = {
+  'aegis-quarterstaff':
+    'Item Class: Quarterstaves\nRarity: Normal\nAegis Quarterstaff',
+  'bolting-quarterstaff':
+    'Item Class: Quarterstaves\nRarity: Normal\nBolting Quarterstaff',
+  'dreaming-quarterstaff':
+    'Item Class: Quarterstaves\nRarity: Normal\nDreaming Quarterstaff',
+  'grand-spear': 'Item Class: Spears\nRarity: Normal\nGrand Spear',
+  'flying-spear': 'Item Class: Spears\nRarity: Normal\nFlying Spear',
+  'akoyan-spear': 'Item Class: Spears\nRarity: Normal\nAkoyan Spear',
   'fortified-hammer':
     'Item Class: One Hand Maces\nRarity: Normal\nFortified Hammer',
   'strife-pick': 'Item Class: One Hand Maces\nRarity: Normal\nStrife Pick',
@@ -220,6 +229,12 @@ type Draft = {
     | 'ruination-maul'
     | 'fanatic-greathammer'
     | 'tawhoan-greatclub'
+    | 'aegis-quarterstaff'
+    | 'bolting-quarterstaff'
+    | 'dreaming-quarterstaff'
+    | 'grand-spear'
+    | 'flying-spear'
+    | 'akoyan-spear'
     | 'bone'
     | 'siphoning'
     | 'volatile'
@@ -346,6 +361,12 @@ type Draft = {
       | 'ruination-maul'
       | 'fanatic-greathammer'
       | 'tawhoan-greatclub'
+      | 'aegis-quarterstaff'
+      | 'bolting-quarterstaff'
+      | 'dreaming-quarterstaff'
+      | 'grand-spear'
+      | 'flying-spear'
+      | 'akoyan-spear'
       | 'bone'
       | 'siphoning'
       | 'volatile'

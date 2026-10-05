@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/sp/Grand_Spear",
+  "retrievedAt": "2026-10-05T08:06:01.326Z",
+  "sha256": "f4a06c6682d00581868040582c51f12bd614ed7c46ef223411c7b5b6e2b2bee0",
+  "variants": [
+    {
+      "name": "Lanza grandiosa",
+      "card": "Lanza grandiosa\n        \n    \n    \n        \n            LanzasDaño físico: 56-84Probabilidad de impacto crítico: 5%Ataques por segundo: 1.4Alcance de arma: 1.5Requiere:  Nivel 79, 68 Fue, 109 Des Otorga la habilidad: Lanzamiento de lanzaAlcance de los golpes cuerpo a cuerpo aumentado un 25% con esta arma\n        \n\n\n\n        \n            Grand Spear",
+      "requirements": "Requiere:  Nivel 79, 68 Fue, 109 Des",
+      "properties": [
+        "Lanzas",
+        "Daño físico: 56-84",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.4",
+        "Alcance de arma: 1.5"
+      ],
+      "fields": {
+        "DropLevel": "79",
+        "BaseType": "Lanza grandiosa",
+        "Class": "Lanzas",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear8Endgame",
+        "Tags": "spear, one_hand_weapon, onehand, weapon",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/OneHandSpears/1HSpear08",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, onehand, spear, one_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      }
+    }
+  ]
+}
