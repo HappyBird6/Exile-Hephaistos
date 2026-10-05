@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/cn/Stoic_Sceptre",
+  "retrievedAt": "2026-10-05T00:43:13.195Z",
+  "sha256": "d66229a6951437e58e4574e9ab4f4334673b13de3c98b13dcd65e8a0fd449393",
+  "variants": [
+    {
+      "name": "克己权杖",
+      "card": "克己权杖\n        \n    \n    \n        \n            权杖精魂: 100需求：  等级 6, 12 智慧 获得技能: 纪律\n        \n\n\n\n        \n            Stoic Sceptre",
+      "requirements": "需求：  等级 6, 12 智慧",
+      "fields": {
+        "DropLevel": "6",
+        "BaseType": "克己权杖",
+        "Class": "权杖",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2",
+        "Tags": "sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre02",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "纪律",
+      "skillUrl": "https://poe2db.tw/cn/Discipline"
+    }
+  ]
+}

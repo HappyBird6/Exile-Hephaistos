@@ -1,0 +1,103 @@
+{
+  "url": "https://poe2db.tw/jp/Shrine_Sceptre",
+  "retrievedAt": "2026-10-05T00:43:11.102Z",
+  "sha256": "091a362b045d091356bea9a74335e4f92b61a381ce23f5538ce143828e669a62",
+  "variants": [
+    {
+      "name": "神殿のセプター",
+      "card": "神殿のセプター\n        \n    \n    \n        \n            セプタースピリット: 100装備条件： レベル 26, 17 筋力, 38 知性 スキルを付与: ピュリティオブファイヤー\n        \n\n\n\n        \n            Shrine Sceptre",
+      "requirements": "装備条件： レベル 26, 17 筋力, 38 知性",
+      "fields": {
+        "DropLevel": "26",
+        "BaseType": "神殿のセプター",
+        "Class": "セプター",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a",
+        "Tags": "fire_implicit_skill, sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre06a",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "ピュリティオブファイヤー",
+      "skillUrl": "https://poe2db.tw/jp/Purity_of_Fire"
+    },
+    {
+      "name": "神殿のセプター",
+      "card": "神殿のセプター\n        \n    \n    \n        \n            セプタースピリット: 100装備条件： レベル 26, 17 筋力, 38 知性 スキルを付与: ピュリティオブアイス\n        \n\n\n\n        \n            Shrine Sceptre",
+      "requirements": "装備条件： レベル 26, 17 筋力, 38 知性",
+      "fields": {
+        "DropLevel": "26",
+        "BaseType": "神殿のセプター",
+        "Class": "セプター",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b",
+        "Tags": "cold_implicit_skill, sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre06b",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "ピュリティオブアイス",
+      "skillUrl": "https://poe2db.tw/jp/Purity_of_Ice"
+    },
+    {
+      "name": "神殿のセプター",
+      "card": "神殿のセプター\n        \n    \n    \n        \n            セプタースピリット: 100装備条件： レベル 26, 17 筋力, 38 知性 スキルを付与: ピュリティオブライトニング\n        \n\n\n\n        \n            Shrine Sceptre",
+      "requirements": "装備条件： レベル 26, 17 筋力, 38 知性",
+      "fields": {
+        "DropLevel": "26",
+        "BaseType": "神殿のセプター",
+        "Class": "セプター",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c",
+        "Tags": "lightning_implicit_skill, sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre06c",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "ピュリティオブライトニング",
+      "skillUrl": "https://poe2db.tw/jp/Purity_of_Lightning"
+    },
+    {
+      "name": "神殿のセプター",
+      "card": "神殿のセプター\n        \n    \n    \n        \n            セプタースピリット: 100装備条件： レベル 26, 17 筋力, 38 知性 スキルを付与: インピュリティ\n        \n\n\n\n        \n            Shrine Sceptre",
+      "requirements": "装備条件： レベル 26, 17 筋力, 38 知性",
+      "fields": {
+        "DropLevel": "26",
+        "BaseType": "神殿のセプター",
+        "Class": "セプター",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptreUnique1",
+        "Tags": "sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre06c",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "インピュリティ",
+      "skillUrl": "https://poe2db.tw/jp/Impurity"
+    }
+  ]
+}

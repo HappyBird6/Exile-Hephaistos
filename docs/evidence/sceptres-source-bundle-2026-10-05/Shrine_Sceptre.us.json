@@ -1,0 +1,103 @@
+{
+  "url": "https://poe2db.tw/us/Shrine_Sceptre",
+  "retrievedAt": "2026-10-05T00:43:05.204Z",
+  "sha256": "f6951ddcf71ee3440ce892beb3896cec48064c461acf14c4258ba96e5545c607",
+  "variants": [
+    {
+      "name": "Shrine Sceptre",
+      "card": "Shrine Sceptre\n        \n    \n    \n        \n            SceptresSpirit: 100Requires:  Level 26, 17 Str, 38 Int Grants Skill: Purity of Fire",
+      "requirements": "Requires:  Level 26, 17 Str, 38 Int",
+      "fields": {
+        "DropLevel": "26",
+        "BaseType": "Shrine Sceptre",
+        "Class": "Sceptres",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a",
+        "Tags": "fire_implicit_skill, sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre06a",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "Purity of Fire",
+      "skillUrl": "https://poe2db.tw/us/Purity_of_Fire"
+    },
+    {
+      "name": "Shrine Sceptre",
+      "card": "Shrine Sceptre\n        \n    \n    \n        \n            SceptresSpirit: 100Requires:  Level 26, 17 Str, 38 Int Grants Skill: Purity of Ice",
+      "requirements": "Requires:  Level 26, 17 Str, 38 Int",
+      "fields": {
+        "DropLevel": "26",
+        "BaseType": "Shrine Sceptre",
+        "Class": "Sceptres",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b",
+        "Tags": "cold_implicit_skill, sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre06b",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "Purity of Ice",
+      "skillUrl": "https://poe2db.tw/us/Purity_of_Ice"
+    },
+    {
+      "name": "Shrine Sceptre",
+      "card": "Shrine Sceptre\n        \n    \n    \n        \n            SceptresSpirit: 100Requires:  Level 26, 17 Str, 38 Int Grants Skill: Purity of Lightning",
+      "requirements": "Requires:  Level 26, 17 Str, 38 Int",
+      "fields": {
+        "DropLevel": "26",
+        "BaseType": "Shrine Sceptre",
+        "Class": "Sceptres",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c",
+        "Tags": "lightning_implicit_skill, sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre06c",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "Purity of Lightning",
+      "skillUrl": "https://poe2db.tw/us/Purity_of_Lightning"
+    },
+    {
+      "name": "Shrine Sceptre",
+      "card": "Shrine Sceptre\n        \n    \n    \n        \n            SceptresSpirit: 100Requires:  Level 26, 17 Str, 38 Int Grants Skill: Impurity",
+      "requirements": "Requires:  Level 26, 17 Str, 38 Int",
+      "fields": {
+        "DropLevel": "26",
+        "BaseType": "Shrine Sceptre",
+        "Class": "Sceptres",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptreUnique1",
+        "Tags": "sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre06c",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "Impurity",
+      "skillUrl": "https://poe2db.tw/us/Impurity"
+    }
+  ]
+}

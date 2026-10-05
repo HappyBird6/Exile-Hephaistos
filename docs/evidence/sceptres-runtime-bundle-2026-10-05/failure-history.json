@@ -1,0 +1,26 @@
+{
+  "failures": [
+    {
+      "stage": "source collection",
+      "error": "sandbox EACCES",
+      "resolution": "Approved source reads; empty/new-only output preserved"
+    },
+    {
+      "stage": "additional source weight review",
+      "error": "New assertion incorrectly equated detail Spawn Tags 1 with published class DropChance 250",
+      "resolution": "Separate strict applicability and published selection-weight checks; no catalog or existing expected-value change"
+    },
+    {
+      "stage": "API attempt1",
+      "error": "UND_ERR_SOCKET during app startup",
+      "preservedPath": "E:/WORK/Exile-Hephaistos/codex/sceptres-qa-20261005/api-attempt-1",
+      "resolution": "Same assertions plus high-tier positives passed against ready runtime in new api-attempt-2"
+    },
+    {
+      "stage": "pixels self-review",
+      "error": "New Sceptres inherited legacy Skeletal Warrior scope notice",
+      "preservedPath": "E:/WORK/Exile-Hephaistos/codex/sceptres-qa-20261005/browser-attempt-1",
+      "resolution": "Added generic source skill notice in all six locales; original legacy notices preserved; full Frontend checks and stronger browser assertions repeated into new outputs"
+    }
+  ]
+}

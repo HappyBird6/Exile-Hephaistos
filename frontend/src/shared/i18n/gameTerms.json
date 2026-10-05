@@ -2469,6 +2469,48 @@
       "lines": ["Grants Skill: Spellslinger"],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13",
       "sourceUrl": "https://poe2db.tw/us/Dueling_Wand"
+    },
+    "Stoic_Sceptre": {
+      "name": "Stoic Sceptre",
+      "lines": ["Spirit: 100", "Grants Skill: Discipline"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2",
+      "sourceUrl": "https://poe2db.tw/us/Stoic_Sceptre"
+    },
+    "Omen_Sceptre": {
+      "name": "Omen Sceptre",
+      "lines": ["Spirit: 100", "Grants Skill: Malice"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4",
+      "sourceUrl": "https://poe2db.tw/us/Omen_Sceptre"
+    },
+    "Shrine_Sceptre_6a": {
+      "name": "Shrine Sceptre",
+      "lines": ["Spirit: 100", "Grants Skill: Purity of Fire"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a",
+      "sourceUrl": "https://poe2db.tw/us/Shrine_Sceptre"
+    },
+    "Shrine_Sceptre_6b": {
+      "name": "Shrine Sceptre",
+      "lines": ["Spirit: 100", "Grants Skill: Purity of Ice"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b",
+      "sourceUrl": "https://poe2db.tw/us/Shrine_Sceptre"
+    },
+    "Shrine_Sceptre_6c": {
+      "name": "Shrine Sceptre",
+      "lines": ["Spirit: 100", "Grants Skill: Purity of Lightning"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c",
+      "sourceUrl": "https://poe2db.tw/us/Shrine_Sceptre"
+    },
+    "Clasped_Sceptre": {
+      "name": "Clasped Sceptre",
+      "lines": ["Spirit: 100", "Grants Skill: Heart of Ice"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8",
+      "sourceUrl": "https://poe2db.tw/us/Clasped_Sceptre"
+    },
+    "Wrath_Sceptre": {
+      "name": "Wrath Sceptre",
+      "lines": ["Spirit: 100", "Grants Skill: Fulmination"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
+      "sourceUrl": "https://poe2db.tw/us/Wrath_Sceptre"
     }
   },
   "ko": {
@@ -4925,6 +4967,48 @@
       "lines": ["스킬 부여: 주문투척"],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13",
       "sourceUrl": "https://poe2db.tw/kr/Dueling_Wand"
+    },
+    "Stoic_Sceptre": {
+      "name": "엄숙한 셉터",
+      "lines": ["정신력: 100", "스킬 부여: 단련"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2",
+      "sourceUrl": "https://poe2db.tw/kr/Stoic_Sceptre"
+    },
+    "Omen_Sceptre": {
+      "name": "징조 셉터",
+      "lines": ["정신력: 100", "스킬 부여: 적의"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_Sceptre"
+    },
+    "Shrine_Sceptre_6a": {
+      "name": "성소 셉터",
+      "lines": ["정신력: 100", "스킬 부여: 불의 순수함"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a",
+      "sourceUrl": "https://poe2db.tw/kr/Shrine_Sceptre"
+    },
+    "Shrine_Sceptre_6b": {
+      "name": "성소 셉터",
+      "lines": ["정신력: 100", "스킬 부여: 얼음의 순수함"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b",
+      "sourceUrl": "https://poe2db.tw/kr/Shrine_Sceptre"
+    },
+    "Shrine_Sceptre_6c": {
+      "name": "성소 셉터",
+      "lines": ["정신력: 100", "스킬 부여: 번개의 순수함"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c",
+      "sourceUrl": "https://poe2db.tw/kr/Shrine_Sceptre"
+    },
+    "Clasped_Sceptre": {
+      "name": "움켜잡는 셉터",
+      "lines": ["정신력: 100", "스킬 부여: 얼음의 심장"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8",
+      "sourceUrl": "https://poe2db.tw/kr/Clasped_Sceptre"
+    },
+    "Wrath_Sceptre": {
+      "name": "진노 셉터",
+      "lines": ["정신력: 100", "스킬 부여: 노호"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
+      "sourceUrl": "https://poe2db.tw/kr/Wrath_Sceptre"
     }
   },
   "zh-CN": {
@@ -7279,6 +7363,48 @@
       "lines": ["获得技能: 法术节魔"],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13",
       "sourceUrl": "https://poe2db.tw/cn/Dueling_Wand"
+    },
+    "Stoic_Sceptre": {
+      "name": "克己权杖",
+      "lines": ["精魂: 100", "获得技能: 纪律"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2",
+      "sourceUrl": "https://poe2db.tw/cn/Stoic_Sceptre"
+    },
+    "Omen_Sceptre": {
+      "name": "预兆权杖",
+      "lines": ["精魂: 100", "获得技能: 怨毒"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_Sceptre"
+    },
+    "Shrine_Sceptre_6a": {
+      "name": "圣地权杖",
+      "lines": ["精魂: 100", "获得技能: 火焰净化"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a",
+      "sourceUrl": "https://poe2db.tw/cn/Shrine_Sceptre"
+    },
+    "Shrine_Sceptre_6b": {
+      "name": "圣地权杖",
+      "lines": ["精魂: 100", "获得技能: 冰霜净化"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b",
+      "sourceUrl": "https://poe2db.tw/cn/Shrine_Sceptre"
+    },
+    "Shrine_Sceptre_6c": {
+      "name": "圣地权杖",
+      "lines": ["精魂: 100", "获得技能: 闪电净化"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c",
+      "sourceUrl": "https://poe2db.tw/cn/Shrine_Sceptre"
+    },
+    "Clasped_Sceptre": {
+      "name": "握扣权杖",
+      "lines": ["精魂: 100", "获得技能: 冰雪之心"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8",
+      "sourceUrl": "https://poe2db.tw/cn/Clasped_Sceptre"
+    },
+    "Wrath_Sceptre": {
+      "name": "愤怒权杖",
+      "lines": ["精魂: 100", "获得技能: 轰鸣烈焰"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
+      "sourceUrl": "https://poe2db.tw/cn/Wrath_Sceptre"
     }
   },
   "zh-TW": {
@@ -9623,6 +9749,48 @@
       "lines": ["賦予技能: 拋法者"],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13",
       "sourceUrl": "https://poe2db.tw/tw/Dueling_Wand"
+    },
+    "Stoic_Sceptre": {
+      "name": "魔道權杖",
+      "lines": ["精魂: 100", "賦予技能: 紀律"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2",
+      "sourceUrl": "https://poe2db.tw/tw/Stoic_Sceptre"
+    },
+    "Omen_Sceptre": {
+      "name": "徵兆權杖",
+      "lines": ["精魂: 100", "賦予技能: 絕滅恨惡"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4",
+      "sourceUrl": "https://poe2db.tw/tw/Omen_Sceptre"
+    },
+    "Shrine_Sceptre_6a": {
+      "name": "神殿權杖",
+      "lines": ["精魂: 100", "賦予技能: 火焰淨化"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a",
+      "sourceUrl": "https://poe2db.tw/tw/Shrine_Sceptre"
+    },
+    "Shrine_Sceptre_6b": {
+      "name": "神殿權杖",
+      "lines": ["精魂: 100", "賦予技能: 冰霜淨化"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b",
+      "sourceUrl": "https://poe2db.tw/tw/Shrine_Sceptre"
+    },
+    "Shrine_Sceptre_6c": {
+      "name": "神殿權杖",
+      "lines": ["精魂: 100", "賦予技能: 閃電淨化"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c",
+      "sourceUrl": "https://poe2db.tw/tw/Shrine_Sceptre"
+    },
+    "Clasped_Sceptre": {
+      "name": "握扣權杖",
+      "lines": ["精魂: 100", "賦予技能: 冰雪之心"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8",
+      "sourceUrl": "https://poe2db.tw/tw/Clasped_Sceptre"
+    },
+    "Wrath_Sceptre": {
+      "name": "暴怒權杖",
+      "lines": ["精魂: 100", "賦予技能: 劇烈爆發"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
+      "sourceUrl": "https://poe2db.tw/tw/Wrath_Sceptre"
     }
   },
   "ja": {
@@ -12081,6 +12249,48 @@
       "lines": ["スキルを付与: スペルスリンガー"],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13",
       "sourceUrl": "https://poe2db.tw/jp/Dueling_Wand"
+    },
+    "Stoic_Sceptre": {
+      "name": "不動のセプター",
+      "lines": ["スピリット: 100", "スキルを付与: ディシプリン"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2",
+      "sourceUrl": "https://poe2db.tw/jp/Stoic_Sceptre"
+    },
+    "Omen_Sceptre": {
+      "name": "お告げのセプター",
+      "lines": ["スピリット: 100", "スキルを付与: マリス"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4",
+      "sourceUrl": "https://poe2db.tw/jp/Omen_Sceptre"
+    },
+    "Shrine_Sceptre_6a": {
+      "name": "神殿のセプター",
+      "lines": ["スピリット: 100", "スキルを付与: ピュリティオブファイヤー"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a",
+      "sourceUrl": "https://poe2db.tw/jp/Shrine_Sceptre"
+    },
+    "Shrine_Sceptre_6b": {
+      "name": "神殿のセプター",
+      "lines": ["スピリット: 100", "スキルを付与: ピュリティオブアイス"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b",
+      "sourceUrl": "https://poe2db.tw/jp/Shrine_Sceptre"
+    },
+    "Shrine_Sceptre_6c": {
+      "name": "神殿のセプター",
+      "lines": ["スピリット: 100", "スキルを付与: ピュリティオブライトニング"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c",
+      "sourceUrl": "https://poe2db.tw/jp/Shrine_Sceptre"
+    },
+    "Clasped_Sceptre": {
+      "name": "握拳のセプター",
+      "lines": ["スピリット: 100", "スキルを付与: ハートオブアイス"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8",
+      "sourceUrl": "https://poe2db.tw/jp/Clasped_Sceptre"
+    },
+    "Wrath_Sceptre": {
+      "name": "憤怒のセプター",
+      "lines": ["スピリット: 100", "スキルを付与: フルミネーション"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
+      "sourceUrl": "https://poe2db.tw/jp/Wrath_Sceptre"
     }
   },
   "es": {
@@ -14457,6 +14667,48 @@
       "lines": ["Otorga la habilidad: Lanzahechizos"],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13",
       "sourceUrl": "https://poe2db.tw/sp/Dueling_Wand"
+    },
+    "Stoic_Sceptre": {
+      "name": "Cetro estoico",
+      "lines": ["Espíritu: 100", "Otorga la habilidad: Disciplina"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2",
+      "sourceUrl": "https://poe2db.tw/sp/Stoic_Sceptre"
+    },
+    "Omen_Sceptre": {
+      "name": "Cetro de augurio",
+      "lines": ["Espíritu: 100", "Otorga la habilidad: Malicia"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4",
+      "sourceUrl": "https://poe2db.tw/sp/Omen_Sceptre"
+    },
+    "Shrine_Sceptre_6a": {
+      "name": "Cetro de santuario",
+      "lines": ["Espíritu: 100", "Otorga la habilidad: Pureza de fuego"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a",
+      "sourceUrl": "https://poe2db.tw/sp/Shrine_Sceptre"
+    },
+    "Shrine_Sceptre_6b": {
+      "name": "Cetro de santuario",
+      "lines": ["Espíritu: 100", "Otorga la habilidad: Pureza de hielo"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b",
+      "sourceUrl": "https://poe2db.tw/sp/Shrine_Sceptre"
+    },
+    "Shrine_Sceptre_6c": {
+      "name": "Cetro de santuario",
+      "lines": ["Espíritu: 100", "Otorga la habilidad: Pureza de rayo"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c",
+      "sourceUrl": "https://poe2db.tw/sp/Shrine_Sceptre"
+    },
+    "Clasped_Sceptre": {
+      "name": "Cetro cerrado",
+      "lines": ["Espíritu: 100", "Otorga la habilidad: Corazón de hielo"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8",
+      "sourceUrl": "https://poe2db.tw/sp/Clasped_Sceptre"
+    },
+    "Wrath_Sceptre": {
+      "name": "Cetro de ira",
+      "lines": ["Espíritu: 100", "Otorga la habilidad: Fulminación"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
+      "sourceUrl": "https://poe2db.tw/sp/Wrath_Sceptre"
     }
   }
 }

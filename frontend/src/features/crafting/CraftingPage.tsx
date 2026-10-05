@@ -97,6 +97,13 @@ const baseSlugs = {
   fanatic: 'Fanatic_Bow',
   obliterator: 'Obliterator_Bow',
   hallowed: 'Hallowed_Sceptre',
+  stoic: 'Stoic_Sceptre',
+  omen: 'Omen_Sceptre',
+  'shrine-fire': 'Shrine_Sceptre_6a',
+  'shrine-ice': 'Shrine_Sceptre_6b',
+  'shrine-lightning': 'Shrine_Sceptre_6c',
+  clasped: 'Clasped_Sceptre',
+  wrath: 'Wrath_Sceptre',
   bone: 'Bone_Wand',
   siphoning: 'Siphoning_Wand',
   volatile: 'Volatile_Wand',
@@ -373,6 +380,13 @@ export function CraftingPage() {
       | 'fanatic'
       | 'obliterator'
       | 'hallowed'
+      | 'stoic'
+      | 'omen'
+      | 'shrine-fire'
+      | 'shrine-ice'
+      | 'shrine-lightning'
+      | 'clasped'
+      | 'wrath'
       | 'bone'
       | 'siphoning'
       | 'volatile'
@@ -600,6 +614,13 @@ export function CraftingPage() {
     | 'fanatic'
     | 'obliterator'
     | 'hallowed'
+    | 'stoic'
+    | 'omen'
+    | 'shrine-fire'
+    | 'shrine-ice'
+    | 'shrine-lightning'
+    | 'clasped'
+    | 'wrath'
     | 'bone'
     | 'siphoning'
     | 'volatile'
@@ -1868,7 +1889,11 @@ export function CraftingPage() {
                 {(catalogBase === 'sceptre' ||
                   topBase(catalogBase)?.family === 'sceptres') && (
                   <p className="workbench-feedback">
-                    {t('notice.sceptre_scope')}
+                    {t(
+                      catalogBase === 'sceptre' || catalogBase === 'hallowed'
+                        ? 'notice.sceptre_scope'
+                        : 'notice.sceptre_skill_scope',
+                    )}
                   </p>
                 )}
                 {catalogBase === 'body' && (
@@ -2134,6 +2159,13 @@ export function CraftingPage() {
                           | 'fanatic'
                           | 'obliterator'
                           | 'hallowed'
+                          | 'stoic'
+                          | 'omen'
+                          | 'shrine-fire'
+                          | 'shrine-ice'
+                          | 'shrine-lightning'
+                          | 'clasped'
+                          | 'wrath'
                           | 'bone'
                           | 'siphoning'
                           | 'volatile'
@@ -2216,6 +2248,9 @@ export function CraftingPage() {
                     {reviewedArmourKeys.map((key) => (
                       <option key={key} value={key}>
                         {name(topBase(key)!.slug, topBase(key)!.name)}
+                        {key.startsWith('shrine-')
+                          ? ` (${topBase(key)!.sourceProperties?.[locale][1]})`
+                          : ''}
                       </option>
                     ))}
                     <option value="soldier">

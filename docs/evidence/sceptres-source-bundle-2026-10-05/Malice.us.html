@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="us" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Malice - PoE2DB, Path of Exile Wiki us</title>
+    <meta name="description" content="path of exile is simply a tool to test your path of building creation">
+    <link rel="alternate" hreflang="en" href="https://poe2db.tw/us/" />
+    <link rel="alternate" hreflang="zh-Hant" href="https://poe2db.tw/tw/" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://poe2db.tw/cn/" />
+        <link href="/favicon2.png" rel="shortcut icon" >
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/jquery.dataTables.min.css" integrity="sha512-1k7mWiTNoyx2XtmI96o+hdjP8nn0f3Z2N4oF/9ZZRgijyV4omsKOXEnqL1gKQNPy2MTSP9rIEWGcH/CInulptA==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-5-theme/1.3.0/select2-bootstrap-5-theme.min.css" integrity="sha512-z/90a5SWiu4MWVelb5+ny7sAayYUfMmdXKEAbpj27PfdkamNdyI3hcjxPxkOPbrXoKIm7r9V2mElt5f1OtVhqA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.7/tippy.min.css" integrity="sha512-HbPh+j4V7pXprvQMt2dtmK/zCEsUeZWYXRln4sOwmoyHPQAPqy/k9lIquKUyKNpNbDGAY06UdiDHcEkBc72yCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.2.1/sweetalert2.min.css" integrity="sha512-OkYLbkJ4DB7ewvcpNLF9DSFmhdmxFXQ1Cs+XyjMsMMC94LynFJaA9cPXOokugkmZo6O6lwZg+V5dwQMH4S5/3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modal-video@2.4.6/css/modal-video.min.css" integrity="sha256-nd8IBqNn9uqwZKfZcLIXQcNxk5TjqrxiLx7PzN5PFW0=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css" integrity="sha256-auPoJwk/+RK6KSkib92Dkq1Y5hEkZvKtvSwucs15Skg=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/video.js/8.19.1/video-js.min.css" integrity="sha512-J3tx4ssoARFr4U9VmZmQe2q672q0jUeYizJW3vglkOBTlQ/N6kF3eVqZZzaey/TdIXH69s3HYe2nQwyxK/Emzw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+        <link rel="stylesheet" href="https://cdn.poe2db.tw/css/stdtheme.c95173162973c580.css" />
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js" integrity="sha512-HvOjJrdwNpDbkGJIG2ZNqDlVqMo77qbs4Me4cah0HoDrfhrbA+8SBlZn1KrvAQw7cILLPFJvdwIgphzQmMm+Pw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js" integrity="sha512-qzgd5cYSZcosqpzpn7zF2ZId8f/8CHmFKZ8j7mU4OUXTNRd5g+ZHBPsgKEwoqxCtdQvExE5LprwwPAgoicguNg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js" integrity="sha256-Ikk5myJowmDQaYVCUD0Wr+vIDkN8hGI58SGWdE671A8=" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.full.min.js" integrity="sha512-RtZU3AyMVArmHLiW0suEZ9McadTdegwbgtiQl5Qqo9kunkVg1ofwueXD8/8wv3Af8jkME3DDe3yLfR8HSJfT2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js" integrity="sha512-BmM0/BQlqh02wuK5Gz9yrbe7VyIVwOzD1o40yi1IsTjriX/NGF37NyXHfmFzIlMmoSIBXgqDiG1VNU6kB5dBbA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.7/tippy-bundle.umd.min.js" integrity="sha512-gbruucq/Opx9jlHfqqZeAg2LNK3Y4BbpXHKDhRC88/tARL/izPOE4Zt2w6X9Sn1UeWaGbL38zW7nkL2jdn5JIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/3.0.1/marked.min.js" integrity="sha512-VUuO/d6MS7hXmiFGEj7HtUa2FCI6Ll+xPvX9yX3bxn7ZqDWwleqXa8dtW13brbZ1ld2jiTrv8hWbpfp4B5mi4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.2.1/sweetalert2.all.js" integrity="sha512-A7LzqKE/pm9ofgS0Lxu7qroQS5SkKJQaYJkJ/66nQiWZfEdeGlBq5zEXQ63VRmXZK8zPpCgFf2WQJIAljI0Vdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/modal-video@2.4.6/js/modal-video.min.js" integrity="sha256-VqINwNxkS4VEDMq5O52YTckX+Mx84X6bafO8NxF21Xw=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js" integrity="sha256-DiHJ7hbvMejsMyP76bpVWacb5HSHQ2sQlrJV8n7KEvA=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/6.0.0/echarts.min.js" integrity="sha512-4/g9GAdOdTpUP2mKClpKsEzaK7FQNgMjq+No0rX8XZlfrCGtbi4r+T/p5fnacsEC3zIAmHKLJUL7sh3/yVA4OQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/6.0.0/theme/dark.min.js" integrity="sha512-3Zm64ayK7DflnnyO2pKkLJX3v9Sb90mvahbwPUuMzEf42HI6k8tquIx5VsNBjEWAcYJWzvimbqnTkLl2QdCUmw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/8.19.1/video.min.js" integrity="sha512-48NkCweTzA9u2sP4GgKcEDm6IScPIMga142ipKFNcHfz7feUJXDJxO1jwc2l+5MvWfwMj4BDfQv8WIMhrPxZLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.2.1/mustache.min.js" integrity="sha512-Qjrukx28QnvFWISw9y4wCB0kTB/ISnWXPz5/RME5o8OlZqllWygc1AB64dOBlngeTeStmYmNTNcM6kfEjUdnnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js" integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js" integrity="sha512-JRlcvSZAXT8+5SQQAvklXGJuxXTouyq8oIMaYERZQasB8SBDHZaUbeASsJWpk0UUrf89DP3/aefPPrlMR1h1yQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js" integrity="sha512-g2TeAWw5GPnX7z0Kn8nFbYfeHcvAu/tx6d6mrLe/90mkCxO+RcptyYpksUz35EO337F83bZwcmUyHiHamspkfg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+        <script src="https://cdn.poe2db.tw/js/ModsView.f39fca410dd746d3.js"></script>
+        <script src="https://cdn.poe2db.tw/js/poedb_header.16403ddf82da627f.js"></script>
+    
+    <script data-cfasync="false">window.nitroAds=window.nitroAds||{createAd:function(){return new Promise(e=>{window.nitroAds.queue.push(["createAd",arguments,e])})},addUserToken:function(){window.nitroAds.queue.push(["addUserToken",arguments])},queue:[]};</script>
+    <script data-cfasync="false" async src="https://s.nitropay.com/ads-2013.js"></script>
+
+    <meta property="og:site_name" content="poe2db.tw">
+<meta property="og:title" content="Malice" />
+<meta property="og:description" content="While active, emits an Aura that continuously inflicts Critical Weakness on enemies in your Presence." />
+
+  </head>
+
+  <body>
+
+    <div id="consent-box" style="display:none">
+      <button onclick="window.__cmp('showModal');">
+        Update cookie preferences
+      </button>
+    </div>
+    
+    <script>
+      if (window["nitroAds"] && window["nitroAds"].loaded) {
+        document.getElementById("consent-box").style.display = window["__tcfapi"]
+          ? ""
+          : "none";
+      } else {
+        document.addEventListener(
+          "nitroAds.loaded",
+          () =>
+            (document.getElementById("consent-box").style.display = window["__tcfapi"]
+              ? ""
+              : "none")
+        );
+      }
+    </script>
+
+
+    <div class="background-image item-popup--poe2"></div>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6598Z863E2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6598Z863E2');
+</script>
+
+
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <div class="container">
+            <a class="navbar-brand fw-bold" href="/us/">PoE2<span class='brand-suffix'>DB</span><sub></sub></a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"  aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse">
+              <ul class="navbar-nav me-auto">
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span data-i18n="ClientStrings|UIOptionsSectionTitleItems|Name">Item</span> <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="themes">
+                    <li><a class="dropdown-item" href="/us/Items" data-i18n="ClientStrings|UIOptionsSectionTitleItems|Name">Item</a></li>
+                    <li><a class="dropdown-item" href="/us/Unique_item" data-i18n="ClientStrings|ItemDisplayStringUnique|Name"></a></li>
+                    <li><a class="dropdown-item" href="/us/Reforging_Bench" data-i18n="ClientStrings|RecipeBenchTitle|Name"></a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/us/Gem" data-i18n="ClientStrings|ItemDisplayStringGem|Name">Gem</a></li>
+                    <li><a class="dropdown-item" href="/us/Skill_Gems" data-i18n="ItemClasses|Active Skill Gem|Name">Skill Gems</a></li>
+                    <li><a class="dropdown-item" href="/us/Support_Gems" data-i18n="ItemClasses|Support Skill Gem|Name">Support Gems</a></li>
+                    <li><a class="dropdown-item" href="/us/Spirit_Gems" data-i18n-tw="精神寶石">Spirit Gems</a></li>
+                    <li><a class="dropdown-item" href="/us/Lineage_Supports" data-i18n="KeywordPopups|LineageSupports|Name">Lineage Supports</a></li>
+                  </ul>
+                </li>
+    
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span data-i18n="ClientStrings|ExpeditionModsTitle|Name">Modifiers</span> <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="themes">
+                    <li><a class="dropdown-item" href="/us/Modifiers" data-i18n="ClientStrings|ExpeditionModsTitle|Name">Modifiers</a></li>
+                    <li><a class="dropdown-item" href="/us/Keywords" data-i18n-tw="提示字">Keywords</a></li>
+                    <li><a class="dropdown-item" href="/us/Desecrated_Modifiers" data-i18n="KeywordPopups|Abyssalify|Name">Desecrated Modifiers</a></li>
+                    <li><a class="dropdown-item" href="/us/Crafting" data-i18n="ClientStrings|CraftingWindowTitle|Name">Crafting</a></li>
+                    <li><a class="dropdown-item" href="/us/Liquid_Emotions" data-i18n="KeywordPopups|DistilledEmotion|Name"></a></li>
+                  </ul>
+                </li>
+    
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span data-i18n="ClientStrings|ItemDisplayStringQuest|Name">Quest</span> <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a class="dropdown-item" href="/us/Quest" data-i18n="ClientStrings|ItemDisplayStringQuest|Name">Quest</a></li>
+                    <li><a class="dropdown-item" href="/us/Ascendancy_class" data-i18n="ClientStrings|TutorialPanelAscendancies|Name">Ascendancy Classes</a></li>
+                    <li><a class="dropdown-item" href="/us/passive-skill-tree/" data-i18n="ClientStrings|ActionOpenPassivePanel|Name">Passive Skill Tree</a></li>
+                    <li><a class="dropdown-item" href="/us/Act" data-i18n-tw="章節">Act</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/us/Waystones" data-i18n="ItemClasses|Map|Name">Waystones</a></li>
+                    <li><a class="dropdown-item" href="/us/EndGame" data-i18n="Acts|Endgame|Name"></a></li>
+                    <li><a class="dropdown-item" href="/us/atlas-skill-tree/" data-i18n="ClientStrings|ActionOpenAtlasPassivesScreen|Name"></a></li>
+                  </ul>
+                </li>
+    
+                <li class="nav-item"><a class="nav-link" href="Economy" data-i18n-tw="經濟" data-i18n-cn="经济">Economy</a></li>
+    
+                <li class="nav-item"><a class="ms-4 nav-link  bg-warning rounded-circle" style="color: white" href="/us/patreon">Patreon</a></li>
+              </ul>
+    
+    
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link fw-bold" aria-current="page" href="https://poedb.tw/us/Malice">PoE<span class="brand-suffix">DB</span></a>
+                </li>
+    
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-language fa-lg"></i> <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a class="dropdown-item" href="/tw/Malice">TW 繁體中文</a></li>
+                    <li><a class="dropdown-item" href="/cn/Malice">CN 简体中文</a></li>
+                    <li><a class="dropdown-item" href="/us/Malice">US English</a></li>
+                    <li><a class="dropdown-item" href="/kr/Malice">KR 한국어</a></li>
+                    <li><a class="dropdown-item" href="/ru/Malice">RU Русский</a></li>
+                    <li><a class="dropdown-item" href="/jp/Malice">JP Japanese</a></li>
+                    <li><a class="dropdown-item" href="/fr/Malice">FR Français</a></li>
+                    <li><a class="dropdown-item" href="/de/Malice">DE Deutsch</a></li>
+                    <li><a class="dropdown-item" href="/th/Malice">TH ภาษาไทย</a></li>
+                    <li><a class="dropdown-item" href="/pt/Malice">PO Português</a></li>
+                    <li><a class="dropdown-item" href="/sp/Malice">ES Spanish</a></li>
+                  </ul>
+                </li>
+              </ul>
+    
+            <form class="form-inline my-2 my-lg-0" role="search" action="search">
+              <input type="hidden" name="token" value="01df6224207b0e7177596e4aa2745d6a4b1386edc0f7717a4d01ed7d7269ef67012403">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" id="navautosearch">
+            </form>
+    
+            </div><!--/.nav-collapse -->
+          </div><!--/.container-fluid -->
+        </nav>
+    </header>
+
+<script>sidebar160("leftside_banner", "left");</script>
+<script>sidebar160("rightside_banner", "right");</script>
+
+
+
+    <div class="page poe2">
+    <div class="page-content theme-showcase container" role="main">
+
+
+<div class="card mb-2" id="head_toolbar">
+  <div class="card-body p-1">
+    <div class="league_bar text-center">
+      <a href="Runes_of_Aldur_league" data-bs-toggle="tooltip" title="Runes of Aldur v0.5" ><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/Expedition2RemnantActive.webp" alt="Expedition2RemnantActive" class="league_minimap" /></span></a><a href="Atziris_Temple" data-bs-toggle="tooltip" title="Atziri v0.4" ><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/IncursionAtziriActive.webp" alt="IncursionAtziriActive" class="league_minimap" /></span></a><a href="Waystones" data-bs-toggle="tooltip" title="Waystones" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6967bef8f8e36673401bdc8734ca568f3658e345535c2de9861db9d98a3c6efa"><img loading="lazy" src="https://cdn.poe2db.tw/image/art/2ditems/maps/endgamemaps/endgamemap1.webp" class="league_minimap"/></a><a href="Shrine" data-bs-toggle="tooltip" title="Shrine" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/63b92478614c98017e66c1eebc7973d09ab1af3bcf7138d9b089076b7f87a792"><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/ShrineActive.webp" alt="ShrineActive" class="league_minimap" /></span></a><a href="Strongbox" data-bs-toggle="tooltip" title="Strongbox" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/05d202154ec374cb929e45a136cab1c78ce850ba5be0a73b9b8ae6f567992bb3"><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/Strongbox.webp" alt="Strongbox" class="league_minimap" /></span></a><a href="Essence" data-bs-toggle="tooltip" title="Essence" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/bcbaf38c6d8d010edca251008c8499826903655574b749e7f9505c4f97aa6ab1"><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/Essence.webp" alt="Essence" class="league_minimap" /></span></a><a href="Archnemesis" data-bs-toggle="tooltip" title="Archnemesis" ><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/RareMonsterAlive.webp" alt="RareMonsterAlive" class="league_minimap" /></span></a><a href="Azmeri_Spirit" data-bs-toggle="tooltip" title="Azmeri Spirit v0.2" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/d45e45c2df5d99ce51a82dc8d3689c098d858cfd60ef06c361faf8d89865ebac"><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/SpiritActivated.webp" alt="SpiritActivated" class="league_minimap" /></span></a><a href="Rogue_Exile" data-bs-toggle="tooltip" title="Rogue Exile" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/67c9af5b154d12b5a3f9dae714b6c76dee12e1928ff923e7f4b5183bd8334d3c"><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/RogueExile.webp" alt="RogueExile" class="league_minimap" /></span></a><a href="Abyss" data-bs-toggle="tooltip" title="Abyss v0.3" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/5e1601556361357ec423a4ad30cc78a301fee742d56ed7a5417e5b5f3a39d8bf"><img loading="lazy" src="https://cdn.poe2db.tw/image/art/textures/interface/2d/2dart/uiimages/ingame/worldmap/mapbuttonabysshub.webp" class="league_minimap"/></a><a href="Breach" data-bs-toggle="tooltip" title="Breach" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/0eac14cede43f4ac369319d118f9e058fad773b652259373cea970a34422c789"><img loading="lazy" src="https://cdn.poe2db.tw/image/art/2dart/uiimages/ingame/atlasscreen/atlasiconcontent/atlasiconcontentbreach.webp" class="league_minimap"/></a><a href="Ritual" data-bs-toggle="tooltip" title="Ritual" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/422d58c1d59cfa4eaa519e1b080f6805f7a953495d5e87b32161edf941ba6a55"><img loading="lazy" src="https://cdn.poe2db.tw/image/art/2dart/uiimages/ingame/atlasscreen/atlasiconcontent/atlasiconcontentritual.webp" class="league_minimap"/></a><a href="Delirium" data-bs-toggle="tooltip" title="Delirium" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f33db1e8b9d9c4e0ef64e6235eb1e6bd2fd44bd0f4096c6e051b17314cd9219b"><img loading="lazy" src="https://cdn.poe2db.tw/image/art/2dart/uiimages/ingame/atlasscreen/atlasiconcontent/atlasiconcontentdelirium.webp" class="league_minimap"/></a><a href="Expedition" data-bs-toggle="tooltip" title="Expedition" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/7d45deb0284414c41a2cbebfd1eaa58dfeb8e6ce6bbde3aa26f47b8d0f5620b2"><img loading="lazy" src="https://cdn.poe2db.tw/image/art/2dart/uiimages/ingame/atlasscreen/atlasiconcontent/atlasiconcontentexpedition.webp" class="league_minimap"/></a><a href="The_Burning_Monolith" data-bs-toggle="tooltip" title="The Burning Monolith" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/5f3bc30f7f82f4f0da81ae4055df4de2eafcb07ea0d2913ba68534ef50bbba5d"><img loading="lazy" src="https://cdn.poe2db.tw/image/art/2dart/uiimages/ingame/maplegend/monolith.webp" class="league_minimap"/></a><a href="Trial_of_the_Sekhemas" data-bs-toggle="tooltip" title="Trial of the Sekhemas" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/105f81cab9c06cbc40ac8051a29ccc806981200b1acaf3680d95a4c508eec89a"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/WorldMap/MapButtonSanctum.webp" class="league_minimap"/></a><a href="The_Trial_of_Chaos" data-bs-toggle="tooltip" title="The Trial of Chaos" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/105f81cab9c06cbc40ac8051a29ccc806981200b1acaf3680d95a4c508eec89a"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/WorldMap/MapButtonUltimatum.webp" class="league_minimap"/></a>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="topbanner970"></div><script>topbanner970("topbanner970");</script>
+
+<ul class="nav nav-tabs d-flex flex-wrap" role="tablist"><li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" role="tab" aria-selected="true" href="#MaliceSkillGemMalice">Malice SkillGemMalice</a></li><li class="nav-item"><a class="nav-link" data-bs-toggle="tab" role="tab" aria-selected="false" href="#SupportedBy">Supported By /33 </a></li><li class="nav-item"><a class="nav-link" data-bs-toggle="tab" role="tab" aria-selected="false" href="#Microtransactions">Microtransactions /1 </a></li><li class="nav-item"><a class="nav-link" data-bs-toggle="tab" role="tab" aria-selected="false" href="#MaliceDeliriumMinion4">Malice DeliriumMinion4</a></li><li class="nav-item"><a class="nav-link" data-bs-toggle="tab" role="tab" aria-selected="false" href="#MaliceDeliriumMinionEssence4">Malice DeliriumMinionEssence4</a></li><li class="nav-item"><a class="nav-link" data-bs-toggle="tab" role="tab" aria-selected="false" href="#MaliceDeliriumMinionMalice">Malice DeliriumMinionMalice</a></li></ul><div class="tab-content"><div id="MaliceSkillGemMalice" class="tab-pane fade show active"><span data-tabname="Malice <small>SkillGemMalice</small>"></span><div class="py-2"><div class="d-flex flex-wrap">
+
+<div class="newItemPopup GemPopup item-popup--poe2 "
+>
+    <div class="itemHeader doubleLine">
+
+        <div class="itemName">
+            <span class="lc">Malice</span>
+        </div>
+        <div class="itemName typeLine">
+            <span class="lc"><a class="GemTags KeywordPopups" href="Buff" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a></span>
+        </div>
+    </div>
+    <div class="content">
+        <div class="Stats">
+            <div class="property"><a class="GemTags KeywordPopups" href="Persistent" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/01f2e7fd66caea7f0cddeeadc661747b55853f430e7d318ae8167ea234c61271">Persistent</a>, <a class="GemTags KeywordPopups" href="Aura" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9c33e23c455e029b1d437a71f978feba47c97fc78c293518c0554551040dbc59">Aura</a>, <a class="GemTags KeywordPopups" href="Duration" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/b35166f796be119e87c9cea9560f29e3c50ae16be60140947f4d10e0c1a0e13d">Duration</a></div><div class="property">Level: <span class='colourDefault'>(1<span class="ndash">—</span>20)</span></div><div class="requirements">Requires:  <span class="colourDefault">Level (1<span class="ndash">—</span>90)</span>, <span class="colourDefault">(4<span class="ndash">—</span>48) Str</span>, <span class="colourDefault">(4<span class="ndash">—</span>122) Int</span></div><div class="separator"></div><div class="secDescrText">While active, emits an <a href="Auras" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9c33e23c455e029b1d437a71f978feba47c97fc78c293518c0554551040dbc59">Aura</a> that continuously inflicts <a href="Critical_Weakness" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2e32c7286eba173f202f7ae7abdec5220ba3b22ad942c552f2139a29291273d4">Critical Weakness</a> on enemies in your <a href="Presence" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/7dcbc7de023224f0f506877302060b1aaa814dd225382c87c2ea241a5bb299e7">Presence</a>.</div><div class="separator"></div><div class="explicitMod"><a href="Critical_Weakness" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2e32c7286eba173f202f7ae7abdec5220ba3b22ad942c552f2139a29291273d4">Critical Weakness</a> duration is <span class='mod-value'>4</span> seconds</div><div class="explicitMod">Applies <a href="Critical_Weakness" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2e32c7286eba173f202f7ae7abdec5220ba3b22ad942c552f2139a29291273d4">Critical Weakness</a> to enemies every <span class='mod-value'>(0.51<span class="ndash">—</span>0.7)</span> seconds</div><div class="quality-text"><br />
+<span class="white">Additional Effects From Quality:</span></div><div class="qualityMod"><a href="Critical_Weakness" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2e32c7286eba173f202f7ae7abdec5220ba3b22ad942c552f2139a29291273d4">Critical Weakness</a> duration is <span class='mod-value'>(0<span class="ndash">—</span>1)</span> second</div>
+        </div>
+
+
+        <div class="separator"></div>
+        <div class="default fst-italic">
+            Skills can be managed in the Skills Panel.
+        </div>
+
+        <div>
+            
+        </div>
+    </div>
+</div>
+
+
+        <div class="itemboximage">
+
+
+            <img loading="lazy" class="gemSkill" src="https://cdn.poe2db.tw/image/art/2dart/skillicons/4k/maliceweaponskill.webp"/>
+        </div>
+
+
+
+</div>
+</div><div class="row row-cols-1 row-cols-lg-2"><div class="col"><div   class="card mb-2 ">
+   <h5 class="card-header">Recommended Support Gems /4 </h5>   <div class="table-responsive"><table class='table table-hover table-striped mb-0 filters bg-dark '><thead><tr><th>Tier</th><th>Gems</th></tr></thead><tbody id="zdjTxNKVIS"><tr><td>1</td><td><div class="row"><div class="col"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/45a081657ffdfdb2e5a8bac24ef207dc445eb24f018a67a6e394e58c2834e04a" href="/us/Prolonged_Duration_I">Prolonged Duration I</a></div><div class="col"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/a55d093fc80de4cfdd8e0619ba04f31d48d28f6e718bfda5fd3af96489a9fb88" href="/us/Vitality_I">Vitality I</a></div></div></td></tr><tr><td>2</td><td><div class="row"><div class="col"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/18ddca5943251e1f06ad4256541f8314cc4c3909d0b3a02af837efed495c28ea" href="/us/Herbalism_I">Herbalism I</a></div><div class="col"><a class="gem_blue" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/f6bc1dd31dd390afd8750ff563529717b088376e7fea92fca142b8d1eee96207" href="/us/Mysticism_I">Mysticism I</a></div></div></td></tr><tr><td>3</td><td><div class="row"><div class="col"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/e4217f2b13eb8cce4c1bbc16ed174bd1e3e9529f0785e99bd52c6a7db41d7e33" href="/us/Prolonged_Duration_II">Prolonged Duration II</a></div><div class="col"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/dd9c811c0e89c542b687cae339fe25026c152bfdcb339b1b40dcc3ec1d565c5c" href="/us/Cannibalism_I">Cannibalism I</a></div></div></td></tr><tr><td>4</td><td><div class="row"><div class="col"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/8326aa50bfe21cd4fb895622aba4702ba7a0f2607bfe80b018e45bbf8fb679cd" href="/us/Vitality_II">Vitality II</a></div><div class="col"><a class="gem_blue" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/90041ce14c12df361da1f3017d36b007ab4a45f346de537631f3ca330c2616fb" href="/us/Mysticism_II">Mysticism II</a></div></div></td></tr></tbody></table></div>  </div></div><div class="col"><div   class="card mb-2 ">
+   <h5 class="card-header">From /1</h5>  <div class="card-body"><a class="whiteitem Sceptre" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/f5f6d43239270a31632e13db10ac2883879269df4298becb73ec6f1a8c1a88c0" href="Omen_Sceptre">Omen Sceptre</a></div>   </div></div></div><div   class="card mb-2 ">
+   <h5 class="card-header">Level Effect /40 </h5> <div   class="card mb-2 ">
+      <div class="table-responsive"><table class='table table-hover table-striped mb-0 filters bg-dark '><thead><tr><th>Implicit</th></tr></thead><tbody id="EvX0Fx2BWS"><tr><td><a data-keyword="CriticalWeakness" href="Critical_Weakness" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2e32c7286eba173f202f7ae7abdec5220ba3b22ad942c552f2139a29291273d4">Critical Weakness</a> duration is <span class='mod-value'>4</span> seconds</td></tr></tbody></table></div>  </div>  <form><div class="input-group"><input name="card-reset" type="reset" class="btn btn-outline-secondary" value="Reset"><input name="card-query" placeholder="Search" class="form-control" data-target="#oAlL6FcdCU tr"></div></form><div class="table-responsive"><table class='table table-hover table-striped mb-0 filters bg-dark '><thead><tr><th>Level</th><th>Requires Level</th><th>Str</th><th>Int</th><th>Base Damage</th><th><span class="explicitMod">Applies <a data-keyword="CriticalWeakness" href="Critical_Weakness" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2e32c7286eba173f202f7ae7abdec5220ba3b22ad942c552f2139a29291273d4">Critical Weakness</a> to enemies every <span class='mod-value'>0.7</span> seconds</span></th></tr></thead><tbody id="oAlL6FcdCU"><tr><td>1</td><td>0</td><td>4</td><td>4</td><td>100%, 100%, 100%</td><td>0.7</td></tr><tr><td>2</td><td>3</td><td>5</td><td>8</td><td>100%, 100%, 100%</td><td>0.69</td></tr><tr><td>3</td><td>6</td><td>7</td><td>12</td><td>100%, 100%, 100%</td><td>0.68</td></tr><tr><td>4</td><td>10</td><td>9</td><td>17</td><td>100%, 100%, 100%</td><td>0.67</td></tr><tr><td>5</td><td>14</td><td>11</td><td>22</td><td>100%, 100%, 100%</td><td>0.66</td></tr><tr><td>6</td><td>18</td><td>13</td><td>28</td><td>100%, 100%, 100%</td><td>0.65</td></tr><tr><td>7</td><td>22</td><td>15</td><td>33</td><td>100%, 100%, 100%</td><td>0.64</td></tr><tr><td>8</td><td>26</td><td>17</td><td>38</td><td>100%, 100%, 100%</td><td>0.63</td></tr><tr><td>9</td><td>31</td><td>19</td><td>45</td><td>100%, 100%, 100%</td><td>0.62</td></tr><tr><td>10</td><td>36</td><td>22</td><td>51</td><td>100%, 100%, 100%</td><td>0.61</td></tr><tr><td>11</td><td>41</td><td>24</td><td>58</td><td>100%, 100%, 100%</td><td>0.6</td></tr><tr><td>12</td><td>46</td><td>26</td><td>64</td><td>100%, 100%, 100%</td><td>0.59</td></tr><tr><td>13</td><td>52</td><td>29</td><td>72</td><td>100%, 100%, 100%</td><td>0.58</td></tr><tr><td>14</td><td>58</td><td>32</td><td>80</td><td>100%, 100%, 100%</td><td>0.57</td></tr><tr><td>15</td><td>64</td><td>35</td><td>88</td><td>100%, 100%, 100%</td><td>0.56</td></tr><tr><td>16</td><td>66</td><td>36</td><td>91</td><td>100%, 100%, 100%</td><td>0.55</td></tr><tr><td>17</td><td>72</td><td>39</td><td>98</td><td>100%, 100%, 100%</td><td>0.54</td></tr><tr><td>18</td><td>78</td><td>42</td><td>106</td><td>100%, 100%, 100%</td><td>0.53</td></tr><tr><td>19</td><td>84</td><td>45</td><td>114</td><td>100%, 100%, 100%</td><td>0.52</td></tr><tr><td>20</td><td>90</td><td>48</td><td>122</td><td>100%, 100%, 100%</td><td>0.51</td></tr><tr><td>21</td><td></td><td></td><td></td><td>100%, 100%, 100%</td><td>0.5</td></tr><tr><td>22</td><td></td><td></td><td></td><td>100%, 100%, 100%</td><td>0.49</td></tr><tr><td>23</td><td></td><td></td><td></td><td>100%, 100%, 100%</td><td>0.48</td></tr><tr><td>24</td><td></td><td></td><td></td><td>100%, 100%, 100%</td><td>0.47</td></tr><tr><td>25</td><td></td><td></td><td></td><td>100%, 100%, 100%</td><td>0.46</td></tr><tr><td>26</td><td></td><td></td><td></td><td>100%, 100%, 100%</td><td>0.45</td></tr><tr><td>27</td><td></td><td></td><td></td><td>100%, 100%, 100%</td><td>0.44</td></tr><tr><td>28</td><td></td><td></td><td></td><td>100%, 100%, 100%</td><td>0.43</td></tr><tr><td>29</td><td></td><td></td><td></td><td>100%, 100%, 100%</td><td>0.42</td></tr><tr><td>30</td><td></td><td></td><td></td><td>100%, 100%, 100%</td><td>0.41</td></tr><tr><td>31</td><td></td><td></td><td></td><td>100%, 100%, 100%</td><td>0.41</td></tr><tr><td>32</td><td></td><td></td><td></td><td>100%, 100%, 100%</td><td>0.4</td></tr><tr><td>33</td><td></td><td></td><td></td><td>100%, 100%, 100%</td><td>0.4</td></tr><tr><td>34</td><td></td><td></td><td></td><td>100%, 100%, 100%</td><td>0.39</td></tr><tr><td>35</td><td></td><td></td><td></td><td>100%, 100%, 100%</td><td>0.39</td></tr><tr><td>36</td><td></td><td></td><td></td><td>100%, 100%, 100%</td><td>0.38</td></tr><tr><td>37</td><td></td><td></td><td></td><td>100%, 100%, 100%</td><td>0.38</td></tr><tr><td>38</td><td></td><td></td><td></td><td>100%, 100%, 100%</td><td>0.37</td></tr><tr><td>39</td><td></td><td></td><td></td><td>100%, 100%, 100%</td><td>0.37</td></tr><tr><td>40</td><td></td><td></td><td></td><td>100%, 100%, 100%</td><td>0.36</td></tr></tbody></table></div>  </div><div class="row"><div id="echartsCVvsl7P3U9" class="col-lg-6 echarts echartGemLevel"></div>
+<script>
+$(function() {
+    echarts.init(document.getElementById('echartsCVvsl7P3U9'), 'dark').setOption({"title":{"text":"Applies Critical Weakness to enemies every 0.7 seconds"},"tooltip":{"trigger":"axis"},"xAxis":{"name":"Level","data":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40]},"yAxis":{"type":"value"},"series":[{"data":["0.7","0.69","0.68","0.67","0.66","0.65","0.64","0.63","0.62","0.61","0.6","0.59","0.58","0.57","0.56","0.55","0.54","0.53","0.52","0.51","0.5","0.49","0.48","0.47","0.46","0.45","0.44","0.43","0.42","0.41","0.41","0.4","0.4","0.39","0.39","0.38","0.38","0.37","0.37","0.36"],"type":"line"}]});
+});
+</script>
+</div><div   class="card mb-2 ">
+   <h5 class="card-header">Attribute /8 </h5> <h3 style='display: none'>Malice</h3>  <div class='table-responsive'><table class='table table-hover table-striped mb-0 filters bg-dark '><thead><tr><th>Name</th><th>Show Full Descriptions</th></tr></thead><tbody>
+<tr><td>Acronym</td><td><a href='/us/Aura'>Aura</a>, <a href='/us/Presence'>Presence</a></td></tr>
+<tr><td>Id</td><td>Malice</td></tr>
+<tr><td>BaseType <span class='fas fa-info-circle' data-bs-toggle='tooltip' title='Item Filter'></span></td><td>Malice</td></tr>
+<tr><td>Class <span class='fas fa-info-circle' data-bs-toggle='tooltip' title='Item Filter'></span></td><td><a class="ItemClasses " href="Skill_Gems">Skill Gems</a></td></tr>
+<tr><td>TargetTypes</td><td>Any</td></tr>
+<tr><td>Type</td><td>Buff, HasReservation, Aura, OngoingSkill, Persistent, Duration, AffectsPresence, AttackInPlace</td></tr>
+<tr><td>ItemType</td><td>Metadata/Items/Gem/SkillGemMalice</td></tr>
+<tr><td>ActiveSkillsCode</td><td>malice</td></tr></tbody></table></div>  </div><div   class="card mb-2 ">
+   <h5 class="card-header">Version history /2 </h5>   <div class="table-responsive"><table class='table table-hover table-striped mb-0 filters bg-dark '><thead><tr><th>Version</th><th>Changes</th></tr></thead><tbody id="znkxLwiFeo"><tr><td><a href="Version_0.5.2">0.5.2</a></td><td><div>* Significantly reduced the damage of the Rage and Malice Delirium Monsters.</div></td></tr><tr><td><a href="Version_0.2.0">0.2.0</a></td><td><div><li>Malice now applies Critical Weakness every 0.52 seconds at level 19 (previously 0.64 seconds).</li></div></td></tr></tbody></table></div>  </div><div class="d-flex flex-wrap">
+
+<div class="newItemPopup GemPopup item-popup--poe2 "
+>
+    <div class="itemHeader doubleLine">
+
+        <div class="itemName">
+            <span class="lc">Malice</span>
+        </div>
+        <div class="itemName typeLine">
+            <span class="lc"><a class="GemTags KeywordPopups" href="Buff" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a></span>
+        </div>
+    </div>
+    <div class="content">
+        <div class="Stats">
+            <div class="property"><a class="GemTags KeywordPopups" href="Persistent" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/01f2e7fd66caea7f0cddeeadc661747b55853f430e7d318ae8167ea234c61271">Persistent</a>, <a class="GemTags KeywordPopups" href="Aura" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9c33e23c455e029b1d437a71f978feba47c97fc78c293518c0554551040dbc59">Aura</a>, <a class="GemTags KeywordPopups" href="Duration" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/b35166f796be119e87c9cea9560f29e3c50ae16be60140947f4d10e0c1a0e13d">Duration</a></div><div class="property">Level: <span class='colourDefault'>(1<span class="ndash">—</span>20)</span></div><div class="requirements">Requires:  <span class="colourDefault">Level (1<span class="ndash">—</span>90)</span>, <span class="colourDefault">(4<span class="ndash">—</span>48) Str</span>, <span class="colourDefault">(4<span class="ndash">—</span>122) Int</span></div><div class="separator"></div><div class="secDescrText">While active, emits an <a href="Auras" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9c33e23c455e029b1d437a71f978feba47c97fc78c293518c0554551040dbc59">Aura</a> that continuously inflicts <a href="Critical_Weakness" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2e32c7286eba173f202f7ae7abdec5220ba3b22ad942c552f2139a29291273d4">Critical Weakness</a> on enemies in your <a href="Presence" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/7dcbc7de023224f0f506877302060b1aaa814dd225382c87c2ea241a5bb299e7">Presence</a>.</div><div class="separator"></div><div class="explicitMod"><a href="Critical_Weakness" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2e32c7286eba173f202f7ae7abdec5220ba3b22ad942c552f2139a29291273d4">Critical Weakness</a> duration is <span class='mod-value'>4</span> seconds</div><div class="explicitMod">Applies <a href="Critical_Weakness" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2e32c7286eba173f202f7ae7abdec5220ba3b22ad942c552f2139a29291273d4">Critical Weakness</a> to enemies every <span class='mod-value'>(0.51<span class="ndash">—</span>0.7)</span> seconds</div><div class="explicitMod"><span class="secondary">base deal no damage [1]</span></div><div class="explicitMod"><span class="secondary">skill desired amount override [1]</span></div><div class="quality-text"><br />
+<span class="white">Additional Effects From Quality:</span></div><div class="qualityMod"><a href="Critical_Weakness" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2e32c7286eba173f202f7ae7abdec5220ba3b22ad942c552f2139a29291273d4">Critical Weakness</a> duration is <span class='mod-value'>(0<span class="ndash">—</span>1)</span> second</div>
+        </div>
+
+
+        <div class="separator"></div>
+        <div class="default fst-italic">
+            Skills can be managed in the Skills Panel.
+        </div>
+
+        <div>
+            
+        </div>
+    </div>
+</div>
+
+
+        <div class="itemboximage">
+
+
+            <img loading="lazy" class="gemSkill" src="https://cdn.poe2db.tw/image/art/2dart/skillicons/4k/maliceweaponskill.webp"/>
+        </div>
+
+
+
+</div>
+</div><div id="SupportedBy" class="tab-pane fade"><div   class="card mb-2 ">
+   <h5 class="card-header">Supported By /33 </h5> <div class='card-body'><li>Active Type: Buff, HasReservation, Aura, OngoingSkill, Persistent, Duration, AffectsPresence, AttackInPlace</li></div>  <script>
+$(document).ready(function () {
+    filterClick($('input[name=filtera5OAQJofdz]'));
+});
+</script>
+
+<form>
+    <div class="input-group my-2">
+        <button name="card-reset" type="reset" class="btn btn-outline-secondary">Reset</button>
+        <input name="filtera5OAQJofdz" class="form-control" placeholder="Search">
+    </div>
+</form><div class="row row-cols-1 row-cols-lg-2 g-2 bg-dark"><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/df5e6a0200aa341b344888c25b44af620653c93bf8694a2bc0d136524a9d1927" href="/us/Compressed_Duration_I"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/LessDurationSupport.webp" alt="LessDurationSupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/df5e6a0200aa341b344888c25b44af620653c93bf8694a2bc0d136524a9d1927" href="/us/Compressed_Duration_I">Compressed Duration I</a><div>Supports any skill that has a duration making that duration shorter.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/c6b8a484a6dbb00556b6f17511777e4a3081ae91fcaccbeb210545cfc0ee8339" href="/us/Compressed_Duration_II"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/LessDurationSupport.webp" alt="LessDurationSupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/c6b8a484a6dbb00556b6f17511777e4a3081ae91fcaccbeb210545cfc0ee8339" href="/us/Compressed_Duration_II">Compressed Duration II</a><div>Supports any skill that has a duration making that duration shorter.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/45a081657ffdfdb2e5a8bac24ef207dc445eb24f018a67a6e394e58c2834e04a" href="/us/Prolonged_Duration_I"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/MoreDurationSupport.webp" alt="MoreDurationSupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/45a081657ffdfdb2e5a8bac24ef207dc445eb24f018a67a6e394e58c2834e04a" href="/us/Prolonged_Duration_I">Prolonged Duration I</a><div>Supports any skill that has a duration, making that duration longer.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/e4217f2b13eb8cce4c1bbc16ed174bd1e3e9529f0785e99bd52c6a7db41d7e33" href="/us/Prolonged_Duration_II"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/MoreDurationSupport.webp" alt="MoreDurationSupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/e4217f2b13eb8cce4c1bbc16ed174bd1e3e9529f0785e99bd52c6a7db41d7e33" href="/us/Prolonged_Duration_II">Prolonged Duration II</a><div>Supports any skill that has a duration, making that duration longer.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/a55d093fc80de4cfdd8e0619ba04f31d48d28f6e718bfda5fd3af96489a9fb88" href="/us/Vitality_I"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/VitalitySupport.webp" alt="VitalitySupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/a55d093fc80de4cfdd8e0619ba04f31d48d28f6e718bfda5fd3af96489a9fb88" href="/us/Vitality_I">Vitality I</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing you to gain Life Regeneration while the Skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/8326aa50bfe21cd4fb895622aba4702ba7a0f2607bfe80b018e45bbf8fb679cd" href="/us/Vitality_II"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/VitalitySupport.webp" alt="VitalitySupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/8326aa50bfe21cd4fb895622aba4702ba7a0f2607bfe80b018e45bbf8fb679cd" href="/us/Vitality_II">Vitality II</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing you to gain Life Regeneration while the Skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/18ddca5943251e1f06ad4256541f8314cc4c3909d0b3a02af837efed495c28ea" href="/us/Herbalism_I"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/HerbalismSupport.webp" alt="HerbalismSupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/18ddca5943251e1f06ad4256541f8314cc4c3909d0b3a02af837efed495c28ea" href="/us/Herbalism_I">Herbalism I</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing you to gain increased Life recovery from <a data-keyword="Flask" href="Flasks" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/d5a62bb0ec1911d26b2e809172ca54483710303997c62540bbf3b188edf503ee">Flasks</a> while the Skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/eab2e08ff680b82d5b5c6bdedef96581597f60d12af4b8dec9c14b03d6e3602b" href="/us/Herbalism_II"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/HerbalismSupport.webp" alt="HerbalismSupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/eab2e08ff680b82d5b5c6bdedef96581597f60d12af4b8dec9c14b03d6e3602b" href="/us/Herbalism_II">Herbalism II</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing you to gain increased Life recovery from <a data-keyword="Flask" href="Flasks" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/d5a62bb0ec1911d26b2e809172ca54483710303997c62540bbf3b188edf503ee">Flasks</a> while the Skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/dd9c811c0e89c542b687cae339fe25026c152bfdcb339b1b40dcc3ec1d565c5c" href="/us/Cannibalism_I"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/CannibalismSupport.webp" alt="CannibalismSupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/dd9c811c0e89c542b687cae339fe25026c152bfdcb339b1b40dcc3ec1d565c5c" href="/us/Cannibalism_I">Cannibalism I</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing you to recover Life on kill while the Skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/7b1bc8d4aaf5108d8270e149eed830af7685cb4a6c2425f7a4b315bc4a98be49" href="/us/Cannibalism_II"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/CannibalismSupport.webp" alt="CannibalismSupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/7b1bc8d4aaf5108d8270e149eed830af7685cb4a6c2425f7a4b315bc4a98be49" href="/us/Cannibalism_II">Cannibalism II</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing you to recover Life on kill while the Skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/745e64b35d0be28f44c3823da6f62b05d95f8738af20fd0caaf3de06d7904572" href="/us/Thornskin_I"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/ThornskinSupport.webp" alt="ThornskinSupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/745e64b35d0be28f44c3823da6f62b05d95f8738af20fd0caaf3de06d7904572" href="/us/Thornskin_I">Thornskin I</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing you to deal increased <a data-keyword="Thorns" href="Thorns" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/fe360430a7b03d09ffbbf46cb6ffd0130fb019950baf5f446686a0ac50c66b6c">Thorns</a> Damage while the Supported Skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/d02b67dfa1410c0b1648ed1a7d0ac9b97f842c6a79dddd97e28ff1a1f5748c97" href="/us/Thornskin_II"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/ThornskinSupport.webp" alt="ThornskinSupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/d02b67dfa1410c0b1648ed1a7d0ac9b97f842c6a79dddd97e28ff1a1f5748c97" href="/us/Thornskin_II">Thornskin II</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing you to deal increased <a data-keyword="Thorns" href="Thorns" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/fe360430a7b03d09ffbbf46cb6ffd0130fb019950baf5f446686a0ac50c66b6c">Thorns</a> Damage while the Supported Skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/a80b44541f53f563c3cd900a41e9a7e4176458cd2aa91292613dec8c9a329e84" href="/us/Direstrike_I"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/DireStrikeSupport.webp" alt="DireStrikeSupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/a80b44541f53f563c3cd900a41e9a7e4176458cd2aa91292613dec8c9a329e84" href="/us/Direstrike_I">Direstrike I</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing you to deal increased <a data-keyword="Attack" href="Attacks" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714">Attack</a> Damage while on <a data-keyword="LowLife" href="Low_Life" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/206cbe37c6658ad82ff153e7b9bbeb4c94e144641c9bd52d582bd06fb8e0fe44">Low Life</a> while the Supported Skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/c4f2b2e88df1560dd0313089624903f561233904932eab8a7d1ace1a49930a59" href="/us/Direstrike_II"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/DireStrikeSupport.webp" alt="DireStrikeSupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/c4f2b2e88df1560dd0313089624903f561233904932eab8a7d1ace1a49930a59" href="/us/Direstrike_II">Direstrike II</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing you to deal increased <a data-keyword="Attack" href="Attacks" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714">Attack</a> Damage while on <a data-keyword="LowLife" href="Low_Life" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/206cbe37c6658ad82ff153e7b9bbeb4c94e144641c9bd52d582bd06fb8e0fe44">Low Life</a> while the Supported Skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/e0a7bf8109c96bcfe10ed983174d55923c0c62bbdb664f897d68e32a8a958519" href="/us/Cool_Headed"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/CoolHeadedSupport.webp" alt="CoolHeadedSupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/e0a7bf8109c96bcfe10ed983174d55923c0c62bbdb664f897d68e32a8a958519" href="/us/Cool_Headed">Cool Headed</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing <a data-keyword="Ignite" href="Ignite" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3c9defd13111e72aa1053f711ddb623e66f2d9ebb88504493a12e406351be025">Ignite</a> applied to you to last for a shorter duration while the Supported Skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/c054157c6ddb2b6913df67293ac28f3b9c9c2fdd4c58227a632a2215fd331497" href="/us/Uhtreds_Exodus"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DItems/Gems/New/NewSupport/Lineage/LineageUhtredLesser.webp" alt="LineageUhtredLesser" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/c054157c6ddb2b6913df67293ac28f3b9c9c2fdd4c58227a632a2215fd331497" href="/us/Uhtreds_Exodus">Uhtred's Exodus</a><div>Supports Skills which can gain levels, granting them many additional levels provided no other supports are used with the supported Skill. Does not support skills which do not have levels.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/9e587fda0793025356e05107a2f9c2a2ec97414ba16d9d33ec5be96b6176923d" href="/us/Uhtreds_Omen"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DItems/Gems/New/NewSupport/Lineage/LineageUhtredStandard.webp" alt="LineageUhtredStandard" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/9e587fda0793025356e05107a2f9c2a2ec97414ba16d9d33ec5be96b6176923d" href="/us/Uhtreds_Omen">Uhtred's Omen</a><div>Supports Skills which can gain levels, granting them additional levels provided exactly one other support is used with the supported Skill. Does not support skills which do not have levels.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/3d103b890c9ebc608eb396fde1a7ff1b4e5996a5c456bb1c6555affae3028372" href="/us/Uhtreds_Augury"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DItems/Gems/New/NewSupport/Lineage/LineageUhtredGreater.webp" alt="LineageUhtredGreater" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_red" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/3d103b890c9ebc608eb396fde1a7ff1b4e5996a5c456bb1c6555affae3028372" href="/us/Uhtreds_Augury">Uhtred's Augury</a><div>Supports Skills which can gain levels, granting them additional levels provided exactly two other supports are used with the supported Skill. Does not support skills which do not have levels.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_green" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/3378c85b654803aa8bfef8073f3c2e9fbb661adc4b0bdd5a0efc34b3c3a50f8d" href="/us/Precision_I"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/PrecisionSupport.webp" alt="PrecisionSupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_green" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/3378c85b654803aa8bfef8073f3c2e9fbb661adc4b0bdd5a0efc34b3c3a50f8d" href="/us/Precision_I">Precision I</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing you to gain increased <a data-keyword="Accuracy" href="Accuracy" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/4a439d13631e43c7f47aab345a7e6b64877fb0209f2c42901d14cd9d9f36da1c">Accuracy</a> while the Skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_green" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/0b284c06b088394fa3e317b9d5a24106b3fa8afd8981d4b38238852ba3ccf1f1" href="/us/Precision_II"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/PrecisionSupport.webp" alt="PrecisionSupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_green" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/0b284c06b088394fa3e317b9d5a24106b3fa8afd8981d4b38238852ba3ccf1f1" href="/us/Precision_II">Precision II</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing you to gain increased <a data-keyword="Accuracy" href="Accuracy" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/4a439d13631e43c7f47aab345a7e6b64877fb0209f2c42901d14cd9d9f36da1c">Accuracy</a> while the Skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_green" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/ae9a0b83a00e1f75e31aecfae1be7d075335d9c0ef4749c404410cd047f4cf68" href="/us/Warm_Blooded"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/WarmBloodedSupport.webp" alt="WarmBloodedSupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_green" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/ae9a0b83a00e1f75e31aecfae1be7d075335d9c0ef4749c404410cd047f4cf68" href="/us/Warm_Blooded">Warm Blooded</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing <a data-keyword="Freeze" href="Freeze" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/011683cb90b62a1cbc72829d6e7b38990ef9bb565d22951ceaa5330e787374b5">Freeze</a> applied to you to last for a shorter duration while the Supported Skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_blue" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/2554e1faa0aad41a6400dc20327c8c5c2206adf5cb05a13cd08cabcb75e907e6" href="/us/Clarity_I"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/ClaritySupport.webp" alt="ClaritySupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_blue" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/2554e1faa0aad41a6400dc20327c8c5c2206adf5cb05a13cd08cabcb75e907e6" href="/us/Clarity_I">Clarity I</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing you to gain increased Mana Regeneration while the Skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_blue" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/4abf9186b13918eb1329cc8c3a1eb68fb6ee383799c00c74d1a887658107271d" href="/us/Clarity_II"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/ClaritySupport.webp" alt="ClaritySupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_blue" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/4abf9186b13918eb1329cc8c3a1eb68fb6ee383799c00c74d1a887658107271d" href="/us/Clarity_II">Clarity II</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing you to gain increased Mana Regeneration while the Skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_blue" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/f6bc1dd31dd390afd8750ff563529717b088376e7fea92fca142b8d1eee96207" href="/us/Mysticism_I"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/MysticismSupport.webp" alt="MysticismSupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_blue" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/f6bc1dd31dd390afd8750ff563529717b088376e7fea92fca142b8d1eee96207" href="/us/Mysticism_I">Mysticism I</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing you to deal increased <a data-keyword="Spell" href="Spells" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d">Spell</a> Damage while on full <a data-keyword="EnergyShield" href="Energy_Shield" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5">Energy Shield</a> while the Supported Skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_blue" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/90041ce14c12df361da1f3017d36b007ab4a45f346de537631f3ca330c2616fb" href="/us/Mysticism_II"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/MysticismSupport.webp" alt="MysticismSupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_blue" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/90041ce14c12df361da1f3017d36b007ab4a45f346de537631f3ca330c2616fb" href="/us/Mysticism_II">Mysticism II</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing you to deal increased <a data-keyword="Spell" href="Spells" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d">Spell</a> Damage while on full <a data-keyword="EnergyShield" href="Energy_Shield" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5">Energy Shield</a> while the Supported Skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_blue" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/4e4d2ebc2c2226e2b7c7c534412bcad360a263602b7c96b4d75db042d2c5bc92" href="/us/Upwelling_I"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/UpwellingSupport.webp" alt="UpwellingSupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_blue" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/4e4d2ebc2c2226e2b7c7c534412bcad360a263602b7c96b4d75db042d2c5bc92" href="/us/Upwelling_I">Upwelling I</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing your <a data-keyword="Minion" href="Minions" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a2261570ef8ba8d3abbee0bd6e5a91eef55342d89c3eb0524d7f3d337cad6dbe">Minions</a> to deal increased Damage while you are not on full Mana while the Supported Skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_blue" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/e00d6d1a71e4dc22c77aeb3ad10defbdbf1238e873729a6f0cba42ec7bd8e7bd" href="/us/Upwelling_II"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/UpwellingSupport.webp" alt="UpwellingSupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_blue" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/e00d6d1a71e4dc22c77aeb3ad10defbdbf1238e873729a6f0cba42ec7bd8e7bd" href="/us/Upwelling_II">Upwelling II</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing your <a data-keyword="Minion" href="Minions" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a2261570ef8ba8d3abbee0bd6e5a91eef55342d89c3eb0524d7f3d337cad6dbe">Minions</a> to deal increased Damage while you are not on full Mana while the Supported Skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_blue" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/2523a8b21ee0f26e0cb2e81edbb7fc818273faab2677f1877fc1941964c8f24d" href="/us/Strong_Hearted"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/StrongHeartedSupport.webp" alt="StrongHeartedSupport" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_blue" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/2523a8b21ee0f26e0cb2e81edbb7fc818273faab2677f1877fc1941964c8f24d" href="/us/Strong_Hearted">Strong Hearted</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing <a data-keyword="Shock" href="Shock" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e16c3f539d98714e992b7a2fa61432625e69a665759f8dc5831558b71b21c1f2">Shock</a> applied to you to last for a shorter duration while the Supported Skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gem_blue" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/e35f5571c8edf97c5dc690097d5892197fa08be54f355c2552ab516c0062dcbf" href="/us/Atziris_Communion"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DItems/Gems/New/NewSupport/Lineage/AtziriCommunion.webp" alt="AtziriCommunion" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gem_blue" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/e35f5571c8edf97c5dc690097d5892197fa08be54f355c2552ab516c0062dcbf" href="/us/Atziris_Communion">Atziri's Communion</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> Skills, making them <a data-keyword="Reservation" href="Reservation" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a68a139cad3573e9ae952298981b5e29b450c2267b45053c1d96ce30666d3cb4">Reserve</a> Life instead of <a data-keyword="Spirit" href="Spirit" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/0ba37aeec43462498eae858db9ba1aa919fe6a53037cbccf734926e8ff09492c">Spirit</a>. Cannot Support Skills which create <a data-keyword="Minion" href="Minions" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a2261570ef8ba8d3abbee0bd6e5a91eef55342d89c3eb0524d7f3d337cad6dbe">Minions</a>.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gemitem" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/4f1263ab099737cdf32e237b2efa228e3cfbecdcb4a8c906c4eb536c044ca654" href="/us/Her_Declaration"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DItems/Gems/New/NewSupport/Lineage/MothersDeclaration.webp" alt="MothersDeclaration" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gemitem" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/4f1263ab099737cdf32e237b2efa228e3cfbecdcb4a8c906c4eb536c044ca654" href="/us/Her_Declaration">Her Declaration</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing enemies that enter your <a data-keyword="Presence" href="Presence" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/7dcbc7de023224f0f506877302060b1aaa814dd225382c87c2ea241a5bb299e7">Presence</a> to become <a data-keyword="Intimidate" href="Intimidate" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/55b74b43501de1c10f798ae46bf9c38da5b7201ba687d6396287e1fcdd51f2b1">Intimidated</a> while the Skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gemitem" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/ce26f0aeb30a82e374aec8e17af3bac6230d27fb5527f64d80172a15e94501cb" href="/us/Seraphs_Heart"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DItems/Gems/New/NewSupport/Lineage/SeraphsHeart.webp" alt="SeraphsHeart" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gemitem" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/ce26f0aeb30a82e374aec8e17af3bac6230d27fb5527f64d80172a15e94501cb" href="/us/Seraphs_Heart">Seraph's Heart</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, providing a chance for enemies to calculate their <a data-keyword="Hit" href="Hit_Damage" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/396ec0ccc46f63acd9059876455d4a9f7d5108864acf9fc0f4c56be5a6f9cd57">Hits</a> as though your <a data-keyword="Resistances" href="Resistances" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a">Resistances</a> were 90% while the skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gemitem" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/75d55e039467e7f7321c28e6adb1b7ec3409029ae0fa8d9290132124b4a4d176" href="/us/Arbiters_Reach"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DItems/Gems/New/NewSupport/Lineage/MothersWard.webp" alt="MothersWard" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gemitem" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/75d55e039467e7f7321c28e6adb1b7ec3409029ae0fa8d9290132124b4a4d176" href="/us/Arbiters_Reach">Arbiter's Reach</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing you periodically grant <a data-keyword="Guard" href="Guard" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/d7218c084f473834ed034ae871fb48df46899d9c60a3d9d3c4cf0cd7c701738c">Guard</a> to allies in your <a data-keyword="Presence" href="Presence" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/7dcbc7de023224f0f506877302060b1aaa814dd225382c87c2ea241a5bb299e7">Presence</a> while the Skill is active.</div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="gemitem" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/3b3873238d6916376ab80089669539a60e15ccde022c18bc69a2e22afaec84b2" href="/us/Healing_Runes"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/Support/ExpeditionHealingRunes.webp" alt="ExpeditionHealingRunes" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="gemitem" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_GemEffects_hover/3b3873238d6916376ab80089669539a60e15ccde022c18bc69a2e22afaec84b2" href="/us/Healing_Runes">Healing Runes</a><div>Supports <a data-keyword="Persistent" href="Persistent_Skills" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ee197895817e8761baaf58c77f80deb824e03eabcad9e5426f4ff092ac22fb0d">Persistent</a> <a data-keyword="Buff" href="Buffs" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f3b7e5368280dcfe4f24661dba243d3f15219862d1b0ffea3ee43c4b18fe9033">Buff</a> Skills, causing you to lose <a data-keyword="Ward" href="Runic_Ward" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1547e196969812ca08cdcd4c7cbb6befaf15e8caa83eb77c59704c6452b4eb82">Runic Ward</a> and heal nearby allies based on the <a data-keyword="Ward" href="Runic_Ward" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1547e196969812ca08cdcd4c7cbb6befaf15e8caa83eb77c59704c6452b4eb82">Ward</a> lost. Healing done is split between allies who are not on full Life.</div></div></div></div></div>  </div></div><div id="Microtransactions" class="tab-pane fade"><div   class="card mb-2 ">
+   <h5 class="card-header">Microtransactions /1 </h5>   <div class="row row-cols-1 row-cols-lg-2 g-2 bg-dark"><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a href="Invisible_Buff_Effect"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DItems/Effects/AuraVanishingDye.webp" alt="AuraVanishingDye" class="mtx-icon" /></a></div><div class="flex-grow-1 ms-2"><div class="fw-bold"><a href="Invisible_Buff_Effect">Invisible Buff Effect</a></div><div><div class="property"><a href="Item_Skin">Item Skin</a>, <a href="Miscellaneous">Miscellaneous</a></div><div class="property">Cost: <span class='colourDefault'>50</span></div><div class="separator"></div><div class="implicitMod">Removes the visual effects on the player from arctic armour, tempest shield, blood rage, molten shell, plague bearer, phase run, petrified blood, withering step, any aura, any blasphemied curse, or any herald gem.</div></div><div class="description"></div></div></div></div></div>  </div></div><div id="MaliceDeliriumMinion4" class="tab-pane fade"><div class="d-flex flex-wrap">
+
+<div class="newItemPopup monsterNormalPopup item-popup--poe2 "
+>
+    <div class="itemHeader singleLine">
+
+        <div class="itemName typeLine">
+            <span class="lc">Malice</span>
+        </div>
+    </div>
+    <div class="content">
+        <div class="Stats">
+            <div class="property"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/HUD/EntityDisplay/CategoryDemon.webp" alt="CategoryDemon" class="size24" />Demon</div><div class="property"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyEvasionStrong.webp" alt="IconEnemyEvasionStrong" height="32" class="border-circle enemyStrong" /></div>
+        </div>
+
+
+
+        <div>
+            
+        </div>
+    </div>
+</div>
+
+
+        <div class="itemboximage">
+
+
+        </div>
+
+
+
+</div>
+<span data-tabname="Malice <small>DeliriumMinion4</small>" data-category="MonsterVarieties"></span><table class='table table-hover table-striped'><tr><th>Spectre<td><span class='fa-solid fa-check'></span><tr><th>Tags<td><i>demon</i>, <i>fast_movement</i>, <i>not_int</i>, <i>not_str</i>, <i>Slice1HMetal_onhit_audio</i><tr><th>Packs<td><li><a  data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_MonsterVarieties_hover/04d84689a6bac1cfd7a0376ea51e074878d406069d20a2eeb5de0bee509d280f" href="/us/Disgust">Disgust</a>, <a  data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_MonsterVarieties_hover/9eb199a824f16b8a4a9e201c07c03c12c2c0edbc89db985ec1a392e1a1e29301" href="/us/Malice">Malice</a></li><li><a  data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_MonsterVarieties_hover/fe44069ded18245f55cb34d7932cd0752baca6fc777fe1df1b1d1f2ea10487b6" href="/us/Pure_Disgust">Pure Disgust</a>, <a  data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_MonsterVarieties_hover/1a4d50d09d0240528c68f98335ac784e79a1110923b78451bc25383a8eade653" href="/us/Pure_Malice">Pure Malice</a>, <a  data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_MonsterVarieties_hover/7a40d67070efbbe998442be2367d48941d47a32cf6c2460cf9642f6fe53841c7" href="/us/Pure_Fury">Pure Fury</a>, <a  data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_MonsterVarieties_hover/f4bc49610e885a878ca2026b256d283ce118aaa30e071cb392fbe2e87194f49b" href="/us/Pure_Rage">Pure Rage</a>, <a  data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_MonsterVarieties_hover/238088be03769058e2ed1828e5c14fc76b47ec4c7ec65d7c5c046e95b51fcb96" href="/us/Pure_Spite">Pure Spite</a>, <a  data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_MonsterVarieties_hover/9eb199a824f16b8a4a9e201c07c03c12c2c0edbc89db985ec1a392e1a1e29301" href="/us/Malice">Malice</a>, <a  data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_MonsterVarieties_hover/04d84689a6bac1cfd7a0376ea51e074878d406069d20a2eeb5de0bee509d280f" href="/us/Disgust">Disgust</a></li></table><div class='row row-cols-1 row-cols-lg-4 g-1 mb-2' style='background-color: #111'><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="fas fa-shield-alt"></i>Life</div><div>80%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="fas fa-shield-alt"></i>Evasion</div><div>+50%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="fas fa-shield-alt"></i>Resistance</div><div><span data-bs-toggle="tooltip" data-bs-html="true" title="&lt;span class=&quot;normalitem&quot;&gt;Normal&lt;/span&gt; 0% / &lt;span class=&quot;magicitem&quot;&gt;Magic&lt;/span&gt; 0% / &lt;span class=&quot;rareitem&quot;&gt;Rare&lt;/span&gt; 0% / &lt;span class=&quot;uniqueitem&quot;&gt;Unique&lt;/span&gt; 0%"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceFire.webp" alt="IconEnemyResistanceFire" height="24" class="border-circle enemyNormal" />0%</span>
+<span data-bs-toggle="tooltip" data-bs-html="true" title="&lt;span class=&quot;normalitem&quot;&gt;Normal&lt;/span&gt; 0% / &lt;span class=&quot;magicitem&quot;&gt;Magic&lt;/span&gt; 0% / &lt;span class=&quot;rareitem&quot;&gt;Rare&lt;/span&gt; 0% / &lt;span class=&quot;uniqueitem&quot;&gt;Unique&lt;/span&gt; 0%"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceCold.webp" alt="IconEnemyResistanceCold" height="24" class="border-circle enemyNormal" />0%</span>
+<span data-bs-toggle="tooltip" data-bs-html="true" title="&lt;span class=&quot;normalitem&quot;&gt;Normal&lt;/span&gt; 0% / &lt;span class=&quot;magicitem&quot;&gt;Magic&lt;/span&gt; 0% / &lt;span class=&quot;rareitem&quot;&gt;Rare&lt;/span&gt; 0% / &lt;span class=&quot;uniqueitem&quot;&gt;Unique&lt;/span&gt; 0%"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceLightning.webp" alt="IconEnemyResistanceLightning" height="24" class="border-circle enemyNormal" />0%</span>
+<span data-bs-toggle="tooltip" data-bs-html="true" title="&lt;span class=&quot;normalitem&quot;&gt;Normal&lt;/span&gt; 0% / &lt;span class=&quot;magicitem&quot;&gt;Magic&lt;/span&gt; 0% / &lt;span class=&quot;rareitem&quot;&gt;Rare&lt;/span&gt; 0% / &lt;span class=&quot;uniqueitem&quot;&gt;Unique&lt;/span&gt; 0%"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceChaos.webp" alt="IconEnemyResistanceChaos" height="24" class="border-circle enemyNormal" />0%</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="far fa-hand-rock"></i>Damage</div><div>48%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="far fa-hand-rock"></i>Accuracy</div><div>100%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="far fa-hand-rock"></i><a class="KeywordPopups" data-keyword="Critical" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed" href="Critical_Hits">Critical Hits</a> Chance</div><div>5%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="far fa-hand-rock"></i><a class="KeywordPopups" data-keyword="CriticalDamageBonus" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244" href="Critical_Damage_Bonus">Critical Damage Bonus</a></div><div>+30%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="far fa-hand-rock"></i>Attack Distance</div><div>4 ~ 8</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="far fa-hand-rock"></i>Attack Time</div><div>0.675 Second</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="far fa-hand-rock"></i>Damage Spread</div><div>±20%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="fas fa-book"></i>Experience</div><div>80%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="fas fa-book"></i>Model Size</div><div>100%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="fas fa-book"></i>Type</div><div>DeliriumMinion4</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="fas fa-book"></i>Metadata</div><div><span data-bs-toggle='tooltip' data-bs-title='Metadata/Monsters/LeagueDelirium/DeliriumMinion4'>DeliriumMinion4</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><img src="https://cdn.poe2db.tw/image/art/2dart/skillicons/4k/witchbindspectre.webp" class="size32" data-bs-toggle="tooltip" data-bs-title="Spectre">Reservation</div><div>42</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><img src="https://cdn.poe2db.tw/image/art/2dart/skillicons/4k/witchbindspectre.webp" class="size32" data-bs-toggle="tooltip" data-bs-title="Spectre">Resistance</div><div><span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceFire.webp" alt="IconEnemyResistanceFire" height="24" class="border-circle enemyNormal" />0%</span>
+<span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceCold.webp" alt="IconEnemyResistanceCold" height="24" class="border-circle enemyNormal" />0%</span>
+<span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceLightning.webp" alt="IconEnemyResistanceLightning" height="24" class="border-circle enemyNormal" />0%</span>
+<span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceChaos.webp" alt="IconEnemyResistanceChaos" height="24" class="border-circle enemyNormal" />0%</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><img src="https://cdn.poe2db.tw/image/art/2dart/skillicons/4k/huntresstamebeast.webp" class="size32" data-bs-toggle="tooltip" data-bs-title="Tame Beast">Reservation</div><div>26.7%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><img src="https://cdn.poe2db.tw/image/art/2dart/skillicons/4k/huntresstamebeast.webp" class="size32" data-bs-toggle="tooltip" data-bs-title="Tame Beast">Resistance</div><div><span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceFire.webp" alt="IconEnemyResistanceFire" height="24" class="border-circle enemyNormal" />0%</span>
+<span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceCold.webp" alt="IconEnemyResistanceCold" height="24" class="border-circle enemyNormal" />0%</span>
+<span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceLightning.webp" alt="IconEnemyResistanceLightning" height="24" class="border-circle enemyNormal" />0%</span>
+<span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceChaos.webp" alt="IconEnemyResistanceChaos" height="24" class="border-circle enemyNormal" />0%</span></div></div></div></div><div class='px-2 mb-2' style='background-color: #111'><div class='alert alert-primary mb-2' role='alert'>The following values do not include map affix bonuses, monster buff bonuses, altar bonuses, atlas skill bonuses.</div><select class="w-100 form-select monsterEffect select2-single" data-monster-id="23828" data-placeholder="Select Monster Level">
+    <option></option>
+</select>
+<div class="mt-2" id="MonsterLevelSkill23828"><div class='row row-cols-1 row-cols-lg-4 g-1'><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Level</div><div>68</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Life</div><div><span data-bs-toggle='tooltip' title='8257(Base Stat) * 0.8(Monster Multiplier) * 1(Map Multiplier) = 6605.6'>6,606</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Armour</div><div><span data-bs-toggle='tooltip' title='2413(Base Stat) * 1(Monster Type Multiplier) = 2413'>2,413</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Evasion Rating</div><div><span data-bs-toggle='tooltip' title='708(Base Stat) * 1.5(Monster Type Multiplier) = 1062'>1,062</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Damage</div><div><span data-bs-toggle='tooltip' title='233.12(Base Stat) * 0.48(Monster Multiplier) * 1(Map Multiplier) = 111.8976'>112</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Spell Damage</div><div><span data-bs-toggle='tooltip' title='233.12(Base Stat) * 0.48(Monster Multiplier) * 1(Map Multiplier) = 111.8976'>112</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Accuracy</div><div><span data-bs-toggle='tooltip' title='1251(Base Stat) * 2(Monster Type Multiplier) = 2502'>2,502</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Attack Time</div><div><span data-bs-toggle='tooltip' title='0.675(Base Stat) = 0.675'>0.675</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Experience</div><div><span data-bs-toggle='tooltip' title='28634(Base Stat) * 0.8(Monster Multiplier) = 22907.2'>22,907</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Minion Life</div><div><span data-bs-toggle='tooltip' title='6930(Base Stat) * 0.8(Monster Multiplier) * 1(Map Multiplier) = 5544'>5,544</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Minion Damage</div><div><span data-bs-toggle='tooltip' title='968.76(Minion Base Stat) * 0.48(Monster Multiplier) * 1(Map Multiplier) = 465.0048'>465</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Minion Armour</div><div><span data-bs-toggle='tooltip' title='2413(Base Stat) * 1(Monster Type Multiplier) = 2413'>2,413</span></div></div></div></div><div class='alert alert-primary mt-4 mb-2' role='alert'>The following values are skill base values and do not include map affix bonuses, monster buff bonuses, altar bonuses, atlas skill bonuses, monster base damage(ex: The Maven 150% multiplier), monster rarity bonuses (ex: <span data-hover='?s=Data\Mods/MonsterUnique5' style='text-decoration-style: dotted;'>unique 70% more</span>, <span data-hover='?s=Data\Mods/MonsterUnique8' style='text-decoration-style: dotted;'>unique attack 33% less</span>).</div><div class='row row-cols-1 row-cols-lg-3'><div class='col'><div class='card pb-0 mb-2 col-monster border-dark'><div class='p-1 text-center newItemPopup gemPopup'><div class="hybridHeader"><div class="TitleBar TextGem">MeleeAtAnimationSpeed</div></div><div class='Stats'><div class="property">Attack, RangedAttack, MirageArcherCanUse, Projectile, MeleeSingleTarget, Melee, ProjectilesFromUser, AttackInPlace</div><div class="property">Basic Attack</div><div class="property">Base Damage: <span class='colourDefault'>90<span class="ndash">—</span>134</span></div><div class="property"><a data-keyword="Critical" href="Critical_Hits" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed">Critical Hit</a> Chance: <span class='colourDefault'>5%</span></div><div class="property">Attack Time: <span class='colourDefault'>0.675 sec</span></div><div class="separator"></div><div class='text-gem'></div><div class="separator"></div><div class="explicitMod"><span class="secondary">action attack or cast time uses animation length [1]</span></div><div class="explicitMod"><span class="secondary">projectile uses contact position [1]</span></div><div class="explicitMod"><span class="secondary">skill can fire wand projectiles [1]</span></div><div class="explicitMod"><span class="secondary">use scaled contact offset [1]</span></div><div class="separator"></div><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/iconbasicattack.webp" alt="iconbasicattack" /></div></div></div></div><div class='col'><div class='card pb-0 mb-2 col-monster border-dark'><div class='p-1 text-center newItemPopup gemPopup'><div class="hybridHeader"><div class="TitleBar TextGem">DeliriumMinionSpikeExplosionGT</div></div><div class='Stats'><div class="property">Spell, Triggerable, AttackInPlace</div><div class="property">Cast Time: <span class='colourDefault'>1 sec</span></div><div class="separator"></div><div class='text-gem'></div></div></div></div></div><div class='col'><div class='card pb-0 mb-2 col-monster border-dark'><div class='p-1 text-center newItemPopup gemPopup'><div class="hybridHeader"><div class="TitleBar TextGem">DeliriumSpikerDeathSpike</div></div><div class='Stats'><div class="property">Projectile, ProjectilesFromUser, Spell, Damage, Area, Trappable, Totemable, Mineable, Multicastable, Triggerable, AreaSpell, AttackInPlace</div><div class="property"><a data-keyword="Critical" href="Critical_Hits" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed">Critical Hit</a> Chance: <span class='colourDefault'>5%</span></div><div class="property">Cast Time: <span class='colourDefault'>1 sec</span></div><div class="separator"></div><div class='text-gem'>Generic monster mortar skill. Like Monster Projectile but has an impact effect.</div><div class="separator"></div><div class="explicitMod">Deals <span class='mod-value'>76.52</span> to <span class='mod-value'>114.8</span> <a data-keyword="Physical" href="Physical_Damage" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97">Physical</a> Damage</div><div class="explicitMod"><a data-keyword="Conversion" href="Damage_Conversion" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/b124bd951b18a2c8900541c7ec38dba1a7dbba125df2686fb6c1de0d3875ff00">Converts</a> <span class='mod-value'>50</span>% of <a data-keyword="Physical" href="Physical_Damage" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97">Physical</a> damage to <a data-keyword="Cold" href="Cold_Damage" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35">Cold</a> damage</div><div class="explicitMod">Fires <span class='mod-value'>5</span> additional <a data-keyword="Projectile" href="Projectile" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6124c367861336198eb93986587a408c328b03ee40940391c8b1200cb730f966">Projectiles</a></div><div class="explicitMod">Fires <a data-keyword="Projectile" href="Projectile" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6124c367861336198eb93986587a408c328b03ee40940391c8b1200cb730f966">Projectiles</a> in a circle</div><div class="explicitMod"><span class="secondary">base is projectile [1]</span></div><div class="explicitMod"><span class="secondary">is area damage [1]</span></div><div class="explicitMod"><span class="secondary">projectile speed is divided by % of scale [200]</span></div><div class="explicitMod"><span class="secondary">projectile spread radius [30]</span></div><div class="explicitMod"><span class="secondary">projectile uses contact position [1]</span></div></div></div></div></div></div></div></div><button class="btn btn-info" data-bs-toggle="collapse" data-bs-target="#SAFdD0a4CC">Show AI Script</button> <div id="SAFdD0a4CC" class="collapse"> <h4>Object Type</h4><pre>version 2
+extends "Metadata/Monsters/Monster"
+
+Stats
+{
+	set_base_heavy_stun_duration_ms = 3400
+}</pre> </div><button class="btn btn-info" data-bs-toggle="collapse" data-bs-target="#wUXSm0tbSN">Show Path of Building Spectre.lua</button> <div id="wUXSm0tbSN" class="collapse"> <pre>-- src\Data\Spectres.lua
+minions["Metadata/Monsters/LeagueDelirium/DeliriumMinion4"] = {
+    fireResist = 0,
+    coldResist = 0,
+    lightningResist = 0,
+    chaosResist = 0,
+    name = "Malice",
+    life = 0.8,
+    damage = 0.48,
+    damageSpread = 0.2,
+    attackTime = 0.675,
+    attackRange = 8,
+    accuracy = 1,
+    skillList = {
+        "MeleeAtAnimationSpeed",
+        "DeliriumSpikerDeathSpike",
+        "DeliriumMinionSpikeExplosionGT",
+    },
+    modList = {
+    },
+}
+-- src\Data\Skills\spectre.lua
+skills["MeleeAtAnimationSpeed"] = {
+    name = "Basic Attack",
+    hidden = true,
+    color = ,
+    baseEffectiveness = 0,
+    incrementalEffectiveness = 0,
+    skillTypes = {
+        [SkillType.Attack] = true,
+        [SkillType.RangedAttack] = true,
+        [SkillType.MirageArcherCanUse] = true,
+        [SkillType.Projectile] = true,
+        [SkillType.MeleeSingleTarget] = true,
+        [SkillType.Melee] = true,
+        [SkillType.ProjectilesFromUser] = true,
+        [SkillType.AttackInPlace] = true,
+    },
+    statDescriptionScope = "skill_stat_descriptions",
+    castTime = 1,
+    baseFlags = {
+        attack = true,
+        melee = true,
+        projectile = true,
+    },
+    baseMods = {
+    },
+    qualityStats = {
+    },
+    stats = {
+        "skill_can_fire_arrows",
+        "skill_can_fire_wand_projectiles",
+        "action_attack_or_cast_time_uses_animation_length",
+        "projectile_uses_contact_position",
+        "use_scaled_contact_offset",
+    },
+    levels = {
+        [1] = {levelRequirement = 1, statInterpolation = {},  cost = { }, },
+    },
+}
+-- src\Data\Skills\spectre.lua
+skills["DeliriumSpikerDeathSpike"] = {
+    name = "DeliriumSpikerDeathSpike",
+    hidden = true,
+    color = ,
+    baseEffectiveness = 0,
+    incrementalEffectiveness = 0,
+    description = "Generic monster mortar skill. Like Monster Projectile but has an impact effect.",
+    skillTypes = {
+        [SkillType.Projectile] = true,
+        [SkillType.ProjectilesFromUser] = true,
+        [SkillType.Spell] = true,
+        [SkillType.Damage] = true,
+        [SkillType.Area] = true,
+        [SkillType.Trappable] = true,
+        [SkillType.Totemable] = true,
+        [SkillType.Mineable] = true,
+        [SkillType.Multicastable] = true,
+        [SkillType.Triggerable] = true,
+        [SkillType.AreaSpell] = true,
+        [SkillType.AttackInPlace] = true,
+    },
+    statDescriptionScope = "skill_stat_descriptions",
+    castTime = 1,
+    baseFlags = {
+        area = true,
+        spell = true,
+        projectile = true,
+    },
+    baseMods = {
+    },
+    qualityStats = {
+    },
+    stats = {
+        "spell_minimum_base_physical_damage",
+        "spell_maximum_base_physical_damage",
+        "number_of_additional_projectiles",
+        "projectile_spread_radius",
+        "projectile_speed_is_divided_by_%_of_scale",
+        "active_skill_base_physical_damage_%_to_convert_to_cold",
+        "is_area_damage",
+        "base_is_projectile",
+        "projectile_uses_contact_position",
+        "projectiles_nova",
+    },
+    levels = {
+        [1] = {0.80000001192093, 1.2000000476837, 5, 30, 200, 50, critChance = 5, levelRequirement = 1, statInterpolation = {3, 3},  cost = { }, },
+    },
+}
+-- src\Data\Skills\spectre.lua
+skills["DeliriumMinionSpikeExplosionGT"] = {
+    name = "DeliriumMinionSpikeExplosionGT",
+    hidden = true,
+    color = ,
+    baseEffectiveness = 0,
+    incrementalEffectiveness = 0,
+    skillTypes = {
+        [SkillType.Spell] = true,
+        [SkillType.Triggerable] = true,
+        [SkillType.AttackInPlace] = true,
+    },
+    statDescriptionScope = "skill_stat_descriptions",
+    castTime = 1,
+    baseFlags = {
+        spell = true,
+    },
+    baseMods = {
+    },
+    qualityStats = {
+    },
+    stats = {
+    },
+    levels = {
+        [1] = {levelRequirement = 1, statInterpolation = {},  cost = { }, },
+    },
+}
+</pre> </div></div><div id="MaliceDeliriumMinionEssence4" class="tab-pane fade"><div class="d-flex flex-wrap">
+
+<div class="newItemPopup monsterNormalPopup item-popup--poe2 "
+>
+    <div class="itemHeader singleLine">
+
+        <div class="itemName typeLine">
+            <span class="lc">Malice</span>
+        </div>
+    </div>
+    <div class="content">
+        <div class="Stats">
+            <div class="property"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/HUD/EntityDisplay/CategoryDemon.webp" alt="CategoryDemon" class="size24" />Demon</div><div class="property"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyEvasionStrong.webp" alt="IconEnemyEvasionStrong" height="32" class="border-circle enemyStrong" /></div>
+        </div>
+
+
+
+        <div>
+            
+        </div>
+    </div>
+</div>
+
+
+        <div class="itemboximage">
+
+
+        </div>
+
+
+
+</div>
+<span data-tabname="Malice <small>DeliriumMinionEssence4</small>" data-category="MonsterVarieties"></span><table class='table table-hover table-striped'><tr><th>Spectre<td><span class='fa-solid fa-check'></span><tr><th>Tags<td><i>demon</i>, <i>fast_movement</i>, <i>not_int</i>, <i>not_str</i>, <i>Slice1HMetal_onhit_audio</i></table><div class='row row-cols-1 row-cols-lg-4 g-1 mb-2' style='background-color: #111'><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="fas fa-shield-alt"></i>Life</div><div>80%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="fas fa-shield-alt"></i>Evasion</div><div>+50%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="fas fa-shield-alt"></i>Resistance</div><div><span data-bs-toggle="tooltip" data-bs-html="true" title="&lt;span class=&quot;normalitem&quot;&gt;Normal&lt;/span&gt; 0% / &lt;span class=&quot;magicitem&quot;&gt;Magic&lt;/span&gt; 0% / &lt;span class=&quot;rareitem&quot;&gt;Rare&lt;/span&gt; 0% / &lt;span class=&quot;uniqueitem&quot;&gt;Unique&lt;/span&gt; 0%"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceFire.webp" alt="IconEnemyResistanceFire" height="24" class="border-circle enemyNormal" />0%</span>
+<span data-bs-toggle="tooltip" data-bs-html="true" title="&lt;span class=&quot;normalitem&quot;&gt;Normal&lt;/span&gt; 0% / &lt;span class=&quot;magicitem&quot;&gt;Magic&lt;/span&gt; 0% / &lt;span class=&quot;rareitem&quot;&gt;Rare&lt;/span&gt; 0% / &lt;span class=&quot;uniqueitem&quot;&gt;Unique&lt;/span&gt; 0%"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceCold.webp" alt="IconEnemyResistanceCold" height="24" class="border-circle enemyNormal" />0%</span>
+<span data-bs-toggle="tooltip" data-bs-html="true" title="&lt;span class=&quot;normalitem&quot;&gt;Normal&lt;/span&gt; 0% / &lt;span class=&quot;magicitem&quot;&gt;Magic&lt;/span&gt; 0% / &lt;span class=&quot;rareitem&quot;&gt;Rare&lt;/span&gt; 0% / &lt;span class=&quot;uniqueitem&quot;&gt;Unique&lt;/span&gt; 0%"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceLightning.webp" alt="IconEnemyResistanceLightning" height="24" class="border-circle enemyNormal" />0%</span>
+<span data-bs-toggle="tooltip" data-bs-html="true" title="&lt;span class=&quot;normalitem&quot;&gt;Normal&lt;/span&gt; 0% / &lt;span class=&quot;magicitem&quot;&gt;Magic&lt;/span&gt; 0% / &lt;span class=&quot;rareitem&quot;&gt;Rare&lt;/span&gt; 0% / &lt;span class=&quot;uniqueitem&quot;&gt;Unique&lt;/span&gt; 0%"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceChaos.webp" alt="IconEnemyResistanceChaos" height="24" class="border-circle enemyNormal" />0%</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="far fa-hand-rock"></i>Damage</div><div>48%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="far fa-hand-rock"></i>Accuracy</div><div>100%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="far fa-hand-rock"></i><a class="KeywordPopups" data-keyword="Critical" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed" href="Critical_Hits">Critical Hits</a> Chance</div><div>5%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="far fa-hand-rock"></i><a class="KeywordPopups" data-keyword="CriticalDamageBonus" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244" href="Critical_Damage_Bonus">Critical Damage Bonus</a></div><div>+30%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="far fa-hand-rock"></i>Attack Distance</div><div>4 ~ 8</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="far fa-hand-rock"></i>Attack Time</div><div>0.675 Second</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="far fa-hand-rock"></i>Damage Spread</div><div>±20%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="fas fa-book"></i>Experience</div><div>80%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="fas fa-book"></i>Model Size</div><div>100%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="fas fa-book"></i>Type</div><div>DeliriumMinion4</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="fas fa-book"></i>Metadata</div><div><span data-bs-toggle='tooltip' data-bs-title='Metadata/Monsters/LeagueDelirium/DeliriumMinionEssence4'>DeliriumMinionEssence4</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><img src="https://cdn.poe2db.tw/image/art/2dart/skillicons/4k/witchbindspectre.webp" class="size32" data-bs-toggle="tooltip" data-bs-title="Spectre">Reservation</div><div>42</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><img src="https://cdn.poe2db.tw/image/art/2dart/skillicons/4k/witchbindspectre.webp" class="size32" data-bs-toggle="tooltip" data-bs-title="Spectre">Resistance</div><div><span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceFire.webp" alt="IconEnemyResistanceFire" height="24" class="border-circle enemyNormal" />0%</span>
+<span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceCold.webp" alt="IconEnemyResistanceCold" height="24" class="border-circle enemyNormal" />0%</span>
+<span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceLightning.webp" alt="IconEnemyResistanceLightning" height="24" class="border-circle enemyNormal" />0%</span>
+<span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceChaos.webp" alt="IconEnemyResistanceChaos" height="24" class="border-circle enemyNormal" />0%</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><img src="https://cdn.poe2db.tw/image/art/2dart/skillicons/4k/huntresstamebeast.webp" class="size32" data-bs-toggle="tooltip" data-bs-title="Tame Beast">Reservation</div><div>26.7%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><img src="https://cdn.poe2db.tw/image/art/2dart/skillicons/4k/huntresstamebeast.webp" class="size32" data-bs-toggle="tooltip" data-bs-title="Tame Beast">Resistance</div><div><span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceFire.webp" alt="IconEnemyResistanceFire" height="24" class="border-circle enemyNormal" />0%</span>
+<span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceCold.webp" alt="IconEnemyResistanceCold" height="24" class="border-circle enemyNormal" />0%</span>
+<span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceLightning.webp" alt="IconEnemyResistanceLightning" height="24" class="border-circle enemyNormal" />0%</span>
+<span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceChaos.webp" alt="IconEnemyResistanceChaos" height="24" class="border-circle enemyNormal" />0%</span></div></div></div></div><div class='px-2 mb-2' style='background-color: #111'><div class='alert alert-primary mb-2' role='alert'>The following values do not include map affix bonuses, monster buff bonuses, altar bonuses, atlas skill bonuses.</div><select class="w-100 form-select monsterEffect select2-single" data-monster-id="12247" data-placeholder="Select Monster Level">
+    <option></option>
+</select>
+<div class="mt-2" id="MonsterLevelSkill12247"><div class='row row-cols-1 row-cols-lg-4 g-1'><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Level</div><div>68</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Life</div><div><span data-bs-toggle='tooltip' title='8257(Base Stat) * 0.8(Monster Multiplier) * 1(Map Multiplier) = 6605.6'>6,606</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Armour</div><div><span data-bs-toggle='tooltip' title='2413(Base Stat) * 1(Monster Type Multiplier) = 2413'>2,413</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Evasion Rating</div><div><span data-bs-toggle='tooltip' title='708(Base Stat) * 1.5(Monster Type Multiplier) = 1062'>1,062</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Damage</div><div><span data-bs-toggle='tooltip' title='233.12(Base Stat) * 0.48(Monster Multiplier) * 1(Map Multiplier) = 111.8976'>112</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Spell Damage</div><div><span data-bs-toggle='tooltip' title='233.12(Base Stat) * 0.48(Monster Multiplier) * 1(Map Multiplier) = 111.8976'>112</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Accuracy</div><div><span data-bs-toggle='tooltip' title='1251(Base Stat) * 2(Monster Type Multiplier) = 2502'>2,502</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Attack Time</div><div><span data-bs-toggle='tooltip' title='0.675(Base Stat) = 0.675'>0.675</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Experience</div><div><span data-bs-toggle='tooltip' title='28634(Base Stat) * 0.8(Monster Multiplier) = 22907.2'>22,907</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Minion Life</div><div><span data-bs-toggle='tooltip' title='6930(Base Stat) * 0.8(Monster Multiplier) * 1(Map Multiplier) = 5544'>5,544</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Minion Damage</div><div><span data-bs-toggle='tooltip' title='968.76(Minion Base Stat) * 0.48(Monster Multiplier) * 1(Map Multiplier) = 465.0048'>465</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Minion Armour</div><div><span data-bs-toggle='tooltip' title='2413(Base Stat) * 1(Monster Type Multiplier) = 2413'>2,413</span></div></div></div></div><div class='alert alert-primary mt-4 mb-2' role='alert'>The following values are skill base values and do not include map affix bonuses, monster buff bonuses, altar bonuses, atlas skill bonuses, monster base damage(ex: The Maven 150% multiplier), monster rarity bonuses (ex: <span data-hover='?s=Data\Mods/MonsterUnique5' style='text-decoration-style: dotted;'>unique 70% more</span>, <span data-hover='?s=Data\Mods/MonsterUnique8' style='text-decoration-style: dotted;'>unique attack 33% less</span>).</div><div class='row row-cols-1 row-cols-lg-3'><div class='col'><div class='card pb-0 mb-2 col-monster border-dark'><div class='p-1 text-center newItemPopup gemPopup'><div class="hybridHeader"><div class="TitleBar TextGem">MeleeAtAnimationSpeed</div></div><div class='Stats'><div class="property">Attack, RangedAttack, MirageArcherCanUse, Projectile, MeleeSingleTarget, Melee, ProjectilesFromUser, AttackInPlace</div><div class="property">Basic Attack</div><div class="property">Base Damage: <span class='colourDefault'>90<span class="ndash">—</span>134</span></div><div class="property"><a data-keyword="Critical" href="Critical_Hits" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed">Critical Hit</a> Chance: <span class='colourDefault'>5%</span></div><div class="property">Attack Time: <span class='colourDefault'>0.675 sec</span></div><div class="separator"></div><div class='text-gem'></div><div class="separator"></div><div class="explicitMod"><span class="secondary">action attack or cast time uses animation length [1]</span></div><div class="explicitMod"><span class="secondary">projectile uses contact position [1]</span></div><div class="explicitMod"><span class="secondary">skill can fire wand projectiles [1]</span></div><div class="explicitMod"><span class="secondary">use scaled contact offset [1]</span></div><div class="separator"></div><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/iconbasicattack.webp" alt="iconbasicattack" /></div></div></div></div><div class='col'><div class='card pb-0 mb-2 col-monster border-dark'><div class='p-1 text-center newItemPopup gemPopup'><div class="hybridHeader"><div class="TitleBar TextGem">DeliriumMinionSpikeExplosionGT</div></div><div class='Stats'><div class="property">Spell, Triggerable, AttackInPlace</div><div class="property">Cast Time: <span class='colourDefault'>1 sec</span></div><div class="separator"></div><div class='text-gem'></div></div></div></div></div><div class='col'><div class='card pb-0 mb-2 col-monster border-dark'><div class='p-1 text-center newItemPopup gemPopup'><div class="hybridHeader"><div class="TitleBar TextGem">DeliriumSpikerDeathSpike</div></div><div class='Stats'><div class="property">Projectile, ProjectilesFromUser, Spell, Damage, Area, Trappable, Totemable, Mineable, Multicastable, Triggerable, AreaSpell, AttackInPlace</div><div class="property"><a data-keyword="Critical" href="Critical_Hits" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed">Critical Hit</a> Chance: <span class='colourDefault'>5%</span></div><div class="property">Cast Time: <span class='colourDefault'>1 sec</span></div><div class="separator"></div><div class='text-gem'>Generic monster mortar skill. Like Monster Projectile but has an impact effect.</div><div class="separator"></div><div class="explicitMod">Deals <span class='mod-value'>76.52</span> to <span class='mod-value'>114.8</span> <a data-keyword="Physical" href="Physical_Damage" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97">Physical</a> Damage</div><div class="explicitMod"><a data-keyword="Conversion" href="Damage_Conversion" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/b124bd951b18a2c8900541c7ec38dba1a7dbba125df2686fb6c1de0d3875ff00">Converts</a> <span class='mod-value'>50</span>% of <a data-keyword="Physical" href="Physical_Damage" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97">Physical</a> damage to <a data-keyword="Cold" href="Cold_Damage" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35">Cold</a> damage</div><div class="explicitMod">Fires <span class='mod-value'>5</span> additional <a data-keyword="Projectile" href="Projectile" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6124c367861336198eb93986587a408c328b03ee40940391c8b1200cb730f966">Projectiles</a></div><div class="explicitMod">Fires <a data-keyword="Projectile" href="Projectile" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6124c367861336198eb93986587a408c328b03ee40940391c8b1200cb730f966">Projectiles</a> in a circle</div><div class="explicitMod"><span class="secondary">base is projectile [1]</span></div><div class="explicitMod"><span class="secondary">is area damage [1]</span></div><div class="explicitMod"><span class="secondary">projectile speed is divided by % of scale [200]</span></div><div class="explicitMod"><span class="secondary">projectile spread radius [30]</span></div><div class="explicitMod"><span class="secondary">projectile uses contact position [1]</span></div></div></div></div></div></div></div></div><button class="btn btn-info" data-bs-toggle="collapse" data-bs-target="#ZrDE76AR8z">Show AI Script</button> <div id="ZrDE76AR8z" class="collapse"> <h4>Object Type</h4><pre>version 2
+extends "Metadata/Monsters/Monster"
+
+Stats
+{
+	set_base_heavy_stun_duration_ms = 3400
+}</pre> </div><button class="btn btn-info" data-bs-toggle="collapse" data-bs-target="#TsKBtUCcHi">Show Path of Building Spectre.lua</button> <div id="TsKBtUCcHi" class="collapse"> <pre>-- src\Data\Spectres.lua
+minions["Metadata/Monsters/LeagueDelirium/DeliriumMinionEssence4"] = {
+    fireResist = 0,
+    coldResist = 0,
+    lightningResist = 0,
+    chaosResist = 0,
+    name = "Malice",
+    life = 0.8,
+    damage = 0.48,
+    damageSpread = 0.2,
+    attackTime = 0.675,
+    attackRange = 8,
+    accuracy = 1,
+    skillList = {
+        "MeleeAtAnimationSpeed",
+        "DeliriumSpikerDeathSpike",
+        "DeliriumMinionSpikeExplosionGT",
+    },
+    modList = {
+    },
+}
+-- src\Data\Skills\spectre.lua
+skills["MeleeAtAnimationSpeed"] = {
+    name = "Basic Attack",
+    hidden = true,
+    color = ,
+    baseEffectiveness = 0,
+    incrementalEffectiveness = 0,
+    skillTypes = {
+        [SkillType.Attack] = true,
+        [SkillType.RangedAttack] = true,
+        [SkillType.MirageArcherCanUse] = true,
+        [SkillType.Projectile] = true,
+        [SkillType.MeleeSingleTarget] = true,
+        [SkillType.Melee] = true,
+        [SkillType.ProjectilesFromUser] = true,
+        [SkillType.AttackInPlace] = true,
+    },
+    statDescriptionScope = "skill_stat_descriptions",
+    castTime = 1,
+    baseFlags = {
+        attack = true,
+        melee = true,
+        projectile = true,
+    },
+    baseMods = {
+    },
+    qualityStats = {
+    },
+    stats = {
+        "skill_can_fire_arrows",
+        "skill_can_fire_wand_projectiles",
+        "action_attack_or_cast_time_uses_animation_length",
+        "projectile_uses_contact_position",
+        "use_scaled_contact_offset",
+    },
+    levels = {
+        [1] = {levelRequirement = 1, statInterpolation = {},  cost = { }, },
+    },
+}
+-- src\Data\Skills\spectre.lua
+skills["DeliriumSpikerDeathSpike"] = {
+    name = "DeliriumSpikerDeathSpike",
+    hidden = true,
+    color = ,
+    baseEffectiveness = 0,
+    incrementalEffectiveness = 0,
+    description = "Generic monster mortar skill. Like Monster Projectile but has an impact effect.",
+    skillTypes = {
+        [SkillType.Projectile] = true,
+        [SkillType.ProjectilesFromUser] = true,
+        [SkillType.Spell] = true,
+        [SkillType.Damage] = true,
+        [SkillType.Area] = true,
+        [SkillType.Trappable] = true,
+        [SkillType.Totemable] = true,
+        [SkillType.Mineable] = true,
+        [SkillType.Multicastable] = true,
+        [SkillType.Triggerable] = true,
+        [SkillType.AreaSpell] = true,
+        [SkillType.AttackInPlace] = true,
+    },
+    statDescriptionScope = "skill_stat_descriptions",
+    castTime = 1,
+    baseFlags = {
+        area = true,
+        spell = true,
+        projectile = true,
+    },
+    baseMods = {
+    },
+    qualityStats = {
+    },
+    stats = {
+        "spell_minimum_base_physical_damage",
+        "spell_maximum_base_physical_damage",
+        "number_of_additional_projectiles",
+        "projectile_spread_radius",
+        "projectile_speed_is_divided_by_%_of_scale",
+        "active_skill_base_physical_damage_%_to_convert_to_cold",
+        "is_area_damage",
+        "base_is_projectile",
+        "projectile_uses_contact_position",
+        "projectiles_nova",
+    },
+    levels = {
+        [1] = {0.80000001192093, 1.2000000476837, 5, 30, 200, 50, critChance = 5, levelRequirement = 1, statInterpolation = {3, 3},  cost = { }, },
+    },
+}
+-- src\Data\Skills\spectre.lua
+skills["DeliriumMinionSpikeExplosionGT"] = {
+    name = "DeliriumMinionSpikeExplosionGT",
+    hidden = true,
+    color = ,
+    baseEffectiveness = 0,
+    incrementalEffectiveness = 0,
+    skillTypes = {
+        [SkillType.Spell] = true,
+        [SkillType.Triggerable] = true,
+        [SkillType.AttackInPlace] = true,
+    },
+    statDescriptionScope = "skill_stat_descriptions",
+    castTime = 1,
+    baseFlags = {
+        spell = true,
+    },
+    baseMods = {
+    },
+    qualityStats = {
+    },
+    stats = {
+    },
+    levels = {
+        [1] = {levelRequirement = 1, statInterpolation = {},  cost = { }, },
+    },
+}
+</pre> </div></div><div id="MaliceDeliriumMinionMalice" class="tab-pane fade"><div class="d-flex flex-wrap">
+
+<div class="newItemPopup monsterNormalPopup item-popup--poe2 "
+>
+    <div class="itemHeader singleLine">
+
+        <div class="itemName typeLine">
+            <span class="lc">Malice</span>
+        </div>
+    </div>
+    <div class="content">
+        <div class="Stats">
+            <div class="property"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/HUD/EntityDisplay/CategoryDemon.webp" alt="CategoryDemon" class="size24" />Demon</div>
+        </div>
+
+
+
+        <div>
+            
+        </div>
+    </div>
+</div>
+
+
+        <div class="itemboximage">
+
+
+        </div>
+
+
+
+</div>
+<span data-tabname="Malice <small>DeliriumMinionMalice</small>" data-category="MonsterVarieties"></span><table class='table table-hover table-striped'><tr><th>Spectre<td><span class='fa-solid fa-check'></span><tr><th>Tags<td><i>demon</i>, <i>Slice1HMetal_onhit_audio</i>, <i>very_fast_movement</i></table><div class='row row-cols-1 row-cols-lg-4 g-1 mb-2' style='background-color: #111'><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="fas fa-shield-alt"></i>Life</div><div>100%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="fas fa-shield-alt"></i>Resistance</div><div><span data-bs-toggle="tooltip" data-bs-html="true" title="&lt;span class=&quot;normalitem&quot;&gt;Normal&lt;/span&gt; 0% / &lt;span class=&quot;magicitem&quot;&gt;Magic&lt;/span&gt; 0% / &lt;span class=&quot;rareitem&quot;&gt;Rare&lt;/span&gt; 0% / &lt;span class=&quot;uniqueitem&quot;&gt;Unique&lt;/span&gt; 0%"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceFire.webp" alt="IconEnemyResistanceFire" height="24" class="border-circle enemyNormal" />0%</span>
+<span data-bs-toggle="tooltip" data-bs-html="true" title="&lt;span class=&quot;normalitem&quot;&gt;Normal&lt;/span&gt; 0% / &lt;span class=&quot;magicitem&quot;&gt;Magic&lt;/span&gt; 0% / &lt;span class=&quot;rareitem&quot;&gt;Rare&lt;/span&gt; 0% / &lt;span class=&quot;uniqueitem&quot;&gt;Unique&lt;/span&gt; 0%"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceCold.webp" alt="IconEnemyResistanceCold" height="24" class="border-circle enemyNormal" />0%</span>
+<span data-bs-toggle="tooltip" data-bs-html="true" title="&lt;span class=&quot;normalitem&quot;&gt;Normal&lt;/span&gt; 0% / &lt;span class=&quot;magicitem&quot;&gt;Magic&lt;/span&gt; 0% / &lt;span class=&quot;rareitem&quot;&gt;Rare&lt;/span&gt; 0% / &lt;span class=&quot;uniqueitem&quot;&gt;Unique&lt;/span&gt; 0%"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceLightning.webp" alt="IconEnemyResistanceLightning" height="24" class="border-circle enemyNormal" />0%</span>
+<span data-bs-toggle="tooltip" data-bs-html="true" title="&lt;span class=&quot;normalitem&quot;&gt;Normal&lt;/span&gt; 0% / &lt;span class=&quot;magicitem&quot;&gt;Magic&lt;/span&gt; 0% / &lt;span class=&quot;rareitem&quot;&gt;Rare&lt;/span&gt; 0% / &lt;span class=&quot;uniqueitem&quot;&gt;Unique&lt;/span&gt; 0%"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceChaos.webp" alt="IconEnemyResistanceChaos" height="24" class="border-circle enemyNormal" />0%</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="far fa-hand-rock"></i>Damage</div><div>100%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="far fa-hand-rock"></i>Accuracy</div><div>100%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="far fa-hand-rock"></i><a class="KeywordPopups" data-keyword="Critical" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed" href="Critical_Hits">Critical Hits</a> Chance</div><div>5%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="far fa-hand-rock"></i><a class="KeywordPopups" data-keyword="CriticalDamageBonus" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244" href="Critical_Damage_Bonus">Critical Damage Bonus</a></div><div>+30%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="far fa-hand-rock"></i>Attack Distance</div><div>6 ~ 14</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="far fa-hand-rock"></i>Attack Time</div><div>1.5 Second</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="far fa-hand-rock"></i>Damage Spread</div><div>±20%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="fas fa-book"></i>Experience</div><div>100%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="fas fa-book"></i>Model Size</div><div>300%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="fas fa-book"></i>Type</div><div>DeliriumMinionMalice</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><i class="fas fa-book"></i>Metadata</div><div><span data-bs-toggle='tooltip' data-bs-title='Metadata/Monsters/DeliriumTangmazu/Minions/DeliriumMinionMalice'>DeliriumMinionMalice</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><img src="https://cdn.poe2db.tw/image/art/2dart/skillicons/4k/witchbindspectre.webp" class="size32" data-bs-toggle="tooltip" data-bs-title="Spectre">Reservation</div><div>50</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><img src="https://cdn.poe2db.tw/image/art/2dart/skillicons/4k/witchbindspectre.webp" class="size32" data-bs-toggle="tooltip" data-bs-title="Spectre">Resistance</div><div><span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceFire.webp" alt="IconEnemyResistanceFire" height="24" class="border-circle enemyNormal" />0%</span>
+<span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceCold.webp" alt="IconEnemyResistanceCold" height="24" class="border-circle enemyNormal" />0%</span>
+<span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceLightning.webp" alt="IconEnemyResistanceLightning" height="24" class="border-circle enemyNormal" />0%</span>
+<span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceChaos.webp" alt="IconEnemyResistanceChaos" height="24" class="border-circle enemyNormal" />0%</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><img src="https://cdn.poe2db.tw/image/art/2dart/skillicons/4k/huntresstamebeast.webp" class="size32" data-bs-toggle="tooltip" data-bs-title="Tame Beast">Reservation</div><div>30%</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div><img src="https://cdn.poe2db.tw/image/art/2dart/skillicons/4k/huntresstamebeast.webp" class="size32" data-bs-toggle="tooltip" data-bs-title="Tame Beast">Resistance</div><div><span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceFire.webp" alt="IconEnemyResistanceFire" height="24" class="border-circle enemyNormal" />0%</span>
+<span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceCold.webp" alt="IconEnemyResistanceCold" height="24" class="border-circle enemyNormal" />0%</span>
+<span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceLightning.webp" alt="IconEnemyResistanceLightning" height="24" class="border-circle enemyNormal" />0%</span>
+<span><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/EnemyHealthBars/IconEnemyResistanceChaos.webp" alt="IconEnemyResistanceChaos" height="24" class="border-circle enemyNormal" />0%</span></div></div></div></div><div class='px-2 mb-2' style='background-color: #111'><div class='alert alert-primary mb-2' role='alert'>The following values do not include map affix bonuses, monster buff bonuses, altar bonuses, atlas skill bonuses.</div><select class="w-100 form-select monsterEffect select2-single" data-monster-id="31258" data-placeholder="Select Monster Level">
+    <option></option>
+</select>
+<div class="mt-2" id="MonsterLevelSkill31258"><div class='row row-cols-1 row-cols-lg-4 g-1'><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Level</div><div>68</div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Life</div><div><span data-bs-toggle='tooltip' title='8257(Base Stat) * 1(Monster Multiplier) * 1(Map Multiplier) = 8257'>8,257</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Armour</div><div><span data-bs-toggle='tooltip' title='2413(Base Stat) * 1(Monster Type Multiplier) = 2413'>2,413</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Evasion Rating</div><div><span data-bs-toggle='tooltip' title='708(Base Stat) * 1(Monster Type Multiplier) = 708'>708</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Damage</div><div><span data-bs-toggle='tooltip' title='233.12(Base Stat) * 1(Monster Multiplier) * 1(Map Multiplier) = 233.12'>233</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Spell Damage</div><div><span data-bs-toggle='tooltip' title='233.12(Base Stat) * 1(Monster Multiplier) * 1(Map Multiplier) = 233.12'>233</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Accuracy</div><div><span data-bs-toggle='tooltip' title='1251(Base Stat) * 2(Monster Type Multiplier) = 2502'>2,502</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Attack Time</div><div><span data-bs-toggle='tooltip' title='1.5(Base Stat) = 1.5'>1.5</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Experience</div><div><span data-bs-toggle='tooltip' title='28634(Base Stat) * 1(Monster Multiplier) = 28634'>28,634</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Minion Life</div><div><span data-bs-toggle='tooltip' title='6930(Base Stat) * 1(Monster Multiplier) * 1(Map Multiplier) = 6930'>6,930</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Minion Damage</div><div><span data-bs-toggle='tooltip' title='968.76(Minion Base Stat) * 1(Monster Multiplier) * 1(Map Multiplier) = 968.76'>969</span></div></div></div><div class="col"><div class="border p-2 d-flex justify-content-between"><div>Minion Armour</div><div><span data-bs-toggle='tooltip' title='2413(Base Stat) * 1(Monster Type Multiplier) = 2413'>2,413</span></div></div></div></div><div class='alert alert-primary mt-4 mb-2' role='alert'>The following values are skill base values and do not include map affix bonuses, monster buff bonuses, altar bonuses, atlas skill bonuses, monster base damage(ex: The Maven 150% multiplier), monster rarity bonuses (ex: <span data-hover='?s=Data\Mods/MonsterUnique5' style='text-decoration-style: dotted;'>unique 70% more</span>, <span data-hover='?s=Data\Mods/MonsterUnique8' style='text-decoration-style: dotted;'>unique attack 33% less</span>).</div><div class='row row-cols-1 row-cols-lg-3'><div class='col'><div class='card pb-0 mb-2 col-monster border-dark'><div class='p-1 text-center newItemPopup gemPopup'><div class="hybridHeader"><div class="TitleBar TextGem">MeleeAtAnimationSpeed</div></div><div class='Stats'><div class="property">Attack, RangedAttack, MirageArcherCanUse, Projectile, MeleeSingleTarget, Melee, ProjectilesFromUser, AttackInPlace</div><div class="property">Basic Attack</div><div class="property">Base Damage: <span class='colourDefault'>186<span class="ndash">—</span>280</span></div><div class="property"><a data-keyword="Critical" href="Critical_Hits" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed">Critical Hit</a> Chance: <span class='colourDefault'>5%</span></div><div class="property">Attack Time: <span class='colourDefault'>1.5 sec</span></div><div class="separator"></div><div class='text-gem'></div><div class="separator"></div><div class="explicitMod"><span class="secondary">action attack or cast time uses animation length [1]</span></div><div class="explicitMod"><span class="secondary">projectile uses contact position [1]</span></div><div class="explicitMod"><span class="secondary">skill can fire wand projectiles [1]</span></div><div class="explicitMod"><span class="secondary">use scaled contact offset [1]</span></div><div class="separator"></div><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/iconbasicattack.webp" alt="iconbasicattack" /></div></div></div></div><div class='col'><div class='card pb-0 mb-2 col-monster border-dark'><div class='p-1 text-center newItemPopup gemPopup'><div class="hybridHeader"><div class="TitleBar TextGem">GPSMaliceTrackingProjectile</div></div><div class='Stats'><div class="property">Triggerable, Spell, Damage, AttackInPlace</div><div class="property"><a data-keyword="Critical" href="Critical_Hits" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed">Critical Hit</a> Chance: <span class='colourDefault'>5%</span></div><div class="property">Cast Time: <span class='colourDefault'>1 sec</span></div><div class="separator"></div><div class='text-gem'></div><div class="separator"></div><div class="explicitMod">Deals <span class='mod-value'>95.66</span> to <span class='mod-value'>143.5</span> <a data-keyword="Cold" href="Cold_Damage" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35">Cold</a> Damage</div><div class="explicitMod"><span class="secondary">action attack or cast time uses animation length [1]</span></div><div class="explicitMod"><span class="secondary">active skill base cold damage % to convert to chaos [20]</span></div><div class="explicitMod"><span class="secondary">base is projectile [1]</span></div><div class="explicitMod"><span class="secondary">projectile uses contact position [1]</span></div><div class="explicitMod"><span class="secondary">spell maximum action distance +% [60]</span></div><div class="explicitMod"><span class="secondary">use scaled contact offset [1]</span></div></div></div></div></div></div></div></div><button class="btn btn-info" data-bs-toggle="collapse" data-bs-target="#LmbM1rcvHU">Show AI Script</button> <div id="LmbM1rcvHU" class="collapse"> <h4>Object Type</h4><pre></pre> </div><button class="btn btn-info" data-bs-toggle="collapse" data-bs-target="#d5KDsrB4hv">Show Path of Building Spectre.lua</button> <div id="d5KDsrB4hv" class="collapse"> <pre>-- src\Data\Spectres.lua
+minions["Metadata/Monsters/DeliriumTangmazu/Minions/DeliriumMinionMalice"] = {
+    fireResist = 0,
+    coldResist = 0,
+    lightningResist = 0,
+    chaosResist = 0,
+    name = "Malice",
+    life = 1,
+    damage = 1,
+    damageSpread = 0.2,
+    attackTime = 1.5,
+    attackRange = 14,
+    accuracy = 1,
+    skillList = {
+        "MeleeAtAnimationSpeed",
+        "GPSMaliceTrackingProjectile",
+    },
+    modList = {
+    },
+}
+-- src\Data\Skills\spectre.lua
+skills["MeleeAtAnimationSpeed"] = {
+    name = "Basic Attack",
+    hidden = true,
+    color = ,
+    baseEffectiveness = 0,
+    incrementalEffectiveness = 0,
+    skillTypes = {
+        [SkillType.Attack] = true,
+        [SkillType.RangedAttack] = true,
+        [SkillType.MirageArcherCanUse] = true,
+        [SkillType.Projectile] = true,
+        [SkillType.MeleeSingleTarget] = true,
+        [SkillType.Melee] = true,
+        [SkillType.ProjectilesFromUser] = true,
+        [SkillType.AttackInPlace] = true,
+    },
+    statDescriptionScope = "skill_stat_descriptions",
+    castTime = 1,
+    baseFlags = {
+        attack = true,
+        melee = true,
+        projectile = true,
+    },
+    baseMods = {
+    },
+    qualityStats = {
+    },
+    stats = {
+        "skill_can_fire_arrows",
+        "skill_can_fire_wand_projectiles",
+        "action_attack_or_cast_time_uses_animation_length",
+        "projectile_uses_contact_position",
+        "use_scaled_contact_offset",
+    },
+    levels = {
+        [1] = {levelRequirement = 1, statInterpolation = {},  cost = { }, },
+    },
+}
+-- src\Data\Skills\spectre.lua
+skills["GPSMaliceTrackingProjectile"] = {
+    name = "GPSMaliceTrackingProjectile",
+    hidden = true,
+    color = ,
+    baseEffectiveness = 0,
+    incrementalEffectiveness = 0,
+    skillTypes = {
+        [SkillType.Triggerable] = true,
+        [SkillType.Spell] = true,
+        [SkillType.Damage] = true,
+        [SkillType.AttackInPlace] = true,
+    },
+    statDescriptionScope = "skill_stat_descriptions",
+    castTime = 1,
+    baseFlags = {
+        spell = true,
+        projectile = true,
+    },
+    baseMods = {
+    },
+    qualityStats = {
+    },
+    stats = {
+        "spell_minimum_base_cold_damage",
+        "spell_maximum_base_cold_damage",
+        "spell_maximum_action_distance_+%",
+        "active_skill_base_cold_damage_%_to_convert_to_chaos",
+        "base_is_projectile",
+        "use_scaled_contact_offset",
+        "projectile_uses_contact_position",
+        "action_attack_or_cast_time_uses_animation_length",
+    },
+    levels = {
+        [1] = {0.80000001192093, 1.2000000476837, 60, 20, critChance = 5, levelRequirement = 1, statInterpolation = {3, 3},  cost = { }, },
+    },
+}
+</pre> </div></div></div><div class="card mb-1">
+    <div class="card-body markdown-body">
+        <a class="btn btn-primary float-end" href='/us/marked?id=Malice' data-i18n="ClientStrings|HideoutEditControlEdit|Name">Edit</a>
+        
+        <div><hr style='border-top: 1px solid white'>Wikis Content is available under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">CC BY-NC-SA 3.0</a> unless otherwise noted.</div>
+    </div>
+</div>
+
+
+<footer class="ccontainer text-center text-lg-left">
+  <div class="card p-4">
+    <div class="row">
+
+      <div class="col-lg-3 col-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Sites</h5>
+        <ul class="list-unstyled mb-0">
+          <li> <a target="_blank" href="https://poedb.tw/">poedb.tw</a> </li>
+          <li> <a target="_blank" href="https://tlidb.com/">tlidb.com</a> </li>
+          <!--<li> <a target="_blank" href="https://diablo4.cc/">diablo4.cc</a> </li>-->
+          <li> <a target="_blank" href="https://poe2db.tw/">poe2db.tw</a> </li>
+              <li> <a target="_blank" href="https://paldb.cc/">paldb.cc</a> </li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">News</h5>
+        <ul class="list-unstyled mb-0">
+          <li> <a href="news">GGG Tracker</a> </li>
+          <li> <a href="League#ConcurrentPlayers">Concurrent Players</a> </li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">About Site</h5>
+        <ul class="list-unstyled mb-0">
+          <li> <a href="privacy">Privacy</a> </li>
+          <li> <a href="General_disclaimer">Disclaimers</a> </li>
+          <li> <a href="patreon">Patreon</a> </li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Community</h5>
+        <ul class="list-unstyled mb-0">
+
+
+
+          <li><a target="_blank" href="https://www.reddit.com/user/chuanhsing">/u/chuanhsing</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    Copyright &copy; 2014-2026 PoE2DB.
+  </div>
+</footer>
+
+<div style=""></div>
+<div class="clearfix"></div><div id="bottom_banner"></div><script>topbanner970("bottom_banner");</script>
+    </div>
+    </div>
+
+    <a href="#top" id="toTop"><span class="fas fa-arrow-circle-up fa-3x"></span></a>
+<script>
+ $(document).ready(function()
+ {
+    if (window.location.hostname != "poedb.tw" && window.location.hostname != "poe2db.tw") {
+        //window.location.href="https://poedb.tw/";
+    }
+ });
+</script>
+    <script src="https://cdn.poe2db.tw/js/poedb_footer.40a08212e575e6ad.js"></script>
+
+  </body>
+</html>

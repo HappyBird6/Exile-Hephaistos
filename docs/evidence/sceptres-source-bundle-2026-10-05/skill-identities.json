@@ -1,0 +1,1690 @@
+[
+  {
+    "key": "stoic",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2",
+    "skill": "Discipline",
+    "skillUrl": "https://poe2db.tw/us/Discipline",
+    "tags": [
+      "sceptre",
+      "onehand"
+    ],
+    "eligible": 150,
+    "excluded": 0,
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "fields": [
+      [
+        "1",
+        "Clarity IVitality I"
+      ],
+      [
+        "2",
+        "Herbalism IMysticism I"
+      ],
+      [
+        "3",
+        "Warm BloodedStrong Hearted"
+      ],
+      [
+        "4",
+        "Clarity IIVitality II"
+      ],
+      [
+        "1",
+        "044100%, 100%, 100%18"
+      ],
+      [
+        "2",
+        "358100%, 100%, 100%20"
+      ],
+      [
+        "3",
+        "6712100%, 100%, 100%26"
+      ],
+      [
+        "4",
+        "10917100%, 100%, 100%32"
+      ],
+      [
+        "5",
+        "141122100%, 100%, 100%41"
+      ],
+      [
+        "6",
+        "181328100%, 100%, 100%51"
+      ],
+      [
+        "7",
+        "221533100%, 100%, 100%62"
+      ],
+      [
+        "8",
+        "261738100%, 100%, 100%74"
+      ],
+      [
+        "9",
+        "311945100%, 100%, 100%89"
+      ],
+      [
+        "10",
+        "362251100%, 100%, 100%104"
+      ],
+      [
+        "11",
+        "412458100%, 100%, 100%122"
+      ],
+      [
+        "12",
+        "462664100%, 100%, 100%140"
+      ],
+      [
+        "13",
+        "522972100%, 100%, 100%162"
+      ],
+      [
+        "14",
+        "583280100%, 100%, 100%185"
+      ],
+      [
+        "15",
+        "643588100%, 100%, 100%209"
+      ],
+      [
+        "16",
+        "663691100%, 100%, 100%235"
+      ],
+      [
+        "17",
+        "723998100%, 100%, 100%250"
+      ],
+      [
+        "18",
+        "7842106100%, 100%, 100%278"
+      ],
+      [
+        "19",
+        "8445114100%, 100%, 100%309"
+      ],
+      [
+        "20",
+        "9048122100%, 100%, 100%328"
+      ],
+      [
+        "21",
+        "100%, 100%, 100%363"
+      ],
+      [
+        "22",
+        "100%, 100%, 100%400"
+      ],
+      [
+        "23",
+        "100%, 100%, 100%439"
+      ],
+      [
+        "24",
+        "100%, 100%, 100%479"
+      ],
+      [
+        "25",
+        "100%, 100%, 100%520"
+      ],
+      [
+        "26",
+        "100%, 100%, 100%563"
+      ],
+      [
+        "27",
+        "100%, 100%, 100%608"
+      ],
+      [
+        "28",
+        "100%, 100%, 100%653"
+      ],
+      [
+        "29",
+        "100%, 100%, 100%699"
+      ],
+      [
+        "30",
+        "100%, 100%, 100%748"
+      ],
+      [
+        "31",
+        "100%, 100%, 100%798"
+      ],
+      [
+        "32",
+        "100%, 100%, 100%849"
+      ],
+      [
+        "33",
+        "100%, 100%, 100%902"
+      ],
+      [
+        "34",
+        "100%, 100%, 100%956"
+      ],
+      [
+        "35",
+        "100%, 100%, 100%1010"
+      ],
+      [
+        "36",
+        "100%, 100%, 100%1067"
+      ],
+      [
+        "37",
+        "100%, 100%, 100%1125"
+      ],
+      [
+        "38",
+        "100%, 100%, 100%1184"
+      ],
+      [
+        "39",
+        "100%, 100%, 100%1245"
+      ],
+      [
+        "40",
+        "100%, 100%, 100%1307"
+      ],
+      [
+        "Acronym",
+        "Aura, Presence, Energy"
+      ],
+      [
+        "Id",
+        "Discipline"
+      ],
+      [
+        "BaseType",
+        "Discipline"
+      ],
+      [
+        "Class",
+        "Skill Gems"
+      ],
+      [
+        "TargetTypes",
+        "Any"
+      ],
+      [
+        "Type",
+        "Buff, HasReservation, Aura, OngoingSkill, Persistent, AffectsPresence, AttackInPlace"
+      ],
+      [
+        "BuffIcon",
+        ""
+      ],
+      [
+        "AuraRadius",
+        "60"
+      ],
+      [
+        "ItemType",
+        "Metadata/Items/Gems/SkillGemDiscipline"
+      ],
+      [
+        "ActiveSkillsCode",
+        "discipline"
+      ],
+      [
+        "0.2.0",
+        "The Discipline and Purity Auras granted by some Sceptres now apply to the player wielding the Sceptre as well as their allies."
+      ],
+      [
+        "IsRemovable",
+        "1"
+      ],
+      [
+        "IsSkillBuff",
+        "1"
+      ],
+      [
+        "BuffGroupsID",
+        "31"
+      ],
+      [
+        "IsBuffDefinition",
+        "1"
+      ],
+      [
+        "BuffMergeModesID",
+        "3"
+      ],
+      [
+        "BuffTemplates",
+        "SentinelDisciplineAura30% increased Energy Shield Recharge Rate\nbase total maximum energy shield + [217]\naffected by discipline [217]"
+      ]
+    ],
+    "displayOnly": true
+  },
+  {
+    "key": "omen",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4",
+    "skill": "Malice",
+    "skillUrl": "https://poe2db.tw/us/Malice",
+    "tags": [
+      "sceptre",
+      "onehand"
+    ],
+    "eligible": 150,
+    "excluded": 0,
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "fields": [
+      [
+        "1",
+        "Prolonged Duration IVitality I"
+      ],
+      [
+        "2",
+        "Herbalism IMysticism I"
+      ],
+      [
+        "3",
+        "Prolonged Duration IICannibalism I"
+      ],
+      [
+        "4",
+        "Vitality IIMysticism II"
+      ],
+      [
+        "Critical Weakness duration is 4 seconds    LevelRequires LevelStrIntBase DamageApplies Critical Weakness to enemies every 0.7 seconds1",
+        "044100%, 100%, 100%0.7"
+      ],
+      [
+        "2",
+        "358100%, 100%, 100%0.69"
+      ],
+      [
+        "3",
+        "6712100%, 100%, 100%0.68"
+      ],
+      [
+        "4",
+        "10917100%, 100%, 100%0.67"
+      ],
+      [
+        "5",
+        "141122100%, 100%, 100%0.66"
+      ],
+      [
+        "6",
+        "181328100%, 100%, 100%0.65"
+      ],
+      [
+        "7",
+        "221533100%, 100%, 100%0.64"
+      ],
+      [
+        "8",
+        "261738100%, 100%, 100%0.63"
+      ],
+      [
+        "9",
+        "311945100%, 100%, 100%0.62"
+      ],
+      [
+        "10",
+        "362251100%, 100%, 100%0.61"
+      ],
+      [
+        "11",
+        "412458100%, 100%, 100%0.6"
+      ],
+      [
+        "12",
+        "462664100%, 100%, 100%0.59"
+      ],
+      [
+        "13",
+        "522972100%, 100%, 100%0.58"
+      ],
+      [
+        "14",
+        "583280100%, 100%, 100%0.57"
+      ],
+      [
+        "15",
+        "643588100%, 100%, 100%0.56"
+      ],
+      [
+        "16",
+        "663691100%, 100%, 100%0.55"
+      ],
+      [
+        "17",
+        "723998100%, 100%, 100%0.54"
+      ],
+      [
+        "18",
+        "7842106100%, 100%, 100%0.53"
+      ],
+      [
+        "19",
+        "8445114100%, 100%, 100%0.52"
+      ],
+      [
+        "20",
+        "9048122100%, 100%, 100%0.51"
+      ],
+      [
+        "21",
+        "100%, 100%, 100%0.5"
+      ],
+      [
+        "22",
+        "100%, 100%, 100%0.49"
+      ],
+      [
+        "23",
+        "100%, 100%, 100%0.48"
+      ],
+      [
+        "24",
+        "100%, 100%, 100%0.47"
+      ],
+      [
+        "25",
+        "100%, 100%, 100%0.46"
+      ],
+      [
+        "26",
+        "100%, 100%, 100%0.45"
+      ],
+      [
+        "27",
+        "100%, 100%, 100%0.44"
+      ],
+      [
+        "28",
+        "100%, 100%, 100%0.43"
+      ],
+      [
+        "29",
+        "100%, 100%, 100%0.42"
+      ],
+      [
+        "30",
+        "100%, 100%, 100%0.41"
+      ],
+      [
+        "31",
+        "100%, 100%, 100%0.41"
+      ],
+      [
+        "32",
+        "100%, 100%, 100%0.4"
+      ],
+      [
+        "33",
+        "100%, 100%, 100%0.4"
+      ],
+      [
+        "34",
+        "100%, 100%, 100%0.39"
+      ],
+      [
+        "35",
+        "100%, 100%, 100%0.39"
+      ],
+      [
+        "36",
+        "100%, 100%, 100%0.38"
+      ],
+      [
+        "37",
+        "100%, 100%, 100%0.38"
+      ],
+      [
+        "38",
+        "100%, 100%, 100%0.37"
+      ],
+      [
+        "39",
+        "100%, 100%, 100%0.37"
+      ],
+      [
+        "40",
+        "100%, 100%, 100%0.36"
+      ],
+      [
+        "Acronym",
+        "Aura, Presence"
+      ],
+      [
+        "Id",
+        "Malice"
+      ],
+      [
+        "BaseType",
+        "Malice"
+      ],
+      [
+        "Class",
+        "Skill Gems"
+      ],
+      [
+        "TargetTypes",
+        "Any"
+      ],
+      [
+        "Type",
+        "Buff, HasReservation, Aura, OngoingSkill, Persistent, Duration, AffectsPresence, AttackInPlace"
+      ],
+      [
+        "ItemType",
+        "Metadata/Items/Gem/SkillGemMalice"
+      ],
+      [
+        "ActiveSkillsCode",
+        "malice"
+      ],
+      [
+        "0.5.2",
+        "* Significantly reduced the damage of the Rage and Malice Delirium Monsters."
+      ],
+      [
+        "0.2.0",
+        "Malice now applies Critical Weakness every 0.52 seconds at level 19 (previously 0.64 seconds)."
+      ]
+    ],
+    "displayOnly": true
+  },
+  {
+    "key": "shrine-fire",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a",
+    "skill": "Purity of Fire",
+    "skillUrl": "https://poe2db.tw/us/Purity_of_Fire",
+    "tags": [
+      "fire_implicit_skill",
+      "sceptre",
+      "onehand"
+    ],
+    "eligible": 150,
+    "excluded": 0,
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "fields": [
+      [
+        "1",
+        "Clarity IVitality I"
+      ],
+      [
+        "2",
+        "Herbalism IMysticism I"
+      ],
+      [
+        "3",
+        "Warm BloodedCool Headed"
+      ],
+      [
+        "4",
+        "Clarity IIVitality II"
+      ],
+      [
+        "1",
+        "044100%, 100%, 100%22"
+      ],
+      [
+        "2",
+        "358100%, 100%, 100%23"
+      ],
+      [
+        "3",
+        "6712100%, 100%, 100%24"
+      ],
+      [
+        "4",
+        "10917100%, 100%, 100%25"
+      ],
+      [
+        "5",
+        "141122100%, 100%, 100%26"
+      ],
+      [
+        "6",
+        "181328100%, 100%, 100%27"
+      ],
+      [
+        "7",
+        "221533100%, 100%, 100%28"
+      ],
+      [
+        "8",
+        "261738100%, 100%, 100%29"
+      ],
+      [
+        "9",
+        "311945100%, 100%, 100%30"
+      ],
+      [
+        "10",
+        "362251100%, 100%, 100%31"
+      ],
+      [
+        "11",
+        "412458100%, 100%, 100%32"
+      ],
+      [
+        "12",
+        "462664100%, 100%, 100%33"
+      ],
+      [
+        "13",
+        "522972100%, 100%, 100%34"
+      ],
+      [
+        "14",
+        "583280100%, 100%, 100%35"
+      ],
+      [
+        "15",
+        "643588100%, 100%, 100%36"
+      ],
+      [
+        "16",
+        "663691100%, 100%, 100%37"
+      ],
+      [
+        "17",
+        "723998100%, 100%, 100%38"
+      ],
+      [
+        "18",
+        "7842106100%, 100%, 100%39"
+      ],
+      [
+        "19",
+        "8445114100%, 100%, 100%40"
+      ],
+      [
+        "20",
+        "9048122100%, 100%, 100%41"
+      ],
+      [
+        "21",
+        "100%, 100%, 100%42"
+      ],
+      [
+        "22",
+        "100%, 100%, 100%43"
+      ],
+      [
+        "23",
+        "100%, 100%, 100%44"
+      ],
+      [
+        "24",
+        "100%, 100%, 100%45"
+      ],
+      [
+        "25",
+        "100%, 100%, 100%46"
+      ],
+      [
+        "26",
+        "100%, 100%, 100%47"
+      ],
+      [
+        "27",
+        "100%, 100%, 100%48"
+      ],
+      [
+        "28",
+        "100%, 100%, 100%49"
+      ],
+      [
+        "29",
+        "100%, 100%, 100%50"
+      ],
+      [
+        "30",
+        "100%, 100%, 100%51"
+      ],
+      [
+        "31",
+        "100%, 100%, 100%51"
+      ],
+      [
+        "32",
+        "100%, 100%, 100%52"
+      ],
+      [
+        "33",
+        "100%, 100%, 100%52"
+      ],
+      [
+        "34",
+        "100%, 100%, 100%53"
+      ],
+      [
+        "35",
+        "100%, 100%, 100%53"
+      ],
+      [
+        "36",
+        "100%, 100%, 100%54"
+      ],
+      [
+        "37",
+        "100%, 100%, 100%54"
+      ],
+      [
+        "38",
+        "100%, 100%, 100%55"
+      ],
+      [
+        "39",
+        "100%, 100%, 100%55"
+      ],
+      [
+        "40",
+        "100%, 100%, 100%56"
+      ],
+      [
+        "Acronym",
+        "Aura, Resistance, Presence"
+      ],
+      [
+        "Id",
+        "PurityOfFire"
+      ],
+      [
+        "BaseType",
+        "Purity of Fire"
+      ],
+      [
+        "Class",
+        "Skill Gems"
+      ],
+      [
+        "TargetTypes",
+        "Any"
+      ],
+      [
+        "Type",
+        "Buff, HasReservation, Aura, OngoingSkill, Persistent, Fire, AffectsPresence, AttackInPlace"
+      ],
+      [
+        "ItemType",
+        "Metadata/Items/Gems/SkillGemPurityOfFire"
+      ],
+      [
+        "ActiveSkillsCode",
+        "purity_of_fire"
+      ]
+    ],
+    "displayOnly": true
+  },
+  {
+    "key": "shrine-ice",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b",
+    "skill": "Purity of Ice",
+    "skillUrl": "https://poe2db.tw/us/Purity_of_Ice",
+    "tags": [
+      "cold_implicit_skill",
+      "sceptre",
+      "onehand"
+    ],
+    "eligible": 150,
+    "excluded": 0,
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "fields": [
+      [
+        "1",
+        "Clarity IVitality I"
+      ],
+      [
+        "2",
+        "Herbalism IMysticism I"
+      ],
+      [
+        "3",
+        "Warm BloodedCool Headed"
+      ],
+      [
+        "4",
+        "Clarity IIVitality II"
+      ],
+      [
+        "1",
+        "044100%, 100%, 100%22"
+      ],
+      [
+        "2",
+        "358100%, 100%, 100%23"
+      ],
+      [
+        "3",
+        "6712100%, 100%, 100%24"
+      ],
+      [
+        "4",
+        "10917100%, 100%, 100%25"
+      ],
+      [
+        "5",
+        "141122100%, 100%, 100%26"
+      ],
+      [
+        "6",
+        "181328100%, 100%, 100%27"
+      ],
+      [
+        "7",
+        "221533100%, 100%, 100%28"
+      ],
+      [
+        "8",
+        "261738100%, 100%, 100%29"
+      ],
+      [
+        "9",
+        "311945100%, 100%, 100%30"
+      ],
+      [
+        "10",
+        "362251100%, 100%, 100%31"
+      ],
+      [
+        "11",
+        "412458100%, 100%, 100%32"
+      ],
+      [
+        "12",
+        "462664100%, 100%, 100%33"
+      ],
+      [
+        "13",
+        "522972100%, 100%, 100%34"
+      ],
+      [
+        "14",
+        "583280100%, 100%, 100%35"
+      ],
+      [
+        "15",
+        "643588100%, 100%, 100%36"
+      ],
+      [
+        "16",
+        "663691100%, 100%, 100%37"
+      ],
+      [
+        "17",
+        "723998100%, 100%, 100%38"
+      ],
+      [
+        "18",
+        "7842106100%, 100%, 100%39"
+      ],
+      [
+        "19",
+        "8445114100%, 100%, 100%40"
+      ],
+      [
+        "20",
+        "9048122100%, 100%, 100%41"
+      ],
+      [
+        "21",
+        "100%, 100%, 100%42"
+      ],
+      [
+        "22",
+        "100%, 100%, 100%43"
+      ],
+      [
+        "23",
+        "100%, 100%, 100%44"
+      ],
+      [
+        "24",
+        "100%, 100%, 100%45"
+      ],
+      [
+        "25",
+        "100%, 100%, 100%46"
+      ],
+      [
+        "26",
+        "100%, 100%, 100%47"
+      ],
+      [
+        "27",
+        "100%, 100%, 100%48"
+      ],
+      [
+        "28",
+        "100%, 100%, 100%49"
+      ],
+      [
+        "29",
+        "100%, 100%, 100%50"
+      ],
+      [
+        "30",
+        "100%, 100%, 100%51"
+      ],
+      [
+        "31",
+        "100%, 100%, 100%51"
+      ],
+      [
+        "32",
+        "100%, 100%, 100%52"
+      ],
+      [
+        "33",
+        "100%, 100%, 100%52"
+      ],
+      [
+        "34",
+        "100%, 100%, 100%53"
+      ],
+      [
+        "35",
+        "100%, 100%, 100%53"
+      ],
+      [
+        "36",
+        "100%, 100%, 100%54"
+      ],
+      [
+        "37",
+        "100%, 100%, 100%54"
+      ],
+      [
+        "38",
+        "100%, 100%, 100%55"
+      ],
+      [
+        "39",
+        "100%, 100%, 100%55"
+      ],
+      [
+        "40",
+        "100%, 100%, 100%56"
+      ],
+      [
+        "Acronym",
+        "Aura, Resistance, Presence"
+      ],
+      [
+        "Id",
+        "PurityOfIce"
+      ],
+      [
+        "BaseType",
+        "Purity of Ice"
+      ],
+      [
+        "Class",
+        "Skill Gems"
+      ],
+      [
+        "TargetTypes",
+        "Any"
+      ],
+      [
+        "Type",
+        "Buff, HasReservation, Aura, OngoingSkill, Persistent, Cold, AffectsPresence, AttackInPlace"
+      ],
+      [
+        "ItemType",
+        "Metadata/Items/Gems/SkillGemPurityOfIce"
+      ],
+      [
+        "ActiveSkillsCode",
+        "purity_of_ice"
+      ]
+    ],
+    "displayOnly": true
+  },
+  {
+    "key": "shrine-lightning",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c",
+    "skill": "Purity of Lightning",
+    "skillUrl": "https://poe2db.tw/us/Purity_of_Lightning",
+    "tags": [
+      "lightning_implicit_skill",
+      "sceptre",
+      "onehand"
+    ],
+    "eligible": 150,
+    "excluded": 0,
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "fields": [
+      [
+        "1",
+        "Clarity IVitality I"
+      ],
+      [
+        "2",
+        "Herbalism IMysticism I"
+      ],
+      [
+        "3",
+        "Warm BloodedCool Headed"
+      ],
+      [
+        "4",
+        "Clarity IIVitality II"
+      ],
+      [
+        "1",
+        "044100%, 100%, 100%22"
+      ],
+      [
+        "2",
+        "358100%, 100%, 100%23"
+      ],
+      [
+        "3",
+        "6712100%, 100%, 100%24"
+      ],
+      [
+        "4",
+        "10917100%, 100%, 100%25"
+      ],
+      [
+        "5",
+        "141122100%, 100%, 100%26"
+      ],
+      [
+        "6",
+        "181328100%, 100%, 100%27"
+      ],
+      [
+        "7",
+        "221533100%, 100%, 100%28"
+      ],
+      [
+        "8",
+        "261738100%, 100%, 100%29"
+      ],
+      [
+        "9",
+        "311945100%, 100%, 100%30"
+      ],
+      [
+        "10",
+        "362251100%, 100%, 100%31"
+      ],
+      [
+        "11",
+        "412458100%, 100%, 100%32"
+      ],
+      [
+        "12",
+        "462664100%, 100%, 100%33"
+      ],
+      [
+        "13",
+        "522972100%, 100%, 100%34"
+      ],
+      [
+        "14",
+        "583280100%, 100%, 100%35"
+      ],
+      [
+        "15",
+        "643588100%, 100%, 100%36"
+      ],
+      [
+        "16",
+        "663691100%, 100%, 100%37"
+      ],
+      [
+        "17",
+        "723998100%, 100%, 100%38"
+      ],
+      [
+        "18",
+        "7842106100%, 100%, 100%39"
+      ],
+      [
+        "19",
+        "8445114100%, 100%, 100%40"
+      ],
+      [
+        "20",
+        "9048122100%, 100%, 100%41"
+      ],
+      [
+        "21",
+        "100%, 100%, 100%42"
+      ],
+      [
+        "22",
+        "100%, 100%, 100%43"
+      ],
+      [
+        "23",
+        "100%, 100%, 100%44"
+      ],
+      [
+        "24",
+        "100%, 100%, 100%45"
+      ],
+      [
+        "25",
+        "100%, 100%, 100%46"
+      ],
+      [
+        "26",
+        "100%, 100%, 100%47"
+      ],
+      [
+        "27",
+        "100%, 100%, 100%48"
+      ],
+      [
+        "28",
+        "100%, 100%, 100%49"
+      ],
+      [
+        "29",
+        "100%, 100%, 100%50"
+      ],
+      [
+        "30",
+        "100%, 100%, 100%51"
+      ],
+      [
+        "31",
+        "100%, 100%, 100%51"
+      ],
+      [
+        "32",
+        "100%, 100%, 100%52"
+      ],
+      [
+        "33",
+        "100%, 100%, 100%52"
+      ],
+      [
+        "34",
+        "100%, 100%, 100%53"
+      ],
+      [
+        "35",
+        "100%, 100%, 100%53"
+      ],
+      [
+        "36",
+        "100%, 100%, 100%54"
+      ],
+      [
+        "37",
+        "100%, 100%, 100%54"
+      ],
+      [
+        "38",
+        "100%, 100%, 100%55"
+      ],
+      [
+        "39",
+        "100%, 100%, 100%55"
+      ],
+      [
+        "40",
+        "100%, 100%, 100%56"
+      ],
+      [
+        "Acronym",
+        "Aura, Resistance, Presence"
+      ],
+      [
+        "Id",
+        "PurityOfLightning"
+      ],
+      [
+        "BaseType",
+        "Purity of Lightning"
+      ],
+      [
+        "Class",
+        "Skill Gems"
+      ],
+      [
+        "TargetTypes",
+        "Any"
+      ],
+      [
+        "Type",
+        "Buff, HasReservation, Aura, OngoingSkill, Persistent, Lightning, AffectsPresence, AttackInPlace"
+      ],
+      [
+        "ItemType",
+        "Metadata/Items/Gems/SkillGemPurityOfLightning"
+      ],
+      [
+        "ActiveSkillsCode",
+        "purity_of_lightning"
+      ]
+    ],
+    "displayOnly": true
+  },
+  {
+    "key": "clasped",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8",
+    "skill": "Heart of Ice",
+    "skillUrl": "https://poe2db.tw/us/Heart_of_Ice",
+    "tags": [
+      "sceptre",
+      "onehand"
+    ],
+    "eligible": 150,
+    "excluded": 0,
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "fields": [
+      [
+        "1",
+        "Slow PotencyVitality I"
+      ],
+      [
+        "2",
+        "Herbalism IMysticism I"
+      ],
+      [
+        "3",
+        "Cannibalism IWarm Blooded"
+      ],
+      [
+        "4",
+        "Clarity IIVitality II"
+      ],
+      [
+        "5",
+        "Cold Mastery"
+      ],
+      [
+        "1",
+        "04100%, 100%, 100%26, 39"
+      ],
+      [
+        "2",
+        "39100%, 100%, 100%35, 53"
+      ],
+      [
+        "3",
+        "614100%, 100%, 100%48, 72"
+      ],
+      [
+        "4",
+        "1021100%, 100%, 100%63, 94"
+      ],
+      [
+        "5",
+        "1428100%, 100%, 100%79, 119"
+      ],
+      [
+        "6",
+        "1835100%, 100%, 100%98, 148"
+      ],
+      [
+        "7",
+        "2241100%, 100%, 100%120, 180"
+      ],
+      [
+        "8",
+        "2648100%, 100%, 100%144, 217"
+      ],
+      [
+        "9",
+        "3157100%, 100%, 100%172, 258"
+      ],
+      [
+        "10",
+        "3665100%, 100%, 100%203, 305"
+      ],
+      [
+        "11",
+        "4174100%, 100%, 100%239, 359"
+      ],
+      [
+        "12",
+        "4682100%, 100%, 100%280, 420"
+      ],
+      [
+        "13",
+        "5292100%, 100%, 100%326, 489"
+      ],
+      [
+        "14",
+        "58103100%, 100%, 100%378, 567"
+      ],
+      [
+        "15",
+        "64113100%, 100%, 100%438, 657"
+      ],
+      [
+        "16",
+        "66116100%, 100%, 100%506, 759"
+      ],
+      [
+        "17",
+        "72126100%, 100%, 100%583, 875"
+      ],
+      [
+        "18",
+        "78137100%, 100%, 100%672, 1007"
+      ],
+      [
+        "19",
+        "84147100%, 100%, 100%773, 1159"
+      ],
+      [
+        "20",
+        "90157100%, 100%, 100%888, 1332"
+      ],
+      [
+        "21",
+        "100%, 100%, 100%1021, 1531"
+      ],
+      [
+        "22",
+        "100%, 100%, 100%1172, 1758"
+      ],
+      [
+        "23",
+        "100%, 100%, 100%1346, 2020"
+      ],
+      [
+        "24",
+        "100%, 100%, 100%1546, 2319"
+      ],
+      [
+        "25",
+        "100%, 100%, 100%1776, 2664"
+      ],
+      [
+        "26",
+        "100%, 100%, 100%2041, 3061"
+      ],
+      [
+        "27",
+        "100%, 100%, 100%2346, 3519"
+      ],
+      [
+        "28",
+        "100%, 100%, 100%2699, 4048"
+      ],
+      [
+        "29",
+        "100%, 100%, 100%3106, 4659"
+      ],
+      [
+        "30",
+        "100%, 100%, 100%3577, 5365"
+      ],
+      [
+        "31",
+        "100%, 100%, 100%4123, 6184"
+      ],
+      [
+        "32",
+        "100%, 100%, 100%4756, 7134"
+      ],
+      [
+        "33",
+        "100%, 100%, 100%5492, 8238"
+      ],
+      [
+        "34",
+        "100%, 100%, 100%6348, 9522"
+      ],
+      [
+        "35",
+        "100%, 100%, 100%7346, 11019"
+      ],
+      [
+        "36",
+        "100%, 100%, 100%8509, 12764"
+      ],
+      [
+        "37",
+        "100%, 100%, 100%9869, 14803"
+      ],
+      [
+        "38",
+        "100%, 100%, 100%11459, 17188"
+      ],
+      [
+        "39",
+        "100%, 100%, 100%13322, 19983"
+      ],
+      [
+        "40",
+        "100%, 100%, 100%15509, 23263"
+      ],
+      [
+        "Acronym",
+        "Cold damage, Chill, Presence"
+      ],
+      [
+        "Id",
+        "HeartOfIce"
+      ],
+      [
+        "BaseType",
+        "Heart of Ice"
+      ],
+      [
+        "Class",
+        "Skill Gems"
+      ],
+      [
+        "TargetTypes",
+        "Any"
+      ],
+      [
+        "Type",
+        "Buff, HasReservation, Aura, OngoingSkill, Persistent, AffectsPresence, Cold, Spell, AttackInPlace"
+      ],
+      [
+        "ItemType",
+        "Metadata/Items/Gem/SkillGemHeartOfIce"
+      ],
+      [
+        "ActiveSkillsCode",
+        "heart_of_ice"
+      ],
+      [
+        "0.3.0",
+        "NEW: Heart of Ice, granted by the Whispering Ice Unique Staff: Now Chills enemies in your Presence as though dealing 26-888 to 39-1332 Cold Damage at gem levels 1-20 (previously 12-378 to 18-567).Heart of Ice, granted by the Whispering Ice Unique Staff: Now Chills enemies in your Presence as though dealing 26-888 to 39-1332 Cold Damage at gem levels 1-20 (previously 12-378 to 18-567)."
+      ]
+    ],
+    "displayOnly": true
+  },
+  {
+    "key": "wrath",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
+    "skill": "Fulmination",
+    "skillUrl": "https://poe2db.tw/us/Fulmination",
+    "tags": [
+      "lightning_implicit_skill",
+      "sceptre",
+      "onehand"
+    ],
+    "eligible": 150,
+    "excluded": 0,
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "fields": [
+      [
+        "1",
+        "Clarity IVitality I"
+      ],
+      [
+        "2",
+        "ElectrocuteLiving Lightning"
+      ],
+      [
+        "3",
+        "Cannibalism IWarm Blooded"
+      ],
+      [
+        "4",
+        "Mysticism IILiving Lightning II"
+      ],
+      [
+        "5",
+        "Blind IILightning Mastery"
+      ],
+      [
+        "Hits up to 8 enemiesCannot inflict Shock    LevelRequires LevelIntBase DamageAdditional Hits deal 90% less damage\nAdditional Hits convert 100% of Physical and\nElemental damage to Lightning1",
+        "04100%, 100%, 100%90"
+      ],
+      [
+        "2",
+        "39100%, 100%, 100%89"
+      ],
+      [
+        "3",
+        "614100%, 100%, 100%88"
+      ],
+      [
+        "4",
+        "1021100%, 100%, 100%87"
+      ],
+      [
+        "5",
+        "1428100%, 100%, 100%86"
+      ],
+      [
+        "6",
+        "1835100%, 100%, 100%85"
+      ],
+      [
+        "7",
+        "2241100%, 100%, 100%84"
+      ],
+      [
+        "8",
+        "2648100%, 100%, 100%83"
+      ],
+      [
+        "9",
+        "3157100%, 100%, 100%82"
+      ],
+      [
+        "10",
+        "3665100%, 100%, 100%81"
+      ],
+      [
+        "11",
+        "4174100%, 100%, 100%80"
+      ],
+      [
+        "12",
+        "4682100%, 100%, 100%79"
+      ],
+      [
+        "13",
+        "5292100%, 100%, 100%78"
+      ],
+      [
+        "14",
+        "58103100%, 100%, 100%77"
+      ],
+      [
+        "15",
+        "64113100%, 100%, 100%76"
+      ],
+      [
+        "16",
+        "66116100%, 100%, 100%75"
+      ],
+      [
+        "17",
+        "72126100%, 100%, 100%74"
+      ],
+      [
+        "18",
+        "78137100%, 100%, 100%73"
+      ],
+      [
+        "19",
+        "84147100%, 100%, 100%72"
+      ],
+      [
+        "20",
+        "90157100%, 100%, 100%71"
+      ],
+      [
+        "21",
+        "100%, 100%, 100%70"
+      ],
+      [
+        "22",
+        "100%, 100%, 100%69"
+      ],
+      [
+        "23",
+        "100%, 100%, 100%68"
+      ],
+      [
+        "24",
+        "100%, 100%, 100%67"
+      ],
+      [
+        "25",
+        "100%, 100%, 100%66"
+      ],
+      [
+        "26",
+        "100%, 100%, 100%65"
+      ],
+      [
+        "27",
+        "100%, 100%, 100%64"
+      ],
+      [
+        "28",
+        "100%, 100%, 100%63"
+      ],
+      [
+        "29",
+        "100%, 100%, 100%62"
+      ],
+      [
+        "30",
+        "100%, 100%, 100%61"
+      ],
+      [
+        "31",
+        "100%, 100%, 100%61"
+      ],
+      [
+        "32",
+        "100%, 100%, 100%60"
+      ],
+      [
+        "33",
+        "100%, 100%, 100%60"
+      ],
+      [
+        "34",
+        "100%, 100%, 100%59"
+      ],
+      [
+        "35",
+        "100%, 100%, 100%59"
+      ],
+      [
+        "36",
+        "100%, 100%, 100%58"
+      ],
+      [
+        "37",
+        "100%, 100%, 100%58"
+      ],
+      [
+        "38",
+        "100%, 100%, 100%57"
+      ],
+      [
+        "39",
+        "100%, 100%, 100%57"
+      ],
+      [
+        "40",
+        "100%, 100%, 100%56"
+      ],
+      [
+        "Acronym",
+        "Hit, Elemental damage, Shock, Presence, Hits"
+      ],
+      [
+        "Id",
+        "Fulmination"
+      ],
+      [
+        "BaseType",
+        "Fulmination"
+      ],
+      [
+        "Class",
+        "Skill Gems"
+      ],
+      [
+        "TargetTypes",
+        "Any"
+      ],
+      [
+        "Type",
+        "Buff, HasReservation, Aura, OngoingSkill, Persistent, AffectsPresence, Damage, NoAttackOrCastTime, Lightning"
+      ],
+      [
+        "BuffIcon",
+        ""
+      ],
+      [
+        "ItemType",
+        "Metadata/Items/Gem/SkillGemFulmination"
+      ],
+      [
+        "ActiveSkillsCode",
+        "fulmination"
+      ],
+      [
+        "0.5.0",
+        "* Fixed a bug where the Hayoxi's Fulmination Lineage Support was able to support non-Curse Skills."
+      ],
+      [
+        "ID",
+        "fire40"
+      ],
+      [
+        "Icon",
+        ""
+      ],
+      [
+        "PassiveSkillsHash",
+        "24630"
+      ],
+      [
+        "Tags",
+        "isNotable: true isUsed: true"
+      ],
+      [
+        "IsSkillBuff",
+        "1"
+      ],
+      [
+        "BuffGroupsID",
+        "31"
+      ],
+      [
+        "IsBuffDefinition",
+        "1"
+      ],
+      [
+        "BuffMergeModesID",
+        "3"
+      ],
+      [
+        "IsInvisible",
+        "1"
+      ],
+      [
+        "BuffGroupsID",
+        "31"
+      ],
+      [
+        "IsBuffDefinition",
+        "1"
+      ],
+      [
+        "BuffMergeModesID",
+        "3"
+      ],
+      [
+        "Key713",
+        "Concentrated Liquid Suffering\nConcentrated Liquid Suffering\nDiluted Liquid GreedFulminationLiquid Emotions: Suffering, Suffering, Greed80% increased Flammability Magnitude40% increased Damage with Hits against Ignited Enemies"
+      ]
+    ],
+    "displayOnly": true
+  }
+]

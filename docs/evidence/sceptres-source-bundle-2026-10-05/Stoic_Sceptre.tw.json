@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/tw/Stoic_Sceptre",
+  "retrievedAt": "2026-10-05T00:43:20.955Z",
+  "sha256": "f3078c8ab78005ecba5d8f4b9bcae19d9b1b2be4fcdc10a989f271abb746aa8f",
+  "variants": [
+    {
+      "name": "魔道權杖",
+      "card": "魔道權杖\n        \n    \n    \n        \n            權杖精魂: 100需求:  等級 6, 12 智慧 賦予技能: 紀律\n        \n\n\n\n        \n            Stoic Sceptre",
+      "requirements": "需求:  等級 6, 12 智慧",
+      "fields": {
+        "DropLevel": "6",
+        "BaseType": "魔道權杖",
+        "Class": "權杖",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2",
+        "Tags": "sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre02",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "紀律",
+      "skillUrl": "https://poe2db.tw/tw/Discipline"
+    }
+  ]
+}

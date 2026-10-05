@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/sp/Wrath_Sceptre",
+  "retrievedAt": "2026-10-05T00:43:31.040Z",
+  "sha256": "dfc6fa9ebc1952d82a9e8a726524cf395c7574c2c9df98afdc8b9bd3926317fa",
+  "variants": [
+    {
+      "name": "Cetro de ira",
+      "card": "Cetro de ira\n        \n    \n    \n        \n            CetrosEspíritu: 100Requiere:  Nivel 49, 28 Fue, 68 Int Otorga la habilidad: Fulminación\n        \n\n\n\n        \n            Wrath Sceptre",
+      "requirements": "Requiere:  Nivel 49, 28 Fue, 68 Int",
+      "fields": {
+        "DropLevel": "49",
+        "BaseType": "Cetro de ira",
+        "Class": "Cetros",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
+        "Tags": "sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre10",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "Fulminación",
+      "skillUrl": "https://poe2db.tw/sp/Fulmination"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/jp/Clasped_Sceptre",
+  "retrievedAt": "2026-10-05T00:43:11.483Z",
+  "sha256": "83c364d5affa01567ecdfeb8915f432c6daf6de8f150f13f1223c0c0e2880836",
+  "variants": [
+    {
+      "name": "握拳のセプター",
+      "card": "握拳のセプター\n        \n    \n    \n        \n            セプタースピリット: 100装備条件： レベル 36, 65 知性 スキルを付与: ハートオブアイス\n        \n\n\n\n        \n            Clasped Sceptre",
+      "requirements": "装備条件： レベル 36, 65 知性",
+      "fields": {
+        "DropLevel": "36",
+        "BaseType": "握拳のセプター",
+        "Class": "セプター",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8",
+        "Tags": "sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre08",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "ハートオブアイス",
+      "skillUrl": "https://poe2db.tw/jp/Heart_of_Ice"
+    }
+  ]
+}

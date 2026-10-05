@@ -1,0 +1,103 @@
+{
+  "url": "https://poe2db.tw/sp/Shrine_Sceptre",
+  "retrievedAt": "2026-10-05T00:43:29.304Z",
+  "sha256": "1519041c259e6b2ec4b6bbbc43498ac8c311f5701b1cef3f4d34608ec2de158a",
+  "variants": [
+    {
+      "name": "Cetro de santuario",
+      "card": "Cetro de santuario\n        \n    \n    \n        \n            CetrosEspíritu: 100Requiere:  Nivel 26, 17 Fue, 38 Int Otorga la habilidad: Pureza de fuego\n        \n\n\n\n        \n            Shrine Sceptre",
+      "requirements": "Requiere:  Nivel 26, 17 Fue, 38 Int",
+      "fields": {
+        "DropLevel": "26",
+        "BaseType": "Cetro de santuario",
+        "Class": "Cetros",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a",
+        "Tags": "sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre06a",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "Pureza de fuego",
+      "skillUrl": "https://poe2db.tw/sp/Purity_of_Fire"
+    },
+    {
+      "name": "Cetro de santuario",
+      "card": "Cetro de santuario\n        \n    \n    \n        \n            CetrosEspíritu: 100Requiere:  Nivel 26, 17 Fue, 38 Int Otorga la habilidad: Pureza de hielo\n        \n\n\n\n        \n            Shrine Sceptre",
+      "requirements": "Requiere:  Nivel 26, 17 Fue, 38 Int",
+      "fields": {
+        "DropLevel": "26",
+        "BaseType": "Cetro de santuario",
+        "Class": "Cetros",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b",
+        "Tags": "sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre06b",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "Pureza de hielo",
+      "skillUrl": "https://poe2db.tw/sp/Purity_of_Ice"
+    },
+    {
+      "name": "Cetro de santuario",
+      "card": "Cetro de santuario\n        \n    \n    \n        \n            CetrosEspíritu: 100Requiere:  Nivel 26, 17 Fue, 38 Int Otorga la habilidad: Pureza de rayo\n        \n\n\n\n        \n            Shrine Sceptre",
+      "requirements": "Requiere:  Nivel 26, 17 Fue, 38 Int",
+      "fields": {
+        "DropLevel": "26",
+        "BaseType": "Cetro de santuario",
+        "Class": "Cetros",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c",
+        "Tags": "sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre06c",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "Pureza de rayo",
+      "skillUrl": "https://poe2db.tw/sp/Purity_of_Lightning"
+    },
+    {
+      "name": "Cetro de santuario",
+      "card": "Cetro de santuario\n        \n    \n    \n        \n            CetrosEspíritu: 100Requiere:  Nivel 26, 17 Fue, 38 Int Otorga la habilidad: Impureza\n        \n\n\n\n        \n            Shrine Sceptre",
+      "requirements": "Requiere:  Nivel 26, 17 Fue, 38 Int",
+      "fields": {
+        "DropLevel": "26",
+        "BaseType": "Cetro de santuario",
+        "Class": "Cetros",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptreUnique1",
+        "Tags": "sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre06c",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "Impureza",
+      "skillUrl": "https://poe2db.tw/sp/Impurity"
+    }
+  ]
+}

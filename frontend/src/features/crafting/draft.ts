@@ -27,6 +27,13 @@ const baseTexts = {
   fanatic: 'Item Class: Bows\nRarity: Normal\nFanatic Bow',
   obliterator: 'Item Class: Bows\nRarity: Normal\nObliterator Bow',
   hallowed: 'Item Class: Sceptres\nRarity: Normal\nHallowed Sceptre',
+  stoic: 'Item Class: Sceptres\nRarity: Normal\nStoic Sceptre',
+  omen: 'Item Class: Sceptres\nRarity: Normal\nOmen Sceptre',
+  'shrine-fire': 'Item Class: Sceptres\nRarity: Normal\nShrine Sceptre',
+  'shrine-ice': 'Item Class: Sceptres\nRarity: Normal\nShrine Sceptre',
+  'shrine-lightning': 'Item Class: Sceptres\nRarity: Normal\nShrine Sceptre',
+  clasped: 'Item Class: Sceptres\nRarity: Normal\nClasped Sceptre',
+  wrath: 'Item Class: Sceptres\nRarity: Normal\nWrath Sceptre',
   bone: 'Item Class: Wands\nRarity: Normal\nBone Wand',
   siphoning: 'Item Class: Wands\nRarity: Normal\nSiphoning Wand',
   volatile: 'Item Class: Wands\nRarity: Normal\nVolatile Wand',
@@ -115,6 +122,13 @@ type Draft = {
     | 'fanatic'
     | 'obliterator'
     | 'hallowed'
+    | 'stoic'
+    | 'omen'
+    | 'shrine-fire'
+    | 'shrine-ice'
+    | 'shrine-lightning'
+    | 'clasped'
+    | 'wrath'
     | 'bone'
     | 'siphoning'
     | 'volatile'
@@ -193,6 +207,13 @@ type Draft = {
       | 'fanatic'
       | 'obliterator'
       | 'hallowed'
+      | 'stoic'
+      | 'omen'
+      | 'shrine-fire'
+      | 'shrine-ice'
+      | 'shrine-lightning'
+      | 'clasped'
+      | 'wrath'
       | 'bone'
       | 'siphoning'
       | 'volatile'

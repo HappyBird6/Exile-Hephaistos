@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/sp/Stoic_Sceptre",
+  "retrievedAt": "2026-10-05T00:43:27.951Z",
+  "sha256": "88b339eb162088c0e6e2285e71c10adf39955225fcf680c4dd47856f5c97b7a6",
+  "variants": [
+    {
+      "name": "Cetro estoico",
+      "card": "Cetro estoico\n        \n    \n    \n        \n            CetrosEspíritu: 100Requiere:  Nivel 6, 7 Fue, 12 Int Otorga la habilidad: Disciplina\n        \n\n\n\n        \n            Stoic Sceptre",
+      "requirements": "Requiere:  Nivel 6, 7 Fue, 12 Int",
+      "fields": {
+        "DropLevel": "6",
+        "BaseType": "Cetro estoico",
+        "Class": "Cetros",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2",
+        "Tags": "sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre02",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "Disciplina",
+      "skillUrl": "https://poe2db.tw/sp/Discipline"
+    }
+  ]
+}

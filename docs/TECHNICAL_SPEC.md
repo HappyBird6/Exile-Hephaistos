@@ -1,3 +1,5 @@
+최신 base 확장: [Sceptre skill-family 7종](workbench-sceptres-bundle-2026-10-05.md), 이전 [Wand 9종](workbench-wands-bundle-2026-10-05.md)을 포함하여 Workbench **78 bases**. Shrine Fire/Ice/Lightning은 distinct source ID로 선택한다. 전체 Sceptre ordinary150+special1, source-backed weights, six locales와 기존71개 film identity를 보존한다. Granted skill은 display-only이며 Support/Explorer는 Solar-only, deferred50은 유지한다. 다음 범위는 Belt distinct implicit/Breach roster와 source-reviewed broader equipment classes다. 아래 dated checkpoint의 이전 수치는 당시 범위다.
+
 최신 base 확장: [Amulet 7종](workbench-amulets-bundle-2026-10-04.md). Workbench 61 bases; jewelry는 distinct implicit sidegrade 선택 범위이며 전체 catalog 완료가 아니다. 신규 Amulet7의 전체 ordinary209·source-valid special8·Catalyst13·6locale·기존54개 film을 보존한다. Support/Explorer는 Solar-only, active170/deferred50은 유지한다. Wand/Sceptre skill family·Belt 및 다른 equipment category는 후속 source 검증 범위다.
 
 

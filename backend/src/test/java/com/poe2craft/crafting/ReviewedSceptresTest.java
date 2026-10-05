@@ -11,25 +11,30 @@ import org.junit.jupiter.api.Test;
 class ReviewedSceptresTest {
   @Test
   void hallowedRetainsCompleteVerifiedClassPoolWithoutTurningSkillIntoAffix() {
-    var c = ItemCatalogLoader.loadTopBase("hallowed");
     var old = ItemCatalogLoader.loadSceptre();
-    assertThat(c.base().id()).isEqualTo(ReviewedSceptres.BASES.get("hallowed"));
-    assertThat(c.metadata().snapshotId()).isNotEqualTo(old.metadata().snapshotId());
-    assertThat(c.modifiers()).isEqualTo(old.modifiers());
-    assertThat(c.modifiers().values().stream().filter(d -> d.weight() > 0)).hasSize(150);
-    assertThat(c.base().hasImplicit()).isFalse();
-    assertThat(c.modifiers().values())
-        .allMatch(d -> d.layer() == ModifierDefinition.Layer.EXPLICIT);
-    var root =
-        new ItemState(
-            c.metadata().snapshotId(),
-            c.base().id(),
-            82,
-            ItemState.Rarity.NORMAL,
-            List.of(),
-            List.of(),
-            Set.of());
-    assertThat(QualityLimitRules.describe(root, c).maximumQuality()).isEqualTo(20);
+    assertThat(ReviewedSceptres.BASES).hasSize(8);
+    assertThat(ReviewedSceptres.BASES.values()).doesNotHaveDuplicates();
+    assertThat(ReviewedSceptres.BASES.values()).noneMatch(id -> id.contains("Unique"));
+    for (var key : ReviewedSceptres.BASES.keySet()) {
+      var c = ItemCatalogLoader.loadTopBase(key);
+      assertThat(c.base().id()).isEqualTo(ReviewedSceptres.BASES.get(key));
+      assertThat(c.metadata().snapshotId()).isNotEqualTo(old.metadata().snapshotId());
+      assertThat(c.modifiers()).isEqualTo(old.modifiers());
+      assertThat(c.modifiers().values().stream().filter(d -> d.weight() > 0)).hasSize(150);
+      assertThat(c.base().hasImplicit()).isFalse();
+      assertThat(c.modifiers().values())
+          .allMatch(d -> d.layer() == ModifierDefinition.Layer.EXPLICIT);
+      var root =
+          new ItemState(
+              c.metadata().snapshotId(),
+              c.base().id(),
+              82,
+              ItemState.Rarity.NORMAL,
+              List.of(),
+              List.of(),
+              Set.of());
+      assertThat(QualityLimitRules.describe(root, c).maximumQuality()).isEqualTo(20);
+    }
   }
 
   @Test

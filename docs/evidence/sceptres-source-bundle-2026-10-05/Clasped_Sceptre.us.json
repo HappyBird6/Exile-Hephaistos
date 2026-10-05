@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/us/Clasped_Sceptre",
+  "retrievedAt": "2026-10-05T00:43:05.588Z",
+  "sha256": "092e5532910d5ab3fcf8483d9b70d3630b318f11a5c71089e415524a20ed57d6",
+  "variants": [
+    {
+      "name": "Clasped Sceptre",
+      "card": "Clasped Sceptre\n        \n    \n    \n        \n            SceptresSpirit: 100Requires:  Level 36, 65 Int Grants Skill: Heart of Ice",
+      "requirements": "Requires:  Level 36, 65 Int",
+      "fields": {
+        "DropLevel": "36",
+        "BaseType": "Clasped Sceptre",
+        "Class": "Sceptres",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8",
+        "Tags": "sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre08",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "Heart of Ice",
+      "skillUrl": "https://poe2db.tw/us/Heart_of_Ice"
+    }
+  ]
+}

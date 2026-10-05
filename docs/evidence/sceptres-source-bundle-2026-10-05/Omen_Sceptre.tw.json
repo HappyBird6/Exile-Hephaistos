@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/tw/Omen_Sceptre",
+  "retrievedAt": "2026-10-05T00:43:21.757Z",
+  "sha256": "0098688539c9051379fd1586f638ebdd626f32f3b67a5423e5e8fb4f4d90cd58",
+  "variants": [
+    {
+      "name": "徵兆權杖",
+      "card": "徵兆權杖\n        \n    \n    \n        \n            權杖精魂: 100需求:  等級 16, 12 力量, 25 智慧 賦予技能: 絕滅恨惡\n        \n\n\n\n        \n            Omen Sceptre",
+      "requirements": "需求:  等級 16, 12 力量, 25 智慧",
+      "fields": {
+        "DropLevel": "16",
+        "BaseType": "徵兆權杖",
+        "Class": "權杖",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4",
+        "Tags": "sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre04",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "絕滅恨惡",
+      "skillUrl": "https://poe2db.tw/tw/Malice"
+    }
+  ]
+}

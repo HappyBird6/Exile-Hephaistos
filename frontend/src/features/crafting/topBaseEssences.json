@@ -2198,5 +2198,89 @@
         "attuned-wand:suffix:essence-mana-cost-efficiency"
       ]
     }
+  },
+  "stoic": {
+    "fixed": {
+      "LESSER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:agitative"],
+      "ESSENCE_COMMAND": ["rattling-sceptre:prefix:provocative"],
+      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_COMMAND": [
+        "rattling-sceptre:suffix:essence-aura-magnitude"
+      ]
+    }
+  },
+  "omen": {
+    "fixed": {
+      "LESSER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:agitative"],
+      "ESSENCE_COMMAND": ["rattling-sceptre:prefix:provocative"],
+      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_COMMAND": [
+        "rattling-sceptre:suffix:essence-aura-magnitude"
+      ]
+    }
+  },
+  "shrine-fire": {
+    "fixed": {
+      "LESSER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:agitative"],
+      "ESSENCE_COMMAND": ["rattling-sceptre:prefix:provocative"],
+      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_COMMAND": [
+        "rattling-sceptre:suffix:essence-aura-magnitude"
+      ]
+    }
+  },
+  "shrine-ice": {
+    "fixed": {
+      "LESSER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:agitative"],
+      "ESSENCE_COMMAND": ["rattling-sceptre:prefix:provocative"],
+      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_COMMAND": [
+        "rattling-sceptre:suffix:essence-aura-magnitude"
+      ]
+    }
+  },
+  "shrine-lightning": {
+    "fixed": {
+      "LESSER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:agitative"],
+      "ESSENCE_COMMAND": ["rattling-sceptre:prefix:provocative"],
+      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_COMMAND": [
+        "rattling-sceptre:suffix:essence-aura-magnitude"
+      ]
+    }
+  },
+  "clasped": {
+    "fixed": {
+      "LESSER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:agitative"],
+      "ESSENCE_COMMAND": ["rattling-sceptre:prefix:provocative"],
+      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_COMMAND": [
+        "rattling-sceptre:suffix:essence-aura-magnitude"
+      ]
+    }
+  },
+  "wrath": {
+    "fixed": {
+      "LESSER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:agitative"],
+      "ESSENCE_COMMAND": ["rattling-sceptre:prefix:provocative"],
+      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_COMMAND": [
+        "rattling-sceptre:suffix:essence-aura-magnitude"
+      ]
+    }
   }
 }

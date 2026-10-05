@@ -1987,5 +1987,229 @@
       "zh-TW": ["賦予技能: 拋法者"],
       "es": ["Otorga la habilidad: Lanzahechizos"]
     }
+  },
+  "stoic": {
+    "key": "stoic",
+    "slug": "Stoic_Sceptre",
+    "pool": "stoic-sceptre",
+    "family": "sceptres",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2",
+    "name": "Stoic Sceptre",
+    "sourceUrl": "https://poe2db.tw/us/Stoic_Sceptre",
+    "sourceSha256": "783f535207b5d6f4e3950161f75c29bb695124c8c8190896232260ba23fb2003",
+    "sourceTags": ["sceptre", "onehand"],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 12,
+    "requiredLevel": 6,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 6, 12 Int",
+      "ko": "요구 사항:  레벨 6, 12 지능",
+      "ja": "装備条件： レベル 6, 12 知性",
+      "zh-CN": "需求：  等级 6, 12 智慧",
+      "zh-TW": "需求:  等級 6, 12 智慧",
+      "es": "Requiere:  Nivel 6, 12 Int"
+    },
+    "sourceProperties": {
+      "en": ["Spirit: 100", "Grants Skill: Discipline"],
+      "ko": ["정신력: 100", "스킬 부여: 단련"],
+      "ja": ["スピリット: 100", "スキルを付与: ディシプリン"],
+      "zh-CN": ["精魂: 100", "获得技能: 纪律"],
+      "zh-TW": ["精魂: 100", "賦予技能: 紀律"],
+      "es": ["Espíritu: 100", "Otorga la habilidad: Disciplina"]
+    }
+  },
+  "omen": {
+    "key": "omen",
+    "slug": "Omen_Sceptre",
+    "pool": "omen-sceptre",
+    "family": "sceptres",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4",
+    "name": "Omen Sceptre",
+    "sourceUrl": "https://poe2db.tw/us/Omen_Sceptre",
+    "sourceSha256": "71f095ab3a79f75ba502a2df8cd1e69ad99fa6ee5f333f4a7afcc518ad0993c6",
+    "sourceTags": ["sceptre", "onehand"],
+    "armour": 0,
+    "strength": 12,
+    "intelligence": 25,
+    "requiredLevel": 16,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 16, 12 Str, 25 Int",
+      "ko": "요구 사항:  레벨 16, 12 힘, 25 지능",
+      "ja": "装備条件： レベル 16, 12 筋力, 25 知性",
+      "zh-CN": "需求：  等级 16, 12 力量, 25 智慧",
+      "zh-TW": "需求:  等級 16, 12 力量, 25 智慧",
+      "es": "Requiere:  Nivel 16, 12 Fue, 25 Int"
+    },
+    "sourceProperties": {
+      "en": ["Spirit: 100", "Grants Skill: Malice"],
+      "ko": ["정신력: 100", "스킬 부여: 적의"],
+      "ja": ["スピリット: 100", "スキルを付与: マリス"],
+      "zh-CN": ["精魂: 100", "获得技能: 怨毒"],
+      "zh-TW": ["精魂: 100", "賦予技能: 絕滅恨惡"],
+      "es": ["Espíritu: 100", "Otorga la habilidad: Malicia"]
+    }
+  },
+  "shrine-fire": {
+    "key": "shrine-fire",
+    "slug": "Shrine_Sceptre_6a",
+    "pool": "shrine-fire-sceptre",
+    "family": "sceptres",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a",
+    "name": "Shrine Sceptre",
+    "sourceUrl": "https://poe2db.tw/us/Shrine_Sceptre",
+    "sourceSha256": "f6951ddcf71ee3440ce892beb3896cec48064c461acf14c4258ba96e5545c607",
+    "sourceTags": ["fire_implicit_skill", "sceptre", "onehand"],
+    "armour": 0,
+    "strength": 17,
+    "intelligence": 38,
+    "requiredLevel": 26,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 26, 17 Str, 38 Int",
+      "ko": "요구 사항:  레벨 26, 17 힘, 38 지능",
+      "ja": "装備条件： レベル 26, 17 筋力, 38 知性",
+      "zh-CN": "需求：  等级 26, 17 力量, 38 智慧",
+      "zh-TW": "需求:  等級 26, 17 力量, 38 智慧",
+      "es": "Requiere:  Nivel 26, 17 Fue, 38 Int"
+    },
+    "sourceProperties": {
+      "en": ["Spirit: 100", "Grants Skill: Purity of Fire"],
+      "ko": ["정신력: 100", "스킬 부여: 불의 순수함"],
+      "ja": ["スピリット: 100", "スキルを付与: ピュリティオブファイヤー"],
+      "zh-CN": ["精魂: 100", "获得技能: 火焰净化"],
+      "zh-TW": ["精魂: 100", "賦予技能: 火焰淨化"],
+      "es": ["Espíritu: 100", "Otorga la habilidad: Pureza de fuego"]
+    }
+  },
+  "shrine-ice": {
+    "key": "shrine-ice",
+    "slug": "Shrine_Sceptre_6b",
+    "pool": "shrine-ice-sceptre",
+    "family": "sceptres",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b",
+    "name": "Shrine Sceptre",
+    "sourceUrl": "https://poe2db.tw/us/Shrine_Sceptre",
+    "sourceSha256": "f6951ddcf71ee3440ce892beb3896cec48064c461acf14c4258ba96e5545c607",
+    "sourceTags": ["cold_implicit_skill", "sceptre", "onehand"],
+    "armour": 0,
+    "strength": 17,
+    "intelligence": 38,
+    "requiredLevel": 26,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 26, 17 Str, 38 Int",
+      "ko": "요구 사항:  레벨 26, 17 힘, 38 지능",
+      "ja": "装備条件： レベル 26, 17 筋力, 38 知性",
+      "zh-CN": "需求：  等级 26, 17 力量, 38 智慧",
+      "zh-TW": "需求:  等級 26, 17 力量, 38 智慧",
+      "es": "Requiere:  Nivel 26, 17 Fue, 38 Int"
+    },
+    "sourceProperties": {
+      "en": ["Spirit: 100", "Grants Skill: Purity of Ice"],
+      "ko": ["정신력: 100", "스킬 부여: 얼음의 순수함"],
+      "ja": ["スピリット: 100", "スキルを付与: ピュリティオブアイス"],
+      "zh-CN": ["精魂: 100", "获得技能: 冰霜净化"],
+      "zh-TW": ["精魂: 100", "賦予技能: 冰霜淨化"],
+      "es": ["Espíritu: 100", "Otorga la habilidad: Pureza de hielo"]
+    }
+  },
+  "shrine-lightning": {
+    "key": "shrine-lightning",
+    "slug": "Shrine_Sceptre_6c",
+    "pool": "shrine-lightning-sceptre",
+    "family": "sceptres",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c",
+    "name": "Shrine Sceptre",
+    "sourceUrl": "https://poe2db.tw/us/Shrine_Sceptre",
+    "sourceSha256": "f6951ddcf71ee3440ce892beb3896cec48064c461acf14c4258ba96e5545c607",
+    "sourceTags": ["lightning_implicit_skill", "sceptre", "onehand"],
+    "armour": 0,
+    "strength": 17,
+    "intelligence": 38,
+    "requiredLevel": 26,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 26, 17 Str, 38 Int",
+      "ko": "요구 사항:  레벨 26, 17 힘, 38 지능",
+      "ja": "装備条件： レベル 26, 17 筋力, 38 知性",
+      "zh-CN": "需求：  等级 26, 17 力量, 38 智慧",
+      "zh-TW": "需求:  等級 26, 17 力量, 38 智慧",
+      "es": "Requiere:  Nivel 26, 17 Fue, 38 Int"
+    },
+    "sourceProperties": {
+      "en": ["Spirit: 100", "Grants Skill: Purity of Lightning"],
+      "ko": ["정신력: 100", "스킬 부여: 번개의 순수함"],
+      "ja": ["スピリット: 100", "スキルを付与: ピュリティオブライトニング"],
+      "zh-CN": ["精魂: 100", "获得技能: 闪电净化"],
+      "zh-TW": ["精魂: 100", "賦予技能: 閃電淨化"],
+      "es": ["Espíritu: 100", "Otorga la habilidad: Pureza de rayo"]
+    }
+  },
+  "clasped": {
+    "key": "clasped",
+    "slug": "Clasped_Sceptre",
+    "pool": "clasped-sceptre",
+    "family": "sceptres",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8",
+    "name": "Clasped Sceptre",
+    "sourceUrl": "https://poe2db.tw/us/Clasped_Sceptre",
+    "sourceSha256": "092e5532910d5ab3fcf8483d9b70d3630b318f11a5c71089e415524a20ed57d6",
+    "sourceTags": ["sceptre", "onehand"],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 65,
+    "requiredLevel": 36,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 36, 65 Int",
+      "ko": "요구 사항:  레벨 36, 65 지능",
+      "ja": "装備条件： レベル 36, 65 知性",
+      "zh-CN": "需求：  等级 36, 65 智慧",
+      "zh-TW": "需求:  等級 36, 65 智慧",
+      "es": "Requiere:  Nivel 36, 65 Int"
+    },
+    "sourceProperties": {
+      "en": ["Spirit: 100", "Grants Skill: Heart of Ice"],
+      "ko": ["정신력: 100", "스킬 부여: 얼음의 심장"],
+      "ja": ["スピリット: 100", "スキルを付与: ハートオブアイス"],
+      "zh-CN": ["精魂: 100", "获得技能: 冰雪之心"],
+      "zh-TW": ["精魂: 100", "賦予技能: 冰雪之心"],
+      "es": ["Espíritu: 100", "Otorga la habilidad: Corazón de hielo"]
+    }
+  },
+  "wrath": {
+    "key": "wrath",
+    "slug": "Wrath_Sceptre",
+    "pool": "wrath-sceptre",
+    "family": "sceptres",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
+    "name": "Wrath Sceptre",
+    "sourceUrl": "https://poe2db.tw/us/Wrath_Sceptre",
+    "sourceSha256": "f86d1e72a8882bc7e74c7d35ecf4537ac3b7ef6896e4e6e6cf1ef8a7f09533c8",
+    "sourceTags": ["lightning_implicit_skill", "sceptre", "onehand"],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 87,
+    "requiredLevel": 49,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 49, 87 Int",
+      "ko": "요구 사항:  레벨 49, 87 지능",
+      "ja": "装備条件： レベル 49, 87 知性",
+      "zh-CN": "需求：  等级 49, 87 智慧",
+      "zh-TW": "需求:  等級 49, 87 智慧",
+      "es": "Requiere:  Nivel 49, 87 Int"
+    },
+    "sourceProperties": {
+      "en": ["Spirit: 100", "Grants Skill: Fulmination"],
+      "ko": ["정신력: 100", "스킬 부여: 노호"],
+      "ja": ["スピリット: 100", "スキルを付与: フルミネーション"],
+      "zh-CN": ["精魂: 100", "获得技能: 轰鸣烈焰"],
+      "zh-TW": ["精魂: 100", "賦予技能: 劇烈爆發"],
+      "es": ["Espíritu: 100", "Otorga la habilidad: Fulminación"]
+    }
   }
 }

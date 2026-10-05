@@ -1,0 +1,103 @@
+{
+  "url": "https://poe2db.tw/tw/Shrine_Sceptre",
+  "retrievedAt": "2026-10-05T00:43:22.637Z",
+  "sha256": "086b3b0ff98b3ca8a4a2c0e2ffa43f4c7350ed0bcf466135498d3583644c4b98",
+  "variants": [
+    {
+      "name": "神殿權杖",
+      "card": "神殿權杖\n        \n    \n    \n        \n            權杖精魂: 100需求:  等級 26, 17 力量, 38 智慧 賦予技能: 火焰淨化\n        \n\n\n\n        \n            Shrine Sceptre",
+      "requirements": "需求:  等級 26, 17 力量, 38 智慧",
+      "fields": {
+        "DropLevel": "26",
+        "BaseType": "神殿權杖",
+        "Class": "權杖",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a",
+        "Tags": "fire_implicit_skill, sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre06a",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "火焰淨化",
+      "skillUrl": "https://poe2db.tw/tw/Purity_of_Fire"
+    },
+    {
+      "name": "神殿權杖",
+      "card": "神殿權杖\n        \n    \n    \n        \n            權杖精魂: 100需求:  等級 26, 17 力量, 38 智慧 賦予技能: 冰霜淨化\n        \n\n\n\n        \n            Shrine Sceptre",
+      "requirements": "需求:  等級 26, 17 力量, 38 智慧",
+      "fields": {
+        "DropLevel": "26",
+        "BaseType": "神殿權杖",
+        "Class": "權杖",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b",
+        "Tags": "cold_implicit_skill, sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre06b",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "冰霜淨化",
+      "skillUrl": "https://poe2db.tw/tw/Purity_of_Ice"
+    },
+    {
+      "name": "神殿權杖",
+      "card": "神殿權杖\n        \n    \n    \n        \n            權杖精魂: 100需求:  等級 26, 17 力量, 38 智慧 賦予技能: 閃電淨化\n        \n\n\n\n        \n            Shrine Sceptre",
+      "requirements": "需求:  等級 26, 17 力量, 38 智慧",
+      "fields": {
+        "DropLevel": "26",
+        "BaseType": "神殿權杖",
+        "Class": "權杖",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c",
+        "Tags": "lightning_implicit_skill, sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre06c",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "閃電淨化",
+      "skillUrl": "https://poe2db.tw/tw/Purity_of_Lightning"
+    },
+    {
+      "name": "神殿權杖",
+      "card": "神殿權杖\n        \n    \n    \n        \n            權杖精魂: 100需求:  等級 26, 17 力量, 38 智慧 賦予技能: 不淨\n        \n\n\n\n        \n            Shrine Sceptre",
+      "requirements": "需求:  等級 26, 17 力量, 38 智慧",
+      "fields": {
+        "DropLevel": "26",
+        "BaseType": "神殿權杖",
+        "Class": "權杖",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptreUnique1",
+        "Tags": "sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre06c",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "不淨",
+      "skillUrl": "https://poe2db.tw/tw/Impurity"
+    }
+  ]
+}
