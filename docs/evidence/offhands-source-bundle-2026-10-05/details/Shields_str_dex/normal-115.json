@@ -1,0 +1,68 @@
+{
+  "row": {
+    "Name": "of Shockproofing",
+    "Level": "75",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "MaximumLightningResistance"
+    ],
+    "DropChance": "250",
+    "str": "<span class='mod-value'>+2</span>% to <a data-keyword=\"MaximumResistances\" href=\"Maximum_Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/10cfc4a861abfa43e56fa517c085678b0a54d64ffccc7e940f7616a55e2e17da\">Maximum Lightning Resistance</a>",
+    "fossil_no": [
+      "elemental_resistance",
+      "lightning_resistance",
+      "elemental",
+      "lightning",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "shield",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b3693d222ae04748cca30854afff70105f5dd49d225cd1190025d1b2bbef6618"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FMaximumLightningResist2___",
+  "textLocale": "jp",
+  "detailText": "雷耐性の最大値 +2%",
+  "retrievedAt": "2026-10-05T04:20:53.649Z",
+  "sha256": "9ec8d258c81589570778e159a53f70a30dc56f6c50af40d8440604050492c1b5",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"MaximumResistances\" href=\"Maximum_Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/c52c9835ba1993ed9ead92dd9c2d562462a5e0ee96080195a96174f636630829\">雷耐性の最大値</a> <span class='mod-value'>+2</span>%</span></h5>   <span data-tabname=\"耐電の\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>耐電の\n<tr><th>Family<td>MaximumLightningResistance\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>サフィックス (2)\n<tr><th>Req. level<td>75 (Effective: 60)\n<tr><th>Gold Price<td>3338\n<tr><th>Stats<td><li>base maximum lightning damage resistance % <span class=\"badge bg-primary\">2 <span class=\"ndash\">—</span> 2</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>shield: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>lightning_resistance</i></span> <span class='badge bg-primary'>元素</span> <span class='badge bg-primary'>雷</span> <span class='badge bg-primary'>耐性</span> </table>  </div></div>",
+  "fields": {
+    "Name": "耐電の",
+    "Family": "MaximumLightningResistance",
+    "Domains": "アイテム (1)",
+    "GenerationType": "サフィックス (2)",
+    "Req. level": "75 (Effective: 60)",
+    "Gold Price": "3338",
+    "Stats": "base maximum lightning damage resistance % 2 — 2 Global",
+    "Spawn Tags": "shield: 1 default: 0",
+    "Craft Tags": "elemental_resistance lightning_resistance 元素 雷 耐性"
+  },
+  "code": "MaximumLightningResist2___",
+  "stats": [
+    {
+      "id": "base_maximum_lightning_damage_resistance_%",
+      "min": 2,
+      "max": 2,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "shield",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

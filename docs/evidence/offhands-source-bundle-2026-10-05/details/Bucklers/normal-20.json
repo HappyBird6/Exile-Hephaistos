@@ -1,0 +1,84 @@
+{
+  "row": {
+    "Name": "of the Walrus",
+    "Level": "50",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ColdResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(26<span class=\"ndash\">—</span>30)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a>",
+    "fossil_no": [
+      "cold_resistance",
+      "elemental_resistance",
+      "elemental",
+      "cold",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/cbcec57171969514078d0eab7bb06fbf3eb95c27efa02b381e3987e12ee6727a"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/cbcec57171969514078d0eab7bb06fbf3eb95c27efa02b381e3987e12ee6727a",
+  "textLocale": "us",
+  "detailText": "+(26—30)% to Cold Resistance",
+  "retrievedAt": "2026-10-05T04:18:59.059Z",
+  "sha256": "cbcec57171969514078d0eab7bb06fbf3eb95c27efa02b381e3987e12ee6727a",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(26<span class=\"ndash\">—</span>30)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/84ff16d8aeeb61c6cd1c5a881495ab9e03153c83989fb54629cfeeeb8e92266e\">Cold Resistance</a></span></h5>   <span data-tabname=\"of the Walrus\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Walrus\n<tr><th>Family<td>ColdResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>50 (Effective: 40)\n<tr><th>Gold Price<td>1004\n<tr><th>Stats<td><li>base cold damage resistance % <span class=\"badge bg-primary\">26 <span class=\"ndash\">—</span> 30</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>armour: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>cold_resistance</i></span> <span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Cold</span> <span class='badge bg-primary'>Resistance</span> \n<tr><th>Horticrafting<td>Can change Element modifier\n<tr><td>Fists of Stone<td><span class='mod-value'>+2</span>% to [MaximumResistances|Maximum Cold Resistance]<br><span class='mod-value'>+(26<span class=\"ndash\">—</span>30)</span>% to [Resistances|Cold Resistance]</table>  </div></div>",
+  "fields": {
+    "Name": "of the Walrus",
+    "Family": "ColdResistance",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "50 (Effective: 40)",
+    "Gold Price": "1004",
+    "Stats": "base cold damage resistance % 26 — 30 Global",
+    "Spawn Tags": "armour: 1 ring: 1 amulet: 1 belt: 1 default: 0",
+    "Craft Tags": "cold_resistance elemental_resistance Elemental Cold Resistance",
+    "Horticrafting": "Can change Element modifier"
+  },
+  "code": "ColdResist5",
+  "stats": [
+    {
+      "id": "base_cold_damage_resistance_%",
+      "min": 26,
+      "max": 30,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "armour",
+      "weight": 1
+    },
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "amulet",
+      "weight": 1
+    },
+    {
+      "tag": "belt",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

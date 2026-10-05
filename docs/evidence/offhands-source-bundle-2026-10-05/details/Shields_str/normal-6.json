@@ -1,0 +1,131 @@
+{
+  "row": {
+    "Name": "of the Leviathan",
+    "Level": "66",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "Strength"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(28<span class=\"ndash\">—</span>30)</span> to <a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/adc68348c13b27b1b831c2ce4caf358d08d796def82d1d95491b336d8a926849\">Strength</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "belt",
+      "str_armour",
+      "str_dex_armour",
+      "str_int_armour",
+      "str_dex_int_armour",
+      "mace",
+      "axe",
+      "sword",
+      "spear",
+      "flail",
+      "crossbow",
+      "sceptre",
+      "talisman",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6f5c6e2e126b90b0a7c792c7ec6900fb783659c06813047d04a37b8c69f52cce"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6f5c6e2e126b90b0a7c792c7ec6900fb783659c06813047d04a37b8c69f52cce",
+  "textLocale": "us",
+  "detailText": "+(28—30) to Strength",
+  "retrievedAt": "2026-10-05T04:18:55.495Z",
+  "sha256": "6f5c6e2e126b90b0a7c792c7ec6900fb783659c06813047d04a37b8c69f52cce",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(28<span class=\"ndash\">—</span>30)</span> to <a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/7cef0789eb2239cf8b253adcdbee1dfa291c16da7045fecda6603754f8073383\">Strength</a></span></h5>   <span data-tabname=\"of the Leviathan\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Leviathan\n<tr><th>Family<td>Strength\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>66 (Effective: 52)\n<tr><th>Gold Price<td>1590\n<tr><th>Stats<td><li>additional strength <span class=\"badge bg-primary\">28 <span class=\"ndash\">—</span> 30</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>str_armour: 1</span> <span class='badge bg-primary'>str_dex_armour: 1</span> <span class='badge bg-primary'>str_int_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>mace: 1</span> <span class='badge bg-primary'>axe: 1</span> <span class='badge bg-primary'>sword: 1</span> <span class='badge bg-primary'>spear: 1</span> <span class='badge bg-primary'>flail: 1</span> <span class='badge bg-primary'>crossbow: 1</span> <span class='badge bg-primary'>sceptre: 1</span> <span class='badge bg-primary'>talisman: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attribute</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(26<span class=\"ndash\">—</span>28)</span>% increased Area of Effect for [Attack|Attacks]</table>  </div></div>",
+  "fields": {
+    "Name": "of the Leviathan",
+    "Family": "Strength",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "66 (Effective: 52)",
+    "Gold Price": "1590",
+    "Stats": "additional strength 28 — 30 Global",
+    "Spawn Tags": "ring: 1 amulet: 1 belt: 1 str_armour: 1 str_dex_armour: 1 str_int_armour: 1 str_dex_int_armour: 1 mace: 1 axe: 1 sword: 1 spear: 1 flail: 1 crossbow: 1 sceptre: 1 talisman: 1 default: 0",
+    "Craft Tags": "Attribute"
+  },
+  "code": "Strength7",
+  "stats": [
+    {
+      "id": "additional_strength",
+      "min": 28,
+      "max": 30,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "amulet",
+      "weight": 1
+    },
+    {
+      "tag": "belt",
+      "weight": 1
+    },
+    {
+      "tag": "str_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "mace",
+      "weight": 1
+    },
+    {
+      "tag": "axe",
+      "weight": 1
+    },
+    {
+      "tag": "sword",
+      "weight": 1
+    },
+    {
+      "tag": "spear",
+      "weight": 1
+    },
+    {
+      "tag": "flail",
+      "weight": 1
+    },
+    {
+      "tag": "crossbow",
+      "weight": 1
+    },
+    {
+      "tag": "sceptre",
+      "weight": 1
+    },
+    {
+      "tag": "talisman",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

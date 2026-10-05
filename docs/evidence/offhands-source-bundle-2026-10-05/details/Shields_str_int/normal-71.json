@@ -1,0 +1,64 @@
+{
+  "row": {
+    "Name": "Ingrained",
+    "Level": "16",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DefencesPercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(27<span class=\"ndash\">—</span>42)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "energy_shield"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingenergy_shield\" data-tag=\"energy_shield\">Energy Shield</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7cd7d2da0182b5eed907f43574d3e06a77849ac7813cbaf2eff1186deef7e145"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndEnergyShield2",
+  "textLocale": "us",
+  "detailText": "(27—42)% increased Armour and Energy Shield",
+  "retrievedAt": "2026-10-05T04:31:38.400Z",
+  "sha256": "7cd7d2da0182b5eed907f43574d3e06a77849ac7813cbaf2eff1186deef7e145",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(27<span class=\"ndash\">—</span>42)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a></span></h5>   <span data-tabname=\"Ingrained\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Ingrained\n<tr><th>Family<td>DefencesPercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>16 (Effective: 12)\n<tr><th>Gold Price<td>430\n<tr><th>Stats<td><li>local armour and energy shield +% <span class=\"badge bg-primary\">27 <span class=\"ndash\">—</span> 42</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>str_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Armour</span> <span class='badge bg-primary'>Energy Shield</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(9<span class=\"ndash\">—</span>10)</span>% more Global [Evasion] Rating and [EnergyShield|Energy Shield]</table>  </div></div>",
+  "fields": {
+    "Name": "Ingrained",
+    "Family": "DefencesPercent",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "16 (Effective: 12)",
+    "Gold Price": "430",
+    "Stats": "local armour and energy shield +% 27 — 42 Local",
+    "Spawn Tags": "str_int_armour: 1 default: 0",
+    "Craft Tags": "defences Armour Energy Shield"
+  },
+  "code": "LocalIncreasedArmourAndEnergyShield2",
+  "stats": [
+    {
+      "id": "local_armour_and_energy_shield_+%",
+      "min": 27,
+      "max": 42,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "str_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

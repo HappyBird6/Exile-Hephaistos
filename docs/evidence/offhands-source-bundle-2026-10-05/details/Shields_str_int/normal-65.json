@@ -1,0 +1,75 @@
+{
+  "row": {
+    "Name": "Sanctified",
+    "Level": "33",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefences"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(47<span class=\"ndash\">—</span>71)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(16<span class=\"ndash\">—</span>21)</span> to maximum <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "energy_shield"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_int_armour",
+      "str_dex_int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingenergy_shield\" data-tag=\"energy_shield\">Energy Shield</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5257bce3e74ff41c53f7519f779d6c27e53f9d556ff90083579f4ce24d303195"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FLocalBaseArmourAndEnergyShield3",
+  "textLocale": "sp",
+  "detailText": "+(47—71) a la armadura\n+(16—21) al escudo de energía máximo",
+  "retrievedAt": "2026-10-05T04:31:14.561Z",
+  "sha256": "8408842239983204fd0666368450f0416175922aaf1d1e768cc7c778b9fc99b5",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(47<span class=\"ndash\">—</span>71)</span> a la <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/4fcca7fe187c61d61898b4f2aab39e829538c46c753e8695c4c8b32893a3f0a0\">armadura</a><br><span class='mod-value'>+(16<span class=\"ndash\">—</span>21)</span> al <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FEnergyShield\">escudo de energía</a> máximo</span></h5>   <span data-tabname=\"<if:MS>{santificado}<elif:FS>{santificada}<elif:MP>{santificados}<elif:FP>{santificadas}\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td><if:MS>{santificado}<elif:FS>{santificada}<elif:MP>{santificados}<elif:FP>{santificadas}\n<tr><th>Family<td>BaseLocalDefences\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Prefijo (1)\n<tr><th>Req. level<td>33 (Effective: 26)\n<tr><th>Gold Price<td>453\n<tr><th>Stats<td><li>local energy shield <span class=\"badge bg-primary\">16 <span class=\"ndash\">—</span> 21</span> <span class=\"badge bg-secondary\">Local</span></li><li>local base physical damage reduction rating <span class=\"badge bg-primary\">47 <span class=\"ndash\">—</span> 71</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>str_int_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Armadura</span> <span class='badge bg-primary'>Escudo de energía</span> \n<tr><td>Puños de roca<td>Tiene <span class='mod-value'>+3</span> a la <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FEvasion\">evasión</a> por cada nivel del jugador<br>Tiene <span class='mod-value'>+1</span> al <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FEnergyShield\">escudo de energía</a> máximo por cada nivel del jugador</table>  </div></div>",
+  "fields": {
+    "Name": "{santificado}{santificada}{santificados}{santificadas}",
+    "Family": "BaseLocalDefences",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Prefijo (1)",
+    "Req. level": "33 (Effective: 26)",
+    "Gold Price": "453",
+    "Stats": "local energy shield 16 — 21 Locallocal base physical damage reduction rating 47 — 71 Local",
+    "Spawn Tags": "str_int_armour: 1 str_dex_int_armour: 1 default: 0",
+    "Craft Tags": "defences Armadura Escudo de energía"
+  },
+  "code": "LocalBaseArmourAndEnergyShield3",
+  "stats": [
+    {
+      "id": "local_energy_shield",
+      "min": 16,
+      "max": 21,
+      "locality": "Local"
+    },
+    {
+      "id": "local_base_physical_damage_reduction_rating",
+      "min": 47,
+      "max": 71,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "str_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "row": {
+    "Name": "Scrapper's",
+    "Level": "2",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DefencesPercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(15<span class=\"ndash\">—</span>26)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a800448774c6a31bbfbc1af577021e113240ad6a9ad85633c07b6a70506345ea"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndEvasion1",
+  "textLocale": "us",
+  "detailText": "(15—26)% increased Armour and Evasion",
+  "retrievedAt": "2026-10-05T04:29:50.372Z",
+  "sha256": "0b672a0ffbd025d2560c3306cbd1fb45307102030e140ea312eb35613372502f",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(15<span class=\"ndash\">—</span>26)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a></span></h5>   <span data-tabname=\"Scrapper's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Scrapper's\n<tr><th>Family<td>DefencesPercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>2 (Effective: 1)\n<tr><th>Gold Price<td>99\n<tr><th>Stats<td><li>local armour and evasion +% <span class=\"badge bg-primary\">15 <span class=\"ndash\">—</span> 26</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>str_dex_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Armour</span> <span class='badge bg-primary'>Evasion</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(7<span class=\"ndash\">—</span>8)</span>% more Global [Evasion] Rating and [EnergyShield|Energy Shield]</table>  </div></div>",
+  "fields": {
+    "Name": "Scrapper's",
+    "Family": "DefencesPercent",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "2 (Effective: 1)",
+    "Gold Price": "99",
+    "Stats": "local armour and evasion +% 15 — 26 Local",
+    "Spawn Tags": "str_dex_armour: 1 default: 0",
+    "Craft Tags": "defences Armour Evasion"
+  },
+  "code": "LocalIncreasedArmourAndEvasion1",
+  "stats": [
+    {
+      "id": "local_armour_and_evasion_+%",
+      "min": 15,
+      "max": 26,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "str_dex_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

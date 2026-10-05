@@ -1,0 +1,317 @@
+{
+  "base": {
+    "key": "golden-targe",
+    "slug": "Golden_Targe",
+    "pool": "golden-targe",
+    "family": "shields",
+    "id": "Metadata/Items/Armours/Shields/FourShieldStrDex10Endgame",
+    "name": "Golden Targe",
+    "sourceUrl": "https://poe2db.tw/us/Golden_Targe",
+    "sourceSha256": "ad5a20d37dddf50733c6101684f37f1c7f16ec9687d3f2c9461eabfa39b15609",
+    "sourceTags": [
+      "str_dex_armour",
+      "str_dex_shield",
+      "karui_basetype",
+      "shield",
+      "armour"
+    ],
+    "armour": 145,
+    "evasion": 132,
+    "energyShield": 0,
+    "baseMovementSpeed": -0.015,
+    "blockChance": 25,
+    "strength": 63,
+    "dexterity": 63,
+    "intelligence": 0,
+    "requiredLevel": 80,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 63 Str, 63 Dex",
+      "ko": "요구 사항:  레벨 80, 63 힘, 63 민첩",
+      "ja": "装備条件： レベル 80, 63 筋力, 63 器用さ",
+      "zh-CN": "需求：  等级 80, 63 力量, 63 敏捷",
+      "zh-TW": "需求:  等級 80, 63 力量, 63 敏捷",
+      "es": "Requiere:  Nivel 80, 63 Fue, 63 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Block chance: 25%",
+        "Armour: 145",
+        "Evasion Rating: 132",
+        "Base Movement Speed: -0.015",
+        "Grants Skill: Raise Shield"
+      ],
+      "ko": [
+        "막기 확률: 25%",
+        "방어도: 145",
+        "회피: 132",
+        "Base Movement Speed: -0.015",
+        "스킬 부여: 방패 들기"
+      ],
+      "ja": [
+        "ブロック率: 25%",
+        "アーマー: 145",
+        "回避力: 132",
+        "Base Movement Speed: -0.015",
+        "スキルを付与: レイズシールド"
+      ],
+      "zh-CN": [
+        "格挡几率: 25%",
+        "护甲: 145",
+        "闪避值: 132",
+        "基础移动速度: -0.015",
+        "获得技能: 架盾"
+      ],
+      "zh-TW": [
+        "格擋機率: 25%",
+        "護甲值: 145",
+        "閃避值: 132",
+        "基礎移動速度: -0.015",
+        "賦予技能: 展開護盾"
+      ],
+      "es": [
+        "Probabilidad de bloqueo: 25%",
+        "Armadura: 145",
+        "Evasión: 132",
+        "Base Movement Speed: -0.015",
+        "Otorga la habilidad: Levantar escudo"
+      ]
+    },
+    "skillLines": {
+      "en": [
+        "Grants Skill: Raise Shield"
+      ],
+      "ko": [
+        "스킬 부여: 방패 들기"
+      ],
+      "ja": [
+        "スキルを付与: レイズシールド"
+      ],
+      "zh-CN": [
+        "获得技能: 架盾"
+      ],
+      "zh-TW": [
+        "賦予技能: 展開護盾"
+      ],
+      "es": [
+        "Otorga la habilidad: Levantar escudo"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "ordinarySocketMaximum": 1,
+    "classId": 26,
+    "grantedSkill": "Raise_Shield"
+  },
+  "ordinary": 134,
+  "reused": 112,
+  "special": 2,
+  "fixed": {
+    "LESSER_ESSENCE_BODY": [
+      "stocky-mitts:prefix:sanguine"
+    ],
+    "LESSER_ESSENCE_ENHANCEMENT": [
+      "blacksteel-gauntlets:prefix:brawler-s"
+    ],
+    "LESSER_ESSENCE_RUIN": [
+      "stocky-mitts:suffix:of-the-lost"
+    ],
+    "LESSER_ESSENCE_INFINITE": [
+      "stocky-mitts:suffix:of-the-wrestler",
+      "stocky-mitts:suffix:of-the-lynx"
+    ],
+    "ESSENCE_BODY": [
+      "stocky-mitts:prefix:rotund"
+    ],
+    "ESSENCE_ENHANCEMENT": [
+      "blacksteel-gauntlets:prefix:gladiator-s"
+    ],
+    "ESSENCE_RUIN": [
+      "stocky-mitts:suffix:of-banishment"
+    ],
+    "ESSENCE_INFINITE": [
+      "stocky-mitts:suffix:of-the-lion",
+      "stocky-mitts:suffix:of-the-falcon"
+    ],
+    "GREATER_ESSENCE_BODY": [
+      "stocky-mitts:prefix:virile"
+    ],
+    "GREATER_ESSENCE_ENHANCEMENT": [
+      "blacksteel-gauntlets:prefix:duelist-s"
+    ],
+    "GREATER_ESSENCE_RUIN": [
+      "stocky-mitts:suffix:of-expulsion"
+    ],
+    "GREATER_ESSENCE_INFINITE": [
+      "stocky-mitts:suffix:of-the-goliath",
+      "stocky-mitts:suffix:of-the-leopard"
+    ],
+    "LESSER_ESSENCE_INSULATION": [
+      "stocky-mitts:suffix:of-the-salamander"
+    ],
+    "ESSENCE_INSULATION": [
+      "stocky-mitts:suffix:of-the-kiln"
+    ],
+    "GREATER_ESSENCE_INSULATION": [
+      "stocky-mitts:suffix:of-the-volcano"
+    ],
+    "LESSER_ESSENCE_THAWING": [
+      "stocky-mitts:suffix:of-the-penguin"
+    ],
+    "ESSENCE_THAWING": [
+      "stocky-mitts:suffix:of-the-yeti"
+    ],
+    "GREATER_ESSENCE_THAWING": [
+      "stocky-mitts:suffix:of-the-polar-bear"
+    ],
+    "LESSER_ESSENCE_GROUNDING": [
+      "stocky-mitts:suffix:of-the-squall"
+    ],
+    "ESSENCE_GROUNDING": [
+      "stocky-mitts:suffix:of-the-thunderhead"
+    ],
+    "GREATER_ESSENCE_GROUNDING": [
+      "stocky-mitts:suffix:of-the-maelstrom"
+    ]
+  },
+  "replacements": {
+    "ESSENCE_HYSTERIA": [
+      "offhand:prefix:unrelenting:LocalBlockChance2"
+    ],
+    "ESSENCE_ABYSS": [
+      "stocky-mitts:prefix:essence-abyssal-mark",
+      "stocky-mitts:suffix:essence-abyssal-mark"
+    ]
+  },
+  "excluded": [
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedPhysicalDamageReductionRatingPercent2",
+      "action": "LESSER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEvasionRatingPercent2",
+      "action": "LESSER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEnergyShieldPercent2",
+      "action": "LESSER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedArmourAndEnergyShield2",
+      "action": "LESSER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEvasionAndEnergyShield2",
+      "action": "LESSER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "Intelligence2",
+      "action": "LESSER_ESSENCE_INFINITE",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedPhysicalDamageReductionRatingPercent4",
+      "action": "ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEvasionRatingPercent4",
+      "action": "ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEnergyShieldPercent4",
+      "action": "ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedArmourAndEnergyShield4",
+      "action": "ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEvasionAndEnergyShield4",
+      "action": "ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "Intelligence4",
+      "action": "ESSENCE_INFINITE",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedPhysicalDamageReductionRatingPercent5",
+      "action": "GREATER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEvasionRatingPercent5",
+      "action": "GREATER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEnergyShieldPercent5",
+      "action": "GREATER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedArmourAndEnergyShield5",
+      "action": "GREATER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEvasionAndEnergyShield5_",
+      "action": "GREATER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "Intelligence6",
+      "action": "GREATER_ESSENCE_INFINITE",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "perfect_essence",
+      "code": "AlloyRunicWardOnBlock1",
+      "action": "PROTECTIVE_ALLOY",
+      "reason": "Existing excluded/deferred action"
+    },
+    {
+      "kind": "perfect_essence",
+      "code": "AlloyTotemPlacementSpeed1",
+      "action": "SWIFT_ALLOY",
+      "reason": "Existing excluded/deferred action"
+    },
+    {
+      "kind": "perfect_essence",
+      "code": "AlloyLocalWardIncreasePercent1",
+      "action": "SOVEREIGN_ALLOY",
+      "reason": "Existing excluded/deferred action"
+    }
+  ],
+  "weightPolicy": "POE2DB_AS_PUBLISHED",
+  "combatSimulation": false,
+  "implicitPolicy": "Source built-in block/property/skill text only; no synthesized canonical item stat without source proof"
+}

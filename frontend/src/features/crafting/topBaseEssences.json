@@ -3223,5 +3223,194 @@
         "stocky-mitts:suffix:essence-abyssal-mark"
       ]
     }
+  },
+  "tawhoan-tower-shield": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": ["stocky-mitts:prefix:sanguine"],
+      "LESSER_ESSENCE_ENHANCEMENT": ["stocky-mitts:prefix:layered"],
+      "LESSER_ESSENCE_RUIN": ["stocky-mitts:suffix:of-the-lost"],
+      "LESSER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-wrestler"],
+      "ESSENCE_BODY": ["stocky-mitts:prefix:rotund"],
+      "ESSENCE_ENHANCEMENT": ["stocky-mitts:prefix:buttressed"],
+      "ESSENCE_RUIN": ["stocky-mitts:suffix:of-banishment"],
+      "ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-lion"],
+      "GREATER_ESSENCE_BODY": ["stocky-mitts:prefix:virile"],
+      "GREATER_ESSENCE_ENHANCEMENT": ["stocky-mitts:prefix:thickened"],
+      "GREATER_ESSENCE_RUIN": ["stocky-mitts:suffix:of-expulsion"],
+      "GREATER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-goliath"],
+      "LESSER_ESSENCE_INSULATION": ["stocky-mitts:suffix:of-the-salamander"],
+      "ESSENCE_INSULATION": ["stocky-mitts:suffix:of-the-kiln"],
+      "GREATER_ESSENCE_INSULATION": ["stocky-mitts:suffix:of-the-volcano"],
+      "LESSER_ESSENCE_THAWING": ["stocky-mitts:suffix:of-the-penguin"],
+      "ESSENCE_THAWING": ["stocky-mitts:suffix:of-the-yeti"],
+      "GREATER_ESSENCE_THAWING": ["stocky-mitts:suffix:of-the-polar-bear"],
+      "LESSER_ESSENCE_GROUNDING": ["stocky-mitts:suffix:of-the-squall"],
+      "ESSENCE_GROUNDING": ["stocky-mitts:suffix:of-the-thunderhead"],
+      "GREATER_ESSENCE_GROUNDING": ["stocky-mitts:suffix:of-the-maelstrom"]
+    },
+    "replacements": {
+      "ESSENCE_HYSTERIA": ["offhand:prefix:unrelenting:LocalBlockChance2"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    }
+  },
+  "golden-targe": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": ["stocky-mitts:prefix:sanguine"],
+      "LESSER_ESSENCE_ENHANCEMENT": ["blacksteel-gauntlets:prefix:brawler-s"],
+      "LESSER_ESSENCE_RUIN": ["stocky-mitts:suffix:of-the-lost"],
+      "LESSER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-wrestler",
+        "stocky-mitts:suffix:of-the-lynx"
+      ],
+      "ESSENCE_BODY": ["stocky-mitts:prefix:rotund"],
+      "ESSENCE_ENHANCEMENT": ["blacksteel-gauntlets:prefix:gladiator-s"],
+      "ESSENCE_RUIN": ["stocky-mitts:suffix:of-banishment"],
+      "ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-lion",
+        "stocky-mitts:suffix:of-the-falcon"
+      ],
+      "GREATER_ESSENCE_BODY": ["stocky-mitts:prefix:virile"],
+      "GREATER_ESSENCE_ENHANCEMENT": ["blacksteel-gauntlets:prefix:duelist-s"],
+      "GREATER_ESSENCE_RUIN": ["stocky-mitts:suffix:of-expulsion"],
+      "GREATER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-goliath",
+        "stocky-mitts:suffix:of-the-leopard"
+      ],
+      "LESSER_ESSENCE_INSULATION": ["stocky-mitts:suffix:of-the-salamander"],
+      "ESSENCE_INSULATION": ["stocky-mitts:suffix:of-the-kiln"],
+      "GREATER_ESSENCE_INSULATION": ["stocky-mitts:suffix:of-the-volcano"],
+      "LESSER_ESSENCE_THAWING": ["stocky-mitts:suffix:of-the-penguin"],
+      "ESSENCE_THAWING": ["stocky-mitts:suffix:of-the-yeti"],
+      "GREATER_ESSENCE_THAWING": ["stocky-mitts:suffix:of-the-polar-bear"],
+      "LESSER_ESSENCE_GROUNDING": ["stocky-mitts:suffix:of-the-squall"],
+      "ESSENCE_GROUNDING": ["stocky-mitts:suffix:of-the-thunderhead"],
+      "GREATER_ESSENCE_GROUNDING": ["stocky-mitts:suffix:of-the-maelstrom"]
+    },
+    "replacements": {
+      "ESSENCE_HYSTERIA": ["offhand:prefix:unrelenting:LocalBlockChance2"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    }
+  },
+  "blacksteel-crest-shield": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": ["stocky-mitts:prefix:sanguine"],
+      "LESSER_ESSENCE_ENHANCEMENT": ["adherent-cuffs:prefix:ingrained"],
+      "LESSER_ESSENCE_RUIN": ["stocky-mitts:suffix:of-the-lost"],
+      "LESSER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-wrestler",
+        "attuned-wand:suffix:of-the-student"
+      ],
+      "ESSENCE_BODY": ["stocky-mitts:prefix:rotund"],
+      "ESSENCE_ENHANCEMENT": ["adherent-cuffs:prefix:infused"],
+      "ESSENCE_RUIN": ["stocky-mitts:suffix:of-banishment"],
+      "ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-lion",
+        "attuned-wand:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_BODY": ["stocky-mitts:prefix:virile"],
+      "GREATER_ESSENCE_ENHANCEMENT": ["adherent-cuffs:prefix:inculcated"],
+      "GREATER_ESSENCE_RUIN": ["stocky-mitts:suffix:of-expulsion"],
+      "GREATER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-goliath",
+        "attuned-wand:suffix:of-the-sage"
+      ],
+      "LESSER_ESSENCE_INSULATION": ["stocky-mitts:suffix:of-the-salamander"],
+      "ESSENCE_INSULATION": ["stocky-mitts:suffix:of-the-kiln"],
+      "GREATER_ESSENCE_INSULATION": ["stocky-mitts:suffix:of-the-volcano"],
+      "LESSER_ESSENCE_THAWING": ["stocky-mitts:suffix:of-the-penguin"],
+      "ESSENCE_THAWING": ["stocky-mitts:suffix:of-the-yeti"],
+      "GREATER_ESSENCE_THAWING": ["stocky-mitts:suffix:of-the-polar-bear"],
+      "LESSER_ESSENCE_GROUNDING": ["stocky-mitts:suffix:of-the-squall"],
+      "ESSENCE_GROUNDING": ["stocky-mitts:suffix:of-the-thunderhead"],
+      "GREATER_ESSENCE_GROUNDING": ["stocky-mitts:suffix:of-the-maelstrom"]
+    },
+    "replacements": {
+      "ESSENCE_HYSTERIA": ["offhand:prefix:unrelenting:LocalBlockChance2"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    }
+  },
+  "desert-buckler": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": ["stocky-mitts:prefix:sanguine"],
+      "LESSER_ESSENCE_ENHANCEMENT": ["polished-bracers:prefix:ghost-s"],
+      "LESSER_ESSENCE_RUIN": ["stocky-mitts:suffix:of-the-lost"],
+      "LESSER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-lynx"],
+      "ESSENCE_BODY": ["stocky-mitts:prefix:rotund"],
+      "ESSENCE_ENHANCEMENT": ["polished-bracers:prefix:wraith-s"],
+      "ESSENCE_RUIN": ["stocky-mitts:suffix:of-banishment"],
+      "ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-falcon"],
+      "GREATER_ESSENCE_BODY": ["stocky-mitts:prefix:virile"],
+      "GREATER_ESSENCE_ENHANCEMENT": ["polished-bracers:prefix:phantasm-s"],
+      "GREATER_ESSENCE_RUIN": ["stocky-mitts:suffix:of-expulsion"],
+      "GREATER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-leopard"],
+      "LESSER_ESSENCE_INSULATION": ["stocky-mitts:suffix:of-the-salamander"],
+      "ESSENCE_INSULATION": ["stocky-mitts:suffix:of-the-kiln"],
+      "GREATER_ESSENCE_INSULATION": ["stocky-mitts:suffix:of-the-volcano"],
+      "LESSER_ESSENCE_THAWING": ["stocky-mitts:suffix:of-the-penguin"],
+      "ESSENCE_THAWING": ["stocky-mitts:suffix:of-the-yeti"],
+      "GREATER_ESSENCE_THAWING": ["stocky-mitts:suffix:of-the-polar-bear"],
+      "LESSER_ESSENCE_GROUNDING": ["stocky-mitts:suffix:of-the-squall"],
+      "ESSENCE_GROUNDING": ["stocky-mitts:suffix:of-the-thunderhead"],
+      "GREATER_ESSENCE_GROUNDING": ["stocky-mitts:suffix:of-the-maelstrom"]
+    },
+    "replacements": {
+      "ESSENCE_HYSTERIA": ["offhand:prefix:unrelenting:LocalBlockChance2"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    }
+  },
+  "tasalian-focus": {
+    "fixed": {
+      "LESSER_ESSENCE_ENHANCEMENT": ["sirenscale-gloves:prefix:strong-willed"],
+      "LESSER_ESSENCE_RUIN": ["stocky-mitts:suffix:of-the-lost"],
+      "LESSER_ESSENCE_SORCERY": ["attuned-wand:prefix:adept-s"],
+      "LESSER_ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-student"],
+      "ESSENCE_ENHANCEMENT": ["sirenscale-gloves:prefix:fearless"],
+      "ESSENCE_RUIN": ["stocky-mitts:suffix:of-banishment"],
+      "ESSENCE_SORCERY": ["attuned-wand:prefix:professor-s"],
+      "ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-augur"],
+      "GREATER_ESSENCE_ENHANCEMENT": ["sirenscale-gloves:prefix:dauntless"],
+      "GREATER_ESSENCE_RUIN": ["stocky-mitts:suffix:of-expulsion"],
+      "GREATER_ESSENCE_SORCERY": ["attuned-wand:prefix:incanter-s"],
+      "GREATER_ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-sage"],
+      "LESSER_ESSENCE_SEEKING": [
+        "attuned-wand:suffix:of-havoc:spellcriticalstrikechance2"
+      ],
+      "ESSENCE_SEEKING": ["attuned-wand:suffix:of-disaster"],
+      "GREATER_ESSENCE_SEEKING": ["attuned-wand:suffix:of-calamity"],
+      "LESSER_ESSENCE_INSULATION": ["stocky-mitts:suffix:of-the-salamander"],
+      "ESSENCE_INSULATION": ["stocky-mitts:suffix:of-the-kiln"],
+      "GREATER_ESSENCE_INSULATION": ["stocky-mitts:suffix:of-the-volcano"],
+      "LESSER_ESSENCE_THAWING": ["stocky-mitts:suffix:of-the-penguin"],
+      "ESSENCE_THAWING": ["stocky-mitts:suffix:of-the-yeti"],
+      "GREATER_ESSENCE_THAWING": ["stocky-mitts:suffix:of-the-polar-bear"],
+      "LESSER_ESSENCE_GROUNDING": ["stocky-mitts:suffix:of-the-squall"],
+      "ESSENCE_GROUNDING": ["stocky-mitts:suffix:of-the-thunderhead"],
+      "GREATER_ESSENCE_GROUNDING": ["stocky-mitts:suffix:of-the-maelstrom"],
+      "LESSER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-nimbleness"],
+      "ESSENCE_ALACRITY": ["attuned-wand:suffix:of-expertise"],
+      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"]
+    },
+    "replacements": {
+      "ESSENCE_HYSTERIA": ["sleek-jacket:suffix:of-ardour"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "PERFECT_ESSENCE_ALACRITY": [
+        "attuned-wand:suffix:essence-mana-cost-efficiency"
+      ]
+    }
   }
 }

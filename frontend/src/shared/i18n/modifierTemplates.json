@@ -42967,6 +42967,631 @@
           "divisor": 1
         }
       ]
+    },
+    "offhand:prefix:steadfast:LocalBlockChance1": {
+      "stats": [
+        {
+          "id": "local_block_chance_+%",
+          "min": 15,
+          "max": 19
+        }
+      ],
+      "englishText": "(15—19)% increased Block chance",
+      "values": ["(15—19)"],
+      "template": "offhands.offhand:prefix:steadfast:LocalBlockChance1",
+      "sourceCode": "LocalBlockChance1",
+      "valueStats": [
+        {
+          "id": "local_block_chance_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:prefix:unrelenting:LocalBlockChance2": {
+      "stats": [
+        {
+          "id": "local_block_chance_+%",
+          "min": 20,
+          "max": 24
+        }
+      ],
+      "englishText": "(20—24)% increased Block chance",
+      "values": ["(20—24)"],
+      "template": "offhands.offhand:prefix:unrelenting:LocalBlockChance2",
+      "sourceCode": "LocalBlockChance2",
+      "valueStats": [
+        {
+          "id": "local_block_chance_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:prefix:adamant:LocalBlockChance3": {
+      "stats": [
+        {
+          "id": "local_block_chance_+%",
+          "min": 25,
+          "max": 30
+        }
+      ],
+      "englishText": "(25—30)% increased Block chance",
+      "values": ["(25—30)"],
+      "template": "offhands.offhand:prefix:adamant:LocalBlockChance3",
+      "sourceCode": "LocalBlockChance3",
+      "valueStats": [
+        {
+          "id": "local_block_chance_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-the-watchman:AdditionalPhysicalDamageReduction1": {
+      "stats": [
+        {
+          "id": "base_additional_physical_damage_reduction_%",
+          "min": 4,
+          "max": 4
+        }
+      ],
+      "englishText": "4% additional Physical Damage Reduction",
+      "values": ["4"],
+      "template": "offhands.offhand:suffix:of-the-watchman:AdditionalPhysicalDamageReduction1",
+      "sourceCode": "AdditionalPhysicalDamageReduction1",
+      "valueStats": [
+        {
+          "id": "base_additional_physical_damage_reduction_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-the-custodian:AdditionalPhysicalDamageReduction2": {
+      "stats": [
+        {
+          "id": "base_additional_physical_damage_reduction_%",
+          "min": 5,
+          "max": 5
+        }
+      ],
+      "englishText": "5% additional Physical Damage Reduction",
+      "values": ["5"],
+      "template": "offhands.offhand:suffix:of-the-custodian:AdditionalPhysicalDamageReduction2",
+      "sourceCode": "AdditionalPhysicalDamageReduction2",
+      "valueStats": [
+        {
+          "id": "base_additional_physical_damage_reduction_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-the-sentry:AdditionalPhysicalDamageReduction3": {
+      "stats": [
+        {
+          "id": "base_additional_physical_damage_reduction_%",
+          "min": 6,
+          "max": 6
+        }
+      ],
+      "englishText": "6% additional Physical Damage Reduction",
+      "values": ["6"],
+      "template": "offhands.offhand:suffix:of-the-sentry:AdditionalPhysicalDamageReduction3",
+      "sourceCode": "AdditionalPhysicalDamageReduction3",
+      "valueStats": [
+        {
+          "id": "base_additional_physical_damage_reduction_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-the-protector:AdditionalPhysicalDamageReduction4": {
+      "stats": [
+        {
+          "id": "base_additional_physical_damage_reduction_%",
+          "min": 7,
+          "max": 7
+        }
+      ],
+      "englishText": "7% additional Physical Damage Reduction",
+      "values": ["7"],
+      "template": "offhands.offhand:suffix:of-the-protector:AdditionalPhysicalDamageReduction4",
+      "sourceCode": "AdditionalPhysicalDamageReduction4",
+      "valueStats": [
+        {
+          "id": "base_additional_physical_damage_reduction_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-the-conservator:AdditionalPhysicalDamageReduction5_": {
+      "stats": [
+        {
+          "id": "base_additional_physical_damage_reduction_%",
+          "min": 8,
+          "max": 8
+        }
+      ],
+      "englishText": "8% additional Physical Damage Reduction",
+      "values": ["8"],
+      "template": "offhands.offhand:suffix:of-the-conservator:AdditionalPhysicalDamageReduction5_",
+      "sourceCode": "AdditionalPhysicalDamageReduction5_",
+      "valueStats": [
+        {
+          "id": "base_additional_physical_damage_reduction_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-the-bushfire:MaximumFireResist1": {
+      "stats": [
+        {
+          "id": "base_maximum_fire_damage_resistance_%",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "+1% to Maximum Fire Resistance",
+      "values": ["+1"],
+      "template": "offhands.offhand:suffix:of-the-bushfire:MaximumFireResist1",
+      "sourceCode": "MaximumFireResist1",
+      "valueStats": [
+        {
+          "id": "base_maximum_fire_damage_resistance_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-the-molten-core:MaximumFireResist2_": {
+      "stats": [
+        {
+          "id": "base_maximum_fire_damage_resistance_%",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "englishText": "+2% to Maximum Fire Resistance",
+      "values": ["+2"],
+      "template": "offhands.offhand:suffix:of-the-molten-core:MaximumFireResist2_",
+      "sourceCode": "MaximumFireResist2_",
+      "valueStats": [
+        {
+          "id": "base_maximum_fire_damage_resistance_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-the-solar-storm:MaximumFireResist3": {
+      "stats": [
+        {
+          "id": "base_maximum_fire_damage_resistance_%",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "englishText": "+3% to Maximum Fire Resistance",
+      "values": ["+3"],
+      "template": "offhands.offhand:suffix:of-the-solar-storm:MaximumFireResist3",
+      "sourceCode": "MaximumFireResist3",
+      "valueStats": [
+        {
+          "id": "base_maximum_fire_damage_resistance_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-furs:MaximumColdResist1": {
+      "stats": [
+        {
+          "id": "base_maximum_cold_damage_resistance_%",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "+1% to Maximum Cold Resistance",
+      "values": ["+1"],
+      "template": "offhands.offhand:suffix:of-furs:MaximumColdResist1",
+      "sourceCode": "MaximumColdResist1",
+      "valueStats": [
+        {
+          "id": "base_maximum_cold_damage_resistance_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-the-tundra:MaximumColdResist2": {
+      "stats": [
+        {
+          "id": "base_maximum_cold_damage_resistance_%",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "englishText": "+2% to Maximum Cold Resistance",
+      "values": ["+2"],
+      "template": "offhands.offhand:suffix:of-the-tundra:MaximumColdResist2",
+      "sourceCode": "MaximumColdResist2",
+      "valueStats": [
+        {
+          "id": "base_maximum_cold_damage_resistance_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-the-mammoth:MaximumColdResist3": {
+      "stats": [
+        {
+          "id": "base_maximum_cold_damage_resistance_%",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "englishText": "+3% to Maximum Cold Resistance",
+      "values": ["+3"],
+      "template": "offhands.offhand:suffix:of-the-mammoth:MaximumColdResist3",
+      "sourceCode": "MaximumColdResist3",
+      "valueStats": [
+        {
+          "id": "base_maximum_cold_damage_resistance_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-impedance:MaximumLightningResist1": {
+      "stats": [
+        {
+          "id": "base_maximum_lightning_damage_resistance_%",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "+1% to Maximum Lightning Resistance",
+      "values": ["+1"],
+      "template": "offhands.offhand:suffix:of-impedance:MaximumLightningResist1",
+      "sourceCode": "MaximumLightningResist1",
+      "valueStats": [
+        {
+          "id": "base_maximum_lightning_damage_resistance_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-shockproofing:MaximumLightningResist2___": {
+      "stats": [
+        {
+          "id": "base_maximum_lightning_damage_resistance_%",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "englishText": "+2% to Maximum Lightning Resistance",
+      "values": ["+2"],
+      "template": "offhands.offhand:suffix:of-shockproofing:MaximumLightningResist2___",
+      "sourceCode": "MaximumLightningResist2___",
+      "valueStats": [
+        {
+          "id": "base_maximum_lightning_damage_resistance_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-the-lightning-rod:MaximumLightningResist3": {
+      "stats": [
+        {
+          "id": "base_maximum_lightning_damage_resistance_%",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "englishText": "+3% to Maximum Lightning Resistance",
+      "values": ["+3"],
+      "template": "offhands.offhand:suffix:of-the-lightning-rod:MaximumLightningResist3",
+      "sourceCode": "MaximumLightningResist3",
+      "valueStats": [
+        {
+          "id": "base_maximum_lightning_damage_resistance_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-regularity:MaximumChaosResist1": {
+      "stats": [
+        {
+          "id": "base_maximum_chaos_damage_resistance_%",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "+1% to Maximum Chaos Resistance",
+      "values": ["+1"],
+      "template": "offhands.offhand:suffix:of-regularity:MaximumChaosResist1",
+      "sourceCode": "MaximumChaosResist1",
+      "valueStats": [
+        {
+          "id": "base_maximum_chaos_damage_resistance_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-concord:MaximumChaosResist2_": {
+      "stats": [
+        {
+          "id": "base_maximum_chaos_damage_resistance_%",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "englishText": "+2% to Maximum Chaos Resistance",
+      "values": ["+2"],
+      "template": "offhands.offhand:suffix:of-concord:MaximumChaosResist2_",
+      "sourceCode": "MaximumChaosResist2_",
+      "valueStats": [
+        {
+          "id": "base_maximum_chaos_damage_resistance_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-harmony:MaximumChaosResist3": {
+      "stats": [
+        {
+          "id": "base_maximum_chaos_damage_resistance_%",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "englishText": "+3% to Maximum Chaos Resistance",
+      "values": ["+3"],
+      "template": "offhands.offhand:suffix:of-harmony:MaximumChaosResist3",
+      "sourceCode": "MaximumChaosResist3",
+      "valueStats": [
+        {
+          "id": "base_maximum_chaos_damage_resistance_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-the-deathless:MaximumElementalResistance1": {
+      "stats": [
+        {
+          "id": "additional_maximum_all_elemental_resistances_%",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "+1% to all Maximum Elemental Resistances",
+      "values": ["+1"],
+      "template": "offhands.offhand:suffix:of-the-deathless:MaximumElementalResistance1",
+      "sourceCode": "MaximumElementalResistance1",
+      "valueStats": [
+        {
+          "id": "additional_maximum_all_elemental_resistances_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-the-everlasting:MaximumElementalResistance2": {
+      "stats": [
+        {
+          "id": "additional_maximum_all_elemental_resistances_%",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "englishText": "+2% to all Maximum Elemental Resistances",
+      "values": ["+2"],
+      "template": "offhands.offhand:suffix:of-the-everlasting:MaximumElementalResistance2",
+      "sourceCode": "MaximumElementalResistance2",
+      "valueStats": [
+        {
+          "id": "additional_maximum_all_elemental_resistances_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-dulling:ReducedExtraDamageFromCrits1___": {
+      "stats": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "min": 21,
+          "max": 27
+        }
+      ],
+      "englishText": "Hits against you have (21—27)% reduced Critical Damage Bonus",
+      "values": ["(21—27)"],
+      "template": "offhands.offhand:suffix:of-dulling:ReducedExtraDamageFromCrits1___",
+      "sourceCode": "ReducedExtraDamageFromCrits1___",
+      "valueStats": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-deadening:ReducedExtraDamageFromCrits2__": {
+      "stats": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "min": 28,
+          "max": 34
+        }
+      ],
+      "englishText": "Hits against you have (28—34)% reduced Critical Damage Bonus",
+      "values": ["(28—34)"],
+      "template": "offhands.offhand:suffix:of-deadening:ReducedExtraDamageFromCrits2__",
+      "sourceCode": "ReducedExtraDamageFromCrits2__",
+      "valueStats": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-interference:ReducedExtraDamageFromCrits3": {
+      "stats": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "min": 35,
+          "max": 41
+        }
+      ],
+      "englishText": "Hits against you have (35—41)% reduced Critical Damage Bonus",
+      "values": ["(35—41)"],
+      "template": "offhands.offhand:suffix:of-interference:ReducedExtraDamageFromCrits3",
+      "sourceCode": "ReducedExtraDamageFromCrits3",
+      "valueStats": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-obstruction:ReducedExtraDamageFromCrits4__": {
+      "stats": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "min": 42,
+          "max": 47
+        }
+      ],
+      "englishText": "Hits against you have (42—47)% reduced Critical Damage Bonus",
+      "values": ["(42—47)"],
+      "template": "offhands.offhand:suffix:of-obstruction:ReducedExtraDamageFromCrits4__",
+      "sourceCode": "ReducedExtraDamageFromCrits4__",
+      "valueStats": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:suffix:of-the-bastion:ReducedExtraDamageFromCrits5": {
+      "stats": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "min": 48,
+          "max": 54
+        }
+      ],
+      "englishText": "Hits against you have (48—54)% reduced Critical Damage Bonus",
+      "values": ["(48—54)"],
+      "template": "offhands.offhand:suffix:of-the-bastion:ReducedExtraDamageFromCrits5",
+      "sourceCode": "ReducedExtraDamageFromCrits5",
+      "valueStats": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:prefix:blessed:LocalBaseArmourAndEnergyShield1": {
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 5,
+          "max": 8
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 9,
+          "max": 16
+        }
+      ],
+      "englishText": "+(9—16) to Armour\n+(5—8) to maximum Energy Shield",
+      "values": ["+(9—16)", "+(5—8)"],
+      "template": "offhands.offhand:prefix:blessed:LocalBaseArmourAndEnergyShield1",
+      "sourceCode": "LocalBaseArmourAndEnergyShield1",
+      "valueStats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "divisor": 1
+        },
+        {
+          "id": "local_energy_shield",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:prefix:anointed:LocalBaseArmourAndEnergyShield2_": {
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 9,
+          "max": 15
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 17,
+          "max": 46
+        }
+      ],
+      "englishText": "+(17—46) to Armour\n+(9—15) to maximum Energy Shield",
+      "values": ["+(17—46)", "+(9—15)"],
+      "template": "offhands.offhand:prefix:anointed:LocalBaseArmourAndEnergyShield2_",
+      "sourceCode": "LocalBaseArmourAndEnergyShield2_",
+      "valueStats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "divisor": 1
+        },
+        {
+          "id": "local_energy_shield",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:prefix:sanctified:LocalBaseArmourAndEnergyShield3": {
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 16,
+          "max": 21
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 47,
+          "max": 71
+        }
+      ],
+      "englishText": "+(47—71) to Armour\n+(16—21) to maximum Energy Shield",
+      "values": ["+(47—71)", "+(16—21)"],
+      "template": "offhands.offhand:prefix:sanctified:LocalBaseArmourAndEnergyShield3",
+      "sourceCode": "LocalBaseArmourAndEnergyShield3",
+      "valueStats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "divisor": 1
+        },
+        {
+          "id": "local_energy_shield",
+          "divisor": 1
+        }
+      ]
+    },
+    "offhand:prefix:hallowed:LocalBaseArmourAndEnergyShield4": {
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 22,
+          "max": 25
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 72,
+          "max": 85
+        }
+      ],
+      "englishText": "+(72—85) to Armour\n+(22—25) to maximum Energy Shield",
+      "values": ["+(72—85)", "+(22—25)"],
+      "template": "offhands.offhand:prefix:hallowed:LocalBaseArmourAndEnergyShield4",
+      "sourceCode": "LocalBaseArmourAndEnergyShield4",
+      "valueStats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "divisor": 1
+        },
+        {
+          "id": "local_energy_shield",
+          "divisor": 1
+        }
+      ]
     }
   },
   "templates": {
@@ -51114,6 +51739,130 @@
       "crossbows.flexed-crossbow:implicit:base": {
         "name": "Flexed Crossbow",
         "template": "{v0}% increased Bolt Speed"
+      },
+      "offhands.offhand:prefix:steadfast:LocalBlockChance1": {
+        "name": "Steadfast",
+        "template": "{v0}% increased Block chance"
+      },
+      "offhands.offhand:prefix:unrelenting:LocalBlockChance2": {
+        "name": "Unrelenting",
+        "template": "{v0}% increased Block chance"
+      },
+      "offhands.offhand:prefix:adamant:LocalBlockChance3": {
+        "name": "Adamant",
+        "template": "{v0}% increased Block chance"
+      },
+      "offhands.offhand:suffix:of-the-watchman:AdditionalPhysicalDamageReduction1": {
+        "name": "of the Watchman",
+        "template": "{v0}% additional Physical Damage Reduction"
+      },
+      "offhands.offhand:suffix:of-the-custodian:AdditionalPhysicalDamageReduction2": {
+        "name": "of the Custodian",
+        "template": "{v0}% additional Physical Damage Reduction"
+      },
+      "offhands.offhand:suffix:of-the-sentry:AdditionalPhysicalDamageReduction3": {
+        "name": "of the Sentry",
+        "template": "{v0}% additional Physical Damage Reduction"
+      },
+      "offhands.offhand:suffix:of-the-protector:AdditionalPhysicalDamageReduction4": {
+        "name": "of the Protector",
+        "template": "{v0}% additional Physical Damage Reduction"
+      },
+      "offhands.offhand:suffix:of-the-conservator:AdditionalPhysicalDamageReduction5_": {
+        "name": "of the Conservator",
+        "template": "{v0}% additional Physical Damage Reduction"
+      },
+      "offhands.offhand:suffix:of-the-bushfire:MaximumFireResist1": {
+        "name": "of the Bushfire",
+        "template": "{v0}% to Maximum Fire Resistance"
+      },
+      "offhands.offhand:suffix:of-the-molten-core:MaximumFireResist2_": {
+        "name": "of the Molten Core",
+        "template": "{v0}% to Maximum Fire Resistance"
+      },
+      "offhands.offhand:suffix:of-the-solar-storm:MaximumFireResist3": {
+        "name": "of the Solar Storm",
+        "template": "{v0}% to Maximum Fire Resistance"
+      },
+      "offhands.offhand:suffix:of-furs:MaximumColdResist1": {
+        "name": "of Furs",
+        "template": "{v0}% to Maximum Cold Resistance"
+      },
+      "offhands.offhand:suffix:of-the-tundra:MaximumColdResist2": {
+        "name": "of the Tundra",
+        "template": "{v0}% to Maximum Cold Resistance"
+      },
+      "offhands.offhand:suffix:of-the-mammoth:MaximumColdResist3": {
+        "name": "of the Mammoth",
+        "template": "{v0}% to Maximum Cold Resistance"
+      },
+      "offhands.offhand:suffix:of-impedance:MaximumLightningResist1": {
+        "name": "of Impedance",
+        "template": "{v0}% to Maximum Lightning Resistance"
+      },
+      "offhands.offhand:suffix:of-shockproofing:MaximumLightningResist2___": {
+        "name": "of Shockproofing",
+        "template": "{v0}% to Maximum Lightning Resistance"
+      },
+      "offhands.offhand:suffix:of-the-lightning-rod:MaximumLightningResist3": {
+        "name": "of the Lightning Rod",
+        "template": "{v0}% to Maximum Lightning Resistance"
+      },
+      "offhands.offhand:suffix:of-regularity:MaximumChaosResist1": {
+        "name": "of Regularity",
+        "template": "{v0}% to Maximum Chaos Resistance"
+      },
+      "offhands.offhand:suffix:of-concord:MaximumChaosResist2_": {
+        "name": "of Concord",
+        "template": "{v0}% to Maximum Chaos Resistance"
+      },
+      "offhands.offhand:suffix:of-harmony:MaximumChaosResist3": {
+        "name": "of Harmony",
+        "template": "{v0}% to Maximum Chaos Resistance"
+      },
+      "offhands.offhand:suffix:of-the-deathless:MaximumElementalResistance1": {
+        "name": "of the Deathless",
+        "template": "{v0}% to all Maximum Elemental Resistances"
+      },
+      "offhands.offhand:suffix:of-the-everlasting:MaximumElementalResistance2": {
+        "name": "of the Everlasting",
+        "template": "{v0}% to all Maximum Elemental Resistances"
+      },
+      "offhands.offhand:suffix:of-dulling:ReducedExtraDamageFromCrits1___": {
+        "name": "of Dulling",
+        "template": "Hits against you have {v0}% reduced Critical Damage Bonus"
+      },
+      "offhands.offhand:suffix:of-deadening:ReducedExtraDamageFromCrits2__": {
+        "name": "of Deadening",
+        "template": "Hits against you have {v0}% reduced Critical Damage Bonus"
+      },
+      "offhands.offhand:suffix:of-interference:ReducedExtraDamageFromCrits3": {
+        "name": "of Interference",
+        "template": "Hits against you have {v0}% reduced Critical Damage Bonus"
+      },
+      "offhands.offhand:suffix:of-obstruction:ReducedExtraDamageFromCrits4__": {
+        "name": "of Obstruction",
+        "template": "Hits against you have {v0}% reduced Critical Damage Bonus"
+      },
+      "offhands.offhand:suffix:of-the-bastion:ReducedExtraDamageFromCrits5": {
+        "name": "of the Bastion",
+        "template": "Hits against you have {v0}% reduced Critical Damage Bonus"
+      },
+      "offhands.offhand:prefix:blessed:LocalBaseArmourAndEnergyShield1": {
+        "name": "Blessed",
+        "template": "{v0} to Armour\n{v1} to maximum Energy Shield"
+      },
+      "offhands.offhand:prefix:anointed:LocalBaseArmourAndEnergyShield2_": {
+        "name": "Anointed",
+        "template": "{v0} to Armour\n{v1} to maximum Energy Shield"
+      },
+      "offhands.offhand:prefix:sanctified:LocalBaseArmourAndEnergyShield3": {
+        "name": "Sanctified",
+        "template": "{v0} to Armour\n{v1} to maximum Energy Shield"
+      },
+      "offhands.offhand:prefix:hallowed:LocalBaseArmourAndEnergyShield4": {
+        "name": "Hallowed",
+        "template": "{v0} to Armour\n{v1} to maximum Energy Shield"
       }
     },
     "ko": {
@@ -59260,6 +60009,130 @@
       "crossbows.flexed-crossbow:implicit:base": {
         "name": "Flexed Crossbow",
         "template": "볼트 속도 {v0}% 증가"
+      },
+      "offhands.offhand:prefix:steadfast:LocalBlockChance1": {
+        "name": "Steadfast",
+        "template": "막기 확률 {v0}% 증가"
+      },
+      "offhands.offhand:prefix:unrelenting:LocalBlockChance2": {
+        "name": "Unrelenting",
+        "template": "막기 확률 {v0}% 증가"
+      },
+      "offhands.offhand:prefix:adamant:LocalBlockChance3": {
+        "name": "Adamant",
+        "template": "막기 확률 {v0}% 증가"
+      },
+      "offhands.offhand:suffix:of-the-watchman:AdditionalPhysicalDamageReduction1": {
+        "name": "of the Watchman",
+        "template": "받는 물리 피해 {v0}% 추가 감소"
+      },
+      "offhands.offhand:suffix:of-the-custodian:AdditionalPhysicalDamageReduction2": {
+        "name": "of the Custodian",
+        "template": "받는 물리 피해 {v0}% 추가 감소"
+      },
+      "offhands.offhand:suffix:of-the-sentry:AdditionalPhysicalDamageReduction3": {
+        "name": "of the Sentry",
+        "template": "받는 물리 피해 {v0}% 추가 감소"
+      },
+      "offhands.offhand:suffix:of-the-protector:AdditionalPhysicalDamageReduction4": {
+        "name": "of the Protector",
+        "template": "받는 물리 피해 {v0}% 추가 감소"
+      },
+      "offhands.offhand:suffix:of-the-conservator:AdditionalPhysicalDamageReduction5_": {
+        "name": "of the Conservator",
+        "template": "받는 물리 피해 {v0}% 추가 감소"
+      },
+      "offhands.offhand:suffix:of-the-bushfire:MaximumFireResist1": {
+        "name": "of the Bushfire",
+        "template": "화염 저항 최대치 {v0}%"
+      },
+      "offhands.offhand:suffix:of-the-molten-core:MaximumFireResist2_": {
+        "name": "of the Molten Core",
+        "template": "화염 저항 최대치 {v0}%"
+      },
+      "offhands.offhand:suffix:of-the-solar-storm:MaximumFireResist3": {
+        "name": "of the Solar Storm",
+        "template": "화염 저항 최대치 {v0}%"
+      },
+      "offhands.offhand:suffix:of-furs:MaximumColdResist1": {
+        "name": "of Furs",
+        "template": "냉기 저항 최대치 {v0}%"
+      },
+      "offhands.offhand:suffix:of-the-tundra:MaximumColdResist2": {
+        "name": "of the Tundra",
+        "template": "냉기 저항 최대치 {v0}%"
+      },
+      "offhands.offhand:suffix:of-the-mammoth:MaximumColdResist3": {
+        "name": "of the Mammoth",
+        "template": "냉기 저항 최대치 {v0}%"
+      },
+      "offhands.offhand:suffix:of-impedance:MaximumLightningResist1": {
+        "name": "of Impedance",
+        "template": "번개 저항 최대치 {v0}%"
+      },
+      "offhands.offhand:suffix:of-shockproofing:MaximumLightningResist2___": {
+        "name": "of Shockproofing",
+        "template": "번개 저항 최대치 {v0}%"
+      },
+      "offhands.offhand:suffix:of-the-lightning-rod:MaximumLightningResist3": {
+        "name": "of the Lightning Rod",
+        "template": "번개 저항 최대치 {v0}%"
+      },
+      "offhands.offhand:suffix:of-regularity:MaximumChaosResist1": {
+        "name": "of Regularity",
+        "template": "카오스 저항 최대치 {v0}%"
+      },
+      "offhands.offhand:suffix:of-concord:MaximumChaosResist2_": {
+        "name": "of Concord",
+        "template": "카오스 저항 최대치 {v0}%"
+      },
+      "offhands.offhand:suffix:of-harmony:MaximumChaosResist3": {
+        "name": "of Harmony",
+        "template": "카오스 저항 최대치 {v0}%"
+      },
+      "offhands.offhand:suffix:of-the-deathless:MaximumElementalResistance1": {
+        "name": "of the Deathless",
+        "template": "모든 원소 저항 최대치 {v0}%"
+      },
+      "offhands.offhand:suffix:of-the-everlasting:MaximumElementalResistance2": {
+        "name": "of the Everlasting",
+        "template": "모든 원소 저항 최대치 {v0}%"
+      },
+      "offhands.offhand:suffix:of-dulling:ReducedExtraDamageFromCrits1___": {
+        "name": "of Dulling",
+        "template": "플레이어에 대한 명중의 치명타 피해 보너스 {v0}% 감소"
+      },
+      "offhands.offhand:suffix:of-deadening:ReducedExtraDamageFromCrits2__": {
+        "name": "of Deadening",
+        "template": "플레이어에 대한 명중의 치명타 피해 보너스 {v0}% 감소"
+      },
+      "offhands.offhand:suffix:of-interference:ReducedExtraDamageFromCrits3": {
+        "name": "of Interference",
+        "template": "플레이어에 대한 명중의 치명타 피해 보너스 {v0}% 감소"
+      },
+      "offhands.offhand:suffix:of-obstruction:ReducedExtraDamageFromCrits4__": {
+        "name": "of Obstruction",
+        "template": "플레이어에 대한 명중의 치명타 피해 보너스 {v0}% 감소"
+      },
+      "offhands.offhand:suffix:of-the-bastion:ReducedExtraDamageFromCrits5": {
+        "name": "of the Bastion",
+        "template": "플레이어에 대한 명중의 치명타 피해 보너스 {v0}% 감소"
+      },
+      "offhands.offhand:prefix:blessed:LocalBaseArmourAndEnergyShield1": {
+        "name": "Blessed",
+        "template": "방어도 {v0}\n에너지 보호막 최대치 {v1}"
+      },
+      "offhands.offhand:prefix:anointed:LocalBaseArmourAndEnergyShield2_": {
+        "name": "Anointed",
+        "template": "방어도 {v0}\n에너지 보호막 최대치 {v1}"
+      },
+      "offhands.offhand:prefix:sanctified:LocalBaseArmourAndEnergyShield3": {
+        "name": "Sanctified",
+        "template": "방어도 {v0}\n에너지 보호막 최대치 {v1}"
+      },
+      "offhands.offhand:prefix:hallowed:LocalBaseArmourAndEnergyShield4": {
+        "name": "Hallowed",
+        "template": "방어도 {v0}\n에너지 보호막 최대치 {v1}"
       }
     },
     "zh-CN": {
@@ -67406,6 +68279,130 @@
       "crossbows.flexed-crossbow:implicit:base": {
         "name": "Flexed Crossbow",
         "template": "弩箭速度提高 {v0}%"
+      },
+      "offhands.offhand:prefix:steadfast:LocalBlockChance1": {
+        "name": "Steadfast",
+        "template": "格挡几率提高 {v0}%"
+      },
+      "offhands.offhand:prefix:unrelenting:LocalBlockChance2": {
+        "name": "Unrelenting",
+        "template": "格挡几率提高 {v0}%"
+      },
+      "offhands.offhand:prefix:adamant:LocalBlockChance3": {
+        "name": "Adamant",
+        "template": "格挡几率提高 {v0}%"
+      },
+      "offhands.offhand:suffix:of-the-watchman:AdditionalPhysicalDamageReduction1": {
+        "name": "of the Watchman",
+        "template": "{v0}% 额外物理伤害减免"
+      },
+      "offhands.offhand:suffix:of-the-custodian:AdditionalPhysicalDamageReduction2": {
+        "name": "of the Custodian",
+        "template": "{v0}% 额外物理伤害减免"
+      },
+      "offhands.offhand:suffix:of-the-sentry:AdditionalPhysicalDamageReduction3": {
+        "name": "of the Sentry",
+        "template": "{v0}% 额外物理伤害减免"
+      },
+      "offhands.offhand:suffix:of-the-protector:AdditionalPhysicalDamageReduction4": {
+        "name": "of the Protector",
+        "template": "{v0}% 额外物理伤害减免"
+      },
+      "offhands.offhand:suffix:of-the-conservator:AdditionalPhysicalDamageReduction5_": {
+        "name": "of the Conservator",
+        "template": "{v0}% 额外物理伤害减免"
+      },
+      "offhands.offhand:suffix:of-the-bushfire:MaximumFireResist1": {
+        "name": "of the Bushfire",
+        "template": "{v0}% 火焰抗性上限"
+      },
+      "offhands.offhand:suffix:of-the-molten-core:MaximumFireResist2_": {
+        "name": "of the Molten Core",
+        "template": "{v0}% 火焰抗性上限"
+      },
+      "offhands.offhand:suffix:of-the-solar-storm:MaximumFireResist3": {
+        "name": "of the Solar Storm",
+        "template": "{v0}% 火焰抗性上限"
+      },
+      "offhands.offhand:suffix:of-furs:MaximumColdResist1": {
+        "name": "of Furs",
+        "template": "{v0}% 冰霜抗性上限"
+      },
+      "offhands.offhand:suffix:of-the-tundra:MaximumColdResist2": {
+        "name": "of the Tundra",
+        "template": "{v0}% 冰霜抗性上限"
+      },
+      "offhands.offhand:suffix:of-the-mammoth:MaximumColdResist3": {
+        "name": "of the Mammoth",
+        "template": "{v0}% 冰霜抗性上限"
+      },
+      "offhands.offhand:suffix:of-impedance:MaximumLightningResist1": {
+        "name": "of Impedance",
+        "template": "{v0}%闪电抗性上限"
+      },
+      "offhands.offhand:suffix:of-shockproofing:MaximumLightningResist2___": {
+        "name": "of Shockproofing",
+        "template": "{v0}%闪电抗性上限"
+      },
+      "offhands.offhand:suffix:of-the-lightning-rod:MaximumLightningResist3": {
+        "name": "of the Lightning Rod",
+        "template": "{v0}%闪电抗性上限"
+      },
+      "offhands.offhand:suffix:of-regularity:MaximumChaosResist1": {
+        "name": "of Regularity",
+        "template": "{v0}% 混沌抗性上限"
+      },
+      "offhands.offhand:suffix:of-concord:MaximumChaosResist2_": {
+        "name": "of Concord",
+        "template": "{v0}% 混沌抗性上限"
+      },
+      "offhands.offhand:suffix:of-harmony:MaximumChaosResist3": {
+        "name": "of Harmony",
+        "template": "{v0}% 混沌抗性上限"
+      },
+      "offhands.offhand:suffix:of-the-deathless:MaximumElementalResistance1": {
+        "name": "of the Deathless",
+        "template": "{v0}% 元素抗性上限"
+      },
+      "offhands.offhand:suffix:of-the-everlasting:MaximumElementalResistance2": {
+        "name": "of the Everlasting",
+        "template": "{v0}% 元素抗性上限"
+      },
+      "offhands.offhand:suffix:of-dulling:ReducedExtraDamageFromCrits1___": {
+        "name": "of Dulling",
+        "template": "对你的击中的暴击伤害加成降低 {v0}%"
+      },
+      "offhands.offhand:suffix:of-deadening:ReducedExtraDamageFromCrits2__": {
+        "name": "of Deadening",
+        "template": "对你的击中的暴击伤害加成降低 {v0}%"
+      },
+      "offhands.offhand:suffix:of-interference:ReducedExtraDamageFromCrits3": {
+        "name": "of Interference",
+        "template": "对你的击中的暴击伤害加成降低 {v0}%"
+      },
+      "offhands.offhand:suffix:of-obstruction:ReducedExtraDamageFromCrits4__": {
+        "name": "of Obstruction",
+        "template": "对你的击中的暴击伤害加成降低 {v0}%"
+      },
+      "offhands.offhand:suffix:of-the-bastion:ReducedExtraDamageFromCrits5": {
+        "name": "of the Bastion",
+        "template": "对你的击中的暴击伤害加成降低 {v0}%"
+      },
+      "offhands.offhand:prefix:blessed:LocalBaseArmourAndEnergyShield1": {
+        "name": "Blessed",
+        "template": "{v0} 护甲\n{v1} 能量护盾上限"
+      },
+      "offhands.offhand:prefix:anointed:LocalBaseArmourAndEnergyShield2_": {
+        "name": "Anointed",
+        "template": "{v0} 护甲\n{v1} 能量护盾上限"
+      },
+      "offhands.offhand:prefix:sanctified:LocalBaseArmourAndEnergyShield3": {
+        "name": "Sanctified",
+        "template": "{v0} 护甲\n{v1} 能量护盾上限"
+      },
+      "offhands.offhand:prefix:hallowed:LocalBaseArmourAndEnergyShield4": {
+        "name": "Hallowed",
+        "template": "{v0} 护甲\n{v1} 能量护盾上限"
       }
     },
     "zh-TW": {
@@ -75552,6 +76549,130 @@
       "crossbows.flexed-crossbow:implicit:base": {
         "name": "Flexed Crossbow",
         "template": "增加{v0}%弩箭速度"
+      },
+      "offhands.offhand:prefix:steadfast:LocalBlockChance1": {
+        "name": "Steadfast",
+        "template": "增加{v0}%格擋率"
+      },
+      "offhands.offhand:prefix:unrelenting:LocalBlockChance2": {
+        "name": "Unrelenting",
+        "template": "增加{v0}%格擋率"
+      },
+      "offhands.offhand:prefix:adamant:LocalBlockChance3": {
+        "name": "Adamant",
+        "template": "增加{v0}%格擋率"
+      },
+      "offhands.offhand:suffix:of-the-watchman:AdditionalPhysicalDamageReduction1": {
+        "name": "of the Watchman",
+        "template": "額外{v0}%物理傷害減免"
+      },
+      "offhands.offhand:suffix:of-the-custodian:AdditionalPhysicalDamageReduction2": {
+        "name": "of the Custodian",
+        "template": "額外{v0}%物理傷害減免"
+      },
+      "offhands.offhand:suffix:of-the-sentry:AdditionalPhysicalDamageReduction3": {
+        "name": "of the Sentry",
+        "template": "額外{v0}%物理傷害減免"
+      },
+      "offhands.offhand:suffix:of-the-protector:AdditionalPhysicalDamageReduction4": {
+        "name": "of the Protector",
+        "template": "額外{v0}%物理傷害減免"
+      },
+      "offhands.offhand:suffix:of-the-conservator:AdditionalPhysicalDamageReduction5_": {
+        "name": "of the Conservator",
+        "template": "額外{v0}%物理傷害減免"
+      },
+      "offhands.offhand:suffix:of-the-bushfire:MaximumFireResist1": {
+        "name": "of the Bushfire",
+        "template": "{v0}%最大火焰抗性"
+      },
+      "offhands.offhand:suffix:of-the-molten-core:MaximumFireResist2_": {
+        "name": "of the Molten Core",
+        "template": "{v0}%最大火焰抗性"
+      },
+      "offhands.offhand:suffix:of-the-solar-storm:MaximumFireResist3": {
+        "name": "of the Solar Storm",
+        "template": "{v0}%最大火焰抗性"
+      },
+      "offhands.offhand:suffix:of-furs:MaximumColdResist1": {
+        "name": "of Furs",
+        "template": "{v0}%最大冰冷抗性"
+      },
+      "offhands.offhand:suffix:of-the-tundra:MaximumColdResist2": {
+        "name": "of the Tundra",
+        "template": "{v0}%最大冰冷抗性"
+      },
+      "offhands.offhand:suffix:of-the-mammoth:MaximumColdResist3": {
+        "name": "of the Mammoth",
+        "template": "{v0}%最大冰冷抗性"
+      },
+      "offhands.offhand:suffix:of-impedance:MaximumLightningResist1": {
+        "name": "of Impedance",
+        "template": "{v0}%最大閃電抗性"
+      },
+      "offhands.offhand:suffix:of-shockproofing:MaximumLightningResist2___": {
+        "name": "of Shockproofing",
+        "template": "{v0}%最大閃電抗性"
+      },
+      "offhands.offhand:suffix:of-the-lightning-rod:MaximumLightningResist3": {
+        "name": "of the Lightning Rod",
+        "template": "{v0}%最大閃電抗性"
+      },
+      "offhands.offhand:suffix:of-regularity:MaximumChaosResist1": {
+        "name": "of Regularity",
+        "template": "{v0}%最大混沌抗性"
+      },
+      "offhands.offhand:suffix:of-concord:MaximumChaosResist2_": {
+        "name": "of Concord",
+        "template": "{v0}%最大混沌抗性"
+      },
+      "offhands.offhand:suffix:of-harmony:MaximumChaosResist3": {
+        "name": "of Harmony",
+        "template": "{v0}%最大混沌抗性"
+      },
+      "offhands.offhand:suffix:of-the-deathless:MaximumElementalResistance1": {
+        "name": "of the Deathless",
+        "template": "{v0}%最大全元素抗性"
+      },
+      "offhands.offhand:suffix:of-the-everlasting:MaximumElementalResistance2": {
+        "name": "of the Everlasting",
+        "template": "{v0}%最大全元素抗性"
+      },
+      "offhands.offhand:suffix:of-dulling:ReducedExtraDamageFromCrits1___": {
+        "name": "of Dulling",
+        "template": "對你的擊中減少{v0}%暴擊傷害加成"
+      },
+      "offhands.offhand:suffix:of-deadening:ReducedExtraDamageFromCrits2__": {
+        "name": "of Deadening",
+        "template": "對你的擊中減少{v0}%暴擊傷害加成"
+      },
+      "offhands.offhand:suffix:of-interference:ReducedExtraDamageFromCrits3": {
+        "name": "of Interference",
+        "template": "對你的擊中減少{v0}%暴擊傷害加成"
+      },
+      "offhands.offhand:suffix:of-obstruction:ReducedExtraDamageFromCrits4__": {
+        "name": "of Obstruction",
+        "template": "對你的擊中減少{v0}%暴擊傷害加成"
+      },
+      "offhands.offhand:suffix:of-the-bastion:ReducedExtraDamageFromCrits5": {
+        "name": "of the Bastion",
+        "template": "對你的擊中減少{v0}%暴擊傷害加成"
+      },
+      "offhands.offhand:prefix:blessed:LocalBaseArmourAndEnergyShield1": {
+        "name": "Blessed",
+        "template": "{v0}護甲值\n{v1}最大能量護盾"
+      },
+      "offhands.offhand:prefix:anointed:LocalBaseArmourAndEnergyShield2_": {
+        "name": "Anointed",
+        "template": "{v0}護甲值\n{v1}最大能量護盾"
+      },
+      "offhands.offhand:prefix:sanctified:LocalBaseArmourAndEnergyShield3": {
+        "name": "Sanctified",
+        "template": "{v0}護甲值\n{v1}最大能量護盾"
+      },
+      "offhands.offhand:prefix:hallowed:LocalBaseArmourAndEnergyShield4": {
+        "name": "Hallowed",
+        "template": "{v0}護甲值\n{v1}最大能量護盾"
       }
     },
     "ja": {
@@ -83698,6 +84819,130 @@
       "crossbows.flexed-crossbow:implicit:base": {
         "name": "Flexed Crossbow",
         "template": "ボルトのスピードが{v0}%増加する"
+      },
+      "offhands.offhand:prefix:steadfast:LocalBlockChance1": {
+        "name": "Steadfast",
+        "template": "ブロック率が{v0}%増加する"
+      },
+      "offhands.offhand:prefix:unrelenting:LocalBlockChance2": {
+        "name": "Unrelenting",
+        "template": "ブロック率が{v0}%増加する"
+      },
+      "offhands.offhand:prefix:adamant:LocalBlockChance3": {
+        "name": "Adamant",
+        "template": "ブロック率が{v0}%増加する"
+      },
+      "offhands.offhand:suffix:of-the-watchman:AdditionalPhysicalDamageReduction1": {
+        "name": "of the Watchman",
+        "template": "物理ダメージ軽減率が{v0}%される"
+      },
+      "offhands.offhand:suffix:of-the-custodian:AdditionalPhysicalDamageReduction2": {
+        "name": "of the Custodian",
+        "template": "物理ダメージ軽減率が{v0}%される"
+      },
+      "offhands.offhand:suffix:of-the-sentry:AdditionalPhysicalDamageReduction3": {
+        "name": "of the Sentry",
+        "template": "物理ダメージ軽減率が{v0}%される"
+      },
+      "offhands.offhand:suffix:of-the-protector:AdditionalPhysicalDamageReduction4": {
+        "name": "of the Protector",
+        "template": "物理ダメージ軽減率が{v0}%される"
+      },
+      "offhands.offhand:suffix:of-the-conservator:AdditionalPhysicalDamageReduction5_": {
+        "name": "of the Conservator",
+        "template": "物理ダメージ軽減率が{v0}%される"
+      },
+      "offhands.offhand:suffix:of-the-bushfire:MaximumFireResist1": {
+        "name": "of the Bushfire",
+        "template": "火耐性の最大値 {v0}%"
+      },
+      "offhands.offhand:suffix:of-the-molten-core:MaximumFireResist2_": {
+        "name": "of the Molten Core",
+        "template": "火耐性の最大値 {v0}%"
+      },
+      "offhands.offhand:suffix:of-the-solar-storm:MaximumFireResist3": {
+        "name": "of the Solar Storm",
+        "template": "火耐性の最大値 {v0}%"
+      },
+      "offhands.offhand:suffix:of-furs:MaximumColdResist1": {
+        "name": "of Furs",
+        "template": "冷気耐性の最大値 {v0}%"
+      },
+      "offhands.offhand:suffix:of-the-tundra:MaximumColdResist2": {
+        "name": "of the Tundra",
+        "template": "冷気耐性の最大値 {v0}%"
+      },
+      "offhands.offhand:suffix:of-the-mammoth:MaximumColdResist3": {
+        "name": "of the Mammoth",
+        "template": "冷気耐性の最大値 {v0}%"
+      },
+      "offhands.offhand:suffix:of-impedance:MaximumLightningResist1": {
+        "name": "of Impedance",
+        "template": "雷耐性の最大値 {v0}%"
+      },
+      "offhands.offhand:suffix:of-shockproofing:MaximumLightningResist2___": {
+        "name": "of Shockproofing",
+        "template": "雷耐性の最大値 {v0}%"
+      },
+      "offhands.offhand:suffix:of-the-lightning-rod:MaximumLightningResist3": {
+        "name": "of the Lightning Rod",
+        "template": "雷耐性の最大値 {v0}%"
+      },
+      "offhands.offhand:suffix:of-regularity:MaximumChaosResist1": {
+        "name": "of Regularity",
+        "template": "混沌耐性の最大値 {v0}%"
+      },
+      "offhands.offhand:suffix:of-concord:MaximumChaosResist2_": {
+        "name": "of Concord",
+        "template": "混沌耐性の最大値 {v0}%"
+      },
+      "offhands.offhand:suffix:of-harmony:MaximumChaosResist3": {
+        "name": "of Harmony",
+        "template": "混沌耐性の最大値 {v0}%"
+      },
+      "offhands.offhand:suffix:of-the-deathless:MaximumElementalResistance1": {
+        "name": "of the Deathless",
+        "template": "全ての元素耐性の最大値 {v0}%"
+      },
+      "offhands.offhand:suffix:of-the-everlasting:MaximumElementalResistance2": {
+        "name": "of the Everlasting",
+        "template": "全ての元素耐性の最大値 {v0}%"
+      },
+      "offhands.offhand:suffix:of-dulling:ReducedExtraDamageFromCrits1___": {
+        "name": "of Dulling",
+        "template": "プレイヤーに対するヒットはクリティカルダメージボーナスが{v0}%減少する"
+      },
+      "offhands.offhand:suffix:of-deadening:ReducedExtraDamageFromCrits2__": {
+        "name": "of Deadening",
+        "template": "プレイヤーに対するヒットはクリティカルダメージボーナスが{v0}%減少する"
+      },
+      "offhands.offhand:suffix:of-interference:ReducedExtraDamageFromCrits3": {
+        "name": "of Interference",
+        "template": "プレイヤーに対するヒットはクリティカルダメージボーナスが{v0}%減少する"
+      },
+      "offhands.offhand:suffix:of-obstruction:ReducedExtraDamageFromCrits4__": {
+        "name": "of Obstruction",
+        "template": "プレイヤーに対するヒットはクリティカルダメージボーナスが{v0}%減少する"
+      },
+      "offhands.offhand:suffix:of-the-bastion:ReducedExtraDamageFromCrits5": {
+        "name": "of the Bastion",
+        "template": "プレイヤーに対するヒットはクリティカルダメージボーナスが{v0}%減少する"
+      },
+      "offhands.offhand:prefix:blessed:LocalBaseArmourAndEnergyShield1": {
+        "name": "Blessed",
+        "template": "アーマー {v0}\n最大エナジーシールド {v1}"
+      },
+      "offhands.offhand:prefix:anointed:LocalBaseArmourAndEnergyShield2_": {
+        "name": "Anointed",
+        "template": "アーマー {v0}\n最大エナジーシールド {v1}"
+      },
+      "offhands.offhand:prefix:sanctified:LocalBaseArmourAndEnergyShield3": {
+        "name": "Sanctified",
+        "template": "アーマー {v0}\n最大エナジーシールド {v1}"
+      },
+      "offhands.offhand:prefix:hallowed:LocalBaseArmourAndEnergyShield4": {
+        "name": "Hallowed",
+        "template": "アーマー {v0}\n最大エナジーシールド {v1}"
       }
     },
     "es": {
@@ -91844,6 +93089,130 @@
       "crossbows.flexed-crossbow:implicit:base": {
         "name": "Flexed Crossbow",
         "template": "Velocidad de las saetas aumentada un {v0}%"
+      },
+      "offhands.offhand:prefix:steadfast:LocalBlockChance1": {
+        "name": "Steadfast",
+        "template": "Probabilidad de bloqueo aumentada un {v0}%"
+      },
+      "offhands.offhand:prefix:unrelenting:LocalBlockChance2": {
+        "name": "Unrelenting",
+        "template": "Probabilidad de bloqueo aumentada un {v0}%"
+      },
+      "offhands.offhand:prefix:adamant:LocalBlockChance3": {
+        "name": "Adamant",
+        "template": "Probabilidad de bloqueo aumentada un {v0}%"
+      },
+      "offhands.offhand:suffix:of-the-watchman:AdditionalPhysicalDamageReduction1": {
+        "name": "of the Watchman",
+        "template": "{v0}% de reducción adicional de daño físico"
+      },
+      "offhands.offhand:suffix:of-the-custodian:AdditionalPhysicalDamageReduction2": {
+        "name": "of the Custodian",
+        "template": "{v0}% de reducción adicional de daño físico"
+      },
+      "offhands.offhand:suffix:of-the-sentry:AdditionalPhysicalDamageReduction3": {
+        "name": "of the Sentry",
+        "template": "{v0}% de reducción adicional de daño físico"
+      },
+      "offhands.offhand:suffix:of-the-protector:AdditionalPhysicalDamageReduction4": {
+        "name": "of the Protector",
+        "template": "{v0}% de reducción adicional de daño físico"
+      },
+      "offhands.offhand:suffix:of-the-conservator:AdditionalPhysicalDamageReduction5_": {
+        "name": "of the Conservator",
+        "template": "{v0}% de reducción adicional de daño físico"
+      },
+      "offhands.offhand:suffix:of-the-bushfire:MaximumFireResist1": {
+        "name": "of the Bushfire",
+        "template": "{v0}% a la resistencia al fuego máxima"
+      },
+      "offhands.offhand:suffix:of-the-molten-core:MaximumFireResist2_": {
+        "name": "of the Molten Core",
+        "template": "{v0}% a la resistencia al fuego máxima"
+      },
+      "offhands.offhand:suffix:of-the-solar-storm:MaximumFireResist3": {
+        "name": "of the Solar Storm",
+        "template": "{v0}% a la resistencia al fuego máxima"
+      },
+      "offhands.offhand:suffix:of-furs:MaximumColdResist1": {
+        "name": "of Furs",
+        "template": "{v0}% a la resistencia al hielo máxima"
+      },
+      "offhands.offhand:suffix:of-the-tundra:MaximumColdResist2": {
+        "name": "of the Tundra",
+        "template": "{v0}% a la resistencia al hielo máxima"
+      },
+      "offhands.offhand:suffix:of-the-mammoth:MaximumColdResist3": {
+        "name": "of the Mammoth",
+        "template": "{v0}% a la resistencia al hielo máxima"
+      },
+      "offhands.offhand:suffix:of-impedance:MaximumLightningResist1": {
+        "name": "of Impedance",
+        "template": "{v0}% a la resistencia al rayo máxima"
+      },
+      "offhands.offhand:suffix:of-shockproofing:MaximumLightningResist2___": {
+        "name": "of Shockproofing",
+        "template": "{v0}% a la resistencia al rayo máxima"
+      },
+      "offhands.offhand:suffix:of-the-lightning-rod:MaximumLightningResist3": {
+        "name": "of the Lightning Rod",
+        "template": "{v0}% a la resistencia al rayo máxima"
+      },
+      "offhands.offhand:suffix:of-regularity:MaximumChaosResist1": {
+        "name": "of Regularity",
+        "template": "{v0}% a la resistencia al caos máxima"
+      },
+      "offhands.offhand:suffix:of-concord:MaximumChaosResist2_": {
+        "name": "of Concord",
+        "template": "{v0}% a la resistencia al caos máxima"
+      },
+      "offhands.offhand:suffix:of-harmony:MaximumChaosResist3": {
+        "name": "of Harmony",
+        "template": "{v0}% a la resistencia al caos máxima"
+      },
+      "offhands.offhand:suffix:of-the-deathless:MaximumElementalResistance1": {
+        "name": "of the Deathless",
+        "template": "{v0}% a todas las resistencias elementales máximas"
+      },
+      "offhands.offhand:suffix:of-the-everlasting:MaximumElementalResistance2": {
+        "name": "of the Everlasting",
+        "template": "{v0}% a todas las resistencias elementales máximas"
+      },
+      "offhands.offhand:suffix:of-dulling:ReducedExtraDamageFromCrits1___": {
+        "name": "of Dulling",
+        "template": "Los impactos contra ti tienen la bonificación de daño crítico reducida un {v0}%"
+      },
+      "offhands.offhand:suffix:of-deadening:ReducedExtraDamageFromCrits2__": {
+        "name": "of Deadening",
+        "template": "Los impactos contra ti tienen la bonificación de daño crítico reducida un {v0}%"
+      },
+      "offhands.offhand:suffix:of-interference:ReducedExtraDamageFromCrits3": {
+        "name": "of Interference",
+        "template": "Los impactos contra ti tienen la bonificación de daño crítico reducida un {v0}%"
+      },
+      "offhands.offhand:suffix:of-obstruction:ReducedExtraDamageFromCrits4__": {
+        "name": "of Obstruction",
+        "template": "Los impactos contra ti tienen la bonificación de daño crítico reducida un {v0}%"
+      },
+      "offhands.offhand:suffix:of-the-bastion:ReducedExtraDamageFromCrits5": {
+        "name": "of the Bastion",
+        "template": "Los impactos contra ti tienen la bonificación de daño crítico reducida un {v0}%"
+      },
+      "offhands.offhand:prefix:blessed:LocalBaseArmourAndEnergyShield1": {
+        "name": "Blessed",
+        "template": "{v0} a la armadura\n{v1} al escudo de energía máximo"
+      },
+      "offhands.offhand:prefix:anointed:LocalBaseArmourAndEnergyShield2_": {
+        "name": "Anointed",
+        "template": "{v0} a la armadura\n{v1} al escudo de energía máximo"
+      },
+      "offhands.offhand:prefix:sanctified:LocalBaseArmourAndEnergyShield3": {
+        "name": "Sanctified",
+        "template": "{v0} a la armadura\n{v1} al escudo de energía máximo"
+      },
+      "offhands.offhand:prefix:hallowed:LocalBaseArmourAndEnergyShield4": {
+        "name": "Hallowed",
+        "template": "{v0} a la armadura\n{v1} al escudo de energía máximo"
       }
     }
   }

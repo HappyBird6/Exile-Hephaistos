@@ -1,0 +1,67 @@
+{
+  "row": {
+    "Name": "Blurred",
+    "Level": "33",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefences"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(88<span class=\"ndash\">—</span>116)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating",
+    "fossil_no": [
+      "defences",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "dex_armour",
+      "str_dex_int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/50664cdbcc0dbf6fef225c730772cd7aa9a35088aa04506dda61f35d12db940b"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FLocalIncreasedEvasionRating5",
+  "textLocale": "jp",
+  "detailText": "回避力 +(88—116)",
+  "retrievedAt": "2026-10-05T04:32:46.307Z",
+  "sha256": "ddec9b2455ffd7d5860692a39caad80378f2d248a3c80910e67ad13c3d8f1072",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/cb013856f854596fa3e051adb7fb3afc08f89668fbca4b218a07b957fe862b27\">回避力</a> <span class='mod-value'>+(88<span class=\"ndash\">—</span>116)</span></span></h5>   <span data-tabname=\"霞んだ\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>霞んだ\n<tr><th>Family<td>BaseLocalDefences\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>プレフィックス (1)\n<tr><th>Req. level<td>33 (Effective: 26)\n<tr><th>Gold Price<td>434\n<tr><th>Stats<td><li>local base evasion rating <span class=\"badge bg-primary\">88 <span class=\"ndash\">—</span> 116</span> <span class=\"badge bg-secondary\">ローカル</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>dex_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>回避力</span> \n<tr><td>石の拳<td>プレイヤーレベルごとに[Evasion|回避力] <span class='mod-value'>+3</span>を持つ<br>プレイヤーレベルごとに最大[EnergyShield|エナジーシールド] <span class='mod-value'>+1</span>を持つ</table>  </div></div>",
+  "fields": {
+    "Name": "霞んだ",
+    "Family": "BaseLocalDefences",
+    "Domains": "アイテム (1)",
+    "GenerationType": "プレフィックス (1)",
+    "Req. level": "33 (Effective: 26)",
+    "Gold Price": "434",
+    "Stats": "local base evasion rating 88 — 116 ローカル",
+    "Spawn Tags": "dex_armour: 1 str_dex_int_armour: 1 default: 0",
+    "Craft Tags": "defences 回避力"
+  },
+  "code": "LocalIncreasedEvasionRating5",
+  "stats": [
+    {
+      "id": "local_base_evasion_rating",
+      "min": 88,
+      "max": 116,
+      "locality": "ローカル"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "dex_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

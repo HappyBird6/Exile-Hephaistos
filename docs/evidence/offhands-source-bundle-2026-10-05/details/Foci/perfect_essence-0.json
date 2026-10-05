@@ -1,0 +1,101 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "66",
+    "DropChance": 0,
+    "ModGenerationTypeID": "2",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingenergy_shield\" data-tag=\"energy_shield\">Energy Shield</span>"
+    ],
+    "fossil_no": [
+      "defences",
+      "energy_shield"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/e22cdf841c20fddcd60eb33026de9d0738e05d1be8e134bbc5175eb6c8291e95\" href=\"Essence_of_Hysteria\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/CorruptedEssenceHysteria.webp\" alt=\"CorruptedEssenceHysteria\" height=\"16\" />Essence of Hysteria</a>",
+    "Code": "EnergyShieldRechargeRate5______",
+    "ModFamilyList": [
+      "EnergyShieldRegeneration"
+    ],
+    "str": "<span class='mod-value'>(20<span class=\"ndash\">—</span>23)</span>% increased <a data-keyword=\"ESRechargeRate\" href=\"Energy_Shield_Recharge_Rate\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a4c99c6b7e4fe2fd74d32f45f9deb2aebe477c44de9077e90c8cc915cc4c61e9\">Energy Shield Recharge Rate</a>",
+    "adds_no": [],
+    "spawn_no": [
+      "helmet",
+      "gloves",
+      "boots",
+      "str_dex_int_armour",
+      "str_int_armour",
+      "dex_int_armour",
+      "int_armour",
+      "focus",
+      "default"
+    ],
+    "reqlvl": 52,
+    "IsPerfect": "0",
+    "IsAlloy": false,
+    "Removes": true
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEnergyShieldRechargeRate5______",
+  "textLocale": "us",
+  "detailText": "(20—23)% increased Energy Shield Recharge Rate",
+  "retrievedAt": "2026-10-05T04:37:14.267Z",
+  "sha256": "6411293f934d42dbe74efda557ecfeedba678e132dd83597c30204f2de0f62af",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(20<span class=\"ndash\">—</span>23)</span>% increased <a data-keyword=\"ESRechargeRate\" href=\"Energy_Shield_Recharge_Rate\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a4c99c6b7e4fe2fd74d32f45f9deb2aebe477c44de9077e90c8cc915cc4c61e9\">Energy Shield Recharge Rate</a></span></h5>   <span data-tabname=\"of Ardour\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Ardour\n<tr><th>Family<td>EnergyShieldRegeneration\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>66 (Effective: 52)\n<tr><th>Gold Price<td>2479\n<tr><th>Stats<td><li>energy shield recharge rate +% <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 23</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>helmet: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>boots: 0</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>str_int_armour: 1</span> <span class='badge bg-primary'>dex_int_armour: 1</span> <span class='badge bg-primary'>int_armour: 1</span> <span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Energy Shield</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(46<span class=\"ndash\">—</span>50)</span>% [FasterESRechargeStart|faster start of Energy Shield Recharge]</table>  </div></div>",
+  "fields": {
+    "Name": "of Ardour",
+    "Family": "EnergyShieldRegeneration",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "66 (Effective: 52)",
+    "Gold Price": "2479",
+    "Stats": "energy shield recharge rate +% 20 — 23 Global",
+    "Spawn Tags": "helmet: 0 gloves: 0 boots: 0 str_dex_int_armour: 1 str_int_armour: 1 dex_int_armour: 1 int_armour: 1 focus: 1 default: 0",
+    "Craft Tags": "defences Energy Shield"
+  },
+  "code": "EnergyShieldRechargeRate5______",
+  "stats": [
+    {
+      "id": "energy_shield_recharge_rate_+%",
+      "min": 20,
+      "max": 23,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "helmet",
+      "weight": 0
+    },
+    {
+      "tag": "gloves",
+      "weight": 0
+    },
+    {
+      "tag": "boots",
+      "weight": 0
+    },
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "focus",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -2661,6 +2661,57 @@
       ],
       "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow4Endgame",
       "sourceUrl": "https://poe2db.tw/us/Engraved_Crossbow"
+    },
+    "Tawhoan_Tower_Shield": {
+      "name": "Tawhoan Tower Shield",
+      "lines": [
+        "Block chance: 26%",
+        "Armour: 264",
+        "Base Movement Speed: -0.03",
+        "Grants Skill: Raise Shield"
+      ],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldStr10Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Tawhoan_Tower_Shield"
+    },
+    "Golden_Targe": {
+      "name": "Golden Targe",
+      "lines": [
+        "Block chance: 25%",
+        "Armour: 145",
+        "Evasion Rating: 132",
+        "Base Movement Speed: -0.015",
+        "Grants Skill: Raise Shield"
+      ],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldStrDex10Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Golden_Targe"
+    },
+    "Blacksteel_Crest_Shield": {
+      "name": "Blacksteel Crest Shield",
+      "lines": [
+        "Block chance: 25%",
+        "Armour: 145",
+        "Energy Shield: 40",
+        "Base Movement Speed: -0.015",
+        "Grants Skill: Raise Shield"
+      ],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldStrInt7Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Blacksteel_Crest_Shield"
+    },
+    "Desert_Buckler": {
+      "name": "Desert Buckler",
+      "lines": [
+        "Block chance: 20%",
+        "Evasion Rating: 192",
+        "Grants Skill: Parry"
+      ],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldDex9Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Desert_Buckler"
+    },
+    "Tasalian_Focus": {
+      "name": "Tasalian Focus",
+      "lines": ["Energy Shield: 91"],
+      "itemKey": "Metadata/Items/Armours/Focii/FourFocus10Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Tasalian_Focus"
     }
   },
   "ko": {
@@ -5309,6 +5360,53 @@
       ],
       "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow4Endgame",
       "sourceUrl": "https://poe2db.tw/kr/Engraved_Crossbow"
+    },
+    "Tawhoan_Tower_Shield": {
+      "name": "타호아의 거대 방패",
+      "lines": [
+        "막기 확률: 26%",
+        "방어도: 264",
+        "Base Movement Speed: -0.03",
+        "스킬 부여: 방패 들기"
+      ],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldStr10Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Tawhoan_Tower_Shield"
+    },
+    "Golden_Targe": {
+      "name": "금색 타지",
+      "lines": [
+        "막기 확률: 25%",
+        "방어도: 145",
+        "회피: 132",
+        "Base Movement Speed: -0.015",
+        "스킬 부여: 방패 들기"
+      ],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldStrDex10Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Golden_Targe"
+    },
+    "Blacksteel_Crest_Shield": {
+      "name": "검은강철 문양 방패",
+      "lines": [
+        "막기 확률: 25%",
+        "방어도: 145",
+        "에너지 보호막: 40",
+        "Base Movement Speed: -0.015",
+        "스킬 부여: 방패 들기"
+      ],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldStrInt7Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Blacksteel_Crest_Shield"
+    },
+    "Desert_Buckler": {
+      "name": "사막 버클러",
+      "lines": ["막기 확률: 20%", "회피: 192", "스킬 부여: 흘려보내기"],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldDex9Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Desert_Buckler"
+    },
+    "Tasalian_Focus": {
+      "name": "타살리오의 집중구",
+      "lines": ["에너지 보호막: 91"],
+      "itemKey": "Metadata/Items/Armours/Focii/FourFocus10Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Tasalian_Focus"
     }
   },
   "zh-CN": {
@@ -7855,6 +7953,53 @@
       ],
       "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow4Endgame",
       "sourceUrl": "https://poe2db.tw/cn/Engraved_Crossbow"
+    },
+    "Tawhoan_Tower_Shield": {
+      "name": "塔赫亚塔盾",
+      "lines": [
+        "格挡几率: 26%",
+        "护甲: 264",
+        "基础移动速度: -0.03",
+        "获得技能: 架盾"
+      ],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldStr10Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Tawhoan_Tower_Shield"
+    },
+    "Golden_Targe": {
+      "name": "耀金圆盾",
+      "lines": [
+        "格挡几率: 25%",
+        "护甲: 145",
+        "闪避值: 132",
+        "基础移动速度: -0.015",
+        "获得技能: 架盾"
+      ],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldStrDex10Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Golden_Targe"
+    },
+    "Blacksteel_Crest_Shield": {
+      "name": "黑钢纹章盾",
+      "lines": [
+        "格挡几率: 25%",
+        "护甲: 145",
+        "能量护盾: 40",
+        "基础移动速度: -0.015",
+        "获得技能: 架盾"
+      ],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldStrInt7Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Blacksteel_Crest_Shield"
+    },
+    "Desert_Buckler": {
+      "name": "沙漠轻盾",
+      "lines": ["格挡几率: 20%", "闪避值: 192", "获得技能: 招架"],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldDex9Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Desert_Buckler"
+    },
+    "Tasalian_Focus": {
+      "name": "塔萨里奥法器",
+      "lines": ["能量护盾: 91"],
+      "itemKey": "Metadata/Items/Armours/Focii/FourFocus10Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Tasalian_Focus"
     }
   },
   "zh-TW": {
@@ -10391,6 +10536,53 @@
       ],
       "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow4Endgame",
       "sourceUrl": "https://poe2db.tw/tw/Engraved_Crossbow"
+    },
+    "Tawhoan_Tower_Shield": {
+      "name": "塔赫亞塔盾",
+      "lines": [
+        "格擋機率: 26%",
+        "護甲值: 264",
+        "基礎移動速度: -0.03",
+        "賦予技能: 展開護盾"
+      ],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldStr10Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Tawhoan_Tower_Shield"
+    },
+    "Golden_Targe": {
+      "name": "耀金圓盾",
+      "lines": [
+        "格擋機率: 25%",
+        "護甲值: 145",
+        "閃避值: 132",
+        "基礎移動速度: -0.015",
+        "賦予技能: 展開護盾"
+      ],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldStrDex10Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Golden_Targe"
+    },
+    "Blacksteel_Crest_Shield": {
+      "name": "烏鋼紋章盾",
+      "lines": [
+        "格擋機率: 25%",
+        "護甲值: 145",
+        "能量護盾: 40",
+        "基礎移動速度: -0.015",
+        "賦予技能: 展開護盾"
+      ],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldStrInt7Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Blacksteel_Crest_Shield"
+    },
+    "Desert_Buckler": {
+      "name": "沙漠輕盾",
+      "lines": ["格擋機率: 20%", "閃避值: 192", "賦予技能: 招架"],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldDex9Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Desert_Buckler"
+    },
+    "Tasalian_Focus": {
+      "name": "塔薩里奧法器",
+      "lines": ["能量護盾: 91"],
+      "itemKey": "Metadata/Items/Armours/Focii/FourFocus10Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Tasalian_Focus"
     }
   },
   "ja": {
@@ -13041,6 +13233,53 @@
       ],
       "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow4Endgame",
       "sourceUrl": "https://poe2db.tw/jp/Engraved_Crossbow"
+    },
+    "Tawhoan_Tower_Shield": {
+      "name": "タウホアのタワーシールド",
+      "lines": [
+        "ブロック率: 26%",
+        "アーマー: 264",
+        "Base Movement Speed: -0.03",
+        "スキルを付与: レイズシールド"
+      ],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldStr10Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Tawhoan_Tower_Shield"
+    },
+    "Golden_Targe": {
+      "name": "黄金のタージ",
+      "lines": [
+        "ブロック率: 25%",
+        "アーマー: 145",
+        "回避力: 132",
+        "Base Movement Speed: -0.015",
+        "スキルを付与: レイズシールド"
+      ],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldStrDex10Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Golden_Targe"
+    },
+    "Blacksteel_Crest_Shield": {
+      "name": "ブラックスティールクレストシールド",
+      "lines": [
+        "ブロック率: 25%",
+        "アーマー: 145",
+        "エナジーシールド: 40",
+        "Base Movement Speed: -0.015",
+        "スキルを付与: レイズシールド"
+      ],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldStrInt7Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Blacksteel_Crest_Shield"
+    },
+    "Desert_Buckler": {
+      "name": "砂漠のバックラー",
+      "lines": ["ブロック率: 20%", "回避力: 192", "スキルを付与: パリィ"],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldDex9Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Desert_Buckler"
+    },
+    "Tasalian_Focus": {
+      "name": "タサリオのフォーカス",
+      "lines": ["エナジーシールド: 91"],
+      "itemKey": "Metadata/Items/Armours/Focii/FourFocus10Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Tasalian_Focus"
     }
   },
   "es": {
@@ -15609,6 +15848,57 @@
       ],
       "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow4Endgame",
       "sourceUrl": "https://poe2db.tw/sp/Engraved_Crossbow"
+    },
+    "Tawhoan_Tower_Shield": {
+      "name": "Escudo torre tawhoano",
+      "lines": [
+        "Probabilidad de bloqueo: 26%",
+        "Armadura: 264",
+        "Base Movement Speed: -0.03",
+        "Otorga la habilidad: Levantar escudo"
+      ],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldStr10Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Tawhoan_Tower_Shield"
+    },
+    "Golden_Targe": {
+      "name": "Targe dorado",
+      "lines": [
+        "Probabilidad de bloqueo: 25%",
+        "Armadura: 145",
+        "Evasión: 132",
+        "Base Movement Speed: -0.015",
+        "Otorga la habilidad: Levantar escudo"
+      ],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldStrDex10Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Golden_Targe"
+    },
+    "Blacksteel_Crest_Shield": {
+      "name": "Escudo heráldico de acero negro",
+      "lines": [
+        "Probabilidad de bloqueo: 25%",
+        "Armadura: 145",
+        "Escudo de energía: 40",
+        "Base Movement Speed: -0.015",
+        "Otorga la habilidad: Levantar escudo"
+      ],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldStrInt7Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Blacksteel_Crest_Shield"
+    },
+    "Desert_Buckler": {
+      "name": "Broquel desértico",
+      "lines": [
+        "Probabilidad de bloqueo: 20%",
+        "Evasión: 192",
+        "Otorga la habilidad: Parada"
+      ],
+      "itemKey": "Metadata/Items/Armours/Shields/FourShieldDex9Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Desert_Buckler"
+    },
+    "Tasalian_Focus": {
+      "name": "Foco tasaliano",
+      "lines": ["Escudo de energía: 91"],
+      "itemKey": "Metadata/Items/Armours/Focii/FourFocus10Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Tasalian_Focus"
     }
   }
 }

@@ -1,0 +1,61 @@
+{
+  "row": {
+    "Name": "of the Conservator",
+    "Level": "77",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ReducedPhysicalDamageTaken"
+    ],
+    "DropChance": "800",
+    "str": "<span class='mod-value'>8</span>% additional <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage Reduction",
+    "fossil_no": [
+      "physical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_shield",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3c7d0317ad1b5f9644f5ea63007df4f3113f3bfb666f54032b10fad54747ae51"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FAdditionalPhysicalDamageReduction5_",
+  "textLocale": "jp",
+  "detailText": "物理ダメージ軽減率が8%される",
+  "retrievedAt": "2026-10-05T04:20:32.724Z",
+  "sha256": "0e53b1fda57e240b56b71006bdca2f6efe763b51923f6a675854b95e62d7f8f2",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/1ac5b6ff6f92e0d1a339e666c0130f74d05b67d1cb4e11b2f3ab85b82086a26d\">物理</a>ダメージ軽減率が<span class='mod-value'>8</span>%される</span></h5>   <span data-tabname=\"保護する者の\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>保護する者の\n<tr><th>Family<td>ReducedPhysicalDamageTaken\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>サフィックス (2)\n<tr><th>Req. level<td>77 (Effective: 61)\n<tr><th>Gold Price<td>2749\n<tr><th>Stats<td><li>base additional physical damage reduction % <span class=\"badge bg-primary\">8 <span class=\"ndash\">—</span> 8</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>str_shield: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>物理</span> </table>  </div></div>",
+  "fields": {
+    "Name": "保護する者の",
+    "Family": "ReducedPhysicalDamageTaken",
+    "Domains": "アイテム (1)",
+    "GenerationType": "サフィックス (2)",
+    "Req. level": "77 (Effective: 61)",
+    "Gold Price": "2749",
+    "Stats": "base additional physical damage reduction % 8 — 8 Global",
+    "Spawn Tags": "str_shield: 1 default: 0",
+    "Craft Tags": "物理"
+  },
+  "code": "AdditionalPhysicalDamageReduction5_",
+  "stats": [
+    {
+      "id": "base_additional_physical_damage_reduction_%",
+      "min": 8,
+      "max": 8,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "str_shield",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

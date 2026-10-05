@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/jp/Desert_Buckler",
+  "retrievedAt": "2026-10-05T04:18:11.380Z",
+  "sha256": "fb3682095e3a6c4a597e01e89488ef5cdb9ccd35598c63ca5c74462ab2e162ed",
+  "variants": [
+    {
+      "name": "砂漠のバックラー",
+      "card": "砂漠のバックラー\n        \n    \n    \n        \n            バックラーブロック率: 20%回避力: 192装備条件： レベル 80, 115 器用さ スキルを付与: パリィ\n        \n\n\n\n        \n            Desert Buckler",
+      "requirements": "装備条件： レベル 80, 115 器用さ",
+      "fields": {
+        "DropLevel": "80",
+        "BaseType": "砂漠のバックラー",
+        "Class": "バックラー",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanScourge",
+        "Type": "Metadata/Items/Armours/Shields/FourShieldDex9Endgame",
+        "Tags": "dex_armour, dex_shield, karui_basetype, buckler, shield, armour",
+        "Icon": "Art/2DItems/Offhand/Shields/Buckler09",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, buckler, shield",
+        "Base.x_size": "2",
+        "Base.y_size": "2",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100",
+        "Shield.block_percentage": "0"
+      }
+    }
+  ]
+}

@@ -16,6 +16,7 @@ type TopBase = {
     string[]
   >
   baseMovementSpeed?: number
+  skillLines?: Record<'en' | 'ko' | 'ja' | 'zh-CN' | 'zh-TW' | 'es', string[]>
   energyShield?: number
   strength: number
   intelligence?: number
@@ -48,5 +49,8 @@ export const reviewedArmourKeys = (Object.keys(data) as TopBaseKey[]).filter(
       'wands',
       'belts',
       'crossbows',
+      'shields',
+      'bucklers',
+      'foci',
     ].includes(data[key].family),
 )

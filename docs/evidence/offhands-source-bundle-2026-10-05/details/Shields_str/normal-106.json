@@ -1,0 +1,67 @@
+{
+  "row": {
+    "Name": "of Furs",
+    "Level": "68",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "MaximumColdResist"
+    ],
+    "DropChance": "250",
+    "str": "<span class='mod-value'>+1</span>% to <a data-keyword=\"MaximumResistances\" href=\"Maximum_Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/10cfc4a861abfa43e56fa517c085678b0a54d64ffccc7e940f7616a55e2e17da\">Maximum Cold Resistance</a>",
+    "fossil_no": [
+      "cold_resistance",
+      "elemental_resistance",
+      "elemental",
+      "cold",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "shield",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/90501bfc9ed8752c78a8367b09d8bbeeda556be1dccfde6ecdd6c075893f6588"
+  },
+  "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FMaximumColdResist1",
+  "textLocale": "kr",
+  "detailText": "냉기 저항 최대치 +1%",
+  "retrievedAt": "2026-10-05T04:20:42.010Z",
+  "sha256": "250d8c02810ce3110065d3bd01a64e65e68d85cf927aa1e09beabf7b84e6d0f5",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"MaximumResistances\" href=\"Maximum_Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/18237c9882ebde062c52ba47e48fc7b377329871a04607e84646fccb948100a0\">냉기 저항 최대치</a> <span class='mod-value'>+1</span>%</span></h5>   <span data-tabname=\"- 털가죽\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>- 털가죽\n<tr><th>Family<td>MaximumColdResist\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>접미어 (2)\n<tr><th>Req. level<td>68 (Effective: 54)\n<tr><th>Gold Price<td>2575\n<tr><th>Stats<td><li>base maximum cold damage resistance % <span class=\"badge bg-primary\">1 <span class=\"ndash\">—</span> 1</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>shield: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>cold_resistance</i></span> <span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'>원소</span> <span class='badge bg-primary'>냉기</span> <span class='badge bg-primary'>저항</span> </table>  </div></div>",
+  "fields": {
+    "Name": "- 털가죽",
+    "Family": "MaximumColdResist",
+    "Domains": "아이템 (1)",
+    "GenerationType": "접미어 (2)",
+    "Req. level": "68 (Effective: 54)",
+    "Gold Price": "2575",
+    "Stats": "base maximum cold damage resistance % 1 — 1 Global",
+    "Spawn Tags": "shield: 1 default: 0",
+    "Craft Tags": "cold_resistance elemental_resistance 원소 냉기 저항"
+  },
+  "code": "MaximumColdResist1",
+  "stats": [
+    {
+      "id": "base_maximum_cold_damage_resistance_%",
+      "min": 1,
+      "max": 1,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "shield",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

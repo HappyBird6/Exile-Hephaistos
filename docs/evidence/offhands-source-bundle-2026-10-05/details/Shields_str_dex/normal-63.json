@@ -1,0 +1,90 @@
+{
+  "row": {
+    "Name": "Adaptable",
+    "Level": "65",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefences"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(128<span class=\"ndash\">—</span>149)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(120<span class=\"ndash\">—</span>141)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "boots",
+      "gloves",
+      "helmet",
+      "str_dex_armour",
+      "str_dex_int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/48967947630024afb6eed5bb4ad0870304bf644b889f5cdc43c6d0b85d17132d"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FLocalBaseArmourAndEvasionRating7",
+  "textLocale": "jp",
+  "detailText": "アーマー +(128—149)\n回避力 +(120—141)",
+  "retrievedAt": "2026-10-05T04:29:47.676Z",
+  "sha256": "9b791b5b0fc120716e254f77d6821e0ec80d87488244eb99bf537b777b1af3ac",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/82a62a81f07c975f48b08deee312f33226ba1805294f112f4eeba7d977ce4c07\">アーマー</a> <span class='mod-value'>+(128<span class=\"ndash\">—</span>149)</span><br><a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/cb013856f854596fa3e051adb7fb3afc08f89668fbca4b218a07b957fe862b27\">回避力</a> <span class='mod-value'>+(120<span class=\"ndash\">—</span>141)</span></span></h5>   <span data-tabname=\"適応する\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>適応する\n<tr><th>Family<td>BaseLocalDefences\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>プレフィックス (1)\n<tr><th>Req. level<td>65 (Effective: 52)\n<tr><th>Gold Price<td>2189\n<tr><th>Stats<td><li>local base evasion rating <span class=\"badge bg-primary\">120 <span class=\"ndash\">—</span> 141</span> <span class=\"badge bg-secondary\">ローカル</span></li><li>local base physical damage reduction rating <span class=\"badge bg-primary\">128 <span class=\"ndash\">—</span> 149</span> <span class=\"badge bg-secondary\">ローカル</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>boots: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>helmet: 0</span> <span class='badge bg-primary'>str_dex_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>アーマー</span> <span class='badge bg-primary'>回避力</span> </table>  </div></div>",
+  "fields": {
+    "Name": "適応する",
+    "Family": "BaseLocalDefences",
+    "Domains": "アイテム (1)",
+    "GenerationType": "プレフィックス (1)",
+    "Req. level": "65 (Effective: 52)",
+    "Gold Price": "2189",
+    "Stats": "local base evasion rating 120 — 141 ローカルlocal base physical damage reduction rating 128 — 149 ローカル",
+    "Spawn Tags": "boots: 0 gloves: 0 helmet: 0 str_dex_armour: 1 str_dex_int_armour: 1 default: 0",
+    "Craft Tags": "defences アーマー 回避力"
+  },
+  "code": "LocalBaseArmourAndEvasionRating7",
+  "stats": [
+    {
+      "id": "local_base_evasion_rating",
+      "min": 120,
+      "max": 141,
+      "locality": "ローカル"
+    },
+    {
+      "id": "local_base_physical_damage_reduction_rating",
+      "min": 128,
+      "max": 149,
+      "locality": "ローカル"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "boots",
+      "weight": 0
+    },
+    {
+      "tag": "gloves",
+      "weight": 0
+    },
+    {
+      "tag": "helmet",
+      "weight": 0
+    },
+    {
+      "tag": "str_dex_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "13",
+    "DropChance": 0,
+    "ModGenerationTypeID": "2",
+    "mod_no": [],
+    "fossil_no": [],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/525a2ea3a697b76fc583ccba0617f289b8173389fbccc61999a0a55205031e32\" href=\"Protective_Alloy\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ImpureVerisium.webp\" alt=\"ImpureVerisium\" height=\"16\" />Protective Alloy</a>",
+    "Code": "AlloyRunicWardOnBlock1",
+    "ModFamilyList": [
+      "GainFlatLifeOnBlock"
+    ],
+    "str": "Recover <span class='mod-value'>(10<span class=\"ndash\">—</span>15)</span> <a data-keyword=\"Ward\" href=\"Runic_Ward\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1547e196969812ca08cdcd4c7cbb6befaf15e8caa83eb77c59704c6452b4eb82\">Runic Ward</a> when you <a data-keyword=\"Block\" href=\"Block\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/013f893301a6a288685d2a8ca0f9b1e89ad6d4681b3bdc92506ebb25a166c195\">Block</a>",
+    "adds_no": [],
+    "spawn_no": [
+      "default"
+    ],
+    "reqlvl": 10,
+    "IsPerfect": "0",
+    "IsAlloy": true,
+    "Removes": true
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyRunicWardOnBlock1",
+  "textLocale": "us",
+  "detailText": "Recover (10—15) Runic Ward when you Block",
+  "retrievedAt": "2026-10-05T04:29:24.833Z",
+  "sha256": "2ef6106c41fd2b3a34a1e1bf523a8761a591d1bdf7009e00793c635d38118b1d",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Recover <span class='mod-value'>(10<span class=\"ndash\">—</span>15)</span> <a data-keyword=\"Ward\" href=\"Runic_Ward\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1547e196969812ca08cdcd4c7cbb6befaf15e8caa83eb77c59704c6452b4eb82\">Runic Ward</a> when you <a data-keyword=\"Block\" href=\"Block\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/013f893301a6a288685d2a8ca0f9b1e89ad6d4681b3bdc92506ebb25a166c195\">Block</a></span></h5>   <span data-tabname=\"of the Stars\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Stars\n<tr><th>Family<td>GainFlatLifeOnBlock\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>13 (Effective: 10)\n<tr><th>Gold Price<td>251\n<tr><th>Stats<td><li>recover X ward on block <span class=\"badge bg-primary\">10 <span class=\"ndash\">—</span> 15</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of the Stars",
+    "Family": "GainFlatLifeOnBlock",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "13 (Effective: 10)",
+    "Gold Price": "251",
+    "Stats": "recover X ward on block 10 — 15 Global",
+    "Spawn Tags": "default: 0"
+  },
+  "code": "AlloyRunicWardOnBlock1",
+  "stats": [
+    {
+      "id": "recover_X_ward_on_block",
+      "min": 10,
+      "max": 15,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

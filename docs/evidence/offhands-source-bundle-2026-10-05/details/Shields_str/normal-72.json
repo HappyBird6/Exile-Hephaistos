@@ -1,0 +1,77 @@
+{
+  "row": {
+    "Name": "Mammoth's",
+    "Level": "74",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DefencesPercentAndStunThreshold"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(39<span class=\"ndash\">—</span>42)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(95<span class=\"ndash\">—</span>136)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/316a7a69eefcbd428676307b835263fc26186fee563e3838fb17fd8b29742b43\">Stun Threshold</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "helmet",
+      "gloves",
+      "str_armour",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e7457c7ec156f22c3ac8f2d224bfd09c7dce72138c3fe938f203ca059482b2be"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FLocalArmourAndStunThreshold6",
+  "textLocale": "sp",
+  "detailText": "Armadura aumentada un (39—42)%\n+(95—136) al umbral de aturdimiento",
+  "retrievedAt": "2026-10-05T04:19:52.792Z",
+  "sha256": "8861852cc7dd17fb7e1de7f6bd8cc3b34da05f2c21f78885dce9154ad8768cb7",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/4fcca7fe187c61d61898b4f2aab39e829538c46c753e8695c4c8b32893a3f0a0\">Armadura</a> aumentada un <span class='mod-value'>(39<span class=\"ndash\">—</span>42)</span>%<br><span class='mod-value'>+(95<span class=\"ndash\">—</span>136)</span> al <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/707dadc1d081e6a88e740b340d18110fdffeb75153a971eee7447134db8bbf9e\">umbral de aturdimiento</a></span></h5>   <span data-tabname=\"del mamut\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>del mamut\n<tr><th>Family<td>DefencesPercentAndStunThreshold\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Prefijo (1)\n<tr><th>Req. level<td>74 (Effective: 59)\n<tr><th>Gold Price<td>2583\n<tr><th>Stats<td><li>stun threshold + <span class=\"badge bg-primary\">95 <span class=\"ndash\">—</span> 136</span> <span class=\"badge bg-secondary\">Global</span></li><li>local physical damage reduction rating +% <span class=\"badge bg-primary\">39 <span class=\"ndash\">—</span> 42</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 0</span> <span class='badge bg-primary'>helmet: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>str_armour: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "fields": {
+    "Name": "del mamut",
+    "Family": "DefencesPercentAndStunThreshold",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Prefijo (1)",
+    "Req. level": "74 (Effective: 59)",
+    "Gold Price": "2583",
+    "Stats": "stun threshold + 95 — 136 Globallocal physical damage reduction rating +% 39 — 42 Local",
+    "Spawn Tags": "body_armour: 0 helmet: 0 gloves: 0 str_armour: 1 default: 0"
+  },
+  "code": "LocalArmourAndStunThreshold6",
+  "stats": [
+    {
+      "id": "stun_threshold_+",
+      "min": 95,
+      "max": 136,
+      "locality": "Global"
+    },
+    {
+      "id": "local_physical_damage_reduction_rating_+%",
+      "min": 39,
+      "max": 42,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "body_armour",
+      "weight": 0
+    },
+    {
+      "tag": "helmet",
+      "weight": 0
+    },
+    {
+      "tag": "gloves",
+      "weight": 0
+    },
+    {
+      "tag": "str_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

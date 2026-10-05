@@ -1,0 +1,77 @@
+{
+  "row": {
+    "Name": "Crab's",
+    "Level": "19",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DefencesPercentAndStunThreshold"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(14<span class=\"ndash\">—</span>20)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(14<span class=\"ndash\">—</span>24)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/316a7a69eefcbd428676307b835263fc26186fee563e3838fb17fd8b29742b43\">Stun Threshold</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "helmet",
+      "gloves",
+      "str_armour",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/fd557342b457c83d1ca299d19e7e1cdd98deb55aedf8cfb601a658971951686f"
+  },
+  "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FLocalArmourAndStunThreshold2",
+  "textLocale": "kr",
+  "detailText": "방어도 (14—20)% 증가\n기절 한계치 +(14—24)",
+  "retrievedAt": "2026-10-05T04:19:39.440Z",
+  "sha256": "35e0313d7181830355a8080b616feba4391b9b56dbf4a12d38b015658ad5002c",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/f1ab1c4f26afe32f35ba8c570de40a04dfb871a4472c4decf7c24ea41ad028a6\">방어도</a> <span class='mod-value'>(14<span class=\"ndash\">—</span>20)</span>% 증가<br><a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/2addc49d0ec8196cb1ddf65384438b1a9aeda51cda4b2af0750ba3899baa0e95\">기절 한계치</a> <span class='mod-value'>+(14<span class=\"ndash\">—</span>24)</span></span></h5>   <span data-tabname=\"게의\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>게의\n<tr><th>Family<td>DefencesPercentAndStunThreshold\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>접두어 (1)\n<tr><th>Req. level<td>19 (Effective: 15)\n<tr><th>Gold Price<td>295\n<tr><th>Stats<td><li>stun threshold + <span class=\"badge bg-primary\">14 <span class=\"ndash\">—</span> 24</span> <span class=\"badge bg-secondary\">Global</span></li><li>local physical damage reduction rating +% <span class=\"badge bg-primary\">14 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">지역</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 0</span> <span class='badge bg-primary'>helmet: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>str_armour: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "fields": {
+    "Name": "게의",
+    "Family": "DefencesPercentAndStunThreshold",
+    "Domains": "아이템 (1)",
+    "GenerationType": "접두어 (1)",
+    "Req. level": "19 (Effective: 15)",
+    "Gold Price": "295",
+    "Stats": "stun threshold + 14 — 24 Globallocal physical damage reduction rating +% 14 — 20 지역",
+    "Spawn Tags": "body_armour: 0 helmet: 0 gloves: 0 str_armour: 1 default: 0"
+  },
+  "code": "LocalArmourAndStunThreshold2",
+  "stats": [
+    {
+      "id": "stun_threshold_+",
+      "min": 14,
+      "max": 24,
+      "locality": "Global"
+    },
+    {
+      "id": "local_physical_damage_reduction_rating_+%",
+      "min": 14,
+      "max": 20,
+      "locality": "지역"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "body_armour",
+      "weight": 0
+    },
+    {
+      "tag": "helmet",
+      "weight": 0
+    },
+    {
+      "tag": "gloves",
+      "weight": 0
+    },
+    {
+      "tag": "str_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

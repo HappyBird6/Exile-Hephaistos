@@ -1,0 +1,84 @@
+{
+  "row": {
+    "Name": "of the Squall",
+    "Level": "13",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LightningResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(11<span class=\"ndash\">—</span>15)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Lightning Resistance</a>",
+    "fossil_no": [
+      "elemental_resistance",
+      "lightning_resistance",
+      "elemental",
+      "lightning",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e94770e924952957544158cb8d135abc2637b3e343bda198f1791d72af514493"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e94770e924952957544158cb8d135abc2637b3e343bda198f1791d72af514493",
+  "textLocale": "us",
+  "detailText": "+(11—15)% to Lightning Resistance",
+  "retrievedAt": "2026-10-05T04:19:00.015Z",
+  "sha256": "e94770e924952957544158cb8d135abc2637b3e343bda198f1791d72af514493",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(11<span class=\"ndash\">—</span>15)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Lightning Resistance</a></span></h5>   <span data-tabname=\"of the Squall\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Squall\n<tr><th>Family<td>LightningResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>13 (Effective: 10)\n<tr><th>Gold Price<td>255\n<tr><th>Stats<td><li>base lightning damage resistance % <span class=\"badge bg-primary\">11 <span class=\"ndash\">—</span> 15</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>armour: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>lightning_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Lightning</span> <span class='badge bg-primary'>Resistance</span> \n<tr><th>Horticrafting<td>Can change Element modifier\n<tr><td>Fists of Stone<td><span class='mod-value'>+1</span>% to [MaximumResistances|Maximum Lightning Resistance]<br><span class='mod-value'>+(16<span class=\"ndash\">—</span>20)</span>% to [Resistances|Lightning Resistance]</table>  </div></div>",
+  "fields": {
+    "Name": "of the Squall",
+    "Family": "LightningResistance",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "13 (Effective: 10)",
+    "Gold Price": "255",
+    "Stats": "base lightning damage resistance % 11 — 15 Global",
+    "Spawn Tags": "armour: 1 ring: 1 amulet: 1 belt: 1 default: 0",
+    "Craft Tags": "elemental_resistance lightning_resistance Elemental Lightning Resistance",
+    "Horticrafting": "Can change Element modifier"
+  },
+  "code": "LightningResist2",
+  "stats": [
+    {
+      "id": "base_lightning_damage_resistance_%",
+      "min": 11,
+      "max": 15,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "armour",
+      "weight": 1
+    },
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "amulet",
+      "weight": 1
+    },
+    {
+      "tag": "belt",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

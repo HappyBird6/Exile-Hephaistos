@@ -1,0 +1,71 @@
+{
+  "row": {
+    "Name": "of Stone Skin",
+    "Level": "15",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "StunThreshold"
+    ],
+    "DropChance": "800",
+    "str": "<span class='mod-value'>+(30<span class=\"ndash\">—</span>49)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/316a7a69eefcbd428676307b835263fc26186fee563e3838fb17fd8b29742b43\">Stun Threshold</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "boots",
+      "shield",
+      "belt",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f86194ef4d41c2e2b253c68b16b448c0bca9830339c5ab167f17ed4d8b09007a"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold3",
+  "textLocale": "us",
+  "detailText": "+(30—49) to Stun Threshold",
+  "retrievedAt": "2026-10-05T04:20:02.356Z",
+  "sha256": "14fe79e2eab8416c4d91ee14a803925f77eb44f4ae3295e7f4f25f6ecd3074e1",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(30<span class=\"ndash\">—</span>49)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/316a7a69eefcbd428676307b835263fc26186fee563e3838fb17fd8b29742b43\">Stun Threshold</a></span></h5>   <span data-tabname=\"of Stone Skin\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Stone Skin\n<tr><th>Family<td>StunThreshold\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>15 (Effective: 12)\n<tr><th>Gold Price<td>240\n<tr><th>Stats<td><li>stun threshold + <span class=\"badge bg-primary\">30 <span class=\"ndash\">—</span> 49</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 1</span> <span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>shield: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Stone Skin",
+    "Family": "StunThreshold",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "15 (Effective: 12)",
+    "Gold Price": "240",
+    "Stats": "stun threshold + 30 — 49 Global",
+    "Spawn Tags": "body_armour: 1 boots: 1 shield: 1 belt: 1 default: 0"
+  },
+  "code": "StunThreshold3",
+  "stats": [
+    {
+      "id": "stun_threshold_+",
+      "min": 30,
+      "max": 49,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "body_armour",
+      "weight": 1
+    },
+    {
+      "tag": "boots",
+      "weight": 1
+    },
+    {
+      "tag": "shield",
+      "weight": 1
+    },
+    {
+      "tag": "belt",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

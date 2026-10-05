@@ -1,0 +1,67 @@
+{
+  "row": {
+    "Name": "Studded",
+    "Level": "8",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefences"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(28<span class=\"ndash\">—</span>56)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a>",
+    "fossil_no": [
+      "defences",
+      "armour"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_armour",
+      "str_dex_int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6a4868c4ffe1aa4a7f95db864b91dff96f42327a6b89786d8bd1413239a4388a"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRating2",
+  "textLocale": "us",
+  "detailText": "+(28—56) to Armour",
+  "retrievedAt": "2026-10-05T04:19:12.191Z",
+  "sha256": "877d12423b5d7a8bca4741c22156ef790accace00a88508ce5c3020cd4bd7060",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(28<span class=\"ndash\">—</span>56)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a></span></h5>   <span data-tabname=\"Studded\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Studded\n<tr><th>Family<td>BaseLocalDefences\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>8 (Effective: 6)\n<tr><th>Gold Price<td>178\n<tr><th>Stats<td><li>local base physical damage reduction rating <span class=\"badge bg-primary\">28 <span class=\"ndash\">—</span> 56</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>str_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Armour</span> \n<tr><td>Fists of Stone<td>Has <span class='mod-value'>+1</span> to [Evasion] Rating per player level<br>Has <span class='mod-value'>+1</span> to maximum [EnergyShield|Energy Shield] per player level</table>  </div></div>",
+  "fields": {
+    "Name": "Studded",
+    "Family": "BaseLocalDefences",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "8 (Effective: 6)",
+    "Gold Price": "178",
+    "Stats": "local base physical damage reduction rating 28 — 56 Local",
+    "Spawn Tags": "str_armour: 1 str_dex_int_armour: 1 default: 0",
+    "Craft Tags": "defences Armour"
+  },
+  "code": "LocalIncreasedPhysicalDamageReductionRating2",
+  "stats": [
+    {
+      "id": "local_base_physical_damage_reduction_rating",
+      "min": 28,
+      "max": 56,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "str_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

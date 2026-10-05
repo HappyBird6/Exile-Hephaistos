@@ -1,0 +1,73 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "60",
+    "DropChance": 0,
+    "ModGenerationTypeID": "1",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>"
+    ],
+    "fossil_no": [
+      "caster_damage",
+      "damage",
+      "caster"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/e4fac018bcce92b46435779d4a9653741996d37cc3cd7df5e76c4f34672dc25c\" href=\"Greater_Essence_of_Sorcery\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterCasterEssence.webp\" alt=\"GreaterCasterEssence\" height=\"16\" />Greater Essence of Sorcery</a>",
+    "Code": "SpellDamageOnWeapon6",
+    "ModFamilyList": [
+      "WeaponCasterDamagePrefix"
+    ],
+    "str": "<span class='mod-value'>(75<span class=\"ndash\">—</span>89)</span>% increased <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Damage",
+    "adds_no": [],
+    "spawn_no": [
+      "focus",
+      "wand",
+      "default"
+    ],
+    "reqlvl": 48,
+    "IsPerfect": "0",
+    "IsAlloy": false,
+    "Removes": false
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon6",
+  "textLocale": "us",
+  "detailText": "(75—89)% increased Spell Damage",
+  "retrievedAt": "2026-10-05T04:37:08.490Z",
+  "sha256": "b2f6e0e2598478b336e7f5f963bca0ff105891e78c9a27b09bf16bd62fc4d343",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(75<span class=\"ndash\">—</span>89)</span>% increased <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Damage</span></h5>   <span data-tabname=\"Incanter's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Incanter's\n<tr><th>Family<td>WeaponCasterDamagePrefix\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>2107\n<tr><th>Stats<td><li>spell damage +% <span class=\"badge bg-primary\">75 <span class=\"ndash\">—</span> 89</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Caster</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Incanter's",
+    "Family": "WeaponCasterDamagePrefix",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "60 (Effective: 48)",
+    "Gold Price": "2107",
+    "Stats": "spell damage +% 75 — 89 Global",
+    "Spawn Tags": "focus: 1 wand: 1 default: 0",
+    "Craft Tags": "caster_damage Damage Caster"
+  },
+  "code": "SpellDamageOnWeapon6",
+  "stats": [
+    {
+      "id": "spell_damage_+%",
+      "min": 75,
+      "max": 89,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "focus",
+      "weight": 1
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

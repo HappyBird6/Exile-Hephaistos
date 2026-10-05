@@ -19,6 +19,7 @@ public final class QualityLimitRules {
         && !ReviewedBoots.supports(state.baseItemId())
         && !ReviewedBows.supports(state.baseItemId())
         && !ReviewedCrossbows.supports(state.baseItemId())
+        && !ReviewedOffhands.supports(state.baseItemId())
         && !ReviewedRings.supports(state.baseItemId())
         && !ReviewedAmulets.supports(state.baseItemId())
         && !ReviewedSceptres.supports(state.baseItemId())

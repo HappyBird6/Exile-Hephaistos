@@ -1,0 +1,67 @@
+{
+  "row": {
+    "Name": "Dancer's",
+    "Level": "8",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefences"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(19<span class=\"ndash\">—</span>46)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating",
+    "fossil_no": [
+      "defences",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "dex_armour",
+      "str_dex_int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4f758b2887d1f83f5fe015e6b732422d205d31b0770ed46044eadaceab40802f"
+  },
+  "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FLocalIncreasedEvasionRating2",
+  "textLocale": "kr",
+  "detailText": "회피 +(19—46)",
+  "retrievedAt": "2026-10-05T04:32:41.555Z",
+  "sha256": "b415be34e8bfd9e8290a724f0e04b97898a9e805ae9ed0cb5bdbcf6f476e36c8",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/85b48b6cf92de45d083fd0742b7175764936328e18e23728fc75b967f813e55f\">회피</a> <span class='mod-value'>+(19<span class=\"ndash\">—</span>46)</span></span></h5>   <span data-tabname=\"춤꾼의\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>춤꾼의\n<tr><th>Family<td>BaseLocalDefences\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>접두어 (1)\n<tr><th>Req. level<td>8 (Effective: 6)\n<tr><th>Gold Price<td>178\n<tr><th>Stats<td><li>local base evasion rating <span class=\"badge bg-primary\">19 <span class=\"ndash\">—</span> 46</span> <span class=\"badge bg-secondary\">지역</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>dex_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>회피</span> \n<tr><td>돌 주먹<td>플레이어 레벨 1당 [Evasion|회피] <span class='mod-value'>+1</span><br>플레이어 레벨 1당 [EnergyShield|에너지 보호막] 최대치 <span class='mod-value'>+1</span></table>  </div></div>",
+  "fields": {
+    "Name": "춤꾼의",
+    "Family": "BaseLocalDefences",
+    "Domains": "아이템 (1)",
+    "GenerationType": "접두어 (1)",
+    "Req. level": "8 (Effective: 6)",
+    "Gold Price": "178",
+    "Stats": "local base evasion rating 19 — 46 지역",
+    "Spawn Tags": "dex_armour: 1 str_dex_int_armour: 1 default: 0",
+    "Craft Tags": "defences 회피"
+  },
+  "code": "LocalIncreasedEvasionRating2",
+  "stats": [
+    {
+      "id": "local_base_evasion_rating",
+      "min": 19,
+      "max": 46,
+      "locality": "지역"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "dex_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

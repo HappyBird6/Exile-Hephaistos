@@ -1,0 +1,85 @@
+{
+  "row": {
+    "Name": "Unforgiving",
+    "Level": "8",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "WeaponDamageTypePrefix"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(35<span class=\"ndash\">—</span>44)</span>% increased <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage",
+    "fossil_no": [
+      "physical_damage",
+      "damage",
+      "physical"
+    ],
+    "adds_no": [
+      "no_fire_spell_mods",
+      "no_cold_spell_mods",
+      "no_lightning_spell_mods",
+      "no_chaos_spell_mods"
+    ],
+    "spawn_no": [
+      "focus",
+      "no_physical_spell_mods",
+      "wand",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/1a3e7e05cc77f7e016016a1a8bd94ae98215e2d02f6a061c5239b80f88f6dd19"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FPhysicalDamagePrefixOnWeapon2",
+  "textLocale": "us",
+  "detailText": "(35—44)% increased Spell Physical Damage",
+  "retrievedAt": "2026-10-05T04:36:31.668Z",
+  "sha256": "bb7889ddf1f0245f1d769c65f62c01061e622071aea38007d9082b3320adc38d",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(35<span class=\"ndash\">—</span>44)</span>% increased <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage</span></h5>   <span data-tabname=\"Unforgiving\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Unforgiving\n<tr><th>Family<td>WeaponDamageTypePrefix\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>8 (Effective: 6)\n<tr><th>Gold Price<td>287\n<tr><th>Stats<td><li>spell physical damage +% <span class=\"badge bg-primary\">35 <span class=\"ndash\">—</span> 44</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>no_physical_spell_mods: 0</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_fire_spell_mods</span> <span class='badge bg-primary'>no_cold_spell_mods</span> <span class='badge bg-primary'>no_lightning_spell_mods</span> <span class='badge bg-primary'>no_chaos_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>physical_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Physical</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Unforgiving",
+    "Family": "WeaponDamageTypePrefix",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "8 (Effective: 6)",
+    "Gold Price": "287",
+    "Stats": "spell physical damage +% 35 — 44 Global",
+    "Spawn Tags": "focus: 1 no_physical_spell_mods: 0 wand: 1 trap: 1 default: 0",
+    "Adds Tags": "no_fire_spell_mods no_cold_spell_mods no_lightning_spell_mods no_chaos_spell_mods",
+    "Craft Tags": "physical_damage Damage Physical"
+  },
+  "code": "PhysicalDamagePrefixOnWeapon2",
+  "stats": [
+    {
+      "id": "spell_physical_damage_+%",
+      "min": 35,
+      "max": 44,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "focus",
+      "weight": 1
+    },
+    {
+      "tag": "no_physical_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "trap",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

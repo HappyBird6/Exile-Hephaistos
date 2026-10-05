@@ -55,6 +55,13 @@ const baseTexts = {
     'Item Class: Crossbows\nRarity: Normal\nDesolate Crossbow',
   'engraved-crossbow':
     'Item Class: Crossbows\nRarity: Normal\nEngraved Crossbow',
+  'tawhoan-tower-shield':
+    'Item Class: Shields\nRarity: Normal\nTawhoan Tower Shield',
+  'golden-targe': 'Item Class: Shields\nRarity: Normal\nGolden Targe',
+  'blacksteel-crest-shield':
+    'Item Class: Shields\nRarity: Normal\nBlacksteel Crest Shield',
+  'desert-buckler': 'Item Class: Bucklers\nRarity: Normal\nDesert Buckler',
+  'tasalian-focus': 'Item Class: Foci\nRarity: Normal\nTasalian Focus',
   bone: 'Item Class: Wands\nRarity: Normal\nBone Wand',
   siphoning: 'Item Class: Wands\nRarity: Normal\nSiphoning Wand',
   volatile: 'Item Class: Wands\nRarity: Normal\nVolatile Wand',
@@ -169,6 +176,11 @@ type Draft = {
     | 'flexed-crossbow'
     | 'desolate-crossbow'
     | 'engraved-crossbow'
+    | 'tawhoan-tower-shield'
+    | 'golden-targe'
+    | 'blacksteel-crest-shield'
+    | 'desert-buckler'
+    | 'tasalian-focus'
     | 'bone'
     | 'siphoning'
     | 'volatile'
@@ -273,6 +285,11 @@ type Draft = {
       | 'flexed-crossbow'
       | 'desolate-crossbow'
       | 'engraved-crossbow'
+      | 'tawhoan-tower-shield'
+      | 'golden-targe'
+      | 'blacksteel-crest-shield'
+      | 'desert-buckler'
+      | 'tasalian-focus'
       | 'bone'
       | 'siphoning'
       | 'volatile'

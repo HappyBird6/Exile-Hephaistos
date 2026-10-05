@@ -1,0 +1,61 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "72",
+    "DropChance": 0,
+    "ModGenerationTypeID": "2",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+    ],
+    "fossil_no": [
+      "resource",
+      "mana"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/ee31d4818bc019b9af86e06ca009a58954970a9e094c200add7c6a5623f78630\" href=\"Perfect_Essence_of_Alacrity\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/SpeedCasterEssencePerfect.webp\" alt=\"SpeedCasterEssencePerfect\" height=\"16\" />Perfect Essence of Alacrity</a>",
+    "Code": "EssenceManaCostReduction",
+    "ModFamilyList": [
+      "ManaCostEfficiency"
+    ],
+    "str": "<span class='mod-value'>(18<span class=\"ndash\">—</span>20)</span>% increased Mana Cost <a data-keyword=\"Efficiency\" href=\"Efficiency\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/70723d2a3bf2c663ac779e838411a5be7995f4854d76a354c23f3a7c61a556a3\">Efficiency</a>",
+    "adds_no": [],
+    "spawn_no": [
+      "default"
+    ],
+    "reqlvl": 57,
+    "IsPerfect": "1",
+    "IsAlloy": false,
+    "Removes": true
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceManaCostReduction",
+  "textLocale": "us",
+  "detailText": "(18—20)% increased Mana Cost Efficiency",
+  "retrievedAt": "2026-10-05T04:37:14.685Z",
+  "sha256": "2feefea6b27b8d79b4e02b75aa09727663ae36911a4528305a296a1e3bd1f251",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(18<span class=\"ndash\">—</span>20)</span>% increased Mana Cost <a data-keyword=\"Efficiency\" href=\"Efficiency\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/70723d2a3bf2c663ac779e838411a5be7995f4854d76a354c23f3a7c61a556a3\">Efficiency</a></span></h5>   <span data-tabname=\"of the Essence\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Essence\n<tr><th>Family<td>ManaCostEfficiency\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>base mana cost efficiency +% <span class=\"badge bg-primary\">18 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of the Essence",
+    "Family": "ManaCostEfficiency",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "72 (Effective: 57)",
+    "Gold Price": "3266",
+    "Stats": "base mana cost efficiency +% 18 — 20 Global",
+    "Spawn Tags": "default: 0",
+    "Craft Tags": "resource Mana"
+  },
+  "code": "EssenceManaCostReduction",
+  "stats": [
+    {
+      "id": "base_mana_cost_efficiency_+%",
+      "min": 18,
+      "max": 20,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "row": {
+    "Name": "of Obstruction",
+    "Level": "69",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ReducedExtraDamageFromCrits"
+    ],
+    "DropChance": "800",
+    "str": "<a data-keyword=\"Hit\" href=\"Hit_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/396ec0ccc46f63acd9059876455d4a9f7d5108864acf9fc0f4c56be5a6f9cd57\">Hits</a> against you have <span class='mod-value'>(42<span class=\"ndash\">—</span>47)</span>% reduced <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244\">Critical Damage Bonus</a>",
+    "fossil_no": [
+      "damage",
+      "critical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_shield",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b22da8620f9de23e044991f5428b6973824823388df3db9861b122ee088afa96"
+  },
+  "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FReducedExtraDamageFromCrits4__",
+  "textLocale": "kr",
+  "detailText": "플레이어에 대한 명중의 치명타 피해 보너스 (42—47)% 감소",
+  "retrievedAt": "2026-10-05T04:30:23.314Z",
+  "sha256": "f8b083b3265bf9f35c4ff2444e11007f7dce34b60c8f8d3ed8a69827800d44d5",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>플레이어에 대한 명중의 <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/cde17c32e06462fc6d6a50e75b85f403b09cf4c60d73d963ff51b66c0e62b155\">치명타 피해 보너스</a> <span class='mod-value'>(42<span class=\"ndash\">—</span>47)</span>% 감소</span></h5>   <span data-tabname=\"- 장애물\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>- 장애물\n<tr><th>Family<td>ReducedExtraDamageFromCrits\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>접미어 (2)\n<tr><th>Req. level<td>69 (Effective: 55)\n<tr><th>Gold Price<td>2084\n<tr><th>Stats<td><li>base self critical strike multiplier -% <span class=\"badge bg-primary\">42 <span class=\"ndash\">—</span> 47</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>str_dex_shield: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>피해</span> <span class='badge bg-primary'>치명타</span> </table>  </div></div>",
+  "fields": {
+    "Name": "- 장애물",
+    "Family": "ReducedExtraDamageFromCrits",
+    "Domains": "아이템 (1)",
+    "GenerationType": "접미어 (2)",
+    "Req. level": "69 (Effective: 55)",
+    "Gold Price": "2084",
+    "Stats": "base self critical strike multiplier -% 42 — 47 Global",
+    "Spawn Tags": "str_dex_shield: 1 default: 0",
+    "Craft Tags": "피해 치명타"
+  },
+  "code": "ReducedExtraDamageFromCrits4__",
+  "stats": [
+    {
+      "id": "base_self_critical_strike_multiplier_-%",
+      "min": 42,
+      "max": 47,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "str_dex_shield",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

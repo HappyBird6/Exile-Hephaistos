@@ -1,0 +1,61 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "45",
+    "DropChance": 0,
+    "ModGenerationTypeID": "2",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+    ],
+    "fossil_no": [
+      "speed"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/8d8cd4923e44549c98bcafe1ca44d99fc35e9405981e443aba606cf6668462f3\" href=\"Swift_Alloy\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/PureVerisium.webp\" alt=\"PureVerisium\" height=\"16\" />Swift Alloy</a>",
+    "Code": "AlloyTotemPlacementSpeed1",
+    "ModFamilyList": [
+      "SummonTotemCastSpeed"
+    ],
+    "str": "<span class='mod-value'>(30<span class=\"ndash\">—</span>49)</span>% increased <a data-keyword=\"Totem\" href=\"Totems\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/01e3f46daa4a65d87af84f50f760d424462caadaddc64031664ce2c91d5aac0b\">Totem</a> Placement speed",
+    "adds_no": [],
+    "spawn_no": [
+      "default"
+    ],
+    "reqlvl": 36,
+    "IsPerfect": "0",
+    "IsAlloy": true,
+    "Removes": true
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyTotemPlacementSpeed1",
+  "textLocale": "us",
+  "detailText": "(30—49)% increased Totem Placement speed",
+  "retrievedAt": "2026-10-05T04:29:25.145Z",
+  "sha256": "56188b10a2c14998225529b99f12e538e550415813c366f18ce0e96791b1eafd",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(30<span class=\"ndash\">—</span>49)</span>% increased <a data-keyword=\"Totem\" href=\"Totems\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/01e3f46daa4a65d87af84f50f760d424462caadaddc64031664ce2c91d5aac0b\">Totem</a> Placement speed</span></h5>   <span data-tabname=\"of the Stars\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Stars\n<tr><th>Family<td>SummonTotemCastSpeed\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>45 (Effective: 36)\n<tr><th>Gold Price<td>446\n<tr><th>Stats<td><li>summon totem cast speed +% <span class=\"badge bg-primary\">30 <span class=\"ndash\">—</span> 49</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Speed</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of the Stars",
+    "Family": "SummonTotemCastSpeed",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "45 (Effective: 36)",
+    "Gold Price": "446",
+    "Stats": "summon totem cast speed +% 30 — 49 Global",
+    "Spawn Tags": "default: 0",
+    "Craft Tags": "Speed"
+  },
+  "code": "AlloyTotemPlacementSpeed1",
+  "stats": [
+    {
+      "id": "summon_totem_cast_speed_+%",
+      "min": 30,
+      "max": 49,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/jp/Blacksteel_Crest_Shield",
+  "retrievedAt": "2026-10-05T04:18:11.082Z",
+  "sha256": "0617dd06013ee92f5b63998f7951680e48b4e60e5b35c513489750bc40e9202e",
+  "variants": [
+    {
+      "name": "ブラックスティールクレストシールド",
+      "card": "ブラックスティールクレストシールド\n        \n    \n    \n        \n            盾ブロック率: 25%アーマー: 145エナジーシールド: 40Base Movement Speed: -0.015装備条件： レベル 80, 63 筋力, 63 知性 スキルを付与: レイズシールド\n        \n\n\n\n        \n            Blacksteel Crest Shield",
+      "requirements": "装備条件： レベル 80, 63 筋力, 63 知性",
+      "fields": {
+        "DropLevel": "80",
+        "BaseType": "ブラックスティールクレストシールド",
+        "Class": "盾",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/Shields/FourShieldStrInt7Endgame",
+        "Tags": "str_int_armour, str_int_shield, karui_basetype, shield, armour",
+        "Icon": "Art/2DItems/Offhand/Shields/Crest07",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, shield",
+        "Base.x_size": "2",
+        "Base.y_size": "2",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100",
+        "Shield.block_percentage": "0"
+      }
+    }
+  ]
+}

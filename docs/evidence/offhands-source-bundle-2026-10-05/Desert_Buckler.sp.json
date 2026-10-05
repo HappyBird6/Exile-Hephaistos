@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/sp/Desert_Buckler",
+  "retrievedAt": "2026-10-05T04:18:21.475Z",
+  "sha256": "641fe4d2a6bc56fe6f2d16972db11c345213c970972e14df79e4a9242e3fe9e2",
+  "variants": [
+    {
+      "name": "Broquel desértico",
+      "card": "Broquel desértico\n        \n    \n    \n        \n            BroquelesProbabilidad de bloqueo: 20%Evasión: 192Requiere:  Nivel 80, 115 Des Otorga la habilidad: Parada\n        \n\n\n\n        \n            Desert Buckler",
+      "requirements": "Requiere:  Nivel 80, 115 Des",
+      "fields": {
+        "DropLevel": "80",
+        "BaseType": "Broquel desértico",
+        "Class": "Broqueles",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanScourge",
+        "Type": "Metadata/Items/Armours/Shields/FourShieldDex9Endgame",
+        "Tags": "dex_armour, dex_shield, karui_basetype, buckler, shield, armour",
+        "Icon": "Art/2DItems/Offhand/Shields/Buckler09",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, buckler, shield",
+        "Base.x_size": "2",
+        "Base.y_size": "2",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100",
+        "Shield.block_percentage": "0"
+      }
+    }
+  ]
+}

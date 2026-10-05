@@ -1,0 +1,77 @@
+{
+  "row": {
+    "Name": "Warlord's",
+    "Level": "74",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DefencesPercentAndStunThreshold"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(39<span class=\"ndash\">—</span>42)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a><br><span class='mod-value'>+(95<span class=\"ndash\">—</span>136)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/316a7a69eefcbd428676307b835263fc26186fee563e3838fb17fd8b29742b43\">Stun Threshold</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "helmet",
+      "gloves",
+      "str_dex_armour",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0a4ff35722ecf70088955e46ce5858174a17d590a0fd9c0c64540dcdf5a09b3e"
+  },
+  "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FLocalArmourAndEvasionAndStunThreshold6",
+  "textLocale": "cn",
+  "detailText": "护甲与闪避提高 (39—42)%\n+(95—136) 晕眩阈值",
+  "retrievedAt": "2026-10-05T04:30:18.388Z",
+  "sha256": "db69c5955dd37cbf02f129c519114531989823f4ace7c496c43db1f69e3f754b",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/cn/Poe_Data_KeywordPopups_hover/35dfc434e5b7ae7bdaa9b378843c07d94d1e017d23be04a6edd174758a600724\">护甲</a>与<a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/cn/Poe_Data_KeywordPopups_hover/3367f5feeedce76d774525b244656530ccd592f3363fb90fbc1977e4c23150e2\">闪避</a>提高 <span class='mod-value'>(39<span class=\"ndash\">—</span>42)</span>%<br><span class='mod-value'>+(95<span class=\"ndash\">—</span>136)</span> <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/cn/Poe_Data_KeywordPopups_hover/1b19145b75cdae6299a272fdc3bfcd0d7603938fb808f1d9aa2e8153fab4e730\">晕眩阈值</a></span></h5>   <span data-tabname=\"督军的\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>督军的\n<tr><th>Family<td>DefencesPercentAndStunThreshold\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>前缀 (1)\n<tr><th>Req. level<td>74 (Effective: 59)\n<tr><th>Gold Price<td>2583\n<tr><th>Stats<td><li>stun threshold + <span class=\"badge bg-primary\">95 <span class=\"ndash\">—</span> 136</span> <span class=\"badge bg-secondary\">Global</span></li><li>local armour and evasion +% <span class=\"badge bg-primary\">39 <span class=\"ndash\">—</span> 42</span> <span class=\"badge bg-secondary\">区域</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 0</span> <span class='badge bg-primary'>helmet: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>str_dex_armour: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "fields": {
+    "Name": "督军的",
+    "Family": "DefencesPercentAndStunThreshold",
+    "Domains": "物品 (1)",
+    "GenerationType": "前缀 (1)",
+    "Req. level": "74 (Effective: 59)",
+    "Gold Price": "2583",
+    "Stats": "stun threshold + 95 — 136 Globallocal armour and evasion +% 39 — 42 区域",
+    "Spawn Tags": "body_armour: 0 helmet: 0 gloves: 0 str_dex_armour: 1 default: 0"
+  },
+  "code": "LocalArmourAndEvasionAndStunThreshold6",
+  "stats": [
+    {
+      "id": "stun_threshold_+",
+      "min": 95,
+      "max": 136,
+      "locality": "Global"
+    },
+    {
+      "id": "local_armour_and_evasion_+%",
+      "min": 39,
+      "max": 42,
+      "locality": "区域"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "body_armour",
+      "weight": 0
+    },
+    {
+      "tag": "helmet",
+      "weight": 0
+    },
+    {
+      "tag": "gloves",
+      "weight": 0
+    },
+    {
+      "tag": "str_dex_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

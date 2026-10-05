@@ -1,0 +1,84 @@
+{
+  "row": {
+    "Name": "of the Whelpling",
+    "Level": "1",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "FireResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(6<span class=\"ndash\">—</span>10)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Fire Resistance</a>",
+    "fossil_no": [
+      "elemental_resistance",
+      "fire_resistance",
+      "elemental",
+      "fire",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/64fa1c3e757e642a5cac9b01f54d56cdbd5fcc1fe21d2267c2da9ffb281f5dea"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/64fa1c3e757e642a5cac9b01f54d56cdbd5fcc1fe21d2267c2da9ffb281f5dea",
+  "textLocale": "us",
+  "detailText": "+(6—10)% to Fire Resistance",
+  "retrievedAt": "2026-10-05T04:18:55.911Z",
+  "sha256": "64fa1c3e757e642a5cac9b01f54d56cdbd5fcc1fe21d2267c2da9ffb281f5dea",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(6<span class=\"ndash\">—</span>10)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/84ff16d8aeeb61c6cd1c5a881495ab9e03153c83989fb54629cfeeeb8e92266e\">Fire Resistance</a></span></h5>   <span data-tabname=\"of the Whelpling\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Whelpling\n<tr><th>Family<td>FireResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>1\n<tr><th>Gold Price<td>148\n<tr><th>Stats<td><li>base fire damage resistance % <span class=\"badge bg-primary\">6 <span class=\"ndash\">—</span> 10</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>armour: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>fire_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Fire</span> <span class='badge bg-primary'>Resistance</span> \n<tr><th>Horticrafting<td>Can change Element modifier\n<tr><td>Fists of Stone<td><span class='mod-value'>+1</span>% to [MaximumResistances|Maximum Fire Resistance]<br><span class='mod-value'>+(11<span class=\"ndash\">—</span>15)</span>% to [Resistances|Fire Resistance]</table>  </div></div>",
+  "fields": {
+    "Name": "of the Whelpling",
+    "Family": "FireResistance",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "1",
+    "Gold Price": "148",
+    "Stats": "base fire damage resistance % 6 — 10 Global",
+    "Spawn Tags": "armour: 1 ring: 1 amulet: 1 belt: 1 default: 0",
+    "Craft Tags": "elemental_resistance fire_resistance Elemental Fire Resistance",
+    "Horticrafting": "Can change Element modifier"
+  },
+  "code": "FireResist1",
+  "stats": [
+    {
+      "id": "base_fire_damage_resistance_%",
+      "min": 6,
+      "max": 10,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "armour",
+      "weight": 1
+    },
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "amulet",
+      "weight": 1
+    },
+    {
+      "tag": "belt",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

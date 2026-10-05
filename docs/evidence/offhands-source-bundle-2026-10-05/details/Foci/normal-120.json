@@ -1,0 +1,92 @@
+{
+  "row": {
+    "Name": "of Nirvana",
+    "Level": "79",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ManaRegeneration"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(60<span class=\"ndash\">—</span>69)</span>% increased Mana Regeneration Rate",
+    "fossil_no": [
+      "resource",
+      "mana"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "focus",
+      "sceptre",
+      "wand",
+      "trap",
+      "genesis_tree_caster",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/669d4114c355d908317bf9e439c4e1cc2364405cf06f1a7e65c3b4c3eaf59393"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/669d4114c355d908317bf9e439c4e1cc2364405cf06f1a7e65c3b4c3eaf59393",
+  "textLocale": "us",
+  "detailText": "(60—69)% increased Mana Regeneration Rate",
+  "retrievedAt": "2026-10-05T04:36:39.111Z",
+  "sha256": "669d4114c355d908317bf9e439c4e1cc2364405cf06f1a7e65c3b4c3eaf59393",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(60<span class=\"ndash\">—</span>69)</span>% increased Mana Regeneration Rate</span></h5>   <span data-tabname=\"of Nirvana\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Nirvana\n<tr><th>Family<td>ManaRegeneration\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>79 (Effective: 63)\n<tr><th>Gold Price<td>2169\n<tr><th>Stats<td><li>mana regeneration rate +% <span class=\"badge bg-primary\">60 <span class=\"ndash\">—</span> 69</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>sceptre: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>genesis_tree_caster: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Nirvana",
+    "Family": "ManaRegeneration",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "79 (Effective: 63)",
+    "Gold Price": "2169",
+    "Stats": "mana regeneration rate +% 60 — 69 Global",
+    "Spawn Tags": "ring: 1 amulet: 1 focus: 1 sceptre: 1 wand: 1 trap: 1 genesis_tree_caster: 1 default: 0",
+    "Craft Tags": "resource Mana"
+  },
+  "code": "ManaRegeneration6",
+  "stats": [
+    {
+      "id": "mana_regeneration_rate_+%",
+      "min": 60,
+      "max": 69,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "amulet",
+      "weight": 1
+    },
+    {
+      "tag": "focus",
+      "weight": 1
+    },
+    {
+      "tag": "sceptre",
+      "weight": 1
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "trap",
+      "weight": 1
+    },
+    {
+      "tag": "genesis_tree_caster",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

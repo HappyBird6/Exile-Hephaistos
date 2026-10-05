@@ -1,0 +1,85 @@
+{
+  "row": {
+    "Name": "Impure",
+    "Level": "2",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "WeaponDamageTypePrefix"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(25<span class=\"ndash\">—</span>34)</span>% increased <a data-keyword=\"Chaos\" href=\"Chaos_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/d5e91fde5dc8d1d0b9cfdb8a42b1eda58c5d5c3b17836c8aa5ea96385c550943\">Chaos</a> Damage",
+    "fossil_no": [
+      "chaos_damage",
+      "damage",
+      "chaos"
+    ],
+    "adds_no": [
+      "no_fire_spell_mods",
+      "no_cold_spell_mods",
+      "no_lightning_spell_mods",
+      "no_physical_spell_mods"
+    ],
+    "spawn_no": [
+      "focus",
+      "no_chaos_spell_mods",
+      "wand",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3725f64a2c9b3b765e42258101ee09b63f2f40a2dd17c3031dd1b996415bb8e5"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosDamagePrefixOnWeapon1",
+  "textLocale": "us",
+  "detailText": "(25—34)% increased Chaos Damage",
+  "retrievedAt": "2026-10-05T04:36:17.283Z",
+  "sha256": "31fa28718ea5a8f53493d94c06c13b3b8a9bb986e4c262ce1a3deb5670aa0216",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(25<span class=\"ndash\">—</span>34)</span>% increased <a data-keyword=\"Chaos\" href=\"Chaos_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/d5e91fde5dc8d1d0b9cfdb8a42b1eda58c5d5c3b17836c8aa5ea96385c550943\">Chaos</a> Damage</span></h5>   <span data-tabname=\"Impure\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Impure\n<tr><th>Family<td>WeaponDamageTypePrefix\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>2 (Effective: 1)\n<tr><th>Gold Price<td>166\n<tr><th>Stats<td><li>chaos damage +% <span class=\"badge bg-primary\">25 <span class=\"ndash\">—</span> 34</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>no_chaos_spell_mods: 0</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_fire_spell_mods</span> <span class='badge bg-primary'>no_cold_spell_mods</span> <span class='badge bg-primary'>no_lightning_spell_mods</span> <span class='badge bg-primary'>no_physical_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>chaos_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Chaos</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Impure",
+    "Family": "WeaponDamageTypePrefix",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "2 (Effective: 1)",
+    "Gold Price": "166",
+    "Stats": "chaos damage +% 25 — 34 Global",
+    "Spawn Tags": "focus: 1 no_chaos_spell_mods: 0 wand: 1 trap: 1 default: 0",
+    "Adds Tags": "no_fire_spell_mods no_cold_spell_mods no_lightning_spell_mods no_physical_spell_mods",
+    "Craft Tags": "chaos_damage Damage Chaos"
+  },
+  "code": "ChaosDamagePrefixOnWeapon1",
+  "stats": [
+    {
+      "id": "chaos_damage_+%",
+      "min": 25,
+      "max": 34,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "focus",
+      "weight": 1
+    },
+    {
+      "tag": "no_chaos_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "trap",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

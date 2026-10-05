@@ -1,0 +1,75 @@
+{
+  "row": {
+    "Name": "Hallowed",
+    "Level": "46",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefences"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(72<span class=\"ndash\">—</span>85)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(22<span class=\"ndash\">—</span>25)</span> to maximum <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "energy_shield"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_int_armour",
+      "str_dex_int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingenergy_shield\" data-tag=\"energy_shield\">Energy Shield</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9e20c14c1a9b8beb5930c3dd133d266242c335700dcf2d0761388bfa886653f3"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FLocalBaseArmourAndEnergyShield4",
+  "textLocale": "sp",
+  "detailText": "+(72—85) a la armadura\n+(22—25) al escudo de energía máximo",
+  "retrievedAt": "2026-10-05T04:31:19.920Z",
+  "sha256": "cd6c539a895141d97183334d005ebeab29fa67b5f451307f178250b5363b7353",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(72<span class=\"ndash\">—</span>85)</span> a la <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FArmour\">armadura</a><br><span class='mod-value'>+(22<span class=\"ndash\">—</span>25)</span> al <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FEnergyShield\">escudo de energía</a> máximo</span></h5>   <span data-tabname=\"<if:MS>{sagrado}<elif:FS>{sagrada}<elif:MP>{sagrados}<elif:FP>{sagradas}\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td><if:MS>{sagrado}<elif:FS>{sagrada}<elif:MP>{sagrados}<elif:FP>{sagradas}\n<tr><th>Family<td>BaseLocalDefences\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Prefijo (1)\n<tr><th>Req. level<td>46 (Effective: 36)\n<tr><th>Gold Price<td>635\n<tr><th>Stats<td><li>local energy shield <span class=\"badge bg-primary\">22 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Local</span></li><li>local base physical damage reduction rating <span class=\"badge bg-primary\">72 <span class=\"ndash\">—</span> 85</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>str_int_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Armadura</span> <span class='badge bg-primary'>Escudo de energía</span> \n<tr><td>Puños de roca<td>El <span class='mod-value'>7</span>% del daño recibido se recobra como vida, maná y [EnergyShield|escudo de energía]</table>  </div></div>",
+  "fields": {
+    "Name": "{sagrado}{sagrada}{sagrados}{sagradas}",
+    "Family": "BaseLocalDefences",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Prefijo (1)",
+    "Req. level": "46 (Effective: 36)",
+    "Gold Price": "635",
+    "Stats": "local energy shield 22 — 25 Locallocal base physical damage reduction rating 72 — 85 Local",
+    "Spawn Tags": "str_int_armour: 1 str_dex_int_armour: 1 default: 0",
+    "Craft Tags": "defences Armadura Escudo de energía"
+  },
+  "code": "LocalBaseArmourAndEnergyShield4",
+  "stats": [
+    {
+      "id": "local_energy_shield",
+      "min": 22,
+      "max": 25,
+      "locality": "Local"
+    },
+    {
+      "id": "local_base_physical_damage_reduction_rating",
+      "min": 72,
+      "max": 85,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "str_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

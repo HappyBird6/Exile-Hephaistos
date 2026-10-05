@@ -1,0 +1,59 @@
+{
+  "row": {
+    "Name": "Unrelenting",
+    "Level": "33",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedShieldBlockPercentage"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(20<span class=\"ndash\">—</span>24)</span>% increased <a data-keyword=\"Block\" href=\"Block\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/013f893301a6a288685d2a8ca0f9b1e89ad6d4681b3bdc92506ebb25a166c195\">Block</a> chance",
+    "fossil_no": [
+      "block"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "shield",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f1256273095bca2b7ea2e0adcb63792a784d9be7b883ca86b193300bd7d8c9cd"
+  },
+  "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FLocalBlockChance2",
+  "textLocale": "kr",
+  "detailText": "막기 확률 (20—24)% 증가",
+  "retrievedAt": "2026-10-05T04:20:20.604Z",
+  "sha256": "8ceef018ca423eaec14b3f2020de802ba0b234184ae8501b3229664ed8322e9c",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Block\" href=\"Block\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/f51a7363cc61186a17fc0b041876e852096afa5a0f32df72dda15aadb08a016e\">막기</a> 확률 <span class='mod-value'>(20<span class=\"ndash\">—</span>24)</span>% 증가</span></h5>   <span data-tabname=\"가차없는\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>가차없는\n<tr><th>Family<td>IncreasedShieldBlockPercentage\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>접두어 (1)\n<tr><th>Req. level<td>33 (Effective: 26)\n<tr><th>Gold Price<td>407\n<tr><th>Stats<td><li>local block chance +% <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 24</span> <span class=\"badge bg-secondary\">지역</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>shield: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>block</i></span> </table>  </div></div>",
+  "fields": {
+    "Name": "가차없는",
+    "Family": "IncreasedShieldBlockPercentage",
+    "Domains": "아이템 (1)",
+    "GenerationType": "접두어 (1)",
+    "Req. level": "33 (Effective: 26)",
+    "Gold Price": "407",
+    "Stats": "local block chance +% 20 — 24 지역",
+    "Spawn Tags": "shield: 1 default: 0",
+    "Craft Tags": "block"
+  },
+  "code": "LocalBlockChance2",
+  "stats": [
+    {
+      "id": "local_block_chance_+%",
+      "min": 20,
+      "max": 24,
+      "locality": "지역"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "shield",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

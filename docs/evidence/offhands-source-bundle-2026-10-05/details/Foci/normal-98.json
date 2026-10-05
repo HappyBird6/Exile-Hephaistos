@@ -1,0 +1,87 @@
+{
+  "row": {
+    "Name": "Coursing",
+    "Level": "33",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "WeaponDamageTypePrefix"
+    ],
+    "DropChance": "400",
+    "str": "<span class='mod-value'>(55<span class=\"ndash\">—</span>64)</span>% increased <a data-keyword=\"Lightning\" href=\"Lightning_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1d5815b2f2bd5f23d99d435288c3b41e79adf38037cf8d2a266bc276f527201d\">Lightning</a> Damage",
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "lightning"
+    ],
+    "adds_no": [
+      "no_fire_spell_mods",
+      "no_cold_spell_mods",
+      "no_chaos_spell_mods",
+      "no_physical_spell_mods"
+    ],
+    "spawn_no": [
+      "focus",
+      "no_lightning_spell_mods",
+      "wand",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d2b85d52754fbe95ad98568f49b88a4ed4a95d8d8529f9a72aa10f596fa87a0a"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningDamagePrefixOnWeapon4",
+  "textLocale": "us",
+  "detailText": "(55—64)% increased Lightning Damage",
+  "retrievedAt": "2026-10-05T04:36:13.965Z",
+  "sha256": "7ed65c913f70eab05c3c58dfbb8437f23719fc60bb4c61167e18d3489bc91a8e",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(55<span class=\"ndash\">—</span>64)</span>% increased <a data-keyword=\"Lightning\" href=\"Lightning_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1d5815b2f2bd5f23d99d435288c3b41e79adf38037cf8d2a266bc276f527201d\">Lightning</a> Damage</span></h5>   <span data-tabname=\"Coursing\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Coursing\n<tr><th>Family<td>WeaponDamageTypePrefix\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>33 (Effective: 26)\n<tr><th>Gold Price<td>852\n<tr><th>Stats<td><li>lightning damage +% <span class=\"badge bg-primary\">55 <span class=\"ndash\">—</span> 64</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>no_lightning_spell_mods: 0</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_fire_spell_mods</span> <span class='badge bg-primary'>no_cold_spell_mods</span> <span class='badge bg-primary'>no_chaos_spell_mods</span> <span class='badge bg-primary'>no_physical_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Lightning</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Coursing",
+    "Family": "WeaponDamageTypePrefix",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "33 (Effective: 26)",
+    "Gold Price": "852",
+    "Stats": "lightning damage +% 55 — 64 Global",
+    "Spawn Tags": "focus: 1 no_lightning_spell_mods: 0 wand: 1 trap: 1 default: 0",
+    "Adds Tags": "no_fire_spell_mods no_cold_spell_mods no_chaos_spell_mods no_physical_spell_mods",
+    "Craft Tags": "elemental_damage Damage Elemental Lightning"
+  },
+  "code": "LightningDamagePrefixOnWeapon4",
+  "stats": [
+    {
+      "id": "lightning_damage_+%",
+      "min": 55,
+      "max": 64,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "focus",
+      "weight": 1
+    },
+    {
+      "tag": "no_lightning_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "trap",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

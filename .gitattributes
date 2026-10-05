@@ -5,3 +5,5 @@
 backend/src/main/resources/catalog/stocky-mitts/horror-essence.raw.json -text whitespace=cr-at-eol
 # Preserve checksum-bound Crossbow source responses, including their mixed newlines.
 docs/evidence/crossbows-source-bundle-2026-10-05/*.html -text whitespace=cr-at-eol
+# Preserve checksum-bound offhand source responses, including their mixed newlines.
+docs/evidence/offhands-source-bundle-2026-10-05/*.html -text whitespace=cr-at-eol

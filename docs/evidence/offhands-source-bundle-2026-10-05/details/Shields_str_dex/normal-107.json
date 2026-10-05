@@ -1,0 +1,63 @@
+{
+  "row": {
+    "Name": "of the Bastion",
+    "Level": "81",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ReducedExtraDamageFromCrits"
+    ],
+    "DropChance": "800",
+    "str": "<a data-keyword=\"Hit\" href=\"Hit_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/396ec0ccc46f63acd9059876455d4a9f7d5108864acf9fc0f4c56be5a6f9cd57\">Hits</a> against you have <span class='mod-value'>(48<span class=\"ndash\">—</span>54)</span>% reduced <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244\">Critical Damage Bonus</a>",
+    "fossil_no": [
+      "damage",
+      "critical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_shield",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9e92dd98ae8ee9a26d52ad475846f45b4829c9905fbaa0cd205e2120acdf96a4"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FReducedExtraDamageFromCrits5",
+  "textLocale": "jp",
+  "detailText": "プレイヤーに対するヒットはクリティカルダメージボーナスが(48—54)%減少する",
+  "retrievedAt": "2026-10-05T04:30:25.521Z",
+  "sha256": "270e8d974232acabb59518d226151e1e9f9caaee502197f1c746138a1b0643d6",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>プレイヤーに対する<a data-keyword=\"Hit\" href=\"Hit_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/ffb21c71f6fe43ff396321e076ead24b93a80bb7fb54533341c442b4fe44ab8c\">ヒット</a>は<a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/d2a0024ed5ebf1edd239a8aad3f4df1a5e4e50cee4ff56b9e75cdaaa635738fc\">クリティカルダメージボーナス</a>が<span class='mod-value'>(48<span class=\"ndash\">—</span>54)</span>%減少する</span></h5>   <span data-tabname=\"要塞の\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>要塞の\n<tr><th>Family<td>ReducedExtraDamageFromCrits\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>サフィックス (2)\n<tr><th>Req. level<td>81 (Effective: 64)\n<tr><th>Gold Price<td>3048\n<tr><th>Stats<td><li>base self critical strike multiplier -% <span class=\"badge bg-primary\">48 <span class=\"ndash\">—</span> 54</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>str_dex_shield: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>ダメージ</span> <span class='badge bg-primary'>クリティカル</span> </table>  </div></div>",
+  "fields": {
+    "Name": "要塞の",
+    "Family": "ReducedExtraDamageFromCrits",
+    "Domains": "アイテム (1)",
+    "GenerationType": "サフィックス (2)",
+    "Req. level": "81 (Effective: 64)",
+    "Gold Price": "3048",
+    "Stats": "base self critical strike multiplier -% 48 — 54 Global",
+    "Spawn Tags": "str_dex_shield: 1 default: 0",
+    "Craft Tags": "ダメージ クリティカル"
+  },
+  "code": "ReducedExtraDamageFromCrits5",
+  "stats": [
+    {
+      "id": "base_self_critical_strike_multiplier_-%",
+      "min": 48,
+      "max": 54,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "str_dex_shield",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

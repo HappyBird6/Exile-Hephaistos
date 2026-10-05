@@ -1,0 +1,75 @@
+{
+  "row": {
+    "Name": "Durable",
+    "Level": "46",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefences"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(72<span class=\"ndash\">—</span>85)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(65<span class=\"ndash\">—</span>78)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_armour",
+      "str_dex_int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/30c63a4e0642ce3e37b0fce8f58f018c6582ec46e92428f0489ddf276fce129f"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FLocalBaseArmourAndEvasionRating4",
+  "textLocale": "sp",
+  "detailText": "+(72—85) a la armadura\n+(65—78) a la evasión",
+  "retrievedAt": "2026-10-05T04:29:42.105Z",
+  "sha256": "0d1a6bdb6d1bf58da0fc346f354080dd76024db076a51443682bef5fa7fd7453",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(72<span class=\"ndash\">—</span>85)</span> a la <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FArmour\">armadura</a><br><span class='mod-value'>+(65<span class=\"ndash\">—</span>78)</span> a la <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FEvasion\">evasión</a></span></h5>   <span data-tabname=\"<if:MS>{durable}<elif:MP>{durables}\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td><if:MS>{durable}<elif:MP>{durables}\n<tr><th>Family<td>BaseLocalDefences\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Prefijo (1)\n<tr><th>Req. level<td>46 (Effective: 36)\n<tr><th>Gold Price<td>635\n<tr><th>Stats<td><li>local base evasion rating <span class=\"badge bg-primary\">65 <span class=\"ndash\">—</span> 78</span> <span class=\"badge bg-secondary\">Local</span></li><li>local base physical damage reduction rating <span class=\"badge bg-primary\">72 <span class=\"ndash\">—</span> 85</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>str_dex_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Armadura</span> <span class='badge bg-primary'>Evasion</span> \n<tr><td>Puños de roca<td>El <span class='mod-value'>3</span>% del daño recibido se recobra como vida, maná y [EnergyShield|escudo de energía]</table>  </div></div>",
+  "fields": {
+    "Name": "{durable}{durables}",
+    "Family": "BaseLocalDefences",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Prefijo (1)",
+    "Req. level": "46 (Effective: 36)",
+    "Gold Price": "635",
+    "Stats": "local base evasion rating 65 — 78 Locallocal base physical damage reduction rating 72 — 85 Local",
+    "Spawn Tags": "str_dex_armour: 1 str_dex_int_armour: 1 default: 0",
+    "Craft Tags": "defences Armadura Evasion"
+  },
+  "code": "LocalBaseArmourAndEvasionRating4",
+  "stats": [
+    {
+      "id": "local_base_evasion_rating",
+      "min": 65,
+      "max": 78,
+      "locality": "Local"
+    },
+    {
+      "id": "local_base_physical_damage_reduction_rating",
+      "min": 72,
+      "max": 85,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "str_dex_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

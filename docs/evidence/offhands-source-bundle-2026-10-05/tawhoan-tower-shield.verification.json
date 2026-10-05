@@ -1,0 +1,326 @@
+{
+  "base": {
+    "key": "tawhoan-tower-shield",
+    "slug": "Tawhoan_Tower_Shield",
+    "pool": "tawhoan-tower-shield",
+    "family": "shields",
+    "id": "Metadata/Items/Armours/Shields/FourShieldStr10Endgame",
+    "name": "Tawhoan Tower Shield",
+    "sourceUrl": "https://poe2db.tw/us/Tawhoan_Tower_Shield",
+    "sourceSha256": "47a6d569520839e58bf169ecedb60d0cfa77cabe3590a873a98c4d1060e0cfaf",
+    "sourceTags": [
+      "str_armour",
+      "str_shield",
+      "karui_basetype",
+      "shield",
+      "armour"
+    ],
+    "armour": 264,
+    "evasion": 0,
+    "energyShield": 0,
+    "baseMovementSpeed": -0.03,
+    "blockChance": 26,
+    "strength": 115,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 80,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 115 Str",
+      "ko": "요구 사항:  레벨 80, 115 힘",
+      "ja": "装備条件： レベル 80, 115 筋力",
+      "zh-CN": "需求：  等级 80, 115 力量",
+      "zh-TW": "需求:  等級 80, 115 力量",
+      "es": "Requiere:  Nivel 80, 115 Fue"
+    },
+    "sourceProperties": {
+      "en": [
+        "Block chance: 26%",
+        "Armour: 264",
+        "Base Movement Speed: -0.03",
+        "Grants Skill: Raise Shield"
+      ],
+      "ko": [
+        "막기 확률: 26%",
+        "방어도: 264",
+        "Base Movement Speed: -0.03",
+        "스킬 부여: 방패 들기"
+      ],
+      "ja": [
+        "ブロック率: 26%",
+        "アーマー: 264",
+        "Base Movement Speed: -0.03",
+        "スキルを付与: レイズシールド"
+      ],
+      "zh-CN": [
+        "格挡几率: 26%",
+        "护甲: 264",
+        "基础移动速度: -0.03",
+        "获得技能: 架盾"
+      ],
+      "zh-TW": [
+        "格擋機率: 26%",
+        "護甲值: 264",
+        "基礎移動速度: -0.03",
+        "賦予技能: 展開護盾"
+      ],
+      "es": [
+        "Probabilidad de bloqueo: 26%",
+        "Armadura: 264",
+        "Base Movement Speed: -0.03",
+        "Otorga la habilidad: Levantar escudo"
+      ]
+    },
+    "skillLines": {
+      "en": [
+        "Grants Skill: Raise Shield"
+      ],
+      "ko": [
+        "스킬 부여: 방패 들기"
+      ],
+      "ja": [
+        "スキルを付与: レイズシールド"
+      ],
+      "zh-CN": [
+        "获得技能: 架盾"
+      ],
+      "zh-TW": [
+        "賦予技能: 展開護盾"
+      ],
+      "es": [
+        "Otorga la habilidad: Levantar escudo"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "ordinarySocketMaximum": 1,
+    "classId": 26,
+    "grantedSkill": "Raise_Shield"
+  },
+  "ordinary": 123,
+  "reused": 101,
+  "special": 2,
+  "fixed": {
+    "LESSER_ESSENCE_BODY": [
+      "stocky-mitts:prefix:sanguine"
+    ],
+    "LESSER_ESSENCE_ENHANCEMENT": [
+      "stocky-mitts:prefix:layered"
+    ],
+    "LESSER_ESSENCE_RUIN": [
+      "stocky-mitts:suffix:of-the-lost"
+    ],
+    "LESSER_ESSENCE_INFINITE": [
+      "stocky-mitts:suffix:of-the-wrestler"
+    ],
+    "ESSENCE_BODY": [
+      "stocky-mitts:prefix:rotund"
+    ],
+    "ESSENCE_ENHANCEMENT": [
+      "stocky-mitts:prefix:buttressed"
+    ],
+    "ESSENCE_RUIN": [
+      "stocky-mitts:suffix:of-banishment"
+    ],
+    "ESSENCE_INFINITE": [
+      "stocky-mitts:suffix:of-the-lion"
+    ],
+    "GREATER_ESSENCE_BODY": [
+      "stocky-mitts:prefix:virile"
+    ],
+    "GREATER_ESSENCE_ENHANCEMENT": [
+      "stocky-mitts:prefix:thickened"
+    ],
+    "GREATER_ESSENCE_RUIN": [
+      "stocky-mitts:suffix:of-expulsion"
+    ],
+    "GREATER_ESSENCE_INFINITE": [
+      "stocky-mitts:suffix:of-the-goliath"
+    ],
+    "LESSER_ESSENCE_INSULATION": [
+      "stocky-mitts:suffix:of-the-salamander"
+    ],
+    "ESSENCE_INSULATION": [
+      "stocky-mitts:suffix:of-the-kiln"
+    ],
+    "GREATER_ESSENCE_INSULATION": [
+      "stocky-mitts:suffix:of-the-volcano"
+    ],
+    "LESSER_ESSENCE_THAWING": [
+      "stocky-mitts:suffix:of-the-penguin"
+    ],
+    "ESSENCE_THAWING": [
+      "stocky-mitts:suffix:of-the-yeti"
+    ],
+    "GREATER_ESSENCE_THAWING": [
+      "stocky-mitts:suffix:of-the-polar-bear"
+    ],
+    "LESSER_ESSENCE_GROUNDING": [
+      "stocky-mitts:suffix:of-the-squall"
+    ],
+    "ESSENCE_GROUNDING": [
+      "stocky-mitts:suffix:of-the-thunderhead"
+    ],
+    "GREATER_ESSENCE_GROUNDING": [
+      "stocky-mitts:suffix:of-the-maelstrom"
+    ]
+  },
+  "replacements": {
+    "ESSENCE_HYSTERIA": [
+      "offhand:prefix:unrelenting:LocalBlockChance2"
+    ],
+    "ESSENCE_ABYSS": [
+      "stocky-mitts:prefix:essence-abyssal-mark",
+      "stocky-mitts:suffix:essence-abyssal-mark"
+    ]
+  },
+  "excluded": [
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEvasionRatingPercent2",
+      "action": "LESSER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEnergyShieldPercent2",
+      "action": "LESSER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedArmourAndEvasion2",
+      "action": "LESSER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedArmourAndEnergyShield2",
+      "action": "LESSER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEvasionAndEnergyShield2",
+      "action": "LESSER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "Dexterity2",
+      "action": "LESSER_ESSENCE_INFINITE",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "Intelligence2",
+      "action": "LESSER_ESSENCE_INFINITE",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEvasionRatingPercent4",
+      "action": "ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEnergyShieldPercent4",
+      "action": "ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedArmourAndEvasion4",
+      "action": "ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedArmourAndEnergyShield4",
+      "action": "ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEvasionAndEnergyShield4",
+      "action": "ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "Dexterity4",
+      "action": "ESSENCE_INFINITE",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "Intelligence4",
+      "action": "ESSENCE_INFINITE",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEvasionRatingPercent5",
+      "action": "GREATER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEnergyShieldPercent5",
+      "action": "GREATER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedArmourAndEvasion5",
+      "action": "GREATER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedArmourAndEnergyShield5",
+      "action": "GREATER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEvasionAndEnergyShield5_",
+      "action": "GREATER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "Dexterity6",
+      "action": "GREATER_ESSENCE_INFINITE",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "Intelligence6",
+      "action": "GREATER_ESSENCE_INFINITE",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "perfect_essence",
+      "code": "AlloyRunicWardOnBlock1",
+      "action": "PROTECTIVE_ALLOY",
+      "reason": "Existing excluded/deferred action"
+    },
+    {
+      "kind": "perfect_essence",
+      "code": "AlloyTotemPlacementSpeed1",
+      "action": "SWIFT_ALLOY",
+      "reason": "Existing excluded/deferred action"
+    },
+    {
+      "kind": "perfect_essence",
+      "code": "AlloyLocalWardIncreasePercent1",
+      "action": "SOVEREIGN_ALLOY",
+      "reason": "Existing excluded/deferred action"
+    }
+  ],
+  "weightPolicy": "POE2DB_AS_PUBLISHED",
+  "combatSimulation": false,
+  "implicitPolicy": "Source built-in block/property/skill text only; no synthesized canonical item stat without source proof"
+}

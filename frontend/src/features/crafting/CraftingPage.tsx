@@ -123,6 +123,11 @@ const baseSlugs = {
   'flexed-crossbow': 'Flexed_Crossbow',
   'desolate-crossbow': 'Desolate_Crossbow',
   'engraved-crossbow': 'Engraved_Crossbow',
+  'tawhoan-tower-shield': 'Tawhoan_Tower_Shield',
+  'golden-targe': 'Golden_Targe',
+  'blacksteel-crest-shield': 'Blacksteel_Crest_Shield',
+  'desert-buckler': 'Desert_Buckler',
+  'tasalian-focus': 'Tasalian_Focus',
   bone: 'Bone_Wand',
   siphoning: 'Siphoning_Wand',
   volatile: 'Volatile_Wand',
@@ -425,6 +430,11 @@ export function CraftingPage() {
       | 'flexed-crossbow'
       | 'desolate-crossbow'
       | 'engraved-crossbow'
+      | 'tawhoan-tower-shield'
+      | 'golden-targe'
+      | 'blacksteel-crest-shield'
+      | 'desert-buckler'
+      | 'tasalian-focus'
       | 'bone'
       | 'siphoning'
       | 'volatile'
@@ -678,6 +688,11 @@ export function CraftingPage() {
     | 'flexed-crossbow'
     | 'desolate-crossbow'
     | 'engraved-crossbow'
+    | 'tawhoan-tower-shield'
+    | 'golden-targe'
+    | 'blacksteel-crest-shield'
+    | 'desert-buckler'
+    | 'tasalian-focus'
     | 'bone'
     | 'siphoning'
     | 'volatile'
@@ -1082,51 +1097,68 @@ export function CraftingPage() {
             base: baseName,
             itemClass: Object.hasOwn(workbenchJewelBases, catalogBase)
               ? 'Jewels'
-              : topBase(catalogBase)?.family === 'crossbows'
-                ? 'Crossbows'
-                : catalogBase === 'stocky' ||
-                    topBase(catalogBase)?.family === 'gloves'
-                  ? 'Gloves'
-                  : catalogBase === 'bow' ||
-                      topBase(catalogBase)?.family === 'bows'
-                    ? 'Bows'
-                    : catalogBase === 'wand' ||
-                        topBase(catalogBase)?.family === 'wands'
-                      ? 'Wands'
-                      : catalogBase === 'body' ||
-                          catalogBase === 'soldier' ||
-                          topBase(catalogBase)?.family === 'body'
-                        ? 'Body Armours'
-                        : catalogBase === 'sceptre' ||
-                            topBase(catalogBase)?.family === 'sceptres'
-                          ? 'Sceptres'
-                          : catalogBase === 'belt' ||
-                              topBase(catalogBase)?.family === 'belts'
-                            ? 'Belts'
-                            : catalogBase === 'ring' ||
-                                topBase(catalogBase)?.family === 'rings'
-                              ? 'Rings'
-                              : catalogBase === 'helmet' ||
-                                  catalogBase === 'imperial' ||
-                                  topBase(catalogBase)?.family === 'helmets'
-                                ? 'Helmets'
-                                : topBase(catalogBase)?.family === 'boots'
-                                  ? 'Boots'
-                                  : topBase(catalogBase)?.family === 'amulets'
-                                    ? 'Amulets'
-                                    : 'Amulet',
-            itemLevel: concrete.itemLevel,
-            properties: [
-              ...(topBase(catalogBase)?.sourceProperties?.[locale] ?? []).map(
-                (text, i) => ({
-                  id: 'source-property-' + i,
-                  text: ['bows', 'crossbows'].includes(
+              : ['shields', 'bucklers', 'foci'].includes(
                     topBase(catalogBase)?.family ?? '',
                   )
+                ? (
+                    {
+                      shields: 'Shields',
+                      bucklers: 'Bucklers',
+                      foci: 'Foci',
+                    } as Record<string, string>
+                  )[topBase(catalogBase)!.family]!
+                : topBase(catalogBase)?.family === 'crossbows'
+                  ? 'Crossbows'
+                  : catalogBase === 'stocky' ||
+                      topBase(catalogBase)?.family === 'gloves'
+                    ? 'Gloves'
+                    : catalogBase === 'bow' ||
+                        topBase(catalogBase)?.family === 'bows'
+                      ? 'Bows'
+                      : catalogBase === 'wand' ||
+                          topBase(catalogBase)?.family === 'wands'
+                        ? 'Wands'
+                        : catalogBase === 'body' ||
+                            catalogBase === 'soldier' ||
+                            topBase(catalogBase)?.family === 'body'
+                          ? 'Body Armours'
+                          : catalogBase === 'sceptre' ||
+                              topBase(catalogBase)?.family === 'sceptres'
+                            ? 'Sceptres'
+                            : catalogBase === 'belt' ||
+                                topBase(catalogBase)?.family === 'belts'
+                              ? 'Belts'
+                              : catalogBase === 'ring' ||
+                                  topBase(catalogBase)?.family === 'rings'
+                                ? 'Rings'
+                                : catalogBase === 'helmet' ||
+                                    catalogBase === 'imperial' ||
+                                    topBase(catalogBase)?.family === 'helmets'
+                                  ? 'Helmets'
+                                  : topBase(catalogBase)?.family === 'boots'
+                                    ? 'Boots'
+                                    : topBase(catalogBase)?.family === 'amulets'
+                                      ? 'Amulets'
+                                      : 'Amulet',
+            itemLevel: concrete.itemLevel,
+            properties: [
+              ...(topBase(catalogBase)?.sourceProperties?.[locale] ?? [])
+                .filter(
+                  (text) =>
+                    !topBase(catalogBase)?.skillLines?.[locale].includes(text),
+                )
+                .map((text, i) => ({
+                  id: 'source-property-' + i,
+                  text: [
+                    'bows',
+                    'crossbows',
+                    'shields',
+                    'bucklers',
+                    'foci',
+                  ].includes(topBase(catalogBase)?.family ?? '')
                     ? t('base.weapon_property', { property: text })
                     : text,
-                }),
-              ),
+                })),
               ...(['gloves', 'helmets', 'body', 'boots'].includes(
                 topBase(catalogBase)?.family ?? '',
               ) && catalogBase !== 'soldier'
@@ -1303,6 +1335,19 @@ export function CraftingPage() {
                       : `${d.affixType === 'PREFIX' ? 'P' : 'S'}${Object.hasOwn(workbenchJewelBases, catalogBase) ? '' : d.tier}`,
                 }
               })
+              .concat(
+                (topBase(catalogBase)?.skillLines?.[locale] ?? []).map(
+                  (text, i) => ({
+                    id: 'source-skill-' + i,
+                    removalCandidate: false,
+                    text,
+                    fractured: false,
+                    detail: undefined,
+                    kind: 'implicit' as const,
+                    affixLabel: undefined,
+                  }),
+                ),
+              )
               .sort((a, b) => {
                 const rank = (line: typeof a) =>
                   !altHeld && line.fractured
@@ -2077,8 +2122,17 @@ export function CraftingPage() {
                       rarity: 'NORMAL',
                       name: baseName,
                       base: baseName,
-                      itemClass:
-                        topBase(catalogBase)?.family === 'crossbows'
+                      itemClass: ['shields', 'bucklers', 'foci'].includes(
+                        topBase(catalogBase)?.family ?? '',
+                      )
+                        ? (
+                            {
+                              shields: 'Shields',
+                              bucklers: 'Bucklers',
+                              foci: 'Foci',
+                            } as Record<string, string>
+                          )[topBase(catalogBase)!.family]!
+                        : topBase(catalogBase)?.family === 'crossbows'
                           ? 'Crossbows'
                           : catalogBase === 'stocky' ||
                               topBase(catalogBase)?.family === 'gloves'
@@ -2251,6 +2305,11 @@ export function CraftingPage() {
                           | 'flexed-crossbow'
                           | 'desolate-crossbow'
                           | 'engraved-crossbow'
+                          | 'tawhoan-tower-shield'
+                          | 'golden-targe'
+                          | 'blacksteel-crest-shield'
+                          | 'desert-buckler'
+                          | 'tasalian-focus'
                           | 'bone'
                           | 'siphoning'
                           | 'volatile'

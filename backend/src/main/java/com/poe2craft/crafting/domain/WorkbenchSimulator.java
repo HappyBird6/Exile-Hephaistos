@@ -134,6 +134,7 @@ public final class WorkbenchSimulator {
   }
 
   private String baseRuleVersion() {
+    if (ReviewedOffhands.supports(catalog.base().id())) return "offhand-workbench-v1";
     if (ReviewedCrossbows.supports(catalog.base().id())) return "crossbow-workbench-v1";
     if (ReviewedBelts.supports(catalog.base().id())) return "distinct-belts-workbench-v1";
     if (ReviewedAmulets.supports(catalog.base().id())) return "distinct-amulets-workbench-v1";
@@ -165,6 +166,8 @@ public final class WorkbenchSimulator {
   }
 
   public String ledgerVersion() {
+    if (ReviewedOffhands.supports(catalog.base().id()))
+      return "offhand-unverified-numeric-assumptions-v1";
     if (ReviewedCrossbows.supports(catalog.base().id()))
       return "crossbow-unverified-numeric-assumptions-v1";
     if (ReviewedBelts.supports(catalog.base().id()))

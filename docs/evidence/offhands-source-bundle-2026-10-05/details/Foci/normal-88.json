@@ -1,0 +1,87 @@
+{
+  "row": {
+    "Name": "Magmatic",
+    "Level": "60",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "WeaponDamageTypePrefix"
+    ],
+    "DropChance": "200",
+    "str": "<span class='mod-value'>(75<span class=\"ndash\">—</span>89)</span>% increased <a data-keyword=\"Fire\" href=\"Fire_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/b5d8acaae74359659060318919bfa3de84e8587e6fa6487df3f2423250d85c87\">Fire</a> Damage",
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "fire"
+    ],
+    "adds_no": [
+      "no_cold_spell_mods",
+      "no_lightning_spell_mods",
+      "no_chaos_spell_mods",
+      "no_physical_spell_mods"
+    ],
+    "spawn_no": [
+      "focus",
+      "no_fire_spell_mods",
+      "wand",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/34acd669e48ef592ddbeb8b9f469a0d47216bd52e6d1e957cd4c06c540fba071"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireDamagePrefixOnWeapon6",
+  "textLocale": "us",
+  "detailText": "(75—89)% increased Fire Damage",
+  "retrievedAt": "2026-10-05T04:35:55.996Z",
+  "sha256": "8cde1fa4d08dfd3eb461a7bd1d0f99bef3c6cab2ed751df19d741d3c5e4974bf",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(75<span class=\"ndash\">—</span>89)</span>% increased <a data-keyword=\"Fire\" href=\"Fire_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/b5d8acaae74359659060318919bfa3de84e8587e6fa6487df3f2423250d85c87\">Fire</a> Damage</span></h5>   <span data-tabname=\"Magmatic\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Magmatic\n<tr><th>Family<td>WeaponDamageTypePrefix\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>2165\n<tr><th>Stats<td><li>fire damage +% <span class=\"badge bg-primary\">75 <span class=\"ndash\">—</span> 89</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>no_fire_spell_mods: 0</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_cold_spell_mods</span> <span class='badge bg-primary'>no_lightning_spell_mods</span> <span class='badge bg-primary'>no_chaos_spell_mods</span> <span class='badge bg-primary'>no_physical_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Fire</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Magmatic",
+    "Family": "WeaponDamageTypePrefix",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "60 (Effective: 48)",
+    "Gold Price": "2165",
+    "Stats": "fire damage +% 75 — 89 Global",
+    "Spawn Tags": "focus: 1 no_fire_spell_mods: 0 wand: 1 trap: 1 default: 0",
+    "Adds Tags": "no_cold_spell_mods no_lightning_spell_mods no_chaos_spell_mods no_physical_spell_mods",
+    "Craft Tags": "elemental_damage Damage Elemental Fire"
+  },
+  "code": "FireDamagePrefixOnWeapon6",
+  "stats": [
+    {
+      "id": "fire_damage_+%",
+      "min": 75,
+      "max": 89,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "focus",
+      "weight": 1
+    },
+    {
+      "tag": "no_fire_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "trap",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

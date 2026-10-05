@@ -1,0 +1,90 @@
+{
+  "row": {
+    "Name": "Saintly",
+    "Level": "65",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefences"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(128<span class=\"ndash\">—</span>149)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(37<span class=\"ndash\">—</span>42)</span> to maximum <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "energy_shield"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "boots",
+      "gloves",
+      "helmet",
+      "str_int_armour",
+      "str_dex_int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingenergy_shield\" data-tag=\"energy_shield\">Energy Shield</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/21323e041d64f7cc2e02914bcc7dd1b9ca9aa93c197c359ffc0fdbb0d59c04c6"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FLocalBaseArmourAndEnergyShield7",
+  "textLocale": "jp",
+  "detailText": "アーマー +(128—149)\n最大エナジーシールド +(37—42)",
+  "retrievedAt": "2026-10-05T04:31:30.671Z",
+  "sha256": "8c34312660aa1f3f8b4cd265e09cb4229c3d175d4be52783c2910f46dcac7e78",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/82a62a81f07c975f48b08deee312f33226ba1805294f112f4eeba7d977ce4c07\">アーマー</a> <span class='mod-value'>+(128<span class=\"ndash\">—</span>149)</span><br>最大<a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/fe6f9099943e915810b271bdd3a28dedcc9b6380ccbc7008fa7399de6807a080\">エナジーシールド</a> <span class='mod-value'>+(37<span class=\"ndash\">—</span>42)</span></span></h5>   <span data-tabname=\"聖人のような\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>聖人のような\n<tr><th>Family<td>BaseLocalDefences\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>プレフィックス (1)\n<tr><th>Req. level<td>65 (Effective: 52)\n<tr><th>Gold Price<td>2189\n<tr><th>Stats<td><li>local energy shield <span class=\"badge bg-primary\">37 <span class=\"ndash\">—</span> 42</span> <span class=\"badge bg-secondary\">ローカル</span></li><li>local base physical damage reduction rating <span class=\"badge bg-primary\">128 <span class=\"ndash\">—</span> 149</span> <span class=\"badge bg-secondary\">ローカル</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>boots: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>helmet: 0</span> <span class='badge bg-primary'>str_int_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>アーマー</span> <span class='badge bg-primary'>エナジーシールド</span> </table>  </div></div>",
+  "fields": {
+    "Name": "聖人のような",
+    "Family": "BaseLocalDefences",
+    "Domains": "アイテム (1)",
+    "GenerationType": "プレフィックス (1)",
+    "Req. level": "65 (Effective: 52)",
+    "Gold Price": "2189",
+    "Stats": "local energy shield 37 — 42 ローカルlocal base physical damage reduction rating 128 — 149 ローカル",
+    "Spawn Tags": "boots: 0 gloves: 0 helmet: 0 str_int_armour: 1 str_dex_int_armour: 1 default: 0",
+    "Craft Tags": "defences アーマー エナジーシールド"
+  },
+  "code": "LocalBaseArmourAndEnergyShield7",
+  "stats": [
+    {
+      "id": "local_energy_shield",
+      "min": 37,
+      "max": 42,
+      "locality": "ローカル"
+    },
+    {
+      "id": "local_base_physical_damage_reduction_rating",
+      "min": 128,
+      "max": 149,
+      "locality": "ローカル"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "boots",
+      "weight": 0
+    },
+    {
+      "tag": "gloves",
+      "weight": 0
+    },
+    {
+      "tag": "helmet",
+      "weight": 0
+    },
+    {
+      "tag": "str_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

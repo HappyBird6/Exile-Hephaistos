@@ -3411,5 +3411,384 @@
     "attacksPerSecond": 1.6,
     "reloadTime": 0.8,
     "ordinarySocketMaximum": 2
+  },
+  "tawhoan-tower-shield": {
+    "key": "tawhoan-tower-shield",
+    "slug": "Tawhoan_Tower_Shield",
+    "pool": "tawhoan-tower-shield",
+    "family": "shields",
+    "id": "Metadata/Items/Armours/Shields/FourShieldStr10Endgame",
+    "name": "Tawhoan Tower Shield",
+    "sourceUrl": "https://poe2db.tw/us/Tawhoan_Tower_Shield",
+    "sourceSha256": "47a6d569520839e58bf169ecedb60d0cfa77cabe3590a873a98c4d1060e0cfaf",
+    "sourceTags": [
+      "str_armour",
+      "str_shield",
+      "karui_basetype",
+      "shield",
+      "armour"
+    ],
+    "armour": 264,
+    "evasion": 0,
+    "energyShield": 0,
+    "baseMovementSpeed": -0.03,
+    "blockChance": 26,
+    "strength": 115,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 80,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 115 Str",
+      "ko": "요구 사항:  레벨 80, 115 힘",
+      "ja": "装備条件： レベル 80, 115 筋力",
+      "zh-CN": "需求：  等级 80, 115 力量",
+      "zh-TW": "需求:  等級 80, 115 力量",
+      "es": "Requiere:  Nivel 80, 115 Fue"
+    },
+    "sourceProperties": {
+      "en": [
+        "Block chance: 26%",
+        "Armour: 264",
+        "Base Movement Speed: -0.03",
+        "Grants Skill: Raise Shield"
+      ],
+      "ko": [
+        "막기 확률: 26%",
+        "방어도: 264",
+        "Base Movement Speed: -0.03",
+        "스킬 부여: 방패 들기"
+      ],
+      "ja": [
+        "ブロック率: 26%",
+        "アーマー: 264",
+        "Base Movement Speed: -0.03",
+        "スキルを付与: レイズシールド"
+      ],
+      "zh-CN": [
+        "格挡几率: 26%",
+        "护甲: 264",
+        "基础移动速度: -0.03",
+        "获得技能: 架盾"
+      ],
+      "zh-TW": [
+        "格擋機率: 26%",
+        "護甲值: 264",
+        "基礎移動速度: -0.03",
+        "賦予技能: 展開護盾"
+      ],
+      "es": [
+        "Probabilidad de bloqueo: 26%",
+        "Armadura: 264",
+        "Base Movement Speed: -0.03",
+        "Otorga la habilidad: Levantar escudo"
+      ]
+    },
+    "skillLines": {
+      "en": ["Grants Skill: Raise Shield"],
+      "ko": ["스킬 부여: 방패 들기"],
+      "ja": ["スキルを付与: レイズシールド"],
+      "zh-CN": ["获得技能: 架盾"],
+      "zh-TW": ["賦予技能: 展開護盾"],
+      "es": ["Otorga la habilidad: Levantar escudo"]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "ordinarySocketMaximum": 1,
+    "classId": 26,
+    "grantedSkill": "Raise_Shield"
+  },
+  "golden-targe": {
+    "key": "golden-targe",
+    "slug": "Golden_Targe",
+    "pool": "golden-targe",
+    "family": "shields",
+    "id": "Metadata/Items/Armours/Shields/FourShieldStrDex10Endgame",
+    "name": "Golden Targe",
+    "sourceUrl": "https://poe2db.tw/us/Golden_Targe",
+    "sourceSha256": "ad5a20d37dddf50733c6101684f37f1c7f16ec9687d3f2c9461eabfa39b15609",
+    "sourceTags": [
+      "str_dex_armour",
+      "str_dex_shield",
+      "karui_basetype",
+      "shield",
+      "armour"
+    ],
+    "armour": 145,
+    "evasion": 132,
+    "energyShield": 0,
+    "baseMovementSpeed": -0.015,
+    "blockChance": 25,
+    "strength": 63,
+    "dexterity": 63,
+    "intelligence": 0,
+    "requiredLevel": 80,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 63 Str, 63 Dex",
+      "ko": "요구 사항:  레벨 80, 63 힘, 63 민첩",
+      "ja": "装備条件： レベル 80, 63 筋力, 63 器用さ",
+      "zh-CN": "需求：  等级 80, 63 力量, 63 敏捷",
+      "zh-TW": "需求:  等級 80, 63 力量, 63 敏捷",
+      "es": "Requiere:  Nivel 80, 63 Fue, 63 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Block chance: 25%",
+        "Armour: 145",
+        "Evasion Rating: 132",
+        "Base Movement Speed: -0.015",
+        "Grants Skill: Raise Shield"
+      ],
+      "ko": [
+        "막기 확률: 25%",
+        "방어도: 145",
+        "회피: 132",
+        "Base Movement Speed: -0.015",
+        "스킬 부여: 방패 들기"
+      ],
+      "ja": [
+        "ブロック率: 25%",
+        "アーマー: 145",
+        "回避力: 132",
+        "Base Movement Speed: -0.015",
+        "スキルを付与: レイズシールド"
+      ],
+      "zh-CN": [
+        "格挡几率: 25%",
+        "护甲: 145",
+        "闪避值: 132",
+        "基础移动速度: -0.015",
+        "获得技能: 架盾"
+      ],
+      "zh-TW": [
+        "格擋機率: 25%",
+        "護甲值: 145",
+        "閃避值: 132",
+        "基礎移動速度: -0.015",
+        "賦予技能: 展開護盾"
+      ],
+      "es": [
+        "Probabilidad de bloqueo: 25%",
+        "Armadura: 145",
+        "Evasión: 132",
+        "Base Movement Speed: -0.015",
+        "Otorga la habilidad: Levantar escudo"
+      ]
+    },
+    "skillLines": {
+      "en": ["Grants Skill: Raise Shield"],
+      "ko": ["스킬 부여: 방패 들기"],
+      "ja": ["スキルを付与: レイズシールド"],
+      "zh-CN": ["获得技能: 架盾"],
+      "zh-TW": ["賦予技能: 展開護盾"],
+      "es": ["Otorga la habilidad: Levantar escudo"]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "ordinarySocketMaximum": 1,
+    "classId": 26,
+    "grantedSkill": "Raise_Shield"
+  },
+  "blacksteel-crest-shield": {
+    "key": "blacksteel-crest-shield",
+    "slug": "Blacksteel_Crest_Shield",
+    "pool": "blacksteel-crest-shield",
+    "family": "shields",
+    "id": "Metadata/Items/Armours/Shields/FourShieldStrInt7Endgame",
+    "name": "Blacksteel Crest Shield",
+    "sourceUrl": "https://poe2db.tw/us/Blacksteel_Crest_Shield",
+    "sourceSha256": "8b49535e38ee89480ddfc988c0472ba79143010bb5a7f163044fcf1b34250d02",
+    "sourceTags": [
+      "str_int_armour",
+      "str_int_shield",
+      "karui_basetype",
+      "shield",
+      "armour"
+    ],
+    "armour": 145,
+    "evasion": 0,
+    "energyShield": 40,
+    "baseMovementSpeed": -0.015,
+    "blockChance": 25,
+    "strength": 63,
+    "dexterity": 0,
+    "intelligence": 63,
+    "requiredLevel": 80,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 63 Str, 63 Int",
+      "ko": "요구 사항:  레벨 80, 63 힘, 63 지능",
+      "ja": "装備条件： レベル 80, 63 筋力, 63 知性",
+      "zh-CN": "需求：  等级 80, 63 力量, 63 智慧",
+      "zh-TW": "需求:  等級 80, 63 力量, 63 智慧",
+      "es": "Requiere:  Nivel 80, 63 Fue, 63 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Block chance: 25%",
+        "Armour: 145",
+        "Energy Shield: 40",
+        "Base Movement Speed: -0.015",
+        "Grants Skill: Raise Shield"
+      ],
+      "ko": [
+        "막기 확률: 25%",
+        "방어도: 145",
+        "에너지 보호막: 40",
+        "Base Movement Speed: -0.015",
+        "스킬 부여: 방패 들기"
+      ],
+      "ja": [
+        "ブロック率: 25%",
+        "アーマー: 145",
+        "エナジーシールド: 40",
+        "Base Movement Speed: -0.015",
+        "スキルを付与: レイズシールド"
+      ],
+      "zh-CN": [
+        "格挡几率: 25%",
+        "护甲: 145",
+        "能量护盾: 40",
+        "基础移动速度: -0.015",
+        "获得技能: 架盾"
+      ],
+      "zh-TW": [
+        "格擋機率: 25%",
+        "護甲值: 145",
+        "能量護盾: 40",
+        "基礎移動速度: -0.015",
+        "賦予技能: 展開護盾"
+      ],
+      "es": [
+        "Probabilidad de bloqueo: 25%",
+        "Armadura: 145",
+        "Escudo de energía: 40",
+        "Base Movement Speed: -0.015",
+        "Otorga la habilidad: Levantar escudo"
+      ]
+    },
+    "skillLines": {
+      "en": ["Grants Skill: Raise Shield"],
+      "ko": ["스킬 부여: 방패 들기"],
+      "ja": ["スキルを付与: レイズシールド"],
+      "zh-CN": ["获得技能: 架盾"],
+      "zh-TW": ["賦予技能: 展開護盾"],
+      "es": ["Otorga la habilidad: Levantar escudo"]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "ordinarySocketMaximum": 1,
+    "classId": 26,
+    "grantedSkill": "Raise_Shield"
+  },
+  "desert-buckler": {
+    "key": "desert-buckler",
+    "slug": "Desert_Buckler",
+    "pool": "desert-buckler",
+    "family": "bucklers",
+    "id": "Metadata/Items/Armours/Shields/FourShieldDex9Endgame",
+    "name": "Desert Buckler",
+    "sourceUrl": "https://poe2db.tw/us/Desert_Buckler",
+    "sourceSha256": "1d273f05eb8c38a3007b0146cee719d0911244e52b5c9fee6c510465832dc338",
+    "sourceTags": [
+      "dex_armour",
+      "dex_shield",
+      "karui_basetype",
+      "buckler",
+      "shield",
+      "armour"
+    ],
+    "armour": 0,
+    "evasion": 192,
+    "energyShield": 0,
+    "blockChance": 20,
+    "strength": 0,
+    "dexterity": 115,
+    "intelligence": 0,
+    "requiredLevel": 80,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 115 Dex",
+      "ko": "요구 사항:  레벨 80, 115 민첩",
+      "ja": "装備条件： レベル 80, 115 器用さ",
+      "zh-CN": "需求：  等级 80, 115 敏捷",
+      "zh-TW": "需求:  等級 80, 115 敏捷",
+      "es": "Requiere:  Nivel 80, 115 Des"
+    },
+    "sourceProperties": {
+      "en": ["Block chance: 20%", "Evasion Rating: 192", "Grants Skill: Parry"],
+      "ko": ["막기 확률: 20%", "회피: 192", "스킬 부여: 흘려보내기"],
+      "ja": ["ブロック率: 20%", "回避力: 192", "スキルを付与: パリィ"],
+      "zh-CN": ["格挡几率: 20%", "闪避值: 192", "获得技能: 招架"],
+      "zh-TW": ["格擋機率: 20%", "閃避值: 192", "賦予技能: 招架"],
+      "es": [
+        "Probabilidad de bloqueo: 20%",
+        "Evasión: 192",
+        "Otorga la habilidad: Parada"
+      ]
+    },
+    "skillLines": {
+      "en": ["Grants Skill: Parry"],
+      "ko": ["스킬 부여: 흘려보내기"],
+      "ja": ["スキルを付与: パリィ"],
+      "zh-CN": ["获得技能: 招架"],
+      "zh-TW": ["賦予技能: 招架"],
+      "es": ["Otorga la habilidad: Parada"]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "ordinarySocketMaximum": 1,
+    "classId": 94,
+    "grantedSkill": "Parry"
+  },
+  "tasalian-focus": {
+    "key": "tasalian-focus",
+    "slug": "Tasalian_Focus",
+    "pool": "tasalian-focus",
+    "family": "foci",
+    "id": "Metadata/Items/Armours/Focii/FourFocus10Endgame",
+    "name": "Tasalian Focus",
+    "sourceUrl": "https://poe2db.tw/us/Tasalian_Focus",
+    "sourceSha256": "c26d40aca986cd18dff19c1751b837810ada7f7881878d3a378290cb540fce06",
+    "sourceTags": ["int_armour", "karui_basetype", "focus", "armour"],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 91,
+    "blockChance": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 115,
+    "requiredLevel": 80,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 115 Int",
+      "ko": "요구 사항:  레벨 80, 115 지능",
+      "ja": "装備条件： レベル 80, 115 知性",
+      "zh-CN": "需求：  等级 80, 115 智慧",
+      "zh-TW": "需求:  等級 80, 115 智慧",
+      "es": "Requiere:  Nivel 80, 115 Int"
+    },
+    "sourceProperties": {
+      "en": ["Energy Shield: 91"],
+      "ko": ["에너지 보호막: 91"],
+      "ja": ["エナジーシールド: 91"],
+      "zh-CN": ["能量护盾: 91"],
+      "zh-TW": ["能量護盾: 91"],
+      "es": ["Escudo de energía: 91"]
+    },
+    "skillLines": {
+      "en": [],
+      "ko": [],
+      "ja": [],
+      "zh-CN": [],
+      "zh-TW": [],
+      "es": []
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "ordinarySocketMaximum": 1,
+    "classId": 81,
+    "grantedSkill": null
   }
 }

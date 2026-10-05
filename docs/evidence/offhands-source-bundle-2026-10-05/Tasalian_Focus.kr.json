@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/kr/Tasalian_Focus",
+  "retrievedAt": "2026-10-05T04:18:08.370Z",
+  "sha256": "2dd4fad33413e4e6ba7e3054981a86ad1be901cc8cd42359b483c3e4a81e456d",
+  "variants": [
+    {
+      "name": "타살리오의 집중구",
+      "card": "타살리오의 집중구\n        \n    \n    \n        \n            집중구에너지 보호막: 91요구 사항:  레벨 80, 115 지능\n        \n\n\n\n        \n            Tasalian Focus",
+      "requirements": "요구 사항:  레벨 80, 115 지능",
+      "fields": {
+        "DropLevel": "80",
+        "BaseType": "타살리오의 집중구",
+        "Class": "집중구",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanScourge",
+        "Type": "Metadata/Items/Armours/Focii/FourFocus10Endgame",
+        "Tags": "int_armour, karui_basetype, focus, armour",
+        "Icon": "Art/2DItems/Offhand/Foci/Basetypes/Focus10",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, focus",
+        "Base.x_size": "2",
+        "Base.y_size": "2",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      }
+    }
+  ]
+}

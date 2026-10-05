@@ -1,0 +1,64 @@
+{
+  "row": {
+    "Name": "of Concord",
+    "Level": "75",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "MaximumChaosResistance"
+    ],
+    "DropChance": "125",
+    "str": "<span class='mod-value'>+2</span>% to <a data-keyword=\"MaximumResistances\" href=\"Maximum_Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/10cfc4a861abfa43e56fa517c085678b0a54d64ffccc7e940f7616a55e2e17da\">Maximum Chaos Resistance</a>",
+    "fossil_no": [
+      "chaos_resistance",
+      "chaos",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "shield",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/888df425d4dc09ed76ffa331d479f20e65b5e64dff695d7a158b193d2b863f40"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FMaximumChaosResist2_",
+  "textLocale": "jp",
+  "detailText": "混沌耐性の最大値 +2%",
+  "retrievedAt": "2026-10-05T04:20:58.577Z",
+  "sha256": "7dde793af3e48bfc2cd8db3c55157088944932b91cf1637688da6a1f6dd990f4",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"MaximumResistances\" href=\"Maximum_Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/c52c9835ba1993ed9ead92dd9c2d562462a5e0ee96080195a96174f636630829\">混沌耐性の最大値</a> <span class='mod-value'>+2</span>%</span></h5>   <span data-tabname=\"一致の\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>一致の\n<tr><th>Family<td>MaximumChaosResistance\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>サフィックス (2)\n<tr><th>Req. level<td>75 (Effective: 60)\n<tr><th>Gold Price<td>3338\n<tr><th>Stats<td><li>base maximum chaos damage resistance % <span class=\"badge bg-primary\">2 <span class=\"ndash\">—</span> 2</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>shield: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>chaos_resistance</i></span> <span class='badge bg-primary'>混沌</span> <span class='badge bg-primary'>耐性</span> </table>  </div></div>",
+  "fields": {
+    "Name": "一致の",
+    "Family": "MaximumChaosResistance",
+    "Domains": "アイテム (1)",
+    "GenerationType": "サフィックス (2)",
+    "Req. level": "75 (Effective: 60)",
+    "Gold Price": "3338",
+    "Stats": "base maximum chaos damage resistance % 2 — 2 Global",
+    "Spawn Tags": "shield: 1 default: 0",
+    "Craft Tags": "chaos_resistance 混沌 耐性"
+  },
+  "code": "MaximumChaosResist2_",
+  "stats": [
+    {
+      "id": "base_maximum_chaos_damage_resistance_%",
+      "min": 2,
+      "max": 2,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "shield",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

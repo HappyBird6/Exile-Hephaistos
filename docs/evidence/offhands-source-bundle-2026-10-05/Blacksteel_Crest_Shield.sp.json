@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/sp/Blacksteel_Crest_Shield",
+  "retrievedAt": "2026-10-05T04:18:21.176Z",
+  "sha256": "d1259b43f761d4800bffd19132f9b9ea2a224b0b5348064282e6a3c031d01fb2",
+  "variants": [
+    {
+      "name": "Escudo heráldico de acero negro",
+      "card": "Escudo heráldico de acero negro\n        \n    \n    \n        \n            EscudosProbabilidad de bloqueo: 25%Armadura: 145Escudo de energía: 40Base Movement Speed: -0.015Requiere:  Nivel 80, 63 Fue, 63 Int Otorga la habilidad: Levantar escudo\n        \n\n\n\n        \n            Blacksteel Crest Shield",
+      "requirements": "Requiere:  Nivel 80, 63 Fue, 63 Int",
+      "fields": {
+        "DropLevel": "80",
+        "BaseType": "Escudo heráldico de acero negro",
+        "Class": "Escudos",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/Shields/FourShieldStrInt7Endgame",
+        "Tags": "str_int_armour, str_int_shield, karui_basetype, shield, armour",
+        "Icon": "Art/2DItems/Offhand/Shields/Crest07",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, shield",
+        "Base.x_size": "2",
+        "Base.y_size": "2",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100",
+        "Shield.block_percentage": "0"
+      }
+    }
+  ]
+}

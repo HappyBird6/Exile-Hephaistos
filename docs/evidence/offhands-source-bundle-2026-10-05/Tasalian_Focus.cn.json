@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/cn/Tasalian_Focus",
+  "retrievedAt": "2026-10-05T04:18:15.008Z",
+  "sha256": "e4958673d39c925e95495e9ba26d0a3edc24b18121e7866fcb1e1e31925f0a6a",
+  "variants": [
+    {
+      "name": "塔萨里奥法器",
+      "card": "塔萨里奥法器\n        \n    \n    \n        \n            法器能量护盾: 91需求：  等级 80, 115 智慧\n        \n\n\n\n        \n            Tasalian Focus",
+      "requirements": "需求：  等级 80, 115 智慧",
+      "fields": {
+        "DropLevel": "80",
+        "BaseType": "塔萨里奥法器",
+        "Class": "法器",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanScourge",
+        "Type": "Metadata/Items/Armours/Focii/FourFocus10Endgame",
+        "Tags": "int_armour, karui_basetype, focus, armour",
+        "Icon": "Art/2DItems/Offhand/Foci/Basetypes/Focus10",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, focus",
+        "Base.x_size": "2",
+        "Base.y_size": "2",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      }
+    }
+  ]
+}

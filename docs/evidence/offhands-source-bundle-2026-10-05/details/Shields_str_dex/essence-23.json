@@ -1,0 +1,67 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "54",
+    "DropChance": 0,
+    "ModGenerationTypeID": "1",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>"
+    ],
+    "fossil_no": [
+      "defences",
+      "armour"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/4bd818f76e417a490b61fa79c0afcefc92939efd152cf2893458de164b28ca8c\" href=\"Greater_Essence_of_Enhancement\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterDefencesEssence.webp\" alt=\"GreaterDefencesEssence\" height=\"16\" />Greater Essence of Enhancement</a>",
+    "Code": "LocalIncreasedPhysicalDamageReductionRatingPercent5",
+    "ModFamilyList": [
+      "DefencesPercent"
+    ],
+    "str": "<span class='mod-value'>(68<span class=\"ndash\">—</span>79)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a>, <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> and <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a>",
+    "adds_no": [],
+    "spawn_no": [
+      "str_armour",
+      "default"
+    ],
+    "reqlvl": 43,
+    "IsPerfect": "0",
+    "IsAlloy": false,
+    "Removes": false
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRatingPercent5",
+  "textLocale": "us",
+  "detailText": "(68—79)% increased Armour",
+  "retrievedAt": "2026-10-05T04:28:11.912Z",
+  "sha256": "95caf85343db9dc28936fae7649bac745a3a8fcd7c5d58372f4963436b49f2a3",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(68<span class=\"ndash\">—</span>79)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a></span></h5>   <span data-tabname=\"Thickened\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Thickened\n<tr><th>Family<td>DefencesPercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>54 (Effective: 43)\n<tr><th>Gold Price<td>2524\n<tr><th>Stats<td><li>local physical damage reduction rating +% <span class=\"badge bg-primary\">68 <span class=\"ndash\">—</span> 79</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>str_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Armour</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(15<span class=\"ndash\">—</span>16)</span>% more Global [Evasion] Rating and [EnergyShield|Energy Shield]</table>  </div></div>",
+  "fields": {
+    "Name": "Thickened",
+    "Family": "DefencesPercent",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "54 (Effective: 43)",
+    "Gold Price": "2524",
+    "Stats": "local physical damage reduction rating +% 68 — 79 Local",
+    "Spawn Tags": "str_armour: 1 default: 0",
+    "Craft Tags": "defences Armour"
+  },
+  "code": "LocalIncreasedPhysicalDamageReductionRatingPercent5",
+  "stats": [
+    {
+      "id": "local_physical_damage_reduction_rating_+%",
+      "min": 68,
+      "max": 79,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "str_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

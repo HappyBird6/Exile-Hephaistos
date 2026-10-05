@@ -1,0 +1,62 @@
+{
+  "row": {
+    "Name": "Wraith's",
+    "Level": "46",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DefencesPercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(56<span class=\"ndash\">—</span>67)</span>% increased <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating",
+    "fossil_no": [
+      "defences",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ed6fad5a49bf32c183409f8f9fdb88d587ed7e4643e8a3e92a208a37ce454d45"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedEvasionRatingPercent4",
+  "textLocale": "us",
+  "detailText": "(56—67)% increased Evasion Rating",
+  "retrievedAt": "2026-10-05T04:33:14.072Z",
+  "sha256": "ed6fad5a49bf32c183409f8f9fdb88d587ed7e4643e8a3e92a208a37ce454d45",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(56<span class=\"ndash\">—</span>67)</span>% increased <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating</span></h5>   <span data-tabname=\"Wraith's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Wraith's\n<tr><th>Family<td>DefencesPercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>46 (Effective: 36)\n<tr><th>Gold Price<td>1341\n<tr><th>Stats<td><li>local evasion rating +% <span class=\"badge bg-primary\">56 <span class=\"ndash\">—</span> 67</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>dex_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Evasion</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(13<span class=\"ndash\">—</span>14)</span>% more Global [Evasion] Rating and [EnergyShield|Energy Shield]</table>  </div></div>",
+  "fields": {
+    "Name": "Wraith's",
+    "Family": "DefencesPercent",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "46 (Effective: 36)",
+    "Gold Price": "1341",
+    "Stats": "local evasion rating +% 56 — 67 Local",
+    "Spawn Tags": "dex_armour: 1 default: 0",
+    "Craft Tags": "defences Evasion"
+  },
+  "code": "LocalIncreasedEvasionRatingPercent4",
+  "stats": [
+    {
+      "id": "local_evasion_rating_+%",
+      "min": 56,
+      "max": 67,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "dex_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

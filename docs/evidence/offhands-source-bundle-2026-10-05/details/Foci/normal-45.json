@@ -1,0 +1,107 @@
+{
+  "row": {
+    "Name": "Gentian",
+    "Level": "54",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedMana"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(90<span class=\"ndash\">—</span>104)</span> to maximum Mana",
+    "fossil_no": [
+      "resource",
+      "mana"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "belt",
+      "helmet",
+      "gloves",
+      "boots",
+      "focus",
+      "sceptre",
+      "wand",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3e1db637d4b90e22df8e5347149c0a6a303c6dc103365085d741b54098bf5b34"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3e1db637d4b90e22df8e5347149c0a6a303c6dc103365085d741b54098bf5b34",
+  "textLocale": "us",
+  "detailText": "+(90—104) to maximum Mana",
+  "retrievedAt": "2026-10-05T04:33:39.566Z",
+  "sha256": "3e1db637d4b90e22df8e5347149c0a6a303c6dc103365085d741b54098bf5b34",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(90<span class=\"ndash\">—</span>104)</span> to maximum Mana</span></h5>   <span data-tabname=\"Gentian\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Gentian\n<tr><th>Family<td>IncreasedMana\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>54 (Effective: 43)\n<tr><th>Gold Price<td>1232\n<tr><th>Stats<td><li>base maximum mana <span class=\"badge bg-primary\">90 <span class=\"ndash\">—</span> 104</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>sceptre: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(24<span class=\"ndash\">—</span>25)</span>% more [Attack|Attack] damage while on [LowMana|Low Mana]</table>  </div></div>",
+  "fields": {
+    "Name": "Gentian",
+    "Family": "IncreasedMana",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "54 (Effective: 43)",
+    "Gold Price": "1232",
+    "Stats": "base maximum mana 90 — 104 Global",
+    "Spawn Tags": "ring: 1 amulet: 1 belt: 1 helmet: 1 gloves: 1 boots: 1 focus: 1 sceptre: 1 wand: 1 trap: 1 default: 0",
+    "Craft Tags": "resource Mana"
+  },
+  "code": "IncreasedMana8",
+  "stats": [
+    {
+      "id": "base_maximum_mana",
+      "min": 90,
+      "max": 104,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "amulet",
+      "weight": 1
+    },
+    {
+      "tag": "belt",
+      "weight": 1
+    },
+    {
+      "tag": "helmet",
+      "weight": 1
+    },
+    {
+      "tag": "gloves",
+      "weight": 1
+    },
+    {
+      "tag": "boots",
+      "weight": 1
+    },
+    {
+      "tag": "focus",
+      "weight": 1
+    },
+    {
+      "tag": "sceptre",
+      "weight": 1
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "trap",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

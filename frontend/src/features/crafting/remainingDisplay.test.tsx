@@ -22,7 +22,7 @@ type DisplayBinding = {
 }
 const bindings: Record<string, DisplayBinding> = catalog.definitions
 describe('remaining display coverage', () => {
-  it('renders all 432 compound bindings at min/middle/max in all locales with canonical values preserved', () => {
+  it('renders all 436 compound bindings at min/middle/max in all locales with canonical values preserved', () => {
     const compound = Object.entries(bindings).filter(
       ([, b]) =>
         b.valueStats &&
@@ -31,12 +31,13 @@ describe('remaining display coverage', () => {
     )
     // Preserve all historical bindings and cover 50 new Crossbow compounds.
     expect(
-      compound.filter(([id]) => !/^(crossbow|.+-crossbow):/.test(id)),
+      compound.filter(([id]) => !/^(crossbow|.+-crossbow|offhand):/.test(id)),
     ).toHaveLength(382)
     expect(
       compound.filter(([id]) => /^(crossbow|.+-crossbow):/.test(id)),
     ).toHaveLength(50)
-    expect(compound).toHaveLength(432)
+    expect(compound.filter(([id]) => id.startsWith('offhand:'))).toHaveLength(4)
+    expect(compound).toHaveLength(436)
     expect(compound.filter(([id]) => id.startsWith('kinetic:'))).toEqual([
       [
         'kinetic:implicit:physicaldamage',
@@ -102,12 +103,13 @@ describe('remaining display coverage', () => {
     ])
     // Preserve all historical bindings and cover 18 new numeric Crossbow bindings.
     expect(
-      single.filter(([id]) => !/^(crossbow|.+-crossbow):/.test(id)),
+      single.filter(([id]) => !/^(crossbow|.+-crossbow|offhand):/.test(id)),
     ).toHaveLength(234)
     expect(
       single.filter(([id]) => /^(crossbow|.+-crossbow):/.test(id)),
     ).toHaveLength(18)
-    expect(single).toHaveLength(252)
+    expect(single.filter(([id]) => id.startsWith('offhand:'))).toHaveLength(27)
+    expect(single).toHaveLength(279)
     expect(
       single
         .filter(([id]) =>

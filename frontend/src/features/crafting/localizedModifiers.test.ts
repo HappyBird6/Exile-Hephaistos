@@ -53,21 +53,30 @@ describe('verified modifier display templates', () => {
     const crossbowIds = ids.filter((id) => /^(crossbow|.+-crossbow):/.test(id))
     // Source-backed additions: 62 ordinary, 5 special and 4 implicit bindings.
     expect(crossbowIds).toHaveLength(71)
+    expect(ids.filter((id) => id.startsWith('offhand:'))).toHaveLength(31)
     expect(
       ids.filter(
         (id) =>
-          !/^(ruby|emerald|sapphire|diamond|crossbow|.+-crossbow):/.test(id) &&
-          !id.startsWith('time-lost-'),
+          !/^(ruby|emerald|sapphire|diamond|crossbow|.+-crossbow|offhand):/.test(
+            id,
+          ) && !id.startsWith('time-lost-'),
       ),
     ).toHaveLength(1812)
+    expect(
+      ids.filter(
+        (id) =>
+          !/^(ruby|emerald|sapphire|diamond|offhand):/.test(id) &&
+          !id.startsWith('time-lost-'),
+      ),
+      // Preserve all 1,812 historical equipment bindings and add 71 Crossbow bindings.
+    ).toHaveLength(1883)
     expect(
       ids.filter(
         (id) =>
           !/^(ruby|emerald|sapphire|diamond):/.test(id) &&
           !id.startsWith('time-lost-'),
       ),
-      // Preserve all 1,812 historical equipment bindings and add 71 Crossbow bindings.
-    ).toHaveLength(1883)
+    ).toHaveLength(1914)
     expect(
       ids
         .filter(

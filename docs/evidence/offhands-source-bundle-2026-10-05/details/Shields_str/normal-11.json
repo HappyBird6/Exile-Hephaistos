@@ -1,0 +1,83 @@
+{
+  "row": {
+    "Name": "of the Kiln",
+    "Level": "36",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "FireResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(21<span class=\"ndash\">—</span>25)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Fire Resistance</a>",
+    "fossil_no": [
+      "elemental_resistance",
+      "fire_resistance",
+      "elemental",
+      "fire",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/03e5b5f00c9a49607c0cb7c5e37e96d2272adf4fc2dfc395fe927ff4317cc0a8"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/03e5b5f00c9a49607c0cb7c5e37e96d2272adf4fc2dfc395fe927ff4317cc0a8",
+  "textLocale": "us",
+  "detailText": "+(21—25)% to Fire Resistance",
+  "retrievedAt": "2026-10-05T04:18:57.157Z",
+  "sha256": "03e5b5f00c9a49607c0cb7c5e37e96d2272adf4fc2dfc395fe927ff4317cc0a8",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(21<span class=\"ndash\">—</span>25)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Fire Resistance</a></span></h5>   <span data-tabname=\"of the Kiln\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Kiln\n<tr><th>Family<td>FireResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>36 (Effective: 28)\n<tr><th>Gold Price<td>620\n<tr><th>Stats<td><li>base fire damage resistance % <span class=\"badge bg-primary\">21 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>armour: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>fire_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Fire</span> <span class='badge bg-primary'>Resistance</span> \n<tr><th>Horticrafting<td>Can change Element modifier\n<tr><td>Fists of Stone<td><span class='mod-value'>+2</span>% to [MaximumResistances|Maximum Fire Resistance]<br><span class='mod-value'>+(21<span class=\"ndash\">—</span>25)</span>% to [Resistances|Fire Resistance]</table>  </div></div>",
+  "fields": {
+    "Name": "of the Kiln",
+    "Family": "FireResistance",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "36 (Effective: 28)",
+    "Gold Price": "620",
+    "Stats": "base fire damage resistance % 21 — 25 Global",
+    "Spawn Tags": "armour: 1 ring: 1 amulet: 1 belt: 1 default: 0",
+    "Craft Tags": "elemental_resistance fire_resistance Elemental Fire Resistance",
+    "Horticrafting": "Can change Element modifier"
+  },
+  "code": "FireResist4",
+  "stats": [
+    {
+      "id": "base_fire_damage_resistance_%",
+      "min": 21,
+      "max": 25,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "armour",
+      "weight": 1
+    },
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "amulet",
+      "weight": 1
+    },
+    {
+      "tag": "belt",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

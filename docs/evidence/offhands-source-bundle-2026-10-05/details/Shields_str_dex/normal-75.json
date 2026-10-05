@@ -1,0 +1,77 @@
+{
+  "row": {
+    "Name": "Marshal's",
+    "Level": "48",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DefencesPercentAndStunThreshold"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(27<span class=\"ndash\">—</span>32)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a><br><span class='mod-value'>+(41<span class=\"ndash\">—</span>63)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/316a7a69eefcbd428676307b835263fc26186fee563e3838fb17fd8b29742b43\">Stun Threshold</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "helmet",
+      "gloves",
+      "str_dex_armour",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ebd9f412538e2429fffaa9e04ddc0fb271bb645b9f635b6dab6477dfdcf35d58"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FLocalArmourAndEvasionAndStunThreshold4",
+  "textLocale": "jp",
+  "detailText": "アーマーおよび回避力が(27—32)%増加する\nスタン閾値 +(41—63)",
+  "retrievedAt": "2026-10-05T04:30:13.662Z",
+  "sha256": "2a04d46a9b515c4c151536a38cdb29b121041ae9c790c08c3a9859890d236490",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/82a62a81f07c975f48b08deee312f33226ba1805294f112f4eeba7d977ce4c07\">アーマー</a>および<a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/cb013856f854596fa3e051adb7fb3afc08f89668fbca4b218a07b957fe862b27\">回避力</a>が<span class='mod-value'>(27<span class=\"ndash\">—</span>32)</span>%増加する<br><a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/a0dcd0203f17fff25a8842c56bb9e72c338afb018fc1ef1d5471b0d48f168ec2\">スタン閾値</a> <span class='mod-value'>+(41<span class=\"ndash\">—</span>63)</span></span></h5>   <span data-tabname=\"元帥の\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>元帥の\n<tr><th>Family<td>DefencesPercentAndStunThreshold\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>プレフィックス (1)\n<tr><th>Req. level<td>48 (Effective: 38)\n<tr><th>Gold Price<td>820\n<tr><th>Stats<td><li>stun threshold + <span class=\"badge bg-primary\">41 <span class=\"ndash\">—</span> 63</span> <span class=\"badge bg-secondary\">Global</span></li><li>local armour and evasion +% <span class=\"badge bg-primary\">27 <span class=\"ndash\">—</span> 32</span> <span class=\"badge bg-secondary\">ローカル</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 0</span> <span class='badge bg-primary'>helmet: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>str_dex_armour: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "fields": {
+    "Name": "元帥の",
+    "Family": "DefencesPercentAndStunThreshold",
+    "Domains": "アイテム (1)",
+    "GenerationType": "プレフィックス (1)",
+    "Req. level": "48 (Effective: 38)",
+    "Gold Price": "820",
+    "Stats": "stun threshold + 41 — 63 Globallocal armour and evasion +% 27 — 32 ローカル",
+    "Spawn Tags": "body_armour: 0 helmet: 0 gloves: 0 str_dex_armour: 1 default: 0"
+  },
+  "code": "LocalArmourAndEvasionAndStunThreshold4",
+  "stats": [
+    {
+      "id": "stun_threshold_+",
+      "min": 41,
+      "max": 63,
+      "locality": "Global"
+    },
+    {
+      "id": "local_armour_and_evasion_+%",
+      "min": 27,
+      "max": 32,
+      "locality": "ローカル"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "body_armour",
+      "weight": 0
+    },
+    {
+      "tag": "helmet",
+      "weight": 0
+    },
+    {
+      "tag": "gloves",
+      "weight": 0
+    },
+    {
+      "tag": "str_dex_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "row": {
+    "Name": "Defender's",
+    "Level": "10",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DefencesPercentAndStunThreshold"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(6<span class=\"ndash\">—</span>13)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a><br><span class='mod-value'>+(8<span class=\"ndash\">—</span>13)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/316a7a69eefcbd428676307b835263fc26186fee563e3838fb17fd8b29742b43\">Stun Threshold</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "helmet",
+      "gloves",
+      "str_int_armour",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/80b779223a7dba1169793c0ba1810565ac39193946cc2ffac8df0ee78c3983fd"
+  },
+  "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FLocalArmourAndEnergyShieldAndStunThreshold1",
+  "textLocale": "cn",
+  "detailText": "护甲与能量护盾提高 (6—13)%\n+(8—13) 晕眩阈值",
+  "retrievedAt": "2026-10-05T04:32:03.631Z",
+  "sha256": "d97712428cc724121e0ef1254726a9205c523ddaee54a121915a6582596f0d3e",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/cn/Poe_Data_KeywordPopups_hover/35dfc434e5b7ae7bdaa9b378843c07d94d1e017d23be04a6edd174758a600724\">护甲</a>与<a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/cn/Poe_Data_KeywordPopups_hover/65a86dfabb9341282c26fe6816b0955d41e565a92f46e4c4cd2469c39123c753\">能量护盾</a>提高 <span class='mod-value'>(6<span class=\"ndash\">—</span>13)</span>%<br><span class='mod-value'>+(8<span class=\"ndash\">—</span>13)</span> <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/cn/Poe_Data_KeywordPopups_hover/1b19145b75cdae6299a272fdc3bfcd0d7603938fb808f1d9aa2e8153fab4e730\">晕眩阈值</a></span></h5>   <span data-tabname=\"守护者的\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>守护者的\n<tr><th>Family<td>DefencesPercentAndStunThreshold\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>前缀 (1)\n<tr><th>Req. level<td>10 (Effective: 8)\n<tr><th>Gold Price<td>165\n<tr><th>Stats<td><li>stun threshold + <span class=\"badge bg-primary\">8 <span class=\"ndash\">—</span> 13</span> <span class=\"badge bg-secondary\">Global</span></li><li>local armour and energy shield +% <span class=\"badge bg-primary\">6 <span class=\"ndash\">—</span> 13</span> <span class=\"badge bg-secondary\">区域</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 0</span> <span class='badge bg-primary'>helmet: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>str_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "fields": {
+    "Name": "守护者的",
+    "Family": "DefencesPercentAndStunThreshold",
+    "Domains": "物品 (1)",
+    "GenerationType": "前缀 (1)",
+    "Req. level": "10 (Effective: 8)",
+    "Gold Price": "165",
+    "Stats": "stun threshold + 8 — 13 Globallocal armour and energy shield +% 6 — 13 区域",
+    "Spawn Tags": "body_armour: 0 helmet: 0 gloves: 0 str_int_armour: 1 default: 0"
+  },
+  "code": "LocalArmourAndEnergyShieldAndStunThreshold1",
+  "stats": [
+    {
+      "id": "stun_threshold_+",
+      "min": 8,
+      "max": 13,
+      "locality": "Global"
+    },
+    {
+      "id": "local_armour_and_energy_shield_+%",
+      "min": 6,
+      "max": 13,
+      "locality": "区域"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "body_armour",
+      "weight": 0
+    },
+    {
+      "tag": "helmet",
+      "weight": 0
+    },
+    {
+      "tag": "gloves",
+      "weight": 0
+    },
+    {
+      "tag": "str_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "row": {
+    "Name": "Acrobat's",
+    "Level": "16",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefences"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(47<span class=\"ndash\">—</span>66)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating",
+    "fossil_no": [
+      "defences",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "dex_armour",
+      "str_dex_int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5c5e30183374b68e7299bce5b4f97dfd5f3127a1e46b612f5d5810b4b1e66c5c"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FLocalIncreasedEvasionRating3",
+  "textLocale": "jp",
+  "detailText": "回避力 +(47—66)",
+  "retrievedAt": "2026-10-05T04:32:43.380Z",
+  "sha256": "bf1bca51647a718539579b3ac8d1d16d08580fb6dc4703c7c2824f38f8d5a313",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/cb013856f854596fa3e051adb7fb3afc08f89668fbca4b218a07b957fe862b27\">回避力</a> <span class='mod-value'>+(47<span class=\"ndash\">—</span>66)</span></span></h5>   <span data-tabname=\"軽業師の\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>軽業師の\n<tr><th>Family<td>BaseLocalDefences\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>プレフィックス (1)\n<tr><th>Req. level<td>16 (Effective: 12)\n<tr><th>Gold Price<td>252\n<tr><th>Stats<td><li>local base evasion rating <span class=\"badge bg-primary\">47 <span class=\"ndash\">—</span> 66</span> <span class=\"badge bg-secondary\">ローカル</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>dex_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>回避力</span> \n<tr><td>石の拳<td>プレイヤーレベルごとに[Evasion|回避力] <span class='mod-value'>+2</span>を持つ<br>プレイヤーレベルごとに最大[EnergyShield|エナジーシールド] <span class='mod-value'>+1</span>を持つ</table>  </div></div>",
+  "fields": {
+    "Name": "軽業師の",
+    "Family": "BaseLocalDefences",
+    "Domains": "アイテム (1)",
+    "GenerationType": "プレフィックス (1)",
+    "Req. level": "16 (Effective: 12)",
+    "Gold Price": "252",
+    "Stats": "local base evasion rating 47 — 66 ローカル",
+    "Spawn Tags": "dex_armour: 1 str_dex_int_armour: 1 default: 0",
+    "Craft Tags": "defences 回避力"
+  },
+  "code": "LocalIncreasedEvasionRating3",
+  "stats": [
+    {
+      "id": "local_base_evasion_rating",
+      "min": 47,
+      "max": 66,
+      "locality": "ローカル"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "dex_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

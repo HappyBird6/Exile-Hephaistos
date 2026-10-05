@@ -1,0 +1,60 @@
+{
+  "row": {
+    "Name": "Adamant",
+    "Level": "65",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedShieldBlockPercentage"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(25<span class=\"ndash\">—</span>30)</span>% increased <a data-keyword=\"Block\" href=\"Block\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/013f893301a6a288685d2a8ca0f9b1e89ad6d4681b3bdc92506ebb25a166c195\">Block</a> chance",
+    "fossil_no": [
+      "block"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "shield",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0e2132a58dc8b9eb3e19d704c2038c0a4997ec7c00d87db50e76df509b0a8cb2"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FLocalBlockChance3",
+  "textLocale": "sp",
+  "detailText": "Probabilidad de bloqueo aumentada un (25—30)%",
+  "retrievedAt": "2026-10-05T04:20:25.840Z",
+  "sha256": "fdf828cba523723871a25d732eeab906697a3e56cffe782f6db387a488ec5516",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Probabilidad de <a data-keyword=\"Block\" href=\"Block\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FBlock\">bloqueo</a> aumentada un <span class='mod-value'>(25<span class=\"ndash\">—</span>30)</span>%</span></h5>   <span data-tabname=\"<if:MS>{inflexible}<elif:MP>{inflexibles}\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td><if:MS>{inflexible}<elif:MP>{inflexibles}\n<tr><th>Family<td>IncreasedShieldBlockPercentage\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Prefijo (1)\n<tr><th>Req. level<td>65 (Effective: 52)\n<tr><th>Gold Price<td>1027\n<tr><th>Stats<td><li>local block chance +% <span class=\"badge bg-primary\">25 <span class=\"ndash\">—</span> 30</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>shield: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>block</i></span> </table>  </div></div>",
+  "fields": {
+    "Name": "{inflexible}{inflexibles}",
+    "Family": "IncreasedShieldBlockPercentage",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Prefijo (1)",
+    "Req. level": "65 (Effective: 52)",
+    "Gold Price": "1027",
+    "Stats": "local block chance +% 25 — 30 Local",
+    "Spawn Tags": "shield: 1 default: 0",
+    "Craft Tags": "block"
+  },
+  "code": "LocalBlockChance3",
+  "stats": [
+    {
+      "id": "local_block_chance_+%",
+      "min": 25,
+      "max": 30,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "shield",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

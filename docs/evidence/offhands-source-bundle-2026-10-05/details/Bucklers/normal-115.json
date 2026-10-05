@@ -1,0 +1,78 @@
+{
+  "row": {
+    "Name": "of Diversion",
+    "Level": "48",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "EvasionAppliesToDeflection"
+    ],
+    "DropChance": "1000",
+    "str": "Gain <a data-keyword=\"Deflect\" href=\"Deflect\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/faa64b5c56e45e9a1c420b62d523b071a96efd778d924ea28364714d6073172e\">Deflection Rating</a> equal to <span class='mod-value'>(18<span class=\"ndash\">—</span>20)</span>% of <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion Rating</a>",
+    "fossil_no": [
+      "defences",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_int_armour",
+      "dex_int_armour",
+      "str_dex_armour",
+      "dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/bdf406c6339f6e3f095c753906e321f76cc691bba0211653480d489ab0160b54"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEvasionGrantsDeflection4",
+  "textLocale": "sp",
+  "detailText": "Ganas desvío equivalente al (18—20)% de la evasión",
+  "retrievedAt": "2026-10-05T04:30:40.453Z",
+  "sha256": "724cc04f68df3cf1589bc90199542d85ff20670ef394f1948730e5c39c4ce89b",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Ganas <a data-keyword=\"Deflect\" href=\"Deflect\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FDeflect\">desvío</a> equivalente al <span class='mod-value'>(18<span class=\"ndash\">—</span>20)</span>% de la <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FEvasion\">evasión</a></span></h5>   <span data-tabname=\"de desviación\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>de desviación\n<tr><th>Family<td>EvasionAppliesToDeflection\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Sufijo (2)\n<tr><th>Req. level<td>48 (Effective: 38)\n<tr><th>Gold Price<td>1918\n<tr><th>Stats<td><li>base deflection rating % of evasion rating <span class=\"badge bg-primary\">18 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>dex_int_armour: 1</span> <span class='badge bg-primary'>str_dex_armour: 1</span> <span class='badge bg-primary'>dex_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Evasion</span> \n<tr><td>Puños de roca<td>Impide <span class='mod-value'>+6</span>% del daño de los <a data-keyword=\"HitDamage\" href=\"Hit_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/3a08d7694003422414c0ebd336f37ffa1f6ce85a4d98f01ce73fca5161ce2002\">impactos</a> <a data-keyword=\"Deflect\" href=\"Deflect\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FDeflect\">desviados</a></table>  </div></div>",
+  "fields": {
+    "Name": "de desviación",
+    "Family": "EvasionAppliesToDeflection",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Sufijo (2)",
+    "Req. level": "48 (Effective: 38)",
+    "Gold Price": "1918",
+    "Stats": "base deflection rating % of evasion rating 18 — 20 Global",
+    "Spawn Tags": "str_dex_int_armour: 1 dex_int_armour: 1 str_dex_armour: 1 dex_armour: 1 default: 0",
+    "Craft Tags": "defences Evasion"
+  },
+  "code": "EvasionGrantsDeflection4",
+  "stats": [
+    {
+      "id": "base_deflection_rating_%_of_evasion_rating",
+      "min": 18,
+      "max": 20,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_armour",
+      "weight": 1
+    },
+    {
+      "tag": "dex_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

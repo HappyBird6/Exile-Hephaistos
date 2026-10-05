@@ -1,0 +1,62 @@
+{
+  "row": {
+    "Name": "Lobstered",
+    "Level": "35",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DefencesPercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(43<span class=\"ndash\">—</span>55)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a>",
+    "fossil_no": [
+      "defences",
+      "armour"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2e247bf1479ec75848c8974ea6dd65b3e5633551400fd26a061a584b929057ea"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRatingPercent3",
+  "textLocale": "us",
+  "detailText": "(43—55)% increased Armour",
+  "retrievedAt": "2026-10-05T04:19:27.707Z",
+  "sha256": "529e7b3eb835fd52dffb1a17826cc1b2778aa19b79e3560e50589aa38b80883e",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(43<span class=\"ndash\">—</span>55)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a></span></h5>   <span data-tabname=\"Lobstered\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Lobstered\n<tr><th>Family<td>DefencesPercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>35 (Effective: 28)\n<tr><th>Gold Price<td>722\n<tr><th>Stats<td><li>local physical damage reduction rating +% <span class=\"badge bg-primary\">43 <span class=\"ndash\">—</span> 55</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>str_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Armour</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(11<span class=\"ndash\">—</span>12)</span>% more Global [Evasion] Rating and [EnergyShield|Energy Shield]</table>  </div></div>",
+  "fields": {
+    "Name": "Lobstered",
+    "Family": "DefencesPercent",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "35 (Effective: 28)",
+    "Gold Price": "722",
+    "Stats": "local physical damage reduction rating +% 43 — 55 Local",
+    "Spawn Tags": "str_armour: 1 default: 0",
+    "Craft Tags": "defences Armour"
+  },
+  "code": "LocalIncreasedPhysicalDamageReductionRatingPercent3",
+  "stats": [
+    {
+      "id": "local_physical_damage_reduction_rating_+%",
+      "min": 43,
+      "max": 55,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "str_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

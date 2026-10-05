@@ -1,0 +1,79 @@
+{
+  "availability": [
+    {
+      "bases": [
+        "Tawhoan Tower Shield",
+        "Golden Targe",
+        "Blacksteel Crest Shield",
+        "Desert Buckler",
+        "Tasalian Focus"
+      ],
+      "url": "https://www.pathofexile.com/forum/view-thread/3828542",
+      "evidence": "Official GGG Third Edict item-filter release information explicitly lists all five exact names under Shields, Bucklers and Foci in New Items. Cross-checked against current normal popups, class IDs, ordinary metadata and craftable pools. No exact drop location or probability is claimed."
+    },
+    {
+      "bases": [
+        "Tawhoan Tower Shield",
+        "Golden Targe",
+        "Blacksteel Crest Shield",
+        "Desert Buckler"
+      ],
+      "url": "https://www.pathofexile.com/forum/view-thread/3840893",
+      "evidence": "Official GGG 0.3.0b patch describes existing items and fixes block/innate skill on these exact ordinary basetypes. Current source normal popup and rarity metadata independently agree. Historical items before this fix can differ; no historical game-item text is reinterpreted."
+    },
+    {
+      "bases": [
+        "Tasalian Focus"
+      ],
+      "url": "https://www.reddit.com/r/PathOfExile2/comments/1ojmm3r/24_total_tasalian_focus_and_still_no_4/",
+      "evidence": "First-person crafting evidence names this exact base with ordinary affixes and Chaos/Exalted/Annulment use. Report mentions exceptional sockets; this does not support exceptional socket mechanics in this bundle."
+    },
+    {
+      "bases": [
+        "Tasalian Focus"
+      ],
+      "url": "https://game8.co/games/Path-of-Exile-2/archives/572221",
+      "evidence": "Search index snippet reports availability, but full public reader returned402. Not relied upon for implementation or ordinary release proof; official GGG item-filter release evidence supplies the primary proof."
+    }
+  ],
+  "uncertainties": [
+    "Published selection weights are PoE2DB snapshot fields, not independently verified game spawn probabilities.",
+    "Source built-in Block and granted skill lack canonical item modifier stat proof on base detail; retained as unmodified display instead of synthesizing item stats.",
+    "Game historical items may lack block/skill before 0.3.0b; simulator creates current source base, preserves existing films, and is not a parser mapping of personal game text.",
+    "Numeric rolls use existing explicitly unverified source-unit model. No combat, block probability outcome, local defence total, skill scaling, exceptional sockets or socketed Augments are implemented."
+  ],
+  "failureHistory": [
+    {
+      "step": "source collection1",
+      "reason": "Shields class inventory contains no ModsView; corrected to actual Shields_str/str_dex/str_int modifier pages. Interrupted base evidence preserved."
+    },
+    {
+      "step": "details1-4",
+      "reason": "Generic Essence Defence class rows list Armour, Evasion and Energy Shield while detail is individual/hybrid defence. Exact numeric spans, recognized source codes, ordinary targets and ordered spawn remain required. Hybrid code5_ retains its source underscore."
+    },
+    {
+      "step": "import1",
+      "reason": "Existing active Hysteria is a positive-weight ordinary source target, not a zero-spawn special. Exact ordinary stats/family/level/text and ordered eligibility required; no ordinary definitions removed or weight weakened."
+    },
+    {
+      "step": "locale perfect Essence import",
+      "reason": "Foci locale arrays differ because Alloy entries are excluded; canonical rows are matched by actual Code, family, level and generation rather than array ordinal."
+    },
+    {
+      "step": "frontend aggregate1",
+      "reason": "Node22 image failed the package engine before installation. Log retained; use existing Node24 image without engine overrides."
+    },
+    {
+      "step": "frontend aggregate2",
+      "reason": "Strict typecheck found missing five English baseTexts entries and possibly undefined indexed itemClass. Log retained; exact drafts and guarded family lookup corrected; no assertions or strict settings relaxed."
+    },
+    {
+      "step": "frontend aggregate3",
+      "reason": "1869 tests passed; legacy equipment count assertion included new31 in the historical1883 scope. Historical count1883 and new total1914 now separately asserted; full six-locale traversal preserved."
+    },
+    {
+      "step": "Git raw evidence staging",
+      "reason": "Git initially normalized mixed CRLF in raw HTML. Bundle-scoped -text attributes plus explicit renormalize restored exact captured bytes; staged97 runtime/source files were checksum-verified before commit. Raw-source trailing whitespace is retained; non-raw diff check passes."
+    }
+  ]
+}

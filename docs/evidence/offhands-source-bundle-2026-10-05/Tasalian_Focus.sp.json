@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/sp/Tasalian_Focus",
+  "retrievedAt": "2026-10-05T04:18:21.772Z",
+  "sha256": "5b755c7d53088b4b0f7b9f0d2e1d00896145fa24afe971e232d447f881d76071",
+  "variants": [
+    {
+      "name": "Foco tasaliano",
+      "card": "Foco tasaliano\n        \n    \n    \n        \n            FocosEscudo de energía: 91Requiere:  Nivel 80, 115 Int\n        \n\n\n\n        \n            Tasalian Focus",
+      "requirements": "Requiere:  Nivel 80, 115 Int",
+      "fields": {
+        "DropLevel": "80",
+        "BaseType": "Foco tasaliano",
+        "Class": "Focos",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanScourge",
+        "Type": "Metadata/Items/Armours/Focii/FourFocus10Endgame",
+        "Tags": "int_armour, karui_basetype, focus, armour",
+        "Icon": "Art/2DItems/Offhand/Foci/Basetypes/Focus10",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, focus",
+        "Base.x_size": "2",
+        "Base.y_size": "2",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/us/Tawhoan_Tower_Shield",
+  "retrievedAt": "2026-10-05T04:15:46.812Z",
+  "sha256": "47a6d569520839e58bf169ecedb60d0cfa77cabe3590a873a98c4d1060e0cfaf",
+  "variants": [
+    {
+      "name": "Tawhoan Tower Shield",
+      "card": "Tawhoan Tower Shield\n        \n    \n    \n        \n            ShieldsBlock chance: 26%Armour: 264Base Movement Speed: -0.03Requires:  Level 80, 115 Str Grants Skill: Raise Shield",
+      "requirements": "Requires:  Level 80, 115 Str",
+      "fields": {
+        "DropLevel": "80",
+        "BaseType": "Tawhoan Tower Shield",
+        "Class": "Shields",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/Shields/FourShieldStr10Endgame",
+        "Tags": "str_armour, str_shield, karui_basetype, shield, armour",
+        "Icon": "Art/2DItems/Offhand/Shields/Tower10",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, shield",
+        "Base.x_size": "2",
+        "Base.y_size": "2",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100",
+        "Shield.block_percentage": "0"
+      }
+    }
+  ]
+}
