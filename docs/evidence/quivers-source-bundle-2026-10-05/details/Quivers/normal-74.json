@@ -1,0 +1,63 @@
+{
+  "row": {
+    "Name": "of Ruin",
+    "Level": "58",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "CriticalStrikeChanceIncrease"
+    ],
+    "DropChance": "250",
+    "str": "<span class='mod-value'>(30<span class=\"ndash\">—</span>34)</span>% increased <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit Chance</a> for <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attacks</a>",
+    "fossil_no": [
+      "attack",
+      "critical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "quiver",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>",
+      "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/02de5f7a79014b4fcd37e7cd3bbf898fe7976c93506ef2c34bacace528d788c9"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FAttackCriticalStrikeChance5",
+  "textLocale": "jp",
+  "detailText": "アタックのクリティカルヒット率が(30—34)%増加する",
+  "retrievedAt": "2026-10-05T05:32:21.946Z",
+  "sha256": "d0e46c722c994d23a646cd9feb02a581f46e7cfe1d7fcb2b95c07fdf9bae799a",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/39ab8a4c1bfd40ba4d1209b65ca6bc7b0547262f6b29e1793a889bc838578ae1\">アタック</a>の<a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/33f7d4c8d6b85f1c89c13ccae29e6f0ac9d6069e755edc97459ba5337063dcd9\">クリティカルヒット率</a>が<span class='mod-value'>(30<span class=\"ndash\">—</span>34)</span>%増加する</span></h5>   <span data-tabname=\"滅びの\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>滅びの\n<tr><th>Family<td>CriticalStrikeChanceIncrease\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>サフィックス (2)\n<tr><th>Req. level<td>58 (Effective: 46)\n<tr><th>Gold Price<td>1801\n<tr><th>Stats<td><li>attack critical strike chance +% <span class=\"badge bg-primary\">30 <span class=\"ndash\">—</span> 34</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>アタック</span> <span class='badge bg-primary'>クリティカル</span> </table>  </div></div>",
+  "fields": {
+    "Name": "滅びの",
+    "Family": "CriticalStrikeChanceIncrease",
+    "Domains": "アイテム (1)",
+    "GenerationType": "サフィックス (2)",
+    "Req. level": "58 (Effective: 46)",
+    "Gold Price": "1801",
+    "Stats": "attack critical strike chance +% 30 — 34 Global",
+    "Spawn Tags": "quiver: 1 default: 0",
+    "Craft Tags": "アタック クリティカル"
+  },
+  "code": "AttackCriticalStrikeChance5",
+  "stats": [
+    {
+      "id": "attack_critical_strike_chance_+%",
+      "min": 30,
+      "max": 34,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "quiver",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

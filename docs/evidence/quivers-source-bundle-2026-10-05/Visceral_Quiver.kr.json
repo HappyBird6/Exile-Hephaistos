@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/kr/Visceral_Quiver",
+  "retrievedAt": "2026-10-05T05:29:15.364Z",
+  "sha256": "7100f425fe94764c7c45a4dc6f3999f29ce13f64b1461e87a2344dc60bdff0c3",
+  "variants": [
+    {
+      "name": "본능적인 화살통",
+      "card": "본능적인 화살통\n        \n    \n    \n        \n            화살통요구 사항:  레벨 65공격 치명타 명중 확률 (20—30)% 증가\n        \n\n\n        \n        \n            활 장착 시에만 장착할 수 있습니다.\n        \n\n        \n            Visceral Quiver",
+      "requirements": "요구 사항:  레벨 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "본능적인 화살통",
+        "Class": "화살통",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver11",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverVisceral",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

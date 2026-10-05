@@ -1,0 +1,313 @@
+{
+  "ordinary": 100,
+  "reused": 70,
+  "fixed": {
+    "LESSER_ESSENCE_INFINITE": [
+      "stocky-mitts:suffix:of-the-lynx"
+    ],
+    "ESSENCE_INFINITE": [
+      "stocky-mitts:suffix:of-the-falcon"
+    ],
+    "GREATER_ESSENCE_BATTLE": [
+      "stocky-mitts:prefix:hunter-s"
+    ],
+    "GREATER_ESSENCE_INFINITE": [
+      "stocky-mitts:suffix:of-the-leopard"
+    ]
+  },
+  "replacements": {
+    "ESSENCE_HYSTERIA": [
+      "quiver:prefix:lacerating:DamageWithBows5"
+    ],
+    "ESSENCE_ABYSS": [
+      "stocky-mitts:prefix:essence-abyssal-mark",
+      "stocky-mitts:suffix:essence-abyssal-mark"
+    ]
+  },
+  "excluded": [
+    {
+      "kind": "essence",
+      "code": "Strength2",
+      "action": "LESSER_ESSENCE_INFINITE",
+      "reason": "Ordered spawn denies Quiver"
+    },
+    {
+      "kind": "essence",
+      "code": "Intelligence2",
+      "action": "LESSER_ESSENCE_INFINITE",
+      "reason": "Ordered spawn denies Quiver"
+    },
+    {
+      "kind": "essence",
+      "code": "Strength4",
+      "action": "ESSENCE_INFINITE",
+      "reason": "Ordered spawn denies Quiver"
+    },
+    {
+      "kind": "essence",
+      "code": "Intelligence4",
+      "action": "ESSENCE_INFINITE",
+      "reason": "Ordered spawn denies Quiver"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedAccuracy7",
+      "action": "GREATER_ESSENCE_BATTLE",
+      "reason": "Ordered spawn denies Quiver"
+    },
+    {
+      "kind": "essence",
+      "code": "Strength6",
+      "action": "GREATER_ESSENCE_INFINITE",
+      "reason": "Ordered spawn denies Quiver"
+    },
+    {
+      "kind": "essence",
+      "code": "Intelligence6",
+      "action": "GREATER_ESSENCE_INFINITE",
+      "reason": "Ordered spawn denies Quiver"
+    },
+    {
+      "kind": "perfect_essence",
+      "code": "AlloyChanceToChain1",
+      "action": "MYSTIC_ALLOY",
+      "reason": "Existing excluded/deferred action"
+    }
+  ],
+  "bases": [
+    {
+      "key": "visceral-quiver",
+      "id": "Metadata/Items/Quivers/FourQuiver11",
+      "implicit": [
+        {
+          "text": "(20—30)% increased Critical Hit Chance for Attacks",
+          "family": "CriticalStrikeChanceIncrease",
+          "stats": [
+            {
+              "id": "attack_critical_strike_chance_+%",
+              "min": 20,
+              "max": 30,
+              "locality": "Global"
+            }
+          ]
+        }
+      ],
+      "ordinary": 100,
+      "special": 2
+    },
+    {
+      "key": "volant-quiver",
+      "id": "Metadata/Items/Quivers/FourQuiver10",
+      "implicit": [
+        {
+          "text": "(20—30)% increased Arrow Speed",
+          "family": "ArrowSpeed",
+          "stats": [
+            {
+              "id": "base_arrow_speed_+%",
+              "min": 20,
+              "max": 30,
+              "locality": "Global"
+            }
+          ]
+        }
+      ],
+      "ordinary": 100,
+      "special": 2
+    },
+    {
+      "key": "penetrating-quiver",
+      "id": "Metadata/Items/Quivers/FourQuiver9",
+      "implicit": [
+        {
+          "text": "100% chance to Pierce an Enemy",
+          "family": "ChanceToPierce",
+          "stats": [
+            {
+              "id": "base_chance_to_pierce_%",
+              "min": 100,
+              "max": 100,
+              "locality": "Global"
+            }
+          ]
+        }
+      ],
+      "ordinary": 100,
+      "special": 2
+    },
+    {
+      "key": "primed-quiver",
+      "id": "Metadata/Items/Quivers/FourQuiver8",
+      "implicit": [
+        {
+          "text": "(7—10)% increased Attack Speed",
+          "family": "IncreasedAttackSpeed",
+          "stats": [
+            {
+              "id": "attack_speed_+%",
+              "min": 7,
+              "max": 10,
+              "locality": "Global"
+            }
+          ]
+        }
+      ],
+      "ordinary": 100,
+      "special": 2
+    },
+    {
+      "key": "serrated-quiver",
+      "id": "Metadata/Items/Quivers/FourQuiver7",
+      "implicit": [
+        {
+          "text": "Attacks have (20—30)% chance to cause Bleeding",
+          "family": "ChanceToBleed",
+          "stats": [
+            {
+              "id": "bleed_on_hit_with_attacks_%",
+              "min": 20,
+              "max": 30,
+              "locality": "Global"
+            }
+          ]
+        }
+      ],
+      "ordinary": 100,
+      "special": 2
+    },
+    {
+      "key": "toxic-quiver",
+      "id": "Metadata/Items/Quivers/FourQuiver6",
+      "implicit": [
+        {
+          "text": "(20—30)% chance to Poison on Hit with Attacks",
+          "family": "ChanceToPoisonWithAttacks",
+          "stats": [
+            {
+              "id": "chance_to_poison_on_hit_with_attacks_%",
+              "min": 20,
+              "max": 30,
+              "locality": "Global"
+            }
+          ]
+        }
+      ],
+      "ordinary": 100,
+      "special": 2
+    },
+    {
+      "key": "blunt-quiver",
+      "id": "Metadata/Items/Quivers/FourQuiver5",
+      "implicit": [
+        {
+          "text": "(25—40)% increased Stun Buildup",
+          "family": "StunDamageIncrease",
+          "stats": [
+            {
+              "id": "hit_damage_stun_multiplier_+%",
+              "min": 25,
+              "max": 40,
+              "locality": "Global"
+            }
+          ]
+        }
+      ],
+      "ordinary": 100,
+      "special": 2
+    },
+    {
+      "key": "two-point-quiver",
+      "id": "Metadata/Items/Quivers/FourQuiver4",
+      "implicit": [
+        {
+          "text": "(20—30)% increased Accuracy Rating",
+          "family": "IncreasedAccuracyPercent",
+          "stats": [
+            {
+              "id": "accuracy_rating_+%",
+              "min": 20,
+              "max": 30,
+              "locality": "Global"
+            }
+          ]
+        }
+      ],
+      "ordinary": 100,
+      "special": 2
+    },
+    {
+      "key": "sacral-quiver",
+      "id": "Metadata/Items/Quivers/FourQuiver3",
+      "implicit": [
+        {
+          "text": "Gain (2—3) Life per Enemy Hit with Attacks",
+          "family": "LifeGainPerTarget",
+          "stats": [
+            {
+              "id": "base_life_gain_per_target",
+              "min": 2,
+              "max": 3,
+              "locality": "Global"
+            }
+          ]
+        }
+      ],
+      "ordinary": 100,
+      "special": 2
+    },
+    {
+      "key": "fire-quiver",
+      "id": "Metadata/Items/Quivers/FourQuiver2",
+      "implicit": [
+        {
+          "text": "Adds 3 to 5 Fire damage to Attacks",
+          "family": "FireDamage",
+          "stats": [
+            {
+              "id": "attack_maximum_added_fire_damage",
+              "min": 5,
+              "max": 5,
+              "locality": "Global"
+            },
+            {
+              "id": "attack_minimum_added_fire_damage",
+              "min": 3,
+              "max": 3,
+              "locality": "Global"
+            }
+          ]
+        }
+      ],
+      "ordinary": 100,
+      "special": 2
+    },
+    {
+      "key": "broadhead-quiver",
+      "id": "Metadata/Items/Quivers/FourQuiver1",
+      "implicit": [
+        {
+          "text": "Adds 1 to 3 Physical Damage to Attacks",
+          "family": "PhysicalDamage",
+          "stats": [
+            {
+              "id": "attack_maximum_added_physical_damage",
+              "min": 3,
+              "max": 3,
+              "locality": "Global"
+            },
+            {
+              "id": "attack_minimum_added_physical_damage",
+              "min": 1,
+              "max": 1,
+              "locality": "Global"
+            }
+          ]
+        }
+      ],
+      "ordinary": 100,
+      "special": 2
+    }
+  ],
+  "weightPolicy": "POE2DB_AS_PUBLISHED",
+  "combatSimulation": false
+}

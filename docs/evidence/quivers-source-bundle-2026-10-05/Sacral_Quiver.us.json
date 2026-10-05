@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/us/Sacral_Quiver",
+  "retrievedAt": "2026-10-05T05:29:14.035Z",
+  "sha256": "274a0abc52388809b4d6a89700545291990b7758f3d4fa0c0186c29090dc9220",
+  "variants": [
+    {
+      "name": "Sacral Quiver",
+      "card": "Sacral Quiver\n        \n    \n    \n        \n            QuiversRequires:  Level 16Gain (2—3) Life per Enemy Hit with Attacks\n        \n\n\n        \n        \n            Can only be equipped if you are wielding a Bow.",
+      "requirements": "Requires:  Level 16",
+      "fields": {
+        "DropLevel": "16",
+        "BaseType": "Sacral Quiver",
+        "Class": "Quivers",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver3",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverSacral",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

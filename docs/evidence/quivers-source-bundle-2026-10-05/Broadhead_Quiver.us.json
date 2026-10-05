@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/us/Broadhead_Quiver",
+  "retrievedAt": "2026-10-05T05:29:14.615Z",
+  "sha256": "be58842d27b7f029539e01228f65a9a78a23ed4169de1c7100d344a86af523ee",
+  "variants": [
+    {
+      "name": "Broadhead Quiver",
+      "card": "Broadhead Quiver\n        \n    \n    \n        \n            QuiversAdds 1 to 3 Physical Damage to Attacks\n        \n\n\n        \n        \n            Can only be equipped if you are wielding a Bow.",
+      "requirements": "",
+      "fields": {
+        "DropLevel": "1",
+        "BaseType": "Broadhead Quiver",
+        "Class": "Quivers",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver1",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverBroadhead",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

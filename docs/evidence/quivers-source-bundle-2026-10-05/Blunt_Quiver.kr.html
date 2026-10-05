@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="kr" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>뭉툭한 화살통 - PoE2DB, Path of Exile Wiki kr</title>
+    <meta name="description" content="path of exile is simply a tool to test your path of building creation">
+    <link rel="alternate" hreflang="en" href="https://poe2db.tw/us/" />
+    <link rel="alternate" hreflang="zh-Hant" href="https://poe2db.tw/tw/" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://poe2db.tw/cn/" />
+        <link href="/favicon2.png" rel="shortcut icon" >
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/jquery.dataTables.min.css" integrity="sha512-1k7mWiTNoyx2XtmI96o+hdjP8nn0f3Z2N4oF/9ZZRgijyV4omsKOXEnqL1gKQNPy2MTSP9rIEWGcH/CInulptA==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-5-theme/1.3.0/select2-bootstrap-5-theme.min.css" integrity="sha512-z/90a5SWiu4MWVelb5+ny7sAayYUfMmdXKEAbpj27PfdkamNdyI3hcjxPxkOPbrXoKIm7r9V2mElt5f1OtVhqA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.7/tippy.min.css" integrity="sha512-HbPh+j4V7pXprvQMt2dtmK/zCEsUeZWYXRln4sOwmoyHPQAPqy/k9lIquKUyKNpNbDGAY06UdiDHcEkBc72yCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.2.1/sweetalert2.min.css" integrity="sha512-OkYLbkJ4DB7ewvcpNLF9DSFmhdmxFXQ1Cs+XyjMsMMC94LynFJaA9cPXOokugkmZo6O6lwZg+V5dwQMH4S5/3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modal-video@2.4.6/css/modal-video.min.css" integrity="sha256-nd8IBqNn9uqwZKfZcLIXQcNxk5TjqrxiLx7PzN5PFW0=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css" integrity="sha256-auPoJwk/+RK6KSkib92Dkq1Y5hEkZvKtvSwucs15Skg=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/video.js/8.19.1/video-js.min.css" integrity="sha512-J3tx4ssoARFr4U9VmZmQe2q672q0jUeYizJW3vglkOBTlQ/N6kF3eVqZZzaey/TdIXH69s3HYe2nQwyxK/Emzw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+        <link rel="stylesheet" href="https://cdn.poe2db.tw/css/stdtheme.c95173162973c580.css" />
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js" integrity="sha512-HvOjJrdwNpDbkGJIG2ZNqDlVqMo77qbs4Me4cah0HoDrfhrbA+8SBlZn1KrvAQw7cILLPFJvdwIgphzQmMm+Pw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js" integrity="sha512-qzgd5cYSZcosqpzpn7zF2ZId8f/8CHmFKZ8j7mU4OUXTNRd5g+ZHBPsgKEwoqxCtdQvExE5LprwwPAgoicguNg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js" integrity="sha256-Ikk5myJowmDQaYVCUD0Wr+vIDkN8hGI58SGWdE671A8=" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.full.min.js" integrity="sha512-RtZU3AyMVArmHLiW0suEZ9McadTdegwbgtiQl5Qqo9kunkVg1ofwueXD8/8wv3Af8jkME3DDe3yLfR8HSJfT2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js" integrity="sha512-BmM0/BQlqh02wuK5Gz9yrbe7VyIVwOzD1o40yi1IsTjriX/NGF37NyXHfmFzIlMmoSIBXgqDiG1VNU6kB5dBbA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.7/tippy-bundle.umd.min.js" integrity="sha512-gbruucq/Opx9jlHfqqZeAg2LNK3Y4BbpXHKDhRC88/tARL/izPOE4Zt2w6X9Sn1UeWaGbL38zW7nkL2jdn5JIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/3.0.1/marked.min.js" integrity="sha512-VUuO/d6MS7hXmiFGEj7HtUa2FCI6Ll+xPvX9yX3bxn7ZqDWwleqXa8dtW13brbZ1ld2jiTrv8hWbpfp4B5mi4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.2.1/sweetalert2.all.js" integrity="sha512-A7LzqKE/pm9ofgS0Lxu7qroQS5SkKJQaYJkJ/66nQiWZfEdeGlBq5zEXQ63VRmXZK8zPpCgFf2WQJIAljI0Vdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/modal-video@2.4.6/js/modal-video.min.js" integrity="sha256-VqINwNxkS4VEDMq5O52YTckX+Mx84X6bafO8NxF21Xw=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js" integrity="sha256-DiHJ7hbvMejsMyP76bpVWacb5HSHQ2sQlrJV8n7KEvA=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/6.0.0/echarts.min.js" integrity="sha512-4/g9GAdOdTpUP2mKClpKsEzaK7FQNgMjq+No0rX8XZlfrCGtbi4r+T/p5fnacsEC3zIAmHKLJUL7sh3/yVA4OQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/6.0.0/theme/dark.min.js" integrity="sha512-3Zm64ayK7DflnnyO2pKkLJX3v9Sb90mvahbwPUuMzEf42HI6k8tquIx5VsNBjEWAcYJWzvimbqnTkLl2QdCUmw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/8.19.1/video.min.js" integrity="sha512-48NkCweTzA9u2sP4GgKcEDm6IScPIMga142ipKFNcHfz7feUJXDJxO1jwc2l+5MvWfwMj4BDfQv8WIMhrPxZLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.2.1/mustache.min.js" integrity="sha512-Qjrukx28QnvFWISw9y4wCB0kTB/ISnWXPz5/RME5o8OlZqllWygc1AB64dOBlngeTeStmYmNTNcM6kfEjUdnnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js" integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js" integrity="sha512-JRlcvSZAXT8+5SQQAvklXGJuxXTouyq8oIMaYERZQasB8SBDHZaUbeASsJWpk0UUrf89DP3/aefPPrlMR1h1yQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js" integrity="sha512-g2TeAWw5GPnX7z0Kn8nFbYfeHcvAu/tx6d6mrLe/90mkCxO+RcptyYpksUz35EO337F83bZwcmUyHiHamspkfg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+        <script src="https://cdn.poe2db.tw/js/ModsView.f39fca410dd746d3.js"></script>
+        <script src="https://cdn.poe2db.tw/js/poedb_header.16403ddf82da627f.js"></script>
+    
+    <script data-cfasync="false">window.nitroAds=window.nitroAds||{createAd:function(){return new Promise(e=>{window.nitroAds.queue.push(["createAd",arguments,e])})},addUserToken:function(){window.nitroAds.queue.push(["addUserToken",arguments])},queue:[]};</script>
+    <script data-cfasync="false" async src="https://s.nitropay.com/ads-2013.js"></script>
+
+    <meta property="og:site_name" content="poe2db.tw">
+<meta property="og:title" content="뭉툭한 화살통" />
+<meta property="og:image" content="https://cdn.poe2db.tw/image/Art/2DItems/Quivers/Basetypes/QuiverBlunt.webp" />
+
+  </head>
+
+  <body>
+
+    <div id="consent-box" style="display:none">
+      <button onclick="window.__cmp('showModal');">
+        Update cookie preferences
+      </button>
+    </div>
+    
+    <script>
+      if (window["nitroAds"] && window["nitroAds"].loaded) {
+        document.getElementById("consent-box").style.display = window["__tcfapi"]
+          ? ""
+          : "none";
+      } else {
+        document.addEventListener(
+          "nitroAds.loaded",
+          () =>
+            (document.getElementById("consent-box").style.display = window["__tcfapi"]
+              ? ""
+              : "none")
+        );
+      }
+    </script>
+
+
+    <div class="background-image item-popup--poe2"></div>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6598Z863E2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6598Z863E2');
+</script>
+
+
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <div class="container">
+            <a class="navbar-brand fw-bold" href="/kr/">PoE2<span class='brand-suffix'>DB</span><sub></sub></a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"  aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse">
+              <ul class="navbar-nav me-auto">
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span data-i18n="ClientStrings|UIOptionsSectionTitleItems|Name">아이템</span> <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="themes">
+                    <li><a class="dropdown-item" href="/kr/Items" data-i18n="ClientStrings|UIOptionsSectionTitleItems|Name">아이템</a></li>
+                    <li><a class="dropdown-item" href="/kr/Unique_item" data-i18n="ClientStrings|ItemDisplayStringUnique|Name"></a></li>
+                    <li><a class="dropdown-item" href="/kr/Reforging_Bench" data-i18n="ClientStrings|RecipeBenchTitle|Name"></a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/kr/Gem" data-i18n="ClientStrings|ItemDisplayStringGem|Name">젬</a></li>
+                    <li><a class="dropdown-item" href="/kr/Skill_Gems" data-i18n="ItemClasses|Active Skill Gem|Name">스킬 젬</a></li>
+                    <li><a class="dropdown-item" href="/kr/Support_Gems" data-i18n="ItemClasses|Support Skill Gem|Name">보조 젬</a></li>
+                    <li><a class="dropdown-item" href="/kr/Spirit_Gems" data-i18n-tw="精神寶石">Spirit Gems</a></li>
+                    <li><a class="dropdown-item" href="/kr/Lineage_Supports" data-i18n="KeywordPopups|LineageSupports|Name">Lineage Supports</a></li>
+                  </ul>
+                </li>
+    
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span data-i18n="ClientStrings|ExpeditionModsTitle|Name">속성 부여</span> <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="themes">
+                    <li><a class="dropdown-item" href="/kr/Modifiers" data-i18n="ClientStrings|ExpeditionModsTitle|Name">속성 부여</a></li>
+                    <li><a class="dropdown-item" href="/kr/Keywords" data-i18n-tw="提示字">Keywords</a></li>
+                    <li><a class="dropdown-item" href="/kr/Desecrated_Modifiers" data-i18n="KeywordPopups|Abyssalify|Name">훼손된 속성</a></li>
+                    <li><a class="dropdown-item" href="/kr/Crafting" data-i18n="ClientStrings|CraftingWindowTitle|Name">제작</a></li>
+                    <li><a class="dropdown-item" href="/kr/Liquid_Emotions" data-i18n="KeywordPopups|DistilledEmotion|Name"></a></li>
+                  </ul>
+                </li>
+    
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span data-i18n="ClientStrings|ItemDisplayStringQuest|Name">퀘스트</span> <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a class="dropdown-item" href="/kr/Quest" data-i18n="ClientStrings|ItemDisplayStringQuest|Name">퀘스트</a></li>
+                    <li><a class="dropdown-item" href="/kr/Ascendancy_class" data-i18n="ClientStrings|TutorialPanelAscendancies|Name">전직 클래스</a></li>
+                    <li><a class="dropdown-item" href="/kr/passive-skill-tree/" data-i18n="ClientStrings|ActionOpenPassivePanel|Name">패시브 스킬 트리</a></li>
+                    <li><a class="dropdown-item" href="/kr/Act" data-i18n-tw="章節">Act</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/kr/Waystones" data-i18n="ItemClasses|Map|Name">경로석</a></li>
+                    <li><a class="dropdown-item" href="/kr/EndGame" data-i18n="Acts|Endgame|Name"></a></li>
+                    <li><a class="dropdown-item" href="/kr/atlas-skill-tree/" data-i18n="ClientStrings|ActionOpenAtlasPassivesScreen|Name"></a></li>
+                  </ul>
+                </li>
+    
+                <li class="nav-item"><a class="nav-link" href="Economy" data-i18n-tw="經濟" data-i18n-cn="经济">Economy</a></li>
+    
+                <li class="nav-item"><a class="ms-4 nav-link  bg-warning rounded-circle" style="color: white" href="/kr/patreon">Patreon</a></li>
+              </ul>
+    
+    
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link fw-bold" aria-current="page" href="https://poedb.tw/kr/">PoE<span class="brand-suffix">DB</span></a>
+                </li>
+    
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-language fa-lg"></i> <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a class="dropdown-item" href="/tw/Blunt_Quiver">TW 繁體中文</a></li>
+                    <li><a class="dropdown-item" href="/cn/Blunt_Quiver">CN 简体中文</a></li>
+                    <li><a class="dropdown-item" href="/us/Blunt_Quiver">US English</a></li>
+                    <li><a class="dropdown-item" href="/kr/Blunt_Quiver">KR 한국어</a></li>
+                    <li><a class="dropdown-item" href="/ru/Blunt_Quiver">RU Русский</a></li>
+                    <li><a class="dropdown-item" href="/jp/Blunt_Quiver">JP Japanese</a></li>
+                    <li><a class="dropdown-item" href="/fr/Blunt_Quiver">FR Français</a></li>
+                    <li><a class="dropdown-item" href="/de/Blunt_Quiver">DE Deutsch</a></li>
+                    <li><a class="dropdown-item" href="/th/Blunt_Quiver">TH ภาษาไทย</a></li>
+                    <li><a class="dropdown-item" href="/pt/Blunt_Quiver">PO Português</a></li>
+                    <li><a class="dropdown-item" href="/sp/Blunt_Quiver">ES Spanish</a></li>
+                  </ul>
+                </li>
+              </ul>
+    
+            <form class="form-inline my-2 my-lg-0" role="search" action="search">
+              <input type="hidden" name="token" value="b773fdc50a2e9f3cea427dd389a46f1859cdab5c4cf0c8cb24b9b008323425c9c8b35e">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" id="navautosearch">
+            </form>
+    
+            </div><!--/.nav-collapse -->
+          </div><!--/.container-fluid -->
+        </nav>
+    </header>
+
+<script>sidebar160("leftside_banner", "left");</script>
+<script>sidebar160("rightside_banner", "right");</script>
+
+
+
+    <div class="page poe2">
+    <div class="page-content theme-showcase container" role="main">
+
+
+<div class="card mb-2" id="head_toolbar">
+  <div class="card-body p-1">
+    <div class="league_bar text-center">
+      <a href="Runes_of_Aldur_league" data-bs-toggle="tooltip" title="Runes of Aldur v0.5" ><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/Expedition2RemnantActive.webp" alt="Expedition2RemnantActive" class="league_minimap" /></span></a><a href="Atziris_Temple" data-bs-toggle="tooltip" title="앗지리 v0.4" ><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/IncursionAtziriActive.webp" alt="IncursionAtziriActive" class="league_minimap" /></span></a><a href="Waystones" data-bs-toggle="tooltip" title="경로석" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/c3d402b1eb6b0e25a05d03747bc154609ebc8c12a729deb245dad3cb127cb7b3"><img loading="lazy" src="https://cdn.poe2db.tw/image/art/2ditems/maps/endgamemaps/endgamemap1.webp" class="league_minimap"/></a><a href="Shrine" data-bs-toggle="tooltip" title="성소" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/404eefa3d14c0ee93bb17d0145ac496da504cc88fbaba669c3be2d0700379f84"><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/ShrineActive.webp" alt="ShrineActive" class="league_minimap" /></span></a><a href="Strongbox" data-bs-toggle="tooltip" title="금고" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/9037539b2259a47ae93bec940c5fb9daf12228f50dde9e391ba3f98712fa068c"><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/Strongbox.webp" alt="Strongbox" class="league_minimap" /></span></a><a href="Essence" data-bs-toggle="tooltip" title="에센스" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/52fb2e24341a11dd096464b875bb903c72fb294528e9e3e5ae7b0c30c5f493c5"><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/Essence.webp" alt="Essence" class="league_minimap" /></span></a><a href="Archnemesis" data-bs-toggle="tooltip" title="강적" ><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/RareMonsterAlive.webp" alt="RareMonsterAlive" class="league_minimap" /></span></a><a href="Azmeri_Spirit" data-bs-toggle="tooltip" title="아즈메리 혼백 v0.2" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/7dda450f3f9a919a04ed37767e5dcf1dd57757741ebc86f59d565ee098e0b30a"><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/SpiritActivated.webp" alt="SpiritActivated" class="league_minimap" /></span></a><a href="Rogue_Exile" data-bs-toggle="tooltip" title="탈주 유배자" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/01651ae49daa99eb9a56e07017497cee76958e1159f5e138d40b8cd0dc57aab5"><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/RogueExile.webp" alt="RogueExile" class="league_minimap" /></span></a><a href="Abyss" data-bs-toggle="tooltip" title="심연 v0.3" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/17a7a115bdbb83d37679761048b6e0dd51397e210afd87fe8c29205a219e7f69"><img loading="lazy" src="https://cdn.poe2db.tw/image/art/textures/interface/2d/2dart/uiimages/ingame/worldmap/mapbuttonabysshub.webp" class="league_minimap"/></a><a href="Breach" data-bs-toggle="tooltip" title="균열" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/77b477e94889e02bdd2964f9412290d09cdadd424a4e99183f552ca13f2b2298"><img loading="lazy" src="https://cdn.poe2db.tw/image/art/2dart/uiimages/ingame/atlasscreen/atlasiconcontent/atlasiconcontentbreach.webp" class="league_minimap"/></a><a href="Ritual" data-bs-toggle="tooltip" title="의식" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/12c60c0c91fcaee44b185bf57a5ce2b9fe98bedfa600c5ca75566f5606d014d3"><img loading="lazy" src="https://cdn.poe2db.tw/image/art/2dart/uiimages/ingame/atlasscreen/atlasiconcontent/atlasiconcontentritual.webp" class="league_minimap"/></a><a href="Delirium" data-bs-toggle="tooltip" title="환영" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/4ccbc34b5173089a3d246250e4d7d6cccbf20912404c0b8954065cad10528ae5"><img loading="lazy" src="https://cdn.poe2db.tw/image/art/2dart/uiimages/ingame/atlasscreen/atlasiconcontent/atlasiconcontentdelirium.webp" class="league_minimap"/></a><a href="Expedition" data-bs-toggle="tooltip" title="탐험" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/28dd20c201447a027221962af8f8394ab079753438b06e0aa544ce3a35374a12"><img loading="lazy" src="https://cdn.poe2db.tw/image/art/2dart/uiimages/ingame/atlasscreen/atlasiconcontent/atlasiconcontentexpedition.webp" class="league_minimap"/></a><a href="The_Burning_Monolith" data-bs-toggle="tooltip" title="불타는 거석" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/74846547ac28970ad2b8e9cc8e6d7fb68cdb9a309976306703b4f5a81134260e"><img loading="lazy" src="https://cdn.poe2db.tw/image/art/2dart/uiimages/ingame/maplegend/monolith.webp" class="league_minimap"/></a><a href="Trial_of_the_Sekhemas" data-bs-toggle="tooltip" title="세케마의 시련" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/170c67b6c7149dce21fc87bcf561191729e2fc47cd5ec081468b0f61e39940e3"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/WorldMap/MapButtonSanctum.webp" class="league_minimap"/></a><a href="The_Trial_of_Chaos" data-bs-toggle="tooltip" title="혼돈의 시련" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/170c67b6c7149dce21fc87bcf561191729e2fc47cd5ec081468b0f61e39940e3"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/WorldMap/MapButtonUltimatum.webp" class="league_minimap"/></a>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="topbanner970"></div><script>topbanner970("topbanner970");</script>
+
+<ul class="nav nav-tabs d-flex flex-wrap" role="tablist"><li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" role="tab" aria-selected="true" href="#뭉툭한화살통FourQuiver5">뭉툭한 화살통 FourQuiver5</a></li><li class="nav-item"><a class="nav-link" data-bs-toggle="tab" role="tab" aria-selected="false" href="#고유"> 고유 /1 </a></li></ul><div class="tab-content"><div id="뭉툭한화살통FourQuiver5" class="tab-pane fade show active"><span data-tabname="뭉툭한 화살통 <small>FourQuiver5</small>"></span><div class="py-2"><div class="d-flex flex-wrap">
+
+<div class="newItemPopup NormalPopup item-popup--poe2 "
+>
+    <div class="itemHeader singleLine">
+
+        <div class="itemName typeLine">
+            <span class="lc">뭉툭한 화살통</span>
+        </div>
+    </div>
+    <div class="content">
+        <div class="Stats">
+            <div class="property">화살통</div><div class="separator"></div><div class="requirements">요구 사항:  <span class="colourDefault">레벨 33</span></div><div class="separator"></div><div class="implicitMod"><a data-keyword="Stun" href="Stun" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/8b99193246e0c320e366e692b91e711c0aa449eb2c4b5e66a9260677cec5f8d7">기절</a> 축적 <span class='mod-value'>(25<span class="ndash">—</span>40)</span>% 증가</div>
+        </div>
+
+
+        <div class="separator"></div>
+        <div class="default fst-italic">
+            활 장착 시에만 장착할 수 있습니다.
+        </div>
+
+        <div>
+            Blunt Quiver
+        </div>
+    </div>
+</div>
+
+
+        <div class="itemboximage">
+
+                <img loading="lazy" class="" src="https://cdn.poe2db.tw/image/Art/2DItems/Quivers/Basetypes/QuiverBlunt.webp"/>
+
+        </div>
+
+
+
+</div>
+</div><div   class="card mb-2 ">
+   <h5 class="card-header">뭉툭한 화살통 FourQuiver5 /8 </h5>   <div class='table-responsive'><table class='table table-hover table-striped mb-0 filters bg-dark '><thead><tr><th>이름</th><th>상세 설명 표시</th></tr></thead><tbody>
+<tr><td>DropLevel <span class='fas fa-info-circle' data-bs-toggle='tooltip' title='Item Filter'></span></td><td>33</td></tr>
+<tr><td>BaseType <span class='fas fa-info-circle' data-bs-toggle='tooltip' title='Item Filter'></span></td><td>Blunt Quiver</td></tr>
+<tr><td>BaseType <span class='fas fa-info-circle' data-bs-toggle='tooltip' title='Item Filter'></span></td><td>뭉툭한 화살통</td></tr>
+<tr><td>Class <span class='fas fa-info-circle' data-bs-toggle='tooltip' title='Item Filter'></span></td><td><a class="ItemClasses  KeywordPopups" href="Quivers" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/3e4577bcb262cf86417da401d6a6c1dbf20b9c74da113053a4237575bdff6f4c">화살통</a></td></tr>
+<tr><td>Flags</td><td><span>CanHaveInfluence</span>, <span>CanBeCorrupted</span>, <span>CanBeDoubleCorrupted</span>, <span>CanHaveIncubators</span>, <span>CanHaveAspects</span>, <span>CanHaveVeiledMods</span>, <span>CanScourge</span></td></tr>
+<tr><td>Type</td><td>Metadata/Items/Quivers/FourQuiver5</td></tr>
+<tr><td>Tags</td><td>quiver</td></tr>
+<tr><td>Icon</td><td>Art/2DItems/Quivers/Basetypes/QuiverBlunt</td></tr></tbody></table></div>  </div><div class='clearfix row'><div class=''><div   class="card mb-2 ">
+   <h5 class="card-header"><span class='item_magic'><a data-keyword="Stun" href="Stun" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/8b99193246e0c320e366e692b91e711c0aa449eb2c4b5e66a9260677cec5f8d7">기절</a> 축적 <span class='mod-value'>(25<span class="ndash">—</span>40)</span>% 증가</span></h5>   <table class='table table-hover table-striped mb-0'>
+<tr><th>Family<td>StunDamageIncrease
+<tr><th>Domains<td>아이템 (1)
+<tr><th>GenerationType<td>고유 (3)
+<tr><th>Req. level<td>40 (Effective: 32)
+<tr><th>Stats<td><li>hit damage stun multiplier +% <span class="badge bg-primary">25 <span class="ndash">—</span> 40</span> <span class="badge bg-secondary">Global</span></li></table>  </div></div></div><div   class="card mb-2 ">
+      <div class="table-responsive"><table class='table table-hover table-striped mb-0 filters bg-dark '><thead><tr><th>key</th><th>val</th></tr></thead><tbody id="CCNjavfel9"><tr><td>Base.base_level</td><td>1</td></tr><tr><td>Base.tag</td><td>default, quiver</td></tr><tr><td>Base.description_text</td><td>ItemDescriptionQuiver</td></tr><tr><td>Base.x_size</td><td>2</td></tr><tr><td>Base.y_size</td><td>3</td></tr><tr><td>Mods.stat_description_list</td><td>Data/StatDescriptions/stat_descriptions.csd</td></tr><tr><td>Mods.mod_stat_description_list</td><td>Data/StatDescriptions/advanced_mod_stat_descriptions.csd</td></tr><tr><td>Mods.enable_rarity</td><td>normal, magic, rare, unique</td></tr><tr><td>Mods.inventory_type</td><td>Offhand</td></tr><tr><td>Sockets.socket_info</td><td>0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5</td></tr></tbody></table></div>  </div></div><div id="고유" class="tab-pane fade"><div   class="card mb-2 ">
+   <h5 class="card-header"> 고유 /1 </h5>   <div class="row row-cols-1 row-cols-lg-2 g-2 bg-dark"><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="UniqueItems UniqueItem" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_UniqueItems_hover/084f9e9bb3afa9f10fc0f0cd60e197e51b494f6c59f121ba3bd2d4f8cd0adc78" href="Rearguard"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DItems/Quivers/Uniques/Rearguard.webp" alt="Rearguard" class="w2" /></a></div><div class="flex-grow-1 ms-2"><div><a class="UniqueItem" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_UniqueItems_hover/084f9e9bb3afa9f10fc0f0cd60e197e51b494f6c59f121ba3bd2d4f8cd0adc78" href="/kr/Rearguard"><span class="uniqueName">후위 경계</span> <span class="uniqueTypeLine">뭉툭한 화살통</span></a></div><div class="requirements">요구 사항:  <span class="colourDefault">레벨 33</span></div><div class="implicitMod"><a data-keyword="Stun" href="Stun" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/8b99193246e0c320e366e692b91e711c0aa449eb2c4b5e66a9260677cec5f8d7">기절</a> 축적 <span class='mod-value'>(25<span class="ndash">—</span>40)</span>% 증가</div><div class="separator"></div><div class="explicitMod"><a data-keyword="Attack" href="Attacks" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/f0417cc1244986b8ff045d649792b8afbc512893e892d0c0baad82ceb3d54f31">공격</a> 시 <a data-keyword="Physical" href="Physical_Damage" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/d25f7df2ee8b7becfbff177402e14a4121b97bba3bb7215099c04f58588080bf">물리</a> 피해 <span class='mod-value'>(7<span class="ndash">—</span>11)</span>~<span class='mod-value'>(14<span class="ndash">—</span>20)</span> 추가</div><div class="explicitMod"><a data-keyword="Armour" href="Armour" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/f1ab1c4f26afe32f35ba8c570de40a04dfb871a4472c4decf7c24ea41ad028a6">방어도</a> <span class='mod-value'>+(150<span class="ndash">—</span>200)</span></div><div class="explicitMod"><a data-keyword="Projectile" href="Projectile" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/8280fcee0d5b68b7560a516444070a0c91614e2767bdc28a31b8502a2bede08e">투사체</a> 속도 <span class='mod-value'>(20<span class="ndash">—</span>30)</span>% 증가</div><div class="explicitMod"><a data-keyword="Block" href="Block" class="KeywordPopups" data-hover="https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/f51a7363cc61186a17fc0b041876e852096afa5a0f32df72dda15aadb08a016e">막기</a> 확률 <span class='mod-value'>+(15<span class="ndash">—</span>25)</span>%</div></div></div></div></div>  </div></div></div><div class="card mb-1">
+    <div class="card-body markdown-body">
+        <a class="btn btn-primary float-end" href='/kr/marked?id=Blunt_Quiver' data-i18n="ClientStrings|HideoutEditControlEdit|Name">Edit</a>
+        
+        <div><hr style='border-top: 1px solid white'>Wikis Content is available under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">CC BY-NC-SA 3.0</a> unless otherwise noted.</div>
+    </div>
+</div>
+
+
+<footer class="ccontainer text-center text-lg-left">
+  <div class="card p-4">
+    <div class="row">
+
+      <div class="col-lg-3 col-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Sites</h5>
+        <ul class="list-unstyled mb-0">
+          <li> <a target="_blank" href="https://poedb.tw/">poedb.tw</a> </li>
+          <li> <a target="_blank" href="https://tlidb.com/">tlidb.com</a> </li>
+          <!--<li> <a target="_blank" href="https://diablo4.cc/">diablo4.cc</a> </li>-->
+          <li> <a target="_blank" href="https://poe2db.tw/">poe2db.tw</a> </li>
+              <li> <a target="_blank" href="https://paldb.cc/">paldb.cc</a> </li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">News</h5>
+        <ul class="list-unstyled mb-0">
+          <li> <a href="news">GGG Tracker</a> </li>
+          <li> <a href="League#ConcurrentPlayers">Concurrent Players</a> </li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">About Site</h5>
+        <ul class="list-unstyled mb-0">
+          <li> <a href="privacy">Privacy</a> </li>
+          <li> <a href="patreon">Patreon</a> </li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Community</h5>
+        <ul class="list-unstyled mb-0">
+
+
+
+          <li><a target="_blank" href="https://www.reddit.com/user/chuanhsing">/u/chuanhsing</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    Copyright &copy; 2014-2026 PoE2DB.
+  </div>
+</footer>
+
+<div style=""></div>
+<div class="clearfix"></div><div id="bottom_banner"></div><script>topbanner970("bottom_banner");</script>
+    </div>
+    </div>
+
+    <a href="#top" id="toTop"><span class="fas fa-arrow-circle-up fa-3x"></span></a>
+<script>
+ $(document).ready(function()
+ {
+    if (window.location.hostname != "poedb.tw" && window.location.hostname != "poe2db.tw") {
+        //window.location.href="https://poedb.tw/";
+    }
+ });
+</script>
+    <script src="https://cdn.poe2db.tw/js/poedb_footer.40a08212e575e6ad.js"></script>
+
+  </body>
+</html>

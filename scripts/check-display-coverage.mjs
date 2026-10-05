@@ -29,6 +29,14 @@ for(const base of Object.values(JSON.parse(fs.readFileSync('backend/src/main/res
    const source=base.id==='Metadata/Items/Belts/FourBelt2'?captured.variants[0]:captured
    assert.equal(source.fields.Type,base.id)
    assert.equal(source.requirements,base.requirements[l],`${l}:exact source absence:${base.id}`)
+  } else if(base.id==='Metadata/Items/Quivers/FourQuiver1') {
+   assert.equal(base.family,'quivers')
+   assert.equal(base.requiredLevel,0,`${l}:no character requirement:${base.id}`)
+   assert.equal(base.requirements[l],'',`${l}:no invented requirement:${base.id}`)
+   const sourceLocale={en:'us',ko:'kr','zh-CN':'cn','zh-TW':'tw',ja:'jp',es:'sp'}[l]
+   const captured=JSON.parse(fs.readFileSync(`docs/evidence/quivers-source-bundle-2026-10-05/${base.slug}.${sourceLocale}.json`,'utf8')).variants[0]
+   assert.equal(captured.fields.Type,base.id)
+   assert.equal(captured.requirements,'',`${l}:exact source absence:${base.id}`)
   } else assert(base.requirements[l],`${l}:top-base-requirements:${base.id}`)
  }
 }

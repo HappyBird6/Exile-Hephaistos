@@ -1,0 +1,367 @@
+{
+  "passed": true,
+  "rawResponses": 72,
+  "detailResponses": 116,
+  "proofs": [
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Blunt_Quiver.cn.html",
+      "sha256": "013d29d8edb40a92a7dbee0adc39af10003fbe9f4b0d9eaf0c12ef13ac106855",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Blunt_Quiver.jp.html",
+      "sha256": "d8e72d25c66f20360cb40fb03690c05335fec16c81df3f2e2f76af1613af7f6f",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Blunt_Quiver.kr.html",
+      "sha256": "8d94e431972dd57fcbb57057f10214c899cc95c4d66531755071bd4d0b1042f0",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Blunt_Quiver.sp.html",
+      "sha256": "3e8792efa8b97537ba7870a5e96e35d71319425e604a5213d5cbcddb3e237dea",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Blunt_Quiver.tw.html",
+      "sha256": "e4aeadcd66acce3b5e6ae82eb3953397c95f1d466e38456cff2f840beaab4f14",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Blunt_Quiver.us.html",
+      "sha256": "418e9093ca5464b00560ed9417a4597a5e60e23c6c1fa0315b0ce616055eb1fc",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Broadhead_Quiver.cn.html",
+      "sha256": "78b2c6aba4ac09c9986922b14e1e74e73275ebcf90833b0da5383f521e2c4492",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Broadhead_Quiver.jp.html",
+      "sha256": "eb527cf26a0453d325096f8cfc80e12bdfafcc48dc9ed7b86445666b5e7fd4f2",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Broadhead_Quiver.kr.html",
+      "sha256": "ae6c6da088d142dfef49dafd6f19fbfa38ba6c49b02cc1c60c9fdac5e7c40d08",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Broadhead_Quiver.sp.html",
+      "sha256": "2eadb48aa0b48bbae3d436269e42a4f78a1219d4897ddbf2e9c7de0b9c776e75",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Broadhead_Quiver.tw.html",
+      "sha256": "c99774d7c941e1a823f46befcb752047296ef3c62783a8af50acd602e33c05f0",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Broadhead_Quiver.us.html",
+      "sha256": "be58842d27b7f029539e01228f65a9a78a23ed4169de1c7100d344a86af523ee",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Fire_Quiver.cn.html",
+      "sha256": "0f91f12526400f99dce40b270fcc0814b81ad46d856d22133e80e83e2b2e4cad",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Fire_Quiver.jp.html",
+      "sha256": "eee93b30e8d3f2f2de52271cd610078b945c4f41596eb6d91acfd18152dfc8d9",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Fire_Quiver.kr.html",
+      "sha256": "c9fd55a5e48d8a1dbabe36d92e4e206d8f6c0defe3ffc1722cdbdb0641ed2332",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Fire_Quiver.sp.html",
+      "sha256": "754f26106f84644ba78954f7fac8407d82f6b40c77290fd16b793cef534049d8",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Fire_Quiver.tw.html",
+      "sha256": "60c2f65a323b8d70c817cca31876f32e919a7b292f2ee19cfe383632a808e907",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Fire_Quiver.us.html",
+      "sha256": "d5ad43b19c0c545e0fd1eadaa654534c8c81efd8bf4a63592ec5bd17c88029e1",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Penetrating_Quiver.cn.html",
+      "sha256": "bb5d5fb6b9d6c05285bba85e542c0171f0c6d82188edf9cde1bd6f96654b24c3",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Penetrating_Quiver.jp.html",
+      "sha256": "c1698da9677337c103e05340ea1e16025f5fc4f3453e4fa0c763a21b1075d00d",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Penetrating_Quiver.kr.html",
+      "sha256": "359adf2f69d695870b4eafa6bc36676850bade6d88607b3cbcc512ffd3ce6f5a",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Penetrating_Quiver.sp.html",
+      "sha256": "3a9f9daef0f2dc501afea458c03f5adaae9b60c1c6774185212cb59a2ee2f031",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Penetrating_Quiver.tw.html",
+      "sha256": "312a2835768a81fd3999cb50eaf07e77e7351e09c6262b094bedc6b6de99bb96",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Penetrating_Quiver.us.html",
+      "sha256": "7a722e6674d0af24163757688b8bcff002bbf3d3ad502c2163da143dd0e0f89b",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Primed_Quiver.cn.html",
+      "sha256": "e28369683cde0d645c335633db3491b2a8e66fd01f2893fe606edee449cb4af8",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Primed_Quiver.jp.html",
+      "sha256": "394e39700045b6adbfb36604efdb534d55c158a540b04f43147f8dbc4428ef05",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Primed_Quiver.kr.html",
+      "sha256": "1971785495f2259a346411d634ca2f0bbc776f96a9792c07e18576fe39b64746",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Primed_Quiver.sp.html",
+      "sha256": "ab90de1d886fb9c457fa3224c87e4b098750977eb6a1e4c543a30907cfccde62",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Primed_Quiver.tw.html",
+      "sha256": "d1ecac498b0cbdf0e780600a2c9aec2f64dc706db71f4a6dc193eaf70b055f4c",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Primed_Quiver.us.html",
+      "sha256": "81f0ceb5d0bf015a9ad25b74cfb7b6ac2fd5c4e8e2547f29fa4f7b88e7fc9f56",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Quivers.cn.html",
+      "sha256": "2631753f8dc80220bed566e95152b9312f3651195ed4f48b414298e897bb239d",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Quivers.jp.html",
+      "sha256": "cbbd491958a4b831f9a24b6696762c0781f2302ce65e9e7d5db8423e200ede17",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Quivers.kr.html",
+      "sha256": "05537a9b60217d538180d1f55d43c90c8839c766af22aa51e90bd8d03cc997bb",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Quivers.sp.html",
+      "sha256": "4fcd12ec996fcd02bc103fca9c7016a91f9c39f2e32321b18c6dfd8ff367b9bf",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Quivers.tw.html",
+      "sha256": "5b664e4d11fd22158321d004734b7e37196b27e1a3d0ebfb31e08a9c81bb517b",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Quivers.us.html",
+      "sha256": "fbc5c3c0975dca9dfdd9a50257c09df02465360ebd7ea7f1bdcfb27518ff66f3",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Sacral_Quiver.cn.html",
+      "sha256": "901021c9377cd32e9e62cd89a1bd1e95adb3a98fdfbf813bf4fb8e58f7b9d4b6",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Sacral_Quiver.jp.html",
+      "sha256": "386cfe93e889e413f148daef6dc23e4c838ee424bb3b0a09bcf34f57ada6d37d",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Sacral_Quiver.kr.html",
+      "sha256": "1399cabb21a2f841ec86e80f1f56e2a134414928e1b887dacc9427a0a325990b",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Sacral_Quiver.sp.html",
+      "sha256": "920a88d074740f91a7c8dbbd174682a5b5f75dc33a7c175b7985f124bdc51446",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Sacral_Quiver.tw.html",
+      "sha256": "f91fa9973d41efe3e3fd72c6f12295478ed109f484994d76047d25a254ec93c8",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Sacral_Quiver.us.html",
+      "sha256": "274a0abc52388809b4d6a89700545291990b7758f3d4fa0c0186c29090dc9220",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Serrated_Quiver.cn.html",
+      "sha256": "5992f4fe4096fbac1d139f0c8e0b1abe540134a52c2d3785ee6b93d04f065a9b",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Serrated_Quiver.jp.html",
+      "sha256": "434257561cfc0d6f1ce8d3620646e174e7818bce38a2a6dda43fcd74f550a10d",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Serrated_Quiver.kr.html",
+      "sha256": "6adf68318fe2763a05f8d0c4adb589b9498d46ee8d75a072c2ec9f9c266417dd",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Serrated_Quiver.sp.html",
+      "sha256": "cfd9390f73d75f03dd0de4942b74f1182c8409a1f7e38d203daad3e130240ec1",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Serrated_Quiver.tw.html",
+      "sha256": "a561f8212cf5856987567dba4c5b769429e3a32a34e3f7c52d3f7e3a25ff99ba",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Serrated_Quiver.us.html",
+      "sha256": "6900f60bbf7b46fb00ef7867ffa0408b2637263e95aa5f3d8987d91d514e01d3",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Toxic_Quiver.cn.html",
+      "sha256": "e4a696546905af53bdc89e7d258c36f5d3cb6df18e48f5eac570c54ab0878014",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Toxic_Quiver.jp.html",
+      "sha256": "cefe5c2f6d34b05b836fd849795d0b7deff89d3bfb1d984396680117a990cf32",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Toxic_Quiver.kr.html",
+      "sha256": "b5c572372f217ee58b2193e3782b81819936c290b0b5b8099ddcfb0cf737a2e0",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Toxic_Quiver.sp.html",
+      "sha256": "0930809ae3e129f6e65718e50edd49628bd94df4fa7f6a9cbb5c9aa0bf0c1457",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Toxic_Quiver.tw.html",
+      "sha256": "3d5ba2e2519963d34cfccd350ce0dc9d518d4f1aaab8f93f13af0a49e82d6538",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Toxic_Quiver.us.html",
+      "sha256": "cf5eb38813326a813e5f374923abdb0097e94bf25ef9ca0a70d5e392b21c4684",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Two-Point_Quiver.cn.html",
+      "sha256": "620d073e4e00d33ff21a22e4310eee1214201b6e60df9acf4e2e1f6edc14f34e",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Two-Point_Quiver.jp.html",
+      "sha256": "62b5efb426bacffbd3ad22aea05f4465738dc7df44072eb8e240fe0deecaeb48",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Two-Point_Quiver.kr.html",
+      "sha256": "74529a49ff948abbc7517095eceaf8a656388a081ace38b64b73986303418441",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Two-Point_Quiver.sp.html",
+      "sha256": "bf5fe86b3b86cbe515a59022bebc3545ee9a69e7d0a7696c207276462833e67d",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Two-Point_Quiver.tw.html",
+      "sha256": "75d0fefc2ea1b44a8799d515ef229bcecc82fc72e0c9a465125a6e8e3b34089d",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Two-Point_Quiver.us.html",
+      "sha256": "38973ef2c97a4657c3a16c3738387f280c3cdff3205a9d94ba4126e7039aedb3",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Visceral_Quiver.cn.html",
+      "sha256": "a770a03cb7e75757db192f253523e02955bfce762890f9a13ea7628fba094944",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Visceral_Quiver.jp.html",
+      "sha256": "16af6a2ecb5981bb7b7f9a532328fc55651456eccfde4d23c7c2559fa2c34127",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Visceral_Quiver.kr.html",
+      "sha256": "7100f425fe94764c7c45a4dc6f3999f29ce13f64b1461e87a2344dc60bdff0c3",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Visceral_Quiver.sp.html",
+      "sha256": "8b037e0ff30f364cf95741e776b45c0bb337dbca33fd79c4792a195e11ed1c74",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Visceral_Quiver.tw.html",
+      "sha256": "0d15963aad3a3171563661f191c35b5409531cf1f5ce75a6ffb5c9c86b09ca8c",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Visceral_Quiver.us.html",
+      "sha256": "0018282ecafe114ae4d842155d8441e955892874a9d9c45b524e43ebd06e8ffe",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Volant_Quiver.cn.html",
+      "sha256": "03fb50a8a274b8ae577905453dd17f303a6b65767e129b636b2df32182981de5",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Volant_Quiver.jp.html",
+      "sha256": "d4d26237334e50c909b84165f9fc832136c3bbeb2a12e4f7cf0fce579935a938",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Volant_Quiver.kr.html",
+      "sha256": "9eccb2b8c44f6b42992436fc807798f1d86e0d00e1c578cdc89372f0ef2a5e8f",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Volant_Quiver.sp.html",
+      "sha256": "9e4a42ca08ee70ae27db697ef070948e888f3c423b349920f70f6a275c60cfdb",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Volant_Quiver.tw.html",
+      "sha256": "204ba5bfff74567406d4a70d06637698877e84e5fb40ed7b8c8dc12032b2a2af",
+      "stagedBytesPreserved": true
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/Volant_Quiver.us.html",
+      "sha256": "1d805b58f11e99cf84692a5de3ca46ee5da1b5977b9d7c724a8e983de740e2e2",
+      "stagedBytesPreserved": true
+    }
+  ]
+}

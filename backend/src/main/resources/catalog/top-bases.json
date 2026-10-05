@@ -4623,5 +4623,731 @@
     "ordinarySocketMaximum": 1,
     "classId": 81,
     "grantedSkill": null
+  },
+  "visceral-quiver": {
+    "key": "visceral-quiver",
+    "slug": "Visceral_Quiver",
+    "pool": "visceral-quiver",
+    "family": "quivers",
+    "id": "Metadata/Items/Quivers/FourQuiver11",
+    "name": "Visceral Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Visceral_Quiver",
+    "sourceSha256": "0018282ecafe114ae4d842155d8441e955892874a9d9c45b524e43ebd06e8ffe",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 65,
+    "maximumQuality": null,
+    "requirements": {
+      "en": "Requires:  Level 65",
+      "ko": "요구 사항:  레벨 65",
+      "ja": "装備条件： レベル 65",
+      "zh-CN": "需求：  等级 65",
+      "zh-TW": "需求:  等級 65",
+      "es": "Requiere:  Nivel 65"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    },
+    "implicitModifierId": "visceral-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "attack_critical_strike_chance_+%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "attack_critical_strike_chance_+%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0
+  },
+  "volant-quiver": {
+    "key": "volant-quiver",
+    "slug": "Volant_Quiver",
+    "pool": "volant-quiver",
+    "family": "quivers",
+    "id": "Metadata/Items/Quivers/FourQuiver10",
+    "name": "Volant Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Volant_Quiver",
+    "sourceSha256": "1d805b58f11e99cf84692a5de3ca46ee5da1b5977b9d7c724a8e983de740e2e2",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 61,
+    "maximumQuality": null,
+    "requirements": {
+      "en": "Requires:  Level 61",
+      "ko": "요구 사항:  레벨 61",
+      "ja": "装備条件： レベル 61",
+      "zh-CN": "需求：  等级 61",
+      "zh-TW": "需求:  等級 61",
+      "es": "Requiere:  Nivel 61"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    },
+    "implicitModifierId": "volant-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "base_arrow_speed_+%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_arrow_speed_+%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0
+  },
+  "penetrating-quiver": {
+    "key": "penetrating-quiver",
+    "slug": "Penetrating_Quiver",
+    "pool": "penetrating-quiver",
+    "family": "quivers",
+    "id": "Metadata/Items/Quivers/FourQuiver9",
+    "name": "Penetrating Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Penetrating_Quiver",
+    "sourceSha256": "7a722e6674d0af24163757688b8bcff002bbf3d3ad502c2163da143dd0e0f89b",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 55,
+    "maximumQuality": null,
+    "requirements": {
+      "en": "Requires:  Level 55",
+      "ko": "요구 사항:  레벨 55",
+      "ja": "装備条件： レベル 55",
+      "zh-CN": "需求：  等级 55",
+      "zh-TW": "需求:  等級 55",
+      "es": "Requiere:  Nivel 55"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    },
+    "implicitModifierId": "penetrating-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "base_chance_to_pierce_%",
+        "min": 100,
+        "max": 100
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_chance_to_pierce_%",
+        "min": 100,
+        "max": 100,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0
+  },
+  "primed-quiver": {
+    "key": "primed-quiver",
+    "slug": "Primed_Quiver",
+    "pool": "primed-quiver",
+    "family": "quivers",
+    "id": "Metadata/Items/Quivers/FourQuiver8",
+    "name": "Primed Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Primed_Quiver",
+    "sourceSha256": "81f0ceb5d0bf015a9ad25b74cfb7b6ac2fd5c4e8e2547f29fa4f7b88e7fc9f56",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 51,
+    "maximumQuality": null,
+    "requirements": {
+      "en": "Requires:  Level 51",
+      "ko": "요구 사항:  레벨 51",
+      "ja": "装備条件： レベル 51",
+      "zh-CN": "需求：  等级 51",
+      "zh-TW": "需求:  等級 51",
+      "es": "Requiere:  Nivel 51"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    },
+    "implicitModifierId": "primed-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "attack_speed_+%",
+        "min": 7,
+        "max": 10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "attack_speed_+%",
+        "min": 7,
+        "max": 10,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0
+  },
+  "serrated-quiver": {
+    "key": "serrated-quiver",
+    "slug": "Serrated_Quiver",
+    "pool": "serrated-quiver",
+    "family": "quivers",
+    "id": "Metadata/Items/Quivers/FourQuiver7",
+    "name": "Serrated Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Serrated_Quiver",
+    "sourceSha256": "6900f60bbf7b46fb00ef7867ffa0408b2637263e95aa5f3d8987d91d514e01d3",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 44,
+    "maximumQuality": null,
+    "requirements": {
+      "en": "Requires:  Level 44",
+      "ko": "요구 사항:  레벨 44",
+      "ja": "装備条件： レベル 44",
+      "zh-CN": "需求：  等级 44",
+      "zh-TW": "需求:  等級 44",
+      "es": "Requiere:  Nivel 44"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    },
+    "implicitModifierId": "serrated-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "bleed_on_hit_with_attacks_%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "bleed_on_hit_with_attacks_%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0
+  },
+  "toxic-quiver": {
+    "key": "toxic-quiver",
+    "slug": "Toxic_Quiver",
+    "pool": "toxic-quiver",
+    "family": "quivers",
+    "id": "Metadata/Items/Quivers/FourQuiver6",
+    "name": "Toxic Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Toxic_Quiver",
+    "sourceSha256": "cf5eb38813326a813e5f374923abdb0097e94bf25ef9ca0a70d5e392b21c4684",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 39,
+    "maximumQuality": null,
+    "requirements": {
+      "en": "Requires:  Level 39",
+      "ko": "요구 사항:  레벨 39",
+      "ja": "装備条件： レベル 39",
+      "zh-CN": "需求：  等级 39",
+      "zh-TW": "需求:  等級 39",
+      "es": "Requiere:  Nivel 39"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    },
+    "implicitModifierId": "toxic-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "chance_to_poison_on_hit_with_attacks_%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "chance_to_poison_on_hit_with_attacks_%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0
+  },
+  "blunt-quiver": {
+    "key": "blunt-quiver",
+    "slug": "Blunt_Quiver",
+    "pool": "blunt-quiver",
+    "family": "quivers",
+    "id": "Metadata/Items/Quivers/FourQuiver5",
+    "name": "Blunt Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Blunt_Quiver",
+    "sourceSha256": "418e9093ca5464b00560ed9417a4597a5e60e23c6c1fa0315b0ce616055eb1fc",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 33,
+    "maximumQuality": null,
+    "requirements": {
+      "en": "Requires:  Level 33",
+      "ko": "요구 사항:  레벨 33",
+      "ja": "装備条件： レベル 33",
+      "zh-CN": "需求：  等级 33",
+      "zh-TW": "需求:  等級 33",
+      "es": "Requiere:  Nivel 33"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    },
+    "implicitModifierId": "blunt-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "hit_damage_stun_multiplier_+%",
+        "min": 25,
+        "max": 40
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "hit_damage_stun_multiplier_+%",
+        "min": 25,
+        "max": 40,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0
+  },
+  "two-point-quiver": {
+    "key": "two-point-quiver",
+    "slug": "Two-Point_Quiver",
+    "pool": "two-point-quiver",
+    "family": "quivers",
+    "id": "Metadata/Items/Quivers/FourQuiver4",
+    "name": "Two-Point Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Two-Point_Quiver",
+    "sourceSha256": "38973ef2c97a4657c3a16c3738387f280c3cdff3205a9d94ba4126e7039aedb3",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 24,
+    "maximumQuality": null,
+    "requirements": {
+      "en": "Requires:  Level 24",
+      "ko": "요구 사항:  레벨 24",
+      "ja": "装備条件： レベル 24",
+      "zh-CN": "需求：  等级 24",
+      "zh-TW": "需求:  等級 24",
+      "es": "Requiere:  Nivel 24"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    },
+    "implicitModifierId": "two-point-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "accuracy_rating_+%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "accuracy_rating_+%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0
+  },
+  "sacral-quiver": {
+    "key": "sacral-quiver",
+    "slug": "Sacral_Quiver",
+    "pool": "sacral-quiver",
+    "family": "quivers",
+    "id": "Metadata/Items/Quivers/FourQuiver3",
+    "name": "Sacral Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Sacral_Quiver",
+    "sourceSha256": "274a0abc52388809b4d6a89700545291990b7758f3d4fa0c0186c29090dc9220",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 16,
+    "maximumQuality": null,
+    "requirements": {
+      "en": "Requires:  Level 16",
+      "ko": "요구 사항:  레벨 16",
+      "ja": "装備条件： レベル 16",
+      "zh-CN": "需求：  等级 16",
+      "zh-TW": "需求:  等級 16",
+      "es": "Requiere:  Nivel 16"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    },
+    "implicitModifierId": "sacral-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "base_life_gain_per_target",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_life_gain_per_target",
+        "min": 2,
+        "max": 3,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0
+  },
+  "fire-quiver": {
+    "key": "fire-quiver",
+    "slug": "Fire_Quiver",
+    "pool": "fire-quiver",
+    "family": "quivers",
+    "id": "Metadata/Items/Quivers/FourQuiver2",
+    "name": "Fire Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Fire_Quiver",
+    "sourceSha256": "d5ad43b19c0c545e0fd1eadaa654534c8c81efd8bf4a63592ec5bd17c88029e1",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 8,
+    "maximumQuality": null,
+    "requirements": {
+      "en": "Requires:  Level 8",
+      "ko": "요구 사항:  레벨 8",
+      "ja": "装備条件： レベル 8",
+      "zh-CN": "需求：  等级 8",
+      "zh-TW": "需求:  等級 8",
+      "es": "Requiere:  Nivel 8"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    },
+    "implicitModifierId": "fire-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "attack_maximum_added_fire_damage",
+        "min": 5,
+        "max": 5
+      },
+      {
+        "id": "attack_minimum_added_fire_damage",
+        "min": 3,
+        "max": 3
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "attack_maximum_added_fire_damage",
+        "min": 5,
+        "max": 5,
+        "locality": "Global"
+      },
+      {
+        "id": "attack_minimum_added_fire_damage",
+        "min": 3,
+        "max": 3,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0
+  },
+  "broadhead-quiver": {
+    "key": "broadhead-quiver",
+    "slug": "Broadhead_Quiver",
+    "pool": "broadhead-quiver",
+    "family": "quivers",
+    "id": "Metadata/Items/Quivers/FourQuiver1",
+    "name": "Broadhead Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Broadhead_Quiver",
+    "sourceSha256": "be58842d27b7f029539e01228f65a9a78a23ed4169de1c7100d344a86af523ee",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 0,
+    "maximumQuality": null,
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    },
+    "implicitModifierId": "broadhead-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "attack_maximum_added_physical_damage",
+        "min": 3,
+        "max": 3
+      },
+      {
+        "id": "attack_minimum_added_physical_damage",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "attack_maximum_added_physical_damage",
+        "min": 3,
+        "max": 3,
+        "locality": "Global"
+      },
+      {
+        "id": "attack_minimum_added_physical_damage",
+        "min": 1,
+        "max": 1,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0
   }
 }

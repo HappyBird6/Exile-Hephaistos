@@ -1,0 +1,425 @@
+{
+  "bases": [
+    {
+      "key": "visceral-quiver",
+      "sourceUrl": "https://poe2db.tw/us/Visceral_Quiver",
+      "sourceSha256": "0018282ecafe114ae4d842155d8441e955892874a9d9c45b524e43ebd06e8ffe",
+      "normalPopup": true,
+      "rarityFlags": "normal, magic, rare, unique",
+      "tags": [
+        "attack",
+        "critical"
+      ],
+      "requiredLevel": 65,
+      "implicit": {
+        "id": "visceral-quiver:implicit:base",
+        "name": "Visceral Quiver",
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "CriticalStrikeChanceIncrease"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "text": "(20—30)% increased Critical Hit Chance for Attacks",
+        "stats": [
+          {
+            "id": "attack_critical_strike_chance_+%",
+            "min": 20,
+            "max": 30
+          }
+        ],
+        "tags": [
+          "attack",
+          "critical"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/Visceral_Quiver"
+      }
+    },
+    {
+      "key": "volant-quiver",
+      "sourceUrl": "https://poe2db.tw/us/Volant_Quiver",
+      "sourceSha256": "1d805b58f11e99cf84692a5de3ca46ee5da1b5977b9d7c724a8e983de740e2e2",
+      "normalPopup": true,
+      "rarityFlags": "normal, magic, rare, unique",
+      "tags": [
+        "attack",
+        "speed"
+      ],
+      "requiredLevel": 61,
+      "implicit": {
+        "id": "volant-quiver:implicit:base",
+        "name": "Volant Quiver",
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "ArrowSpeed"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "text": "(20—30)% increased Arrow Speed",
+        "stats": [
+          {
+            "id": "base_arrow_speed_+%",
+            "min": 20,
+            "max": 30
+          }
+        ],
+        "tags": [
+          "attack",
+          "speed"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/Volant_Quiver"
+      }
+    },
+    {
+      "key": "penetrating-quiver",
+      "sourceUrl": "https://poe2db.tw/us/Penetrating_Quiver",
+      "sourceSha256": "7a722e6674d0af24163757688b8bcff002bbf3d3ad502c2163da143dd0e0f89b",
+      "normalPopup": true,
+      "rarityFlags": "normal, magic, rare, unique",
+      "tags": [],
+      "requiredLevel": 55,
+      "implicit": {
+        "id": "penetrating-quiver:implicit:base",
+        "name": "Penetrating Quiver",
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "ChanceToPierce"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "text": "100% chance to Pierce an Enemy",
+        "stats": [
+          {
+            "id": "base_chance_to_pierce_%",
+            "min": 100,
+            "max": 100
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/Penetrating_Quiver"
+      }
+    },
+    {
+      "key": "primed-quiver",
+      "sourceUrl": "https://poe2db.tw/us/Primed_Quiver",
+      "sourceSha256": "81f0ceb5d0bf015a9ad25b74cfb7b6ac2fd5c4e8e2547f29fa4f7b88e7fc9f56",
+      "normalPopup": true,
+      "rarityFlags": "normal, magic, rare, unique",
+      "tags": [
+        "attack",
+        "speed"
+      ],
+      "requiredLevel": 51,
+      "implicit": {
+        "id": "primed-quiver:implicit:base",
+        "name": "Primed Quiver",
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "IncreasedAttackSpeed"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "text": "(7—10)% increased Attack Speed",
+        "stats": [
+          {
+            "id": "attack_speed_+%",
+            "min": 7,
+            "max": 10
+          }
+        ],
+        "tags": [
+          "attack",
+          "speed"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/Primed_Quiver"
+      }
+    },
+    {
+      "key": "serrated-quiver",
+      "sourceUrl": "https://poe2db.tw/us/Serrated_Quiver",
+      "sourceSha256": "6900f60bbf7b46fb00ef7867ffa0408b2637263e95aa5f3d8987d91d514e01d3",
+      "normalPopup": true,
+      "rarityFlags": "normal, magic, rare, unique",
+      "tags": [
+        "physical",
+        "attack",
+        "ailment"
+      ],
+      "requiredLevel": 44,
+      "implicit": {
+        "id": "serrated-quiver:implicit:base",
+        "name": "Serrated Quiver",
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "ChanceToBleed"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "text": "Attacks have (20—30)% chance to cause Bleeding",
+        "stats": [
+          {
+            "id": "bleed_on_hit_with_attacks_%",
+            "min": 20,
+            "max": 30
+          }
+        ],
+        "tags": [
+          "physical",
+          "attack",
+          "ailment"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/Serrated_Quiver"
+      }
+    },
+    {
+      "key": "toxic-quiver",
+      "sourceUrl": "https://poe2db.tw/us/Toxic_Quiver",
+      "sourceSha256": "cf5eb38813326a813e5f374923abdb0097e94bf25ef9ca0a70d5e392b21c4684",
+      "normalPopup": true,
+      "rarityFlags": "normal, magic, rare, unique",
+      "tags": [
+        "chaos",
+        "attack",
+        "ailment"
+      ],
+      "requiredLevel": 39,
+      "implicit": {
+        "id": "toxic-quiver:implicit:base",
+        "name": "Toxic Quiver",
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "ChanceToPoisonWithAttacks"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "text": "(20—30)% chance to Poison on Hit with Attacks",
+        "stats": [
+          {
+            "id": "chance_to_poison_on_hit_with_attacks_%",
+            "min": 20,
+            "max": 30
+          }
+        ],
+        "tags": [
+          "chaos",
+          "attack",
+          "ailment"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/Toxic_Quiver"
+      }
+    },
+    {
+      "key": "blunt-quiver",
+      "sourceUrl": "https://poe2db.tw/us/Blunt_Quiver",
+      "sourceSha256": "418e9093ca5464b00560ed9417a4597a5e60e23c6c1fa0315b0ce616055eb1fc",
+      "normalPopup": true,
+      "rarityFlags": "normal, magic, rare, unique",
+      "tags": [],
+      "requiredLevel": 33,
+      "implicit": {
+        "id": "blunt-quiver:implicit:base",
+        "name": "Blunt Quiver",
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "StunDamageIncrease"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "text": "(25—40)% increased Stun Buildup",
+        "stats": [
+          {
+            "id": "hit_damage_stun_multiplier_+%",
+            "min": 25,
+            "max": 40
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/Blunt_Quiver"
+      }
+    },
+    {
+      "key": "two-point-quiver",
+      "sourceUrl": "https://poe2db.tw/us/Two-Point_Quiver",
+      "sourceSha256": "38973ef2c97a4657c3a16c3738387f280c3cdff3205a9d94ba4126e7039aedb3",
+      "normalPopup": true,
+      "rarityFlags": "normal, magic, rare, unique",
+      "tags": [
+        "attack"
+      ],
+      "requiredLevel": 24,
+      "implicit": {
+        "id": "two-point-quiver:implicit:base",
+        "name": "Two-Point Quiver",
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "IncreasedAccuracyPercent"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "text": "(20—30)% increased Accuracy Rating",
+        "stats": [
+          {
+            "id": "accuracy_rating_+%",
+            "min": 20,
+            "max": 30
+          }
+        ],
+        "tags": [
+          "attack"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/Two-Point_Quiver"
+      }
+    },
+    {
+      "key": "sacral-quiver",
+      "sourceUrl": "https://poe2db.tw/us/Sacral_Quiver",
+      "sourceSha256": "274a0abc52388809b4d6a89700545291990b7758f3d4fa0c0186c29090dc9220",
+      "normalPopup": true,
+      "rarityFlags": "normal, magic, rare, unique",
+      "tags": [
+        "life",
+        "attack"
+      ],
+      "requiredLevel": 16,
+      "implicit": {
+        "id": "sacral-quiver:implicit:base",
+        "name": "Sacral Quiver",
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "LifeGainPerTarget"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "text": "Gain (2—3) Life per Enemy Hit with Attacks",
+        "stats": [
+          {
+            "id": "base_life_gain_per_target",
+            "min": 2,
+            "max": 3
+          }
+        ],
+        "tags": [
+          "life",
+          "attack"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/Sacral_Quiver"
+      }
+    },
+    {
+      "key": "fire-quiver",
+      "sourceUrl": "https://poe2db.tw/us/Fire_Quiver",
+      "sourceSha256": "d5ad43b19c0c545e0fd1eadaa654534c8c81efd8bf4a63592ec5bd17c88029e1",
+      "normalPopup": true,
+      "rarityFlags": "normal, magic, rare, unique",
+      "tags": [
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "requiredLevel": 8,
+      "implicit": {
+        "id": "fire-quiver:implicit:base",
+        "name": "Fire Quiver",
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "FireDamage"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "text": "Adds 3 to 5 Fire damage to Attacks",
+        "stats": [
+          {
+            "id": "attack_maximum_added_fire_damage",
+            "min": 5,
+            "max": 5
+          },
+          {
+            "id": "attack_minimum_added_fire_damage",
+            "min": 3,
+            "max": 3
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "fire",
+          "attack"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/Fire_Quiver"
+      }
+    },
+    {
+      "key": "broadhead-quiver",
+      "sourceUrl": "https://poe2db.tw/us/Broadhead_Quiver",
+      "sourceSha256": "be58842d27b7f029539e01228f65a9a78a23ed4169de1c7100d344a86af523ee",
+      "normalPopup": true,
+      "rarityFlags": "normal, magic, rare, unique",
+      "tags": [
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "requiredLevel": 0,
+      "implicit": {
+        "id": "broadhead-quiver:implicit:base",
+        "name": "Broadhead Quiver",
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "PhysicalDamage"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "text": "Adds 1 to 3 Physical Damage to Attacks",
+        "stats": [
+          {
+            "id": "attack_maximum_added_physical_damage",
+            "min": 3,
+            "max": 3
+          },
+          {
+            "id": "attack_minimum_added_physical_damage",
+            "min": 1,
+            "max": 1
+          }
+        ],
+        "tags": [
+          "damage",
+          "physical",
+          "attack"
+        ],
+        "sourceUrl": "https://poe2db.tw/us/Broadhead_Quiver"
+      }
+    }
+  ],
+  "ordinaryRoster": 11,
+  "selection": "One base per distinct implicit; current class list has no higher ordinary replica for these eleven families",
+  "availabilityEvidence": "Current normal popup, class base list and normal/magic/rare flags. Official GGG trade2 endpoint returned403; no independent GGG trade proof was obtained.",
+  "failedAvailability": {
+    "url": "https://www.pathofexile.com/api/trade2/data/items",
+    "status": 403
+  },
+  "restrictions": "No published Quality.max_quality; generic socket metadata has level9999 for positive sockets. Ordinary usable socket count0; socket state/Artificer/Catalyst unsupported. No Bow weapon-quality alias."
+}

@@ -103,13 +103,18 @@ describe('remaining display coverage', () => {
     ])
     // Preserve all historical bindings and cover 18 new numeric Crossbow bindings.
     expect(
-      single.filter(([id]) => !/^(crossbow|.+-crossbow|offhand):/.test(id)),
+      single.filter(
+        ([id]) => !/^(crossbow|.+-crossbow|offhand|quiver|.+-quiver):/.test(id),
+      ),
     ).toHaveLength(234)
     expect(
       single.filter(([id]) => /^(crossbow|.+-crossbow):/.test(id)),
     ).toHaveLength(18)
     expect(single.filter(([id]) => id.startsWith('offhand:'))).toHaveLength(27)
-    expect(single).toHaveLength(279)
+    expect(
+      single.filter(([id]) => /^(quiver|.+-quiver):/.test(id)),
+    ).toHaveLength(38)
+    expect(single).toHaveLength(317)
     expect(
       single
         .filter(([id]) =>

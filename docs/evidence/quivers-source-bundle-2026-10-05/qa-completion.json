@@ -1,0 +1,384 @@
+{
+  "baseHead": "aa741d572e23067e74bb17aaf6daf3a3949fb87b",
+  "addedBases": 11,
+  "totalBases": 113,
+  "backend": {
+    "command": "sh gradlew --no-daemon spotlessApply check generateJooq bootJar",
+    "unit": {
+      "tests": 476,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "integration": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "frontend": {
+    "npmCi": true,
+    "lint": true,
+    "typecheck": true,
+    "formatCheck": true,
+    "tests": 1903,
+    "testFiles": 66,
+    "build": true
+  },
+  "api": 877,
+  "browser": 1112,
+  "legacy": 25,
+  "browserErrors": [],
+  "visualReview": {
+    "passed": true,
+    "reviewedAt": "2026-10-05T06:47:54.679Z",
+    "method": "Direct view_image inspection of all25 card contact sheets and all27 full contact sheets, plus all6 Visceral mobile card originals, all6 orange preview originals and all6 Solar overflow originals",
+    "originalScreenshots": 312,
+    "contactSheets": 52,
+    "locales": [
+      "en",
+      "ko",
+      "ja",
+      "zh-CN",
+      "zh-TW",
+      "es"
+    ],
+    "viewportWidths": [
+      1440,
+      390
+    ],
+    "findings": [
+      "Names, source equip description, requirement boundaries and implicit/compound lines readable with preserved wrapping",
+      "Broadhead has no invented character requirement",
+      "Sacral Japanese enemy1 literal preserved separately from Life3 roll",
+      "Fixed Fire/Broadhead/Penetrating implicits render correctly",
+      "Orange removal preview and Solar quality40/cap20/rounded15 remain visible",
+      "Existing material pane scrolling and existing unavailable Reaver Catalyst image fallback preserved"
+    ],
+    "layoutBlockers": []
+  },
+  "logs": [
+    {
+      "name": "backend-check-1.log",
+      "sha256": "9299570c82e75febc2e902c53c621d3981407ed03784c6b01e447269c9723050"
+    },
+    {
+      "name": "backend-check-2.log",
+      "sha256": "305540f3411932498b2a3d3a7c779e0d239d8e3e6b039e0c8393392c58711fbe"
+    },
+    {
+      "name": "backend-check-3.log",
+      "sha256": "7df2d7664ae8aa90b5dbdda5e0aa3f9d59e708602424683166c33054137522a2"
+    },
+    {
+      "name": "frontend-check-1.log",
+      "sha256": "bd7a3309ae2b82337c99293081c3096c7a1e663c775bf60b4fefed9a2b4d4262"
+    },
+    {
+      "name": "frontend-check-2.log",
+      "sha256": "0a42fd892bd3e05866c484c03d042faed4dd269dd4f5fd7855928b2513b7c6cd"
+    },
+    {
+      "name": "frontend-check-3.log",
+      "sha256": "fa0998dc0f33816e561062e005b345f39d27a1e18787415081619898e5d382c1"
+    },
+    {
+      "name": "frontend-check-4.log",
+      "sha256": "badd484b983e5f716741a45fed1a33622b2461f2de449dd96b8200c0e8bfaeea"
+    }
+  ],
+  "livePreservation": {
+    "before": {
+      "capturedAt": "2026-10-05T05:58:15.659Z",
+      "services": [
+        {
+          "name": "exile-workbench-qa-20261002-frontend-1",
+          "id": "c8e74d399af207f171b43577a6106ebd341942ca00658a246dc8dfa55a9c83b4",
+          "startedAt": "2026-10-04T13:18:17.193444193Z",
+          "running": true,
+          "mounts": [
+            {
+              "Destination": "/usr/share/nginx/html",
+              "Mode": "ro",
+              "Propagation": "rprivate",
+              "RW": false,
+              "Source": "E:/WORK/Exile-Hephaistos/codex/runtime-ui-18a2a3d/frontend-dist",
+              "Type": "bind"
+            }
+          ]
+        },
+        {
+          "name": "exile-workbench-qa-20261002-app-1",
+          "id": "c4bbebf6e190002f7536eaa9b60aac1df4d684a7287d7d75470a491fc2c4a408",
+          "startedAt": "2026-10-04T12:43:17.378679745Z",
+          "running": true,
+          "mounts": [
+            {
+              "Destination": "/app/app.jar",
+              "Mode": "ro",
+              "Propagation": "rprivate",
+              "RW": false,
+              "Source": "E:/WORK/Exile-Hephaistos/codex/runtime-master-7d27d6c/poe2craft.jar",
+              "Type": "bind"
+            }
+          ]
+        },
+        {
+          "name": "exile-workbench-qa-20261002-postgres-1",
+          "id": "747188687b03c214715c9ab66d6286fd890bba81d6247c618e5afd39d32c0eba",
+          "startedAt": "2026-10-02T11:57:41.487690943Z",
+          "running": true,
+          "mounts": [
+            {
+              "Destination": "/var/lib/postgresql/data",
+              "Driver": "local",
+              "Mode": "rw",
+              "Name": "exile-workbench-qa-20261002_qa-data",
+              "Propagation": "",
+              "RW": true,
+              "Source": "/var/lib/docker/volumes/exile-workbench-qa-20261002_qa-data/_data",
+              "Type": "volume"
+            }
+          ]
+        },
+        {
+          "name": "exile-workbench-qa-20261002-redis-1",
+          "id": "9f0962732bc25e1b9e06acbac0fe47fd43e33a835e304962081e7c09a9222a1f",
+          "startedAt": "2026-10-02T11:57:41.223275862Z",
+          "running": true,
+          "mounts": [
+            {
+              "Destination": "/data",
+              "Driver": "local",
+              "Mode": "",
+              "Name": "c94be3f05cb3ee8e77f6cf019955f6aa03de1ba9206e57acba8ec2254249b31b",
+              "Propagation": "",
+              "RW": true,
+              "Source": "/var/lib/docker/volumes/c94be3f05cb3ee8e77f6cf019955f6aa03de1ba9206e57acba8ec2254249b31b/_data",
+              "Type": "volume"
+            }
+          ]
+        }
+      ]
+    },
+    "after": {
+      "capturedAt": "2026-10-05T06:44:19.793Z",
+      "services": [
+        {
+          "name": "exile-workbench-qa-20261002-frontend-1",
+          "id": "c8e74d399af207f171b43577a6106ebd341942ca00658a246dc8dfa55a9c83b4",
+          "startedAt": "2026-10-04T13:18:17.193444193Z",
+          "running": true,
+          "mounts": [
+            {
+              "Destination": "/usr/share/nginx/html",
+              "Mode": "ro",
+              "Propagation": "rprivate",
+              "RW": false,
+              "Source": "E:/WORK/Exile-Hephaistos/codex/runtime-ui-18a2a3d/frontend-dist",
+              "Type": "bind"
+            }
+          ]
+        },
+        {
+          "name": "exile-workbench-qa-20261002-app-1",
+          "id": "c4bbebf6e190002f7536eaa9b60aac1df4d684a7287d7d75470a491fc2c4a408",
+          "startedAt": "2026-10-04T12:43:17.378679745Z",
+          "running": true,
+          "mounts": [
+            {
+              "Destination": "/app/app.jar",
+              "Mode": "ro",
+              "Propagation": "rprivate",
+              "RW": false,
+              "Source": "E:/WORK/Exile-Hephaistos/codex/runtime-master-7d27d6c/poe2craft.jar",
+              "Type": "bind"
+            }
+          ]
+        },
+        {
+          "name": "exile-workbench-qa-20261002-postgres-1",
+          "id": "747188687b03c214715c9ab66d6286fd890bba81d6247c618e5afd39d32c0eba",
+          "startedAt": "2026-10-02T11:57:41.487690943Z",
+          "running": true,
+          "mounts": [
+            {
+              "Destination": "/var/lib/postgresql/data",
+              "Driver": "local",
+              "Mode": "rw",
+              "Name": "exile-workbench-qa-20261002_qa-data",
+              "Propagation": "",
+              "RW": true,
+              "Source": "/var/lib/docker/volumes/exile-workbench-qa-20261002_qa-data/_data",
+              "Type": "volume"
+            }
+          ]
+        },
+        {
+          "name": "exile-workbench-qa-20261002-redis-1",
+          "id": "9f0962732bc25e1b9e06acbac0fe47fd43e33a835e304962081e7c09a9222a1f",
+          "startedAt": "2026-10-02T11:57:41.223275862Z",
+          "running": true,
+          "mounts": [
+            {
+              "Destination": "/data",
+              "Driver": "local",
+              "Mode": "",
+              "Name": "c94be3f05cb3ee8e77f6cf019955f6aa03de1ba9206e57acba8ec2254249b31b",
+              "Propagation": "",
+              "RW": true,
+              "Source": "/var/lib/docker/volumes/c94be3f05cb3ee8e77f6cf019955f6aa03de1ba9206e57acba8ec2254249b31b/_data",
+              "Type": "volume"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "release": {
+    "method": "docker compose stop",
+    "services": [
+      {
+        "name": "exile-quivers-20261005-frontend-1",
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-05T06:27:06.445121202Z",
+        "FinishedAt": "2026-10-05T06:43:52.435599167Z"
+      },
+      {
+        "name": "exile-quivers-20261005-app-1",
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 143,
+        "Error": "",
+        "StartedAt": "2026-10-05T06:27:06.219046252Z",
+        "FinishedAt": "2026-10-05T06:43:52.870589088Z"
+      },
+      {
+        "name": "exile-quivers-20261005-postgres-1",
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-05T06:27:00.525167857Z",
+        "FinishedAt": "2026-10-05T06:43:53.253832183Z",
+        "Health": {
+          "Status": "unhealthy",
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "Start": "2026-10-05T06:43:30.146526108Z",
+              "End": "2026-10-05T06:43:30.18712675Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            },
+            {
+              "Start": "2026-10-05T06:43:35.188371983Z",
+              "End": "2026-10-05T06:43:35.226489627Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            },
+            {
+              "Start": "2026-10-05T06:43:40.227846034Z",
+              "End": "2026-10-05T06:43:40.272458826Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            },
+            {
+              "Start": "2026-10-05T06:43:45.271774769Z",
+              "End": "2026-10-05T06:43:45.312765517Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            },
+            {
+              "Start": "2026-10-05T06:43:50.314263103Z",
+              "End": "2026-10-05T06:43:50.354806331Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            }
+          ]
+        }
+      },
+      {
+        "name": "exile-quivers-20261005-redis-1",
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-05T06:27:00.29523791Z",
+        "FinishedAt": "2026-10-05T06:43:53.299781948Z"
+      }
+    ],
+    "volumesDeleted": false,
+    "liveServicesUnchanged": true,
+    "releasedAt": "2026-10-05T06:44:45.746Z"
+  },
+  "failedAttempts": {
+    "frontend1": {
+      "phase": "pretest source coverage",
+      "result": "Broadhead source has no character requirement; generic nonblank assertion rejected it",
+      "lint": true,
+      "typecheck": true,
+      "formatCheck": true,
+      "testsExecuted": false,
+      "buildExecuted": false,
+      "logSha256": "bd7a3309ae2b82337c99293081c3096c7a1e663c775bf60b4fefed9a2b4d4262",
+      "correction": "Exact source absence check and requirement0; generation itemLevel1 unchanged; no invented requirement, skip or relaxed generic coverage"
+    },
+    "frontend2": {
+      "failure": "Historical single numeric binding count included 38 new Quiver bindings",
+      "passedTests": 1880,
+      "failedTests": 1,
+      "correction": "Preserve old234, assert new38 and total317; all min/middle/max six-locale checks retained"
+    },
+    "browser1": {
+      "phase": "Transmutation film synchronization",
+      "error": "30s waitForFunction timeout at helper line40",
+      "apiResponseReceived": true
+    },
+    "browser2": {
+      "rootCause": "Frontend response qualityLimit null guard omitted Quivers",
+      "correction": "Source-backed class allowlist addition and actual11 response regression cases"
+    },
+    "browser3": {
+      "error": "Cannot read properties of undefined (reading 'name')",
+      "checks": [
+        "113 base selector choices",
+        "visceral-quiver exact selector identity",
+        "visceral-quiver Quiver class",
+        "Orb_of_Transmutation HTTP200",
+        "visceral-quiver positive Transmutation",
+        "visceral-quiver Shift selection retained",
+        "Divine_Orb HTTP200",
+        "visceral-quiver Blessed follows variable implicit restriction",
+        "visceral-quiver Blessed canonical ranges"
+      ],
+      "errors": []
+    }
+  },
+  "availabilityGap": "GGG trade2 public endpoint HTTP403; current PoE2DB ordinary class list and normal popup rarity flags verified. Exact drop locations/rates unverified.",
+  "gitBoundary": "Local branch commit only; no push/merge/deploy"
+}

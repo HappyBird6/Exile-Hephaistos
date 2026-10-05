@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/sp/Broadhead_Quiver",
+  "retrievedAt": "2026-10-05T05:29:33.282Z",
+  "sha256": "2eadb48aa0b48bbae3d436269e42a4f78a1219d4897ddbf2e9c7de0b9c776e75",
+  "variants": [
+    {
+      "name": "Carcaj de flechas anchas",
+      "card": "Carcaj de flechas anchas\n        \n    \n    \n        \n            CarcajesAgrega de 1 a 3 de daño físico a los ataques\n        \n\n\n        \n        \n            Solo se puede equipar si portas un arco.\n        \n\n        \n            Broadhead Quiver",
+      "requirements": "",
+      "fields": {
+        "DropLevel": "1",
+        "BaseType": "Carcaj de flechas anchas",
+        "Class": "Carcajes",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver1",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverBroadhead",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

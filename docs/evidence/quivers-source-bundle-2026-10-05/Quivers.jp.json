@@ -1,0 +1,4481 @@
+{
+  "url": "https://poe2db.tw/jp/Quivers",
+  "retrievedAt": "2026-10-05T05:29:22.757Z",
+  "sha256": "cbbd491958a4b831f9a24b6696762c0781f2302ce65e9e7d5db8423e200ede17",
+  "data": {
+    "baseitem": {
+      "href": "Quivers",
+      "cn": "Quiver",
+      "name": 20,
+      "link_name": "<a class=\"ItemClasses  KeywordPopups\" href=\"Quivers\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/da48a8aa3cbb1a85e7abb4261a651eaed7875152deeebf55622fe7a729e82d37\">矢筒</a>",
+      "attr": []
+    },
+    "config": {
+      "normal": {
+        "icon": "",
+        "title": "基礎"
+      },
+      "rotmother": {
+        "icon": "",
+        "title": "Rotmother's Ducat"
+      },
+      "breach_otherworldly": {
+        "title": "<span class=\"KeywordPopups\" data-bs-toggle=\"tooltip\" title=\"&lt;a class=&quot;item_currency StackableCurrency&quot; data-hover=&quot;https://cdn.poe2db.tw/cache2/jp/Poe_Data_BaseItemTypes_hover/870d19d22a2b60f4203dcded43afc09003f119ec3a5ba9b0e9c6ac426db05465&quot; href=&quot;Altered_Collarbone&quot;&gt;&lt;img loading=&quot;lazy&quot; src=&quot;https://cdn.poe2db.tw/image/Art/2DItems/Currency/Breach/BreachDesecration.webp&quot; alt=&quot;BreachDesecration&quot; height=&quot;16&quot; /&gt;変質した鎖骨&lt;/a&gt; / &lt;span class=&quot;MinimapIcons&quot;&gt;&lt;img loading=&quot;lazy&quot; src=&quot;https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/GenesisTree.webp&quot; alt=&quot;GenesisTree&quot; height=&quot;24&quot; /&gt;創生の樹&lt;/span&gt;\">Otherworldly</span>"
+      },
+      "breach_minion": {
+        "title": "<span class=\"MinimapIcons\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/GenesisTree.webp\" alt=\"GenesisTree\" height=\"24\" />創生の樹</span> ミニオン"
+      },
+      "breach_caster": {
+        "title": "<span class=\"MinimapIcons\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/GenesisTree.webp\" alt=\"GenesisTree\" height=\"24\" />創生の樹</span> キャスター"
+      },
+      "misc": {
+        "title": "Misc"
+      },
+      "chronomancy": {
+        "icon": "<img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneTime.webp\" alt=\"GameWarpRuneTime\" width=\"32\" />",
+        "title": "<a class=\"whiteitem SoulCore\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_BaseItemTypes_hover/f05738261e7f0f64cc373cc1d3a8b05f075f9b952492fee5b14a51f6c7ca44c4\" href=\"Uhtreds_Sidereus\">ウートレドの星読み</a>"
+      },
+      "marksman": {
+        "icon": "<img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneDex.webp\" alt=\"GameWarpRuneDex\" width=\"32\" />",
+        "title": "<a class=\"whiteitem SoulCore\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_BaseItemTypes_hover/762ed3a2436d17331221e18a9f3629e54b0790a5f3816efd77c9062abe1e808c\" href=\"Kolrs_Hunt\">コルの狩り</a>"
+      },
+      "decay": {
+        "icon": "<img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneChaos.webp\" alt=\"GameWarpRuneChaos\" width=\"32\" />",
+        "title": "<a class=\"whiteitem SoulCore\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_BaseItemTypes_hover/651edaa13b3f900ac06683956333f358254ff6da5d5c1e0b1ac7ff0c6e83ba21\" href=\"Katlas_Gloom\">カトラの陰鬱</a>"
+      },
+      "soul": {
+        "icon": "<img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneCold.webp\" alt=\"GameWarpRuneCold\" width=\"32\" />",
+        "title": "<a class=\"whiteitem SoulCore\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_BaseItemTypes_hover/01235aac508a9c10fa6e239abe9ca7c19635d7489c80dcad89adbc677dd888b7\" href=\"Medveds_Tending\">メドヴェッドの世話</a>"
+      },
+      "destruction": {
+        "icon": "<img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneFire.webp\" alt=\"GameWarpRuneFire\" width=\"32\" />",
+        "title": "<a class=\"whiteitem SoulCore\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_BaseItemTypes_hover/3e247894247346e43cf65d07db9b15be732e84266b0daddb4e47571dfa1a11e0\" href=\"Thruds_Might\">スルードの力</a>"
+      },
+      "berserking": {
+        "icon": "<img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRunePhysical.webp\" alt=\"GameWarpRunePhysical\" width=\"32\" />",
+        "title": "<a class=\"whiteitem SoulCore\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_BaseItemTypes_hover/d2fa6d1ea6e928bb420b92785c9bfe04988b1efba1e3082d6ff5125ae0b1dff1\" href=\"Voranas_Carnage\">ヴォラナの虐殺</a>"
+      },
+      "liquid": {
+        "icon": "<img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/DistilledEmotions/DilutedDistilledIre.webp\" alt=\"DilutedDistilledIre\" width=\"32\" />",
+        "title": "<a class=\"KeywordPopups\" data-keyword=\"DistilledEmotion\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/ad86e9b527077bb3d142660fd34dc7bb15282e5e66358487179841aefcd72158\" href=\"Liquid_Emotions\">液化した感情</a>"
+      },
+      "shaper": {
+        "icon": "<img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/item/popup/shaper-symbol.webp\" alt=\"shapersymbol\" width=\"32\" />",
+        "title": "The Shaper"
+      },
+      "elder": {
+        "icon": "<img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/item/popup/elder-symbol.webp\" alt=\"eldersymbol\" width=\"32\" />",
+        "title": "The Elder"
+      },
+      "crusader": {
+        "icon": "<img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/item/popup/crusader-symbol.webp\" alt=\"crusadersymbol\" width=\"32\" />",
+        "title": "クルセイダーの聖所"
+      },
+      "redeemer": {
+        "icon": "<img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/item/popup/redeemer-symbol.webp\" alt=\"redeemersymbol\" width=\"32\" />",
+        "title": "リディーマーの巣"
+      },
+      "hunter": {
+        "icon": "<img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/item/popup/hunter-symbol.webp\" alt=\"huntersymbol\" width=\"32\" />",
+        "title": "ハンター"
+      },
+      "warlord": {
+        "icon": "<img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/item/popup/warlord-symbol.webp\" alt=\"warlordsymbol\" width=\"32\" />",
+        "title": "ウォーロード"
+      },
+      "delve": {
+        "icon": "<span class=\"MinimapIcons\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/DelveMineralVein.webp\" alt=\"DelveMineralVein\" width=\"32\" /></span>",
+        "title": "デルヴ"
+      },
+      "incursion": {
+        "icon": "<span class=\"MinimapIcons\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/IncursionCraftingBench.webp\" alt=\"IncursionCraftingBench\" width=\"32\" /></span>",
+        "title": "インカージョン"
+      },
+      "desecrated": {
+        "icon": "<img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/item/popup2/desecrated-symbol.webp\" alt=\"desecratedsymbol\" width=\"32\" />",
+        "title": "<a class=\"KeywordPopups\" data-keyword=\"Abyssalify\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/d0346a4ebf4b41791bf21678c47793dfa49048f6d064f2b89ffe327ea1b9ff18\" href=\"Desecrated_Modifiers\">冒涜モッド</a>"
+      },
+      "veiled": {
+        "icon": "<img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/item/popup/veiled-symbol.webp\" alt=\"veiledsymbol\" width=\"32\" />",
+        "title": "ヴェール"
+      },
+      "master": {
+        "icon": "<span class=\"MinimapIcons\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/CraftingUnlockObject.webp\" alt=\"CraftingUnlockObject\" width=\"32\" /></span>",
+        "title": "クラフトベンチ"
+      },
+      "essence": {
+        "icon": "<span class=\"MinimapIcons\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/Essence.webp\" alt=\"Essence\" width=\"32\" /></span>",
+        "title": "エッセンス"
+      },
+      "perfect_essence": {
+        "icon": "<span class=\"MinimapIcons\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/Essence.webp\" alt=\"Essence\" width=\"32\" /></span>",
+        "title": "Perfect エッセンス / Alloy"
+      },
+      "bestiary": {
+        "icon": "<span class=\"MinimapIcons\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/BestiaryRareMonster.webp\" alt=\"BestiaryRareMonster\" width=\"32\" /></span>",
+        "title": "ベスティアリー"
+      },
+      "warbands": {
+        "title": "ウォーバンド"
+      },
+      "sentinel": {
+        "icon": "<img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Sentinel/ArmourRecombinator.webp\" alt=\"ArmourRecombinator\" width=\"32\" />",
+        "title": "リコンビネーター"
+      },
+      "infamous": {
+        "title": "Infamous",
+        "icon": ""
+      },
+      "haunted": {
+        "icon": "<span >NecropolisCorpse</span>",
+        "title": "Haunted Modifiers"
+      },
+      "socketable": {
+        "icon": "<img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/FireRune.webp\" alt=\"FireRune\" width=\"32\" />",
+        "title": "<a class=\"ItemClasses  KeywordPopups\" href=\"Augment\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/1b7359b8dfab8190aa24336032eff08193e847ea8809d273e7229950e5a1f5e3\">オーグメント</a>",
+        "class": "enchantMod"
+      },
+      "bonded": {
+        "icon": "<img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DArt/SkillIcons/passives/Shaman/ShamanRunesTalismans.webp\" alt=\"ShamanRunesTalismans\" width=\"32\" />",
+        "title": "<a class=\"KeywordPopups\" data-keyword=\"ShamanOnlyMods\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/5051a201ceddc714d050664efbd1b5198fb95d5f4a6076e60841938df52db4c5\" href=\"Bonded_Modifiers\">絆モッド</a>",
+        "class": "bondedMod"
+      },
+      "enchant": {
+        "title": "付呪する",
+        "class": "enchantMod"
+      },
+      "corrupted": {
+        "icon": "<img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyVaal.webp\" alt=\"CurrencyVaal\" width=\"32\" />",
+        "title": "<a data-keyword=\"Corrupted\" href=\"Corrupted_Items\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/03459523e70efabd09c8e6b6c414b3bc900eccdcec16460b40e1108675bccf72\">コラプト状態</a>",
+        "class": "enchantMod"
+      },
+      "corruption_upgrade": {
+        "title": "Orb of Sacrifice",
+        "class": "enchantMod"
+      },
+      "graft_corrupted": {
+        "title": "Unstable Implant"
+      },
+      "searing": {
+        "icon": "<span class=\"MinimapIcons\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/CleansingFireAltar.webp\" alt=\"CleansingFireAltar\" width=\"32\" /></span>",
+        "title": "The Searing Exarch"
+      },
+      "eater": {
+        "icon": "<span class=\"MinimapIcons\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/TangleAltar.webp\" alt=\"TangleAltar\" width=\"32\" /></span>",
+        "title": "The Eater of Worlds"
+      },
+      "synthesis": {
+        "icon": "<img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/SynthesisFragmentEntrance.webp\" alt=\"SynthesisFragmentEntrance\" width=\"32\" />",
+        "title": "シンセシス",
+        "class": "enchantMod"
+      },
+      "synthesis_corrupted": {
+        "title": "シンセシス <a data-keyword=\"Corrupted\" href=\"Corrupted_Items\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/03459523e70efabd09c8e6b6c414b3bc900eccdcec16460b40e1108675bccf72\">コラプト状態</a>",
+        "class": "enchantMod"
+      },
+      "scourgeup": {
+        "title": "スカージ Beneficial",
+        "class": "scourged"
+      },
+      "scourgedown": {
+        "title": "スカージ Detrimental",
+        "class": "scourged"
+      }
+    },
+    "gen": {
+      "1": "プレフィックス",
+      "2": "サフィックス"
+    },
+    "opt": {
+      "ModDomainsID": 1,
+      "ids": [
+        0,
+        21
+      ],
+      "attr": [],
+      "ItemClassesCode": "Quiver",
+      "ItemClassesID": 20,
+      "tags": null
+    },
+    "normal": [
+      {
+        "Name": "マングースの",
+        "Level": "1",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "Dexterity"
+        ],
+        "DropChance": "1000",
+        "str": "<a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/ecbebdc00966499b116d668cb8722082e07a2f2da0e4fa75b15528251f8b0c26\">器用さ</a> <span class='mod-value'>+(5<span class=\"ndash\">—</span>8)</span>",
+        "fossil_no": [
+          "attribute"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "amulet",
+          "gloves",
+          "quiver",
+          "dex_armour",
+          "dex_int_armour",
+          "str_dex_armour",
+          "str_dex_int_armour",
+          "sword",
+          "spear",
+          "claw",
+          "warstaff",
+          "dagger",
+          "bow",
+          "crossbow",
+          "trap",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">能力値</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/4637d749a461880c66761409893d742a743ff8cb519950174c2d10a644366d0f"
+      },
+      {
+        "Name": "リンクスの",
+        "Level": "11",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "Dexterity"
+        ],
+        "DropChance": "1000",
+        "str": "<a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/ecbebdc00966499b116d668cb8722082e07a2f2da0e4fa75b15528251f8b0c26\">器用さ</a> <span class='mod-value'>+(9<span class=\"ndash\">—</span>12)</span>",
+        "fossil_no": [
+          "attribute"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "amulet",
+          "gloves",
+          "quiver",
+          "dex_armour",
+          "dex_int_armour",
+          "str_dex_armour",
+          "str_dex_int_armour",
+          "sword",
+          "spear",
+          "claw",
+          "warstaff",
+          "dagger",
+          "bow",
+          "crossbow",
+          "trap",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">能力値</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/be4c968bf41f7647ceaee6fef90dfa80e157810cd48289eaa5b57306023a83c4"
+      },
+      {
+        "Name": "狐の",
+        "Level": "22",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "Dexterity"
+        ],
+        "DropChance": "1000",
+        "str": "<a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/ecbebdc00966499b116d668cb8722082e07a2f2da0e4fa75b15528251f8b0c26\">器用さ</a> <span class='mod-value'>+(13<span class=\"ndash\">—</span>16)</span>",
+        "fossil_no": [
+          "attribute"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "amulet",
+          "gloves",
+          "quiver",
+          "dex_armour",
+          "dex_int_armour",
+          "str_dex_armour",
+          "str_dex_int_armour",
+          "sword",
+          "spear",
+          "claw",
+          "warstaff",
+          "dagger",
+          "bow",
+          "crossbow",
+          "trap",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">能力値</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/760e6fa4ff9340feca780bc230651b6f664ce8a317f7de6aceecfd293b95d62c"
+      },
+      {
+        "Name": "隼の",
+        "Level": "33",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "Dexterity"
+        ],
+        "DropChance": "1000",
+        "str": "<a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/ecbebdc00966499b116d668cb8722082e07a2f2da0e4fa75b15528251f8b0c26\">器用さ</a> <span class='mod-value'>+(17<span class=\"ndash\">—</span>20)</span>",
+        "fossil_no": [
+          "attribute"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "amulet",
+          "gloves",
+          "quiver",
+          "dex_armour",
+          "dex_int_armour",
+          "str_dex_armour",
+          "str_dex_int_armour",
+          "sword",
+          "spear",
+          "claw",
+          "warstaff",
+          "dagger",
+          "bow",
+          "crossbow",
+          "trap",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">能力値</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/25b0b040ea79d3afa50be6e5da2932459efc57ee3b6cd79e501d27c71c228329"
+      },
+      {
+        "Name": "パンサーの",
+        "Level": "44",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "Dexterity"
+        ],
+        "DropChance": "1000",
+        "str": "<a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/ecbebdc00966499b116d668cb8722082e07a2f2da0e4fa75b15528251f8b0c26\">器用さ</a> <span class='mod-value'>+(21<span class=\"ndash\">—</span>24)</span>",
+        "fossil_no": [
+          "attribute"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "amulet",
+          "gloves",
+          "quiver",
+          "dex_armour",
+          "dex_int_armour",
+          "str_dex_armour",
+          "str_dex_int_armour",
+          "sword",
+          "spear",
+          "claw",
+          "warstaff",
+          "dagger",
+          "bow",
+          "crossbow",
+          "trap",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">能力値</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/16c8b2e18aa7498ac21e0382c3a4d598e779b23389163027f555ffdd5b733515"
+      },
+      {
+        "Name": "豹の",
+        "Level": "55",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "Dexterity"
+        ],
+        "DropChance": "1000",
+        "str": "<a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/ecbebdc00966499b116d668cb8722082e07a2f2da0e4fa75b15528251f8b0c26\">器用さ</a> <span class='mod-value'>+(25<span class=\"ndash\">—</span>27)</span>",
+        "fossil_no": [
+          "attribute"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "amulet",
+          "gloves",
+          "quiver",
+          "dex_armour",
+          "dex_int_armour",
+          "str_dex_armour",
+          "str_dex_int_armour",
+          "sword",
+          "spear",
+          "claw",
+          "warstaff",
+          "dagger",
+          "bow",
+          "crossbow",
+          "trap",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">能力値</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/506fa46c3f7eb370031bbace6b079dfa87ab4e2986d1b1a1a3222cca45def4f2"
+      },
+      {
+        "Name": "ジャガーの",
+        "Level": "66",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "Dexterity"
+        ],
+        "DropChance": "1000",
+        "str": "<a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/ecbebdc00966499b116d668cb8722082e07a2f2da0e4fa75b15528251f8b0c26\">器用さ</a> <span class='mod-value'>+(28<span class=\"ndash\">—</span>30)</span>",
+        "fossil_no": [
+          "attribute"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "amulet",
+          "gloves",
+          "quiver",
+          "dex_armour",
+          "dex_int_armour",
+          "str_dex_armour",
+          "str_dex_int_armour",
+          "sword",
+          "spear",
+          "claw",
+          "warstaff",
+          "dagger",
+          "bow",
+          "crossbow",
+          "trap",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">能力値</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/0cb400856ae8d0f6c585ccf5c23e563d5bb45f7eb9227cc25f4eef033fc5b6cd"
+      },
+      {
+        "Name": "幻像の",
+        "Level": "74",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "Dexterity"
+        ],
+        "DropChance": "1000",
+        "str": "<a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/ecbebdc00966499b116d668cb8722082e07a2f2da0e4fa75b15528251f8b0c26\">器用さ</a> <span class='mod-value'>+(31<span class=\"ndash\">—</span>33)</span>",
+        "fossil_no": [
+          "attribute"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "amulet",
+          "gloves",
+          "quiver",
+          "dex_armour",
+          "dex_int_armour",
+          "str_dex_armour",
+          "str_dex_int_armour",
+          "sword",
+          "spear",
+          "claw",
+          "warstaff",
+          "dagger",
+          "bow",
+          "crossbow",
+          "trap",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">能力値</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/49919354c3cf57cc3b1af3857ca924ad99ebd1ff63a78cfa4942bb32113b8c3a"
+      },
+      {
+        "Name": "閃く",
+        "Level": "1",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "PhysicalDamage"
+        ],
+        "DropChance": "1000",
+        "str": "<span class='mod-value'>(1<span class=\"ndash\">—</span>2)</span>から<span class='mod-value'>3</span>の<a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/1ac5b6ff6f92e0d1a339e666c0130f74d05b67d1cb4e11b2f3ab85b82086a26d\">物理</a>ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "physical_damage",
+          "damage",
+          "physical",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">物理</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/ee40f10b128be66fa90fd72993cf311bb65fa3278a7cacce2f10483394f45385"
+      },
+      {
+        "Name": "艶出しされた",
+        "Level": "8",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "PhysicalDamage"
+        ],
+        "DropChance": "1000",
+        "str": "<span class='mod-value'>(2<span class=\"ndash\">—</span>3)</span>から<span class='mod-value'>(4<span class=\"ndash\">—</span>6)</span>の<a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/1ac5b6ff6f92e0d1a339e666c0130f74d05b67d1cb4e11b2f3ab85b82086a26d\">物理</a>ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "physical_damage",
+          "damage",
+          "physical",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">物理</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/472c8716b0c872fd546261840913e829026a2e8bf25592fefe8e7ff59faf3568"
+      },
+      {
+        "Name": "磨かれた",
+        "Level": "16",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "PhysicalDamage"
+        ],
+        "DropChance": "1000",
+        "str": "<span class='mod-value'>(2<span class=\"ndash\">—</span>4)</span>から<span class='mod-value'>(5<span class=\"ndash\">—</span>8)</span>の<a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/1ac5b6ff6f92e0d1a339e666c0130f74d05b67d1cb4e11b2f3ab85b82086a26d\">物理</a>ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "physical_damage",
+          "damage",
+          "physical",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">物理</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/7482df443616473a38f26208a018a78323e2b62a3e66707a1239e8a7f5b7bfd4"
+      },
+      {
+        "Name": "研ぎ澄まされた",
+        "Level": "33",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "PhysicalDamage"
+        ],
+        "DropChance": "1000",
+        "str": "<span class='mod-value'>(4<span class=\"ndash\">—</span>6)</span>から<span class='mod-value'>(8<span class=\"ndash\">—</span>11)</span>の<a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/1ac5b6ff6f92e0d1a339e666c0130f74d05b67d1cb4e11b2f3ab85b82086a26d\">物理</a>ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "physical_damage",
+          "damage",
+          "physical",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">物理</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/750fb6fc3f3157f1465975ea02272cdd0587eae51a1db1f93718f056482cfa7b"
+      },
+      {
+        "Name": "光沢帯びた",
+        "Level": "46",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "PhysicalDamage"
+        ],
+        "DropChance": "1000",
+        "str": "<span class='mod-value'>(5<span class=\"ndash\">—</span>7)</span>から<span class='mod-value'>(9<span class=\"ndash\">—</span>13)</span>の<a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/1ac5b6ff6f92e0d1a339e666c0130f74d05b67d1cb4e11b2f3ab85b82086a26d\">物理</a>ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "physical_damage",
+          "damage",
+          "physical",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">物理</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/bf4e64ad02fa2c24ea37bc1567450e8d4154ae9d197fdfca72b17a1946a206d6"
+      },
+      {
+        "Name": "鍛えられた",
+        "Level": "54",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "PhysicalDamage"
+        ],
+        "DropChance": "1000",
+        "str": "<span class='mod-value'>(6<span class=\"ndash\">—</span>10)</span>から<span class='mod-value'>(12<span class=\"ndash\">—</span>17)</span>の<a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/1ac5b6ff6f92e0d1a339e666c0130f74d05b67d1cb4e11b2f3ab85b82086a26d\">物理</a>ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "physical_damage",
+          "damage",
+          "physical",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">物理</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/9996b0aebfa5987c1fae2b242eae4eafba03fa118907a295776e35c1210180cc"
+      },
+      {
+        "Name": "鋭利な",
+        "Level": "60",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "PhysicalDamage"
+        ],
+        "DropChance": "800",
+        "str": "<span class='mod-value'>(7<span class=\"ndash\">—</span>11)</span>から<span class='mod-value'>(14<span class=\"ndash\">—</span>20)</span>の<a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/1ac5b6ff6f92e0d1a339e666c0130f74d05b67d1cb4e11b2f3ab85b82086a26d\">物理</a>ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "physical_damage",
+          "damage",
+          "physical",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">物理</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/637f8e6c872ca184dc630984033c5f030b0090e1a3dd37211bd6155fac2aded1"
+      },
+      {
+        "Name": "鍛錬された",
+        "Level": "65",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "PhysicalDamage"
+        ],
+        "DropChance": "600",
+        "str": "<span class='mod-value'>(10<span class=\"ndash\">—</span>15)</span>から<span class='mod-value'>(18<span class=\"ndash\">—</span>26)</span>の<a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/1ac5b6ff6f92e0d1a339e666c0130f74d05b67d1cb4e11b2f3ab85b82086a26d\">物理</a>ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "physical_damage",
+          "damage",
+          "physical",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">物理</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/831a592428a19842b614e64af979923c98eb8012213f9f96c8441e8be0e018d0"
+      },
+      {
+        "Name": "猛烈な",
+        "Level": "75",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "PhysicalDamage"
+        ],
+        "DropChance": "400",
+        "str": "<span class='mod-value'>(12<span class=\"ndash\">—</span>19)</span>から<span class='mod-value'>(22<span class=\"ndash\">—</span>32)</span>の<a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/1ac5b6ff6f92e0d1a339e666c0130f74d05b67d1cb4e11b2f3ab85b82086a26d\">物理</a>ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "physical_damage",
+          "damage",
+          "physical",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">物理</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/bcc5ce1c7abcef0b20505df3a3d7781bcfaf587d0960ff7b7412809cd095f5d3"
+      },
+      {
+        "Name": "熱した",
+        "Level": "1",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "FireDamage"
+        ],
+        "DropChance": "500",
+        "str": "<span class='mod-value'>(1<span class=\"ndash\">—</span>2)</span>から<span class='mod-value'>3</span>の火ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "fire",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">火</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/1b25b13e6bb0cc1dbfff8fb225f54c844fe35a2005304aa46e49400e7ab87181"
+      },
+      {
+        "Name": "燻る",
+        "Level": "8",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "FireDamage"
+        ],
+        "DropChance": "500",
+        "str": "<span class='mod-value'>(3<span class=\"ndash\">—</span>5)</span>から<span class='mod-value'>(6<span class=\"ndash\">—</span>9)</span>の火ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "fire",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">火</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FAddedFireDamage2"
+      },
+      {
+        "Name": "発煙する",
+        "Level": "16",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "FireDamage"
+        ],
+        "DropChance": "500",
+        "str": "<span class='mod-value'>(6<span class=\"ndash\">—</span>8)</span>から<span class='mod-value'>(10<span class=\"ndash\">—</span>13)</span>の火ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "fire",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">火</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/abd9f7e4e9d497562a888b77ad6d071d6d5ce85266b8b26bdded5cc7456bc098"
+      },
+      {
+        "Name": "燃える",
+        "Level": "33",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "FireDamage"
+        ],
+        "DropChance": "500",
+        "str": "<span class='mod-value'>(9<span class=\"ndash\">—</span>11)</span>から<span class='mod-value'>(14<span class=\"ndash\">—</span>17)</span>の火ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "fire",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">火</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/1edafb529f4b8faeace711ed0ca4d7a5aae048674945ecf91bac0add66cfde80"
+      },
+      {
+        "Name": "燃え立つ",
+        "Level": "46",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "FireDamage"
+        ],
+        "DropChance": "500",
+        "str": "<span class='mod-value'>(12<span class=\"ndash\">—</span>13)</span>から<span class='mod-value'>(18<span class=\"ndash\">—</span>20)</span>の火ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "fire",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">火</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/9f172c8fcd0b852a4f2a4321d85135f541d79d2ed346e064e8838759f06f9fcf"
+      },
+      {
+        "Name": "焼き焦がす",
+        "Level": "54",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "FireDamage"
+        ],
+        "DropChance": "500",
+        "str": "<span class='mod-value'>(11<span class=\"ndash\">—</span>16)</span>から<span class='mod-value'>(21<span class=\"ndash\">—</span>26)</span>の火ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "fire",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">火</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/08cfbf7ffe75e8c222618bb3729e50f5991715f37e6865e9bcd664d1cf7432f5"
+      },
+      {
+        "Name": "焼却する",
+        "Level": "60",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "FireDamage"
+        ],
+        "DropChance": "400",
+        "str": "<span class='mod-value'>(13<span class=\"ndash\">—</span>19)</span>から<span class='mod-value'>(27<span class=\"ndash\">—</span>32)</span>の火ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "fire",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">火</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/6a051e28c576d46d75a1fa7bcb49a849ccdec61dbf1666bc964f5923a1bd945c"
+      },
+      {
+        "Name": "爆破する",
+        "Level": "65",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "FireDamage"
+        ],
+        "DropChance": "300",
+        "str": "<span class='mod-value'>(20<span class=\"ndash\">—</span>24)</span>から<span class='mod-value'>(33<span class=\"ndash\">—</span>36)</span>の火ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "fire",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">火</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/606da4ed21a64bff262d3bccdd67d86f5f63efcccff3714c9a03c64af8e96a77"
+      },
+      {
+        "Name": "火葬する",
+        "Level": "75",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "FireDamage"
+        ],
+        "DropChance": "200",
+        "str": "<span class='mod-value'>(25<span class=\"ndash\">—</span>29)</span>から<span class='mod-value'>(37<span class=\"ndash\">—</span>45)</span>の火ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "fire",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">火</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/fcb4cb254a6ee54ed8aaf3bd46b58f67cc1bad93c9745c2dc4269c0d6ef2e863"
+      },
+      {
+        "Name": "凍てついた",
+        "Level": "1",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "ColdDamage"
+        ],
+        "DropChance": "500",
+        "str": "<span class='mod-value'>1</span>から<span class='mod-value'>(2<span class=\"ndash\">—</span>3)</span>の冷気ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "cold",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">冷気</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/eee704eb02e130666572405d5cb2bbed875cbbaf80f17428407ee7362055c364"
+      },
+      {
+        "Name": "冷えた",
+        "Level": "8",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "ColdDamage"
+        ],
+        "DropChance": "500",
+        "str": "<span class='mod-value'>(3<span class=\"ndash\">—</span>4)</span>から<span class='mod-value'>(5<span class=\"ndash\">—</span>8)</span>の冷気ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "cold",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">冷気</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/1c4775fe16fc70b5c6422a06b2c060d7396b5d3661ee608d02d0a1049636c4dd"
+      },
+      {
+        "Name": "凍った",
+        "Level": "16",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "ColdDamage"
+        ],
+        "DropChance": "500",
+        "str": "<span class='mod-value'>(5<span class=\"ndash\">—</span>6)</span>から<span class='mod-value'>(9<span class=\"ndash\">—</span>11)</span>の冷気ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "cold",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">冷気</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/6ac990b9f3b195c7dc3c093ed86ee629d3413c7877da80833eda8aff0fbe6778"
+      },
+      {
+        "Name": "凍える",
+        "Level": "33",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "ColdDamage"
+        ],
+        "DropChance": "500",
+        "str": "<span class='mod-value'>(7<span class=\"ndash\">—</span>8)</span>から<span class='mod-value'>(12<span class=\"ndash\">—</span>14)</span>の冷気ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "cold",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">冷気</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/2306f06524da9f72456bb05ebe15bd9ec58356398dfddf2827e0fd40fb23d03a"
+      },
+      {
+        "Name": "凍りつく",
+        "Level": "46",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "ColdDamage"
+        ],
+        "DropChance": "500",
+        "str": "<span class='mod-value'>(9<span class=\"ndash\">—</span>10)</span>から<span class='mod-value'>(15<span class=\"ndash\">—</span>17)</span>の冷気ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "cold",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">冷気</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/43f1ec7a56c97651c29565a4ed9858d141563f8da0dbe628d74a40b85006ea01"
+      },
+      {
+        "Name": "凍結した",
+        "Level": "54",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "ColdDamage"
+        ],
+        "DropChance": "500",
+        "str": "<span class='mod-value'>(11<span class=\"ndash\">—</span>13)</span>から<span class='mod-value'>(18<span class=\"ndash\">—</span>21)</span>の冷気ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "cold",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">冷気</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/c02960458f0e888cb9bb4812938f927475f378d0086e962a0a176746a63467ce"
+      },
+      {
+        "Name": "氷結した",
+        "Level": "60",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "ColdDamage"
+        ],
+        "DropChance": "400",
+        "str": "<span class='mod-value'>(14<span class=\"ndash\">—</span>15)</span>から<span class='mod-value'>(22<span class=\"ndash\">—</span>24)</span>の冷気ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "cold",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">冷気</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/9e8b533fcd9b6edb87bc26313bd1bd92f34e6dc7500ac9c167ff1df9ce9bb28d"
+      },
+      {
+        "Name": "極地の",
+        "Level": "65",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "ColdDamage"
+        ],
+        "DropChance": "300",
+        "str": "<span class='mod-value'>(16<span class=\"ndash\">—</span>20)</span>から<span class='mod-value'>(25<span class=\"ndash\">—</span>31)</span>の冷気ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "cold",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">冷気</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/2b8c228f834a86d5e5a7259f3c6ea0d7ce307e342b46ae9ae077912e148b7d14"
+      },
+      {
+        "Name": "氷葬する",
+        "Level": "75",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "ColdDamage"
+        ],
+        "DropChance": "200",
+        "str": "<span class='mod-value'>(21<span class=\"ndash\">—</span>24)</span>から<span class='mod-value'>(32<span class=\"ndash\">—</span>37)</span>の冷気ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "cold",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">冷気</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/3e44ad010e822ed138f848497c4cb32b91acc192a55f30bb6605ca5e98fd9949"
+      },
+      {
+        "Name": "電音の",
+        "Level": "1",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "LightningDamage"
+        ],
+        "DropChance": "500",
+        "str": "<span class='mod-value'>1</span>から<span class='mod-value'>(4<span class=\"ndash\">—</span>6)</span>の雷ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "lightning",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">雷</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/29549ddbc66a1508c2644a0b160ada4f11c55d3a4f5a7aca6f614b6b19d1bf4a"
+      },
+      {
+        "Name": "電鳴の",
+        "Level": "8",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "LightningDamage"
+        ],
+        "DropChance": "500",
+        "str": "<span class='mod-value'>1</span>から<span class='mod-value'>(10<span class=\"ndash\">—</span>15)</span>の雷ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "lightning",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">雷</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/5e9b27d45513de5168a6f49202541f68bb4e5f953d8d89a844103176bf6999f8"
+      },
+      {
+        "Name": "雷音の",
+        "Level": "16",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "LightningDamage"
+        ],
+        "DropChance": "500",
+        "str": "<span class='mod-value'>1</span>から<span class='mod-value'>(16<span class=\"ndash\">—</span>22)</span>の雷ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "lightning",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">雷</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/684bf9d114ace1b0ac328f6acb913c5bfe8ffab9a90d87deea4e4d67fceb9c8b"
+      },
+      {
+        "Name": "雷鳴の",
+        "Level": "33",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "LightningDamage"
+        ],
+        "DropChance": "500",
+        "str": "<span class='mod-value'>1</span>から<span class='mod-value'>(23<span class=\"ndash\">—</span>27)</span>の雷ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "lightning",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">雷</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/32152d824c1042774e62035411cab4836cc428596db42c70de2f44656ed36e54"
+      },
+      {
+        "Name": "電光走る",
+        "Level": "46",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "LightningDamage"
+        ],
+        "DropChance": "500",
+        "str": "<span class='mod-value'>1</span>から<span class='mod-value'>(28<span class=\"ndash\">—</span>32)</span>の雷ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "lightning",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">雷</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/529eef63ccb43cc189986d728b8fe6cfeef8b04743620f673e813eaaf3c5841b"
+      },
+      {
+        "Name": "電弧する",
+        "Level": "54",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "LightningDamage"
+        ],
+        "DropChance": "500",
+        "str": "<span class='mod-value'>(1<span class=\"ndash\">—</span>2)</span>から<span class='mod-value'>(33<span class=\"ndash\">—</span>40)</span>の雷ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "lightning",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">雷</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/25d9f52ee39949d0eb56d9cf51ac3770aa37039a7c084d4cbdb2a14ce093badb"
+      },
+      {
+        "Name": "電撃の",
+        "Level": "60",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "LightningDamage"
+        ],
+        "DropChance": "400",
+        "str": "<span class='mod-value'>(1<span class=\"ndash\">—</span>2)</span>から<span class='mod-value'>(41<span class=\"ndash\">—</span>47)</span>の雷ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "lightning",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">雷</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/a3d07e4017794111985f8db691ce3f6dffd9671f1e5ee759a483951a1339db6c"
+      },
+      {
+        "Name": "放電する",
+        "Level": "65",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "LightningDamage"
+        ],
+        "DropChance": "300",
+        "str": "<span class='mod-value'>(1<span class=\"ndash\">—</span>3)</span>から<span class='mod-value'>(48<span class=\"ndash\">—</span>59)</span>の雷ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "lightning",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">雷</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/bb1f2947f11b8b1728fff56671d464342ed3b97f63c32519572f7b8628fec7c4"
+      },
+      {
+        "Name": "感電する",
+        "Level": "75",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "LightningDamage"
+        ],
+        "DropChance": "200",
+        "str": "<span class='mod-value'>(1<span class=\"ndash\">—</span>4)</span>から<span class='mod-value'>(60<span class=\"ndash\">—</span>71)</span>の雷ダメージを<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>に追加する",
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "lightning",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">雷</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/7de9c63b67e210f8659f637b13bbe4371e4a5fe28a711627c846c1e99d9a49fa"
+      },
+      {
+        "Name": "弓使いの",
+        "Level": "5",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "DropChance": "500",
+        "str": "全ての<a data-keyword=\"Projectile\" href=\"Projectile\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/8b48a8259cc9d440d8575d09815e2ebbc740e59d63f4593bc3d909b51a71e6ff\">投射物</a>スキルのレベル <span class='mod-value'>+1</span>",
+        "fossil_no": [],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "amulet",
+          "default"
+        ],
+        "mod_no": [],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/d1ecfcf2217f4481ccc8daf89ee9ac0fa6d4c3c5ebfb3e6348bfe4d459f779c9"
+      },
+      {
+        "Name": "成功の",
+        "Level": "1",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "LifeGainedFromEnemyDeath"
+        ],
+        "DropChance": "750",
+        "str": "倒した敵1体ごとに<span class='mod-value'>(4<span class=\"ndash\">—</span>6)</span>のライフを獲得する",
+        "fossil_no": [
+          "resource",
+          "life"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "weapon",
+          "wand",
+          "staff",
+          "ring",
+          "gloves",
+          "quiver",
+          "trap",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">ライフ</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/aed76187586c2fb8d1156619aaa5373837a91c0aef5aa11431d231d857e5ecd7"
+      },
+      {
+        "Name": "戦勝の",
+        "Level": "11",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "LifeGainedFromEnemyDeath"
+        ],
+        "DropChance": "750",
+        "str": "倒した敵1体ごとに<span class='mod-value'>(7<span class=\"ndash\">—</span>9)</span>のライフを獲得する",
+        "fossil_no": [
+          "resource",
+          "life"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "weapon",
+          "wand",
+          "staff",
+          "ring",
+          "gloves",
+          "quiver",
+          "trap",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">ライフ</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/290d4f70f416b5dfc45a08c67edda56161e31930c522b658dca633431b15811b"
+      },
+      {
+        "Name": "勝利の",
+        "Level": "22",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "LifeGainedFromEnemyDeath"
+        ],
+        "DropChance": "750",
+        "str": "倒した敵1体ごとに<span class='mod-value'>(10<span class=\"ndash\">—</span>18)</span>のライフを獲得する",
+        "fossil_no": [
+          "resource",
+          "life"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "weapon",
+          "wand",
+          "staff",
+          "ring",
+          "gloves",
+          "quiver",
+          "trap",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">ライフ</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/9a6201e81d5642cbe788389d13cf7f6cf229430309ba5616bcb862a35bb73037"
+      },
+      {
+        "Name": "征伐の",
+        "Level": "33",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "LifeGainedFromEnemyDeath"
+        ],
+        "DropChance": "750",
+        "str": "倒した敵1体ごとに<span class='mod-value'>(19<span class=\"ndash\">—</span>28)</span>のライフを獲得する",
+        "fossil_no": [
+          "resource",
+          "life"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "weapon",
+          "wand",
+          "staff",
+          "ring",
+          "gloves",
+          "quiver",
+          "trap",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">ライフ</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/6a697d043f8e4019ca7fa3fbce0ab5090b732e75f7e9f1d7fb2835f3ff754b03"
+      },
+      {
+        "Name": "討伐の",
+        "Level": "44",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "LifeGainedFromEnemyDeath"
+        ],
+        "DropChance": "750",
+        "str": "倒した敵1体ごとに<span class='mod-value'>(29<span class=\"ndash\">—</span>40)</span>のライフを獲得する",
+        "fossil_no": [
+          "resource",
+          "life"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "weapon",
+          "wand",
+          "staff",
+          "ring",
+          "gloves",
+          "quiver",
+          "trap",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">ライフ</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/4d595f25974bb8bb1ada8957ad9ff7c0a586297ff03c7a8971df004206fa9700"
+      },
+      {
+        "Name": "武勇の",
+        "Level": "55",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "LifeGainedFromEnemyDeath"
+        ],
+        "DropChance": "750",
+        "str": "倒した敵1体ごとに<span class='mod-value'>(41<span class=\"ndash\">—</span>53)</span>のライフを獲得する",
+        "fossil_no": [
+          "resource",
+          "life"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "weapon",
+          "wand",
+          "staff",
+          "ring",
+          "gloves",
+          "quiver",
+          "trap",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">ライフ</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/85bed4d5283ddb5c3d4442579ac63e3b6e187bc6c0f5c08f1ba67a26df9b0d3b"
+      },
+      {
+        "Name": "吸収の",
+        "Level": "1",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "ManaGainedFromEnemyDeath"
+        ],
+        "DropChance": "750",
+        "str": "倒した敵1体ごとに<span class='mod-value'>(2<span class=\"ndash\">—</span>3)</span>のマナを獲得する",
+        "fossil_no": [
+          "resource",
+          "mana"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "weapon",
+          "wand",
+          "staff",
+          "ring",
+          "gloves",
+          "quiver",
+          "trap",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">マナ</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/faee15557255369ad9913b814311e210bd830ca51fdc6310913a6a8a390c2189"
+      },
+      {
+        "Name": "浸透の",
+        "Level": "12",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "ManaGainedFromEnemyDeath"
+        ],
+        "DropChance": "750",
+        "str": "倒した敵1体ごとに<span class='mod-value'>(4<span class=\"ndash\">—</span>5)</span>のマナを獲得する",
+        "fossil_no": [
+          "resource",
+          "mana"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "weapon",
+          "wand",
+          "staff",
+          "ring",
+          "gloves",
+          "quiver",
+          "trap",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">マナ</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/67119d99659b08f02b8a445371787489c9ad978b38ccf53ed1d4fe3571ae1b5e"
+      },
+      {
+        "Name": "注入の",
+        "Level": "23",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "ManaGainedFromEnemyDeath"
+        ],
+        "DropChance": "750",
+        "str": "倒した敵1体ごとに<span class='mod-value'>(6<span class=\"ndash\">—</span>9)</span>のマナを獲得する",
+        "fossil_no": [
+          "resource",
+          "mana"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "weapon",
+          "wand",
+          "staff",
+          "ring",
+          "gloves",
+          "quiver",
+          "trap",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">マナ</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/22534819414690eb8a476ebd4d1cb9ac39fdcbc676e4cd23c26e0a6403746bb9"
+      },
+      {
+        "Name": "包み込みの",
+        "Level": "34",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "ManaGainedFromEnemyDeath"
+        ],
+        "DropChance": "750",
+        "str": "倒した敵1体ごとに<span class='mod-value'>(10<span class=\"ndash\">—</span>14)</span>のマナを獲得する",
+        "fossil_no": [
+          "resource",
+          "mana"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "weapon",
+          "wand",
+          "staff",
+          "ring",
+          "gloves",
+          "quiver",
+          "trap",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">マナ</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/f70fcc3ee3634b1a4d0ddc603521c97a6e73d80ede785014b46c0fbf61fdf8cb"
+      },
+      {
+        "Name": "摂食の",
+        "Level": "45",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "ManaGainedFromEnemyDeath"
+        ],
+        "DropChance": "750",
+        "str": "倒した敵1体ごとに<span class='mod-value'>(15<span class=\"ndash\">—</span>20)</span>のマナを獲得する",
+        "fossil_no": [
+          "resource",
+          "mana"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "weapon",
+          "wand",
+          "staff",
+          "ring",
+          "gloves",
+          "quiver",
+          "trap",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">マナ</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/fb659a2fdbf91349d0e46d7138c7c6d2f990d10108a00e106a2cb490db8c9a22"
+      },
+      {
+        "Name": "抽出の",
+        "Level": "56",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "ManaGainedFromEnemyDeath"
+        ],
+        "DropChance": "750",
+        "str": "倒した敵1体ごとに<span class='mod-value'>(21<span class=\"ndash\">—</span>27)</span>のマナを獲得する",
+        "fossil_no": [
+          "resource",
+          "mana"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "weapon",
+          "wand",
+          "staff",
+          "ring",
+          "gloves",
+          "quiver",
+          "trap",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">マナ</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/c5e7f5e79b64602495b08da8d33bbfada8132c0a0bafb2b0ae55896850fed44b"
+      },
+      {
+        "Name": "技術の",
+        "Level": "1",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "IncreasedAttackSpeed"
+        ],
+        "DropChance": "500",
+        "str": "<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>スピードが<span class='mod-value'>(5<span class=\"ndash\">—</span>7)</span>%増加する",
+        "fossil_no": [
+          "attack",
+          "speed"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>",
+          "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">スピード</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/47464e5a340c0f6af02d56876285e9008d3225c7ac32ef86ee45bda94e127d4c"
+      },
+      {
+        "Name": "容易さの",
+        "Level": "22",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "IncreasedAttackSpeed"
+        ],
+        "DropChance": "500",
+        "str": "<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>スピードが<span class='mod-value'>(8<span class=\"ndash\">—</span>10)</span>%増加する",
+        "fossil_no": [
+          "attack",
+          "speed"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>",
+          "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">スピード</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/84745b427a96cf48521bf9e847f3270565920f60b43977f28e5594dfe85ee48b"
+      },
+      {
+        "Name": "熟達の",
+        "Level": "37",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "IncreasedAttackSpeed"
+        ],
+        "DropChance": "500",
+        "str": "<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>スピードが<span class='mod-value'>(11<span class=\"ndash\">—</span>13)</span>%増加する",
+        "fossil_no": [
+          "attack",
+          "speed"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>",
+          "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">スピード</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/8cd368941d221fa229923806a08e3cef6c1d27d8a5f4919800ab184df1af51a3"
+      },
+      {
+        "Name": "高名の",
+        "Level": "60",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "IncreasedAttackSpeed"
+        ],
+        "DropChance": "500",
+        "str": "<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>スピードが<span class='mod-value'>(14<span class=\"ndash\">—</span>16)</span>%増加する",
+        "fossil_no": [
+          "attack",
+          "speed"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "gloves",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>",
+          "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">スピード</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/347345518f23e3ef7d9c6411f2b86470ff52df8164d0940615206d353eb2528c"
+      },
+      {
+        "Name": "精密な",
+        "Level": "1",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "IncreasedAccuracy"
+        ],
+        "DropChance": "800",
+        "str": "<a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/86f399e6973d22d01dbe326b73743ca687b6b16209c50732d1d2e06f476b0a0f\">命中力</a> <span class='mod-value'>+(11<span class=\"ndash\">—</span>32)</span>",
+        "fossil_no": [
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "gloves",
+          "helmet",
+          "ring",
+          "amulet",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/c9724606e4d1c6d2366ba0aa6fcfb910a24878a10bfd1d2305a0ccbcbf4a7d56"
+      },
+      {
+        "Name": "堅実な",
+        "Level": "11",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "IncreasedAccuracy"
+        ],
+        "DropChance": "800",
+        "str": "<a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/86f399e6973d22d01dbe326b73743ca687b6b16209c50732d1d2e06f476b0a0f\">命中力</a> <span class='mod-value'>+(33<span class=\"ndash\">—</span>60)</span>",
+        "fossil_no": [
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "gloves",
+          "helmet",
+          "ring",
+          "amulet",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/e10db6897462675653056eddfa56cc65a122532dd4eacc0df85b5d412b351e84"
+      },
+      {
+        "Name": "集中する",
+        "Level": "18",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "IncreasedAccuracy"
+        ],
+        "DropChance": "800",
+        "str": "<a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/86f399e6973d22d01dbe326b73743ca687b6b16209c50732d1d2e06f476b0a0f\">命中力</a> <span class='mod-value'>+(61<span class=\"ndash\">—</span>84)</span>",
+        "fossil_no": [
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "gloves",
+          "helmet",
+          "ring",
+          "amulet",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FIncreasedAccuracy3"
+      },
+      {
+        "Name": "慎重な",
+        "Level": "26",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "IncreasedAccuracy"
+        ],
+        "DropChance": "800",
+        "str": "<a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/86f399e6973d22d01dbe326b73743ca687b6b16209c50732d1d2e06f476b0a0f\">命中力</a> <span class='mod-value'>+(85<span class=\"ndash\">—</span>123)</span>",
+        "fossil_no": [
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "gloves",
+          "helmet",
+          "ring",
+          "amulet",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/446aa05b32aa8cc26af9a244af9dfe8a7a0cde5c5c5a3bc021c8971c94b7427d"
+      },
+      {
+        "Name": "一貫した",
+        "Level": "36",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "IncreasedAccuracy"
+        ],
+        "DropChance": "800",
+        "str": "<a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/86f399e6973d22d01dbe326b73743ca687b6b16209c50732d1d2e06f476b0a0f\">命中力</a> <span class='mod-value'>+(124<span class=\"ndash\">—</span>167)</span>",
+        "fossil_no": [
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "gloves",
+          "helmet",
+          "ring",
+          "amulet",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FIncreasedAccuracy5"
+      },
+      {
+        "Name": "安定した",
+        "Level": "48",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "IncreasedAccuracy"
+        ],
+        "DropChance": "800",
+        "str": "<a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/86f399e6973d22d01dbe326b73743ca687b6b16209c50732d1d2e06f476b0a0f\">命中力</a> <span class='mod-value'>+(168<span class=\"ndash\">—</span>236)</span>",
+        "fossil_no": [
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "gloves",
+          "helmet",
+          "ring",
+          "amulet",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/88b8c67bc176573875037bcc5793ed011d9d9f6973a38649d7164817192ca65d"
+      },
+      {
+        "Name": "狩人の",
+        "Level": "58",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "IncreasedAccuracy"
+        ],
+        "DropChance": "800",
+        "str": "<a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/86f399e6973d22d01dbe326b73743ca687b6b16209c50732d1d2e06f476b0a0f\">命中力</a> <span class='mod-value'>+(237<span class=\"ndash\">—</span>346)</span>",
+        "fossil_no": [
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "gloves",
+          "helmet",
+          "ring",
+          "amulet",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/02513bb232459e40055e6ed776bd0616bfcd718181ee608075f4af05e6ee786a"
+      },
+      {
+        "Name": "レンジャーの",
+        "Level": "67",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "IncreasedAccuracy"
+        ],
+        "DropChance": "400",
+        "str": "<a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/86f399e6973d22d01dbe326b73743ca687b6b16209c50732d1d2e06f476b0a0f\">命中力</a> <span class='mod-value'>+(347<span class=\"ndash\">—</span>450)</span>",
+        "fossil_no": [
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "gloves",
+          "helmet",
+          "ring",
+          "amulet",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/50dcdc9c9ac27bfb7ce4757ad0ddabca3856b3d4292e4e933a03dbc3262b8a0c"
+      },
+      {
+        "Name": "アマゾンの",
+        "Level": "76",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "IncreasedAccuracy"
+        ],
+        "DropChance": "200",
+        "str": "<a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/86f399e6973d22d01dbe326b73743ca687b6b16209c50732d1d2e06f476b0a0f\">命中力</a> <span class='mod-value'>+(451<span class=\"ndash\">—</span>550)</span>",
+        "fossil_no": [
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "gloves",
+          "helmet",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/3b67ec398cbb3d1057fb5f98eceafee8181974cb4b309540cb89be412aa9a457"
+      },
+      {
+        "Name": "脅威の",
+        "Level": "5",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "CriticalStrikeChanceIncrease"
+        ],
+        "DropChance": "1000",
+        "str": "<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>の<a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/d2e6a59a05f6a98c0eb5f3b24f9957d91bc0a806ac7a3da22db20f28c4d4cfef\">クリティカルヒット率</a>が<span class='mod-value'>(10<span class=\"ndash\">—</span>14)</span>%増加する",
+        "fossil_no": [
+          "attack",
+          "critical"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>",
+          "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">クリティカル</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/cae001faef744f3a19cdc0a008e44445fb18328cadd858e256c097c837757a86"
+      },
+      {
+        "Name": "大破壊の",
+        "Level": "20",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "CriticalStrikeChanceIncrease"
+        ],
+        "DropChance": "1000",
+        "str": "<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>の<a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/d2e6a59a05f6a98c0eb5f3b24f9957d91bc0a806ac7a3da22db20f28c4d4cfef\">クリティカルヒット率</a>が<span class='mod-value'>(15<span class=\"ndash\">—</span>19)</span>%増加する",
+        "fossil_no": [
+          "attack",
+          "critical"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>",
+          "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">クリティカル</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/5beedd07e47755ebb00d2dc7779fa29eae5fb09ab0e08dda30fa61434a7b6349"
+      },
+      {
+        "Name": "災害の",
+        "Level": "30",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "CriticalStrikeChanceIncrease"
+        ],
+        "DropChance": "1000",
+        "str": "<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>の<a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/d2e6a59a05f6a98c0eb5f3b24f9957d91bc0a806ac7a3da22db20f28c4d4cfef\">クリティカルヒット率</a>が<span class='mod-value'>(20<span class=\"ndash\">—</span>24)</span>%増加する",
+        "fossil_no": [
+          "attack",
+          "critical"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>",
+          "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">クリティカル</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FAttackCriticalStrikeChance3"
+      },
+      {
+        "Name": "厄災の",
+        "Level": "44",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "CriticalStrikeChanceIncrease"
+        ],
+        "DropChance": "500",
+        "str": "<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>の<a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/d2e6a59a05f6a98c0eb5f3b24f9957d91bc0a806ac7a3da22db20f28c4d4cfef\">クリティカルヒット率</a>が<span class='mod-value'>(25<span class=\"ndash\">—</span>29)</span>%増加する",
+        "fossil_no": [
+          "attack",
+          "critical"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>",
+          "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">クリティカル</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FAttackCriticalStrikeChance4"
+      },
+      {
+        "Name": "滅びの",
+        "Level": "58",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "CriticalStrikeChanceIncrease"
+        ],
+        "DropChance": "250",
+        "str": "<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>の<a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/d2e6a59a05f6a98c0eb5f3b24f9957d91bc0a806ac7a3da22db20f28c4d4cfef\">クリティカルヒット率</a>が<span class='mod-value'>(30<span class=\"ndash\">—</span>34)</span>%増加する",
+        "fossil_no": [
+          "attack",
+          "critical"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>",
+          "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">クリティカル</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FAttackCriticalStrikeChance5"
+      },
+      {
+        "Name": "帰無の",
+        "Level": "72",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "CriticalStrikeChanceIncrease"
+        ],
+        "DropChance": "125",
+        "str": "<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>の<a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/d2e6a59a05f6a98c0eb5f3b24f9957d91bc0a806ac7a3da22db20f28c4d4cfef\">クリティカルヒット率</a>が<span class='mod-value'>(35<span class=\"ndash\">—</span>38)</span>%増加する",
+        "fossil_no": [
+          "attack",
+          "critical"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>",
+          "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">クリティカル</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/261e36933acfd71716e693a5feb4fe19fa0e2d7338073cb819405b5646fc613f"
+      },
+      {
+        "Name": "痛憤の",
+        "Level": "8",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "CriticalStrikeMultiplier"
+        ],
+        "DropChance": "1000",
+        "str": "<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>ダメージの<a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/2443014d6672aafa7b3eb855547fcb8a7ae4c8690a6a2b678bef5869e8e1f8a7\">クリティカルダメージボーナス</a>が<span class='mod-value'>(10<span class=\"ndash\">—</span>14)</span>%増加する",
+        "fossil_no": [
+          "damage",
+          "attack",
+          "critical"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>",
+          "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">クリティカル</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/2a656477a87fdb2b11ffed2a62835a7ac9c1fe06eea4638d8bb497c3b294f9dc"
+      },
+      {
+        "Name": "怒りの",
+        "Level": "21",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "CriticalStrikeMultiplier"
+        ],
+        "DropChance": "1000",
+        "str": "<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>ダメージの<a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/2443014d6672aafa7b3eb855547fcb8a7ae4c8690a6a2b678bef5869e8e1f8a7\">クリティカルダメージボーナス</a>が<span class='mod-value'>(15<span class=\"ndash\">—</span>19)</span>%増加する",
+        "fossil_no": [
+          "damage",
+          "attack",
+          "critical"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>",
+          "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">クリティカル</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/7e90c7ab4c46bbf0f2ea659209b01e4f90663d520581a29c734cc62d07dc0897"
+      },
+      {
+        "Name": "激怒の",
+        "Level": "31",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "CriticalStrikeMultiplier"
+        ],
+        "DropChance": "1000",
+        "str": "<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>ダメージの<a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/2443014d6672aafa7b3eb855547fcb8a7ae4c8690a6a2b678bef5869e8e1f8a7\">クリティカルダメージボーナス</a>が<span class='mod-value'>(20<span class=\"ndash\">—</span>24)</span>%増加する",
+        "fossil_no": [
+          "damage",
+          "attack",
+          "critical"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>",
+          "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">クリティカル</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FAttackCriticalStrikeMultiplier3"
+      },
+      {
+        "Name": "憤激の",
+        "Level": "45",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "CriticalStrikeMultiplier"
+        ],
+        "DropChance": "500",
+        "str": "<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>ダメージの<a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/2443014d6672aafa7b3eb855547fcb8a7ae4c8690a6a2b678bef5869e8e1f8a7\">クリティカルダメージボーナス</a>が<span class='mod-value'>(25<span class=\"ndash\">—</span>29)</span>%増加する",
+        "fossil_no": [
+          "damage",
+          "attack",
+          "critical"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>",
+          "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">クリティカル</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/c221f41bb22bddac58f0ff4b992137ea65f03b58929f609bf8ec30234b1e2a5e"
+      },
+      {
+        "Name": "凶暴性の",
+        "Level": "59",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "CriticalStrikeMultiplier"
+        ],
+        "DropChance": "250",
+        "str": "<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>ダメージの<a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/2443014d6672aafa7b3eb855547fcb8a7ae4c8690a6a2b678bef5869e8e1f8a7\">クリティカルダメージボーナス</a>が<span class='mod-value'>(30<span class=\"ndash\">—</span>34)</span>%増加する",
+        "fossil_no": [
+          "damage",
+          "attack",
+          "critical"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>",
+          "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">クリティカル</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FAttackCriticalStrikeMultiplier5"
+      },
+      {
+        "Name": "破壊の",
+        "Level": "74",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "CriticalStrikeMultiplier"
+        ],
+        "DropChance": "125",
+        "str": "<a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>ダメージの<a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/2443014d6672aafa7b3eb855547fcb8a7ae4c8690a6a2b678bef5869e8e1f8a7\">クリティカルダメージボーナス</a>が<span class='mod-value'>(35<span class=\"ndash\">—</span>39)</span>%増加する",
+        "fossil_no": [
+          "damage",
+          "attack",
+          "critical"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>",
+          "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">クリティカル</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/9d2db65b5a2a6910a13f44a4dd01cb355b68679c496c3806e3351add006c63ec"
+      },
+      {
+        "Name": "貫通の",
+        "Level": "11",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "ChanceToPierce"
+        ],
+        "DropChance": "500",
+        "str": "<span class='mod-value'>(12<span class=\"ndash\">—</span>14)</span>%の確率で敵を<a data-keyword=\"Pierce\" href=\"Pierce\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/2d1117b6f66249885b33925418655b2a394dc459f1b6c3c25784fec8a3b070b4\">貫通</a>する",
+        "fossil_no": [],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [],
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FArrowPierceChance1"
+      },
+      {
+        "Name": "穿孔の",
+        "Level": "26",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "ChanceToPierce"
+        ],
+        "DropChance": "500",
+        "str": "<span class='mod-value'>(15<span class=\"ndash\">—</span>17)</span>%の確率で敵を<a data-keyword=\"Pierce\" href=\"Pierce\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/2d1117b6f66249885b33925418655b2a394dc459f1b6c3c25784fec8a3b070b4\">貫通</a>する",
+        "fossil_no": [],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [],
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FArrowPierceChance2"
+      },
+      {
+        "Name": "刺突の",
+        "Level": "44",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "ChanceToPierce"
+        ],
+        "DropChance": "500",
+        "str": "<span class='mod-value'>(18<span class=\"ndash\">—</span>20)</span>%の確率で敵を<a data-keyword=\"Pierce\" href=\"Pierce\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/2d1117b6f66249885b33925418655b2a394dc459f1b6c3c25784fec8a3b070b4\">貫通</a>する",
+        "fossil_no": [],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [],
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FArrowPierceChance3"
+      },
+      {
+        "Name": "貫穿の",
+        "Level": "61",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "ChanceToPierce"
+        ],
+        "DropChance": "500",
+        "str": "<span class='mod-value'>(21<span class=\"ndash\">—</span>23)</span>%の確率で敵を<a data-keyword=\"Pierce\" href=\"Pierce\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/2d1117b6f66249885b33925418655b2a394dc459f1b6c3c25784fec8a3b070b4\">貫通</a>する",
+        "fossil_no": [],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [],
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FArrowPierceChance4"
+      },
+      {
+        "Name": "穿通の",
+        "Level": "77",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "ChanceToPierce"
+        ],
+        "DropChance": "500",
+        "str": "<span class='mod-value'>(24<span class=\"ndash\">—</span>26)</span>%の確率で敵を<a data-keyword=\"Pierce\" href=\"Pierce\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/2d1117b6f66249885b33925418655b2a394dc459f1b6c3c25784fec8a3b070b4\">貫通</a>する",
+        "fossil_no": [],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/de9ec56dfc554457fc0d63b96b6afb883a72c26f8eec516e8bc647d229d38015"
+      },
+      {
+        "Name": "余分の",
+        "Level": "46",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "AdditionalArrows"
+        ],
+        "DropChance": 1,
+        "str": "矢を追加で1個放つ<a data-keyword=\"SurpassChance\" href=\"Chance_can_Surpass_100%25\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/6079c24d0abae8dec796c33517a5829a5c995408fc460b9abb18f96550db5314\">超過可能確率</a> <span class='mod-value'>+(25<span class=\"ndash\">—</span>40)</span>%",
+        "fossil_no": [
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/17f60b48381df96e05a57c3d5e87250f4b6c2c3ff19bc60ff86751e8fe2f9a42"
+      },
+      {
+        "Name": "枝分かれの",
+        "Level": "80",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "AdditionalArrows"
+        ],
+        "DropChance": 1,
+        "str": "矢を追加で1個放つ<a data-keyword=\"SurpassChance\" href=\"Chance_can_Surpass_100%25\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/6079c24d0abae8dec796c33517a5829a5c995408fc460b9abb18f96550db5314\">超過可能確率</a> <span class='mod-value'>+(41<span class=\"ndash\">—</span>60)</span>%",
+        "fossil_no": [
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/f5137e939e02d271372faeedf7f5aba4ffab7b52ee31e05f15cfa7bb9ea55e80"
+      },
+      {
+        "Name": "軽捷な",
+        "Level": "14",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "ProjectileSpeed"
+        ],
+        "DropChance": "1000",
+        "str": "<a data-keyword=\"Projectile\" href=\"Projectile\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/8b48a8259cc9d440d8575d09815e2ebbc740e59d63f4593bc3d909b51a71e6ff\">投射物</a>スピードが<span class='mod-value'>(10<span class=\"ndash\">—</span>17)</span>%増加する",
+        "fossil_no": [
+          "speed"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">スピード</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/d5fd24d15da6d26675d40d0c13f5bd7bf129ad413f5093dfc46f36a682d524fc"
+      },
+      {
+        "Name": "キビキビした",
+        "Level": "27",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "ProjectileSpeed"
+        ],
+        "DropChance": "1000",
+        "str": "<a data-keyword=\"Projectile\" href=\"Projectile\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/8b48a8259cc9d440d8575d09815e2ebbc740e59d63f4593bc3d909b51a71e6ff\">投射物</a>スピードが<span class='mod-value'>(18<span class=\"ndash\">—</span>25)</span>%増加する",
+        "fossil_no": [
+          "speed"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">スピード</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/a878128af47e9280690b18e8326a2193b0f06742709ab39b440562623813a230"
+      },
+      {
+        "Name": "軽快な",
+        "Level": "41",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "ProjectileSpeed"
+        ],
+        "DropChance": "1000",
+        "str": "<a data-keyword=\"Projectile\" href=\"Projectile\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/8b48a8259cc9d440d8575d09815e2ebbc740e59d63f4593bc3d909b51a71e6ff\">投射物</a>スピードが<span class='mod-value'>(26<span class=\"ndash\">—</span>33)</span>%増加する",
+        "fossil_no": [
+          "speed"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">スピード</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FProjectileSpeed3"
+      },
+      {
+        "Name": "急速な",
+        "Level": "55",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "ProjectileSpeed"
+        ],
+        "DropChance": "1000",
+        "str": "<a data-keyword=\"Projectile\" href=\"Projectile\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/8b48a8259cc9d440d8575d09815e2ebbc740e59d63f4593bc3d909b51a71e6ff\">投射物</a>スピードが<span class='mod-value'>(34<span class=\"ndash\">—</span>41)</span>%増加する",
+        "fossil_no": [
+          "speed"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">スピード</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FProjectileSpeed4"
+      },
+      {
+        "Name": "敏速な",
+        "Level": "82",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "ProjectileSpeed"
+        ],
+        "DropChance": "1000",
+        "str": "<a data-keyword=\"Projectile\" href=\"Projectile\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/8b48a8259cc9d440d8575d09815e2ebbc740e59d63f4593bc3d909b51a71e6ff\">投射物</a>スピードが<span class='mod-value'>(42<span class=\"ndash\">—</span>46)</span>%増加する",
+        "fossil_no": [
+          "speed"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">スピード</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/979f0d60896a8e3884c137d1913636d7d46da328ff80390b1a55b8696887f914"
+      },
+      {
+        "Name": "尖鋭な",
+        "Level": "1",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "DamageWithWeaponTypeSkill"
+        ],
+        "DropChance": "500",
+        "str": "弓スキルのダメージが<span class='mod-value'>(11<span class=\"ndash\">—</span>20)</span>%増加する",
+        "fossil_no": [
+          "damage"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/631a55ac386b39a6b4840cf8ed59f3e36e8b9ac7c2c857b1ea3f09d6de8ea2cb"
+      },
+      {
+        "Name": "鋭い",
+        "Level": "16",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "DamageWithWeaponTypeSkill"
+        ],
+        "DropChance": "500",
+        "str": "弓スキルのダメージが<span class='mod-value'>(21<span class=\"ndash\">—</span>30)</span>%増加する",
+        "fossil_no": [
+          "damage"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FDamageWithBows2"
+      },
+      {
+        "Name": "穿つ",
+        "Level": "33",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "DamageWithWeaponTypeSkill"
+        ],
+        "DropChance": "500",
+        "str": "弓スキルのダメージが<span class='mod-value'>(31<span class=\"ndash\">—</span>36)</span>%増加する",
+        "fossil_no": [
+          "damage"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FDamageWithBows3"
+      },
+      {
+        "Name": "切り込む",
+        "Level": "46",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "DamageWithWeaponTypeSkill"
+        ],
+        "DropChance": "500",
+        "str": "弓スキルのダメージが<span class='mod-value'>(37<span class=\"ndash\">—</span>42)</span>%増加する",
+        "fossil_no": [
+          "damage"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/2a63ae47bbf3935f35211e6b73eef1fa1d718504c5fa03b5dda36c5a0170d165"
+      },
+      {
+        "Name": "切り裂く",
+        "Level": "60",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "DamageWithWeaponTypeSkill"
+        ],
+        "DropChance": "500",
+        "str": "弓スキルのダメージが<span class='mod-value'>(43<span class=\"ndash\">—</span>50)</span>%増加する",
+        "fossil_no": [
+          "damage"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/0593afd7354a6b3cb60722667368dfaabaf9e231bbf266337e673b309c84572d"
+      },
+      {
+        "Name": "串刺す",
+        "Level": "81",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "DamageWithWeaponTypeSkill"
+        ],
+        "DropChance": "500",
+        "str": "弓スキルのダメージが<span class='mod-value'>(51<span class=\"ndash\">—</span>59)</span>%増加する",
+        "fossil_no": [
+          "damage"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/c218d89deed206cb0a5fdd3e0109608244278f62859e3e3722422b1d9556a8c9"
+      }
+    ],
+    "corrupted": [
+      {
+        "ModFamilyList": [
+          "IncreasedMana"
+        ],
+        "ModGenerationTypeID": "5",
+        "Level": "1",
+        "DropChance": 1,
+        "str": "最大マナ <span class='mod-value'>+(20<span class=\"ndash\">—</span>25)</span>",
+        "fossil_no": [
+          "resource",
+          "mana"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "focus",
+          "quiver",
+          "ring",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">マナ</span>"
+        ],
+        "Name": "CorruptionIncreasedMana1",
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/620d81c0bf9d05a6abe6f01b76e05bdbab81907ab481d0434fe6a2ca25cbb401"
+      },
+      {
+        "ModFamilyList": [
+          "IncreasedAccuracy"
+        ],
+        "ModGenerationTypeID": "5",
+        "Level": "1",
+        "DropChance": 1,
+        "str": "<a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/86f399e6973d22d01dbe326b73743ca687b6b16209c50732d1d2e06f476b0a0f\">命中力</a> <span class='mod-value'>+(50<span class=\"ndash\">—</span>100)</span>",
+        "fossil_no": [
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "helmet",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "Name": "CorruptionIncreasedAccuracy1",
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FCorruptionIncreasedAccuracy1"
+      },
+      {
+        "ModFamilyList": [
+          "AllDamage"
+        ],
+        "ModGenerationTypeID": "5",
+        "Level": "1",
+        "DropChance": 1,
+        "str": "ダメージが<span class='mod-value'>(20<span class=\"ndash\">—</span>30)</span>%増加する",
+        "fossil_no": [
+          "damage"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>"
+        ],
+        "Name": "CorruptionAllDamage1",
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/e063f25f68460ac62f5672a7df6f17df0736db2e7ff6a0bcc7728a1d885439b5"
+      },
+      {
+        "ModFamilyList": [
+          "IncreasedSpeed"
+        ],
+        "ModGenerationTypeID": "5",
+        "Level": "1",
+        "DropChance": 1,
+        "str": "<a data-keyword=\"SkillSpeed\" href=\"Skill_Speed\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/cef56a6ffa5a5af6c496ed2e198dd50bbc7d4d38d1d0ae9184b17c6d68e347f3\">スキルスピード</a>が<span class='mod-value'>(4<span class=\"ndash\">—</span>6)</span>%増加する",
+        "fossil_no": [
+          "speed"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">スピード</span>"
+        ],
+        "Name": "CorruptionIncreasedSkillSpeed1",
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/d752b7e7a804b413e026ae0682524df5efdc29b879c639e5127d97ed9cbec81c"
+      },
+      {
+        "ModFamilyList": [
+          "CriticalStrikeMultiplier"
+        ],
+        "ModGenerationTypeID": "5",
+        "Level": "1",
+        "DropChance": 1,
+        "str": "<a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/2443014d6672aafa7b3eb855547fcb8a7ae4c8690a6a2b678bef5869e8e1f8a7\">クリティカルダメージボーナス</a>が<span class='mod-value'>(15<span class=\"ndash\">—</span>20)</span>%増加する",
+        "fossil_no": [
+          "damage",
+          "critical"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">クリティカル</span>"
+        ],
+        "Name": "CorruptionCriticalStrikeMultiplier1",
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/04063ddf1b5071a23cdb66d7c21dac6217b4b4c6f40f633e7052693364b954cc"
+      },
+      {
+        "ModFamilyList": [
+          "LifeGainedFromEnemyDeath"
+        ],
+        "ModGenerationTypeID": "5",
+        "Level": "1",
+        "DropChance": 1,
+        "str": "倒した敵1体ごとに<span class='mod-value'>(20<span class=\"ndash\">—</span>25)</span>のライフを獲得する",
+        "fossil_no": [
+          "resource",
+          "life"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "wand",
+          "staff",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">ライフ</span>"
+        ],
+        "Name": "CorruptionLifeGainedFromEnemyDeath1",
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FCorruptionLifeGainedFromEnemyDeath1"
+      },
+      {
+        "ModFamilyList": [
+          "ManaGainedFromEnemyDeath"
+        ],
+        "ModGenerationTypeID": "5",
+        "Level": "1",
+        "DropChance": 1,
+        "str": "倒した敵1体ごとに<span class='mod-value'>(10<span class=\"ndash\">—</span>15)</span>のマナを獲得する",
+        "fossil_no": [
+          "resource",
+          "mana"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "wand",
+          "staff",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">マナ</span>"
+        ],
+        "Name": "CorruptionManaGainedFromEnemyDeath1",
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FCorruptionManaGainedFromEnemyDeath1"
+      },
+      {
+        "ModFamilyList": [
+          "ChanceToPierce"
+        ],
+        "ModGenerationTypeID": "5",
+        "Level": "1",
+        "DropChance": 1,
+        "str": "<span class='mod-value'>(20<span class=\"ndash\">—</span>30)</span>%の確率で敵を<a data-keyword=\"Pierce\" href=\"Pierce\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/2d1117b6f66249885b33925418655b2a394dc459f1b6c3c25784fec8a3b070b4\">貫通</a>する",
+        "fossil_no": [],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [],
+        "Name": "CorruptionChanceToPierce1",
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FCorruptionChanceToPierce1"
+      },
+      {
+        "ModFamilyList": [
+          "ChainFromTerrain"
+        ],
+        "ModGenerationTypeID": "5",
+        "Level": "1",
+        "DropChance": 1,
+        "str": "<a data-keyword=\"Projectile\" href=\"Projectile\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/8b48a8259cc9d440d8575d09815e2ebbc740e59d63f4593bc3d909b51a71e6ff\">投射物</a>は<span class='mod-value'>(10<span class=\"ndash\">—</span>20)</span>%の確率で地形から追加で1回<a data-keyword=\"Chain\" href=\"Chain\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/fdd5e71cfec4bbfa8f4aa6110ecf90bcf05ba8e454ac94e82be9b397a44d0a2f\">連鎖</a>する",
+        "fossil_no": [],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [],
+        "Name": "CorruptionChainFromTerrain1",
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/6be093666505bf26af598af76c0397acd778ede968951a2aa8afba35a44aae09"
+      }
+    ],
+    "desecrated": [
+      {
+        "Name": "アマナムによる",
+        "Level": "65",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "ProjectileDamage"
+        ],
+        "type": "Desecrated",
+        "DropChance": 1,
+        "str": "<a data-keyword=\"Projectile\" href=\"Projectile\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/8b48a8259cc9d440d8575d09815e2ebbc740e59d63f4593bc3d909b51a71e6ff\">投射物</a>は2mより近くにいる敵に対するヒットダメージが<span class='mod-value'>(20<span class=\"ndash\">—</span>30)</span>%増加する",
+        "fossil_no": [
+          "unveiled_mod",
+          "amanamu_mod",
+          "damage"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default",
+          "amanamu_mod"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingamanamu_mod\" data-tag=\"amanamu_mod\"><i>amanamu</i></span>",
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/d224fc1ea6aeec3103e397bdad92789f747822b2fc25ac71ba2900638f9161ea"
+      },
+      {
+        "Name": "クルガルによる",
+        "Level": "65",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "ProjectileDamage"
+        ],
+        "type": "Desecrated",
+        "DropChance": 1,
+        "str": "<a data-keyword=\"Projectile\" href=\"Projectile\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/8b48a8259cc9d440d8575d09815e2ebbc740e59d63f4593bc3d909b51a71e6ff\">投射物</a>は6mより遠くにいる敵に対するヒットダメージが<span class='mod-value'>(20<span class=\"ndash\">—</span>30)</span>%増加する",
+        "fossil_no": [
+          "unveiled_mod",
+          "kurgal_mod"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default",
+          "kurgal_mod"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingkurgal_mod\" data-tag=\"kurgal_mod\"><i>kurgal</i></span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FAbyssModQuiverKurgalPrefixProjectileDamageFar"
+      },
+      {
+        "Name": "アマナムの",
+        "Level": "65",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "CriticalStrikeMultiplier"
+        ],
+        "type": "Desecrated",
+        "DropChance": 1,
+        "str": "<a data-keyword=\"Projectile\" href=\"Projectile\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/8b48a8259cc9d440d8575d09815e2ebbc740e59d63f4593bc3d909b51a71e6ff\">投射物</a>は2m以内にいる敵に対する<a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/2443014d6672aafa7b3eb855547fcb8a7ae4c8690a6a2b678bef5869e8e1f8a7\">クリティカルダメージボーナス</a>が<span class='mod-value'>(18<span class=\"ndash\">—</span>26)</span>%増加する",
+        "fossil_no": [
+          "unveiled_mod",
+          "amanamu_mod"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default",
+          "amanamu_mod"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingamanamu_mod\" data-tag=\"amanamu_mod\"><i>amanamu</i></span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/c8a1fb7cecbdf6bba0243803dbd1350805dc2b31f5a15481c977d1920a5fa1d9"
+      },
+      {
+        "Name": "クルガルの",
+        "Level": "65",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "ManaCostEfficiency"
+        ],
+        "type": "Desecrated",
+        "DropChance": 1,
+        "str": "マナコスト<a data-keyword=\"Efficiency\" href=\"Efficiency\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/ce53fb9c2ace2d791fd55b56477582a48ea7fec82e7b7e599654c04000f132d7\">効率</a>が<span class='mod-value'>(6<span class=\"ndash\">—</span>10)</span>%増加する",
+        "fossil_no": [
+          "resource",
+          "unveiled_mod",
+          "kurgal_mod",
+          "mana"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "helmet",
+          "gloves",
+          "focus",
+          "quiver",
+          "default",
+          "kurgal_mod"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingkurgal_mod\" data-tag=\"kurgal_mod\"><i>kurgal</i></span>",
+          "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">マナ</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/e54092219ee1dc9bf0bb7e56d915e3f48ea2655a25e420a21c68c546f22c945b"
+      },
+      {
+        "Name": "クルガルの",
+        "Level": "65",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "CriticalStrikeChanceIncrease"
+        ],
+        "type": "Desecrated",
+        "DropChance": 1,
+        "str": "<a data-keyword=\"Projectile\" href=\"Projectile\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/8b48a8259cc9d440d8575d09815e2ebbc740e59d63f4593bc3d909b51a71e6ff\">投射物</a>は6mより遠くにいる敵に対する<a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/d2e6a59a05f6a98c0eb5f3b24f9957d91bc0a806ac7a3da22db20f28c4d4cfef\">クリティカル</a>ヒット率が<span class='mod-value'>(18<span class=\"ndash\">—</span>26)</span>%増加する",
+        "fossil_no": [
+          "unveiled_mod",
+          "kurgal_mod"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default",
+          "kurgal_mod"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingkurgal_mod\" data-tag=\"kurgal_mod\"><i>kurgal</i></span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FAbyssModQuiverKurgalSuffixProjectileCriticalHitChanceFar"
+      },
+      {
+        "Name": "ウラマンの",
+        "Level": "65",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "AdditionalProjectiles"
+        ],
+        "type": "Desecrated",
+        "DropChance": 1,
+        "str": "<a data-keyword=\"Projectile\" href=\"Projectile\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/8b48a8259cc9d440d8575d09815e2ebbc740e59d63f4593bc3d909b51a71e6ff\">投射物</a><a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/bad8a95d02f976deef556d50ea89f1a7d64fc9a9d304c8a0d585a742e4342d56\">アタック</a>は移動中に<span class='mod-value'>(8<span class=\"ndash\">—</span>12)</span>%の確率で<a data-keyword=\"Projectile\" href=\"Projectile\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/8b48a8259cc9d440d8575d09815e2ebbc740e59d63f4593bc3d909b51a71e6ff\">投射物</a>を追加で2個放つ",
+        "fossil_no": [
+          "unveiled_mod",
+          "ulaman_mod"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default",
+          "ulaman_mod"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingulaman_mod\" data-tag=\"ulaman_mod\"><i>ulaman</i></span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "https://cdn.poe2db.tw/cache2/jp/Poe_Data_Mods_hover/3d59253a592ae29b9df61bd66d57f472b0ebeef52b179cfe4ddc36f724729ac0"
+      },
+      {
+        "Name": "ウラマンの",
+        "Level": "65",
+        "ModGenerationTypeID": "2",
+        "ModFamilyList": [
+          "LifeCost"
+        ],
+        "type": "Desecrated",
+        "DropChance": 1,
+        "str": "スキルのマナコストの<span class='mod-value'>(10<span class=\"ndash\">—</span>14)</span>%がライフコストに<a data-keyword=\"StatConversion\" href=\"Stat_Conversion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/3e773ef083adbbc2eb0d152fdc9b8d3ccdd8de29d82d96c0689bb9f889ce4041\">変換</a>される",
+        "fossil_no": [
+          "resource",
+          "unveiled_mod",
+          "ulaman_mod",
+          "life"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default",
+          "ulaman_mod"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingulaman_mod\" data-tag=\"ulaman_mod\"><i>ulaman</i></span>",
+          "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">ライフ</span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FAbyssModQuiverUlamanSuffixAttackCostConvertedToLifeCost"
+      },
+      {
+        "Name": "ウラマンによる",
+        "Level": "65",
+        "ModGenerationTypeID": "1",
+        "ModFamilyList": [
+          "ProjectileDamage"
+        ],
+        "type": "Desecrated",
+        "DropChance": 1,
+        "str": "<a data-keyword=\"Projectile\" href=\"Projectile\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/8b48a8259cc9d440d8575d09815e2ebbc740e59d63f4593bc3d909b51a71e6ff\">投射物</a>スピードの増減のモッドは<a data-keyword=\"Bow\" href=\"Bows\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/7d5afd0dde6c4402fa66cff2440a3acfd43ba267a7ec4b251b20b24a02a25483\">弓</a>のダメージにも適用される",
+        "fossil_no": [
+          "unveiled_mod",
+          "ulaman_mod"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default",
+          "ulaman_mod"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingulaman_mod\" data-tag=\"ulaman_mod\"><i>ulaman</i></span>"
+        ],
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FAbyssModQuiverUlamanPrefixIncreasesToProjectileSpeedApplyToDamage"
+      }
+    ],
+    "breach_otherworldly": [],
+    "breach_minion": [],
+    "breach_caster": [],
+    "corruption_upgrade": [
+      {
+        "Level": "1",
+        "ModFamilyList": [
+          "AllDamage"
+        ],
+        "ModGenerationTypeID": "3",
+        "DropChance": 1,
+        "str": "ダメージが<span class='mod-value'>(40<span class=\"ndash\">—</span>60)</span>%増加する",
+        "fossil_no": [
+          "upgraded_corruption_mod",
+          "damage"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>"
+        ],
+        "Name": "CorruptionUpgradeAllDamage1",
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FCorruptionUpgradeAllDamage1"
+      },
+      {
+        "Level": "1",
+        "ModFamilyList": [
+          "ChainFromTerrain"
+        ],
+        "ModGenerationTypeID": "3",
+        "DropChance": 1,
+        "str": "<a data-keyword=\"Projectile\" href=\"Projectile\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/8b48a8259cc9d440d8575d09815e2ebbc740e59d63f4593bc3d909b51a71e6ff\">投射物</a>は<span class='mod-value'>(25<span class=\"ndash\">—</span>40)</span>%の確率で地形から追加で1回<a data-keyword=\"Chain\" href=\"Chain\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/fdd5e71cfec4bbfa8f4aa6110ecf90bcf05ba8e454ac94e82be9b397a44d0a2f\">連鎖</a>する",
+        "fossil_no": [
+          "upgraded_corruption_mod"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [],
+        "Name": "CorruptionUpgradeChainFromTerrain1",
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FCorruptionUpgradeChainFromTerrain1"
+      },
+      {
+        "Level": "1",
+        "ModFamilyList": [
+          "ChanceToPierce"
+        ],
+        "ModGenerationTypeID": "3",
+        "DropChance": 1,
+        "str": "<span class='mod-value'>(50<span class=\"ndash\">—</span>75)</span>%の確率で敵を<a data-keyword=\"Pierce\" href=\"Pierce\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/2d1117b6f66249885b33925418655b2a394dc459f1b6c3c25784fec8a3b070b4\">貫通</a>する",
+        "fossil_no": [
+          "upgraded_corruption_mod"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "mod_no": [],
+        "Name": "CorruptionUpgradeChanceToPierce1",
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FCorruptionUpgradeChanceToPierce1"
+      },
+      {
+        "Level": "1",
+        "ModFamilyList": [
+          "CriticalStrikeMultiplier"
+        ],
+        "ModGenerationTypeID": "3",
+        "DropChance": 1,
+        "str": "<a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/2443014d6672aafa7b3eb855547fcb8a7ae4c8690a6a2b678bef5869e8e1f8a7\">クリティカルダメージボーナス</a>が<span class='mod-value'>(30<span class=\"ndash\">—</span>50)</span>%増加する",
+        "fossil_no": [
+          "upgraded_corruption_mod",
+          "damage",
+          "critical"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>",
+          "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">クリティカル</span>"
+        ],
+        "Name": "CorruptionUpgradeCriticalStrikeMultiplier1",
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FCorruptionUpgradeCriticalStrikeMultiplier1"
+      },
+      {
+        "Level": "1",
+        "ModFamilyList": [
+          "IncreasedAccuracy"
+        ],
+        "ModGenerationTypeID": "3",
+        "DropChance": 1,
+        "str": "<a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/86f399e6973d22d01dbe326b73743ca687b6b16209c50732d1d2e06f476b0a0f\">命中力</a> <span class='mod-value'>+(150<span class=\"ndash\">—</span>300)</span>",
+        "fossil_no": [
+          "upgraded_corruption_mod",
+          "attack"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "helmet",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "Name": "CorruptionUpgradeIncreasedAccuracy1",
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FCorruptionUpgradeIncreasedAccuracy1"
+      },
+      {
+        "Level": "1",
+        "ModFamilyList": [
+          "IncreasedMana"
+        ],
+        "ModGenerationTypeID": "3",
+        "DropChance": 1,
+        "str": "最大マナ <span class='mod-value'>+(80<span class=\"ndash\">—</span>100)</span>",
+        "fossil_no": [
+          "resource",
+          "upgraded_corruption_mod",
+          "mana"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "focus",
+          "quiver",
+          "ring",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">マナ</span>"
+        ],
+        "Name": "CorruptionUpgradeIncreasedMana1",
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FCorruptionUpgradeIncreasedMana1"
+      },
+      {
+        "Level": "1",
+        "ModFamilyList": [
+          "IncreasedSpeed"
+        ],
+        "ModGenerationTypeID": "3",
+        "DropChance": 1,
+        "str": "<a data-keyword=\"SkillSpeed\" href=\"Skill_Speed\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/cef56a6ffa5a5af6c496ed2e198dd50bbc7d4d38d1d0ae9184b17c6d68e347f3\">スキルスピード</a>が<span class='mod-value'>(8<span class=\"ndash\">—</span>16)</span>%増加する",
+        "fossil_no": [
+          "upgraded_corruption_mod",
+          "speed"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">スピード</span>"
+        ],
+        "Name": "CorruptionUpgradeIncreasedSkillSpeed1",
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FCorruptionUpgradeIncreasedSkillSpeed1"
+      },
+      {
+        "Level": "1",
+        "ModFamilyList": [
+          "ChaosResistance"
+        ],
+        "ModGenerationTypeID": "3",
+        "DropChance": 1,
+        "str": "<a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/b60a4d7d0d8684f32a0007a6296c1de4c30766352b7e6646f0014d2e39b076d3\">混沌</a>耐性 <span class='mod-value'>+(10<span class=\"ndash\">—</span>13)</span>%",
+        "fossil_no": [
+          "chaos_resistance",
+          "upgraded_corruption_mod",
+          "chaos",
+          "resistance"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">混沌</span>",
+          "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">耐性</span>"
+        ],
+        "Name": "CorruptionUpgradeJewelChaosResist1",
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FCorruptionUpgradeJewelChaosResist1"
+      },
+      {
+        "Level": "1",
+        "ModFamilyList": [
+          "ColdResistance"
+        ],
+        "ModGenerationTypeID": "3",
+        "DropChance": 1,
+        "str": "<a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/b60a4d7d0d8684f32a0007a6296c1de4c30766352b7e6646f0014d2e39b076d3\">冷気</a>耐性 <span class='mod-value'>+(15<span class=\"ndash\">—</span>20)</span>%",
+        "fossil_no": [
+          "cold_resistance",
+          "elemental_resistance",
+          "upgraded_corruption_mod",
+          "elemental",
+          "cold",
+          "resistance"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">冷気</span>",
+          "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">耐性</span>"
+        ],
+        "Name": "CorruptionUpgradeJewelColdResist1",
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FCorruptionUpgradeJewelColdResist1"
+      },
+      {
+        "Level": "1",
+        "ModFamilyList": [
+          "Dexterity"
+        ],
+        "ModGenerationTypeID": "3",
+        "DropChance": 1,
+        "str": "<a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/ecbebdc00966499b116d668cb8722082e07a2f2da0e4fa75b15528251f8b0c26\">器用さ</a> <span class='mod-value'>+(14<span class=\"ndash\">—</span>16)</span>",
+        "fossil_no": [
+          "upgraded_corruption_mod",
+          "attribute"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">能力値</span>"
+        ],
+        "Name": "CorruptionUpgradeJewelDexterity1",
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FCorruptionUpgradeJewelDexterity1"
+      },
+      {
+        "Level": "1",
+        "ModFamilyList": [
+          "FireResistance"
+        ],
+        "ModGenerationTypeID": "3",
+        "DropChance": 1,
+        "str": "<a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/b60a4d7d0d8684f32a0007a6296c1de4c30766352b7e6646f0014d2e39b076d3\">火</a>耐性 <span class='mod-value'>+(15<span class=\"ndash\">—</span>20)</span>%",
+        "fossil_no": [
+          "elemental_resistance",
+          "fire_resistance",
+          "upgraded_corruption_mod",
+          "elemental",
+          "fire",
+          "resistance"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">火</span>",
+          "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">耐性</span>"
+        ],
+        "Name": "CorruptionUpgradeJewelFireResist1",
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FCorruptionUpgradeJewelFireResist1"
+      },
+      {
+        "Level": "1",
+        "ModFamilyList": [
+          "Intelligence"
+        ],
+        "ModGenerationTypeID": "3",
+        "DropChance": 1,
+        "str": "<a data-keyword=\"Intelligence\" href=\"Intelligence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/949776555bb08a81426c468504dacae90ae61a9e580db97a1c922e0aaf9d4d27\">知性</a> <span class='mod-value'>+(14<span class=\"ndash\">—</span>16)</span>",
+        "fossil_no": [
+          "upgraded_corruption_mod",
+          "attribute"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">能力値</span>"
+        ],
+        "Name": "CorruptionUpgradeJewelIntelligence1",
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FCorruptionUpgradeJewelIntelligence1"
+      },
+      {
+        "Level": "1",
+        "ModFamilyList": [
+          "LightningResistance"
+        ],
+        "ModGenerationTypeID": "3",
+        "DropChance": 1,
+        "str": "<a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/b60a4d7d0d8684f32a0007a6296c1de4c30766352b7e6646f0014d2e39b076d3\">雷</a>耐性 <span class='mod-value'>+(15<span class=\"ndash\">—</span>20)</span>%",
+        "fossil_no": [
+          "elemental_resistance",
+          "lightning_resistance",
+          "upgraded_corruption_mod",
+          "elemental",
+          "lightning",
+          "resistance"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">元素</span>",
+          "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">雷</span>",
+          "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">耐性</span>"
+        ],
+        "Name": "CorruptionUpgradeJewelLightningResist1",
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FCorruptionUpgradeJewelLightningResist1"
+      },
+      {
+        "Level": "1",
+        "ModFamilyList": [
+          "Strength"
+        ],
+        "ModGenerationTypeID": "3",
+        "DropChance": 1,
+        "str": "<a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/a2f2836403a728f83fa2c58e5b1ab2780b92c56b7cbbe84f7e7cbf7645641ece\">筋力</a> <span class='mod-value'>+(14<span class=\"ndash\">—</span>16)</span>",
+        "fossil_no": [
+          "upgraded_corruption_mod",
+          "attribute"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">能力値</span>"
+        ],
+        "Name": "CorruptionUpgradeJewelStrength1",
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FCorruptionUpgradeJewelStrength1"
+      },
+      {
+        "Level": "1",
+        "ModFamilyList": [
+          "LifeGainedFromEnemyDeath"
+        ],
+        "ModGenerationTypeID": "3",
+        "DropChance": 1,
+        "str": "倒した敵1体ごとに<span class='mod-value'>(40<span class=\"ndash\">—</span>55)</span>のライフを獲得する",
+        "fossil_no": [
+          "resource",
+          "upgraded_corruption_mod",
+          "life"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "wand",
+          "staff",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">ライフ</span>"
+        ],
+        "Name": "CorruptionUpgradeLifeGainedFromEnemyDeath1",
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FCorruptionUpgradeLifeGainedFromEnemyDeath1"
+      },
+      {
+        "Level": "1",
+        "ModFamilyList": [
+          "ManaGainedFromEnemyDeath"
+        ],
+        "ModGenerationTypeID": "3",
+        "DropChance": 1,
+        "str": "倒した敵1体ごとに<span class='mod-value'>(20<span class=\"ndash\">—</span>30)</span>のマナを獲得する",
+        "fossil_no": [
+          "resource",
+          "upgraded_corruption_mod",
+          "mana"
+        ],
+        "adds_no": [],
+        "spawn_no": [
+          "wand",
+          "staff",
+          "quiver",
+          "default"
+        ],
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">マナ</span>"
+        ],
+        "Name": "CorruptionUpgradeManaGainedFromEnemyDeath1",
+        "mod_fossil_item": [],
+        "hover": "?s=Data%5CMods%2FCorruptionUpgradeManaGainedFromEnemyDeath1"
+      }
+    ],
+    "master": [],
+    "essence": [
+      {
+        "type": "essence",
+        "Level": "11",
+        "DropChance": 0,
+        "ModGenerationTypeID": "2",
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">能力値</span>"
+        ],
+        "fossil_no": [
+          "attribute"
+        ],
+        "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_BaseItemTypes_hover/608a9dd58e71295bfc7281bacf65113d8212d2a3702434d85a25ea2ed7d45eab\" href=\"Lesser_Essence_of_the_Infinite\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/AttributeEssenceLesser.webp\" alt=\"AttributeEssenceLesser\" height=\"16\" />無限のレッサーエッセンス</a>",
+        "Code": "Strength2",
+        "ModFamilyList": [
+          "Strength"
+        ],
+        "str": "<a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/a2f2836403a728f83fa2c58e5b1ab2780b92c56b7cbbe84f7e7cbf7645641ece\">筋力</a>、<a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/ecbebdc00966499b116d668cb8722082e07a2f2da0e4fa75b15528251f8b0c26\">器用さ</a>または<a data-keyword=\"Intelligence\" href=\"Intelligence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/949776555bb08a81426c468504dacae90ae61a9e580db97a1c922e0aaf9d4d27\">知性</a> <span class='mod-value'>+(9<span class=\"ndash\">—</span>12)</span>",
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "amulet",
+          "belt",
+          "str_armour",
+          "str_dex_armour",
+          "str_int_armour",
+          "str_dex_int_armour",
+          "mace",
+          "axe",
+          "sword",
+          "spear",
+          "flail",
+          "crossbow",
+          "sceptre",
+          "talisman",
+          "default"
+        ],
+        "reqlvl": 8,
+        "IsPerfect": "0",
+        "IsAlloy": false,
+        "Removes": false
+      },
+      {
+        "type": "essence",
+        "Level": "11",
+        "DropChance": 0,
+        "ModGenerationTypeID": "2",
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">能力値</span>"
+        ],
+        "fossil_no": [
+          "attribute"
+        ],
+        "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_BaseItemTypes_hover/608a9dd58e71295bfc7281bacf65113d8212d2a3702434d85a25ea2ed7d45eab\" href=\"Lesser_Essence_of_the_Infinite\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/AttributeEssenceLesser.webp\" alt=\"AttributeEssenceLesser\" height=\"16\" />無限のレッサーエッセンス</a>",
+        "Code": "Dexterity2",
+        "ModFamilyList": [
+          "Dexterity"
+        ],
+        "str": "<a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/a2f2836403a728f83fa2c58e5b1ab2780b92c56b7cbbe84f7e7cbf7645641ece\">筋力</a>、<a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/ecbebdc00966499b116d668cb8722082e07a2f2da0e4fa75b15528251f8b0c26\">器用さ</a>または<a data-keyword=\"Intelligence\" href=\"Intelligence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/949776555bb08a81426c468504dacae90ae61a9e580db97a1c922e0aaf9d4d27\">知性</a> <span class='mod-value'>+(9<span class=\"ndash\">—</span>12)</span>",
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "amulet",
+          "gloves",
+          "quiver",
+          "dex_armour",
+          "dex_int_armour",
+          "str_dex_armour",
+          "str_dex_int_armour",
+          "sword",
+          "spear",
+          "claw",
+          "warstaff",
+          "dagger",
+          "bow",
+          "crossbow",
+          "trap",
+          "default"
+        ],
+        "reqlvl": 8,
+        "IsPerfect": "0",
+        "IsAlloy": false,
+        "Removes": false
+      },
+      {
+        "type": "essence",
+        "Level": "11",
+        "DropChance": 0,
+        "ModGenerationTypeID": "2",
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">能力値</span>"
+        ],
+        "fossil_no": [
+          "attribute"
+        ],
+        "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_BaseItemTypes_hover/608a9dd58e71295bfc7281bacf65113d8212d2a3702434d85a25ea2ed7d45eab\" href=\"Lesser_Essence_of_the_Infinite\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/AttributeEssenceLesser.webp\" alt=\"AttributeEssenceLesser\" height=\"16\" />無限のレッサーエッセンス</a>",
+        "Code": "Intelligence2",
+        "ModFamilyList": [
+          "Intelligence"
+        ],
+        "str": "<a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/a2f2836403a728f83fa2c58e5b1ab2780b92c56b7cbbe84f7e7cbf7645641ece\">筋力</a>、<a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/ecbebdc00966499b116d668cb8722082e07a2f2da0e4fa75b15528251f8b0c26\">器用さ</a>または<a data-keyword=\"Intelligence\" href=\"Intelligence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/949776555bb08a81426c468504dacae90ae61a9e580db97a1c922e0aaf9d4d27\">知性</a> <span class='mod-value'>+(9<span class=\"ndash\">—</span>12)</span>",
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "amulet",
+          "helmet",
+          "int_armour",
+          "str_int_armour",
+          "dex_int_armour",
+          "str_dex_int_armour",
+          "dagger",
+          "warstaff",
+          "flail",
+          "wand",
+          "staff",
+          "sceptre",
+          "trap",
+          "talisman",
+          "default"
+        ],
+        "reqlvl": 8,
+        "IsPerfect": "0",
+        "IsAlloy": false,
+        "Removes": false
+      },
+      {
+        "type": "essence",
+        "Level": "33",
+        "DropChance": 0,
+        "ModGenerationTypeID": "2",
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">能力値</span>"
+        ],
+        "fossil_no": [
+          "attribute"
+        ],
+        "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_BaseItemTypes_hover/095fc9a7c305ce1a321bbbf0a875fcdd1ab01d0b830ae88a381d620db9b5f1a6\" href=\"Essence_of_the_Infinite\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/AttributeEssence.webp\" alt=\"AttributeEssence\" height=\"16\" />無限のエッセンス</a>",
+        "Code": "Strength4",
+        "ModFamilyList": [
+          "Strength"
+        ],
+        "str": "<a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/a2f2836403a728f83fa2c58e5b1ab2780b92c56b7cbbe84f7e7cbf7645641ece\">筋力</a>、<a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/ecbebdc00966499b116d668cb8722082e07a2f2da0e4fa75b15528251f8b0c26\">器用さ</a>または<a data-keyword=\"Intelligence\" href=\"Intelligence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/949776555bb08a81426c468504dacae90ae61a9e580db97a1c922e0aaf9d4d27\">知性</a> <span class='mod-value'>+(17<span class=\"ndash\">—</span>20)</span>",
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "amulet",
+          "belt",
+          "str_armour",
+          "str_dex_armour",
+          "str_int_armour",
+          "str_dex_int_armour",
+          "mace",
+          "axe",
+          "sword",
+          "spear",
+          "flail",
+          "crossbow",
+          "sceptre",
+          "talisman",
+          "default"
+        ],
+        "reqlvl": 26,
+        "IsPerfect": "0",
+        "IsAlloy": false,
+        "Removes": false
+      },
+      {
+        "type": "essence",
+        "Level": "33",
+        "DropChance": 0,
+        "ModGenerationTypeID": "2",
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">能力値</span>"
+        ],
+        "fossil_no": [
+          "attribute"
+        ],
+        "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_BaseItemTypes_hover/095fc9a7c305ce1a321bbbf0a875fcdd1ab01d0b830ae88a381d620db9b5f1a6\" href=\"Essence_of_the_Infinite\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/AttributeEssence.webp\" alt=\"AttributeEssence\" height=\"16\" />無限のエッセンス</a>",
+        "Code": "Dexterity4",
+        "ModFamilyList": [
+          "Dexterity"
+        ],
+        "str": "<a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/a2f2836403a728f83fa2c58e5b1ab2780b92c56b7cbbe84f7e7cbf7645641ece\">筋力</a>、<a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/ecbebdc00966499b116d668cb8722082e07a2f2da0e4fa75b15528251f8b0c26\">器用さ</a>または<a data-keyword=\"Intelligence\" href=\"Intelligence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/949776555bb08a81426c468504dacae90ae61a9e580db97a1c922e0aaf9d4d27\">知性</a> <span class='mod-value'>+(17<span class=\"ndash\">—</span>20)</span>",
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "amulet",
+          "gloves",
+          "quiver",
+          "dex_armour",
+          "dex_int_armour",
+          "str_dex_armour",
+          "str_dex_int_armour",
+          "sword",
+          "spear",
+          "claw",
+          "warstaff",
+          "dagger",
+          "bow",
+          "crossbow",
+          "trap",
+          "default"
+        ],
+        "reqlvl": 26,
+        "IsPerfect": "0",
+        "IsAlloy": false,
+        "Removes": false
+      },
+      {
+        "type": "essence",
+        "Level": "33",
+        "DropChance": 0,
+        "ModGenerationTypeID": "2",
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">能力値</span>"
+        ],
+        "fossil_no": [
+          "attribute"
+        ],
+        "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_BaseItemTypes_hover/095fc9a7c305ce1a321bbbf0a875fcdd1ab01d0b830ae88a381d620db9b5f1a6\" href=\"Essence_of_the_Infinite\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/AttributeEssence.webp\" alt=\"AttributeEssence\" height=\"16\" />無限のエッセンス</a>",
+        "Code": "Intelligence4",
+        "ModFamilyList": [
+          "Intelligence"
+        ],
+        "str": "<a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/a2f2836403a728f83fa2c58e5b1ab2780b92c56b7cbbe84f7e7cbf7645641ece\">筋力</a>、<a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/ecbebdc00966499b116d668cb8722082e07a2f2da0e4fa75b15528251f8b0c26\">器用さ</a>または<a data-keyword=\"Intelligence\" href=\"Intelligence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/949776555bb08a81426c468504dacae90ae61a9e580db97a1c922e0aaf9d4d27\">知性</a> <span class='mod-value'>+(17<span class=\"ndash\">—</span>20)</span>",
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "amulet",
+          "helmet",
+          "int_armour",
+          "str_int_armour",
+          "dex_int_armour",
+          "str_dex_int_armour",
+          "dagger",
+          "warstaff",
+          "flail",
+          "wand",
+          "staff",
+          "sceptre",
+          "trap",
+          "talisman",
+          "default"
+        ],
+        "reqlvl": 26,
+        "IsPerfect": "0",
+        "IsAlloy": false,
+        "Removes": false
+      },
+      {
+        "type": "essence",
+        "Level": "58",
+        "DropChance": 0,
+        "ModGenerationTypeID": "1",
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "fossil_no": [
+          "attack"
+        ],
+        "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_BaseItemTypes_hover/1eda04cc55b01842829a5d42937d8067b6ed495176cfffe96d70893fe9883c6e\" href=\"Greater_Essence_of_Battle\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterAttackEssence.webp\" alt=\"GreaterAttackEssence\" height=\"16\" />戦闘のグレーターエッセンス</a>",
+        "Code": "LocalIncreasedAccuracy7",
+        "ModFamilyList": [
+          "IncreasedAccuracy"
+        ],
+        "str": "<a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/86f399e6973d22d01dbe326b73743ca687b6b16209c50732d1d2e06f476b0a0f\">命中力</a> <span class='mod-value'>+(237<span class=\"ndash\">—</span>346)</span>",
+        "adds_no": [],
+        "spawn_no": [
+          "weapon",
+          "default"
+        ],
+        "reqlvl": 46,
+        "IsPerfect": "0",
+        "IsAlloy": false,
+        "Removes": false
+      },
+      {
+        "type": "essence",
+        "Level": "58",
+        "DropChance": 0,
+        "ModGenerationTypeID": "1",
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">アタック</span>"
+        ],
+        "fossil_no": [
+          "attack"
+        ],
+        "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_BaseItemTypes_hover/1eda04cc55b01842829a5d42937d8067b6ed495176cfffe96d70893fe9883c6e\" href=\"Greater_Essence_of_Battle\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterAttackEssence.webp\" alt=\"GreaterAttackEssence\" height=\"16\" />戦闘のグレーターエッセンス</a>",
+        "Code": "IncreasedAccuracy7",
+        "ModFamilyList": [
+          "IncreasedAccuracy"
+        ],
+        "str": "<a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/86f399e6973d22d01dbe326b73743ca687b6b16209c50732d1d2e06f476b0a0f\">命中力</a> <span class='mod-value'>+(237<span class=\"ndash\">—</span>346)</span>",
+        "adds_no": [],
+        "spawn_no": [
+          "gloves",
+          "helmet",
+          "ring",
+          "amulet",
+          "quiver",
+          "default"
+        ],
+        "reqlvl": 46,
+        "IsPerfect": "0",
+        "IsAlloy": false,
+        "Removes": false
+      },
+      {
+        "type": "essence",
+        "Level": "55",
+        "DropChance": 0,
+        "ModGenerationTypeID": "2",
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">能力値</span>"
+        ],
+        "fossil_no": [
+          "attribute"
+        ],
+        "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_BaseItemTypes_hover/2ed9b47e2fe7596964f7dc170bcdaf897939993bf3be56ef34a3cfe3d32f2be4\" href=\"Greater_Essence_of_the_Infinite\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterAttributeEssence.webp\" alt=\"GreaterAttributeEssence\" height=\"16\" />無限のグレーターエッセンス</a>",
+        "Code": "Strength6",
+        "ModFamilyList": [
+          "Strength"
+        ],
+        "str": "<a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/a2f2836403a728f83fa2c58e5b1ab2780b92c56b7cbbe84f7e7cbf7645641ece\">筋力</a>、<a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/ecbebdc00966499b116d668cb8722082e07a2f2da0e4fa75b15528251f8b0c26\">器用さ</a>または<a data-keyword=\"Intelligence\" href=\"Intelligence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/949776555bb08a81426c468504dacae90ae61a9e580db97a1c922e0aaf9d4d27\">知性</a> <span class='mod-value'>+(25<span class=\"ndash\">—</span>27)</span>",
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "amulet",
+          "belt",
+          "str_armour",
+          "str_dex_armour",
+          "str_int_armour",
+          "str_dex_int_armour",
+          "mace",
+          "axe",
+          "sword",
+          "spear",
+          "flail",
+          "crossbow",
+          "sceptre",
+          "talisman",
+          "default"
+        ],
+        "reqlvl": 44,
+        "IsPerfect": "0",
+        "IsAlloy": false,
+        "Removes": false
+      },
+      {
+        "type": "essence",
+        "Level": "55",
+        "DropChance": 0,
+        "ModGenerationTypeID": "2",
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">能力値</span>"
+        ],
+        "fossil_no": [
+          "attribute"
+        ],
+        "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_BaseItemTypes_hover/2ed9b47e2fe7596964f7dc170bcdaf897939993bf3be56ef34a3cfe3d32f2be4\" href=\"Greater_Essence_of_the_Infinite\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterAttributeEssence.webp\" alt=\"GreaterAttributeEssence\" height=\"16\" />無限のグレーターエッセンス</a>",
+        "Code": "Dexterity6",
+        "ModFamilyList": [
+          "Dexterity"
+        ],
+        "str": "<a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/a2f2836403a728f83fa2c58e5b1ab2780b92c56b7cbbe84f7e7cbf7645641ece\">筋力</a>、<a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/ecbebdc00966499b116d668cb8722082e07a2f2da0e4fa75b15528251f8b0c26\">器用さ</a>または<a data-keyword=\"Intelligence\" href=\"Intelligence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/949776555bb08a81426c468504dacae90ae61a9e580db97a1c922e0aaf9d4d27\">知性</a> <span class='mod-value'>+(25<span class=\"ndash\">—</span>27)</span>",
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "amulet",
+          "gloves",
+          "quiver",
+          "dex_armour",
+          "dex_int_armour",
+          "str_dex_armour",
+          "str_dex_int_armour",
+          "sword",
+          "spear",
+          "claw",
+          "warstaff",
+          "dagger",
+          "bow",
+          "crossbow",
+          "trap",
+          "default"
+        ],
+        "reqlvl": 44,
+        "IsPerfect": "0",
+        "IsAlloy": false,
+        "Removes": false
+      },
+      {
+        "type": "essence",
+        "Level": "55",
+        "DropChance": 0,
+        "ModGenerationTypeID": "2",
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">能力値</span>"
+        ],
+        "fossil_no": [
+          "attribute"
+        ],
+        "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_BaseItemTypes_hover/2ed9b47e2fe7596964f7dc170bcdaf897939993bf3be56ef34a3cfe3d32f2be4\" href=\"Greater_Essence_of_the_Infinite\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterAttributeEssence.webp\" alt=\"GreaterAttributeEssence\" height=\"16\" />無限のグレーターエッセンス</a>",
+        "Code": "Intelligence6",
+        "ModFamilyList": [
+          "Intelligence"
+        ],
+        "str": "<a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/a2f2836403a728f83fa2c58e5b1ab2780b92c56b7cbbe84f7e7cbf7645641ece\">筋力</a>、<a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/ecbebdc00966499b116d668cb8722082e07a2f2da0e4fa75b15528251f8b0c26\">器用さ</a>または<a data-keyword=\"Intelligence\" href=\"Intelligence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/949776555bb08a81426c468504dacae90ae61a9e580db97a1c922e0aaf9d4d27\">知性</a> <span class='mod-value'>+(25<span class=\"ndash\">—</span>27)</span>",
+        "adds_no": [],
+        "spawn_no": [
+          "ring",
+          "amulet",
+          "helmet",
+          "int_armour",
+          "str_int_armour",
+          "dex_int_armour",
+          "str_dex_int_armour",
+          "dagger",
+          "warstaff",
+          "flail",
+          "wand",
+          "staff",
+          "sceptre",
+          "trap",
+          "talisman",
+          "default"
+        ],
+        "reqlvl": 44,
+        "IsPerfect": "0",
+        "IsAlloy": false,
+        "Removes": false
+      }
+    ],
+    "delve": [],
+    "incursion": [],
+    "elder": [],
+    "shaper": [],
+    "crusader": [],
+    "redeemer": [],
+    "hunter": [],
+    "warlord": [],
+    "veiled": [],
+    "scourgeup": [],
+    "scourgedown": [],
+    "bestiary": [],
+    "haunted": [],
+    "sentinel": [],
+    "synthesis": [],
+    "synthesis_corrupted": [],
+    "infamous": [],
+    "searing": [],
+    "eater": [],
+    "enchant": [],
+    "warbands": [],
+    "graft_corrupted": [],
+    "perfect_essence": [
+      {
+        "type": "essence",
+        "Level": "60",
+        "DropChance": 0,
+        "ModGenerationTypeID": "1",
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">ダメージ</span>"
+        ],
+        "fossil_no": [
+          "damage"
+        ],
+        "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_BaseItemTypes_hover/27c1f1c7a9a4b4a07f8e0633fa6aee2e3c00c09322ca8d53f068a23a26bf8836\" href=\"Essence_of_Hysteria\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/CorruptedEssenceHysteria.webp\" alt=\"CorruptedEssenceHysteria\" height=\"16\" />ヒステリーのエッセンス</a>",
+        "Code": "DamageWithBows5",
+        "ModFamilyList": [
+          "DamageWithWeaponTypeSkill"
+        ],
+        "str": "弓スキルのダメージが<span class='mod-value'>(43<span class=\"ndash\">—</span>50)</span>%増加する",
+        "adds_no": [],
+        "spawn_no": [
+          "quiver",
+          "default"
+        ],
+        "reqlvl": 48,
+        "IsPerfect": "0",
+        "IsAlloy": false,
+        "Removes": true
+      },
+      {
+        "type": "essence",
+        "Level": "1",
+        "DropChance": 0,
+        "ModGenerationTypeID": "1",
+        "mod_no": [],
+        "fossil_no": [],
+        "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_BaseItemTypes_hover/cf06a77918e34780b1b30046af6eafefc63a7888e0e78ccc44eaca89d806d9ab\" href=\"Essence_of_the_Abyss\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/AbyssalEssence.webp\" alt=\"AbyssalEssence\" height=\"16\" />アビスのエッセンス</a>",
+        "Code": "EssenceAbyssPrefix",
+        "ModFamilyList": [
+          "EssenceAbyss"
+        ],
+        "str": "<a data-keyword=\"MarkofAbyssalLord\" href=\"Mark_of_the_Abyssal_Lord\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/9ea67a7f1fc68d12188b0988157dc62a88b168a13e3e557c127d5d6fb5616c3a\">アビサルロードの紋章</a>",
+        "adds_no": [],
+        "spawn_no": [
+          "default"
+        ],
+        "reqlvl": 0,
+        "IsPerfect": "0",
+        "IsAlloy": false,
+        "Removes": true
+      },
+      {
+        "type": "essence",
+        "Level": "1",
+        "DropChance": 0,
+        "ModGenerationTypeID": "2",
+        "mod_no": [],
+        "fossil_no": [],
+        "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_BaseItemTypes_hover/cf06a77918e34780b1b30046af6eafefc63a7888e0e78ccc44eaca89d806d9ab\" href=\"Essence_of_the_Abyss\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/AbyssalEssence.webp\" alt=\"AbyssalEssence\" height=\"16\" />アビスのエッセンス</a>",
+        "Code": "EssenceAbyssSuffix",
+        "ModFamilyList": [
+          "EssenceAbyss"
+        ],
+        "str": "<a data-keyword=\"MarkofAbyssalLord\" href=\"Mark_of_the_Abyssal_Lord\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/9ea67a7f1fc68d12188b0988157dc62a88b168a13e3e557c127d5d6fb5616c3a\">アビサルロードの紋章</a>",
+        "adds_no": [],
+        "spawn_no": [
+          "default"
+        ],
+        "reqlvl": 0,
+        "IsPerfect": "0",
+        "IsAlloy": false,
+        "Removes": true
+      },
+      {
+        "type": "essence",
+        "Level": "45",
+        "DropChance": 0,
+        "ModGenerationTypeID": "2",
+        "mod_no": [],
+        "fossil_no": [],
+        "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_BaseItemTypes_hover/a028f341eabcc05a84ae61160e5054aef5a39341a7a122e8373b5221de94806e\" href=\"Mystic_Alloy\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/CelestialVerisium.webp\" alt=\"CelestialVerisium\" height=\"16\" />神秘の合金</a>",
+        "Code": "AlloyChanceToChain1",
+        "ModFamilyList": [
+          "Chain"
+        ],
+        "str": "<span class='mod-value'>(25<span class=\"ndash\">—</span>35)</span>%の確率で追加で1回<a data-keyword=\"Chain\" href=\"Chain\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/fdd5e71cfec4bbfa8f4aa6110ecf90bcf05ba8e454ac94e82be9b397a44d0a2f\">連鎖</a>する",
+        "adds_no": [],
+        "spawn_no": [
+          "default"
+        ],
+        "reqlvl": 36,
+        "IsPerfect": "0",
+        "IsAlloy": true,
+        "Removes": true
+      }
+    ],
+    "liquid": [],
+    "chronomancy": [],
+    "marksman": [],
+    "decay": [],
+    "soul": [],
+    "destruction": [],
+    "berserking": [],
+    "rotmother": [],
+    "socketable": [],
+    "bonded": []
+  }
+}

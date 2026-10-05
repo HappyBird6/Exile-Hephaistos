@@ -128,6 +128,17 @@ const baseSlugs = {
   'blacksteel-crest-shield': 'Blacksteel_Crest_Shield',
   'desert-buckler': 'Desert_Buckler',
   'tasalian-focus': 'Tasalian_Focus',
+  'visceral-quiver': 'Visceral_Quiver',
+  'volant-quiver': 'Volant_Quiver',
+  'penetrating-quiver': 'Penetrating_Quiver',
+  'primed-quiver': 'Primed_Quiver',
+  'serrated-quiver': 'Serrated_Quiver',
+  'toxic-quiver': 'Toxic_Quiver',
+  'blunt-quiver': 'Blunt_Quiver',
+  'two-point-quiver': 'Two-Point_Quiver',
+  'sacral-quiver': 'Sacral_Quiver',
+  'fire-quiver': 'Fire_Quiver',
+  'broadhead-quiver': 'Broadhead_Quiver',
   bone: 'Bone_Wand',
   siphoning: 'Siphoning_Wand',
   volatile: 'Volatile_Wand',
@@ -435,6 +446,17 @@ export function CraftingPage() {
       | 'blacksteel-crest-shield'
       | 'desert-buckler'
       | 'tasalian-focus'
+      | 'visceral-quiver'
+      | 'volant-quiver'
+      | 'penetrating-quiver'
+      | 'primed-quiver'
+      | 'serrated-quiver'
+      | 'toxic-quiver'
+      | 'blunt-quiver'
+      | 'two-point-quiver'
+      | 'sacral-quiver'
+      | 'fire-quiver'
+      | 'broadhead-quiver'
       | 'bone'
       | 'siphoning'
       | 'volatile'
@@ -693,6 +715,17 @@ export function CraftingPage() {
     | 'blacksteel-crest-shield'
     | 'desert-buckler'
     | 'tasalian-focus'
+    | 'visceral-quiver'
+    | 'volant-quiver'
+    | 'penetrating-quiver'
+    | 'primed-quiver'
+    | 'serrated-quiver'
+    | 'toxic-quiver'
+    | 'blunt-quiver'
+    | 'two-point-quiver'
+    | 'sacral-quiver'
+    | 'fire-quiver'
+    | 'broadhead-quiver'
     | 'bone'
     | 'siphoning'
     | 'volatile'
@@ -1095,51 +1128,56 @@ export function CraftingPage() {
             rarity: concrete.rarity,
             name: item?.displayName ?? baseName,
             base: baseName,
-            itemClass: Object.hasOwn(workbenchJewelBases, catalogBase)
-              ? 'Jewels'
-              : ['shields', 'bucklers', 'foci'].includes(
-                    topBase(catalogBase)?.family ?? '',
-                  )
-                ? (
-                    {
-                      shields: 'Shields',
-                      bucklers: 'Bucklers',
-                      foci: 'Foci',
-                    } as Record<string, string>
-                  )[topBase(catalogBase)!.family]!
-                : topBase(catalogBase)?.family === 'crossbows'
-                  ? 'Crossbows'
-                  : catalogBase === 'stocky' ||
-                      topBase(catalogBase)?.family === 'gloves'
-                    ? 'Gloves'
-                    : catalogBase === 'bow' ||
-                        topBase(catalogBase)?.family === 'bows'
-                      ? 'Bows'
-                      : catalogBase === 'wand' ||
-                          topBase(catalogBase)?.family === 'wands'
-                        ? 'Wands'
-                        : catalogBase === 'body' ||
-                            catalogBase === 'soldier' ||
-                            topBase(catalogBase)?.family === 'body'
-                          ? 'Body Armours'
-                          : catalogBase === 'sceptre' ||
-                              topBase(catalogBase)?.family === 'sceptres'
-                            ? 'Sceptres'
-                            : catalogBase === 'belt' ||
-                                topBase(catalogBase)?.family === 'belts'
-                              ? 'Belts'
-                              : catalogBase === 'ring' ||
-                                  topBase(catalogBase)?.family === 'rings'
-                                ? 'Rings'
-                                : catalogBase === 'helmet' ||
-                                    catalogBase === 'imperial' ||
-                                    topBase(catalogBase)?.family === 'helmets'
-                                  ? 'Helmets'
-                                  : topBase(catalogBase)?.family === 'boots'
-                                    ? 'Boots'
-                                    : topBase(catalogBase)?.family === 'amulets'
-                                      ? 'Amulets'
-                                      : 'Amulet',
+            itemClass:
+              topBase(catalogBase)?.family === 'quivers'
+                ? 'Quivers'
+                : Object.hasOwn(workbenchJewelBases, catalogBase)
+                  ? 'Jewels'
+                  : ['shields', 'bucklers', 'foci'].includes(
+                        topBase(catalogBase)?.family ?? '',
+                      )
+                    ? (
+                        {
+                          shields: 'Shields',
+                          bucklers: 'Bucklers',
+                          foci: 'Foci',
+                        } as Record<string, string>
+                      )[topBase(catalogBase)!.family]!
+                    : topBase(catalogBase)?.family === 'crossbows'
+                      ? 'Crossbows'
+                      : catalogBase === 'stocky' ||
+                          topBase(catalogBase)?.family === 'gloves'
+                        ? 'Gloves'
+                        : catalogBase === 'bow' ||
+                            topBase(catalogBase)?.family === 'bows'
+                          ? 'Bows'
+                          : catalogBase === 'wand' ||
+                              topBase(catalogBase)?.family === 'wands'
+                            ? 'Wands'
+                            : catalogBase === 'body' ||
+                                catalogBase === 'soldier' ||
+                                topBase(catalogBase)?.family === 'body'
+                              ? 'Body Armours'
+                              : catalogBase === 'sceptre' ||
+                                  topBase(catalogBase)?.family === 'sceptres'
+                                ? 'Sceptres'
+                                : catalogBase === 'belt' ||
+                                    topBase(catalogBase)?.family === 'belts'
+                                  ? 'Belts'
+                                  : catalogBase === 'ring' ||
+                                      topBase(catalogBase)?.family === 'rings'
+                                    ? 'Rings'
+                                    : catalogBase === 'helmet' ||
+                                        catalogBase === 'imperial' ||
+                                        topBase(catalogBase)?.family ===
+                                          'helmets'
+                                      ? 'Helmets'
+                                      : topBase(catalogBase)?.family === 'boots'
+                                        ? 'Boots'
+                                        : topBase(catalogBase)?.family ===
+                                            'amulets'
+                                          ? 'Amulets'
+                                          : 'Amulet',
             itemLevel: concrete.itemLevel,
             properties: [
               ...(topBase(catalogBase)?.sourceProperties?.[locale] ?? [])
@@ -2122,54 +2160,58 @@ export function CraftingPage() {
                       rarity: 'NORMAL',
                       name: baseName,
                       base: baseName,
-                      itemClass: ['shields', 'bucklers', 'foci'].includes(
-                        topBase(catalogBase)?.family ?? '',
-                      )
-                        ? (
-                            {
-                              shields: 'Shields',
-                              bucklers: 'Bucklers',
-                              foci: 'Foci',
-                            } as Record<string, string>
-                          )[topBase(catalogBase)!.family]!
-                        : topBase(catalogBase)?.family === 'crossbows'
-                          ? 'Crossbows'
-                          : catalogBase === 'stocky' ||
-                              topBase(catalogBase)?.family === 'gloves'
-                            ? 'Gloves'
-                            : catalogBase === 'bow' ||
-                                topBase(catalogBase)?.family === 'bows'
-                              ? 'Bows'
-                              : catalogBase === 'wand' ||
-                                  topBase(catalogBase)?.family === 'wands'
-                                ? 'Wands'
-                                : catalogBase === 'body' ||
-                                    catalogBase === 'soldier' ||
-                                    topBase(catalogBase)?.family === 'body'
-                                  ? 'Body Armours'
-                                  : catalogBase === 'sceptre' ||
-                                      topBase(catalogBase)?.family ===
-                                        'sceptres'
-                                    ? 'Sceptres'
-                                    : catalogBase === 'belt' ||
-                                        topBase(catalogBase)?.family === 'belts'
-                                      ? 'Belts'
-                                      : catalogBase === 'ring' ||
+                      itemClass:
+                        topBase(catalogBase)?.family === 'quivers'
+                          ? 'Quivers'
+                          : ['shields', 'bucklers', 'foci'].includes(
+                                topBase(catalogBase)?.family ?? '',
+                              )
+                            ? (
+                                {
+                                  shields: 'Shields',
+                                  bucklers: 'Bucklers',
+                                  foci: 'Foci',
+                                } as Record<string, string>
+                              )[topBase(catalogBase)!.family]!
+                            : topBase(catalogBase)?.family === 'crossbows'
+                              ? 'Crossbows'
+                              : catalogBase === 'stocky' ||
+                                  topBase(catalogBase)?.family === 'gloves'
+                                ? 'Gloves'
+                                : catalogBase === 'bow' ||
+                                    topBase(catalogBase)?.family === 'bows'
+                                  ? 'Bows'
+                                  : catalogBase === 'wand' ||
+                                      topBase(catalogBase)?.family === 'wands'
+                                    ? 'Wands'
+                                    : catalogBase === 'body' ||
+                                        catalogBase === 'soldier' ||
+                                        topBase(catalogBase)?.family === 'body'
+                                      ? 'Body Armours'
+                                      : catalogBase === 'sceptre' ||
                                           topBase(catalogBase)?.family ===
-                                            'rings'
-                                        ? 'Rings'
-                                        : catalogBase === 'helmet' ||
-                                            catalogBase === 'imperial' ||
+                                            'sceptres'
+                                        ? 'Sceptres'
+                                        : catalogBase === 'belt' ||
                                             topBase(catalogBase)?.family ===
-                                              'helmets'
-                                          ? 'Helmets'
-                                          : topBase(catalogBase)?.family ===
-                                              'boots'
-                                            ? 'Boots'
-                                            : topBase(catalogBase)?.family ===
-                                                'amulets'
-                                              ? 'Amulets'
-                                              : 'Amulet',
+                                              'belts'
+                                          ? 'Belts'
+                                          : catalogBase === 'ring' ||
+                                              topBase(catalogBase)?.family ===
+                                                'rings'
+                                            ? 'Rings'
+                                            : catalogBase === 'helmet' ||
+                                                catalogBase === 'imperial' ||
+                                                topBase(catalogBase)?.family ===
+                                                  'helmets'
+                                              ? 'Helmets'
+                                              : topBase(catalogBase)?.family ===
+                                                  'boots'
+                                                ? 'Boots'
+                                                : topBase(catalogBase)
+                                                      ?.family === 'amulets'
+                                                  ? 'Amulets'
+                                                  : 'Amulet',
                       itemLevel: draft.baseItemLevel,
                       properties: [],
                       requirements: [],
@@ -2310,6 +2352,17 @@ export function CraftingPage() {
                           | 'blacksteel-crest-shield'
                           | 'desert-buckler'
                           | 'tasalian-focus'
+                          | 'visceral-quiver'
+                          | 'volant-quiver'
+                          | 'penetrating-quiver'
+                          | 'primed-quiver'
+                          | 'serrated-quiver'
+                          | 'toxic-quiver'
+                          | 'blunt-quiver'
+                          | 'two-point-quiver'
+                          | 'sacral-quiver'
+                          | 'fire-quiver'
+                          | 'broadhead-quiver'
                           | 'bone'
                           | 'siphoning'
                           | 'volatile'

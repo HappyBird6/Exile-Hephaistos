@@ -1,0 +1,84 @@
+{
+  "row": {
+    "Name": "Entombing",
+    "Level": "75",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "ColdDamage"
+    ],
+    "DropChance": "200",
+    "str": "Adds <span class='mod-value'>(21<span class=\"ndash\">—</span>24)</span> to <span class='mod-value'>(32<span class=\"ndash\">—</span>37)</span> <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> damage to <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attacks</a>",
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "cold",
+      "attack"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "gloves",
+      "quiver",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/431ef862580343e3d5187bb8d7e5a11de0774cbcf8c71284a08aa6e5dc5bcd88"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedColdDamage9",
+  "textLocale": "us",
+  "detailText": "Adds (21—24) to (32—37) Cold damage to Attacks",
+  "retrievedAt": "2026-10-05T05:31:10.370Z",
+  "sha256": "2972037d9e884acef4fe5e6c588fba3c14d5632d79ebca6150599ef58c9a8810",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Adds <span class='mod-value'>(21<span class=\"ndash\">—</span>24)</span> to <span class='mod-value'>(32<span class=\"ndash\">—</span>37)</span> <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> damage to <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attacks</a></span></h5>   <span data-tabname=\"Entombing\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Entombing\n<tr><th>Family<td>ColdDamage\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>75 (Effective: 60)\n<tr><th>Gold Price<td>3191\n<tr><th>Stats<td><li>attack maximum added cold damage <span class=\"badge bg-primary\">32 <span class=\"ndash\">—</span> 37</span> <span class=\"badge bg-secondary\">Global</span></li><li>attack minimum added cold damage <span class=\"badge bg-primary\">21 <span class=\"ndash\">—</span> 24</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Cold</span> <span class='badge bg-primary'>Attack</span> \n<tr><td>Fists of Stone<td>[Attack|Attacks] [Gain] <span class='mod-value'>(21<span class=\"ndash\">—</span>23)</span>% of Damage as Extra [Cold|Cold] Damage</table>  </div></div>",
+  "fields": {
+    "Name": "Entombing",
+    "Family": "ColdDamage",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "75 (Effective: 60)",
+    "Gold Price": "3191",
+    "Stats": "attack maximum added cold damage 32 — 37 Globalattack minimum added cold damage 21 — 24 Global",
+    "Spawn Tags": "ring: 1 gloves: 1 quiver: 1 default: 0",
+    "Craft Tags": "elemental_damage Damage Elemental Cold Attack"
+  },
+  "code": "AddedColdDamage9",
+  "stats": [
+    {
+      "id": "attack_maximum_added_cold_damage",
+      "min": 32,
+      "max": 37,
+      "locality": "Global"
+    },
+    {
+      "id": "attack_minimum_added_cold_damage",
+      "min": 21,
+      "max": 24,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "gloves",
+      "weight": 1
+    },
+    {
+      "tag": "quiver",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

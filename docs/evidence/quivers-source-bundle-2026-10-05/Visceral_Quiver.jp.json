@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/jp/Visceral_Quiver",
+  "retrievedAt": "2026-10-05T05:29:19.387Z",
+  "sha256": "16af6a2ecb5981bb7b7f9a532328fc55651456eccfde4d23c7c2559fa2c34127",
+  "variants": [
+    {
+      "name": "血生臭い矢筒",
+      "card": "血生臭い矢筒\n        \n    \n    \n        \n            矢筒装備条件： レベル 65アタックのクリティカルヒット率が(20—30)%増加する\n        \n\n\n        \n        \n            弓装備時のみ装備可能\n        \n\n        \n            Visceral Quiver",
+      "requirements": "装備条件： レベル 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "血生臭い矢筒",
+        "Class": "矢筒",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver11",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverVisceral",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

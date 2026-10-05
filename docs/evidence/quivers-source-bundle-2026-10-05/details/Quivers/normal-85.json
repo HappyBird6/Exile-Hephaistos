@@ -1,0 +1,56 @@
+{
+  "row": {
+    "Name": "of Skewering",
+    "Level": "61",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ChanceToPierce"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(21<span class=\"ndash\">—</span>23)</span>% chance to <a data-keyword=\"Pierce\" href=\"Pierce\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/df1fab2e19fb29ec778e9e3795813959ae3afabdb616d464579fcd681937a8dc\">Pierce</a> an Enemy",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "quiver",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/605c2a42896d9e7c30a29aae9eef22d6d2a9fc036fc951331dc2f3ce2790b5f3"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FArrowPierceChance4",
+  "textLocale": "jp",
+  "detailText": "(21—23)%の確率で敵を貫通する",
+  "retrievedAt": "2026-10-05T05:33:05.107Z",
+  "sha256": "54bad2e2f017dffbbc8297ae4046c12a39b799a62fe1ad724302dab7a0c4b76a",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(21<span class=\"ndash\">—</span>23)</span>%の確率で敵を<a data-keyword=\"Pierce\" href=\"Pierce\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/2d1117b6f66249885b33925418655b2a394dc459f1b6c3c25784fec8a3b070b4\">貫通</a>する</span></h5>   <span data-tabname=\"貫穿の\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>貫穿の\n<tr><th>Family<td>ChanceToPierce\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>サフィックス (2)\n<tr><th>Req. level<td>61 (Effective: 48)\n<tr><th>Gold Price<td>2309\n<tr><th>Stats<td><li>base chance to pierce % <span class=\"badge bg-primary\">21 <span class=\"ndash\">—</span> 23</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "fields": {
+    "Name": "貫穿の",
+    "Family": "ChanceToPierce",
+    "Domains": "アイテム (1)",
+    "GenerationType": "サフィックス (2)",
+    "Req. level": "61 (Effective: 48)",
+    "Gold Price": "2309",
+    "Stats": "base chance to pierce % 21 — 23 Global",
+    "Spawn Tags": "quiver: 1 default: 0"
+  },
+  "code": "ArrowPierceChance4",
+  "stats": [
+    {
+      "id": "base_chance_to_pierce_%",
+      "min": 21,
+      "max": 23,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "quiver",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/jp/Volant_Quiver",
+  "retrievedAt": "2026-10-05T05:29:19.678Z",
+  "sha256": "d4d26237334e50c909b84165f9fc832136c3bbeb2a12e4f7cf0fce579935a938",
+  "variants": [
+    {
+      "name": "高速の矢筒",
+      "card": "高速の矢筒\n        \n    \n    \n        \n            矢筒装備条件： レベル 61矢のスピードが(20—30)%増加する\n        \n\n\n        \n        \n            弓装備時のみ装備可能\n        \n\n        \n            Volant Quiver",
+      "requirements": "装備条件： レベル 61",
+      "fields": {
+        "DropLevel": "61",
+        "BaseType": "高速の矢筒",
+        "Class": "矢筒",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver10",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverVolant",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

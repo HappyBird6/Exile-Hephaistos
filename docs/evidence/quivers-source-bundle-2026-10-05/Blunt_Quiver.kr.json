@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/kr/Blunt_Quiver",
+  "retrievedAt": "2026-10-05T05:29:17.107Z",
+  "sha256": "8d94e431972dd57fcbb57057f10214c899cc95c4d66531755071bd4d0b1042f0",
+  "variants": [
+    {
+      "name": "뭉툭한 화살통",
+      "card": "뭉툭한 화살통\n        \n    \n    \n        \n            화살통요구 사항:  레벨 33기절 축적 (25—40)% 증가\n        \n\n\n        \n        \n            활 장착 시에만 장착할 수 있습니다.\n        \n\n        \n            Blunt Quiver",
+      "requirements": "요구 사항:  레벨 33",
+      "fields": {
+        "DropLevel": "33",
+        "BaseType": "뭉툭한 화살통",
+        "Class": "화살통",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver5",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverBlunt",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

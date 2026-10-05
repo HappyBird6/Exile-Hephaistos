@@ -21,7 +21,7 @@ type TopBase = {
   strength: number
   intelligence?: number
   requiredLevel: number
-  maximumQuality: number
+  maximumQuality: number | null
   requirements: Record<'en' | 'ko' | 'ja' | 'zh-CN' | 'zh-TW' | 'es', string>
 }
 export function topBase(key: string): TopBase | undefined {
@@ -52,5 +52,6 @@ export const reviewedArmourKeys = (Object.keys(data) as TopBaseKey[]).filter(
       'shields',
       'bucklers',
       'foci',
+      'quivers',
     ].includes(data[key].family),
 )

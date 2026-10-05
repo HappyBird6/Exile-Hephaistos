@@ -49,6 +49,7 @@ describe('verified modifier display templates', () => {
       'pearlescent:implicit:allresistances',
       'stellar:implicit:allattributes',
     ])
+    expect(ids.filter((id) => /^(quiver|.+-quiver):/.test(id))).toHaveLength(41)
     const jewelIds = ids.filter((id) => id.startsWith('sapphire:'))
     const crossbowIds = ids.filter((id) => /^(crossbow|.+-crossbow):/.test(id))
     // Source-backed additions: 62 ordinary, 5 special and 4 implicit bindings.
@@ -57,7 +58,7 @@ describe('verified modifier display templates', () => {
     expect(
       ids.filter(
         (id) =>
-          !/^(ruby|emerald|sapphire|diamond|crossbow|.+-crossbow|offhand):/.test(
+          !/^(ruby|emerald|sapphire|diamond|crossbow|.+-crossbow|offhand|quiver|.+-quiver):/.test(
             id,
           ) && !id.startsWith('time-lost-'),
       ),
@@ -65,8 +66,9 @@ describe('verified modifier display templates', () => {
     expect(
       ids.filter(
         (id) =>
-          !/^(ruby|emerald|sapphire|diamond|offhand):/.test(id) &&
-          !id.startsWith('time-lost-'),
+          !/^(ruby|emerald|sapphire|diamond|offhand|quiver|.+-quiver):/.test(
+            id,
+          ) && !id.startsWith('time-lost-'),
       ),
       // Preserve all 1,812 historical equipment bindings and add 71 Crossbow bindings.
     ).toHaveLength(1883)
@@ -76,7 +78,7 @@ describe('verified modifier display templates', () => {
           !/^(ruby|emerald|sapphire|diamond):/.test(id) &&
           !id.startsWith('time-lost-'),
       ),
-    ).toHaveLength(1914)
+    ).toHaveLength(1955)
     expect(
       ids
         .filter(

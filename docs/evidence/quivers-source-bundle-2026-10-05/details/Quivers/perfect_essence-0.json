@@ -1,0 +1,65 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "60",
+    "DropChance": 0,
+    "ModGenerationTypeID": "1",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>"
+    ],
+    "fossil_no": [
+      "damage"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/e22cdf841c20fddcd60eb33026de9d0738e05d1be8e134bbc5175eb6c8291e95\" href=\"Essence_of_Hysteria\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/CorruptedEssenceHysteria.webp\" alt=\"CorruptedEssenceHysteria\" height=\"16\" />Essence of Hysteria</a>",
+    "Code": "DamageWithBows5",
+    "ModFamilyList": [
+      "DamageWithWeaponTypeSkill"
+    ],
+    "str": "<span class='mod-value'>(43<span class=\"ndash\">—</span>50)</span>% increased Damage with Bow Skills",
+    "adds_no": [],
+    "spawn_no": [
+      "quiver",
+      "default"
+    ],
+    "reqlvl": 48,
+    "IsPerfect": "0",
+    "IsAlloy": false,
+    "Removes": true
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDamageWithBows5",
+  "textLocale": "us",
+  "detailText": "(43—50)% increased Damage with Bow Skills",
+  "retrievedAt": "2026-10-05T05:33:55.816Z",
+  "sha256": "22abe33b49be7d2545641471d984d54ab720b90443916490e5c1732c2c7dc038",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(43<span class=\"ndash\">—</span>50)</span>% increased Damage with Bow Skills</span></h5>   <span data-tabname=\"Lacerating\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Lacerating\n<tr><th>Family<td>DamageWithWeaponTypeSkill\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>1490\n<tr><th>Stats<td><li>damage +% with bow skills <span class=\"badge bg-primary\">43 <span class=\"ndash\">—</span> 50</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Damage</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Lacerating",
+    "Family": "DamageWithWeaponTypeSkill",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "60 (Effective: 48)",
+    "Gold Price": "1490",
+    "Stats": "damage +% with bow skills 43 — 50 Global",
+    "Spawn Tags": "quiver: 1 default: 0",
+    "Craft Tags": "Damage"
+  },
+  "code": "DamageWithBows5",
+  "stats": [
+    {
+      "id": "damage_+%_with_bow_skills",
+      "min": 43,
+      "max": 50,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "quiver",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

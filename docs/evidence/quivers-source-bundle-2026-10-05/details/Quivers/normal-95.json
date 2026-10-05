@@ -1,0 +1,61 @@
+{
+  "row": {
+    "Name": "Trenchant",
+    "Level": "16",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DamageWithWeaponTypeSkill"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(21<span class=\"ndash\">—</span>30)</span>% increased Damage with Bow Skills",
+    "fossil_no": [
+      "damage"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "quiver",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2eb29fb1da8bc665a22d73f7f5edea936c4647da566fdae3da0650454fd569a0"
+  },
+  "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FDamageWithBows2",
+  "textLocale": "kr",
+  "detailText": "활 스킬로 주는 피해 (21—30)% 증가",
+  "retrievedAt": "2026-10-05T05:33:38.681Z",
+  "sha256": "26b55bf93ad9f266be6df9a476026da80e0d51b7fc6d1d3eaa0fed355e005e80",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>활 스킬로 주는 피해 <span class='mod-value'>(21<span class=\"ndash\">—</span>30)</span>% 증가</span></h5>   <span data-tabname=\"신랄한\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>신랄한\n<tr><th>Family<td>DamageWithWeaponTypeSkill\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>접두어 (1)\n<tr><th>Req. level<td>16 (Effective: 12)\n<tr><th>Gold Price<td>209\n<tr><th>Stats<td><li>damage +% with bow skills <span class=\"badge bg-primary\">21 <span class=\"ndash\">—</span> 30</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>피해</span> </table>  </div></div>",
+  "fields": {
+    "Name": "신랄한",
+    "Family": "DamageWithWeaponTypeSkill",
+    "Domains": "아이템 (1)",
+    "GenerationType": "접두어 (1)",
+    "Req. level": "16 (Effective: 12)",
+    "Gold Price": "209",
+    "Stats": "damage +% with bow skills 21 — 30 Global",
+    "Spawn Tags": "quiver: 1 default: 0",
+    "Craft Tags": "피해"
+  },
+  "code": "DamageWithBows2",
+  "stats": [
+    {
+      "id": "damage_+%_with_bow_skills",
+      "min": 21,
+      "max": 30,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "quiver",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

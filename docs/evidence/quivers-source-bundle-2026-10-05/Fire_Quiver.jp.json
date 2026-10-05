@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/jp/Fire_Quiver",
+  "retrievedAt": "2026-10-05T05:29:21.989Z",
+  "sha256": "eee93b30e8d3f2f2de52271cd610078b945c4f41596eb6d91acfd18152dfc8d9",
+  "variants": [
+    {
+      "name": "火の矢筒",
+      "card": "火の矢筒\n        \n    \n    \n        \n            矢筒装備条件： レベル 83から5の火ダメージをアタックに追加する\n        \n\n\n        \n        \n            弓装備時のみ装備可能\n        \n\n        \n            Fire Quiver",
+      "requirements": "装備条件： レベル 8",
+      "fields": {
+        "DropLevel": "8",
+        "BaseType": "火の矢筒",
+        "Class": "矢筒",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver2",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverFire",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "row": {
+    "Name": "Nimble",
+    "Level": "82",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "ProjectileSpeed"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(42<span class=\"ndash\">—</span>46)</span>% increased <a data-keyword=\"Projectile\" href=\"Projectile\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6124c367861336198eb93986587a408c328b03ee40940391c8b1200cb730f966\">Projectile</a> Speed",
+    "fossil_no": [
+      "speed"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "quiver",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/882c1cf76d48408812798e242ecf9200b9a19942acd9dc142df4aecc345a1eab"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FProjectileSpeed5",
+  "textLocale": "sp",
+  "detailText": "Velocidad de proyectiles aumentada un (42—46)%",
+  "retrievedAt": "2026-10-05T05:33:33.541Z",
+  "sha256": "f267bb7d0d5a57424b7eec7ba821478f9b1df5b10ae4b816a3c45cdd2294dd44",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Velocidad de <a data-keyword=\"Projectile\" href=\"Projectile\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FProjectile\">proyectiles</a> aumentada un <span class='mod-value'>(42<span class=\"ndash\">—</span>46)</span>%</span></h5>   <span data-tabname=\"<if:MS>{ágil}<elif:MP>{ágiles}\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td><if:MS>{ágil}<elif:MP>{ágiles}\n<tr><th>Family<td>ProjectileSpeed\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Prefijo (1)\n<tr><th>Req. level<td>82 (Effective: 65)\n<tr><th>Gold Price<td>3175\n<tr><th>Stats<td><li>base projectile speed +% <span class=\"badge bg-primary\">42 <span class=\"ndash\">—</span> 46</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Velocidad</span> </table>  </div></div>",
+  "fields": {
+    "Name": "{ágil}{ágiles}",
+    "Family": "ProjectileSpeed",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Prefijo (1)",
+    "Req. level": "82 (Effective: 65)",
+    "Gold Price": "3175",
+    "Stats": "base projectile speed +% 42 — 46 Global",
+    "Spawn Tags": "quiver: 1 default: 0",
+    "Craft Tags": "Velocidad"
+  },
+  "code": "ProjectileSpeed5",
+  "stats": [
+    {
+      "id": "base_projectile_speed_+%",
+      "min": 42,
+      "max": 46,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "quiver",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

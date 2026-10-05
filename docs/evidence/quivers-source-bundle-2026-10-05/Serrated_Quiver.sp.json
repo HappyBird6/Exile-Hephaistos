@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/sp/Serrated_Quiver",
+  "retrievedAt": "2026-10-05T05:29:31.537Z",
+  "sha256": "cfd9390f73d75f03dd0de4942b74f1182c8409a1f7e38d203daad3e130240ec1",
+  "variants": [
+    {
+      "name": "Carcaj de flechas serradas",
+      "card": "Carcaj de flechas serradas\n        \n    \n    \n        \n            CarcajesRequiere:  Nivel 44Los ataques tienen un (20—30)% de probabilidad de aplicar sangrado\n        \n\n\n        \n        \n            Solo se puede equipar si portas un arco.\n        \n\n        \n            Serrated Quiver",
+      "requirements": "Requiere:  Nivel 44",
+      "fields": {
+        "DropLevel": "44",
+        "BaseType": "Carcaj de flechas serradas",
+        "Class": "Carcajes",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver7",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverSerrated",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

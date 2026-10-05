@@ -3412,5 +3412,170 @@
         "attuned-wand:suffix:essence-mana-cost-efficiency"
       ]
     }
+  },
+  "visceral-quiver": {
+    "fixed": {
+      "LESSER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-lynx"],
+      "ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-falcon"],
+      "GREATER_ESSENCE_BATTLE": ["stocky-mitts:prefix:hunter-s"],
+      "GREATER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-leopard"]
+    },
+    "replacements": {
+      "ESSENCE_HYSTERIA": ["quiver:prefix:lacerating:DamageWithBows5"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    }
+  },
+  "volant-quiver": {
+    "fixed": {
+      "LESSER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-lynx"],
+      "ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-falcon"],
+      "GREATER_ESSENCE_BATTLE": ["stocky-mitts:prefix:hunter-s"],
+      "GREATER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-leopard"]
+    },
+    "replacements": {
+      "ESSENCE_HYSTERIA": ["quiver:prefix:lacerating:DamageWithBows5"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    }
+  },
+  "penetrating-quiver": {
+    "fixed": {
+      "LESSER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-lynx"],
+      "ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-falcon"],
+      "GREATER_ESSENCE_BATTLE": ["stocky-mitts:prefix:hunter-s"],
+      "GREATER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-leopard"]
+    },
+    "replacements": {
+      "ESSENCE_HYSTERIA": ["quiver:prefix:lacerating:DamageWithBows5"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    }
+  },
+  "primed-quiver": {
+    "fixed": {
+      "LESSER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-lynx"],
+      "ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-falcon"],
+      "GREATER_ESSENCE_BATTLE": ["stocky-mitts:prefix:hunter-s"],
+      "GREATER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-leopard"]
+    },
+    "replacements": {
+      "ESSENCE_HYSTERIA": ["quiver:prefix:lacerating:DamageWithBows5"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    }
+  },
+  "serrated-quiver": {
+    "fixed": {
+      "LESSER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-lynx"],
+      "ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-falcon"],
+      "GREATER_ESSENCE_BATTLE": ["stocky-mitts:prefix:hunter-s"],
+      "GREATER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-leopard"]
+    },
+    "replacements": {
+      "ESSENCE_HYSTERIA": ["quiver:prefix:lacerating:DamageWithBows5"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    }
+  },
+  "toxic-quiver": {
+    "fixed": {
+      "LESSER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-lynx"],
+      "ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-falcon"],
+      "GREATER_ESSENCE_BATTLE": ["stocky-mitts:prefix:hunter-s"],
+      "GREATER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-leopard"]
+    },
+    "replacements": {
+      "ESSENCE_HYSTERIA": ["quiver:prefix:lacerating:DamageWithBows5"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    }
+  },
+  "blunt-quiver": {
+    "fixed": {
+      "LESSER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-lynx"],
+      "ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-falcon"],
+      "GREATER_ESSENCE_BATTLE": ["stocky-mitts:prefix:hunter-s"],
+      "GREATER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-leopard"]
+    },
+    "replacements": {
+      "ESSENCE_HYSTERIA": ["quiver:prefix:lacerating:DamageWithBows5"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    }
+  },
+  "two-point-quiver": {
+    "fixed": {
+      "LESSER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-lynx"],
+      "ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-falcon"],
+      "GREATER_ESSENCE_BATTLE": ["stocky-mitts:prefix:hunter-s"],
+      "GREATER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-leopard"]
+    },
+    "replacements": {
+      "ESSENCE_HYSTERIA": ["quiver:prefix:lacerating:DamageWithBows5"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    }
+  },
+  "sacral-quiver": {
+    "fixed": {
+      "LESSER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-lynx"],
+      "ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-falcon"],
+      "GREATER_ESSENCE_BATTLE": ["stocky-mitts:prefix:hunter-s"],
+      "GREATER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-leopard"]
+    },
+    "replacements": {
+      "ESSENCE_HYSTERIA": ["quiver:prefix:lacerating:DamageWithBows5"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    }
+  },
+  "fire-quiver": {
+    "fixed": {
+      "LESSER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-lynx"],
+      "ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-falcon"],
+      "GREATER_ESSENCE_BATTLE": ["stocky-mitts:prefix:hunter-s"],
+      "GREATER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-leopard"]
+    },
+    "replacements": {
+      "ESSENCE_HYSTERIA": ["quiver:prefix:lacerating:DamageWithBows5"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    }
+  },
+  "broadhead-quiver": {
+    "fixed": {
+      "LESSER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-lynx"],
+      "ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-falcon"],
+      "GREATER_ESSENCE_BATTLE": ["stocky-mitts:prefix:hunter-s"],
+      "GREATER_ESSENCE_INFINITE": ["stocky-mitts:suffix:of-the-leopard"]
+    },
+    "replacements": {
+      "ESSENCE_HYSTERIA": ["quiver:prefix:lacerating:DamageWithBows5"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    }
   }
 }

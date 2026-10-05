@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/sp/Volant_Quiver",
+  "retrievedAt": "2026-10-05T05:29:30.662Z",
+  "sha256": "9e4a42ca08ee70ae27db697ef070948e888f3c423b349920f70f6a275c60cfdb",
+  "variants": [
+    {
+      "name": "Carcaj de flechas voladoras",
+      "card": "Carcaj de flechas voladoras\n        \n    \n    \n        \n            CarcajesRequiere:  Nivel 61Velocidad de las flechas aumentada un (20—30)%\n        \n\n\n        \n        \n            Solo se puede equipar si portas un arco.\n        \n\n        \n            Volant Quiver",
+      "requirements": "Requiere:  Nivel 61",
+      "fields": {
+        "DropLevel": "61",
+        "BaseType": "Carcaj de flechas voladoras",
+        "Class": "Carcajes",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver10",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverVolant",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

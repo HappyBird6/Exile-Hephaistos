@@ -1,0 +1,915 @@
+{
+  "passed": true,
+  "sourceFiles": 703,
+  "jarSha256": "ce390c6c2dcb47bd38bd078b9ef04b3f65f64b480cddd917f6c03663c3305e37",
+  "dist": [
+    {
+      "name": "assets\\currency\\AnnullOrb.webp",
+      "sha256": "f1d346c37e81ebe5344611bc8e6d72e89c8b12c239e3640312e691a5726ba579"
+    },
+    {
+      "name": "assets\\currency\\CurrencyAddEquipmentSocket.webp",
+      "sha256": "9a1221dc37aa2b89d7bac921e08aeb9e4a1d5856c134a7644d6ed0b7c0c60e00"
+    },
+    {
+      "name": "assets\\currency\\CurrencyAddModToMagic.webp",
+      "sha256": "b83b03f455f31f26038b9738e0ea9e74471d33aa4f2788738bf6e1174e630703"
+    },
+    {
+      "name": "assets\\currency\\CurrencyAddModToRare.webp",
+      "sha256": "4d7620df0cf04dcf0068669d6c2ec3864441bdc33cdca8dfc45bef4711d2cf7b"
+    },
+    {
+      "name": "assets\\currency\\CurrencyArmourQuality.webp",
+      "sha256": "f13c79998b26c64e2e77a3c26a2c572b956dde7c8464a28072b81cfd4fdb9719"
+    },
+    {
+      "name": "assets\\currency\\CurrencyDuplicate.webp",
+      "sha256": "2003748a74799193f7992bedbf49f3c18520fbdbac8ab94df37d8838be4bdf64"
+    },
+    {
+      "name": "assets\\currency\\CurrencyFlaskQuality.webp",
+      "sha256": "4adc250e2d204541d20ab7f312b71d0377258e73a6c26e81a48cd5fdaa7a2612"
+    },
+    {
+      "name": "assets\\currency\\CurrencyGemQuality.webp",
+      "sha256": "62fb668da98e8d6cdd67e0b43c0b01ae4e857424d568f7a7557f248dc1c825ee"
+    },
+    {
+      "name": "assets\\currency\\CurrencyModValues.webp",
+      "sha256": "c1131ed6363049c70acf72ca9d8c675bde90fd44b49344538afe615d3a49cdd9"
+    },
+    {
+      "name": "assets\\currency\\CurrencyRerollRare.webp",
+      "sha256": "410b1785d02b13a71fcdd8309ead23c40e70f0dee7a16c4b475c397459c2879b"
+    },
+    {
+      "name": "assets\\currency\\CurrencyRerollSocketNumbers01.webp",
+      "sha256": "c08fbebcf0584c5f02a12987ed72a32c7b3ad9366f60e7eafa6b76df195cc803"
+    },
+    {
+      "name": "assets\\currency\\CurrencyRerollSocketNumbers02.webp",
+      "sha256": "af652f578501144a11a4b37b8365daa4d5fb814aedd0f3b31f70df625a526bf3"
+    },
+    {
+      "name": "assets\\currency\\CurrencyRerollSocketNumbers03.webp",
+      "sha256": "f373a3e01661b4e4c029e5c8e1db75d7ae9fa6a5768bf59ba921caaffb2d81b8"
+    },
+    {
+      "name": "assets\\currency\\CurrencyUpgradeMagicToRare.webp",
+      "sha256": "2134f6d9eb4116f7308cd5bb9231e033ee110cd74a44dd9fabf095d3a702a319"
+    },
+    {
+      "name": "assets\\currency\\CurrencyUpgradeToMagic.webp",
+      "sha256": "7831effa019d1f3948d0760046801d57f38a9f0e1c500b15a622f94fba437cef"
+    },
+    {
+      "name": "assets\\currency\\CurrencyUpgradeToRare.webp",
+      "sha256": "c45cfe686e96d831634051fca8f29cfe9e804db5df92753df394ab35f3a39578"
+    },
+    {
+      "name": "assets\\currency\\CurrencyUpgradeToUnique.webp",
+      "sha256": "6618c36eb5dcb6fc47ce02aa826626c9115786571de422c657247b96dc3d2779"
+    },
+    {
+      "name": "assets\\currency\\CurrencyVaal.webp",
+      "sha256": "2af419badfa4311fda3912f38dbf313f4cd00627cb20acdc115d0791aaad2ec6"
+    },
+    {
+      "name": "assets\\currency\\CurrencyWeaponMagicQuality.webp",
+      "sha256": "1b59e8a6335062434c8baa7479b0f96bcb8f8e21f63a84080b33d9045d0fc6ff"
+    },
+    {
+      "name": "assets\\currency\\CurrencyWeaponQuality.webp",
+      "sha256": "79a445e5367352476b2cda4f2a309fb9f247cbe47e7c9bfcb7067f9c8b789de5"
+    },
+    {
+      "name": "assets\\currency\\FracturingOrb.webp",
+      "sha256": "93d1cea46fba412aefe835be43d2410dbfcad044229e55b3e35e219ad59be180"
+    },
+    {
+      "name": "assets\\currency\\HinekorasLock.webp",
+      "sha256": "011a0245284f63e42dce20b546b3204dfa78161e8fc384615cd811b401a8dc4a"
+    },
+    {
+      "name": "assets\\currency\\solar-amulet.webp",
+      "sha256": "185139604916df32a0bbaf851bf2af2e72badd8c4c9ec9cae94a570ba7287951"
+    },
+    {
+      "name": "assets\\currency\\sources.json",
+      "sha256": "ac5eb8192379154a7d8ff00a43d8878f9458f1725dbd73b4ae98939f497a585a"
+    },
+    {
+      "name": "assets\\currency\\stash-background.webp",
+      "sha256": "cb03ca4a3e0fcab15d8d296d1a2c20064784f2dfb4a804cd7b06ebc22be787ee"
+    },
+    {
+      "name": "assets\\index-BzKfCwua.css",
+      "sha256": "8e30520ececba59a9c8155c8860d4777e9d150f6bbc4ada2eb83b8aad1fa8c35"
+    },
+    {
+      "name": "assets\\index-rbeT404J.js",
+      "sha256": "c73e7754f919befc7ba11e2c135a7a2924fdd14010b6f725057f2b60b9be694a"
+    },
+    {
+      "name": "assets\\materials\\Adaptive_Alloy.webp",
+      "sha256": "afc5c58cffc563f6de05928d20a7ce70ad51693811fd386e18f8019211ba4b4f"
+    },
+    {
+      "name": "assets\\materials\\Adaptive_Catalyst.webp",
+      "sha256": "4d676d6813be6b3be7e63e1fe3b8a37d23201e1f93f5faa6462bdedd998bb019"
+    },
+    {
+      "name": "assets\\materials\\Aldurs_Saga.webp",
+      "sha256": "a4a6bdb4623ceb1cdc183d1b3f7ceec6fadd13e90e37d30c3311c88200ae6469"
+    },
+    {
+      "name": "assets\\materials\\Ancient_Concentrated_Liquid_Fear.webp",
+      "sha256": "fc8d315e20fc46ba286dd28f58b70aa07bdf783c298847d9a38989611317a153"
+    },
+    {
+      "name": "assets\\materials\\Ancient_Concentrated_Liquid_Isolation.webp",
+      "sha256": "5892503d514f216f876b08736d10ef3fc90436aa8f4dc2f5635dd8d17c4047a2"
+    },
+    {
+      "name": "assets\\materials\\Ancient_Concentrated_Liquid_Suffering.webp",
+      "sha256": "bc2e241367cc265d3c00051a055974df93d967b7fe775698275a18961d202334"
+    },
+    {
+      "name": "assets\\materials\\Ancient_Diluted_Liquid_Greed.webp",
+      "sha256": "31d1e25ff17b0f16d0768cdae366b002fdf96c8267d642df6e946318ed6cd45e"
+    },
+    {
+      "name": "assets\\materials\\Ancient_Diluted_Liquid_Guilt.webp",
+      "sha256": "5df1d0296a46fa031d4ed70435fef38d76725c7eba20aa00c2593473ee8ead8f"
+    },
+    {
+      "name": "assets\\materials\\Ancient_Diluted_Liquid_Ire.webp",
+      "sha256": "0e003095dc45a6eef03760538405d83ac72f451329cb4e77c0aef793c970f34b"
+    },
+    {
+      "name": "assets\\materials\\Ancient_Liquid_Despair.webp",
+      "sha256": "b84e09aa663035d4f17e6ad0be9aad7060c63be700673d52210fec25a12ac10d"
+    },
+    {
+      "name": "assets\\materials\\Ancient_Liquid_Disgust.webp",
+      "sha256": "9ed532960f1cf90ed92700dc5ad63075703eec7b4e88adb6c734cd6f92205430"
+    },
+    {
+      "name": "assets\\materials\\Ancient_Liquid_Envy.webp",
+      "sha256": "db96c2f9f12174d634f7d3ecb8a7bf20c98b00bf71028072038b9e9fd3515b24"
+    },
+    {
+      "name": "assets\\materials\\Ancient_Liquid_Paranoia.webp",
+      "sha256": "9093d6a210ac7de62067517477b15bf705c44749d36e6172cb06a4c54698d850"
+    },
+    {
+      "name": "assets\\materials\\Ancient_Potent_Liquid_Contempt.webp",
+      "sha256": "e03ff84b8ecdc7f5ffe72c844c02e2d1a82ada5f50275ec4ec11810662ae223e"
+    },
+    {
+      "name": "assets\\materials\\Ancient_Potent_Liquid_Ferocity.webp",
+      "sha256": "471ebbf3ea4b015a61a4c1fae6c1ea9c789b834486785c8deb55daa751220d78"
+    },
+    {
+      "name": "assets\\materials\\Ancient_Potent_Liquid_Melancholy.webp",
+      "sha256": "548306d98c17fdfb960eada98010249ab51be27673710d8fc82551ddae39c0a2"
+    },
+    {
+      "name": "assets\\materials\\Carapace_Catalyst.webp",
+      "sha256": "10e02dad0140bd338ee86760085f4544da107cc132cb5fc26eca65391ee7d4a5"
+    },
+    {
+      "name": "assets\\materials\\Celestial_Alloy.webp",
+      "sha256": "96673730e2861316137633c567dd40505e325d7621480af55896160f4395382a"
+    },
+    {
+      "name": "assets\\materials\\Chayulas_Catalyst.webp",
+      "sha256": "9776c7721f37877b9d97fb734a5bc37bfbe6a8b0115fa7766c3fd2a6dd77905f"
+    },
+    {
+      "name": "assets\\materials\\Concentrated_Liquid_Fear.webp",
+      "sha256": "a97da062e10c5a212835f00230fc233fa560fff42bc2ed1422f4f27f2008377b"
+    },
+    {
+      "name": "assets\\materials\\Concentrated_Liquid_Isolation.webp",
+      "sha256": "674fb55ac0c36da2f8a680d1a574b78de524d411c8a6e62865de2702df0e4c64"
+    },
+    {
+      "name": "assets\\materials\\Concentrated_Liquid_Suffering.webp",
+      "sha256": "12363a86ee1afd6f2c49a91fbe6b5ca672e286c934554795537d07c4e5773a34"
+    },
+    {
+      "name": "assets\\materials\\Cyclonic_Alloy.webp",
+      "sha256": "b5d95ac49474265cd2f8cca78e66018518cdab47a2b59a5b9e7c79b826bcf767"
+    },
+    {
+      "name": "assets\\materials\\Diluted_Liquid_Greed.webp",
+      "sha256": "10ae656d2a00d5bf3a4b22c69beca4768833d91a7d4ab69161ec48bc99b2309f"
+    },
+    {
+      "name": "assets\\materials\\Diluted_Liquid_Guilt.webp",
+      "sha256": "c37965ebb1f0a075fd97035f9d45da5562a100641f403e99469ef62ee6a8720f"
+    },
+    {
+      "name": "assets\\materials\\Diluted_Liquid_Ire.webp",
+      "sha256": "e34144941f7cc02090336a9067be79e9fa07cc4a8c23fb5280977cbfc183ceba"
+    },
+    {
+      "name": "assets\\materials\\Eshs_Catalyst.webp",
+      "sha256": "cd36d5abd21c33a41d886281eed3c0859c1df676686d4f9d453278cae72039bb"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_Abrasion.webp",
+      "sha256": "b3ffed9cf60b93683a4d4ef28d6eb109b2a471a653076f2af9ab41b954d7de52"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_Alacrity.webp",
+      "sha256": "af6475cce5827ca6b4e8b091efb8c04edc837b3e8aeb13557ecb04244b5e730f"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_Battle.webp",
+      "sha256": "f6d8b73ef1e0bfec0264dfa1d1192556c3f74b71dc6291900b057bdff2f7183d"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_Command.webp",
+      "sha256": "2c7a4e0456bd740c248b3056806ff52024f73814efc36054824bb976b0ef9919"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_Delirium.webp",
+      "sha256": "04a5004da3f674c8fa6a05a13ce9eb92df946c695776010d3dc1360f5a517837"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_Electricity.webp",
+      "sha256": "b6d0c99675f4a4bcd4594f339293e8b15a850f92ac0f3bd8080e71c3a7cc2124"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_Enhancement.webp",
+      "sha256": "f1f6817023485d09afb8df44fa5661453f9424c90054947e213d719bb329a4cc"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_Flames.webp",
+      "sha256": "40b70c02b1750aab32c065d034ab69426c2ba33f9d1990050ccb544511f6a576"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_Grounding.webp",
+      "sha256": "a24a2847176ebfd502922baeb2c202d6d7c2b914a7d8040c69e505f06b7e7656"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_Haste.webp",
+      "sha256": "16161f89d214be298cb4b688c294b365e1a08e32a014f465ab8a1bd8817b5175"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_Horror.webp",
+      "sha256": "05b63e902516ac9b07dbb88f058e0925f3c5dfa1f6fbebba9a2458a8558bec90"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_Hysteria.webp",
+      "sha256": "537e065c87bf8641d99ac6b85ee12c19fa5aac84203fb0279212bccaf93ded68"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_Ice.webp",
+      "sha256": "f8b655b387f7017960f52fd9b7ed28df503beeb600ed2a45e81cde8fd1e57291"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_Insanity.webp",
+      "sha256": "9ac5d00f10cbb04df36a036944f387a19a08e9147a0fd47c3ab0d61c36a51336"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_Insulation.webp",
+      "sha256": "68e682e071b0f42aef6e6887ac4db988479f9262e65f5a888fce198812fe67cc"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_Opulence.webp",
+      "sha256": "1bb3246352f0f8ecf9b47463d355647014ee3474d158a4bbead5be67d02f08a1"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_Ruin.webp",
+      "sha256": "77b42f8861e2f7353c4bc32785e804c53fe444ed4af22fab5251a56c7a8d9621"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_Seeking.webp",
+      "sha256": "04aa14c25f53fcaf96566efbdc4f258fa1fa41cb965b279abc0a7661fb38e05e"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_Sorcery.webp",
+      "sha256": "10fdc2a6a44344b8afeedd45b98564463786f79cd6d7259e64da2858a99a2a68"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_Thawing.webp",
+      "sha256": "4f420d5c85b2a6fb9d46c842375cc463900627de9b04d90d89aaa099aa341a11"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_the_Abyss.webp",
+      "sha256": "2d62a5735f41b54981ffd4530014399e985e8f2e919d3eeda7f3d16bc53a5f2d"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_the_Body.webp",
+      "sha256": "82b99169aa7303ad23a846cd5f599064ee6255d66813a61c263d4adff05594e5"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_the_Breach.webp",
+      "sha256": "0bb4d39cb08e4c085550b60ea219a610c0a3d43afd604b9784686f49b73fc36c"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_the_Infinite.webp",
+      "sha256": "e2ed3204d13d5c6900374e46ab9cc73ac2778530bc0c6b045b9418599db06c15"
+    },
+    {
+      "name": "assets\\materials\\Essence_of_the_Mind.webp",
+      "sha256": "f6d0be390956a2f75f231d1aefe5fc8766393aa3a450832faef9d86db1a3860c"
+    },
+    {
+      "name": "assets\\materials\\Expansive_Alloy.webp",
+      "sha256": "b69224bece375e042fb259b93e37601edd2cd00ea05a00f0b8635acd5d96baf3"
+    },
+    {
+      "name": "assets\\materials\\Flesh_Catalyst.webp",
+      "sha256": "887eb4ad16078b00db02a8d7bc46e793f61bf2ccfb3dc59715298e76d18f0e19"
+    },
+    {
+      "name": "assets\\materials\\Greater_Essence_of_Abrasion.webp",
+      "sha256": "d10e9669c9d2b3515af882c7d0bb238bc497a28709c79b6c1ec868cf961eb115"
+    },
+    {
+      "name": "assets\\materials\\Greater_Essence_of_Alacrity.webp",
+      "sha256": "df5e8f692f3a4ae990840e1f201391efec97aad41f7ce4d6033c3053438c6368"
+    },
+    {
+      "name": "assets\\materials\\Greater_Essence_of_Battle.webp",
+      "sha256": "327586370562eb26398bc13a224349b2ab7bac7f438af6c6368f3aab38ebc6e4"
+    },
+    {
+      "name": "assets\\materials\\Greater_Essence_of_Command.webp",
+      "sha256": "aee57dcb1ee9cdf6851050a4efd17688060c1e3da6af85043fbf4eea7ed359fe"
+    },
+    {
+      "name": "assets\\materials\\Greater_Essence_of_Electricity.webp",
+      "sha256": "c04f02624a126491d979e6e4703c60424458e1ff7f3cdb3597aa550301e4c2d7"
+    },
+    {
+      "name": "assets\\materials\\Greater_Essence_of_Enhancement.webp",
+      "sha256": "5abf22bb0ca70fdff018414998b67a2af57c039ca35f4c6975ca206711c389ef"
+    },
+    {
+      "name": "assets\\materials\\Greater_Essence_of_Flames.webp",
+      "sha256": "5e3cddf8b61f7a24e1794feb10e7bc97db309284431601289d63215a3d45ccff"
+    },
+    {
+      "name": "assets\\materials\\Greater_Essence_of_Grounding.webp",
+      "sha256": "9364241c01c8002c428f03286c3d58ccc6c5af7ec12f7b75160d7b782204c3cb"
+    },
+    {
+      "name": "assets\\materials\\Greater_Essence_of_Haste.webp",
+      "sha256": "60736924e7898f5962c80344499b26e2898868ea65f0b5e50da0f8919af8360d"
+    },
+    {
+      "name": "assets\\materials\\Greater_Essence_of_Ice.webp",
+      "sha256": "55dc5618378b6072e7873e4e8efcb5e611042612e5f613e57447343a52de01df"
+    },
+    {
+      "name": "assets\\materials\\Greater_Essence_of_Insulation.webp",
+      "sha256": "0dfb61e56559d3731066225ab9f1fd9e1f7d59f22cc5c8122bf671754d8a4f86"
+    },
+    {
+      "name": "assets\\materials\\Greater_Essence_of_Opulence.webp",
+      "sha256": "46bb076744f38272063e4d8a141504797f231b60189e64396ef7ee8d4f3d7e80"
+    },
+    {
+      "name": "assets\\materials\\Greater_Essence_of_Ruin.webp",
+      "sha256": "44adcf23cfb9825f5a785c302f2bdb38913ac9809aa7c6a014bc9a61493a0121"
+    },
+    {
+      "name": "assets\\materials\\Greater_Essence_of_Seeking.webp",
+      "sha256": "3c7cc173189b64a0b2ce28e212e24ef3a8dba52fc5b3492388fb9ac79476ae1e"
+    },
+    {
+      "name": "assets\\materials\\Greater_Essence_of_Sorcery.webp",
+      "sha256": "e2adf4aa529844c2cb28745ef6e504fbd68cb3b6d0e02a167da04cb351e9ed2e"
+    },
+    {
+      "name": "assets\\materials\\Greater_Essence_of_Thawing.webp",
+      "sha256": "9d0f7e4f45cd032d3b2e99edd4d72cc7fc6341559811fd5c816e7f1b669c4c4a"
+    },
+    {
+      "name": "assets\\materials\\Greater_Essence_of_the_Body.webp",
+      "sha256": "76c95932c626cc1001f4d2f3934962fbbae08a2820ac65eee25b85b3062a010d"
+    },
+    {
+      "name": "assets\\materials\\Greater_Essence_of_the_Infinite.webp",
+      "sha256": "d054c22e8bfa4b2bcf94590950818ae5d4fb7a3f93d2baaaf5c24306e791c72b"
+    },
+    {
+      "name": "assets\\materials\\Greater_Essence_of_the_Mind.webp",
+      "sha256": "cb86635ef329122184d19415da55ae149e2cc1d5fa895192139ffeb0eb3d255e"
+    },
+    {
+      "name": "assets\\materials\\Lesser_Essence_of_Abrasion.webp",
+      "sha256": "95e9b5845b8343b40462453c52bd72d1adf98c9329e4e7e5c97301bce59c16bc"
+    },
+    {
+      "name": "assets\\materials\\Lesser_Essence_of_Alacrity.webp",
+      "sha256": "34c2c56e22df8fc44d2d8d731bf82e0069821c306cf421493d94549163db3298"
+    },
+    {
+      "name": "assets\\materials\\Lesser_Essence_of_Battle.webp",
+      "sha256": "7130a8eabaf53a53a337b83c8f4e09f67da81f96043a17e396f4e3d2d95b785e"
+    },
+    {
+      "name": "assets\\materials\\Lesser_Essence_of_Command.webp",
+      "sha256": "2382acf7da27966e02dfe837e6e7ed82e1fb896bcf210f3e2dde1d7253f987ea"
+    },
+    {
+      "name": "assets\\materials\\Lesser_Essence_of_Electricity.webp",
+      "sha256": "2f9c74284dd66fa4b832eab0947fd788384bff600174a8bc14ac956e6f97af38"
+    },
+    {
+      "name": "assets\\materials\\Lesser_Essence_of_Enhancement.webp",
+      "sha256": "3e877c4aa577e3e07be97820bee6466890deaa08e7e622857c9801eb5f2967d9"
+    },
+    {
+      "name": "assets\\materials\\Lesser_Essence_of_Flames.webp",
+      "sha256": "d5bddee747c8b2d3f69183502c6b8c99d184028fa73877d2b79cec3499125874"
+    },
+    {
+      "name": "assets\\materials\\Lesser_Essence_of_Grounding.webp",
+      "sha256": "e3598fbaa525e924d69a7f9477c11455bb15bc8655bbb696f9bdc0b1c19f0ae8"
+    },
+    {
+      "name": "assets\\materials\\Lesser_Essence_of_Haste.webp",
+      "sha256": "5393bfdc54d6be0178ee885b932a39aee00d57e609b44ed2bbe31e64658e9e30"
+    },
+    {
+      "name": "assets\\materials\\Lesser_Essence_of_Ice.webp",
+      "sha256": "6344c723dc2ce33fb5b70ce8592248eff4c6716926f43cebb9ac90b8cc13e03b"
+    },
+    {
+      "name": "assets\\materials\\Lesser_Essence_of_Insulation.webp",
+      "sha256": "b8b6838818bc7d17f44e2bd169407b5bb5cb343de87df91e04128bc10816968e"
+    },
+    {
+      "name": "assets\\materials\\Lesser_Essence_of_Opulence.webp",
+      "sha256": "03b242069684dfe953a0780b058786a13beb91747aac2fc13d830e70746ebc0d"
+    },
+    {
+      "name": "assets\\materials\\Lesser_Essence_of_Ruin.webp",
+      "sha256": "a97221fdcb1e54f76752772ecf32fc9a07db487f4062f2d15fa893aac6262969"
+    },
+    {
+      "name": "assets\\materials\\Lesser_Essence_of_Seeking.webp",
+      "sha256": "0398bfced7a805486866376b0a604fccec9170df5f1a03c4467749111b93b769"
+    },
+    {
+      "name": "assets\\materials\\Lesser_Essence_of_Sorcery.webp",
+      "sha256": "3463280933cc70ec668a3c7d5ec37f6194f3965903ef4ecfd61ea6ca6c0dd364"
+    },
+    {
+      "name": "assets\\materials\\Lesser_Essence_of_Thawing.webp",
+      "sha256": "8ebea5e95a385c44e7759d198d4889e2b43683c561b44150d0ebb3b9d3a013a4"
+    },
+    {
+      "name": "assets\\materials\\Lesser_Essence_of_the_Body.webp",
+      "sha256": "d9219b3240cdde7a5ac032a8543f10402dc078d575ef21f575281e8ceeb2feff"
+    },
+    {
+      "name": "assets\\materials\\Lesser_Essence_of_the_Infinite.webp",
+      "sha256": "8ca9ad2f5772c6b0545c798b57651eea57222c780119387ce84d6d3da4677ec5"
+    },
+    {
+      "name": "assets\\materials\\Lesser_Essence_of_the_Mind.webp",
+      "sha256": "3f460afb5b443162dc3aa0dff0112196a770094e6b1a58bdf70ccd8e96d1d367"
+    },
+    {
+      "name": "assets\\materials\\Liquid_Despair.webp",
+      "sha256": "b9a2836c61a49d9e01c90638f95ce17c6e94d84871f7afd5b7e078af3d8f872b"
+    },
+    {
+      "name": "assets\\materials\\Liquid_Disgust.webp",
+      "sha256": "35cb5bebcde27252d84277857f3df67a35fc5bf1d0cdd503ecf83546948c5a64"
+    },
+    {
+      "name": "assets\\materials\\Liquid_Envy.webp",
+      "sha256": "1e1686e831c6d8906a3e0074f9592eb21c84b3f8f5062d9b38eda1cd789241b5"
+    },
+    {
+      "name": "assets\\materials\\Liquid_Paranoia.webp",
+      "sha256": "ff5bd9b0d1b6b6c51e38dedd00fbac17de8d5039684e68db7e55991dbfa3b3a1"
+    },
+    {
+      "name": "assets\\materials\\Liquid_Verisium.webp",
+      "sha256": "bc4388b4ca974a4d9f27bb03b170e8a64f80fd24562394108c4e42799a474070"
+    },
+    {
+      "name": "assets\\materials\\Medveds_Saga.webp",
+      "sha256": "51394ec91b54c34a1f3dfbe4df32f6bef6cc7d044cf83e4337ef2f670efc1471"
+    },
+    {
+      "name": "assets\\materials\\Mystic_Alloy.webp",
+      "sha256": "6431b9f3ccfd84b8c9afaddf81cf4cbfbfb821ca33042d7c3b5b22fcf799b21f"
+    },
+    {
+      "name": "assets\\materials\\Necrotic_Catalyst.webp",
+      "sha256": "76af18f798cc4a25d9c61785466202827cca4ab63690632059d2afd3da391b7f"
+    },
+    {
+      "name": "assets\\materials\\Neural_Catalyst.webp",
+      "sha256": "3fbbf54e83182f7307fad514ccd6863b95fd8594dc29c4242ff8b3d3f2fa0b39"
+    },
+    {
+      "name": "assets\\materials\\Olroths_Saga.webp",
+      "sha256": "e591923ecaaf3c104f7c03fd99e85a37ee52b6f14b9b05262d190ed020d1b0a7"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Abyssal_Echoes.webp",
+      "sha256": "23b4faa8ba5cf214363636b997febb25eb08218054f728f194c47a1ef86198b9"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Amelioration.webp",
+      "sha256": "b5711023dfcf5683e2c941e6bc44d8ac92e81052b3ab6edd6f97be2201670471"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Answered_Prayers.webp",
+      "sha256": "efaee34944f2fa9104561153d567007cfd51543998edda342312ad5b94c4d564"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Bartering.webp",
+      "sha256": "dfbe58850fb5e6de6d74dd34ece11b1de6044a3f39409ed47f7b38179a2016dd"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Catalysing_Exaltation.webp",
+      "sha256": "649203e8719bdcda592518f1265260fae171ce7b927755469b078a4cc39c504b"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Chance.webp",
+      "sha256": "c441c0fea3f6d651bed4b23ca79d527ae38dd559d443b602577287699d06100b"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Chaotic_Effectiveness.webp",
+      "sha256": "1f06656b624cd2bc6a910bafc387d889c363702611f2c3c7cab4a745eda3476f"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Chaotic_Monsters.webp",
+      "sha256": "ce92ffac01878255f3022cfa0808b4769e09559f2bf00b92b058dbf6f0ae567e"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Chaotic_Quantity.webp",
+      "sha256": "612bdeec0db7cf071fdfcf4aab480ab3735ac8419913e8054d01c9f07fb66074"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Chaotic_Rarity.webp",
+      "sha256": "2ded78a1b7a19822e4a9decd79685a0a261d0cd8203efc6dfc5cb19273699acf"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Corruption.webp",
+      "sha256": "f4a2d751f043167c32c19e7aae54cc615d396d0c1273dac9d7191b51597a87c4"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Dextral_Alchemy.webp",
+      "sha256": "eea44a659de06443b6403a7ad3dc7dbbc0fef73c7576c7c474f3eec51fb59c50"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Dextral_Annulment.webp",
+      "sha256": "f2c88f97894ed03f56c67053a976aa2a48ccc6c00374d55a6ca1537883e930b7"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Dextral_Coronation.webp",
+      "sha256": "b1ccd519ba3cf4fe36a0b8052dd710bdd295a661a30962cf29f3f97a2f785cf8"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Dextral_Crystallisation.webp",
+      "sha256": "e081cb695795a4296398f476bf76942d19626de9b54937b1d3ca330b0f81ef21"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Dextral_Erasure.webp",
+      "sha256": "e9990aef71611565a82e56392547193884f28f748202526a8cbe88d99f801f5b"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Dextral_Exaltation.webp",
+      "sha256": "4b156627fb00eeafa4a213e107435e11ef1b5bcd0022e9b0b35a139a942f96d1"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Dextral_Necromancy.webp",
+      "sha256": "a80a4974f9aef088bf00ee40d9e078e78298aba0045fbc25e115148de69380da"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Gambling.webp",
+      "sha256": "3ee8c765a13d7e2fe699f5f27eb217bcf6550e01a8d1d530dcb7aa947666e4d2"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Greater_Annulment.webp",
+      "sha256": "664496c0d8c27411ca5bb4098b25862e5a117f5da3d2629847fae0ee0de46479"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Greater_Exaltation.webp",
+      "sha256": "0b8625c88602fce18a8668d434def40b2e60b54e1c3d5609a75dfa86f0470aa2"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Homogenising_Coronation.webp",
+      "sha256": "4a8de493db26d2b68c20bce8595e1d40eda87b40994d06e122f1a63e5689f5a7"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Homogenising_Exaltation.webp",
+      "sha256": "65f242ed63df119b2ee130c3c33d1c772bac37840f45649b9f889478a542e3dc"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Light.webp",
+      "sha256": "eb0a3a3c3598a06a50f0ae4c292ea02d139f1fc1714f9b4d0836978891637043"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Putrefaction.webp",
+      "sha256": "3fc36d68eb571cbf589ad1a22d292fc64a96e6d942bc28834c8398d20a923b4d"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Recombination.webp",
+      "sha256": "dfbe58850fb5e6de6d74dd34ece11b1de6044a3f39409ed47f7b38179a2016dd"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Refreshment.webp",
+      "sha256": "7e1941bfaa50602aaa404c0682f0815cad95554fd9c20aa14465ece91670291f"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Reinforcements.webp",
+      "sha256": "d36a472c97a0ea2b2101c36f57395cd2241fc4be3d7cd169963f25b2696260e4"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Resurgence.webp",
+      "sha256": "caaad6db427628497136e0720235f77044b1b66e434d29821563f33f94cc229b"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Sanctification.webp",
+      "sha256": "dc92a52bf8f3ef25d94e12851577c9bc6442255d3e27ee4c1d8c37b8d4deef99"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Secret_Compartments.webp",
+      "sha256": "82d164e6f7bd5bc853085c2e5d652b51276324814e6cf20dc834ef9bdba763b1"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Sinistral_Alchemy.webp",
+      "sha256": "d54b5d25e08d166057fcd6759dc16b0613a936e77bda5d16b54b2a01d963f554"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Sinistral_Annulment.webp",
+      "sha256": "b0f068d469bc6a41f68da8e764e32491ae0e38e8f03f952def1f3a77bd49a8af"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Sinistral_Coronation.webp",
+      "sha256": "429a7251c438aa3e606ba3e0d680d70195deccc22c518ac549e52aae6bf2240f"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Sinistral_Crystallisation.webp",
+      "sha256": "43b94fe02633bcd90a4392c4d77e68423e82701ff1ae1a9d33c63b958dd2a5f0"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Sinistral_Erasure.webp",
+      "sha256": "cf46e87c1a5e7e5cf5df3279d58833397a7adc74389caec6fe682710cb655ee0"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Sinistral_Exaltation.webp",
+      "sha256": "b1772e4c875f1753a38bbd886a3f5c9a9228e1061390de58d181ae9b7878fd2e"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Sinistral_Necromancy.webp",
+      "sha256": "1e90a104893b7cd4718b82b07c13ca82980e4d5f63965d3024659d9bd880f7cd"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_Whittling.webp",
+      "sha256": "14771b877f39e0e5af9473b47135a98804a50e167928088f66d38c4c9d9f00d5"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_the_Ancients.webp",
+      "sha256": "fc7e3c55775d2127c3de78b0775c29eeff73a6c48a962cc99c213188a88899ed"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_the_Blackblooded.webp",
+      "sha256": "bc4d5d104d3207194f7d586e19ee3567f253d88c08e9b0cfef3136931155a264"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_the_Blessed.webp",
+      "sha256": "e044be76ea6190aa392c233fbbf502df09df806f52db52811a18371f26b93c2e"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_the_Hunt.webp",
+      "sha256": "778694313c4c0d35be0101f26a00497b987a55bd7b3fe9812f479b8c26d32750"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_the_Liege.webp",
+      "sha256": "9eccb2826e2408b9258551fde403ade75efb1d83e518177ec8de8f08bd9d4bac"
+    },
+    {
+      "name": "assets\\materials\\Omen_of_the_Sovereign.webp",
+      "sha256": "e0ec27af39a305393e1f8bcd0ef648d1ffd39c07259fc2da2cef8dae28b1e50c"
+    },
+    {
+      "name": "assets\\materials\\Perfect_Essence_of_Abrasion.webp",
+      "sha256": "812bc81c4cd42c57d4aeb4927814b511d5ed17c9497b0f283d5dc15f68985879"
+    },
+    {
+      "name": "assets\\materials\\Perfect_Essence_of_Alacrity.webp",
+      "sha256": "2db7f3cdcdf13f03765a461b4351aa597a6a03b4ef29ba65dff9303351e7a1d0"
+    },
+    {
+      "name": "assets\\materials\\Perfect_Essence_of_Battle.webp",
+      "sha256": "7476b911530d62d27545ea8797cd9fedb1f356384f57a0183579361a7c655ad5"
+    },
+    {
+      "name": "assets\\materials\\Perfect_Essence_of_Command.webp",
+      "sha256": "0b1dc751a514fdc5b6666cade2b0f0466b213b0e89bc5b4ed94b310466a93a52"
+    },
+    {
+      "name": "assets\\materials\\Perfect_Essence_of_Electricity.webp",
+      "sha256": "20b8b2dacc1512d2cab313b426c988dde5a55591fa593c22a6ece8c97181d9eb"
+    },
+    {
+      "name": "assets\\materials\\Perfect_Essence_of_Enhancement.webp",
+      "sha256": "0394ee29cda87a0c54e8247ef5ad166ccd64f25d74fa83ab72c3bc82b4ef53b3"
+    },
+    {
+      "name": "assets\\materials\\Perfect_Essence_of_Flames.webp",
+      "sha256": "d5250698ce43568fded630be5477a42f03fcf46e739a7200feeb835ff941907a"
+    },
+    {
+      "name": "assets\\materials\\Perfect_Essence_of_Grounding.webp",
+      "sha256": "c55eb3d74e8c122bcf33987d4d96950105ba302c25e5d87b46eb543f726cc6b5"
+    },
+    {
+      "name": "assets\\materials\\Perfect_Essence_of_Haste.webp",
+      "sha256": "23fca5c7c687ef833848f5b53736a7c2f5ac32f46b1d76aa68f71b7afa6da556"
+    },
+    {
+      "name": "assets\\materials\\Perfect_Essence_of_Ice.webp",
+      "sha256": "a7fea0e4accce557cf1b754111319870c927472bf1120e75cab5a9f0b79f8ad1"
+    },
+    {
+      "name": "assets\\materials\\Perfect_Essence_of_Insulation.webp",
+      "sha256": "34f718549b2f3f040a9300e1b967af5f54303281f2a8df7c6a2f5814768772a1"
+    },
+    {
+      "name": "assets\\materials\\Perfect_Essence_of_Opulence.webp",
+      "sha256": "0578796117a70a0cf35ae13d9422b79e30c238ea5a2ab5e518cf9aefbc4b038a"
+    },
+    {
+      "name": "assets\\materials\\Perfect_Essence_of_Ruin.webp",
+      "sha256": "d05c91f19373e4750d8a1490f079dd965dd135e7bc026cbee7d00729f6261ed2"
+    },
+    {
+      "name": "assets\\materials\\Perfect_Essence_of_Seeking.webp",
+      "sha256": "1502d8ac2b82eef55354a06bc89a64c591f9e61826144df1eb1cf078113dd576"
+    },
+    {
+      "name": "assets\\materials\\Perfect_Essence_of_Sorcery.webp",
+      "sha256": "04c9d41326e1f3e323c7639464c7f7a45e609f83ab7727ff185eae07f6fbe9a3"
+    },
+    {
+      "name": "assets\\materials\\Perfect_Essence_of_Thawing.webp",
+      "sha256": "9a38035d254f3a0e9de67c8c778aaf12751183bb8043d1355e1aaa617e01f566"
+    },
+    {
+      "name": "assets\\materials\\Perfect_Essence_of_the_Body.webp",
+      "sha256": "3b4d9518ad91d00d36447d06e155ecf6599000c493d3e793d6dacb02dcf9c951"
+    },
+    {
+      "name": "assets\\materials\\Perfect_Essence_of_the_Infinite.webp",
+      "sha256": "ab90de37724ec4cc0aa539644acbaeed136a9d71587796bb88d81bd0c06e9a07"
+    },
+    {
+      "name": "assets\\materials\\Perfect_Essence_of_the_Mind.webp",
+      "sha256": "0f7f33951fb9436ad90ab782900156970f4d8e57e4d0af57d0f9a8fc2863e6cd"
+    },
+    {
+      "name": "assets\\materials\\Potent_Liquid_Contempt.webp",
+      "sha256": "a381d5dfaedba27f40223a8f9e7397875386d58082685a45940e66eb9e6cfe79"
+    },
+    {
+      "name": "assets\\materials\\Potent_Liquid_Ferocity.webp",
+      "sha256": "38a6de782839cf59d1064a1d37e8ee49137e4a6df971c8e91e42514f43c7b34e"
+    },
+    {
+      "name": "assets\\materials\\Potent_Liquid_Melancholy.webp",
+      "sha256": "8ef10aef241da4490a823d215025c27a08226368d55a128fae8f2cf9bcc26d87"
+    },
+    {
+      "name": "assets\\materials\\Prismatic_Alloy.webp",
+      "sha256": "2b00b9d8f64e7a53338fe8bda17b91b17566576cb6dfe31bb70825952757376c"
+    },
+    {
+      "name": "assets\\materials\\Protective_Alloy.webp",
+      "sha256": "a9aeabe13afc7149fcecd66d28658157da708d7fc877d44595f32e7cbe773570"
+    },
+    {
+      "name": "assets\\materials\\Refined_Adaptive_Catalyst.webp",
+      "sha256": "1b0fb83bba1bc9b37aec4f556fd3194e4eaf94f72a76f1fd0780954ba0e24f86"
+    },
+    {
+      "name": "assets\\materials\\Refined_Carapace_Catalyst.webp",
+      "sha256": "f832a05bc15f4981ec8cf56347796a0c50cbc0f999e60478e263272e622603df"
+    },
+    {
+      "name": "assets\\materials\\Refined_Chayulas_Catalyst.webp",
+      "sha256": "1e4b7ae0a37eb403c48cf0eb8f1e26d41ee4fd99bdad9295227d634c0ebe928f"
+    },
+    {
+      "name": "assets\\materials\\Refined_Eshs_Catalyst.webp",
+      "sha256": "43778faf61b382fa50813e40a8775f1e8dd1bac62087cc7addaa2d9e0f49fdda"
+    },
+    {
+      "name": "assets\\materials\\Refined_Flesh_Catalyst.webp",
+      "sha256": "63fcd02b94ac9a57e44736d05528dc888e4c4604d9392bf49465c5eb82870bb2"
+    },
+    {
+      "name": "assets\\materials\\Refined_Necrotic_Catalyst.webp",
+      "sha256": "253028a40a9f30a15ce7361d2b8247e7807a0b79ab0988223bf05761587dd235"
+    },
+    {
+      "name": "assets\\materials\\Refined_Neural_Catalyst.webp",
+      "sha256": "36b8d120120c95658c9d6b556dd825fdc1f0f656805893af706427dd23613140"
+    },
+    {
+      "name": "assets\\materials\\Refined_Reaver_Catalyst.webp",
+      "sha256": "0ff3db36ec507e753372c09747f18bd8676973fa8993a8725e40ce351597ca9c"
+    },
+    {
+      "name": "assets\\materials\\Refined_Sibilant_Catalyst.webp",
+      "sha256": "205f4473aa45c36114aa20bcaa17c5e0974c7404ca3c5ec89902344619893946"
+    },
+    {
+      "name": "assets\\materials\\Refined_Skittering_Catalyst.webp",
+      "sha256": "5cde9233e9d9f50ae2e3b388acefc035bc3a3cb02accd5c36f0e291a6f651640"
+    },
+    {
+      "name": "assets\\materials\\Refined_Tuls_Catalyst.webp",
+      "sha256": "a291df16dab655940664e601fbccd15bab6bb7a7b336f7887ecb79a41ded7d69"
+    },
+    {
+      "name": "assets\\materials\\Refined_Uul-Netols_Catalyst.webp",
+      "sha256": "cf0251defdff35ddca9a29b956da7cf5a9aa3830ae2571bbeefc3841e1ab6a92"
+    },
+    {
+      "name": "assets\\materials\\Refined_Xophs_Catalyst.webp",
+      "sha256": "c1195a4d6c613d9e2e9d260dab30d3073ae5366fe26eccbeba5d17d47d218d5e"
+    },
+    {
+      "name": "assets\\materials\\Runic_Alloy.webp",
+      "sha256": "e3b0f15f12eb1d0b6236efa83dbdfc900dc00b34d34b5f0ef2b8ea2268a8323f"
+    },
+    {
+      "name": "assets\\materials\\Sibilant_Catalyst.webp",
+      "sha256": "201fbc4836b9e328ba582f610c8fa97d4332020dd18ef79a033a939093e1b1d9"
+    },
+    {
+      "name": "assets\\materials\\Skittering_Catalyst.webp",
+      "sha256": "a553d58a0e8b397160e3e6895795ff5946e4fa672593bdf756eebfa7203449e7"
+    },
+    {
+      "name": "assets\\materials\\Sovereign_Alloy.webp",
+      "sha256": "6dc5b787349a682969f06e60fdbfe83e533fc9da3f8485e44d8ea3c8c45933f0"
+    },
+    {
+      "name": "assets\\materials\\Swift_Alloy.webp",
+      "sha256": "cd2237091d4c411567aefb8e05b5f3d45fdc819d3fcfe760994687c88a30cf2f"
+    },
+    {
+      "name": "assets\\materials\\The_Runebinders_Alloy.webp",
+      "sha256": "61811e471fbfb4b783bd6e3af6d5ecf65a4749a8c9a8af1a1d3962268361fff4"
+    },
+    {
+      "name": "assets\\materials\\The_Runefathers_Alloy.webp",
+      "sha256": "5c7a11b64c1c51f4bc6eb53024dea009a01fe30467a95b792509026766e242dc"
+    },
+    {
+      "name": "assets\\materials\\Transcendent_Alloy.webp",
+      "sha256": "5b2cd636f0ac53b2544fb5ebb5aa34adb3abb29a3feb43a92f528a595b9b8e5c"
+    },
+    {
+      "name": "assets\\materials\\Tuls_Catalyst.webp",
+      "sha256": "16519c1f751167a3540480ad2501672274cee18ed6d56e4f7b8643f9bd2baa02"
+    },
+    {
+      "name": "assets\\materials\\Uhtreds_Saga.webp",
+      "sha256": "51e850f85cd6b01fcd29cc4a36ef25dae39dce84020d09605d2a65d1ab04ed4e"
+    },
+    {
+      "name": "assets\\materials\\Uul-Netols_Catalyst.webp",
+      "sha256": "648267a2fb11a9586c801cebc7fcb7c88c1ecefcd1710655166886f6a6665d3e"
+    },
+    {
+      "name": "assets\\materials\\Voranas_Saga.webp",
+      "sha256": "36e4c7ba41953f5aa8a89191a0c6405953f8f56ac4f3408d8bb0221163e6705d"
+    },
+    {
+      "name": "assets\\materials\\Xophs_Catalyst.webp",
+      "sha256": "a2e5863ee82a8515c19b109a38f471bc5a9c9a7a9477428be4f1d383ce95b7a9"
+    },
+    {
+      "name": "assets\\materials\\sources.json",
+      "sha256": "245956d17b0af359e847e9dd0393665634e906765b678ea4150f2806c4badca9"
+    },
+    {
+      "name": "assets\\materials\\tooltip-sources.json",
+      "sha256": "dacdbb06f1b425c40fba88656f0149b6b6ae1d4ee0a4e7178becce3436d605f2"
+    },
+    {
+      "name": "index.html",
+      "sha256": "64f81f6c45becb2244b47ef2723f01d2209c69638e8a46a48dcd95840f9a2add"
+    }
+  ]
+}

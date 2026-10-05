@@ -1004,6 +1004,7 @@ export async function applyCurrency(
       'shields',
       'bucklers',
       'foci',
+      'quivers',
     ].includes(topBase(reviewedKey)?.family ?? '')
       ? (
           reviewedEssenceTargets as Record<
@@ -1104,7 +1105,9 @@ export async function applyCurrency(
         Boolean(next.implicits[0].fractured))) ||
     (v.qualityLimit !== undefined &&
       (v.qualityLimit === null
-        ? (topBase(reviewedKey ?? '')?.family !== 'belts' &&
+        ? (!['belts', 'quivers'].includes(
+            topBase(reviewedKey ?? '')?.family ?? '',
+          ) &&
             ![
               'Metadata/Items/Jewels/JewelRadiusStr',
               'Metadata/Items/Jewels/JewelRadiusDex',

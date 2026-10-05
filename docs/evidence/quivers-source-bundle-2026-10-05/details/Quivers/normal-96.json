@@ -1,0 +1,61 @@
+{
+  "row": {
+    "Name": "Perforating",
+    "Level": "33",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DamageWithWeaponTypeSkill"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(31<span class=\"ndash\">—</span>36)</span>% increased Damage with Bow Skills",
+    "fossil_no": [
+      "damage"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "quiver",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b2b3378cbbe8f9005949764ac5f07c69e7bb5a2365245b0f0fa5b3ed12e34bfb"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FDamageWithBows3",
+  "textLocale": "jp",
+  "detailText": "弓スキルのダメージが(31—36)%増加する",
+  "retrievedAt": "2026-10-05T05:33:41.331Z",
+  "sha256": "4efc41b628130c43f17b79dbb4dc6f8de8aed8b4652779e2ff85b49caea07350",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>弓スキルのダメージが<span class='mod-value'>(31<span class=\"ndash\">—</span>36)</span>%増加する</span></h5>   <span data-tabname=\"穿つ\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>穿つ\n<tr><th>Family<td>DamageWithWeaponTypeSkill\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>プレフィックス (1)\n<tr><th>Req. level<td>33 (Effective: 26)\n<tr><th>Gold Price<td>442\n<tr><th>Stats<td><li>damage +% with bow skills <span class=\"badge bg-primary\">31 <span class=\"ndash\">—</span> 36</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>ダメージ</span> </table>  </div></div>",
+  "fields": {
+    "Name": "穿つ",
+    "Family": "DamageWithWeaponTypeSkill",
+    "Domains": "アイテム (1)",
+    "GenerationType": "プレフィックス (1)",
+    "Req. level": "33 (Effective: 26)",
+    "Gold Price": "442",
+    "Stats": "damage +% with bow skills 31 — 36 Global",
+    "Spawn Tags": "quiver: 1 default: 0",
+    "Craft Tags": "ダメージ"
+  },
+  "code": "DamageWithBows3",
+  "stats": [
+    {
+      "id": "damage_+%_with_bow_skills",
+      "min": 31,
+      "max": 36,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "quiver",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

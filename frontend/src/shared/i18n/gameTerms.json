@@ -2712,6 +2712,72 @@
       "lines": ["Energy Shield: 91"],
       "itemKey": "Metadata/Items/Armours/Focii/FourFocus10Endgame",
       "sourceUrl": "https://poe2db.tw/us/Tasalian_Focus"
+    },
+    "Visceral_Quiver": {
+      "name": "Visceral Quiver",
+      "lines": ["Can only be equipped if you are wielding a Bow."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver11",
+      "sourceUrl": "https://poe2db.tw/us/Visceral_Quiver"
+    },
+    "Volant_Quiver": {
+      "name": "Volant Quiver",
+      "lines": ["Can only be equipped if you are wielding a Bow."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver10",
+      "sourceUrl": "https://poe2db.tw/us/Volant_Quiver"
+    },
+    "Penetrating_Quiver": {
+      "name": "Penetrating Quiver",
+      "lines": ["Can only be equipped if you are wielding a Bow."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver9",
+      "sourceUrl": "https://poe2db.tw/us/Penetrating_Quiver"
+    },
+    "Primed_Quiver": {
+      "name": "Primed Quiver",
+      "lines": ["Can only be equipped if you are wielding a Bow."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver8",
+      "sourceUrl": "https://poe2db.tw/us/Primed_Quiver"
+    },
+    "Serrated_Quiver": {
+      "name": "Serrated Quiver",
+      "lines": ["Can only be equipped if you are wielding a Bow."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver7",
+      "sourceUrl": "https://poe2db.tw/us/Serrated_Quiver"
+    },
+    "Toxic_Quiver": {
+      "name": "Toxic Quiver",
+      "lines": ["Can only be equipped if you are wielding a Bow."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver6",
+      "sourceUrl": "https://poe2db.tw/us/Toxic_Quiver"
+    },
+    "Blunt_Quiver": {
+      "name": "Blunt Quiver",
+      "lines": ["Can only be equipped if you are wielding a Bow."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver5",
+      "sourceUrl": "https://poe2db.tw/us/Blunt_Quiver"
+    },
+    "Two-Point_Quiver": {
+      "name": "Two-Point Quiver",
+      "lines": ["Can only be equipped if you are wielding a Bow."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver4",
+      "sourceUrl": "https://poe2db.tw/us/Two-Point_Quiver"
+    },
+    "Sacral_Quiver": {
+      "name": "Sacral Quiver",
+      "lines": ["Can only be equipped if you are wielding a Bow."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver3",
+      "sourceUrl": "https://poe2db.tw/us/Sacral_Quiver"
+    },
+    "Fire_Quiver": {
+      "name": "Fire Quiver",
+      "lines": ["Can only be equipped if you are wielding a Bow."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver2",
+      "sourceUrl": "https://poe2db.tw/us/Fire_Quiver"
+    },
+    "Broadhead_Quiver": {
+      "name": "Broadhead Quiver",
+      "lines": ["Can only be equipped if you are wielding a Bow."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver1",
+      "sourceUrl": "https://poe2db.tw/us/Broadhead_Quiver"
     }
   },
   "ko": {
@@ -5407,6 +5473,72 @@
       "lines": ["에너지 보호막: 91"],
       "itemKey": "Metadata/Items/Armours/Focii/FourFocus10Endgame",
       "sourceUrl": "https://poe2db.tw/kr/Tasalian_Focus"
+    },
+    "Visceral_Quiver": {
+      "name": "본능적인 화살통",
+      "lines": ["활 장착 시에만 장착할 수 있습니다."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver11",
+      "sourceUrl": "https://poe2db.tw/kr/Visceral_Quiver"
+    },
+    "Volant_Quiver": {
+      "name": "기민한 화살통",
+      "lines": ["활 장착 시에만 장착할 수 있습니다."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver10",
+      "sourceUrl": "https://poe2db.tw/kr/Volant_Quiver"
+    },
+    "Penetrating_Quiver": {
+      "name": "관통 화살통",
+      "lines": ["활 장착 시에만 장착할 수 있습니다."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver9",
+      "sourceUrl": "https://poe2db.tw/kr/Penetrating_Quiver"
+    },
+    "Primed_Quiver": {
+      "name": "준비된 화살통",
+      "lines": ["활 장착 시에만 장착할 수 있습니다."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver8",
+      "sourceUrl": "https://poe2db.tw/kr/Primed_Quiver"
+    },
+    "Serrated_Quiver": {
+      "name": "톱니 화살통",
+      "lines": ["활 장착 시에만 장착할 수 있습니다."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver7",
+      "sourceUrl": "https://poe2db.tw/kr/Serrated_Quiver"
+    },
+    "Toxic_Quiver": {
+      "name": "맹독성 화살통",
+      "lines": ["활 장착 시에만 장착할 수 있습니다."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver6",
+      "sourceUrl": "https://poe2db.tw/kr/Toxic_Quiver"
+    },
+    "Blunt_Quiver": {
+      "name": "뭉툭한 화살통",
+      "lines": ["활 장착 시에만 장착할 수 있습니다."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver5",
+      "sourceUrl": "https://poe2db.tw/kr/Blunt_Quiver"
+    },
+    "Two-Point_Quiver": {
+      "name": "쌍촉 화살통",
+      "lines": ["활 장착 시에만 장착할 수 있습니다."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver4",
+      "sourceUrl": "https://poe2db.tw/kr/Two-Point_Quiver"
+    },
+    "Sacral_Quiver": {
+      "name": "성례 화살통",
+      "lines": ["활 장착 시에만 장착할 수 있습니다."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver3",
+      "sourceUrl": "https://poe2db.tw/kr/Sacral_Quiver"
+    },
+    "Fire_Quiver": {
+      "name": "불 화살통",
+      "lines": ["활 장착 시에만 장착할 수 있습니다."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver2",
+      "sourceUrl": "https://poe2db.tw/kr/Fire_Quiver"
+    },
+    "Broadhead_Quiver": {
+      "name": "넓은 촉 화살통",
+      "lines": ["활 장착 시에만 장착할 수 있습니다."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver1",
+      "sourceUrl": "https://poe2db.tw/kr/Broadhead_Quiver"
     }
   },
   "zh-CN": {
@@ -8000,6 +8132,72 @@
       "lines": ["能量护盾: 91"],
       "itemKey": "Metadata/Items/Armours/Focii/FourFocus10Endgame",
       "sourceUrl": "https://poe2db.tw/cn/Tasalian_Focus"
+    },
+    "Visceral_Quiver": {
+      "name": "贯心箭袋",
+      "lines": ["只能在使用弓时装备。"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver11",
+      "sourceUrl": "https://poe2db.tw/cn/Visceral_Quiver"
+    },
+    "Volant_Quiver": {
+      "name": "飞矢箭袋",
+      "lines": ["只能在使用弓时装备。"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver10",
+      "sourceUrl": "https://poe2db.tw/cn/Volant_Quiver"
+    },
+    "Penetrating_Quiver": {
+      "name": "穿射箭袋",
+      "lines": ["只能在使用弓时装备。"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver9",
+      "sourceUrl": "https://poe2db.tw/cn/Penetrating_Quiver"
+    },
+    "Primed_Quiver": {
+      "name": "精工箭袋",
+      "lines": ["只能在使用弓时装备。"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver8",
+      "sourceUrl": "https://poe2db.tw/cn/Primed_Quiver"
+    },
+    "Serrated_Quiver": {
+      "name": "锯齿箭袋",
+      "lines": ["只能在使用弓时装备。"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver7",
+      "sourceUrl": "https://poe2db.tw/cn/Serrated_Quiver"
+    },
+    "Toxic_Quiver": {
+      "name": "淬毒箭袋",
+      "lines": ["只能在使用弓时装备。"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver6",
+      "sourceUrl": "https://poe2db.tw/cn/Toxic_Quiver"
+    },
+    "Blunt_Quiver": {
+      "name": "钝矢箭袋",
+      "lines": ["只能在使用弓时装备。"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver5",
+      "sourceUrl": "https://poe2db.tw/cn/Blunt_Quiver"
+    },
+    "Two-Point_Quiver": {
+      "name": "双锋箭袋",
+      "lines": ["只能在使用弓时装备。"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver4",
+      "sourceUrl": "https://poe2db.tw/cn/Two-Point_Quiver"
+    },
+    "Sacral_Quiver": {
+      "name": "圣骨箭袋",
+      "lines": ["只能在使用弓时装备。"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver3",
+      "sourceUrl": "https://poe2db.tw/cn/Sacral_Quiver"
+    },
+    "Fire_Quiver": {
+      "name": "火灵箭袋",
+      "lines": ["只能在使用弓时装备。"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver2",
+      "sourceUrl": "https://poe2db.tw/cn/Fire_Quiver"
+    },
+    "Broadhead_Quiver": {
+      "name": "宽矢箭袋",
+      "lines": ["只能在使用弓时装备。"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver1",
+      "sourceUrl": "https://poe2db.tw/cn/Broadhead_Quiver"
     }
   },
   "zh-TW": {
@@ -10583,6 +10781,72 @@
       "lines": ["能量護盾: 91"],
       "itemKey": "Metadata/Items/Armours/Focii/FourFocus10Endgame",
       "sourceUrl": "https://poe2db.tw/tw/Tasalian_Focus"
+    },
+    "Visceral_Quiver": {
+      "name": "內臟箭袋",
+      "lines": ["持弓時才可裝備。"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver11",
+      "sourceUrl": "https://poe2db.tw/tw/Visceral_Quiver"
+    },
+    "Volant_Quiver": {
+      "name": "速射箭袋",
+      "lines": ["持弓時才可裝備。"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver10",
+      "sourceUrl": "https://poe2db.tw/tw/Volant_Quiver"
+    },
+    "Penetrating_Quiver": {
+      "name": "穿透箭袋",
+      "lines": ["持弓時才可裝備。"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver9",
+      "sourceUrl": "https://poe2db.tw/tw/Penetrating_Quiver"
+    },
+    "Primed_Quiver": {
+      "name": "灌注箭袋",
+      "lines": ["持弓時才可裝備。"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver8",
+      "sourceUrl": "https://poe2db.tw/tw/Primed_Quiver"
+    },
+    "Serrated_Quiver": {
+      "name": "鋸齒箭袋",
+      "lines": ["持弓時才可裝備。"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver7",
+      "sourceUrl": "https://poe2db.tw/tw/Serrated_Quiver"
+    },
+    "Toxic_Quiver": {
+      "name": "劇毒箭袋",
+      "lines": ["持弓時才可裝備。"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver6",
+      "sourceUrl": "https://poe2db.tw/tw/Toxic_Quiver"
+    },
+    "Blunt_Quiver": {
+      "name": "鈍箭袋",
+      "lines": ["持弓時才可裝備。"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver5",
+      "sourceUrl": "https://poe2db.tw/tw/Blunt_Quiver"
+    },
+    "Two-Point_Quiver": {
+      "name": "雙尖箭袋",
+      "lines": ["持弓時才可裝備。"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver4",
+      "sourceUrl": "https://poe2db.tw/tw/Two-Point_Quiver"
+    },
+    "Sacral_Quiver": {
+      "name": "聖禮箭袋",
+      "lines": ["持弓時才可裝備。"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver3",
+      "sourceUrl": "https://poe2db.tw/tw/Sacral_Quiver"
+    },
+    "Fire_Quiver": {
+      "name": "火焰箭袋",
+      "lines": ["持弓時才可裝備。"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver2",
+      "sourceUrl": "https://poe2db.tw/tw/Fire_Quiver"
+    },
+    "Broadhead_Quiver": {
+      "name": "寬頭箭袋",
+      "lines": ["持弓時才可裝備。"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver1",
+      "sourceUrl": "https://poe2db.tw/tw/Broadhead_Quiver"
     }
   },
   "ja": {
@@ -13280,6 +13544,72 @@
       "lines": ["エナジーシールド: 91"],
       "itemKey": "Metadata/Items/Armours/Focii/FourFocus10Endgame",
       "sourceUrl": "https://poe2db.tw/jp/Tasalian_Focus"
+    },
+    "Visceral_Quiver": {
+      "name": "血生臭い矢筒",
+      "lines": ["弓装備時のみ装備可能"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver11",
+      "sourceUrl": "https://poe2db.tw/jp/Visceral_Quiver"
+    },
+    "Volant_Quiver": {
+      "name": "高速の矢筒",
+      "lines": ["弓装備時のみ装備可能"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver10",
+      "sourceUrl": "https://poe2db.tw/jp/Volant_Quiver"
+    },
+    "Penetrating_Quiver": {
+      "name": "貫通の矢筒",
+      "lines": ["弓装備時のみ装備可能"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver9",
+      "sourceUrl": "https://poe2db.tw/jp/Penetrating_Quiver"
+    },
+    "Primed_Quiver": {
+      "name": "臨戦の矢筒",
+      "lines": ["弓装備時のみ装備可能"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver8",
+      "sourceUrl": "https://poe2db.tw/jp/Primed_Quiver"
+    },
+    "Serrated_Quiver": {
+      "name": "鋸歯の矢筒",
+      "lines": ["弓装備時のみ装備可能"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver7",
+      "sourceUrl": "https://poe2db.tw/jp/Serrated_Quiver"
+    },
+    "Toxic_Quiver": {
+      "name": "毒の矢筒",
+      "lines": ["弓装備時のみ装備可能"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver6",
+      "sourceUrl": "https://poe2db.tw/jp/Toxic_Quiver"
+    },
+    "Blunt_Quiver": {
+      "name": "鈍頭の矢筒",
+      "lines": ["弓装備時のみ装備可能"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver5",
+      "sourceUrl": "https://poe2db.tw/jp/Blunt_Quiver"
+    },
+    "Two-Point_Quiver": {
+      "name": "二股の矢筒",
+      "lines": ["弓装備時のみ装備可能"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver4",
+      "sourceUrl": "https://poe2db.tw/jp/Two-Point_Quiver"
+    },
+    "Sacral_Quiver": {
+      "name": "神聖な矢筒",
+      "lines": ["弓装備時のみ装備可能"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver3",
+      "sourceUrl": "https://poe2db.tw/jp/Sacral_Quiver"
+    },
+    "Fire_Quiver": {
+      "name": "火の矢筒",
+      "lines": ["弓装備時のみ装備可能"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver2",
+      "sourceUrl": "https://poe2db.tw/jp/Fire_Quiver"
+    },
+    "Broadhead_Quiver": {
+      "name": "太矢じりの矢筒",
+      "lines": ["弓装備時のみ装備可能"],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver1",
+      "sourceUrl": "https://poe2db.tw/jp/Broadhead_Quiver"
     }
   },
   "es": {
@@ -15899,6 +16229,72 @@
       "lines": ["Escudo de energía: 91"],
       "itemKey": "Metadata/Items/Armours/Focii/FourFocus10Endgame",
       "sourceUrl": "https://poe2db.tw/sp/Tasalian_Focus"
+    },
+    "Visceral_Quiver": {
+      "name": "Carcaj de flechas viscerales",
+      "lines": ["Solo se puede equipar si portas un arco."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver11",
+      "sourceUrl": "https://poe2db.tw/sp/Visceral_Quiver"
+    },
+    "Volant_Quiver": {
+      "name": "Carcaj de flechas voladoras",
+      "lines": ["Solo se puede equipar si portas un arco."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver10",
+      "sourceUrl": "https://poe2db.tw/sp/Volant_Quiver"
+    },
+    "Penetrating_Quiver": {
+      "name": "Carcaj de flechas penetrantes",
+      "lines": ["Solo se puede equipar si portas un arco."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver9",
+      "sourceUrl": "https://poe2db.tw/sp/Penetrating_Quiver"
+    },
+    "Primed_Quiver": {
+      "name": "Carcaj de flechas preparadas",
+      "lines": ["Solo se puede equipar si portas un arco."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver8",
+      "sourceUrl": "https://poe2db.tw/sp/Primed_Quiver"
+    },
+    "Serrated_Quiver": {
+      "name": "Carcaj de flechas serradas",
+      "lines": ["Solo se puede equipar si portas un arco."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver7",
+      "sourceUrl": "https://poe2db.tw/sp/Serrated_Quiver"
+    },
+    "Toxic_Quiver": {
+      "name": "Carcaj de flechas tóxicas",
+      "lines": ["Solo se puede equipar si portas un arco."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver6",
+      "sourceUrl": "https://poe2db.tw/sp/Toxic_Quiver"
+    },
+    "Blunt_Quiver": {
+      "name": "Carcaj de flechas romas",
+      "lines": ["Solo se puede equipar si portas un arco."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver5",
+      "sourceUrl": "https://poe2db.tw/sp/Blunt_Quiver"
+    },
+    "Two-Point_Quiver": {
+      "name": "Carcaj de flechas dobles",
+      "lines": ["Solo se puede equipar si portas un arco."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver4",
+      "sourceUrl": "https://poe2db.tw/sp/Two-Point_Quiver"
+    },
+    "Sacral_Quiver": {
+      "name": "Carcaj de flechas sacras",
+      "lines": ["Solo se puede equipar si portas un arco."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver3",
+      "sourceUrl": "https://poe2db.tw/sp/Sacral_Quiver"
+    },
+    "Fire_Quiver": {
+      "name": "Carcaj de flechas de fuego",
+      "lines": ["Solo se puede equipar si portas un arco."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver2",
+      "sourceUrl": "https://poe2db.tw/sp/Fire_Quiver"
+    },
+    "Broadhead_Quiver": {
+      "name": "Carcaj de flechas anchas",
+      "lines": ["Solo se puede equipar si portas un arco."],
+      "itemKey": "Metadata/Items/Quivers/FourQuiver1",
+      "sourceUrl": "https://poe2db.tw/sp/Broadhead_Quiver"
     }
   }
 }

@@ -62,6 +62,18 @@ const baseTexts = {
     'Item Class: Shields\nRarity: Normal\nBlacksteel Crest Shield',
   'desert-buckler': 'Item Class: Bucklers\nRarity: Normal\nDesert Buckler',
   'tasalian-focus': 'Item Class: Foci\nRarity: Normal\nTasalian Focus',
+  'visceral-quiver': 'Item Class: Quivers\nRarity: Normal\nVisceral Quiver',
+  'volant-quiver': 'Item Class: Quivers\nRarity: Normal\nVolant Quiver',
+  'penetrating-quiver':
+    'Item Class: Quivers\nRarity: Normal\nPenetrating Quiver',
+  'primed-quiver': 'Item Class: Quivers\nRarity: Normal\nPrimed Quiver',
+  'serrated-quiver': 'Item Class: Quivers\nRarity: Normal\nSerrated Quiver',
+  'toxic-quiver': 'Item Class: Quivers\nRarity: Normal\nToxic Quiver',
+  'blunt-quiver': 'Item Class: Quivers\nRarity: Normal\nBlunt Quiver',
+  'two-point-quiver': 'Item Class: Quivers\nRarity: Normal\nTwo-Point Quiver',
+  'sacral-quiver': 'Item Class: Quivers\nRarity: Normal\nSacral Quiver',
+  'fire-quiver': 'Item Class: Quivers\nRarity: Normal\nFire Quiver',
+  'broadhead-quiver': 'Item Class: Quivers\nRarity: Normal\nBroadhead Quiver',
   bone: 'Item Class: Wands\nRarity: Normal\nBone Wand',
   siphoning: 'Item Class: Wands\nRarity: Normal\nSiphoning Wand',
   volatile: 'Item Class: Wands\nRarity: Normal\nVolatile Wand',
@@ -181,6 +193,17 @@ type Draft = {
     | 'blacksteel-crest-shield'
     | 'desert-buckler'
     | 'tasalian-focus'
+    | 'visceral-quiver'
+    | 'volant-quiver'
+    | 'penetrating-quiver'
+    | 'primed-quiver'
+    | 'serrated-quiver'
+    | 'toxic-quiver'
+    | 'blunt-quiver'
+    | 'two-point-quiver'
+    | 'sacral-quiver'
+    | 'fire-quiver'
+    | 'broadhead-quiver'
     | 'bone'
     | 'siphoning'
     | 'volatile'
@@ -290,6 +313,17 @@ type Draft = {
       | 'blacksteel-crest-shield'
       | 'desert-buckler'
       | 'tasalian-focus'
+      | 'visceral-quiver'
+      | 'volant-quiver'
+      | 'penetrating-quiver'
+      | 'primed-quiver'
+      | 'serrated-quiver'
+      | 'toxic-quiver'
+      | 'blunt-quiver'
+      | 'two-point-quiver'
+      | 'sacral-quiver'
+      | 'fire-quiver'
+      | 'broadhead-quiver'
       | 'bone'
       | 'siphoning'
       | 'volatile'

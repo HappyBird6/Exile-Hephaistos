@@ -43592,6 +43592,777 @@
           "divisor": 1
         }
       ]
+    },
+    "quiver:suffix:of-menace:AttackCriticalStrikeChance1": {
+      "stats": [
+        {
+          "id": "attack_critical_strike_chance_+%",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "englishText": "(10—14)% increased Critical Hit Chance for Attacks",
+      "values": ["(10—14)"],
+      "template": "quivers.quiver:suffix:of-menace:AttackCriticalStrikeChance1",
+      "sourceCode": "AttackCriticalStrikeChance1",
+      "valueStats": [
+        {
+          "id": "attack_critical_strike_chance_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:suffix:of-havoc:AttackCriticalStrikeChance2": {
+      "stats": [
+        {
+          "id": "attack_critical_strike_chance_+%",
+          "min": 15,
+          "max": 19
+        }
+      ],
+      "englishText": "(15—19)% increased Critical Hit Chance for Attacks",
+      "values": ["(15—19)"],
+      "template": "quivers.quiver:suffix:of-havoc:AttackCriticalStrikeChance2",
+      "sourceCode": "AttackCriticalStrikeChance2",
+      "valueStats": [
+        {
+          "id": "attack_critical_strike_chance_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:suffix:of-disaster:AttackCriticalStrikeChance3": {
+      "stats": [
+        {
+          "id": "attack_critical_strike_chance_+%",
+          "min": 20,
+          "max": 24
+        }
+      ],
+      "englishText": "(20—24)% increased Critical Hit Chance for Attacks",
+      "values": ["(20—24)"],
+      "template": "quivers.quiver:suffix:of-disaster:AttackCriticalStrikeChance3",
+      "sourceCode": "AttackCriticalStrikeChance3",
+      "valueStats": [
+        {
+          "id": "attack_critical_strike_chance_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:suffix:of-calamity:AttackCriticalStrikeChance4": {
+      "stats": [
+        {
+          "id": "attack_critical_strike_chance_+%",
+          "min": 25,
+          "max": 29
+        }
+      ],
+      "englishText": "(25—29)% increased Critical Hit Chance for Attacks",
+      "values": ["(25—29)"],
+      "template": "quivers.quiver:suffix:of-calamity:AttackCriticalStrikeChance4",
+      "sourceCode": "AttackCriticalStrikeChance4",
+      "valueStats": [
+        {
+          "id": "attack_critical_strike_chance_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:suffix:of-ruin:AttackCriticalStrikeChance5": {
+      "stats": [
+        {
+          "id": "attack_critical_strike_chance_+%",
+          "min": 30,
+          "max": 34
+        }
+      ],
+      "englishText": "(30—34)% increased Critical Hit Chance for Attacks",
+      "values": ["(30—34)"],
+      "template": "quivers.quiver:suffix:of-ruin:AttackCriticalStrikeChance5",
+      "sourceCode": "AttackCriticalStrikeChance5",
+      "valueStats": [
+        {
+          "id": "attack_critical_strike_chance_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:suffix:of-unmaking:AttackCriticalStrikeChance6": {
+      "stats": [
+        {
+          "id": "attack_critical_strike_chance_+%",
+          "min": 35,
+          "max": 38
+        }
+      ],
+      "englishText": "(35—38)% increased Critical Hit Chance for Attacks",
+      "values": ["(35—38)"],
+      "template": "quivers.quiver:suffix:of-unmaking:AttackCriticalStrikeChance6",
+      "sourceCode": "AttackCriticalStrikeChance6",
+      "valueStats": [
+        {
+          "id": "attack_critical_strike_chance_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:suffix:of-ire:AttackCriticalStrikeMultiplier1": {
+      "stats": [
+        {
+          "id": "attack_critical_strike_multiplier_+",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "englishText": "(10—14)% increased Critical Damage Bonus for Attack Damage",
+      "values": ["(10—14)"],
+      "template": "quivers.quiver:suffix:of-ire:AttackCriticalStrikeMultiplier1",
+      "sourceCode": "AttackCriticalStrikeMultiplier1",
+      "valueStats": [
+        {
+          "id": "attack_critical_strike_multiplier_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:suffix:of-anger:AttackCriticalStrikeMultiplier2": {
+      "stats": [
+        {
+          "id": "attack_critical_strike_multiplier_+",
+          "min": 15,
+          "max": 19
+        }
+      ],
+      "englishText": "(15—19)% increased Critical Damage Bonus for Attack Damage",
+      "values": ["(15—19)"],
+      "template": "quivers.quiver:suffix:of-anger:AttackCriticalStrikeMultiplier2",
+      "sourceCode": "AttackCriticalStrikeMultiplier2",
+      "valueStats": [
+        {
+          "id": "attack_critical_strike_multiplier_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:suffix:of-rage:AttackCriticalStrikeMultiplier3": {
+      "stats": [
+        {
+          "id": "attack_critical_strike_multiplier_+",
+          "min": 20,
+          "max": 24
+        }
+      ],
+      "englishText": "(20—24)% increased Critical Damage Bonus for Attack Damage",
+      "values": ["(20—24)"],
+      "template": "quivers.quiver:suffix:of-rage:AttackCriticalStrikeMultiplier3",
+      "sourceCode": "AttackCriticalStrikeMultiplier3",
+      "valueStats": [
+        {
+          "id": "attack_critical_strike_multiplier_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:suffix:of-fury:AttackCriticalStrikeMultiplier4": {
+      "stats": [
+        {
+          "id": "attack_critical_strike_multiplier_+",
+          "min": 25,
+          "max": 29
+        }
+      ],
+      "englishText": "(25—29)% increased Critical Damage Bonus for Attack Damage",
+      "values": ["(25—29)"],
+      "template": "quivers.quiver:suffix:of-fury:AttackCriticalStrikeMultiplier4",
+      "sourceCode": "AttackCriticalStrikeMultiplier4",
+      "valueStats": [
+        {
+          "id": "attack_critical_strike_multiplier_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:suffix:of-ferocity:AttackCriticalStrikeMultiplier5": {
+      "stats": [
+        {
+          "id": "attack_critical_strike_multiplier_+",
+          "min": 30,
+          "max": 34
+        }
+      ],
+      "englishText": "(30—34)% increased Critical Damage Bonus for Attack Damage",
+      "values": ["(30—34)"],
+      "template": "quivers.quiver:suffix:of-ferocity:AttackCriticalStrikeMultiplier5",
+      "sourceCode": "AttackCriticalStrikeMultiplier5",
+      "valueStats": [
+        {
+          "id": "attack_critical_strike_multiplier_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:suffix:of-destruction:AttackCriticalStrikeMultiplier6": {
+      "stats": [
+        {
+          "id": "attack_critical_strike_multiplier_+",
+          "min": 35,
+          "max": 39
+        }
+      ],
+      "englishText": "(35—39)% increased Critical Damage Bonus for Attack Damage",
+      "values": ["(35—39)"],
+      "template": "quivers.quiver:suffix:of-destruction:AttackCriticalStrikeMultiplier6",
+      "sourceCode": "AttackCriticalStrikeMultiplier6",
+      "valueStats": [
+        {
+          "id": "attack_critical_strike_multiplier_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:suffix:of-piercing:ArrowPierceChance1": {
+      "stats": [
+        {
+          "id": "base_chance_to_pierce_%",
+          "min": 12,
+          "max": 14
+        }
+      ],
+      "englishText": "(12—14)% chance to Pierce an Enemy",
+      "values": ["(12—14)"],
+      "template": "quivers.quiver:suffix:of-piercing:ArrowPierceChance1",
+      "sourceCode": "ArrowPierceChance1",
+      "valueStats": [
+        {
+          "id": "base_chance_to_pierce_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:suffix:of-drilling:ArrowPierceChance2": {
+      "stats": [
+        {
+          "id": "base_chance_to_pierce_%",
+          "min": 15,
+          "max": 17
+        }
+      ],
+      "englishText": "(15—17)% chance to Pierce an Enemy",
+      "values": ["(15—17)"],
+      "template": "quivers.quiver:suffix:of-drilling:ArrowPierceChance2",
+      "sourceCode": "ArrowPierceChance2",
+      "valueStats": [
+        {
+          "id": "base_chance_to_pierce_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:suffix:of-puncturing:ArrowPierceChance3": {
+      "stats": [
+        {
+          "id": "base_chance_to_pierce_%",
+          "min": 18,
+          "max": 20
+        }
+      ],
+      "englishText": "(18—20)% chance to Pierce an Enemy",
+      "values": ["(18—20)"],
+      "template": "quivers.quiver:suffix:of-puncturing:ArrowPierceChance3",
+      "sourceCode": "ArrowPierceChance3",
+      "valueStats": [
+        {
+          "id": "base_chance_to_pierce_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:suffix:of-skewering:ArrowPierceChance4": {
+      "stats": [
+        {
+          "id": "base_chance_to_pierce_%",
+          "min": 21,
+          "max": 23
+        }
+      ],
+      "englishText": "(21—23)% chance to Pierce an Enemy",
+      "values": ["(21—23)"],
+      "template": "quivers.quiver:suffix:of-skewering:ArrowPierceChance4",
+      "sourceCode": "ArrowPierceChance4",
+      "valueStats": [
+        {
+          "id": "base_chance_to_pierce_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:suffix:of-penetrating:ArrowPierceChance5": {
+      "stats": [
+        {
+          "id": "base_chance_to_pierce_%",
+          "min": 24,
+          "max": 26
+        }
+      ],
+      "englishText": "(24—26)% chance to Pierce an Enemy",
+      "values": ["(24—26)"],
+      "template": "quivers.quiver:suffix:of-penetrating:ArrowPierceChance5",
+      "sourceCode": "ArrowPierceChance5",
+      "valueStats": [
+        {
+          "id": "base_chance_to_pierce_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:suffix:of-surplus:AdditionalArrowChanceQuiver1": {
+      "stats": [
+        {
+          "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
+          "min": 25,
+          "max": 40
+        }
+      ],
+      "englishText": "+(25—40)% Surpassing chance to fire an additional Arrow",
+      "values": ["+(25—40)"],
+      "template": "quivers.quiver:suffix:of-surplus:AdditionalArrowChanceQuiver1",
+      "sourceCode": "AdditionalArrowChanceQuiver1",
+      "valueStats": [
+        {
+          "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:suffix:of-splintering:AdditionalArrowChanceQuiver2": {
+      "stats": [
+        {
+          "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
+          "min": 41,
+          "max": 60
+        }
+      ],
+      "englishText": "+(41—60)% Surpassing chance to fire an additional Arrow",
+      "values": ["+(41—60)"],
+      "template": "quivers.quiver:suffix:of-splintering:AdditionalArrowChanceQuiver2",
+      "sourceCode": "AdditionalArrowChanceQuiver2",
+      "valueStats": [
+        {
+          "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:prefix:darting:ProjectileSpeed1": {
+      "stats": [
+        {
+          "id": "base_projectile_speed_+%",
+          "min": 10,
+          "max": 17
+        }
+      ],
+      "englishText": "(10—17)% increased Projectile Speed",
+      "values": ["(10—17)"],
+      "template": "quivers.quiver:prefix:darting:ProjectileSpeed1",
+      "sourceCode": "ProjectileSpeed1",
+      "valueStats": [
+        {
+          "id": "base_projectile_speed_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:prefix:brisk:ProjectileSpeed2": {
+      "stats": [
+        {
+          "id": "base_projectile_speed_+%",
+          "min": 18,
+          "max": 25
+        }
+      ],
+      "englishText": "(18—25)% increased Projectile Speed",
+      "values": ["(18—25)"],
+      "template": "quivers.quiver:prefix:brisk:ProjectileSpeed2",
+      "sourceCode": "ProjectileSpeed2",
+      "valueStats": [
+        {
+          "id": "base_projectile_speed_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:prefix:quick:ProjectileSpeed3": {
+      "stats": [
+        {
+          "id": "base_projectile_speed_+%",
+          "min": 26,
+          "max": 33
+        }
+      ],
+      "englishText": "(26—33)% increased Projectile Speed",
+      "values": ["(26—33)"],
+      "template": "quivers.quiver:prefix:quick:ProjectileSpeed3",
+      "sourceCode": "ProjectileSpeed3",
+      "valueStats": [
+        {
+          "id": "base_projectile_speed_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:prefix:rapid:ProjectileSpeed4": {
+      "stats": [
+        {
+          "id": "base_projectile_speed_+%",
+          "min": 34,
+          "max": 41
+        }
+      ],
+      "englishText": "(34—41)% increased Projectile Speed",
+      "values": ["(34—41)"],
+      "template": "quivers.quiver:prefix:rapid:ProjectileSpeed4",
+      "sourceCode": "ProjectileSpeed4",
+      "valueStats": [
+        {
+          "id": "base_projectile_speed_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:prefix:nimble:ProjectileSpeed5": {
+      "stats": [
+        {
+          "id": "base_projectile_speed_+%",
+          "min": 42,
+          "max": 46
+        }
+      ],
+      "englishText": "(42—46)% increased Projectile Speed",
+      "values": ["(42—46)"],
+      "template": "quivers.quiver:prefix:nimble:ProjectileSpeed5",
+      "sourceCode": "ProjectileSpeed5",
+      "valueStats": [
+        {
+          "id": "base_projectile_speed_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:prefix:acute:DamageWithBows1": {
+      "stats": [
+        {
+          "id": "damage_+%_with_bow_skills",
+          "min": 11,
+          "max": 20
+        }
+      ],
+      "englishText": "(11—20)% increased Damage with Bow Skills",
+      "values": ["(11—20)"],
+      "template": "quivers.quiver:prefix:acute:DamageWithBows1",
+      "sourceCode": "DamageWithBows1",
+      "valueStats": [
+        {
+          "id": "damage_+%_with_bow_skills",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:prefix:trenchant:DamageWithBows2": {
+      "stats": [
+        {
+          "id": "damage_+%_with_bow_skills",
+          "min": 21,
+          "max": 30
+        }
+      ],
+      "englishText": "(21—30)% increased Damage with Bow Skills",
+      "values": ["(21—30)"],
+      "template": "quivers.quiver:prefix:trenchant:DamageWithBows2",
+      "sourceCode": "DamageWithBows2",
+      "valueStats": [
+        {
+          "id": "damage_+%_with_bow_skills",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:prefix:perforating:DamageWithBows3": {
+      "stats": [
+        {
+          "id": "damage_+%_with_bow_skills",
+          "min": 31,
+          "max": 36
+        }
+      ],
+      "englishText": "(31—36)% increased Damage with Bow Skills",
+      "values": ["(31—36)"],
+      "template": "quivers.quiver:prefix:perforating:DamageWithBows3",
+      "sourceCode": "DamageWithBows3",
+      "valueStats": [
+        {
+          "id": "damage_+%_with_bow_skills",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:prefix:incisive:DamageWithBows4": {
+      "stats": [
+        {
+          "id": "damage_+%_with_bow_skills",
+          "min": 37,
+          "max": 42
+        }
+      ],
+      "englishText": "(37—42)% increased Damage with Bow Skills",
+      "values": ["(37—42)"],
+      "template": "quivers.quiver:prefix:incisive:DamageWithBows4",
+      "sourceCode": "DamageWithBows4",
+      "valueStats": [
+        {
+          "id": "damage_+%_with_bow_skills",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:prefix:lacerating:DamageWithBows5": {
+      "stats": [
+        {
+          "id": "damage_+%_with_bow_skills",
+          "min": 43,
+          "max": 50
+        }
+      ],
+      "englishText": "(43—50)% increased Damage with Bow Skills",
+      "values": ["(43—50)"],
+      "template": "quivers.quiver:prefix:lacerating:DamageWithBows5",
+      "sourceCode": "DamageWithBows5",
+      "valueStats": [
+        {
+          "id": "damage_+%_with_bow_skills",
+          "divisor": 1
+        }
+      ]
+    },
+    "quiver:prefix:impaling:DamageWithBows6": {
+      "stats": [
+        {
+          "id": "damage_+%_with_bow_skills",
+          "min": 51,
+          "max": 59
+        }
+      ],
+      "englishText": "(51—59)% increased Damage with Bow Skills",
+      "values": ["(51—59)"],
+      "template": "quivers.quiver:prefix:impaling:DamageWithBows6",
+      "sourceCode": "DamageWithBows6",
+      "valueStats": [
+        {
+          "id": "damage_+%_with_bow_skills",
+          "divisor": 1
+        }
+      ]
+    },
+    "visceral-quiver:implicit:base": {
+      "stats": [
+        {
+          "id": "attack_critical_strike_chance_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "englishText": "(20—30)% increased Critical Hit Chance for Attacks",
+      "values": ["(20—30)"],
+      "template": "quivers.visceral-quiver:implicit:base",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "attack_critical_strike_chance_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "volant-quiver:implicit:base": {
+      "stats": [
+        {
+          "id": "base_arrow_speed_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "englishText": "(20—30)% increased Arrow Speed",
+      "values": ["(20—30)"],
+      "template": "quivers.volant-quiver:implicit:base",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_arrow_speed_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "penetrating-quiver:implicit:base": {
+      "stats": [
+        {
+          "id": "base_chance_to_pierce_%",
+          "min": 100,
+          "max": 100
+        }
+      ],
+      "englishText": "100% chance to Pierce an Enemy",
+      "values": [],
+      "template": "quivers.penetrating-quiver:implicit:base",
+      "sourceCode": null
+    },
+    "primed-quiver:implicit:base": {
+      "stats": [
+        {
+          "id": "attack_speed_+%",
+          "min": 7,
+          "max": 10
+        }
+      ],
+      "englishText": "(7—10)% increased Attack Speed",
+      "values": ["(7—10)"],
+      "template": "quivers.primed-quiver:implicit:base",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "attack_speed_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "serrated-quiver:implicit:base": {
+      "stats": [
+        {
+          "id": "bleed_on_hit_with_attacks_%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "englishText": "Attacks have (20—30)% chance to cause Bleeding",
+      "values": ["(20—30)"],
+      "template": "quivers.serrated-quiver:implicit:base",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "bleed_on_hit_with_attacks_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "toxic-quiver:implicit:base": {
+      "stats": [
+        {
+          "id": "chance_to_poison_on_hit_with_attacks_%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "englishText": "(20—30)% chance to Poison on Hit with Attacks",
+      "values": ["(20—30)"],
+      "template": "quivers.toxic-quiver:implicit:base",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "chance_to_poison_on_hit_with_attacks_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "blunt-quiver:implicit:base": {
+      "stats": [
+        {
+          "id": "hit_damage_stun_multiplier_+%",
+          "min": 25,
+          "max": 40
+        }
+      ],
+      "englishText": "(25—40)% increased Stun Buildup",
+      "values": ["(25—40)"],
+      "template": "quivers.blunt-quiver:implicit:base",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "hit_damage_stun_multiplier_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "two-point-quiver:implicit:base": {
+      "stats": [
+        {
+          "id": "accuracy_rating_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "englishText": "(20—30)% increased Accuracy Rating",
+      "values": ["(20—30)"],
+      "template": "quivers.two-point-quiver:implicit:base",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "accuracy_rating_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "sacral-quiver:implicit:base": {
+      "stats": [
+        {
+          "id": "base_life_gain_per_target",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "englishText": "Gain (2—3) Life per Enemy Hit with Attacks",
+      "values": ["(2—3)"],
+      "template": "quivers.sacral-quiver:implicit:base",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_life_gain_per_target",
+          "divisor": 1
+        }
+      ]
+    },
+    "fire-quiver:implicit:base": {
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 5,
+          "max": 5
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "englishText": "Adds 3 to 5 Fire damage to Attacks",
+      "values": [],
+      "template": "quivers.fire-quiver:implicit:base",
+      "sourceCode": null
+    },
+    "broadhead-quiver:implicit:base": {
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 3,
+          "max": 3
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "Adds 1 to 3 Physical Damage to Attacks",
+      "values": [],
+      "template": "quivers.broadhead-quiver:implicit:base",
+      "sourceCode": null
     }
   },
   "templates": {
@@ -51863,6 +52634,170 @@
       "offhands.offhand:prefix:hallowed:LocalBaseArmourAndEnergyShield4": {
         "name": "Hallowed",
         "template": "{v0} to Armour\n{v1} to maximum Energy Shield"
+      },
+      "quivers.quiver:suffix:of-menace:AttackCriticalStrikeChance1": {
+        "name": "of Menace",
+        "template": "{v0}% increased Critical Hit Chance for Attacks"
+      },
+      "quivers.quiver:suffix:of-havoc:AttackCriticalStrikeChance2": {
+        "name": "of Havoc",
+        "template": "{v0}% increased Critical Hit Chance for Attacks"
+      },
+      "quivers.quiver:suffix:of-disaster:AttackCriticalStrikeChance3": {
+        "name": "of Disaster",
+        "template": "{v0}% increased Critical Hit Chance for Attacks"
+      },
+      "quivers.quiver:suffix:of-calamity:AttackCriticalStrikeChance4": {
+        "name": "of Calamity",
+        "template": "{v0}% increased Critical Hit Chance for Attacks"
+      },
+      "quivers.quiver:suffix:of-ruin:AttackCriticalStrikeChance5": {
+        "name": "of Ruin",
+        "template": "{v0}% increased Critical Hit Chance for Attacks"
+      },
+      "quivers.quiver:suffix:of-unmaking:AttackCriticalStrikeChance6": {
+        "name": "of Unmaking",
+        "template": "{v0}% increased Critical Hit Chance for Attacks"
+      },
+      "quivers.quiver:suffix:of-ire:AttackCriticalStrikeMultiplier1": {
+        "name": "of Ire",
+        "template": "{v0}% increased Critical Damage Bonus for Attack Damage"
+      },
+      "quivers.quiver:suffix:of-anger:AttackCriticalStrikeMultiplier2": {
+        "name": "of Anger",
+        "template": "{v0}% increased Critical Damage Bonus for Attack Damage"
+      },
+      "quivers.quiver:suffix:of-rage:AttackCriticalStrikeMultiplier3": {
+        "name": "of Rage",
+        "template": "{v0}% increased Critical Damage Bonus for Attack Damage"
+      },
+      "quivers.quiver:suffix:of-fury:AttackCriticalStrikeMultiplier4": {
+        "name": "of Fury",
+        "template": "{v0}% increased Critical Damage Bonus for Attack Damage"
+      },
+      "quivers.quiver:suffix:of-ferocity:AttackCriticalStrikeMultiplier5": {
+        "name": "of Ferocity",
+        "template": "{v0}% increased Critical Damage Bonus for Attack Damage"
+      },
+      "quivers.quiver:suffix:of-destruction:AttackCriticalStrikeMultiplier6": {
+        "name": "of Destruction",
+        "template": "{v0}% increased Critical Damage Bonus for Attack Damage"
+      },
+      "quivers.quiver:suffix:of-piercing:ArrowPierceChance1": {
+        "name": "of Piercing",
+        "template": "{v0}% chance to Pierce an Enemy"
+      },
+      "quivers.quiver:suffix:of-drilling:ArrowPierceChance2": {
+        "name": "of Drilling",
+        "template": "{v0}% chance to Pierce an Enemy"
+      },
+      "quivers.quiver:suffix:of-puncturing:ArrowPierceChance3": {
+        "name": "of Puncturing",
+        "template": "{v0}% chance to Pierce an Enemy"
+      },
+      "quivers.quiver:suffix:of-skewering:ArrowPierceChance4": {
+        "name": "of Skewering",
+        "template": "{v0}% chance to Pierce an Enemy"
+      },
+      "quivers.quiver:suffix:of-penetrating:ArrowPierceChance5": {
+        "name": "of Penetrating",
+        "template": "{v0}% chance to Pierce an Enemy"
+      },
+      "quivers.quiver:suffix:of-surplus:AdditionalArrowChanceQuiver1": {
+        "name": "of Surplus",
+        "template": "{v0}% Surpassing chance to fire an additional Arrow"
+      },
+      "quivers.quiver:suffix:of-splintering:AdditionalArrowChanceQuiver2": {
+        "name": "of Splintering",
+        "template": "{v0}% Surpassing chance to fire an additional Arrow"
+      },
+      "quivers.quiver:prefix:darting:ProjectileSpeed1": {
+        "name": "Darting",
+        "template": "{v0}% increased Projectile Speed"
+      },
+      "quivers.quiver:prefix:brisk:ProjectileSpeed2": {
+        "name": "Brisk",
+        "template": "{v0}% increased Projectile Speed"
+      },
+      "quivers.quiver:prefix:quick:ProjectileSpeed3": {
+        "name": "Quick",
+        "template": "{v0}% increased Projectile Speed"
+      },
+      "quivers.quiver:prefix:rapid:ProjectileSpeed4": {
+        "name": "Rapid",
+        "template": "{v0}% increased Projectile Speed"
+      },
+      "quivers.quiver:prefix:nimble:ProjectileSpeed5": {
+        "name": "Nimble",
+        "template": "{v0}% increased Projectile Speed"
+      },
+      "quivers.quiver:prefix:acute:DamageWithBows1": {
+        "name": "Acute",
+        "template": "{v0}% increased Damage with Bow Skills"
+      },
+      "quivers.quiver:prefix:trenchant:DamageWithBows2": {
+        "name": "Trenchant",
+        "template": "{v0}% increased Damage with Bow Skills"
+      },
+      "quivers.quiver:prefix:perforating:DamageWithBows3": {
+        "name": "Perforating",
+        "template": "{v0}% increased Damage with Bow Skills"
+      },
+      "quivers.quiver:prefix:incisive:DamageWithBows4": {
+        "name": "Incisive",
+        "template": "{v0}% increased Damage with Bow Skills"
+      },
+      "quivers.quiver:prefix:lacerating:DamageWithBows5": {
+        "name": "Lacerating",
+        "template": "{v0}% increased Damage with Bow Skills"
+      },
+      "quivers.quiver:prefix:impaling:DamageWithBows6": {
+        "name": "Impaling",
+        "template": "{v0}% increased Damage with Bow Skills"
+      },
+      "quivers.visceral-quiver:implicit:base": {
+        "name": "Visceral Quiver",
+        "template": "{v0}% increased Critical Hit Chance for Attacks"
+      },
+      "quivers.volant-quiver:implicit:base": {
+        "name": "Volant Quiver",
+        "template": "{v0}% increased Arrow Speed"
+      },
+      "quivers.penetrating-quiver:implicit:base": {
+        "name": "Penetrating Quiver",
+        "template": "100% chance to Pierce an Enemy"
+      },
+      "quivers.primed-quiver:implicit:base": {
+        "name": "Primed Quiver",
+        "template": "{v0}% increased Attack Speed"
+      },
+      "quivers.serrated-quiver:implicit:base": {
+        "name": "Serrated Quiver",
+        "template": "Attacks have {v0}% chance to cause Bleeding"
+      },
+      "quivers.toxic-quiver:implicit:base": {
+        "name": "Toxic Quiver",
+        "template": "{v0}% chance to Poison on Hit with Attacks"
+      },
+      "quivers.blunt-quiver:implicit:base": {
+        "name": "Blunt Quiver",
+        "template": "{v0}% increased Stun Buildup"
+      },
+      "quivers.two-point-quiver:implicit:base": {
+        "name": "Two-Point Quiver",
+        "template": "{v0}% increased Accuracy Rating"
+      },
+      "quivers.sacral-quiver:implicit:base": {
+        "name": "Sacral Quiver",
+        "template": "Gain {v0} Life per Enemy Hit with Attacks"
+      },
+      "quivers.fire-quiver:implicit:base": {
+        "name": "Fire Quiver",
+        "template": "Adds 3 to 5 Fire damage to Attacks"
+      },
+      "quivers.broadhead-quiver:implicit:base": {
+        "name": "Broadhead Quiver",
+        "template": "Adds 1 to 3 Physical Damage to Attacks"
       }
     },
     "ko": {
@@ -60133,6 +61068,170 @@
       "offhands.offhand:prefix:hallowed:LocalBaseArmourAndEnergyShield4": {
         "name": "Hallowed",
         "template": "방어도 {v0}\n에너지 보호막 최대치 {v1}"
+      },
+      "quivers.quiver:suffix:of-menace:AttackCriticalStrikeChance1": {
+        "name": "of Menace",
+        "template": "공격 치명타 명중 확률 {v0}% 증가"
+      },
+      "quivers.quiver:suffix:of-havoc:AttackCriticalStrikeChance2": {
+        "name": "of Havoc",
+        "template": "공격 치명타 명중 확률 {v0}% 증가"
+      },
+      "quivers.quiver:suffix:of-disaster:AttackCriticalStrikeChance3": {
+        "name": "of Disaster",
+        "template": "공격 치명타 명중 확률 {v0}% 증가"
+      },
+      "quivers.quiver:suffix:of-calamity:AttackCriticalStrikeChance4": {
+        "name": "of Calamity",
+        "template": "공격 치명타 명중 확률 {v0}% 증가"
+      },
+      "quivers.quiver:suffix:of-ruin:AttackCriticalStrikeChance5": {
+        "name": "of Ruin",
+        "template": "공격 치명타 명중 확률 {v0}% 증가"
+      },
+      "quivers.quiver:suffix:of-unmaking:AttackCriticalStrikeChance6": {
+        "name": "of Unmaking",
+        "template": "공격 치명타 명중 확률 {v0}% 증가"
+      },
+      "quivers.quiver:suffix:of-ire:AttackCriticalStrikeMultiplier1": {
+        "name": "of Ire",
+        "template": "공격 피해의 치명타 피해 보너스 {v0}% 증가"
+      },
+      "quivers.quiver:suffix:of-anger:AttackCriticalStrikeMultiplier2": {
+        "name": "of Anger",
+        "template": "공격 피해의 치명타 피해 보너스 {v0}% 증가"
+      },
+      "quivers.quiver:suffix:of-rage:AttackCriticalStrikeMultiplier3": {
+        "name": "of Rage",
+        "template": "공격 피해의 치명타 피해 보너스 {v0}% 증가"
+      },
+      "quivers.quiver:suffix:of-fury:AttackCriticalStrikeMultiplier4": {
+        "name": "of Fury",
+        "template": "공격 피해의 치명타 피해 보너스 {v0}% 증가"
+      },
+      "quivers.quiver:suffix:of-ferocity:AttackCriticalStrikeMultiplier5": {
+        "name": "of Ferocity",
+        "template": "공격 피해의 치명타 피해 보너스 {v0}% 증가"
+      },
+      "quivers.quiver:suffix:of-destruction:AttackCriticalStrikeMultiplier6": {
+        "name": "of Destruction",
+        "template": "공격 피해의 치명타 피해 보너스 {v0}% 증가"
+      },
+      "quivers.quiver:suffix:of-piercing:ArrowPierceChance1": {
+        "name": "of Piercing",
+        "template": "{v0}%의 확률로 적 관통"
+      },
+      "quivers.quiver:suffix:of-drilling:ArrowPierceChance2": {
+        "name": "of Drilling",
+        "template": "{v0}%의 확률로 적 관통"
+      },
+      "quivers.quiver:suffix:of-puncturing:ArrowPierceChance3": {
+        "name": "of Puncturing",
+        "template": "{v0}%의 확률로 적 관통"
+      },
+      "quivers.quiver:suffix:of-skewering:ArrowPierceChance4": {
+        "name": "of Skewering",
+        "template": "{v0}%의 확률로 적 관통"
+      },
+      "quivers.quiver:suffix:of-penetrating:ArrowPierceChance5": {
+        "name": "of Penetrating",
+        "template": "{v0}%의 확률로 적 관통"
+      },
+      "quivers.quiver:suffix:of-surplus:AdditionalArrowChanceQuiver1": {
+        "name": "of Surplus",
+        "template": "추가 화살을 발사할 초과 확률 {v0}%"
+      },
+      "quivers.quiver:suffix:of-splintering:AdditionalArrowChanceQuiver2": {
+        "name": "of Splintering",
+        "template": "추가 화살을 발사할 초과 확률 {v0}%"
+      },
+      "quivers.quiver:prefix:darting:ProjectileSpeed1": {
+        "name": "Darting",
+        "template": "투사체 속도 {v0}% 증가"
+      },
+      "quivers.quiver:prefix:brisk:ProjectileSpeed2": {
+        "name": "Brisk",
+        "template": "투사체 속도 {v0}% 증가"
+      },
+      "quivers.quiver:prefix:quick:ProjectileSpeed3": {
+        "name": "Quick",
+        "template": "투사체 속도 {v0}% 증가"
+      },
+      "quivers.quiver:prefix:rapid:ProjectileSpeed4": {
+        "name": "Rapid",
+        "template": "투사체 속도 {v0}% 증가"
+      },
+      "quivers.quiver:prefix:nimble:ProjectileSpeed5": {
+        "name": "Nimble",
+        "template": "투사체 속도 {v0}% 증가"
+      },
+      "quivers.quiver:prefix:acute:DamageWithBows1": {
+        "name": "Acute",
+        "template": "활 스킬로 주는 피해 {v0}% 증가"
+      },
+      "quivers.quiver:prefix:trenchant:DamageWithBows2": {
+        "name": "Trenchant",
+        "template": "활 스킬로 주는 피해 {v0}% 증가"
+      },
+      "quivers.quiver:prefix:perforating:DamageWithBows3": {
+        "name": "Perforating",
+        "template": "활 스킬로 주는 피해 {v0}% 증가"
+      },
+      "quivers.quiver:prefix:incisive:DamageWithBows4": {
+        "name": "Incisive",
+        "template": "활 스킬로 주는 피해 {v0}% 증가"
+      },
+      "quivers.quiver:prefix:lacerating:DamageWithBows5": {
+        "name": "Lacerating",
+        "template": "활 스킬로 주는 피해 {v0}% 증가"
+      },
+      "quivers.quiver:prefix:impaling:DamageWithBows6": {
+        "name": "Impaling",
+        "template": "활 스킬로 주는 피해 {v0}% 증가"
+      },
+      "quivers.visceral-quiver:implicit:base": {
+        "name": "Visceral Quiver",
+        "template": "공격 치명타 명중 확률 {v0}% 증가"
+      },
+      "quivers.volant-quiver:implicit:base": {
+        "name": "Volant Quiver",
+        "template": "화살 속도 {v0}% 증가"
+      },
+      "quivers.penetrating-quiver:implicit:base": {
+        "name": "Penetrating Quiver",
+        "template": "100%의 확률로 적 관통"
+      },
+      "quivers.primed-quiver:implicit:base": {
+        "name": "Primed Quiver",
+        "template": "공격 속도 {v0}% 증가"
+      },
+      "quivers.serrated-quiver:implicit:base": {
+        "name": "Serrated Quiver",
+        "template": "공격 시 {v0}%의 확률로 출혈 유발"
+      },
+      "quivers.toxic-quiver:implicit:base": {
+        "name": "Toxic Quiver",
+        "template": "공격 명중 시 {v0}%의 확률로 중독 유발"
+      },
+      "quivers.blunt-quiver:implicit:base": {
+        "name": "Blunt Quiver",
+        "template": "기절 축적 {v0}% 증가"
+      },
+      "quivers.two-point-quiver:implicit:base": {
+        "name": "Two-Point Quiver",
+        "template": "일반 정확도 {v0}% 증가"
+      },
+      "quivers.sacral-quiver:implicit:base": {
+        "name": "Sacral Quiver",
+        "template": "플레이어의 공격으로 명중하는 적 하나당 획득하는 생명력 {v0}"
+      },
+      "quivers.fire-quiver:implicit:base": {
+        "name": "Fire Quiver",
+        "template": "공격 시 화염 피해 3~5 추가"
+      },
+      "quivers.broadhead-quiver:implicit:base": {
+        "name": "Broadhead Quiver",
+        "template": "공격 시 물리 피해 1~3 추가"
       }
     },
     "zh-CN": {
@@ -68403,6 +69502,170 @@
       "offhands.offhand:prefix:hallowed:LocalBaseArmourAndEnergyShield4": {
         "name": "Hallowed",
         "template": "{v0} 护甲\n{v1} 能量护盾上限"
+      },
+      "quivers.quiver:suffix:of-menace:AttackCriticalStrikeChance1": {
+        "name": "of Menace",
+        "template": "攻击暴击率提高 {v0}%"
+      },
+      "quivers.quiver:suffix:of-havoc:AttackCriticalStrikeChance2": {
+        "name": "of Havoc",
+        "template": "攻击暴击率提高 {v0}%"
+      },
+      "quivers.quiver:suffix:of-disaster:AttackCriticalStrikeChance3": {
+        "name": "of Disaster",
+        "template": "攻击暴击率提高 {v0}%"
+      },
+      "quivers.quiver:suffix:of-calamity:AttackCriticalStrikeChance4": {
+        "name": "of Calamity",
+        "template": "攻击暴击率提高 {v0}%"
+      },
+      "quivers.quiver:suffix:of-ruin:AttackCriticalStrikeChance5": {
+        "name": "of Ruin",
+        "template": "攻击暴击率提高 {v0}%"
+      },
+      "quivers.quiver:suffix:of-unmaking:AttackCriticalStrikeChance6": {
+        "name": "of Unmaking",
+        "template": "攻击暴击率提高 {v0}%"
+      },
+      "quivers.quiver:suffix:of-ire:AttackCriticalStrikeMultiplier1": {
+        "name": "of Ire",
+        "template": "攻击伤害的暴击伤害加成 {v0}%"
+      },
+      "quivers.quiver:suffix:of-anger:AttackCriticalStrikeMultiplier2": {
+        "name": "of Anger",
+        "template": "攻击伤害的暴击伤害加成 {v0}%"
+      },
+      "quivers.quiver:suffix:of-rage:AttackCriticalStrikeMultiplier3": {
+        "name": "of Rage",
+        "template": "攻击伤害的暴击伤害加成 {v0}%"
+      },
+      "quivers.quiver:suffix:of-fury:AttackCriticalStrikeMultiplier4": {
+        "name": "of Fury",
+        "template": "攻击伤害的暴击伤害加成 {v0}%"
+      },
+      "quivers.quiver:suffix:of-ferocity:AttackCriticalStrikeMultiplier5": {
+        "name": "of Ferocity",
+        "template": "攻击伤害的暴击伤害加成 {v0}%"
+      },
+      "quivers.quiver:suffix:of-destruction:AttackCriticalStrikeMultiplier6": {
+        "name": "of Destruction",
+        "template": "攻击伤害的暴击伤害加成 {v0}%"
+      },
+      "quivers.quiver:suffix:of-piercing:ArrowPierceChance1": {
+        "name": "of Piercing",
+        "template": "{v0}% 的几率穿透一个敌人"
+      },
+      "quivers.quiver:suffix:of-drilling:ArrowPierceChance2": {
+        "name": "of Drilling",
+        "template": "{v0}% 的几率穿透一个敌人"
+      },
+      "quivers.quiver:suffix:of-puncturing:ArrowPierceChance3": {
+        "name": "of Puncturing",
+        "template": "{v0}% 的几率穿透一个敌人"
+      },
+      "quivers.quiver:suffix:of-skewering:ArrowPierceChance4": {
+        "name": "of Skewering",
+        "template": "{v0}% 的几率穿透一个敌人"
+      },
+      "quivers.quiver:suffix:of-penetrating:ArrowPierceChance5": {
+        "name": "of Penetrating",
+        "template": "{v0}% 的几率穿透一个敌人"
+      },
+      "quivers.quiver:suffix:of-surplus:AdditionalArrowChanceQuiver1": {
+        "name": "of Surplus",
+        "template": "{v0}% 的溢出几率发射一支额外箭矢"
+      },
+      "quivers.quiver:suffix:of-splintering:AdditionalArrowChanceQuiver2": {
+        "name": "of Splintering",
+        "template": "{v0}% 的溢出几率发射一支额外箭矢"
+      },
+      "quivers.quiver:prefix:darting:ProjectileSpeed1": {
+        "name": "Darting",
+        "template": "投射物速度提高 {v0}%"
+      },
+      "quivers.quiver:prefix:brisk:ProjectileSpeed2": {
+        "name": "Brisk",
+        "template": "投射物速度提高 {v0}%"
+      },
+      "quivers.quiver:prefix:quick:ProjectileSpeed3": {
+        "name": "Quick",
+        "template": "投射物速度提高 {v0}%"
+      },
+      "quivers.quiver:prefix:rapid:ProjectileSpeed4": {
+        "name": "Rapid",
+        "template": "投射物速度提高 {v0}%"
+      },
+      "quivers.quiver:prefix:nimble:ProjectileSpeed5": {
+        "name": "Nimble",
+        "template": "投射物速度提高 {v0}%"
+      },
+      "quivers.quiver:prefix:acute:DamageWithBows1": {
+        "name": "Acute",
+        "template": "弓类技能伤害提高 {v0}%"
+      },
+      "quivers.quiver:prefix:trenchant:DamageWithBows2": {
+        "name": "Trenchant",
+        "template": "弓类技能伤害提高 {v0}%"
+      },
+      "quivers.quiver:prefix:perforating:DamageWithBows3": {
+        "name": "Perforating",
+        "template": "弓类技能伤害提高 {v0}%"
+      },
+      "quivers.quiver:prefix:incisive:DamageWithBows4": {
+        "name": "Incisive",
+        "template": "弓类技能伤害提高 {v0}%"
+      },
+      "quivers.quiver:prefix:lacerating:DamageWithBows5": {
+        "name": "Lacerating",
+        "template": "弓类技能伤害提高 {v0}%"
+      },
+      "quivers.quiver:prefix:impaling:DamageWithBows6": {
+        "name": "Impaling",
+        "template": "弓类技能伤害提高 {v0}%"
+      },
+      "quivers.visceral-quiver:implicit:base": {
+        "name": "Visceral Quiver",
+        "template": "攻击暴击率提高 {v0}%"
+      },
+      "quivers.volant-quiver:implicit:base": {
+        "name": "Volant Quiver",
+        "template": "箭矢速度提高 {v0}%"
+      },
+      "quivers.penetrating-quiver:implicit:base": {
+        "name": "Penetrating Quiver",
+        "template": "100% 的几率穿透一个敌人"
+      },
+      "quivers.primed-quiver:implicit:base": {
+        "name": "Primed Quiver",
+        "template": "攻击速度提高 {v0}%"
+      },
+      "quivers.serrated-quiver:implicit:base": {
+        "name": "Serrated Quiver",
+        "template": "攻击有 {v0}% 的几率导致流血"
+      },
+      "quivers.toxic-quiver:implicit:base": {
+        "name": "Toxic Quiver",
+        "template": "攻击击中时有 {v0}% 的几率使目标中毒"
+      },
+      "quivers.blunt-quiver:implicit:base": {
+        "name": "Blunt Quiver",
+        "template": "晕眩积蓄值提高 {v0}%"
+      },
+      "quivers.two-point-quiver:implicit:base": {
+        "name": "Two-Point Quiver",
+        "template": "命中值提高 {v0}%"
+      },
+      "quivers.sacral-quiver:implicit:base": {
+        "name": "Sacral Quiver",
+        "template": "攻击每击中一名敌人获得{v0}点生命"
+      },
+      "quivers.fire-quiver:implicit:base": {
+        "name": "Fire Quiver",
+        "template": "攻击附加 3 - 5 基础火焰伤害"
+      },
+      "quivers.broadhead-quiver:implicit:base": {
+        "name": "Broadhead Quiver",
+        "template": "攻击附加 1 - 3 物理伤害"
       }
     },
     "zh-TW": {
@@ -76673,6 +77936,170 @@
       "offhands.offhand:prefix:hallowed:LocalBaseArmourAndEnergyShield4": {
         "name": "Hallowed",
         "template": "{v0}護甲值\n{v1}最大能量護盾"
+      },
+      "quivers.quiver:suffix:of-menace:AttackCriticalStrikeChance1": {
+        "name": "of Menace",
+        "template": "增加{v0}%攻擊暴擊率"
+      },
+      "quivers.quiver:suffix:of-havoc:AttackCriticalStrikeChance2": {
+        "name": "of Havoc",
+        "template": "增加{v0}%攻擊暴擊率"
+      },
+      "quivers.quiver:suffix:of-disaster:AttackCriticalStrikeChance3": {
+        "name": "of Disaster",
+        "template": "增加{v0}%攻擊暴擊率"
+      },
+      "quivers.quiver:suffix:of-calamity:AttackCriticalStrikeChance4": {
+        "name": "of Calamity",
+        "template": "增加{v0}%攻擊暴擊率"
+      },
+      "quivers.quiver:suffix:of-ruin:AttackCriticalStrikeChance5": {
+        "name": "of Ruin",
+        "template": "增加{v0}%攻擊暴擊率"
+      },
+      "quivers.quiver:suffix:of-unmaking:AttackCriticalStrikeChance6": {
+        "name": "of Unmaking",
+        "template": "增加{v0}%攻擊暴擊率"
+      },
+      "quivers.quiver:suffix:of-ire:AttackCriticalStrikeMultiplier1": {
+        "name": "of Ire",
+        "template": "增加{v0}%攻擊傷害的暴擊傷害加成"
+      },
+      "quivers.quiver:suffix:of-anger:AttackCriticalStrikeMultiplier2": {
+        "name": "of Anger",
+        "template": "增加{v0}%攻擊傷害的暴擊傷害加成"
+      },
+      "quivers.quiver:suffix:of-rage:AttackCriticalStrikeMultiplier3": {
+        "name": "of Rage",
+        "template": "增加{v0}%攻擊傷害的暴擊傷害加成"
+      },
+      "quivers.quiver:suffix:of-fury:AttackCriticalStrikeMultiplier4": {
+        "name": "of Fury",
+        "template": "增加{v0}%攻擊傷害的暴擊傷害加成"
+      },
+      "quivers.quiver:suffix:of-ferocity:AttackCriticalStrikeMultiplier5": {
+        "name": "of Ferocity",
+        "template": "增加{v0}%攻擊傷害的暴擊傷害加成"
+      },
+      "quivers.quiver:suffix:of-destruction:AttackCriticalStrikeMultiplier6": {
+        "name": "of Destruction",
+        "template": "增加{v0}%攻擊傷害的暴擊傷害加成"
+      },
+      "quivers.quiver:suffix:of-piercing:ArrowPierceChance1": {
+        "name": "of Piercing",
+        "template": "有{v0}%機率穿透一個敵人"
+      },
+      "quivers.quiver:suffix:of-drilling:ArrowPierceChance2": {
+        "name": "of Drilling",
+        "template": "有{v0}%機率穿透一個敵人"
+      },
+      "quivers.quiver:suffix:of-puncturing:ArrowPierceChance3": {
+        "name": "of Puncturing",
+        "template": "有{v0}%機率穿透一個敵人"
+      },
+      "quivers.quiver:suffix:of-skewering:ArrowPierceChance4": {
+        "name": "of Skewering",
+        "template": "有{v0}%機率穿透一個敵人"
+      },
+      "quivers.quiver:suffix:of-penetrating:ArrowPierceChance5": {
+        "name": "of Penetrating",
+        "template": "有{v0}%機率穿透一個敵人"
+      },
+      "quivers.quiver:suffix:of-surplus:AdditionalArrowChanceQuiver1": {
+        "name": "of Surplus",
+        "template": "{v0}%滿溢機率發射額外一枚箭矢"
+      },
+      "quivers.quiver:suffix:of-splintering:AdditionalArrowChanceQuiver2": {
+        "name": "of Splintering",
+        "template": "{v0}%滿溢機率發射額外一枚箭矢"
+      },
+      "quivers.quiver:prefix:darting:ProjectileSpeed1": {
+        "name": "Darting",
+        "template": "增加{v0}%投射物速度"
+      },
+      "quivers.quiver:prefix:brisk:ProjectileSpeed2": {
+        "name": "Brisk",
+        "template": "增加{v0}%投射物速度"
+      },
+      "quivers.quiver:prefix:quick:ProjectileSpeed3": {
+        "name": "Quick",
+        "template": "增加{v0}%投射物速度"
+      },
+      "quivers.quiver:prefix:rapid:ProjectileSpeed4": {
+        "name": "Rapid",
+        "template": "增加{v0}%投射物速度"
+      },
+      "quivers.quiver:prefix:nimble:ProjectileSpeed5": {
+        "name": "Nimble",
+        "template": "增加{v0}%投射物速度"
+      },
+      "quivers.quiver:prefix:acute:DamageWithBows1": {
+        "name": "Acute",
+        "template": "增加{v0}%弓技能的傷害"
+      },
+      "quivers.quiver:prefix:trenchant:DamageWithBows2": {
+        "name": "Trenchant",
+        "template": "增加{v0}%弓技能的傷害"
+      },
+      "quivers.quiver:prefix:perforating:DamageWithBows3": {
+        "name": "Perforating",
+        "template": "增加{v0}%弓技能的傷害"
+      },
+      "quivers.quiver:prefix:incisive:DamageWithBows4": {
+        "name": "Incisive",
+        "template": "增加{v0}%弓技能的傷害"
+      },
+      "quivers.quiver:prefix:lacerating:DamageWithBows5": {
+        "name": "Lacerating",
+        "template": "增加{v0}%弓技能的傷害"
+      },
+      "quivers.quiver:prefix:impaling:DamageWithBows6": {
+        "name": "Impaling",
+        "template": "增加{v0}%弓技能的傷害"
+      },
+      "quivers.visceral-quiver:implicit:base": {
+        "name": "Visceral Quiver",
+        "template": "增加{v0}%攻擊暴擊率"
+      },
+      "quivers.volant-quiver:implicit:base": {
+        "name": "Volant Quiver",
+        "template": "增加{v0}%箭矢速度"
+      },
+      "quivers.penetrating-quiver:implicit:base": {
+        "name": "Penetrating Quiver",
+        "template": "有100%機率穿透一個敵人"
+      },
+      "quivers.primed-quiver:implicit:base": {
+        "name": "Primed Quiver",
+        "template": "增加{v0}%攻擊速度"
+      },
+      "quivers.serrated-quiver:implicit:base": {
+        "name": "Serrated Quiver",
+        "template": "攻擊有{v0}%機率造成流血"
+      },
+      "quivers.toxic-quiver:implicit:base": {
+        "name": "Toxic Quiver",
+        "template": "攻擊有{v0}%機率在擊中時造成中毒"
+      },
+      "quivers.blunt-quiver:implicit:base": {
+        "name": "Blunt Quiver",
+        "template": "增加{v0}%暈眩累積"
+      },
+      "quivers.two-point-quiver:implicit:base": {
+        "name": "Two-Point Quiver",
+        "template": "增加{v0}%命中值"
+      },
+      "quivers.sacral-quiver:implicit:base": {
+        "name": "Sacral Quiver",
+        "template": "攻擊每擊中一名敵人，獲得{v0}生命"
+      },
+      "quivers.fire-quiver:implicit:base": {
+        "name": "Fire Quiver",
+        "template": "攻擊附加3至5火焰傷害"
+      },
+      "quivers.broadhead-quiver:implicit:base": {
+        "name": "Broadhead Quiver",
+        "template": "攻擊附加1至3物理傷害"
       }
     },
     "ja": {
@@ -84943,6 +86370,170 @@
       "offhands.offhand:prefix:hallowed:LocalBaseArmourAndEnergyShield4": {
         "name": "Hallowed",
         "template": "アーマー {v0}\n最大エナジーシールド {v1}"
+      },
+      "quivers.quiver:suffix:of-menace:AttackCriticalStrikeChance1": {
+        "name": "of Menace",
+        "template": "アタックのクリティカルヒット率が{v0}%増加する"
+      },
+      "quivers.quiver:suffix:of-havoc:AttackCriticalStrikeChance2": {
+        "name": "of Havoc",
+        "template": "アタックのクリティカルヒット率が{v0}%増加する"
+      },
+      "quivers.quiver:suffix:of-disaster:AttackCriticalStrikeChance3": {
+        "name": "of Disaster",
+        "template": "アタックのクリティカルヒット率が{v0}%増加する"
+      },
+      "quivers.quiver:suffix:of-calamity:AttackCriticalStrikeChance4": {
+        "name": "of Calamity",
+        "template": "アタックのクリティカルヒット率が{v0}%増加する"
+      },
+      "quivers.quiver:suffix:of-ruin:AttackCriticalStrikeChance5": {
+        "name": "of Ruin",
+        "template": "アタックのクリティカルヒット率が{v0}%増加する"
+      },
+      "quivers.quiver:suffix:of-unmaking:AttackCriticalStrikeChance6": {
+        "name": "of Unmaking",
+        "template": "アタックのクリティカルヒット率が{v0}%増加する"
+      },
+      "quivers.quiver:suffix:of-ire:AttackCriticalStrikeMultiplier1": {
+        "name": "of Ire",
+        "template": "アタックダメージのクリティカルダメージボーナスが{v0}%増加する"
+      },
+      "quivers.quiver:suffix:of-anger:AttackCriticalStrikeMultiplier2": {
+        "name": "of Anger",
+        "template": "アタックダメージのクリティカルダメージボーナスが{v0}%増加する"
+      },
+      "quivers.quiver:suffix:of-rage:AttackCriticalStrikeMultiplier3": {
+        "name": "of Rage",
+        "template": "アタックダメージのクリティカルダメージボーナスが{v0}%増加する"
+      },
+      "quivers.quiver:suffix:of-fury:AttackCriticalStrikeMultiplier4": {
+        "name": "of Fury",
+        "template": "アタックダメージのクリティカルダメージボーナスが{v0}%増加する"
+      },
+      "quivers.quiver:suffix:of-ferocity:AttackCriticalStrikeMultiplier5": {
+        "name": "of Ferocity",
+        "template": "アタックダメージのクリティカルダメージボーナスが{v0}%増加する"
+      },
+      "quivers.quiver:suffix:of-destruction:AttackCriticalStrikeMultiplier6": {
+        "name": "of Destruction",
+        "template": "アタックダメージのクリティカルダメージボーナスが{v0}%増加する"
+      },
+      "quivers.quiver:suffix:of-piercing:ArrowPierceChance1": {
+        "name": "of Piercing",
+        "template": "{v0}%の確率で敵を貫通する"
+      },
+      "quivers.quiver:suffix:of-drilling:ArrowPierceChance2": {
+        "name": "of Drilling",
+        "template": "{v0}%の確率で敵を貫通する"
+      },
+      "quivers.quiver:suffix:of-puncturing:ArrowPierceChance3": {
+        "name": "of Puncturing",
+        "template": "{v0}%の確率で敵を貫通する"
+      },
+      "quivers.quiver:suffix:of-skewering:ArrowPierceChance4": {
+        "name": "of Skewering",
+        "template": "{v0}%の確率で敵を貫通する"
+      },
+      "quivers.quiver:suffix:of-penetrating:ArrowPierceChance5": {
+        "name": "of Penetrating",
+        "template": "{v0}%の確率で敵を貫通する"
+      },
+      "quivers.quiver:suffix:of-surplus:AdditionalArrowChanceQuiver1": {
+        "name": "of Surplus",
+        "template": "矢を追加で1個放つ超過可能確率 {v0}%"
+      },
+      "quivers.quiver:suffix:of-splintering:AdditionalArrowChanceQuiver2": {
+        "name": "of Splintering",
+        "template": "矢を追加で1個放つ超過可能確率 {v0}%"
+      },
+      "quivers.quiver:prefix:darting:ProjectileSpeed1": {
+        "name": "Darting",
+        "template": "投射物スピードが{v0}%増加する"
+      },
+      "quivers.quiver:prefix:brisk:ProjectileSpeed2": {
+        "name": "Brisk",
+        "template": "投射物スピードが{v0}%増加する"
+      },
+      "quivers.quiver:prefix:quick:ProjectileSpeed3": {
+        "name": "Quick",
+        "template": "投射物スピードが{v0}%増加する"
+      },
+      "quivers.quiver:prefix:rapid:ProjectileSpeed4": {
+        "name": "Rapid",
+        "template": "投射物スピードが{v0}%増加する"
+      },
+      "quivers.quiver:prefix:nimble:ProjectileSpeed5": {
+        "name": "Nimble",
+        "template": "投射物スピードが{v0}%増加する"
+      },
+      "quivers.quiver:prefix:acute:DamageWithBows1": {
+        "name": "Acute",
+        "template": "弓スキルのダメージが{v0}%増加する"
+      },
+      "quivers.quiver:prefix:trenchant:DamageWithBows2": {
+        "name": "Trenchant",
+        "template": "弓スキルのダメージが{v0}%増加する"
+      },
+      "quivers.quiver:prefix:perforating:DamageWithBows3": {
+        "name": "Perforating",
+        "template": "弓スキルのダメージが{v0}%増加する"
+      },
+      "quivers.quiver:prefix:incisive:DamageWithBows4": {
+        "name": "Incisive",
+        "template": "弓スキルのダメージが{v0}%増加する"
+      },
+      "quivers.quiver:prefix:lacerating:DamageWithBows5": {
+        "name": "Lacerating",
+        "template": "弓スキルのダメージが{v0}%増加する"
+      },
+      "quivers.quiver:prefix:impaling:DamageWithBows6": {
+        "name": "Impaling",
+        "template": "弓スキルのダメージが{v0}%増加する"
+      },
+      "quivers.visceral-quiver:implicit:base": {
+        "name": "Visceral Quiver",
+        "template": "アタックのクリティカルヒット率が{v0}%増加する"
+      },
+      "quivers.volant-quiver:implicit:base": {
+        "name": "Volant Quiver",
+        "template": "矢のスピードが{v0}%増加する"
+      },
+      "quivers.penetrating-quiver:implicit:base": {
+        "name": "Penetrating Quiver",
+        "template": "100%の確率で敵を貫通する"
+      },
+      "quivers.primed-quiver:implicit:base": {
+        "name": "Primed Quiver",
+        "template": "アタックスピードが{v0}%増加する"
+      },
+      "quivers.serrated-quiver:implicit:base": {
+        "name": "Serrated Quiver",
+        "template": "アタックは{v0}%の確率で出血を付与する"
+      },
+      "quivers.toxic-quiver:implicit:base": {
+        "name": "Toxic Quiver",
+        "template": "アタックによるヒット時に{v0}%の確率で毒を付与する"
+      },
+      "quivers.blunt-quiver:implicit:base": {
+        "name": "Blunt Quiver",
+        "template": "スタン蓄積が{v0}%増加する"
+      },
+      "quivers.two-point-quiver:implicit:base": {
+        "name": "Two-Point Quiver",
+        "template": "グローバル命中力が{v0}%増加する"
+      },
+      "quivers.sacral-quiver:implicit:base": {
+        "name": "Sacral Quiver",
+        "template": "アタックでヒットを与えた敵1体ごとに{v0}のライフを獲得する"
+      },
+      "quivers.fire-quiver:implicit:base": {
+        "name": "Fire Quiver",
+        "template": "3から5の火ダメージをアタックに追加する"
+      },
+      "quivers.broadhead-quiver:implicit:base": {
+        "name": "Broadhead Quiver",
+        "template": "1から3の物理ダメージをアタックに追加する"
       }
     },
     "es": {
@@ -93213,6 +94804,170 @@
       "offhands.offhand:prefix:hallowed:LocalBaseArmourAndEnergyShield4": {
         "name": "Hallowed",
         "template": "{v0} a la armadura\n{v1} al escudo de energía máximo"
+      },
+      "quivers.quiver:suffix:of-menace:AttackCriticalStrikeChance1": {
+        "name": "of Menace",
+        "template": "Probabilidad de impacto crítico de los ataques aumentada un {v0}%"
+      },
+      "quivers.quiver:suffix:of-havoc:AttackCriticalStrikeChance2": {
+        "name": "of Havoc",
+        "template": "Probabilidad de impacto crítico de los ataques aumentada un {v0}%"
+      },
+      "quivers.quiver:suffix:of-disaster:AttackCriticalStrikeChance3": {
+        "name": "of Disaster",
+        "template": "Probabilidad de impacto crítico de los ataques aumentada un {v0}%"
+      },
+      "quivers.quiver:suffix:of-calamity:AttackCriticalStrikeChance4": {
+        "name": "of Calamity",
+        "template": "Probabilidad de impacto crítico de los ataques aumentada un {v0}%"
+      },
+      "quivers.quiver:suffix:of-ruin:AttackCriticalStrikeChance5": {
+        "name": "of Ruin",
+        "template": "Probabilidad de impacto crítico de los ataques aumentada un {v0}%"
+      },
+      "quivers.quiver:suffix:of-unmaking:AttackCriticalStrikeChance6": {
+        "name": "of Unmaking",
+        "template": "Probabilidad de impacto crítico de los ataques aumentada un {v0}%"
+      },
+      "quivers.quiver:suffix:of-ire:AttackCriticalStrikeMultiplier1": {
+        "name": "of Ire",
+        "template": "Bonificación de daño crítico del daño de los ataques aumentada un {v0}%"
+      },
+      "quivers.quiver:suffix:of-anger:AttackCriticalStrikeMultiplier2": {
+        "name": "of Anger",
+        "template": "Bonificación de daño crítico del daño de los ataques aumentada un {v0}%"
+      },
+      "quivers.quiver:suffix:of-rage:AttackCriticalStrikeMultiplier3": {
+        "name": "of Rage",
+        "template": "Bonificación de daño crítico del daño de los ataques aumentada un {v0}%"
+      },
+      "quivers.quiver:suffix:of-fury:AttackCriticalStrikeMultiplier4": {
+        "name": "of Fury",
+        "template": "Bonificación de daño crítico del daño de los ataques aumentada un {v0}%"
+      },
+      "quivers.quiver:suffix:of-ferocity:AttackCriticalStrikeMultiplier5": {
+        "name": "of Ferocity",
+        "template": "Bonificación de daño crítico del daño de los ataques aumentada un {v0}%"
+      },
+      "quivers.quiver:suffix:of-destruction:AttackCriticalStrikeMultiplier6": {
+        "name": "of Destruction",
+        "template": "Bonificación de daño crítico del daño de los ataques aumentada un {v0}%"
+      },
+      "quivers.quiver:suffix:of-piercing:ArrowPierceChance1": {
+        "name": "of Piercing",
+        "template": "{v0}% de probabilidad de perforar a un enemigo"
+      },
+      "quivers.quiver:suffix:of-drilling:ArrowPierceChance2": {
+        "name": "of Drilling",
+        "template": "{v0}% de probabilidad de perforar a un enemigo"
+      },
+      "quivers.quiver:suffix:of-puncturing:ArrowPierceChance3": {
+        "name": "of Puncturing",
+        "template": "{v0}% de probabilidad de perforar a un enemigo"
+      },
+      "quivers.quiver:suffix:of-skewering:ArrowPierceChance4": {
+        "name": "of Skewering",
+        "template": "{v0}% de probabilidad de perforar a un enemigo"
+      },
+      "quivers.quiver:suffix:of-penetrating:ArrowPierceChance5": {
+        "name": "of Penetrating",
+        "template": "{v0}% de probabilidad de perforar a un enemigo"
+      },
+      "quivers.quiver:suffix:of-surplus:AdditionalArrowChanceQuiver1": {
+        "name": "of Surplus",
+        "template": "{v0}% de probabilidad sobrepasante de disparar una flecha adicional"
+      },
+      "quivers.quiver:suffix:of-splintering:AdditionalArrowChanceQuiver2": {
+        "name": "of Splintering",
+        "template": "{v0}% de probabilidad sobrepasante de disparar una flecha adicional"
+      },
+      "quivers.quiver:prefix:darting:ProjectileSpeed1": {
+        "name": "Darting",
+        "template": "Velocidad de proyectiles aumentada un {v0}%"
+      },
+      "quivers.quiver:prefix:brisk:ProjectileSpeed2": {
+        "name": "Brisk",
+        "template": "Velocidad de proyectiles aumentada un {v0}%"
+      },
+      "quivers.quiver:prefix:quick:ProjectileSpeed3": {
+        "name": "Quick",
+        "template": "Velocidad de proyectiles aumentada un {v0}%"
+      },
+      "quivers.quiver:prefix:rapid:ProjectileSpeed4": {
+        "name": "Rapid",
+        "template": "Velocidad de proyectiles aumentada un {v0}%"
+      },
+      "quivers.quiver:prefix:nimble:ProjectileSpeed5": {
+        "name": "Nimble",
+        "template": "Velocidad de proyectiles aumentada un {v0}%"
+      },
+      "quivers.quiver:prefix:acute:DamageWithBows1": {
+        "name": "Acute",
+        "template": "Daño aumentado un {v0}% con habilidades de arco"
+      },
+      "quivers.quiver:prefix:trenchant:DamageWithBows2": {
+        "name": "Trenchant",
+        "template": "Daño aumentado un {v0}% con habilidades de arco"
+      },
+      "quivers.quiver:prefix:perforating:DamageWithBows3": {
+        "name": "Perforating",
+        "template": "Daño aumentado un {v0}% con habilidades de arco"
+      },
+      "quivers.quiver:prefix:incisive:DamageWithBows4": {
+        "name": "Incisive",
+        "template": "Daño aumentado un {v0}% con habilidades de arco"
+      },
+      "quivers.quiver:prefix:lacerating:DamageWithBows5": {
+        "name": "Lacerating",
+        "template": "Daño aumentado un {v0}% con habilidades de arco"
+      },
+      "quivers.quiver:prefix:impaling:DamageWithBows6": {
+        "name": "Impaling",
+        "template": "Daño aumentado un {v0}% con habilidades de arco"
+      },
+      "quivers.visceral-quiver:implicit:base": {
+        "name": "Visceral Quiver",
+        "template": "Probabilidad de impacto crítico de los ataques aumentada un {v0}%"
+      },
+      "quivers.volant-quiver:implicit:base": {
+        "name": "Volant Quiver",
+        "template": "Velocidad de las flechas aumentada un {v0}%"
+      },
+      "quivers.penetrating-quiver:implicit:base": {
+        "name": "Penetrating Quiver",
+        "template": "100% de probabilidad de perforar a un enemigo"
+      },
+      "quivers.primed-quiver:implicit:base": {
+        "name": "Primed Quiver",
+        "template": "Velocidad de ataque aumentada un {v0}%"
+      },
+      "quivers.serrated-quiver:implicit:base": {
+        "name": "Serrated Quiver",
+        "template": "Los ataques tienen un {v0}% de probabilidad de aplicar sangrado"
+      },
+      "quivers.toxic-quiver:implicit:base": {
+        "name": "Toxic Quiver",
+        "template": "{v0}% de probabilidad de envenenar al impactar con ataques"
+      },
+      "quivers.blunt-quiver:implicit:base": {
+        "name": "Blunt Quiver",
+        "template": "Acumulación de aturdimiento aumentada un {v0}%"
+      },
+      "quivers.two-point-quiver:implicit:base": {
+        "name": "Two-Point Quiver",
+        "template": "Precisión global aumentada un {v0}%"
+      },
+      "quivers.sacral-quiver:implicit:base": {
+        "name": "Sacral Quiver",
+        "template": "Ganas {v0} de vida por cada enemigo impactado con ataques"
+      },
+      "quivers.fire-quiver:implicit:base": {
+        "name": "Fire Quiver",
+        "template": "Agrega de 3 a 5 de daño de fuego a los ataques"
+      },
+      "quivers.broadhead-quiver:implicit:base": {
+        "name": "Broadhead Quiver",
+        "template": "Agrega de 1 a 3 de daño físico a los ataques"
       }
     }
   }
