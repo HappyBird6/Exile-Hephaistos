@@ -210,6 +210,7 @@ export async function loadInitial(
     | 'gemini'
     | 'fanatic'
     | 'obliterator'
+    | 'hallowed'
     | 'stellar'
     | 'amber'
     | 'bloodstone'

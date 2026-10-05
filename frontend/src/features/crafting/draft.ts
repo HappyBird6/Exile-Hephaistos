@@ -26,6 +26,7 @@ const baseTexts = {
   gemini: 'Item Class: Bows\nRarity: Normal\nGemini Bow',
   fanatic: 'Item Class: Bows\nRarity: Normal\nFanatic Bow',
   obliterator: 'Item Class: Bows\nRarity: Normal\nObliterator Bow',
+  hallowed: 'Item Class: Sceptres\nRarity: Normal\nHallowed Sceptre',
   stellar: 'Item Class: Amulets\nRarity: Normal\nStellar Amulet',
   amber: 'Item Class: Amulets\nRarity: Normal\nAmber Amulet',
   bloodstone: 'Item Class: Amulets\nRarity: Normal\nBloodstone Amulet',
@@ -104,6 +105,7 @@ type Draft = {
     | 'gemini'
     | 'fanatic'
     | 'obliterator'
+    | 'hallowed'
     | 'stellar'
     | 'amber'
     | 'bloodstone'
@@ -172,6 +174,7 @@ type Draft = {
       | 'gemini'
       | 'fanatic'
       | 'obliterator'
+      | 'hallowed'
       | 'stellar'
       | 'amber'
       | 'bloodstone'

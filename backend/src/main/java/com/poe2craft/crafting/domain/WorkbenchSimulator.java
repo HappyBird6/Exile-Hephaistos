@@ -151,8 +151,8 @@ public final class WorkbenchSimulator {
       return "helmet-workbench-perfect-essence-v1";
     if (catalog.base().id().equals(BeltEssenceTargets.BASE_ID))
       return "belt-workbench-perfect-essence-v1";
-    if (catalog.base().id().equals(SceptreEssenceTargets.BASE_ID))
-      return "sceptre-workbench-essence-v1";
+    if ((catalog.base().id().equals(SceptreEssenceTargets.BASE_ID)
+        || ReviewedSceptres.supports(catalog.base().id()))) return "sceptre-workbench-essence-v1";
     if (BodyEssenceTargets.supports(catalog.base().id()))
       return "body-workbench-perfect-essence-v1";
     if (catalog.base().id().equals(WandEssenceTargets.BASE_ID)) return "wand-workbench-essence-v1";
@@ -183,7 +183,8 @@ public final class WorkbenchSimulator {
       return "helmet-unverified-numeric-assumptions-v1";
     if (catalog.base().id().equals(BeltEssenceTargets.BASE_ID))
       return "belt-unverified-numeric-assumptions-v1";
-    if (catalog.base().id().equals(SceptreEssenceTargets.BASE_ID))
+    if ((catalog.base().id().equals(SceptreEssenceTargets.BASE_ID)
+        || ReviewedSceptres.supports(catalog.base().id())))
       return "sceptre-unverified-numeric-assumptions-v1";
     if (BodyEssenceTargets.supports(catalog.base().id()))
       return "body-unverified-numeric-assumptions-v1";

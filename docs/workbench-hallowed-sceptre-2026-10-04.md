@@ -1,0 +1,24 @@
+# Hallowed Sceptre — Skeletal Warrior family representative
+
+2026-10-04: Workbench에 **Hallowed Sceptre 1종**을 추가한다. 총 base 수는 **62**다. Wand/Sceptre 전체 roster 완료가 아니라, Skeletal Warrior family의 현재 최고 requirement 대표를 완성한 범위다. 기존 Rattling Sceptre와 Attuned Wand 및 모든 기존 film identity를 유지한다.
+
+[Hallowed source](https://poe2db.tw/us/Hallowed_Sceptre)의 정확한 identity는 `Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13`, tags는 `sceptre, onehand`, normal/magic/rare를 지원한다. Spirit100과 Grants Skill: Skeletal Warrior는 표시용 base properties다. 요구 character level65/Int114와 crafting itemLevel은 서로 다르며, base의 요구 level을 affix 생성 level로 바꾸지 않는다. 내장 skill의 level scaling, reservation, combat, passive tree, 실제 Spirit 합계는 계산하지 않는다. numeric implicit은 없고 Artificer/socket 상태는 기존 unknown 범위다.
+
+[Source verification](evidence/hallowed-source-bundle-2026-10-04/verification.json)에 six-language card·요구사항·class table 원본과 source HTML hash를 보존했다. 영어·한국어·일본어·중국어 CN/TW는 level65/Int114가 일치한다. Spanish card는 level65/Str36/Int89로 불일치한다. 원본은 변경하지 않고 evidence에 남기며 화면은 current English 수치와 source Spanish label로 `Requiere: Nivel65, 114 Int`를 표시한다. 이것은 Spanish 원본 수치가 검증되었다는 의미가 아니다. 이름·Spirit·skill 문구는 각 locale의 실제 source를 사용한다.
+
+새 source Sceptres ordinary150이 기존 Rattling raw150과 정확히 일치한다. 모든 ordered Spawn Tags를 Hallowed 실제 tag 집합으로 다시 확인했다. 기존 numeric stat/range/family/tag/required modifier level/게시 weight를 유지하고 별도 Hallowed base identity·source digest·catalog snapshot을 만든다. 70prefix/80suffix와 Perfect Command special suffix1, 합계151 definitions다. Built-in skill을 affix로 만들지 않는다. Ordinary150 및 Perfect Command의 six-language stat templates를 검증했다. Main DropChance는 기존 `POE2DB_AS_PUBLISHED` 모델이며 detail Spawn Tags는 eligibility 용도다. 실제 game probability와 numeric/shared-ratio roll 모델은 기존 UNVERIFIED ledger를 유지한다. weight가 게시된 pool을 임의의 uniform1/N로 바꾸지 않는다.
+
+Command Lesser/ordinary/Greater는 Magic→Rare, source modifier level8/33/60 이상이다. Perfect Command는 Rare 교체, source modifier level72 이상이다. Ordinary currency와 적용 가능한 Omen은 기존 Sceptre simulator를 사용한다. 다른 class Essence·Catalyst·Artificer·deferred Alloy는 atomic refusal한다. Infinite의 class table에는 Strength/Dexterity/Intelligence 결과가 있으나 Dexterity 결과가 ordinary pool에 없으므로 기존 Sceptre의 검증된 Command 범위만 유지한다. Infinite special-target 구현은 이번 base identity 확장에 포함하지 않는다. 신규 mechanic을 제외 registry로 재분류하거나 deferred50을 변경하지 않는다. Support/Explorer는 Solar-only다.
+
+같은 Skeletal Warrior family의 Lupine/Ochre/Devouring/Devotional/Aromatic/Pious는 추가하지 않는다. 요구 level이 높은 Hallowed를 대표로 선택한 것이며 strict power tier나 실제 summon level 우위를 주장하지 않는다. 기존 Rattling은 film 호환성을 위해 유지한다. 전체 exact roster는 [기존 roster 문서](workbench-amulets-bundle-2026-10-04.md)의 source 표를 따른다.
+
+후속 작업의 정확한 잔여 roster:
+
+- Sceptre distinct families: Stoic(Discipline), Omen(Malice), Shrine `FourSceptre6a/6b/6c`(Purity of Fire/Ice/Lightning), Clasped(Heart of Ice), Wrath(Fulmination). Shrine `FourSceptreUnique1`(Impurity)는 ordinary Purity alias로 처리하지 않고 availability를 별도로 확인한다.
+- Wand ordinary candidates: Bone(Bone Blast), Siphoning(Power Siphon), Volatile(Volatile Dead), Galvanic(Galvanic Field), Acrid(Decompose), Offering(Exsanguinate), Critical(Chaos Bolt), Primordial(Wither), Dueling(Spellslinger). Attuned(Mana Drain)은 기존 유지. Chaos Bolt의 Withered/Frigid/Torture는 같은 family의 낮은 requirement alternative다. Twisted/Runic Fork/Runemastered variants의 availability와 unique-only 여부는 별도 확인하고 ordinary family로 합치지 않는다.
+- Belt: 기존 Rawhide 외 Linen/Wide/Long/Plate/Ornate/Mail/Double/Heavy/Utility/Fine의 distinct implicits, Invoking/Sinew/Forking의 Breach identities가 남는다. Golden Obi의 Demigod provenance, Stalking socket transfer, Runemastered Heavy4는 별도 availability/mechanic 검증이 필요하다.
+- Crossbow, melee classes, Shields/Foci/Quivers: 각각 complete class pool·properties·requirements·implicit/skill·socket constraints를 검증하고 runtime를 추가해야 한다. 이번 결과는 이 범위 완료를 의미하지 않는다.
+
+격리 QA copy는 `codex/hallowed-qa-20261004`, Compose project는 `exile-hallowed-20261004`, localhost API/UI는20080/20081이다. 기존 live18080/18081과 DB volumes·사용자 browser storage·original repo를 보존한다. 검증 log와 attempt는 새 경로에 보존하고 QA services만 정상 종료한다. Local commit까지만 수행하며 remote push/merge/deploy는 하지 않는다.
+
+최종 검증: Backend check generateJooq bootJar의 unit/architecture440 및 integration6, Frontend1811, API116, browser285 assertions가 모두 통과했다. six-locale desktop/mobile·Alt·Shift·orange preview·기존61 film·새 film·Solar quality overflow/rounding을 확인했다. PNG73과 시각 검토 contact sheets11의 hash manifest, source527 files의 QA copy 일치, 기존 registry220 entries 보존 결과는 [runtime evidence](evidence/hallowed-runtime-bundle-2026-10-04/validation.json)에 있다. 최초 browser 검증에서 발견한 Hallowed quality cap 누락은 source20과 QualityLimitRules를 연결하고 regression 검증하여 해결했다. 적용 가능한 Omen15개를 검증했으며 variable implicit이 없는 Blessed는 지원하지 않는다. 실패한 이전 QA attempts는 격리 경로에 보존했다. 전용 QA4 services를 정상 종료하고 exclusive slot을 해제했으며 기존 live4의 ID/start time/mount가 모두 동일함을 확인했다.

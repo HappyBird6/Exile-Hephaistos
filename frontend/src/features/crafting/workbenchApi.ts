@@ -989,9 +989,16 @@ export async function applyCurrency(
   const reviewedKey = topBaseKey(state.baseItemId)
   const reviewedTargets =
     reviewedKey &&
-    ['gloves', 'helmets', 'body', 'boots', 'bows', 'rings', 'amulets'].includes(
-      topBase(reviewedKey)?.family ?? '',
-    )
+    [
+      'gloves',
+      'helmets',
+      'body',
+      'boots',
+      'bows',
+      'rings',
+      'amulets',
+      'sceptres',
+    ].includes(topBase(reviewedKey)?.family ?? '')
       ? (
           reviewedEssenceTargets as Record<
             string,
@@ -1109,7 +1116,8 @@ export async function applyCurrency(
         'PERFECT_ESSENCE_COMMAND',
       ].includes(action) &&
       state.baseItemId !==
-        'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1') ||
+        'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1' &&
+      topBase(reviewedKey ?? '')?.family !== 'sceptres') ||
     (v.applied &&
       action === 'PERFECT_ESSENCE_INSULATION' &&
       state.baseItemId !== 'Metadata/Items/Belts/FourBelt1') ||

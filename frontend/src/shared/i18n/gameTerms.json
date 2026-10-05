@@ -2409,6 +2409,12 @@
       "lines": [],
       "itemKey": "Metadata/Items/Amulets/FourAmulet11",
       "sourceUrl": "https://poe2db.tw/us/Pearlescent_Amulet"
+    },
+    "Hallowed_Sceptre": {
+      "name": "Hallowed Sceptre",
+      "lines": ["Spirit: 100", "Grants Skill: Skeletal Warrior"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13",
+      "sourceUrl": "https://poe2db.tw/us/Hallowed_Sceptre"
     }
   },
   "ko": {
@@ -4805,6 +4811,12 @@
       "lines": [],
       "itemKey": "Metadata/Items/Amulets/FourAmulet11",
       "sourceUrl": "https://poe2db.tw/kr/Pearlescent_Amulet"
+    },
+    "Hallowed_Sceptre": {
+      "name": "거룩한 셉터",
+      "lines": ["정신력: 100", "스킬 부여: 해골 전사"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13",
+      "sourceUrl": "https://poe2db.tw/kr/Hallowed_Sceptre"
     }
   },
   "zh-CN": {
@@ -7099,6 +7111,12 @@
       "lines": [],
       "itemKey": "Metadata/Items/Amulets/FourAmulet11",
       "sourceUrl": "https://poe2db.tw/cn/Pearlescent_Amulet"
+    },
+    "Hallowed_Sceptre": {
+      "name": "崇圣权杖",
+      "lines": ["精魂: 100", "获得技能: 魔侍武士"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13",
+      "sourceUrl": "https://poe2db.tw/cn/Hallowed_Sceptre"
     }
   },
   "zh-TW": {
@@ -9383,6 +9401,12 @@
       "lines": [],
       "itemKey": "Metadata/Items/Amulets/FourAmulet11",
       "sourceUrl": "https://poe2db.tw/tw/Pearlescent_Amulet"
+    },
+    "Hallowed_Sceptre": {
+      "name": "聖潔權杖",
+      "lines": ["精魂: 100", "賦予技能: 骷髏戰士"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13",
+      "sourceUrl": "https://poe2db.tw/tw/Hallowed_Sceptre"
     }
   },
   "ja": {
@@ -11781,6 +11805,12 @@
       "lines": [],
       "itemKey": "Metadata/Items/Amulets/FourAmulet11",
       "sourceUrl": "https://poe2db.tw/jp/Pearlescent_Amulet"
+    },
+    "Hallowed_Sceptre": {
+      "name": "神聖なセプター",
+      "lines": ["スピリット: 100", "スキルを付与: スケルトンウォーリアー"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13",
+      "sourceUrl": "https://poe2db.tw/jp/Hallowed_Sceptre"
     }
   },
   "es": {
@@ -14097,6 +14127,12 @@
       "lines": [],
       "itemKey": "Metadata/Items/Amulets/FourAmulet11",
       "sourceUrl": "https://poe2db.tw/sp/Pearlescent_Amulet"
+    },
+    "Hallowed_Sceptre": {
+      "name": "Cetro sagrado",
+      "lines": ["Espíritu: 100", "Otorga la habilidad: Guerrero esqueleto"],
+      "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13",
+      "sourceUrl": "https://poe2db.tw/sp/Hallowed_Sceptre"
     }
   }
 }

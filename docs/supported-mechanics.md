@@ -1,3 +1,5 @@
+최신 base 확장: [Hallowed Sceptre](workbench-hallowed-sceptre-2026-10-04.md). Workbench62 bases. Skeletal Warrior family의 최고 requirement 대표 1종을 추가했으며 기존 Rattling/Attuned와 films, complete Sceptre pool150+special1, six locales, deferred50, Solar-only Support/Explorer를 유지한다. 나머지 Wand/Sceptre/Belt 및 broader equipment roster는 해당 문서의 잔여 목록을 따른다.
+
 최신 base 확장: [Amulet 7종](workbench-amulets-bundle-2026-10-04.md). Workbench 61 bases; jewelry는 distinct implicit sidegrade 선택 범위이며 전체 catalog 완료가 아니다. 신규 Amulet7의 전체 ordinary209·source-valid special8·Catalyst13·6locale·기존54개 film을 보존한다. Support/Explorer는 Solar-only, active170/deferred50은 유지한다. Wand/Sceptre skill family·Belt 및 다른 equipment category는 후속 source 검증 범위다.
 
 

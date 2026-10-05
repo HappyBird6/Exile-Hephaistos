@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "addedBases": [
+    "Hallowed Sceptre"
+  ],
+  "totalBases": 62,
+  "backendUnitArchitecture": 440,
+  "backendIntegration": 6,
+  "frontendTests": 1811,
+  "apiChecks": 116,
+  "browserChecks": 285,
+  "browserPageErrors": 0,
+  "matchingValidatedSourceFiles": 527,
+  "originalRegistryEntriesPreserved": 220,
+  "screenshots": 73,
+  "visuallyReviewedContactSheets": 11,
+  "jarSha256": "8025d2c681c56b3005b6a416c2d168f2296c57a47047f3ebd39ac2bb8df7c2db",
+  "qaRoot": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004",
+  "logs": [
+    "backend-check-4.log",
+    "frontend-check-1.log",
+    "api-check-3.log"
+  ],
+  "previousAttemptsPreserved": true,
+  "commands": [
+    "check generateJooq bootJar",
+    "npm ci; lint; typecheck; format:check; test -- --run; build",
+    "docker compose config --quiet"
+  ],
+  "remainingScope": "Wand9; Sceptre7 ordinary skill variants; Belt; Crossbow/melee/Shields/Foci/Quivers. See scope document.",
+  "spanishRequirementDiscrepancy": "Raw source preserved; display uses canonical English Level65 Int114."
+}

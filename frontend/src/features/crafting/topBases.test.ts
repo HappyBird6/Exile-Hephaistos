@@ -29,6 +29,7 @@ describe('reviewed endgame base identities', () => {
     'blacksteel-boots',
     'faithful',
     'daggerfoot',
+    'hallowed',
   ] as const)('preserves source facts and six languages for %s', (key) => {
     const base = topBase(key)!
     expect(topBaseKey(base.id)).toBe(key)
@@ -85,5 +86,23 @@ describe('reviewed endgame base identities', () => {
     ).toBeUndefined()
     expect(topBase('body')).toBeUndefined()
     expect(topBase('unknown')).toBeUndefined()
+    expect(
+      topBaseKey('Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'),
+    ).toBeUndefined()
+  })
+  it('separates Hallowed innate skill and Spirit from craftable implicits', () => {
+    const base = topBase('hallowed')!
+    expect(base.family).toBe('sceptres')
+    expect(base.requiredLevel).toBe(65)
+    expect(base.intelligence).toBe(114)
+    expect(base.implicitModifierId).toBeUndefined()
+    expect(base.sourceProperties?.en).toEqual([
+      'Spirit: 100',
+      'Grants Skill: Skeletal Warrior',
+    ])
+    expect(base.sourceProperties?.es).toEqual([
+      'Espíritu: 100',
+      'Otorga la habilidad: Guerrero esqueleto',
+    ])
   })
 })

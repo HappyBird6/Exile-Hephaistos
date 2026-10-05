@@ -1,0 +1,13 @@
+{
+  "active": false,
+  "owner": "workbench/top-bases-20261004",
+  "project": "exile-hallowed-20261004",
+  "ports": [
+    20080,
+    20081
+  ],
+  "baseHead": "927275d3a531223d68471f3e1dbae7fa0dbd9108",
+  "authorization": "Sole writer; sequential exclusive QA",
+  "releasedAt": "2026-10-05T00:00:53.774Z",
+  "releaseReason": "Final isolated QA passed; own Compose services normally stopped"
+}

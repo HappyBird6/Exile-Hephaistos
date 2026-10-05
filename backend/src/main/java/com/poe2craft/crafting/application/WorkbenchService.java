@@ -482,7 +482,9 @@ public final class WorkbenchService {
                                 ReviewedBows.BASES.getOrDefault(
                                     key,
                                     ReviewedRings.BASES.getOrDefault(
-                                        key, ReviewedAmulets.BASES.get(key))))))))
+                                        key,
+                                        ReviewedAmulets.BASES.getOrDefault(
+                                            key, ReviewedSceptres.BASES.get(key)))))))))
         || topBases.containsKey(key))
       throw new IllegalArgumentException("Unreviewed or duplicate armour registration");
     var simulator =

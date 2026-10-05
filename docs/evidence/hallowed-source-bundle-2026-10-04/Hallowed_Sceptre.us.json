@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/us/Hallowed_Sceptre",
+  "retrievedAt": "2026-10-04T23:03:38.376Z",
+  "sha256": "fb78f4d6e13abc13ac42f50f7ab1d170bc9978aaa84efbf46a8053673940b082",
+  "name": "Hallowed Sceptre",
+  "card": "Hallowed Sceptre\n        \n    \n    \n        \n            SceptresSpirit: 100Requires:  Level 65, 114 Int Grants Skill: Skeletal Warrior",
+  "requirements": "Requires:  Level 65, 114 Int",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "Hallowed Sceptre",
+    "Class": "Sceptres",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13",
+    "Tags": "sceptre, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre01",
+    "Base.base_level": "1",
+    "Base.tag": "default, sceptre, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

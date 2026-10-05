@@ -1,0 +1,297 @@
+{
+  "visuallyReviewedContactSheets": 11,
+  "screenshots": [
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-en-1440-alt.png",
+      "sha256": "2b51af0bb901acbd7448556ccbabcb40d1906b2cdb400e1d598e4602594cdae5"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-en-1440.png",
+      "sha256": "56d22ab103d68ed1e743f9f487b5448e2a77cd966e1fcb1da667a8e50ac48697"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-en-390-alt.png",
+      "sha256": "eceecfd13b8356409001658aa36112fb63470991a9866876ff7a52209b3b2b1c"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-en-390.png",
+      "sha256": "81268faa0b946ead1fb753e8e4a58a0910af98d4998f453e2819b4404357c1c9"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-es-1440-alt.png",
+      "sha256": "7d07937cc5caadf0cece4f406e3d58a924c5c937f1fcfb2c09de631b377cb252"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-es-1440.png",
+      "sha256": "f78bfd08ff1027bcd6d8bc465723a239ee50ef2c58f103ec5117a6871aeb9921"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-es-390-alt.png",
+      "sha256": "c5e21140b1955c603c3f1adfd94f6552a64da72e1782958dfd43d6e9feb57e1d"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-es-390.png",
+      "sha256": "bfe013d5c2211b85e8ab64b845fc62d755d5eee6d2738e7bee9a54118483d658"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-ja-1440-alt.png",
+      "sha256": "8be7c1e4a92dca51c9773ac1c778207f7217c4e0ae82cde2da80998fbd41c4b4"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-ja-1440.png",
+      "sha256": "d6f9efd46dcd74b6aaa2186e81660bb5a1cd786befc7f403a1765acbf7b0ca63"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-ja-390-alt.png",
+      "sha256": "3c788a270f23d3e9bcf194cd8b95d616fde731df86cb788524f71bfe284160ca"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-ja-390.png",
+      "sha256": "f31f84bf793623ed8f4fbf802d665a823f239a038bc5b3e407b774e06198a1b9"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-ko-1440-alt.png",
+      "sha256": "1ef773c68e30f10357c5231c3ad53406d6de9dab1660e279a5300e25ba9e0cab"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-ko-1440.png",
+      "sha256": "9c3cdc57b91826e314f29ffd05e29259f6f8af0f8c6b21196ea61af3ad6e410a"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-ko-390-alt.png",
+      "sha256": "96895e32996b2b4194ed44fd7ba69523fbbf06b1be064c8a06f7f97394191fba"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-ko-390.png",
+      "sha256": "af05d5449fe318f2827532511b145512524165558da7944365bf46ff94f3c87f"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-zh-CN-1440-alt.png",
+      "sha256": "0d6c8d2c86d6a1b5d488ccb193b82bd197e1c4a01b96fd0c1b89418475ac4e1d"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-zh-CN-1440.png",
+      "sha256": "f3b91931d6feaf1dad4d611275749f57bbb7724b8f6faeb173de5f66c9062390"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-zh-CN-390-alt.png",
+      "sha256": "4ed970343af9db911461d8a75c8fc6004b6f9cb737b860e8f82091f6d506c97c"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-zh-CN-390.png",
+      "sha256": "47f6b4a82f6070401a7151e68a3372ff0ee3969d29e044506f47aa3e1768b806"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-zh-TW-1440-alt.png",
+      "sha256": "616adab0054e5dcfa434cf58007097d71b7eae2a65af0f9f5aebbd9978de8181"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-zh-TW-1440.png",
+      "sha256": "ede0518723a3821ef891fb48f84286a04abcbf68e854ca849c1ebdabe02de13f"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-zh-TW-390-alt.png",
+      "sha256": "ed50b9862a397c6a28c7dd50e5ad74901c09caf17244a20e1f5eada11ab15ea9"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/cards/hallowed-zh-TW-390.png",
+      "sha256": "8519b8e53ec48340936e46bda7f141a12081d42207519017139927a0b0369e69"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/contact-cards-0.png",
+      "sha256": "2fb5760cfbe0e99abf9dfc39f52685e4a46493938f9690bb119ddc31d23bf5d7"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/contact-cards-12.png",
+      "sha256": "febb8e8834ffa66b89b5f7ca9809873a9b90284669896888b20a61a746adcd45"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/contact-cards-18.png",
+      "sha256": "1eb938a42e1d0427915860d0df1ea8749fe4a86091bc16081060bad392a58424"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/contact-cards-6.png",
+      "sha256": "5f4f94ced62f9f4208442934b62e8a9c81398aec7cf24bc7c4ffe69d2f1c27f2"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/contact-full-0.png",
+      "sha256": "666fe9c4ded0e4b9c70adb8a415fea6e637cdd0fac1ce3bb81a67ecfbf57ddef"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/contact-full-12.png",
+      "sha256": "1b76e57573401e7dba75224d24ee80f37a59375730c6481c7ade8a20933958d5"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/contact-full-18.png",
+      "sha256": "f9f96b0f8e3b60f22bde08ececba94dd36275f753a225497af670dc611fe1114"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/contact-full-24.png",
+      "sha256": "fbfaefe40fa656cc97628a2a1675267f3b901f56e1d71be39fd1f20c73a3730f"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/contact-full-30.png",
+      "sha256": "91f3e2e43cbbf676d54eaefaba7ae464ed81a027391164f00f5a5775ef6ebd56"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/contact-full-36.png",
+      "sha256": "f40649541a0a845a7a382aa31cbf4243b0ba4c3cb1edcb12539ae9c751e739e5"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/contact-full-6.png",
+      "sha256": "ecdf85d4d7c87b61e1aa7e27342806ee237a671d476d2c5db868dd90b9879127"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-en-1440-alt.png",
+      "sha256": "8090e8191f5eee4416d735bbf23fac5aeab9b35abfcbc1b08bb248d68742da53"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-en-1440.png",
+      "sha256": "0676192ff02d5f52f2b276b470823768c1d58cfa6663667995d2dd74ed801458"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-en-390-alt.png",
+      "sha256": "821f01949cd0e91f67df8c5a6edbed66d5fa631aa05d7c03228ab98c07f7f385"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-en-390.png",
+      "sha256": "47f936f4a2457e4f72b14a806f8176f52846359275bdfee4bce28435a0b8a0c8"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-en-orange-preview.png",
+      "sha256": "1638a697aae197131b3b3f7943b07bdb94caf6e364080970332cbcab60900d89"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-es-1440-alt.png",
+      "sha256": "77ccc5396cfeebf278241cac6c1cfca0b93ec238df19a15a7a214ff437e824b7"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-es-1440.png",
+      "sha256": "4ac4030b0123a548df3320f24070cd1b341da6870e013f53e90c189a65f4e169"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-es-390-alt.png",
+      "sha256": "52ae466e30bd406a13f66289f530f09de527a042958faa0100fdbb3c17701870"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-es-390.png",
+      "sha256": "c5289b07c7fe79bdcac315f2ff9d06785119aeb6493957adf34314b94dddb894"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-es-orange-preview.png",
+      "sha256": "3154d01f90cc4aed13857c3bf5df81ea4db686b8cdc17627506965a1857b43b1"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-ja-1440-alt.png",
+      "sha256": "29887ddf1cd654dcf6677222d633c3327ec955dc172d243ec7634a014a89f6e7"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-ja-1440.png",
+      "sha256": "8baf7a05b7e691686916c9b17d6ebe164511131f6f5c8fe2f21740eed8007bc0"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-ja-390-alt.png",
+      "sha256": "896c7a30822fd2dad4c6002817444b5d8a4e1194f1037c30822072b8fecb66c1"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-ja-390.png",
+      "sha256": "66c50f4369bfc2cac189af78af2249a639636623446b4be03a1ad4437ea83fce"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-ja-orange-preview.png",
+      "sha256": "610ad6a418b809c24c8d5773ac0bcc9aef185beb32a0252df1fa1f9c59939df9"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-ko-1440-alt.png",
+      "sha256": "5da608522177dfc5de4de3cf33cc9fb103aad1e4c46a74dca62f3ccb9cd6c026"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-ko-1440.png",
+      "sha256": "47a2f3020f57cb0eb72344a0ab2606efcb23b5959f8e2c89c2ceb0e958861ee9"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-ko-390-alt.png",
+      "sha256": "9c297f1c57a09fb8a5a918fdf6d8254bd97feaecce06917c6e844e2f327b94f2"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-ko-390.png",
+      "sha256": "f379be95c18445654cbb74d203e0cf4435571b4ba814af2bb60fcf71b5e10b13"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-ko-orange-preview.png",
+      "sha256": "cf55f952df23eefbfaf84fbba39598760dcdfc5baeac4fde06a01d2ef8f7a16f"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-zh-CN-1440-alt.png",
+      "sha256": "60f5c3411e14058a54bebdb8f0178a6eb1ea4bfaf4648cfee5122a2fa20f943e"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-zh-CN-1440.png",
+      "sha256": "86753e6c45da0cd113cec9fa3276c5a23c3d1e5d91f79c793fb3faa894bf1ad6"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-zh-CN-390-alt.png",
+      "sha256": "09fee5762922435462e47fee6ce1ad56e2f751c6fb0d4acd17aca70d595bc652"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-zh-CN-390.png",
+      "sha256": "610d9342a40c9f62f9b2cad1d080e940c19bf842e1287da297cf05db84ff5308"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-zh-CN-orange-preview.png",
+      "sha256": "a55a123bfc96c590d4ac204eca09e34506d91bd6c1093c2600bd087230a8b25e"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-zh-TW-1440-alt.png",
+      "sha256": "e7df04fc2be46b89f6813c2d88d87704216abb01a894a22296b4eb2096712950"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-zh-TW-1440.png",
+      "sha256": "d51bb981c8b58e9d13e335a1c524d283766d9b6575a62639e57db693db2041f4"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-zh-TW-390-alt.png",
+      "sha256": "e5abc4c86ae33e4ba87d66d063ae704372374855ae5205b2bab7a05da65420d4"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-zh-TW-390.png",
+      "sha256": "7c4c11db2cccf201ca42a01c5d94834dc7783b228e1d0fd762f4c6799bac33fa"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/hallowed-zh-TW-orange-preview.png",
+      "sha256": "8ac0970d4b84b29dda8983253c0934813c10c308c0583c8b189892ccb297ab6c"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/old-filled-sceptre.png",
+      "sha256": "254a63af13a1541d24a7124132644644b70c874aaeff268e24ad01709e6bf6f5"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/old-filled-wand.png",
+      "sha256": "103af9a12acd477cb67277005f81d5564857744922c590c6ae7b6aee9d116dd7"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/solar-overflow-en.png",
+      "sha256": "7bc322794e952e0af9257c6d20cf6c4bc3155d10666d209b8bcb13498004d671"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/solar-overflow-es.png",
+      "sha256": "6b11ec7e14b92e027bdb23369eb4fe842db97fd41f5c6f3f109472b14cbc5c38"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/solar-overflow-ja.png",
+      "sha256": "2ace48612c3f33e7892a0bddcdef3f55c720acb6403135b4002a27d07393e1ff"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/solar-overflow-ko.png",
+      "sha256": "866c125fb5a9f1acdd1985b17e0d51ad21900024c2a2bc90af0c58f760be83dc"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/solar-overflow-zh-CN.png",
+      "sha256": "0037ebb40f92d58f322139f1c66ff6d8bcb2e8a53392ae19f9849a8f17ce0bae"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-attempt-3/solar-overflow-zh-TW.png",
+      "sha256": "c948d36dc6d82dc4c274ae7238dd3227e2ec086c2dba2fb285ba6e75d1cb7054"
+    }
+  ]
+}

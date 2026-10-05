@@ -96,6 +96,7 @@ const baseSlugs = {
   gemini: 'Gemini_Bow',
   fanatic: 'Fanatic_Bow',
   obliterator: 'Obliterator_Bow',
+  hallowed: 'Hallowed_Sceptre',
   stellar: 'Stellar_Amulet',
   amber: 'Amber_Amulet',
   bloodstone: 'Bloodstone_Amulet',
@@ -221,7 +222,8 @@ export function CraftingPage() {
                 catalogBase === 'soldier' ||
                 topBase(catalogBase)?.family === 'body'
               ? 'Rusted Cuirass'
-              : catalogBase === 'sceptre'
+              : catalogBase === 'sceptre' ||
+                  topBase(catalogBase)?.family === 'sceptres'
                 ? 'Rattling Sceptre'
                 : catalogBase === 'belt'
                   ? 'Rawhide Belt'
@@ -361,6 +363,7 @@ export function CraftingPage() {
       | 'gemini'
       | 'fanatic'
       | 'obliterator'
+      | 'hallowed'
       | 'stellar'
       | 'amber'
       | 'bloodstone'
@@ -578,6 +581,7 @@ export function CraftingPage() {
     | 'gemini'
     | 'fanatic'
     | 'obliterator'
+    | 'hallowed'
     | 'stellar'
     | 'amber'
     | 'bloodstone'
@@ -985,7 +989,8 @@ export function CraftingPage() {
                         catalogBase === 'soldier' ||
                         topBase(catalogBase)?.family === 'body'
                       ? 'Body Armours'
-                      : catalogBase === 'sceptre'
+                      : catalogBase === 'sceptre' ||
+                          topBase(catalogBase)?.family === 'sceptres'
                         ? 'Sceptres'
                         : catalogBase === 'belt'
                           ? 'Belts'
@@ -1832,7 +1837,8 @@ export function CraftingPage() {
                 {catalogBase === 'belt' && (
                   <p className="workbench-feedback">{t('notice.belt_scope')}</p>
                 )}
-                {catalogBase === 'sceptre' && (
+                {(catalogBase === 'sceptre' ||
+                  topBase(catalogBase)?.family === 'sceptres') && (
                   <p className="workbench-feedback">
                     {t('notice.sceptre_scope')}
                   </p>
@@ -1970,7 +1976,8 @@ export function CraftingPage() {
                                   catalogBase === 'soldier' ||
                                   topBase(catalogBase)?.family === 'body'
                                 ? 'Body Armours'
-                                : catalogBase === 'sceptre'
+                                : catalogBase === 'sceptre' ||
+                                    topBase(catalogBase)?.family === 'sceptres'
                                   ? 'Sceptres'
                                   : catalogBase === 'belt'
                                     ? 'Belts'
@@ -2097,6 +2104,7 @@ export function CraftingPage() {
                           | 'gemini'
                           | 'fanatic'
                           | 'obliterator'
+                          | 'hallowed'
                           | 'stellar'
                           | 'amber'
                           | 'bloodstone'

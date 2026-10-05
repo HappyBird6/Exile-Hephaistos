@@ -86,7 +86,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -169,7 +170,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -252,7 +254,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -332,7 +335,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -415,7 +419,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -498,7 +503,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -581,7 +587,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -670,7 +677,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -752,7 +760,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -835,7 +844,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -918,7 +928,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -1001,7 +1012,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -1084,7 +1096,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -1167,7 +1180,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -1250,7 +1264,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -1333,7 +1348,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -1416,7 +1432,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -1499,7 +1516,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -1582,7 +1600,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -4565,7 +4584,8 @@
       "action": "LESSER_ESSENCE_COMMAND",
       "reason": "Verified Rattling Sceptre Command result only; source modifier level is a conservative simulator gate, not confirmed lower-level game applicability. Magic to Rare with one guaranteed addition. Source-integer numeric model UNVERIFIED.",
       "supportedBases": [
-        "sceptre"
+        "sceptre",
+        "hallowed"
       ],
       "sceptreEvidence": {
         "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Command",
@@ -4595,7 +4615,8 @@
       "action": "ESSENCE_COMMAND",
       "reason": "Verified Rattling Sceptre Command result only; source modifier level is a conservative simulator gate, not confirmed lower-level game applicability. Magic to Rare with one guaranteed addition. Source-integer numeric model UNVERIFIED.",
       "supportedBases": [
-        "sceptre"
+        "sceptre",
+        "hallowed"
       ],
       "sceptreEvidence": {
         "sourceUrl": "https://poe2db.tw/us/Essence_of_Command",
@@ -4625,7 +4646,8 @@
       "action": "GREATER_ESSENCE_COMMAND",
       "reason": "Verified Rattling Sceptre Command result only; source modifier level is a conservative simulator gate, not confirmed lower-level game applicability. Magic to Rare with one guaranteed addition. Source-integer numeric model UNVERIFIED.",
       "supportedBases": [
-        "sceptre"
+        "sceptre",
+        "hallowed"
       ],
       "sceptreEvidence": {
         "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Command",
@@ -4655,7 +4677,8 @@
       "action": "PERFECT_ESSENCE_COMMAND",
       "reason": "Verified Rattling Sceptre Command result only; source modifier level is a conservative simulator gate, not confirmed lower-level game applicability. Uniform unlocked removal plus guaranteed Rare replacement. Source-integer numeric model UNVERIFIED.",
       "supportedBases": [
-        "sceptre"
+        "sceptre",
+        "hallowed"
       ],
       "sceptreEvidence": {
         "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Command",
@@ -4980,7 +5003,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -5050,7 +5074,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -5124,7 +5149,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -5198,7 +5224,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -5272,7 +5299,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -5347,7 +5375,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ]
     },
     {
@@ -5421,7 +5450,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ]
     },
     {
@@ -5495,7 +5525,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "interactionScope": "Single directional omen with ordinary/Greater/Perfect matching currency. Affix eligibility precedes the existing minimum-added-level group fallback. Other same-trigger combinations remain unverified."
     },
@@ -5570,7 +5601,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "interactionScope": "Single directional omen with ordinary/Greater/Perfect matching currency. Affix eligibility precedes the existing minimum-added-level group fallback. Other same-trigger combinations remain unverified."
     },
@@ -5658,7 +5690,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -5732,7 +5765,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -5806,7 +5840,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -5881,7 +5916,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "interactionScope": "Greater Annulment + Sinistral Annulment supports two distinct unlocked prefixes, based on the audited community example; Dextral uses the symmetric suffix composition model. Requires at least two eligible modifiers on the chosen side; both matching omens consumed on success. Other combinations and one-target behavior remain unverified."
     },
@@ -5955,7 +5991,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -6029,7 +6066,8 @@
         "lunar",
         "azure",
         "crimson",
-        "pearlescent"
+        "pearlescent",
+        "hallowed"
       ],
       "serviceScope": "ACTIVE"
     },
@@ -9594,6 +9632,15 @@
         "COMBAT",
         "DEFERRED_ALLOYS"
       ]
+    },
+    "hallowed": {
+      "ruleVersion": "sceptre-workbench-essence-v1",
+      "ledgerVersion": "sceptre-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Hallowed_Sceptre",
+      "baseItemId": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13",
+      "sourceSha256": "fb78f4d6e13abc13ac42f50f7ab1d170bc9978aaa84efbf46a8053673940b082",
+      "requiredCharacterLevel": 65
     }
   },
   "serviceScope": {

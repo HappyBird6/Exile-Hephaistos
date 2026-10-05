@@ -1979,5 +1979,17 @@
       ],
       "ESSENCE_HYSTERIA": ["amulet:suffix:essence-hysteria-life-recoup"]
     }
+  },
+  "hallowed": {
+    "fixed": {
+      "LESSER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:agitative"],
+      "ESSENCE_COMMAND": ["rattling-sceptre:prefix:provocative"],
+      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_COMMAND": [
+        "rattling-sceptre:suffix:essence-aura-magnitude"
+      ]
+    }
   }
 }
