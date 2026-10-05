@@ -13,34 +13,12 @@ public final class QualityLimitRules {
   public static Limit describe(ItemState state, ItemCatalog catalog) {
     if (state == null || !new ItemStateValidator(catalog).validate(state).isEmpty())
       throw new IllegalArgumentException("Unsupported state for quality limit");
-    if (!state.baseItemId().equals(SolarAmulet.BASE_ID)
-        && !state.baseItemId().equals("Metadata/Items/Armours/Gloves/FourGlovesStr1")
-        && !ReviewedGloves.supports(state.baseItemId())
-        && !ReviewedBoots.supports(state.baseItemId())
-        && !ReviewedBows.supports(state.baseItemId())
-        && !ReviewedCrossbows.supports(state.baseItemId())
-        && !ReviewedMaces.supports(state.baseItemId())
-        && !ReviewedQuarterstavesSpears.supports(state.baseItemId())
-        && !ReviewedOffhands.supports(state.baseItemId())
-        && !ReviewedRings.supports(state.baseItemId())
-        && !ReviewedAmulets.supports(state.baseItemId())
-        && !ReviewedSceptres.supports(state.baseItemId())
-        && !ReviewedWands.supports(state.baseItemId())
-        && !state.baseItemId().equals(BowEssenceTargets.BASE_ID)
-        && !HelmetEssenceTargets.supports(state.baseItemId())
-        && !BodyEssenceTargets.supports(state.baseItemId())
-        && !state.baseItemId().equals(WandEssenceTargets.BASE_ID)
-        && !state.baseItemId().equals(SceptreEssenceTargets.BASE_ID)
-        && !state.baseItemId().equals(RingEssenceTargets.BASE_ID)
-        && !BasicJewel.supported(state.baseItemId()))
-      return null; // Other catalogs do not inherit a reviewed cap.
+    if (!BaseRegistry.qualityLimit(state.baseItemId())) return null;
     int maximum = 20;
     for (var instance : state.explicits()) {
       if (!instance.values().containsKey(STAT_ID)) continue;
       var definition = catalog.find(instance.modifierId()).orElseThrow();
-      if ((!state.baseItemId().equals(SolarAmulet.BASE_ID)
-              && !ReviewedRings.supports(state.baseItemId())
-              && !ReviewedAmulets.supports(state.baseItemId()))
+      if (!BaseRegistry.maximumQualityBreach(state.baseItemId())
           || !instance.modifierId().equals(BREACH_ID)
           || !definition.familyIds().equals(java.util.Set.of("LocalMaximumQuality"))
           || definition.affixType() != ModifierDefinition.AffixType.PREFIX

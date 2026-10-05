@@ -1,0 +1,178 @@
+{
+  "passed": true,
+  "bases": 125,
+  "added": 0,
+  "pendingBases": [
+    "Permafrost Staff",
+    "Reflecting Staff",
+    "Dark Staff",
+    "Ravenous Staff",
+    "Perching Staff",
+    "Sanctified Staff",
+    "Maji Talisman",
+    "Fungal Talisman",
+    "Jade Talisman"
+  ],
+  "backendUnit": 492,
+  "backendIntegration": 6,
+  "frontend": 1917,
+  "api": [
+    2902,
+    582
+  ],
+  "browser": [
+    1088,
+    481,
+    17
+  ],
+  "importerTests": 3,
+  "importerRows": 620,
+  "preservedCatalogFiles": 441,
+  "testedSourceInputs": 764,
+  "qaReleasedAt": "2026-10-05T09:55:12.332Z",
+  "qaServices": [
+    {
+      "name": "exile-base-registry-20261005-app-1",
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 143,
+        "Error": "",
+        "StartedAt": "2026-10-05T09:34:11.450535159Z",
+        "FinishedAt": "2026-10-05T09:53:42.93120259Z"
+      }
+    },
+    {
+      "name": "exile-base-registry-20261005-frontend-1",
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-05T09:34:11.672251724Z",
+        "FinishedAt": "2026-10-05T09:53:42.510226504Z"
+      }
+    },
+    {
+      "name": "exile-base-registry-20261005-postgres-1",
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-05T09:34:06.073631886Z",
+        "FinishedAt": "2026-10-05T09:53:43.238226425Z",
+        "Health": {
+          "Status": "unhealthy",
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "Start": "2026-10-05T09:53:20.213159411Z",
+              "End": "2026-10-05T09:53:20.270878757Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            },
+            {
+              "Start": "2026-10-05T09:53:25.271447985Z",
+              "End": "2026-10-05T09:53:25.308247544Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            },
+            {
+              "Start": "2026-10-05T09:53:30.308946398Z",
+              "End": "2026-10-05T09:53:30.359335881Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            },
+            {
+              "Start": "2026-10-05T09:53:35.360498576Z",
+              "End": "2026-10-05T09:53:35.400076482Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            },
+            {
+              "Start": "2026-10-05T09:53:40.401239339Z",
+              "End": "2026-10-05T09:53:40.439101917Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "exile-base-registry-20261005-redis-1",
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-05T09:34:06.270998713Z",
+        "FinishedAt": "2026-10-05T09:53:43.21765615Z"
+      }
+    }
+  ],
+  "filmFixtureCorrection": "Attempt 1 incorrectly fractured Basic/Time-Lost Jewels. Existing validator rejected these correctly; storage-only assertion missed visible fallback. Attempt 2 uses allowed Jewel rolls and asserts rendered explicit plus no alert for all 24 representatives in six locales. Separate 17-check negative probe asserts unsupported Fractured Jewel warning and unchanged stored films. Runtime code unchanged by fixture correction.",
+  "visualReview": {
+    "allScreenshotsCaptured": true,
+    "exhaustivePixelReview": false,
+    "reviewedSheets": {
+      "attempt1Cards": [
+        0,
+        6,
+        72,
+        78,
+        144,
+        150
+      ],
+      "attempt2Cards": [
+        0,
+        18,
+        72,
+        84,
+        90,
+        120,
+        126,
+        138
+      ]
+    },
+    "reviewedOriginals": [
+      "attempt2 Sapphire en",
+      "attempt2 Time-Lost Sapphire ko",
+      "attempt2 Fortified Hammer en"
+    ],
+    "finding": "Representative six-locale names, properties, implicit/granted skill and roll display retained. Unsupported Jewel sample repaired. Contact-sheet overflow on long headings is a QA collage issue; original Fortified Hammer card checked intact."
+  },
+  "remainingManual": [
+    "legacy17 loader/constructor mechanics",
+    "Basic Jewel/Liquid validation",
+    "Solar clipboard/Support/Explorer",
+    "source roster/provenance and eligible pool collection per bundle",
+    "source-specific implicit/skills and six-locale templates",
+    "new-class policy with explicit unsupported mechanics"
+  ],
+  "unrun": [
+    "Original stack Compose env config: .env absent in worktree and parent; infra configuration unchanged. Dedicated QA Compose config --quiet passed."
+  ],
+  "integration": "Local branch checkpoint only. No push, merge or deploy. Next task adds 9 bases then performs bounded 134-base final coverage audit."
+}

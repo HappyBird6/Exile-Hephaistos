@@ -1,10 +1,10 @@
 import { topBase, topBaseKey } from './topBases'
+import { basePolicy } from './baseRegistry'
 import reviewedEssenceTargets from './topBaseEssences.json'
 import { supportsConcreteStateShape } from './workbenchStateShape'
 import displayBindings from '../../shared/i18n/modifierTemplates.json'
 import liquidTargets from './basicJewelLiquidTargets.json'
 import {
-  isBasicJewel,
   workbenchJewelBases,
   isWorkbenchJewel,
   reviewedBasicJewel,
@@ -12,11 +12,7 @@ import {
 } from './basicJewel'
 import { qualityCapChangeMatches } from './qualityCapChangePolicy'
 import { whittlingCandidates } from './omenRemovalCandidates'
-import {
-  catalystBase,
-  catalystTypes,
-  verifiedCatalystQuality,
-} from './catalystQuality'
+import { catalystTypes, verifiedCatalystQuality } from './catalystQuality'
 import type { CatalystQuality } from './catalystQuality'
 import { maximumQuality, qualityLimitMatches } from './qualityLimit'
 import type { QualityLimit } from './qualityLimit'
@@ -987,39 +983,17 @@ export async function applyCurrency(
               fixedEssenceModifiers[action])
             : fixedEssenceModifiers[action]
   const reviewedKey = topBaseKey(state.baseItemId)
-  const reviewedTargets =
-    reviewedKey &&
-    [
-      'gloves',
-      'helmets',
-      'body',
-      'boots',
-      'bows',
-      'rings',
-      'amulets',
-      'sceptres',
-      'wands',
-      'belts',
-      'crossbows',
-      'shields',
-      'bucklers',
-      'foci',
-      'quivers',
-      'quarterstaves',
-      'spears',
-      'one-hand-maces',
-      'two-hand-maces',
-    ].includes(topBase(reviewedKey)?.family ?? '')
-      ? (
-          reviewedEssenceTargets as Record<
-            string,
-            {
-              fixed: Record<string, string[]>
-              replacements: Record<string, string[]>
-            }
-          >
-        )[reviewedKey]
-      : undefined
+  const reviewedTargets = reviewedKey
+    ? (
+        reviewedEssenceTargets as Record<
+          string,
+          {
+            fixed: Record<string, string[]>
+            replacements: Record<string, string[]>
+          }
+        >
+      )[reviewedKey]
+    : undefined
   const essenceCandidates = reviewedTargets
     ? (reviewedTargets.fixed[action] ?? [])
     : fixedTarget
@@ -1299,8 +1273,9 @@ export async function applyCurrency(
       v.assumptions.length !== 0 ||
       v.consumedOmens.length !== 0 ||
       (v.applied
-        ? action.startsWith('REFINED_') !== isBasicJewel(state.baseItemId) ||
-          !catalystBase(state.baseItemId) ||
+        ? (action.startsWith('REFINED_')
+            ? basePolicy(state.baseItemId)?.refinedCatalyst
+            : basePolicy(state.baseItemId)?.ordinaryCatalyst) !== true ||
           next.catalystQuality?.type !== catalystType ||
           next.catalystQuality?.amount !==
             Math.max(
@@ -1322,7 +1297,7 @@ export async function applyCurrency(
   if (
     (action === 'ARTIFICER' &&
       v.applied &&
-      (state.baseItemId !== 'Metadata/Items/Armours/Gloves/FourGlovesStr1' ||
+      (basePolicy(state.baseItemId)?.socketExecutionMaximum !== 1 ||
         oldSockets !== 0 ||
         newSockets !== 1 ||
         next.rarity !== state.rarity ||

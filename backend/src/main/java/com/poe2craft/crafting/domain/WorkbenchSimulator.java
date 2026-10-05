@@ -134,20 +134,8 @@ public final class WorkbenchSimulator {
   }
 
   private String baseRuleVersion() {
-    if (ReviewedQuarterstavesSpears.supports(catalog.base().id()))
-      return "quarterstaves-spears-workbench-v1";
-    if (ReviewedMaces.supports(catalog.base().id())) return "maces-workbench-v1";
-    if (ReviewedQuivers.supports(catalog.base().id())) return "quiver-workbench-v1";
-    if (ReviewedOffhands.supports(catalog.base().id())) return "offhand-workbench-v1";
-    if (ReviewedCrossbows.supports(catalog.base().id())) return "crossbow-workbench-v1";
-    if (ReviewedBelts.supports(catalog.base().id())) return "distinct-belts-workbench-v1";
-    if (ReviewedAmulets.supports(catalog.base().id())) return "distinct-amulets-workbench-v1";
-    if (ReviewedRings.supports(catalog.base().id())) return "distinct-rings-workbench-v1";
-    if (ReviewedBows.supports(catalog.base().id())) return "endgame-bows-workbench-v1";
-    if (ReviewedBoots.supports(catalog.base().id())) return "boots-workbench-uniform-v1";
-    if (ReviewedBodies.supports(catalog.base().id())) return "body-workbench-uniform-v1";
-    if (ReviewedHelmets.supports(catalog.base().id())) return "helmets-workbench-uniform-v1";
-    if (ReviewedGloves.supports(catalog.base().id())) return "gloves-workbench-uniform-v1";
+    if (BaseRegistry.supports(catalog.base().id()))
+      return BaseRegistry.policy(catalog.base().id()).ruleVersion();
     if (BasicJewel.supportedCrafting(catalog.base().id()))
       return BasicJewel.timeLost(catalog.base().id())
           ? "time-lost-ancient-v1"
@@ -170,31 +158,8 @@ public final class WorkbenchSimulator {
   }
 
   public String ledgerVersion() {
-    if (ReviewedQuarterstavesSpears.supports(catalog.base().id()))
-      return "quarterstaves-spears-unverified-numeric-assumptions-v1";
-    if (ReviewedMaces.supports(catalog.base().id()))
-      return "maces-unverified-numeric-assumptions-v1";
-    if (ReviewedQuivers.supports(catalog.base().id()))
-      return "quiver-unverified-numeric-assumptions-v1";
-    if (ReviewedOffhands.supports(catalog.base().id()))
-      return "offhand-unverified-numeric-assumptions-v1";
-    if (ReviewedCrossbows.supports(catalog.base().id()))
-      return "crossbow-unverified-numeric-assumptions-v1";
-    if (ReviewedBelts.supports(catalog.base().id()))
-      return "belt-unverified-numeric-assumptions-v1";
-    if (ReviewedAmulets.supports(catalog.base().id()))
-      return "amulet-unverified-numeric-assumptions-v1";
-    if (ReviewedRings.supports(catalog.base().id()))
-      return "ring-unverified-numeric-assumptions-v1";
-    if (ReviewedBows.supports(catalog.base().id())) return "bow-unverified-numeric-assumptions-v1";
-    if (ReviewedBoots.supports(catalog.base().id()))
-      return "boots-uniform-candidates-unverified-rolls-v1";
-    if (ReviewedBodies.supports(catalog.base().id()))
-      return "body-uniform-candidates-unverified-rolls-v1";
-    if (ReviewedHelmets.supports(catalog.base().id()))
-      return "helmets-uniform-candidates-unverified-rolls-v1";
-    if (ReviewedGloves.supports(catalog.base().id()))
-      return "gloves-uniform-candidates-unverified-rolls-v1";
+    if (BaseRegistry.supports(catalog.base().id()))
+      return BaseRegistry.policy(catalog.base().id()).ledgerVersion();
     if (BasicJewel.supportedCrafting(catalog.base().id()))
       return "sapphire-uniform-candidates-and-rolls-v1";
     if (catalog.base().id().equals(RingEssenceTargets.BASE_ID))
@@ -231,11 +196,12 @@ public final class WorkbenchSimulator {
         .filter(
             a ->
                 a != WorkbenchCurrency.DIVINE
-                    || !state.baseItemId().equals(BeltEssenceTargets.BASE_ID))
+                    || BaseRegistry.policy(state.baseItemId()) == null
+                    || BaseRegistry.policy(state.baseItemId()).divine())
         .filter(
             a ->
                 (a != WorkbenchCurrency.ARTIFICER
-                        || state.baseItemId().equals(AugmentSocketRules.STOCKY_BASE_ID))
+                        || BaseRegistry.socketExecutionMaximum(state.baseItemId()) != null)
                     && java.util.stream.Stream.concat(
                             essenceTargets(a).stream(), replacementTargets(a).stream())
                         .allMatch(id -> catalog.find(id).isPresent()))
@@ -274,16 +240,13 @@ public final class WorkbenchSimulator {
       ItemState state, WorkbenchCurrency action, List<WorkbenchOmen> omens) {
     if (action.catalystType() != null) {
       if (action.refinedCatalyst()) {
-        if (!BasicJewel.supported(state.baseItemId()))
+        if (!BaseRegistry.refinedCatalyst(state.baseItemId()))
           return blocked(
               action,
               "Refined catalysts require a supported Basic Jewel with jewel_catalyst source tag.");
         return new Availability(action, true, "");
       }
-      if (!state.baseItemId().equals(SolarAmulet.BASE_ID)
-          && !state.baseItemId().equals(RingEssenceTargets.BASE_ID)
-          && !ReviewedRings.supports(state.baseItemId())
-          && !ReviewedAmulets.supports(state.baseItemId()))
+      if (!BaseRegistry.ordinaryCatalyst(state.baseItemId()))
         return blocked(action, "Ordinary catalysts require a supported Ring or Amulet.");
       return new Availability(action, true, "");
     }
@@ -313,7 +276,9 @@ public final class WorkbenchSimulator {
       return blocked(
           action,
           "Removing the maximum-quality modifier while quality exceeds the remaining cap needs game verification.");
-    if (action == WorkbenchCurrency.DIVINE && state.baseItemId().equals(BeltEssenceTargets.BASE_ID))
+    if (action == WorkbenchCurrency.DIVINE
+        && BaseRegistry.policy(state.baseItemId()) != null
+        && !BaseRegistry.policy(state.baseItemId()).divine())
       return blocked(
           action,
           "Belt variable implicits and Charm-slot rolls are not modeled; Divine is unsupported.");

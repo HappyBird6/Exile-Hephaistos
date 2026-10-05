@@ -21,101 +21,24 @@ public final class ItemCatalogLoader {
 
   /** Reviewed endgame variants retain source modifier identities, never legacy base identities. */
   public static ItemCatalog loadTopBase(String key) {
-    String id;
-    String name;
+    var reviewed = com.poe2craft.item.BaseRegistry.require(key);
+    String id = reviewed.id(), name = reviewed.name();
     ItemCatalog pool;
-    switch (key) {
-      case "soldier" -> {
-        id = "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame";
-        name = "Soldier Cuirass";
-        pool = loadBody();
+    if ("BODY".equals(reviewed.policy().legacyCatalog())) pool = loadBody();
+    else if ("HELMET".equals(reviewed.policy().legacyCatalog())) pool = loadHelmet();
+    else {
+      String root = "/catalog/" + reviewed.pool() + "/";
+      try (var data = ItemCatalogLoader.class.getResourceAsStream(root + "catalog.json");
+          var raw = ItemCatalogLoader.class.getResourceAsStream(root + "base.raw.json");
+          var details = ItemCatalogLoader.class.getResourceAsStream(root + "details.raw.json")) {
+        pool = load(data, raw, details);
+      } catch (IOException e) {
+        throw new IllegalStateException("Cannot load reviewed base catalog", e);
       }
-      case "imperial" -> {
-        id = "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame";
-        name = "Imperial Greathelm";
-        pool = loadHelmet();
-      }
-      default -> {
-        if (!com.poe2craft.item.ReviewedGloves.BASES.containsKey(key)
-            && !com.poe2craft.item.ReviewedHelmets.BASES.containsKey(key)
-            && !com.poe2craft.item.ReviewedBodies.BASES.containsKey(key)
-            && !com.poe2craft.item.ReviewedBoots.BASES.containsKey(key)
-            && !com.poe2craft.item.ReviewedBows.BASES.containsKey(key)
-            && !com.poe2craft.item.ReviewedRings.BASES.containsKey(key)
-            && !com.poe2craft.item.ReviewedAmulets.BASES.containsKey(key)
-            && !com.poe2craft.item.ReviewedSceptres.BASES.containsKey(key)
-            && !com.poe2craft.item.ReviewedWands.BASES.containsKey(key)
-            && !com.poe2craft.item.ReviewedBelts.BASES.containsKey(key)
-            && !com.poe2craft.item.ReviewedCrossbows.BASES.containsKey(key)
-            && !com.poe2craft.item.ReviewedOffhands.BASES.containsKey(key)
-            && !com.poe2craft.item.ReviewedQuivers.BASES.containsKey(key)
-            && !com.poe2craft.item.ReviewedMaces.BASES.containsKey(key)
-            && !com.poe2craft.item.ReviewedQuarterstavesSpears.BASES.containsKey(key))
-          throw new IllegalArgumentException("Unreviewed endgame base");
-        try (var proof = ItemCatalogLoader.class.getResourceAsStream("/catalog/top-bases.json")) {
-          var source = mapper().readTree(proof).get(key);
-          id =
-              com.poe2craft.item.ReviewedGloves.BASES.getOrDefault(
-                  key,
-                  com.poe2craft.item.ReviewedHelmets.BASES.getOrDefault(
-                      key,
-                      com.poe2craft.item.ReviewedBodies.BASES.getOrDefault(
-                          key,
-                          com.poe2craft.item.ReviewedBoots.BASES.getOrDefault(
-                              key,
-                              com.poe2craft.item.ReviewedBows.BASES.getOrDefault(
-                                  key,
-                                  com.poe2craft.item.ReviewedRings.BASES.getOrDefault(
-                                      key,
-                                      com.poe2craft.item.ReviewedAmulets.BASES.getOrDefault(
-                                          key,
-                                          com.poe2craft.item.ReviewedSceptres.BASES.getOrDefault(
-                                              key,
-                                              com.poe2craft.item.ReviewedWands.BASES.getOrDefault(
-                                                  key,
-                                                  com.poe2craft.item.ReviewedBelts.BASES
-                                                      .getOrDefault(
-                                                          key,
-                                                          com.poe2craft.item.ReviewedCrossbows.BASES
-                                                              .getOrDefault(
-                                                                  key,
-                                                                  com.poe2craft.item
-                                                                      .ReviewedOffhands.BASES
-                                                                      .getOrDefault(
-                                                                          key,
-                                                                          com.poe2craft.item
-                                                                              .ReviewedQuivers.BASES
-                                                                              .get(key)))))))))))));
-          if (com.poe2craft.item.ReviewedMaces.BASES.containsKey(key))
-            id = com.poe2craft.item.ReviewedMaces.BASES.get(key);
-          if (com.poe2craft.item.ReviewedQuarterstavesSpears.BASES.containsKey(key))
-            id = com.poe2craft.item.ReviewedQuarterstavesSpears.BASES.get(key);
-          name = source.get("name").asText();
-          String root = "/catalog/" + source.get("pool").asText() + "/";
-          try (var data = ItemCatalogLoader.class.getResourceAsStream(root + "catalog.json");
-              var raw = ItemCatalogLoader.class.getResourceAsStream(root + "base.raw.json");
-              var details =
-                  ItemCatalogLoader.class.getResourceAsStream(root + "details.raw.json")) {
-            pool = load(data, raw, details);
-          }
-          if (!pool.base().id().equals(id) || !pool.base().name().equals(name))
-            throw new IllegalArgumentException("Reviewed armour catalog identity mismatch");
-        } catch (IOException e) {
-          throw new IllegalStateException("Cannot load reviewed armour catalog", e);
-        }
-      }
+      if (!pool.base().id().equals(id) || !pool.base().name().equals(name))
+        throw new IllegalArgumentException("Reviewed catalog identity mismatch");
     }
-    String sourceDigest;
-    try (var proof = ItemCatalogLoader.class.getResourceAsStream("/catalog/top-bases.json")) {
-      var source = mapper().readTree(proof).get(key);
-      if (!source.get("id").asText().equals(id) || !source.get("name").asText().equals(name))
-        throw new IllegalArgumentException("Reviewed base source identity mismatch");
-      sourceDigest = source.get("sourceSha256").asText();
-      if (!sourceDigest.matches("[0-9a-f]{64}"))
-        throw new IllegalArgumentException("Reviewed base source digest required");
-    } catch (IOException e) {
-      throw new IllegalStateException("Cannot load reviewed base source", e);
-    }
+    String sourceDigest = reviewed.sourceSha256();
     var old = pool.metadata();
     String poolDigest;
     try {
@@ -129,19 +52,13 @@ public final class ItemCatalogLoader {
         new ItemCatalog.Metadata(
             "poe2db-"
                 + key
-                + ((com.poe2craft.item.ReviewedOffhands.supports(id)
-                        || com.poe2craft.item.ReviewedQuivers.supports(id)
-                        || com.poe2craft.item.ReviewedMaces.supports(id))
-                    ? "-20261005-"
-                    : "-20261004-")
+                + ("-" + reviewed.policy().snapshotDate() + "-")
                 + sourceDigest.substring(0, 12)
                 + "-"
                 + poolDigest.substring(0, 12),
-            (com.poe2craft.item.ReviewedOffhands.supports(id)
-                    || com.poe2craft.item.ReviewedQuivers.supports(id)
-                    || com.poe2craft.item.ReviewedMaces.supports(id))
+            reviewed.policy().snapshotRetrievedAt().equals("SOURCE")
                 ? old.retrievedAt()
-                : "2026-10-04",
+                : reviewed.policy().snapshotRetrievedAt(),
             old.sourceUrl(),
             old.weightPolicy(),
             old.rawSha256(),

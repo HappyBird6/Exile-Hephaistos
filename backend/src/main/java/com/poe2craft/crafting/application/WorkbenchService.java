@@ -352,15 +352,9 @@ public final class WorkbenchService {
                                     1L,
                                     "attack_maximum_added_physical_damage",
                                     4L)))
-                        : (ReviewedBows.supports(catalog.base().id())
-                                    || ReviewedRings.supports(catalog.base().id())
-                                    || ReviewedAmulets.supports(catalog.base().id())
-                                    || ReviewedBelts.supports(catalog.base().id())
-                                    || ReviewedCrossbows.supports(catalog.base().id())
-                                    || ReviewedOffhands.supports(catalog.base().id())
-                                    || ReviewedQuivers.supports(catalog.base().id())
-                                    || ReviewedMaces.supports(catalog.base().id())
-                                    || ReviewedQuarterstavesSpears.supports(catalog.base().id()))
+                        : (BaseRegistry.supports(catalog.base().id())
+                                    && BaseRegistry.policy(catalog.base().id())
+                                        .initializeImplicit())
                                 && catalog.base().hasImplicit()
                             ? List.of(
                                 new ModifierInstance(
@@ -473,41 +467,16 @@ public final class WorkbenchService {
       ItemCatalog catalog,
       Map<WorkbenchCurrency, List<String>> fixed,
       Map<WorkbenchCurrency, List<String>> replacements) {
-    if ((!ReviewedMaces.BASES
-                .getOrDefault(key, ReviewedQuarterstavesSpears.BASES.getOrDefault(key, ""))
-                .equals(catalog.base().id())
-            && !catalog
-                .base()
-                .id()
-                .equals(
-                    ReviewedGloves.BASES.getOrDefault(
-                        key,
-                        ReviewedHelmets.BASES.getOrDefault(
-                            key,
-                            ReviewedBodies.BASES.getOrDefault(
-                                key,
-                                ReviewedBoots.BASES.getOrDefault(
-                                    key,
-                                    ReviewedBows.BASES.getOrDefault(
-                                        key,
-                                        ReviewedRings.BASES.getOrDefault(
-                                            key,
-                                            ReviewedAmulets.BASES.getOrDefault(
-                                                key,
-                                                ReviewedSceptres.BASES.getOrDefault(
-                                                    key,
-                                                    ReviewedWands.BASES.getOrDefault(
-                                                        key,
-                                                        ReviewedBelts.BASES.getOrDefault(
-                                                            key,
-                                                            ReviewedCrossbows.BASES.getOrDefault(
-                                                                key,
-                                                                ReviewedOffhands.BASES.getOrDefault(
-                                                                    key,
-                                                                    ReviewedQuivers.BASES.get(
-                                                                        key)))))))))))))))
-        || topBases.containsKey(key))
-      throw new IllegalArgumentException("Unreviewed or duplicate armour registration");
+    registerReviewedBase(key, catalog, fixed, replacements);
+  }
+
+  public void registerReviewedBase(
+      String key,
+      ItemCatalog catalog,
+      Map<WorkbenchCurrency, List<String>> fixed,
+      Map<WorkbenchCurrency, List<String>> replacements) {
+    if (!BaseRegistry.require(key).id().equals(catalog.base().id()) || topBases.containsKey(key))
+      throw new IllegalArgumentException("Unreviewed or duplicate base registration");
     var simulator =
         new WorkbenchSimulator(
             catalog,

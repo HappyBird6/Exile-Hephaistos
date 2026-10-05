@@ -4,24 +4,7 @@ import java.util.Map;
 
 /** Distinct source-reviewed Ring implicits; this is not the complete Ring catalog. */
 public final class ReviewedRings {
-  public static final Map<String, String> BASES =
-      Map.of(
-          "kinetic",
-          "Metadata/Items/Rings/FourRingB4",
-          "vitalic",
-          "Metadata/Items/Rings/FourRingB2",
-          "mnemonic",
-          "Metadata/Items/Rings/FourRingB3",
-          "pearl",
-          "Metadata/Items/Rings/FourRing8",
-          "amethyst",
-          "Metadata/Items/Rings/FourRing6",
-          "prismatic",
-          "Metadata/Items/Rings/FourRing9",
-          "ruby-ring",
-          "Metadata/Items/Rings/FourRing3",
-          "two-stone-fire-cold",
-          "Metadata/Items/Rings/FourRing13a");
+  public static final Map<String, String> BASES = BaseRegistry.familyBases("rings");
 
   private ReviewedRings() {}
 

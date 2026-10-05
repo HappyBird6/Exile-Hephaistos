@@ -1,3 +1,4 @@
+import { createDisplayBinder, orderedSpawnEligible } from './reviewed-catalog-importer.mjs'
 import fs from 'node:fs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
@@ -21,47 +22,9 @@ for (const dir of fs.readdirSync('backend/src/main/resources/catalog')) {
 const stats = d => d.stats.map(({locality,...s})=>s)
 const slugify = s => s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')
 const equal = (a,b) => JSON.stringify(a)===JSON.stringify(b)
-const numberPattern = /[+]?(?:\(-?\d+(?:\.\d+)?[—–]-?\d+(?:\.\d+)?\)|-?\d+(?:\.\d+)?)/g
 let page
 const sourceTexts = (kind,i) => Object.fromEntries(Object.entries(locales).map(([l,r])=>[l,clean(read(`${root}/${page}.${r}.json`).data[kind][i].str)]))
-function bind(d,texts,code) {
-  if (display.definitions[d.id]) {
-    assert.equal(display.definitions[d.id].englishText,d.text)
-    assert.deepEqual(display.definitions[d.id].stats,d.stats)
-    for (const l of Object.keys(locales)) {
-      const b=display.definitions[d.id]
-      assert.equal(display.templates[l][b.template].template.replace(/\{v(\d+)\}/g,(_,n)=>b.values[+n]).replaceAll('\n',''),texts[l].replaceAll('\n',''))
-    }
-    return
-  }
-  const template = `maces.${d.id}`
-  if (d.layer==='IMPLICIT' && d.stats.every(s=>s.min===s.max)) {
-    display.definitions[d.id]={stats:d.stats,englishText:d.text,values:[],template,sourceCode:code}
-    for(const [l,text]of Object.entries(texts))display.templates[l][template]={name:d.name,template:text}
-    return
-  }
-  const values = [...d.text.matchAll(numberPattern)].map(m=>m[0])
-  const available = [...d.stats]
-  const valueStats = values.map(value=>{
-    const n=value.match(/-?\d+(?:\.\d+)?/g).map(Number)
-    const range=n.length===1?[n[0],n[0]]:n
-    const candidates=available.flatMap(s=>[1,-1,100,-100,60,-60].filter(divisor=>equal([s.min/divisor,s.max/divisor].sort((a,b)=>a-b),range)).map(divisor=>({id:s.id,divisor})))
-    assert.equal(candidates.length,1,`${d.id}: source span must have one unambiguous stat binding: ${value}`)
-    const chosen=candidates[0]
-    available.splice(available.findIndex(s=>s.id===chosen.id),1)
-    return chosen
-  })
-  assert(available.every(s=>s.min===s.max),`${d.id}: undisplayed variable stat needs a reviewed binding`)
-  display.definitions[d.id]={stats:d.stats,englishText:d.text,values,template,sourceCode:code??null,valueStats}
-  for (const [l,text] of Object.entries(texts)) {
-    const localValues=[...text.matchAll(numberPattern)].map(m=>m[0])
-    assert.deepEqual(localValues,values,`${d.id}/${l}: exact numeric spans`)
-    let i=0
-    const translated=text.replace(numberPattern,()=>`{v${i++}}`)
-    display.templates[l][template]={name:d.name,template:translated}
-    assert.equal(translated.replace(/\{v(\d+)\}/g,(_,n)=>values[+n]),text)
-  }
-}
+const bind=createDisplayBinder(display,Object.keys(locales),'maces')
 const reports=[]
 for (page of ['One_Hand_Maces','Two_Hand_Maces']) {
 const data = read(`${root}/${page}.us.json`).data
@@ -69,7 +32,7 @@ const oneHand = page === 'One_Hand_Maces'
 const family = oneHand ? 'one-hand-maces' : 'two-hand-maces'
 const names = oneHand ? ['Fortified Hammer','Strife Pick','Akoyan Club'] : ['Ruination Maul','Fanatic Greathammer','Tawhoan Greatclub']
 const tags=['mace',oneHand?'one_hand_weapon':'two_hand_weapon',oneHand?'onehand':'twohand','weapon','default']
-const eligible=d=>{const first=d.spawn.find(s=>tags.includes(s.tag));assert(first,`${d.url}: ordered spawn missing`);return first.weight>0}
+const eligible=d=>orderedSpawnEligible(d,tags)
 const ordinary=[]
 for(let i=0;i<data.normal.length;i++) {
   const detail=read(`${root}/details/${page}/normal-${i}.json`),row=data.normal[i]

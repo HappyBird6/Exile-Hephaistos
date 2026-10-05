@@ -1,3 +1,4 @@
+import { basePolicy } from './baseRegistry'
 import ringManifest from './topBases.json'
 const ringImplicitIds = Object.fromEntries(
   Object.entries(ringManifest)
@@ -38,15 +39,7 @@ export type CatalystQuality = {
 }
 export const catalystQualityVersion = 'catalyst-quality-display-round-v2'
 export const catalystBase = (base: string) =>
-  [
-    'Metadata/Items/Amulets/FourAmulet9',
-    'Metadata/Items/Rings/FourRing1',
-    'Metadata/Items/Jewels/JewelInt',
-    'Metadata/Items/Jewels/JewelStr',
-    'Metadata/Items/Jewels/JewelDex',
-    'Metadata/Items/Jewels/JewelDiamond',
-  ].includes(base) ||
-  ['rings', 'amulets'].includes(topBase(topBaseKey(base) ?? '')?.family ?? '')
+  basePolicy(base)?.catalystQuality === true
 
 export function qualityShape(
   value: unknown,

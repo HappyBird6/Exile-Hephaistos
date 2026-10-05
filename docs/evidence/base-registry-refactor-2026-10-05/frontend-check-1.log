@@ -1,0 +1,416 @@
+
+added 239 packages, and audited 240 packages in 38s
+
+58 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice
+npm notice New major version of npm available! 11.19.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
+src/app/App.test.tsx 115ms (unchanged)
+src/app/App.tsx 10ms (unchanged)
+src/app/AppProviders.tsx 4ms (unchanged)
+src/app/styles.css 32ms (unchanged)
+src/features/crafting/AbyssEssence.test.ts 15ms (unchanged)
+src/features/crafting/AncientLiquidContract.test.ts 9ms (unchanged)
+src/features/crafting/Artificer.test.ts 20ms (unchanged)
+src/features/crafting/basePolicies.json 34ms (unchanged)
+src/features/crafting/baseRegistry.baseline.json 6ms (unchanged)
+src/features/crafting/baseRegistry.test.ts 7ms
+src/features/crafting/baseRegistry.ts 15ms
+src/features/crafting/basicJewel.test.ts 20ms (unchanged)
+src/features/crafting/basicJewel.ts 15ms (unchanged)
+src/features/crafting/basicJewelDefinitions.json 151ms (unchanged)
+src/features/crafting/basicJewelLiquidTargets.json 3ms (unchanged)
+src/features/crafting/BasicJewelPotentContract.test.ts 4ms (unchanged)
+src/features/crafting/BeltEssence.test.ts 14ms (unchanged)
+src/features/crafting/BodyEssence.test.ts 11ms (unchanged)
+src/features/crafting/BowPerfectEssence.test.ts 5ms (unchanged)
+src/features/crafting/BowWorkbenchContract.test.ts 11ms (unchanged)
+src/features/crafting/BreachEssence.test.ts 6ms (unchanged)
+src/features/crafting/catalystPolicy.test.tsx 14ms (unchanged)
+src/features/crafting/catalystQuality.test.tsx 21ms (unchanged)
+src/features/crafting/catalystQuality.ts 17ms
+src/features/crafting/CoupledRollContract.test.ts 9ms (unchanged)
+src/features/crafting/craft-support.css 18ms (unchanged)
+src/features/crafting/crafting-explorer.css 18ms (unchanged)
+src/features/crafting/crafting.css 77ms (unchanged)
+src/features/crafting/craftingApi.ts 30ms
+src/features/crafting/CraftingExplorer.test.tsx 24ms (unchanged)
+src/features/crafting/CraftingExplorer.tsx 51ms (unchanged)
+src/features/crafting/CraftingPage.tsx 146ms
+src/features/crafting/craftProbabilityEvidence.test.ts 4ms (unchanged)
+src/features/crafting/craftProbabilityEvidence.ts 4ms (unchanged)
+src/features/crafting/CraftSupport.test.tsx 19ms (unchanged)
+src/features/crafting/CraftSupport.tsx 56ms (unchanged)
+src/features/crafting/currencies.ts 4ms (unchanged)
+src/features/crafting/CurrencyImage.tsx 3ms (unchanged)
+src/features/crafting/currencyNames.ts 2ms (unchanged)
+src/features/crafting/draft.ts 7ms
+src/features/crafting/Fracturing.test.ts 8ms (unchanged)
+src/features/crafting/GreaterExaltation.test.ts 4ms (unchanged)
+src/features/crafting/HelmetEssence.test.ts 10ms (unchanged)
+src/features/crafting/Homogenising.test.tsx 10ms (unchanged)
+src/features/crafting/HysteriaEssence.test.ts 4ms (unchanged)
+src/features/crafting/item-card.css 6ms (unchanged)
+src/features/crafting/ItemCard.test.tsx 7ms (unchanged)
+src/features/crafting/ItemCard.tsx 8ms (unchanged)
+src/features/crafting/itemCardData.ts 6ms (unchanged)
+src/features/crafting/itemModels.ts 3ms (unchanged)
+src/features/crafting/itemTextApi.ts 14ms (unchanged)
+src/features/crafting/ItemTextImport.test.tsx 35ms (unchanged)
+src/features/crafting/LegacyFive.test.ts 13ms (unchanged)
+src/features/crafting/localizedCrafting.ts 3ms (unchanged)
+src/features/crafting/localizedModifiers.test.ts 23ms (unchanged)
+src/features/crafting/localizedModifiers.ts 9ms (unchanged)
+src/features/crafting/maces.test.ts 4ms (unchanged)
+src/features/crafting/materials.ts 19ms (unchanged)
+src/features/crafting/MaterialStash.test.tsx 34ms (unchanged)
+src/features/crafting/MaterialTooltip.tsx 11ms (unchanged)
+src/features/crafting/materialTooltips.json 20ms (unchanged)
+src/features/crafting/offhands.test.ts 5ms (unchanged)
+src/features/crafting/OmenComposition.test.tsx 9ms (unchanged)
+src/features/crafting/omenRemovalCandidates.ts 7ms (unchanged)
+src/features/crafting/outcomeGroups.test.ts 9ms (unchanged)
+src/features/crafting/outcomeGroups.ts 9ms (unchanged)
+src/features/crafting/ParsedItemDetails.tsx 12ms (unchanged)
+src/features/crafting/PerfectEnhancementEssence.test.ts 9ms (unchanged)
+src/features/crafting/PerfectInfiniteEssence.test.ts 8ms (unchanged)
+src/features/crafting/qualityCapChangePolicy.ts 4ms (unchanged)
+src/features/crafting/qualityLimit.test.ts 15ms (unchanged)
+src/features/crafting/qualityLimit.ts 4ms
+src/features/crafting/qualityRoundingPolicy.ts 2ms (unchanged)
+src/features/crafting/quarterstavesSpears.test.ts 4ms (unchanged)
+src/features/crafting/QuiverCurrencyContract.test.ts 3ms (unchanged)
+src/features/crafting/quivers.test.ts 4ms (unchanged)
+src/features/crafting/refinedCatalyst.test.ts 17ms (unchanged)
+src/features/crafting/remainingDisplay.test.tsx 14ms (unchanged)
+src/features/crafting/ReviewedAmulets.test.ts 6ms (unchanged)
+src/features/crafting/ReviewedBelts.test.ts 5ms (unchanged)
+src/features/crafting/ReviewedBeltsContract.test.ts 4ms (unchanged)
+src/features/crafting/reviewedGloves.test.ts 7ms (unchanged)
+src/features/crafting/ReviewedRings.test.ts 6ms (unchanged)
+src/features/crafting/RingEssence.test.ts 16ms (unchanged)
+src/features/crafting/RunicAlloy.test.ts 5ms (unchanged)
+src/features/crafting/sapphireDefinitions.json 11ms (unchanged)
+src/features/crafting/sapphireGeneration.test.ts 5ms (unchanged)
+src/features/crafting/SapphireGenerationContract.test.ts 2ms (unchanged)
+src/features/crafting/sapphireJewel.ts 2ms (unchanged)
+src/features/crafting/SceptreEssence.test.ts 6ms (unchanged)
+src/features/crafting/ServiceMessage.tsx 2ms (unchanged)
+src/features/crafting/serviceMessages.ts 5ms (unchanged)
+src/features/crafting/serviceScope.test.ts 3ms (unchanged)
+src/features/crafting/serviceScope.ts 2ms (unchanged)
+src/features/crafting/StockyAbyss.test.ts 7ms (unchanged)
+src/features/crafting/StockyCyclonicAlloy.test.ts 7ms (unchanged)
+src/features/crafting/StockyExpansiveAlloy.test.ts 7ms (unchanged)
+src/features/crafting/StockyHorror.test.ts 6ms (unchanged)
+src/features/crafting/StockyHysteria.test.ts 6ms (unchanged)
+src/features/crafting/StockyMysticAlloy.test.ts 7ms (unchanged)
+src/features/crafting/StockyPerfectGloveEssence.test.ts 7ms (unchanged)
+src/features/crafting/StockyPrismaticAlloy.test.ts 7ms (unchanged)
+src/features/crafting/StockyReviewedAlloys.test.ts 12ms (unchanged)
+src/features/crafting/StockyWorkbenchContract.test.ts 7ms (unchanged)
+src/features/crafting/supportApi.ts 11ms (unchanged)
+src/features/crafting/topBaseEssences.json 67ms (unchanged)
+src/features/crafting/topBases.json 73ms (unchanged)
+src/features/crafting/topBases.test.ts 6ms (unchanged)
+src/features/crafting/topBases.ts 4ms
+src/features/crafting/useItemTextImport.ts 6ms (unchanged)
+src/features/crafting/WandEssence.test.ts 6ms (unchanged)
+src/features/crafting/Workbench.test.tsx 25ms (unchanged)
+src/features/crafting/workbenchApi.ts 97ms
+src/features/crafting/WorkbenchExtension.test.tsx 19ms (unchanged)
+src/features/crafting/workbenchHistory.test.ts 12ms (unchanged)
+src/features/crafting/workbenchHistory.ts 21ms (unchanged)
+src/features/crafting/workbenchStateShape.test.ts 4ms (unchanged)
+src/features/crafting/workbenchStateShape.ts 3ms
+src/main.tsx 2ms (unchanged)
+src/shared/i18n/gameTerms.json 233ms (unchanged)
+src/shared/i18n/i18n.css 11ms (unchanged)
+src/shared/i18n/i18n.test.tsx 16ms (unchanged)
+src/shared/i18n/i18n.ts 15ms (unchanged)
+src/shared/i18n/LocaleSelector.test.tsx 7ms (unchanged)
+src/shared/i18n/LocaleSelector.tsx 7ms (unchanged)
+src/shared/i18n/messages.json 32ms (unchanged)
+src/shared/i18n/modifierTemplates.json 1008ms (unchanged)
+src/shared/test/ancient-liquid-responses.json 910ms (unchanged)
+src/shared/test/basic-jewel-potent-responses.json 633ms (unchanged)
+src/shared/test/belt-essence-responses.json 34ms (unchanged)
+src/shared/test/body-essence-responses.json 36ms (unchanged)
+src/shared/test/bow-cold-essence-response.json 2ms (unchanged)
+src/shared/test/bow-perfect-essence-responses.json 7ms (unchanged)
+src/shared/test/craftingFixtures.ts 11ms (unchanged)
+src/shared/test/diamond-catalog.json 32ms (unchanged)
+src/shared/test/emerald-catalog.json 15ms (unchanged)
+src/shared/test/helmet-essence-responses.json 27ms (unchanged)
+src/shared/test/quiver-currency-responses.json 11ms (unchanged)
+src/shared/test/reviewed-belts-contract.json 12ms (unchanged)
+src/shared/test/ring-essence-responses.json 51ms (unchanged)
+src/shared/test/ruby-catalog.json 10ms (unchanged)
+src/shared/test/sapphire-catalog.json 11ms (unchanged)
+src/shared/test/sapphire-generation-responses.json 120ms (unchanged)
+src/shared/test/sceptre-essence-responses.json 44ms (unchanged)
+src/shared/test/setup.ts 3ms (unchanged)
+src/shared/test/time-lost-diamond-catalog.json 32ms (unchanged)
+src/shared/test/time-lost-emerald-catalog.json 15ms (unchanged)
+src/shared/test/time-lost-ruby-catalog.json 10ms (unchanged)
+src/shared/test/time-lost-sapphire-catalog.json 12ms (unchanged)
+src/shared/test/wand-essence-responses.json 9ms (unchanged)
+
+> exile-hephaistos-frontend@0.1.0 lint
+> eslint . --max-warnings 0
+
+
+> exile-hephaistos-frontend@0.1.0 typecheck
+> tsc --noEmit
+
+
+> exile-hephaistos-frontend@0.1.0 format:check
+> prettier --check .
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> exile-hephaistos-frontend@0.1.0 pretest
+> node ../scripts/check-display-coverage.mjs
+
+{
+  "locales": {
+    "en": {
+      "names": 220,
+      "total": 220,
+      "exceptions": [],
+      "liquidNamesAndDescriptions": 26
+    },
+    "ko": {
+      "names": 220,
+      "total": 220,
+      "exceptions": [],
+      "liquidNamesAndDescriptions": 26
+    },
+    "zh-CN": {
+      "names": 220,
+      "total": 220,
+      "exceptions": [],
+      "liquidNamesAndDescriptions": 26
+    },
+    "zh-TW": {
+      "names": 220,
+      "total": 220,
+      "exceptions": [],
+      "liquidNamesAndDescriptions": 26
+    },
+    "ja": {
+      "names": 220,
+      "total": 220,
+      "exceptions": [],
+      "liquidNamesAndDescriptions": 26
+    },
+    "es": {
+      "names": 220,
+      "total": 220,
+      "exceptions": [],
+      "liquidNamesAndDescriptions": 26
+    }
+  },
+  "catalogDefinitions": 2781,
+  "compoundBindings": 437
+}
+
+> exile-hephaistos-frontend@0.1.0 test
+> vitest --run
+
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.1 [39m[90m/qa/frontend-check[39m
+
+ [32m✓[39m src/features/crafting/refinedCatalyst.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 52[2mms[22m[39m
+ [32m✓[39m src/features/crafting/remainingDisplay.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[33m 5703[2mms[22m[39m
+   [32m✓[39m remaining display coverage [2m(5)[22m
+     [33m[2m✓[22m[39m renders all 436 compound bindings at min/middle/max in all locales with canonical values preserved[33m 3751[2mms[22m[39m
+     [33m[2m✓[22m[39m projects verified per-minute, permyriad and negative source units without rewriting rolls[33m 1556[2mms[22m[39m
+     [33m[2m✓[22m[39m uses stable service adapters and labels unknown source text without altering it[33m 377[2mms[22m[39m
+ [32m✓[39m src/features/crafting/localizedModifiers.test.ts [2m([22m[2m5 tests[22m[2m)[22m[33m 985[2mms[22m[39m
+   [32m✓[39m verified modifier display templates [2m(5)[22m
+     [33m[2m✓[22m[39m covers every ordinary catalog definition in all six locales[33m 911[2mms[22m[39m
+ [32m✓[39m src/features/crafting/CraftingExplorer.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[33m 6585[2mms[22m[39m
+   [32m✓[39m Crafting probability explorer [2m(8)[22m
+     [33m[2m✓[22m[39m expands grouped tiers and follows the exact tier probability, then returns to a chosen step[33m 742[2mms[22m[39m
+     [33m[2m✓[22m[39m loads the initial state and source, previews outcomes, follows a branch and returns[33m 1048[2mms[22m[39m
+     [33m[2m✓[22m[39m reports partial sequence mass without relabeling it as success[33m 408[2mms[22m[39m
+     [33m[2m✓[22m[39m aborts a pending preview and ignores a response arriving after cancellation[33m 525[2mms[22m[39m
+     [33m[2m✓[22m[39m applies to the chosen base in Workbench and preserves the independent explorer path[33m 3529[2mms[22m[39m
+ [32m✓[39m src/features/crafting/WorkbenchExtension.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[33m 10047[2mms[22m[39m
+   [32m✓[39m Workbench extensions [2m(5)[22m
+     [33m[2m✓[22m[39m activates the reviewed Whittling pair and updates all local candidates without hover requests[33m 3086[2mms[22m[39m
+     [33m[2m✓[22m[39m prevents unverified matching omen combinations and removes activation when the last favorite is replaced[33m 2881[2mms[22m[39m
+     [33m[2m✓[22m[39m consumes the matching affix omen and preserves the unrelated Blessed omen until Divine[33m 3148[2mms[22m[39m
+     [33m[2m✓[22m[39m enables a server-validated Solar clipboard item without replacing the original text[33m 927[2mms[22m[39m
+ [32m✓[39m src/features/crafting/CraftSupport.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[33m 10755[2mms[22m[39m
+   [32m✓[39m Independent Craft Support goal input [2m(6)[22m
+     [33m[2m✓[22m[39m deduplicates goal tiers while naming every effect variant and retaining manual alternatives[33m 2798[2mms[22m[39m
+     [33m[2m✓[22m[39m shows actual-service comparison fields and chosen guide, then clears the old route for recovery input[33m 2028[2mms[22m[39m
+     [33m[2m✓[22m[39m distinguishes partial bounds and a service failure from a zero success result[33m 1827[2mms[22m[39m
+     [33m[2m✓[22m[39m builds a distinct family goal and keeps the Support state while using Workbench[33m 2624[2mms[22m[39m
+     [33m[2m✓[22m[39m recognizes an achieved manual tier root without fabricating a currency recommendation[33m 1162[2mms[22m[39m
+     [33m[2m✓[22m[39m uses keyboard navigation across all three services[33m 313[2mms[22m[39m
+ [32m✓[39m src/features/crafting/workbenchHistory.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 32[2mms[22m[39m
+ [32m✓[39m src/features/crafting/Workbench.test.tsx [2m([22m[2m12 tests[22m[2m)[22m[33m 11514[2mms[22m[39m
+   [32m✓[39m Workbench actual application [2m(12)[22m
+     [33m[2m✓[22m[39m shows source model weights separately from verified game odds[33m 1435[2mms[22m[39m
+     [33m[2m✓[22m[39m does not replace the draft or saved films when a base response arrives after unmount[33m 1333[2mms[22m[39m
+     [33m[2m✓[22m[39m preserves a valid saved item and bytes when optional evidence is invalid[33m 325[2mms[22m[39m
+     [33m[2m✓[22m[39m labels user conjectures separately from verified probability and restores saved films[33m 1122[2mms[22m[39m
+     [33m[2m✓[22m[39m preserves the original future when crafting from a prior step and restores films after remount[33m 2952[2mms[22m[39m
+     [33m[2m✓[22m[39m keeps a successful craft usable when localStorage refuses writes[33m 1393[2mms[22m[39m
+     [33m[2m✓[22m[39m keeps the currency for a Shift craft and clears it on an empty stash click[33m 884[2mms[22m[39m
+     [33m[2m✓[22m[39m shows all verified modifier ranges while Alt is held and restores rolls on keyup or blur[33m 727[2mms[22m[39m
+     [33m[2m✓[22m[39m preserves the current item and tab on a network failure, then retries the same selection[33m 739[2mms[22m[39m
+     [33m[2m✓[22m[39m blocks duplicate applies and ignores a late result after replacing the base[33m 597[2mms[22m[39m
+ [32m✓[39m src/features/crafting/ItemTextImport.test.tsx [2m([22m[2m16 tests[22m[2m)[22m[33m 16663[2mms[22m[39m
+   [32m✓[39m Item text import [2m(16)[22m
+     [33m[2m✓[22m[39m rejects invalid structured modifier response {"type":"FUTURE"}[33m 2149[2mms[22m[39m
+     [33m[2m✓[22m[39m rejects invalid structured modifier response {"tier":"1"}[33m 1148[2mms[22m[39m
+     [33m[2m✓[22m[39m rejects invalid structured modifier response {"affix":"UNVERIFIED"}[33m 1056[2mms[22m[39m
+     [33m[2m✓[22m[39m rejects invalid structured modifier response {"metadata":{"number":0,"section":0,"kind":"CONTENT","raw":"invalid"}}[33m 1291[2mms[22m[39m
+     [33m[2m✓[22m[39m shows English progress, failures and currency notices[33m 1206[2mms[22m[39m
+     [33m[2m✓[22m[39m shows API data and preserves evidence without executing HTML[33m 1566[2mms[22m[39m
+     [33m[2m✓[22m[39m rejects blank and oversized UTF-8 input before requests[33m 753[2mms[22m[39m
+     [33m[2m✓[22m[39m shows safe error INVALID_ITEM_TEXT and allows retry[33m 898[2mms[22m[39m
+     [33m[2m✓[22m[39m shows safe error ITEM_TEXT_TOO_LARGE and allows retry[33m 867[2mms[22m[39m
+     [33m[2m✓[22m[39m shows safe error MALFORMED_REQUEST and allows retry[33m 769[2mms[22m[39m
+     [33m[2m✓[22m[39m shows safe error PRIVATE_SERVER_DETAIL and allows retry[33m 875[2mms[22m[39m
+     [33m[2m✓[22m[39m does not treat network failures or invalid responses as success[33m 674[2mms[22m[39m
+     [33m[2m✓[22m[39m aborts old requests and ignores late responses after edits[33m 738[2mms[22m[39m
+     [33m[2m✓[22m[39m preserves the placed item and current text when new input fails[33m 926[2mms[22m[39m
+     [33m[2m✓[22m[39m aborts pending requests on base selection and unmount[33m 1003[2mms[22m[39m
+     [33m[2m✓[22m[39m uses English after a previous Korean locale was saved[33m 739[2mms[22m[39m
+ [32m✓[39m src/features/crafting/RingEssence.test.ts [2m([22m[2m25 tests[22m[2m)[22m[32m 60[2mms[22m[39m
+ [32m✓[39m src/features/crafting/StockyPerfectGloveEssence.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 40[2mms[22m[39m
+ [32m✓[39m src/features/crafting/StockyReviewedAlloys.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 60[2mms[22m[39m
+ [32m✓[39m src/features/crafting/MaterialStash.test.tsx [2m([22m[2m22 tests[22m[2m)[22m[33m 23980[2mms[22m[39m
+   [32m✓[39m Material stash and shared favorites [2m(22)[22m
+     [33m[2m✓[22m[39m keeps search above scrolling rows and groups the four essence tiers[33m 2272[2mms[22m[39m
+     [33m[2m✓[22m[39m keeps all four in-scope special essences in place during matching and empty searches[33m 726[2mms[22m[39m
+     [33m[2m✓[22m[39m selects Essence materials for use on right-click without registering them[33m 2990[2mms[22m[39m
+     [33m[2m✓[22m[39m selects Essence materials for use on right-click without registering them[33m 2986[2mms[22m[39m
+     [33m[2m✓[22m[39m selects Alloy materials for use on right-click without registering them[33m 1147[2mms[22m[39m
+     [33m[2m✓[22m[39m selects Omen materials for use on right-click without registering them[33m 1148[2mms[22m[39m
+     [33m[2m✓[22m[39m selects Catalysts materials for use on right-click without registering them[33m 1225[2mms[22m[39m
+     [33m[2m✓[22m[39m selects Liquid Emotions materials for use on right-click without registering them[33m 1041[2mms[22m[39m
+     [33m[2m✓[22m[39m does not display native hover titles on empty or occupied favorites[33m 800[2mms[22m[39m
+     [33m[2m✓[22m[39m excludes every requested Omen and filters each material tab[33m 600[2mms[22m[39m
+     [33m[2m✓[22m[39m toggles tooltips across tabs and removes stack size from display only[33m 555[2mms[22m[39m
+     [33m[2m✓[22m[39m hides tooltips during use selection and restores them after cancellation[33m 1062[2mms[22m[39m
+     [33m[2m✓[22m[39m shows sourced descriptions on hover and focus, including favorites[33m 587[2mms[22m[39m
+     [33m[2m✓[22m[39m closes the modal on its backdrop and cancels browser context menus only in the bench[33m 352[2mms[22m[39m
+     [33m[2m✓[22m[39m keeps prior removals, restores the supported Artificer slot and keeps Hinekora positioned[33m 461[2mms[22m[39m
+     [33m[2m✓[22m[39m shows only the selected catalog while keeping fifteen favorites and the current card[33m 1233[2mms[22m[39m
+     [33m[2m✓[22m[39m carries materials across tabs, places and overwrites favorites without consuming source entries[33m 1201[2mms[22m[39m
+     [33m[2m✓[22m[39m Escape cancels pickup, and selecting a favorite for use cannot overwrite another slot[33m 1278[2mms[22m[39m
+     [33m[2m✓[22m[39m navigates tabs by keyboard and closes input with focus returned to its trigger[33m 531[2mms[22m[39m
+     [33m[2m✓[22m[39m replaces a failed favorite image with the next material image[33m 1060[2mms[22m[39m
+     [33m[2m✓[22m[39m does not persist favorites after leaving the page and remounting[33m 708[2mms[22m[39m
+ [32m✓[39m src/features/crafting/StockyCyclonicAlloy.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 33[2mms[22m[39m
+ [32m✓[39m src/features/crafting/catalystQuality.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[33m 1413[2mms[22m[39m
+   [33m[2m✓[22m[39m selects a typed Ring film from an active Solar film without losing either root[33m 345[2mms[22m[39m
+   [33m[2m✓[22m[39m places already present quality through the existing base form and restores it on reload[33m 1058[2mms[22m[39m
+ [32m✓[39m src/features/crafting/StockyPrismaticAlloy.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 28[2mms[22m[39m
+ [32m✓[39m src/features/crafting/StockyExpansiveAlloy.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 41[2mms[22m[39m
+ [32m✓[39m src/features/crafting/StockyMysticAlloy.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 27[2mms[22m[39m
+ [32m✓[39m src/features/crafting/qualityLimit.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 34[2mms[22m[39m
+ [32m✓[39m src/features/crafting/Homogenising.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[33m 832[2mms[22m[39m
+   [33m[2m✓[22m[39m default stash hides legacy; explicit opt-in names availability and unverified boundaries[33m 807[2mms[22m[39m
+ [32m✓[39m src/features/crafting/HelmetEssence.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 38[2mms[22m[39m
+ [32m✓[39m src/features/crafting/ItemCard.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 336[2mms[22m[39m
+ [32m✓[39m src/features/crafting/BeltEssence.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 70[2mms[22m[39m
+ [32m✓[39m src/features/crafting/OmenComposition.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 104[2mms[22m[39m
+ [32m✓[39m src/features/crafting/StockyHorror.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 28[2mms[22m[39m
+ [32m✓[39m src/features/crafting/basicJewel.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 271[2mms[22m[39m
+ [32m✓[39m src/shared/i18n/i18n.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[33m 910[2mms[22m[39m
+   [32m✓[39m locale infrastructure [2m(8)[22m
+     [33m[2m✓[22m[39m keeps the exact model probability disclosure visible on every tab[33m 566[2mms[22m[39m
+ [32m✓[39m src/features/crafting/StockyAbyss.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 34[2mms[22m[39m
+ [32m✓[39m src/features/crafting/StockyWorkbenchContract.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 23[2mms[22m[39m
+ [32m✓[39m src/features/crafting/BowWorkbenchContract.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 35[2mms[22m[39m
+ [32m✓[39m src/features/crafting/SceptreEssence.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 46[2mms[22m[39m
+ [32m✓[39m src/features/crafting/BodyEssence.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 57[2mms[22m[39m
+ [32m✓[39m src/features/crafting/LegacyFive.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 31[2mms[22m[39m
+ [32m✓[39m src/features/crafting/Artificer.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 43[2mms[22m[39m
+ [32m✓[39m src/features/crafting/WandEssence.test.ts [2m([22m[2m18 tests[22m[2m)[22m[32m 69[2mms[22m[39m
+ [32m✓[39m src/app/App.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[33m 1991[2mms[22m[39m
+   [32m✓[39m Crafting workbench [2m(4)[22m
+     [33m[2m✓[22m[39m shows the reduced Currency tab[33m 500[2mms[22m[39m
+     [33m[2m✓[22m[39m preserves the item after a use request and clears selection with Escape[33m 632[2mms[22m[39m
+     [33m[2m✓[22m[39m renders currency images and toggles selection[33m 367[2mms[22m[39m
+ [32m✓[39m src/features/crafting/Fracturing.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 25[2mms[22m[39m
+ [32m✓[39m src/features/crafting/StockyHysteria.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 33[2mms[22m[39m
+ [32m✓[39m src/features/crafting/catalystPolicy.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[32m 257[2mms[22m[39m
+ [32m✓[39m src/features/crafting/AbyssEssence.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/features/crafting/topBases.test.ts [2m([22m[2m42 tests[22m[2m)[22m[32m 45[2mms[22m[39m
+ [32m✓[39m src/features/crafting/PerfectInfiniteEssence.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 24[2mms[22m[39m
+ [32m✓[39m src/features/crafting/ReviewedAmulets.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 43[2mms[22m[39m
+ [32m✓[39m src/features/crafting/ReviewedRings.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 51[2mms[22m[39m
+ [32m✓[39m src/features/crafting/CoupledRollContract.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 29[2mms[22m[39m
+ [32m✓[39m src/features/crafting/PerfectEnhancementEssence.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 27[2mms[22m[39m
+ [32m✓[39m src/features/crafting/HysteriaEssence.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 39[2mms[22m[39m
+ [32m✓[39m src/features/crafting/RunicAlloy.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/features/crafting/BreachEssence.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 24[2mms[22m[39m
+ [32m✓[39m src/features/crafting/outcomeGroups.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/features/crafting/reviewedGloves.test.ts [2m([22m[2m23 tests[22m[2m)[22m[32m 23[2mms[22m[39m
+ [32m✓[39m src/features/crafting/offhands.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/features/crafting/sapphireGeneration.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 27[2mms[22m[39m
+ [32m✓[39m src/features/crafting/workbenchStateShape.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 24[2mms[22m[39m
+ [32m✓[39m src/features/crafting/BowPerfectEssence.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 36[2mms[22m[39m
+ [32m✓[39m src/shared/i18n/LocaleSelector.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 356[2mms[22m[39m
+ [32m✓[39m src/features/crafting/ReviewedBelts.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 57[2mms[22m[39m
+ [32m✓[39m src/features/crafting/quivers.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/features/crafting/GreaterExaltation.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 26[2mms[22m[39m
+ [32m✓[39m src/features/crafting/ReviewedBeltsContract.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 56[2mms[22m[39m
+ [32m✓[39m src/features/crafting/maces.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/features/crafting/quarterstavesSpears.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m src/features/crafting/baseRegistry.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/features/crafting/AncientLiquidContract.test.ts [2m([22m[2m763 tests[22m[2m)[22m[33m 529[2mms[22m[39m
+ [32m✓[39m src/features/crafting/craftProbabilityEvidence.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/features/crafting/QuiverCurrencyContract.test.ts [2m([22m[2m22 tests[22m[2m)[22m[32m 34[2mms[22m[39m
+ [32m✓[39m src/features/crafting/serviceScope.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/features/crafting/BasicJewelPotentContract.test.ts [2m([22m[2m509 tests[22m[2m)[22m[33m 360[2mms[22m[39m
+ [32m✓[39m src/features/crafting/SapphireGenerationContract.test.ts [2m([22m[2m92 tests[22m[2m)[22m[32m 66[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m69 passed[39m[22m[90m (69)[39m
+[2m      Tests [22m [1m[32m1917 passed[39m[22m[90m (1917)[39m
+[2m   Start at [22m 09:28:18
+[2m   Duration [22m 161.65s[2m (environment 69%, setup 19%, tests 6%, import 3%, transform 2%)[22m
+
+[2mEnvironment [22m [33mjsdom was created 69 times[39m[2m · 1077.53s total, 69% of tracked time[22m
+[2m            [22m [2mcreate it once per worker with [22m[33mpool: 'vmThreads'[39m[2m (keeps per-file isolation) or [22m[33misolate: false[39m[2m (shares it across files)[22m
+[2m            [22m [2mlearn more: https://vitest.dev/guide/improving-performance#test-environments[22m
+
+
+> exile-hephaistos-frontend@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v8.3.0 building client environment for production...
+transforming...
+✓ 114 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                     0.48 kB │ gzip:   0.33 kB
+dist/assets/index-BzKfCwua.css     28.04 kB │ gzip:   7.07 kB
+dist/assets/index-Cs3lLIr1.js   4,151.81 kB │ gzip: 701.07 kB
+
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 3.09s
+[33m[PLUGIN_TIMINGS] [0mPlugin hooks ran for 2.7s of this 3.1s build (89%).
+The slowest hooks, timed inside each callback (the wait before a callback starts is excluded, the time it awaits is included):
+  - vite:prepare-out-dir renderStart (68%, 2.1s, 1 call)
+Additional hook time came from hooks under 1s.
+See https://rolldown.rs/reference/InputOptions.checks#plugintimings for more details.
+

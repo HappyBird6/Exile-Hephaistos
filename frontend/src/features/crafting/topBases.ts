@@ -34,28 +34,7 @@ export function topBaseKey(id: string | undefined): TopBaseKey | undefined {
   return (Object.keys(data) as TopBaseKey[]).find((key) => data[key].id === id)
 }
 
+// Legacy entries keep their original selector position.
 export const reviewedArmourKeys = (Object.keys(data) as TopBaseKey[]).filter(
-  (key) =>
-    key !== 'soldier' &&
-    [
-      'gloves',
-      'helmets',
-      'body',
-      'boots',
-      'bows',
-      'rings',
-      'amulets',
-      'sceptres',
-      'wands',
-      'belts',
-      'crossbows',
-      'shields',
-      'bucklers',
-      'foci',
-      'quivers',
-      'quarterstaves',
-      'spears',
-      'one-hand-maces',
-      'two-hand-maces',
-    ].includes(data[key].family),
+  (key) => !['soldier', 'imperial'].includes(key),
 )
