@@ -33,3 +33,5 @@ Backend `check generateJooq bootJar`는 unit/architecture441·integration6, Fron
 Infinite Essence는 class source에 Strength/Dexterity/Intelligence targets가 실제로 존재한다. 이번 묶음은 기존 Attuned의 Sorcery/Seeking/Alacrity 및 Perfect Sorcery/Alacrity 범위를 그대로 확장한다. Infinite의 특수 target 지원을 추가하지 않았다는 의미이며, source가 없다고 판단한 것이 아니다.
 
 추가 [filled legacy film 검증](evidence/wands-runtime-bundle-2026-10-05/old-filled-results.json)7개도 통과했다. Attuned/Rattling/Hallowed의 compound 값·fracture·snapshot을 가진 저장 film을 정확하게 복원하고 Alt 후에도 값을 유지했다. 자체 QA4 services를 정상 종료하고 exclusive slot을 해제했다. [QA 종료 증거](evidence/wands-runtime-bundle-2026-10-05/qa-release.json)의 live4 ID·시작시간·mount는 검증 전후 동일하다. 기존 volume 삭제·remote 작업은 없다. 자체 리뷰에서 runtime/source556 files 일치·scope·pool filtering·old translations/registry 보존을 확인했다.
+
+구현 local commit은 `3d0620e6ecd75c9d4fa38a470b31a3ac362cc71a`이다. 전체 `git diff --check`는 변경하지 않고 보존한 공개 raw HTML의 trailing whitespace를 보고한다. 필수 Backend/Frontend formatter 검증은 모두 통과했다. 원본 HTML 증거를 보정하거나 whitespace 검사 설정을 완화하지 않았다.
