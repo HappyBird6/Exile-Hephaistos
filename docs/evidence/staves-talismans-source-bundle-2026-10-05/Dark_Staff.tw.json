@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/tw/Dark_Staff",
+  "retrievedAt": "2026-10-05T10:01:57.916Z",
+  "sha256": "1b4084d34d6d80d78238befd421d46964e694e16d4192f2a1129d4670f4fbe5d",
+  "variants": [
+    {
+      "name": "黑暗長杖",
+      "card": "黑暗長杖\n        \n    \n    \n        \n            長杖需求:  等級 65, 114 智慧 賦予技能: 暗夜血契\n        \n\n\n\n        \n            Dark Staff",
+      "requirements": "需求:  等級 65, 114 智慧",
+      "properties": [
+        "長杖"
+      ],
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "黑暗長杖",
+        "Class": "長杖",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13",
+        "Tags": "staff, twohand",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff13",
+        "Base.base_level": "1",
+        "Base.tag": "default, staff, twohand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100 2:5:100"
+      }
+    }
+  ]
+}

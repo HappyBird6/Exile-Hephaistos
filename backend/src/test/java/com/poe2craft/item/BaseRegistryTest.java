@@ -29,7 +29,7 @@ class BaseRegistryTest {
         .put("pool", "sourced-spear");
     source.set("sourced-spear", added);
     var snapshot = BaseRegistry.read(source, rules);
-    assertEquals(109, snapshot.top().size());
+    assertEquals(118, snapshot.top().size());
     assertEquals(
         BaseRegistry.require("grand-spear").policy(), snapshot.top().get("sourced-spear").policy());
     assertEquals("sourced-spear", snapshot.top().get("sourced-spear").pool());
@@ -68,7 +68,7 @@ class BaseRegistryTest {
       assertEquals(
           entry.getValue(), M.valueToTree(type.getField("BASES").get(null)), entry.getKey());
     }
-    assertEquals(108, BaseRegistry.topBases().size());
+    assertEquals(117, BaseRegistry.topBases().size());
     assertNull(BaseRegistry.socketExecutionMaximum(BaseRegistry.require("grand-spear").id()));
     assertEquals(
         1, BaseRegistry.socketExecutionMaximum("Metadata/Items/Armours/Gloves/FourGlovesStr1"));

@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/tw/Ravenous_Staff",
+  "retrievedAt": "2026-10-05T10:01:58.735Z",
+  "sha256": "e2ca0d0c0f213cc403776abc1c6121c30b0a62f46b2d90182b5962e5c9a9db75",
+  "variants": [
+    {
+      "name": "貪婪長杖",
+      "card": "貪婪長杖\n        \n    \n    \n        \n            長杖需求:  等級 65, 114 智慧 賦予技能: 血肉盛宴\n        \n\n\n\n        \n            Ravenous Staff",
+      "requirements": "需求:  等級 65, 114 智慧",
+      "properties": [
+        "長杖"
+      ],
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "貪婪長杖",
+        "Class": "長杖",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14",
+        "Tags": "staff, twohand",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff01",
+        "Base.base_level": "1",
+        "Base.tag": "default, staff, twohand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100 2:5:100"
+      }
+    }
+  ]
+}

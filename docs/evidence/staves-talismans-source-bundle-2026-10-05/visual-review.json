@@ -1,0 +1,1727 @@
+{
+  "passed": true,
+  "method": "Direct pixel inspection of all 30 contact sheets: 12 cards, 12 full-page, 2 orange/Solar, 4 English legacy sheets. Card text at original contact resolution; full-page layout scaled. Automated DOM assertions separately cover exact text/geometry.",
+  "locales": [
+    "en",
+    "ko",
+    "ja",
+    "zh-CN",
+    "zh-TW",
+    "es"
+  ],
+  "viewports": [
+    1440,
+    390
+  ],
+  "findings": [
+    "No clipped card text, overlapping card rows, or broken desktop/mobile layout observed.",
+    "Spanish Permafrost131/Reflecting123 Int differs from other locale114; original source preserved.",
+    "Legacy fractured Jewel mismatch warning and preserved film are intentional."
+  ],
+  "images": [
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/dark-staff-en-1440.png",
+      "sha256": "c3c8b59505ce839912d896aa433c075ec94361f1e7be0e4809e78b1d38b34de0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/dark-staff-en-390.png",
+      "sha256": "a760807735ace6757911d9ecc6b5094e931c381568bed3020d3c7d82c24f6c8b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/dark-staff-es-1440.png",
+      "sha256": "c23fea9d7e471312e651643e736861dd0e34833d0e0064a5db71fdf2919e288d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/dark-staff-es-390.png",
+      "sha256": "58ae94fa54106a480d1163335458e02bdae46d24dd2e199a3dfbf970831120ed"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/dark-staff-ja-1440.png",
+      "sha256": "a10765c6a497001ff7c2153dd8e47f83dae50b06d8caa0c2411f9caa7c17a653"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/dark-staff-ja-390.png",
+      "sha256": "e3a4c88bf2b2d96b769d04d4a47945c8290b63aab3c2083218a728fd67458bc5"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/dark-staff-ko-1440.png",
+      "sha256": "ca511085b8819b4f27d30a91fa3afb8e3424024ef53e1c6593460691388258ab"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/dark-staff-ko-390.png",
+      "sha256": "59a82e8211ed8ed899ba9937cb9d468c5544f932890564258dfe1c78c2d522c2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/dark-staff-zh-CN-1440.png",
+      "sha256": "2744f41f048454d211b182dca5ad2cce6b579a0cfbef8c906e2ffb33564c97cc"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/dark-staff-zh-CN-390.png",
+      "sha256": "0764b5ccf0be4596cc6ebd5260bf9ceb9fcb0d963087fe8af4a80703e57cfb35"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/dark-staff-zh-TW-1440.png",
+      "sha256": "855ce571eaf32f0d80c1af55418546c76d963b969083dc6108902d60892efaac"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/dark-staff-zh-TW-390.png",
+      "sha256": "b201174dbb35cc92af941e22d5f6e06a122f08ef667c9b1501e930e7ebff3091"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/fungal-talisman-en-1440.png",
+      "sha256": "44149ed0be951b28f64ab0afe146582178c2322e141c63a818b3da0f31af4587"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/fungal-talisman-en-390.png",
+      "sha256": "03ef73a45c52506dfcec214284d9b954fea70beea2924051dce0b7d9aab45445"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/fungal-talisman-es-1440.png",
+      "sha256": "06a2104530724309577f65896a7de112a07507a75a3815743af89be1ec831051"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/fungal-talisman-es-390.png",
+      "sha256": "2eb130b972ec5ffd7cc13bafd0d2419b911cb9a7686175f55981c8890c10393e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/fungal-talisman-ja-1440.png",
+      "sha256": "d7faab8a5ef053048149336d0a4cdd64ddfd8b431f56755693e3823f8551af78"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/fungal-talisman-ja-390.png",
+      "sha256": "cc091914d512d77f496cc1692add1341fca7f07316caffa28f035c31b1fa5490"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/fungal-talisman-ko-1440.png",
+      "sha256": "168b7b075bc5537878d938d951b4e87ccfa325935cd75a5c3b118c0556e84385"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/fungal-talisman-ko-390.png",
+      "sha256": "264da6b21b143bb31d852cb4ada2335fc50aa20feb2357f427cb2d2d958d2740"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/fungal-talisman-zh-CN-1440.png",
+      "sha256": "095f4723f06711f2814e039febb99713384acec91971c219f6787f68625a90dc"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/fungal-talisman-zh-CN-390.png",
+      "sha256": "a94badca1a29a56e71ace8b7bedd30623ea15f2a1f48926638a14eace623734b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/fungal-talisman-zh-TW-1440.png",
+      "sha256": "f8aa3d7387c3922b068fb49aa1a96964865d8ca84e7059b33856bbcaf50e669a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/fungal-talisman-zh-TW-390.png",
+      "sha256": "e52bb8320bc2998e9b57ee39b50b3fa4559a2f9e4036e893e2466621c7a21f3a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/jade-talisman-en-1440.png",
+      "sha256": "4fa4f4a88da6feee5b6f2d3eafeb151f53446afce663c2215ae84dc35a775352"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/jade-talisman-en-390.png",
+      "sha256": "7ba6e41f8034b100cfcaffebd5d65c4933e0bd3162ea5cabce67d046f283c2e4"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/jade-talisman-es-1440.png",
+      "sha256": "70f917bff521abca51867f2e4fd5bc1e75709a4fafc08034a4a6cd5d48117e49"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/jade-talisman-es-390.png",
+      "sha256": "98b63c2b5124ac9b20677077db1f13f2178069524eb733d60b5aa3775ed12bf0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/jade-talisman-ja-1440.png",
+      "sha256": "1593035414f4ee3ad7fed95b10e0c29b364d6a0ac4f0f0ccc96a3705d7202fb3"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/jade-talisman-ja-390.png",
+      "sha256": "dc6ece0d427da677713948d14b3bdcfbd0de85693d2eeac0dc574e0d5438f838"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/jade-talisman-ko-1440.png",
+      "sha256": "acd498740cbb70fe23cb77dbea950a269dcaf6448626c9828902aec8d64524f2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/jade-talisman-ko-390.png",
+      "sha256": "133035207ce62ea8ae9ee20beef02a99bba9604a530fdbc822a9619902c04e07"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/jade-talisman-zh-CN-1440.png",
+      "sha256": "10c0a61bf3d94c4940b2f12c53c99b9370c013b73f328611dd6577f4406fb7e1"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/jade-talisman-zh-CN-390.png",
+      "sha256": "c7c8cfb5b337723b6868cb674ce9a6300d674caaa560ea3a31b3f1efdfded698"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/jade-talisman-zh-TW-1440.png",
+      "sha256": "e61faf5733f0a2f79f411bc7397b917dbe885717bb368d34b5d39d1e1466c4bb"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/jade-talisman-zh-TW-390.png",
+      "sha256": "b7ca0fcef3f05ad9ed29c043228c726d048ad239fedb77f22daf782c3b7153c5"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-aegis-quarterstaff-en.png",
+      "sha256": "93d6c24f01abcc5f81a9e870f6dc8edbd75109f2755eacfefa13777c35a90de3"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-aegis-quarterstaff-es.png",
+      "sha256": "cb6e5167747a3441254d6fc17d2316ea709430f749f63e387ffbf819dd831a23"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-aegis-quarterstaff-ja.png",
+      "sha256": "130b41a4274342d6b73d7ea10fbe8c8e30de39f19370aa06ef527b14a5733877"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-aegis-quarterstaff-ko.png",
+      "sha256": "1e0f59be2a921913e98c9079a89ef2e67dba3d47c2f23e33378f036ab93ac3d0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-aegis-quarterstaff-zh-CN.png",
+      "sha256": "464804fd4823480282769ccd1498d2659d35ae27e878179227fb36b91a6928ee"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-aegis-quarterstaff-zh-TW.png",
+      "sha256": "0522b6de37de101dcceb8a384a7dcd8b57a38df47666bed500b07d76f8adc727"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-bone-en.png",
+      "sha256": "d5312c181c30fc910576dd0c113e74d1652ba62ca1bca85b4340ed6b4091c827"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-bone-es.png",
+      "sha256": "14a57e02389116b5a55f6ea1e12fd7dfae0a33d5b3b5bc71de910b837af1a1c3"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-bone-ja.png",
+      "sha256": "01081924b170b3f499eb61f8af1d1ea434061d4164ed79c20ad448fb2d9b1ea8"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-bone-ko.png",
+      "sha256": "cb5b7ef998c0feca28a852e8ef66aff9a48b8f37b8613bfc542a0a0e343d7418"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-bone-zh-CN.png",
+      "sha256": "97f8e7b441759451011565694752e2e9b031432ef77038b2559b8f181cf14fe0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-bone-zh-TW.png",
+      "sha256": "6fbc0aeddd45066a0437cf8c3851363c55483683159342e39ba8913b09a5eb74"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-desert-buckler-en.png",
+      "sha256": "5986cc8192c0b83f16f9d2e508f45686c60f66c8711ca03d000c03bb2f14522a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-desert-buckler-es.png",
+      "sha256": "562c127cd6a4bee1876a7259e6686c432414a76c628549b74413dff9d9cab942"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-desert-buckler-ja.png",
+      "sha256": "a683042187eb32be1029e93c826f0b706a68fece258201a234db1c78f556c715"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-desert-buckler-ko.png",
+      "sha256": "e966cde77a757d937a98fa379f39ad06f7f162b59e89dfc8da9108d02a0a6ddc"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-desert-buckler-zh-CN.png",
+      "sha256": "978fc3331909c9631935686ae264d6eed30ec50dcf73535d42c99a7b0fc98a5e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-desert-buckler-zh-TW.png",
+      "sha256": "02b7ed542d070d593c3d1378450c44ee5edf3cdefea5dab81a61d693297ca380"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-fortified-hammer-en.png",
+      "sha256": "45ed2113cd0b55e60ada8772b3d184c683f4b1880c76e1bfb5f63caa109857f2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-fortified-hammer-es.png",
+      "sha256": "591091e4c16b58f3f349c990956587d31e2db2a3f96f5f913b393b6fa546c6ac"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-fortified-hammer-ja.png",
+      "sha256": "ee9c219ed61353ec8a97c14ef6066a998e70b7887643a8e489658681d48a6b84"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-fortified-hammer-ko.png",
+      "sha256": "1b124b5de525fdffd6c899e8e0f06c25e27c06320cff882bdd6b87f494cba437"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-fortified-hammer-zh-CN.png",
+      "sha256": "bdf8c55c2ddff5e8fdfe3e75e1e9fb5035c72f6339f4b9940db69a60b18382c2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-fortified-hammer-zh-TW.png",
+      "sha256": "5ea0bbf085740fb4f39a386db2e74f36ec355dc5a678372ad6c8a383976e17b2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-freebooter-en.png",
+      "sha256": "162ea0671394503d010e141638ef8f792f3995166b74cea66bbbe8ccb3975bc5"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-freebooter-es.png",
+      "sha256": "a0b479b8792c4e7a45bc35d8c25d71f620e1fdaab7ffd838653a614d155f94e9"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-freebooter-ja.png",
+      "sha256": "0f4bbfea60a4298ba51dea3cb97e8e427445f3e3491fe6f59be2fffc1abd0ba9"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-freebooter-ko.png",
+      "sha256": "057f7df3b7ed37d4bb1a455de308e2706cd1661953ae3407fac29f2ae84ec90a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-freebooter-zh-CN.png",
+      "sha256": "5bb6db086d727e15d6c87cb7210a4317c1fb84c3ce123da3b4a7261288870a83"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-freebooter-zh-TW.png",
+      "sha256": "d791a882768727bf3bb1929529201ff2c6f8f0e36958b41140f85de669506108"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-grand-spear-en.png",
+      "sha256": "f7b8c508c581770f306e60f81ed9c9004e969b6063aa92b3486967dac0c04a27"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-grand-spear-es.png",
+      "sha256": "c5848e1904de37e3a865a735a807b96f15a14c89c2d9dcf1131e131c597abb42"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-grand-spear-ja.png",
+      "sha256": "8300dcd25342fc965f1c7317aaca01d63a9df624a55da4eeab37c7a9766abb40"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-grand-spear-ko.png",
+      "sha256": "3fe4dfa8aaa7248ed05bb0a9ebf50a66c043b95cc49076df971bf27da4f35b1d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-grand-spear-zh-CN.png",
+      "sha256": "9c8f513b7e603cb1967c9cbfb78ddebe7fa29d6c79f7166145df4222a66b7d69"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-grand-spear-zh-TW.png",
+      "sha256": "060c41a8d0eadcb4aefe4c09b1c32a24c61f882432015d4e0c8911f715e07ca3"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-hallowed-en.png",
+      "sha256": "823b2ce35d41bb0c9c8975122f0730e550139bcf9bd9cf8e13329b893fb74933"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-hallowed-es.png",
+      "sha256": "f3ee89305ab069f542e1200770dffaa4a413a2cd939a53f642789c22baa8a8b7"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-hallowed-ja.png",
+      "sha256": "f5a1579c1e9a45015f8ed81de24b47c98c1056a98109f393f10be8ad5a002048"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-hallowed-ko.png",
+      "sha256": "62884a693cb4854b2f3434fd720ca4f2e7e062187c77afad4c7495d71c81ea01"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-hallowed-zh-CN.png",
+      "sha256": "5a64fa0a2145c7725ea2d8d8da5a153da7c882ffb6373379e933dff2d500f37a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-hallowed-zh-TW.png",
+      "sha256": "31bd0642ba6bdcbeed460d8d4125a4d9c7e98919aedf2946170e129b8b93ac6a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-imperial-en.png",
+      "sha256": "1053fa681bc88345197550ccbe184d2658faf184a98bba325aeb32723a5b1a77"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-imperial-es.png",
+      "sha256": "dcf3c69a54163e804eeab211ef10065cfba861d8944e72fb9c5b857f58c57f55"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-imperial-ja.png",
+      "sha256": "cca08d90309cf0c66ad428f5e613a004c922370c8b18d9569fe2838b2d18c0a0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-imperial-ko.png",
+      "sha256": "50f2a84bc25b693402c9ee40ef4e4ce9208d1a6fa43f70f605f8179ebf985cf8"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-imperial-zh-CN.png",
+      "sha256": "3d8139c6ab2496baa12226cf8fae5cb7c11e6f72eafcf9ed5d81a7a107e6c844"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-imperial-zh-TW.png",
+      "sha256": "d2efc86f023d612f28655c608ce2d462914f8a5e7e34f934d5cbe01d19a0a324"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-kinetic-en.png",
+      "sha256": "8cc90675c99ca023f349a144126ad60f11abedce25580435c7bc1eb91562a982"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-kinetic-es.png",
+      "sha256": "0753808cb7d7df1cb6c353deff955eacbfd58238f35ab5b6f7da9c48105fe940"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-kinetic-ja.png",
+      "sha256": "9186502e9485809b4156640c06ac97fef2d67ccbf146ee8eb9eb0035ae366344"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-kinetic-ko.png",
+      "sha256": "4b1d46c7c6851734e9f232d06c813cb4f29d679ee139516a3985378751fb176d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-kinetic-zh-CN.png",
+      "sha256": "a84f806ac79c96273200615fa8968a4093b6ae3ea2912028c6af15ff410584c1"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-kinetic-zh-TW.png",
+      "sha256": "0d843c60d90d0d5d52660ac40426d6c4b09fc7027a212549093c320e332b29fc"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-linen-belt-en.png",
+      "sha256": "09bb5bc4334267f0a8388d3730b00152a740816ec769b41c3213af2a5503df64"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-linen-belt-es.png",
+      "sha256": "8734729e252e245b30e3ef356ee5511234f4679d04210ee795df28b66bfb8970"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-linen-belt-ja.png",
+      "sha256": "ad78687a80774968a50411c2819dbe5dec97e0839ca240dfa2d4a2f5f06ba956"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-linen-belt-ko.png",
+      "sha256": "0e74d64f5584b25b2dfed91bc4c7e15d939eae3b24e807045ce09d0aaa1e1503"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-linen-belt-zh-CN.png",
+      "sha256": "441b61aafd66a4a70a3095fade263d99ac434a69a85905f6406718157fed8df4"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-linen-belt-zh-TW.png",
+      "sha256": "44a69aeeabf237933bdd1dad5812b64a38e307e05492adbeac6328bfd221b26a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-massive-en.png",
+      "sha256": "d740b9bbf95e0aeda62680bf089951fd04f6cc7c38d8849343a5ee16c0a24fc4"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-massive-es.png",
+      "sha256": "4835db279b972f468be6695a57d51e75e017ae03a68e57e80c882a02d92008c9"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-massive-ja.png",
+      "sha256": "c918839b732d8d79af1ab2b15320f8a64d8db45e9cd85c3913a2bbf3d6bd077a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-massive-ko.png",
+      "sha256": "2c7353031e37694147ea5182f74878062d97df9a25d34dd4b8b2b7c416fe769e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-massive-zh-CN.png",
+      "sha256": "2198d3d2d47f9526c261ad0630d393bf3425fc3350ac0c4c5aed7732b16ff0da"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-massive-zh-TW.png",
+      "sha256": "4faa90b08f3657584f916dc636620ccf2c62f494ffaa83850e17baf3d8ee2678"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-ruination-maul-en.png",
+      "sha256": "123a5f8476d2f6667becdc278456bed9e8807a34a822ff945bb4898acfce6f4c"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-ruination-maul-es.png",
+      "sha256": "394693e15a09b3973720d29e3853acfa75f81bca5d8f40cabcde3b41aa65b69d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-ruination-maul-ja.png",
+      "sha256": "4f5bb367bbc1ab7f260facc179cf28f09ea9d8e86c72b2659abadc2c0aedc1ee"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-ruination-maul-ko.png",
+      "sha256": "46e21f5fa2acb95d0cfef5ac5d71ebf749de2b62526f4b52ddaeeb8a465ecabe"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-ruination-maul-zh-CN.png",
+      "sha256": "49e13a491cfe83a49d0cafbd0160097f119b20fd3d9164993ffbb8eb6ad033f2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-ruination-maul-zh-TW.png",
+      "sha256": "13042ddd5ed691706f97ff747874f94883da922db2e40c188f51929ab126f0a7"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-sapphire-en.png",
+      "sha256": "17852e702399cee65d5e394a9455e96d77ad351fa774f68938c9c7be8e316ef4"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-sapphire-es.png",
+      "sha256": "26420be7067286e3941f331c3385f35d1f2e843551887e4826dce310242e1387"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-sapphire-ja.png",
+      "sha256": "d0a0cd02b108402791e8d1b5b2281b561e3530a904f4e3229e8b445a12052eb6"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-sapphire-ko.png",
+      "sha256": "ea8effc244cbb10de8b942b5ac60f114d8769557f54c7c8c57713667930df7b2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-sapphire-zh-CN.png",
+      "sha256": "d76739ca51dae648bb272f5da25a07734dd0a18e35fd73d9f85ab0ccd73ef661"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-sapphire-zh-TW.png",
+      "sha256": "87820e68df9b1ffe555006533b2545d65743a4c3099cb145942002fcf84d49ea"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-siege-crossbow-en.png",
+      "sha256": "09df80fa83ca377ae47b85c33d66835d507fdeb57b3ffc4196f7844a07aa2dce"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-siege-crossbow-es.png",
+      "sha256": "b746fb59851f360559e34cd06d82f76fb0df5e7b7286995091b557f470af2764"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-siege-crossbow-ja.png",
+      "sha256": "d12dcb06c6e3d0662ad9eb064a26a7797100b81f1a56732408c69fa4afdbbc89"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-siege-crossbow-ko.png",
+      "sha256": "f48a04266f59f5dff7e4bae35ee391b201e0368adcddd38ea211e35ba60eb4fd"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-siege-crossbow-zh-CN.png",
+      "sha256": "fc1125163d1f79fa9e8a95fd0fe6bd11926e2fba6eb7cbf24381d285a77942b6"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-siege-crossbow-zh-TW.png",
+      "sha256": "c300e085a1aa6f0eaece6ea33673c0b184c1a787e7466ae56df502ef7f997675"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-solar-en.png",
+      "sha256": "815914e3c030bea506c1ff09d04ec4d435a835ea9d635a8794018b86134f94af"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-solar-es.png",
+      "sha256": "fa8cceb8e621129bb2cea5a0c4d9013a3f2e67c5c39048044f12bc58509f99e1"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-solar-ja.png",
+      "sha256": "a38b04c06d591785464a3d671b46d364186da2ecc4206f7d60fffaeefadc7486"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-solar-ko.png",
+      "sha256": "18f9f40a31d9ad5aff820b2c05a63ae2c778249940b257f005c0ffc3d9b6c574"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-solar-zh-CN.png",
+      "sha256": "8870b84f5d263d715acfc39c7c08dc5dcdfa3596c22c9734510ec682282c11f1"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-solar-zh-TW.png",
+      "sha256": "f10be905e3cff6ba8495fb137b67cb09dd7c9a6190eb57a0211ece8e05503540"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-soldier-en.png",
+      "sha256": "6ef0c48a28132909b2d8cce5b174bdbf8bf9ccbbdc4a87767c09b3dfc0944f2e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-soldier-es.png",
+      "sha256": "2a5cbda1ad98fd6029a03193bb93a00a03f3786ca8ae55daeb23976e3b420ab3"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-soldier-ja.png",
+      "sha256": "0567ac128b330121ef661b5ced06c91b4f0e19e7b4dd7f15efd0033709e9594c"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-soldier-ko.png",
+      "sha256": "c043163b3dc43fbf421b3f66174330746a6cbb8e10bb37f049213b218dfb4be3"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-soldier-zh-CN.png",
+      "sha256": "bdb6dd3f3d8fa21d9c97ca5e0458d053ada0e7b393206b0e52199e0231a619c4"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-soldier-zh-TW.png",
+      "sha256": "2bbe0d0043daf4ff0816c407fdcbd65754834e8be608cb40c03dec9976233293"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-stellar-en.png",
+      "sha256": "1c97594908093032a14c900530da794f0488601dc36ec860e0810ec6119ddc9c"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-stellar-es.png",
+      "sha256": "4d9196ae1128f9ded4b7d8eeaef1476a8591987a600663c501fc8b74219d84be"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-stellar-ja.png",
+      "sha256": "b1e9536928bb72d24d9f91151fc4f6e97ecfe9998f4b53ca5cd3f5e90de62a91"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-stellar-ko.png",
+      "sha256": "5b1c7f3241cd3059ab58806d525c440fabf69a2c1c54def1c5e8c269df717005"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-stellar-zh-CN.png",
+      "sha256": "87d72a82d3dcab21520d0a1a2ab5e43f16a056bc7026031243cd0ef71e736608"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-stellar-zh-TW.png",
+      "sha256": "2d14befb3e6fbf21bbd89d941f9de66ce85e2b0104d10be0e80b1642e00e8e41"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-stocky-en.png",
+      "sha256": "487cf10787755d41485424c6a1bd155f3894dc866943355766df8213f103a497"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-stocky-es.png",
+      "sha256": "03ad3984e5a3602d062b9d82bf4e2d909ab30c20cffc212675f3ddb77d031167"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-stocky-ja.png",
+      "sha256": "6c51fa41d3b788893781075c61d076ed857b8638ba3a9cc621f2033de9145c47"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-stocky-ko.png",
+      "sha256": "b03ed6361f01620d78e8f256df81675c73ff5ef65fb4cc3a411d03a8927f61ca"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-stocky-zh-CN.png",
+      "sha256": "fc5c098d1a0eedf8c3bbf91123e9045cf6fb681f9b87b5bd3c823ffa28c629dd"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-stocky-zh-TW.png",
+      "sha256": "a9fd0030988f49758dce810b2aba000207886caae3ac25cc53d7a4c5eae59cdb"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-tasalian-en.png",
+      "sha256": "60b80eca06ae3283a402c2fe8137ae25fa9df2fc113c5782c618622b133d0c3f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-tasalian-es.png",
+      "sha256": "f2b5764433cd80685aebb9083f1b6e37cc747d8a756b921c54bb105534c8490f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-tasalian-focus-en.png",
+      "sha256": "0a31a35f720ddb73bd23021b245c433d83502f6c8bc54b0e05637618cd15861b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-tasalian-focus-es.png",
+      "sha256": "c162270bf8769ddc68d97feca1eddabe45b913880d849096e0ee7e2a63ff5941"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-tasalian-focus-ja.png",
+      "sha256": "8c7f8985d100d26bfee63cc86a25cbc2f4b46366f23d2316873630f81b18cb82"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-tasalian-focus-ko.png",
+      "sha256": "b6ea60d7c20c56bbb3dcf2ef9e3f5ba1b5fb9a008b0a22b6916761ca28ed1a7d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-tasalian-focus-zh-CN.png",
+      "sha256": "e993c66374a7e5f5caefdf309bb1fbf20688a174c4e366f11146533604dada0c"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-tasalian-focus-zh-TW.png",
+      "sha256": "7e23af93668c4d7c4801c3a2caff60ea0245cbbaa3a3fc5e10341237ced63b01"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-tasalian-ja.png",
+      "sha256": "f8a1984544dff3c3d989a46b9e2449749a04c0bc8b4baeeea86da4fe125e68b9"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-tasalian-ko.png",
+      "sha256": "d3b0ac7d0b6d6ba1dd672c056c4dbe3a215b8c38064e6393ded5adb0a99423bd"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-tasalian-zh-CN.png",
+      "sha256": "eb10d0535aadb4233045a8834e50edd2675f3df5941f2f15cb1ff36fbfafa186"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-tasalian-zh-TW.png",
+      "sha256": "5ad5e24a946d36ce7627202060fea18f5b45f8f71f3ac986b106709cd28d29f0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-tawhoan-tower-shield-en.png",
+      "sha256": "ac657c557773f92bd55019bb4ca27984e8034d7c46439e0e0afe24e24dafef3a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-tawhoan-tower-shield-es.png",
+      "sha256": "aa4b9dbb64e9c7be947efa14d33fa25551daa84e4800f1ade5a4e38d9e5788dc"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-tawhoan-tower-shield-ja.png",
+      "sha256": "59804cae0aec7a722bde1102bb7000f314aa0f96a72fbf2eb684d80ef54bdc84"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-tawhoan-tower-shield-ko.png",
+      "sha256": "ac4169a45dd9dccd639681d2759aa30aef753237a2966395105c3456da87eba9"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-tawhoan-tower-shield-zh-CN.png",
+      "sha256": "324efb8ebbf4b6ea60baaa2a2664c0c82a96617811470e804bce954a29736c88"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-tawhoan-tower-shield-zh-TW.png",
+      "sha256": "6db33954469442c6ab494519ea944c03ebc0cf74b1289f0afc81aad9218b4f22"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-time-lost-sapphire-en.png",
+      "sha256": "7d2ed3960f250ee680224601f49711cbf8e44baadb935d7de14300d42998864a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-time-lost-sapphire-es.png",
+      "sha256": "fe06d0bcb501dcaaaeaf0d0a69ca5bedfc40aabd1c027cb0c088b60299f6c98b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-time-lost-sapphire-ja.png",
+      "sha256": "b7152493839af07f0f0f39f08d2bc57e101c877d541610c198d3e569769bd67b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-time-lost-sapphire-ko.png",
+      "sha256": "271c4e84f89e8f5bd8039c4fb37304bcee16b8635965abe6256b77f2557a70a2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-time-lost-sapphire-zh-CN.png",
+      "sha256": "7edb36add274db409387199420e71c0782efa54e0f73d817a48ffc31f47eaa85"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-time-lost-sapphire-zh-TW.png",
+      "sha256": "8dc5369914d5775a1896f65b0970602fd18f90d3c8309d7a5417c5766cd106ba"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-visceral-quiver-en.png",
+      "sha256": "5f2e42fdf38641d4d635dbdcc9164c6021c1489301c68219495cc74d7b3030c6"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-visceral-quiver-es.png",
+      "sha256": "f24c461d2df8e346eeaedef66ca7681aafe628b8ca13fd69f10c216577e63914"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-visceral-quiver-ja.png",
+      "sha256": "e292d9433f8091e48178d7ce904281bb5af6d3d187dd48c2bbd676831075b423"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-visceral-quiver-ko.png",
+      "sha256": "4bc231be824142732c3e9fd807fdec4eb6ea9b8614645b5120b45bd10a16e8b7"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-visceral-quiver-zh-CN.png",
+      "sha256": "eaa4fa36c0abcc28350e070eec1f6029a0d9c92d09461434286ba14fabacb4c3"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-visceral-quiver-zh-TW.png",
+      "sha256": "a7cefcdc219d0ee5384d12a628a02295164dedf99da61efba72fc23b02e7d139"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-warmonger-en.png",
+      "sha256": "d8635d73f7f1f450a4064543b3a05d12ce321a45fc2fef26f24415a6262b3fb1"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-warmonger-es.png",
+      "sha256": "2fd67385fa2ea19d26470c9351dfa58d6ff867dfd3a397d44ab8c9a775e50a91"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-warmonger-ja.png",
+      "sha256": "d44d7ed8ca0fa6602d789bcfa2146b2439c39d5c44943f062fba0f338f98397e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-warmonger-ko.png",
+      "sha256": "e6f1c10c74f064766bc25d955f3b4b770dca3a30e6ccf52caa253e19a13c96d3"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-warmonger-zh-CN.png",
+      "sha256": "c9861ff1a26a89ce3bfc4685ac47b006870f0df4700598f27d693f11136512bc"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/legacy-warmonger-zh-TW.png",
+      "sha256": "87eaba5fbbd74185c7fac16d459d4ab396a9849064f838ad8521ad7a0db686d0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/maji-talisman-en-1440.png",
+      "sha256": "a0bfbc8b577639b4b612957f39e6f48b9f181044b392e918bd2afdfc71e5ac08"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/maji-talisman-en-390.png",
+      "sha256": "6f4a92b908b009bd1e1dd17cb6b8724a456740df521d327acbd438e233c053ee"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/maji-talisman-es-1440.png",
+      "sha256": "2b4642b67be2d9cdf45bb31fc44b95f14c161987c5e07e896d16db7a0575351d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/maji-talisman-es-390.png",
+      "sha256": "29d08a1c598d10ad62677a1929d3b316ed13f0a6745e917d4d1c12beefadb8ab"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/maji-talisman-ja-1440.png",
+      "sha256": "db3bc860a380652261021d1579feadcb282fdcd163e65dd70611f52abfc3564b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/maji-talisman-ja-390.png",
+      "sha256": "c224780dae99430945eac926d2d60d324ced1cc64a02c52e56d339194c9b9be5"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/maji-talisman-ko-1440.png",
+      "sha256": "007e9e82c00ed351d23c451d9fd8ec426737c5456bc610c9318e9888acdfee72"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/maji-talisman-ko-390.png",
+      "sha256": "cfc99088d26ef1c0915cb73a4bcaa905a95927b8c0d34be2386326b97aadcd72"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/maji-talisman-zh-CN-1440.png",
+      "sha256": "9a17032c5f1550eb867137dced314c2c8acac012b22c3e2f6d852bf8c2fbb156"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/maji-talisman-zh-CN-390.png",
+      "sha256": "e34f618405647ea82d6d7f407d8eed5482267361c43bb06ea510ac2fcde35601"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/maji-talisman-zh-TW-1440.png",
+      "sha256": "527db63bbf5c3ddfffc60bd9bb30a41b3cb27c84db4367fff021797f6bb971d8"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/maji-talisman-zh-TW-390.png",
+      "sha256": "6bf0f8ff374e65941c0bc94a3c6f54d3429b27c126e48bdc176f56542b6f8c69"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/perching-staff-en-1440.png",
+      "sha256": "57ae141684d374102321ad364d2958fee16dbd536199ebd32fc68b2431c49bc0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/perching-staff-en-390.png",
+      "sha256": "374c12e733dadcc13f153f3d3e9540b8b7e1ff231bd8a7630f0b1e511ad6433b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/perching-staff-es-1440.png",
+      "sha256": "885df508bfa10f47413792e2a91728c3b38f738c97600b8679bba8c3374cd89e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/perching-staff-es-390.png",
+      "sha256": "2e7f13d7a52550ddbbd6633f58ee84501f35fbf1f53ccbeee36306b562e44548"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/perching-staff-ja-1440.png",
+      "sha256": "8dc08c306fcf6b404c3570412cfc59b4a8809847de4255e471c70b5730ab2449"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/perching-staff-ja-390.png",
+      "sha256": "b6e2a4fbfb182cabca360012a83a647510e450a786a524e498e2cbd82f801444"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/perching-staff-ko-1440.png",
+      "sha256": "7f89b7f04b14a93f445686e52232ceaec3613958d5abbfa5b913c68ae31a0be8"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/perching-staff-ko-390.png",
+      "sha256": "26231d209cb4c446709a08e9095ba676c59649a688ec446f187a2563547c3804"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/perching-staff-zh-CN-1440.png",
+      "sha256": "c6e5ff7bc553cf9d4fcddc50af0b824694bf37ea7f3935f3c38cf93310aea614"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/perching-staff-zh-CN-390.png",
+      "sha256": "8ee9889d91f9a065b3e17ca05b901695e749299cfbe9f584f018374f0dd61b65"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/perching-staff-zh-TW-1440.png",
+      "sha256": "64ccc70cb70b7d7a17d0b06501d3c86c06c475a4cfbdf9e8c1adc58af39e04e3"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/perching-staff-zh-TW-390.png",
+      "sha256": "3b06e87f7295c021564ecb5423ff797e911a163cf04787ba11eba7ae82532938"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/permafrost-staff-en-1440.png",
+      "sha256": "e458b38d295c37514978ad4dd7396dd797c30a7eea1dbc3d0652c60c2c3b3d37"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/permafrost-staff-en-390.png",
+      "sha256": "e6fac6683a690a482f40963512def7de235a2faa81781518c694ace19a6029e8"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/permafrost-staff-es-1440.png",
+      "sha256": "9e8fb7bbbe46096fc0d095194a54b462d314289305ba95db6dd8b2f4e33e1746"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/permafrost-staff-es-390.png",
+      "sha256": "2be33791c92c7365d4a7e9d4b3ee183233eb9bba3d05bae2aae1c2ba9f0abafc"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/permafrost-staff-ja-1440.png",
+      "sha256": "73148e5387dca68776fff924cd412994fa1b0de352fe716448f8fcbf93592e81"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/permafrost-staff-ja-390.png",
+      "sha256": "bd37686d4950727be71e2ce552be102ffaada417084757ed99c27cdace8f40bf"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/permafrost-staff-ko-1440.png",
+      "sha256": "d153884c18095e3f068e2071081785af7cd42dedf7ce20b618cd66f85b7b370f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/permafrost-staff-ko-390.png",
+      "sha256": "7258e99c101ee9092a708d63b59db012e7de91feb2d1d2b77641c435a88248be"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/permafrost-staff-zh-CN-1440.png",
+      "sha256": "183069f8ed39d48a7de59ddd28cb0801b9c4475a4d4d652a15cec83b41389321"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/permafrost-staff-zh-CN-390.png",
+      "sha256": "5d552705ec25bf7787e63e8fcf67e95642c7cfddb73d9a3faea070f221f78904"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/permafrost-staff-zh-TW-1440.png",
+      "sha256": "1fa826d807f9706e0bfb73634ecddb44276f8fd77ce4529946ae937e8e888abc"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/permafrost-staff-zh-TW-390.png",
+      "sha256": "4821d661af5e5057bd3f74b47f30518362b64cfa8c19648d5561f0f5c22c7180"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/ravenous-staff-en-1440.png",
+      "sha256": "5af5a48c0e9ad5184eea6ad621b1de589fe2f57ce7946d2d4c00dc4560cb416d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/ravenous-staff-en-390.png",
+      "sha256": "549fdc939f870ebdf00bac1ae7cac9f4b15588dec75b3ca849966a9cb83abbaf"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/ravenous-staff-es-1440.png",
+      "sha256": "976002d3db8a2ce5ce1c8351d2770fe09ccbdfeec8a247df031d0a25d20fabd4"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/ravenous-staff-es-390.png",
+      "sha256": "62611361067b45a69599770dabf56491142122f00237858e0f8571c1dd782e46"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/ravenous-staff-ja-1440.png",
+      "sha256": "a361acf89559e482e54e534f93ef2cff4b26f90569a2621d9d0fdcdc8a7d31c5"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/ravenous-staff-ja-390.png",
+      "sha256": "f4ed649018d80b829dcd15a7ea7e51978459a59789cbe5fe62cb4181a404dd27"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/ravenous-staff-ko-1440.png",
+      "sha256": "67fb4629855ebe56cdb394725088a47a46fee00b17f7d4fa2b7a7e507798e2fd"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/ravenous-staff-ko-390.png",
+      "sha256": "66d54099ecb034868e47fd97d9bf6fc7c932d6e91153122ccf6ff66a287d95d5"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/ravenous-staff-zh-CN-1440.png",
+      "sha256": "8d3c6c06da82a50288be251ae8975ac2128f3d551f21decbda038b3b99b3ef8f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/ravenous-staff-zh-CN-390.png",
+      "sha256": "2a76648b83cc81bbc26a713a5adce8bc14c652a25850035a90d78bedf19d857a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/ravenous-staff-zh-TW-1440.png",
+      "sha256": "da9519d4c56b8c401bf327111b537055a451b831e4ecf1299764b503ceb51f42"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/ravenous-staff-zh-TW-390.png",
+      "sha256": "9cfb1d18543a12b33ab9c13a547980567b783d0b0b2acb5dfba97e077315ba2c"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/reflecting-staff-en-1440.png",
+      "sha256": "10ceaa0c8b584dac75ce16d766f82c9f243e9ec5a798071f59dad45502fe29d3"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/reflecting-staff-en-390.png",
+      "sha256": "61c2182ac39287457f3361733b136dd418566d5f6dab33612d37a84bdba19707"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/reflecting-staff-es-1440.png",
+      "sha256": "6fb9801962b015ec55da68da3e4ecf477e1f420d0e93f4a998b5e1006ef5532a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/reflecting-staff-es-390.png",
+      "sha256": "c76af8b131706bad0bac3b9d7a304acb008ab50794da071c7a7958404b30edd3"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/reflecting-staff-ja-1440.png",
+      "sha256": "93526758f9731edc9de1592a7f0c45c09f26975e940672e6955ddeb2334b1586"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/reflecting-staff-ja-390.png",
+      "sha256": "9f55695d1cd731468f41851880fa39f35697ef2ae4ff0d0e2538dc1eed48b0e4"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/reflecting-staff-ko-1440.png",
+      "sha256": "fe84e96d7cd66d26657ec4b5ac0d1ec77745d19d5b26ea2c35d8d3e6b88a8d11"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/reflecting-staff-ko-390.png",
+      "sha256": "ca7885f89b9f2dd208f616a756ad2957091ddea3128d6b23c1825b54d972d455"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/reflecting-staff-zh-CN-1440.png",
+      "sha256": "d51d050e04a3e576c3a3152e38229856584269b9ab72fe19780b6c1c8ba5b8be"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/reflecting-staff-zh-CN-390.png",
+      "sha256": "89ff9e25e06506802beaee8e7c76dfb863d44a3c075019ce90c1b64a79a6dacc"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/reflecting-staff-zh-TW-1440.png",
+      "sha256": "1cd0ea72abe7a985b29c88103a5eb7edda5bb7e1b51b5ade32f6aa58294c71f0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/reflecting-staff-zh-TW-390.png",
+      "sha256": "51a462d51c6f9867eac343d31e5edb496c35eb63b2f692759f0b15174b57b39c"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/sanctified-staff-en-1440.png",
+      "sha256": "200bc1e69404860f441a8350ba41b821fcb0f073704874fd8bb4eeb2dec44013"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/sanctified-staff-en-390.png",
+      "sha256": "d266252abaf3bed55cd8015f52f6f7c5bdeba8ea162adfebb9301910e6a63729"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/sanctified-staff-es-1440.png",
+      "sha256": "a533cee5bdcfae451e4e86ec002466bd2d79c7488e7345823975e6f90947e3cc"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/sanctified-staff-es-390.png",
+      "sha256": "019b43eb3044d475333f6dcc0e8849f3e21a7b0c66b7679b6ae627fb17c616c2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/sanctified-staff-ja-1440.png",
+      "sha256": "4e692cdbe7801ccf33bad229593269cccf9ad4cad7d646b7e5040b5cb4551eda"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/sanctified-staff-ja-390.png",
+      "sha256": "4a285ae7a66945d49fe2f6e3843cb0ebfe0ef3f7fe742da9d486aba3472f18e8"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/sanctified-staff-ko-1440.png",
+      "sha256": "2dd6390ed6a227907e9a65f74d8a55b8059ec3e7c52f5e200096d7e81ab899db"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/sanctified-staff-ko-390.png",
+      "sha256": "97850d62dd2311963a660102f9bcbb9a39dd806397e0dac19aa0c60ff5b8e62e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/sanctified-staff-zh-CN-1440.png",
+      "sha256": "782afd1fe300c2169e0d05abe1aff2bd95bd7842b142ba38b639bb2c6d681bb9"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/sanctified-staff-zh-CN-390.png",
+      "sha256": "8fa85e1464a4a11df5892fbd6be6c2ce61b8c3f954e290605dde49a7eeca9c86"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/sanctified-staff-zh-TW-1440.png",
+      "sha256": "50e3e7819511b7d53e243cbc27c5aa1888909560d15487c08b4169cb9ce0f440"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/cards/sanctified-staff-zh-TW-390.png",
+      "sha256": "daaafb7ecf02397278116e954f507481f61928bb710218220e71a7620f44c20d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/dark-staff-en-1440.png",
+      "sha256": "974bfa632461e5a53d709f4b37c769529733d0a43efa4f0f16fb12557e0d0d91"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/dark-staff-en-390.png",
+      "sha256": "d4ec47ec496055002e905faaf568a6be8cd436f37444c2cc96af8efafa5a29bd"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/dark-staff-es-1440.png",
+      "sha256": "f286cb89bb0e0570e61c79b57116ba4b23a01fcdbe66d82a7a8c9cb4cda11671"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/dark-staff-es-390.png",
+      "sha256": "4df8abcd5be6b2dae12a0211c228c1a869bebce0ea91b1d81fee637b22297403"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/dark-staff-ja-1440.png",
+      "sha256": "33d91cbbee3ce7a59dc4b3af5a9b30945e35ed13198981356280280e2c9eb395"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/dark-staff-ja-390.png",
+      "sha256": "ee1e3003c49790699805cabf13d3f275766e8d4449e583df20f032b18c9bc4bc"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/dark-staff-ko-1440.png",
+      "sha256": "262ac5f10ae98068ee52047eddf1d606e560efe878f8cdf3ba8ee3b6c840aada"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/dark-staff-ko-390.png",
+      "sha256": "cae3d8b3b40eea3b8d3d3a1a262acbd1b8a1678978b8735697ff819cb1bf47f4"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/dark-staff-zh-CN-1440.png",
+      "sha256": "76f73e76b7cc9cd9ab9f4979b5885c053025da6ffd1fbe68c678ef7a74799f5e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/dark-staff-zh-CN-390.png",
+      "sha256": "45fbcaeb725f8e4863a1a9bfec05153ab7e602d15b9d64d6e72a4738a74723d8"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/dark-staff-zh-TW-1440.png",
+      "sha256": "7356850abd08ba3a0da5f153222d68c185c705224d58ccbd36432017c083c3fd"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/dark-staff-zh-TW-390.png",
+      "sha256": "530c4da7e47b74bcaa11eb501cc8c7d78430ac6ba6ef4b3f78c229bae4482382"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/fungal-talisman-en-1440.png",
+      "sha256": "2a2b96c82de27751fe8e5887c65206d012ce0ecc1d52656d05632332a47890fe"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/fungal-talisman-en-390.png",
+      "sha256": "75295e15ad9ee9b3aad724a331e4ae1f7d6f3250df4a8b4ea44b89b9a4fed86d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/fungal-talisman-es-1440.png",
+      "sha256": "6a06512e161018cd484accd910f4ba4d540dbba11c2404eb1c796c7acca27412"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/fungal-talisman-es-390.png",
+      "sha256": "6e72b2efd55063e4082d649182530bd5f04067b97a283e2500e6149e3a40d1ea"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/fungal-talisman-ja-1440.png",
+      "sha256": "7bd9e40434a28d5d85dae56c09392704f1b2d1afecc4b588d7ca94d8b92567cb"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/fungal-talisman-ja-390.png",
+      "sha256": "e7c907b3523cb060b5215b096229057ed9f22641332d459bb9ca863b828f8a67"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/fungal-talisman-ko-1440.png",
+      "sha256": "9e60047ff33b8a49e9a43a71233d62ed213f094189308fa73d33b540e8263fac"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/fungal-talisman-ko-390.png",
+      "sha256": "378b93a15b2f5d08d2ac22da7e3cc5070e7dd981340129a80237f4cea05ec77d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/fungal-talisman-zh-CN-1440.png",
+      "sha256": "4233d2e4e749f290020039197159b1457aabbb99912fc80d03d3f57bcdea3b66"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/fungal-talisman-zh-CN-390.png",
+      "sha256": "f3579ce4df9cb8c0655b5e9e4791ec83d0a02109fccdcf647ef766567e18a4f7"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/fungal-talisman-zh-TW-1440.png",
+      "sha256": "3d38ef5bb245451c743a2c01485fccc34eaa75ff8259b0e4b8f583ef87980186"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/fungal-talisman-zh-TW-390.png",
+      "sha256": "a2ffcca0da0f210dfc9e1fa324d4b29eb5ba3cfd988d95d863529bced8ee2f2e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/jade-talisman-en-1440.png",
+      "sha256": "9e831022e300a71d3ef69f58dd3cb61f9e79a9bbcf0438fdf5e2545f3dbb7e98"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/jade-talisman-en-390.png",
+      "sha256": "3ab122391994e30b9ada27efad27fefc322cbb342438827074dab74e7fa5e089"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/jade-talisman-es-1440.png",
+      "sha256": "4a05f2918c4b2b2e46d7baa9257f341e2a7f2694575d0a5059ccb69008a5b4ed"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/jade-talisman-es-390.png",
+      "sha256": "5a3b48fe076fb0436cea1f7d2e0cf874e4fbe6fdc591413a03f7890b24bf1d65"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/jade-talisman-ja-1440.png",
+      "sha256": "86fc0798b055000834511114e7f118792a76ee0702c31fdf1cf23c2406551a68"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/jade-talisman-ja-390.png",
+      "sha256": "f2e29dc2c66b2e72908ae9d6b7fd7a9f112d122c6c3e0b8aedac4804a38ae88a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/jade-talisman-ko-1440.png",
+      "sha256": "5cfab1d8d4733a86f6540a70f3a767cf3313fc695f800cdf82e8a8de413bbb0c"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/jade-talisman-ko-390.png",
+      "sha256": "88578acff03db280d3b8773c4438839041ab33c7522cfd77ba7cd334a275b4eb"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/jade-talisman-zh-CN-1440.png",
+      "sha256": "1e34b70cfa02640d439826f99a263f6642c8b8be114d83ae442703a05f22cd19"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/jade-talisman-zh-CN-390.png",
+      "sha256": "9981ea778b4d8b676df2dd1ba7bc0a880232c45a668eaf9e28afc543da1981ab"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/jade-talisman-zh-TW-1440.png",
+      "sha256": "00a8ead1cc34659097b035e3ab2ef5149c1274531b9c643f6f575cc1332e95bd"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/jade-talisman-zh-TW-390.png",
+      "sha256": "596da975b356a7bfbf3d65dacc6d0a0227136b1483bd21958e43d5a4a0138d0f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-aegis-quarterstaff-en.png",
+      "sha256": "2e6bcd70f0d61d4b3c07fb95334072ec150f32f6e1960664a6b5730b5f6e2687"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-bone-en.png",
+      "sha256": "2194bd8129ab479891cede4256631b623f82a439ab191879656f59f6ef17ac58"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-desert-buckler-en.png",
+      "sha256": "637ddabe5e668545b3187cb5dc5b489c37d872181a36a55dc85dfd15a25c3b94"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-fortified-hammer-en.png",
+      "sha256": "b6771bf37d8131b13293c3926ab34f36bb75cf6c7c9d900e33455d05251002e0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-freebooter-en.png",
+      "sha256": "e2b14029475fd140173660f4efcb40d429f3d5385a28b429d8003fdcf6dccbc8"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-grand-spear-en.png",
+      "sha256": "d7b599ed8f43806e3f9b5b1cc071d45f32217b04a2cdce739200bed5e0db4f87"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-hallowed-en.png",
+      "sha256": "f688529fd99e66926f95039f8f49aeaad1ff0cc0270fe088b993c4488332d1c1"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-imperial-en.png",
+      "sha256": "0dec0c4f0d59ccd84e92906271c485ec81f5e06e250a112e820aaf6fce4513a1"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-kinetic-en.png",
+      "sha256": "02c0cdd0e3bb03ee3ed6a01f54c41eff50f66732c54bad2dbc1cc4ea55d6f67a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-linen-belt-en.png",
+      "sha256": "9bf8c3d3b47ed7d7855304c01cde54ba461e91346eb162ead0f3c6b160478ec9"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-massive-en.png",
+      "sha256": "ae504a9070ec74244a10915283a468ed364ce2de92b2ae1067396912d6e82583"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-ruination-maul-en.png",
+      "sha256": "88a0d993f3880417ec83765d0a9fc44430e2bfca9c648deb2cee96795f173da9"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-sapphire-en.png",
+      "sha256": "a2da00fc2b6f44ed5977c2d3ef1b4f655ab49f6df60570986e6a8eeb4b890312"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-siege-crossbow-en.png",
+      "sha256": "ccabb2ab0aa896ddb6543b7eac1136eec8adeb2a2c15c06048e9b983e0e4cc9b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-solar-en.png",
+      "sha256": "889f30fcc02d10db673bbb30e19b8a28b6e5d455f5d2f52f05538830dab6b8ff"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-soldier-en.png",
+      "sha256": "711629121a4d288b5472d51a1c612a63874426f4503ab704108f9c99f7df2de0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-stellar-en.png",
+      "sha256": "3bf77572a6c4f1ca674e757891b98bf27a5257e8764cc019192b373afa2f801c"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-stocky-en.png",
+      "sha256": "7afe65394a2b3e0aaa852f78af35307724140e0746f6124ff564042c4737d49e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-tasalian-en.png",
+      "sha256": "dd74a2eb80dc3e870965496643035095e867f56a64c8c6f9ee5948693db52287"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-tasalian-focus-en.png",
+      "sha256": "2b23a42e542f1e86f28bd84fa5fb4383c9fbbff549a474618d05915a800192fd"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-tawhoan-tower-shield-en.png",
+      "sha256": "fc7c7f17f64aa990eba1915dbf52a1f37dbe3b4cb27180868d2d6c921963fbc7"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-time-lost-sapphire-en.png",
+      "sha256": "5add27278aea6d3d7acf669ed4b861b4ee6051b78bc995a82a67f9729b92f144"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-visceral-quiver-en.png",
+      "sha256": "abcf33873d6cae2b2aac92e49cf6cd3ba25d0d73815a769f3490ab6376f9dc7e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/legacy-warmonger-en.png",
+      "sha256": "37226448b9034ad8b7a3f471c2e23a0273e6101f16f9db26d3a36036e5eb88ce"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/maji-talisman-en-1440.png",
+      "sha256": "a6803c56b786f94e844f0216eb02c31b8a02aa96b713a65d579c86cc0339022a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/maji-talisman-en-390.png",
+      "sha256": "f1fbd24399183a413d8302f92722f145cce6f44602c0da6b1fd47e80bf5683ba"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/maji-talisman-es-1440.png",
+      "sha256": "6225875df0e842bd7e9ab70e10911515f704df6445b86e4b8ff7c63a42887ae9"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/maji-talisman-es-390.png",
+      "sha256": "12601eb2d6eeb86745d46d91fb8051b319ab11d5ce70f65ee2736c0a3a725801"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/maji-talisman-ja-1440.png",
+      "sha256": "bffa6b86e325d5fe54a8d9abc22f43607709ec7dcfef30745aa43daea452549e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/maji-talisman-ja-390.png",
+      "sha256": "cf643719b2a71e36e95433f7bdeffb17f88be7238d9be243cc9d135a8d107f46"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/maji-talisman-ko-1440.png",
+      "sha256": "c66b1132719862f888a5c340dbebdabe3dbc54a246f053246ca6722607b5a467"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/maji-talisman-ko-390.png",
+      "sha256": "facde51cc6341fb73d1251f4a4a3b7394563b4b3fd2d0e3e4e757999450fe2f6"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/maji-talisman-orange-en.png",
+      "sha256": "a1d7a4cb3d66d0a6f98f7e7f7ebb1c43ceaa6cb5f88e38197d0199ff0159bafc"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/maji-talisman-orange-es.png",
+      "sha256": "183a527bc9bc59bd7a04c59bf1f11de970e94a29442a5a8d3aa63ad1aac09ddf"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/maji-talisman-orange-ja.png",
+      "sha256": "fb6a106df78b15f3a33e765975d192db3255c1a1216dbb0baf16a1091978c23b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/maji-talisman-orange-ko.png",
+      "sha256": "5c97938a77485b45197a7e2e056b7157fd7fb32653def0b2a591f6a0ed0c9a10"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/maji-talisman-orange-zh-CN.png",
+      "sha256": "78ebf1057e50596a282de68718015f9055563cef088ffd7067f22f5dbd0cbc69"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/maji-talisman-orange-zh-TW.png",
+      "sha256": "c9c252d8bd132434c0bc78424d8362e976befa0162636e520fca564bb9365bbc"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/maji-talisman-zh-CN-1440.png",
+      "sha256": "8204c38361875f3b46cc415b6ecd55fa77c81bda8457c4180197da3e13464ac2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/maji-talisman-zh-CN-390.png",
+      "sha256": "7a85c1787edac4b94120e5d8ca907de929366908ef11d5cf038e8cc0df966e72"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/maji-talisman-zh-TW-1440.png",
+      "sha256": "33f57597b9ff6c9c402fbfd8b66f8e2c4eaeebdce103afc0dc6d945b17b69877"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/maji-talisman-zh-TW-390.png",
+      "sha256": "e24b1c3750a685db9e98b19925574ebc451753f5834310f79cb6376b45b7ff9b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/perching-staff-en-1440.png",
+      "sha256": "dd30299854f76fcf59cf33c893c61f61a1ee39f99220a56db76f48c466babb73"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/perching-staff-en-390.png",
+      "sha256": "d0393531f5ade15108438963021374ed18f27d0ca1020394543b4f621d964329"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/perching-staff-es-1440.png",
+      "sha256": "fe10ee42d07a2e066b265f756bfe071bcf87197a29c0d8c7bd1ab3ce4e07693f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/perching-staff-es-390.png",
+      "sha256": "4b8e4ff1eb0f4fe5faab0a81df89a0e4161ae4778f73b5a6961a5c03e557432d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/perching-staff-ja-1440.png",
+      "sha256": "136f4933fa61c728749ceff7f3e7a8a1b60373417b9cff7a822cac1c85a77a5c"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/perching-staff-ja-390.png",
+      "sha256": "1d2ff38582e55b2b6ca661a3355f5547004e4fa86a3b89336b35c624f28d9a80"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/perching-staff-ko-1440.png",
+      "sha256": "95487a855dc902dac30b9a6f38372b388538cdea61d110da47816492f218100c"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/perching-staff-ko-390.png",
+      "sha256": "c5cae0929aa8f35227b5f3f315acbe3cbc3eb76bd0241d47861c0c5f062b999e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/perching-staff-zh-CN-1440.png",
+      "sha256": "3a7e09b0d383cbd83036bcbff08dc25d3c4bfaadde674f0fea8fcd5357c64017"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/perching-staff-zh-CN-390.png",
+      "sha256": "c3293dff83a79a8c37f71b46ff3e9d194b14c66a3319d361cd6b1fd6bb21878f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/perching-staff-zh-TW-1440.png",
+      "sha256": "aa484780bda8d42a8f2273145d3e816c8424f92e835066f95a8b3101e771a3fb"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/perching-staff-zh-TW-390.png",
+      "sha256": "73030014ba3fd72f23524adf53b3c9ad22b9b8328a0b0e2cea1d76d977058317"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/permafrost-staff-en-1440.png",
+      "sha256": "c3e97e2cb218cc270f226b6db31009bf1c068863c67b1de3c9689232abb6b070"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/permafrost-staff-en-390.png",
+      "sha256": "eac56cd284f10705ba67d0c16fd34bd7581737d3fe0e28d08dba1731be79f5b2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/permafrost-staff-es-1440.png",
+      "sha256": "a65a7f5be5a44ea06ef30cb924a7a3f27247df13c372d3c14b80c7e97a319f8c"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/permafrost-staff-es-390.png",
+      "sha256": "dd05c1c4f1c2f515a76907759e0c2492ba1e8d0da929a5b8111090729e2de2b1"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/permafrost-staff-ja-1440.png",
+      "sha256": "5f2787118593cb69cd73402c2f3d268ed8405d8989194b9c44272d2d3fb72bc3"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/permafrost-staff-ja-390.png",
+      "sha256": "46eb9cf926d1082081623aff3bf15bec9c6b65e300af5d8185bdd3ba4b70dec6"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/permafrost-staff-ko-1440.png",
+      "sha256": "4a6d89f4e5229e4b899945ada7a1475facdc74762a9fd2d6e2eaffc44f136d27"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/permafrost-staff-ko-390.png",
+      "sha256": "9b99cd93ff073098984d7eb3ff9bd76b3a371811672aafea627e2e100dbb7762"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/permafrost-staff-zh-CN-1440.png",
+      "sha256": "145e3080be0fff7e9727f11b36734ffbb08cb5f034d7fe377595749d827fea55"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/permafrost-staff-zh-CN-390.png",
+      "sha256": "b7e64a7c5328a6ca179493f3f7d96c964ae096877cf085e263e7d3b99d7fc3b8"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/permafrost-staff-zh-TW-1440.png",
+      "sha256": "bf91b327f8911881bef80563a3cbc38b151ff9ba2c65bcf7ca8fc7a0dcddbe9b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/permafrost-staff-zh-TW-390.png",
+      "sha256": "0422cc55dd6156dbb0058c0349fdc78c18250f3dba9513f640ad768bc2421cf0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/ravenous-staff-en-1440.png",
+      "sha256": "16c990f14349b74b9b25973b8fe1160fbfb7a8d768101cb8eed2a7bad82833d9"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/ravenous-staff-en-390.png",
+      "sha256": "95bf1968077c2249422af811104d88b28a3cb87da9f57a882aeb876ebf75042a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/ravenous-staff-es-1440.png",
+      "sha256": "77647d898111571f00e3926a53fbecab25088747f620c2a9aec50c970ee2baa3"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/ravenous-staff-es-390.png",
+      "sha256": "8e7ffa9f8ce825409f2012d9e01d2464c0afa3aa1dd1868aa466bd2769892bda"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/ravenous-staff-ja-1440.png",
+      "sha256": "a8e23b1f7559bccdc994c44bb0130edd06aefb8b85e8cf2ab522b5fac97b4794"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/ravenous-staff-ja-390.png",
+      "sha256": "dfd3f511d1a4e01664261ce2a014c4e65aa2095f1cd84cd08992176b96bb1674"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/ravenous-staff-ko-1440.png",
+      "sha256": "889bf61381de83ad888fc030279a6fb844abe6db91127b2d084bbc489c88f7fa"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/ravenous-staff-ko-390.png",
+      "sha256": "629d8761ee30cc5e2f8d69e9127c6d239ba41d00e01bf75a924af838f2adf404"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/ravenous-staff-zh-CN-1440.png",
+      "sha256": "1323dcf4d806af97dfa90ea3169e97085043e92d4211208d4be4d2979c50b1cd"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/ravenous-staff-zh-CN-390.png",
+      "sha256": "7ff2a06bcd3d15642dbaa2baf19727d6f5f0108c80002a358f21789ad2eae16e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/ravenous-staff-zh-TW-1440.png",
+      "sha256": "10a790859e2dfb477414ac1f2aeb6b034ef2c8a3e6d538eb9f9333d23db7951c"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/ravenous-staff-zh-TW-390.png",
+      "sha256": "2b0bcbe5c0722cd1c53f3d9e6d6718963ee0a859bc52b265b3671bfc36dcf606"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/reflecting-staff-en-1440.png",
+      "sha256": "fde2969ec2c03fb2c5754059f826031f8955a1d6a4060a2a7acef55abb86e0ad"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/reflecting-staff-en-390.png",
+      "sha256": "2944e366997bd8d65d8ee921b658b6fd0ebbb2933d9fa51e56a4f16a9f9e1740"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/reflecting-staff-es-1440.png",
+      "sha256": "a93da36d0c99738d17284de2470597b8083ac9b0ee8b4ea20a2782a2332faea7"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/reflecting-staff-es-390.png",
+      "sha256": "45c0c04917fd4d4fec9e2b66be8fe59df4f65bbeba48781e81f97d68a18ba21b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/reflecting-staff-ja-1440.png",
+      "sha256": "4e775ed569dc9664aa3c09d3fba3c72b0afb384d933dab8206e431b7f4443ed9"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/reflecting-staff-ja-390.png",
+      "sha256": "5aacb00ab74ef2258c874c513503d2404488b9573949a65b4acede53874bd8c1"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/reflecting-staff-ko-1440.png",
+      "sha256": "4d4deae03b3870011047552bcd4127639ab9b602b7f7f0a7ee535a09581c1a89"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/reflecting-staff-ko-390.png",
+      "sha256": "4aadfd41788522e0aba2037ab0367e50fb31478d4a1d9279489f58386668f66d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/reflecting-staff-zh-CN-1440.png",
+      "sha256": "c97e736a38312dd0ad8df925bb689a9926f50ad8e97d8bc986c12adf1f9689fe"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/reflecting-staff-zh-CN-390.png",
+      "sha256": "d99e144602c8398a331d140a38745975a7045e71bd4787fdf180c9e9e0a58088"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/reflecting-staff-zh-TW-1440.png",
+      "sha256": "92ea739222f6c7e5d86ec158c4ee8bd0b89d7163772eee38acf020ed7f12a9fc"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/reflecting-staff-zh-TW-390.png",
+      "sha256": "050fa6832f8abee6d6bc29bca528eb68737cb8f0281634ce0d0bb9a6eb0fc110"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-cards-en-1440.png",
+      "sha256": "d3537f8a56043c1f8bd2f428a63a3afae27bcbac440abd1682a4d6cb1a23d53f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-cards-en-390.png",
+      "sha256": "19a9ade42a24bf0a60ab8b847be4ef9ddf63ee4dd7f2ac297bb566b68151e121"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-cards-es-1440.png",
+      "sha256": "37eef5aae6b934413b85be236e0188593c64125e986454ef174453e99ea08556"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-cards-es-390.png",
+      "sha256": "e9f6bd34fad7a13f201c42ab1f8f5e7c104e652f8bbf35397eabb954a1ebacea"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-cards-ja-1440.png",
+      "sha256": "c78c1d6da4dfd467e879cd17482289b664f6a380c9b0f1f0c9c289c83ade6ef8"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-cards-ja-390.png",
+      "sha256": "d44f55e8366b857ad2c5fe43b684a007d22fb13b4ca60ba63c82609dfe0f50f8"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-cards-ko-1440.png",
+      "sha256": "b78a21c0f513096719f002c023f0fc831cf7e1255d11cc3062133a2ad1ed69b9"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-cards-ko-390.png",
+      "sha256": "888574f43bfd96eb95fdd351db616890f361408844d38c48aa26b90926017a5f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-cards-zh-CN-1440.png",
+      "sha256": "b947b50b23269ca86989aa7b3a9727747937ff9964381ffd73a24a6a8fc54732"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-cards-zh-CN-390.png",
+      "sha256": "e1f8dbe244175a80e77c80c08a4e1f50fe35947eae72a505ae33d8e02eea79cb"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-cards-zh-TW-1440.png",
+      "sha256": "de06af023f79a03fa37a4804fed4e2fc6f68f44468ff4888993bd2b8ca730785"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-cards-zh-TW-390.png",
+      "sha256": "8aa218c99be787d7a18b59e3efddc7abee41f2f5f8e9387341953b9e7b380aa5"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-full-en-1440.png",
+      "sha256": "a2cf8bd533faca94e28328359b724a219eb65a5ae5323dcea306943d7902e1f5"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-full-en-390.png",
+      "sha256": "f1f801fd1277a23ab4fbdd2bb79eb67b8d5d5c169ccbd0ad270cf69f5a400332"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-full-es-1440.png",
+      "sha256": "6e8d4a158d899511842aa159b21e752a18690bea9c99ef7f7ec33ed2029cf48b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-full-es-390.png",
+      "sha256": "8952823efc44b092dc9b0d0d3593379ed104cfeec135ef7882c08f8780dc82fc"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-full-ja-1440.png",
+      "sha256": "910cf2c12b808a2c97daf8eb8c40d1e70c0dfac6810a04e1ca1effbfb2f99f03"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-full-ja-390.png",
+      "sha256": "ee45f713859f2e3a5167c466cbc56fd2e392ffb557e4da09315a00fa5577b0e7"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-full-ko-1440.png",
+      "sha256": "1b67b83501b21f1c10104ad2f6deb49e96d3344d1d0683e97758fb10036e5ca6"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-full-ko-390.png",
+      "sha256": "7bd1b5be20cd961277a9739d0769aa5d96060aab91f7dbc17ba5e47decc0cdcd"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-full-zh-CN-1440.png",
+      "sha256": "ca8218ad1c8c5e8f34a88c64a735112fcdc600bc5f290f52684aac67eca691e6"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-full-zh-CN-390.png",
+      "sha256": "daf3e45b310504383cde3cd4a03d212acf2a17e8f423eb0d35b8e0464713f811"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-full-zh-TW-1440.png",
+      "sha256": "85eddf7460597e41b4b67b1953262d37f51724c1e8d5ea73137638b3e716a3cb"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-full-zh-TW-390.png",
+      "sha256": "32350806d7ffd83dbb5ad1fbc5a0f8b8d3bdc521b0a8e3c969b13f5dafd30482"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-legacy-en-0.png",
+      "sha256": "5cbf0bde9ebed0e8f424fc5fd2a5e41cd2db94dc058992f0a475935768b38e39"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-legacy-en-12.png",
+      "sha256": "46630deacbe282838f29525ea0cc4cf7b541a6fb3b3b3c9143da71cf6af75104"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-legacy-en-18.png",
+      "sha256": "5dcccc44e8ef3fecea7c40bf8bbc31bb0a17a3bc7e676c2741a3995ef28a08e2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-legacy-en-6.png",
+      "sha256": "fb258b04354da93044ea39166b4d8d280d960b3638511dcf5658aff369b72eb0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-maji-talisman-orange.png",
+      "sha256": "94e8c364bf811a820aefbb2828bf1ee137782b7c1c8d68a7cefd1f441b3d74eb"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/review-solar-overflow.png",
+      "sha256": "12e5059fd4239620d05538911a5c8ca5ad193cf71816c1ed03deafcdd2f4e1a8"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/sanctified-staff-en-1440.png",
+      "sha256": "5316ed3f389fec47c57f97dd775c9942bc127768cef24ec7c5e0fb62b671d6af"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/sanctified-staff-en-390.png",
+      "sha256": "48e0dcde305ce7c03d65a2eaf7c7bf158e16e9a2f782c821d76fc23f61bee853"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/sanctified-staff-es-1440.png",
+      "sha256": "6fc91199274ebae5882049aa2e2630696f48b5c86319339aa7feb333e4c0faad"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/sanctified-staff-es-390.png",
+      "sha256": "daae6c76b6adb6f33ab3ef8615ea7216a1ecb679488cb5056e608774c41e5152"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/sanctified-staff-ja-1440.png",
+      "sha256": "45e7ba062a5005a6ebc24d799c4dbc48fafb429114b8d11fa8a18e4a0524e9c2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/sanctified-staff-ja-390.png",
+      "sha256": "f0a5e54722c42dfce418475be95a7d3bd5053f2ef96f46d6a1c4657d2308b531"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/sanctified-staff-ko-1440.png",
+      "sha256": "bbc11fd9f46c6d54e10a10355fc91e8216a3a909601d2b30ba92365f525e0a5e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/sanctified-staff-ko-390.png",
+      "sha256": "8aec1796385bdccd0c5ac849e1b0a477d20605609e7e34b20f8bb937593f970f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/sanctified-staff-zh-CN-1440.png",
+      "sha256": "a304bd8d793140e10f1e6050fc1f8bf8d95aa11af08aa226567dc8a6bfb6e10f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/sanctified-staff-zh-CN-390.png",
+      "sha256": "7d5bb79d25733f388f556963ced1e510d0953177d6e850d8794147b9ca230a7d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/sanctified-staff-zh-TW-1440.png",
+      "sha256": "6ee8ae74bb76e3b461d423be1dbcee99cc5d2282841d26419e172d986a20dd3d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/sanctified-staff-zh-TW-390.png",
+      "sha256": "8e9b2a7fb6581a91f18a820a3e5b1328e66827923aeada39dbbe8dec0568d20e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/solar-overflow-en.png",
+      "sha256": "7bc322794e952e0af9257c6d20cf6c4bc3155d10666d209b8bcb13498004d671"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/solar-overflow-es.png",
+      "sha256": "6b11ec7e14b92e027bdb23369eb4fe842db97fd41f5c6f3f109472b14cbc5c38"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/solar-overflow-ja.png",
+      "sha256": "2ace48612c3f33e7892a0bddcdef3f55c720acb6403135b4002a27d07393e1ff"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/solar-overflow-ko.png",
+      "sha256": "866c125fb5a9f1acdd1985b17e0d51ad21900024c2a2bc90af0c58f760be83dc"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/solar-overflow-zh-CN.png",
+      "sha256": "0037ebb40f92d58f322139f1c66ff6d8bcb2e8a53392ae19f9849a8f17ce0bae"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005/browser-attempt-1/solar-overflow-zh-TW.png",
+      "sha256": "c948d36dc6d82dc4c274ae7238dd3227e2ec086c2dba2fb285ba6e75d1cb7054"
+    }
+  ]
+}

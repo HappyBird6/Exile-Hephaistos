@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/kr/Sanctified_Staff",
+  "retrievedAt": "2026-10-05T10:01:20.102Z",
+  "sha256": "41c0118322173c6545c7114ef748c95aad633e15484e67040c2acdd2b80301d5",
+  "variants": [
+    {
+      "name": "축성된 지팡이",
+      "card": "축성된 지팡이\n        \n    \n    \n        \n            지팡이요구 사항:  레벨 56, 99 지능 스킬 부여: 신성화\n        \n\n\n\n        \n            Sanctified Staff",
+      "requirements": "요구 사항:  레벨 56, 99 지능",
+      "properties": [
+        "지팡이"
+      ],
+      "fields": {
+        "DropLevel": "56",
+        "BaseType": "축성된 지팡이",
+        "Class": "지팡이",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12",
+        "Tags": "staff, twohand",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff12",
+        "Base.base_level": "1",
+        "Base.tag": "default, staff, twohand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100 2:5:100"
+      }
+    }
+  ]
+}

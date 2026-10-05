@@ -1,0 +1,104 @@
+{
+  "row": {
+    "Name": "Flaming",
+    "Level": "46",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "FireDamage"
+    ],
+    "DropChance": "1100",
+    "str": "Adds <span class='mod-value'>(30<span class=\"ndash\">—</span>37)</span> to <span class='mod-value'>(45<span class=\"ndash\">—</span>56)</span> <a data-keyword=\"Fire\" href=\"Fire_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/b5d8acaae74359659060318919bfa3de84e8587e6fa6487df3f2423250d85c87\">Fire</a> Damage",
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "fire",
+      "attack"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "one_hand_weapon",
+      "crossbow",
+      "sword",
+      "axe",
+      "mace",
+      "warstaff",
+      "talisman",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b7bdd0d58fccb6c2a170d906d8714e958ae7264ee6267f69b8e57e4679e1f5d9"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalAddedFireDamageTwoHand5",
+  "textLocale": "us",
+  "detailText": "Adds (30—37) to (45—56) Fire Damage",
+  "retrievedAt": "2026-10-05T10:10:25.204Z",
+  "sha256": "b7bdd0d58fccb6c2a170d906d8714e958ae7264ee6267f69b8e57e4679e1f5d9",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Adds <span class='mod-value'>(30<span class=\"ndash\">—</span>37)</span> to <span class='mod-value'>(45<span class=\"ndash\">—</span>56)</span> <a data-keyword=\"Fire\" href=\"Fire_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/b5d8acaae74359659060318919bfa3de84e8587e6fa6487df3f2423250d85c87\">Fire</a> Damage</span></h5>   <span data-tabname=\"Flaming\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Flaming\n<tr><th>Family<td>FireDamage\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>46 (Effective: 36)\n<tr><th>Gold Price<td>409\n<tr><th>Stats<td><li>local maximum added fire damage <span class=\"badge bg-primary\">45 <span class=\"ndash\">—</span> 56</span> <span class=\"badge bg-secondary\">Local</span></li><li>local minimum added fire damage <span class=\"badge bg-primary\">30 <span class=\"ndash\">—</span> 37</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>one_hand_weapon: 0</span> <span class='badge bg-primary'>crossbow: 1</span> <span class='badge bg-primary'>sword: 1</span> <span class='badge bg-primary'>axe: 1</span> <span class='badge bg-primary'>mace: 1</span> <span class='badge bg-primary'>warstaff: 1</span> <span class='badge bg-primary'>talisman: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Fire</span> <span class='badge bg-primary'>Attack</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Flaming",
+    "Family": "FireDamage",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "46 (Effective: 36)",
+    "Gold Price": "409",
+    "Stats": "local maximum added fire damage 45 — 56 Locallocal minimum added fire damage 30 — 37 Local",
+    "Spawn Tags": "one_hand_weapon: 0 crossbow: 1 sword: 1 axe: 1 mace: 1 warstaff: 1 talisman: 1 default: 0",
+    "Craft Tags": "elemental_damage Damage Elemental Fire Attack"
+  },
+  "code": "LocalAddedFireDamageTwoHand5",
+  "stats": [
+    {
+      "id": "local_maximum_added_fire_damage",
+      "min": 45,
+      "max": 56,
+      "locality": "Local"
+    },
+    {
+      "id": "local_minimum_added_fire_damage",
+      "min": 30,
+      "max": 37,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "one_hand_weapon",
+      "weight": 0
+    },
+    {
+      "tag": "crossbow",
+      "weight": 1
+    },
+    {
+      "tag": "sword",
+      "weight": 1
+    },
+    {
+      "tag": "axe",
+      "weight": 1
+    },
+    {
+      "tag": "mace",
+      "weight": 1
+    },
+    {
+      "tag": "warstaff",
+      "weight": 1
+    },
+    {
+      "tag": "talisman",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+import fs from 'node:fs'
+const prefix='최신 selected base 확장: [Staves6/Talismans3](workbench-staves-talismans-bundle-2026-10-05.md). Workbench **134 bases**. 중앙 registry 데이터와 class policy2개로 등록하며 기존125 IDs/API/films를 유지한다. Staves class14 ordinary185/special4, Talismans class110 ordinary158/special8의 source-backed eligible pools, 6locale, currency/Essence/Omen positive/rejection을 검증한다. Granted skill/weapon properties는 표시용이고 socket execution은 Stocky empty0/1만 유지한다. deferred50·Solar-only Support/Explorer·quality overflow/HALF_UP·Shift/Alt/orange는 유지한다. Selected highest-requirement roster 완료와 미선정 variants/release-unverified class는 bounded coverage audit에서 구분한다. GGG trade API403으로 exact ordinary trade/drop provenance의 추가 확인은 남으며 whole-game 완료를 주장하지 않는다. 아래 dated checkpoint는 역사 기록이다.\n\n'
+for(const path of ['docs/item-state.md','docs/supported-mechanics.md','docs/TECHNICAL_SPEC.md']) {const original=fs.readFileSync(path,'utf8');if(!original.startsWith(prefix))fs.writeFileSync(path,prefix+original)}
+const path='README.md',entry=prefix.replace('(workbench-staves-talismans-bundle-2026-10-05.md)','(docs/workbench-staves-talismans-bundle-2026-10-05.md)'),original=fs.readFileSync(path,'utf8')
+if(!original.startsWith(entry))fs.writeFileSync(path,entry+original)
+console.log('Current scope linked; dated historical checkpoints preserved')

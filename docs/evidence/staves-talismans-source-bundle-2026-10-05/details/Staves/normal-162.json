@@ -1,0 +1,85 @@
+{
+  "row": {
+    "Name": "of Shocking",
+    "Level": "15",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ShockChanceIncrease"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(51<span class=\"ndash\">—</span>60)</span>% increased chance to <a data-keyword=\"Shock\" href=\"Shock\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e16c3f539d98714e992b7a2fa61432625e69a665759f8dc5831558b71b21c1f2\">Shock</a>",
+    "fossil_no": [
+      "elemental",
+      "lightning",
+      "ailment"
+    ],
+    "adds_no": [
+      "no_fire_spell_mods",
+      "no_cold_spell_mods",
+      "no_chaos_spell_mods"
+    ],
+    "spawn_no": [
+      "no_lightning_spell_mods",
+      "wand",
+      "staff",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+      "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/214f8732f2b8e3762142ef3dfccaeeb6ab98369f25dad7326d315aabd5459d67"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FShockChanceIncrease1",
+  "textLocale": "us",
+  "detailText": "(51—60)% increased chance to Shock",
+  "retrievedAt": "2026-10-05T10:08:50.356Z",
+  "sha256": "22bc8d73700700720a8b0bed4b789eca0e7017c91bf5a3428cd659a61c5cf797",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(51<span class=\"ndash\">—</span>60)</span>% increased chance to <a data-keyword=\"Shock\" href=\"Shock\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e16c3f539d98714e992b7a2fa61432625e69a665759f8dc5831558b71b21c1f2\">Shock</a></span></h5>   <span data-tabname=\"of Shocking\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Shocking\n<tr><th>Family<td>ShockChanceIncrease\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>15 (Effective: 12)\n<tr><th>Gold Price<td>196\n<tr><th>Stats<td><li>shock chance +% <span class=\"badge bg-primary\">51 <span class=\"ndash\">—</span> 60</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>no_lightning_spell_mods: 0</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_fire_spell_mods</span> <span class='badge bg-primary'>no_cold_spell_mods</span> <span class='badge bg-primary'>no_chaos_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Lightning</span> <span class='badge bg-primary'>Ailment</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Shocking",
+    "Family": "ShockChanceIncrease",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "15 (Effective: 12)",
+    "Gold Price": "196",
+    "Stats": "shock chance +% 51 — 60 Global",
+    "Spawn Tags": "no_lightning_spell_mods: 0 wand: 1 staff: 1 trap: 1 default: 0",
+    "Adds Tags": "no_fire_spell_mods no_cold_spell_mods no_chaos_spell_mods",
+    "Craft Tags": "Elemental Lightning Ailment"
+  },
+  "code": "ShockChanceIncrease1",
+  "stats": [
+    {
+      "id": "shock_chance_+%",
+      "min": 51,
+      "max": 60,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "no_lightning_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "trap",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

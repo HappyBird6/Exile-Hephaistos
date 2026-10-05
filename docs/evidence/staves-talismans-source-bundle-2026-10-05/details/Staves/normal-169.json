@@ -1,0 +1,66 @@
+{
+  "row": {
+    "Name": "Fanatic's",
+    "Level": "33",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "FireDamage"
+    ],
+    "DropChance": "500",
+    "str": "<a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3f20b148973906396f16a44625c72369b409f41f42f8032a1f80d9b3b6efc307\">Gain</a> <span class='mod-value'>(37<span class=\"ndash\">—</span>42)</span>% of Damage as Extra <a data-keyword=\"Fire\" href=\"Fire_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/b5d8acaae74359659060318919bfa3de84e8587e6fa6487df3f2423250d85c87\">Fire</a> Damage",
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "fire"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a1ce7a09bc5b2a91398c8ce5bc91aacb20ad72d5883cd0c02ae5ce972b229a05"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FSpellDamageGainedAsFireTwoHand3",
+  "textLocale": "jp",
+  "detailText": "ダメージの(37—42)%を追加火ダメージとして獲得する",
+  "retrievedAt": "2026-10-05T10:09:04.352Z",
+  "sha256": "2abe420c5d1da1f892ae66e06a1c232a2f5a7fd128c42391bf83f6e6f085add6",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>ダメージの<span class='mod-value'>(37<span class=\"ndash\">—</span>42)</span>%を追加火ダメージとして<a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/47e22fec3bb6cd3d77a2e725db9c32cb02f67353870c5f31f161f7f47f5899da\">獲得</a>する</span></h5>   <span data-tabname=\"熱狂者の\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>熱狂者の\n<tr><th>Family<td>FireDamage\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>プレフィックス (1)\n<tr><th>Req. level<td>33 (Effective: 26)\n<tr><th>Gold Price<td>444\n<tr><th>Stats<td><li>non skill base all damage % to gain as fire <span class=\"badge bg-primary\">37 <span class=\"ndash\">—</span> 42</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>ダメージ</span> <span class='badge bg-primary'>元素</span> <span class='badge bg-primary'>火</span> </table>  </div></div>",
+  "fields": {
+    "Name": "熱狂者の",
+    "Family": "FireDamage",
+    "Domains": "アイテム (1)",
+    "GenerationType": "プレフィックス (1)",
+    "Req. level": "33 (Effective: 26)",
+    "Gold Price": "444",
+    "Stats": "non skill base all damage % to gain as fire 37 — 42 Global",
+    "Spawn Tags": "staff: 1 default: 0",
+    "Craft Tags": "elemental_damage ダメージ 元素 火"
+  },
+  "code": "SpellDamageGainedAsFireTwoHand3",
+  "stats": [
+    {
+      "id": "non_skill_base_all_damage_%_to_gain_as_fire",
+      "min": 37,
+      "max": 42,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

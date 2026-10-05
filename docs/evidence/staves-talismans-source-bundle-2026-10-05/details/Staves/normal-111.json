@@ -1,0 +1,62 @@
+{
+  "row": {
+    "Name": "of Bliss",
+    "Level": "42",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ManaRegeneration"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(60<span class=\"ndash\">—</span>74)</span>% increased Mana Regeneration Rate",
+    "fossil_no": [
+      "resource",
+      "mana"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b617cb35307b82510bf7f65ca63c23185d89be942e6c294c87a00662f9aea103"
+  },
+  "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FManaRegenerationTwoHand4",
+  "textLocale": "kr",
+  "detailText": "마나 재생 속도 (60—74)% 증가",
+  "retrievedAt": "2026-10-05T10:07:39.077Z",
+  "sha256": "3ad7f86f33b35cebb5e6625f5161c01db3138ce799d4bfd965177ef379b1d23a",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>마나 재생 속도 <span class='mod-value'>(60<span class=\"ndash\">—</span>74)</span>% 증가</span></h5>   <span data-tabname=\"- 지복\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>- 지복\n<tr><th>Family<td>ManaRegeneration\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>접미어 (2)\n<tr><th>Req. level<td>42 (Effective: 33)\n<tr><th>Gold Price<td>522\n<tr><th>Stats<td><li>mana regeneration rate +% <span class=\"badge bg-primary\">60 <span class=\"ndash\">—</span> 74</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>마나</span> </table>  </div></div>",
+  "fields": {
+    "Name": "- 지복",
+    "Family": "ManaRegeneration",
+    "Domains": "아이템 (1)",
+    "GenerationType": "접미어 (2)",
+    "Req. level": "42 (Effective: 33)",
+    "Gold Price": "522",
+    "Stats": "mana regeneration rate +% 60 — 74 Global",
+    "Spawn Tags": "staff: 1 default: 0",
+    "Craft Tags": "resource 마나"
+  },
+  "code": "ManaRegenerationTwoHand4",
+  "stats": [
+    {
+      "id": "mana_regeneration_rate_+%",
+      "min": 60,
+      "max": 74,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

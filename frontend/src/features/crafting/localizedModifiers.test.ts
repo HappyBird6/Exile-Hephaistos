@@ -31,7 +31,11 @@ function definition(id: keyof typeof catalog.definitions): Definition {
 
 describe('verified modifier display templates', () => {
   it('covers every ordinary catalog definition in all six locales', () => {
-    const ids = Object.keys(catalog.definitions)
+    const allIds = Object.keys(catalog.definitions)
+    const added = (id: string) => /^(staves|maji-talisman):/.test(id)
+    const ids = allIds.filter((id) => !added(id))
+    // 131 source-new Staff ordinary definitions, two special targets, and Maji implicit.
+    expect(allIds.filter(added)).toHaveLength(134)
     expect(
       Object.keys(catalog.definitions)
         .filter((id) =>

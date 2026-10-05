@@ -1,0 +1,62 @@
+{
+  "row": {
+    "Name": "of Nirvana",
+    "Level": "79",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ManaRegeneration"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(90<span class=\"ndash\">—</span>104)</span>% increased Mana Regeneration Rate",
+    "fossil_no": [
+      "resource",
+      "mana"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4fbf6f8865bab1327d296020ccb9681f1073595512e4a250bb69038a3dcb688c"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FManaRegenerationTwoHand6",
+  "textLocale": "sp",
+  "detailText": "Velocidad de regeneración de maná aumentada un (90—104)%",
+  "retrievedAt": "2026-10-05T10:07:45.953Z",
+  "sha256": "0ddc891b95609990ff3e49176328710cde1e84c24acdceceb9edc5e311e32753",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Velocidad de regeneración de maná aumentada un <span class='mod-value'>(90<span class=\"ndash\">—</span>104)</span>%</span></h5>   <span data-tabname=\"de nirvana\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>de nirvana\n<tr><th>Family<td>ManaRegeneration\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Sufijo (2)\n<tr><th>Req. level<td>79 (Effective: 63)\n<tr><th>Gold Price<td>2169\n<tr><th>Stats<td><li>mana regeneration rate +% <span class=\"badge bg-primary\">90 <span class=\"ndash\">—</span> 104</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> </table>  </div></div>",
+  "fields": {
+    "Name": "de nirvana",
+    "Family": "ManaRegeneration",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Sufijo (2)",
+    "Req. level": "79 (Effective: 63)",
+    "Gold Price": "2169",
+    "Stats": "mana regeneration rate +% 90 — 104 Global",
+    "Spawn Tags": "staff: 1 default: 0",
+    "Craft Tags": "resource Mana"
+  },
+  "code": "ManaRegenerationTwoHand6",
+  "stats": [
+    {
+      "id": "mana_regeneration_rate_+%",
+      "min": 90,
+      "max": 104,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

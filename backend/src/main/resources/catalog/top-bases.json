@@ -6579,5 +6579,744 @@
         "Otorga la habilidad: Lanzamiento de lanza"
       ]
     }
+  },
+  "permafrost-staff": {
+    "key": "permafrost-staff",
+    "slug": "Permafrost_Staff",
+    "pool": "permafrost-staff",
+    "family": "staves",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1",
+    "name": "Permafrost Staff",
+    "sourceUrl": "https://poe2db.tw/us/Permafrost_Staff",
+    "sourceSha256": "a1d2328c68d483147be25d6aa70ad7b4d4ce8064bd7ba044f7743f157973454d",
+    "sourceTags": [
+      "staff",
+      "twohand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 114,
+    "requiredLevel": 75,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 75, 114 Int",
+      "ko": "요구 사항:  레벨 75, 114 지능",
+      "ja": "装備条件： レベル 75, 114 知性",
+      "zh-CN": "需求：  等级 75, 114 智慧",
+      "zh-TW": "需求:  等級 75, 114 智慧",
+      "es": "Requiere:  Nivel 75, 131 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Staves",
+        "Grants Skill: Heart of Ice"
+      ],
+      "ko": [
+        "지팡이",
+        "스킬 부여: 얼음의 심장"
+      ],
+      "ja": [
+        "スタッフ",
+        "スキルを付与: ハートオブアイス"
+      ],
+      "zh-CN": [
+        "长杖",
+        "获得技能: 冰雪之心"
+      ],
+      "zh-TW": [
+        "長杖",
+        "賦予技能: 冰雪之心"
+      ],
+      "es": [
+        "Báculos",
+        "Otorga la habilidad: Corazón de hielo"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "ordinarySocketMaximum": 2,
+    "classId": 14,
+    "skillLines": {
+      "en": [
+        "Grants Skill: Heart of Ice"
+      ],
+      "ko": [
+        "스킬 부여: 얼음의 심장"
+      ],
+      "ja": [
+        "スキルを付与: ハートオブアイス"
+      ],
+      "zh-CN": [
+        "获得技能: 冰雪之心"
+      ],
+      "zh-TW": [
+        "賦予技能: 冰雪之心"
+      ],
+      "es": [
+        "Otorga la habilidad: Corazón de hielo"
+      ]
+    }
+  },
+  "reflecting-staff": {
+    "key": "reflecting-staff",
+    "slug": "Reflecting_Staff",
+    "pool": "reflecting-staff",
+    "family": "staves",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3",
+    "name": "Reflecting Staff",
+    "sourceUrl": "https://poe2db.tw/us/Reflecting_Staff",
+    "sourceSha256": "dc8f57e708fc88f0596f385af06392cf136919990a8a833906709a04538eae9c",
+    "sourceTags": [
+      "staff",
+      "twohand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 114,
+    "requiredLevel": 70,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 70, 114 Int",
+      "ko": "요구 사항:  레벨 70, 114 지능",
+      "ja": "装備条件： レベル 70, 114 知性",
+      "zh-CN": "需求：  等级 70, 114 智慧",
+      "zh-TW": "需求:  等級 70, 114 智慧",
+      "es": "Requiere:  Nivel 70, 123 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Staves",
+        "Grants Skill: Mirror of Refraction"
+      ],
+      "ko": [
+        "지팡이",
+        "스킬 부여: 굴절의 거울"
+      ],
+      "ja": [
+        "スタッフ",
+        "スキルを付与: 屈折の鏡"
+      ],
+      "zh-CN": [
+        "长杖",
+        "获得技能: 折射之镜"
+      ],
+      "zh-TW": [
+        "長杖",
+        "賦予技能: 鏡面折射"
+      ],
+      "es": [
+        "Báculos",
+        "Otorga la habilidad: Espejo de refracción"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "ordinarySocketMaximum": 2,
+    "classId": 14,
+    "skillLines": {
+      "en": [
+        "Grants Skill: Mirror of Refraction"
+      ],
+      "ko": [
+        "스킬 부여: 굴절의 거울"
+      ],
+      "ja": [
+        "スキルを付与: 屈折の鏡"
+      ],
+      "zh-CN": [
+        "获得技能: 折射之镜"
+      ],
+      "zh-TW": [
+        "賦予技能: 鏡面折射"
+      ],
+      "es": [
+        "Otorga la habilidad: Espejo de refracción"
+      ]
+    }
+  },
+  "dark-staff": {
+    "key": "dark-staff",
+    "slug": "Dark_Staff",
+    "pool": "dark-staff",
+    "family": "staves",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13",
+    "name": "Dark Staff",
+    "sourceUrl": "https://poe2db.tw/us/Dark_Staff",
+    "sourceSha256": "5037d548d17f43947ca2cc54b0a23daeefec3a2d2c460614b2689c33bb222d61",
+    "sourceTags": [
+      "staff",
+      "twohand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 114,
+    "requiredLevel": 65,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 65, 114 Int",
+      "ko": "요구 사항:  레벨 65, 114 지능",
+      "ja": "装備条件： レベル 65, 114 知性",
+      "zh-CN": "需求：  等级 65, 114 智慧",
+      "zh-TW": "需求:  等級 65, 114 智慧",
+      "es": "Requiere:  Nivel 65, 114 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Staves",
+        "Grants Skill: Dark Pact"
+      ],
+      "ko": [
+        "지팡이",
+        "스킬 부여: 어둠의 서약"
+      ],
+      "ja": [
+        "スタッフ",
+        "スキルを付与: ダークパクト"
+      ],
+      "zh-CN": [
+        "长杖",
+        "获得技能: 暗夜契约"
+      ],
+      "zh-TW": [
+        "長杖",
+        "賦予技能: 暗夜血契"
+      ],
+      "es": [
+        "Báculos",
+        "Otorga la habilidad: Pacto oscuro"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "ordinarySocketMaximum": 2,
+    "classId": 14,
+    "skillLines": {
+      "en": [
+        "Grants Skill: Dark Pact"
+      ],
+      "ko": [
+        "스킬 부여: 어둠의 서약"
+      ],
+      "ja": [
+        "スキルを付与: ダークパクト"
+      ],
+      "zh-CN": [
+        "获得技能: 暗夜契约"
+      ],
+      "zh-TW": [
+        "賦予技能: 暗夜血契"
+      ],
+      "es": [
+        "Otorga la habilidad: Pacto oscuro"
+      ]
+    }
+  },
+  "ravenous-staff": {
+    "key": "ravenous-staff",
+    "slug": "Ravenous_Staff",
+    "pool": "ravenous-staff",
+    "family": "staves",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14",
+    "name": "Ravenous Staff",
+    "sourceUrl": "https://poe2db.tw/us/Ravenous_Staff",
+    "sourceSha256": "22766176e361dfa42ecfaa350d135638d38222f5487618a386b0ffd56b63c317",
+    "sourceTags": [
+      "staff",
+      "twohand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 114,
+    "requiredLevel": 65,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 65, 114 Int",
+      "ko": "요구 사항:  레벨 65, 114 지능",
+      "ja": "装備条件： レベル 65, 114 知性",
+      "zh-CN": "需求：  等级 65, 114 智慧",
+      "zh-TW": "需求:  等級 65, 114 智慧",
+      "es": "Requiere:  Nivel 65, 114 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Staves",
+        "Grants Skill: Feast of Flesh"
+      ],
+      "ko": [
+        "지팡이",
+        "스킬 부여: 육체의 연회"
+      ],
+      "ja": [
+        "スタッフ",
+        "スキルを付与: フィーストオブフレッシュ"
+      ],
+      "zh-CN": [
+        "长杖",
+        "获得技能: 血肉盛宴"
+      ],
+      "zh-TW": [
+        "長杖",
+        "賦予技能: 血肉盛宴"
+      ],
+      "es": [
+        "Báculos",
+        "Otorga la habilidad: Festín de carne"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "ordinarySocketMaximum": 2,
+    "classId": 14,
+    "skillLines": {
+      "en": [
+        "Grants Skill: Feast of Flesh"
+      ],
+      "ko": [
+        "스킬 부여: 육체의 연회"
+      ],
+      "ja": [
+        "スキルを付与: フィーストオブフレッシュ"
+      ],
+      "zh-CN": [
+        "获得技能: 血肉盛宴"
+      ],
+      "zh-TW": [
+        "賦予技能: 血肉盛宴"
+      ],
+      "es": [
+        "Otorga la habilidad: Festín de carne"
+      ]
+    }
+  },
+  "perching-staff": {
+    "key": "perching-staff",
+    "slug": "Perching_Staff",
+    "pool": "perching-staff",
+    "family": "staves",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique4",
+    "name": "Perching Staff",
+    "sourceUrl": "https://poe2db.tw/us/Perching_Staff",
+    "sourceSha256": "2039ad7d586371551b868d6a26c98e81363dfd4c10726a214596da429f522bea",
+    "sourceTags": [
+      "staff",
+      "twohand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 114,
+    "requiredLevel": 65,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 65, 114 Int",
+      "ko": "요구 사항:  레벨 65, 114 지능",
+      "ja": "装備条件： レベル 65, 114 知性",
+      "zh-CN": "需求：  等级 65, 114 智慧",
+      "zh-TW": "需求:  等級 65, 114 智慧",
+      "es": "Requiere:  Nivel 65, 114 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Staves",
+        "Grants Skill: Spiraling Conspiracy"
+      ],
+      "ko": [
+        "지팡이",
+        "스킬 부여: 고조되는 음모"
+      ],
+      "ja": [
+        "スタッフ",
+        "スキルを付与: スパイラリングコンスピラシー"
+      ],
+      "zh-CN": [
+        "长杖",
+        "获得技能: 鸦群密谋"
+      ],
+      "zh-TW": [
+        "長杖",
+        "賦予技能: 邪鴉旋纏"
+      ],
+      "es": [
+        "Báculos",
+        "Otorga la habilidad: Cuervos amenazantes"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "ordinarySocketMaximum": 2,
+    "classId": 14,
+    "skillLines": {
+      "en": [
+        "Grants Skill: Spiraling Conspiracy"
+      ],
+      "ko": [
+        "스킬 부여: 고조되는 음모"
+      ],
+      "ja": [
+        "スキルを付与: スパイラリングコンスピラシー"
+      ],
+      "zh-CN": [
+        "获得技能: 鸦群密谋"
+      ],
+      "zh-TW": [
+        "賦予技能: 邪鴉旋纏"
+      ],
+      "es": [
+        "Otorga la habilidad: Cuervos amenazantes"
+      ]
+    }
+  },
+  "sanctified-staff": {
+    "key": "sanctified-staff",
+    "slug": "Sanctified_Staff",
+    "pool": "sanctified-staff",
+    "family": "staves",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12",
+    "name": "Sanctified Staff",
+    "sourceUrl": "https://poe2db.tw/us/Sanctified_Staff",
+    "sourceSha256": "245eb86ba5d308dd4b513691bbff8bbd1c7e93de6205d724fcdd9e4d059391f8",
+    "sourceTags": [
+      "staff",
+      "twohand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 99,
+    "requiredLevel": 56,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 56, 99 Int",
+      "ko": "요구 사항:  레벨 56, 99 지능",
+      "ja": "装備条件： レベル 56, 99 知性",
+      "zh-CN": "需求：  等级 56, 99 智慧",
+      "zh-TW": "需求:  等級 56, 99 智慧",
+      "es": "Requiere:  Nivel 56, 99 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Staves",
+        "Grants Skill: Consecrate"
+      ],
+      "ko": [
+        "지팡이",
+        "스킬 부여: 신성화"
+      ],
+      "ja": [
+        "スタッフ",
+        "スキルを付与: コンセクレート"
+      ],
+      "zh-CN": [
+        "长杖",
+        "获得技能: 奉献"
+      ],
+      "zh-TW": [
+        "長杖",
+        "賦予技能: 奉獻"
+      ],
+      "es": [
+        "Báculos",
+        "Otorga la habilidad: Consagrar"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "ordinarySocketMaximum": 2,
+    "classId": 14,
+    "skillLines": {
+      "en": [
+        "Grants Skill: Consecrate"
+      ],
+      "ko": [
+        "스킬 부여: 신성화"
+      ],
+      "ja": [
+        "スキルを付与: コンセクレート"
+      ],
+      "zh-CN": [
+        "获得技能: 奉献"
+      ],
+      "zh-TW": [
+        "賦予技能: 奉獻"
+      ],
+      "es": [
+        "Otorga la habilidad: Consagrar"
+      ]
+    }
+  },
+  "maji-talisman": {
+    "key": "maji-talisman",
+    "slug": "Maji_Talisman",
+    "pool": "maji-talisman",
+    "family": "talismans",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman7Endgame",
+    "name": "Maji Talisman",
+    "sourceUrl": "https://poe2db.tw/us/Maji_Talisman",
+    "sourceSha256": "42990b0f29da53678e3da4fb0182f1231ae70de0fb12938e623c1a006864c3f5",
+    "sourceTags": [
+      "vaal_basetype",
+      "talisman",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 100,
+    "dexterity": 0,
+    "intelligence": 67,
+    "requiredLevel": 79,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 79, 100 Str, 67 Int",
+      "ko": "요구 사항:  레벨 79, 100 힘, 67 지능",
+      "ja": "装備条件： レベル 79, 100 筋力, 67 知性",
+      "zh-CN": "需求：  等级 79, 100 力量, 67 智慧",
+      "zh-TW": "需求:  等級 79, 100 力量, 67 智慧",
+      "es": "Requiere:  Nivel 79, 100 Fue, 67 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Talismans",
+        "Physical Damage: 61-114",
+        "Critical Hit Chance: 8%",
+        "Attacks per Second: 1.25",
+        "Weapon Range: 1.2"
+      ],
+      "ko": [
+        "부적",
+        "물리 피해: 61-114",
+        "치명타 명중 확률: 8%",
+        "초당 공격 횟수: 1.25",
+        "무기 범위: 1.2"
+      ],
+      "ja": [
+        "タリスマン",
+        "物理ダメージ: 61-114",
+        "クリティカルヒット率: 8%",
+        "秒間アタック回数: 1.25",
+        "武器攻撃距離: 1.2"
+      ],
+      "zh-CN": [
+        "魔符",
+        "物理伤害: 61-114",
+        "暴击率: 8%",
+        "每秒攻击次数: 1.25",
+        "武器范围: 1.2"
+      ],
+      "zh-TW": [
+        "魔符",
+        "物理傷害: 61-114",
+        "暴擊率: 8%",
+        "每秒攻擊次數: 1.25",
+        "武器範圍: 1.2"
+      ],
+      "es": [
+        "Talismanes",
+        "Daño físico: 61-114",
+        "Probabilidad de impacto crítico: 8%",
+        "Ataques por segundo: 1.25",
+        "Alcance de arma: 1.2"
+      ]
+    },
+    "implicitModifierId": "maji-talisman:implicit:base",
+    "implicitStats": [
+      {
+        "id": "maximum_rage",
+        "min": 7,
+        "max": 10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "maximum_rage",
+        "min": 7,
+        "max": 10,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "61-114",
+    "criticalHitChance": 8,
+    "attacksPerSecond": 1.25,
+    "weaponRange": 1.2,
+    "ordinarySocketMaximum": 2,
+    "classId": 110
+  },
+  "fungal-talisman": {
+    "key": "fungal-talisman",
+    "slug": "Fungal_Talisman",
+    "pool": "fungal-talisman",
+    "family": "talismans",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman5Endgame",
+    "name": "Fungal Talisman",
+    "sourceUrl": "https://poe2db.tw/us/Fungal_Talisman",
+    "sourceSha256": "7d3df2faa4c8c333888b9c9d33d8dc8b77a3f7d7d90bb4dae2dd5c21f34a19b9",
+    "sourceTags": [
+      "maraketh_basetype",
+      "talisman",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 96,
+    "dexterity": 0,
+    "intelligence": 70,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 96 Str, 70 Int",
+      "ko": "요구 사항:  레벨 78, 96 힘, 70 지능",
+      "ja": "装備条件： レベル 78, 96 筋力, 70 知性",
+      "zh-CN": "需求：  等级 78, 96 力量, 70 智慧",
+      "zh-TW": "需求:  等級 78, 96 力量, 70 智慧",
+      "es": "Requiere:  Nivel 78, 96 Fue, 70 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Talismans",
+        "Physical Damage: 59-98",
+        "Critical Hit Chance: 8%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.2"
+      ],
+      "ko": [
+        "부적",
+        "물리 피해: 59-98",
+        "치명타 명중 확률: 8%",
+        "초당 공격 횟수: 1.4",
+        "무기 범위: 1.2"
+      ],
+      "ja": [
+        "タリスマン",
+        "物理ダメージ: 59-98",
+        "クリティカルヒット率: 8%",
+        "秒間アタック回数: 1.4",
+        "武器攻撃距離: 1.2"
+      ],
+      "zh-CN": [
+        "魔符",
+        "物理伤害: 59-98",
+        "暴击率: 8%",
+        "每秒攻击次数: 1.4",
+        "武器范围: 1.2"
+      ],
+      "zh-TW": [
+        "魔符",
+        "物理傷害: 59-98",
+        "暴擊率: 8%",
+        "每秒攻擊次數: 1.4",
+        "武器範圍: 1.2"
+      ],
+      "es": [
+        "Talismanes",
+        "Daño físico: 59-98",
+        "Probabilidad de impacto crítico: 8%",
+        "Ataques por segundo: 1.4",
+        "Alcance de arma: 1.2"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "physicalDamage": "59-98",
+    "criticalHitChance": 8,
+    "attacksPerSecond": 1.4,
+    "weaponRange": 1.2,
+    "ordinarySocketMaximum": 2,
+    "classId": 110
+  },
+  "jade-talisman": {
+    "key": "jade-talisman",
+    "slug": "Jade_Talisman",
+    "pool": "jade-talisman",
+    "family": "talismans",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman10Endgame",
+    "name": "Jade Talisman",
+    "sourceUrl": "https://poe2db.tw/us/Jade_Talisman",
+    "sourceSha256": "d17fa029d6af04281cfaf8b38393012c114a32f57ccee8959a139a2ce7eb586b",
+    "sourceTags": [
+      "karui_basetype",
+      "talisman",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 109,
+    "dexterity": 0,
+    "intelligence": 65,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 109 Str, 65 Int",
+      "ko": "요구 사항:  레벨 78, 109 힘, 65 지능",
+      "ja": "装備条件： レベル 78, 109 筋力, 65 知性",
+      "zh-CN": "需求：  等级 78, 109 力量, 65 智慧",
+      "zh-TW": "需求:  等級 78, 109 力量, 65 智慧",
+      "es": "Requiere:  Nivel 78, 109 Fue, 65 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Talismans",
+        "Physical Damage: 101-151",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.1",
+        "Weapon Range: 1.2"
+      ],
+      "ko": [
+        "부적",
+        "물리 피해: 101-151",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.1",
+        "무기 범위: 1.2"
+      ],
+      "ja": [
+        "タリスマン",
+        "物理ダメージ: 101-151",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.1",
+        "武器攻撃距離: 1.2"
+      ],
+      "zh-CN": [
+        "魔符",
+        "物理伤害: 101-151",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.1",
+        "武器范围: 1.2"
+      ],
+      "zh-TW": [
+        "魔符",
+        "物理傷害: 101-151",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.1",
+        "武器範圍: 1.2"
+      ],
+      "es": [
+        "Talismanes",
+        "Daño físico: 101-151",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.1",
+        "Alcance de arma: 1.2"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "physicalDamage": "101-151",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.1,
+    "weaponRange": 1.2,
+    "ordinarySocketMaximum": 2,
+    "classId": 110
   }
 }

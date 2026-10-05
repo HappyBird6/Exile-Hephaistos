@@ -1,0 +1,62 @@
+{
+  "row": {
+    "Name": "Mazarine",
+    "Level": "65",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedMana"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(249<span class=\"ndash\">—</span>298)</span> to maximum Mana",
+    "fossil_no": [
+      "resource",
+      "mana"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/919d2905d363040b9cbf13db62c39c516613a54f088201fed93711527845d225"
+  },
+  "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FIncreasedManaTwoHandWeapon10",
+  "textLocale": "kr",
+  "detailText": "마나 최대치 +(249—298)",
+  "retrievedAt": "2026-10-05T10:03:55.995Z",
+  "sha256": "7aa568af360bcaf395351f104122136680d159e705051e48b1a074cdc4c35096",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>마나 최대치 <span class='mod-value'>+(249<span class=\"ndash\">—</span>298)</span></span></h5>   <span data-tabname=\"쪽빛\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>쪽빛\n<tr><th>Family<td>IncreasedMana\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>접두어 (1)\n<tr><th>Req. level<td>65 (Effective: 52)\n<tr><th>Gold Price<td>2760\n<tr><th>Stats<td><li>base maximum mana <span class=\"badge bg-primary\">249 <span class=\"ndash\">—</span> 298</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>마나</span> </table>  </div></div>",
+  "fields": {
+    "Name": "쪽빛",
+    "Family": "IncreasedMana",
+    "Domains": "아이템 (1)",
+    "GenerationType": "접두어 (1)",
+    "Req. level": "65 (Effective: 52)",
+    "Gold Price": "2760",
+    "Stats": "base maximum mana 249 — 298 Global",
+    "Spawn Tags": "staff: 1 default: 0",
+    "Craft Tags": "resource 마나"
+  },
+  "code": "IncreasedManaTwoHandWeapon10",
+  "stats": [
+    {
+      "id": "base_maximum_mana",
+      "min": 249,
+      "max": 298,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

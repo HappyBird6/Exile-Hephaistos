@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/cn/Sanctified_Staff",
+  "retrievedAt": "2026-10-05T10:01:47.060Z",
+  "sha256": "95403afd314436369e8f76870c1d154999a209b2377b799c660e35fc4a913b05",
+  "variants": [
+    {
+      "name": "神圣长杖",
+      "card": "神圣长杖\n        \n    \n    \n        \n            长杖需求：  等级 56, 99 智慧 获得技能: 奉献\n        \n\n\n\n        \n            Sanctified Staff",
+      "requirements": "需求：  等级 56, 99 智慧",
+      "properties": [
+        "长杖"
+      ],
+      "fields": {
+        "DropLevel": "56",
+        "BaseType": "神圣长杖",
+        "Class": "长杖",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12",
+        "Tags": "staff, twohand",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff12",
+        "Base.base_level": "1",
+        "Base.tag": "default, staff, twohand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100 2:5:100"
+      }
+    }
+  ]
+}

@@ -22,14 +22,20 @@ type DisplayBinding = {
 }
 const bindings: Record<string, DisplayBinding> = catalog.definitions
 describe('remaining display coverage', () => {
-  it('renders all 436 compound bindings at min/middle/max in all locales with canonical values preserved', () => {
-    const compound = Object.entries(bindings).filter(
+  it('preserves historical compounds and renders new Staff bindings at min/middle/max in all locales', () => {
+    const allCompound = Object.entries(bindings).filter(
       ([, b]) =>
         b.valueStats &&
         b.stats.length > 1 &&
         b.stats.some((s) => s.min !== s.max),
     )
-    // Preserve all historical bindings and cover 50 new Crossbow compounds.
+    const compound = allCompound.filter(
+      ([id]) => !/^(staves|maji-talisman):/.test(id),
+    )
+    expect(
+      allCompound.filter(([id]) => /^(staves|maji-talisman):/.test(id)),
+    ).toHaveLength(10)
+    // Preserve all historical bindings and cover all source-new Staff compounds below.
     expect(
       compound.filter(
         ([id]) =>
@@ -63,7 +69,7 @@ describe('remaining display coverage', () => {
         bindings['kinetic:implicit:physicaldamage'],
       ],
     ])
-    for (const [id, b] of compound) {
+    for (const [id, b] of allCompound) {
       const d: Definition = {
         id,
         name: 'Canonical source',
@@ -100,9 +106,15 @@ describe('remaining display coverage', () => {
     }
   })
   it('projects verified per-minute, permyriad and negative source units without rewriting rolls', () => {
-    const single = Object.entries(bindings).filter(
+    const allSingle = Object.entries(bindings).filter(
       ([, b]) => b.valueStats && b.stats.length === 1,
     )
+    const single = allSingle.filter(
+      ([id]) => !/^(staves|maji-talisman):/.test(id),
+    )
+    expect(
+      allSingle.filter(([id]) => /^(staves|maji-talisman):/.test(id)),
+    ).toHaveLength(124)
     expect(
       Object.keys(catalog.definitions)
         .filter((id) =>
@@ -181,7 +193,7 @@ describe('remaining display coverage', () => {
       'guardian-bow:implicit:chain',
       'obliterator-bow:implicit:projectilerange',
     ])
-    for (const [id, b] of single) {
+    for (const [id, b] of allSingle) {
       const d: Definition = {
         id,
         name: 'Canonical source',

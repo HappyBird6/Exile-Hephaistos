@@ -13,3 +13,6 @@ docs/evidence/quivers-source-bundle-2026-10-05/*.html -text whitespace=cr-at-eol
 docs/evidence/maces-source-bundle-2026-10-05/*.html -text whitespace=cr-at-eol
 # Preserve checksum-bound Quarterstaff/Spear responses including mixed newlines.
 docs/evidence/quarterstaves-spears-source-bundle-2026-10-05/*.html -text whitespace=cr-at-eol
+# Raw checksum-bound responses retain upstream whitespace verbatim.
+docs/evidence/staves-talismans-source-bundle-2026-10-05/*.html -text -whitespace
+docs/evidence/staves-talismans-source-bundle-2026-10-05/**/*.html -text -whitespace

@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/kr/Reflecting_Staff",
+  "retrievedAt": "2026-10-05T10:01:16.970Z",
+  "sha256": "9f06787ce366cdd5f2982f8923a830f2c60717e33646597413c5f8b2eddd305f",
+  "variants": [
+    {
+      "name": "투영하는 지팡이",
+      "card": "투영하는 지팡이\n        \n    \n    \n        \n            지팡이요구 사항:  레벨 70, 114 지능 스킬 부여: 굴절의 거울\n        \n\n\n\n        \n            Reflecting Staff",
+      "requirements": "요구 사항:  레벨 70, 114 지능",
+      "properties": [
+        "지팡이"
+      ],
+      "fields": {
+        "DropLevel": "70",
+        "BaseType": "투영하는 지팡이",
+        "Class": "지팡이",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3",
+        "Tags": "staff, twohand",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff02",
+        "Base.base_level": "1",
+        "Base.tag": "default, staff, twohand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100 2:5:100"
+      }
+    }
+  ]
+}

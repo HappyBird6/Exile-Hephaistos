@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/jp/Permafrost_Staff",
+  "retrievedAt": "2026-10-05T10:01:30.366Z",
+  "sha256": "0713fc3ea9eb9f6319d07d2580bb5e62f3c9beac086b7ff9180458fdb63591f8",
+  "variants": [
+    {
+      "name": "氷結のスタッフ",
+      "card": "氷結のスタッフ\n        \n    \n    \n        \n            スタッフ装備条件： レベル 75, 114 知性 スキルを付与: ハートオブアイス\n        \n\n\n\n        \n            Permafrost Staff",
+      "requirements": "装備条件： レベル 75, 114 知性",
+      "properties": [
+        "スタッフ"
+      ],
+      "fields": {
+        "DropLevel": "75",
+        "BaseType": "氷結のスタッフ",
+        "Class": "スタッフ",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1",
+        "Tags": "staff, twohand",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff02",
+        "Base.base_level": "1",
+        "Base.tag": "default, staff, twohand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100 2:5:100"
+      }
+    }
+  ]
+}

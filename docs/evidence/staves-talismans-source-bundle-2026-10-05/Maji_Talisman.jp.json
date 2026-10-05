@@ -1,0 +1,46 @@
+{
+  "url": "https://poe2db.tw/jp/Maji_Talisman",
+  "retrievedAt": "2026-10-05T10:01:34.726Z",
+  "sha256": "2fba84c701d1a5f78a79032f63cad03a9912409195c2a01fcbafc1b8f3968e55",
+  "variants": [
+    {
+      "name": "マジのタリスマン",
+      "card": "マジのタリスマン\n        \n    \n    \n        \n            タリスマン物理ダメージ: 61-114クリティカルヒット率: 8%秒間アタック回数: 1.25武器攻撃距離: 1.2装備条件： レベル 79, 100 筋力, 67 知性憤怒の最大数 +(7—10)\n        \n\n\n\n        \n            Maji Talisman",
+      "requirements": "装備条件： レベル 79, 100 筋力, 67 知性",
+      "properties": [
+        "タリスマン",
+        "物理ダメージ: 61-114",
+        "クリティカルヒット率: 8%",
+        "秒間アタック回数: 1.25",
+        "武器攻撃距離: 1.2"
+      ],
+      "fields": {
+        "DropLevel": "79",
+        "BaseType": "マジのタリスマン",
+        "Class": "タリスマン",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanHaveAspects",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman7Endgame",
+        "Sound": "Audio/Sound Effects/ItemSounds/4.0/Equipment/Weapons/Talismans/Wood/Talisman_Wood_Drop.ogg",
+        "Tags": "vaal_basetype, talisman, two_hand_weapon, twohand, weapon",
+        "Icon": "Art/2DItems/Offhand/Talismans/RabidTalisman",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, twohand, talisman, two_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ]
+}

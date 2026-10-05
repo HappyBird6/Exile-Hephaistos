@@ -1,0 +1,77 @@
+{
+  "row": {
+    "Name": "Bitter",
+    "Level": "2",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "WeaponDamageTypePrefix"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(50<span class=\"ndash\">—</span>68)</span>% increased <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage",
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "cold"
+    ],
+    "adds_no": [
+      "no_fire_spell_mods",
+      "no_lightning_spell_mods",
+      "no_chaos_spell_mods",
+      "no_physical_spell_mods"
+    ],
+    "spawn_no": [
+      "no_cold_spell_mods",
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a0aa68930d02f4fd809b1a8a7f74ecd32cc9cba9b474139650af71c0d72e2266"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FColdDamagePrefixOnTwoHandWeapon1",
+  "textLocale": "sp",
+  "detailText": "Daño de hielo aumentado un (50—68)%",
+  "retrievedAt": "2026-10-05T10:04:56.653Z",
+  "sha256": "ce80f1e1a5c5bf01030c864d5b4548db7ce66a955407e3964815c6b933e9b071",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Daño de <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FCold\">hielo</a> aumentado un <span class='mod-value'>(50<span class=\"ndash\">—</span>68)</span>%</span></h5>   <span data-tabname=\"<if:MS>{amargo}<elif:FS>{amarga}<elif:MP>{amargos}<elif:FP>{amargas}\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td><if:MS>{amargo}<elif:FS>{amarga}<elif:MP>{amargos}<elif:FP>{amargas}\n<tr><th>Family<td>WeaponDamageTypePrefix\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Prefijo (1)\n<tr><th>Req. level<td>2 (Effective: 1)\n<tr><th>Gold Price<td>159\n<tr><th>Stats<td><li>cold damage +% <span class=\"badge bg-primary\">50 <span class=\"ndash\">—</span> 68</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>no_cold_spell_mods: 0</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_fire_spell_mods</span> <span class='badge bg-primary'>no_lightning_spell_mods</span> <span class='badge bg-primary'>no_chaos_spell_mods</span> <span class='badge bg-primary'>no_physical_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>Daño</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Hielo</span> </table>  </div></div>",
+  "fields": {
+    "Name": "{amargo}{amarga}{amargos}{amargas}",
+    "Family": "WeaponDamageTypePrefix",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Prefijo (1)",
+    "Req. level": "2 (Effective: 1)",
+    "Gold Price": "159",
+    "Stats": "cold damage +% 50 — 68 Global",
+    "Spawn Tags": "no_cold_spell_mods: 0 staff: 1 default: 0",
+    "Adds Tags": "no_fire_spell_mods no_lightning_spell_mods no_chaos_spell_mods no_physical_spell_mods",
+    "Craft Tags": "elemental_damage Daño Elemental Hielo"
+  },
+  "code": "ColdDamagePrefixOnTwoHandWeapon1",
+  "stats": [
+    {
+      "id": "cold_damage_+%",
+      "min": 50,
+      "max": 68,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "no_cold_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

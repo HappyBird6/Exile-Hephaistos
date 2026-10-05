@@ -1,0 +1,64 @@
+{
+  "row": {
+    "Name": "of Prestidigitation",
+    "Level": "70",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "IncreasedCastSpeed"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(44<span class=\"ndash\">—</span>49)</span>% increased Cast Speed",
+    "fossil_no": [
+      "caster_speed",
+      "caster",
+      "speed"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+      "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e88f0223e9ed0ce733106eea317804a65b2e2ff6523934b7a6fdf8429dddbd98"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeedTwoHand6",
+  "textLocale": "us",
+  "detailText": "(44—49)% increased Cast Speed",
+  "retrievedAt": "2026-10-05T10:08:09.097Z",
+  "sha256": "e88f0223e9ed0ce733106eea317804a65b2e2ff6523934b7a6fdf8429dddbd98",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(44<span class=\"ndash\">—</span>49)</span>% increased Cast Speed</span></h5>   <span data-tabname=\"of Prestidigitation\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Prestidigitation\n<tr><th>Family<td>IncreasedCastSpeed\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>70 (Effective: 56)\n<tr><th>Gold Price<td>3144\n<tr><th>Stats<td><li>base cast speed +% <span class=\"badge bg-primary\">44 <span class=\"ndash\">—</span> 49</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_speed</i></span> <span class='badge bg-primary'>Caster</span> <span class='badge bg-primary'>Speed</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Prestidigitation",
+    "Family": "IncreasedCastSpeed",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "70 (Effective: 56)",
+    "Gold Price": "3144",
+    "Stats": "base cast speed +% 44 — 49 Global",
+    "Spawn Tags": "staff: 1 default: 0",
+    "Craft Tags": "caster_speed Caster Speed"
+  },
+  "code": "IncreasedCastSpeedTwoHand6",
+  "stats": [
+    {
+      "id": "base_cast_speed_+%",
+      "min": 44,
+      "max": 49,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

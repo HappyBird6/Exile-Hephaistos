@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/sp/Sanctified_Staff",
+  "retrievedAt": "2026-10-05T10:02:09.958Z",
+  "sha256": "6e220c1cae608f341954843843c9de05e4d85b44b26e51cbdcaec74517890eb7",
+  "variants": [
+    {
+      "name": "Báculo santificado",
+      "card": "Báculo santificado\n        \n    \n    \n        \n            BáculosRequiere:  Nivel 56, 99 Int Otorga la habilidad: Consagrar\n        \n\n\n\n        \n            Sanctified Staff",
+      "requirements": "Requiere:  Nivel 56, 99 Int",
+      "properties": [
+        "Báculos"
+      ],
+      "fields": {
+        "DropLevel": "56",
+        "BaseType": "Báculo santificado",
+        "Class": "Báculos",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12",
+        "Tags": "staff, twohand",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff12",
+        "Base.base_level": "1",
+        "Base.tag": "default, staff, twohand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100 2:5:100"
+      }
+    }
+  ]
+}

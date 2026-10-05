@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/sp/Dark_Staff",
+  "retrievedAt": "2026-10-05T10:02:07.959Z",
+  "sha256": "a3b559a138067593e8de41c13906aa51b8d51226356eefd02d755058c344cf2e",
+  "variants": [
+    {
+      "name": "Báculo oscuro",
+      "card": "Báculo oscuro\n        \n    \n    \n        \n            BáculosRequiere:  Nivel 65, 114 Int Otorga la habilidad: Pacto oscuro\n        \n\n\n\n        \n            Dark Staff",
+      "requirements": "Requiere:  Nivel 65, 114 Int",
+      "properties": [
+        "Báculos"
+      ],
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "Báculo oscuro",
+        "Class": "Báculos",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13",
+        "Tags": "staff, twohand",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff13",
+        "Base.base_level": "1",
+        "Base.tag": "default, staff, twohand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100 2:5:100"
+      }
+    }
+  ]
+}

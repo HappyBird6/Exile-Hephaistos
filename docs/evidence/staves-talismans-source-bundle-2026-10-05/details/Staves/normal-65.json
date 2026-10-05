@@ -1,0 +1,75 @@
+{
+  "row": {
+    "Name": "Clouded",
+    "Level": "16",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "WeaponDamageTypePrefix"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(89<span class=\"ndash\">—</span>108)</span>% increased <a data-keyword=\"Chaos\" href=\"Chaos_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/d5e91fde5dc8d1d0b9cfdb8a42b1eda58c5d5c3b17836c8aa5ea96385c550943\">Chaos</a> Damage",
+    "fossil_no": [
+      "chaos_damage",
+      "damage",
+      "chaos"
+    ],
+    "adds_no": [
+      "no_fire_spell_mods",
+      "no_cold_spell_mods",
+      "no_lightning_spell_mods",
+      "no_physical_spell_mods"
+    ],
+    "spawn_no": [
+      "no_chaos_spell_mods",
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/136cc31d404024c1ec03de7df7ae8c55b66c08be9bb183420744d3570ab4730d"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FChaosDamagePrefixOnTwoHandWeapon3",
+  "textLocale": "jp",
+  "detailText": "混沌ダメージが(89—108)%増加する",
+  "retrievedAt": "2026-10-05T10:05:49.828Z",
+  "sha256": "bcfb4b047faee0e19c036fb11cca6523c703adba3a23a5c663862d943e998a0a",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Chaos\" href=\"Chaos_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/c92d06b9f7ca7792b4bd23fcdf96819da0e60323a38808011251158718583c7d\">混沌</a>ダメージが<span class='mod-value'>(89<span class=\"ndash\">—</span>108)</span>%増加する</span></h5>   <span data-tabname=\"曇った\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>曇った\n<tr><th>Family<td>WeaponDamageTypePrefix\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>プレフィックス (1)\n<tr><th>Req. level<td>16 (Effective: 12)\n<tr><th>Gold Price<td>520\n<tr><th>Stats<td><li>chaos damage +% <span class=\"badge bg-primary\">89 <span class=\"ndash\">—</span> 108</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>no_chaos_spell_mods: 0</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_fire_spell_mods</span> <span class='badge bg-primary'>no_cold_spell_mods</span> <span class='badge bg-primary'>no_lightning_spell_mods</span> <span class='badge bg-primary'>no_physical_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>chaos_damage</i></span> <span class='badge bg-primary'>ダメージ</span> <span class='badge bg-primary'>混沌</span> </table>  </div></div>",
+  "fields": {
+    "Name": "曇った",
+    "Family": "WeaponDamageTypePrefix",
+    "Domains": "アイテム (1)",
+    "GenerationType": "プレフィックス (1)",
+    "Req. level": "16 (Effective: 12)",
+    "Gold Price": "520",
+    "Stats": "chaos damage +% 89 — 108 Global",
+    "Spawn Tags": "no_chaos_spell_mods: 0 staff: 1 default: 0",
+    "Adds Tags": "no_fire_spell_mods no_cold_spell_mods no_lightning_spell_mods no_physical_spell_mods",
+    "Craft Tags": "chaos_damage ダメージ 混沌"
+  },
+  "code": "ChaosDamagePrefixOnTwoHandWeapon3",
+  "stats": [
+    {
+      "id": "chaos_damage_+%",
+      "min": 89,
+      "max": 108,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "no_chaos_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

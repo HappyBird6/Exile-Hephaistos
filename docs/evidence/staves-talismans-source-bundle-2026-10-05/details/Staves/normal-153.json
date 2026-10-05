@@ -1,0 +1,85 @@
+{
+  "row": {
+    "Name": "of Scorching",
+    "Level": "30",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "IgniteChanceIncrease"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(61<span class=\"ndash\">—</span>70)</span>% increased <a data-keyword=\"Flammability\" href=\"Flammability\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/07dd7e513f82d4a29de61a932044031e5b0ae6dd0e84301b9aecbee9717285e7\">Flammability</a> <a data-keyword=\"BuffMagnitude\" href=\"Buff_Debuff_Magnitude\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6ddd7dbb8996529f934041ebd9ccc413104a06d1266ab7a3ec342dfdc4e3c6b4\">Magnitude</a>",
+    "fossil_no": [
+      "elemental",
+      "fire",
+      "ailment"
+    ],
+    "adds_no": [
+      "no_cold_spell_mods",
+      "no_lightning_spell_mods",
+      "no_chaos_spell_mods"
+    ],
+    "spawn_no": [
+      "no_fire_spell_mods",
+      "wand",
+      "staff",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7ef757a55ef295e7038036e5abad28e6fc5348bc336f08a4ee9f7d85f78f42ca"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIgniteChanceIncrease2",
+  "textLocale": "us",
+  "detailText": "(61—70)% increased Flammability Magnitude",
+  "retrievedAt": "2026-10-05T10:08:39.131Z",
+  "sha256": "9b2dfd81cb9d874c3eb6579952241864fe05e0b5efe6e7bbbb6f9b72cd9b6400",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(61<span class=\"ndash\">—</span>70)</span>% increased <a data-keyword=\"Flammability\" href=\"Flammability\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/07dd7e513f82d4a29de61a932044031e5b0ae6dd0e84301b9aecbee9717285e7\">Flammability</a> <a data-keyword=\"BuffMagnitude\" href=\"Buff_Debuff_Magnitude\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6ddd7dbb8996529f934041ebd9ccc413104a06d1266ab7a3ec342dfdc4e3c6b4\">Magnitude</a></span></h5>   <span data-tabname=\"of Scorching\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Scorching\n<tr><th>Family<td>IgniteChanceIncrease\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>30 (Effective: 24)\n<tr><th>Gold Price<td>408\n<tr><th>Stats<td><li>ignite chance +% <span class=\"badge bg-primary\">61 <span class=\"ndash\">—</span> 70</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>no_fire_spell_mods: 0</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_cold_spell_mods</span> <span class='badge bg-primary'>no_lightning_spell_mods</span> <span class='badge bg-primary'>no_chaos_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Fire</span> <span class='badge bg-primary'>Ailment</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Scorching",
+    "Family": "IgniteChanceIncrease",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "30 (Effective: 24)",
+    "Gold Price": "408",
+    "Stats": "ignite chance +% 61 — 70 Global",
+    "Spawn Tags": "no_fire_spell_mods: 0 wand: 1 staff: 1 trap: 1 default: 0",
+    "Adds Tags": "no_cold_spell_mods no_lightning_spell_mods no_chaos_spell_mods",
+    "Craft Tags": "Elemental Fire Ailment"
+  },
+  "code": "IgniteChanceIncrease2",
+  "stats": [
+    {
+      "id": "ignite_chance_+%",
+      "min": 61,
+      "max": 70,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "no_fire_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "trap",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

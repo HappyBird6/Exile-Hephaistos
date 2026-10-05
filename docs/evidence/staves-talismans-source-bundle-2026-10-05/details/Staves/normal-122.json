@@ -1,0 +1,92 @@
+{
+  "row": {
+    "Name": "of Absorption",
+    "Level": "1",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ManaGainedFromEnemyDeath"
+    ],
+    "DropChance": "750",
+    "str": "Gain <span class='mod-value'>(2<span class=\"ndash\">—</span>3)</span> Mana per enemy killed",
+    "fossil_no": [
+      "resource",
+      "mana"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "wand",
+      "staff",
+      "ring",
+      "gloves",
+      "quiver",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f58dace196b947e24aecefe9b2d716a7042702b9504a5c486224eac0e65461e8"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaGainedFromEnemyDeath1",
+  "textLocale": "us",
+  "detailText": "Gain (2—3) Mana per enemy killed",
+  "retrievedAt": "2026-10-05T10:07:53.914Z",
+  "sha256": "f58dace196b947e24aecefe9b2d716a7042702b9504a5c486224eac0e65461e8",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Gain <span class='mod-value'>(2<span class=\"ndash\">—</span>3)</span> Mana per enemy killed</span></h5>   <span data-tabname=\"of Absorption\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Absorption\n<tr><th>Family<td>ManaGainedFromEnemyDeath\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>1\n<tr><th>Gold Price<td>132\n<tr><th>Stats<td><li>base mana gained on enemy death <span class=\"badge bg-primary\">2 <span class=\"ndash\">—</span> 3</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> \n<tr><td>Fists of Stone<td>Recover <span class='mod-value'>1</span>% of maximum Mana on Kill</table>  </div></div>",
+  "fields": {
+    "Name": "of Absorption",
+    "Family": "ManaGainedFromEnemyDeath",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "1",
+    "Gold Price": "132",
+    "Stats": "base mana gained on enemy death 2 — 3 Global",
+    "Spawn Tags": "weapon: 1 wand: 1 staff: 1 ring: 1 gloves: 1 quiver: 1 trap: 1 default: 0",
+    "Craft Tags": "resource Mana"
+  },
+  "code": "ManaGainedFromEnemyDeath1",
+  "stats": [
+    {
+      "id": "base_mana_gained_on_enemy_death",
+      "min": 2,
+      "max": 3,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "gloves",
+      "weight": 1
+    },
+    {
+      "tag": "quiver",
+      "weight": 1
+    },
+    {
+      "tag": "trap",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

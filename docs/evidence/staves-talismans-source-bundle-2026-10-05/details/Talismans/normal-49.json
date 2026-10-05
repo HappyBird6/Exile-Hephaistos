@@ -1,0 +1,104 @@
+{
+  "row": {
+    "Name": "Crystalising",
+    "Level": "81",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "ColdDamage"
+    ],
+    "DropChance": "100",
+    "str": "Adds <span class='mod-value'>(112<span class=\"ndash\">—</span>124)</span> to <span class='mod-value'>(168<span class=\"ndash\">—</span>189)</span> <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage",
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "cold",
+      "attack"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "one_hand_weapon",
+      "crossbow",
+      "sword",
+      "axe",
+      "mace",
+      "warstaff",
+      "talisman",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3e94a52a09bcac177285113939e5df38a1187d89ed7093f5198564984a8a3a3b"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalAddedColdDamageTwoHand10",
+  "textLocale": "us",
+  "detailText": "Adds (112—124) to (168—189) Cold Damage",
+  "retrievedAt": "2026-10-05T10:10:41.376Z",
+  "sha256": "f017a8e2805f8a071b81e9a1a7891e0f2c62f472053176768046c324557ac767",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Adds <span class='mod-value'>(112<span class=\"ndash\">—</span>124)</span> to <span class='mod-value'>(168<span class=\"ndash\">—</span>189)</span> <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage</span></h5>   <span data-tabname=\"Crystalising\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Crystalising\n<tr><th>Family<td>ColdDamage\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>81 (Effective: 64)\n<tr><th>Gold Price<td>2816\n<tr><th>Stats<td><li>local maximum added cold damage <span class=\"badge bg-primary\">168 <span class=\"ndash\">—</span> 189</span> <span class=\"badge bg-secondary\">Local</span></li><li>local minimum added cold damage <span class=\"badge bg-primary\">112 <span class=\"ndash\">—</span> 124</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>one_hand_weapon: 0</span> <span class='badge bg-primary'>crossbow: 1</span> <span class='badge bg-primary'>sword: 1</span> <span class='badge bg-primary'>axe: 1</span> <span class='badge bg-primary'>mace: 1</span> <span class='badge bg-primary'>warstaff: 1</span> <span class='badge bg-primary'>talisman: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Cold</span> <span class='badge bg-primary'>Attack</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Crystalising",
+    "Family": "ColdDamage",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "81 (Effective: 64)",
+    "Gold Price": "2816",
+    "Stats": "local maximum added cold damage 168 — 189 Locallocal minimum added cold damage 112 — 124 Local",
+    "Spawn Tags": "one_hand_weapon: 0 crossbow: 1 sword: 1 axe: 1 mace: 1 warstaff: 1 talisman: 1 default: 0",
+    "Craft Tags": "elemental_damage Damage Elemental Cold Attack"
+  },
+  "code": "LocalAddedColdDamageTwoHand10",
+  "stats": [
+    {
+      "id": "local_maximum_added_cold_damage",
+      "min": 168,
+      "max": 189,
+      "locality": "Local"
+    },
+    {
+      "id": "local_minimum_added_cold_damage",
+      "min": 112,
+      "max": 124,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "one_hand_weapon",
+      "weight": 0
+    },
+    {
+      "tag": "crossbow",
+      "weight": 1
+    },
+    {
+      "tag": "sword",
+      "weight": 1
+    },
+    {
+      "tag": "axe",
+      "weight": 1
+    },
+    {
+      "tag": "mace",
+      "weight": 1
+    },
+    {
+      "tag": "warstaff",
+      "weight": 1
+    },
+    {
+      "tag": "talisman",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

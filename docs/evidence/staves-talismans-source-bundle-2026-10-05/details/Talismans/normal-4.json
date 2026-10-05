@@ -1,0 +1,131 @@
+{
+  "row": {
+    "Name": "of the Gorilla",
+    "Level": "44",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "Strength"
+    ],
+    "DropChance": "600",
+    "str": "<span class='mod-value'>+(21<span class=\"ndash\">—</span>24)</span> to <a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/adc68348c13b27b1b831c2ce4caf358d08d796def82d1d95491b336d8a926849\">Strength</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "belt",
+      "str_armour",
+      "str_dex_armour",
+      "str_int_armour",
+      "str_dex_int_armour",
+      "mace",
+      "axe",
+      "sword",
+      "spear",
+      "flail",
+      "crossbow",
+      "sceptre",
+      "talisman",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/37112c833cb449b44ed5e1e20c0748f591c3032f88c5080006ecb8f59bd8dd94"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/37112c833cb449b44ed5e1e20c0748f591c3032f88c5080006ecb8f59bd8dd94",
+  "textLocale": "us",
+  "detailText": "+(21—24) to Strength",
+  "retrievedAt": "2026-10-05T10:10:07.875Z",
+  "sha256": "37112c833cb449b44ed5e1e20c0748f591c3032f88c5080006ecb8f59bd8dd94",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(21<span class=\"ndash\">—</span>24)</span> to <a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/7cef0789eb2239cf8b253adcdbee1dfa291c16da7045fecda6603754f8073383\">Strength</a></span></h5>   <span data-tabname=\"of the Gorilla\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Gorilla\n<tr><th>Family<td>Strength\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>44 (Effective: 35)\n<tr><th>Gold Price<td>765\n<tr><th>Stats<td><li>additional strength <span class=\"badge bg-primary\">21 <span class=\"ndash\">—</span> 24</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>str_armour: 1</span> <span class='badge bg-primary'>str_dex_armour: 1</span> <span class='badge bg-primary'>str_int_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>mace: 1</span> <span class='badge bg-primary'>axe: 1</span> <span class='badge bg-primary'>sword: 1</span> <span class='badge bg-primary'>spear: 1</span> <span class='badge bg-primary'>flail: 1</span> <span class='badge bg-primary'>crossbow: 1</span> <span class='badge bg-primary'>sceptre: 1</span> <span class='badge bg-primary'>talisman: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attribute</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(20<span class=\"ndash\">—</span>22)</span>% increased Area of Effect for [Attack|Attacks]</table>  </div></div>",
+  "fields": {
+    "Name": "of the Gorilla",
+    "Family": "Strength",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "44 (Effective: 35)",
+    "Gold Price": "765",
+    "Stats": "additional strength 21 — 24 Global",
+    "Spawn Tags": "ring: 1 amulet: 1 belt: 1 str_armour: 1 str_dex_armour: 1 str_int_armour: 1 str_dex_int_armour: 1 mace: 1 axe: 1 sword: 1 spear: 1 flail: 1 crossbow: 1 sceptre: 1 talisman: 1 default: 0",
+    "Craft Tags": "Attribute"
+  },
+  "code": "Strength5",
+  "stats": [
+    {
+      "id": "additional_strength",
+      "min": 21,
+      "max": 24,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "amulet",
+      "weight": 1
+    },
+    {
+      "tag": "belt",
+      "weight": 1
+    },
+    {
+      "tag": "str_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "mace",
+      "weight": 1
+    },
+    {
+      "tag": "axe",
+      "weight": 1
+    },
+    {
+      "tag": "sword",
+      "weight": 1
+    },
+    {
+      "tag": "spear",
+      "weight": 1
+    },
+    {
+      "tag": "flail",
+      "weight": 1
+    },
+    {
+      "tag": "crossbow",
+      "weight": 1
+    },
+    {
+      "tag": "sceptre",
+      "weight": 1
+    },
+    {
+      "tag": "talisman",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

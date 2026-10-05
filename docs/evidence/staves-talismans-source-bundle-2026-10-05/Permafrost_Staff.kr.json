@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/kr/Permafrost_Staff",
+  "retrievedAt": "2026-10-05T10:01:16.541Z",
+  "sha256": "33a923ee6b63c4c3c6f671117810c83207efd97a9a782f720c63ca465d63da46",
+  "variants": [
+    {
+      "name": "만년설 지팡이",
+      "card": "만년설 지팡이\n        \n    \n    \n        \n            지팡이요구 사항:  레벨 75, 114 지능 스킬 부여: 얼음의 심장\n        \n\n\n\n        \n            Permafrost Staff",
+      "requirements": "요구 사항:  레벨 75, 114 지능",
+      "properties": [
+        "지팡이"
+      ],
+      "fields": {
+        "DropLevel": "75",
+        "BaseType": "만년설 지팡이",
+        "Class": "지팡이",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1",
+        "Tags": "staff, twohand",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff02",
+        "Base.base_level": "1",
+        "Base.tag": "default, staff, twohand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100 2:5:100"
+      }
+    }
+  ]
+}

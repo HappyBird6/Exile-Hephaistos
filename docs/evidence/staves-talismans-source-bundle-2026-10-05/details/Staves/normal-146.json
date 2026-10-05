@@ -1,0 +1,64 @@
+{
+  "row": {
+    "Name": "of Fury",
+    "Level": "44",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "CriticalStrikeMultiplier"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(38<span class=\"ndash\">—</span>44)</span>% increased <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244\">Critical Spell Damage Bonus</a>",
+    "fossil_no": [
+      "caster_critical",
+      "caster",
+      "critical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+      "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5b29f6402115e973e93d6b5358d58cada2e72b5da48721295d5f7b7f17ac591b"
+  },
+  "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FSpellCriticalStrikeMultiplierTwoHand4",
+  "textLocale": "tw",
+  "detailText": "增加(38—44)%法術暴擊傷害加成",
+  "retrievedAt": "2026-10-05T10:08:28.539Z",
+  "sha256": "a2c9bd42ac21ba595258e813be4aff76ec6024142e5f4863279f7e206e2c67c6",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>增加<span class='mod-value'>(38<span class=\"ndash\">—</span>44)</span>%<a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/tw/Poe_Data_KeywordPopups_hover/8fa2720f7b45031188e9667fd9775ef3ad2c5f955fef2522690565d8514bc341\">法術暴擊傷害加成</a></span></h5>   <span data-tabname=\"憤恨之\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>憤恨之\n<tr><th>Family<td>CriticalStrikeMultiplier\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>後綴 (2)\n<tr><th>Req. level<td>44 (Effective: 35)\n<tr><th>Gold Price<td>1073\n<tr><th>Stats<td><li>base spell critical strike multiplier + <span class=\"badge bg-primary\">38 <span class=\"ndash\">—</span> 44</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_critical</i></span> <span class='badge bg-primary'>法術</span> <span class='badge bg-primary'>暴擊</span> </table>  </div></div>",
+  "fields": {
+    "Name": "憤恨之",
+    "Family": "CriticalStrikeMultiplier",
+    "Domains": "物品 (1)",
+    "GenerationType": "後綴 (2)",
+    "Req. level": "44 (Effective: 35)",
+    "Gold Price": "1073",
+    "Stats": "base spell critical strike multiplier + 38 — 44 Global",
+    "Spawn Tags": "staff: 1 default: 0",
+    "Craft Tags": "caster_critical 法術 暴擊"
+  },
+  "code": "SpellCriticalStrikeMultiplierTwoHand4",
+  "stats": [
+    {
+      "id": "base_spell_critical_strike_multiplier_+",
+      "min": 38,
+      "max": 44,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

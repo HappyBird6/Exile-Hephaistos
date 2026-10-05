@@ -1,0 +1,62 @@
+{
+  "row": {
+    "Name": "Blue",
+    "Level": "70",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedMana"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(299<span class=\"ndash\">—</span>328)</span> to maximum Mana",
+    "fossil_no": [
+      "resource",
+      "mana"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f09598bcfbb2164b764ec55c02147aae1b62fdd6498ba06d1a6172c3cfc3078f"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FIncreasedManaTwoHandWeapon11",
+  "textLocale": "sp",
+  "detailText": "+(299—328) al maná máximo",
+  "retrievedAt": "2026-10-05T10:04:00.570Z",
+  "sha256": "84fd8b63a6398bef136512e087839291b9eede89d3c133aab4180edcf8b1cef7",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(299<span class=\"ndash\">—</span>328)</span> al maná máximo</span></h5>   <span data-tabname=\"<if:MS>{azul}<elif:MP>{azules}\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td><if:MS>{azul}<elif:MP>{azules}\n<tr><th>Family<td>IncreasedMana\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Prefijo (1)\n<tr><th>Req. level<td>70 (Effective: 56)\n<tr><th>Gold Price<td>3471\n<tr><th>Stats<td><li>base maximum mana <span class=\"badge bg-primary\">299 <span class=\"ndash\">—</span> 328</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> </table>  </div></div>",
+  "fields": {
+    "Name": "{azul}{azules}",
+    "Family": "IncreasedMana",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Prefijo (1)",
+    "Req. level": "70 (Effective: 56)",
+    "Gold Price": "3471",
+    "Stats": "base maximum mana 299 — 328 Global",
+    "Spawn Tags": "staff: 1 default: 0",
+    "Craft Tags": "resource Mana"
+  },
+  "code": "IncreasedManaTwoHandWeapon11",
+  "stats": [
+    {
+      "id": "base_maximum_mana",
+      "min": 299,
+      "max": 328,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -320,6 +320,38 @@
       "sourcePropertyUnscaled": true,
       "snapshotDate": "20261004",
       "snapshotRetrievedAt": "2026-10-04"
+    },
+    "staves": {
+      "itemClass": "Staves",
+      "ruleVersion": "staves-talismans-workbench-v1",
+      "ledgerVersion": "staves-talismans-unverified-numeric-assumptions-v1",
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "initializeImplicit": true,
+      "socketExecutionMaximum": null,
+      "divine": true,
+      "sourcePropertyUnscaled": false,
+      "snapshotDate": "20261005",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "talismans": {
+      "itemClass": "Talismans",
+      "ruleVersion": "staves-talismans-workbench-v1",
+      "ledgerVersion": "staves-talismans-unverified-numeric-assumptions-v1",
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "initializeImplicit": true,
+      "socketExecutionMaximum": null,
+      "divine": true,
+      "sourcePropertyUnscaled": true,
+      "snapshotDate": "20261005",
+      "snapshotRetrievedAt": "SOURCE"
     }
   },
   "baseOverrides": {

@@ -1,0 +1,78 @@
+{
+  "row": {
+    "Name": "of Inferno",
+    "Level": "81",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "IncreaseSocketedGemLevel"
+    ],
+    "DropChance": "100",
+    "str": "<span class='mod-value'>+7</span> to Level of all <a data-keyword=\"Fire\" href=\"Fire_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/b5d8acaae74359659060318919bfa3de84e8587e6fa6487df3f2423250d85c87\">Fire</a> <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Skills",
+    "fossil_no": [
+      "elemental",
+      "fire",
+      "caster",
+      "gem"
+    ],
+    "adds_no": [
+      "no_cold_spell_mods",
+      "no_lightning_spell_mods",
+      "no_chaos_spell_mods",
+      "no_physical_spell_mods"
+    ],
+    "spawn_no": [
+      "no_fire_spell_mods",
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+      "<span class=\"badge bg-primary craftinggem\" data-tag=\"gem\">Gem</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/12ab04e7f167603cc13ac0863e6da61ceb4c32ddc5afae1798a59091ada3b98f"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FGlobalFireSpellGemsLevelTwoHandWeapon5",
+  "textLocale": "sp",
+  "detailText": "+7 al nivel de todas las habilidades de hechizos de fuego",
+  "retrievedAt": "2026-10-05T10:06:47.333Z",
+  "sha256": "f5b5c31f5d4ff0fb2fdae765e40d6871762f6e1d27e9f7ae56b7733b13b7143c",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+7</span> al nivel de todas las habilidades de <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FSpell\">hechizos</a> de <a data-keyword=\"Fire\" href=\"Fire_Damage\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FFire\">fuego</a></span></h5>   <span data-tabname=\"de infierno\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>de infierno\n<tr><th>Family<td>IncreaseSocketedGemLevel\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Sufijo (2)\n<tr><th>Req. level<td>81 (Effective: 64)\n<tr><th>Gold Price<td>6549\n<tr><th>Stats<td><li>fire spell skill gem level + <span class=\"badge bg-primary\">7 <span class=\"ndash\">—</span> 7</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>no_fire_spell_mods: 0</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_cold_spell_mods</span> <span class='badge bg-primary'>no_lightning_spell_mods</span> <span class='badge bg-primary'>no_chaos_spell_mods</span> <span class='badge bg-primary'>no_physical_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Fuego</span> <span class='badge bg-primary'>Lanzador de hechizos</span> <span class='badge bg-primary'>Gema</span> </table>  </div></div>",
+  "fields": {
+    "Name": "de infierno",
+    "Family": "IncreaseSocketedGemLevel",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Sufijo (2)",
+    "Req. level": "81 (Effective: 64)",
+    "Gold Price": "6549",
+    "Stats": "fire spell skill gem level + 7 — 7 Global",
+    "Spawn Tags": "no_fire_spell_mods: 0 staff: 1 default: 0",
+    "Adds Tags": "no_cold_spell_mods no_lightning_spell_mods no_chaos_spell_mods no_physical_spell_mods",
+    "Craft Tags": "Elemental Fuego Lanzador de hechizos Gema"
+  },
+  "code": "GlobalFireSpellGemsLevelTwoHandWeapon5",
+  "stats": [
+    {
+      "id": "fire_spell_skill_gem_level_+",
+      "min": 7,
+      "max": 7,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "no_fire_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

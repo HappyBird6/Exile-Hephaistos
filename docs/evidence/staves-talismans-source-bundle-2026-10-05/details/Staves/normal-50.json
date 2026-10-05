@@ -1,0 +1,77 @@
+{
+  "row": {
+    "Name": "Snowy",
+    "Level": "33",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "WeaponDamageTypePrefix"
+    ],
+    "DropChance": "400",
+    "str": "<span class='mod-value'>(109<span class=\"ndash\">—</span>128)</span>% increased <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage",
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "cold"
+    ],
+    "adds_no": [
+      "no_fire_spell_mods",
+      "no_lightning_spell_mods",
+      "no_chaos_spell_mods",
+      "no_physical_spell_mods"
+    ],
+    "spawn_no": [
+      "no_cold_spell_mods",
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4d963eccdd9e68bb35bc0ccc03b175ae31179b51ada68e9476e11ad69fc1aa24"
+  },
+  "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FColdDamagePrefixOnTwoHandWeapon4_",
+  "textLocale": "tw",
+  "detailText": "增加(109—128)%冰冷傷害",
+  "retrievedAt": "2026-10-05T10:05:07.718Z",
+  "sha256": "2e312fd2b70332847b24d530ce3963be2142ee93ce9db4da1d8aacd4b20a2240",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>增加<span class='mod-value'>(109<span class=\"ndash\">—</span>128)</span>%<a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/tw/Poe_Data_KeywordPopups_hover/0a28b0466bc5a3ce23ebb253fee82ce413ebaf7a752990b3f8eb63e748434ea9\">冰冷</a>傷害</span></h5>   <span data-tabname=\"雪白的\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>雪白的\n<tr><th>Family<td>WeaponDamageTypePrefix\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>前綴 (1)\n<tr><th>Req. level<td>33 (Effective: 26)\n<tr><th>Gold Price<td>852\n<tr><th>Stats<td><li>cold damage +% <span class=\"badge bg-primary\">109 <span class=\"ndash\">—</span> 128</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>no_cold_spell_mods: 0</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_fire_spell_mods</span> <span class='badge bg-primary'>no_lightning_spell_mods</span> <span class='badge bg-primary'>no_chaos_spell_mods</span> <span class='badge bg-primary'>no_physical_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>傷害</span> <span class='badge bg-primary'>元素</span> <span class='badge bg-primary'>冰冷</span> </table>  </div></div>",
+  "fields": {
+    "Name": "雪白的",
+    "Family": "WeaponDamageTypePrefix",
+    "Domains": "物品 (1)",
+    "GenerationType": "前綴 (1)",
+    "Req. level": "33 (Effective: 26)",
+    "Gold Price": "852",
+    "Stats": "cold damage +% 109 — 128 Global",
+    "Spawn Tags": "no_cold_spell_mods: 0 staff: 1 default: 0",
+    "Adds Tags": "no_fire_spell_mods no_lightning_spell_mods no_chaos_spell_mods no_physical_spell_mods",
+    "Craft Tags": "elemental_damage 傷害 元素 冰冷"
+  },
+  "code": "ColdDamagePrefixOnTwoHandWeapon4_",
+  "stats": [
+    {
+      "id": "cold_damage_+%",
+      "min": 109,
+      "max": 128,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "no_cold_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

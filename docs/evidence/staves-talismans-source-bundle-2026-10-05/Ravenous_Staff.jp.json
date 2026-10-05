@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/jp/Ravenous_Staff",
+  "retrievedAt": "2026-10-05T10:01:32.375Z",
+  "sha256": "39e2967adc916ad9f138badd9066447d0c872644e647816a0090b70f0ddf6be4",
+  "variants": [
+    {
+      "name": "貪食のスタッフ",
+      "card": "貪食のスタッフ\n        \n    \n    \n        \n            スタッフ装備条件： レベル 65, 114 知性 スキルを付与: フィーストオブフレッシュ\n        \n\n\n\n        \n            Ravenous Staff",
+      "requirements": "装備条件： レベル 65, 114 知性",
+      "properties": [
+        "スタッフ"
+      ],
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "貪食のスタッフ",
+        "Class": "スタッフ",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14",
+        "Tags": "staff, twohand",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff01",
+        "Base.base_level": "1",
+        "Base.tag": "default, staff, twohand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100 2:5:100"
+      }
+    }
+  ]
+}

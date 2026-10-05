@@ -1,0 +1,64 @@
+{
+  "row": {
+    "Name": "of Legerdemain",
+    "Level": "60",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "IncreasedCastSpeed"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(38<span class=\"ndash\">—</span>43)</span>% increased Cast Speed",
+    "fossil_no": [
+      "caster_speed",
+      "caster",
+      "speed"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+      "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6b8ff16734ea043a871d5e4869a7f47ae5776d346efc9357a8a34af4751512d9"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeedTwoHand5",
+  "textLocale": "us",
+  "detailText": "(38—43)% increased Cast Speed",
+  "retrievedAt": "2026-10-05T10:08:08.121Z",
+  "sha256": "6b8ff16734ea043a871d5e4869a7f47ae5776d346efc9357a8a34af4751512d9",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(38<span class=\"ndash\">—</span>43)</span>% increased Cast Speed</span></h5>   <span data-tabname=\"of Legerdemain\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Legerdemain\n<tr><th>Family<td>IncreasedCastSpeed\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>1652\n<tr><th>Stats<td><li>base cast speed +% <span class=\"badge bg-primary\">38 <span class=\"ndash\">—</span> 43</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_speed</i></span> <span class='badge bg-primary'>Caster</span> <span class='badge bg-primary'>Speed</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Legerdemain",
+    "Family": "IncreasedCastSpeed",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "60 (Effective: 48)",
+    "Gold Price": "1652",
+    "Stats": "base cast speed +% 38 — 43 Global",
+    "Spawn Tags": "staff: 1 default: 0",
+    "Craft Tags": "caster_speed Caster Speed"
+  },
+  "code": "IncreasedCastSpeedTwoHand5",
+  "stats": [
+    {
+      "id": "base_cast_speed_+%",
+      "min": 38,
+      "max": 43,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

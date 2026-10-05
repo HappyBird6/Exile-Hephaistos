@@ -1,0 +1,66 @@
+{
+  "row": {
+    "Name": "Ruthless",
+    "Level": "60",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "ColdDamage"
+    ],
+    "DropChance": "500",
+    "str": "<a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3f20b148973906396f16a44625c72369b409f41f42f8032a1f80d9b3b6efc307\">Gain</a> <span class='mod-value'>(49<span class=\"ndash\">—</span>54)</span>% of Damage as Extra <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage",
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "cold"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a975f8ea60542edf9ed478f2889d4c7241059184b9f3caa400e27c565bf22ffc"
+  },
+  "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FSpellDamageGainedAsColdTwoHand5",
+  "textLocale": "tw",
+  "detailText": "獲得等同於傷害(49—54)%的額外冰冷傷害",
+  "retrievedAt": "2026-10-05T10:09:35.473Z",
+  "sha256": "ac1972dfbe058c480afdd992def5e44847181717bc213f4fbfa02bfbf7c75606",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/tw/Poe_Data_KeywordPopups_hover/6383e44b4f95dcdddd31b0de158590157b7fc04cc078f9905ab96c5e2d5a2a66\">獲得</a>等同於傷害<span class='mod-value'>(49<span class=\"ndash\">—</span>54)</span>%的額外<a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/tw/Poe_Data_KeywordPopups_hover/0a28b0466bc5a3ce23ebb253fee82ce413ebaf7a752990b3f8eb63e748434ea9\">冰冷</a>傷害</span></h5>   <span data-tabname=\"殘暴\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>殘暴\n<tr><th>Family<td>ColdDamage\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>前綴 (1)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>1492\n<tr><th>Stats<td><li>non skill base all damage % to gain as cold <span class=\"badge bg-primary\">49 <span class=\"ndash\">—</span> 54</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>傷害</span> <span class='badge bg-primary'>元素</span> <span class='badge bg-primary'>冰冷</span> </table>  </div></div>",
+  "fields": {
+    "Name": "殘暴",
+    "Family": "ColdDamage",
+    "Domains": "物品 (1)",
+    "GenerationType": "前綴 (1)",
+    "Req. level": "60 (Effective: 48)",
+    "Gold Price": "1492",
+    "Stats": "non skill base all damage % to gain as cold 49 — 54 Global",
+    "Spawn Tags": "staff: 1 default: 0",
+    "Craft Tags": "elemental_damage 傷害 元素 冰冷"
+  },
+  "code": "SpellDamageGainedAsColdTwoHand5",
+  "stats": [
+    {
+      "id": "non_skill_base_all_damage_%_to_gain_as_cold",
+      "min": 49,
+      "max": 54,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

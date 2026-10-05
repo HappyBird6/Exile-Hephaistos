@@ -1,0 +1,64 @@
+{
+  "row": {
+    "Name": "of Rage",
+    "Level": "30",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "CriticalStrikeMultiplier"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(30<span class=\"ndash\">—</span>36)</span>% increased <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244\">Critical Spell Damage Bonus</a>",
+    "fossil_no": [
+      "caster_critical",
+      "caster",
+      "critical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+      "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ec76b1ed55993998abc3048d779c6aa21c9c101e41d97cf4a6a522533d8ed852"
+  },
+  "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FSpellCriticalStrikeMultiplierTwoHand3",
+  "textLocale": "kr",
+  "detailText": "주문 치명타 피해 보너스 (30—36)% 증가",
+  "retrievedAt": "2026-10-05T10:08:25.870Z",
+  "sha256": "5b5fcb82eea96830d0d92d9150dfd39447e1665702776628b856bc935cbb7c42",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/cde17c32e06462fc6d6a50e75b85f403b09cf4c60d73d963ff51b66c0e62b155\">주문 치명타 피해 보너스</a> <span class='mod-value'>(30<span class=\"ndash\">—</span>36)</span>% 증가</span></h5>   <span data-tabname=\"- 격노\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>- 격노\n<tr><th>Family<td>CriticalStrikeMultiplier\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>접미어 (2)\n<tr><th>Req. level<td>30 (Effective: 24)\n<tr><th>Gold Price<td>595\n<tr><th>Stats<td><li>base spell critical strike multiplier + <span class=\"badge bg-primary\">30 <span class=\"ndash\">—</span> 36</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_critical</i></span> <span class='badge bg-primary'>시전</span> <span class='badge bg-primary'>치명타</span> </table>  </div></div>",
+  "fields": {
+    "Name": "- 격노",
+    "Family": "CriticalStrikeMultiplier",
+    "Domains": "아이템 (1)",
+    "GenerationType": "접미어 (2)",
+    "Req. level": "30 (Effective: 24)",
+    "Gold Price": "595",
+    "Stats": "base spell critical strike multiplier + 30 — 36 Global",
+    "Spawn Tags": "staff: 1 default: 0",
+    "Craft Tags": "caster_critical 시전 치명타"
+  },
+  "code": "SpellCriticalStrikeMultiplierTwoHand3",
+  "stats": [
+    {
+      "id": "base_spell_critical_strike_multiplier_+",
+      "min": 30,
+      "max": 36,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

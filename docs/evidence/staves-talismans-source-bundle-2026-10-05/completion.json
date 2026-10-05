@@ -1,0 +1,138 @@
+{
+  "passed": true,
+  "baseCount": 134,
+  "previousBaseCount": 125,
+  "added": 9,
+  "backend": {
+    "unit": 493,
+    "integration": 6
+  },
+  "frontend": 1918,
+  "checks": {
+    "api": 4300,
+    "registry": 582,
+    "browser": 1232,
+    "oldFilled": 481,
+    "negativeJewel": 17
+  },
+  "testedInputsUnchanged": 792,
+  "productionJavaTypeScriptChanges": 0,
+  "qaReleased": true,
+  "stoppedServices": [
+    {
+      "name": "/exile-staves-talismans-20261005-frontend-1",
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-05T10:43:08.781142595Z",
+        "FinishedAt": "2026-10-05T10:58:59.873966825Z"
+      }
+    },
+    {
+      "name": "/exile-staves-talismans-20261005-app-1",
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 143,
+        "Error": "",
+        "StartedAt": "2026-10-05T10:43:08.578740134Z",
+        "FinishedAt": "2026-10-05T10:59:00.299977122Z"
+      }
+    },
+    {
+      "name": "/exile-staves-talismans-20261005-postgres-1",
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-05T10:43:03.142413648Z",
+        "FinishedAt": "2026-10-05T10:59:00.640949669Z",
+        "Health": {
+          "Status": "unhealthy",
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "Start": "2026-10-05T10:58:35.671600587Z",
+              "End": "2026-10-05T10:58:35.716554057Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            },
+            {
+              "Start": "2026-10-05T10:58:40.718016213Z",
+              "End": "2026-10-05T10:58:40.766927892Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            },
+            {
+              "Start": "2026-10-05T10:58:45.767299726Z",
+              "End": "2026-10-05T10:58:45.813622716Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            },
+            {
+              "Start": "2026-10-05T10:58:50.814686434Z",
+              "End": "2026-10-05T10:58:50.854532821Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            },
+            {
+              "Start": "2026-10-05T10:58:55.855193024Z",
+              "End": "2026-10-05T10:58:55.890354966Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "/exile-staves-talismans-20261005-redis-1",
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-05T10:43:03.389969635Z",
+        "FinishedAt": "2026-10-05T10:59:00.619124026Z"
+      }
+    }
+  ],
+  "livePreserved": true,
+  "screenshots": 426,
+  "recoveries": [
+    "Node22 engine mismatch: retried supported Node24.",
+    "Historical FE count scopes partitioned; all new+old locale loops retained.",
+    "Frontend six checks succeeded; trailing CR wrapper failure preserved, final standalone Docker build exit0.",
+    "API rejection fixture canonical modifier sorting corrected; atomic assertions retained.",
+    "Staff ten incorrect Wand detail fallbacks reconciled with exact Staff endpoints; original captures retained."
+  ],
+  "manualSteps": [
+    "GGG trade/drop provenance unavailable HTTP403; no guessed availability/drop odds.",
+    "Spanish Staff requirement source reconciliation.",
+    "Parent bounded coverage audit and separate Git integration."
+  ],
+  "noPushMergeDeploy": true
+}

@@ -1,0 +1,60 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "72",
+    "DropChance": 0,
+    "ModGenerationTypeID": "2",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+    ],
+    "fossil_no": [
+      "speed"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/ae38552f5f2a9439a389ba075a5cd2d969364102c25f9f166078a7d440b6e586\" href=\"Perfect_Essence_of_Haste\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/SpeedEssencePerfect.webp\" alt=\"SpeedEssencePerfect\" height=\"16\" />Perfect Essence of Haste</a>",
+    "Code": "EssenceOnslaughtonKill1",
+    "ModFamilyList": [
+      "Onslaught"
+    ],
+    "str": "<span class='mod-value'>(20<span class=\"ndash\">—</span>25)</span>% chance to gain <a data-keyword=\"Onslaught\" href=\"Onslaught\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/56bc1221c5b3aea1df1e12cb5d59fe0cd1e4a38231301fbd7ee726ede17dc4ac\">Onslaught</a> on Killing <a data-keyword=\"Hit\" href=\"Hit_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/396ec0ccc46f63acd9059876455d4a9f7d5108864acf9fc0f4c56be5a6f9cd57\">Hits</a> with this Weapon",
+    "adds_no": [],
+    "spawn_no": [
+      "default"
+    ],
+    "reqlvl": 57,
+    "IsPerfect": "1",
+    "IsAlloy": false,
+    "Removes": true
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceOnslaughtonKill1",
+  "textLocale": "us",
+  "detailText": "(20—25)% chance to gain Onslaught on Killing Hits with this Weapon",
+  "retrievedAt": "2026-10-05T10:12:55.953Z",
+  "sha256": "d69d80ccae389e6717110d1186395e170611a5883baae8b0049889cb94d807fc",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(20<span class=\"ndash\">—</span>25)</span>% chance to gain <a data-keyword=\"Onslaught\" href=\"Onslaught\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/56bc1221c5b3aea1df1e12cb5d59fe0cd1e4a38231301fbd7ee726ede17dc4ac\">Onslaught</a> on Killing <a data-keyword=\"Hit\" href=\"Hit_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/396ec0ccc46f63acd9059876455d4a9f7d5108864acf9fc0f4c56be5a6f9cd57\">Hits</a> with this Weapon</span></h5>   <span data-tabname=\"of the Essence\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Essence\n<tr><th>Family<td>Onslaught\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>local chance to gain onslaught on killing blow % <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Speed</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of the Essence",
+    "Family": "Onslaught",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "72 (Effective: 57)",
+    "Gold Price": "3266",
+    "Stats": "local chance to gain onslaught on killing blow % 20 — 25 Global",
+    "Spawn Tags": "default: 0",
+    "Craft Tags": "Speed"
+  },
+  "code": "EssenceOnslaughtonKill1",
+  "stats": [
+    {
+      "id": "local_chance_to_gain_onslaught_on_killing_blow_%",
+      "min": 20,
+      "max": 25,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "row": {
+    "Name": "Tainted",
+    "Level": "8",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "WeaponDamageTypePrefix"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(69<span class=\"ndash\">—</span>88)</span>% increased <a data-keyword=\"Chaos\" href=\"Chaos_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/d5e91fde5dc8d1d0b9cfdb8a42b1eda58c5d5c3b17836c8aa5ea96385c550943\">Chaos</a> Damage",
+    "fossil_no": [
+      "chaos_damage",
+      "damage",
+      "chaos"
+    ],
+    "adds_no": [
+      "no_fire_spell_mods",
+      "no_cold_spell_mods",
+      "no_lightning_spell_mods",
+      "no_physical_spell_mods"
+    ],
+    "spawn_no": [
+      "no_chaos_spell_mods",
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/969da40d0c1a39e07f5fef5f8adb88fc4ee0bbeaa240c9a295c4280227520bbc"
+  },
+  "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FChaosDamagePrefixOnTwoHandWeapon2",
+  "textLocale": "tw",
+  "detailText": "增加(69—88)%混沌傷害",
+  "retrievedAt": "2026-10-05T10:05:48.407Z",
+  "sha256": "0af4ae24af894ef0db2ee271165d0f5e9a91e0062f6aa2300949d3ee17929080",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>增加<span class='mod-value'>(69<span class=\"ndash\">—</span>88)</span>%<a data-keyword=\"Chaos\" href=\"Chaos_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/tw/Poe_Data_KeywordPopups_hover/c89f0941fbe3d3618e23298e820925ad6d7c0aa41426afbb664e4a0ed0e3e0aa\">混沌</a>傷害</span></h5>   <span data-tabname=\"被污染的\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>被污染的\n<tr><th>Family<td>WeaponDamageTypePrefix\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>前綴 (1)\n<tr><th>Req. level<td>8 (Effective: 6)\n<tr><th>Gold Price<td>281\n<tr><th>Stats<td><li>chaos damage +% <span class=\"badge bg-primary\">69 <span class=\"ndash\">—</span> 88</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>no_chaos_spell_mods: 0</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_fire_spell_mods</span> <span class='badge bg-primary'>no_cold_spell_mods</span> <span class='badge bg-primary'>no_lightning_spell_mods</span> <span class='badge bg-primary'>no_physical_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>chaos_damage</i></span> <span class='badge bg-primary'>傷害</span> <span class='badge bg-primary'>混沌</span> </table>  </div></div>",
+  "fields": {
+    "Name": "被污染的",
+    "Family": "WeaponDamageTypePrefix",
+    "Domains": "物品 (1)",
+    "GenerationType": "前綴 (1)",
+    "Req. level": "8 (Effective: 6)",
+    "Gold Price": "281",
+    "Stats": "chaos damage +% 69 — 88 Global",
+    "Spawn Tags": "no_chaos_spell_mods: 0 staff: 1 default: 0",
+    "Adds Tags": "no_fire_spell_mods no_cold_spell_mods no_lightning_spell_mods no_physical_spell_mods",
+    "Craft Tags": "chaos_damage 傷害 混沌"
+  },
+  "code": "ChaosDamagePrefixOnTwoHandWeapon2",
+  "stats": [
+    {
+      "id": "chaos_damage_+%",
+      "min": 69,
+      "max": 88,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "no_chaos_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+최신 selected base 확장: [Staves6/Talismans3](docs/workbench-staves-talismans-bundle-2026-10-05.md). Workbench **134 bases**. 중앙 registry 데이터와 class policy2개로 등록하며 기존125 IDs/API/films를 유지한다. Staves class14 ordinary185/special4, Talismans class110 ordinary158/special8의 source-backed eligible pools, 6locale, currency/Essence/Omen positive/rejection을 검증한다. Granted skill/weapon properties는 표시용이고 socket execution은 Stocky empty0/1만 유지한다. deferred50·Solar-only Support/Explorer·quality overflow/HALF_UP·Shift/Alt/orange는 유지한다. Selected highest-requirement roster 완료와 미선정 variants/release-unverified class는 bounded coverage audit에서 구분한다. GGG trade API403으로 exact ordinary trade/drop provenance의 추가 확인은 남으며 whole-game 완료를 주장하지 않는다. 아래 dated checkpoint는 역사 기록이다.
+
 > 최신 완료 집계 (2026-10-04): registry220 = active170(implemented170 = default163 + opt-in legacy7, pending0) + deferred50(보존 구현8 + 미구현42). Catalyst26는 검증된 제한 base만 IMPLEMENTED로 정리했다. 전체 구현178은 deferred8을 포함하므로 현재 사용 가능 수가 아니다. 아래의 이전 집계는 checkpoint 이력이다. [정의·base 제한·검증](docs/workbench-catalyst-registry-2026-10-04.md).
 
 # Exile-Hephaistos

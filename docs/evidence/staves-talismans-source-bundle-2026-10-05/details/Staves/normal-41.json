@@ -1,0 +1,77 @@
+{
+  "row": {
+    "Name": "Blistering",
+    "Level": "16",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "WeaponDamageTypePrefix"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(89<span class=\"ndash\">—</span>108)</span>% increased <a data-keyword=\"Fire\" href=\"Fire_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/b5d8acaae74359659060318919bfa3de84e8587e6fa6487df3f2423250d85c87\">Fire</a> Damage",
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "fire"
+    ],
+    "adds_no": [
+      "no_cold_spell_mods",
+      "no_lightning_spell_mods",
+      "no_chaos_spell_mods",
+      "no_physical_spell_mods"
+    ],
+    "spawn_no": [
+      "no_fire_spell_mods",
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4e51977a3f7c61b9ed5f57208f282aeee9a90715443178eab59082cf9299f8b3"
+  },
+  "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FFireDamagePrefixOnTwoHandWeapon3",
+  "textLocale": "kr",
+  "detailText": "화염 피해 (89—108)% 증가",
+  "retrievedAt": "2026-10-05T10:04:36.723Z",
+  "sha256": "3b99bc77e226f712fadee3f16f3d02d5f328a2c54da0fd328ee69108a1336515",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Fire\" href=\"Fire_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/41a69671bf524a83ac09dddc3ff7df2fa17d0157f6c37d26ae2e22218525371f\">화염</a> 피해 <span class='mod-value'>(89<span class=\"ndash\">—</span>108)</span>% 증가</span></h5>   <span data-tabname=\"물집이 생기는\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>물집이 생기는\n<tr><th>Family<td>WeaponDamageTypePrefix\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>접두어 (1)\n<tr><th>Req. level<td>16 (Effective: 12)\n<tr><th>Gold Price<td>506\n<tr><th>Stats<td><li>fire damage +% <span class=\"badge bg-primary\">89 <span class=\"ndash\">—</span> 108</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>no_fire_spell_mods: 0</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_cold_spell_mods</span> <span class='badge bg-primary'>no_lightning_spell_mods</span> <span class='badge bg-primary'>no_chaos_spell_mods</span> <span class='badge bg-primary'>no_physical_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>피해</span> <span class='badge bg-primary'>원소</span> <span class='badge bg-primary'>화염</span> </table>  </div></div>",
+  "fields": {
+    "Name": "물집이 생기는",
+    "Family": "WeaponDamageTypePrefix",
+    "Domains": "아이템 (1)",
+    "GenerationType": "접두어 (1)",
+    "Req. level": "16 (Effective: 12)",
+    "Gold Price": "506",
+    "Stats": "fire damage +% 89 — 108 Global",
+    "Spawn Tags": "no_fire_spell_mods: 0 staff: 1 default: 0",
+    "Adds Tags": "no_cold_spell_mods no_lightning_spell_mods no_chaos_spell_mods no_physical_spell_mods",
+    "Craft Tags": "elemental_damage 피해 원소 화염"
+  },
+  "code": "FireDamagePrefixOnTwoHandWeapon3",
+  "stats": [
+    {
+      "id": "fire_damage_+%",
+      "min": 89,
+      "max": 108,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "no_fire_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

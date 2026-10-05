@@ -1,0 +1,64 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "65",
+    "DropChance": 0,
+    "ModGenerationTypeID": "2",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+    ],
+    "fossil_no": [
+      "elemental",
+      "fire",
+      "ailment"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/40e98e7b2170e0d0573381a7b1582ea54a634c90c2a2b57857909fc391c77537\" href=\"The_Runefathers_Alloy\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/Alloy3.webp\" alt=\"Alloy3\" height=\"16\" />The Runefather's Alloy</a>",
+    "Code": "AlloyLightningDamageIgnites1",
+    "ModFamilyList": [
+      "LightningDamageCanIgnite"
+    ],
+    "str": "<a data-keyword=\"Lightning\" href=\"Lightning_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1d5815b2f2bd5f23d99d435288c3b41e79adf38037cf8d2a266bc276f527201d\">Lightning</a> Damage from <a data-keyword=\"Hit\" href=\"Hit_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/396ec0ccc46f63acd9059876455d4a9f7d5108864acf9fc0f4c56be5a6f9cd57\">Hits</a> also <a data-keyword=\"Contributes\" href=\"Damage_Contributing_to_Ailments\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/0525cfd2136bf3a5b6edd54c98328f23b5c0853ba9cce8a975f010e9480dd274\">Contributes</a> to <a data-keyword=\"Flammability\" href=\"Flammability\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/07dd7e513f82d4a29de61a932044031e5b0ae6dd0e84301b9aecbee9717285e7\">Flammability</a> and <a data-keyword=\"Ignite\" href=\"Ignite\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3c9defd13111e72aa1053f711ddb623e66f2d9ebb88504493a12e406351be025\">Ignite</a> <a data-keyword=\"BuffMagnitude\" href=\"Buff_Debuff_Magnitude\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6ddd7dbb8996529f934041ebd9ccc413104a06d1266ab7a3ec342dfdc4e3c6b4\">Magnitudes</a>",
+    "adds_no": [],
+    "spawn_no": [
+      "default"
+    ],
+    "reqlvl": 52,
+    "IsPerfect": "0",
+    "IsAlloy": true,
+    "Removes": true
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyLightningDamageIgnites1",
+  "textLocale": "us",
+  "detailText": "Lightning Damage from Hits also Contributes to Flammability and Ignite Magnitudes",
+  "retrievedAt": "2026-10-05T10:12:57.149Z",
+  "sha256": "817c5fc4c1c799d6b8f019b9e1a8cb656d250cde4c7f8743e6133458a828088c",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Lightning\" href=\"Lightning_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1d5815b2f2bd5f23d99d435288c3b41e79adf38037cf8d2a266bc276f527201d\">Lightning</a> Damage from <a data-keyword=\"Hit\" href=\"Hit_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/396ec0ccc46f63acd9059876455d4a9f7d5108864acf9fc0f4c56be5a6f9cd57\">Hits</a> also <a data-keyword=\"Contributes\" href=\"Damage_Contributing_to_Ailments\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/0525cfd2136bf3a5b6edd54c98328f23b5c0853ba9cce8a975f010e9480dd274\">Contributes</a> to <a data-keyword=\"Flammability\" href=\"Flammability\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/07dd7e513f82d4a29de61a932044031e5b0ae6dd0e84301b9aecbee9717285e7\">Flammability</a> and <a data-keyword=\"Ignite\" href=\"Ignite\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3c9defd13111e72aa1053f711ddb623e66f2d9ebb88504493a12e406351be025\">Ignite</a> <a data-keyword=\"BuffMagnitude\" href=\"Buff_Debuff_Magnitude\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6ddd7dbb8996529f934041ebd9ccc413104a06d1266ab7a3ec342dfdc4e3c6b4\">Magnitudes</a></span></h5>   <span data-tabname=\"of the Stars\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Stars\n<tr><th>Family<td>LightningDamageCanIgnite\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>65 (Effective: 52)\n<tr><th>Gold Price<td>1422\n<tr><th>Stats<td><li>lightning damage can ignite <span class=\"badge bg-primary\">1 <span class=\"ndash\">—</span> 1</span> <span class=\"badge bg-secondary\">Global</span> <span class=\"badge bg-warning\"><span class=\"italic\"><span style=\"color:rgb(170,170,170)\"> — Unscalable Value</span></span></span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Fire</span> <span class='badge bg-primary'>Ailment</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of the Stars",
+    "Family": "LightningDamageCanIgnite",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "65 (Effective: 52)",
+    "Gold Price": "1422",
+    "Stats": "lightning damage can ignite 1 — 1 Global  — Unscalable Value",
+    "Spawn Tags": "default: 0",
+    "Craft Tags": "Elemental Fire Ailment"
+  },
+  "code": "AlloyLightningDamageIgnites1",
+  "stats": [
+    {
+      "id": "lightning_damage_can_ignite",
+      "min": 1,
+      "max": 1,
+      "locality": "Global  — Unscalable Value"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/us/Dark_Staff",
+  "retrievedAt": "2026-10-05T10:01:10.322Z",
+  "sha256": "5037d548d17f43947ca2cc54b0a23daeefec3a2d2c460614b2689c33bb222d61",
+  "variants": [
+    {
+      "name": "Dark Staff",
+      "card": "Dark Staff\n        \n    \n    \n        \n            StavesRequires:  Level 65, 114 Int Grants Skill: Dark Pact",
+      "requirements": "Requires:  Level 65, 114 Int",
+      "properties": [
+        "Staves"
+      ],
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "Dark Staff",
+        "Class": "Staves",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13",
+        "Tags": "staff, twohand",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff13",
+        "Base.base_level": "1",
+        "Base.tag": "default, staff, twohand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100 2:5:100"
+      }
+    }
+  ]
+}

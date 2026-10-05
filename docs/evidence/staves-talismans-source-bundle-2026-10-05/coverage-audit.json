@@ -1,0 +1,305 @@
+{
+  "passed": true,
+  "totalBases": 134,
+  "selectedRosterComplete": true,
+  "classes": [
+    {
+      "page": "Staves",
+      "sourceUrl": "https://poe2db.tw/us/Staves",
+      "sourceSha256": "10f68f183e062aadd62cc6c61c2fcbbaea6e9f085dd062dbe00d82b97d4026c3",
+      "listedOrdinaryBases": 17,
+      "selected": [
+        {
+          "key": "permafrost-staff",
+          "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1",
+          "requiredLevel": 75,
+          "skill": [
+            "Grants Skill: Heart of Ice"
+          ],
+          "implicit": []
+        },
+        {
+          "key": "reflecting-staff",
+          "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3",
+          "requiredLevel": 70,
+          "skill": [
+            "Grants Skill: Mirror of Refraction"
+          ],
+          "implicit": []
+        },
+        {
+          "key": "dark-staff",
+          "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13",
+          "requiredLevel": 65,
+          "skill": [
+            "Grants Skill: Dark Pact"
+          ],
+          "implicit": []
+        },
+        {
+          "key": "ravenous-staff",
+          "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14",
+          "requiredLevel": 65,
+          "skill": [
+            "Grants Skill: Feast of Flesh"
+          ],
+          "implicit": []
+        },
+        {
+          "key": "perching-staff",
+          "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique4",
+          "requiredLevel": 65,
+          "skill": [
+            "Grants Skill: Spiraling Conspiracy"
+          ],
+          "implicit": []
+        },
+        {
+          "key": "sanctified-staff",
+          "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12",
+          "requiredLevel": 56,
+          "skill": [
+            "Grants Skill: Consecrate"
+          ],
+          "implicit": []
+        }
+      ],
+      "unselected": [
+        {
+          "slug": "Paralysing_Staff",
+          "requiredLevel": 52
+        },
+        {
+          "slug": "Roaring_Staff",
+          "requiredLevel": 49
+        },
+        {
+          "slug": "Icicle_Staff",
+          "requiredLevel": 45
+        },
+        {
+          "slug": "Reaping_Staff",
+          "requiredLevel": 38
+        },
+        {
+          "slug": "Rending_Staff",
+          "requiredLevel": 33
+        },
+        {
+          "slug": "Chiming_Staff",
+          "requiredLevel": 25
+        },
+        {
+          "slug": "Pyrophyte_Staff",
+          "requiredLevel": 16
+        },
+        {
+          "slug": "Spriggan_Staff",
+          "requiredLevel": 11
+        },
+        {
+          "slug": "Gelid_Staff",
+          "requiredLevel": 2
+        },
+        {
+          "slug": "Voltaic_Staff",
+          "requiredLevel": 2
+        },
+        {
+          "slug": "Ashen_Staff",
+          "requiredLevel": 0
+        }
+      ],
+      "rationale": "Highest required character level ordinary roster; captures selected distinct skill/profile sidegrades, does not imply best damage or all skill families"
+    },
+    {
+      "page": "Talismans",
+      "sourceUrl": "https://poe2db.tw/us/Talismans",
+      "sourceSha256": "782d44886186f1296211a15f980e6d8e2cd51216882608d3657d2856c10dd8f1",
+      "listedOrdinaryBases": 25,
+      "selected": [
+        {
+          "key": "maji-talisman",
+          "id": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman7Endgame",
+          "requiredLevel": 79,
+          "skill": [],
+          "implicit": [
+            {
+              "id": "maximum_rage",
+              "min": 7,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "key": "fungal-talisman",
+          "id": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman5Endgame",
+          "requiredLevel": 78,
+          "skill": [],
+          "implicit": []
+        },
+        {
+          "key": "jade-talisman",
+          "id": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman10Endgame",
+          "requiredLevel": 78,
+          "skill": [],
+          "implicit": []
+        }
+      ],
+      "unselected": [
+        {
+          "slug": "Fang_Talisman",
+          "requiredLevel": 77
+        },
+        {
+          "slug": "Thunder_Talisman",
+          "requiredLevel": 77
+        },
+        {
+          "slug": "Alpha_Talisman",
+          "requiredLevel": 75
+        },
+        {
+          "slug": "Ashbark_Talisman",
+          "requiredLevel": 72
+        },
+        {
+          "slug": "Wildwood_Talisman",
+          "requiredLevel": 70
+        },
+        {
+          "slug": "Spiny_Talisman",
+          "requiredLevel": 67
+        },
+        {
+          "slug": "Wingbeat_Talisman",
+          "requiredLevel": 65
+        },
+        {
+          "slug": "Condemned_Talisman",
+          "requiredLevel": 65
+        },
+        {
+          "slug": "Cruel_Talisman",
+          "requiredLevel": 63
+        },
+        {
+          "slug": "Fury_Talisman",
+          "requiredLevel": 59
+        },
+        {
+          "slug": "Roaring_Talisman",
+          "requiredLevel": 58
+        },
+        {
+          "slug": "Howling_Talisman",
+          "requiredLevel": 55
+        },
+        {
+          "slug": "Lumbering_Talisman",
+          "requiredLevel": 52
+        },
+        {
+          "slug": "Voltfang_Talisman",
+          "requiredLevel": 46
+        },
+        {
+          "slug": "Vicious_Talisman",
+          "requiredLevel": 40
+        },
+        {
+          "slug": "Rabid_Talisman",
+          "requiredLevel": 34
+        },
+        {
+          "slug": "Primal_Talisman",
+          "requiredLevel": 28
+        },
+        {
+          "slug": "Frenzied_Talisman",
+          "requiredLevel": 22
+        },
+        {
+          "slug": "Familial_Talisman",
+          "requiredLevel": 16
+        },
+        {
+          "slug": "Cinderbark_Talisman",
+          "requiredLevel": 10
+        },
+        {
+          "slug": "Nettle_Talisman",
+          "requiredLevel": 5
+        },
+        {
+          "slug": "Changeling_Talisman",
+          "requiredLevel": 0
+        }
+      ],
+      "rationale": "Highest required character level ordinary roster; captures selected distinct skill/profile sidegrades, does not imply best damage or all skill families"
+    }
+  ],
+  "knownReleasedEquipmentClasses": [
+    "Wands",
+    "Sceptres",
+    "Bows",
+    "Crossbows",
+    "One Hand Maces",
+    "Two Hand Maces",
+    "Quarterstaves",
+    "Spears",
+    "Staves",
+    "Talismans",
+    "Shields",
+    "Bucklers",
+    "Foci",
+    "Quivers",
+    "Gloves",
+    "Boots",
+    "Body Armours",
+    "Helmets",
+    "Rings",
+    "Amulets",
+    "Belts"
+  ],
+  "releasedRepresentativeClassGaps": [],
+  "releaseUnverifiedCandidateClasses": [
+    "Claws",
+    "Daggers",
+    "One Hand Swords",
+    "Two Hand Swords",
+    "One Hand Axes",
+    "Two Hand Axes",
+    "Flails",
+    "Traps"
+  ],
+  "classReleaseEvidence": [
+    "https://www.pathofexile.com/forum/view-thread/3932540",
+    "https://www.pathofexile.com/forum/view-forum/2212"
+  ],
+  "outsideRequestedWorkbenchScope": [
+    "Life Flasks",
+    "Mana Flasks",
+    "Charms",
+    "Unique item mechanics",
+    "Runeforged/Runemastered variants",
+    "Combat",
+    "Shapeshift execution",
+    "Passive tree"
+  ],
+  "boundedUnselectedSidegrades": [
+    "Crossbows Stout/Dedalian/Cumbrous",
+    "Unselected lower-requirement Staff granted-skill families",
+    "Unselected Talisman profiles"
+  ],
+  "unchangedRestrictions": [
+    "Stocky empty socket0/1 execution only",
+    "deferred50",
+    "Support/Explorer Solar only"
+  ],
+  "availabilityLimits": {
+    "ordinaryEvidence": "Current PoE2DB ordinary class listing plus normal/magic/rare flags; released class confirmed by public GGG patch notes",
+    "gggTradeApi": "HTTP403; exact unnamed trade entry and drop source remain independently unverified"
+  },
+  "wholeGameComplete": false
+}

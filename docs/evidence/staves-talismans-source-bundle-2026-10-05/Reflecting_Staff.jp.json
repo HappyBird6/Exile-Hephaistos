@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/jp/Reflecting_Staff",
+  "retrievedAt": "2026-10-05T10:01:31.008Z",
+  "sha256": "59c62ae96bd49c8fd5086e298453abc864f0925d6a6f2f1743e1c09253eb7431",
+  "variants": [
+    {
+      "name": "反射のスタッフ",
+      "card": "反射のスタッフ\n        \n    \n    \n        \n            スタッフ装備条件： レベル 70, 114 知性 スキルを付与: 屈折の鏡\n        \n\n\n\n        \n            Reflecting Staff",
+      "requirements": "装備条件： レベル 70, 114 知性",
+      "properties": [
+        "スタッフ"
+      ],
+      "fields": {
+        "DropLevel": "70",
+        "BaseType": "反射のスタッフ",
+        "Class": "スタッフ",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3",
+        "Tags": "staff, twohand",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff02",
+        "Base.base_level": "1",
+        "Base.tag": "default, staff, twohand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100 2:5:100"
+      }
+    }
+  ]
+}

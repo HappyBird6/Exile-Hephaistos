@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/us/Sanctified_Staff",
+  "retrievedAt": "2026-10-05T10:01:13.218Z",
+  "sha256": "245eb86ba5d308dd4b513691bbff8bbd1c7e93de6205d724fcdd9e4d059391f8",
+  "variants": [
+    {
+      "name": "Sanctified Staff",
+      "card": "Sanctified Staff\n        \n    \n    \n        \n            StavesRequires:  Level 56, 99 Int Grants Skill: Consecrate",
+      "requirements": "Requires:  Level 56, 99 Int",
+      "properties": [
+        "Staves"
+      ],
+      "fields": {
+        "DropLevel": "56",
+        "BaseType": "Sanctified Staff",
+        "Class": "Staves",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12",
+        "Tags": "staff, twohand",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff12",
+        "Base.base_level": "1",
+        "Base.tag": "default, staff, twohand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100 2:5:100"
+      }
+    }
+  ]
+}

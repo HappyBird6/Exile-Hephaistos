@@ -1,0 +1,19 @@
+{
+  "discrepancies": [
+    {
+      "id": "permafrost-staff",
+      "locale": "es",
+      "source": "Requiere:  Nivel 75, 131 Int",
+      "english": "Requires:  Level 75, 114 Int",
+      "action": "Preserve localized source verbatim; canonical requirements remain English-source values; needs source reconciliation"
+    },
+    {
+      "id": "reflecting-staff",
+      "locale": "es",
+      "source": "Requiere:  Nivel 70, 123 Int",
+      "english": "Requires:  Level 70, 114 Int",
+      "action": "Preserve localized source verbatim; canonical requirements remain English-source values; needs source reconciliation"
+    }
+  ],
+  "manualVerificationRequired": true
+}

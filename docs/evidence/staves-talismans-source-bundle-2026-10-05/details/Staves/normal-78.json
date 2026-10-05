@@ -1,0 +1,75 @@
+{
+  "row": {
+    "Name": "Torturer's",
+    "Level": "81",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "WeaponDamageTypePrefix"
+    ],
+    "DropChance": "50",
+    "str": "<span class='mod-value'>(209<span class=\"ndash\">—</span>238)</span>% increased <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage",
+    "fossil_no": [
+      "physical_damage",
+      "damage",
+      "physical"
+    ],
+    "adds_no": [
+      "no_fire_spell_mods",
+      "no_cold_spell_mods",
+      "no_lightning_spell_mods",
+      "no_chaos_spell_mods"
+    ],
+    "spawn_no": [
+      "no_physical_spell_mods",
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f644fee7763cb9b1bfb09afd5a66d12f8f93042316784f463c8e29d32dfd5f0d"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FPhysicalDamagePrefixOnTwoHandWeapon8",
+  "textLocale": "sp",
+  "detailText": "Daño físico de los hechizos aumentado un (209—238)%",
+  "retrievedAt": "2026-10-05T10:06:15.504Z",
+  "sha256": "4cd9778b1ee064cf7f073ba9c1bfea3e6186a9b68946485db69aaf47e458cc5b",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Daño <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FPhysical\">físico</a> de los <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FSpell\">hechizos</a> aumentado un <span class='mod-value'>(209<span class=\"ndash\">—</span>238)</span>%</span></h5>   <span data-tabname=\"del torturador\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>del torturador\n<tr><th>Family<td>WeaponDamageTypePrefix\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Prefijo (1)\n<tr><th>Req. level<td>81 (Effective: 64)\n<tr><th>Gold Price<td>6107\n<tr><th>Stats<td><li>spell physical damage +% <span class=\"badge bg-primary\">209 <span class=\"ndash\">—</span> 238</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>no_physical_spell_mods: 0</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_fire_spell_mods</span> <span class='badge bg-primary'>no_cold_spell_mods</span> <span class='badge bg-primary'>no_lightning_spell_mods</span> <span class='badge bg-primary'>no_chaos_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>physical_damage</i></span> <span class='badge bg-primary'>Daño</span> <span class='badge bg-primary'>Físico</span> </table>  </div></div>",
+  "fields": {
+    "Name": "del torturador",
+    "Family": "WeaponDamageTypePrefix",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Prefijo (1)",
+    "Req. level": "81 (Effective: 64)",
+    "Gold Price": "6107",
+    "Stats": "spell physical damage +% 209 — 238 Global",
+    "Spawn Tags": "no_physical_spell_mods: 0 staff: 1 default: 0",
+    "Adds Tags": "no_fire_spell_mods no_cold_spell_mods no_lightning_spell_mods no_chaos_spell_mods",
+    "Craft Tags": "physical_damage Daño Físico"
+  },
+  "code": "PhysicalDamagePrefixOnTwoHandWeapon8",
+  "stats": [
+    {
+      "id": "spell_physical_damage_+%",
+      "min": 209,
+      "max": 238,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "no_physical_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "row": {
+    "Name": "Searing",
+    "Level": "2",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "WeaponDamageTypePrefix"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(50<span class=\"ndash\">—</span>68)</span>% increased <a data-keyword=\"Fire\" href=\"Fire_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/b5d8acaae74359659060318919bfa3de84e8587e6fa6487df3f2423250d85c87\">Fire</a> Damage",
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "fire"
+    ],
+    "adds_no": [
+      "no_cold_spell_mods",
+      "no_lightning_spell_mods",
+      "no_chaos_spell_mods",
+      "no_physical_spell_mods"
+    ],
+    "spawn_no": [
+      "no_fire_spell_mods",
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/387ed0354e4c4bb4e6436240ba7be8b633a248b35418c4dd24a2758209e7affe"
+  },
+  "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FFireDamagePrefixOnTwoHandWeapon1",
+  "textLocale": "tw",
+  "detailText": "增加(50—68)%火焰傷害",
+  "retrievedAt": "2026-10-05T10:04:31.673Z",
+  "sha256": "882623b3c19edf39722f40ca3f305445ffd46f85ade5bc0a27fd223f34e202de",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>增加<span class='mod-value'>(50<span class=\"ndash\">—</span>68)</span>%<a data-keyword=\"Fire\" href=\"Fire_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/tw/Poe_Data_KeywordPopups_hover/7f3ad25c810ddab3bd221171e93c2163346eae899b3606a8c111bfb95cd4d99d\">火焰</a>傷害</span></h5>   <span data-tabname=\"燒灼的\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>燒灼的\n<tr><th>Family<td>WeaponDamageTypePrefix\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>前綴 (1)\n<tr><th>Req. level<td>2 (Effective: 1)\n<tr><th>Gold Price<td>159\n<tr><th>Stats<td><li>fire damage +% <span class=\"badge bg-primary\">50 <span class=\"ndash\">—</span> 68</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>no_fire_spell_mods: 0</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_cold_spell_mods</span> <span class='badge bg-primary'>no_lightning_spell_mods</span> <span class='badge bg-primary'>no_chaos_spell_mods</span> <span class='badge bg-primary'>no_physical_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>傷害</span> <span class='badge bg-primary'>元素</span> <span class='badge bg-primary'>火焰</span> </table>  </div></div>",
+  "fields": {
+    "Name": "燒灼的",
+    "Family": "WeaponDamageTypePrefix",
+    "Domains": "物品 (1)",
+    "GenerationType": "前綴 (1)",
+    "Req. level": "2 (Effective: 1)",
+    "Gold Price": "159",
+    "Stats": "fire damage +% 50 — 68 Global",
+    "Spawn Tags": "no_fire_spell_mods: 0 staff: 1 default: 0",
+    "Adds Tags": "no_cold_spell_mods no_lightning_spell_mods no_chaos_spell_mods no_physical_spell_mods",
+    "Craft Tags": "elemental_damage 傷害 元素 火焰"
+  },
+  "code": "FireDamagePrefixOnTwoHandWeapon1",
+  "stats": [
+    {
+      "id": "fire_damage_+%",
+      "min": 50,
+      "max": 68,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "no_fire_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

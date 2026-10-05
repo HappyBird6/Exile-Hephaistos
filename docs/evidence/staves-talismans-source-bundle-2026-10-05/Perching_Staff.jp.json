@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/jp/Perching_Staff",
+  "retrievedAt": "2026-10-05T10:01:33.296Z",
+  "sha256": "8da442061badf1b74eee219ab2f1b391508f66a3de33d1ed67360cc9088455bd",
+  "variants": [
+    {
+      "name": "止まり木のスタッフ",
+      "card": "止まり木のスタッフ\n        \n    \n    \n        \n            スタッフ装備条件： レベル 65, 114 知性 スキルを付与: スパイラリングコンスピラシー\n        \n\n\n\n        \n            Perching Staff",
+      "requirements": "装備条件： レベル 65, 114 知性",
+      "properties": [
+        "スタッフ"
+      ],
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "止まり木のスタッフ",
+        "Class": "スタッフ",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique4",
+        "Tags": "staff, twohand",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff07",
+        "Base.base_level": "1",
+        "Base.tag": "default, staff, twohand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100 2:5:100"
+      }
+    }
+  ]
+}

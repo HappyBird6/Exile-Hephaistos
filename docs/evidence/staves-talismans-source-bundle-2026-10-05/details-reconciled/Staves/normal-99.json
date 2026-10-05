@@ -1,0 +1,78 @@
+{
+  "row": {
+    "Name": "of Turmoil",
+    "Level": "18",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "IncreaseSocketedGemLevel"
+    ],
+    "DropChance": "750",
+    "str": "<span class='mod-value'>+2</span> to Level of all <a data-keyword=\"Chaos\" href=\"Chaos_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/d5e91fde5dc8d1d0b9cfdb8a42b1eda58c5d5c3b17836c8aa5ea96385c550943\">Chaos</a> <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Skills",
+    "fossil_no": [
+      "chaos",
+      "caster",
+      "gem"
+    ],
+    "adds_no": [
+      "no_fire_spell_mods",
+      "no_cold_spell_mods",
+      "no_lightning_spell_mods",
+      "no_physical_spell_mods"
+    ],
+    "spawn_no": [
+      "no_chaos_spell_mods",
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>",
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+      "<span class=\"badge bg-primary craftinggem\" data-tag=\"gem\">Gem</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5592fb8733dc3f9de8e9f35e9b2c9b5118aee4fce4a6deadb9c00ae19f5b0ee2"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalChaosSpellGemsLevelTwoHandWeapon2",
+  "textLocale": "us",
+  "detailText": "+2 to Level of all Chaos Spell Skills",
+  "retrievedAt": "2026-10-05T10:16:05.330Z",
+  "sha256": "666651eb41111c021d3c9810edc76a1a89f9fdd5ee6dad3f7d926851e683340b",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+2</span> to Level of all <a data-keyword=\"Chaos\" href=\"Chaos_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/d5e91fde5dc8d1d0b9cfdb8a42b1eda58c5d5c3b17836c8aa5ea96385c550943\">Chaos</a> <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Skills</span></h5>   <span data-tabname=\"of Turmoil\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Turmoil\n<tr><th>Family<td>IncreaseSocketedGemLevel\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>18 (Effective: 14)\n<tr><th>Gold Price<td>551\n<tr><th>Stats<td><li>chaos spell skill gem level + <span class=\"badge bg-primary\">2 <span class=\"ndash\">—</span> 2</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>no_chaos_spell_mods: 0</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_fire_spell_mods</span> <span class='badge bg-primary'>no_cold_spell_mods</span> <span class='badge bg-primary'>no_lightning_spell_mods</span> <span class='badge bg-primary'>no_physical_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Chaos</span> <span class='badge bg-primary'>Caster</span> <span class='badge bg-primary'>Gem</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Turmoil",
+    "Family": "IncreaseSocketedGemLevel",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "18 (Effective: 14)",
+    "Gold Price": "551",
+    "Stats": "chaos spell skill gem level + 2 — 2 Global",
+    "Spawn Tags": "no_chaos_spell_mods: 0 staff: 1 default: 0",
+    "Adds Tags": "no_fire_spell_mods no_cold_spell_mods no_lightning_spell_mods no_physical_spell_mods",
+    "Craft Tags": "Chaos Caster Gem"
+  },
+  "code": "GlobalChaosSpellGemsLevelTwoHandWeapon2",
+  "stats": [
+    {
+      "id": "chaos_spell_skill_gem_level_+",
+      "min": 2,
+      "max": 2,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "no_chaos_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "reconciles": "details/Staves/normal-99.json",
+  "reason": "Previous signature fallback matched Wand endpoint; exact Staff source header, family, stats, spawn order verified"
+}

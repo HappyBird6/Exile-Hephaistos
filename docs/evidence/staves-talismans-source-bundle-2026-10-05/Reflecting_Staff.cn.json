@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/cn/Reflecting_Staff",
+  "retrievedAt": "2026-10-05T10:01:44.028Z",
+  "sha256": "5b60ecb403a2506d2110d931cfe1c1685d89c9bcf27093ecaa139b2c618a4cd0",
+  "variants": [
+    {
+      "name": "反射长杖",
+      "card": "反射长杖\n        \n    \n    \n        \n            长杖需求：  等级 70, 114 智慧 获得技能: 折射之镜\n        \n\n\n\n        \n            Reflecting Staff",
+      "requirements": "需求：  等级 70, 114 智慧",
+      "properties": [
+        "长杖"
+      ],
+      "fields": {
+        "DropLevel": "70",
+        "BaseType": "反射长杖",
+        "Class": "长杖",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3",
+        "Tags": "staff, twohand",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff02",
+        "Base.base_level": "1",
+        "Base.tag": "default, staff, twohand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100 2:5:100"
+      }
+    }
+  ]
+}

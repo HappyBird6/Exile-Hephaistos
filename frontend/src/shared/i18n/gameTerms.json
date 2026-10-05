@@ -2925,6 +2925,78 @@
       ],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame",
       "sourceUrl": "https://poe2db.tw/us/Akoyan_Spear"
+    },
+    "Permafrost_Staff": {
+      "name": "Permafrost Staff",
+      "lines": ["Staves", "Grants Skill: Heart of Ice"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1",
+      "sourceUrl": "https://poe2db.tw/us/Permafrost_Staff"
+    },
+    "Reflecting_Staff": {
+      "name": "Reflecting Staff",
+      "lines": ["Staves", "Grants Skill: Mirror of Refraction"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3",
+      "sourceUrl": "https://poe2db.tw/us/Reflecting_Staff"
+    },
+    "Dark_Staff": {
+      "name": "Dark Staff",
+      "lines": ["Staves", "Grants Skill: Dark Pact"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13",
+      "sourceUrl": "https://poe2db.tw/us/Dark_Staff"
+    },
+    "Ravenous_Staff": {
+      "name": "Ravenous Staff",
+      "lines": ["Staves", "Grants Skill: Feast of Flesh"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14",
+      "sourceUrl": "https://poe2db.tw/us/Ravenous_Staff"
+    },
+    "Perching_Staff": {
+      "name": "Perching Staff",
+      "lines": ["Staves", "Grants Skill: Spiraling Conspiracy"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique4",
+      "sourceUrl": "https://poe2db.tw/us/Perching_Staff"
+    },
+    "Sanctified_Staff": {
+      "name": "Sanctified Staff",
+      "lines": ["Staves", "Grants Skill: Consecrate"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12",
+      "sourceUrl": "https://poe2db.tw/us/Sanctified_Staff"
+    },
+    "Maji_Talisman": {
+      "name": "Maji Talisman",
+      "lines": [
+        "Talismans",
+        "Physical Damage: 61-114",
+        "Critical Hit Chance: 8%",
+        "Attacks per Second: 1.25",
+        "Weapon Range: 1.2"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman7Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Maji_Talisman"
+    },
+    "Fungal_Talisman": {
+      "name": "Fungal Talisman",
+      "lines": [
+        "Talismans",
+        "Physical Damage: 59-98",
+        "Critical Hit Chance: 8%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.2"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman5Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Fungal_Talisman"
+    },
+    "Jade_Talisman": {
+      "name": "Jade Talisman",
+      "lines": [
+        "Talismans",
+        "Physical Damage: 101-151",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.1",
+        "Weapon Range: 1.2"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman10Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Jade_Talisman"
     }
   },
   "ko": {
@@ -5833,6 +5905,78 @@
       ],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame",
       "sourceUrl": "https://poe2db.tw/kr/Akoyan_Spear"
+    },
+    "Permafrost_Staff": {
+      "name": "만년설 지팡이",
+      "lines": ["지팡이", "스킬 부여: 얼음의 심장"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1",
+      "sourceUrl": "https://poe2db.tw/kr/Permafrost_Staff"
+    },
+    "Reflecting_Staff": {
+      "name": "투영하는 지팡이",
+      "lines": ["지팡이", "스킬 부여: 굴절의 거울"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3",
+      "sourceUrl": "https://poe2db.tw/kr/Reflecting_Staff"
+    },
+    "Dark_Staff": {
+      "name": "어둠의 지팡이",
+      "lines": ["지팡이", "스킬 부여: 어둠의 서약"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13",
+      "sourceUrl": "https://poe2db.tw/kr/Dark_Staff"
+    },
+    "Ravenous_Staff": {
+      "name": "굶주린 지팡이",
+      "lines": ["지팡이", "스킬 부여: 육체의 연회"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14",
+      "sourceUrl": "https://poe2db.tw/kr/Ravenous_Staff"
+    },
+    "Perching_Staff": {
+      "name": "홰 지팡이",
+      "lines": ["지팡이", "스킬 부여: 고조되는 음모"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique4",
+      "sourceUrl": "https://poe2db.tw/kr/Perching_Staff"
+    },
+    "Sanctified_Staff": {
+      "name": "축성된 지팡이",
+      "lines": ["지팡이", "스킬 부여: 신성화"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12",
+      "sourceUrl": "https://poe2db.tw/kr/Sanctified_Staff"
+    },
+    "Maji_Talisman": {
+      "name": "마지 부적",
+      "lines": [
+        "부적",
+        "물리 피해: 61-114",
+        "치명타 명중 확률: 8%",
+        "초당 공격 횟수: 1.25",
+        "무기 범위: 1.2"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman7Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Maji_Talisman"
+    },
+    "Fungal_Talisman": {
+      "name": "버섯 부적",
+      "lines": [
+        "부적",
+        "물리 피해: 59-98",
+        "치명타 명중 확률: 8%",
+        "초당 공격 횟수: 1.4",
+        "무기 범위: 1.2"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman5Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Fungal_Talisman"
+    },
+    "Jade_Talisman": {
+      "name": "비취 부적",
+      "lines": [
+        "부적",
+        "물리 피해: 101-151",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.1",
+        "무기 범위: 1.2"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman10Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Jade_Talisman"
     }
   },
   "zh-CN": {
@@ -8639,6 +8783,78 @@
       ],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame",
       "sourceUrl": "https://poe2db.tw/cn/Akoyan_Spear"
+    },
+    "Permafrost_Staff": {
+      "name": "永霜法杖",
+      "lines": ["长杖", "获得技能: 冰雪之心"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1",
+      "sourceUrl": "https://poe2db.tw/cn/Permafrost_Staff"
+    },
+    "Reflecting_Staff": {
+      "name": "反射长杖",
+      "lines": ["长杖", "获得技能: 折射之镜"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3",
+      "sourceUrl": "https://poe2db.tw/cn/Reflecting_Staff"
+    },
+    "Dark_Staff": {
+      "name": "暗黑长杖",
+      "lines": ["长杖", "获得技能: 暗夜契约"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13",
+      "sourceUrl": "https://poe2db.tw/cn/Dark_Staff"
+    },
+    "Ravenous_Staff": {
+      "name": "饕餮法杖",
+      "lines": ["长杖", "获得技能: 血肉盛宴"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14",
+      "sourceUrl": "https://poe2db.tw/cn/Ravenous_Staff"
+    },
+    "Perching_Staff": {
+      "name": "栖鸟长杖",
+      "lines": ["长杖", "获得技能: 鸦群密谋"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique4",
+      "sourceUrl": "https://poe2db.tw/cn/Perching_Staff"
+    },
+    "Sanctified_Staff": {
+      "name": "神圣长杖",
+      "lines": ["长杖", "获得技能: 奉献"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12",
+      "sourceUrl": "https://poe2db.tw/cn/Sanctified_Staff"
+    },
+    "Maji_Talisman": {
+      "name": "众神魔符",
+      "lines": [
+        "魔符",
+        "物理伤害: 61-114",
+        "暴击率: 8%",
+        "每秒攻击次数: 1.25",
+        "武器范围: 1.2"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman7Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Maji_Talisman"
+    },
+    "Fungal_Talisman": {
+      "name": "真菌魔符",
+      "lines": [
+        "魔符",
+        "物理伤害: 59-98",
+        "暴击率: 8%",
+        "每秒攻击次数: 1.4",
+        "武器范围: 1.2"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman5Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Fungal_Talisman"
+    },
+    "Jade_Talisman": {
+      "name": "翡翠魔符",
+      "lines": [
+        "魔符",
+        "物理伤害: 101-151",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.1",
+        "武器范围: 1.2"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman10Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Jade_Talisman"
     }
   },
   "zh-TW": {
@@ -11435,6 +11651,78 @@
       ],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame",
       "sourceUrl": "https://poe2db.tw/tw/Akoyan_Spear"
+    },
+    "Permafrost_Staff": {
+      "name": "永凍長杖",
+      "lines": ["長杖", "賦予技能: 冰雪之心"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1",
+      "sourceUrl": "https://poe2db.tw/tw/Permafrost_Staff"
+    },
+    "Reflecting_Staff": {
+      "name": "映像長杖",
+      "lines": ["長杖", "賦予技能: 鏡面折射"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3",
+      "sourceUrl": "https://poe2db.tw/tw/Reflecting_Staff"
+    },
+    "Dark_Staff": {
+      "name": "黑暗長杖",
+      "lines": ["長杖", "賦予技能: 暗夜血契"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13",
+      "sourceUrl": "https://poe2db.tw/tw/Dark_Staff"
+    },
+    "Ravenous_Staff": {
+      "name": "貪婪長杖",
+      "lines": ["長杖", "賦予技能: 血肉盛宴"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14",
+      "sourceUrl": "https://poe2db.tw/tw/Ravenous_Staff"
+    },
+    "Perching_Staff": {
+      "name": "棲羽長杖",
+      "lines": ["長杖", "賦予技能: 邪鴉旋纏"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique4",
+      "sourceUrl": "https://poe2db.tw/tw/Perching_Staff"
+    },
+    "Sanctified_Staff": {
+      "name": "神化長杖",
+      "lines": ["長杖", "賦予技能: 奉獻"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12",
+      "sourceUrl": "https://poe2db.tw/tw/Sanctified_Staff"
+    },
+    "Maji_Talisman": {
+      "name": "聖賢魔符",
+      "lines": [
+        "魔符",
+        "物理傷害: 61-114",
+        "暴擊率: 8%",
+        "每秒攻擊次數: 1.25",
+        "武器範圍: 1.2"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman7Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Maji_Talisman"
+    },
+    "Fungal_Talisman": {
+      "name": "真菌魔符",
+      "lines": [
+        "魔符",
+        "物理傷害: 59-98",
+        "暴擊率: 8%",
+        "每秒攻擊次數: 1.4",
+        "武器範圍: 1.2"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman5Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Fungal_Talisman"
+    },
+    "Jade_Talisman": {
+      "name": "翠玉魔符",
+      "lines": [
+        "魔符",
+        "物理傷害: 101-151",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.1",
+        "武器範圍: 1.2"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman10Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Jade_Talisman"
     }
   },
   "ja": {
@@ -14345,6 +14633,78 @@
       ],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame",
       "sourceUrl": "https://poe2db.tw/jp/Akoyan_Spear"
+    },
+    "Permafrost_Staff": {
+      "name": "氷結のスタッフ",
+      "lines": ["スタッフ", "スキルを付与: ハートオブアイス"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1",
+      "sourceUrl": "https://poe2db.tw/jp/Permafrost_Staff"
+    },
+    "Reflecting_Staff": {
+      "name": "反射のスタッフ",
+      "lines": ["スタッフ", "スキルを付与: 屈折の鏡"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3",
+      "sourceUrl": "https://poe2db.tw/jp/Reflecting_Staff"
+    },
+    "Dark_Staff": {
+      "name": "闇のスタッフ",
+      "lines": ["スタッフ", "スキルを付与: ダークパクト"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13",
+      "sourceUrl": "https://poe2db.tw/jp/Dark_Staff"
+    },
+    "Ravenous_Staff": {
+      "name": "貪食のスタッフ",
+      "lines": ["スタッフ", "スキルを付与: フィーストオブフレッシュ"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14",
+      "sourceUrl": "https://poe2db.tw/jp/Ravenous_Staff"
+    },
+    "Perching_Staff": {
+      "name": "止まり木のスタッフ",
+      "lines": ["スタッフ", "スキルを付与: スパイラリングコンスピラシー"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique4",
+      "sourceUrl": "https://poe2db.tw/jp/Perching_Staff"
+    },
+    "Sanctified_Staff": {
+      "name": "聖別のスタッフ",
+      "lines": ["スタッフ", "スキルを付与: コンセクレート"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12",
+      "sourceUrl": "https://poe2db.tw/jp/Sanctified_Staff"
+    },
+    "Maji_Talisman": {
+      "name": "マジのタリスマン",
+      "lines": [
+        "タリスマン",
+        "物理ダメージ: 61-114",
+        "クリティカルヒット率: 8%",
+        "秒間アタック回数: 1.25",
+        "武器攻撃距離: 1.2"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman7Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Maji_Talisman"
+    },
+    "Fungal_Talisman": {
+      "name": "キノコのタリスマン",
+      "lines": [
+        "タリスマン",
+        "物理ダメージ: 59-98",
+        "クリティカルヒット率: 8%",
+        "秒間アタック回数: 1.4",
+        "武器攻撃距離: 1.2"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman5Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Fungal_Talisman"
+    },
+    "Jade_Talisman": {
+      "name": "ヒスイのタリスマン",
+      "lines": [
+        "タリスマン",
+        "物理ダメージ: 101-151",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.1",
+        "武器攻撃距離: 1.2"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman10Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Jade_Talisman"
     }
   },
   "es": {
@@ -17177,6 +17537,78 @@
       ],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame",
       "sourceUrl": "https://poe2db.tw/sp/Akoyan_Spear"
+    },
+    "Permafrost_Staff": {
+      "name": "Báculo de gelisuelo",
+      "lines": ["Báculos", "Otorga la habilidad: Corazón de hielo"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1",
+      "sourceUrl": "https://poe2db.tw/sp/Permafrost_Staff"
+    },
+    "Reflecting_Staff": {
+      "name": "Báculo reflector",
+      "lines": ["Báculos", "Otorga la habilidad: Espejo de refracción"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3",
+      "sourceUrl": "https://poe2db.tw/sp/Reflecting_Staff"
+    },
+    "Dark_Staff": {
+      "name": "Báculo oscuro",
+      "lines": ["Báculos", "Otorga la habilidad: Pacto oscuro"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13",
+      "sourceUrl": "https://poe2db.tw/sp/Dark_Staff"
+    },
+    "Ravenous_Staff": {
+      "name": "Báculo voraz",
+      "lines": ["Báculos", "Otorga la habilidad: Festín de carne"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14",
+      "sourceUrl": "https://poe2db.tw/sp/Ravenous_Staff"
+    },
+    "Perching_Staff": {
+      "name": "Báculo elevado",
+      "lines": ["Báculos", "Otorga la habilidad: Cuervos amenazantes"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique4",
+      "sourceUrl": "https://poe2db.tw/sp/Perching_Staff"
+    },
+    "Sanctified_Staff": {
+      "name": "Báculo santificado",
+      "lines": ["Báculos", "Otorga la habilidad: Consagrar"],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12",
+      "sourceUrl": "https://poe2db.tw/sp/Sanctified_Staff"
+    },
+    "Maji_Talisman": {
+      "name": "Talismán maji",
+      "lines": [
+        "Talismanes",
+        "Daño físico: 61-114",
+        "Probabilidad de impacto crítico: 8%",
+        "Ataques por segundo: 1.25",
+        "Alcance de arma: 1.2"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman7Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Maji_Talisman"
+    },
+    "Fungal_Talisman": {
+      "name": "Talismán fúngico",
+      "lines": [
+        "Talismanes",
+        "Daño físico: 59-98",
+        "Probabilidad de impacto crítico: 8%",
+        "Ataques por segundo: 1.4",
+        "Alcance de arma: 1.2"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman5Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Fungal_Talisman"
+    },
+    "Jade_Talisman": {
+      "name": "Talismán de jade",
+      "lines": [
+        "Talismanes",
+        "Daño físico: 101-151",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.1",
+        "Alcance de arma: 1.2"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman10Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Jade_Talisman"
     }
   }
 }

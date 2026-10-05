@@ -1,0 +1,55 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "1",
+    "DropChance": 0,
+    "ModGenerationTypeID": "1",
+    "mod_no": [],
+    "fossil_no": [],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/64d5485091a23e6177b0931a8cf733b156575630343331d9f3ce43b3162f44f4\" href=\"Essence_of_the_Abyss\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/AbyssalEssence.webp\" alt=\"AbyssalEssence\" height=\"16\" />Essence of the Abyss</a>",
+    "Code": "EssenceAbyssPrefix",
+    "ModFamilyList": [
+      "EssenceAbyss"
+    ],
+    "str": "<a data-keyword=\"MarkofAbyssalLord\" href=\"Mark_of_the_Abyssal_Lord\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ce176c5011d7d3439bcf0a18e8d4580c5b80a08e4dfd8377a54d431e8c27162f\">Mark of the Abyssal Lord</a>",
+    "adds_no": [],
+    "spawn_no": [
+      "default"
+    ],
+    "reqlvl": 0,
+    "IsPerfect": "0",
+    "IsAlloy": false,
+    "Removes": true
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssPrefix",
+  "textLocale": "us",
+  "detailText": "Bears the Mark of the Abyssal Lord",
+  "retrievedAt": "2026-10-05T10:09:58.928Z",
+  "sha256": "80d68f05638192b759a6b196d5012463cbc5486f629f624f51b17c621be6bcf0",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Bears the <a data-keyword=\"MarkofAbyssalLord\" href=\"Mark_of_the_Abyssal_Lord\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ce176c5011d7d3439bcf0a18e8d4580c5b80a08e4dfd8377a54d431e8c27162f\">Mark of the Abyssal Lord</a></span></h5>   <span data-tabname=\"Abyssal\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Abyssal\n<tr><th>Family<td>EssenceAbyss\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>1\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>essence abyss guaranteed pick <span class=\"badge bg-primary\">1 <span class=\"ndash\">—</span> 1</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Abyssal",
+    "Family": "EssenceAbyss",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "1",
+    "Gold Price": "3266",
+    "Stats": "essence abyss guaranteed pick 1 — 1 Global",
+    "Spawn Tags": "default: 0"
+  },
+  "code": "EssenceAbyssPrefix",
+  "stats": [
+    {
+      "id": "essence_abyss_guaranteed_pick",
+      "min": 1,
+      "max": 1,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

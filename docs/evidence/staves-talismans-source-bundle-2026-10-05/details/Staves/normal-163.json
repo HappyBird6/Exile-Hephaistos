@@ -1,0 +1,85 @@
+{
+  "row": {
+    "Name": "of Zapping",
+    "Level": "30",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ShockChanceIncrease"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(61<span class=\"ndash\">—</span>70)</span>% increased chance to <a data-keyword=\"Shock\" href=\"Shock\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e16c3f539d98714e992b7a2fa61432625e69a665759f8dc5831558b71b21c1f2\">Shock</a>",
+    "fossil_no": [
+      "elemental",
+      "lightning",
+      "ailment"
+    ],
+    "adds_no": [
+      "no_fire_spell_mods",
+      "no_cold_spell_mods",
+      "no_chaos_spell_mods"
+    ],
+    "spawn_no": [
+      "no_lightning_spell_mods",
+      "wand",
+      "staff",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+      "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c683ed484f6af04e616b9ad6399b13f9b9b0cea663e77770c8d65745258d218f"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FShockChanceIncrease2",
+  "textLocale": "us",
+  "detailText": "(61—70)% increased chance to Shock",
+  "retrievedAt": "2026-10-05T10:08:51.443Z",
+  "sha256": "9356b3eb7d3ac9473d9e0fd2d0acdb0a576c8aa31ff049d563826336f2a5e8f8",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(61<span class=\"ndash\">—</span>70)</span>% increased chance to <a data-keyword=\"Shock\" href=\"Shock\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e16c3f539d98714e992b7a2fa61432625e69a665759f8dc5831558b71b21c1f2\">Shock</a></span></h5>   <span data-tabname=\"of Zapping\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Zapping\n<tr><th>Family<td>ShockChanceIncrease\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>30 (Effective: 24)\n<tr><th>Gold Price<td>408\n<tr><th>Stats<td><li>shock chance +% <span class=\"badge bg-primary\">61 <span class=\"ndash\">—</span> 70</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>no_lightning_spell_mods: 0</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_fire_spell_mods</span> <span class='badge bg-primary'>no_cold_spell_mods</span> <span class='badge bg-primary'>no_chaos_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Lightning</span> <span class='badge bg-primary'>Ailment</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Zapping",
+    "Family": "ShockChanceIncrease",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "30 (Effective: 24)",
+    "Gold Price": "408",
+    "Stats": "shock chance +% 61 — 70 Global",
+    "Spawn Tags": "no_lightning_spell_mods: 0 wand: 1 staff: 1 trap: 1 default: 0",
+    "Adds Tags": "no_fire_spell_mods no_cold_spell_mods no_chaos_spell_mods",
+    "Craft Tags": "Elemental Lightning Ailment"
+  },
+  "code": "ShockChanceIncrease2",
+  "stats": [
+    {
+      "id": "shock_chance_+%",
+      "min": 61,
+      "max": 70,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "no_lightning_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "trap",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "row": {
+    "Name": "of Destruction",
+    "Level": "73",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "CriticalStrikeMultiplier"
+    ],
+    "DropChance": "125",
+    "str": "<span class='mod-value'>(53<span class=\"ndash\">—</span>59)</span>% increased <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244\">Critical Spell Damage Bonus</a>",
+    "fossil_no": [
+      "caster_critical",
+      "caster",
+      "critical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+      "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6fca47ef528444d1bd842facd478e8ffddde5c0f2345aa855368609269d2ee34"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FSpellCriticalStrikeMultiplierTwoHand6",
+  "textLocale": "sp",
+  "detailText": "Bonificación de daño crítico de los hechizos aumentada un (53—59)%",
+  "retrievedAt": "2026-10-05T10:08:34.019Z",
+  "sha256": "ae9fccfa3528fedcf9d8f0f768ff269ba9989842b84aebb12ff4ecd8e8ca230c",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/8e5571f72edf9f8e4cfbe3027e8b07e1f302801adae41c7a45cdd54c1967f09a\">Bonificación de daño crítico de los hechizos</a> aumentada un <span class='mod-value'>(53<span class=\"ndash\">—</span>59)</span>%</span></h5>   <span data-tabname=\"de destrucción\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>de destrucción\n<tr><th>Family<td>CriticalStrikeMultiplier\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Sufijo (2)\n<tr><th>Req. level<td>73 (Effective: 58)\n<tr><th>Gold Price<td>3274\n<tr><th>Stats<td><li>base spell critical strike multiplier + <span class=\"badge bg-primary\">53 <span class=\"ndash\">—</span> 59</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_critical</i></span> <span class='badge bg-primary'>Lanzador de hechizos</span> <span class='badge bg-primary'>Crítico</span> </table>  </div></div>",
+  "fields": {
+    "Name": "de destrucción",
+    "Family": "CriticalStrikeMultiplier",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Sufijo (2)",
+    "Req. level": "73 (Effective: 58)",
+    "Gold Price": "3274",
+    "Stats": "base spell critical strike multiplier + 53 — 59 Global",
+    "Spawn Tags": "staff: 1 default: 0",
+    "Craft Tags": "caster_critical Lanzador de hechizos Crítico"
+  },
+  "code": "SpellCriticalStrikeMultiplierTwoHand6",
+  "stats": [
+    {
+      "id": "base_spell_critical_strike_multiplier_+",
+      "min": 53,
+      "max": 59,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

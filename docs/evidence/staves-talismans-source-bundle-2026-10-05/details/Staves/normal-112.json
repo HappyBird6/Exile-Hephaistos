@@ -1,0 +1,62 @@
+{
+  "row": {
+    "Name": "of Euphoria",
+    "Level": "55",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ManaRegeneration"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(75<span class=\"ndash\">—</span>89)</span>% increased Mana Regeneration Rate",
+    "fossil_no": [
+      "resource",
+      "mana"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0e03e3b9cd86ff936d7a239e8a8000be84b290d3e504d46030c39c81cfc25822"
+  },
+  "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FManaRegenerationTwoHand5",
+  "textLocale": "tw",
+  "detailText": "增加(75—89)%魔力回復率",
+  "retrievedAt": "2026-10-05T10:07:42.174Z",
+  "sha256": "45902eccf15e743222088fcc21b1786b9d7bafd009a805054f5e2396d0211fb9",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>增加<span class='mod-value'>(75<span class=\"ndash\">—</span>89)</span>%魔力回復率</span></h5>   <span data-tabname=\"幸福之\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>幸福之\n<tr><th>Family<td>ManaRegeneration\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>後綴 (2)\n<tr><th>Req. level<td>55 (Effective: 44)\n<tr><th>Gold Price<td>875\n<tr><th>Stats<td><li>mana regeneration rate +% <span class=\"badge bg-primary\">75 <span class=\"ndash\">—</span> 89</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>魔力</span> </table>  </div></div>",
+  "fields": {
+    "Name": "幸福之",
+    "Family": "ManaRegeneration",
+    "Domains": "物品 (1)",
+    "GenerationType": "後綴 (2)",
+    "Req. level": "55 (Effective: 44)",
+    "Gold Price": "875",
+    "Stats": "mana regeneration rate +% 75 — 89 Global",
+    "Spawn Tags": "staff: 1 default: 0",
+    "Craft Tags": "resource 魔力"
+  },
+  "code": "ManaRegenerationTwoHand5",
+  "stats": [
+    {
+      "id": "mana_regeneration_rate_+%",
+      "min": 75,
+      "max": 89,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

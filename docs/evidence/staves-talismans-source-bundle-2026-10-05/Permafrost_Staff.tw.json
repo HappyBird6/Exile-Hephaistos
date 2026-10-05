@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/tw/Permafrost_Staff",
+  "retrievedAt": "2026-10-05T10:01:55.662Z",
+  "sha256": "2ce9eea2cc7611cd981b054c427497435d06e9e9692de40c555faafabc229603",
+  "variants": [
+    {
+      "name": "永凍長杖",
+      "card": "永凍長杖\n        \n    \n    \n        \n            長杖需求:  等級 75, 114 智慧 賦予技能: 冰雪之心\n        \n\n\n\n        \n            Permafrost Staff",
+      "requirements": "需求:  等級 75, 114 智慧",
+      "properties": [
+        "長杖"
+      ],
+      "fields": {
+        "DropLevel": "75",
+        "BaseType": "永凍長杖",
+        "Class": "長杖",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1",
+        "Tags": "staff, twohand",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff02",
+        "Base.base_level": "1",
+        "Base.tag": "default, staff, twohand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100 2:5:100"
+      }
+    }
+  ]
+}
