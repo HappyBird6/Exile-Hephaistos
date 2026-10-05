@@ -1,0 +1,71 @@
+{
+  "row": {
+    "Name": "Champion's",
+    "Level": "54",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "LocalIncreasedPhysicalDamagePercentAndAccuracyRating"
+    ],
+    "DropChance": "600",
+    "str": "<span class='mod-value'>(45<span class=\"ndash\">—</span>54)</span>% increased <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage<br><span class='mod-value'>+(98<span class=\"ndash\">—</span>123)</span> to <a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/4a439d13631e43c7f47aab345a7e6b64877fb0209f2c42901d14cd9d9f36da1c\">Accuracy</a> Rating",
+    "fossil_no": [
+      "physical_damage",
+      "damage",
+      "physical",
+      "attack"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>",
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e2a0922f61ccf40b153ea331ff3b065c2219be087849e7274ac5587682822686"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamagePercentAndAccuracyRating5",
+  "textLocale": "us",
+  "retrievedAt": "2026-10-05T02:43:02.584Z",
+  "sha256": "4b7adca27376744ca634b83008789216d0cdbb6b991e3f30ab0b0a0db3df8d09",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(45<span class=\"ndash\">—</span>54)</span>% increased <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage<br><span class='mod-value'>+(98<span class=\"ndash\">—</span>123)</span> to <a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/4a439d13631e43c7f47aab345a7e6b64877fb0209f2c42901d14cd9d9f36da1c\">Accuracy</a> Rating</span></h5>   <span data-tabname=\"Champion's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Champion's\n<tr><th>Family<td>LocalIncreasedPhysicalDamagePercentAndAccuracyRating\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>54 (Effective: 43)\n<tr><th>Gold Price<td>779\n<tr><th>Stats<td><li>local accuracy rating <span class=\"badge bg-primary\">98 <span class=\"ndash\">—</span> 123</span> <span class=\"badge bg-secondary\">Local</span></li><li>local physical damage +% <span class=\"badge bg-primary\">45 <span class=\"ndash\">—</span> 54</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>physical_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Physical</span> <span class='badge bg-primary'>Attack</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Champion's",
+    "Family": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "54 (Effective: 43)",
+    "Gold Price": "779",
+    "Stats": "local accuracy rating 98 — 123 Locallocal physical damage +% 45 — 54 Local",
+    "Spawn Tags": "weapon: 1 default: 0",
+    "Craft Tags": "physical_damage Damage Physical Attack"
+  },
+  "code": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating5",
+  "stats": [
+    {
+      "id": "local_accuracy_rating",
+      "min": 98,
+      "max": 123,
+      "locality": "Local"
+    },
+    {
+      "id": "local_physical_damage_+%",
+      "min": 45,
+      "max": 54,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "row": {
+    "Name": "of Legend",
+    "Level": "77",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LifeGainedFromEnemyDeath"
+    ],
+    "DropChance": "750",
+    "str": "Gain <span class='mod-value'>(69<span class=\"ndash\">—</span>84)</span> Life per enemy killed",
+    "fossil_no": [
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "wand",
+      "staff",
+      "gloves",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/87c3134e6542addc6ffa43a0ed760a6feb22be9d3f19289bd2819ccc9ea5a2cb"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath8",
+  "textLocale": "us",
+  "retrievedAt": "2026-10-05T02:43:52.867Z",
+  "sha256": "87c3134e6542addc6ffa43a0ed760a6feb22be9d3f19289bd2819ccc9ea5a2cb",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Gain <span class='mod-value'>(69<span class=\"ndash\">—</span>84)</span> Life per enemy killed</span></h5>   <span data-tabname=\"of Legend\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Legend\n<tr><th>Family<td>LifeGainedFromEnemyDeath\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>77 (Effective: 61)\n<tr><th>Gold Price<td>2937\n<tr><th>Stats<td><li>base life gained on enemy death <span class=\"badge bg-primary\">69 <span class=\"ndash\">—</span> 84</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> \n<tr><td>Fists of Stone<td>Recover <span class='mod-value'>3</span>% of maximum Life on Kill</table>  </div></div>",
+  "fields": {
+    "Name": "of Legend",
+    "Family": "LifeGainedFromEnemyDeath",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "77 (Effective: 61)",
+    "Gold Price": "2937",
+    "Stats": "base life gained on enemy death 69 — 84 Global",
+    "Spawn Tags": "weapon: 1 wand: 1 staff: 1 gloves: 1 trap: 1 default: 0",
+    "Craft Tags": "resource Life"
+  },
+  "code": "LifeGainedFromEnemyDeath8",
+  "stats": [
+    {
+      "id": "base_life_gained_on_enemy_death",
+      "min": 69,
+      "max": 84,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "gloves",
+      "weight": 1
+    },
+    {
+      "tag": "trap",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

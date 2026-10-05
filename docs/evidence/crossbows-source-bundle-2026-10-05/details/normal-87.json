@@ -1,0 +1,65 @@
+{
+  "row": {
+    "Name": "of the Desperate",
+    "Level": "65",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ManaLeech"
+    ],
+    "DropChance": 1,
+    "str": "<a data-keyword=\"ManaLeech\" href=\"Mana_Leech\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e031dafccf311a55ea568d1f20d604182ae510d25bba3038d56d56ee845b124d\">Leeches</a> <span class='mod-value'>(8<span class=\"ndash\">—</span>8.9)</span>% of <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage as Mana",
+    "fossil_no": [
+      "resource",
+      "mana",
+      "physical",
+      "attack"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>",
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>",
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f8ccbcfebfa380fb46d05d84cfd37f62672e41e35f69d5e6d54f21646b1644d4"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaLeechLocal5",
+  "textLocale": "us",
+  "retrievedAt": "2026-10-05T02:43:40.817Z",
+  "sha256": "e5dba558587a86f5e981d7783d407da7639b30ba70fa69728697b9c31d0f89ff",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"ManaLeech\" href=\"Mana_Leech\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e031dafccf311a55ea568d1f20d604182ae510d25bba3038d56d56ee845b124d\">Leeches</a> <span class='mod-value'>(8<span class=\"ndash\">—</span>8.9)</span>% of <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage as Mana</span></h5>   <span data-tabname=\"of the Desperate\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Desperate\n<tr><th>Family<td>ManaLeech\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>65 (Effective: 52)\n<tr><th>Gold Price<td>3365\n<tr><th>Stats<td><li>local mana leech from physical damage permyriad <span class=\"badge bg-primary\">800 <span class=\"ndash\">—</span> 890</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> <span class='badge bg-primary'>Physical</span> <span class='badge bg-primary'>Attack</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of the Desperate",
+    "Family": "ManaLeech",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "65 (Effective: 52)",
+    "Gold Price": "3365",
+    "Stats": "local mana leech from physical damage permyriad 800 — 890 Local",
+    "Spawn Tags": "weapon: 1 default: 0",
+    "Craft Tags": "resource Mana Physical Attack"
+  },
+  "code": "ManaLeechLocal5",
+  "stats": [
+    {
+      "id": "local_mana_leech_from_physical_damage_permyriad",
+      "min": 800,
+      "max": 890,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

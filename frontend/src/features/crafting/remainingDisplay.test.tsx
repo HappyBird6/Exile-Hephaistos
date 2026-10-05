@@ -22,15 +22,21 @@ type DisplayBinding = {
 }
 const bindings: Record<string, DisplayBinding> = catalog.definitions
 describe('remaining display coverage', () => {
-  it('renders all 379 compound bindings at min/middle/max in all locales with canonical values preserved', () => {
+  it('renders all 432 compound bindings at min/middle/max in all locales with canonical values preserved', () => {
     const compound = Object.entries(bindings).filter(
       ([, b]) =>
         b.valueStats &&
         b.stats.length > 1 &&
         b.stats.some((s) => s.min !== s.max),
     )
-    // Preserve all 378 historical bindings and add the exact Kinetic source compound.
-    expect(compound).toHaveLength(382)
+    // Preserve all historical bindings and cover 50 new Crossbow compounds.
+    expect(
+      compound.filter(([id]) => !/^(crossbow|.+-crossbow):/.test(id)),
+    ).toHaveLength(382)
+    expect(
+      compound.filter(([id]) => /^(crossbow|.+-crossbow):/.test(id)),
+    ).toHaveLength(50)
+    expect(compound).toHaveLength(432)
     expect(compound.filter(([id]) => id.startsWith('kinetic:'))).toEqual([
       [
         'kinetic:implicit:physicaldamage',
@@ -94,8 +100,14 @@ describe('remaining display coverage', () => {
       'pearlescent:implicit:allresistances',
       'stellar:implicit:allattributes',
     ])
-    // Preserve all 211 historical bindings and add seven exact Ring single-stat implicits.
-    expect(single).toHaveLength(234)
+    // Preserve all historical bindings and cover 18 new numeric Crossbow bindings.
+    expect(
+      single.filter(([id]) => !/^(crossbow|.+-crossbow):/.test(id)),
+    ).toHaveLength(234)
+    expect(
+      single.filter(([id]) => /^(crossbow|.+-crossbow):/.test(id)),
+    ).toHaveLength(18)
+    expect(single).toHaveLength(252)
     expect(
       single
         .filter(([id]) =>

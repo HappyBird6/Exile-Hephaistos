@@ -2866,5 +2866,550 @@
         "locality": "Local"
       }
     ]
+  },
+  "siege-crossbow": {
+    "key": "siege-crossbow",
+    "slug": "Siege_Crossbow",
+    "pool": "siege-crossbow",
+    "family": "crossbows",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow7Endgame",
+    "name": "Siege Crossbow",
+    "sourceUrl": "https://poe2db.tw/us/Siege_Crossbow",
+    "sourceSha256": "090ad9082d42a3547449f5f141c7f8f0655c5e616d860252c83cac6e27397dcc",
+    "sourceTags": [
+      "crossbow",
+      "ranged",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 89,
+    "dexterity": 89,
+    "requiredLevel": 79,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 79, 89 Str, 89 Dex",
+      "ko": "요구 사항:  레벨 79, 89 힘, 89 민첩",
+      "ja": "装備条件： レベル 79, 89 筋力, 89 器用さ",
+      "zh-CN": "需求：  等级 79, 89 力量, 89 敏捷",
+      "zh-TW": "需求:  等級 79, 89 力量, 89 敏捷",
+      "es": "Requiere:  Nivel 79, 89 Fue, 89 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Crossbows",
+        "Physical Damage: 29-115",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.65",
+        "Reload Time: 0.75"
+      ],
+      "ko": [
+        "쇠뇌",
+        "물리 피해: 29-115",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.65",
+        "재장전 시간: 0.75"
+      ],
+      "ja": [
+        "クロスボウ",
+        "物理ダメージ: 29-115",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.65",
+        "再装填時間: 0.75"
+      ],
+      "zh-CN": [
+        "战弩",
+        "物理伤害: 29-115",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.65",
+        "装填时间: 0.75"
+      ],
+      "zh-TW": [
+        "十字弓",
+        "物理傷害: 29-115",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.65",
+        "重新裝填時間: 0.75"
+      ],
+      "es": [
+        "Ballestas",
+        "Daño físico: 29-115",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.65",
+        "Tiempo de recarga: 0.75"
+      ]
+    },
+    "implicitModifierId": "siege-crossbow:implicit:base",
+    "implicitStats": [
+      {
+        "id": "grenade_skill_number_of_additional_projectiles",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "grenade_skill_number_of_additional_projectiles",
+        "min": 1,
+        "max": 1,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "29-115",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.65,
+    "reloadTime": 0.75,
+    "ordinarySocketMaximum": 2
+  },
+  "gemini-crossbow": {
+    "key": "gemini-crossbow",
+    "slug": "Gemini_Crossbow",
+    "pool": "gemini-crossbow",
+    "family": "crossbows",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow5Endgame",
+    "name": "Gemini Crossbow",
+    "sourceUrl": "https://poe2db.tw/us/Gemini_Crossbow",
+    "sourceSha256": "54c6da52c1cbdbf2ddc15ab490c89e8c4253de4c216e7f37c6f7f5ba6e833b4b",
+    "sourceTags": [
+      "crossbow",
+      "ranged",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 89,
+    "dexterity": 89,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 89 Str, 89 Dex",
+      "ko": "요구 사항:  레벨 78, 89 힘, 89 민첩",
+      "ja": "装備条件： レベル 78, 89 筋力, 89 器用さ",
+      "zh-CN": "需求：  等级 78, 89 力量, 89 敏捷",
+      "zh-TW": "需求:  等級 78, 89 力量, 89 敏捷",
+      "es": "Requiere:  Nivel 78, 89 Fue, 89 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Crossbows",
+        "Physical Damage: 28-112",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.6",
+        "Reload Time: 1.1"
+      ],
+      "ko": [
+        "쇠뇌",
+        "물리 피해: 28-112",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.6",
+        "재장전 시간: 1.1"
+      ],
+      "ja": [
+        "クロスボウ",
+        "物理ダメージ: 28-112",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.6",
+        "再装填時間: 1.1"
+      ],
+      "zh-CN": [
+        "战弩",
+        "物理伤害: 28-112",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.6",
+        "装填时间: 1.1"
+      ],
+      "zh-TW": [
+        "十字弓",
+        "物理傷害: 28-112",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.6",
+        "重新裝填時間: 1.1"
+      ],
+      "es": [
+        "Ballestas",
+        "Daño físico: 28-112",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.6",
+        "Tiempo de recarga: 1.1"
+      ]
+    },
+    "implicitModifierId": "gemini-crossbow:implicit:base",
+    "implicitStats": [
+      {
+        "id": "base_number_of_crossbow_bolts",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_number_of_crossbow_bolts",
+        "min": 1,
+        "max": 1,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "28-112",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.6,
+    "reloadTime": 1.1,
+    "ordinarySocketMaximum": 2
+  },
+  "elegant-crossbow": {
+    "key": "elegant-crossbow",
+    "slug": "Elegant_Crossbow",
+    "pool": "elegant-crossbow",
+    "family": "crossbows",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow10Endgame",
+    "name": "Elegant Crossbow",
+    "sourceUrl": "https://poe2db.tw/us/Elegant_Crossbow",
+    "sourceSha256": "1e5348b7a28fb5b30a0f6487a3b5985ef8f1e9b3fa10b5d764d5d41a6783f5e7",
+    "sourceTags": [
+      "karui_basetype",
+      "crossbow",
+      "ranged",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 89,
+    "dexterity": 89,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 89 Str, 89 Dex",
+      "ko": "요구 사항:  레벨 78, 89 힘, 89 민첩",
+      "ja": "装備条件： レベル 78, 89 筋力, 89 器用さ",
+      "zh-CN": "需求：  等级 78, 89 力量, 89 敏捷",
+      "zh-TW": "需求:  等級 78, 89 力量, 89 敏捷",
+      "es": "Requiere:  Nivel 78, 89 Fue, 89 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Crossbows",
+        "Physical Damage: 31-123",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.65",
+        "Reload Time: 0.85"
+      ],
+      "ko": [
+        "쇠뇌",
+        "물리 피해: 31-123",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.65",
+        "재장전 시간: 0.85"
+      ],
+      "ja": [
+        "クロスボウ",
+        "物理ダメージ: 31-123",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.65",
+        "再装填時間: 0.85"
+      ],
+      "zh-CN": [
+        "战弩",
+        "物理伤害: 31-123",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.65",
+        "装填时间: 0.85"
+      ],
+      "zh-TW": [
+        "十字弓",
+        "物理傷害: 31-123",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.65",
+        "重新裝填時間: 0.85"
+      ],
+      "es": [
+        "Ballestas",
+        "Daño físico: 31-123",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.65",
+        "Tiempo de recarga: 0.85"
+      ]
+    },
+    "implicitModifierId": "elegant-crossbow:implicit:base",
+    "implicitStats": [
+      {
+        "id": "base_chance_to_pierce_%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_chance_to_pierce_%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "31-123",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.65,
+    "reloadTime": 0.85,
+    "ordinarySocketMaximum": 2
+  },
+  "flexed-crossbow": {
+    "key": "flexed-crossbow",
+    "slug": "Flexed_Crossbow",
+    "pool": "flexed-crossbow",
+    "family": "crossbows",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow2Endgame",
+    "name": "Flexed Crossbow",
+    "sourceUrl": "https://poe2db.tw/us/Flexed_Crossbow",
+    "sourceSha256": "47121233a06eed211155436f73c814f999a3ec4bbcb8f8d00c6e4f9afa7d3251",
+    "sourceTags": [
+      "crossbow",
+      "ranged",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 89,
+    "dexterity": 89,
+    "requiredLevel": 77,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 77, 89 Str, 89 Dex",
+      "ko": "요구 사항:  레벨 77, 89 힘, 89 민첩",
+      "ja": "装備条件： レベル 77, 89 筋力, 89 器用さ",
+      "zh-CN": "需求：  等级 77, 89 力量, 89 敏捷",
+      "zh-TW": "需求:  等級 77, 89 力量, 89 敏捷",
+      "es": "Requiere:  Nivel 77, 89 Fue, 89 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Crossbows",
+        "Physical Damage: 32-127",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.6",
+        "Reload Time: 0.85"
+      ],
+      "ko": [
+        "쇠뇌",
+        "물리 피해: 32-127",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.6",
+        "재장전 시간: 0.85"
+      ],
+      "ja": [
+        "クロスボウ",
+        "物理ダメージ: 32-127",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.6",
+        "再装填時間: 0.85"
+      ],
+      "zh-CN": [
+        "战弩",
+        "物理伤害: 32-127",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.6",
+        "装填时间: 0.85"
+      ],
+      "zh-TW": [
+        "十字弓",
+        "物理傷害: 32-127",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.6",
+        "重新裝填時間: 0.85"
+      ],
+      "es": [
+        "Ballestas",
+        "Daño físico: 32-127",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.6",
+        "Tiempo de recarga: 0.85"
+      ]
+    },
+    "implicitModifierId": "flexed-crossbow:implicit:base",
+    "implicitStats": [
+      {
+        "id": "projectile_speed_+%_with_crossbow_skills",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "projectile_speed_+%_with_crossbow_skills",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "32-127",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.6,
+    "reloadTime": 0.85,
+    "ordinarySocketMaximum": 2
+  },
+  "desolate-crossbow": {
+    "key": "desolate-crossbow",
+    "slug": "Desolate_Crossbow",
+    "pool": "desolate-crossbow",
+    "family": "crossbows",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow8Endgame",
+    "name": "Desolate Crossbow",
+    "sourceUrl": "https://poe2db.tw/us/Desolate_Crossbow",
+    "sourceSha256": "48b7c0895494a5c57552c4bed46d05833c888db464dd15c2d4ca7da9385596fa",
+    "sourceTags": [
+      "crossbow",
+      "ranged",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 89,
+    "dexterity": 89,
+    "requiredLevel": 77,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 77, 89 Str, 89 Dex",
+      "ko": "요구 사항:  레벨 77, 89 힘, 89 민첩",
+      "ja": "装備条件： レベル 77, 89 筋力, 89 器用さ",
+      "zh-CN": "需求：  等级 77, 89 力量, 89 敏捷",
+      "zh-TW": "需求:  等級 77, 89 力量, 89 敏捷",
+      "es": "Requiere:  Nivel 77, 89 Fue, 89 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Crossbows",
+        "Physical Damage: 33-132",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.6",
+        "Reload Time: 0.8"
+      ],
+      "ko": [
+        "쇠뇌",
+        "물리 피해: 33-132",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.6",
+        "재장전 시간: 0.8"
+      ],
+      "ja": [
+        "クロスボウ",
+        "物理ダメージ: 33-132",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.6",
+        "再装填時間: 0.8"
+      ],
+      "zh-CN": [
+        "战弩",
+        "物理伤害: 33-132",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.6",
+        "装填时间: 0.8"
+      ],
+      "zh-TW": [
+        "十字弓",
+        "物理傷害: 33-132",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.6",
+        "重新裝填時間: 0.8"
+      ],
+      "es": [
+        "Ballestas",
+        "Daño físico: 33-132",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.6",
+        "Tiempo de recarga: 0.8"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "physicalDamage": "33-132",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.6,
+    "reloadTime": 0.8,
+    "ordinarySocketMaximum": 2
+  },
+  "engraved-crossbow": {
+    "key": "engraved-crossbow",
+    "slug": "Engraved_Crossbow",
+    "pool": "engraved-crossbow",
+    "family": "crossbows",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow4Endgame",
+    "name": "Engraved Crossbow",
+    "sourceUrl": "https://poe2db.tw/us/Engraved_Crossbow",
+    "sourceSha256": "93f4d1e8645be76e8050ed07cc720393c3218cf69df843731204ace0820a4017",
+    "sourceTags": [
+      "crossbow",
+      "ranged",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 82,
+    "dexterity": 82,
+    "requiredLevel": 72,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 72, 82 Str, 82 Dex",
+      "ko": "요구 사항:  레벨 72, 82 힘, 82 민첩",
+      "ja": "装備条件： レベル 72, 82 筋力, 82 器用さ",
+      "zh-CN": "需求：  等级 72, 82 力量, 82 敏捷",
+      "zh-TW": "需求:  等級 72, 82 力量, 82 敏捷",
+      "es": "Requiere:  Nivel 72, 82 Fue, 82 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Crossbows",
+        "Physical Damage: 31-124",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.6",
+        "Reload Time: 0.8"
+      ],
+      "ko": [
+        "쇠뇌",
+        "물리 피해: 31-124",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.6",
+        "재장전 시간: 0.8"
+      ],
+      "ja": [
+        "クロスボウ",
+        "物理ダメージ: 31-124",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.6",
+        "再装填時間: 0.8"
+      ],
+      "zh-CN": [
+        "战弩",
+        "物理伤害: 31-124",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.6",
+        "装填时间: 0.8"
+      ],
+      "zh-TW": [
+        "十字弓",
+        "物理傷害: 31-124",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.6",
+        "重新裝填時間: 0.8"
+      ],
+      "es": [
+        "Ballestas",
+        "Daño físico: 31-124",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.6",
+        "Tiempo de recarga: 0.8"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "physicalDamage": "31-124",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.6,
+    "reloadTime": 0.8,
+    "ordinarySocketMaximum": 2
   }
 }

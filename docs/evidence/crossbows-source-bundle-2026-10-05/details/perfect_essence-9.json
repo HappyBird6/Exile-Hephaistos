@@ -1,0 +1,62 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "45",
+    "DropChance": 0,
+    "ModGenerationTypeID": "2",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+    ],
+    "fossil_no": [
+      "damage",
+      "ailment"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/20e6d08cea30ab5556fa9d2ee5d48de90dee8344ab941c7f519e65294aa12770\" href=\"Prismatic_Alloy\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/SovereignVerisium.webp\" alt=\"SovereignVerisium\" height=\"16\" />Prismatic Alloy</a>",
+    "Code": "AlloyAilmentMagnitude1",
+    "ModFamilyList": [
+      "AilmentEffect"
+    ],
+    "str": "<span class='mod-value'>(20<span class=\"ndash\">—</span>30)</span>% increased <a data-keyword=\"BuffMagnitude\" href=\"Buff_Debuff_Magnitude\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6ddd7dbb8996529f934041ebd9ccc413104a06d1266ab7a3ec342dfdc4e3c6b4\">Magnitude</a> of <a data-keyword=\"Ailments\" href=\"Ailments\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/33dcd444b2e7ff97407ccb62e003624591afb9ab545ef8328d0693781dbcf165\">Ailments</a> you inflict",
+    "adds_no": [],
+    "spawn_no": [
+      "default"
+    ],
+    "reqlvl": 36,
+    "IsPerfect": "0",
+    "IsAlloy": true,
+    "Removes": true
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyAilmentMagnitude1",
+  "textLocale": "us",
+  "detailText": "(20—30)% increased Magnitude of Ailments you inflict",
+  "retrievedAt": "2026-10-05T02:46:38.385Z",
+  "sha256": "0de4af014c2bd42f012b49fd657442d4ed1865d4a1a18490b8a38e674b7d9486",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(20<span class=\"ndash\">—</span>30)</span>% increased <a data-keyword=\"BuffMagnitude\" href=\"Buff_Debuff_Magnitude\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6ddd7dbb8996529f934041ebd9ccc413104a06d1266ab7a3ec342dfdc4e3c6b4\">Magnitude</a> of <a data-keyword=\"Ailments\" href=\"Ailments\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/33dcd444b2e7ff97407ccb62e003624591afb9ab545ef8328d0693781dbcf165\">Ailments</a> you inflict</span></h5>   <span data-tabname=\"of the Stars\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Stars\n<tr><th>Family<td>AilmentEffect\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>45 (Effective: 36)\n<tr><th>Gold Price<td>446\n<tr><th>Stats<td><li>ailment effect +% <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 30</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Ailment</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of the Stars",
+    "Family": "AilmentEffect",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "45 (Effective: 36)",
+    "Gold Price": "446",
+    "Stats": "ailment effect +% 20 — 30 Global",
+    "Spawn Tags": "default: 0",
+    "Craft Tags": "Damage Ailment"
+  },
+  "code": "AlloyAilmentMagnitude1",
+  "stats": [
+    {
+      "id": "ailment_effect_+%",
+      "min": 20,
+      "max": 30,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

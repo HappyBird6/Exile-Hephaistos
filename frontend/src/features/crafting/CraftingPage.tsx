@@ -117,6 +117,12 @@ const baseSlugs = {
   'invoking-belt': 'Invoking_Belt',
   'sinew-belt': 'Sinew_Belt',
   'forking-belt': 'Forking_Belt',
+  'siege-crossbow': 'Siege_Crossbow',
+  'gemini-crossbow': 'Gemini_Crossbow',
+  'elegant-crossbow': 'Elegant_Crossbow',
+  'flexed-crossbow': 'Flexed_Crossbow',
+  'desolate-crossbow': 'Desolate_Crossbow',
+  'engraved-crossbow': 'Engraved_Crossbow',
   bone: 'Bone_Wand',
   siphoning: 'Siphoning_Wand',
   volatile: 'Volatile_Wand',
@@ -413,6 +419,12 @@ export function CraftingPage() {
       | 'invoking-belt'
       | 'sinew-belt'
       | 'forking-belt'
+      | 'siege-crossbow'
+      | 'gemini-crossbow'
+      | 'elegant-crossbow'
+      | 'flexed-crossbow'
+      | 'desolate-crossbow'
+      | 'engraved-crossbow'
       | 'bone'
       | 'siphoning'
       | 'volatile'
@@ -660,6 +672,12 @@ export function CraftingPage() {
     | 'invoking-belt'
     | 'sinew-belt'
     | 'forking-belt'
+    | 'siege-crossbow'
+    | 'gemini-crossbow'
+    | 'elegant-crossbow'
+    | 'flexed-crossbow'
+    | 'desolate-crossbow'
+    | 'engraved-crossbow'
     | 'bone'
     | 'siphoning'
     | 'volatile'
@@ -1064,46 +1082,49 @@ export function CraftingPage() {
             base: baseName,
             itemClass: Object.hasOwn(workbenchJewelBases, catalogBase)
               ? 'Jewels'
-              : catalogBase === 'stocky' ||
-                  topBase(catalogBase)?.family === 'gloves'
-                ? 'Gloves'
-                : catalogBase === 'bow' ||
-                    topBase(catalogBase)?.family === 'bows'
-                  ? 'Bows'
-                  : catalogBase === 'wand' ||
-                      topBase(catalogBase)?.family === 'wands'
-                    ? 'Wands'
-                    : catalogBase === 'body' ||
-                        catalogBase === 'soldier' ||
-                        topBase(catalogBase)?.family === 'body'
-                      ? 'Body Armours'
-                      : catalogBase === 'sceptre' ||
-                          topBase(catalogBase)?.family === 'sceptres'
-                        ? 'Sceptres'
-                        : catalogBase === 'belt' ||
-                            topBase(catalogBase)?.family === 'belts'
-                          ? 'Belts'
-                          : catalogBase === 'ring' ||
-                              topBase(catalogBase)?.family === 'rings'
-                            ? 'Rings'
-                            : catalogBase === 'helmet' ||
-                                catalogBase === 'imperial' ||
-                                topBase(catalogBase)?.family === 'helmets'
-                              ? 'Helmets'
-                              : topBase(catalogBase)?.family === 'boots'
-                                ? 'Boots'
-                                : topBase(catalogBase)?.family === 'amulets'
-                                  ? 'Amulets'
-                                  : 'Amulet',
+              : topBase(catalogBase)?.family === 'crossbows'
+                ? 'Crossbows'
+                : catalogBase === 'stocky' ||
+                    topBase(catalogBase)?.family === 'gloves'
+                  ? 'Gloves'
+                  : catalogBase === 'bow' ||
+                      topBase(catalogBase)?.family === 'bows'
+                    ? 'Bows'
+                    : catalogBase === 'wand' ||
+                        topBase(catalogBase)?.family === 'wands'
+                      ? 'Wands'
+                      : catalogBase === 'body' ||
+                          catalogBase === 'soldier' ||
+                          topBase(catalogBase)?.family === 'body'
+                        ? 'Body Armours'
+                        : catalogBase === 'sceptre' ||
+                            topBase(catalogBase)?.family === 'sceptres'
+                          ? 'Sceptres'
+                          : catalogBase === 'belt' ||
+                              topBase(catalogBase)?.family === 'belts'
+                            ? 'Belts'
+                            : catalogBase === 'ring' ||
+                                topBase(catalogBase)?.family === 'rings'
+                              ? 'Rings'
+                              : catalogBase === 'helmet' ||
+                                  catalogBase === 'imperial' ||
+                                  topBase(catalogBase)?.family === 'helmets'
+                                ? 'Helmets'
+                                : topBase(catalogBase)?.family === 'boots'
+                                  ? 'Boots'
+                                  : topBase(catalogBase)?.family === 'amulets'
+                                    ? 'Amulets'
+                                    : 'Amulet',
             itemLevel: concrete.itemLevel,
             properties: [
               ...(topBase(catalogBase)?.sourceProperties?.[locale] ?? []).map(
                 (text, i) => ({
                   id: 'source-property-' + i,
-                  text:
-                    topBase(catalogBase)?.family === 'bows'
-                      ? t('base.weapon_property', { property: text })
-                      : text,
+                  text: ['bows', 'crossbows'].includes(
+                    topBase(catalogBase)?.family ?? '',
+                  )
+                    ? t('base.weapon_property', { property: text })
+                    : text,
                 }),
               ),
               ...(['gloves', 'helmets', 'body', 'boots'].includes(
@@ -2057,40 +2078,44 @@ export function CraftingPage() {
                       name: baseName,
                       base: baseName,
                       itemClass:
-                        catalogBase === 'stocky' ||
-                        topBase(catalogBase)?.family === 'gloves'
-                          ? 'Gloves'
-                          : catalogBase === 'bow' ||
-                              topBase(catalogBase)?.family === 'bows'
-                            ? 'Bows'
-                            : catalogBase === 'wand' ||
-                                topBase(catalogBase)?.family === 'wands'
-                              ? 'Wands'
-                              : catalogBase === 'body' ||
-                                  catalogBase === 'soldier' ||
-                                  topBase(catalogBase)?.family === 'body'
-                                ? 'Body Armours'
-                                : catalogBase === 'sceptre' ||
-                                    topBase(catalogBase)?.family === 'sceptres'
-                                  ? 'Sceptres'
-                                  : catalogBase === 'belt' ||
-                                      topBase(catalogBase)?.family === 'belts'
-                                    ? 'Belts'
-                                    : catalogBase === 'ring' ||
-                                        topBase(catalogBase)?.family === 'rings'
-                                      ? 'Rings'
-                                      : catalogBase === 'helmet' ||
-                                          catalogBase === 'imperial' ||
+                        topBase(catalogBase)?.family === 'crossbows'
+                          ? 'Crossbows'
+                          : catalogBase === 'stocky' ||
+                              topBase(catalogBase)?.family === 'gloves'
+                            ? 'Gloves'
+                            : catalogBase === 'bow' ||
+                                topBase(catalogBase)?.family === 'bows'
+                              ? 'Bows'
+                              : catalogBase === 'wand' ||
+                                  topBase(catalogBase)?.family === 'wands'
+                                ? 'Wands'
+                                : catalogBase === 'body' ||
+                                    catalogBase === 'soldier' ||
+                                    topBase(catalogBase)?.family === 'body'
+                                  ? 'Body Armours'
+                                  : catalogBase === 'sceptre' ||
+                                      topBase(catalogBase)?.family ===
+                                        'sceptres'
+                                    ? 'Sceptres'
+                                    : catalogBase === 'belt' ||
+                                        topBase(catalogBase)?.family === 'belts'
+                                      ? 'Belts'
+                                      : catalogBase === 'ring' ||
                                           topBase(catalogBase)?.family ===
-                                            'helmets'
-                                        ? 'Helmets'
-                                        : topBase(catalogBase)?.family ===
-                                            'boots'
-                                          ? 'Boots'
+                                            'rings'
+                                        ? 'Rings'
+                                        : catalogBase === 'helmet' ||
+                                            catalogBase === 'imperial' ||
+                                            topBase(catalogBase)?.family ===
+                                              'helmets'
+                                          ? 'Helmets'
                                           : topBase(catalogBase)?.family ===
-                                              'amulets'
-                                            ? 'Amulets'
-                                            : 'Amulet',
+                                              'boots'
+                                            ? 'Boots'
+                                            : topBase(catalogBase)?.family ===
+                                                'amulets'
+                                              ? 'Amulets'
+                                              : 'Amulet',
                       itemLevel: draft.baseItemLevel,
                       properties: [],
                       requirements: [],
@@ -2220,6 +2245,12 @@ export function CraftingPage() {
                           | 'invoking-belt'
                           | 'sinew-belt'
                           | 'forking-belt'
+                          | 'siege-crossbow'
+                          | 'gemini-crossbow'
+                          | 'elegant-crossbow'
+                          | 'flexed-crossbow'
+                          | 'desolate-crossbow'
+                          | 'engraved-crossbow'
                           | 'bone'
                           | 'siphoning'
                           | 'volatile'

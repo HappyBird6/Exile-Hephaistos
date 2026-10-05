@@ -1,0 +1,63 @@
+{
+  "row": {
+    "Name": "of Regrowth",
+    "Level": "30",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LifeGainPerTarget"
+    ],
+    "DropChance": "1000",
+    "str": "Grants <span class='mod-value'>4</span> Life per Enemy <a data-keyword=\"Hit\" href=\"Hit_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/396ec0ccc46f63acd9059876455d4a9f7d5108864acf9fc0f4c56be5a6f9cd57\">Hit</a>",
+    "fossil_no": [
+      "resource",
+      "life",
+      "attack"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>",
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/71ce205711d0c3b53cf6f9912902a6942fb19cf32a94cc89238779c7fe831655"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainPerTargetLocal3",
+  "textLocale": "us",
+  "retrievedAt": "2026-10-05T02:44:10.409Z",
+  "sha256": "43066be165be8cd5435aca2b5fd12458b73ff5a50b7c95ad1c3013ba50240f19",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Grants <span class='mod-value'>4</span> Life per Enemy <a data-keyword=\"Hit\" href=\"Hit_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/396ec0ccc46f63acd9059876455d4a9f7d5108864acf9fc0f4c56be5a6f9cd57\">Hit</a></span></h5>   <span data-tabname=\"of Regrowth\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Regrowth\n<tr><th>Family<td>LifeGainPerTarget\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>30 (Effective: 24)\n<tr><th>Gold Price<td>703\n<tr><th>Stats<td><li>local life gain per target <span class=\"badge bg-primary\">4 <span class=\"ndash\">—</span> 4</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> <span class='badge bg-primary'>Attack</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Regrowth",
+    "Family": "LifeGainPerTarget",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "30 (Effective: 24)",
+    "Gold Price": "703",
+    "Stats": "local life gain per target 4 — 4 Local",
+    "Spawn Tags": "weapon: 1 default: 0",
+    "Craft Tags": "resource Life Attack"
+  },
+  "code": "LifeGainPerTargetLocal3",
+  "stats": [
+    {
+      "id": "local_life_gain_per_target",
+      "min": 4,
+      "max": 4,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

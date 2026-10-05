@@ -1,0 +1,65 @@
+{
+  "row": {
+    "Name": "of Bursting",
+    "Level": "82",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "AdditionalAmmo"
+    ],
+    "DropChance": "125",
+    "str": "Loads <span class='mod-value'>2</span> additional bolts",
+    "fossil_no": [
+      "attack"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "cannon",
+      "crossbow",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b8bca45dae25a97aa376cfd02a8afad36750a638f0a125bdf5421241b3fe6357"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FAdditionalAmmo2",
+  "textLocale": "sp",
+  "retrievedAt": "2026-10-05T02:45:07.630Z",
+  "sha256": "8837e2ed0a3ddce6e9088066d3a7b90e9a7908eed854f504be8887e6aeed232b",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Carga <span class='mod-value'>2</span> saetas adicionales</span></h5>   <span data-tabname=\"de explosión\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>de explosión\n<tr><th>Family<td>AdditionalAmmo\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Sufijo (2)\n<tr><th>Req. level<td>82 (Effective: 65)\n<tr><th>Gold Price<td>7544\n<tr><th>Stats<td><li>base number of crossbow bolts <span class=\"badge bg-primary\">2 <span class=\"ndash\">—</span> 2</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>cannon: 0</span> <span class='badge bg-primary'>crossbow: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Ataque</span> </table>  </div></div>",
+  "fields": {
+    "Name": "de explosión",
+    "Family": "AdditionalAmmo",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Sufijo (2)",
+    "Req. level": "82 (Effective: 65)",
+    "Gold Price": "7544",
+    "Stats": "base number of crossbow bolts 2 — 2 Global",
+    "Spawn Tags": "cannon: 0 crossbow: 1 default: 0",
+    "Craft Tags": "Ataque"
+  },
+  "code": "AdditionalAmmo2",
+  "stats": [
+    {
+      "id": "base_number_of_crossbow_bolts",
+      "min": 2,
+      "max": 2,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "cannon",
+      "weight": 0
+    },
+    {
+      "tag": "crossbow",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -39,6 +39,12 @@ describe('reviewed endgame base identities', () => {
     'critical',
     'primordial',
     'dueling',
+    'siege-crossbow',
+    'gemini-crossbow',
+    'elegant-crossbow',
+    'flexed-crossbow',
+    'desolate-crossbow',
+    'engraved-crossbow',
   ] as const)('preserves source facts and six languages for %s', (key) => {
     const base = topBase(key)!
     expect(topBaseKey(base.id)).toBe(key)

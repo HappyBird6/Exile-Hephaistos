@@ -2589,6 +2589,78 @@
       "lines": ["Has (1—3) Charm Slots"],
       "itemKey": "Metadata/Items/Belts/FourBeltB4",
       "sourceUrl": "https://poe2db.tw/us/Forking_Belt"
+    },
+    "Siege_Crossbow": {
+      "name": "Siege Crossbow",
+      "lines": [
+        "Crossbows",
+        "Physical Damage: 29-115",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.65",
+        "Reload Time: 0.75"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow7Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Siege_Crossbow"
+    },
+    "Gemini_Crossbow": {
+      "name": "Gemini Crossbow",
+      "lines": [
+        "Crossbows",
+        "Physical Damage: 28-112",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.6",
+        "Reload Time: 1.1"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow5Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Gemini_Crossbow"
+    },
+    "Elegant_Crossbow": {
+      "name": "Elegant Crossbow",
+      "lines": [
+        "Crossbows",
+        "Physical Damage: 31-123",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.65",
+        "Reload Time: 0.85"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow10Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Elegant_Crossbow"
+    },
+    "Flexed_Crossbow": {
+      "name": "Flexed Crossbow",
+      "lines": [
+        "Crossbows",
+        "Physical Damage: 32-127",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.6",
+        "Reload Time: 0.85"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow2Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Flexed_Crossbow"
+    },
+    "Desolate_Crossbow": {
+      "name": "Desolate Crossbow",
+      "lines": [
+        "Crossbows",
+        "Physical Damage: 33-132",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.6",
+        "Reload Time: 0.8"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow8Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Desolate_Crossbow"
+    },
+    "Engraved_Crossbow": {
+      "name": "Engraved Crossbow",
+      "lines": [
+        "Crossbows",
+        "Physical Damage: 31-124",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.6",
+        "Reload Time: 0.8"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow4Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Engraved_Crossbow"
     }
   },
   "ko": {
@@ -5165,6 +5237,78 @@
       "lines": ["호신부 슬롯 (1—3)개 보유"],
       "itemKey": "Metadata/Items/Belts/FourBeltB4",
       "sourceUrl": "https://poe2db.tw/kr/Forking_Belt"
+    },
+    "Siege_Crossbow": {
+      "name": "공성 석궁",
+      "lines": [
+        "쇠뇌",
+        "물리 피해: 29-115",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.65",
+        "재장전 시간: 0.75"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow7Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Siege_Crossbow"
+    },
+    "Gemini_Crossbow": {
+      "name": "쌍둥이자리 석궁",
+      "lines": [
+        "쇠뇌",
+        "물리 피해: 28-112",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.6",
+        "재장전 시간: 1.1"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow5Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Gemini_Crossbow"
+    },
+    "Elegant_Crossbow": {
+      "name": "우아한 석궁",
+      "lines": [
+        "쇠뇌",
+        "물리 피해: 31-123",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.65",
+        "재장전 시간: 0.85"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow10Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Elegant_Crossbow"
+    },
+    "Flexed_Crossbow": {
+      "name": "몸 풀린 석궁",
+      "lines": [
+        "쇠뇌",
+        "물리 피해: 32-127",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.6",
+        "재장전 시간: 0.85"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow2Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Flexed_Crossbow"
+    },
+    "Desolate_Crossbow": {
+      "name": "황량한 석궁",
+      "lines": [
+        "쇠뇌",
+        "물리 피해: 33-132",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.6",
+        "재장전 시간: 0.8"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow8Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Desolate_Crossbow"
+    },
+    "Engraved_Crossbow": {
+      "name": "아로새긴 석궁",
+      "lines": [
+        "쇠뇌",
+        "물리 피해: 31-124",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.6",
+        "재장전 시간: 0.8"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow4Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Engraved_Crossbow"
     }
   },
   "zh-CN": {
@@ -7639,6 +7783,78 @@
       "lines": ["具有 (1—3) 个咒符位"],
       "itemKey": "Metadata/Items/Belts/FourBeltB4",
       "sourceUrl": "https://poe2db.tw/cn/Forking_Belt"
+    },
+    "Siege_Crossbow": {
+      "name": "摧城弩",
+      "lines": [
+        "战弩",
+        "物理伤害: 29-115",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.65",
+        "装填时间: 0.75"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow7Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Siege_Crossbow"
+    },
+    "Gemini_Crossbow": {
+      "name": "双灵战弩",
+      "lines": [
+        "战弩",
+        "物理伤害: 28-112",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.6",
+        "装填时间: 1.1"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow5Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Gemini_Crossbow"
+    },
+    "Elegant_Crossbow": {
+      "name": "典雅战弩",
+      "lines": [
+        "战弩",
+        "物理伤害: 31-123",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.65",
+        "装填时间: 0.85"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow10Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Elegant_Crossbow"
+    },
+    "Flexed_Crossbow": {
+      "name": "弯曲战弩",
+      "lines": [
+        "战弩",
+        "物理伤害: 32-127",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.6",
+        "装填时间: 0.85"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow2Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Flexed_Crossbow"
+    },
+    "Desolate_Crossbow": {
+      "name": "苍凉战弩",
+      "lines": [
+        "战弩",
+        "物理伤害: 33-132",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.6",
+        "装填时间: 0.8"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow8Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Desolate_Crossbow"
+    },
+    "Engraved_Crossbow": {
+      "name": "雕饰战弩",
+      "lines": [
+        "战弩",
+        "物理伤害: 31-124",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.6",
+        "装填时间: 0.8"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow4Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Engraved_Crossbow"
     }
   },
   "zh-TW": {
@@ -10103,6 +10319,78 @@
       "lines": ["有(1—3)個護符欄位"],
       "itemKey": "Metadata/Items/Belts/FourBeltB4",
       "sourceUrl": "https://poe2db.tw/tw/Forking_Belt"
+    },
+    "Siege_Crossbow": {
+      "name": "攻城十字弓",
+      "lines": [
+        "十字弓",
+        "物理傷害: 29-115",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.65",
+        "重新裝填時間: 0.75"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow7Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Siege_Crossbow"
+    },
+    "Gemini_Crossbow": {
+      "name": "雙子十字弓",
+      "lines": [
+        "十字弓",
+        "物理傷害: 28-112",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.6",
+        "重新裝填時間: 1.1"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow5Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Gemini_Crossbow"
+    },
+    "Elegant_Crossbow": {
+      "name": "優雅十字弓",
+      "lines": [
+        "十字弓",
+        "物理傷害: 31-123",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.65",
+        "重新裝填時間: 0.85"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow10Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Elegant_Crossbow"
+    },
+    "Flexed_Crossbow": {
+      "name": "屈曲十字弓",
+      "lines": [
+        "十字弓",
+        "物理傷害: 32-127",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.6",
+        "重新裝填時間: 0.85"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow2Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Flexed_Crossbow"
+    },
+    "Desolate_Crossbow": {
+      "name": "蒼涼十字弓",
+      "lines": [
+        "十字弓",
+        "物理傷害: 33-132",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.6",
+        "重新裝填時間: 0.8"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow8Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Desolate_Crossbow"
+    },
+    "Engraved_Crossbow": {
+      "name": "紋刻十字弓",
+      "lines": [
+        "十字弓",
+        "物理傷害: 31-124",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.6",
+        "重新裝填時間: 0.8"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow4Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Engraved_Crossbow"
     }
   },
   "ja": {
@@ -12681,6 +12969,78 @@
       "lines": ["(1—3)個のチャームスロットを持つ"],
       "itemKey": "Metadata/Items/Belts/FourBeltB4",
       "sourceUrl": "https://poe2db.tw/jp/Forking_Belt"
+    },
+    "Siege_Crossbow": {
+      "name": "シージクロスボウ",
+      "lines": [
+        "クロスボウ",
+        "物理ダメージ: 29-115",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.65",
+        "再装填時間: 0.75"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow7Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Siege_Crossbow"
+    },
+    "Gemini_Crossbow": {
+      "name": "ジェミニクロスボウ",
+      "lines": [
+        "クロスボウ",
+        "物理ダメージ: 28-112",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.6",
+        "再装填時間: 1.1"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow5Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Gemini_Crossbow"
+    },
+    "Elegant_Crossbow": {
+      "name": "エレガントクロスボウ",
+      "lines": [
+        "クロスボウ",
+        "物理ダメージ: 31-123",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.65",
+        "再装填時間: 0.85"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow10Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Elegant_Crossbow"
+    },
+    "Flexed_Crossbow": {
+      "name": "フレックスクロスボウ",
+      "lines": [
+        "クロスボウ",
+        "物理ダメージ: 32-127",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.6",
+        "再装填時間: 0.85"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow2Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Flexed_Crossbow"
+    },
+    "Desolate_Crossbow": {
+      "name": "隔絶のクロスボウ",
+      "lines": [
+        "クロスボウ",
+        "物理ダメージ: 33-132",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.6",
+        "再装填時間: 0.8"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow8Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Desolate_Crossbow"
+    },
+    "Engraved_Crossbow": {
+      "name": "彫刻のクロスボウ",
+      "lines": [
+        "クロスボウ",
+        "物理ダメージ: 31-124",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.6",
+        "再装填時間: 0.8"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow4Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Engraved_Crossbow"
     }
   },
   "es": {
@@ -15177,6 +15537,78 @@
       "lines": ["Tiene (1—3) espacio para vial"],
       "itemKey": "Metadata/Items/Belts/FourBeltB4",
       "sourceUrl": "https://poe2db.tw/sp/Forking_Belt"
+    },
+    "Siege_Crossbow": {
+      "name": "Ballesta de asedio",
+      "lines": [
+        "Ballestas",
+        "Daño físico: 29-115",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.65",
+        "Tiempo de recarga: 0.75"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow7Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Siege_Crossbow"
+    },
+    "Gemini_Crossbow": {
+      "name": "Ballesta geminiana",
+      "lines": [
+        "Ballestas",
+        "Daño físico: 28-112",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.6",
+        "Tiempo de recarga: 1.1"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow5Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Gemini_Crossbow"
+    },
+    "Elegant_Crossbow": {
+      "name": "Ballesta elegante",
+      "lines": [
+        "Ballestas",
+        "Daño físico: 31-123",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.65",
+        "Tiempo de recarga: 0.85"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow10Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Elegant_Crossbow"
+    },
+    "Flexed_Crossbow": {
+      "name": "Ballesta flexible",
+      "lines": [
+        "Ballestas",
+        "Daño físico: 32-127",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.6",
+        "Tiempo de recarga: 0.85"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow2Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Flexed_Crossbow"
+    },
+    "Desolate_Crossbow": {
+      "name": "Ballesta desolada",
+      "lines": [
+        "Ballestas",
+        "Daño físico: 33-132",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.6",
+        "Tiempo de recarga: 0.8"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow8Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Desolate_Crossbow"
+    },
+    "Engraved_Crossbow": {
+      "name": "Ballesta grabada",
+      "lines": [
+        "Ballestas",
+        "Daño físico: 31-124",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.6",
+        "Tiempo de recarga: 0.8"
+      ],
+      "itemKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow4Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Engraved_Crossbow"
     }
   }
 }

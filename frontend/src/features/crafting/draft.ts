@@ -47,6 +47,14 @@ const baseTexts = {
   'invoking-belt': 'Item Class: Belts\nRarity: Normal\nInvoking Belt',
   'sinew-belt': 'Item Class: Belts\nRarity: Normal\nSinew Belt',
   'forking-belt': 'Item Class: Belts\nRarity: Normal\nForking Belt',
+  'siege-crossbow': 'Item Class: Crossbows\nRarity: Normal\nSiege Crossbow',
+  'gemini-crossbow': 'Item Class: Crossbows\nRarity: Normal\nGemini Crossbow',
+  'elegant-crossbow': 'Item Class: Crossbows\nRarity: Normal\nElegant Crossbow',
+  'flexed-crossbow': 'Item Class: Crossbows\nRarity: Normal\nFlexed Crossbow',
+  'desolate-crossbow':
+    'Item Class: Crossbows\nRarity: Normal\nDesolate Crossbow',
+  'engraved-crossbow':
+    'Item Class: Crossbows\nRarity: Normal\nEngraved Crossbow',
   bone: 'Item Class: Wands\nRarity: Normal\nBone Wand',
   siphoning: 'Item Class: Wands\nRarity: Normal\nSiphoning Wand',
   volatile: 'Item Class: Wands\nRarity: Normal\nVolatile Wand',
@@ -155,6 +163,12 @@ type Draft = {
     | 'invoking-belt'
     | 'sinew-belt'
     | 'forking-belt'
+    | 'siege-crossbow'
+    | 'gemini-crossbow'
+    | 'elegant-crossbow'
+    | 'flexed-crossbow'
+    | 'desolate-crossbow'
+    | 'engraved-crossbow'
     | 'bone'
     | 'siphoning'
     | 'volatile'
@@ -253,6 +267,12 @@ type Draft = {
       | 'invoking-belt'
       | 'sinew-belt'
       | 'forking-belt'
+      | 'siege-crossbow'
+      | 'gemini-crossbow'
+      | 'elegant-crossbow'
+      | 'flexed-crossbow'
+      | 'desolate-crossbow'
+      | 'engraved-crossbow'
       | 'bone'
       | 'siphoning'
       | 'volatile'

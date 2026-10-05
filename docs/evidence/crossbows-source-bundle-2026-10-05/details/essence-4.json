@@ -1,0 +1,64 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "18",
+    "DropChance": 0,
+    "ModGenerationTypeID": "1",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "fossil_no": [
+      "attack"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/ec6292c906bf38f08170c03855c56e698c581f530b53fb8668d50b6f3fc64fe6\" href=\"Lesser_Essence_of_Battle\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/AttackEssenceLesser.webp\" alt=\"AttackEssenceLesser\" height=\"16\" />Lesser Essence of Battle</a>",
+    "Code": "LocalIncreasedAccuracy3",
+    "ModFamilyList": [
+      "IncreasedAccuracy"
+    ],
+    "str": "<span class='mod-value'>+(61<span class=\"ndash\">—</span>84)</span> to <a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/4a439d13631e43c7f47aab345a7e6b64877fb0209f2c42901d14cd9d9f36da1c\">Accuracy</a> Rating",
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "default"
+    ],
+    "reqlvl": 14,
+    "IsPerfect": "0",
+    "IsAlloy": false,
+    "Removes": false
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedAccuracy3",
+  "textLocale": "us",
+  "retrievedAt": "2026-10-05T02:45:41.457Z",
+  "sha256": "826592d4989d17529c82a6de0262cd09c1f0b2cc49fc3fd80f655c2fb4ce72a2",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(61<span class=\"ndash\">—</span>84)</span> to <a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/4a439d13631e43c7f47aab345a7e6b64877fb0209f2c42901d14cd9d9f36da1c\">Accuracy</a> Rating</span></h5>   <span data-tabname=\"Focused\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Focused\n<tr><th>Family<td>IncreasedAccuracy\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>18 (Effective: 14)\n<tr><th>Gold Price<td>278\n<tr><th>Stats<td><li>local accuracy rating <span class=\"badge bg-primary\">61 <span class=\"ndash\">—</span> 84</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attack</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Focused",
+    "Family": "IncreasedAccuracy",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "18 (Effective: 14)",
+    "Gold Price": "278",
+    "Stats": "local accuracy rating 61 — 84 Local",
+    "Spawn Tags": "weapon: 1 default: 0",
+    "Craft Tags": "Attack"
+  },
+  "code": "LocalIncreasedAccuracy3",
+  "stats": [
+    {
+      "id": "local_accuracy_rating",
+      "min": 61,
+      "max": 84,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

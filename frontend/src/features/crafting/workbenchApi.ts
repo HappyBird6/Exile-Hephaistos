@@ -1000,6 +1000,7 @@ export async function applyCurrency(
       'sceptres',
       'wands',
       'belts',
+      'crossbows',
     ].includes(topBase(reviewedKey)?.family ?? '')
       ? (
           reviewedEssenceTargets as Record<
@@ -1194,7 +1195,9 @@ export async function applyCurrency(
       state.baseItemId !== 'Metadata/Items/Armours/Gloves/FourGlovesStr1' &&
       state.baseItemId !==
         'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1' &&
-      topBase(reviewedKey ?? '')?.family !== 'bows') ||
+      !['bows', 'crossbows'].includes(
+        topBase(reviewedKey ?? '')?.family ?? '',
+      )) ||
     v.action !== action ||
     typeof v.applied !== 'boolean' ||
     typeof v.reason !== 'string' ||

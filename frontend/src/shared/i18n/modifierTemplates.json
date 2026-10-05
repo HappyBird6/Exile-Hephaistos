@@ -41186,6 +41186,1787 @@
           "divisor": 1
         }
       ]
+    },
+    "crossbow:prefix:glinting:LocalAddedPhysicalDamageTwoHand1": {
+      "stats": [
+        {
+          "id": "local_maximum_added_physical_damage",
+          "min": 5,
+          "max": 7
+        },
+        {
+          "id": "local_minimum_added_physical_damage",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "englishText": "Adds (2—3) to (5—7) Physical Damage",
+      "values": ["(2—3)", "(5—7)"],
+      "template": "crossbows.crossbow:prefix:glinting:LocalAddedPhysicalDamageTwoHand1",
+      "sourceCode": "LocalAddedPhysicalDamageTwoHand1",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:burnished:LocalAddedPhysicalDamageTwoHand2": {
+      "stats": [
+        {
+          "id": "local_maximum_added_physical_damage",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "id": "local_minimum_added_physical_damage",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "englishText": "Adds (5—8) to (10—15) Physical Damage",
+      "values": ["(5—8)", "(10—15)"],
+      "template": "crossbows.crossbow:prefix:burnished:LocalAddedPhysicalDamageTwoHand2",
+      "sourceCode": "LocalAddedPhysicalDamageTwoHand2",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:polished:LocalAddedPhysicalDamageTwoHand3": {
+      "stats": [
+        {
+          "id": "local_maximum_added_physical_damage",
+          "min": 15,
+          "max": 22
+        },
+        {
+          "id": "local_minimum_added_physical_damage",
+          "min": 8,
+          "max": 12
+        }
+      ],
+      "englishText": "Adds (8—12) to (15—22) Physical Damage",
+      "values": ["(8—12)", "(15—22)"],
+      "template": "crossbows.crossbow:prefix:polished:LocalAddedPhysicalDamageTwoHand3",
+      "sourceCode": "LocalAddedPhysicalDamageTwoHand3",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:honed:LocalAddedPhysicalDamageTwoHand4": {
+      "stats": [
+        {
+          "id": "local_maximum_added_physical_damage",
+          "min": 20,
+          "max": 30
+        },
+        {
+          "id": "local_minimum_added_physical_damage",
+          "min": 11,
+          "max": 17
+        }
+      ],
+      "englishText": "Adds (11—17) to (20—30) Physical Damage",
+      "values": ["(11—17)", "(20—30)"],
+      "template": "crossbows.crossbow:prefix:honed:LocalAddedPhysicalDamageTwoHand4",
+      "sourceCode": "LocalAddedPhysicalDamageTwoHand4",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:gleaming:LocalAddedPhysicalDamageTwoHand5": {
+      "stats": [
+        {
+          "id": "local_maximum_added_physical_damage",
+          "min": 25,
+          "max": 37
+        },
+        {
+          "id": "local_minimum_added_physical_damage",
+          "min": 14,
+          "max": 21
+        }
+      ],
+      "englishText": "Adds (14—21) to (25—37) Physical Damage",
+      "values": ["(14—21)", "(25—37)"],
+      "template": "crossbows.crossbow:prefix:gleaming:LocalAddedPhysicalDamageTwoHand5",
+      "sourceCode": "LocalAddedPhysicalDamageTwoHand5",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:annealed:LocalAddedPhysicalDamageTwoHand6": {
+      "stats": [
+        {
+          "id": "local_maximum_added_physical_damage",
+          "min": 33,
+          "max": 49
+        },
+        {
+          "id": "local_minimum_added_physical_damage",
+          "min": 19,
+          "max": 29
+        }
+      ],
+      "englishText": "Adds (19—29) to (33—49) Physical Damage",
+      "values": ["(19—29)", "(33—49)"],
+      "template": "crossbows.crossbow:prefix:annealed:LocalAddedPhysicalDamageTwoHand6",
+      "sourceCode": "LocalAddedPhysicalDamageTwoHand6",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:razor-sharp:LocalAddedPhysicalDamageTwoHand7": {
+      "stats": [
+        {
+          "id": "local_maximum_added_physical_damage",
+          "min": 39,
+          "max": 59
+        },
+        {
+          "id": "local_minimum_added_physical_damage",
+          "min": 23,
+          "max": 35
+        }
+      ],
+      "englishText": "Adds (23—35) to (39—59) Physical Damage",
+      "values": ["(23—35)", "(39—59)"],
+      "template": "crossbows.crossbow:prefix:razor-sharp:LocalAddedPhysicalDamageTwoHand7",
+      "sourceCode": "LocalAddedPhysicalDamageTwoHand7",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:tempered:LocalAddedPhysicalDamageTwoHand8": {
+      "stats": [
+        {
+          "id": "local_maximum_added_physical_damage",
+          "min": 50,
+          "max": 75
+        },
+        {
+          "id": "local_minimum_added_physical_damage",
+          "min": 29,
+          "max": 44
+        }
+      ],
+      "englishText": "Adds (29—44) to (50—75) Physical Damage",
+      "values": ["(29—44)", "(50—75)"],
+      "template": "crossbows.crossbow:prefix:tempered:LocalAddedPhysicalDamageTwoHand8",
+      "sourceCode": "LocalAddedPhysicalDamageTwoHand8",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:flaring:LocalAddedPhysicalDamageTwoHand9": {
+      "stats": [
+        {
+          "id": "local_maximum_added_physical_damage",
+          "min": 63,
+          "max": 94
+        },
+        {
+          "id": "local_minimum_added_physical_damage",
+          "min": 37,
+          "max": 55
+        }
+      ],
+      "englishText": "Adds (37—55) to (63—94) Physical Damage",
+      "values": ["(37—55)", "(63—94)"],
+      "template": "crossbows.crossbow:prefix:flaring:LocalAddedPhysicalDamageTwoHand9",
+      "sourceCode": "LocalAddedPhysicalDamageTwoHand9",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:heated:LocalAddedFireDamageTwoHand1": {
+      "stats": [
+        {
+          "id": "local_maximum_added_fire_damage",
+          "min": 5,
+          "max": 7
+        },
+        {
+          "id": "local_minimum_added_fire_damage",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "englishText": "Adds (2—4) to (5—7) Fire Damage",
+      "values": ["(2—4)", "(5—7)"],
+      "template": "crossbows.crossbow:prefix:heated:LocalAddedFireDamageTwoHand1",
+      "sourceCode": "LocalAddedFireDamageTwoHand1",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:smouldering:LocalAddedFireDamageTwoHand2": {
+      "stats": [
+        {
+          "id": "local_maximum_added_fire_damage",
+          "min": 10,
+          "max": 16
+        },
+        {
+          "id": "local_minimum_added_fire_damage",
+          "min": 6,
+          "max": 9
+        }
+      ],
+      "englishText": "Adds (6—9) to (10—16) Fire Damage",
+      "values": ["(6—9)", "(10—16)"],
+      "template": "crossbows.crossbow:prefix:smouldering:LocalAddedFireDamageTwoHand2",
+      "sourceCode": "LocalAddedFireDamageTwoHand2",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:smoking:LocalAddedFireDamageTwoHand3": {
+      "stats": [
+        {
+          "id": "local_maximum_added_fire_damage",
+          "min": 19,
+          "max": 28
+        },
+        {
+          "id": "local_minimum_added_fire_damage",
+          "min": 11,
+          "max": 17
+        }
+      ],
+      "englishText": "Adds (11—17) to (19—28) Fire Damage",
+      "values": ["(11—17)", "(19—28)"],
+      "template": "crossbows.crossbow:prefix:smoking:LocalAddedFireDamageTwoHand3",
+      "sourceCode": "LocalAddedFireDamageTwoHand3",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:burning:LocalAddedFireDamageTwoHand4": {
+      "stats": [
+        {
+          "id": "local_maximum_added_fire_damage",
+          "min": 30,
+          "max": 42
+        },
+        {
+          "id": "local_minimum_added_fire_damage",
+          "min": 19,
+          "max": 27
+        }
+      ],
+      "englishText": "Adds (19—27) to (30—42) Fire Damage",
+      "values": ["(19—27)", "(30—42)"],
+      "template": "crossbows.crossbow:prefix:burning:LocalAddedFireDamageTwoHand4",
+      "sourceCode": "LocalAddedFireDamageTwoHand4",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:flaming:LocalAddedFireDamageTwoHand5": {
+      "stats": [
+        {
+          "id": "local_maximum_added_fire_damage",
+          "min": 45,
+          "max": 56
+        },
+        {
+          "id": "local_minimum_added_fire_damage",
+          "min": 30,
+          "max": 37
+        }
+      ],
+      "englishText": "Adds (30—37) to (45—56) Fire Damage",
+      "values": ["(30—37)", "(45—56)"],
+      "template": "crossbows.crossbow:prefix:flaming:LocalAddedFireDamageTwoHand5",
+      "sourceCode": "LocalAddedFireDamageTwoHand5",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:scorching:LocalAddedFireDamageTwoHand6": {
+      "stats": [
+        {
+          "id": "local_maximum_added_fire_damage",
+          "min": 59,
+          "max": 80
+        },
+        {
+          "id": "local_minimum_added_fire_damage",
+          "min": 39,
+          "max": 53
+        }
+      ],
+      "englishText": "Adds (39—53) to (59—80) Fire Damage",
+      "values": ["(39—53)", "(59—80)"],
+      "template": "crossbows.crossbow:prefix:scorching:LocalAddedFireDamageTwoHand6",
+      "sourceCode": "LocalAddedFireDamageTwoHand6",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:incinerating:LocalAddedFireDamageTwoHand7": {
+      "stats": [
+        {
+          "id": "local_maximum_added_fire_damage",
+          "min": 84,
+          "max": 107
+        },
+        {
+          "id": "local_minimum_added_fire_damage",
+          "min": 56,
+          "max": 70
+        }
+      ],
+      "englishText": "Adds (56—70) to (84—107) Fire Damage",
+      "values": ["(56—70)", "(84—107)"],
+      "template": "crossbows.crossbow:prefix:incinerating:LocalAddedFireDamageTwoHand7",
+      "sourceCode": "LocalAddedFireDamageTwoHand7",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:blasting:LocalAddedFireDamageTwoHand8_": {
+      "stats": [
+        {
+          "id": "local_maximum_added_fire_damage",
+          "min": 112,
+          "max": 149
+        },
+        {
+          "id": "local_minimum_added_fire_damage",
+          "min": 73,
+          "max": 97
+        }
+      ],
+      "englishText": "Adds (73—97) to (112—149) Fire Damage",
+      "values": ["(73—97)", "(112—149)"],
+      "template": "crossbows.crossbow:prefix:blasting:LocalAddedFireDamageTwoHand8_",
+      "sourceCode": "LocalAddedFireDamageTwoHand8_",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:cremating:LocalAddedFireDamageTwoHand9": {
+      "stats": [
+        {
+          "id": "local_maximum_added_fire_damage",
+          "min": 155,
+          "max": 198
+        },
+        {
+          "id": "local_minimum_added_fire_damage",
+          "min": 102,
+          "max": 130
+        }
+      ],
+      "englishText": "Adds (102—130) to (155—198) Fire Damage",
+      "values": ["(102—130)", "(155—198)"],
+      "template": "crossbows.crossbow:prefix:cremating:LocalAddedFireDamageTwoHand9",
+      "sourceCode": "LocalAddedFireDamageTwoHand9",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:carbonising:LocalAddedFireDamageTwoHand10": {
+      "stats": [
+        {
+          "id": "local_maximum_added_fire_damage",
+          "min": 205,
+          "max": 236
+        },
+        {
+          "id": "local_minimum_added_fire_damage",
+          "min": 135,
+          "max": 156
+        }
+      ],
+      "englishText": "Adds (135—156) to (205—236) Fire Damage",
+      "values": ["(135—156)", "(205—236)"],
+      "template": "crossbows.crossbow:prefix:carbonising:LocalAddedFireDamageTwoHand10",
+      "sourceCode": "LocalAddedFireDamageTwoHand10",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:frosted:LocalAddedColdDamageTwoHand1": {
+      "stats": [
+        {
+          "id": "local_maximum_added_cold_damage",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "id": "local_minimum_added_cold_damage",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "englishText": "Adds (2—3) to (4—6) Cold Damage",
+      "values": ["(2—3)", "(4—6)"],
+      "template": "crossbows.crossbow:prefix:frosted:LocalAddedColdDamageTwoHand1",
+      "sourceCode": "LocalAddedColdDamageTwoHand1",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:chilled:LocalAddedColdDamageTwoHand2": {
+      "stats": [
+        {
+          "id": "local_maximum_added_cold_damage",
+          "min": 9,
+          "max": 14
+        },
+        {
+          "id": "local_minimum_added_cold_damage",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "englishText": "Adds (5—8) to (9—14) Cold Damage",
+      "values": ["(5—8)", "(9—14)"],
+      "template": "crossbows.crossbow:prefix:chilled:LocalAddedColdDamageTwoHand2",
+      "sourceCode": "LocalAddedColdDamageTwoHand2",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:icy:LocalAddedColdDamageTwoHand3": {
+      "stats": [
+        {
+          "id": "local_maximum_added_cold_damage",
+          "min": 15,
+          "max": 23
+        },
+        {
+          "id": "local_minimum_added_cold_damage",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "englishText": "Adds (10—14) to (15—23) Cold Damage",
+      "values": ["(10—14)", "(15—23)"],
+      "template": "crossbows.crossbow:prefix:icy:LocalAddedColdDamageTwoHand3",
+      "sourceCode": "LocalAddedColdDamageTwoHand3",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:frigid:LocalAddedColdDamageTwoHand4": {
+      "stats": [
+        {
+          "id": "local_maximum_added_cold_damage",
+          "min": 25,
+          "max": 35
+        },
+        {
+          "id": "local_minimum_added_cold_damage",
+          "min": 16,
+          "max": 23
+        }
+      ],
+      "englishText": "Adds (16—23) to (25—35) Cold Damage",
+      "values": ["(16—23)", "(25—35)"],
+      "template": "crossbows.crossbow:prefix:frigid:LocalAddedColdDamageTwoHand4",
+      "sourceCode": "LocalAddedColdDamageTwoHand4",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:freezing:LocalAddedColdDamageTwoHand5": {
+      "stats": [
+        {
+          "id": "local_maximum_added_cold_damage",
+          "min": 38,
+          "max": 46
+        },
+        {
+          "id": "local_minimum_added_cold_damage",
+          "min": 25,
+          "max": 30
+        }
+      ],
+      "englishText": "Adds (25—30) to (38—46) Cold Damage",
+      "values": ["(25—30)", "(38—46)"],
+      "template": "crossbows.crossbow:prefix:freezing:LocalAddedColdDamageTwoHand5",
+      "sourceCode": "LocalAddedColdDamageTwoHand5",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:frozen:LocalAddedColdDamageTwoHand6": {
+      "stats": [
+        {
+          "id": "local_maximum_added_cold_damage",
+          "min": 49,
+          "max": 66
+        },
+        {
+          "id": "local_minimum_added_cold_damage",
+          "min": 32,
+          "max": 43
+        }
+      ],
+      "englishText": "Adds (32—43) to (49—66) Cold Damage",
+      "values": ["(32—43)", "(49—66)"],
+      "template": "crossbows.crossbow:prefix:frozen:LocalAddedColdDamageTwoHand6",
+      "sourceCode": "LocalAddedColdDamageTwoHand6",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:glaciated:LocalAddedColdDamageTwoHand7": {
+      "stats": [
+        {
+          "id": "local_maximum_added_cold_damage",
+          "min": 70,
+          "max": 88
+        },
+        {
+          "id": "local_minimum_added_cold_damage",
+          "min": 46,
+          "max": 57
+        }
+      ],
+      "englishText": "Adds (46—57) to (70—88) Cold Damage",
+      "values": ["(46—57)", "(70—88)"],
+      "template": "crossbows.crossbow:prefix:glaciated:LocalAddedColdDamageTwoHand7",
+      "sourceCode": "LocalAddedColdDamageTwoHand7",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:polar:LocalAddedColdDamageTwoHand8": {
+      "stats": [
+        {
+          "id": "local_maximum_added_cold_damage",
+          "min": 92,
+          "max": 121
+        },
+        {
+          "id": "local_minimum_added_cold_damage",
+          "min": 60,
+          "max": 80
+        }
+      ],
+      "englishText": "Adds (60—80) to (92—121) Cold Damage",
+      "values": ["(60—80)", "(92—121)"],
+      "template": "crossbows.crossbow:prefix:polar:LocalAddedColdDamageTwoHand8",
+      "sourceCode": "LocalAddedColdDamageTwoHand8",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:entombing:LocalAddedColdDamageTwoHand9": {
+      "stats": [
+        {
+          "id": "local_maximum_added_cold_damage",
+          "min": 126,
+          "max": 161
+        },
+        {
+          "id": "local_minimum_added_cold_damage",
+          "min": 84,
+          "max": 107
+        }
+      ],
+      "englishText": "Adds (84—107) to (126—161) Cold Damage",
+      "values": ["(84—107)", "(126—161)"],
+      "template": "crossbows.crossbow:prefix:entombing:LocalAddedColdDamageTwoHand9",
+      "sourceCode": "LocalAddedColdDamageTwoHand9",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:crystalising:LocalAddedColdDamageTwoHand10": {
+      "stats": [
+        {
+          "id": "local_maximum_added_cold_damage",
+          "min": 168,
+          "max": 189
+        },
+        {
+          "id": "local_minimum_added_cold_damage",
+          "min": 112,
+          "max": 124
+        }
+      ],
+      "englishText": "Adds (112—124) to (168—189) Cold Damage",
+      "values": ["(112—124)", "(168—189)"],
+      "template": "crossbows.crossbow:prefix:crystalising:LocalAddedColdDamageTwoHand10",
+      "sourceCode": "LocalAddedColdDamageTwoHand10",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:humming:LocalAddedLightningDamageTwoHand1_": {
+      "stats": [
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "min": 7,
+          "max": 10
+        },
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "Adds 1 to (7—10) Lightning Damage",
+      "values": ["1", "(7—10)"],
+      "template": "crossbows.crossbow:prefix:humming:LocalAddedLightningDamageTwoHand1_",
+      "sourceCode": "LocalAddedLightningDamageTwoHand1_",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:buzzing:LocalAddedLightningDamageTwoHand2": {
+      "stats": [
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "min": 19,
+          "max": 27
+        },
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "englishText": "Adds (1—2) to (19—27) Lightning Damage",
+      "values": ["(1—2)", "(19—27)"],
+      "template": "crossbows.crossbow:prefix:buzzing:LocalAddedLightningDamageTwoHand2",
+      "sourceCode": "LocalAddedLightningDamageTwoHand2",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:snapping:LocalAddedLightningDamageTwoHand3": {
+      "stats": [
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "min": 31,
+          "max": 43
+        },
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 3
+        }
+      ],
+      "englishText": "Adds (1—3) to (31—43) Lightning Damage",
+      "values": ["(1—3)", "(31—43)"],
+      "template": "crossbows.crossbow:prefix:snapping:LocalAddedLightningDamageTwoHand3",
+      "sourceCode": "LocalAddedLightningDamageTwoHand3",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:crackling:LocalAddedLightningDamageTwoHand4": {
+      "stats": [
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "min": 53,
+          "max": 76
+        },
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 4
+        }
+      ],
+      "englishText": "Adds (1—4) to (53—76) Lightning Damage",
+      "values": ["(1—4)", "(53—76)"],
+      "template": "crossbows.crossbow:prefix:crackling:LocalAddedLightningDamageTwoHand4",
+      "sourceCode": "LocalAddedLightningDamageTwoHand4",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:sparking:LocalAddedLightningDamageTwoHand5": {
+      "stats": [
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "min": 80,
+          "max": 88
+        },
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 4
+        }
+      ],
+      "englishText": "Adds (1—4) to (80—88) Lightning Damage",
+      "values": ["(1—4)", "(80—88)"],
+      "template": "crossbows.crossbow:prefix:sparking:LocalAddedLightningDamageTwoHand5",
+      "sourceCode": "LocalAddedLightningDamageTwoHand5",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:arcing:LocalAddedLightningDamageTwoHand6": {
+      "stats": [
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "min": 93,
+          "max": 122
+        },
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 6
+        }
+      ],
+      "englishText": "Adds (1—6) to (93—122) Lightning Damage",
+      "values": ["(1—6)", "(93—122)"],
+      "template": "crossbows.crossbow:prefix:arcing:LocalAddedLightningDamageTwoHand6",
+      "sourceCode": "LocalAddedLightningDamageTwoHand6",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:shocking:LocalAddedLightningDamageTwoHand7": {
+      "stats": [
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "min": 128,
+          "max": 162
+        },
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 8
+        }
+      ],
+      "englishText": "Adds (1—8) to (128—162) Lightning Damage",
+      "values": ["(1—8)", "(128—162)"],
+      "template": "crossbows.crossbow:prefix:shocking:LocalAddedLightningDamageTwoHand7",
+      "sourceCode": "LocalAddedLightningDamageTwoHand7",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:discharging:LocalAddedLightningDamageTwoHand8": {
+      "stats": [
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "min": 168,
+          "max": 231
+        },
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 13
+        }
+      ],
+      "englishText": "Adds (1—13) to (168—231) Lightning Damage",
+      "values": ["(1—13)", "(168—231)"],
+      "template": "crossbows.crossbow:prefix:discharging:LocalAddedLightningDamageTwoHand8",
+      "sourceCode": "LocalAddedLightningDamageTwoHand8",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:electrocuting:LocalAddedLightningDamageTwoHand9": {
+      "stats": [
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "min": 239,
+          "max": 300
+        },
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 16
+        }
+      ],
+      "englishText": "Adds (1—16) to (239—300) Lightning Damage",
+      "values": ["(1—16)", "(239—300)"],
+      "template": "crossbows.crossbow:prefix:electrocuting:LocalAddedLightningDamageTwoHand9",
+      "sourceCode": "LocalAddedLightningDamageTwoHand9",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:vapourising:LocalAddedLightningDamageTwoHand10": {
+      "stats": [
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "min": 310,
+          "max": 358
+        },
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 19
+        }
+      ],
+      "englishText": "Adds (1—19) to (310—358) Lightning Damage",
+      "values": ["(1—19)", "(310—358)"],
+      "template": "crossbows.crossbow:prefix:vapourising:LocalAddedLightningDamageTwoHand10",
+      "sourceCode": "LocalAddedLightningDamageTwoHand10",
+      "valueStats": [
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:squire-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating1": {
+      "stats": [
+        {
+          "id": "local_accuracy_rating",
+          "min": 16,
+          "max": 20
+        },
+        {
+          "id": "local_physical_damage_+%",
+          "min": 15,
+          "max": 19
+        }
+      ],
+      "englishText": "(15—19)% increased Physical Damage\n+(16—20) to Accuracy Rating",
+      "values": ["(15—19)", "+(16—20)"],
+      "template": "crossbows.crossbow:prefix:squire-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating1",
+      "sourceCode": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating1",
+      "valueStats": [
+        {
+          "id": "local_physical_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "local_accuracy_rating",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:journeyman-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating2": {
+      "stats": [
+        {
+          "id": "local_accuracy_rating",
+          "min": 21,
+          "max": 46
+        },
+        {
+          "id": "local_physical_damage_+%",
+          "min": 20,
+          "max": 24
+        }
+      ],
+      "englishText": "(20—24)% increased Physical Damage\n+(21—46) to Accuracy Rating",
+      "values": ["(20—24)", "+(21—46)"],
+      "template": "crossbows.crossbow:prefix:journeyman-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating2",
+      "sourceCode": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating2",
+      "valueStats": [
+        {
+          "id": "local_physical_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "local_accuracy_rating",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:reaver-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating3": {
+      "stats": [
+        {
+          "id": "local_accuracy_rating",
+          "min": 47,
+          "max": 72
+        },
+        {
+          "id": "local_physical_damage_+%",
+          "min": 25,
+          "max": 34
+        }
+      ],
+      "englishText": "(25—34)% increased Physical Damage\n+(47—72) to Accuracy Rating",
+      "values": ["(25—34)", "+(47—72)"],
+      "template": "crossbows.crossbow:prefix:reaver-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating3",
+      "sourceCode": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating3",
+      "valueStats": [
+        {
+          "id": "local_physical_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "local_accuracy_rating",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:mercenary-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating4": {
+      "stats": [
+        {
+          "id": "local_accuracy_rating",
+          "min": 73,
+          "max": 97
+        },
+        {
+          "id": "local_physical_damage_+%",
+          "min": 35,
+          "max": 44
+        }
+      ],
+      "englishText": "(35—44)% increased Physical Damage\n+(73—97) to Accuracy Rating",
+      "values": ["(35—44)", "+(73—97)"],
+      "template": "crossbows.crossbow:prefix:mercenary-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating4",
+      "sourceCode": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating4",
+      "valueStats": [
+        {
+          "id": "local_physical_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "local_accuracy_rating",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:champion-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating5": {
+      "stats": [
+        {
+          "id": "local_accuracy_rating",
+          "min": 98,
+          "max": 123
+        },
+        {
+          "id": "local_physical_damage_+%",
+          "min": 45,
+          "max": 54
+        }
+      ],
+      "englishText": "(45—54)% increased Physical Damage\n+(98—123) to Accuracy Rating",
+      "values": ["(45—54)", "+(98—123)"],
+      "template": "crossbows.crossbow:prefix:champion-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating5",
+      "sourceCode": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating5",
+      "valueStats": [
+        {
+          "id": "local_physical_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "local_accuracy_rating",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:conqueror-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating6": {
+      "stats": [
+        {
+          "id": "local_accuracy_rating",
+          "min": 124,
+          "max": 149
+        },
+        {
+          "id": "local_physical_damage_+%",
+          "min": 55,
+          "max": 64
+        }
+      ],
+      "englishText": "(55—64)% increased Physical Damage\n+(124—149) to Accuracy Rating",
+      "values": ["(55—64)", "+(124—149)"],
+      "template": "crossbows.crossbow:prefix:conqueror-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating6",
+      "sourceCode": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating6",
+      "valueStats": [
+        {
+          "id": "local_physical_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "local_accuracy_rating",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:emperor-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating7": {
+      "stats": [
+        {
+          "id": "local_accuracy_rating",
+          "min": 150,
+          "max": 174
+        },
+        {
+          "id": "local_physical_damage_+%",
+          "min": 65,
+          "max": 74
+        }
+      ],
+      "englishText": "(65—74)% increased Physical Damage\n+(150—174) to Accuracy Rating",
+      "values": ["(65—74)", "+(150—174)"],
+      "template": "crossbows.crossbow:prefix:emperor-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating7",
+      "sourceCode": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating7",
+      "valueStats": [
+        {
+          "id": "local_physical_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "local_accuracy_rating",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:dictator-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating8": {
+      "stats": [
+        {
+          "id": "local_accuracy_rating",
+          "min": 175,
+          "max": 200
+        },
+        {
+          "id": "local_physical_damage_+%",
+          "min": 75,
+          "max": 79
+        }
+      ],
+      "englishText": "(75—79)% increased Physical Damage\n+(175—200) to Accuracy Rating",
+      "values": ["(75—79)", "+(175—200)"],
+      "template": "crossbows.crossbow:prefix:dictator-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating8",
+      "sourceCode": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating8",
+      "valueStats": [
+        {
+          "id": "local_physical_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "local_accuracy_rating",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:suffix:of-the-fletcher:GlobalProjectileSkillGemLevelTwoHandWeapon2": {
+      "stats": [
+        {
+          "id": "projectile_skill_gem_level_+",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "englishText": "+2 to Level of all Projectile Skills",
+      "values": ["+2"],
+      "template": "crossbows.crossbow:suffix:of-the-fletcher:GlobalProjectileSkillGemLevelTwoHandWeapon2",
+      "sourceCode": "GlobalProjectileSkillGemLevelTwoHandWeapon2",
+      "valueStats": [
+        {
+          "id": "projectile_skill_gem_level_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:suffix:of-the-sharpshooter:GlobalProjectileSkillGemLevelTwoHandWeapon3": {
+      "stats": [
+        {
+          "id": "projectile_skill_gem_level_+",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "englishText": "+3 to Level of all Projectile Skills",
+      "values": ["+3"],
+      "template": "crossbows.crossbow:suffix:of-the-sharpshooter:GlobalProjectileSkillGemLevelTwoHandWeapon3",
+      "sourceCode": "GlobalProjectileSkillGemLevelTwoHandWeapon3",
+      "valueStats": [
+        {
+          "id": "projectile_skill_gem_level_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:suffix:of-the-marksman:GlobalProjectileSkillGemLevelTwoHandWeapon4": {
+      "stats": [
+        {
+          "id": "projectile_skill_gem_level_+",
+          "min": 4,
+          "max": 4
+        }
+      ],
+      "englishText": "+4 to Level of all Projectile Skills",
+      "values": ["+4"],
+      "template": "crossbows.crossbow:suffix:of-the-marksman:GlobalProjectileSkillGemLevelTwoHandWeapon4",
+      "sourceCode": "GlobalProjectileSkillGemLevelTwoHandWeapon4",
+      "valueStats": [
+        {
+          "id": "projectile_skill_gem_level_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:suffix:of-the-sniper:GlobalProjectileSkillGemLevelTwoHandWeapon5": {
+      "stats": [
+        {
+          "id": "projectile_skill_gem_level_+",
+          "min": 5,
+          "max": 5
+        }
+      ],
+      "englishText": "+5 to Level of all Projectile Skills",
+      "values": ["+5"],
+      "template": "crossbows.crossbow:suffix:of-the-sniper:GlobalProjectileSkillGemLevelTwoHandWeapon5",
+      "sourceCode": "GlobalProjectileSkillGemLevelTwoHandWeapon5",
+      "valueStats": [
+        {
+          "id": "projectile_skill_gem_level_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:suffix:of-shining:LocalLightRadiusAndAccuracy1": {
+      "stats": [
+        {
+          "id": "light_radius_+%",
+          "min": 5,
+          "max": 5
+        },
+        {
+          "id": "local_accuracy_rating",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "englishText": "+(10—20) to Accuracy Rating\n5% increased Light Radius",
+      "values": ["+(10—20)", "5"],
+      "template": "crossbows.crossbow:suffix:of-shining:LocalLightRadiusAndAccuracy1",
+      "sourceCode": "LocalLightRadiusAndAccuracy1",
+      "valueStats": [
+        {
+          "id": "local_accuracy_rating",
+          "divisor": 1
+        },
+        {
+          "id": "light_radius_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:suffix:of-light:LocalLightRadiusAndAccuracy2": {
+      "stats": [
+        {
+          "id": "light_radius_+%",
+          "min": 10,
+          "max": 10
+        },
+        {
+          "id": "local_accuracy_rating",
+          "min": 21,
+          "max": 40
+        }
+      ],
+      "englishText": "+(21—40) to Accuracy Rating\n10% increased Light Radius",
+      "values": ["+(21—40)", "10"],
+      "template": "crossbows.crossbow:suffix:of-light:LocalLightRadiusAndAccuracy2",
+      "sourceCode": "LocalLightRadiusAndAccuracy2",
+      "valueStats": [
+        {
+          "id": "local_accuracy_rating",
+          "divisor": 1
+        },
+        {
+          "id": "light_radius_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:suffix:of-radiance:LocalLightRadiusAndAccuracy3": {
+      "stats": [
+        {
+          "id": "light_radius_+%",
+          "min": 15,
+          "max": 15
+        },
+        {
+          "id": "local_accuracy_rating",
+          "min": 41,
+          "max": 60
+        }
+      ],
+      "englishText": "+(41—60) to Accuracy Rating\n15% increased Light Radius",
+      "values": ["+(41—60)", "15"],
+      "template": "crossbows.crossbow:suffix:of-radiance:LocalLightRadiusAndAccuracy3",
+      "sourceCode": "LocalLightRadiusAndAccuracy3",
+      "valueStats": [
+        {
+          "id": "local_accuracy_rating",
+          "divisor": 1
+        },
+        {
+          "id": "light_radius_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:suffix:of-shelling:AdditionalAmmo1": {
+      "stats": [
+        {
+          "id": "base_number_of_crossbow_bolts",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "Loads an additional bolt",
+      "values": [],
+      "template": "crossbows.crossbow:suffix:of-shelling:AdditionalAmmo1",
+      "sourceCode": "AdditionalAmmo1"
+    },
+    "crossbow:suffix:of-bursting:AdditionalAmmo2": {
+      "stats": [
+        {
+          "id": "base_number_of_crossbow_bolts",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "englishText": "Loads 2 additional bolts",
+      "values": ["2"],
+      "template": "crossbows.crossbow:suffix:of-bursting:AdditionalAmmo2",
+      "sourceCode": "AdditionalAmmo2",
+      "valueStats": [
+        {
+          "id": "base_number_of_crossbow_bolts",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:catalysing:WeaponElementalDamageOnTwohandWeapon1": {
+      "stats": [
+        {
+          "id": "elemental_damage_with_attack_skills_+%",
+          "min": 34,
+          "max": 47
+        }
+      ],
+      "englishText": "(34—47)% increased Elemental Damage with Attacks",
+      "values": ["(34—47)"],
+      "template": "crossbows.crossbow:prefix:catalysing:WeaponElementalDamageOnTwohandWeapon1",
+      "sourceCode": "WeaponElementalDamageOnTwohandWeapon1",
+      "valueStats": [
+        {
+          "id": "elemental_damage_with_attack_skills_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:infusing:WeaponElementalDamageOnTwohandWeapon2____": {
+      "stats": [
+        {
+          "id": "elemental_damage_with_attack_skills_+%",
+          "min": 48,
+          "max": 71
+        }
+      ],
+      "englishText": "(48—71)% increased Elemental Damage with Attacks",
+      "values": ["(48—71)"],
+      "template": "crossbows.crossbow:prefix:infusing:WeaponElementalDamageOnTwohandWeapon2____",
+      "sourceCode": "WeaponElementalDamageOnTwohandWeapon2____",
+      "valueStats": [
+        {
+          "id": "elemental_damage_with_attack_skills_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:empowering:WeaponElementalDamageOnTwohandWeapon3": {
+      "stats": [
+        {
+          "id": "elemental_damage_with_attack_skills_+%",
+          "min": 72,
+          "max": 85
+        }
+      ],
+      "englishText": "(72—85)% increased Elemental Damage with Attacks",
+      "values": ["(72—85)"],
+      "template": "crossbows.crossbow:prefix:empowering:WeaponElementalDamageOnTwohandWeapon3",
+      "sourceCode": "WeaponElementalDamageOnTwohandWeapon3",
+      "valueStats": [
+        {
+          "id": "elemental_damage_with_attack_skills_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:unleashed:WeaponElementalDamageOnTwohandWeapon4": {
+      "stats": [
+        {
+          "id": "elemental_damage_with_attack_skills_+%",
+          "min": 86,
+          "max": 99
+        }
+      ],
+      "englishText": "(86—99)% increased Elemental Damage with Attacks",
+      "values": ["(86—99)"],
+      "template": "crossbows.crossbow:prefix:unleashed:WeaponElementalDamageOnTwohandWeapon4",
+      "sourceCode": "WeaponElementalDamageOnTwohandWeapon4",
+      "valueStats": [
+        {
+          "id": "elemental_damage_with_attack_skills_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:overpowering:WeaponElementalDamageOnTwohandWeapon5": {
+      "stats": [
+        {
+          "id": "elemental_damage_with_attack_skills_+%",
+          "min": 100,
+          "max": 119
+        }
+      ],
+      "englishText": "(100—119)% increased Elemental Damage with Attacks",
+      "values": ["(100—119)"],
+      "template": "crossbows.crossbow:prefix:overpowering:WeaponElementalDamageOnTwohandWeapon5",
+      "sourceCode": "WeaponElementalDamageOnTwohandWeapon5",
+      "valueStats": [
+        {
+          "id": "elemental_damage_with_attack_skills_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:devastating:WeaponElementalDamageOnTwohandWeapon6": {
+      "stats": [
+        {
+          "id": "elemental_damage_with_attack_skills_+%",
+          "min": 120,
+          "max": 139
+        }
+      ],
+      "englishText": "(120—139)% increased Elemental Damage with Attacks",
+      "values": ["(120—139)"],
+      "template": "crossbows.crossbow:prefix:devastating:WeaponElementalDamageOnTwohandWeapon6",
+      "sourceCode": "WeaponElementalDamageOnTwohandWeapon6",
+      "valueStats": [
+        {
+          "id": "elemental_damage_with_attack_skills_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:essence:EssenceDamageasExtraPhysical2H": {
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_physical",
+          "min": 25,
+          "max": 33
+        }
+      ],
+      "englishText": "Gain (25—33)% of Damage as Extra Physical Damage",
+      "values": ["(25—33)"],
+      "template": "crossbows.crossbow:prefix:essence:EssenceDamageasExtraPhysical2H",
+      "sourceCode": "EssenceDamageasExtraPhysical2H",
+      "valueStats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_physical",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:essence:EssenceDamageasExtraFire2H": {
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_fire",
+          "min": 25,
+          "max": 33
+        }
+      ],
+      "englishText": "Gain (25—33)% of Damage as Extra Fire Damage",
+      "values": ["(25—33)"],
+      "template": "crossbows.crossbow:prefix:essence:EssenceDamageasExtraFire2H",
+      "sourceCode": "EssenceDamageasExtraFire2H",
+      "valueStats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_fire",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:essence:EssenceDamageasExtraCold2H": {
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_cold",
+          "min": 25,
+          "max": 33
+        }
+      ],
+      "englishText": "Gain (25—33)% of Damage as Extra Cold Damage",
+      "values": ["(25—33)"],
+      "template": "crossbows.crossbow:prefix:essence:EssenceDamageasExtraCold2H",
+      "sourceCode": "EssenceDamageasExtraCold2H",
+      "valueStats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_cold",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:prefix:essence:EssenceDamageasExtraLightning2H": {
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
+          "min": 25,
+          "max": 33
+        }
+      ],
+      "englishText": "Gain (25—33)% of Damage as Extra Lightning Damage",
+      "values": ["(25—33)"],
+      "template": "crossbows.crossbow:prefix:essence:EssenceDamageasExtraLightning2H",
+      "sourceCode": "EssenceDamageasExtraLightning2H",
+      "valueStats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
+          "divisor": 1
+        }
+      ]
+    },
+    "crossbow:suffix:essence:EssenceAttackSkillLevel2H1": {
+      "stats": [
+        {
+          "id": "attack_skill_gem_level_+",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "englishText": "+3 to Level of all Attack Skills",
+      "values": ["+3"],
+      "template": "crossbows.crossbow:suffix:essence:EssenceAttackSkillLevel2H1",
+      "sourceCode": "EssenceAttackSkillLevel2H1",
+      "valueStats": [
+        {
+          "id": "attack_skill_gem_level_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "siege-crossbow:implicit:base": {
+      "stats": [
+        {
+          "id": "grenade_skill_number_of_additional_projectiles",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "Grenade Skills Fire 1 additional Projectiles",
+      "values": [],
+      "template": "crossbows.siege-crossbow:implicit:base",
+      "sourceCode": null
+    },
+    "gemini-crossbow:implicit:base": {
+      "stats": [
+        {
+          "id": "base_number_of_crossbow_bolts",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "Loads an additional bolt",
+      "values": [],
+      "template": "crossbows.gemini-crossbow.implicit",
+      "sourceCode": null
+    },
+    "elegant-crossbow:implicit:base": {
+      "stats": [
+        {
+          "id": "base_chance_to_pierce_%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "englishText": "(20—30)% chance to Pierce an Enemy",
+      "values": ["(20—30)"],
+      "template": "crossbows.elegant-crossbow:implicit:base",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_chance_to_pierce_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "flexed-crossbow:implicit:base": {
+      "stats": [
+        {
+          "id": "projectile_speed_+%_with_crossbow_skills",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "englishText": "(20—30)% increased Bolt Speed",
+      "values": ["(20—30)"],
+      "template": "crossbows.flexed-crossbow:implicit:base",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "projectile_speed_+%_with_crossbow_skills",
+          "divisor": 1
+        }
+      ]
     }
   },
   "templates": {
@@ -49049,6 +50830,290 @@
       "belts.forking-belt.implicit": {
         "name": "Forking Belt",
         "template": "Adds {v0} to {v1} Lightning damage to Attacks\nHas {v2} Charm Slots"
+      },
+      "crossbows.crossbow:prefix:glinting:LocalAddedPhysicalDamageTwoHand1": {
+        "name": "Glinting",
+        "template": "Adds {v0} to {v1} Physical Damage"
+      },
+      "crossbows.crossbow:prefix:burnished:LocalAddedPhysicalDamageTwoHand2": {
+        "name": "Burnished",
+        "template": "Adds {v0} to {v1} Physical Damage"
+      },
+      "crossbows.crossbow:prefix:polished:LocalAddedPhysicalDamageTwoHand3": {
+        "name": "Polished",
+        "template": "Adds {v0} to {v1} Physical Damage"
+      },
+      "crossbows.crossbow:prefix:honed:LocalAddedPhysicalDamageTwoHand4": {
+        "name": "Honed",
+        "template": "Adds {v0} to {v1} Physical Damage"
+      },
+      "crossbows.crossbow:prefix:gleaming:LocalAddedPhysicalDamageTwoHand5": {
+        "name": "Gleaming",
+        "template": "Adds {v0} to {v1} Physical Damage"
+      },
+      "crossbows.crossbow:prefix:annealed:LocalAddedPhysicalDamageTwoHand6": {
+        "name": "Annealed",
+        "template": "Adds {v0} to {v1} Physical Damage"
+      },
+      "crossbows.crossbow:prefix:razor-sharp:LocalAddedPhysicalDamageTwoHand7": {
+        "name": "Razor-sharp",
+        "template": "Adds {v0} to {v1} Physical Damage"
+      },
+      "crossbows.crossbow:prefix:tempered:LocalAddedPhysicalDamageTwoHand8": {
+        "name": "Tempered",
+        "template": "Adds {v0} to {v1} Physical Damage"
+      },
+      "crossbows.crossbow:prefix:flaring:LocalAddedPhysicalDamageTwoHand9": {
+        "name": "Flaring",
+        "template": "Adds {v0} to {v1} Physical Damage"
+      },
+      "crossbows.crossbow:prefix:heated:LocalAddedFireDamageTwoHand1": {
+        "name": "Heated",
+        "template": "Adds {v0} to {v1} Fire Damage"
+      },
+      "crossbows.crossbow:prefix:smouldering:LocalAddedFireDamageTwoHand2": {
+        "name": "Smouldering",
+        "template": "Adds {v0} to {v1} Fire Damage"
+      },
+      "crossbows.crossbow:prefix:smoking:LocalAddedFireDamageTwoHand3": {
+        "name": "Smoking",
+        "template": "Adds {v0} to {v1} Fire Damage"
+      },
+      "crossbows.crossbow:prefix:burning:LocalAddedFireDamageTwoHand4": {
+        "name": "Burning",
+        "template": "Adds {v0} to {v1} Fire Damage"
+      },
+      "crossbows.crossbow:prefix:flaming:LocalAddedFireDamageTwoHand5": {
+        "name": "Flaming",
+        "template": "Adds {v0} to {v1} Fire Damage"
+      },
+      "crossbows.crossbow:prefix:scorching:LocalAddedFireDamageTwoHand6": {
+        "name": "Scorching",
+        "template": "Adds {v0} to {v1} Fire Damage"
+      },
+      "crossbows.crossbow:prefix:incinerating:LocalAddedFireDamageTwoHand7": {
+        "name": "Incinerating",
+        "template": "Adds {v0} to {v1} Fire Damage"
+      },
+      "crossbows.crossbow:prefix:blasting:LocalAddedFireDamageTwoHand8_": {
+        "name": "Blasting",
+        "template": "Adds {v0} to {v1} Fire Damage"
+      },
+      "crossbows.crossbow:prefix:cremating:LocalAddedFireDamageTwoHand9": {
+        "name": "Cremating",
+        "template": "Adds {v0} to {v1} Fire Damage"
+      },
+      "crossbows.crossbow:prefix:carbonising:LocalAddedFireDamageTwoHand10": {
+        "name": "Carbonising",
+        "template": "Adds {v0} to {v1} Fire Damage"
+      },
+      "crossbows.crossbow:prefix:frosted:LocalAddedColdDamageTwoHand1": {
+        "name": "Frosted",
+        "template": "Adds {v0} to {v1} Cold Damage"
+      },
+      "crossbows.crossbow:prefix:chilled:LocalAddedColdDamageTwoHand2": {
+        "name": "Chilled",
+        "template": "Adds {v0} to {v1} Cold Damage"
+      },
+      "crossbows.crossbow:prefix:icy:LocalAddedColdDamageTwoHand3": {
+        "name": "Icy",
+        "template": "Adds {v0} to {v1} Cold Damage"
+      },
+      "crossbows.crossbow:prefix:frigid:LocalAddedColdDamageTwoHand4": {
+        "name": "Frigid",
+        "template": "Adds {v0} to {v1} Cold Damage"
+      },
+      "crossbows.crossbow:prefix:freezing:LocalAddedColdDamageTwoHand5": {
+        "name": "Freezing",
+        "template": "Adds {v0} to {v1} Cold Damage"
+      },
+      "crossbows.crossbow:prefix:frozen:LocalAddedColdDamageTwoHand6": {
+        "name": "Frozen",
+        "template": "Adds {v0} to {v1} Cold Damage"
+      },
+      "crossbows.crossbow:prefix:glaciated:LocalAddedColdDamageTwoHand7": {
+        "name": "Glaciated",
+        "template": "Adds {v0} to {v1} Cold Damage"
+      },
+      "crossbows.crossbow:prefix:polar:LocalAddedColdDamageTwoHand8": {
+        "name": "Polar",
+        "template": "Adds {v0} to {v1} Cold Damage"
+      },
+      "crossbows.crossbow:prefix:entombing:LocalAddedColdDamageTwoHand9": {
+        "name": "Entombing",
+        "template": "Adds {v0} to {v1} Cold Damage"
+      },
+      "crossbows.crossbow:prefix:crystalising:LocalAddedColdDamageTwoHand10": {
+        "name": "Crystalising",
+        "template": "Adds {v0} to {v1} Cold Damage"
+      },
+      "crossbows.crossbow:prefix:humming:LocalAddedLightningDamageTwoHand1_": {
+        "name": "Humming",
+        "template": "Adds {v0} to {v1} Lightning Damage"
+      },
+      "crossbows.crossbow:prefix:buzzing:LocalAddedLightningDamageTwoHand2": {
+        "name": "Buzzing",
+        "template": "Adds {v0} to {v1} Lightning Damage"
+      },
+      "crossbows.crossbow:prefix:snapping:LocalAddedLightningDamageTwoHand3": {
+        "name": "Snapping",
+        "template": "Adds {v0} to {v1} Lightning Damage"
+      },
+      "crossbows.crossbow:prefix:crackling:LocalAddedLightningDamageTwoHand4": {
+        "name": "Crackling",
+        "template": "Adds {v0} to {v1} Lightning Damage"
+      },
+      "crossbows.crossbow:prefix:sparking:LocalAddedLightningDamageTwoHand5": {
+        "name": "Sparking",
+        "template": "Adds {v0} to {v1} Lightning Damage"
+      },
+      "crossbows.crossbow:prefix:arcing:LocalAddedLightningDamageTwoHand6": {
+        "name": "Arcing",
+        "template": "Adds {v0} to {v1} Lightning Damage"
+      },
+      "crossbows.crossbow:prefix:shocking:LocalAddedLightningDamageTwoHand7": {
+        "name": "Shocking",
+        "template": "Adds {v0} to {v1} Lightning Damage"
+      },
+      "crossbows.crossbow:prefix:discharging:LocalAddedLightningDamageTwoHand8": {
+        "name": "Discharging",
+        "template": "Adds {v0} to {v1} Lightning Damage"
+      },
+      "crossbows.crossbow:prefix:electrocuting:LocalAddedLightningDamageTwoHand9": {
+        "name": "Electrocuting",
+        "template": "Adds {v0} to {v1} Lightning Damage"
+      },
+      "crossbows.crossbow:prefix:vapourising:LocalAddedLightningDamageTwoHand10": {
+        "name": "Vapourising",
+        "template": "Adds {v0} to {v1} Lightning Damage"
+      },
+      "crossbows.crossbow:prefix:squire-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating1": {
+        "name": "Squire's",
+        "template": "{v0}% increased Physical Damage\n{v1} to Accuracy Rating"
+      },
+      "crossbows.crossbow:prefix:journeyman-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating2": {
+        "name": "Journeyman's",
+        "template": "{v0}% increased Physical Damage\n{v1} to Accuracy Rating"
+      },
+      "crossbows.crossbow:prefix:reaver-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating3": {
+        "name": "Reaver's",
+        "template": "{v0}% increased Physical Damage\n{v1} to Accuracy Rating"
+      },
+      "crossbows.crossbow:prefix:mercenary-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating4": {
+        "name": "Mercenary's",
+        "template": "{v0}% increased Physical Damage\n{v1} to Accuracy Rating"
+      },
+      "crossbows.crossbow:prefix:champion-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating5": {
+        "name": "Champion's",
+        "template": "{v0}% increased Physical Damage\n{v1} to Accuracy Rating"
+      },
+      "crossbows.crossbow:prefix:conqueror-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating6": {
+        "name": "Conqueror's",
+        "template": "{v0}% increased Physical Damage\n{v1} to Accuracy Rating"
+      },
+      "crossbows.crossbow:prefix:emperor-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating7": {
+        "name": "Emperor's",
+        "template": "{v0}% increased Physical Damage\n{v1} to Accuracy Rating"
+      },
+      "crossbows.crossbow:prefix:dictator-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating8": {
+        "name": "Dictator's",
+        "template": "{v0}% increased Physical Damage\n{v1} to Accuracy Rating"
+      },
+      "crossbows.crossbow:suffix:of-the-fletcher:GlobalProjectileSkillGemLevelTwoHandWeapon2": {
+        "name": "of the Fletcher",
+        "template": "{v0} to Level of all Projectile Skills"
+      },
+      "crossbows.crossbow:suffix:of-the-sharpshooter:GlobalProjectileSkillGemLevelTwoHandWeapon3": {
+        "name": "of the Sharpshooter",
+        "template": "{v0} to Level of all Projectile Skills"
+      },
+      "crossbows.crossbow:suffix:of-the-marksman:GlobalProjectileSkillGemLevelTwoHandWeapon4": {
+        "name": "of the Marksman",
+        "template": "{v0} to Level of all Projectile Skills"
+      },
+      "crossbows.crossbow:suffix:of-the-sniper:GlobalProjectileSkillGemLevelTwoHandWeapon5": {
+        "name": "of the Sniper",
+        "template": "{v0} to Level of all Projectile Skills"
+      },
+      "crossbows.crossbow:suffix:of-shining:LocalLightRadiusAndAccuracy1": {
+        "name": "of Shining",
+        "template": "{v0} to Accuracy Rating\n{v1}% increased Light Radius"
+      },
+      "crossbows.crossbow:suffix:of-light:LocalLightRadiusAndAccuracy2": {
+        "name": "of Light",
+        "template": "{v0} to Accuracy Rating\n{v1}% increased Light Radius"
+      },
+      "crossbows.crossbow:suffix:of-radiance:LocalLightRadiusAndAccuracy3": {
+        "name": "of Radiance",
+        "template": "{v0} to Accuracy Rating\n{v1}% increased Light Radius"
+      },
+      "crossbows.crossbow:suffix:of-shelling:AdditionalAmmo1": {
+        "name": "of Shelling",
+        "template": "Loads an additional bolt"
+      },
+      "crossbows.crossbow:suffix:of-bursting:AdditionalAmmo2": {
+        "name": "of Bursting",
+        "template": "Loads {v0} additional bolts"
+      },
+      "crossbows.crossbow:prefix:catalysing:WeaponElementalDamageOnTwohandWeapon1": {
+        "name": "Catalysing",
+        "template": "{v0}% increased Elemental Damage with Attacks"
+      },
+      "crossbows.crossbow:prefix:infusing:WeaponElementalDamageOnTwohandWeapon2____": {
+        "name": "Infusing",
+        "template": "{v0}% increased Elemental Damage with Attacks"
+      },
+      "crossbows.crossbow:prefix:empowering:WeaponElementalDamageOnTwohandWeapon3": {
+        "name": "Empowering",
+        "template": "{v0}% increased Elemental Damage with Attacks"
+      },
+      "crossbows.crossbow:prefix:unleashed:WeaponElementalDamageOnTwohandWeapon4": {
+        "name": "Unleashed",
+        "template": "{v0}% increased Elemental Damage with Attacks"
+      },
+      "crossbows.crossbow:prefix:overpowering:WeaponElementalDamageOnTwohandWeapon5": {
+        "name": "Overpowering",
+        "template": "{v0}% increased Elemental Damage with Attacks"
+      },
+      "crossbows.crossbow:prefix:devastating:WeaponElementalDamageOnTwohandWeapon6": {
+        "name": "Devastating",
+        "template": "{v0}% increased Elemental Damage with Attacks"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraPhysical2H": {
+        "name": "Perfect Essence of Abrasion",
+        "template": "Gain {v0}% of Damage as Extra Physical Damage"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraFire2H": {
+        "name": "Perfect Essence of Flames",
+        "template": "Gain {v0}% of Damage as Extra Fire Damage"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraCold2H": {
+        "name": "Perfect Essence of Ice",
+        "template": "Gain {v0}% of Damage as Extra Cold Damage"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraLightning2H": {
+        "name": "Perfect Essence of Electricity",
+        "template": "Gain {v0}% of Damage as Extra Lightning Damage"
+      },
+      "crossbows.crossbow:suffix:essence:EssenceAttackSkillLevel2H1": {
+        "name": "Perfect Essence of Battle",
+        "template": "{v0} to Level of all Attack Skills"
+      },
+      "crossbows.siege-crossbow:implicit:base": {
+        "name": "Siege Crossbow",
+        "template": "Grenade Skills Fire 1 additional Projectiles"
+      },
+      "crossbows.gemini-crossbow.implicit": {
+        "name": "Gemini Crossbow",
+        "template": "Loads an additional bolt"
+      },
+      "crossbows.elegant-crossbow:implicit:base": {
+        "name": "Elegant Crossbow",
+        "template": "{v0}% chance to Pierce an Enemy"
+      },
+      "crossbows.flexed-crossbow:implicit:base": {
+        "name": "Flexed Crossbow",
+        "template": "{v0}% increased Bolt Speed"
       }
     },
     "ko": {
@@ -56911,6 +58976,290 @@
       "belts.forking-belt.implicit": {
         "name": "갈라지는 허리띠",
         "template": "공격 시 번개 피해 {v0}~{v1} 추가\n호신부 슬롯 {v2}개 보유"
+      },
+      "crossbows.crossbow:prefix:glinting:LocalAddedPhysicalDamageTwoHand1": {
+        "name": "Glinting",
+        "template": "물리 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:burnished:LocalAddedPhysicalDamageTwoHand2": {
+        "name": "Burnished",
+        "template": "물리 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:polished:LocalAddedPhysicalDamageTwoHand3": {
+        "name": "Polished",
+        "template": "물리 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:honed:LocalAddedPhysicalDamageTwoHand4": {
+        "name": "Honed",
+        "template": "물리 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:gleaming:LocalAddedPhysicalDamageTwoHand5": {
+        "name": "Gleaming",
+        "template": "물리 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:annealed:LocalAddedPhysicalDamageTwoHand6": {
+        "name": "Annealed",
+        "template": "물리 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:razor-sharp:LocalAddedPhysicalDamageTwoHand7": {
+        "name": "Razor-sharp",
+        "template": "물리 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:tempered:LocalAddedPhysicalDamageTwoHand8": {
+        "name": "Tempered",
+        "template": "물리 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:flaring:LocalAddedPhysicalDamageTwoHand9": {
+        "name": "Flaring",
+        "template": "물리 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:heated:LocalAddedFireDamageTwoHand1": {
+        "name": "Heated",
+        "template": "화염 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:smouldering:LocalAddedFireDamageTwoHand2": {
+        "name": "Smouldering",
+        "template": "화염 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:smoking:LocalAddedFireDamageTwoHand3": {
+        "name": "Smoking",
+        "template": "화염 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:burning:LocalAddedFireDamageTwoHand4": {
+        "name": "Burning",
+        "template": "화염 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:flaming:LocalAddedFireDamageTwoHand5": {
+        "name": "Flaming",
+        "template": "화염 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:scorching:LocalAddedFireDamageTwoHand6": {
+        "name": "Scorching",
+        "template": "화염 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:incinerating:LocalAddedFireDamageTwoHand7": {
+        "name": "Incinerating",
+        "template": "화염 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:blasting:LocalAddedFireDamageTwoHand8_": {
+        "name": "Blasting",
+        "template": "화염 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:cremating:LocalAddedFireDamageTwoHand9": {
+        "name": "Cremating",
+        "template": "화염 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:carbonising:LocalAddedFireDamageTwoHand10": {
+        "name": "Carbonising",
+        "template": "화염 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:frosted:LocalAddedColdDamageTwoHand1": {
+        "name": "Frosted",
+        "template": "냉기 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:chilled:LocalAddedColdDamageTwoHand2": {
+        "name": "Chilled",
+        "template": "냉기 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:icy:LocalAddedColdDamageTwoHand3": {
+        "name": "Icy",
+        "template": "냉기 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:frigid:LocalAddedColdDamageTwoHand4": {
+        "name": "Frigid",
+        "template": "냉기 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:freezing:LocalAddedColdDamageTwoHand5": {
+        "name": "Freezing",
+        "template": "냉기 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:frozen:LocalAddedColdDamageTwoHand6": {
+        "name": "Frozen",
+        "template": "냉기 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:glaciated:LocalAddedColdDamageTwoHand7": {
+        "name": "Glaciated",
+        "template": "냉기 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:polar:LocalAddedColdDamageTwoHand8": {
+        "name": "Polar",
+        "template": "냉기 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:entombing:LocalAddedColdDamageTwoHand9": {
+        "name": "Entombing",
+        "template": "냉기 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:crystalising:LocalAddedColdDamageTwoHand10": {
+        "name": "Crystalising",
+        "template": "냉기 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:humming:LocalAddedLightningDamageTwoHand1_": {
+        "name": "Humming",
+        "template": "번개 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:buzzing:LocalAddedLightningDamageTwoHand2": {
+        "name": "Buzzing",
+        "template": "번개 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:snapping:LocalAddedLightningDamageTwoHand3": {
+        "name": "Snapping",
+        "template": "번개 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:crackling:LocalAddedLightningDamageTwoHand4": {
+        "name": "Crackling",
+        "template": "번개 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:sparking:LocalAddedLightningDamageTwoHand5": {
+        "name": "Sparking",
+        "template": "번개 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:arcing:LocalAddedLightningDamageTwoHand6": {
+        "name": "Arcing",
+        "template": "번개 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:shocking:LocalAddedLightningDamageTwoHand7": {
+        "name": "Shocking",
+        "template": "번개 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:discharging:LocalAddedLightningDamageTwoHand8": {
+        "name": "Discharging",
+        "template": "번개 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:electrocuting:LocalAddedLightningDamageTwoHand9": {
+        "name": "Electrocuting",
+        "template": "번개 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:vapourising:LocalAddedLightningDamageTwoHand10": {
+        "name": "Vapourising",
+        "template": "번개 피해 {v0}~{v1} 추가"
+      },
+      "crossbows.crossbow:prefix:squire-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating1": {
+        "name": "Squire's",
+        "template": "물리 피해 {v0}% 증가\n정확도 {v1}"
+      },
+      "crossbows.crossbow:prefix:journeyman-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating2": {
+        "name": "Journeyman's",
+        "template": "물리 피해 {v0}% 증가\n정확도 {v1}"
+      },
+      "crossbows.crossbow:prefix:reaver-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating3": {
+        "name": "Reaver's",
+        "template": "물리 피해 {v0}% 증가\n정확도 {v1}"
+      },
+      "crossbows.crossbow:prefix:mercenary-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating4": {
+        "name": "Mercenary's",
+        "template": "물리 피해 {v0}% 증가\n정확도 {v1}"
+      },
+      "crossbows.crossbow:prefix:champion-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating5": {
+        "name": "Champion's",
+        "template": "물리 피해 {v0}% 증가\n정확도 {v1}"
+      },
+      "crossbows.crossbow:prefix:conqueror-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating6": {
+        "name": "Conqueror's",
+        "template": "물리 피해 {v0}% 증가\n정확도 {v1}"
+      },
+      "crossbows.crossbow:prefix:emperor-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating7": {
+        "name": "Emperor's",
+        "template": "물리 피해 {v0}% 증가\n정확도 {v1}"
+      },
+      "crossbows.crossbow:prefix:dictator-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating8": {
+        "name": "Dictator's",
+        "template": "물리 피해 {v0}% 증가\n정확도 {v1}"
+      },
+      "crossbows.crossbow:suffix:of-the-fletcher:GlobalProjectileSkillGemLevelTwoHandWeapon2": {
+        "name": "of the Fletcher",
+        "template": "모든 투사체 스킬 레벨 {v0}"
+      },
+      "crossbows.crossbow:suffix:of-the-sharpshooter:GlobalProjectileSkillGemLevelTwoHandWeapon3": {
+        "name": "of the Sharpshooter",
+        "template": "모든 투사체 스킬 레벨 {v0}"
+      },
+      "crossbows.crossbow:suffix:of-the-marksman:GlobalProjectileSkillGemLevelTwoHandWeapon4": {
+        "name": "of the Marksman",
+        "template": "모든 투사체 스킬 레벨 {v0}"
+      },
+      "crossbows.crossbow:suffix:of-the-sniper:GlobalProjectileSkillGemLevelTwoHandWeapon5": {
+        "name": "of the Sniper",
+        "template": "모든 투사체 스킬 레벨 {v0}"
+      },
+      "crossbows.crossbow:suffix:of-shining:LocalLightRadiusAndAccuracy1": {
+        "name": "of Shining",
+        "template": "정확도 {v0}\n시야 반경 {v1}% 증가"
+      },
+      "crossbows.crossbow:suffix:of-light:LocalLightRadiusAndAccuracy2": {
+        "name": "of Light",
+        "template": "정확도 {v0}\n시야 반경 {v1}% 증가"
+      },
+      "crossbows.crossbow:suffix:of-radiance:LocalLightRadiusAndAccuracy3": {
+        "name": "of Radiance",
+        "template": "정확도 {v0}\n시야 반경 {v1}% 증가"
+      },
+      "crossbows.crossbow:suffix:of-shelling:AdditionalAmmo1": {
+        "name": "of Shelling",
+        "template": "볼트 1개 추가 장전"
+      },
+      "crossbows.crossbow:suffix:of-bursting:AdditionalAmmo2": {
+        "name": "of Bursting",
+        "template": "볼트 {v0}개 추가 장전"
+      },
+      "crossbows.crossbow:prefix:catalysing:WeaponElementalDamageOnTwohandWeapon1": {
+        "name": "Catalysing",
+        "template": "공격 스킬의 원소 피해 {v0}% 증가"
+      },
+      "crossbows.crossbow:prefix:infusing:WeaponElementalDamageOnTwohandWeapon2____": {
+        "name": "Infusing",
+        "template": "공격 스킬의 원소 피해 {v0}% 증가"
+      },
+      "crossbows.crossbow:prefix:empowering:WeaponElementalDamageOnTwohandWeapon3": {
+        "name": "Empowering",
+        "template": "공격 스킬의 원소 피해 {v0}% 증가"
+      },
+      "crossbows.crossbow:prefix:unleashed:WeaponElementalDamageOnTwohandWeapon4": {
+        "name": "Unleashed",
+        "template": "공격 스킬의 원소 피해 {v0}% 증가"
+      },
+      "crossbows.crossbow:prefix:overpowering:WeaponElementalDamageOnTwohandWeapon5": {
+        "name": "Overpowering",
+        "template": "공격 스킬의 원소 피해 {v0}% 증가"
+      },
+      "crossbows.crossbow:prefix:devastating:WeaponElementalDamageOnTwohandWeapon6": {
+        "name": "Devastating",
+        "template": "공격 스킬의 원소 피해 {v0}% 증가"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraPhysical2H": {
+        "name": "Perfect Essence of Abrasion",
+        "template": "피해의 {v0}%를 추가 물리 피해로 획득"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraFire2H": {
+        "name": "Perfect Essence of Flames",
+        "template": "피해의 {v0}%를 추가 화염 피해로 획득"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraCold2H": {
+        "name": "Perfect Essence of Ice",
+        "template": "피해의 {v0}%를 추가 냉기 피해로 획득"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraLightning2H": {
+        "name": "Perfect Essence of Electricity",
+        "template": "피해의 {v0}%를 추가 번개 피해로 획득"
+      },
+      "crossbows.crossbow:suffix:essence:EssenceAttackSkillLevel2H1": {
+        "name": "Perfect Essence of Battle",
+        "template": "모든 공격 스킬 레벨 {v0}"
+      },
+      "crossbows.siege-crossbow:implicit:base": {
+        "name": "Siege Crossbow",
+        "template": "유탄 스킬이 투사체 1개 추가 발사"
+      },
+      "crossbows.gemini-crossbow.implicit": {
+        "name": "Gemini Crossbow",
+        "template": "볼트 1개 추가 장전"
+      },
+      "crossbows.elegant-crossbow:implicit:base": {
+        "name": "Elegant Crossbow",
+        "template": "{v0}%의 확률로 적 관통"
+      },
+      "crossbows.flexed-crossbow:implicit:base": {
+        "name": "Flexed Crossbow",
+        "template": "볼트 속도 {v0}% 증가"
       }
     },
     "zh-CN": {
@@ -64773,6 +67122,290 @@
       "belts.forking-belt.implicit": {
         "name": "分叉腰带",
         "template": "攻击附加 {v0} - {v1} 基础闪电伤害\n具有 {v2} 个咒符位"
+      },
+      "crossbows.crossbow:prefix:glinting:LocalAddedPhysicalDamageTwoHand1": {
+        "name": "Glinting",
+        "template": "附加 {v0} - {v1} 物理伤害"
+      },
+      "crossbows.crossbow:prefix:burnished:LocalAddedPhysicalDamageTwoHand2": {
+        "name": "Burnished",
+        "template": "附加 {v0} - {v1} 物理伤害"
+      },
+      "crossbows.crossbow:prefix:polished:LocalAddedPhysicalDamageTwoHand3": {
+        "name": "Polished",
+        "template": "附加 {v0} - {v1} 物理伤害"
+      },
+      "crossbows.crossbow:prefix:honed:LocalAddedPhysicalDamageTwoHand4": {
+        "name": "Honed",
+        "template": "附加 {v0} - {v1} 物理伤害"
+      },
+      "crossbows.crossbow:prefix:gleaming:LocalAddedPhysicalDamageTwoHand5": {
+        "name": "Gleaming",
+        "template": "附加 {v0} - {v1} 物理伤害"
+      },
+      "crossbows.crossbow:prefix:annealed:LocalAddedPhysicalDamageTwoHand6": {
+        "name": "Annealed",
+        "template": "附加 {v0} - {v1} 物理伤害"
+      },
+      "crossbows.crossbow:prefix:razor-sharp:LocalAddedPhysicalDamageTwoHand7": {
+        "name": "Razor-sharp",
+        "template": "附加 {v0} - {v1} 物理伤害"
+      },
+      "crossbows.crossbow:prefix:tempered:LocalAddedPhysicalDamageTwoHand8": {
+        "name": "Tempered",
+        "template": "附加 {v0} - {v1} 物理伤害"
+      },
+      "crossbows.crossbow:prefix:flaring:LocalAddedPhysicalDamageTwoHand9": {
+        "name": "Flaring",
+        "template": "附加 {v0} - {v1} 物理伤害"
+      },
+      "crossbows.crossbow:prefix:heated:LocalAddedFireDamageTwoHand1": {
+        "name": "Heated",
+        "template": "附加 {v0} - {v1} 火焰伤害"
+      },
+      "crossbows.crossbow:prefix:smouldering:LocalAddedFireDamageTwoHand2": {
+        "name": "Smouldering",
+        "template": "附加 {v0} - {v1} 火焰伤害"
+      },
+      "crossbows.crossbow:prefix:smoking:LocalAddedFireDamageTwoHand3": {
+        "name": "Smoking",
+        "template": "附加 {v0} - {v1} 火焰伤害"
+      },
+      "crossbows.crossbow:prefix:burning:LocalAddedFireDamageTwoHand4": {
+        "name": "Burning",
+        "template": "附加 {v0} - {v1} 火焰伤害"
+      },
+      "crossbows.crossbow:prefix:flaming:LocalAddedFireDamageTwoHand5": {
+        "name": "Flaming",
+        "template": "附加 {v0} - {v1} 火焰伤害"
+      },
+      "crossbows.crossbow:prefix:scorching:LocalAddedFireDamageTwoHand6": {
+        "name": "Scorching",
+        "template": "附加 {v0} - {v1} 火焰伤害"
+      },
+      "crossbows.crossbow:prefix:incinerating:LocalAddedFireDamageTwoHand7": {
+        "name": "Incinerating",
+        "template": "附加 {v0} - {v1} 火焰伤害"
+      },
+      "crossbows.crossbow:prefix:blasting:LocalAddedFireDamageTwoHand8_": {
+        "name": "Blasting",
+        "template": "附加 {v0} - {v1} 火焰伤害"
+      },
+      "crossbows.crossbow:prefix:cremating:LocalAddedFireDamageTwoHand9": {
+        "name": "Cremating",
+        "template": "附加 {v0} - {v1} 火焰伤害"
+      },
+      "crossbows.crossbow:prefix:carbonising:LocalAddedFireDamageTwoHand10": {
+        "name": "Carbonising",
+        "template": "附加 {v0} - {v1} 火焰伤害"
+      },
+      "crossbows.crossbow:prefix:frosted:LocalAddedColdDamageTwoHand1": {
+        "name": "Frosted",
+        "template": "附加 {v0} - {v1} 冰霜伤害"
+      },
+      "crossbows.crossbow:prefix:chilled:LocalAddedColdDamageTwoHand2": {
+        "name": "Chilled",
+        "template": "附加 {v0} - {v1} 冰霜伤害"
+      },
+      "crossbows.crossbow:prefix:icy:LocalAddedColdDamageTwoHand3": {
+        "name": "Icy",
+        "template": "附加 {v0} - {v1} 冰霜伤害"
+      },
+      "crossbows.crossbow:prefix:frigid:LocalAddedColdDamageTwoHand4": {
+        "name": "Frigid",
+        "template": "附加 {v0} - {v1} 冰霜伤害"
+      },
+      "crossbows.crossbow:prefix:freezing:LocalAddedColdDamageTwoHand5": {
+        "name": "Freezing",
+        "template": "附加 {v0} - {v1} 冰霜伤害"
+      },
+      "crossbows.crossbow:prefix:frozen:LocalAddedColdDamageTwoHand6": {
+        "name": "Frozen",
+        "template": "附加 {v0} - {v1} 冰霜伤害"
+      },
+      "crossbows.crossbow:prefix:glaciated:LocalAddedColdDamageTwoHand7": {
+        "name": "Glaciated",
+        "template": "附加 {v0} - {v1} 冰霜伤害"
+      },
+      "crossbows.crossbow:prefix:polar:LocalAddedColdDamageTwoHand8": {
+        "name": "Polar",
+        "template": "附加 {v0} - {v1} 冰霜伤害"
+      },
+      "crossbows.crossbow:prefix:entombing:LocalAddedColdDamageTwoHand9": {
+        "name": "Entombing",
+        "template": "附加 {v0} - {v1} 冰霜伤害"
+      },
+      "crossbows.crossbow:prefix:crystalising:LocalAddedColdDamageTwoHand10": {
+        "name": "Crystalising",
+        "template": "附加 {v0} - {v1} 冰霜伤害"
+      },
+      "crossbows.crossbow:prefix:humming:LocalAddedLightningDamageTwoHand1_": {
+        "name": "Humming",
+        "template": "附加 {v0} - {v1} 闪电伤害"
+      },
+      "crossbows.crossbow:prefix:buzzing:LocalAddedLightningDamageTwoHand2": {
+        "name": "Buzzing",
+        "template": "附加 {v0} - {v1} 闪电伤害"
+      },
+      "crossbows.crossbow:prefix:snapping:LocalAddedLightningDamageTwoHand3": {
+        "name": "Snapping",
+        "template": "附加 {v0} - {v1} 闪电伤害"
+      },
+      "crossbows.crossbow:prefix:crackling:LocalAddedLightningDamageTwoHand4": {
+        "name": "Crackling",
+        "template": "附加 {v0} - {v1} 闪电伤害"
+      },
+      "crossbows.crossbow:prefix:sparking:LocalAddedLightningDamageTwoHand5": {
+        "name": "Sparking",
+        "template": "附加 {v0} - {v1} 闪电伤害"
+      },
+      "crossbows.crossbow:prefix:arcing:LocalAddedLightningDamageTwoHand6": {
+        "name": "Arcing",
+        "template": "附加 {v0} - {v1} 闪电伤害"
+      },
+      "crossbows.crossbow:prefix:shocking:LocalAddedLightningDamageTwoHand7": {
+        "name": "Shocking",
+        "template": "附加 {v0} - {v1} 闪电伤害"
+      },
+      "crossbows.crossbow:prefix:discharging:LocalAddedLightningDamageTwoHand8": {
+        "name": "Discharging",
+        "template": "附加 {v0} - {v1} 闪电伤害"
+      },
+      "crossbows.crossbow:prefix:electrocuting:LocalAddedLightningDamageTwoHand9": {
+        "name": "Electrocuting",
+        "template": "附加 {v0} - {v1} 闪电伤害"
+      },
+      "crossbows.crossbow:prefix:vapourising:LocalAddedLightningDamageTwoHand10": {
+        "name": "Vapourising",
+        "template": "附加 {v0} - {v1} 闪电伤害"
+      },
+      "crossbows.crossbow:prefix:squire-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating1": {
+        "name": "Squire's",
+        "template": "物理伤害提高 {v0}%\n{v1} 命中值"
+      },
+      "crossbows.crossbow:prefix:journeyman-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating2": {
+        "name": "Journeyman's",
+        "template": "物理伤害提高 {v0}%\n{v1} 命中值"
+      },
+      "crossbows.crossbow:prefix:reaver-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating3": {
+        "name": "Reaver's",
+        "template": "物理伤害提高 {v0}%\n{v1} 命中值"
+      },
+      "crossbows.crossbow:prefix:mercenary-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating4": {
+        "name": "Mercenary's",
+        "template": "物理伤害提高 {v0}%\n{v1} 命中值"
+      },
+      "crossbows.crossbow:prefix:champion-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating5": {
+        "name": "Champion's",
+        "template": "物理伤害提高 {v0}%\n{v1} 命中值"
+      },
+      "crossbows.crossbow:prefix:conqueror-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating6": {
+        "name": "Conqueror's",
+        "template": "物理伤害提高 {v0}%\n{v1} 命中值"
+      },
+      "crossbows.crossbow:prefix:emperor-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating7": {
+        "name": "Emperor's",
+        "template": "物理伤害提高 {v0}%\n{v1} 命中值"
+      },
+      "crossbows.crossbow:prefix:dictator-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating8": {
+        "name": "Dictator's",
+        "template": "物理伤害提高 {v0}%\n{v1} 命中值"
+      },
+      "crossbows.crossbow:suffix:of-the-fletcher:GlobalProjectileSkillGemLevelTwoHandWeapon2": {
+        "name": "of the Fletcher",
+        "template": "所有投射物技能等级 {v0}"
+      },
+      "crossbows.crossbow:suffix:of-the-sharpshooter:GlobalProjectileSkillGemLevelTwoHandWeapon3": {
+        "name": "of the Sharpshooter",
+        "template": "所有投射物技能等级 {v0}"
+      },
+      "crossbows.crossbow:suffix:of-the-marksman:GlobalProjectileSkillGemLevelTwoHandWeapon4": {
+        "name": "of the Marksman",
+        "template": "所有投射物技能等级 {v0}"
+      },
+      "crossbows.crossbow:suffix:of-the-sniper:GlobalProjectileSkillGemLevelTwoHandWeapon5": {
+        "name": "of the Sniper",
+        "template": "所有投射物技能等级 {v0}"
+      },
+      "crossbows.crossbow:suffix:of-shining:LocalLightRadiusAndAccuracy1": {
+        "name": "of Shining",
+        "template": "{v0} 命中值\n照亮范围提高 {v1}%"
+      },
+      "crossbows.crossbow:suffix:of-light:LocalLightRadiusAndAccuracy2": {
+        "name": "of Light",
+        "template": "{v0} 命中值\n照亮范围提高 {v1}%"
+      },
+      "crossbows.crossbow:suffix:of-radiance:LocalLightRadiusAndAccuracy3": {
+        "name": "of Radiance",
+        "template": "{v0} 命中值\n照亮范围提高 {v1}%"
+      },
+      "crossbows.crossbow:suffix:of-shelling:AdditionalAmmo1": {
+        "name": "of Shelling",
+        "template": "额外装填一支弩箭"
+      },
+      "crossbows.crossbow:suffix:of-bursting:AdditionalAmmo2": {
+        "name": "of Bursting",
+        "template": "额外装填 {v0} 支弩箭"
+      },
+      "crossbows.crossbow:prefix:catalysing:WeaponElementalDamageOnTwohandWeapon1": {
+        "name": "Catalysing",
+        "template": "攻击技能的元素伤害提高 {v0}%"
+      },
+      "crossbows.crossbow:prefix:infusing:WeaponElementalDamageOnTwohandWeapon2____": {
+        "name": "Infusing",
+        "template": "攻击技能的元素伤害提高 {v0}%"
+      },
+      "crossbows.crossbow:prefix:empowering:WeaponElementalDamageOnTwohandWeapon3": {
+        "name": "Empowering",
+        "template": "攻击技能的元素伤害提高 {v0}%"
+      },
+      "crossbows.crossbow:prefix:unleashed:WeaponElementalDamageOnTwohandWeapon4": {
+        "name": "Unleashed",
+        "template": "攻击技能的元素伤害提高 {v0}%"
+      },
+      "crossbows.crossbow:prefix:overpowering:WeaponElementalDamageOnTwohandWeapon5": {
+        "name": "Overpowering",
+        "template": "攻击技能的元素伤害提高 {v0}%"
+      },
+      "crossbows.crossbow:prefix:devastating:WeaponElementalDamageOnTwohandWeapon6": {
+        "name": "Devastating",
+        "template": "攻击技能的元素伤害提高 {v0}%"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraPhysical2H": {
+        "name": "Perfect Essence of Abrasion",
+        "template": "获得相当于伤害 {v0}% 的额外物理伤害"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraFire2H": {
+        "name": "Perfect Essence of Flames",
+        "template": "获得相当于伤害 {v0}% 的额外火焰伤害"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraCold2H": {
+        "name": "Perfect Essence of Ice",
+        "template": "获得相当于伤害 {v0}% 的额外冰霜伤害"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraLightning2H": {
+        "name": "Perfect Essence of Electricity",
+        "template": "获得相当于伤害 {v0}% 的额外闪电伤害"
+      },
+      "crossbows.crossbow:suffix:essence:EssenceAttackSkillLevel2H1": {
+        "name": "Perfect Essence of Battle",
+        "template": "所有攻击技能等级 {v0}"
+      },
+      "crossbows.siege-crossbow:implicit:base": {
+        "name": "Siege Crossbow",
+        "template": "榴弹技能发射 1 个额外投射物"
+      },
+      "crossbows.gemini-crossbow.implicit": {
+        "name": "Gemini Crossbow",
+        "template": "额外装填一支弩箭"
+      },
+      "crossbows.elegant-crossbow:implicit:base": {
+        "name": "Elegant Crossbow",
+        "template": "{v0}% 的几率穿透一个敌人"
+      },
+      "crossbows.flexed-crossbow:implicit:base": {
+        "name": "Flexed Crossbow",
+        "template": "弩箭速度提高 {v0}%"
       }
     },
     "zh-TW": {
@@ -72635,6 +75268,290 @@
       "belts.forking-belt.implicit": {
         "name": "歧路腰帶",
         "template": "攻擊附加{v0}至{v1}閃電傷害\n有{v2}個護符欄位"
+      },
+      "crossbows.crossbow:prefix:glinting:LocalAddedPhysicalDamageTwoHand1": {
+        "name": "Glinting",
+        "template": "附加{v0}至{v1}物理傷害"
+      },
+      "crossbows.crossbow:prefix:burnished:LocalAddedPhysicalDamageTwoHand2": {
+        "name": "Burnished",
+        "template": "附加{v0}至{v1}物理傷害"
+      },
+      "crossbows.crossbow:prefix:polished:LocalAddedPhysicalDamageTwoHand3": {
+        "name": "Polished",
+        "template": "附加{v0}至{v1}物理傷害"
+      },
+      "crossbows.crossbow:prefix:honed:LocalAddedPhysicalDamageTwoHand4": {
+        "name": "Honed",
+        "template": "附加{v0}至{v1}物理傷害"
+      },
+      "crossbows.crossbow:prefix:gleaming:LocalAddedPhysicalDamageTwoHand5": {
+        "name": "Gleaming",
+        "template": "附加{v0}至{v1}物理傷害"
+      },
+      "crossbows.crossbow:prefix:annealed:LocalAddedPhysicalDamageTwoHand6": {
+        "name": "Annealed",
+        "template": "附加{v0}至{v1}物理傷害"
+      },
+      "crossbows.crossbow:prefix:razor-sharp:LocalAddedPhysicalDamageTwoHand7": {
+        "name": "Razor-sharp",
+        "template": "附加{v0}至{v1}物理傷害"
+      },
+      "crossbows.crossbow:prefix:tempered:LocalAddedPhysicalDamageTwoHand8": {
+        "name": "Tempered",
+        "template": "附加{v0}至{v1}物理傷害"
+      },
+      "crossbows.crossbow:prefix:flaring:LocalAddedPhysicalDamageTwoHand9": {
+        "name": "Flaring",
+        "template": "附加{v0}至{v1}物理傷害"
+      },
+      "crossbows.crossbow:prefix:heated:LocalAddedFireDamageTwoHand1": {
+        "name": "Heated",
+        "template": "附加{v0}至{v1}火焰傷害"
+      },
+      "crossbows.crossbow:prefix:smouldering:LocalAddedFireDamageTwoHand2": {
+        "name": "Smouldering",
+        "template": "附加{v0}至{v1}火焰傷害"
+      },
+      "crossbows.crossbow:prefix:smoking:LocalAddedFireDamageTwoHand3": {
+        "name": "Smoking",
+        "template": "附加{v0}至{v1}火焰傷害"
+      },
+      "crossbows.crossbow:prefix:burning:LocalAddedFireDamageTwoHand4": {
+        "name": "Burning",
+        "template": "附加{v0}至{v1}火焰傷害"
+      },
+      "crossbows.crossbow:prefix:flaming:LocalAddedFireDamageTwoHand5": {
+        "name": "Flaming",
+        "template": "附加{v0}至{v1}火焰傷害"
+      },
+      "crossbows.crossbow:prefix:scorching:LocalAddedFireDamageTwoHand6": {
+        "name": "Scorching",
+        "template": "附加{v0}至{v1}火焰傷害"
+      },
+      "crossbows.crossbow:prefix:incinerating:LocalAddedFireDamageTwoHand7": {
+        "name": "Incinerating",
+        "template": "附加{v0}至{v1}火焰傷害"
+      },
+      "crossbows.crossbow:prefix:blasting:LocalAddedFireDamageTwoHand8_": {
+        "name": "Blasting",
+        "template": "附加{v0}至{v1}火焰傷害"
+      },
+      "crossbows.crossbow:prefix:cremating:LocalAddedFireDamageTwoHand9": {
+        "name": "Cremating",
+        "template": "附加{v0}至{v1}火焰傷害"
+      },
+      "crossbows.crossbow:prefix:carbonising:LocalAddedFireDamageTwoHand10": {
+        "name": "Carbonising",
+        "template": "附加{v0}至{v1}火焰傷害"
+      },
+      "crossbows.crossbow:prefix:frosted:LocalAddedColdDamageTwoHand1": {
+        "name": "Frosted",
+        "template": "附加{v0}至{v1}冰冷傷害"
+      },
+      "crossbows.crossbow:prefix:chilled:LocalAddedColdDamageTwoHand2": {
+        "name": "Chilled",
+        "template": "附加{v0}至{v1}冰冷傷害"
+      },
+      "crossbows.crossbow:prefix:icy:LocalAddedColdDamageTwoHand3": {
+        "name": "Icy",
+        "template": "附加{v0}至{v1}冰冷傷害"
+      },
+      "crossbows.crossbow:prefix:frigid:LocalAddedColdDamageTwoHand4": {
+        "name": "Frigid",
+        "template": "附加{v0}至{v1}冰冷傷害"
+      },
+      "crossbows.crossbow:prefix:freezing:LocalAddedColdDamageTwoHand5": {
+        "name": "Freezing",
+        "template": "附加{v0}至{v1}冰冷傷害"
+      },
+      "crossbows.crossbow:prefix:frozen:LocalAddedColdDamageTwoHand6": {
+        "name": "Frozen",
+        "template": "附加{v0}至{v1}冰冷傷害"
+      },
+      "crossbows.crossbow:prefix:glaciated:LocalAddedColdDamageTwoHand7": {
+        "name": "Glaciated",
+        "template": "附加{v0}至{v1}冰冷傷害"
+      },
+      "crossbows.crossbow:prefix:polar:LocalAddedColdDamageTwoHand8": {
+        "name": "Polar",
+        "template": "附加{v0}至{v1}冰冷傷害"
+      },
+      "crossbows.crossbow:prefix:entombing:LocalAddedColdDamageTwoHand9": {
+        "name": "Entombing",
+        "template": "附加{v0}至{v1}冰冷傷害"
+      },
+      "crossbows.crossbow:prefix:crystalising:LocalAddedColdDamageTwoHand10": {
+        "name": "Crystalising",
+        "template": "附加{v0}至{v1}冰冷傷害"
+      },
+      "crossbows.crossbow:prefix:humming:LocalAddedLightningDamageTwoHand1_": {
+        "name": "Humming",
+        "template": "附加{v0}至{v1}閃電傷害"
+      },
+      "crossbows.crossbow:prefix:buzzing:LocalAddedLightningDamageTwoHand2": {
+        "name": "Buzzing",
+        "template": "附加{v0}至{v1}閃電傷害"
+      },
+      "crossbows.crossbow:prefix:snapping:LocalAddedLightningDamageTwoHand3": {
+        "name": "Snapping",
+        "template": "附加{v0}至{v1}閃電傷害"
+      },
+      "crossbows.crossbow:prefix:crackling:LocalAddedLightningDamageTwoHand4": {
+        "name": "Crackling",
+        "template": "附加{v0}至{v1}閃電傷害"
+      },
+      "crossbows.crossbow:prefix:sparking:LocalAddedLightningDamageTwoHand5": {
+        "name": "Sparking",
+        "template": "附加{v0}至{v1}閃電傷害"
+      },
+      "crossbows.crossbow:prefix:arcing:LocalAddedLightningDamageTwoHand6": {
+        "name": "Arcing",
+        "template": "附加{v0}至{v1}閃電傷害"
+      },
+      "crossbows.crossbow:prefix:shocking:LocalAddedLightningDamageTwoHand7": {
+        "name": "Shocking",
+        "template": "附加{v0}至{v1}閃電傷害"
+      },
+      "crossbows.crossbow:prefix:discharging:LocalAddedLightningDamageTwoHand8": {
+        "name": "Discharging",
+        "template": "附加{v0}至{v1}閃電傷害"
+      },
+      "crossbows.crossbow:prefix:electrocuting:LocalAddedLightningDamageTwoHand9": {
+        "name": "Electrocuting",
+        "template": "附加{v0}至{v1}閃電傷害"
+      },
+      "crossbows.crossbow:prefix:vapourising:LocalAddedLightningDamageTwoHand10": {
+        "name": "Vapourising",
+        "template": "附加{v0}至{v1}閃電傷害"
+      },
+      "crossbows.crossbow:prefix:squire-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating1": {
+        "name": "Squire's",
+        "template": "增加{v0}%物理傷害\n{v1}命中值"
+      },
+      "crossbows.crossbow:prefix:journeyman-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating2": {
+        "name": "Journeyman's",
+        "template": "增加{v0}%物理傷害\n{v1}命中值"
+      },
+      "crossbows.crossbow:prefix:reaver-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating3": {
+        "name": "Reaver's",
+        "template": "增加{v0}%物理傷害\n{v1}命中值"
+      },
+      "crossbows.crossbow:prefix:mercenary-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating4": {
+        "name": "Mercenary's",
+        "template": "增加{v0}%物理傷害\n{v1}命中值"
+      },
+      "crossbows.crossbow:prefix:champion-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating5": {
+        "name": "Champion's",
+        "template": "增加{v0}%物理傷害\n{v1}命中值"
+      },
+      "crossbows.crossbow:prefix:conqueror-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating6": {
+        "name": "Conqueror's",
+        "template": "增加{v0}%物理傷害\n{v1}命中值"
+      },
+      "crossbows.crossbow:prefix:emperor-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating7": {
+        "name": "Emperor's",
+        "template": "增加{v0}%物理傷害\n{v1}命中值"
+      },
+      "crossbows.crossbow:prefix:dictator-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating8": {
+        "name": "Dictator's",
+        "template": "增加{v0}%物理傷害\n{v1}命中值"
+      },
+      "crossbows.crossbow:suffix:of-the-fletcher:GlobalProjectileSkillGemLevelTwoHandWeapon2": {
+        "name": "of the Fletcher",
+        "template": "全部投射物技能等級{v0}"
+      },
+      "crossbows.crossbow:suffix:of-the-sharpshooter:GlobalProjectileSkillGemLevelTwoHandWeapon3": {
+        "name": "of the Sharpshooter",
+        "template": "全部投射物技能等級{v0}"
+      },
+      "crossbows.crossbow:suffix:of-the-marksman:GlobalProjectileSkillGemLevelTwoHandWeapon4": {
+        "name": "of the Marksman",
+        "template": "全部投射物技能等級{v0}"
+      },
+      "crossbows.crossbow:suffix:of-the-sniper:GlobalProjectileSkillGemLevelTwoHandWeapon5": {
+        "name": "of the Sniper",
+        "template": "全部投射物技能等級{v0}"
+      },
+      "crossbows.crossbow:suffix:of-shining:LocalLightRadiusAndAccuracy1": {
+        "name": "of Shining",
+        "template": "{v0}命中值\n增加{v1}%照亮範圍"
+      },
+      "crossbows.crossbow:suffix:of-light:LocalLightRadiusAndAccuracy2": {
+        "name": "of Light",
+        "template": "{v0}命中值\n增加{v1}%照亮範圍"
+      },
+      "crossbows.crossbow:suffix:of-radiance:LocalLightRadiusAndAccuracy3": {
+        "name": "of Radiance",
+        "template": "{v0}命中值\n增加{v1}%照亮範圍"
+      },
+      "crossbows.crossbow:suffix:of-shelling:AdditionalAmmo1": {
+        "name": "of Shelling",
+        "template": "裝填額外1發弩箭"
+      },
+      "crossbows.crossbow:suffix:of-bursting:AdditionalAmmo2": {
+        "name": "of Bursting",
+        "template": "裝填額外{v0}發弩箭"
+      },
+      "crossbows.crossbow:prefix:catalysing:WeaponElementalDamageOnTwohandWeapon1": {
+        "name": "Catalysing",
+        "template": "增加{v0}%攻擊元素傷害"
+      },
+      "crossbows.crossbow:prefix:infusing:WeaponElementalDamageOnTwohandWeapon2____": {
+        "name": "Infusing",
+        "template": "增加{v0}%攻擊元素傷害"
+      },
+      "crossbows.crossbow:prefix:empowering:WeaponElementalDamageOnTwohandWeapon3": {
+        "name": "Empowering",
+        "template": "增加{v0}%攻擊元素傷害"
+      },
+      "crossbows.crossbow:prefix:unleashed:WeaponElementalDamageOnTwohandWeapon4": {
+        "name": "Unleashed",
+        "template": "增加{v0}%攻擊元素傷害"
+      },
+      "crossbows.crossbow:prefix:overpowering:WeaponElementalDamageOnTwohandWeapon5": {
+        "name": "Overpowering",
+        "template": "增加{v0}%攻擊元素傷害"
+      },
+      "crossbows.crossbow:prefix:devastating:WeaponElementalDamageOnTwohandWeapon6": {
+        "name": "Devastating",
+        "template": "增加{v0}%攻擊元素傷害"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraPhysical2H": {
+        "name": "Perfect Essence of Abrasion",
+        "template": "獲得等同於傷害{v0}%的額外物理傷害"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraFire2H": {
+        "name": "Perfect Essence of Flames",
+        "template": "獲得等同於傷害{v0}%的額外火焰傷害"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraCold2H": {
+        "name": "Perfect Essence of Ice",
+        "template": "獲得等同於傷害{v0}%的額外冰冷傷害"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraLightning2H": {
+        "name": "Perfect Essence of Electricity",
+        "template": "獲得等同於傷害{v0}%的額外閃電傷害"
+      },
+      "crossbows.crossbow:suffix:essence:EssenceAttackSkillLevel2H1": {
+        "name": "Perfect Essence of Battle",
+        "template": "全部攻擊技能等級{v0}"
+      },
+      "crossbows.siege-crossbow:implicit:base": {
+        "name": "Siege Crossbow",
+        "template": "擲彈技能發射額外1個投射物"
+      },
+      "crossbows.gemini-crossbow.implicit": {
+        "name": "Gemini Crossbow",
+        "template": "裝填額外1發弩箭"
+      },
+      "crossbows.elegant-crossbow:implicit:base": {
+        "name": "Elegant Crossbow",
+        "template": "有{v0}%機率穿透一個敵人"
+      },
+      "crossbows.flexed-crossbow:implicit:base": {
+        "name": "Flexed Crossbow",
+        "template": "增加{v0}%弩箭速度"
       }
     },
     "ja": {
@@ -80497,6 +83414,290 @@
       "belts.forking-belt.implicit": {
         "name": "分岐のベルト",
         "template": "{v0}から{v1}の雷ダメージをアタックに追加する\n{v2}個のチャームスロットを持つ"
+      },
+      "crossbows.crossbow:prefix:glinting:LocalAddedPhysicalDamageTwoHand1": {
+        "name": "Glinting",
+        "template": "{v0}から{v1}の物理ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:burnished:LocalAddedPhysicalDamageTwoHand2": {
+        "name": "Burnished",
+        "template": "{v0}から{v1}の物理ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:polished:LocalAddedPhysicalDamageTwoHand3": {
+        "name": "Polished",
+        "template": "{v0}から{v1}の物理ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:honed:LocalAddedPhysicalDamageTwoHand4": {
+        "name": "Honed",
+        "template": "{v0}から{v1}の物理ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:gleaming:LocalAddedPhysicalDamageTwoHand5": {
+        "name": "Gleaming",
+        "template": "{v0}から{v1}の物理ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:annealed:LocalAddedPhysicalDamageTwoHand6": {
+        "name": "Annealed",
+        "template": "{v0}から{v1}の物理ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:razor-sharp:LocalAddedPhysicalDamageTwoHand7": {
+        "name": "Razor-sharp",
+        "template": "{v0}から{v1}の物理ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:tempered:LocalAddedPhysicalDamageTwoHand8": {
+        "name": "Tempered",
+        "template": "{v0}から{v1}の物理ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:flaring:LocalAddedPhysicalDamageTwoHand9": {
+        "name": "Flaring",
+        "template": "{v0}から{v1}の物理ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:heated:LocalAddedFireDamageTwoHand1": {
+        "name": "Heated",
+        "template": "{v0}から{v1}の火ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:smouldering:LocalAddedFireDamageTwoHand2": {
+        "name": "Smouldering",
+        "template": "{v0}から{v1}の火ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:smoking:LocalAddedFireDamageTwoHand3": {
+        "name": "Smoking",
+        "template": "{v0}から{v1}の火ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:burning:LocalAddedFireDamageTwoHand4": {
+        "name": "Burning",
+        "template": "{v0}から{v1}の火ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:flaming:LocalAddedFireDamageTwoHand5": {
+        "name": "Flaming",
+        "template": "{v0}から{v1}の火ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:scorching:LocalAddedFireDamageTwoHand6": {
+        "name": "Scorching",
+        "template": "{v0}から{v1}の火ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:incinerating:LocalAddedFireDamageTwoHand7": {
+        "name": "Incinerating",
+        "template": "{v0}から{v1}の火ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:blasting:LocalAddedFireDamageTwoHand8_": {
+        "name": "Blasting",
+        "template": "{v0}から{v1}の火ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:cremating:LocalAddedFireDamageTwoHand9": {
+        "name": "Cremating",
+        "template": "{v0}から{v1}の火ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:carbonising:LocalAddedFireDamageTwoHand10": {
+        "name": "Carbonising",
+        "template": "{v0}から{v1}の火ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:frosted:LocalAddedColdDamageTwoHand1": {
+        "name": "Frosted",
+        "template": "{v0}から{v1}の冷気ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:chilled:LocalAddedColdDamageTwoHand2": {
+        "name": "Chilled",
+        "template": "{v0}から{v1}の冷気ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:icy:LocalAddedColdDamageTwoHand3": {
+        "name": "Icy",
+        "template": "{v0}から{v1}の冷気ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:frigid:LocalAddedColdDamageTwoHand4": {
+        "name": "Frigid",
+        "template": "{v0}から{v1}の冷気ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:freezing:LocalAddedColdDamageTwoHand5": {
+        "name": "Freezing",
+        "template": "{v0}から{v1}の冷気ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:frozen:LocalAddedColdDamageTwoHand6": {
+        "name": "Frozen",
+        "template": "{v0}から{v1}の冷気ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:glaciated:LocalAddedColdDamageTwoHand7": {
+        "name": "Glaciated",
+        "template": "{v0}から{v1}の冷気ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:polar:LocalAddedColdDamageTwoHand8": {
+        "name": "Polar",
+        "template": "{v0}から{v1}の冷気ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:entombing:LocalAddedColdDamageTwoHand9": {
+        "name": "Entombing",
+        "template": "{v0}から{v1}の冷気ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:crystalising:LocalAddedColdDamageTwoHand10": {
+        "name": "Crystalising",
+        "template": "{v0}から{v1}の冷気ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:humming:LocalAddedLightningDamageTwoHand1_": {
+        "name": "Humming",
+        "template": "{v0}から{v1}の雷ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:buzzing:LocalAddedLightningDamageTwoHand2": {
+        "name": "Buzzing",
+        "template": "{v0}から{v1}の雷ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:snapping:LocalAddedLightningDamageTwoHand3": {
+        "name": "Snapping",
+        "template": "{v0}から{v1}の雷ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:crackling:LocalAddedLightningDamageTwoHand4": {
+        "name": "Crackling",
+        "template": "{v0}から{v1}の雷ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:sparking:LocalAddedLightningDamageTwoHand5": {
+        "name": "Sparking",
+        "template": "{v0}から{v1}の雷ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:arcing:LocalAddedLightningDamageTwoHand6": {
+        "name": "Arcing",
+        "template": "{v0}から{v1}の雷ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:shocking:LocalAddedLightningDamageTwoHand7": {
+        "name": "Shocking",
+        "template": "{v0}から{v1}の雷ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:discharging:LocalAddedLightningDamageTwoHand8": {
+        "name": "Discharging",
+        "template": "{v0}から{v1}の雷ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:electrocuting:LocalAddedLightningDamageTwoHand9": {
+        "name": "Electrocuting",
+        "template": "{v0}から{v1}の雷ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:vapourising:LocalAddedLightningDamageTwoHand10": {
+        "name": "Vapourising",
+        "template": "{v0}から{v1}の雷ダメージを追加する"
+      },
+      "crossbows.crossbow:prefix:squire-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating1": {
+        "name": "Squire's",
+        "template": "物理ダメージが{v0}%増加する\n命中力 {v1}"
+      },
+      "crossbows.crossbow:prefix:journeyman-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating2": {
+        "name": "Journeyman's",
+        "template": "物理ダメージが{v0}%増加する\n命中力 {v1}"
+      },
+      "crossbows.crossbow:prefix:reaver-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating3": {
+        "name": "Reaver's",
+        "template": "物理ダメージが{v0}%増加する\n命中力 {v1}"
+      },
+      "crossbows.crossbow:prefix:mercenary-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating4": {
+        "name": "Mercenary's",
+        "template": "物理ダメージが{v0}%増加する\n命中力 {v1}"
+      },
+      "crossbows.crossbow:prefix:champion-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating5": {
+        "name": "Champion's",
+        "template": "物理ダメージが{v0}%増加する\n命中力 {v1}"
+      },
+      "crossbows.crossbow:prefix:conqueror-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating6": {
+        "name": "Conqueror's",
+        "template": "物理ダメージが{v0}%増加する\n命中力 {v1}"
+      },
+      "crossbows.crossbow:prefix:emperor-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating7": {
+        "name": "Emperor's",
+        "template": "物理ダメージが{v0}%増加する\n命中力 {v1}"
+      },
+      "crossbows.crossbow:prefix:dictator-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating8": {
+        "name": "Dictator's",
+        "template": "物理ダメージが{v0}%増加する\n命中力 {v1}"
+      },
+      "crossbows.crossbow:suffix:of-the-fletcher:GlobalProjectileSkillGemLevelTwoHandWeapon2": {
+        "name": "of the Fletcher",
+        "template": "全ての投射物スキルのレベル {v0}"
+      },
+      "crossbows.crossbow:suffix:of-the-sharpshooter:GlobalProjectileSkillGemLevelTwoHandWeapon3": {
+        "name": "of the Sharpshooter",
+        "template": "全ての投射物スキルのレベル {v0}"
+      },
+      "crossbows.crossbow:suffix:of-the-marksman:GlobalProjectileSkillGemLevelTwoHandWeapon4": {
+        "name": "of the Marksman",
+        "template": "全ての投射物スキルのレベル {v0}"
+      },
+      "crossbows.crossbow:suffix:of-the-sniper:GlobalProjectileSkillGemLevelTwoHandWeapon5": {
+        "name": "of the Sniper",
+        "template": "全ての投射物スキルのレベル {v0}"
+      },
+      "crossbows.crossbow:suffix:of-shining:LocalLightRadiusAndAccuracy1": {
+        "name": "of Shining",
+        "template": "命中力 {v0}\n光半径が{v1}%増加する"
+      },
+      "crossbows.crossbow:suffix:of-light:LocalLightRadiusAndAccuracy2": {
+        "name": "of Light",
+        "template": "命中力 {v0}\n光半径が{v1}%増加する"
+      },
+      "crossbows.crossbow:suffix:of-radiance:LocalLightRadiusAndAccuracy3": {
+        "name": "of Radiance",
+        "template": "命中力 {v0}\n光半径が{v1}%増加する"
+      },
+      "crossbows.crossbow:suffix:of-shelling:AdditionalAmmo1": {
+        "name": "of Shelling",
+        "template": "ボルトを追加で1本装填する"
+      },
+      "crossbows.crossbow:suffix:of-bursting:AdditionalAmmo2": {
+        "name": "of Bursting",
+        "template": "ボルトを追加で{v0}本装填する"
+      },
+      "crossbows.crossbow:prefix:catalysing:WeaponElementalDamageOnTwohandWeapon1": {
+        "name": "Catalysing",
+        "template": "アタックスキルによる元素ダメージが{v0}%増加する"
+      },
+      "crossbows.crossbow:prefix:infusing:WeaponElementalDamageOnTwohandWeapon2____": {
+        "name": "Infusing",
+        "template": "アタックスキルによる元素ダメージが{v0}%増加する"
+      },
+      "crossbows.crossbow:prefix:empowering:WeaponElementalDamageOnTwohandWeapon3": {
+        "name": "Empowering",
+        "template": "アタックスキルによる元素ダメージが{v0}%増加する"
+      },
+      "crossbows.crossbow:prefix:unleashed:WeaponElementalDamageOnTwohandWeapon4": {
+        "name": "Unleashed",
+        "template": "アタックスキルによる元素ダメージが{v0}%増加する"
+      },
+      "crossbows.crossbow:prefix:overpowering:WeaponElementalDamageOnTwohandWeapon5": {
+        "name": "Overpowering",
+        "template": "アタックスキルによる元素ダメージが{v0}%増加する"
+      },
+      "crossbows.crossbow:prefix:devastating:WeaponElementalDamageOnTwohandWeapon6": {
+        "name": "Devastating",
+        "template": "アタックスキルによる元素ダメージが{v0}%増加する"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraPhysical2H": {
+        "name": "Perfect Essence of Abrasion",
+        "template": "ダメージの{v0}%を追加物理ダメージとして獲得する"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraFire2H": {
+        "name": "Perfect Essence of Flames",
+        "template": "ダメージの{v0}%を追加火ダメージとして獲得する"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraCold2H": {
+        "name": "Perfect Essence of Ice",
+        "template": "ダメージの{v0}%を追加冷気ダメージとして獲得する"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraLightning2H": {
+        "name": "Perfect Essence of Electricity",
+        "template": "ダメージの{v0}%を追加雷ダメージとして獲得する"
+      },
+      "crossbows.crossbow:suffix:essence:EssenceAttackSkillLevel2H1": {
+        "name": "Perfect Essence of Battle",
+        "template": "全てのアタックスキルのレベル {v0}"
+      },
+      "crossbows.siege-crossbow:implicit:base": {
+        "name": "Siege Crossbow",
+        "template": "グレネードスキルは投射物を追加で1個放つ"
+      },
+      "crossbows.gemini-crossbow.implicit": {
+        "name": "Gemini Crossbow",
+        "template": "ボルトを追加で1本装填する"
+      },
+      "crossbows.elegant-crossbow:implicit:base": {
+        "name": "Elegant Crossbow",
+        "template": "{v0}%の確率で敵を貫通する"
+      },
+      "crossbows.flexed-crossbow:implicit:base": {
+        "name": "Flexed Crossbow",
+        "template": "ボルトのスピードが{v0}%増加する"
       }
     },
     "es": {
@@ -88359,6 +91560,290 @@
       "belts.forking-belt.implicit": {
         "name": "Cinturón bifurcado",
         "template": "Agrega de {v0} a {v1} de daño de rayo a los ataques\nTiene {v2} espacio para vial"
+      },
+      "crossbows.crossbow:prefix:glinting:LocalAddedPhysicalDamageTwoHand1": {
+        "name": "Glinting",
+        "template": "Agrega de {v0} a {v1} de daño físico"
+      },
+      "crossbows.crossbow:prefix:burnished:LocalAddedPhysicalDamageTwoHand2": {
+        "name": "Burnished",
+        "template": "Agrega de {v0} a {v1} de daño físico"
+      },
+      "crossbows.crossbow:prefix:polished:LocalAddedPhysicalDamageTwoHand3": {
+        "name": "Polished",
+        "template": "Agrega de {v0} a {v1} de daño físico"
+      },
+      "crossbows.crossbow:prefix:honed:LocalAddedPhysicalDamageTwoHand4": {
+        "name": "Honed",
+        "template": "Agrega de {v0} a {v1} de daño físico"
+      },
+      "crossbows.crossbow:prefix:gleaming:LocalAddedPhysicalDamageTwoHand5": {
+        "name": "Gleaming",
+        "template": "Agrega de {v0} a {v1} de daño físico"
+      },
+      "crossbows.crossbow:prefix:annealed:LocalAddedPhysicalDamageTwoHand6": {
+        "name": "Annealed",
+        "template": "Agrega de {v0} a {v1} de daño físico"
+      },
+      "crossbows.crossbow:prefix:razor-sharp:LocalAddedPhysicalDamageTwoHand7": {
+        "name": "Razor-sharp",
+        "template": "Agrega de {v0} a {v1} de daño físico"
+      },
+      "crossbows.crossbow:prefix:tempered:LocalAddedPhysicalDamageTwoHand8": {
+        "name": "Tempered",
+        "template": "Agrega de {v0} a {v1} de daño físico"
+      },
+      "crossbows.crossbow:prefix:flaring:LocalAddedPhysicalDamageTwoHand9": {
+        "name": "Flaring",
+        "template": "Agrega de {v0} a {v1} de daño físico"
+      },
+      "crossbows.crossbow:prefix:heated:LocalAddedFireDamageTwoHand1": {
+        "name": "Heated",
+        "template": "Agrega de {v0} a {v1} de daño de fuego"
+      },
+      "crossbows.crossbow:prefix:smouldering:LocalAddedFireDamageTwoHand2": {
+        "name": "Smouldering",
+        "template": "Agrega de {v0} a {v1} de daño de fuego"
+      },
+      "crossbows.crossbow:prefix:smoking:LocalAddedFireDamageTwoHand3": {
+        "name": "Smoking",
+        "template": "Agrega de {v0} a {v1} de daño de fuego"
+      },
+      "crossbows.crossbow:prefix:burning:LocalAddedFireDamageTwoHand4": {
+        "name": "Burning",
+        "template": "Agrega de {v0} a {v1} de daño de fuego"
+      },
+      "crossbows.crossbow:prefix:flaming:LocalAddedFireDamageTwoHand5": {
+        "name": "Flaming",
+        "template": "Agrega de {v0} a {v1} de daño de fuego"
+      },
+      "crossbows.crossbow:prefix:scorching:LocalAddedFireDamageTwoHand6": {
+        "name": "Scorching",
+        "template": "Agrega de {v0} a {v1} de daño de fuego"
+      },
+      "crossbows.crossbow:prefix:incinerating:LocalAddedFireDamageTwoHand7": {
+        "name": "Incinerating",
+        "template": "Agrega de {v0} a {v1} de daño de fuego"
+      },
+      "crossbows.crossbow:prefix:blasting:LocalAddedFireDamageTwoHand8_": {
+        "name": "Blasting",
+        "template": "Agrega de {v0} a {v1} de daño de fuego"
+      },
+      "crossbows.crossbow:prefix:cremating:LocalAddedFireDamageTwoHand9": {
+        "name": "Cremating",
+        "template": "Agrega de {v0} a {v1} de daño de fuego"
+      },
+      "crossbows.crossbow:prefix:carbonising:LocalAddedFireDamageTwoHand10": {
+        "name": "Carbonising",
+        "template": "Agrega de {v0} a {v1} de daño de fuego"
+      },
+      "crossbows.crossbow:prefix:frosted:LocalAddedColdDamageTwoHand1": {
+        "name": "Frosted",
+        "template": "Agrega de {v0} a {v1} de daño de hielo"
+      },
+      "crossbows.crossbow:prefix:chilled:LocalAddedColdDamageTwoHand2": {
+        "name": "Chilled",
+        "template": "Agrega de {v0} a {v1} de daño de hielo"
+      },
+      "crossbows.crossbow:prefix:icy:LocalAddedColdDamageTwoHand3": {
+        "name": "Icy",
+        "template": "Agrega de {v0} a {v1} de daño de hielo"
+      },
+      "crossbows.crossbow:prefix:frigid:LocalAddedColdDamageTwoHand4": {
+        "name": "Frigid",
+        "template": "Agrega de {v0} a {v1} de daño de hielo"
+      },
+      "crossbows.crossbow:prefix:freezing:LocalAddedColdDamageTwoHand5": {
+        "name": "Freezing",
+        "template": "Agrega de {v0} a {v1} de daño de hielo"
+      },
+      "crossbows.crossbow:prefix:frozen:LocalAddedColdDamageTwoHand6": {
+        "name": "Frozen",
+        "template": "Agrega de {v0} a {v1} de daño de hielo"
+      },
+      "crossbows.crossbow:prefix:glaciated:LocalAddedColdDamageTwoHand7": {
+        "name": "Glaciated",
+        "template": "Agrega de {v0} a {v1} de daño de hielo"
+      },
+      "crossbows.crossbow:prefix:polar:LocalAddedColdDamageTwoHand8": {
+        "name": "Polar",
+        "template": "Agrega de {v0} a {v1} de daño de hielo"
+      },
+      "crossbows.crossbow:prefix:entombing:LocalAddedColdDamageTwoHand9": {
+        "name": "Entombing",
+        "template": "Agrega de {v0} a {v1} de daño de hielo"
+      },
+      "crossbows.crossbow:prefix:crystalising:LocalAddedColdDamageTwoHand10": {
+        "name": "Crystalising",
+        "template": "Agrega de {v0} a {v1} de daño de hielo"
+      },
+      "crossbows.crossbow:prefix:humming:LocalAddedLightningDamageTwoHand1_": {
+        "name": "Humming",
+        "template": "Agrega de {v0} a {v1} de daño de rayo"
+      },
+      "crossbows.crossbow:prefix:buzzing:LocalAddedLightningDamageTwoHand2": {
+        "name": "Buzzing",
+        "template": "Agrega de {v0} a {v1} de daño de rayo"
+      },
+      "crossbows.crossbow:prefix:snapping:LocalAddedLightningDamageTwoHand3": {
+        "name": "Snapping",
+        "template": "Agrega de {v0} a {v1} de daño de rayo"
+      },
+      "crossbows.crossbow:prefix:crackling:LocalAddedLightningDamageTwoHand4": {
+        "name": "Crackling",
+        "template": "Agrega de {v0} a {v1} de daño de rayo"
+      },
+      "crossbows.crossbow:prefix:sparking:LocalAddedLightningDamageTwoHand5": {
+        "name": "Sparking",
+        "template": "Agrega de {v0} a {v1} de daño de rayo"
+      },
+      "crossbows.crossbow:prefix:arcing:LocalAddedLightningDamageTwoHand6": {
+        "name": "Arcing",
+        "template": "Agrega de {v0} a {v1} de daño de rayo"
+      },
+      "crossbows.crossbow:prefix:shocking:LocalAddedLightningDamageTwoHand7": {
+        "name": "Shocking",
+        "template": "Agrega de {v0} a {v1} de daño de rayo"
+      },
+      "crossbows.crossbow:prefix:discharging:LocalAddedLightningDamageTwoHand8": {
+        "name": "Discharging",
+        "template": "Agrega de {v0} a {v1} de daño de rayo"
+      },
+      "crossbows.crossbow:prefix:electrocuting:LocalAddedLightningDamageTwoHand9": {
+        "name": "Electrocuting",
+        "template": "Agrega de {v0} a {v1} de daño de rayo"
+      },
+      "crossbows.crossbow:prefix:vapourising:LocalAddedLightningDamageTwoHand10": {
+        "name": "Vapourising",
+        "template": "Agrega de {v0} a {v1} de daño de rayo"
+      },
+      "crossbows.crossbow:prefix:squire-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating1": {
+        "name": "Squire's",
+        "template": "Daño físico aumentado un {v0}%\n{v1} a la precisión"
+      },
+      "crossbows.crossbow:prefix:journeyman-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating2": {
+        "name": "Journeyman's",
+        "template": "Daño físico aumentado un {v0}%\n{v1} a la precisión"
+      },
+      "crossbows.crossbow:prefix:reaver-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating3": {
+        "name": "Reaver's",
+        "template": "Daño físico aumentado un {v0}%\n{v1} a la precisión"
+      },
+      "crossbows.crossbow:prefix:mercenary-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating4": {
+        "name": "Mercenary's",
+        "template": "Daño físico aumentado un {v0}%\n{v1} a la precisión"
+      },
+      "crossbows.crossbow:prefix:champion-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating5": {
+        "name": "Champion's",
+        "template": "Daño físico aumentado un {v0}%\n{v1} a la precisión"
+      },
+      "crossbows.crossbow:prefix:conqueror-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating6": {
+        "name": "Conqueror's",
+        "template": "Daño físico aumentado un {v0}%\n{v1} a la precisión"
+      },
+      "crossbows.crossbow:prefix:emperor-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating7": {
+        "name": "Emperor's",
+        "template": "Daño físico aumentado un {v0}%\n{v1} a la precisión"
+      },
+      "crossbows.crossbow:prefix:dictator-s:LocalIncreasedPhysicalDamagePercentAndAccuracyRating8": {
+        "name": "Dictator's",
+        "template": "Daño físico aumentado un {v0}%\n{v1} a la precisión"
+      },
+      "crossbows.crossbow:suffix:of-the-fletcher:GlobalProjectileSkillGemLevelTwoHandWeapon2": {
+        "name": "of the Fletcher",
+        "template": "{v0} al nivel de todas las habilidades de proyectiles"
+      },
+      "crossbows.crossbow:suffix:of-the-sharpshooter:GlobalProjectileSkillGemLevelTwoHandWeapon3": {
+        "name": "of the Sharpshooter",
+        "template": "{v0} al nivel de todas las habilidades de proyectiles"
+      },
+      "crossbows.crossbow:suffix:of-the-marksman:GlobalProjectileSkillGemLevelTwoHandWeapon4": {
+        "name": "of the Marksman",
+        "template": "{v0} al nivel de todas las habilidades de proyectiles"
+      },
+      "crossbows.crossbow:suffix:of-the-sniper:GlobalProjectileSkillGemLevelTwoHandWeapon5": {
+        "name": "of the Sniper",
+        "template": "{v0} al nivel de todas las habilidades de proyectiles"
+      },
+      "crossbows.crossbow:suffix:of-shining:LocalLightRadiusAndAccuracy1": {
+        "name": "of Shining",
+        "template": "{v0} a la precisión\nRadio de iluminación aumentado un {v1}%"
+      },
+      "crossbows.crossbow:suffix:of-light:LocalLightRadiusAndAccuracy2": {
+        "name": "of Light",
+        "template": "{v0} a la precisión\nRadio de iluminación aumentado un {v1}%"
+      },
+      "crossbows.crossbow:suffix:of-radiance:LocalLightRadiusAndAccuracy3": {
+        "name": "of Radiance",
+        "template": "{v0} a la precisión\nRadio de iluminación aumentado un {v1}%"
+      },
+      "crossbows.crossbow:suffix:of-shelling:AdditionalAmmo1": {
+        "name": "of Shelling",
+        "template": "Carga una saeta adicional"
+      },
+      "crossbows.crossbow:suffix:of-bursting:AdditionalAmmo2": {
+        "name": "of Bursting",
+        "template": "Carga {v0} saetas adicionales"
+      },
+      "crossbows.crossbow:prefix:catalysing:WeaponElementalDamageOnTwohandWeapon1": {
+        "name": "Catalysing",
+        "template": "Daño elemental aumentado un {v0}% con habilidades de ataque"
+      },
+      "crossbows.crossbow:prefix:infusing:WeaponElementalDamageOnTwohandWeapon2____": {
+        "name": "Infusing",
+        "template": "Daño elemental aumentado un {v0}% con habilidades de ataque"
+      },
+      "crossbows.crossbow:prefix:empowering:WeaponElementalDamageOnTwohandWeapon3": {
+        "name": "Empowering",
+        "template": "Daño elemental aumentado un {v0}% con habilidades de ataque"
+      },
+      "crossbows.crossbow:prefix:unleashed:WeaponElementalDamageOnTwohandWeapon4": {
+        "name": "Unleashed",
+        "template": "Daño elemental aumentado un {v0}% con habilidades de ataque"
+      },
+      "crossbows.crossbow:prefix:overpowering:WeaponElementalDamageOnTwohandWeapon5": {
+        "name": "Overpowering",
+        "template": "Daño elemental aumentado un {v0}% con habilidades de ataque"
+      },
+      "crossbows.crossbow:prefix:devastating:WeaponElementalDamageOnTwohandWeapon6": {
+        "name": "Devastating",
+        "template": "Daño elemental aumentado un {v0}% con habilidades de ataque"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraPhysical2H": {
+        "name": "Perfect Essence of Abrasion",
+        "template": "Ganas el {v0}% del daño como daño físico extra"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraFire2H": {
+        "name": "Perfect Essence of Flames",
+        "template": "Ganas el {v0}% del daño como daño de fuego extra"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraCold2H": {
+        "name": "Perfect Essence of Ice",
+        "template": "Ganas el {v0}% del daño como daño de hielo extra"
+      },
+      "crossbows.crossbow:prefix:essence:EssenceDamageasExtraLightning2H": {
+        "name": "Perfect Essence of Electricity",
+        "template": "Ganas el {v0}% del daño como daño de rayo extra"
+      },
+      "crossbows.crossbow:suffix:essence:EssenceAttackSkillLevel2H1": {
+        "name": "Perfect Essence of Battle",
+        "template": "{v0} al nivel de todas las habilidades de ataque"
+      },
+      "crossbows.siege-crossbow:implicit:base": {
+        "name": "Siege Crossbow",
+        "template": "Las habilidades de granadas disparan un proyectil adicional"
+      },
+      "crossbows.gemini-crossbow.implicit": {
+        "name": "Gemini Crossbow",
+        "template": "Carga una saeta adicional"
+      },
+      "crossbows.elegant-crossbow:implicit:base": {
+        "name": "Elegant Crossbow",
+        "template": "{v0}% de probabilidad de perforar a un enemigo"
+      },
+      "crossbows.flexed-crossbow:implicit:base": {
+        "name": "Flexed Crossbow",
+        "template": "Velocidad de las saetas aumentada un {v0}%"
       }
     }
   }

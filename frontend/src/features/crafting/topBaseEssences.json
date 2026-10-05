@@ -2737,5 +2737,491 @@
       ],
       "ESSENCE_HYSTERIA": ["belt:suffix:essence-hysteria-stun-threshold"]
     }
+  },
+  "siege-crossbow": {
+    "fixed": {
+      "LESSER_ESSENCE_ABRASION": [
+        "crossbow:prefix:burnished:LocalAddedPhysicalDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_FLAMES": [
+        "crossbow:prefix:smouldering:LocalAddedFireDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_ICE": [
+        "crossbow:prefix:chilled:LocalAddedColdDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:buzzing:LocalAddedLightningDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_BATTLE": ["crude-bow:prefix:focused"],
+      "LESSER_ESSENCE_HASTE": ["crude-bow:suffix:of-ease"],
+      "LESSER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-wrestler",
+        "stocky-mitts:suffix:of-the-lynx"
+      ],
+      "ESSENCE_ABRASION": [
+        "crossbow:prefix:gleaming:LocalAddedPhysicalDamageTwoHand5"
+      ],
+      "ESSENCE_FLAMES": [
+        "crossbow:prefix:flaming:LocalAddedFireDamageTwoHand5"
+      ],
+      "ESSENCE_ICE": ["crossbow:prefix:freezing:LocalAddedColdDamageTwoHand5"],
+      "ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:sparking:LocalAddedLightningDamageTwoHand5"
+      ],
+      "ESSENCE_BATTLE": ["crude-bow:prefix:consistent"],
+      "ESSENCE_HASTE": ["crude-bow:suffix:of-mastery"],
+      "ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-lion",
+        "stocky-mitts:suffix:of-the-falcon"
+      ],
+      "GREATER_ESSENCE_ABRASION": [
+        "crossbow:prefix:razor-sharp:LocalAddedPhysicalDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_FLAMES": [
+        "crossbow:prefix:incinerating:LocalAddedFireDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_ICE": [
+        "crossbow:prefix:glaciated:LocalAddedColdDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:shocking:LocalAddedLightningDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_BATTLE": ["crude-bow:prefix:hunter-s"],
+      "GREATER_ESSENCE_HASTE": ["crude-bow:suffix:of-renown"],
+      "GREATER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-goliath",
+        "stocky-mitts:suffix:of-the-leopard"
+      ],
+      "LESSER_ESSENCE_SEEKING": ["crude-bow:suffix:of-havoc"],
+      "ESSENCE_SEEKING": ["crude-bow:suffix:of-disaster"],
+      "GREATER_ESSENCE_SEEKING": ["crude-bow:suffix:of-calamity"]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_ABRASION": [
+        "crossbow:prefix:essence:EssenceDamageasExtraPhysical2H"
+      ],
+      "PERFECT_ESSENCE_FLAMES": [
+        "crossbow:prefix:essence:EssenceDamageasExtraFire2H"
+      ],
+      "PERFECT_ESSENCE_ICE": [
+        "crossbow:prefix:essence:EssenceDamageasExtraCold2H"
+      ],
+      "PERFECT_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:essence:EssenceDamageasExtraLightning2H"
+      ],
+      "PERFECT_ESSENCE_BATTLE": [
+        "crossbow:suffix:essence:EssenceAttackSkillLevel2H1"
+      ],
+      "PERFECT_ESSENCE_HASTE": ["crude-bow:suffix:essence-onslaught-on-kill"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    }
+  },
+  "gemini-crossbow": {
+    "fixed": {
+      "LESSER_ESSENCE_ABRASION": [
+        "crossbow:prefix:burnished:LocalAddedPhysicalDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_FLAMES": [
+        "crossbow:prefix:smouldering:LocalAddedFireDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_ICE": [
+        "crossbow:prefix:chilled:LocalAddedColdDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:buzzing:LocalAddedLightningDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_BATTLE": ["crude-bow:prefix:focused"],
+      "LESSER_ESSENCE_HASTE": ["crude-bow:suffix:of-ease"],
+      "LESSER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-wrestler",
+        "stocky-mitts:suffix:of-the-lynx"
+      ],
+      "ESSENCE_ABRASION": [
+        "crossbow:prefix:gleaming:LocalAddedPhysicalDamageTwoHand5"
+      ],
+      "ESSENCE_FLAMES": [
+        "crossbow:prefix:flaming:LocalAddedFireDamageTwoHand5"
+      ],
+      "ESSENCE_ICE": ["crossbow:prefix:freezing:LocalAddedColdDamageTwoHand5"],
+      "ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:sparking:LocalAddedLightningDamageTwoHand5"
+      ],
+      "ESSENCE_BATTLE": ["crude-bow:prefix:consistent"],
+      "ESSENCE_HASTE": ["crude-bow:suffix:of-mastery"],
+      "ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-lion",
+        "stocky-mitts:suffix:of-the-falcon"
+      ],
+      "GREATER_ESSENCE_ABRASION": [
+        "crossbow:prefix:razor-sharp:LocalAddedPhysicalDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_FLAMES": [
+        "crossbow:prefix:incinerating:LocalAddedFireDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_ICE": [
+        "crossbow:prefix:glaciated:LocalAddedColdDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:shocking:LocalAddedLightningDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_BATTLE": ["crude-bow:prefix:hunter-s"],
+      "GREATER_ESSENCE_HASTE": ["crude-bow:suffix:of-renown"],
+      "GREATER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-goliath",
+        "stocky-mitts:suffix:of-the-leopard"
+      ],
+      "LESSER_ESSENCE_SEEKING": ["crude-bow:suffix:of-havoc"],
+      "ESSENCE_SEEKING": ["crude-bow:suffix:of-disaster"],
+      "GREATER_ESSENCE_SEEKING": ["crude-bow:suffix:of-calamity"]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_ABRASION": [
+        "crossbow:prefix:essence:EssenceDamageasExtraPhysical2H"
+      ],
+      "PERFECT_ESSENCE_FLAMES": [
+        "crossbow:prefix:essence:EssenceDamageasExtraFire2H"
+      ],
+      "PERFECT_ESSENCE_ICE": [
+        "crossbow:prefix:essence:EssenceDamageasExtraCold2H"
+      ],
+      "PERFECT_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:essence:EssenceDamageasExtraLightning2H"
+      ],
+      "PERFECT_ESSENCE_BATTLE": [
+        "crossbow:suffix:essence:EssenceAttackSkillLevel2H1"
+      ],
+      "PERFECT_ESSENCE_HASTE": ["crude-bow:suffix:essence-onslaught-on-kill"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    }
+  },
+  "elegant-crossbow": {
+    "fixed": {
+      "LESSER_ESSENCE_ABRASION": [
+        "crossbow:prefix:burnished:LocalAddedPhysicalDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_FLAMES": [
+        "crossbow:prefix:smouldering:LocalAddedFireDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_ICE": [
+        "crossbow:prefix:chilled:LocalAddedColdDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:buzzing:LocalAddedLightningDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_BATTLE": ["crude-bow:prefix:focused"],
+      "LESSER_ESSENCE_HASTE": ["crude-bow:suffix:of-ease"],
+      "LESSER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-wrestler",
+        "stocky-mitts:suffix:of-the-lynx"
+      ],
+      "ESSENCE_ABRASION": [
+        "crossbow:prefix:gleaming:LocalAddedPhysicalDamageTwoHand5"
+      ],
+      "ESSENCE_FLAMES": [
+        "crossbow:prefix:flaming:LocalAddedFireDamageTwoHand5"
+      ],
+      "ESSENCE_ICE": ["crossbow:prefix:freezing:LocalAddedColdDamageTwoHand5"],
+      "ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:sparking:LocalAddedLightningDamageTwoHand5"
+      ],
+      "ESSENCE_BATTLE": ["crude-bow:prefix:consistent"],
+      "ESSENCE_HASTE": ["crude-bow:suffix:of-mastery"],
+      "ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-lion",
+        "stocky-mitts:suffix:of-the-falcon"
+      ],
+      "GREATER_ESSENCE_ABRASION": [
+        "crossbow:prefix:razor-sharp:LocalAddedPhysicalDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_FLAMES": [
+        "crossbow:prefix:incinerating:LocalAddedFireDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_ICE": [
+        "crossbow:prefix:glaciated:LocalAddedColdDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:shocking:LocalAddedLightningDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_BATTLE": ["crude-bow:prefix:hunter-s"],
+      "GREATER_ESSENCE_HASTE": ["crude-bow:suffix:of-renown"],
+      "GREATER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-goliath",
+        "stocky-mitts:suffix:of-the-leopard"
+      ],
+      "LESSER_ESSENCE_SEEKING": ["crude-bow:suffix:of-havoc"],
+      "ESSENCE_SEEKING": ["crude-bow:suffix:of-disaster"],
+      "GREATER_ESSENCE_SEEKING": ["crude-bow:suffix:of-calamity"]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_ABRASION": [
+        "crossbow:prefix:essence:EssenceDamageasExtraPhysical2H"
+      ],
+      "PERFECT_ESSENCE_FLAMES": [
+        "crossbow:prefix:essence:EssenceDamageasExtraFire2H"
+      ],
+      "PERFECT_ESSENCE_ICE": [
+        "crossbow:prefix:essence:EssenceDamageasExtraCold2H"
+      ],
+      "PERFECT_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:essence:EssenceDamageasExtraLightning2H"
+      ],
+      "PERFECT_ESSENCE_BATTLE": [
+        "crossbow:suffix:essence:EssenceAttackSkillLevel2H1"
+      ],
+      "PERFECT_ESSENCE_HASTE": ["crude-bow:suffix:essence-onslaught-on-kill"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    }
+  },
+  "flexed-crossbow": {
+    "fixed": {
+      "LESSER_ESSENCE_ABRASION": [
+        "crossbow:prefix:burnished:LocalAddedPhysicalDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_FLAMES": [
+        "crossbow:prefix:smouldering:LocalAddedFireDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_ICE": [
+        "crossbow:prefix:chilled:LocalAddedColdDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:buzzing:LocalAddedLightningDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_BATTLE": ["crude-bow:prefix:focused"],
+      "LESSER_ESSENCE_HASTE": ["crude-bow:suffix:of-ease"],
+      "LESSER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-wrestler",
+        "stocky-mitts:suffix:of-the-lynx"
+      ],
+      "ESSENCE_ABRASION": [
+        "crossbow:prefix:gleaming:LocalAddedPhysicalDamageTwoHand5"
+      ],
+      "ESSENCE_FLAMES": [
+        "crossbow:prefix:flaming:LocalAddedFireDamageTwoHand5"
+      ],
+      "ESSENCE_ICE": ["crossbow:prefix:freezing:LocalAddedColdDamageTwoHand5"],
+      "ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:sparking:LocalAddedLightningDamageTwoHand5"
+      ],
+      "ESSENCE_BATTLE": ["crude-bow:prefix:consistent"],
+      "ESSENCE_HASTE": ["crude-bow:suffix:of-mastery"],
+      "ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-lion",
+        "stocky-mitts:suffix:of-the-falcon"
+      ],
+      "GREATER_ESSENCE_ABRASION": [
+        "crossbow:prefix:razor-sharp:LocalAddedPhysicalDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_FLAMES": [
+        "crossbow:prefix:incinerating:LocalAddedFireDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_ICE": [
+        "crossbow:prefix:glaciated:LocalAddedColdDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:shocking:LocalAddedLightningDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_BATTLE": ["crude-bow:prefix:hunter-s"],
+      "GREATER_ESSENCE_HASTE": ["crude-bow:suffix:of-renown"],
+      "GREATER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-goliath",
+        "stocky-mitts:suffix:of-the-leopard"
+      ],
+      "LESSER_ESSENCE_SEEKING": ["crude-bow:suffix:of-havoc"],
+      "ESSENCE_SEEKING": ["crude-bow:suffix:of-disaster"],
+      "GREATER_ESSENCE_SEEKING": ["crude-bow:suffix:of-calamity"]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_ABRASION": [
+        "crossbow:prefix:essence:EssenceDamageasExtraPhysical2H"
+      ],
+      "PERFECT_ESSENCE_FLAMES": [
+        "crossbow:prefix:essence:EssenceDamageasExtraFire2H"
+      ],
+      "PERFECT_ESSENCE_ICE": [
+        "crossbow:prefix:essence:EssenceDamageasExtraCold2H"
+      ],
+      "PERFECT_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:essence:EssenceDamageasExtraLightning2H"
+      ],
+      "PERFECT_ESSENCE_BATTLE": [
+        "crossbow:suffix:essence:EssenceAttackSkillLevel2H1"
+      ],
+      "PERFECT_ESSENCE_HASTE": ["crude-bow:suffix:essence-onslaught-on-kill"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    }
+  },
+  "desolate-crossbow": {
+    "fixed": {
+      "LESSER_ESSENCE_ABRASION": [
+        "crossbow:prefix:burnished:LocalAddedPhysicalDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_FLAMES": [
+        "crossbow:prefix:smouldering:LocalAddedFireDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_ICE": [
+        "crossbow:prefix:chilled:LocalAddedColdDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:buzzing:LocalAddedLightningDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_BATTLE": ["crude-bow:prefix:focused"],
+      "LESSER_ESSENCE_HASTE": ["crude-bow:suffix:of-ease"],
+      "LESSER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-wrestler",
+        "stocky-mitts:suffix:of-the-lynx"
+      ],
+      "ESSENCE_ABRASION": [
+        "crossbow:prefix:gleaming:LocalAddedPhysicalDamageTwoHand5"
+      ],
+      "ESSENCE_FLAMES": [
+        "crossbow:prefix:flaming:LocalAddedFireDamageTwoHand5"
+      ],
+      "ESSENCE_ICE": ["crossbow:prefix:freezing:LocalAddedColdDamageTwoHand5"],
+      "ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:sparking:LocalAddedLightningDamageTwoHand5"
+      ],
+      "ESSENCE_BATTLE": ["crude-bow:prefix:consistent"],
+      "ESSENCE_HASTE": ["crude-bow:suffix:of-mastery"],
+      "ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-lion",
+        "stocky-mitts:suffix:of-the-falcon"
+      ],
+      "GREATER_ESSENCE_ABRASION": [
+        "crossbow:prefix:razor-sharp:LocalAddedPhysicalDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_FLAMES": [
+        "crossbow:prefix:incinerating:LocalAddedFireDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_ICE": [
+        "crossbow:prefix:glaciated:LocalAddedColdDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:shocking:LocalAddedLightningDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_BATTLE": ["crude-bow:prefix:hunter-s"],
+      "GREATER_ESSENCE_HASTE": ["crude-bow:suffix:of-renown"],
+      "GREATER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-goliath",
+        "stocky-mitts:suffix:of-the-leopard"
+      ],
+      "LESSER_ESSENCE_SEEKING": ["crude-bow:suffix:of-havoc"],
+      "ESSENCE_SEEKING": ["crude-bow:suffix:of-disaster"],
+      "GREATER_ESSENCE_SEEKING": ["crude-bow:suffix:of-calamity"]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_ABRASION": [
+        "crossbow:prefix:essence:EssenceDamageasExtraPhysical2H"
+      ],
+      "PERFECT_ESSENCE_FLAMES": [
+        "crossbow:prefix:essence:EssenceDamageasExtraFire2H"
+      ],
+      "PERFECT_ESSENCE_ICE": [
+        "crossbow:prefix:essence:EssenceDamageasExtraCold2H"
+      ],
+      "PERFECT_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:essence:EssenceDamageasExtraLightning2H"
+      ],
+      "PERFECT_ESSENCE_BATTLE": [
+        "crossbow:suffix:essence:EssenceAttackSkillLevel2H1"
+      ],
+      "PERFECT_ESSENCE_HASTE": ["crude-bow:suffix:essence-onslaught-on-kill"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    }
+  },
+  "engraved-crossbow": {
+    "fixed": {
+      "LESSER_ESSENCE_ABRASION": [
+        "crossbow:prefix:burnished:LocalAddedPhysicalDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_FLAMES": [
+        "crossbow:prefix:smouldering:LocalAddedFireDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_ICE": [
+        "crossbow:prefix:chilled:LocalAddedColdDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:buzzing:LocalAddedLightningDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_BATTLE": ["crude-bow:prefix:focused"],
+      "LESSER_ESSENCE_HASTE": ["crude-bow:suffix:of-ease"],
+      "LESSER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-wrestler",
+        "stocky-mitts:suffix:of-the-lynx"
+      ],
+      "ESSENCE_ABRASION": [
+        "crossbow:prefix:gleaming:LocalAddedPhysicalDamageTwoHand5"
+      ],
+      "ESSENCE_FLAMES": [
+        "crossbow:prefix:flaming:LocalAddedFireDamageTwoHand5"
+      ],
+      "ESSENCE_ICE": ["crossbow:prefix:freezing:LocalAddedColdDamageTwoHand5"],
+      "ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:sparking:LocalAddedLightningDamageTwoHand5"
+      ],
+      "ESSENCE_BATTLE": ["crude-bow:prefix:consistent"],
+      "ESSENCE_HASTE": ["crude-bow:suffix:of-mastery"],
+      "ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-lion",
+        "stocky-mitts:suffix:of-the-falcon"
+      ],
+      "GREATER_ESSENCE_ABRASION": [
+        "crossbow:prefix:razor-sharp:LocalAddedPhysicalDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_FLAMES": [
+        "crossbow:prefix:incinerating:LocalAddedFireDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_ICE": [
+        "crossbow:prefix:glaciated:LocalAddedColdDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:shocking:LocalAddedLightningDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_BATTLE": ["crude-bow:prefix:hunter-s"],
+      "GREATER_ESSENCE_HASTE": ["crude-bow:suffix:of-renown"],
+      "GREATER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-goliath",
+        "stocky-mitts:suffix:of-the-leopard"
+      ],
+      "LESSER_ESSENCE_SEEKING": ["crude-bow:suffix:of-havoc"],
+      "ESSENCE_SEEKING": ["crude-bow:suffix:of-disaster"],
+      "GREATER_ESSENCE_SEEKING": ["crude-bow:suffix:of-calamity"]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_ABRASION": [
+        "crossbow:prefix:essence:EssenceDamageasExtraPhysical2H"
+      ],
+      "PERFECT_ESSENCE_FLAMES": [
+        "crossbow:prefix:essence:EssenceDamageasExtraFire2H"
+      ],
+      "PERFECT_ESSENCE_ICE": [
+        "crossbow:prefix:essence:EssenceDamageasExtraCold2H"
+      ],
+      "PERFECT_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:essence:EssenceDamageasExtraLightning2H"
+      ],
+      "PERFECT_ESSENCE_BATTLE": [
+        "crossbow:suffix:essence:EssenceAttackSkillLevel2H1"
+      ],
+      "PERFECT_ESSENCE_HASTE": ["crude-bow:suffix:essence-onslaught-on-kill"],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    }
   }
 }
