@@ -1,0 +1,85 @@
+{
+  "page": "Quivers",
+  "url": "https://poe2db.tw/us/Quivers",
+  "retrievedAt": "2026-10-05T01:38:21.720Z",
+  "sha256": "4896be85daf329849502c98ecf7b66fb1dee43419d21390fbf3a1b89865f97ab",
+  "cards": [
+    {
+      "slug": "Broadhead_Quiver",
+      "card": "Broadhead QuiverAdds 1 to 3 Physical Damage to Attacks"
+    },
+    {
+      "slug": "Fire_Quiver",
+      "card": "Fire QuiverRequires:  Level 8Adds 3 to 5 Fire damage to Attacks"
+    },
+    {
+      "slug": "Sacral_Quiver",
+      "card": "Sacral QuiverRequires:  Level 16Gain (2—3) Life per Enemy Hit with Attacks"
+    },
+    {
+      "slug": "Two-Point_Quiver",
+      "card": "Two-Point QuiverRequires:  Level 24(20—30)% increased Accuracy Rating"
+    },
+    {
+      "slug": "Blunt_Quiver",
+      "card": "Blunt QuiverRequires:  Level 33(25—40)% increased Stun Buildup"
+    },
+    {
+      "slug": "Toxic_Quiver",
+      "card": "Toxic QuiverRequires:  Level 39(20—30)% chance to Poison on Hit with Attacks"
+    },
+    {
+      "slug": "Serrated_Quiver",
+      "card": "Serrated QuiverRequires:  Level 44Attacks have (20—30)% chance to cause Bleeding"
+    },
+    {
+      "slug": "Primed_Quiver",
+      "card": "Primed QuiverRequires:  Level 51(7—10)% increased Attack Speed"
+    },
+    {
+      "slug": "Penetrating_Quiver",
+      "card": "Penetrating QuiverRequires:  Level 55100% chance to Pierce an Enemy"
+    },
+    {
+      "slug": "Volant_Quiver",
+      "card": "Volant QuiverRequires:  Level 61(20—30)% increased Arrow Speed"
+    },
+    {
+      "slug": "Visceral_Quiver",
+      "card": "Visceral QuiverRequires:  Level 65(20—30)% increased Critical Hit Chance for Attacks"
+    }
+  ],
+  "highestRequirementCandidates": [
+    {
+      "slug": "Penetrating_Quiver",
+      "card": "Penetrating QuiverRequires:  Level 55100% chance to Pierce an Enemy",
+      "requiredLevel": 55100
+    },
+    {
+      "slug": "Visceral_Quiver",
+      "card": "Visceral QuiverRequires:  Level 65(20—30)% increased Critical Hit Chance for Attacks",
+      "requiredLevel": 65
+    },
+    {
+      "slug": "Volant_Quiver",
+      "card": "Volant QuiverRequires:  Level 61(20—30)% increased Arrow Speed",
+      "requiredLevel": 61
+    },
+    {
+      "slug": "Primed_Quiver",
+      "card": "Primed QuiverRequires:  Level 51(7—10)% increased Attack Speed",
+      "requiredLevel": 51
+    },
+    {
+      "slug": "Serrated_Quiver",
+      "card": "Serrated QuiverRequires:  Level 44Attacks have (20—30)% chance to cause Bleeding",
+      "requiredLevel": 44
+    },
+    {
+      "slug": "Toxic_Quiver",
+      "card": "Toxic QuiverRequires:  Level 39(20—30)% chance to Poison on Hit with Attacks",
+      "requiredLevel": 39
+    }
+  ],
+  "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+}

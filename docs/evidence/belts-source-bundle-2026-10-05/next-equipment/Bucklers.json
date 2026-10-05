@@ -1,0 +1,249 @@
+{
+  "page": "Bucklers",
+  "url": "https://poe2db.tw/us/Bucklers",
+  "retrievedAt": "2026-10-05T01:38:20.720Z",
+  "sha256": "98cdb5aaf03900bba602e3bfa8a003af423d25467d9385dfad345a4e655ffed3",
+  "cards": [
+    {
+      "slug": "Leather_Buckler",
+      "card": "Leather BucklerBlock chance: 20%Evasion Rating: 10 Grants Skill: Parry"
+    },
+    {
+      "slug": "Wooden_Buckler",
+      "card": "Wooden BucklerBlock chance: 20%Evasion Rating: 18Requires:  Level 5, 10 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Plated_Buckler",
+      "card": "Plated BucklerBlock chance: 20%Evasion Rating: 31Requires:  Level 11, 18 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Iron_Buckler",
+      "card": "Iron BucklerBlock chance: 20%Evasion Rating: 42Requires:  Level 16, 25 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Ridged_Buckler",
+      "card": "Ridged BucklerBlock chance: 20%Evasion Rating: 55Requires:  Level 22, 33 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Spiked_Buckler",
+      "card": "Spiked BucklerBlock chance: 20%Evasion Rating: 64Requires:  Level 26, 38 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Ringed_Buckler",
+      "card": "Ringed BucklerBlock chance: 20%Evasion Rating: 79Requires:  Level 33, 48 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Edged_Buckler",
+      "card": "Edged BucklerBlock chance: 20%Evasion Rating: 92Requires:  Level 39, 56 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Laminate_Buckler",
+      "card": "Laminate BucklerBlock chance: 20%Evasion Rating: 105Requires:  Level 45, 64 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Pearl_Buckler",
+      "card": "Pearl BucklerBlock chance: 20%Evasion Rating: 116Requires:  Level 50, 71 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Ornate_Buckler",
+      "card": "Ornate BucklerBlock chance: 20%Evasion Rating: 120Requires:  Level 52, 74 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Array_Buckler",
+      "card": "Array BucklerBlock chance: 20%Evasion Rating: 126Requires:  Level 55, 78 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Aegis_Buckler",
+      "card": "Aegis BucklerBlock chance: 20%Evasion Rating: 148Requires:  Level 65, 91 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Oak_Buckler",
+      "card": "Oak BucklerBlock chance: 20%Evasion Rating: 105Requires:  Level 45, 64 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Painted_Buckler",
+      "card": "Painted BucklerBlock chance: 20%Evasion Rating: 111Requires:  Level 48, 69 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Coiled_Buckler",
+      "card": "Coiled BucklerBlock chance: 20%Evasion Rating: 118Requires:  Level 51, 73 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Spikeward_Buckler",
+      "card": "Spikeward BucklerBlock chance: 20%Evasion Rating: 124Requires:  Level 54, 77 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Jingling_Buckler",
+      "card": "Jingling BucklerBlock chance: 20%Evasion Rating: 135Requires:  Level 59, 83 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Bladeguard_Buckler",
+      "card": "Bladeguard BucklerBlock chance: 20%Evasion Rating: 139Requires:  Level 61, 86 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Ornate_Buckler",
+      "card": "Ornate BucklerBlock chance: 20%Evasion Rating: 148Requires:  Level 65, 91 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Gutspike_Buckler",
+      "card": "Gutspike BucklerBlock chance: 20%Evasion Rating: 163Requires:  Level 70, 99 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Ancient_Buckler",
+      "card": "Ancient BucklerBlock chance: 20%Evasion Rating: 178Requires:  Level 75, 107 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Desert_Buckler",
+      "card": "Desert BucklerBlock chance: 20%Evasion Rating: 192Requires:  Level 80, 115 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runeforged_Leather_Buckler",
+      "card": "Runeforged Leather BucklerBlock chance: 20%Evasion Rating: 10Runic Ward: 10 Grants Skill: Parry"
+    },
+    {
+      "slug": "Runeforged_Wooden_Buckler",
+      "card": "Runeforged Wooden BucklerBlock chance: 20%Evasion Rating: 18Runic Ward: 11Requires:  Level 5, 10 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runeforged_Plated_Buckler",
+      "card": "Runeforged Plated BucklerBlock chance: 20%Evasion Rating: 31Runic Ward: 14Requires:  Level 11, 18 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runeforged_Iron_Buckler",
+      "card": "Runeforged Iron BucklerBlock chance: 20%Evasion Rating: 42Runic Ward: 17Requires:  Level 16, 25 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runeforged_Ridged_Buckler",
+      "card": "Runeforged Ridged BucklerBlock chance: 20%Evasion Rating: 55Runic Ward: 21Requires:  Level 22, 33 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runeforged_Spiked_Buckler",
+      "card": "Runeforged Spiked BucklerBlock chance: 20%Evasion Rating: 64Runic Ward: 20Requires:  Level 26, 38 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runeforged_Ringed_Buckler",
+      "card": "Runeforged Ringed BucklerBlock chance: 20%Evasion Rating: 79Runic Ward: 24Requires:  Level 33, 48 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runeforged_Edged_Buckler",
+      "card": "Runeforged Edged BucklerBlock chance: 20%Evasion Rating: 92Runic Ward: 28Requires:  Level 39, 56 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runeforged_Laminate_Buckler",
+      "card": "Runeforged Laminate BucklerBlock chance: 20%Evasion Rating: 105Runic Ward: 29Requires:  Level 45, 64 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runeforged_Pearl_Buckler",
+      "card": "Runeforged Pearl BucklerBlock chance: 20%Evasion Rating: 116Runic Ward: 29Requires:  Level 50, 71 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runeforged_Ornate_Buckler",
+      "card": "Runeforged Ornate BucklerBlock chance: 20%Runic Ward: 117Requires:  Level 52, 74 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runeforged_Array_Buckler",
+      "card": "Runeforged Array BucklerBlock chance: 20%Runic Ward: 122Requires:  Level 55, 78 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runeforged_Aegis_Buckler",
+      "card": "Runeforged Aegis BucklerBlock chance: 20%Runic Ward: 141Requires:  Level 65, 91 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runeforged_Spikeward_Buckler",
+      "card": "Runeforged Spikeward BucklerBlock chance: 20%Evasion Rating: 104Runic Ward: 42Requires:  Level 54, 77 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runeforged_Jingling_Buckler",
+      "card": "Runeforged Jingling BucklerBlock chance: 20%Evasion Rating: 124Runic Ward: 32Requires:  Level 59, 83 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runeforged_Bladeguard_Buckler",
+      "card": "Runeforged Bladeguard BucklerBlock chance: 20%Evasion Rating: 111Runic Ward: 47Requires:  Level 61, 86 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runeforged_Ornate_Buckler",
+      "card": "Runeforged Ornate BucklerBlock chance: 20%Evasion Rating: 141Runic Ward: 35Requires:  Level 65, 91 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runeforged_Gutspike_Buckler",
+      "card": "Runeforged Gutspike BucklerBlock chance: 20%Evasion Rating: 114Runic Ward: 85Requires:  Level 70, 99 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runeforged_Ancient_Buckler",
+      "card": "Runeforged Ancient BucklerBlock chance: 20%Evasion Rating: 155Runic Ward: 35Requires:  Level 75, 107 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runeforged_Desert_Buckler",
+      "card": "Runeforged Desert BucklerBlock chance: 20%Evasion Rating: 87Runic Ward: 134Requires:  Level 80, 115 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runemastered_Leather_Buckler",
+      "card": "Runemastered Leather BucklerBlock chance: 20%Evasion Rating: 108Runic Ward: 36Requires:  Level 38, 54 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runemastered_Wooden_Buckler",
+      "card": "Runemastered Wooden BucklerBlock chance: 20%Evasion Rating: 90Runic Ward: 18Requires:  Level 38, 54 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runemastered_Plated_Buckler",
+      "card": "Runemastered Plated BucklerBlock chance: 20%Evasion Rating: 67Runic Ward: 23Requires:  Level 38, 54 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runemastered_Iron_Buckler",
+      "card": "Runemastered Iron BucklerBlock chance: 20%Evasion Rating: 45Runic Ward: 45Requires:  Level 38, 54 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runemastered_Ridged_Buckler",
+      "card": "Runemastered Ridged BucklerBlock chance: 20%Evasion Rating: 66Runic Ward: 28Requires:  Level 40, 58 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runemastered_Spiked_Buckler",
+      "card": "Runemastered Spiked BucklerBlock chance: 20%Evasion Rating: 61Runic Ward: 33Requires:  Level 40, 58 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runemastered_Ornate_Buckler",
+      "card": "Runemastered Ornate BucklerBlock chance: 20%Evasion Rating: 114Runic Ward: 12Requires:  Level 55, 78 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runemastered_Array_Buckler",
+      "card": "Runemastered Array BucklerBlock chance: 20%Evasion Rating: 103Runic Ward: 33Requires:  Level 60, 85 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runemastered_Venerable_Defender",
+      "card": "Runemastered Venerable DefenderBlock chance: 20%Evasion Rating: 148Runic Ward: 42Requires:  Level 65, 107 Dex Grants Skill: Raise Shield"
+    }
+  ],
+  "highestRequirementCandidates": [
+    {
+      "slug": "Desert_Buckler",
+      "card": "Desert BucklerBlock chance: 20%Evasion Rating: 192Requires:  Level 80, 115 Dex Grants Skill: Parry",
+      "requiredLevel": 80
+    },
+    {
+      "slug": "Ancient_Buckler",
+      "card": "Ancient BucklerBlock chance: 20%Evasion Rating: 178Requires:  Level 75, 107 Dex Grants Skill: Parry",
+      "requiredLevel": 75
+    },
+    {
+      "slug": "Gutspike_Buckler",
+      "card": "Gutspike BucklerBlock chance: 20%Evasion Rating: 163Requires:  Level 70, 99 Dex Grants Skill: Parry",
+      "requiredLevel": 70
+    },
+    {
+      "slug": "Aegis_Buckler",
+      "card": "Aegis BucklerBlock chance: 20%Evasion Rating: 148Requires:  Level 65, 91 Dex Grants Skill: Parry",
+      "requiredLevel": 65
+    },
+    {
+      "slug": "Ornate_Buckler",
+      "card": "Ornate BucklerBlock chance: 20%Evasion Rating: 148Requires:  Level 65, 91 Dex Grants Skill: Parry",
+      "requiredLevel": 65
+    },
+    {
+      "slug": "Bladeguard_Buckler",
+      "card": "Bladeguard BucklerBlock chance: 20%Evasion Rating: 139Requires:  Level 61, 86 Dex Grants Skill: Parry",
+      "requiredLevel": 61
+    }
+  ],
+  "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+}

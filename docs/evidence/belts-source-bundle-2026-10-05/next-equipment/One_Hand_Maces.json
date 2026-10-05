@@ -1,0 +1,217 @@
+{
+  "page": "One_Hand_Maces",
+  "url": "https://poe2db.tw/us/One_Hand_Maces",
+  "retrievedAt": "2026-10-05T01:38:17.178Z",
+  "sha256": "ceb6e58ee274aaba4123907d453ad8e33b697f85a47929038380c19ce5a09f33",
+  "cards": [
+    {
+      "slug": "Wooden_Club",
+      "card": "Wooden ClubPhysical Damage: 6-10Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3"
+    },
+    {
+      "slug": "Smithing_Hammer",
+      "card": "Smithing HammerPhysical Damage: 5.5-9Fire Damage: 5.5-9Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 4, 11 Strlocal weapon implicit hidden % base damage is fire [50]"
+    },
+    {
+      "slug": "Slim_Mace",
+      "card": "Slim MacePhysical Damage: 11-17Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.3Requires:  Level 10, 21 Str"
+    },
+    {
+      "slug": "Spiked_Club",
+      "card": "Spiked ClubPhysical Damage: 15-24Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 16, 31 Str"
+    },
+    {
+      "slug": "Warpick",
+      "card": "WarpickPhysical Damage: 18-24Critical Hit Chance: 7%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 22, 41 Str+(5—10)% to Critical Damage Bonus"
+    },
+    {
+      "slug": "Plated_Mace",
+      "card": "Plated MacePhysical Damage: 18-38Critical Hit Chance: 5%Attacks per Second: 1.4Weapon Range: 1.3Requires:  Level 26, 48 Str"
+    },
+    {
+      "slug": "Brigand_Mace",
+      "card": "Brigand MacePhysical Damage: 28-38Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 33, 60 Str"
+    },
+    {
+      "slug": "Construct_Hammer",
+      "card": "Construct HammerPhysical Damage: 31-38Critical Hit Chance: 5%Attacks per Second: 1.4Weapon Range: 1.3Requires:  Level 36, 65 Str40% chance to Daze on Hit"
+    },
+    {
+      "slug": "Morning_Star",
+      "card": "Morning StarPhysical Damage: 33-49Critical Hit Chance: 6.5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 45, 80 Str"
+    },
+    {
+      "slug": "Jade_Club",
+      "card": "Jade ClubPhysical Damage: 31-51Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 49, 87 StrAlways Hits"
+    },
+    {
+      "slug": "Lumen_Mace",
+      "card": "Lumen MacePhysical Damage: 36-60Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 52, 92 Str"
+    },
+    {
+      "slug": "Execratus_Hammer",
+      "card": "Execratus HammerPhysical Damage: 40-60Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 55, 97 Str"
+    },
+    {
+      "slug": "Torment_Club",
+      "card": "Torment ClubPhysical Damage: 44-73Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 65, 114 Str"
+    },
+    {
+      "slug": "Runemastered_Torment_Club",
+      "card": "Runemastered Torment ClubCold Damage: 44-209Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 65, 114 Str100% of Lightning Damage Converted to Cold Damagelocal weapon implicit hidden % base damage is cold [100]"
+    },
+    {
+      "slug": "Runemastered_Torment_Club",
+      "card": "Runemastered Torment ClubPhysical Damage: 44-73Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 65, 114 StrSkills Gain (4—6)% of damage as Extra Lightning damage per 50 Runic Ward Cost"
+    },
+    {
+      "slug": "Runemastered_Torment_Club",
+      "card": "Runemastered Torment ClubPhysical Damage: 44-73Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 65, 114 Str+(1.5—2) metres to Melee Strike Range"
+    },
+    {
+      "slug": "Runemastered_Torment_Club",
+      "card": "Runemastered Torment ClubLightning Damage: 85-403Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 65, 114 Str(40—60)% increased Lightning Damagelocal weapon implicit hidden % base damage is lightning [100]"
+    },
+    {
+      "slug": "Runemastered_Torment_Club",
+      "card": "Runemastered Torment ClubPhysical Damage: 44-73Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 65, 114 Str(50—100)% chance for Lightning Skills to Chain an additional time"
+    },
+    {
+      "slug": "Runemastered_Torment_Club",
+      "card": "Runemastered Torment ClubPhysical Damage: 54-91Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 65, 124 Str"
+    },
+    {
+      "slug": "Kalguuran_Forgehammer",
+      "card": "Kalguuran ForgehammerPhysical Damage: 33-55Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 47Has 3 Sockets"
+    },
+    {
+      "slug": "Calescent_Hammer",
+      "card": "Calescent HammerPhysical Damage: 22-37Fire Damage: 22-37Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 45, 80 Strlocal weapon implicit hidden % base damage is fire [50]"
+    },
+    {
+      "slug": "Flared_Mace",
+      "card": "Flared MacePhysical Damage: 33-50Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.3Requires:  Level 48, 86 Str"
+    },
+    {
+      "slug": "Battle_Pick",
+      "card": "Battle PickPhysical Damage: 35-47Critical Hit Chance: 7%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 51, 91 Str+(5—10)% to Critical Damage Bonus"
+    },
+    {
+      "slug": "Marching_Mace",
+      "card": "Marching MacePhysical Damage: 33-69Critical Hit Chance: 5%Attacks per Second: 1.4Weapon Range: 1.3Requires:  Level 54, 96 Str"
+    },
+    {
+      "slug": "Runeforged_Marching_Mace",
+      "card": "Runeforged Marching MacePhysical Damage: 46-96Critical Hit Chance: 7.5%Attacks per Second: 1.4Weapon Range: 1.3Requires:  Level 65, 114 Str"
+    },
+    {
+      "slug": "Bandit_Mace",
+      "card": "Bandit MacePhysical Damage: 45-61Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 59, 104 Str"
+    },
+    {
+      "slug": "Structured_Hammer",
+      "card": "Structured HammerPhysical Damage: 49-60Critical Hit Chance: 5%Attacks per Second: 1.4Weapon Range: 1.3Requires:  Level 62, 109 Str40% chance to Daze on Hit"
+    },
+    {
+      "slug": "Runeforged_Wooden_Club",
+      "card": "Runeforged Wooden ClubPhysical Damage: 83-138Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 38, 68 Str(20—30)% increased Area of Effect for Attacks"
+    },
+    {
+      "slug": "Runemastered_Wooden_Club",
+      "card": "Runemastered Wooden ClubPhysical Damage: 132-220Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 55, 97 Str(20—30)% increased Area of Effect for Attacks"
+    },
+    {
+      "slug": "Runeforged_Slim_Mace",
+      "card": "Runeforged Slim MacePhysical Damage: 48-72.5Cold Damage: 48-72.5Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.3Requires:  Level 38, 68 Strlocal weapon implicit hidden % base damage is cold [50]"
+    },
+    {
+      "slug": "Runeforged_Spiked_Club",
+      "card": "Runeforged Spiked ClubPhysical Damage: 56-93Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 40, 72 Str"
+    },
+    {
+      "slug": "Runeforged_Warpick",
+      "card": "Runeforged WarpickPhysical Damage: 75-102Critical Hit Chance: 7%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 38, 68 Str(30—40)% increased effect of Fully Broken Armour"
+    },
+    {
+      "slug": "Runeforged_Kalguuran_Forgehammer",
+      "card": "Runeforged Kalguuran ForgehammerPhysical Damage: 59-99Critical Hit Chance: 5%Attacks per Second: 1.75Weapon Range: 1.3Requires:  Level 65Has 3 Sockets"
+    },
+    {
+      "slug": "Runeforged_Kalguuran_Forgehammer",
+      "card": "Runeforged Kalguuran ForgehammerPhysical Damage: 98-163Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 65Has 3 Sockets"
+    },
+    {
+      "slug": "Runeforged_Kalguuran_Forgehammer",
+      "card": "Runeforged Kalguuran ForgehammerPhysical Damage: 59-99Critical Hit Chance: 10%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 65Has 3 Sockets"
+    },
+    {
+      "slug": "Runeforged_Kalguuran_Forgehammer",
+      "card": "Runeforged Kalguuran ForgehammerPhysical Damage: 59-99Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 65Has 3 Sockets+(100—150) to maximum Runic Ward"
+    },
+    {
+      "slug": "Runeforged_Morning_Star",
+      "card": "Runeforged Morning StarFire Damage: 90-134Critical Hit Chance: 6.5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 65, 114 Strlocal weapon implicit hidden % base damage is fire [100]"
+    },
+    {
+      "slug": "Flanged_Mace",
+      "card": "Flanged MacePhysical Damage: 45-67Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.3Requires:  Level 67, 134 Str"
+    },
+    {
+      "slug": "Crown_Mace",
+      "card": "Crown MacePhysical Damage: 43-89Critical Hit Chance: 5%Attacks per Second: 1.4Weapon Range: 1.3Requires:  Level 72, 149 Str"
+    },
+    {
+      "slug": "Molten_Hammer",
+      "card": "Molten HammerPhysical Damage: 35.5-59Fire Damage: 35.5-59Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 77, 163 Strlocal weapon implicit hidden % base damage is fire [50]"
+    },
+    {
+      "slug": "Strife_Pick",
+      "card": "Strife PickPhysical Damage: 49-66Critical Hit Chance: 7%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 78, 163 Str+(5—10)% to Critical Damage Bonus"
+    },
+    {
+      "slug": "Fortified_Hammer",
+      "card": "Fortified HammerPhysical Damage: 60-73Critical Hit Chance: 5%Attacks per Second: 1.4Weapon Range: 1.3Requires:  Level 79, 163 Str40% chance to Daze on Hit"
+    },
+    {
+      "slug": "Marauding_Mace",
+      "card": "Marauding MacePhysical Damage: 51-84Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 77, 163 Str"
+    },
+    {
+      "slug": "Akoyan_Club",
+      "card": "Akoyan ClubPhysical Damage: 46-76Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 78, 163 StrAlways Hits"
+    }
+  ],
+  "highestRequirementCandidates": [
+    {
+      "slug": "Fortified_Hammer",
+      "card": "Fortified HammerPhysical Damage: 60-73Critical Hit Chance: 5%Attacks per Second: 1.4Weapon Range: 1.3Requires:  Level 79, 163 Str40% chance to Daze on Hit",
+      "requiredLevel": 79
+    },
+    {
+      "slug": "Strife_Pick",
+      "card": "Strife PickPhysical Damage: 49-66Critical Hit Chance: 7%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 78, 163 Str+(5—10)% to Critical Damage Bonus",
+      "requiredLevel": 78
+    },
+    {
+      "slug": "Akoyan_Club",
+      "card": "Akoyan ClubPhysical Damage: 46-76Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 78, 163 StrAlways Hits",
+      "requiredLevel": 78
+    },
+    {
+      "slug": "Molten_Hammer",
+      "card": "Molten HammerPhysical Damage: 35.5-59Fire Damage: 35.5-59Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 77, 163 Strlocal weapon implicit hidden % base damage is fire [50]",
+      "requiredLevel": 77
+    },
+    {
+      "slug": "Marauding_Mace",
+      "card": "Marauding MacePhysical Damage: 51-84Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 77, 163 Str",
+      "requiredLevel": 77
+    },
+    {
+      "slug": "Crown_Mace",
+      "card": "Crown MacePhysical Damage: 43-89Critical Hit Chance: 5%Attacks per Second: 1.4Weapon Range: 1.3Requires:  Level 72, 149 Str",
+      "requiredLevel": 72
+    }
+  ],
+  "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+}

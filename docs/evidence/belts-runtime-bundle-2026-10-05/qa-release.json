@@ -1,0 +1,11 @@
+{
+  "project": "exile-belts-20261005",
+  "releasedAt": "2026-10-05T02:26:34.203Z",
+  "active": false,
+  "shutdown": "docker compose down (without -v)",
+  "liveServiceIdsStartTimesMountsPreserved": true,
+  "userBrowserStorage": "Only new isolated Chromium contexts were used",
+  "existingVolumesDeleted": false,
+  "qaEvidencePreserved": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005",
+  "remainingOwnContainers": []
+}

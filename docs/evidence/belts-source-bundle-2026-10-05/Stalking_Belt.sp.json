@@ -1,0 +1,30 @@
+{
+  "url": "https://poe2db.tw/sp/Stalking_Belt",
+  "retrievedAt": "2026-10-05T01:25:06.494Z",
+  "sha256": "d478b35f3fd0279cf5d1ebd24a2cdd51f643513d721c889e65bb7b9e01a9ddd1",
+  "variants": [
+    {
+      "name": "Cinturón acechador",
+      "card": "Cinturón acechador\n        \n    \n    \n        \n            CinturonesRequiere:  Nivel 50Tiene (1—3) espacio para vialTiene 1 espacio para vialEste objeto gana bonificaciones de los objetos engarzados como si fuera un par de botas\n        \n\n        \n        \n            Son nuestros pasos los que agitan.\n        \n\n\n        \n            Stalking Belt",
+      "requirements": "Requiere:  Nivel 50",
+      "fields": {
+        "DropLevel": "50",
+        "BaseType": "Cinturón acechador",
+        "Class": "Cinturones",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBeltB1",
+        "Tags": "belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/StalkingBelt",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

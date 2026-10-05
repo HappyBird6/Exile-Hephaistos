@@ -34,6 +34,19 @@ const baseTexts = {
   'shrine-lightning': 'Item Class: Sceptres\nRarity: Normal\nShrine Sceptre',
   clasped: 'Item Class: Sceptres\nRarity: Normal\nClasped Sceptre',
   wrath: 'Item Class: Sceptres\nRarity: Normal\nWrath Sceptre',
+  'linen-belt': 'Item Class: Belts\nRarity: Normal\nLinen Belt',
+  'wide-belt': 'Item Class: Belts\nRarity: Normal\nWide Belt',
+  'long-belt': 'Item Class: Belts\nRarity: Normal\nLong Belt',
+  'plate-belt': 'Item Class: Belts\nRarity: Normal\nPlate Belt',
+  'ornate-belt': 'Item Class: Belts\nRarity: Normal\nOrnate Belt',
+  'mail-belt': 'Item Class: Belts\nRarity: Normal\nMail Belt',
+  'double-belt': 'Item Class: Belts\nRarity: Normal\nDouble Belt',
+  'heavy-belt': 'Item Class: Belts\nRarity: Normal\nHeavy Belt',
+  'utility-belt': 'Item Class: Belts\nRarity: Normal\nUtility Belt',
+  'fine-belt': 'Item Class: Belts\nRarity: Normal\nFine Belt',
+  'invoking-belt': 'Item Class: Belts\nRarity: Normal\nInvoking Belt',
+  'sinew-belt': 'Item Class: Belts\nRarity: Normal\nSinew Belt',
+  'forking-belt': 'Item Class: Belts\nRarity: Normal\nForking Belt',
   bone: 'Item Class: Wands\nRarity: Normal\nBone Wand',
   siphoning: 'Item Class: Wands\nRarity: Normal\nSiphoning Wand',
   volatile: 'Item Class: Wands\nRarity: Normal\nVolatile Wand',
@@ -129,6 +142,19 @@ type Draft = {
     | 'shrine-lightning'
     | 'clasped'
     | 'wrath'
+    | 'linen-belt'
+    | 'wide-belt'
+    | 'long-belt'
+    | 'plate-belt'
+    | 'ornate-belt'
+    | 'mail-belt'
+    | 'double-belt'
+    | 'heavy-belt'
+    | 'utility-belt'
+    | 'fine-belt'
+    | 'invoking-belt'
+    | 'sinew-belt'
+    | 'forking-belt'
     | 'bone'
     | 'siphoning'
     | 'volatile'
@@ -214,6 +240,19 @@ type Draft = {
       | 'shrine-lightning'
       | 'clasped'
       | 'wrath'
+      | 'linen-belt'
+      | 'wide-belt'
+      | 'long-belt'
+      | 'plate-belt'
+      | 'ornate-belt'
+      | 'mail-belt'
+      | 'double-belt'
+      | 'heavy-belt'
+      | 'utility-belt'
+      | 'fine-belt'
+      | 'invoking-belt'
+      | 'sinew-belt'
+      | 'forking-belt'
       | 'bone'
       | 'siphoning'
       | 'volatile'

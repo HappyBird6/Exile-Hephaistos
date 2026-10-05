@@ -57,7 +57,7 @@ describe('verified modifier display templates', () => {
           !id.startsWith('time-lost-'),
       ),
       // Preserve all 1,781 historical equipment bindings and add the exact nine Ring bindings.
-    ).toHaveLength(1798)
+    ).toHaveLength(1812)
     expect(
       ids
         .filter(

@@ -1,0 +1,30 @@
+{
+  "url": "https://poe2db.tw/kr/Heavy_Belt",
+  "retrievedAt": "2026-10-05T01:23:33.419Z",
+  "sha256": "232267e58bb6d46e7710e883b4b2c64a25d823bd8dd0d8d5d5d9fab456bf05c0",
+  "variants": [
+    {
+      "name": "무거운 허리띠",
+      "card": "무거운 허리띠\n        \n    \n    \n        \n            허리띠요구 사항:  레벨 50호신부 슬롯 (1—3)개 보유기절 한계치 (20—30)% 증가\n        \n\n\n\n        \n            Heavy Belt",
+      "requirements": "요구 사항:  레벨 50",
+      "fields": {
+        "DropLevel": "50",
+        "BaseType": "무거운 허리띠",
+        "Class": "허리띠",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt9",
+        "Tags": "belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt09",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

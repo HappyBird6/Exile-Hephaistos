@@ -1,0 +1,30 @@
+{
+  "url": "https://poe2db.tw/us/Wide_Belt",
+  "retrievedAt": "2026-10-05T01:23:05.174Z",
+  "sha256": "94f1859e2ffee841a7a6a4838c911d14110278908aef806704d6570b814d22ad",
+  "variants": [
+    {
+      "name": "Wide Belt",
+      "card": "Wide Belt\n        \n    \n    \n        \n            BeltsRequires:  Level 14Has (1—3) Charm Slots(20—30)% increased Flask Charges gained",
+      "requirements": "Requires:  Level 14",
+      "fields": {
+        "DropLevel": "14",
+        "BaseType": "Wide Belt",
+        "Class": "Belts",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt3",
+        "Tags": "belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt03",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

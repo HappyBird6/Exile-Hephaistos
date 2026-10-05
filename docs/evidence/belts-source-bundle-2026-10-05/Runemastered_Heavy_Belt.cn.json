@@ -1,0 +1,99 @@
+{
+  "url": "https://poe2db.tw/cn/Runemastered_Heavy_Belt",
+  "retrievedAt": "2026-10-05T01:24:21.871Z",
+  "sha256": "cff4c07c450f1e0333804a2b8311f933446677387439cb35e245e76b2f61b57c",
+  "variants": [
+    {
+      "name": "符文师匠重革腰带",
+      "card": "符文师匠重革腰带\n        \n    \n    \n        \n            腰带需求：  等级 65具有 (1—3) 个咒符位晕眩阈值提高 (20—30)%药剂的 (15—25)% 生命回复效果也作用于符文结界\n        \n\n\n\n        \n            Runemastered Heavy Belt",
+      "requirements": "需求：  等级 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "符文师匠重革腰带",
+        "Class": "腰带",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt9VerisiumUnique1",
+        "Tags": "runeforged, belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt09",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    },
+    {
+      "name": "符文师匠重革腰带",
+      "card": "符文师匠重革腰带\n        \n    \n    \n        \n            腰带需求：  等级 65具有 (1—3) 个咒符位晕眩阈值提高 (20—30)%符文结界再生率提高 (20—40)%\n        \n\n\n\n        \n            Runemastered Heavy Belt",
+      "requirements": "需求：  等级 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "符文师匠重革腰带",
+        "Class": "腰带",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt9VerisiumUnique2",
+        "Tags": "runeforged, belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt09",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    },
+    {
+      "name": "符文师匠重革腰带",
+      "card": "符文师匠重革腰带\n        \n    \n    \n        \n            腰带需求：  等级 65具有 (1—3) 个咒符位晕眩阈值提高 (20—30)%符文结界回复可溢出符文结界上限\n        \n\n\n\n        \n            Runemastered Heavy Belt",
+      "requirements": "需求：  等级 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "符文师匠重革腰带",
+        "Class": "腰带",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt9VerisiumUnique3",
+        "Tags": "runeforged, belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt09",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    },
+    {
+      "name": "符文师匠重革腰带",
+      "card": "符文师匠重革腰带\n        \n    \n    \n        \n            腰带需求：  等级 65具有 (1—3) 个咒符位晕眩阈值提高 (20—30)%药剂每秒获得 (0.5—1) 次充能\n        \n\n\n\n        \n            Runemastered Heavy Belt",
+      "requirements": "需求：  等级 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "符文师匠重革腰带",
+        "Class": "腰带",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt9VerisiumUnique4",
+        "Tags": "runeforged, belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt09",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

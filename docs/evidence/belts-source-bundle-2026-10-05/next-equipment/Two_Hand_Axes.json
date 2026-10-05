@@ -1,0 +1,93 @@
+{
+  "page": "Two_Hand_Axes",
+  "url": "https://poe2db.tw/us/Two_Hand_Axes",
+  "retrievedAt": "2026-10-05T01:38:24.889Z",
+  "sha256": "2cd611f968ded3264f9a20f2d3560977bc8b309ce7d07e01a1ee8c23b072da02",
+  "cards": [
+    {
+      "slug": "Splitting_Greataxe",
+      "card": "Splitting GreataxePhysical Damage: 8-20Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5"
+    },
+    {
+      "slug": "Light_Halberd",
+      "card": "Light HalberdPhysical Damage: 10-25Critical Hit Chance: 5%Attacks per Second: 1.25Weapon Range: 1.5Requires:  Level 4, 9 Str"
+    },
+    {
+      "slug": "Executioner_Greataxe",
+      "card": "Executioner GreataxePhysical Damage: 10-41Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 10, 17 Str, 9 DexCulling Strike"
+    },
+    {
+      "slug": "Arched_Greataxe",
+      "card": "Arched GreataxePhysical Damage: 17-59Critical Hit Chance: 5%Attacks per Second: 1.15Weapon Range: 1.5Requires:  Level 16, 25 Str, 12 Dex"
+    },
+    {
+      "slug": "Elegant_Glaive",
+      "card": "Elegant GlaivePhysical Damage: 19-64Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 20, 30 Str, 14 Dex"
+    },
+    {
+      "slug": "Savage_Greataxe",
+      "card": "Savage GreataxePhysical Damage: 23-70Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 27, 39 Str, 17 DexGain (34—43) Life per enemy killed"
+    },
+    {
+      "slug": "Rending_Halberd",
+      "card": "Rending HalberdPhysical Damage: 27-91Critical Hit Chance: 6.5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 33, 47 Str, 20 Dex"
+    },
+    {
+      "slug": "Jagged_Greataxe",
+      "card": "Jagged GreataxePhysical Damage: 43-99Critical Hit Chance: 5%Attacks per Second: 1.15Weapon Range: 1.5Requires:  Level 40, 56 Str, 23 Dex(15—25)% chance to cause Bleeding on Hit"
+    },
+    {
+      "slug": "Reaver_Glaive",
+      "card": "Reaver GlaivePhysical Damage: 43-113Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 45, 63 Str, 26 Dex"
+    },
+    {
+      "slug": "Ember_Greataxe",
+      "card": "Ember GreataxeFire Damage: 58-154Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 50, 70 Str, 28 Dexlocal weapon implicit hidden % base damage is fire [100]"
+    },
+    {
+      "slug": "Ceremonial_Halberd",
+      "card": "Ceremonial HalberdPhysical Damage: 53-123Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 52, 72 Str, 29 DexCannot use Projectile Attacks"
+    },
+    {
+      "slug": "Monument_Greataxe",
+      "card": "Monument GreataxePhysical Damage: 48-143Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 57, 79 Str, 32 Dex"
+    },
+    {
+      "slug": "Vile_Greataxe",
+      "card": "Vile GreataxePhysical Damage: 59-155Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 65, 89 Str, 36 Dex"
+    }
+  ],
+  "highestRequirementCandidates": [
+    {
+      "slug": "Vile_Greataxe",
+      "card": "Vile GreataxePhysical Damage: 59-155Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 65, 89 Str, 36 Dex",
+      "requiredLevel": 65
+    },
+    {
+      "slug": "Monument_Greataxe",
+      "card": "Monument GreataxePhysical Damage: 48-143Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 57, 79 Str, 32 Dex",
+      "requiredLevel": 57
+    },
+    {
+      "slug": "Ceremonial_Halberd",
+      "card": "Ceremonial HalberdPhysical Damage: 53-123Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 52, 72 Str, 29 DexCannot use Projectile Attacks",
+      "requiredLevel": 52
+    },
+    {
+      "slug": "Ember_Greataxe",
+      "card": "Ember GreataxeFire Damage: 58-154Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 50, 70 Str, 28 Dexlocal weapon implicit hidden % base damage is fire [100]",
+      "requiredLevel": 50
+    },
+    {
+      "slug": "Reaver_Glaive",
+      "card": "Reaver GlaivePhysical Damage: 43-113Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 45, 63 Str, 26 Dex",
+      "requiredLevel": 45
+    },
+    {
+      "slug": "Jagged_Greataxe",
+      "card": "Jagged GreataxePhysical Damage: 43-99Critical Hit Chance: 5%Attacks per Second: 1.15Weapon Range: 1.5Requires:  Level 40, 56 Str, 23 Dex(15—25)% chance to cause Bleeding on Hit",
+      "requiredLevel": 40
+    }
+  ],
+  "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+}

@@ -1,0 +1,30 @@
+{
+  "url": "https://poe2db.tw/tw/Ornate_Belt",
+  "retrievedAt": "2026-10-05T01:24:33.299Z",
+  "sha256": "a43c8573d130eea42768cebf9820f28f31cf6c8c38b889b7d3b58bf709e76d59",
+  "variants": [
+    {
+      "name": "華麗腰帶",
+      "card": "華麗腰帶\n        \n    \n    \n        \n            腰帶需求:  等級 31有(1—3)個護符欄位減少(10—15)%護符充能使用\n        \n\n\n\n        \n            Ornate Belt",
+      "requirements": "需求:  等級 31",
+      "fields": {
+        "DropLevel": "31",
+        "BaseType": "華麗腰帶",
+        "Class": "腰帶",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt6",
+        "Tags": "belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt06",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

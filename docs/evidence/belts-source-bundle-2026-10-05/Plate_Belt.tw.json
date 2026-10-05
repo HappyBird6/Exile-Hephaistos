@@ -1,0 +1,30 @@
+{
+  "url": "https://poe2db.tw/tw/Plate_Belt",
+  "retrievedAt": "2026-10-05T01:24:31.408Z",
+  "sha256": "84da397fdf58ea135029a987e850b95c4c1b78c378ad453cf221caf6de83a99d",
+  "variants": [
+    {
+      "name": "板甲腰帶",
+      "card": "板甲腰帶\n        \n    \n    \n        \n            腰帶需求:  等級 25有(1—3)個護符欄位+(140—180)護甲值\n        \n\n\n\n        \n            Plate Belt",
+      "requirements": "需求:  等級 25",
+      "fields": {
+        "DropLevel": "25",
+        "BaseType": "板甲腰帶",
+        "Class": "腰帶",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt5",
+        "Tags": "belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt05",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

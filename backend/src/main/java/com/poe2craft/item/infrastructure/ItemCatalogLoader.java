@@ -44,7 +44,8 @@ public final class ItemCatalogLoader {
             && !com.poe2craft.item.ReviewedRings.BASES.containsKey(key)
             && !com.poe2craft.item.ReviewedAmulets.BASES.containsKey(key)
             && !com.poe2craft.item.ReviewedSceptres.BASES.containsKey(key)
-            && !com.poe2craft.item.ReviewedWands.BASES.containsKey(key))
+            && !com.poe2craft.item.ReviewedWands.BASES.containsKey(key)
+            && !com.poe2craft.item.ReviewedBelts.BASES.containsKey(key))
           throw new IllegalArgumentException("Unreviewed endgame base");
         try (var proof = ItemCatalogLoader.class.getResourceAsStream("/catalog/top-bases.json")) {
           var source = mapper().readTree(proof).get(key);
@@ -65,8 +66,10 @@ public final class ItemCatalogLoader {
                                           key,
                                           com.poe2craft.item.ReviewedSceptres.BASES.getOrDefault(
                                               key,
-                                              com.poe2craft.item.ReviewedWands.BASES.get(
-                                                  key)))))))));
+                                              com.poe2craft.item.ReviewedWands.BASES.getOrDefault(
+                                                  key,
+                                                  com.poe2craft.item.ReviewedBelts.BASES.get(
+                                                      key))))))))));
           name = source.get("name").asText();
           String root = "/catalog/" + source.get("pool").asText() + "/";
           try (var data = ItemCatalogLoader.class.getResourceAsStream(root + "catalog.json");

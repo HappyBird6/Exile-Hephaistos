@@ -1,0 +1,93 @@
+{
+  "page": "One_Hand_Axes",
+  "url": "https://poe2db.tw/us/One_Hand_Axes",
+  "retrievedAt": "2026-10-05T01:38:24.427Z",
+  "sha256": "560d0099f93abbddbdf546d95f44fb33fe35c7e1ff00bd18198a8f9a4d3596bb",
+  "cards": [
+    {
+      "slug": "Dull_Hatchet",
+      "card": "Dull HatchetPhysical Damage: 4-10Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3"
+    },
+    {
+      "slug": "Hook_Axe",
+      "card": "Hook AxePhysical Damage: 5-14Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 4, 9 StrGrants 1 Rage on Hit"
+    },
+    {
+      "slug": "Bearded_Axe",
+      "card": "Bearded AxePhysical Damage: 8-21Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 10, 17 Str, 9 Dex"
+    },
+    {
+      "slug": "Extended_Cleaver",
+      "card": "Extended CleaverPhysical Damage: 8-25Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 16, 25 Str, 12 DexHas no Accuracy Penalty from Range"
+    },
+    {
+      "slug": "Bandit_Hatchet",
+      "card": "Bandit HatchetPhysical Damage: 13-31Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 20, 30 Str, 14 Dex"
+    },
+    {
+      "slug": "Crescent_Axe",
+      "card": "Crescent AxePhysical Damage: 18-37Critical Hit Chance: 6.5%Attacks per Second: 1.4Weapon Range: 1.3Requires:  Level 26, 38 Str, 17 Dex"
+    },
+    {
+      "slug": "Carving_Hatchet",
+      "card": "Carving HatchetPhysical Damage: 19-44Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 33, 47 Str, 20 Dex"
+    },
+    {
+      "slug": "Sacrificial_Axe",
+      "card": "Sacrificial AxePhysical Damage: 20-42Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 37, 52 Str, 22 DexGain (28—35) Mana per enemy killed"
+    },
+    {
+      "slug": "Boarding_Hatchet",
+      "card": "Boarding HatchetPhysical Damage: 24-55Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.3Requires:  Level 45, 63 Str, 26 Dex"
+    },
+    {
+      "slug": "Fury_Cleaver",
+      "card": "Fury CleaverPhysical Damage: 30-62Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.3Requires:  Level 48, 67 Str, 27 Dex10% increased Damage taken"
+    },
+    {
+      "slug": "Battle_Axe",
+      "card": "Battle AxePhysical Damage: 28-65Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 52, 72 Str, 29 Dex"
+    },
+    {
+      "slug": "Profane_Cleaver",
+      "card": "Profane CleaverPhysical Damage: 26-69Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 54, 75 Str, 30 Dex"
+    },
+    {
+      "slug": "Dread_Hatchet",
+      "card": "Dread HatchetPhysical Damage: 34-79Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 65, 89 Str, 36 Dex"
+    }
+  ],
+  "highestRequirementCandidates": [
+    {
+      "slug": "Dread_Hatchet",
+      "card": "Dread HatchetPhysical Damage: 34-79Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 65, 89 Str, 36 Dex",
+      "requiredLevel": 65
+    },
+    {
+      "slug": "Profane_Cleaver",
+      "card": "Profane CleaverPhysical Damage: 26-69Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 54, 75 Str, 30 Dex",
+      "requiredLevel": 54
+    },
+    {
+      "slug": "Battle_Axe",
+      "card": "Battle AxePhysical Damage: 28-65Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 52, 72 Str, 29 Dex",
+      "requiredLevel": 52
+    },
+    {
+      "slug": "Fury_Cleaver",
+      "card": "Fury CleaverPhysical Damage: 30-62Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.3Requires:  Level 48, 67 Str, 27 Dex10% increased Damage taken",
+      "requiredLevel": 48
+    },
+    {
+      "slug": "Boarding_Hatchet",
+      "card": "Boarding HatchetPhysical Damage: 24-55Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.3Requires:  Level 45, 63 Str, 26 Dex",
+      "requiredLevel": 45
+    },
+    {
+      "slug": "Sacrificial_Axe",
+      "card": "Sacrificial AxePhysical Damage: 20-42Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 37, 52 Str, 22 DexGain (28—35) Mana per enemy killed",
+      "requiredLevel": 37
+    }
+  ],
+  "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+}

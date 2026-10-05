@@ -104,6 +104,19 @@ const baseSlugs = {
   'shrine-lightning': 'Shrine_Sceptre_6c',
   clasped: 'Clasped_Sceptre',
   wrath: 'Wrath_Sceptre',
+  'linen-belt': 'Linen_Belt',
+  'wide-belt': 'Wide_Belt',
+  'long-belt': 'Long_Belt',
+  'plate-belt': 'Plate_Belt',
+  'ornate-belt': 'Ornate_Belt',
+  'mail-belt': 'Mail_Belt',
+  'double-belt': 'Double_Belt',
+  'heavy-belt': 'Heavy_Belt',
+  'utility-belt': 'Utility_Belt',
+  'fine-belt': 'Fine_Belt',
+  'invoking-belt': 'Invoking_Belt',
+  'sinew-belt': 'Sinew_Belt',
+  'forking-belt': 'Forking_Belt',
   bone: 'Bone_Wand',
   siphoning: 'Siphoning_Wand',
   volatile: 'Volatile_Wand',
@@ -387,6 +400,19 @@ export function CraftingPage() {
       | 'shrine-lightning'
       | 'clasped'
       | 'wrath'
+      | 'linen-belt'
+      | 'wide-belt'
+      | 'long-belt'
+      | 'plate-belt'
+      | 'ornate-belt'
+      | 'mail-belt'
+      | 'double-belt'
+      | 'heavy-belt'
+      | 'utility-belt'
+      | 'fine-belt'
+      | 'invoking-belt'
+      | 'sinew-belt'
+      | 'forking-belt'
       | 'bone'
       | 'siphoning'
       | 'volatile'
@@ -621,6 +647,19 @@ export function CraftingPage() {
     | 'shrine-lightning'
     | 'clasped'
     | 'wrath'
+    | 'linen-belt'
+    | 'wide-belt'
+    | 'long-belt'
+    | 'plate-belt'
+    | 'ornate-belt'
+    | 'mail-belt'
+    | 'double-belt'
+    | 'heavy-belt'
+    | 'utility-belt'
+    | 'fine-belt'
+    | 'invoking-belt'
+    | 'sinew-belt'
+    | 'forking-belt'
     | 'bone'
     | 'siphoning'
     | 'volatile'
@@ -1041,7 +1080,8 @@ export function CraftingPage() {
                       : catalogBase === 'sceptre' ||
                           topBase(catalogBase)?.family === 'sceptres'
                         ? 'Sceptres'
-                        : catalogBase === 'belt'
+                        : catalogBase === 'belt' ||
+                            topBase(catalogBase)?.family === 'belts'
                           ? 'Belts'
                           : catalogBase === 'ring' ||
                               topBase(catalogBase)?.family === 'rings'
@@ -2033,7 +2073,8 @@ export function CraftingPage() {
                                 : catalogBase === 'sceptre' ||
                                     topBase(catalogBase)?.family === 'sceptres'
                                   ? 'Sceptres'
-                                  : catalogBase === 'belt'
+                                  : catalogBase === 'belt' ||
+                                      topBase(catalogBase)?.family === 'belts'
                                     ? 'Belts'
                                     : catalogBase === 'ring' ||
                                         topBase(catalogBase)?.family === 'rings'
@@ -2166,6 +2207,19 @@ export function CraftingPage() {
                           | 'shrine-lightning'
                           | 'clasped'
                           | 'wrath'
+                          | 'linen-belt'
+                          | 'wide-belt'
+                          | 'long-belt'
+                          | 'plate-belt'
+                          | 'ornate-belt'
+                          | 'mail-belt'
+                          | 'double-belt'
+                          | 'heavy-belt'
+                          | 'utility-belt'
+                          | 'fine-belt'
+                          | 'invoking-belt'
+                          | 'sinew-belt'
+                          | 'forking-belt'
                           | 'bone'
                           | 'siphoning'
                           | 'volatile'

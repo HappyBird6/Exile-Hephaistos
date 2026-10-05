@@ -1,0 +1,193 @@
+{
+  "page": "Quarterstaves",
+  "url": "https://poe2db.tw/us/Quarterstaves",
+  "retrievedAt": "2026-10-05T01:38:18.326Z",
+  "sha256": "3f51d863c7242a8abd858377e2b4144e09c8548428de4be4bb296db9c167b249",
+  "cards": [
+    {
+      "slug": "Wrapped_Quarterstaff",
+      "card": "Wrapped QuarterstaffPhysical Damage: 7-12Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4"
+    },
+    {
+      "slug": "Long_Quarterstaff",
+      "card": "Long QuarterstaffPhysical Damage: 9-18Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 4, 9 Dex16% increased Melee Strike Range with this weapon"
+    },
+    {
+      "slug": "Gothic_Quarterstaff",
+      "card": "Gothic QuarterstaffPhysical Damage: 16-26Critical Hit Chance: 12%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 11, 18 Dex, 9 Int"
+    },
+    {
+      "slug": "Crackling_Quarterstaff",
+      "card": "Crackling QuarterstaffPhysical Damage: 5-22Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 16, 25 Dex, 12 Intlocal weapon implicit hidden added maximum lightning damage [35]\nlocal weapon implicit hidden added minimum lightning damage [1]"
+    },
+    {
+      "slug": "Crescent_Quarterstaff",
+      "card": "Crescent QuarterstaffPhysical Damage: 19-39Critical Hit Chance: 10%Attacks per Second: 1.5Weapon Range: 1.4Requires:  Level 20, 30 Dex, 14 Int"
+    },
+    {
+      "slug": "Steelpoint_Quarterstaff",
+      "card": "Steelpoint QuarterstaffPhysical Damage: 28-51Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 28, 41 Dex, 18 Int"
+    },
+    {
+      "slug": "Slicing_Quarterstaff",
+      "card": "Slicing QuarterstaffPhysical Damage: 29-60Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 33, 47 Dex, 20 Int"
+    },
+    {
+      "slug": "Barrier_Quarterstaff",
+      "card": "Barrier QuarterstaffPhysical Damage: 35-58Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 37, 52 Dex, 22 Int+(12—18)% to Block chance"
+    },
+    {
+      "slug": "Hefty_Quarterstaff",
+      "card": "Hefty QuarterstaffPhysical Damage: 39-81Critical Hit Chance: 10%Attacks per Second: 1.3Weapon Range: 1.4Requires:  Level 45, 63 Dex, 26 Int(20—50)% chance to Daze on Hit"
+    },
+    {
+      "slug": "Smooth_Quarterstaff",
+      "card": "Smooth QuarterstaffPhysical Damage: 59-79Critical Hit Chance: 0%Attacks per Second: 1.5Weapon Range: 1.4Requires:  Level 49, 68 Dex, 28 Int"
+    },
+    {
+      "slug": "Anima_Quarterstaff",
+      "card": "Anima QuarterstaffPhysical Damage: 47-79Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 52, 72 Dex, 29 Int"
+    },
+    {
+      "slug": "Graceful_Quarterstaff",
+      "card": "Graceful QuarterstaffPhysical Damage: 47-87Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 56, 77 Dex, 31 Int"
+    },
+    {
+      "slug": "Wyrm_Quarterstaff",
+      "card": "Wyrm QuarterstaffPhysical Damage: 57-94Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 65, 89 Dex, 36 Int"
+    },
+    {
+      "slug": "Reaching_Quarterstaff",
+      "card": "Reaching QuarterstaffPhysical Damage: 35-72Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 45, 63 Dex, 26 Int16% increased Melee Strike Range with this weapon"
+    },
+    {
+      "slug": "Barbarous_Quarterstaff",
+      "card": "Barbarous QuarterstaffPhysical Damage: 42-71Critical Hit Chance: 12%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 48, 67 Dex, 27 Int"
+    },
+    {
+      "slug": "Arcing_Quarterstaff",
+      "card": "Arcing QuarterstaffPhysical Damage: 14-55Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 51, 71 Dex, 29 Intlocal weapon implicit hidden added maximum lightning damage [75]\nlocal weapon implicit hidden added minimum lightning damage [1]"
+    },
+    {
+      "slug": "Waxing_Quarterstaff",
+      "card": "Waxing QuarterstaffPhysical Damage: 39-82Critical Hit Chance: 10%Attacks per Second: 1.5Weapon Range: 1.4Requires:  Level 54, 75 Dex, 30 Int"
+    },
+    {
+      "slug": "Bladed_Quarterstaff",
+      "card": "Bladed QuarterstaffPhysical Damage: 45-94Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 59, 81 Dex, 33 Int"
+    },
+    {
+      "slug": "Guardian_Quarterstaff",
+      "card": "Guardian QuarterstaffPhysical Damage: 52-86Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 62, 85 Dex, 34 Int+(12—18)% to Block chance"
+    },
+    {
+      "slug": "Runeforged_Wrapped_Quarterstaff",
+      "card": "Runeforged Wrapped QuarterstaffPhysical Damage: 93-155Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 38, 54 Dex, 23 Int50% increased Magnitude of Bleeding you inflict"
+    },
+    {
+      "slug": "Runeforged_Long_Quarterstaff",
+      "card": "Runeforged Long QuarterstaffPhysical Damage: 21-43Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 38, 54 Dex, 23 Int16% increased Melee Strike Range with this weapon"
+    },
+    {
+      "slug": "Runemastered_Long_Quarterstaff",
+      "card": "Runemastered Long QuarterstaffCold Damage: 43-89Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 55, 76 Dex, 31 Int16% increased Melee Strike Range with this weaponlocal weapon implicit hidden % base damage is cold [100]"
+    },
+    {
+      "slug": "Runeforged_Gothic_Quarterstaff",
+      "card": "Runeforged Gothic QuarterstaffFire Damage: 80-134Critical Hit Chance: 12%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 38, 54 Dex, 23 Intlocal weapon implicit hidden % base damage is fire [100]"
+    },
+    {
+      "slug": "Runemastered_Gothic_Quarterstaff",
+      "card": "Runemastered Gothic QuarterstaffFire Damage: 118-196Critical Hit Chance: 12%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 55, 76 Dex, 31 Intlocal weapon implicit hidden % base damage is fire [100]Ignites you inflict deal Damage (30—40)% faster"
+    },
+    {
+      "slug": "Runeforged_Crescent_Quarterstaff",
+      "card": "Runeforged Crescent QuarterstaffCold Damage: 39-81Lightning Damage: 39-81Critical Hit Chance: 10%Attacks per Second: 1.5Weapon Range: 1.4Requires:  Level 40, 56 Dex, 23 Intlocal weapon implicit hidden % base damage is cold [50]local weapon implicit hidden % base damage is lightning [50]"
+    },
+    {
+      "slug": "Runeforged_Steelpoint_Quarterstaff",
+      "card": "Runeforged Steelpoint QuarterstaffPhysical Damage: 90-167Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 40, 56 Dex, 23 Int"
+    },
+    {
+      "slug": "Sinister_Quarterstaff",
+      "card": "Sinister QuarterstaffPhysical Damage: 55-91Critical Hit Chance: 12%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 67, 104 Dex, 41 Int"
+    },
+    {
+      "slug": "Lunar_Quarterstaff",
+      "card": "Lunar QuarterstaffPhysical Damage: 50-103Critical Hit Chance: 10%Attacks per Second: 1.5Weapon Range: 1.4Requires:  Level 72, 115 Dex, 46 Int"
+    },
+    {
+      "slug": "Striking_Quarterstaff",
+      "card": "Striking QuarterstaffPhysical Damage: 53-111Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 77, 127 Dex, 50 Int16% increased Melee Strike Range with this weapon"
+    },
+    {
+      "slug": "Bolting_Quarterstaff",
+      "card": "Bolting QuarterstaffPhysical Damage: 24-97Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 78, 127 Dex, 50 Intlocal weapon implicit hidden added maximum lightning damage [100]\nlocal weapon implicit hidden added minimum lightning damage [1]"
+    },
+    {
+      "slug": "Aegis_Quarterstaff",
+      "card": "Aegis QuarterstaffPhysical Damage: 58-97Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 79, 127 Dex, 50 Int+(12—18)% to Block chance"
+    },
+    {
+      "slug": "Razor_Quarterstaff",
+      "card": "Razor QuarterstaffPhysical Damage: 65-108Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 77, 127 Dex, 50 Int"
+    },
+    {
+      "slug": "Skullcrusher_Quarterstaff",
+      "card": "Skullcrusher QuarterstaffPhysical Damage: 59-122Critical Hit Chance: 10%Attacks per Second: 1.3Weapon Range: 1.4Requires:  Level 75, 127 Dex, 50 Int(20—50)% chance to Daze on Hit"
+    },
+    {
+      "slug": "Dreaming_Quarterstaff",
+      "card": "Dreaming QuarterstaffPhysical Damage: 99-133Critical Hit Chance: 0%Attacks per Second: 1.5Weapon Range: 1.4Requires:  Level 78, 127 Dex, 50 Int"
+    },
+    {
+      "slug": "Warding_Quarterstaff",
+      "card": "Warding QuarterstaffPhysical Damage: 51-85Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 65, 127 Dex, 50 Int+(30—50) to maximum Runic Ward"
+    },
+    {
+      "slug": "Runemastered_Warding_Quarterstaff",
+      "card": "Runemastered Warding QuarterstaffPhysical Damage: 51-85Critical Hit Chance: 10%Attacks per Second: 1.6Weapon Range: 1.4Requires:  Level 65, 127 Dex, 50 Int+(30—50) to maximum Runic Ward"
+    },
+    {
+      "slug": "Runemastered_Warding_Quarterstaff",
+      "card": "Runemastered Warding QuarterstaffPhysical Damage: 51-85Critical Hit Chance: 15%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 65, 127 Dex, 50 Int+(30—50) to maximum Runic Ward"
+    },
+    {
+      "slug": "Runemastered_Warding_Quarterstaff",
+      "card": "Runemastered Warding QuarterstaffPhysical Damage: 85-141Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 65, 127 Dex, 50 Int+(30—50) to maximum Runic Ward"
+    }
+  ],
+  "highestRequirementCandidates": [
+    {
+      "slug": "Aegis_Quarterstaff",
+      "card": "Aegis QuarterstaffPhysical Damage: 58-97Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 79, 127 Dex, 50 Int+(12—18)% to Block chance",
+      "requiredLevel": 79
+    },
+    {
+      "slug": "Bolting_Quarterstaff",
+      "card": "Bolting QuarterstaffPhysical Damage: 24-97Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 78, 127 Dex, 50 Intlocal weapon implicit hidden added maximum lightning damage [100]\nlocal weapon implicit hidden added minimum lightning damage [1]",
+      "requiredLevel": 78
+    },
+    {
+      "slug": "Dreaming_Quarterstaff",
+      "card": "Dreaming QuarterstaffPhysical Damage: 99-133Critical Hit Chance: 0%Attacks per Second: 1.5Weapon Range: 1.4Requires:  Level 78, 127 Dex, 50 Int",
+      "requiredLevel": 78
+    },
+    {
+      "slug": "Striking_Quarterstaff",
+      "card": "Striking QuarterstaffPhysical Damage: 53-111Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 77, 127 Dex, 50 Int16% increased Melee Strike Range with this weapon",
+      "requiredLevel": 77
+    },
+    {
+      "slug": "Razor_Quarterstaff",
+      "card": "Razor QuarterstaffPhysical Damage: 65-108Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 77, 127 Dex, 50 Int",
+      "requiredLevel": 77
+    },
+    {
+      "slug": "Skullcrusher_Quarterstaff",
+      "card": "Skullcrusher QuarterstaffPhysical Damage: 59-122Critical Hit Chance: 10%Attacks per Second: 1.3Weapon Range: 1.4Requires:  Level 75, 127 Dex, 50 Int(20—50)% chance to Daze on Hit",
+      "requiredLevel": 75
+    }
+  ],
+  "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+}

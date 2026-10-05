@@ -121,9 +121,13 @@ public class CraftingConfiguration {
                                                 com.poe2craft.item.ReviewedSceptres.BASES
                                                     .keySet()
                                                     .stream(),
-                                                com.poe2craft.item.ReviewedWands.BASES
-                                                    .keySet()
-                                                    .stream()))))))))
+                                                java.util.stream.Stream.concat(
+                                                    com.poe2craft.item.ReviewedWands.BASES
+                                                        .keySet()
+                                                        .stream(),
+                                                    com.poe2craft.item.ReviewedBelts.BASES
+                                                        .keySet()
+                                                        .stream())))))))))
                 .toList()) {
           service.registerReviewedArmour(
               key,

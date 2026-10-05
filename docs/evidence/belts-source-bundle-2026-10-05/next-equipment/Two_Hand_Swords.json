@@ -1,0 +1,97 @@
+{
+  "page": "Two_Hand_Swords",
+  "url": "https://poe2db.tw/us/Two_Hand_Swords",
+  "retrievedAt": "2026-10-05T01:38:23.866Z",
+  "sha256": "3d3b5523c6ef78b27bee57ec4ff7c42b4fa24d76ccf3b29a6fc828533fba22ca",
+  "cards": [
+    {
+      "slug": "Energy_Blade",
+      "card": "Energy BladeCritical Hit Chance: 7%Attacks per Second: 1.6Weapon Range: 1.6Adds  to  Lightning Damage"
+    },
+    {
+      "slug": "Corroded_Longsword",
+      "card": "Corroded LongswordPhysical Damage: 9-16Critical Hit Chance: 5%Attacks per Second: 1.3Weapon Range: 1.6"
+    },
+    {
+      "slug": "Iron_Greatsword",
+      "card": "Iron GreatswordPhysical Damage: 13-23Critical Hit Chance: 5%Attacks per Second: 1.35Weapon Range: 1.6Requires:  Level 6, 9 Str, 9 Dex"
+    },
+    {
+      "slug": "Blessed_Claymore",
+      "card": "Blessed ClaymorePhysical Damage: 19-32Critical Hit Chance: 5%Attacks per Second: 1.3Weapon Range: 1.6Requires:  Level 11, 14 Str, 14 Dex"
+    },
+    {
+      "slug": "Broad_Greatsword",
+      "card": "Broad GreatswordPhysical Damage: 25-42Critical Hit Chance: 5%Attacks per Second: 1.25Weapon Range: 1.6Requires:  Level 16, 19 Str, 19 Dex"
+    },
+    {
+      "slug": "Rippled_Greatsword",
+      "card": "Rippled GreatswordPhysical Damage: 28-52Critical Hit Chance: 5%Attacks per Second: 1.3Weapon Range: 1.6Requires:  Level 22, 24 Str, 24 Dex"
+    },
+    {
+      "slug": "Arced_Longsword",
+      "card": "Arced LongswordPhysical Damage: 31-58Critical Hit Chance: 5%Attacks per Second: 1.35Weapon Range: 1.6Requires:  Level 28, 29 Str, 29 Dex"
+    },
+    {
+      "slug": "Stone_Greatsword",
+      "card": "Stone GreatswordPhysical Damage: 40-67Critical Hit Chance: 5%Attacks per Second: 1.3Weapon Range: 1.6Requires:  Level 33, 34 Str, 34 Dex"
+    },
+    {
+      "slug": "Obsidian_Greatsword",
+      "card": "Obsidian GreatswordPhysical Damage: 49-73Critical Hit Chance: 5%Attacks per Second: 1.25Weapon Range: 1.6Requires:  Level 36, 37 Str, 37 Dex"
+    },
+    {
+      "slug": "Keen_Greatsword",
+      "card": "Keen GreatswordPhysical Damage: 45-94Critical Hit Chance: 5%Attacks per Second: 1.3Weapon Range: 1.6Requires:  Level 45, 45 Str, 45 Dex"
+    },
+    {
+      "slug": "Ancient_Greatblade",
+      "card": "Ancient GreatbladePhysical Damage: 55-103Critical Hit Chance: 5%Attacks per Second: 1.25Weapon Range: 1.6Requires:  Level 49, 49 Str, 49 Dex"
+    },
+    {
+      "slug": "Flanged_Greatblade",
+      "card": "Flanged GreatbladePhysical Damage: 51-106Critical Hit Chance: 5%Attacks per Second: 1.3Weapon Range: 1.6Requires:  Level 52, 51 Str, 51 Dex"
+    },
+    {
+      "slug": "Regalia_Longsword",
+      "card": "Regalia LongswordPhysical Damage: 61-92Critical Hit Chance: 5%Attacks per Second: 1.35Weapon Range: 1.6Requires:  Level 54, 53 Str, 53 Dex"
+    },
+    {
+      "slug": "Ultra_Greatsword",
+      "card": "Ultra GreatswordPhysical Damage: 72-119Critical Hit Chance: 5%Attacks per Second: 1.3Weapon Range: 1.6Requires:  Level 65, 63 Str, 63 Dex"
+    }
+  ],
+  "highestRequirementCandidates": [
+    {
+      "slug": "Ultra_Greatsword",
+      "card": "Ultra GreatswordPhysical Damage: 72-119Critical Hit Chance: 5%Attacks per Second: 1.3Weapon Range: 1.6Requires:  Level 65, 63 Str, 63 Dex",
+      "requiredLevel": 65
+    },
+    {
+      "slug": "Regalia_Longsword",
+      "card": "Regalia LongswordPhysical Damage: 61-92Critical Hit Chance: 5%Attacks per Second: 1.35Weapon Range: 1.6Requires:  Level 54, 53 Str, 53 Dex",
+      "requiredLevel": 54
+    },
+    {
+      "slug": "Flanged_Greatblade",
+      "card": "Flanged GreatbladePhysical Damage: 51-106Critical Hit Chance: 5%Attacks per Second: 1.3Weapon Range: 1.6Requires:  Level 52, 51 Str, 51 Dex",
+      "requiredLevel": 52
+    },
+    {
+      "slug": "Ancient_Greatblade",
+      "card": "Ancient GreatbladePhysical Damage: 55-103Critical Hit Chance: 5%Attacks per Second: 1.25Weapon Range: 1.6Requires:  Level 49, 49 Str, 49 Dex",
+      "requiredLevel": 49
+    },
+    {
+      "slug": "Keen_Greatsword",
+      "card": "Keen GreatswordPhysical Damage: 45-94Critical Hit Chance: 5%Attacks per Second: 1.3Weapon Range: 1.6Requires:  Level 45, 45 Str, 45 Dex",
+      "requiredLevel": 45
+    },
+    {
+      "slug": "Obsidian_Greatsword",
+      "card": "Obsidian GreatswordPhysical Damage: 49-73Critical Hit Chance: 5%Attacks per Second: 1.25Weapon Range: 1.6Requires:  Level 36, 37 Str, 37 Dex",
+      "requiredLevel": 36
+    }
+  ],
+  "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+}

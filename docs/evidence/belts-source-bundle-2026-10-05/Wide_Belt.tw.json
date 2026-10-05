@@ -1,0 +1,30 @@
+{
+  "url": "https://poe2db.tw/tw/Wide_Belt",
+  "retrievedAt": "2026-10-05T01:24:29.532Z",
+  "sha256": "dbaef9593142b89fbeea411e55f7f3a9e35913617a2d74735c65bf7ce41aa699",
+  "variants": [
+    {
+      "name": "寬大腰帶",
+      "card": "寬大腰帶\n        \n    \n    \n        \n            腰帶需求:  等級 14有(1—3)個護符欄位增加(20—30)%藥劑充能獲取\n        \n\n\n\n        \n            Wide Belt",
+      "requirements": "需求:  等級 14",
+      "fields": {
+        "DropLevel": "14",
+        "BaseType": "寬大腰帶",
+        "Class": "腰帶",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt3",
+        "Tags": "belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt03",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

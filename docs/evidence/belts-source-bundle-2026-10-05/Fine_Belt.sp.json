@@ -1,0 +1,30 @@
+{
+  "url": "https://poe2db.tw/sp/Fine_Belt",
+  "retrievedAt": "2026-10-05T01:25:00.357Z",
+  "sha256": "294d1ab797d211eb80dd94966461c12b81159137b6de7236a78a2f4a9f9ffa25",
+  "variants": [
+    {
+      "name": "Cinturón delgado",
+      "card": "Cinturón delgado\n        \n    \n    \n        \n            CinturonesRequiere:  Nivel 62Tiene (1—3) espacio para vialLos frascos ganan 0.17 cargas por segundo\n        \n\n\n\n        \n            Fine Belt",
+      "requirements": "Requiere:  Nivel 62",
+      "fields": {
+        "DropLevel": "62",
+        "BaseType": "Cinturón delgado",
+        "Class": "Cinturones",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt11",
+        "Tags": "belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt11",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

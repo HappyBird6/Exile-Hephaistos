@@ -354,7 +354,8 @@ public final class WorkbenchService {
                                     4L)))
                         : (ReviewedBows.supports(catalog.base().id())
                                     || ReviewedRings.supports(catalog.base().id())
-                                    || ReviewedAmulets.supports(catalog.base().id()))
+                                    || ReviewedAmulets.supports(catalog.base().id())
+                                    || ReviewedBelts.supports(catalog.base().id()))
                                 && catalog.base().hasImplicit()
                             ? List.of(
                                 new ModifierInstance(
@@ -486,7 +487,9 @@ public final class WorkbenchService {
                                         ReviewedAmulets.BASES.getOrDefault(
                                             key,
                                             ReviewedSceptres.BASES.getOrDefault(
-                                                key, ReviewedWands.BASES.get(key))))))))))
+                                                key,
+                                                ReviewedWands.BASES.getOrDefault(
+                                                    key, ReviewedBelts.BASES.get(key)))))))))))
         || topBases.containsKey(key))
       throw new IllegalArgumentException("Unreviewed or duplicate armour registration");
     var simulator =

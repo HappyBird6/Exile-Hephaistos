@@ -1,0 +1,30 @@
+{
+  "url": "https://poe2db.tw/cn/Stalking_Belt",
+  "retrievedAt": "2026-10-05T01:24:20.323Z",
+  "sha256": "b7c079e9d6503aa75e174af22766b1099a9aa2f2ec2856658466c3f7e282402a",
+  "variants": [
+    {
+      "name": "追踪腰带",
+      "card": "追踪腰带\n        \n    \n    \n        \n            腰带需求：  等级 50具有 (1—3) 个咒符位具有 1 个咒符位此物品可作为鞋子获得镶嵌物的加成\n        \n\n        \n        \n            是我们的脚步在搅动。\n        \n\n\n        \n            Stalking Belt",
+      "requirements": "需求：  等级 50",
+      "fields": {
+        "DropLevel": "50",
+        "BaseType": "追踪腰带",
+        "Class": "腰带",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBeltB1",
+        "Tags": "belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/StalkingBelt",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

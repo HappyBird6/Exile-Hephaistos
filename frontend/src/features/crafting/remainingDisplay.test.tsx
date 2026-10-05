@@ -30,7 +30,7 @@ describe('remaining display coverage', () => {
         b.stats.some((s) => s.min !== s.max),
     )
     // Preserve all 378 historical bindings and add the exact Kinetic source compound.
-    expect(compound).toHaveLength(379)
+    expect(compound).toHaveLength(382)
     expect(compound.filter(([id]) => id.startsWith('kinetic:'))).toEqual([
       [
         'kinetic:implicit:physicaldamage',
@@ -95,7 +95,7 @@ describe('remaining display coverage', () => {
       'stellar:implicit:allattributes',
     ])
     // Preserve all 211 historical bindings and add seven exact Ring single-stat implicits.
-    expect(single).toHaveLength(225)
+    expect(single).toHaveLength(234)
     expect(
       single
         .filter(([id]) =>

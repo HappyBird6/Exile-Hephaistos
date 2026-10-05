@@ -21,11 +21,12 @@ for(const dir of fs.readdirSync('backend/src/main/resources/catalog')) {
 for(const base of Object.values(JSON.parse(fs.readFileSync('backend/src/main/resources/catalog/top-bases.json','utf8')))) {
  for(const l of locales) {
   assert.equal(terms[l][base.slug]?.itemKey,base.id,`${l}:top-base:${base.id}`)
-  if(['Metadata/Items/Amulets/FourAmulet1','Metadata/Items/Amulets/FourAmulet2'].includes(base.id)) {
+  if(['Metadata/Items/Amulets/FourAmulet1','Metadata/Items/Amulets/FourAmulet2','Metadata/Items/Belts/FourBelt2'].includes(base.id)) {
    assert.equal(base.requiredLevel,0,`${l}:source has no character requirement:${base.id}`)
    assert.equal(base.requirements[l],'',`${l}:no invented requirement:${base.id}`)
    const sourceLocale={en:'us',ko:'kr','zh-CN':'cn','zh-TW':'tw',ja:'jp',es:'sp'}[l]
-   const source=JSON.parse(fs.readFileSync(`docs/evidence/amulets-source-bundle-2026-10-04/${base.slug}.${sourceLocale}.json`,'utf8'))
+   const captured=JSON.parse(fs.readFileSync(`docs/evidence/${base.id==='Metadata/Items/Belts/FourBelt2'?'belts-source-bundle-2026-10-05':'amulets-source-bundle-2026-10-04'}/${base.slug}.${sourceLocale}.json`,'utf8'))
+   const source=base.id==='Metadata/Items/Belts/FourBelt2'?captured.variants[0]:captured
    assert.equal(source.fields.Type,base.id)
    assert.equal(source.requirements,base.requirements[l],`${l}:exact source absence:${base.id}`)
   } else assert(base.requirements[l],`${l}:top-base-requirements:${base.id}`)

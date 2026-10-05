@@ -1,0 +1,30 @@
+{
+  "url": "https://poe2db.tw/jp/Long_Belt",
+  "retrievedAt": "2026-10-05T01:23:49.198Z",
+  "sha256": "165bac9214595adb1200f9f6a32e114f8d15577c02d2174e52a47b9f4acd268b",
+  "variants": [
+    {
+      "name": "長いベルト",
+      "card": "長いベルト\n        \n    \n    \n        \n            ベルト装備条件： レベル 20(1—3)個のチャームスロットを持つチャームの効果持続時間が(15—20)%増加する\n        \n\n\n\n        \n            Long Belt",
+      "requirements": "装備条件： レベル 20",
+      "fields": {
+        "DropLevel": "20",
+        "BaseType": "長いベルト",
+        "Class": "ベルト",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt4",
+        "Tags": "belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt04",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

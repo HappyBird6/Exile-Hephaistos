@@ -40896,6 +40896,296 @@
           "divisor": 1
         }
       ]
+    },
+    "belt:suffix:essence-hysteria-stun-threshold": {
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 254,
+          "max": 304
+        }
+      ],
+      "englishText": "+(254—304) to Stun Threshold",
+      "values": ["+(254—304)"],
+      "template": "modifier.73cdf518f08c4b19",
+      "sourceCode": "StunThreshold10"
+    },
+    "linen-belt:implicit:base": {
+      "stats": [
+        {
+          "id": "flask_mana_to_recover_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "englishText": "(20—30)% increased Mana Recovery from Flasks",
+      "values": ["(20—30)"],
+      "template": "belts.linen-belt.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "flask_mana_to_recover_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "wide-belt:implicit:base": {
+      "stats": [
+        {
+          "id": "flask_charges_gained_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "englishText": "(20—30)% increased Flask Charges gained",
+      "values": ["(20—30)"],
+      "template": "belts.wide-belt.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "flask_charges_gained_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "long-belt:implicit:base": {
+      "stats": [
+        {
+          "id": "charm_duration_+%",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "englishText": "(15—20)% increased Charm Effect Duration",
+      "values": ["(15—20)"],
+      "template": "belts.long-belt.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "charm_duration_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "plate-belt:implicit:base": {
+      "stats": [
+        {
+          "id": "base_physical_damage_reduction_rating",
+          "min": 140,
+          "max": 180
+        }
+      ],
+      "englishText": "+(140—180) to Armour",
+      "values": ["+(140—180)"],
+      "template": "belts.plate-belt.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_physical_damage_reduction_rating",
+          "divisor": 1
+        }
+      ]
+    },
+    "ornate-belt:implicit:base": {
+      "stats": [
+        {
+          "id": "charm_charges_used_+%",
+          "min": -15,
+          "max": -10
+        }
+      ],
+      "englishText": "(10—15)% reduced Charm Charges used",
+      "values": ["(10—15)"],
+      "template": "belts.ornate-belt.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "charm_charges_used_+%",
+          "divisor": -1
+        }
+      ]
+    },
+    "mail-belt:implicit:base": {
+      "stats": [
+        {
+          "id": "flask_charges_used_+%",
+          "min": -15,
+          "max": -10
+        }
+      ],
+      "englishText": "(10—15)% reduced Flask Charges used",
+      "values": ["(10—15)"],
+      "template": "belts.mail-belt.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "flask_charges_used_+%",
+          "divisor": -1
+        }
+      ]
+    },
+    "double-belt:implicit:base": {
+      "stats": [
+        {
+          "id": "charm_charges_gained_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "englishText": "(20—30)% increased Charm Charges gained",
+      "values": ["(20—30)"],
+      "template": "belts.double-belt.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "charm_charges_gained_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "heavy-belt:implicit:base": {
+      "stats": [
+        {
+          "id": "stun_threshold_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "englishText": "(20—30)% increased Stun Threshold",
+      "values": ["(20—30)"],
+      "template": "belts.heavy-belt.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "stun_threshold_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "utility-belt:implicit:base": {
+      "stats": [
+        {
+          "id": "flask_recovery_amount_%_to_recover_instantly",
+          "min": 20,
+          "max": 20
+        }
+      ],
+      "englishText": "20% of Flask Recovery applied Instantly",
+      "values": ["20"],
+      "template": "belts.utility-belt.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "flask_recovery_amount_%_to_recover_instantly",
+          "divisor": 1
+        }
+      ]
+    },
+    "fine-belt:implicit:base": {
+      "stats": [
+        {
+          "id": "generate_x_charges_for_any_flask_per_minute",
+          "min": 10,
+          "max": 10
+        }
+      ],
+      "englishText": "Flasks gain 0.17 charges per Second",
+      "values": ["0.17"],
+      "template": "belts.fine-belt.implicit",
+      "sourceCode": null
+    },
+    "invoking-belt:implicit:base": {
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 8,
+          "max": 12
+        },
+        {
+          "id": "local_charm_slots",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "(8—12)% increased Cast Speed\nHas 1 Charm Slots",
+      "values": ["(8—12)", "1"],
+      "template": "belts.invoking-belt.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "base_cast_speed_+%",
+          "divisor": 1
+        },
+        {
+          "id": "local_charm_slots",
+          "divisor": 1
+        }
+      ]
+    },
+    "sinew-belt:implicit:base": {
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 15,
+          "max": 20
+        },
+        {
+          "id": "local_charm_slots",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "+(15—20) to Strength\nHas 1 Charm Slots",
+      "values": ["+(15—20)", "1"],
+      "template": "belts.sinew-belt.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "additional_strength",
+          "divisor": 1
+        },
+        {
+          "id": "local_charm_slots",
+          "divisor": 1
+        }
+      ]
+    },
+    "forking-belt:implicit:base": {
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 20,
+          "max": 30
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 1
+        },
+        {
+          "id": "local_charm_slots",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "Adds 1 to (20—30) Lightning damage to Attacks\nHas 1 Charm Slots",
+      "values": ["1", "(20—30)", "1"],
+      "template": "belts.forking-belt.implicit",
+      "sourceCode": null,
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_charm_slots",
+          "divisor": 1
+        }
+      ]
     }
   },
   "templates": {
@@ -48707,6 +48997,58 @@
       "amulets.pearlescent.implicit": {
         "name": "Pearlescent Amulet",
         "template": "{v0}% to all Elemental Resistances"
+      },
+      "belts.linen-belt.implicit": {
+        "name": "Linen Belt",
+        "template": "{v0}% increased Mana Recovery from Flasks"
+      },
+      "belts.wide-belt.implicit": {
+        "name": "Wide Belt",
+        "template": "{v0}% increased Flask Charges gained"
+      },
+      "belts.long-belt.implicit": {
+        "name": "Long Belt",
+        "template": "{v0}% increased Charm Effect Duration"
+      },
+      "belts.plate-belt.implicit": {
+        "name": "Plate Belt",
+        "template": "{v0} to Armour"
+      },
+      "belts.ornate-belt.implicit": {
+        "name": "Ornate Belt",
+        "template": "{v0}% reduced Charm Charges used"
+      },
+      "belts.mail-belt.implicit": {
+        "name": "Mail Belt",
+        "template": "{v0}% reduced Flask Charges used"
+      },
+      "belts.double-belt.implicit": {
+        "name": "Double Belt",
+        "template": "{v0}% increased Charm Charges gained"
+      },
+      "belts.heavy-belt.implicit": {
+        "name": "Heavy Belt",
+        "template": "{v0}% increased Stun Threshold"
+      },
+      "belts.utility-belt.implicit": {
+        "name": "Utility Belt",
+        "template": "{v0}% of Flask Recovery applied Instantly"
+      },
+      "belts.fine-belt.implicit": {
+        "name": "Fine Belt",
+        "template": "Flasks gain {v0} charges per Second"
+      },
+      "belts.invoking-belt.implicit": {
+        "name": "Invoking Belt",
+        "template": "{v0}% increased Cast Speed\nHas {v1} Charm Slots"
+      },
+      "belts.sinew-belt.implicit": {
+        "name": "Sinew Belt",
+        "template": "{v0} to Strength\nHas {v1} Charm Slots"
+      },
+      "belts.forking-belt.implicit": {
+        "name": "Forking Belt",
+        "template": "Adds {v0} to {v1} Lightning damage to Attacks\nHas {v2} Charm Slots"
       }
     },
     "ko": {
@@ -56517,6 +56859,58 @@
       "amulets.pearlescent.implicit": {
         "name": "진줏빛 목걸이",
         "template": "모든 원소 저항 {v0}%"
+      },
+      "belts.linen-belt.implicit": {
+        "name": "리넨 허리띠",
+        "template": "플라스크로 얻는 마나 회복 {v0}% 증가"
+      },
+      "belts.wide-belt.implicit": {
+        "name": "넓은 허리띠",
+        "template": "플라스크 충전량 {v0}% 증가"
+      },
+      "belts.long-belt.implicit": {
+        "name": "긴 허리띠",
+        "template": "호신부 효과 지속시간 {v0}% 증가"
+      },
+      "belts.plate-belt.implicit": {
+        "name": "판금 허리띠",
+        "template": "방어도 {v0}"
+      },
+      "belts.ornate-belt.implicit": {
+        "name": "화려한 허리띠",
+        "template": "호신부 충전 소모량 {v0}% 감소"
+      },
+      "belts.mail-belt.implicit": {
+        "name": "사슬 허리띠",
+        "template": "플라스크 충전 소모량 {v0}% 감소"
+      },
+      "belts.double-belt.implicit": {
+        "name": "이중 허리띠",
+        "template": "호신부 충전량 {v0}% 증가"
+      },
+      "belts.heavy-belt.implicit": {
+        "name": "무거운 허리띠",
+        "template": "기절 한계치 {v0}% 증가"
+      },
+      "belts.utility-belt.implicit": {
+        "name": "특수 허리띠",
+        "template": "플라스크 회복량의 {v0}%를 즉시 회복"
+      },
+      "belts.fine-belt.implicit": {
+        "name": "섬세한 허리띠",
+        "template": "플라스크가 1초마다 충전 {v0} 획득"
+      },
+      "belts.invoking-belt.implicit": {
+        "name": "기원 허리띠",
+        "template": "시전 속도 {v0}% 증가\n호신부 슬롯 {v1}개 보유"
+      },
+      "belts.sinew-belt.implicit": {
+        "name": "힘줄 허리띠",
+        "template": "힘 {v0}\n호신부 슬롯 {v1}개 보유"
+      },
+      "belts.forking-belt.implicit": {
+        "name": "갈라지는 허리띠",
+        "template": "공격 시 번개 피해 {v0}~{v1} 추가\n호신부 슬롯 {v2}개 보유"
       }
     },
     "zh-CN": {
@@ -64327,6 +64721,58 @@
       "amulets.pearlescent.implicit": {
         "name": "珠光项链",
         "template": "所有元素抗性 {v0}%"
+      },
+      "belts.linen-belt.implicit": {
+        "name": "亚麻腰带",
+        "template": "药剂的魔力回复提高 {v0}%"
+      },
+      "belts.wide-belt.implicit": {
+        "name": "宽大腰带",
+        "template": "获得的药剂充能提高 {v0}%"
+      },
+      "belts.long-belt.implicit": {
+        "name": "加长腰带",
+        "template": "咒符效果的持续时间提高 {v0}%"
+      },
+      "belts.plate-belt.implicit": {
+        "name": "嵌板腰带",
+        "template": "{v0} 护甲"
+      },
+      "belts.ornate-belt.implicit": {
+        "name": "华丽腰带",
+        "template": "使用的咒符充能降低 {v0}%"
+      },
+      "belts.mail-belt.implicit": {
+        "name": "环锁腰带",
+        "template": "使用的药剂充能降低 {v0}%"
+      },
+      "belts.double-belt.implicit": {
+        "name": "双重腰带",
+        "template": "获得的咒符充能提高 {v0}%"
+      },
+      "belts.heavy-belt.implicit": {
+        "name": "重革腰带",
+        "template": "晕眩阈值提高 {v0}%"
+      },
+      "belts.utility-belt.implicit": {
+        "name": "万用腰带",
+        "template": "{v0}% 的药剂回复量立即生效"
+      },
+      "belts.fine-belt.implicit": {
+        "name": "精致腰带",
+        "template": "药剂每秒获得 {v0} 次充能"
+      },
+      "belts.invoking-belt.implicit": {
+        "name": "祈求腰带",
+        "template": "施法速度提高 {v0}%\n具有 {v1} 个咒符位"
+      },
+      "belts.sinew-belt.implicit": {
+        "name": "肌力腰带",
+        "template": "{v0} 力量\n具有 {v1} 个咒符位"
+      },
+      "belts.forking-belt.implicit": {
+        "name": "分叉腰带",
+        "template": "攻击附加 {v0} - {v1} 基础闪电伤害\n具有 {v2} 个咒符位"
       }
     },
     "zh-TW": {
@@ -72137,6 +72583,58 @@
       "amulets.pearlescent.implicit": {
         "name": "珠光項鍊",
         "template": "{v0}%全元素抗性"
+      },
+      "belts.linen-belt.implicit": {
+        "name": "麻布腰帶",
+        "template": "增加{v0}%藥劑的魔力恢復"
+      },
+      "belts.wide-belt.implicit": {
+        "name": "寬大腰帶",
+        "template": "增加{v0}%藥劑充能獲取"
+      },
+      "belts.long-belt.implicit": {
+        "name": "長腰帶",
+        "template": "增加{v0}%護符效果持續時間"
+      },
+      "belts.plate-belt.implicit": {
+        "name": "板甲腰帶",
+        "template": "{v0}護甲值"
+      },
+      "belts.ornate-belt.implicit": {
+        "name": "華麗腰帶",
+        "template": "減少{v0}%護符充能使用"
+      },
+      "belts.mail-belt.implicit": {
+        "name": "鎖甲腰帶",
+        "template": "減少{v0}%藥劑充能使用"
+      },
+      "belts.double-belt.implicit": {
+        "name": "雙層腰帶",
+        "template": "增加{v0}%護符充能獲取"
+      },
+      "belts.heavy-belt.implicit": {
+        "name": "重革腰帶",
+        "template": "增加{v0}%暈眩門檻"
+      },
+      "belts.utility-belt.implicit": {
+        "name": "實用腰帶",
+        "template": "{v0}%的藥劑回復立即生效"
+      },
+      "belts.fine-belt.implicit": {
+        "name": "精良腰帶",
+        "template": "藥劑每秒獲得{v0}充能"
+      },
+      "belts.invoking-belt.implicit": {
+        "name": "祈喚腰帶",
+        "template": "增加{v0}%施法速度\n有{v1}個護符欄位"
+      },
+      "belts.sinew-belt.implicit": {
+        "name": "韌筋腰帶",
+        "template": "{v0}點力量\n有{v1}個護符欄位"
+      },
+      "belts.forking-belt.implicit": {
+        "name": "歧路腰帶",
+        "template": "攻擊附加{v0}至{v1}閃電傷害\n有{v2}個護符欄位"
       }
     },
     "ja": {
@@ -79947,6 +80445,58 @@
       "amulets.pearlescent.implicit": {
         "name": "真珠のアミュレット",
         "template": "全ての元素耐性 {v0}%"
+      },
+      "belts.linen-belt.implicit": {
+        "name": "リネンのベルト",
+        "template": "フラスコによるマナ回復量が{v0}%増加する"
+      },
+      "belts.wide-belt.implicit": {
+        "name": "幅広のベルト",
+        "template": "獲得フラスコチャージが{v0}%増加する"
+      },
+      "belts.long-belt.implicit": {
+        "name": "長いベルト",
+        "template": "チャームの効果持続時間が{v0}%増加する"
+      },
+      "belts.plate-belt.implicit": {
+        "name": "プレートベルト",
+        "template": "アーマー {v0}"
+      },
+      "belts.ornate-belt.implicit": {
+        "name": "華美なベルト",
+        "template": "チャームの使用チャージが{v0}%減少する"
+      },
+      "belts.mail-belt.implicit": {
+        "name": "メイルベルト",
+        "template": "消費フラスコチャージが{v0}%減少する"
+      },
+      "belts.double-belt.implicit": {
+        "name": "ダブルベルト",
+        "template": "チャームの獲得チャージが{v0}%増加する"
+      },
+      "belts.heavy-belt.implicit": {
+        "name": "ヘビーベルト",
+        "template": "スタン閾値が{v0}%増加する"
+      },
+      "belts.utility-belt.implicit": {
+        "name": "実用的なベルト",
+        "template": "フラスコによる回復の{v0}%が即時に適用される"
+      },
+      "belts.fine-belt.implicit": {
+        "name": "精巧なベルト",
+        "template": "フラスコは毎秒{v0}のチャージを獲得する"
+      },
+      "belts.invoking-belt.implicit": {
+        "name": "招来のベルト",
+        "template": "キャストスピードが{v0}%増加する\n{v1}個のチャームスロットを持つ"
+      },
+      "belts.sinew-belt.implicit": {
+        "name": "腱のベルト",
+        "template": "筋力 {v0}\n{v1}個のチャームスロットを持つ"
+      },
+      "belts.forking-belt.implicit": {
+        "name": "分岐のベルト",
+        "template": "{v0}から{v1}の雷ダメージをアタックに追加する\n{v2}個のチャームスロットを持つ"
       }
     },
     "es": {
@@ -87757,6 +88307,58 @@
       "amulets.pearlescent.implicit": {
         "name": "Amuleto nacarado",
         "template": "{v0}% a todas las resistencias elementales"
+      },
+      "belts.linen-belt.implicit": {
+        "name": "Cinturón de lino",
+        "template": "Recuperación de maná con frascos aumentada un {v0}%"
+      },
+      "belts.wide-belt.implicit": {
+        "name": "Cinturón ancho",
+        "template": "Cargas de frasco ganadas aumentadas un {v0}%"
+      },
+      "belts.long-belt.implicit": {
+        "name": "Cinturón largo",
+        "template": "Duración del efecto de los viales aumentada un {v0}%"
+      },
+      "belts.plate-belt.implicit": {
+        "name": "Cinturón de placas",
+        "template": "{v0} a la armadura"
+      },
+      "belts.ornate-belt.implicit": {
+        "name": "Cinturón ornamentado",
+        "template": "Cargas de viales usadas reducidas un {v0}%"
+      },
+      "belts.mail-belt.implicit": {
+        "name": "Cinturón de malla",
+        "template": "Cargas de frascos utilizadas reducidas un {v0}%"
+      },
+      "belts.double-belt.implicit": {
+        "name": "Cinturón doble",
+        "template": "Cargas de viales ganadas aumentadas un {v0}%"
+      },
+      "belts.heavy-belt.implicit": {
+        "name": "Cinturón pesado",
+        "template": "Umbral de aturdimiento aumentado un {v0}%"
+      },
+      "belts.utility-belt.implicit": {
+        "name": "Cinturón utilitario",
+        "template": "El {v0}% de la recuperación de los frascos se aplica instantáneamente"
+      },
+      "belts.fine-belt.implicit": {
+        "name": "Cinturón delgado",
+        "template": "Los frascos ganan {v0} cargas por segundo"
+      },
+      "belts.invoking-belt.implicit": {
+        "name": "Cinturón invocador",
+        "template": "Velocidad de lanzamiento de hechizos aumentada un {v0}%\nTiene {v1} espacio para vial"
+      },
+      "belts.sinew-belt.implicit": {
+        "name": "Cinturón de tendones",
+        "template": "{v0} a la fuerza\nTiene {v1} espacio para vial"
+      },
+      "belts.forking-belt.implicit": {
+        "name": "Cinturón bifurcado",
+        "template": "Agrega de {v0} a {v1} de daño de rayo a los ataques\nTiene {v2} espacio para vial"
       }
     }
   }

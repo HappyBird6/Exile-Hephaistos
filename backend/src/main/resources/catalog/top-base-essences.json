@@ -4500,5 +4500,1032 @@
         "rattling-sceptre:suffix:essence-aura-magnitude"
       ]
     }
+  },
+  "linen-belt": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:sanguine"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-wrestler"
+      ],
+      "ESSENCE_BODY": [
+        "rawhide-belt:prefix:rotund"
+      ],
+      "ESSENCE_MIND": [
+        "rawhide-belt:prefix:aqua"
+      ],
+      "ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-lion"
+      ],
+      "GREATER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:virile"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:opalescent"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-goliath"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-maelstrom"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:essence-fire-damage-recouped-as-life"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "belt:suffix:essence-hysteria-stun-threshold"
+      ]
+    }
+  },
+  "wide-belt": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:sanguine"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-wrestler"
+      ],
+      "ESSENCE_BODY": [
+        "rawhide-belt:prefix:rotund"
+      ],
+      "ESSENCE_MIND": [
+        "rawhide-belt:prefix:aqua"
+      ],
+      "ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-lion"
+      ],
+      "GREATER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:virile"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:opalescent"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-goliath"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-maelstrom"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:essence-fire-damage-recouped-as-life"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "belt:suffix:essence-hysteria-stun-threshold"
+      ]
+    }
+  },
+  "long-belt": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:sanguine"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-wrestler"
+      ],
+      "ESSENCE_BODY": [
+        "rawhide-belt:prefix:rotund"
+      ],
+      "ESSENCE_MIND": [
+        "rawhide-belt:prefix:aqua"
+      ],
+      "ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-lion"
+      ],
+      "GREATER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:virile"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:opalescent"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-goliath"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-maelstrom"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:essence-fire-damage-recouped-as-life"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "belt:suffix:essence-hysteria-stun-threshold"
+      ]
+    }
+  },
+  "plate-belt": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:sanguine"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-wrestler"
+      ],
+      "ESSENCE_BODY": [
+        "rawhide-belt:prefix:rotund"
+      ],
+      "ESSENCE_MIND": [
+        "rawhide-belt:prefix:aqua"
+      ],
+      "ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-lion"
+      ],
+      "GREATER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:virile"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:opalescent"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-goliath"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-maelstrom"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:essence-fire-damage-recouped-as-life"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "belt:suffix:essence-hysteria-stun-threshold"
+      ]
+    }
+  },
+  "ornate-belt": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:sanguine"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-wrestler"
+      ],
+      "ESSENCE_BODY": [
+        "rawhide-belt:prefix:rotund"
+      ],
+      "ESSENCE_MIND": [
+        "rawhide-belt:prefix:aqua"
+      ],
+      "ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-lion"
+      ],
+      "GREATER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:virile"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:opalescent"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-goliath"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-maelstrom"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:essence-fire-damage-recouped-as-life"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "belt:suffix:essence-hysteria-stun-threshold"
+      ]
+    }
+  },
+  "mail-belt": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:sanguine"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-wrestler"
+      ],
+      "ESSENCE_BODY": [
+        "rawhide-belt:prefix:rotund"
+      ],
+      "ESSENCE_MIND": [
+        "rawhide-belt:prefix:aqua"
+      ],
+      "ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-lion"
+      ],
+      "GREATER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:virile"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:opalescent"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-goliath"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-maelstrom"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:essence-fire-damage-recouped-as-life"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "belt:suffix:essence-hysteria-stun-threshold"
+      ]
+    }
+  },
+  "double-belt": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:sanguine"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-wrestler"
+      ],
+      "ESSENCE_BODY": [
+        "rawhide-belt:prefix:rotund"
+      ],
+      "ESSENCE_MIND": [
+        "rawhide-belt:prefix:aqua"
+      ],
+      "ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-lion"
+      ],
+      "GREATER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:virile"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:opalescent"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-goliath"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-maelstrom"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:essence-fire-damage-recouped-as-life"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "belt:suffix:essence-hysteria-stun-threshold"
+      ]
+    }
+  },
+  "heavy-belt": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:sanguine"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-wrestler"
+      ],
+      "ESSENCE_BODY": [
+        "rawhide-belt:prefix:rotund"
+      ],
+      "ESSENCE_MIND": [
+        "rawhide-belt:prefix:aqua"
+      ],
+      "ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-lion"
+      ],
+      "GREATER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:virile"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:opalescent"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-goliath"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-maelstrom"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:essence-fire-damage-recouped-as-life"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "belt:suffix:essence-hysteria-stun-threshold"
+      ]
+    }
+  },
+  "utility-belt": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:sanguine"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-wrestler"
+      ],
+      "ESSENCE_BODY": [
+        "rawhide-belt:prefix:rotund"
+      ],
+      "ESSENCE_MIND": [
+        "rawhide-belt:prefix:aqua"
+      ],
+      "ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-lion"
+      ],
+      "GREATER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:virile"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:opalescent"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-goliath"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-maelstrom"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:essence-fire-damage-recouped-as-life"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "belt:suffix:essence-hysteria-stun-threshold"
+      ]
+    }
+  },
+  "fine-belt": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:sanguine"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-wrestler"
+      ],
+      "ESSENCE_BODY": [
+        "rawhide-belt:prefix:rotund"
+      ],
+      "ESSENCE_MIND": [
+        "rawhide-belt:prefix:aqua"
+      ],
+      "ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-lion"
+      ],
+      "GREATER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:virile"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:opalescent"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-goliath"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-maelstrom"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:essence-fire-damage-recouped-as-life"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "belt:suffix:essence-hysteria-stun-threshold"
+      ]
+    }
+  },
+  "invoking-belt": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:sanguine"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-wrestler"
+      ],
+      "ESSENCE_BODY": [
+        "rawhide-belt:prefix:rotund"
+      ],
+      "ESSENCE_MIND": [
+        "rawhide-belt:prefix:aqua"
+      ],
+      "ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-lion"
+      ],
+      "GREATER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:virile"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:opalescent"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-goliath"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-maelstrom"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:essence-fire-damage-recouped-as-life"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "belt:suffix:essence-hysteria-stun-threshold"
+      ]
+    }
+  },
+  "sinew-belt": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:sanguine"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-wrestler"
+      ],
+      "ESSENCE_BODY": [
+        "rawhide-belt:prefix:rotund"
+      ],
+      "ESSENCE_MIND": [
+        "rawhide-belt:prefix:aqua"
+      ],
+      "ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-lion"
+      ],
+      "GREATER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:virile"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:opalescent"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-goliath"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-maelstrom"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:essence-fire-damage-recouped-as-life"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "belt:suffix:essence-hysteria-stun-threshold"
+      ]
+    }
+  },
+  "forking-belt": {
+    "fixed": {
+      "LESSER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:sanguine"
+      ],
+      "LESSER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:azure"
+      ],
+      "LESSER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-the-lost"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-wrestler"
+      ],
+      "ESSENCE_BODY": [
+        "rawhide-belt:prefix:rotund"
+      ],
+      "ESSENCE_MIND": [
+        "rawhide-belt:prefix:aqua"
+      ],
+      "ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-banishment"
+      ],
+      "ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-lion"
+      ],
+      "GREATER_ESSENCE_BODY": [
+        "rawhide-belt:prefix:virile"
+      ],
+      "GREATER_ESSENCE_MIND": [
+        "rawhide-belt:prefix:opalescent"
+      ],
+      "GREATER_ESSENCE_RUIN": [
+        "rawhide-belt:suffix:of-expulsion"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "rawhide-belt:suffix:of-the-goliath"
+      ],
+      "LESSER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-salamander"
+      ],
+      "ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-kiln"
+      ],
+      "GREATER_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:of-the-volcano"
+      ],
+      "LESSER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-penguin"
+      ],
+      "ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-yeti"
+      ],
+      "GREATER_ESSENCE_THAWING": [
+        "rawhide-belt:suffix:of-the-polar-bear"
+      ],
+      "LESSER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-squall"
+      ],
+      "ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-thunderhead"
+      ],
+      "GREATER_ESSENCE_GROUNDING": [
+        "rawhide-belt:suffix:of-the-maelstrom"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_INSULATION": [
+        "rawhide-belt:suffix:essence-fire-damage-recouped-as-life"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ESSENCE_HYSTERIA": [
+        "belt:suffix:essence-hysteria-stun-threshold"
+      ]
+    }
   }
 }

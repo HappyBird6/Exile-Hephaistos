@@ -1,0 +1,93 @@
+{
+  "page": "Claws",
+  "url": "https://poe2db.tw/us/Claws",
+  "retrievedAt": "2026-10-05T01:38:22.167Z",
+  "sha256": "47944e103379bbf7a7a339a39658843884546095f1d5db0f4f78182956e02736",
+  "cards": [
+    {
+      "slug": "Crude_Claw",
+      "card": "Crude ClawPhysical Damage: 4-10Critical Hit Chance: 5%Attacks per Second: 1.65Weapon Range: 1.1"
+    },
+    {
+      "slug": "Pict_Claw",
+      "card": "Pict ClawPhysical Damage: 4-16Critical Hit Chance: 5%Attacks per Second: 1.7Weapon Range: 1.1Requires:  Level 6, 14 Dex"
+    },
+    {
+      "slug": "Wolfbone_Claw",
+      "card": "Wolfbone ClawPhysical Damage: 7-23Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.1Requires:  Level 12, 24 DexGrants 8 Life per Enemy Hit"
+    },
+    {
+      "slug": "Forked_Claw",
+      "card": "Forked ClawPhysical Damage: 10-26Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.1Requires:  Level 16, 31 Dex"
+    },
+    {
+      "slug": "Plated_Claw",
+      "card": "Plated ClawPhysical Damage: 13-31Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.1Requires:  Level 22, 41 Dex"
+    },
+    {
+      "slug": "Edged_Claw",
+      "card": "Edged ClawPhysical Damage: 11-38Critical Hit Chance: 5%Attacks per Second: 1.7Weapon Range: 1.1Requires:  Level 28, 52 Dex(15—25)% chance to Blind Enemies on hit"
+    },
+    {
+      "slug": "Arced_Claw",
+      "card": "Arced ClawPhysical Damage: 12-46Critical Hit Chance: 5%Attacks per Second: 1.65Weapon Range: 1.1Requires:  Level 33, 60 Dex"
+    },
+    {
+      "slug": "Hooked_Claw",
+      "card": "Hooked ClawPhysical Damage: 16-49Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.1Requires:  Level 36, 65 Dex"
+    },
+    {
+      "slug": "Razorglass_Claw",
+      "card": "Razorglass ClawPhysical Damage: 23-54Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.1Requires:  Level 45, 80 Dex"
+    },
+    {
+      "slug": "Sharktooth_Claw",
+      "card": "Sharktooth ClawPhysical Damage: 25-52Critical Hit Chance: 5%Attacks per Second: 1.7Weapon Range: 1.1Requires:  Level 49, 87 Dex"
+    },
+    {
+      "slug": "Armoured_Claw",
+      "card": "Armoured ClawPhysical Damage: 27-63Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.1Requires:  Level 52, 92 Dex"
+    },
+    {
+      "slug": "Piercing_Claw",
+      "card": "Piercing ClawPhysical Damage: 23-68Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.1Requires:  Level 55, 97 Dex"
+    },
+    {
+      "slug": "Talon_Claw",
+      "card": "Talon ClawPhysical Damage: 23-79Critical Hit Chance: 5%Attacks per Second: 1.65Weapon Range: 1.1Requires:  Level 65, 114 Dex"
+    }
+  ],
+  "highestRequirementCandidates": [
+    {
+      "slug": "Talon_Claw",
+      "card": "Talon ClawPhysical Damage: 23-79Critical Hit Chance: 5%Attacks per Second: 1.65Weapon Range: 1.1Requires:  Level 65, 114 Dex",
+      "requiredLevel": 65
+    },
+    {
+      "slug": "Piercing_Claw",
+      "card": "Piercing ClawPhysical Damage: 23-68Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.1Requires:  Level 55, 97 Dex",
+      "requiredLevel": 55
+    },
+    {
+      "slug": "Armoured_Claw",
+      "card": "Armoured ClawPhysical Damage: 27-63Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.1Requires:  Level 52, 92 Dex",
+      "requiredLevel": 52
+    },
+    {
+      "slug": "Sharktooth_Claw",
+      "card": "Sharktooth ClawPhysical Damage: 25-52Critical Hit Chance: 5%Attacks per Second: 1.7Weapon Range: 1.1Requires:  Level 49, 87 Dex",
+      "requiredLevel": 49
+    },
+    {
+      "slug": "Razorglass_Claw",
+      "card": "Razorglass ClawPhysical Damage: 23-54Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.1Requires:  Level 45, 80 Dex",
+      "requiredLevel": 45
+    },
+    {
+      "slug": "Hooked_Claw",
+      "card": "Hooked ClawPhysical Damage: 16-49Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.1Requires:  Level 36, 65 Dex",
+      "requiredLevel": 36
+    }
+  ],
+  "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+}

@@ -1,0 +1,97 @@
+{
+  "page": "Traps",
+  "url": "https://poe2db.tw/us/Traps",
+  "retrievedAt": "2026-10-05T01:38:25.887Z",
+  "sha256": "c356decb05313afe0a0c24aa0ef7cb7487b20a621e39fa9ba6882b21abfbb53a",
+  "cards": [
+    {
+      "slug": "Clay_Trap",
+      "card": "Clay TrapThrow Time: 0.75 SecDetonation Type: ProximityRequires:  Level 2"
+    },
+    {
+      "slug": "Clamping_Trap",
+      "card": "Clamping TrapThrow Time: 0.80 SecDetonation Type: ProximityRequires:  Level 6"
+    },
+    {
+      "slug": "Shrapnel_Trap",
+      "card": "Shrapnel TrapThrow Time: 0.80 SecDetonation Type: ManualRequires:  Level 10"
+    },
+    {
+      "slug": "Urn_Trap",
+      "card": "Urn TrapThrow Time: 0.80 SecDetonation Type: ProximityRequires:  Level 16"
+    },
+    {
+      "slug": "Incense_Trap",
+      "card": "Incense TrapThrow Time: 0.80 SecDetonation Type: ManualRequires:  Level 22(20—30)% increased Cooldown Recovery Rate for throwing Traps"
+    },
+    {
+      "slug": "Bladed_Trap",
+      "card": "Bladed TrapThrow Time: 0.80 SecDetonation Type: ProximityRequires:  Level 27"
+    },
+    {
+      "slug": "Dart_Trap",
+      "card": "Dart TrapThrow Time: 0.80 SecDetonation Type: ManualRequires:  Level 33"
+    },
+    {
+      "slug": "Spike_Trap",
+      "card": "Spike TrapThrow Time: 0.80 SecDetonation Type: ProximityRequires:  Level 38"
+    },
+    {
+      "slug": "Coiled_Trap",
+      "card": "Coiled TrapThrow Time: 0.80 SecDetonation Type: ManualRequires:  Level 45"
+    },
+    {
+      "slug": "Lead_Trap",
+      "card": "Lead TrapThrow Time: 0.80 SecDetonation Type: ProximityRequires:  Level 49"
+    },
+    {
+      "slug": "Medallion_Trap",
+      "card": "Medallion TrapThrow Time: 0.80 SecDetonation Type: ProximityRequires:  Level 52"
+    },
+    {
+      "slug": "Intricate_Trap",
+      "card": "Intricate TrapThrow Time: 0.80 SecDetonation Type: ManualRequires:  Level 56"
+    },
+    {
+      "slug": "Refined_Trap",
+      "card": "Refined TrapThrow Time: 0.80 SecDetonation Type: ProximityRequires:  Level 65"
+    },
+    {
+      "slug": "Incense_Trap",
+      "card": "Incense TrapThrow Time: 0.80 SecDetonation Type: ManualRequires:  Level 22(20—30)% increased Cooldown Recovery Rate for throwing Traps"
+    }
+  ],
+  "highestRequirementCandidates": [
+    {
+      "slug": "Refined_Trap",
+      "card": "Refined TrapThrow Time: 0.80 SecDetonation Type: ProximityRequires:  Level 65",
+      "requiredLevel": 65
+    },
+    {
+      "slug": "Intricate_Trap",
+      "card": "Intricate TrapThrow Time: 0.80 SecDetonation Type: ManualRequires:  Level 56",
+      "requiredLevel": 56
+    },
+    {
+      "slug": "Medallion_Trap",
+      "card": "Medallion TrapThrow Time: 0.80 SecDetonation Type: ProximityRequires:  Level 52",
+      "requiredLevel": 52
+    },
+    {
+      "slug": "Lead_Trap",
+      "card": "Lead TrapThrow Time: 0.80 SecDetonation Type: ProximityRequires:  Level 49",
+      "requiredLevel": 49
+    },
+    {
+      "slug": "Coiled_Trap",
+      "card": "Coiled TrapThrow Time: 0.80 SecDetonation Type: ManualRequires:  Level 45",
+      "requiredLevel": 45
+    },
+    {
+      "slug": "Spike_Trap",
+      "card": "Spike TrapThrow Time: 0.80 SecDetonation Type: ProximityRequires:  Level 38",
+      "requiredLevel": 38
+    }
+  ],
+  "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+}

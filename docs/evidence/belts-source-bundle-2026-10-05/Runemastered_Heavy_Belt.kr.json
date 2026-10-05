@@ -1,0 +1,99 @@
+{
+  "url": "https://poe2db.tw/kr/Runemastered_Heavy_Belt",
+  "retrievedAt": "2026-10-05T01:23:41.006Z",
+  "sha256": "d7516d9712867830d2a52f71d692245fe279e24e96ad35824d373dfbc72f97da",
+  "variants": [
+    {
+      "name": "룬숙련 무거운 허리띠",
+      "card": "룬숙련 무거운 허리띠\n        \n    \n    \n        \n            허리띠요구 사항:  레벨 65호신부 슬롯 (1—3)개 보유기절 한계치 (20—30)% 증가플라스크로 얻는 생명력 회복의 (15—25)%가 룬 수호에도 적용\n        \n\n\n\n        \n            Runemastered Heavy Belt",
+      "requirements": "요구 사항:  레벨 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "룬숙련 무거운 허리띠",
+        "Class": "허리띠",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt9VerisiumUnique1",
+        "Tags": "runeforged, belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt09",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    },
+    {
+      "name": "룬숙련 무거운 허리띠",
+      "card": "룬숙련 무거운 허리띠\n        \n    \n    \n        \n            허리띠요구 사항:  레벨 65호신부 슬롯 (1—3)개 보유기절 한계치 (20—30)% 증가룬 수호 재생 속도 (20—40)% 증가\n        \n\n\n\n        \n            Runemastered Heavy Belt",
+      "requirements": "요구 사항:  레벨 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "룬숙련 무거운 허리띠",
+        "Class": "허리띠",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt9VerisiumUnique2",
+        "Tags": "runeforged, belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt09",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    },
+    {
+      "name": "룬숙련 무거운 허리띠",
+      "card": "룬숙련 무거운 허리띠\n        \n    \n    \n        \n            허리띠요구 사항:  레벨 65호신부 슬롯 (1—3)개 보유기절 한계치 (20—30)% 증가룬 수호 회복이 룬 수호 최대치를 초과하여 넘칠 수 있음\n        \n\n\n\n        \n            Runemastered Heavy Belt",
+      "requirements": "요구 사항:  레벨 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "룬숙련 무거운 허리띠",
+        "Class": "허리띠",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt9VerisiumUnique3",
+        "Tags": "runeforged, belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt09",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    },
+    {
+      "name": "룬숙련 무거운 허리띠",
+      "card": "룬숙련 무거운 허리띠\n        \n    \n    \n        \n            허리띠요구 사항:  레벨 65호신부 슬롯 (1—3)개 보유기절 한계치 (20—30)% 증가플라스크가 1초마다 충전 (0.5—1) 획득\n        \n\n\n\n        \n            Runemastered Heavy Belt",
+      "requirements": "요구 사항:  레벨 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "룬숙련 무거운 허리띠",
+        "Class": "허리띠",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt9VerisiumUnique4",
+        "Tags": "runeforged, belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt09",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

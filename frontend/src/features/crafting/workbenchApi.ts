@@ -999,6 +999,7 @@ export async function applyCurrency(
       'amulets',
       'sceptres',
       'wands',
+      'belts',
     ].includes(topBase(reviewedKey)?.family ?? '')
       ? (
           reviewedEssenceTargets as Record<
@@ -1099,14 +1100,15 @@ export async function applyCurrency(
         Boolean(next.implicits[0].fractured))) ||
     (v.qualityLimit !== undefined &&
       (v.qualityLimit === null
-        ? ![
-            'Metadata/Items/Jewels/JewelRadiusStr',
-            'Metadata/Items/Jewels/JewelRadiusDex',
-            'Metadata/Items/Jewels/JewelRadiusInt',
-            'Metadata/Items/Jewels/JewelRadiusDiamond',
-            'Metadata/Items/Belts/FourBelt1',
-            'Metadata/Items/Rings/FourRing1',
-          ].includes(next.baseItemId) ||
+        ? (topBase(reviewedKey ?? '')?.family !== 'belts' &&
+            ![
+              'Metadata/Items/Jewels/JewelRadiusStr',
+              'Metadata/Items/Jewels/JewelRadiusDex',
+              'Metadata/Items/Jewels/JewelRadiusInt',
+              'Metadata/Items/Jewels/JewelRadiusDiamond',
+              'Metadata/Items/Belts/FourBelt1',
+              'Metadata/Items/Rings/FourRing1',
+            ].includes(next.baseItemId)) ||
           maximumQuality(next, definitions) !== null
         : !qualityLimitMatches(v.qualityLimit, next, definitions))) ||
     (v.applied &&
@@ -1121,6 +1123,7 @@ export async function applyCurrency(
       topBase(reviewedKey ?? '')?.family !== 'sceptres') ||
     (v.applied &&
       action === 'PERFECT_ESSENCE_INSULATION' &&
+      topBase(reviewedKey ?? '')?.family !== 'belts' &&
       state.baseItemId !== 'Metadata/Items/Belts/FourBelt1') ||
     (v.applied &&
       action === 'DIVINE' &&

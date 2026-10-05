@@ -1,0 +1,99 @@
+{
+  "url": "https://poe2db.tw/jp/Runemastered_Heavy_Belt",
+  "retrievedAt": "2026-10-05T01:24:00.405Z",
+  "sha256": "95362ad68d4ef1f07ca206c4fb07163d282a0a66ec37398b2f02c53c5fdbd536",
+  "variants": [
+    {
+      "name": "ルーンマスターのヘビーベルト",
+      "card": "ルーンマスターのヘビーベルト\n        \n    \n    \n        \n            ベルト装備条件： レベル 65(1—3)個のチャームスロットを持つスタン閾値が(20—30)%増加するフラスコによるライフ回復の(15—25)%はルーンワードにも適用される\n        \n\n\n\n        \n            Runemastered Heavy Belt",
+      "requirements": "装備条件： レベル 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "ルーンマスターのヘビーベルト",
+        "Class": "ベルト",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt9VerisiumUnique1",
+        "Tags": "runeforged, belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt09",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    },
+    {
+      "name": "ルーンマスターのヘビーベルト",
+      "card": "ルーンマスターのヘビーベルト\n        \n    \n    \n        \n            ベルト装備条件： レベル 65(1—3)個のチャームスロットを持つスタン閾値が(20—30)%増加するルーンワードの自動回復レートが(20—40)%増加する\n        \n\n\n\n        \n            Runemastered Heavy Belt",
+      "requirements": "装備条件： レベル 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "ルーンマスターのヘビーベルト",
+        "Class": "ベルト",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt9VerisiumUnique2",
+        "Tags": "runeforged, belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt09",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    },
+    {
+      "name": "ルーンマスターのヘビーベルト",
+      "card": "ルーンマスターのヘビーベルト\n        \n    \n    \n        \n            ベルト装備条件： レベル 65(1—3)個のチャームスロットを持つスタン閾値が(20—30)%増加するルーンワード回復は最大ルーンワードをオーバーフローできる\n        \n\n\n\n        \n            Runemastered Heavy Belt",
+      "requirements": "装備条件： レベル 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "ルーンマスターのヘビーベルト",
+        "Class": "ベルト",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt9VerisiumUnique3",
+        "Tags": "runeforged, belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt09",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    },
+    {
+      "name": "ルーンマスターのヘビーベルト",
+      "card": "ルーンマスターのヘビーベルト\n        \n    \n    \n        \n            ベルト装備条件： レベル 65(1—3)個のチャームスロットを持つスタン閾値が(20—30)%増加するフラスコは毎秒(0.5—1)のチャージを獲得する\n        \n\n\n\n        \n            Runemastered Heavy Belt",
+      "requirements": "装備条件： レベル 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "ルーンマスターのヘビーベルト",
+        "Class": "ベルト",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt9VerisiumUnique4",
+        "Tags": "runeforged, belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt09",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

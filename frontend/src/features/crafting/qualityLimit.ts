@@ -16,6 +16,8 @@ export function maximumQuality(
   state: ConcreteItem,
   definitions: Record<string, Definition>,
 ): number | null {
+  if (topBase(topBaseKey(state.baseItemId) ?? '')?.family === 'belts')
+    return null
   if (
     !topBaseKey(state.baseItemId) &&
     ![

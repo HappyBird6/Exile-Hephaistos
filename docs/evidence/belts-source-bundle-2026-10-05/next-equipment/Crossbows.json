@@ -1,0 +1,181 @@
+{
+  "page": "Crossbows",
+  "url": "https://poe2db.tw/us/Crossbows",
+  "retrievedAt": "2026-10-05T01:38:16.577Z",
+  "sha256": "2fb39526fd0c0b50d0970280746aa1dd816bae19fe03337d94bd82d25d021974",
+  "cards": [
+    {
+      "slug": "Makeshift_Crossbow",
+      "card": "Makeshift CrossbowPhysical Damage: 7-12Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 0.8"
+    },
+    {
+      "slug": "Tense_Crossbow",
+      "card": "Tense CrossbowPhysical Damage: 8-15Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 0.85Requires:  Level 4, 8 Str, 8 Dex(20—30)% increased Bolt Speed"
+    },
+    {
+      "slug": "Sturdy_Crossbow",
+      "card": "Sturdy CrossbowPhysical Damage: 11-26Critical Hit Chance: 5%Attacks per Second: 1.55Reload Time: 0.75Requires:  Level 10, 13 Str, 13 Dex"
+    },
+    {
+      "slug": "Varnished_Crossbow",
+      "card": "Varnished CrossbowPhysical Damage: 12-36Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 0.8Requires:  Level 16, 19 Str, 19 Dex"
+    },
+    {
+      "slug": "Dyad_Crossbow",
+      "card": "Dyad CrossbowPhysical Damage: 9-37Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 1.1Requires:  Level 20, 22 Str, 22 DexLoads an additional bolt"
+    },
+    {
+      "slug": "Alloy_Crossbow",
+      "card": "Alloy CrossbowPhysical Damage: 12-50Critical Hit Chance: 5%Attacks per Second: 1.7Reload Time: 0.7Requires:  Level 26, 28 Str, 28 Dex"
+    },
+    {
+      "slug": "Bombard_Crossbow",
+      "card": "Bombard CrossbowPhysical Damage: 14-56Critical Hit Chance: 5%Attacks per Second: 1.65Reload Time: 0.75Requires:  Level 33, 34 Str, 34 DexGrenade Skills Fire 1 additional Projectiles"
+    },
+    {
+      "slug": "Construct_Crossbow",
+      "card": "Construct CrossbowPhysical Damage: 18-72Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 0.8Requires:  Level 38, 39 Str, 39 Dex"
+    },
+    {
+      "slug": "Blackfire_Crossbow",
+      "card": "Blackfire CrossbowPhysical Damage: 20-80Critical Hit Chance: 7%Attacks per Second: 1.6Reload Time: 0.85Requires:  Level 45, 45 Str, 45 Dex"
+    },
+    {
+      "slug": "Piercing_Crossbow",
+      "card": "Piercing CrossbowPhysical Damage: 21-84Critical Hit Chance: 5%Attacks per Second: 1.65Reload Time: 0.85Requires:  Level 50, 49 Str, 49 Dex(20—30)% chance to Pierce an Enemy"
+    },
+    {
+      "slug": "Cumbrous_Crossbow",
+      "card": "Cumbrous CrossbowPhysical Damage: 19-76Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 0.9Requires:  Level 52, 51 Str, 51 Dex+1 to maximum number of Summoned Ballista Totems"
+    },
+    {
+      "slug": "Dedalian_Crossbow",
+      "card": "Dedalian CrossbowPhysical Damage: 25-99Critical Hit Chance: 7%Attacks per Second: 1.55Reload Time: 0.85Requires:  Level 56, 55 Str, 55 Dex"
+    },
+    {
+      "slug": "Esoteric_Crossbow",
+      "card": "Esoteric CrossbowPhysical Damage: 28-113Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 0.8Requires:  Level 65, 63 Str, 63 Dex"
+    },
+    {
+      "slug": "Taut_Crossbow",
+      "card": "Taut CrossbowPhysical Damage: 20-79Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 0.85Requires:  Level 45, 45 Str, 45 Dex(20—30)% increased Bolt Speed"
+    },
+    {
+      "slug": "Robust_Crossbow",
+      "card": "Robust CrossbowPhysical Damage: 22-89Critical Hit Chance: 5%Attacks per Second: 1.55Reload Time: 0.75Requires:  Level 48, 48 Str, 48 Dex"
+    },
+    {
+      "slug": "Painted_Crossbow",
+      "card": "Painted CrossbowPhysical Damage: 23-92Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 0.8Requires:  Level 51, 50 Str, 50 Dex"
+    },
+    {
+      "slug": "Twin_Crossbow",
+      "card": "Twin CrossbowPhysical Damage: 20-82Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 1.1Requires:  Level 54, 53 Str, 53 DexLoads an additional bolt"
+    },
+    {
+      "slug": "Cannonade_Crossbow",
+      "card": "Cannonade CrossbowPhysical Damage: 23-90Critical Hit Chance: 5%Attacks per Second: 1.65Reload Time: 0.75Requires:  Level 59, 58 Str, 58 DexGrenade Skills Fire 1 additional Projectiles"
+    },
+    {
+      "slug": "Bleak_Crossbow",
+      "card": "Bleak CrossbowPhysical Damage: 27-109Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 0.8Requires:  Level 62, 60 Str, 60 Dex"
+    },
+    {
+      "slug": "Runeforged_Makeshift_Crossbow",
+      "card": "Runeforged Makeshift CrossbowPhysical Damage: 41.25-77Cold Damage: 33.75-63Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 0.8Requires:  Level 38, 39 Str, 39 Dexlocal weapon implicit hidden % base damage is cold [45]"
+    },
+    {
+      "slug": "Runeforged_Tense_Crossbow",
+      "card": "Runeforged Tense CrossbowPhysical Damage: 44-83Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 0.85Requires:  Level 38, 39 Str, 39 Dex"
+    },
+    {
+      "slug": "Runemastered_Tense_Crossbow",
+      "card": "Runemastered Tense CrossbowPhysical Damage: 62-115Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 0.6Requires:  Level 55, 54 Str, 54 Dex"
+    },
+    {
+      "slug": "Runeforged_Sturdy_Crossbow",
+      "card": "Runeforged Sturdy CrossbowPhysical Damage: 4.65-41.4Lightning Damage: 26.35-234.6Critical Hit Chance: 7%Attacks per Second: 1.6Reload Time: 0.85Requires:  Level 38, 39 Str, 39 Dexlocal weapon implicit hidden added maximum lightning damage [67]\nlocal weapon implicit hidden added minimum lightning damage [0]local weapon implicit hidden % base damage is lightning [85]"
+    },
+    {
+      "slug": "Runeforged_Dyad_Crossbow",
+      "card": "Runeforged Dyad CrossbowPhysical Damage: 32-127Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 1.1Requires:  Level 40, 40 Str, 40 Dex"
+    },
+    {
+      "slug": "Runemastered_Dyad_Crossbow",
+      "card": "Runemastered Dyad CrossbowPhysical Damage: 43-171Critical Hit Chance: 7%Attacks per Second: 1.6Reload Time: 0.75Requires:  Level 65, 63 Str, 63 Dex"
+    },
+    {
+      "slug": "Runeforged_Bombard_Crossbow",
+      "card": "Runeforged Bombard CrossbowPhysical Damage: 21-85Critical Hit Chance: 5%Attacks per Second: 1.65Reload Time: 0.75Requires:  Level 55, 54 Str, 54 Dex"
+    },
+    {
+      "slug": "Stout_Crossbow",
+      "card": "Stout CrossbowPhysical Damage: 30-119Critical Hit Chance: 5%Attacks per Second: 1.55Reload Time: 0.75Requires:  Level 67, 74 Str, 74 Dex"
+    },
+    {
+      "slug": "Engraved_Crossbow",
+      "card": "Engraved CrossbowPhysical Damage: 31-124Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 0.8Requires:  Level 72, 82 Str, 82 Dex"
+    },
+    {
+      "slug": "Flexed_Crossbow",
+      "card": "Flexed CrossbowPhysical Damage: 32-127Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 0.85Requires:  Level 77, 89 Str, 89 Dex(20—30)% increased Bolt Speed"
+    },
+    {
+      "slug": "Gemini_Crossbow",
+      "card": "Gemini CrossbowPhysical Damage: 28-112Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 1.1Requires:  Level 78, 89 Str, 89 DexLoads an additional bolt"
+    },
+    {
+      "slug": "Siege_Crossbow",
+      "card": "Siege CrossbowPhysical Damage: 29-115Critical Hit Chance: 5%Attacks per Second: 1.65Reload Time: 0.75Requires:  Level 79, 89 Str, 89 DexGrenade Skills Fire 1 additional Projectiles"
+    },
+    {
+      "slug": "Desolate_Crossbow",
+      "card": "Desolate CrossbowPhysical Damage: 33-132Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 0.8Requires:  Level 77, 89 Str, 89 Dex"
+    },
+    {
+      "slug": "Elegant_Crossbow",
+      "card": "Elegant CrossbowPhysical Damage: 31-123Critical Hit Chance: 5%Attacks per Second: 1.65Reload Time: 0.85Requires:  Level 78, 89 Str, 89 Dex(20—30)% chance to Pierce an Enemy"
+    },
+    {
+      "slug": "Trarthan_Cannon",
+      "card": "Trarthan CannonPhysical Damage: 58-134Critical Hit Chance: 5%Attacks per Second: 1.4Requires:  Level 65, 114 Str, 63 DexCannot load or fire Ammunition"
+    },
+    {
+      "slug": "Ancient_Rune_of_Detonation",
+      "card": "Ancient Rune of DetonationStack Size: 1 / 10Limited to: 1Requires:  Level 30Crossbows: Grenades have 10% chance to activate a second timeBonded:Crossbows: 40% increased Crossbow Reload Speed"
+    }
+  ],
+  "highestRequirementCandidates": [
+    {
+      "slug": "Siege_Crossbow",
+      "card": "Siege CrossbowPhysical Damage: 29-115Critical Hit Chance: 5%Attacks per Second: 1.65Reload Time: 0.75Requires:  Level 79, 89 Str, 89 DexGrenade Skills Fire 1 additional Projectiles",
+      "requiredLevel": 79
+    },
+    {
+      "slug": "Gemini_Crossbow",
+      "card": "Gemini CrossbowPhysical Damage: 28-112Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 1.1Requires:  Level 78, 89 Str, 89 DexLoads an additional bolt",
+      "requiredLevel": 78
+    },
+    {
+      "slug": "Elegant_Crossbow",
+      "card": "Elegant CrossbowPhysical Damage: 31-123Critical Hit Chance: 5%Attacks per Second: 1.65Reload Time: 0.85Requires:  Level 78, 89 Str, 89 Dex(20—30)% chance to Pierce an Enemy",
+      "requiredLevel": 78
+    },
+    {
+      "slug": "Flexed_Crossbow",
+      "card": "Flexed CrossbowPhysical Damage: 32-127Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 0.85Requires:  Level 77, 89 Str, 89 Dex(20—30)% increased Bolt Speed",
+      "requiredLevel": 77
+    },
+    {
+      "slug": "Desolate_Crossbow",
+      "card": "Desolate CrossbowPhysical Damage: 33-132Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 0.8Requires:  Level 77, 89 Str, 89 Dex",
+      "requiredLevel": 77
+    },
+    {
+      "slug": "Engraved_Crossbow",
+      "card": "Engraved CrossbowPhysical Damage: 31-124Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 0.8Requires:  Level 72, 82 Str, 82 Dex",
+      "requiredLevel": 72
+    }
+  ],
+  "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+}

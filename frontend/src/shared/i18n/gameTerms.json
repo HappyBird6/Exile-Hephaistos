@@ -2511,6 +2511,84 @@
       "lines": ["Spirit: 100", "Grants Skill: Fulmination"],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
       "sourceUrl": "https://poe2db.tw/us/Wrath_Sceptre"
+    },
+    "Linen_Belt": {
+      "name": "Linen Belt",
+      "lines": ["Has (1—3) Charm Slots"],
+      "itemKey": "Metadata/Items/Belts/FourBelt2",
+      "sourceUrl": "https://poe2db.tw/us/Linen_Belt"
+    },
+    "Wide_Belt": {
+      "name": "Wide Belt",
+      "lines": ["Has (1—3) Charm Slots"],
+      "itemKey": "Metadata/Items/Belts/FourBelt3",
+      "sourceUrl": "https://poe2db.tw/us/Wide_Belt"
+    },
+    "Long_Belt": {
+      "name": "Long Belt",
+      "lines": ["Has (1—3) Charm Slots"],
+      "itemKey": "Metadata/Items/Belts/FourBelt4",
+      "sourceUrl": "https://poe2db.tw/us/Long_Belt"
+    },
+    "Plate_Belt": {
+      "name": "Plate Belt",
+      "lines": ["Has (1—3) Charm Slots"],
+      "itemKey": "Metadata/Items/Belts/FourBelt5",
+      "sourceUrl": "https://poe2db.tw/us/Plate_Belt"
+    },
+    "Ornate_Belt": {
+      "name": "Ornate Belt",
+      "lines": ["Has (1—3) Charm Slots"],
+      "itemKey": "Metadata/Items/Belts/FourBelt6",
+      "sourceUrl": "https://poe2db.tw/us/Ornate_Belt"
+    },
+    "Mail_Belt": {
+      "name": "Mail Belt",
+      "lines": ["Has (1—3) Charm Slots"],
+      "itemKey": "Metadata/Items/Belts/FourBelt7",
+      "sourceUrl": "https://poe2db.tw/us/Mail_Belt"
+    },
+    "Double_Belt": {
+      "name": "Double Belt",
+      "lines": ["Has (1—3) Charm Slots"],
+      "itemKey": "Metadata/Items/Belts/FourBelt8",
+      "sourceUrl": "https://poe2db.tw/us/Double_Belt"
+    },
+    "Heavy_Belt": {
+      "name": "Heavy Belt",
+      "lines": ["Has (1—3) Charm Slots"],
+      "itemKey": "Metadata/Items/Belts/FourBelt9",
+      "sourceUrl": "https://poe2db.tw/us/Heavy_Belt"
+    },
+    "Utility_Belt": {
+      "name": "Utility Belt",
+      "lines": ["Has (1—3) Charm Slots"],
+      "itemKey": "Metadata/Items/Belts/FourBelt10",
+      "sourceUrl": "https://poe2db.tw/us/Utility_Belt"
+    },
+    "Fine_Belt": {
+      "name": "Fine Belt",
+      "lines": ["Has (1—3) Charm Slots"],
+      "itemKey": "Metadata/Items/Belts/FourBelt11",
+      "sourceUrl": "https://poe2db.tw/us/Fine_Belt"
+    },
+    "Invoking_Belt": {
+      "name": "Invoking Belt",
+      "lines": ["Has (1—3) Charm Slots"],
+      "itemKey": "Metadata/Items/Belts/FourBeltB2",
+      "sourceUrl": "https://poe2db.tw/us/Invoking_Belt"
+    },
+    "Sinew_Belt": {
+      "name": "Sinew Belt",
+      "lines": ["Has (1—3) Charm Slots"],
+      "itemKey": "Metadata/Items/Belts/FourBeltB3",
+      "sourceUrl": "https://poe2db.tw/us/Sinew_Belt"
+    },
+    "Forking_Belt": {
+      "name": "Forking Belt",
+      "lines": ["Has (1—3) Charm Slots"],
+      "itemKey": "Metadata/Items/Belts/FourBeltB4",
+      "sourceUrl": "https://poe2db.tw/us/Forking_Belt"
     }
   },
   "ko": {
@@ -5009,6 +5087,84 @@
       "lines": ["정신력: 100", "스킬 부여: 노호"],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
       "sourceUrl": "https://poe2db.tw/kr/Wrath_Sceptre"
+    },
+    "Linen_Belt": {
+      "name": "리넨 허리띠",
+      "lines": ["호신부 슬롯 (1—3)개 보유"],
+      "itemKey": "Metadata/Items/Belts/FourBelt2",
+      "sourceUrl": "https://poe2db.tw/kr/Linen_Belt"
+    },
+    "Wide_Belt": {
+      "name": "넓은 허리띠",
+      "lines": ["호신부 슬롯 (1—3)개 보유"],
+      "itemKey": "Metadata/Items/Belts/FourBelt3",
+      "sourceUrl": "https://poe2db.tw/kr/Wide_Belt"
+    },
+    "Long_Belt": {
+      "name": "긴 허리띠",
+      "lines": ["호신부 슬롯 (1—3)개 보유"],
+      "itemKey": "Metadata/Items/Belts/FourBelt4",
+      "sourceUrl": "https://poe2db.tw/kr/Long_Belt"
+    },
+    "Plate_Belt": {
+      "name": "판금 허리띠",
+      "lines": ["호신부 슬롯 (1—3)개 보유"],
+      "itemKey": "Metadata/Items/Belts/FourBelt5",
+      "sourceUrl": "https://poe2db.tw/kr/Plate_Belt"
+    },
+    "Ornate_Belt": {
+      "name": "화려한 허리띠",
+      "lines": ["호신부 슬롯 (1—3)개 보유"],
+      "itemKey": "Metadata/Items/Belts/FourBelt6",
+      "sourceUrl": "https://poe2db.tw/kr/Ornate_Belt"
+    },
+    "Mail_Belt": {
+      "name": "사슬 허리띠",
+      "lines": ["호신부 슬롯 (1—3)개 보유"],
+      "itemKey": "Metadata/Items/Belts/FourBelt7",
+      "sourceUrl": "https://poe2db.tw/kr/Mail_Belt"
+    },
+    "Double_Belt": {
+      "name": "이중 허리띠",
+      "lines": ["호신부 슬롯 (1—3)개 보유"],
+      "itemKey": "Metadata/Items/Belts/FourBelt8",
+      "sourceUrl": "https://poe2db.tw/kr/Double_Belt"
+    },
+    "Heavy_Belt": {
+      "name": "무거운 허리띠",
+      "lines": ["호신부 슬롯 (1—3)개 보유"],
+      "itemKey": "Metadata/Items/Belts/FourBelt9",
+      "sourceUrl": "https://poe2db.tw/kr/Heavy_Belt"
+    },
+    "Utility_Belt": {
+      "name": "특수 허리띠",
+      "lines": ["호신부 슬롯 (1—3)개 보유"],
+      "itemKey": "Metadata/Items/Belts/FourBelt10",
+      "sourceUrl": "https://poe2db.tw/kr/Utility_Belt"
+    },
+    "Fine_Belt": {
+      "name": "섬세한 허리띠",
+      "lines": ["호신부 슬롯 (1—3)개 보유"],
+      "itemKey": "Metadata/Items/Belts/FourBelt11",
+      "sourceUrl": "https://poe2db.tw/kr/Fine_Belt"
+    },
+    "Invoking_Belt": {
+      "name": "기원 허리띠",
+      "lines": ["호신부 슬롯 (1—3)개 보유"],
+      "itemKey": "Metadata/Items/Belts/FourBeltB2",
+      "sourceUrl": "https://poe2db.tw/kr/Invoking_Belt"
+    },
+    "Sinew_Belt": {
+      "name": "힘줄 허리띠",
+      "lines": ["호신부 슬롯 (1—3)개 보유"],
+      "itemKey": "Metadata/Items/Belts/FourBeltB3",
+      "sourceUrl": "https://poe2db.tw/kr/Sinew_Belt"
+    },
+    "Forking_Belt": {
+      "name": "갈라지는 허리띠",
+      "lines": ["호신부 슬롯 (1—3)개 보유"],
+      "itemKey": "Metadata/Items/Belts/FourBeltB4",
+      "sourceUrl": "https://poe2db.tw/kr/Forking_Belt"
     }
   },
   "zh-CN": {
@@ -7405,6 +7561,84 @@
       "lines": ["精魂: 100", "获得技能: 轰鸣烈焰"],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
       "sourceUrl": "https://poe2db.tw/cn/Wrath_Sceptre"
+    },
+    "Linen_Belt": {
+      "name": "亚麻腰带",
+      "lines": ["具有 (1—3) 个咒符位"],
+      "itemKey": "Metadata/Items/Belts/FourBelt2",
+      "sourceUrl": "https://poe2db.tw/cn/Linen_Belt"
+    },
+    "Wide_Belt": {
+      "name": "宽大腰带",
+      "lines": ["具有 (1—3) 个咒符位"],
+      "itemKey": "Metadata/Items/Belts/FourBelt3",
+      "sourceUrl": "https://poe2db.tw/cn/Wide_Belt"
+    },
+    "Long_Belt": {
+      "name": "加长腰带",
+      "lines": ["具有 (1—3) 个咒符位"],
+      "itemKey": "Metadata/Items/Belts/FourBelt4",
+      "sourceUrl": "https://poe2db.tw/cn/Long_Belt"
+    },
+    "Plate_Belt": {
+      "name": "嵌板腰带",
+      "lines": ["具有 (1—3) 个咒符位"],
+      "itemKey": "Metadata/Items/Belts/FourBelt5",
+      "sourceUrl": "https://poe2db.tw/cn/Plate_Belt"
+    },
+    "Ornate_Belt": {
+      "name": "华丽腰带",
+      "lines": ["具有 (1—3) 个咒符位"],
+      "itemKey": "Metadata/Items/Belts/FourBelt6",
+      "sourceUrl": "https://poe2db.tw/cn/Ornate_Belt"
+    },
+    "Mail_Belt": {
+      "name": "环锁腰带",
+      "lines": ["具有 (1—3) 个咒符位"],
+      "itemKey": "Metadata/Items/Belts/FourBelt7",
+      "sourceUrl": "https://poe2db.tw/cn/Mail_Belt"
+    },
+    "Double_Belt": {
+      "name": "双重腰带",
+      "lines": ["具有 (1—3) 个咒符位"],
+      "itemKey": "Metadata/Items/Belts/FourBelt8",
+      "sourceUrl": "https://poe2db.tw/cn/Double_Belt"
+    },
+    "Heavy_Belt": {
+      "name": "重革腰带",
+      "lines": ["具有 (1—3) 个咒符位"],
+      "itemKey": "Metadata/Items/Belts/FourBelt9",
+      "sourceUrl": "https://poe2db.tw/cn/Heavy_Belt"
+    },
+    "Utility_Belt": {
+      "name": "万用腰带",
+      "lines": ["具有 (1—3) 个咒符位"],
+      "itemKey": "Metadata/Items/Belts/FourBelt10",
+      "sourceUrl": "https://poe2db.tw/cn/Utility_Belt"
+    },
+    "Fine_Belt": {
+      "name": "精致腰带",
+      "lines": ["具有 (1—3) 个咒符位"],
+      "itemKey": "Metadata/Items/Belts/FourBelt11",
+      "sourceUrl": "https://poe2db.tw/cn/Fine_Belt"
+    },
+    "Invoking_Belt": {
+      "name": "祈求腰带",
+      "lines": ["具有 (1—3) 个咒符位"],
+      "itemKey": "Metadata/Items/Belts/FourBeltB2",
+      "sourceUrl": "https://poe2db.tw/cn/Invoking_Belt"
+    },
+    "Sinew_Belt": {
+      "name": "肌力腰带",
+      "lines": ["具有 (1—3) 个咒符位"],
+      "itemKey": "Metadata/Items/Belts/FourBeltB3",
+      "sourceUrl": "https://poe2db.tw/cn/Sinew_Belt"
+    },
+    "Forking_Belt": {
+      "name": "分叉腰带",
+      "lines": ["具有 (1—3) 个咒符位"],
+      "itemKey": "Metadata/Items/Belts/FourBeltB4",
+      "sourceUrl": "https://poe2db.tw/cn/Forking_Belt"
     }
   },
   "zh-TW": {
@@ -9791,6 +10025,84 @@
       "lines": ["精魂: 100", "賦予技能: 劇烈爆發"],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
       "sourceUrl": "https://poe2db.tw/tw/Wrath_Sceptre"
+    },
+    "Linen_Belt": {
+      "name": "麻布腰帶",
+      "lines": ["有(1—3)個護符欄位"],
+      "itemKey": "Metadata/Items/Belts/FourBelt2",
+      "sourceUrl": "https://poe2db.tw/tw/Linen_Belt"
+    },
+    "Wide_Belt": {
+      "name": "寬大腰帶",
+      "lines": ["有(1—3)個護符欄位"],
+      "itemKey": "Metadata/Items/Belts/FourBelt3",
+      "sourceUrl": "https://poe2db.tw/tw/Wide_Belt"
+    },
+    "Long_Belt": {
+      "name": "長腰帶",
+      "lines": ["有(1—3)個護符欄位"],
+      "itemKey": "Metadata/Items/Belts/FourBelt4",
+      "sourceUrl": "https://poe2db.tw/tw/Long_Belt"
+    },
+    "Plate_Belt": {
+      "name": "板甲腰帶",
+      "lines": ["有(1—3)個護符欄位"],
+      "itemKey": "Metadata/Items/Belts/FourBelt5",
+      "sourceUrl": "https://poe2db.tw/tw/Plate_Belt"
+    },
+    "Ornate_Belt": {
+      "name": "華麗腰帶",
+      "lines": ["有(1—3)個護符欄位"],
+      "itemKey": "Metadata/Items/Belts/FourBelt6",
+      "sourceUrl": "https://poe2db.tw/tw/Ornate_Belt"
+    },
+    "Mail_Belt": {
+      "name": "鎖甲腰帶",
+      "lines": ["有(1—3)個護符欄位"],
+      "itemKey": "Metadata/Items/Belts/FourBelt7",
+      "sourceUrl": "https://poe2db.tw/tw/Mail_Belt"
+    },
+    "Double_Belt": {
+      "name": "雙層腰帶",
+      "lines": ["有(1—3)個護符欄位"],
+      "itemKey": "Metadata/Items/Belts/FourBelt8",
+      "sourceUrl": "https://poe2db.tw/tw/Double_Belt"
+    },
+    "Heavy_Belt": {
+      "name": "重革腰帶",
+      "lines": ["有(1—3)個護符欄位"],
+      "itemKey": "Metadata/Items/Belts/FourBelt9",
+      "sourceUrl": "https://poe2db.tw/tw/Heavy_Belt"
+    },
+    "Utility_Belt": {
+      "name": "實用腰帶",
+      "lines": ["有(1—3)個護符欄位"],
+      "itemKey": "Metadata/Items/Belts/FourBelt10",
+      "sourceUrl": "https://poe2db.tw/tw/Utility_Belt"
+    },
+    "Fine_Belt": {
+      "name": "精良腰帶",
+      "lines": ["有(1—3)個護符欄位"],
+      "itemKey": "Metadata/Items/Belts/FourBelt11",
+      "sourceUrl": "https://poe2db.tw/tw/Fine_Belt"
+    },
+    "Invoking_Belt": {
+      "name": "祈喚腰帶",
+      "lines": ["有(1—3)個護符欄位"],
+      "itemKey": "Metadata/Items/Belts/FourBeltB2",
+      "sourceUrl": "https://poe2db.tw/tw/Invoking_Belt"
+    },
+    "Sinew_Belt": {
+      "name": "韌筋腰帶",
+      "lines": ["有(1—3)個護符欄位"],
+      "itemKey": "Metadata/Items/Belts/FourBeltB3",
+      "sourceUrl": "https://poe2db.tw/tw/Sinew_Belt"
+    },
+    "Forking_Belt": {
+      "name": "歧路腰帶",
+      "lines": ["有(1—3)個護符欄位"],
+      "itemKey": "Metadata/Items/Belts/FourBeltB4",
+      "sourceUrl": "https://poe2db.tw/tw/Forking_Belt"
     }
   },
   "ja": {
@@ -12291,6 +12603,84 @@
       "lines": ["スピリット: 100", "スキルを付与: フルミネーション"],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
       "sourceUrl": "https://poe2db.tw/jp/Wrath_Sceptre"
+    },
+    "Linen_Belt": {
+      "name": "リネンのベルト",
+      "lines": ["(1—3)個のチャームスロットを持つ"],
+      "itemKey": "Metadata/Items/Belts/FourBelt2",
+      "sourceUrl": "https://poe2db.tw/jp/Linen_Belt"
+    },
+    "Wide_Belt": {
+      "name": "幅広のベルト",
+      "lines": ["(1—3)個のチャームスロットを持つ"],
+      "itemKey": "Metadata/Items/Belts/FourBelt3",
+      "sourceUrl": "https://poe2db.tw/jp/Wide_Belt"
+    },
+    "Long_Belt": {
+      "name": "長いベルト",
+      "lines": ["(1—3)個のチャームスロットを持つ"],
+      "itemKey": "Metadata/Items/Belts/FourBelt4",
+      "sourceUrl": "https://poe2db.tw/jp/Long_Belt"
+    },
+    "Plate_Belt": {
+      "name": "プレートベルト",
+      "lines": ["(1—3)個のチャームスロットを持つ"],
+      "itemKey": "Metadata/Items/Belts/FourBelt5",
+      "sourceUrl": "https://poe2db.tw/jp/Plate_Belt"
+    },
+    "Ornate_Belt": {
+      "name": "華美なベルト",
+      "lines": ["(1—3)個のチャームスロットを持つ"],
+      "itemKey": "Metadata/Items/Belts/FourBelt6",
+      "sourceUrl": "https://poe2db.tw/jp/Ornate_Belt"
+    },
+    "Mail_Belt": {
+      "name": "メイルベルト",
+      "lines": ["(1—3)個のチャームスロットを持つ"],
+      "itemKey": "Metadata/Items/Belts/FourBelt7",
+      "sourceUrl": "https://poe2db.tw/jp/Mail_Belt"
+    },
+    "Double_Belt": {
+      "name": "ダブルベルト",
+      "lines": ["(1—3)個のチャームスロットを持つ"],
+      "itemKey": "Metadata/Items/Belts/FourBelt8",
+      "sourceUrl": "https://poe2db.tw/jp/Double_Belt"
+    },
+    "Heavy_Belt": {
+      "name": "ヘビーベルト",
+      "lines": ["(1—3)個のチャームスロットを持つ"],
+      "itemKey": "Metadata/Items/Belts/FourBelt9",
+      "sourceUrl": "https://poe2db.tw/jp/Heavy_Belt"
+    },
+    "Utility_Belt": {
+      "name": "実用的なベルト",
+      "lines": ["(1—3)個のチャームスロットを持つ"],
+      "itemKey": "Metadata/Items/Belts/FourBelt10",
+      "sourceUrl": "https://poe2db.tw/jp/Utility_Belt"
+    },
+    "Fine_Belt": {
+      "name": "精巧なベルト",
+      "lines": ["(1—3)個のチャームスロットを持つ"],
+      "itemKey": "Metadata/Items/Belts/FourBelt11",
+      "sourceUrl": "https://poe2db.tw/jp/Fine_Belt"
+    },
+    "Invoking_Belt": {
+      "name": "招来のベルト",
+      "lines": ["(1—3)個のチャームスロットを持つ"],
+      "itemKey": "Metadata/Items/Belts/FourBeltB2",
+      "sourceUrl": "https://poe2db.tw/jp/Invoking_Belt"
+    },
+    "Sinew_Belt": {
+      "name": "腱のベルト",
+      "lines": ["(1—3)個のチャームスロットを持つ"],
+      "itemKey": "Metadata/Items/Belts/FourBeltB3",
+      "sourceUrl": "https://poe2db.tw/jp/Sinew_Belt"
+    },
+    "Forking_Belt": {
+      "name": "分岐のベルト",
+      "lines": ["(1—3)個のチャームスロットを持つ"],
+      "itemKey": "Metadata/Items/Belts/FourBeltB4",
+      "sourceUrl": "https://poe2db.tw/jp/Forking_Belt"
     }
   },
   "es": {
@@ -14709,6 +15099,84 @@
       "lines": ["Espíritu: 100", "Otorga la habilidad: Fulminación"],
       "itemKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
       "sourceUrl": "https://poe2db.tw/sp/Wrath_Sceptre"
+    },
+    "Linen_Belt": {
+      "name": "Cinturón de lino",
+      "lines": ["Tiene (1—3) espacio para vial"],
+      "itemKey": "Metadata/Items/Belts/FourBelt2",
+      "sourceUrl": "https://poe2db.tw/sp/Linen_Belt"
+    },
+    "Wide_Belt": {
+      "name": "Cinturón ancho",
+      "lines": ["Tiene (1—3) espacio para vial"],
+      "itemKey": "Metadata/Items/Belts/FourBelt3",
+      "sourceUrl": "https://poe2db.tw/sp/Wide_Belt"
+    },
+    "Long_Belt": {
+      "name": "Cinturón largo",
+      "lines": ["Tiene (1—3) espacio para vial"],
+      "itemKey": "Metadata/Items/Belts/FourBelt4",
+      "sourceUrl": "https://poe2db.tw/sp/Long_Belt"
+    },
+    "Plate_Belt": {
+      "name": "Cinturón de placas",
+      "lines": ["Tiene (1—3) espacio para vial"],
+      "itemKey": "Metadata/Items/Belts/FourBelt5",
+      "sourceUrl": "https://poe2db.tw/sp/Plate_Belt"
+    },
+    "Ornate_Belt": {
+      "name": "Cinturón ornamentado",
+      "lines": ["Tiene (1—3) espacio para vial"],
+      "itemKey": "Metadata/Items/Belts/FourBelt6",
+      "sourceUrl": "https://poe2db.tw/sp/Ornate_Belt"
+    },
+    "Mail_Belt": {
+      "name": "Cinturón de malla",
+      "lines": ["Tiene (1—3) espacio para vial"],
+      "itemKey": "Metadata/Items/Belts/FourBelt7",
+      "sourceUrl": "https://poe2db.tw/sp/Mail_Belt"
+    },
+    "Double_Belt": {
+      "name": "Cinturón doble",
+      "lines": ["Tiene (1—3) espacio para vial"],
+      "itemKey": "Metadata/Items/Belts/FourBelt8",
+      "sourceUrl": "https://poe2db.tw/sp/Double_Belt"
+    },
+    "Heavy_Belt": {
+      "name": "Cinturón pesado",
+      "lines": ["Tiene (1—3) espacio para vial"],
+      "itemKey": "Metadata/Items/Belts/FourBelt9",
+      "sourceUrl": "https://poe2db.tw/sp/Heavy_Belt"
+    },
+    "Utility_Belt": {
+      "name": "Cinturón utilitario",
+      "lines": ["Tiene (1—3) espacio para vial"],
+      "itemKey": "Metadata/Items/Belts/FourBelt10",
+      "sourceUrl": "https://poe2db.tw/sp/Utility_Belt"
+    },
+    "Fine_Belt": {
+      "name": "Cinturón delgado",
+      "lines": ["Tiene (1—3) espacio para vial"],
+      "itemKey": "Metadata/Items/Belts/FourBelt11",
+      "sourceUrl": "https://poe2db.tw/sp/Fine_Belt"
+    },
+    "Invoking_Belt": {
+      "name": "Cinturón invocador",
+      "lines": ["Tiene (1—3) espacio para vial"],
+      "itemKey": "Metadata/Items/Belts/FourBeltB2",
+      "sourceUrl": "https://poe2db.tw/sp/Invoking_Belt"
+    },
+    "Sinew_Belt": {
+      "name": "Cinturón de tendones",
+      "lines": ["Tiene (1—3) espacio para vial"],
+      "itemKey": "Metadata/Items/Belts/FourBeltB3",
+      "sourceUrl": "https://poe2db.tw/sp/Sinew_Belt"
+    },
+    "Forking_Belt": {
+      "name": "Cinturón bifurcado",
+      "lines": ["Tiene (1—3) espacio para vial"],
+      "itemKey": "Metadata/Items/Belts/FourBeltB4",
+      "sourceUrl": "https://poe2db.tw/sp/Forking_Belt"
     }
   }
 }
