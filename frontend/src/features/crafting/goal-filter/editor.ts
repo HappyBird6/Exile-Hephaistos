@@ -41,9 +41,9 @@ export function changeGroupType(group: Group, type: GroupType) {
     entry.weight = weighted(type) ? (entry.weight ?? 1) : null
   })
 }
-export function addStat(group: Group, stat: Stat) {
+export function addStat(group: Group, stat: Stat, present = false) {
   if (
-    !stat.eligible ||
+    (!stat.eligible && !present) ||
     group.entries.some((entry) => entry.statId === stat.statId)
   )
     return

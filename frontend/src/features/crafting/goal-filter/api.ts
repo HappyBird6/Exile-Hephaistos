@@ -4,9 +4,13 @@ import type {
   GoalFilter,
   GoalFilterAdapter,
   Validation,
+  Issue,
 } from './types'
 export class GoalFilterApiError extends Error {
-  constructor(public readonly status: number) {
+  constructor(
+    public readonly status: number,
+    public readonly issues: Issue[] = [],
+  ) {
     super(`Goal filter request failed (${status})`)
   }
 }
@@ -28,8 +32,7 @@ export function createHttpGoalFilterAdapter(
             body: JSON.stringify(body),
           }),
     })
-    if (!response.ok) throw new GoalFilterApiError(response.status)
-    return response.json() as Promise<T>
+    return readGoalFilterResponse<T>(response)
   }
   return {
     id: baseUrl,
@@ -41,4 +44,27 @@ export function createHttpGoalFilterAdapter(
     validate: (context: Context, goal: GoalFilter, signal) =>
       request<Validation>('/validate', signal, { context, goal }),
   }
+}
+
+export async function readGoalFilterResponse<T>(
+  response: Response,
+): Promise<T> {
+  if (response.ok) return response.json() as Promise<T>
+  let issues: Issue[] = []
+  try {
+    const body = (await response.json()) as { issues?: unknown }
+    if (Array.isArray(body.issues))
+      issues = body.issues.filter(
+        (issue): issue is Issue =>
+          issue !== null &&
+          typeof issue === 'object' &&
+          typeof issue.code === 'string' &&
+          typeof issue.path === 'string' &&
+          typeof issue.message === 'string' &&
+          ['ERROR', 'WARNING'].includes(issue.severity),
+      )
+  } catch {
+    /* A proxy failure need not contain JSON. */
+  }
+  throw new GoalFilterApiError(response.status, issues)
 }

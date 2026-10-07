@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { useStore } from 'zustand'
 import type { StoreApi } from 'zustand/vanilla'
 import { addStat, changeGroupType } from './editor'
+import { GoalFilterApiError } from './api'
 import type { Editor } from './editor'
 import { goalFilterMessages } from './i18n'
 import type { GoalFilterLanguage } from './i18n'
@@ -71,14 +72,24 @@ export function GoalFilterPanel({
   language = 'ko',
   recommendation,
   recommendationGoal,
+  onEvaluate,
+  onInputEdit,
+  evaluationPending = false,
+  evaluationAvailable = true,
+  presentStatIds = new Set<string>(),
 }: {
   adapter: GoalFilterAdapter
   context: Context
   editor: StoreApi<Editor>
   bases: { id: string; label: string }[]
   language?: GoalFilterLanguage
-  recommendation?: Recommendation
-  recommendationGoal?: GoalFilter
+  recommendation?: Recommendation | undefined
+  recommendationGoal?: GoalFilter | undefined
+  onEvaluate?: (goal: GoalFilter) => void
+  onInputEdit?: () => void
+  evaluationPending?: boolean
+  presentStatIds?: ReadonlySet<string>
+  evaluationAvailable?: boolean
 }) {
   const t = goalFilterMessages[language]
   const { goal, edit, collapse, collapsedByGroupId } = useStore(editor)
@@ -121,7 +132,11 @@ export function GoalFilterPanel({
         `${s.label} ${s.statId}`.toLowerCase().includes(search.toLowerCase()),
     ) ?? []
   return (
-    <section className="goal-filter" aria-label={t.title}>
+    <section
+      className="goal-filter"
+      aria-label={t.title}
+      onChangeCapture={onInputEdit}
+    >
       <header>
         <h2>{t.title}</h2>
         {adapter.mock && <p>{t.mock}</p>}
@@ -236,10 +251,17 @@ export function GoalFilterPanel({
                   {stat.kind} · {stat.support.evaluation} ·{' '}
                   {stat.eligibilityReason}
                 </small>
+                {presentStatIds.has(stat.statId) && (
+                  <span>
+                    {language === 'ko'
+                      ? '현재 아이템에 존재'
+                      : 'Present on current item'}
+                  </span>
+                )}
                 <button
                   type="button"
                   disabled={
-                    !stat.eligible ||
+                    (!stat.eligible && !presentStatIds.has(stat.statId)) ||
                     !targetId ||
                     goal.groups
                       .find((g) => g.id === targetId)
@@ -250,7 +272,8 @@ export function GoalFilterPanel({
                       const group = g.groups.find(
                         (item) => item.id === targetId,
                       )
-                      if (group) addStat(group, stat)
+                      if (group)
+                        addStat(group, stat, presentStatIds.has(stat.statId))
                     })
                     searchRef.current?.focus()
                   }}
@@ -444,6 +467,27 @@ export function GoalFilterPanel({
           </button>
         </div>
       </div>
+      {onEvaluate && (
+        <button
+          type="button"
+          disabled={
+            !evaluationAvailable ||
+            evaluationPending ||
+            !validInput ||
+            !validation.data?.valid ||
+            catalog.data?.catalogVersion !== goal.catalogVersion
+          }
+          onClick={() => onEvaluate(structuredClone(goal))}
+        >
+          {language === 'ko'
+            ? evaluationPending
+              ? '판정 중'
+              : '현재 아이템 수치 판정'
+            : evaluationPending
+              ? 'Evaluating'
+              : 'Evaluate current item'}
+        </button>
+      )}
       <div aria-live="polite">
         {!validInput && <p role="alert">{t.invalid}</p>}
         {catalog.data &&
@@ -452,7 +496,12 @@ export function GoalFilterPanel({
           )}
         {[
           ...(catalog.data?.issues ?? []),
-          ...(validInput ? (validation.data?.issues ?? []) : []),
+          ...(validInput
+            ? (validation.data?.issues ??
+              (validation.error instanceof GoalFilterApiError
+                ? validation.error.issues
+                : []))
+            : []),
         ].map((issue, i) => (
           <p key={`${issue.path}-${i}`}>
             {issue.code}: {issue.message} ({issue.path})

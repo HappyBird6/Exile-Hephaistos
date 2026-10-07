@@ -2,8 +2,10 @@ import { useI18n, formatPercent, formatNumber } from '../../shared/i18n/i18n'
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useRef, useState } from 'react'
 import { loadInitial } from './craftingApi'
-import type { Bucket } from './craftingApi'
-import { mapSolarText } from './workbenchApi'
+import type { Bucket, Initial } from './craftingApi'
+import { mapSolarText, concreteInitial } from './workbenchApi'
+import type { ConcreteItem } from './workbenchApi'
+import { ConnectedGoalFilter } from './goal-filter/ConnectedGoalFilter'
 import { assessGoal, loadSupportFamilies, recommendGoal } from './supportApi'
 import { localizedAction } from './localizedCrafting'
 import { localizedModifierText } from './localizedModifiers'
@@ -24,6 +26,7 @@ export function CraftSupport({ active }: { active: boolean }) {
   const [manual, setManual] = useState<string[]>([])
   const [text, setText] = useState('')
   const [mapped, setMapped] = useState<Bucket | null>(null)
+  const [numericMapped, setNumericMapped] = useState<ConcreteItem | null>(null)
   const [mappingIssues, setMappingIssues] = useState<string[]>([])
   const [goal, setGoal] = useState<SupportGoal>({
     required: [],
@@ -54,6 +57,9 @@ export function CraftSupport({ active }: { active: boolean }) {
     retry: false,
     staleTime: 60000,
   })
+  const [numericInitial, setNumericInitial] = useState<Initial | null>(null)
+  if (initial.data && numericInitial !== initial.data)
+    setNumericInitial(initial.data)
   const families = useQuery({
     queryKey: ['support', 'families'],
     queryFn: ({ signal }) => loadSupportFamilies(signal),
@@ -245,6 +251,7 @@ export function CraftSupport({ active }: { active: boolean }) {
             }
           : null,
       )
+      setNumericMapped(result.state)
       setMappingIssues(
         result.issues.map((i) => `Line ${i.lineNumber}: ${i.message}`),
       )
@@ -330,6 +337,21 @@ export function CraftSupport({ active }: { active: boolean }) {
       }}
     >
       <p className="support-intro">{t('notice.support_root')}</p>
+      {numericInitial && (
+        <ConnectedGoalFilter
+          item={
+            source === 'base' && validLevel && initial.data
+              ? concreteInitial(initial.data)
+              : source === 'text'
+                ? numericMapped
+                : null
+          }
+          context={state ?? numericInitial.state}
+          language={locale === 'ko' ? 'ko' : 'en'}
+          activeOmens={activeOmens}
+          maxMillis={maxMillis}
+        />
+      )}
       <div className="support-columns">
         <section className="support-box">
           <h2>{t('ui.1_starting_item')}</h2>
@@ -451,6 +473,7 @@ export function CraftSupport({ active }: { active: boolean }) {
                   onChange={(e) => {
                     setText(e.target.value)
                     setMapped(null)
+                    setNumericMapped(null)
                     setMappingIssues([])
                   }}
                   placeholder={t(

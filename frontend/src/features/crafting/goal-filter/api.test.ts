@@ -1,5 +1,9 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { createHttpGoalFilterAdapter, GoalFilterApiError } from './api'
+import {
+  createHttpGoalFilterAdapter,
+  GoalFilterApiError,
+  readGoalFilterResponse,
+} from './api'
 import { fixtureContext } from './mock'
 import fixture from '../../../../../contracts/support-goal-filter-v1/fixtures.json'
 import type { GoalFilter } from './types'
@@ -46,5 +50,40 @@ describe('goal filter HTTP adapter', () => {
         new AbortController().signal,
       ),
     ).rejects.toEqual(new GoalFilterApiError(503))
+  })
+})
+
+describe('goal filter Problem Details', () => {
+  it('retains scoped issue codes and pointers without displaying unrelated response details', async () => {
+    const issue = {
+      code: 'CONTEXT_BASE_MISMATCH',
+      path: '/goal/general/baseItemId',
+      message: 'Goal and request base must match.',
+      severity: 'ERROR',
+    }
+    try {
+      await readGoalFilterResponse(
+        new Response(
+          JSON.stringify({ detail: 'unrelated detail', issues: [issue] }),
+          { status: 422 },
+        ),
+      )
+      throw new Error('Expected failure')
+    } catch (error) {
+      expect(error).toBeInstanceOf(GoalFilterApiError)
+      expect((error as GoalFilterApiError).issues).toEqual([issue])
+      expect((error as Error).message).not.toContain('unrelated detail')
+    }
+  })
+  it('handles non-JSON service errors with the same safe status message', async () => {
+    await expect(
+      readGoalFilterResponse(
+        new Response('<html>proxy failure</html>', { status: 503 }),
+      ),
+    ).rejects.toMatchObject({
+      status: 503,
+      issues: [],
+      message: 'Goal filter request failed (503)',
+    })
   })
 })

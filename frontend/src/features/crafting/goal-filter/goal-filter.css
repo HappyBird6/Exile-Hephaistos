@@ -85,3 +85,8 @@
     padding: 0.6rem;
   }
 }
+
+.goal-filter-connected {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
