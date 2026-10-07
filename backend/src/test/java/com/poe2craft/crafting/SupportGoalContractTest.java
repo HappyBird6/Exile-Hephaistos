@@ -2,6 +2,7 @@ package com.poe2craft.crafting;
 
 import static org.assertj.core.api.Assertions.*;
 
+import com.poe2craft.crafting.application.*;
 import com.poe2craft.crafting.domain.*;
 import com.poe2craft.item.*;
 import com.poe2craft.item.infrastructure.ItemCatalogLoader;
@@ -13,6 +14,23 @@ class SupportGoalContractTest {
   private final ItemCatalog catalog = ItemCatalogLoader.loadDefault();
   private final SupportGoals goals = new SupportGoals(catalog);
   private final StateBucket root = StateBucket.from(SolarAmulet.initial(catalog, 100, 15));
+  private final SupportRecommendations recommendations =
+      new SupportRecommendations(
+          catalog,
+          new AdditionPoolCache(
+              catalog,
+              new AdditionPoolStore() {
+                public Optional<AdditionPoolCache.Data> find(String namespace, String key) {
+                  throw new AssertionError("An empty sequence must not read addition pools");
+                }
+
+                public void save(String namespace, String key, AdditionPoolCache.Data data) {
+                  throw new AssertionError("An empty sequence must not write addition pools");
+                }
+              },
+              WorkbenchSimulator.RULE_VERSION,
+              "goal-contract-test",
+              1));
 
   @Test
   void everyEligibleFamilyVariantAndThresholdAgreesWithDistinctFamilyOracle() {
@@ -101,6 +119,22 @@ class SupportGoalContractTest {
         .isEqualTo(
             qualifiedRequired.size() == goal.required().size()
                 && qualifiedCandidates.size() >= goal.candidateCount());
+    // No currency transition: this isolates the recommendation engine's separate matcher.
+    boolean expected =
+        qualifiedRequired.size() == goal.required().size()
+            && qualifiedCandidates.size() >= goal.candidateCount();
+    var comparison =
+        recommendations.evaluate(
+            state,
+            goal,
+            Set.of(),
+            List.of(),
+            new SupportRecommendations.Limits(1, 1, 10000));
+    assertThat(comparison.successLower()).as(context).isEqualTo(expected ? 1 : 0);
+    assertThat(comparison.successUpper()).as(context).isEqualTo(expected ? 1 : 0);
+    assertThat(comparison.failureProbability()).as(context).isEqualTo(expected ? 0 : 1);
+    assertThat(comparison.unresolvedProbability()).as(context).isZero();
+    assertThat(comparison.complete()).as(context).isTrue();
   }
 
   private Set<String> qualifiedFamilies(
