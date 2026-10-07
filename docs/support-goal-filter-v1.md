@@ -71,3 +71,8 @@ NumericAdditionKernel은 StateBucket을 후보 선택에만 사용하며 implici
 maxStates는 평가할 전체 수치 상태 수, maxEdges는 생성할 modifier/roll edge 수, maxMillis는 계산 시간의 요청 전체 예산이다. 도중 중단된 정규화 kernel의 미발행 질량과 미평가 상태 질량은 unresolved다. 모든 비교에서 exact success + failure + unresolved = 1, upper = success + unresolved가 성립한다. 미탐색 순서는 comparedSequences에 포함하지 않으며 totalSequences로 공개한다. PARTIAL의 rankingCertified는 false이고 정렬은 확인된 lower 질량 순서일 뿐 확정 추천 순위가 아니다. exactMass는 exact rational 분자/분모 및 terminal/illegal 실패 분류를 제공한다. 숫자 probability 필드는 화면 표시용 근삿값이다.
 
 품질, 특수 상태/효과, fractured, omens, multi-stat, 다른 base 또는 미검토 unit/effect 목표는 이유 code와 함께 UNSUPPORTED다. 이는 각각 명시된 구현 범위이며 게임 분포 증거 부족과 구현 미완료를 혼동하지 않는다. 별도 model ledger는 `backend/src/main/resources/crafting/goalfilter/numeric-addition-ledger-v1.json`에 보존한다. cache는 현재 사용하지 않는다.
+
+
+## Frontend Docker build
+
+`goal-filter/mock.ts`와 관련 TypeScript 테스트는 `../../../../../contracts/support-goal-filter-v1/fixtures.json`을 참조한다. Docker build의 frontend 루트는 `/app`이므로 해당 경로는 `/contracts/support-goal-filter-v1/fixtures.json`으로 해석된다. `infra/docker/frontend.Dockerfile`은 빌드 단계에 이 JSON 파일 하나만 복사한다. 다른 contracts 파일이나 비밀값을 추가하지 않으며 최종 nginx 이미지에는 기존과 같이 dist만 전달한다. 원본 Dockerfile로 직접 빌드할 수 있어 임시 Dockerfile 우회는 더 이상 필요하지 않다. 이 보완은 제품 동작이나 실행 중인 서비스 교체를 포함하지 않는다.
