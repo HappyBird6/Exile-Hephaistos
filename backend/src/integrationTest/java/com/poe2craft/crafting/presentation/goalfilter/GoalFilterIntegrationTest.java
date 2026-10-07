@@ -110,8 +110,8 @@ class GoalFilterIntegrationTest {
                             Map.of("maxStates", 100, "maxEdges", 100, "maxMillis", 100)))))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.evaluation").value("MATCH"))
-        .andExpect(jsonPath("$.probability.status").value("UNSUPPORTED"))
-        .andExpect(jsonPath("$.comparisons").isEmpty());
+        .andExpect(jsonPath("$.probability.modelVersion").value("solar-numeric-addition-v1"))
+        .andExpect(jsonPath("$.comparisons").isNotEmpty());
     mvc.perform(get("/api/v1/crafting/support/families"))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$[0].id").exists());

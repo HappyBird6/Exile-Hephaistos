@@ -175,12 +175,12 @@ class GoalFilterServiceTest {
     var recommendation =
         service.recommend(item, goal, Set.of(), new GoalFilterService.Limits(100, 100, 100));
     assertThat(recommendation.evaluation()).isEqualTo(Status.MATCH);
-    assertThat(recommendation.probability().status()).isEqualTo("UNSUPPORTED");
-    assertThat(recommendation.probability().reasonCode())
-        .isEqualTo("NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED");
-    assertThat(recommendation.probability().modelVersion()).isNull();
-    assertThat(recommendation.comparisons()).isEmpty();
-    assertThat(recommendation.totalSequences()).isNull();
+    assertThat(recommendation.probability().status()).isIn("COMPLETE", "PARTIAL");
+    assertThat(recommendation.probability().modelVersion()).isEqualTo(NumericAdditionKernel.MODEL);
+    assertThat(recommendation.comparisons()).isNotEmpty();
+    assertThat(recommendation.comparisons())
+        .allSatisfy(c -> assertThat(c.successLower()).isEqualTo(1));
+    assertThat(recommendation.totalSequences()).isPositive();
   }
 
   @Test

@@ -60,3 +60,14 @@ Recommendation은 `{version:1,catalogVersion,evaluation,probability,comparisons,
 공용 위험 파일은 `StateBucket.java`, `item/ItemState.java`, `item/ItemStateValidator.java`, `bootstrap/SupportConfiguration.java`, `crafting/domain/SupportGoals.java`, `crafting/application/SupportRecommendations.java`, `frontend/src/features/crafting/supportApi.ts`, `CraftSupport.tsx`, `craft-support.css`, `frontend/src/app/App.tsx`, `frontend/src/shared/i18n/**`, `backend/src/main/resources/crafting/registry-v*.json`, base catalog, 공용 CSS 및 lockfile이다. 수정이 필요하면 정확한 경로와 이유를 먼저 부모에게 알리고 단일 담당을 배정한다. 고장 PC의 미푸시 base/registry/i18n/Workbench UI 변경과 병합 전에 대조한다. 새 기능 문구는 FE 전용 영어 파일에 둔다. 공용 번역사전과 registry를 이 작업에서 확장하지 않는다.
 
 이번 단계는 문서·fixture·fixture 자체 검증과 자체 리뷰만 한다. 서버·Docker·DB·Redis를 교체하지 않으며 live8081/API8080/Redis6381 및 volume을 보존한다. FE는 mock 기반으로 위 화면과 접근성·취소 회귀를, BE는 실판정·catalog 적격성·숫자 분포 지원 차단 및 기존 family 회귀를 검증한다. 통합 후에 연결된 영역의 정식 검사를 실행한다.
+
+
+## Numeric addition model (2026-10-07)
+
+무품질 Solar 단일 stat catalog는 `solar-numeric-addition-v1` / `uniform-integer-roll-v1` 모델로 수치 추천을 지원한다. Transmutation, Augmentation, Regal, Exalted 및 각 Greater/Perfect variant의 기존 AdditionRules/AdditionTransitions 후보 조건과 catalog weight를 그대로 사용한다. 후보 modifier의 선택 질량은 weight / 전체 적격 weight이고, 선택된 단일 stat의 min..max 정수 roll은 모델 내 균등이다. 목표와 무관한 후보도 분모에 포함한다. 이는 실제 게임 roll 분포 검증 결과가 아니며 API interpretation과 UI에서 분리 표시한다. 공통 ratio/HALF_UP 10001ticks multi-stat 정책은 사용하지 않는다.
+
+NumericAdditionKernel은 StateBucket을 후보 선택에만 사용하며 implicits, explicits의 전체 values, rarity, snapshot/base/level, conditions, sockets를 보존한다. NumericAdditionSearch는 전체 ItemState 동일성으로 질량을 합산하고 GoalEvaluator와 ItemStatProjection을 사용한다. 시작 상태와 각 단계에서 최초 MATCH 질량을 흡수한다. 각 rarity에서 허용되는 추가 행동의 모든 유한 prefix(빈 Stop 포함)를 길이 순서로 비교하며 최대 explicit 6개에서 종료한다. 후보가 없는 실제 단계는 illegalActionFailure, 마지막 단계의 미성공은 terminalFailure로 분류한다. 제거/복구/반복정책과 Annul/Chaos는 후속 범위다.
+
+maxStates는 평가할 전체 수치 상태 수, maxEdges는 생성할 modifier/roll edge 수, maxMillis는 계산 시간의 요청 전체 예산이다. 도중 중단된 정규화 kernel의 미발행 질량과 미평가 상태 질량은 unresolved다. 모든 비교에서 exact success + failure + unresolved = 1, upper = success + unresolved가 성립한다. 미탐색 순서는 comparedSequences에 포함하지 않으며 totalSequences로 공개한다. PARTIAL의 rankingCertified는 false이고 정렬은 확인된 lower 질량 순서일 뿐 확정 추천 순위가 아니다. exactMass는 exact rational 분자/분모 및 terminal/illegal 실패 분류를 제공한다. 숫자 probability 필드는 화면 표시용 근삿값이다.
+
+품질, 특수 상태/효과, fractured, omens, multi-stat, 다른 base 또는 미검토 unit/effect 목표는 이유 code와 함께 UNSUPPORTED다. 이는 각각 명시된 구현 범위이며 게임 분포 증거 부족과 구현 미완료를 혼동하지 않는다. 별도 model ledger는 `backend/src/main/resources/crafting/goalfilter/numeric-addition-ledger-v1.json`에 보존한다. cache는 현재 사용하지 않는다.

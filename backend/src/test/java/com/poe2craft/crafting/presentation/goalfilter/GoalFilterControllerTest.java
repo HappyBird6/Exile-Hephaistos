@@ -106,7 +106,7 @@ class GoalFilterControllerTest {
   }
 
   @Test
-  void catalogValidateEvaluateAndUnsupportedRecommendationUseContractWireShape() throws Exception {
+  void catalogValidateEvaluateAndPartialRecommendationUseContractWireShape() throws Exception {
     var item = SolarAmulet.initial(itemCatalog);
     var goal =
         goal(index.version(), GoalCatalogIndex.id("explicit", "base_cold_damage_resistance_%"));
@@ -126,7 +126,7 @@ class GoalFilterControllerTest {
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.valid").value(true))
         .andExpect(jsonPath("$.capabilities.evaluation").value("SUPPORTED"))
-        .andExpect(jsonPath("$.capabilities.probability").value("UNSUPPORTED"));
+        .andExpect(jsonPath("$.capabilities.probability").value("SUPPORTED"));
     mvc.perform(
             post(root + "/evaluate")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -143,12 +143,11 @@ class GoalFilterControllerTest {
                         new GoalFilterController.RecommendRequest(
                             item, goal, Set.of(), new GoalFilterService.Limits(100, 100, 100)))))
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.probability.status").value("UNSUPPORTED"))
-        .andExpect(
-            jsonPath("$.probability.reasonCode").value("NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"))
-        .andExpect(jsonPath("$.comparisons").isEmpty())
+        .andExpect(jsonPath("$.probability.status").value("PARTIAL"))
+        .andExpect(jsonPath("$.probability.reasonCode").value("BUDGET_EXHAUSTED"))
+        .andExpect(jsonPath("$.comparisons").isNotEmpty())
         .andExpect(jsonPath("$.rankingCertified").value(false))
-        .andExpect(jsonPath("$.totalSequences").isEmpty());
+        .andExpect(jsonPath("$.totalSequences").isNumber());
   }
 
   @Test

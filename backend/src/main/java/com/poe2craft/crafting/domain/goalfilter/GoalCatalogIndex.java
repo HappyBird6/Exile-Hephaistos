@@ -14,7 +14,8 @@ import java.util.*;
  * Catalog membership proves base applicability; level eligibility only applies to new generation.
  */
 public final class GoalCatalogIndex {
-  public static final String RULE_VERSION = "goal-catalog-source-units-v1";
+  public static final String RULE_VERSION =
+      "goal-catalog-source-units-v1/solar-numeric-addition-v1/uniform-integer-roll-v1";
   private final Map<String, ItemCatalog> bases;
   private final String version;
   private static final Map<String, String> PERCENT =
@@ -100,6 +101,7 @@ public final class GoalCatalogIndex {
               bases.containsKey(context.baseItemId()) ? "UNSUPPORTED_SNAPSHOT" : "UNSUPPORTED_BASE",
               "/context",
               "No reviewed catalog exists for this context."));
+    boolean numeric = NumericAdditionKernel.supports(itemCatalog);
     var groups =
         Arrays.stream(Type.values())
             .map(
@@ -107,8 +109,8 @@ public final class GoalCatalogIndex {
                     new GroupSupport(
                         t,
                         Capability.SUPPORTED,
-                        Capability.UNSUPPORTED,
-                        "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"))
+                        numeric ? Capability.SUPPORTED : Capability.UNSUPPORTED,
+                        numeric ? null : "NUMERIC_BASE_NOT_IMPLEMENTED"))
             .toList();
     return new GoalCatalog(
         1,
@@ -234,6 +236,23 @@ public final class GoalCatalogIndex {
         "Total Intelligence",
         "flat",
         List.of("additional_intelligence", "additional_all_attributes"));
+    if (NumericAdditionKernel.supports(catalog)) {
+      result.replaceAll(
+          (key, stat) ->
+              stat.support().evaluation() == Capability.SUPPORTED
+                  ? new Stat(
+                      stat.statId(),
+                      stat.label(),
+                      stat.unit(),
+                      stat.kind(),
+                      new Support(Capability.SUPPORTED, Capability.SUPPORTED, null),
+                      stat.eligible(),
+                      stat.eligibilityReason(),
+                      stat.sourceStatIds(),
+                      stat.contributions(),
+                      stat.sourceUrls())
+                  : stat);
+    }
     return List.copyOf(result.values());
   }
 

@@ -16,7 +16,6 @@ const adapter = createHttpGoalFilterAdapter()
 export function ConnectedGoalFilter({
   item,
   context,
-  language,
   activeOmens,
   maxMillis,
 }: {
@@ -107,14 +106,12 @@ export function ConnectedGoalFilter({
       onChange={(event) => event.stopPropagation()}
     >
       <label>
-        {language === 'ko' ? '수치 판정 시작 아이템' : 'Numeric starting item'}{' '}
+        {'Numeric starting item'}{' '}
         <select
           value={baseKey}
           onChange={(event) => setBaseKey(event.target.value)}
         >
-          <option value="support">
-            {language === 'ko' ? '기존 Support 입력' : 'Support input'}
-          </option>
+          <option value="support">{'Support input'}</option>
           {inventory.data?.map((base) => (
             <option key={base.key} value={base.key}>
               Server base: {base.key}
@@ -124,17 +121,15 @@ export function ConnectedGoalFilter({
       </label>
       {inventory.isError && (
         <p role="alert">
-          {language === 'ko'
-            ? 'Base 목록을 불러오지 못했습니다.'
-            : 'Base inventory unavailable.'}{' '}
+          {'Base inventory unavailable.'}{' '}
           <button onClick={() => void inventory.refetch()}>Retry</button>
         </p>
       )}
       {baseKey !== 'support' && (
         <p>
-          {language === 'ko'
-            ? '선택한 서버 base의 실제 implicit과 빈 explicit으로 판정합니다. 아래 family 목표의 시작 아이템은 별도입니다.'
-            : 'Evaluates the selected server base with its real implicit and empty explicits. The family starting item below remains separate.'}
+          {
+            'Evaluates the selected server base with its real implicit and empty explicits. The family starting item below remains separate.'
+          }
         </p>
       )}
       <ConnectedEditor
@@ -151,7 +146,7 @@ export function ConnectedGoalFilter({
             label: base.key,
           })) ?? [{ id: context.baseItemId, label: context.baseItemId }]
         }
-        language={language}
+        language="en"
         activeOmens={activeOmens}
         maxMillis={maxMillis}
       />
@@ -263,7 +258,7 @@ function ConnectedEditor({
         context={context}
         editor={editor}
         bases={bases}
-        language={language}
+        language="en"
         recommendation={visible?.recommendation}
         recommendationGoal={current ? submitted?.goal : undefined}
         evaluationAvailable={item !== null}
@@ -337,8 +332,12 @@ function ConnectedEditor({
           <p>
             {ko ? '비교한 경로' : 'Compared sequences'}:{' '}
             {visible.recommendation.comparedSequences};{' '}
-            {ko ? '전체 경로 수 미정' : 'Total sequences unknown'}:{' '}
-            {String(visible.recommendation.totalSequences)}
+            {ko
+              ? '전체 경로 수 미정'
+              : visible.recommendation.totalSequences === null
+                ? 'Total sequences unknown'
+                : 'Total sequences'}
+            : {String(visible.recommendation.totalSequences)}
           </p>
         </section>
       )}

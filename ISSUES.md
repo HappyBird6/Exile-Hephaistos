@@ -447,3 +447,11 @@ WB-045 cap 정정 최종 검증: Backend371+6, Frontend369/50files 및 필수 �
 사용자 승인 가역 정책: 게임 weight 부재는 명시적 후보1/N으로 계산한다. DropChance1을 검증된 game weight로 주장하지 않는다. Liquid는 제거 후 보장 Crafted를 추가할 수 있는 legal 분기에서 균등 선택하며, 게임 무효 분기의 소비/재시도는 미검증이다. 기존 Crafted가 있는 두 번째 Liquid는 무소모 거절한다. Normal Sapphire 시작과 display-unit integer/Catalyst precision은 명시적 simulator 모델이다. 기존 quality40/cap20 보존과 max(existing,currentCap) 정책은 유지한다.
 
 잔여: Ruby/Emerald/Diamond 및 Potent3·Ancient13, Contempt cap-loss overflow 유지/추가 슬롯·Ferocity opposite-side scaling·Melancholy tree 조건·Time-Lost radius와 Small/Notable 범위. Liquid27은 Basic13+Ancient13+unrelated Verisium1이며 raw outcome 수15/14와 currency 수13/13을 구분한다. Essence-on-Jewel·Fracturing/socket 특례·Vaal/Hinekora/Desecration은 계속 제외한다.
+
+
+## Goal filter numeric addition model
+
+- Solar 단일 stat addition 수치 계산은 명시된 uniform-integer-roll-v1 모델 내 구현됨. 실제 게임 정수 roll 분포와 catalog weight의 서버 선택 확률 검증은 미확정이며 ledger/API/UI에서 분리 표시한다.
+- 품질, omens, multi-stat, 미검토 수치 unit/effect, 다른 base의 numeric addition은 구현 범위 밖. 기존 opt-in ratio tick 모델을 Solar에 적용하지 않는다.
+- Annul/Chaos 제거 및 망친 경로에서 복구 경로로 이동하는 정책은 후속 구현. 복구 이후 확률은 정상 addition 경로에 포함하지 않는다.
+- full numeric 상태 공간은 커서 요청 예산에 따라 PARTIAL이 일반적이다. lower/upper/unresolved와 미탐색 순서 수, 미확정 순위를 유지한다.

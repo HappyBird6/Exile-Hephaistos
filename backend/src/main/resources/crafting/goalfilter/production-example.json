@@ -2,7 +2,7 @@
   "synthetic" : false,
   "catalog" : {
     "version" : 1,
-    "catalogVersion" : "hephaistos-goal-v1-8cf82515200df268e57778d8c8b2a77b51aa7705a148573938eb94e564b4997b",
+    "catalogVersion" : "hephaistos-goal-v1-6483ce0f1635a78f1541629cbca4b8ec6a81eb9d55e27e66e1243eb8ea4348f9",
     "context" : {
       "snapshotId" : "solar-special-0eddf6e6993c96d9c19942db5e81ff0774afe85c42d4a6646b978d442700d7b4",
       "baseItemId" : "Metadata/Items/Amulets/FourAmulet9",
@@ -11,33 +11,33 @@
     "groupTypes" : [ {
       "type" : "AND",
       "evaluation" : "SUPPORTED",
-      "probability" : "UNSUPPORTED",
-      "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+      "probability" : "SUPPORTED",
+      "reasonCode" : null
     }, {
       "type" : "NOT",
       "evaluation" : "SUPPORTED",
-      "probability" : "UNSUPPORTED",
-      "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+      "probability" : "SUPPORTED",
+      "reasonCode" : null
     }, {
       "type" : "IF",
       "evaluation" : "SUPPORTED",
-      "probability" : "UNSUPPORTED",
-      "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+      "probability" : "SUPPORTED",
+      "reasonCode" : null
     }, {
       "type" : "COUNT",
       "evaluation" : "SUPPORTED",
-      "probability" : "UNSUPPORTED",
-      "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+      "probability" : "SUPPORTED",
+      "reasonCode" : null
     }, {
       "type" : "WEIGHTED_V1",
       "evaluation" : "SUPPORTED",
-      "probability" : "UNSUPPORTED",
-      "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+      "probability" : "SUPPORTED",
+      "reasonCode" : null
     }, {
       "type" : "WEIGHTED_V2",
       "evaluation" : "SUPPORTED",
-      "probability" : "UNSUPPORTED",
-      "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+      "probability" : "SUPPORTED",
+      "reasonCode" : null
     } ],
     "stats" : [ {
       "statId" : "hephaistos:v1:explicit:accuracy_rating",
@@ -46,8 +46,8 @@
       "kind" : "EXPLICIT",
       "support" : {
         "evaluation" : "SUPPORTED",
-        "probability" : "UNSUPPORTED",
-        "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+        "probability" : "SUPPORTED",
+        "reasonCode" : null
       },
       "eligible" : true,
       "eligibilityReason" : null,
@@ -61,8 +61,8 @@
       "kind" : "EXPLICIT",
       "support" : {
         "evaluation" : "SUPPORTED",
-        "probability" : "UNSUPPORTED",
-        "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+        "probability" : "SUPPORTED",
+        "reasonCode" : null
       },
       "eligible" : true,
       "eligibilityReason" : null,
@@ -76,8 +76,8 @@
       "kind" : "EXPLICIT",
       "support" : {
         "evaluation" : "SUPPORTED",
-        "probability" : "UNSUPPORTED",
-        "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+        "probability" : "SUPPORTED",
+        "reasonCode" : null
       },
       "eligible" : true,
       "eligibilityReason" : null,
@@ -91,8 +91,8 @@
       "kind" : "EXPLICIT",
       "support" : {
         "evaluation" : "SUPPORTED",
-        "probability" : "UNSUPPORTED",
-        "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+        "probability" : "SUPPORTED",
+        "reasonCode" : null
       },
       "eligible" : true,
       "eligibilityReason" : null,
@@ -106,8 +106,8 @@
       "kind" : "EXPLICIT",
       "support" : {
         "evaluation" : "SUPPORTED",
-        "probability" : "UNSUPPORTED",
-        "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+        "probability" : "SUPPORTED",
+        "reasonCode" : null
       },
       "eligible" : true,
       "eligibilityReason" : null,
@@ -136,8 +136,8 @@
       "kind" : "EXPLICIT",
       "support" : {
         "evaluation" : "SUPPORTED",
-        "probability" : "UNSUPPORTED",
-        "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+        "probability" : "SUPPORTED",
+        "reasonCode" : null
       },
       "eligible" : true,
       "eligibilityReason" : null,
@@ -151,8 +151,8 @@
       "kind" : "EXPLICIT",
       "support" : {
         "evaluation" : "SUPPORTED",
-        "probability" : "UNSUPPORTED",
-        "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+        "probability" : "SUPPORTED",
+        "reasonCode" : null
       },
       "eligible" : true,
       "eligibilityReason" : null,
@@ -181,8 +181,8 @@
       "kind" : "EXPLICIT",
       "support" : {
         "evaluation" : "SUPPORTED",
-        "probability" : "UNSUPPORTED",
-        "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+        "probability" : "SUPPORTED",
+        "reasonCode" : null
       },
       "eligible" : true,
       "eligibilityReason" : null,
@@ -226,8 +226,8 @@
       "kind" : "EXPLICIT",
       "support" : {
         "evaluation" : "SUPPORTED",
-        "probability" : "UNSUPPORTED",
-        "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+        "probability" : "SUPPORTED",
+        "reasonCode" : null
       },
       "eligible" : true,
       "eligibilityReason" : null,
@@ -241,8 +241,8 @@
       "kind" : "EXPLICIT",
       "support" : {
         "evaluation" : "SUPPORTED",
-        "probability" : "UNSUPPORTED",
-        "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+        "probability" : "SUPPORTED",
+        "reasonCode" : null
       },
       "eligible" : true,
       "eligibilityReason" : null,
@@ -256,8 +256,8 @@
       "kind" : "EXPLICIT",
       "support" : {
         "evaluation" : "SUPPORTED",
-        "probability" : "UNSUPPORTED",
-        "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+        "probability" : "SUPPORTED",
+        "reasonCode" : null
       },
       "eligible" : true,
       "eligibilityReason" : null,
@@ -271,8 +271,8 @@
       "kind" : "EXPLICIT",
       "support" : {
         "evaluation" : "SUPPORTED",
-        "probability" : "UNSUPPORTED",
-        "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+        "probability" : "SUPPORTED",
+        "reasonCode" : null
       },
       "eligible" : true,
       "eligibilityReason" : null,
@@ -286,8 +286,8 @@
       "kind" : "EXPLICIT",
       "support" : {
         "evaluation" : "SUPPORTED",
-        "probability" : "UNSUPPORTED",
-        "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+        "probability" : "SUPPORTED",
+        "reasonCode" : null
       },
       "eligible" : true,
       "eligibilityReason" : null,
@@ -301,8 +301,8 @@
       "kind" : "EXPLICIT",
       "support" : {
         "evaluation" : "SUPPORTED",
-        "probability" : "UNSUPPORTED",
-        "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+        "probability" : "SUPPORTED",
+        "reasonCode" : null
       },
       "eligible" : true,
       "eligibilityReason" : null,
@@ -631,8 +631,8 @@
       "kind" : "IMPLICIT",
       "support" : {
         "evaluation" : "SUPPORTED",
-        "probability" : "UNSUPPORTED",
-        "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+        "probability" : "SUPPORTED",
+        "reasonCode" : null
       },
       "eligible" : true,
       "eligibilityReason" : null,
@@ -646,8 +646,8 @@
       "kind" : "PSEUDO",
       "support" : {
         "evaluation" : "SUPPORTED",
-        "probability" : "UNSUPPORTED",
-        "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+        "probability" : "SUPPORTED",
+        "reasonCode" : null
       },
       "eligible" : true,
       "eligibilityReason" : null,
@@ -667,8 +667,8 @@
       "kind" : "PSEUDO",
       "support" : {
         "evaluation" : "SUPPORTED",
-        "probability" : "UNSUPPORTED",
-        "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+        "probability" : "SUPPORTED",
+        "reasonCode" : null
       },
       "eligible" : true,
       "eligibilityReason" : null,
@@ -688,8 +688,8 @@
       "kind" : "PSEUDO",
       "support" : {
         "evaluation" : "SUPPORTED",
-        "probability" : "UNSUPPORTED",
-        "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+        "probability" : "SUPPORTED",
+        "reasonCode" : null
       },
       "eligible" : true,
       "eligibilityReason" : null,
@@ -709,8 +709,8 @@
       "kind" : "PSEUDO",
       "support" : {
         "evaluation" : "SUPPORTED",
-        "probability" : "UNSUPPORTED",
-        "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+        "probability" : "SUPPORTED",
+        "reasonCode" : null
       },
       "eligible" : true,
       "eligibilityReason" : null,
@@ -730,8 +730,8 @@
       "kind" : "PSEUDO",
       "support" : {
         "evaluation" : "SUPPORTED",
-        "probability" : "UNSUPPORTED",
-        "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+        "probability" : "SUPPORTED",
+        "reasonCode" : null
       },
       "eligible" : true,
       "eligibilityReason" : null,
@@ -751,8 +751,8 @@
       "kind" : "PSEUDO",
       "support" : {
         "evaluation" : "SUPPORTED",
-        "probability" : "UNSUPPORTED",
-        "reasonCode" : "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
+        "probability" : "SUPPORTED",
+        "reasonCode" : null
       },
       "eligible" : true,
       "eligibilityReason" : null,
@@ -800,7 +800,7 @@
     },
     "goal" : {
       "version" : 1,
-      "catalogVersion" : "hephaistos-goal-v1-8cf82515200df268e57778d8c8b2a77b51aa7705a148573938eb94e564b4997b",
+      "catalogVersion" : "hephaistos-goal-v1-6483ce0f1635a78f1541629cbca4b8ec6a81eb9d55e27e66e1243eb8ea4348f9",
       "general" : {
         "baseItemId" : "Metadata/Items/Amulets/FourAmulet9",
         "itemLevel" : {
@@ -831,7 +831,7 @@
   "version" : 1,
   "evaluateResponse" : {
     "version" : 1,
-    "catalogVersion" : "hephaistos-goal-v1-8cf82515200df268e57778d8c8b2a77b51aa7705a148573938eb94e564b4997b",
+    "catalogVersion" : "hephaistos-goal-v1-6483ce0f1635a78f1541629cbca4b8ec6a81eb9d55e27e66e1243eb8ea4348f9",
     "status" : "MATCH",
     "generalStatus" : "MATCH",
     "groups" : [ {

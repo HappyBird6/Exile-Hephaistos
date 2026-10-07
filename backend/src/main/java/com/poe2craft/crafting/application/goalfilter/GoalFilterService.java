@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-/** Coordinates validation and exact observations; numeric probability remains honestly gated. */
+/** Coordinates numeric observations and the explicitly declared finite addition model. */
 public final class GoalFilterService {
   private final GoalCatalogIndex index;
   private final GoalValidator validator = new GoalValidator();
@@ -31,7 +31,24 @@ public final class GoalFilterService {
     var result =
         validator.validate(context, goal, index.catalog(context), index.knownStats(context));
     if (!result.valid()) throw new InvalidGoal(result.issues());
-    return result;
+    var catalog = index.catalog(context);
+    boolean numeric =
+        catalog.groupTypes().stream().allMatch(g -> g.probability() == Capability.SUPPORTED)
+            && goal.groups().stream()
+                .filter(g -> !g.disabled())
+                .flatMap(g -> g.entries().stream())
+                .filter(e -> !e.disabled())
+                .allMatch(
+                    e ->
+                        index.knownStats(context).get(e.statId()).support().probability()
+                            == Capability.SUPPORTED);
+    return new GoalValidator.Validation(
+        result.version(),
+        result.valid(),
+        result.issues(),
+        new GoalValidator.Capabilities(
+            result.capabilities().evaluation(),
+            numeric ? Capability.SUPPORTED : Capability.UNSUPPORTED));
   }
 
   public GoalEvaluator.Evaluation evaluate(ItemState item, GoalFilter goal) {
@@ -105,14 +122,37 @@ public final class GoalFilterService {
   public record Limits(Integer maxStates, Integer maxEdges, Integer maxMillis) {}
 
   public record Probability(
-      String status, String reasonCode, String modelVersion, String ledgerVersion) {}
+      String status,
+      String reasonCode,
+      String modelVersion,
+      String ledgerVersion,
+      String interpretation,
+      List<String> assumptions) {
+    public Probability(
+        String status, String reasonCode, String modelVersion, String ledgerVersion) {
+      this(
+          status,
+          reasonCode,
+          modelVersion,
+          ledgerVersion,
+          modelVersion == null ? null : "DECLARED_MODEL_NOT_VERIFIED_GAME_PROBABILITY",
+          modelVersion == null
+              ? List.of()
+              : List.of(
+                  "Existing AdditionRules eligibility and catalog weight / total eligible weight.",
+                  "Single-stat min..max integers are equiprobable under uniform-integer-roll-v1.",
+                  "All candidates remain in the denominator, including unrelated modifiers.",
+                  "Fixed starting rolls; first success is absorbing; finite open-loop addition sequences.",
+                  "No quality, omens, multi-stat ratio ticks, removal, recovery, or repeat policies."));
+    }
+  }
 
   public record Recommendation(
       int version,
       String catalogVersion,
       Status evaluation,
       Probability probability,
-      List<Object> comparisons,
+      List<NumericAdditionSearch.Comparison> comparisons,
       boolean rankingCertified,
       int comparedSequences,
       Integer totalSequences) {}
@@ -143,11 +183,64 @@ public final class GoalFilterService {
       }
     }
     var evaluation = evaluate(item, goal);
+    var context = new Context(item.snapshotId(), item.baseItemId(), item.itemLevel());
+    var catalog = index.itemCatalog(context).orElse(null);
+    String blocked =
+        item.catalystQuality() != null
+            ? "QUALITY_PROJECTION_NOT_IMPLEMENTED"
+            : !item.conditions().isEmpty()
+                    || item.rarity() == ItemState.Rarity.UNIQUE
+                    || item.explicits().stream()
+                        .anyMatch(com.poe2craft.item.ModifierInstance::fractured)
+                ? "UNSUPPORTED_ITEM_EFFECT"
+                : !activeOmens.isEmpty()
+                    ? "OMEN_NUMERIC_MODEL_NOT_IMPLEMENTED"
+                    : !NumericAdditionKernel.supports(catalog)
+                        ? "NUMERIC_BASE_NOT_IMPLEMENTED"
+                        : validate(context, goal).capabilities().probability()
+                                != Capability.SUPPORTED
+                            ? "UNIT_OR_EFFECT_NOT_REVIEWED"
+                            : null;
+    if (blocked == null) {
+      var known = index.knownStats(context);
+      var general = goal.general();
+      var search =
+          new NumericAdditionSearch()
+              .compare(
+                  catalog,
+                  item,
+                  state ->
+                      evaluator
+                          .evaluate(
+                              goal,
+                              general.itemLevel().contains(BigDecimal.valueOf(state.itemLevel()))
+                                      && general.rarities().contains(state.rarity())
+                                  ? Status.MATCH
+                                  : Status.NO_MATCH,
+                              projection.project(state, known, true),
+                              List.of())
+                          .status(),
+                  new NumericAdditionSearch.Budget(
+                      limits.maxStates(), limits.maxEdges(), limits.maxMillis()));
+      return new Recommendation(
+          1,
+          goal.catalogVersion(),
+          evaluation.status(),
+          new Probability(
+              search.complete() ? "COMPLETE" : "PARTIAL",
+              search.complete() ? null : "BUDGET_EXHAUSTED",
+              NumericAdditionKernel.MODEL,
+              NumericAdditionKernel.LEDGER),
+          search.comparisons(),
+          search.complete(),
+          search.comparisons().size(),
+          search.totalSequences());
+    }
     return new Recommendation(
         1,
         goal.catalogVersion(),
         evaluation.status(),
-        new Probability("UNSUPPORTED", "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED", null, null),
+        new Probability("UNSUPPORTED", blocked, null, null),
         List.of(),
         false,
         0,

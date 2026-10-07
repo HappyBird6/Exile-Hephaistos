@@ -1,0 +1,25 @@
+{
+  "modelVersion": "solar-numeric-addition-v1",
+  "ledgerVersion": "uniform-integer-roll-v1",
+  "interpretation": "DECLARED_MODEL_NOT_VERIFIED_GAME_PROBABILITY",
+  "selection": "AdditionRules/AdditionTransitions catalog weight over ALL eligible candidates",
+  "roll": "single stat integers min through max inclusive; uniform conditional on selected modifier",
+  "state": "full ItemState; Bucket only for candidate eligibility",
+  "policy": "finite open-loop prefixes; first MATCH absorbs; Stop allowed",
+  "excluded": [
+    "quality",
+    "omens",
+    "multi-stat ratio/HALF_UP10001ticks",
+    "unknown units/effects",
+    "non-Solar bases",
+    "Annul",
+    "Chaos",
+    "recovery",
+    "repeat policies"
+  ],
+  "unverifiedGameEvidence": [
+    "Actual server roll distribution",
+    "Catalog weights as actual server selection probabilities"
+  ],
+  "implementationStatus": "implemented for declared Solar scope"
+}

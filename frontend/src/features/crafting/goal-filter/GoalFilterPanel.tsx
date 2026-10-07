@@ -525,15 +525,40 @@ export function GoalFilterPanel({
         currentRecommendation &&
         (currentRecommendation.probability.status === 'COMPLETE' ||
           currentRecommendation.probability.status === 'PARTIAL') && (
-          <ul>
-            {currentRecommendation.comparisons.map((comparison, i) => (
-              <li key={i}>
-                {comparison.sequence.join(' → ')}:{' '}
-                {comparison.successLower * 100}%–{comparison.successUpper * 100}
-                % · unresolved {comparison.unresolvedProbability * 100}%
-              </li>
-            ))}
-          </ul>
+          <div>
+            <p>
+              Declared model probability; the game roll distribution has not
+              been verified.
+            </p>
+            <p>
+              Model: {currentRecommendation.probability.modelVersion}; ledger:{' '}
+              {currentRecommendation.probability.ledgerVersion}
+            </p>
+            <p>
+              {currentRecommendation.rankingCertified
+                ? 'Ranking certified within this model and sequence scope.'
+                : 'Ranking unresolved: budgets may leave better sequences unexplored.'}
+            </p>
+            <p>
+              Compared sequences: {currentRecommendation.comparedSequences} /{' '}
+              {currentRecommendation.totalSequences}
+            </p>
+            <ul>
+              {currentRecommendation.comparisons.map((comparison, i) => (
+                <li key={i}>
+                  {comparison.sequence.length
+                    ? comparison.sequence.join(' / ')
+                    : 'Stop'}
+                  : success {(comparison.successLower * 100).toFixed(4)}% to{' '}
+                  {(comparison.successUpper * 100).toFixed(4)}%; failure{' '}
+                  {(comparison.failureProbability * 100).toFixed(4)}%;
+                  unresolved{' '}
+                  {(comparison.unresolvedProbability * 100).toFixed(4)}% (
+                  {comparison.complete ? 'complete' : 'partial'})
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
     </section>
   )

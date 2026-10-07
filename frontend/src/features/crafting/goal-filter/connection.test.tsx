@@ -96,7 +96,7 @@ function setup(actual: ConcreteItem | null = item, onLegacyChange = vi.fn()) {
     </div>,
   )
 }
-function mockFetch(failure = false) {
+function mockFetch(failure = false, recommended: unknown = recommendation) {
   const mock = vi.fn(async (url: RequestInfo | URL, init?: RequestInit) => {
     const path = String(url)
     if (path.includes('/catalog')) return response(catalog)
@@ -113,7 +113,7 @@ function mockFetch(failure = false) {
     }
     if (path.endsWith('/evaluate'))
       return response(evaluation, failure ? 503 : 200)
-    return response(recommendation)
+    return response(recommended)
   })
   vi.stubGlobal('fetch', mock)
   return mock
@@ -225,6 +225,45 @@ describe('production goal connection', () => {
       screen.queryByText('Current item evaluation: MATCH'),
     ).not.toBeInTheDocument()
     expect(button).toBeDisabled()
+  })
+  it('shows declared-model partial bounds and uncertified ranking', async () => {
+    mockFetch(false, {
+      ...recommendation,
+      probability: {
+        status: 'PARTIAL',
+        reasonCode: 'BUDGET_EXHAUSTED',
+        modelVersion: 'solar-numeric-addition-v1',
+        ledgerVersion: 'uniform-integer-roll-v1',
+      },
+      comparisons: [
+        {
+          sequence: ['EXALTED'],
+          successLower: 0.125,
+          successUpper: 0.5,
+          failureProbability: 0.5,
+          unresolvedProbability: 0.375,
+          complete: false,
+        },
+      ],
+      comparedSequences: 1,
+      totalSequences: 4,
+    })
+    setup({ ...item, catalystQuality: null })
+    fireEvent.click(
+      await screen.findByRole('button', { name: 'Add Cold total' }),
+    )
+    const button = screen.getByRole('button', { name: 'Evaluate current item' })
+    await waitFor(() => expect(button).toBeEnabled())
+    fireEvent.click(button)
+    expect(
+      await screen.findByText(/Declared model probability/),
+    ).toBeInTheDocument()
+    expect(screen.getByText(/Ranking unresolved/)).toBeInTheDocument()
+    expect(
+      screen.getByText(
+        /success 12.5000% to 50.0000%; failure 50.0000%; unresolved 37.5000%/,
+      ),
+    ).toBeInTheDocument()
   })
   it('keeps inputs and permits retry after service failure', async () => {
     mockFetch(true)

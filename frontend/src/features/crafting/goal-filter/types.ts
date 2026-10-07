@@ -85,6 +85,8 @@ export type Recommendation = {
     reasonCode: string | null
     modelVersion: string | null
     ledgerVersion: string | null
+    interpretation?: string | null
+    assumptions?: string[]
   }
   comparisons: {
     sequence: string[]
