@@ -25,3 +25,9 @@ Fixture에는 합성 stat 3개만 있으며 production catalog 응답이 없다.
 `src/features/crafting/goal-filter/demo.html`은 별도 Vite 진입점이다. 실제 앱의 App/CraftSupport를 수정하지 않고 합성 계약 UI를 확인할 수 있다.
 
 전용 unit/component 테스트는 공통 fixture validation 9건, 6종 그룹 전환, 중복 후보 방지, 빈 그룹·stale catalog, collapse AST 분리, 미지원 base 변경 후 행 보존, 추가/삭제 focus, HTTP wire shape와 AbortSignal, 늦은 catalog 응답 폐기, 미완성 숫자 편집을 검사한다. Docker typecheck/lint/build/format 및 브라우저 결과는 최종 인계에 별도로 기록한다. Backend 검사와 전체 기존 frontend unit suite는 이번 독립 소유 범위 검사에 포함하지 않았다.
+
+## 기존 의존성 audit
+
+2026-10-07 `npm audit --package-lock-only --json`은 dev 전이 의존성 `source-map-js@1.2.1` high 1건을 보고했다. Advisory: [GHSA-68fv-2mgg-jv7q](https://github.com/advisories/GHSA-68fv-2mgg-jv7q), indexed source-map section offsets에 의한 이벤트 루프 DoS. Audit의 취약 범위는 `>=1.0.0 <1.2.2`이며 fixAvailable=true이다. 현재 lockfile에서 `css-tree`와 `postcss`가 `source-map-js`에 의존한다.
+
+기준 계약 SHA와 비교한 `frontend/package.json` / `frontend/package-lock.json` diff는 없으며 이번 구현은 의존성을 추가하거나 버전을 바꾸지 않았다. 따라서 해당 패키지와 버전은 기존 기준에도 존재한다. 이 작업에서는 취약 경로의 실행 가능성이나 사용자 데이터 영향은 평가하지 않았으며, 안전하거나 노출된다고 추정하지 않는다. 범위 밖 lockfile 변경과 audit fix는 수행하지 않았다.
