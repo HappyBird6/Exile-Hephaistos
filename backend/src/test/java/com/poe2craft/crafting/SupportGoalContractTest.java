@@ -125,11 +125,7 @@ class SupportGoalContractTest {
             && qualifiedCandidates.size() >= goal.candidateCount();
     var comparison =
         recommendations.evaluate(
-            state,
-            goal,
-            Set.of(),
-            List.of(),
-            new SupportRecommendations.Limits(1, 1, 10000));
+            state, goal, Set.of(), List.of(), new SupportRecommendations.Limits(1, 1, 10000));
     assertThat(comparison.successLower()).as(context).isEqualTo(expected ? 1 : 0);
     assertThat(comparison.successUpper()).as(context).isEqualTo(expected ? 1 : 0);
     assertThat(comparison.failureProbability()).as(context).isEqualTo(expected ? 0 : 1);
