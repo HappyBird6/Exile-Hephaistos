@@ -1,0 +1,87 @@
+.goal-filter {
+  color: #e6e2d8;
+  background: #161b21;
+  padding: 1rem;
+  border: 1px solid #647080;
+  border-radius: 0.5rem;
+}
+.goal-filter-layout {
+  display: grid;
+  grid-template-columns: minmax(12rem, 1fr) minmax(0, 3fr);
+  gap: 1rem;
+}
+.goal-filter .goal-filter-stats,
+.goal-filter aside {
+  min-width: 0;
+}
+.goal-filter label {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0.4rem 0;
+}
+.goal-filter input,
+.goal-filter select,
+.goal-filter button {
+  font: inherit;
+  color: inherit;
+  background: #252f3a;
+  border: 1px solid #82909f;
+  border-radius: 0.2rem;
+  padding: 0.4rem;
+  max-width: 100%;
+}
+.goal-filter input:not([type='checkbox']) {
+  width: 8rem;
+}
+.goal-filter input[type='search'] {
+  width: 100%;
+}
+.goal-filter :focus-visible {
+  outline: 3px solid #e9c77f;
+  outline-offset: 2px;
+}
+.goal-filter button:disabled {
+  opacity: 0.5;
+}
+.goal-filter fieldset {
+  min-width: 0;
+  border: 1px solid #647080;
+  margin: 0.7rem 0;
+}
+.goal-filter-candidates {
+  padding: 0;
+  list-style: none;
+  max-height: 16rem;
+  overflow-y: auto;
+}
+.goal-filter-candidates li {
+  display: grid;
+  gap: 0.3rem;
+  padding: 0.6rem;
+  border-bottom: 1px solid #647080;
+  overflow-wrap: anywhere;
+}
+.goal-filter-candidates strong {
+  color: #ffe098;
+}
+.goal-filter-row,
+.goal-filter-group-controls {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.goal-filter p,
+.goal-filter legend {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 700px) {
+  .goal-filter-layout {
+    grid-template-columns: 1fr;
+  }
+  .goal-filter {
+    padding: 0.6rem;
+  }
+}
