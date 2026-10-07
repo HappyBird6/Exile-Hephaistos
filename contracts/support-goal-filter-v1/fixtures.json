@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "catalogVersion": "goal-filter-fixture-v1",
+  "synthetic": true,
+  "stats": [
+    {"statId":"fixture:explicit.cold_resistance","unit":"percent","kind":"EXPLICIT","contributions":[]},
+    {"statId":"fixture:explicit.all_elemental_resistance","unit":"percent","kind":"EXPLICIT","contributions":[]},
+    {"statId":"fixture:pseudo.total_cold_resistance","unit":"percent","kind":"PSEUDO","contributions":[{"statId":"fixture:explicit.cold_resistance","coefficient":1},{"statId":"fixture:explicit.all_elemental_resistance","coefficient":1}]}
+  ],
+  "entryTemplates": {
+    "cold": {"id":"cold","statId":"fixture:explicit.cold_resistance","unit":"percent","range":{"min":10,"max":20},"weight":null,"disabled":false},
+    "all": {"id":"all","statId":"fixture:explicit.all_elemental_resistance","unit":"percent","range":{"min":10,"max":20},"weight":null,"disabled":false},
+    "total": {"id":"total","statId":"fixture:pseudo.total_cold_resistance","unit":"percent","range":{"min":22,"max":22},"weight":null,"disabled":false}
+  },
+  "cases": [
+    {"id":"pseudo-sum","type":"AND","entries":["total"],"observedStats":{"fixture:explicit.cold_resistance":10,"fixture:explicit.all_elemental_resistance":12},"expected":"MATCH","expectedValue":22},
+    {"id":"inclusive-min","type":"AND","entries":["cold"],"observedStats":{"fixture:explicit.cold_resistance":10},"expected":"MATCH"},
+    {"id":"inclusive-max","type":"AND","entries":["cold"],"observedStats":{"fixture:explicit.cold_resistance":20},"expected":"MATCH"},
+    {"id":"and-absent","type":"AND","entries":["cold"],"observedStats":{},"expected":"NO_MATCH"},
+    {"id":"and-two","type":"AND","entries":["cold","all"],"observedStats":{"fixture:explicit.cold_resistance":10},"expected":"NO_MATCH"},
+    {"id":"not-no-matching","type":"NOT","entries":["cold","all"],"observedStats":{"fixture:explicit.cold_resistance":9},"expected":"MATCH"},
+    {"id":"not-one-matching","type":"NOT","entries":["cold","all"],"observedStats":{"fixture:explicit.cold_resistance":10},"expected":"NO_MATCH"},
+    {"id":"if-absent","type":"IF","entries":["cold"],"observedStats":{},"expected":"MATCH"},
+    {"id":"if-present-outside","type":"IF","entries":["cold"],"observedStats":{"fixture:explicit.cold_resistance":4},"expected":"NO_MATCH"},
+    {"id":"zero-is-present","type":"IF","entries":["cold"],"observedStats":{"fixture:explicit.cold_resistance":0},"expected":"NO_MATCH"},
+    {"id":"count-exact-one","type":"COUNT","range":{"min":1,"max":1},"entries":["cold","all"],"observedStats":{"fixture:explicit.cold_resistance":10,"fixture:explicit.all_elemental_resistance":9},"expected":"MATCH","expectedCount":1},
+    {"id":"count-upper","type":"COUNT","range":{"min":0,"max":1},"entries":["cold","all"],"observedStats":{"fixture:explicit.cold_resistance":10,"fixture:explicit.all_elemental_resistance":12},"expected":"NO_MATCH","expectedCount":2},
+    {"id":"weighted-v1-hard-range","type":"WEIGHTED_V1","range":{"min":10,"max":null},"weights":[1,1],"entries":["cold","all"],"observedStats":{"fixture:explicit.cold_resistance":4,"fixture:explicit.all_elemental_resistance":12},"expected":"NO_MATCH"},
+    {"id":"weighted-v2-soft-range","type":"WEIGHTED_V2","range":{"min":10,"max":null},"weights":[1,1],"entries":["cold","all"],"observedStats":{"fixture:explicit.cold_resistance":4,"fixture:explicit.all_elemental_resistance":12},"expected":"MATCH","expectedScore":12},
+    {"id":"weighted-v1-all-absent-zero","type":"WEIGHTED_V1","range":{"min":0,"max":0},"weights":[1],"entries":["cold"],"observedStats":{},"expected":"MATCH","expectedScore":0},
+    {"id":"weighted-v2-all-absent","type":"WEIGHTED_V2","range":{"min":0,"max":0},"weights":[1],"entries":["cold"],"observedStats":{},"expected":"NO_MATCH","expectedScore":0},
+    {"id":"weighted-v2-outside-max-no-score","type":"WEIGHTED_V2","range":{"min":1,"max":null},"weights":[1],"entries":["cold"],"observedStats":{"fixture:explicit.cold_resistance":30},"expected":"NO_MATCH","expectedScore":0},
+    {"id":"weighted-v2-existing-zero-score","type":"WEIGHTED_V2","range":{"min":0,"max":0},"weights":[1],"entries":["cold"],"observedStats":{"fixture:explicit.cold_resistance":4},"expected":"MATCH","expectedScore":0},
+    {"id":"weighted-negative","type":"WEIGHTED_V2","range":{"min":-12,"max":-12},"weights":[-1],"entries":["all"],"observedStats":{"fixture:explicit.all_elemental_resistance":12},"expected":"MATCH","expectedScore":-12},
+    {"id":"disabled-row","type":"AND","entries":["cold","all"],"disabledEntries":["cold"],"observedStats":{"fixture:explicit.cold_resistance":4,"fixture:explicit.all_elemental_resistance":12},"expected":"MATCH"},
+    {"id":"unknown-is-not-absent","type":"IF","entries":["cold"],"observedStats":{"fixture:explicit.cold_resistance":null},"expected":"UNKNOWN"},
+    {"id":"pseudo-unknown-source","type":"AND","entries":["total"],"observedStats":{"fixture:explicit.cold_resistance":10,"fixture:explicit.all_elemental_resistance":null},"expected":"UNKNOWN"},
+    {"id":"and-false-dominates-unknown","type":"AND","entries":["cold","all"],"observedStats":{"fixture:explicit.cold_resistance":4,"fixture:explicit.all_elemental_resistance":null},"expected":"NO_MATCH"},
+    {"id":"count-unknown-bound-false","type":"COUNT","range":{"min":2,"max":2},"entries":["cold","all"],"observedStats":{"fixture:explicit.cold_resistance":4,"fixture:explicit.all_elemental_resistance":null},"expected":"NO_MATCH"}
+  ],
+  "validationCases": [
+    {"id":"range-reversed","mutation":{"range":{"min":20,"max":10}},"expectedCode":"INVALID_RANGE"},
+    {"id":"unit-mismatch","mutation":{"unit":"flat"},"expectedCode":"UNIT_MISMATCH"},
+    {"id":"unknown-stat","mutation":{"statId":"fixture:unknown"},"expectedCode":"UNKNOWN_STAT"},
+    {"id":"unsupported-version","mutation":{"version":2},"expectedCode":"UNSUPPORTED_VERSION"},
+    {"id":"duplicate-stat","mutation":{"duplicateEntry":true},"expectedCode":"DUPLICATE_STAT"},
+    {"id":"empty-active-group","mutation":{"disableAllEntries":true},"expectedCode":"EMPTY_GROUP"},
+    {"id":"empty-goal","mutation":{"disableAllGroups":true},"expectedCode":"EMPTY_GOAL"},
+    {"id":"count-fraction","mutation":{"type":"COUNT","range":{"min":0.5,"max":1}},"expectedCode":"INVALID_COUNT_RANGE"},
+    {"id":"catalog-stale","mutation":{"catalogVersion":"old"},"expectedCode":"CATALOG_VERSION_MISMATCH","httpStatus":409}
+  ],
+  "apiExamples": {
+    "validateRequest": {"context":{"snapshotId":"fixture-snapshot-v1","baseItemId":"fixture-base","itemLevel":82},"goal":{"version":1,"catalogVersion":"goal-filter-fixture-v1","general":{"baseItemId":"fixture-base","itemLevel":{"min":1,"max":100},"rarities":["NORMAL","MAGIC","RARE"]},"groups":[{"id":"g1","type":"AND","disabled":false,"range":null,"entries":[{"id":"r1","statId":"fixture:pseudo.total_cold_resistance","unit":"percent","range":{"min":22,"max":null},"weight":null,"disabled":false}]}]}},
+    "validateResponse": {"version":1,"valid":true,"issues":[],"capabilities":{"evaluation":"SUPPORTED","probability":"UNSUPPORTED"}},
+    "evaluateRequest": {"item":{"snapshotId":"fixture-snapshot-v1","baseItemId":"fixture-base","itemLevel":82,"rarity":"RARE","implicits":[],"explicits":[{"modifierId":"fixture:cold-mod","values":{"fixture:explicit.cold_resistance":10}},{"modifierId":"fixture:all-mod","values":{"fixture:explicit.all_elemental_resistance":12}}],"conditions":[],"augmentSockets":null,"catalystQuality":null},"goal":{"version":1,"catalogVersion":"goal-filter-fixture-v1","general":{"baseItemId":"fixture-base","itemLevel":{"min":1,"max":100},"rarities":["RARE"]},"groups":[{"id":"g1","type":"AND","disabled":false,"range":null,"entries":[{"id":"r1","statId":"fixture:pseudo.total_cold_resistance","unit":"percent","range":{"min":22,"max":null},"weight":null,"disabled":false}]}]}},
+    "evaluateResponse": {"version":1,"catalogVersion":"goal-filter-fixture-v1","status":"MATCH","generalStatus":"MATCH","groups":[{"id":"g1","status":"MATCH","count":null,"score":null,"entries":[{"id":"r1","status":"MATCH","presence":"PRESENT","value":22}]}],"issues":[]},
+    "recommendUnsupportedResponse": {"version":1,"catalogVersion":"goal-filter-fixture-v1","evaluation":"MATCH","probability":{"status":"UNSUPPORTED","reasonCode":"NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED","modelVersion":null,"ledgerVersion":null},"comparisons":[],"rankingCertified":false,"comparedSequences":0,"totalSequences":null},
+    "recommendPartialResponse": {"version":1,"catalogVersion":"goal-filter-fixture-v1","evaluation":"NO_MATCH","probability":{"status":"PARTIAL","reasonCode":"BUDGET_EXHAUSTED","modelVersion":"synthetic-joint-roll-v1","ledgerVersion":"synthetic-ledger-v1"},"comparisons":[{"sequence":["EXALTED"],"successLower":0.25,"successUpper":0.75,"failureProbability":0.25,"unresolvedProbability":0.5,"complete":false}],"rankingCertified":false,"comparedSequences":1,"totalSequences":3}
+  },
+  "handoffRegressionRequirements": [
+    "Disabled group does not affect root AND; all disabled is EMPTY_GOAL.",
+    "Changing group type preserves entries and emits valid type-specific range and weight.",
+    "Base and catalog change preserves editor rows and reports eligibility and stale version.",
+    "Unknown source is not absent; unsupported conditional effects never become zero.",
+    "Pseudo counts each source modifier/stat/layer once, including hybrid correlation.",
+    "Legacy family/minimumTier and candidate N-of-M APIs retain first-hit absorption and tier direction.",
+    "Same occupied/qualified state with different numeric rolls may have different goal results; never merge numeric goal DP on the old key.",
+    "Unknown distribution returns UNKNOWN, no model returns UNSUPPORTED, budget exhaustion in a validated model returns PARTIAL.",
+    "Out-of-order response, cancellation and keyboard focus preserve current input."
+  ]
+}
