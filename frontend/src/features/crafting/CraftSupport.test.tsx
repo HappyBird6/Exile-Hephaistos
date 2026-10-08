@@ -12,6 +12,11 @@ import { useItemDraft } from './draft'
 import { fixtureFetch, jsonResponse } from '../../shared/test/craftingFixtures'
 import type { Bucket } from './craftingApi'
 
+function openFamilyComparison() {
+  const advanced = screen.getByText('Advanced family / tier comparison')
+  if (!advanced.closest('details')?.open) fireEvent.click(advanced)
+}
+
 let failRecommendations = false
 let partialRecommendations = false
 const families = [
@@ -157,6 +162,7 @@ describe('Independent Craft Support goal input', () => {
   it('deduplicates goal tiers while naming every effect variant and retaining manual alternatives', async () => {
     show()
     fireEvent.click(screen.getByRole('tab', { name: 'Craft Support' }))
+    openFamilyComparison()
     await screen.findAllByRole('option', {
       name: 'IncreaseSocketedGemLevel · suffix',
     })
@@ -186,6 +192,7 @@ describe('Independent Craft Support goal input', () => {
   it('shows actual-service comparison fields and chosen guide, then clears the old route for recovery input', async () => {
     show()
     fireEvent.click(screen.getByRole('tab', { name: 'Craft Support' }))
+    openFamilyComparison()
     await waitFor(() =>
       expect(
         screen.getAllByRole('option', { name: 'Life · prefix' })[0],
@@ -229,6 +236,7 @@ describe('Independent Craft Support goal input', () => {
     partialRecommendations = true
     show()
     fireEvent.click(screen.getByRole('tab', { name: 'Craft Support' }))
+    openFamilyComparison()
     await waitFor(() =>
       expect(
         screen.getAllByRole('option', { name: 'Life · prefix' })[0],
@@ -263,6 +271,7 @@ describe('Independent Craft Support goal input', () => {
   it('builds a distinct family goal and keeps the Support state while using Workbench', async () => {
     show()
     fireEvent.click(screen.getByRole('tab', { name: 'Craft Support' }))
+    openFamilyComparison()
     await waitFor(() =>
       expect(
         screen.getAllByRole('option', { name: 'Life · prefix' })[0]!,
@@ -306,6 +315,7 @@ describe('Independent Craft Support goal input', () => {
       expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
     )
     fireEvent.click(screen.getByRole('tab', { name: 'Craft Support' }))
+    openFamilyComparison()
     expect(
       screen.getByText(
         'Solar Amulet · Level 82 · normal · 0 explicit modifiers',
@@ -320,6 +330,7 @@ describe('Independent Craft Support goal input', () => {
   it('recognizes an achieved manual tier root without fabricating a currency recommendation', async () => {
     show()
     fireEvent.click(screen.getByRole('tab', { name: 'Craft Support' }))
+    openFamilyComparison()
     await waitFor(() =>
       expect(
         screen.getAllByRole('option', { name: 'Life · prefix' })[0]!,
