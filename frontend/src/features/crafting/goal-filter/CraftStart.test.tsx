@@ -42,6 +42,22 @@ const solar = {
 }
 const ring = {
   ...initialFixture,
+  modifiers: {
+    ...initialFixture.modifiers,
+    'iron-ring:implicit:added-physical-damage-to-attacks': {
+      id: 'iron-ring:implicit:added-physical-damage-to-attacks',
+      name: 'Physical damage',
+      text: 'Adds 1 to 4 Physical Damage to Attacks',
+      tier: 0,
+      affixType: 'NONE' as const,
+      layer: 'IMPLICIT',
+      familyIds: ['PhysicalDamage'],
+      stats: [
+        { id: 'attack_minimum_added_physical_damage', min: 1, max: 1 },
+        { id: 'attack_maximum_added_physical_damage', min: 4, max: 4 },
+      ],
+    },
+  },
   state: {
     ...initialFixture.state,
     baseItemId: 'Metadata/Items/Rings/FourRing1',
@@ -208,6 +224,52 @@ describe('Craft Support starting screen', () => {
       (screen.getByLabelText('Starting item text') as HTMLTextAreaElement)
         .value,
     ).toContain('Iron Ring')
+  })
+  it('creates a non-Solar equipment modifier and retains it through start and edit', async () => {
+    await setup()
+    fireEvent.change(screen.getByLabelText('Starting equipment type'), {
+      target: { value: 'Rings' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: 'Add modifier' }))
+    fireEvent.change(screen.getByLabelText('Starting modifier tier'), {
+      target: { value: 'p' },
+    })
+    expect(
+      screen.getByRole('region', { name: 'Starting item preview' }),
+    ).toHaveTextContent('+10 to maximum Life')
+    vi.mocked(parseItemText).mockResolvedValueOnce(parsed('Iron Ring', 'Rings'))
+    fireEvent.click(screen.getByRole('button', { name: 'Check item text' }))
+    await waitFor(() =>
+      expect(
+        screen.getByRole('button', { name: 'Start Crafting' }),
+      ).toBeEnabled(),
+    )
+    expect(mapSolarText).not.toHaveBeenCalled()
+    expect(
+      screen.getByRole('region', { name: 'Starting item preview' }),
+    ).toHaveTextContent('+10 to maximum Life')
+    fireEvent.click(screen.getByRole('button', { name: 'Start Crafting' }))
+    expect(
+      screen.getByRole('region', { name: 'Crafting tree preview' }),
+    ).toHaveTextContent('Iron Ring')
+    fireEvent.click(screen.getByRole('button', { name: /Edit settings/ }))
+    expect(screen.getByLabelText('life')).toHaveValue(10)
+  })
+  it('accepts the exact Amulet alias for verified pasted Solar text', async () => {
+    await setup()
+    vi.mocked(parseItemText).mockResolvedValueOnce(
+      parsed('Solar Amulet', 'Amulet'),
+    )
+    fireEvent.paste(screen.getByLabelText('Starting item text'), {
+      clipboardData: { getData: () => 'singular class copy' },
+    })
+    await waitFor(() => expect(mapSolarText).toHaveBeenCalled())
+    await waitFor(() =>
+      expect(
+        screen.getByRole('button', { name: 'Start Crafting' }),
+      ).toBeEnabled(),
+    )
+    expect(screen.getByLabelText('Starting item base')).toHaveValue('solar')
   })
   it('adds and removes catalog modifiers, blocks invalid rolls and preserves the started root', async () => {
     await setup()

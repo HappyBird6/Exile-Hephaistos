@@ -16,6 +16,8 @@ import {
   startCard,
   startText,
   eligibleStartModifiers,
+  startClassMatches,
+  startItemIssues,
 } from './startItem'
 import './craft-start.css'
 
@@ -139,6 +141,7 @@ export function CraftStart({
     }
   }, [active, editor])
   async function checkText(text: string) {
+    const editorItem = editor.getState().item
     cancel()
     const version = revision.current
     const controller = new AbortController()
@@ -152,7 +155,7 @@ export function CraftStart({
       const entry = inventory.data?.find(
         (e) =>
           e.base[2] === (parsed.displayBase ?? parsed.displayName) &&
-          e.base[1] === parsed.itemClass,
+          startClassMatches(e.base[1], parsed.itemClass),
       )
       update({
         card: toItemCard(parsed),
@@ -164,7 +167,16 @@ export function CraftStart({
         throw new Error(
           'Unknown or unsupported base. Select a supported base or keep editing this text.',
         )
-      if (entry.base[0] !== 'solar') {
+      if (
+        editorItem &&
+        !startItemIssues(entry.initial, editorItem).length &&
+        text === startText(entry.base, editorItem, entry.initial.modifiers)
+      ) {
+        update({
+          item: editorItem,
+          card: startCard(entry.base, editorItem, entry.initial.modifiers),
+        })
+      } else if (entry.base[0] !== 'solar') {
         const item = concreteInitial(entry.initial)
         if (text !== startText(entry.base, item, entry.initial.modifiers))
           throw new Error(
@@ -246,6 +258,12 @@ export function CraftStart({
     })
   }
   const context = draft.item ?? solar?.initial.state
+  const stateIssues =
+    selected && draft.item ? startItemIssues(selected.initial, draft.item) : []
+  const availableModifiers =
+    selected && draft.item
+      ? eligibleStartModifiers(selected.initial, draft.item)
+      : []
   return (
     <section className="craft-start" aria-label="Crafting setup">
       <section className="craft-start-target" aria-label="Target item filters">
@@ -354,7 +372,7 @@ export function CraftStart({
                 </button>
                 <button
                   disabled={
-                    !draft.item || !selected || selected.base[0] !== 'solar'
+                    !draft.item || !selected || Boolean(stateIssues.length)
                   }
                   aria-expanded={draft.modifiersOpen}
                   onClick={() =>
@@ -365,6 +383,11 @@ export function CraftStart({
                 </button>
               </div>
               {draft.issue && <p role="alert">{draft.issue}</p>}
+              {stateIssues.map((issue) => (
+                <p role="alert" key={issue}>
+                  {issue}
+                </p>
+              ))}
               {draft.modifiersOpen && draft.item && selected && (
                 <div className="craft-start-modifiers">
                   <label>
@@ -375,15 +398,19 @@ export function CraftStart({
                       onChange={(e) => addModifier(e.target.value)}
                     >
                       <option value="">Select modifier…</option>
-                      {eligibleStartModifiers(selected.initial, draft.item).map(
-                        (m) => (
-                          <option key={m.id} value={m.id}>
-                            {m.text} · T{m.tier}
-                          </option>
-                        ),
-                      )}
+                      {availableModifiers.map((m) => (
+                        <option key={m.id} value={m.id}>
+                          {m.text} · T{m.tier}
+                        </option>
+                      ))}
                     </select>
                   </label>
+                  {!availableModifiers.length && (
+                    <p role="status">
+                      No eligible modifiers remain at this level and the current
+                      affix/Crafted capacity.
+                    </p>
+                  )}
                   <small>
                     Editor values start at the catalog minimum; choose your
                     intended rolls.
@@ -486,7 +513,11 @@ export function CraftStart({
                 className="craft-start-primary"
                 ref={startButton}
                 disabled={
-                  !draft.item || !draft.card || checking || Boolean(draft.issue)
+                  !draft.item ||
+                  !draft.card ||
+                  checking ||
+                  Boolean(draft.issue) ||
+                  Boolean(stateIssues.length)
                 }
                 onClick={() => {
                   update({ started: true, editing: false, root: draft.card })

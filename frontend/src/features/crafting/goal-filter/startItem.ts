@@ -2,6 +2,12 @@ import type { Definition, Initial } from '../craftingApi'
 import type { ConcreteItem } from '../workbenchApi'
 import { rolledText } from '../workbenchApi'
 import type { ItemCardData } from '../itemCardData'
+import { supportsConcreteStateShape } from '../workbenchStateShape'
+import {
+  isWorkbenchJewel,
+  jewelCapacity,
+  reviewedBasicJewel,
+} from '../basicJewel'
 
 // Names match the existing Workbench's reviewed bases; this is not a registry.
 export const startBases = [
@@ -24,6 +30,116 @@ export const startBases = [
   ['time-lost-diamond', 'Jewels', 'Time-Lost Diamond'],
 ] as const
 export type StartBase = (typeof startBases)[number]
+// Exact aliases already accepted by the item parser/mapper contracts. No name guessing.
+export function startClassMatches(expected: string, actual: string): boolean {
+  return expected === actual || (expected === 'Amulets' && actual === 'Amulet')
+}
+
+export function startItemIssues(
+  initial: Initial,
+  item: ConcreteItem,
+): string[] {
+  const issues: string[] = []
+  if (
+    !supportsConcreteStateShape(item) ||
+    item.conditions.length ||
+    item.catalystQuality != null ||
+    [...item.implicits, ...item.explicits].some((m) => m.fractured)
+  )
+    issues.push(
+      'Special conditions, quality and fractured modifiers are not supported by this editor.',
+    )
+  if (
+    item.baseItemId !== initial.state.baseItemId ||
+    item.snapshotId !== initial.state.snapshotId
+  )
+    issues.push(
+      'Item and selected catalog must have the same base and snapshot.',
+    )
+  if (
+    !Number.isInteger(item.itemLevel) ||
+    item.itemLevel < 1 ||
+    item.itemLevel > 100
+  )
+    issues.push('Item level must be an integer from 1 to 100.')
+  if (
+    item.implicits.length !== initial.state.implicits.length ||
+    item.implicits.some(
+      (m, i) => m.modifierId !== initial.state.implicits[i]?.modifierId,
+    )
+  )
+    issues.push('Implicits must match the selected server base.')
+  const families = new Set<string>(),
+    ids = new Set<string>()
+  for (const [layer, rows] of [
+    ['IMPLICIT', item.implicits],
+    ['EXPLICIT', item.explicits],
+  ] as const) {
+    for (const row of rows) {
+      const definition = initial.modifiers[row.modifierId]
+      if (
+        !definition ||
+        !definition.stats ||
+        (definition.layer && definition.layer !== layer)
+      ) {
+        issues.push(
+          `Modifier is not supported in this catalog layer: ${row.modifierId}`,
+        )
+        continue
+      }
+      if (
+        Object.keys(row.values).length !== definition.stats.length ||
+        !definition.stats.every(
+          (s) =>
+            Number.isSafeInteger(row.values[s.id]) &&
+            row.values[s.id]! >= s.min &&
+            row.values[s.id]! <= s.max,
+        )
+      )
+        issues.push(
+          `Modifier values must match the catalog stat set and ranges: ${row.modifierId}`,
+        )
+      if (layer === 'EXPLICIT') {
+        if (
+          ids.has(row.modifierId) ||
+          definition.familyIds.some((f) => families.has(f))
+        )
+          issues.push(
+            'Explicit modifiers cannot duplicate IDs or overlap families.',
+          )
+        ids.add(row.modifierId)
+        definition.familyIds.forEach((f) => families.add(f))
+        if (
+          definition.affixType !== 'PREFIX' &&
+          definition.affixType !== 'SUFFIX'
+        )
+          issues.push(
+            'An explicit modifier requires a reviewed prefix or suffix.',
+          )
+      }
+    }
+  }
+  if (isWorkbenchJewel(item.baseItemId)) {
+    if (!reviewedBasicJewel(item))
+      issues.push(
+        'Jewel state violates reviewed affix, Crafted, implicit or stat rules.',
+      )
+  } else {
+    // Existing nine equipment catalogs: Normal 0/0, Magic 1/1, Rare 3/3.
+    // backend/src/main/resources/catalog/*/catalog.json; ItemStateValidator.slots.
+    const cap = item.rarity === 'NORMAL' ? 0 : item.rarity === 'MAGIC' ? 1 : 3
+    if (
+      ['PREFIX', 'SUFFIX'].some(
+        (side) =>
+          item.explicits.filter(
+            (m) => initial.modifiers[m.modifierId]?.affixType === side,
+          ).length > cap,
+      )
+    )
+      issues.push('Equipment affix capacity exceeded (Magic 1/1; Rare 3/3).')
+  }
+  return [...new Set(issues)]
+}
 export function startCard(
   base: StartBase,
   item: ConcreteItem,
@@ -75,12 +191,8 @@ export function eligibleStartModifiers(
   initial: Initial,
   item: ConcreteItem,
 ): Definition[] {
-  // Manual concrete editing is restricted to the already reviewed Solar model.
-  if (
-    initial.state.baseItemId !== 'Metadata/Items/Amulets/FourAmulet9' ||
-    item.explicits.length >= 6
-  )
-    return []
+  if (startItemIssues(initial, item).length) return []
+  const rare: ConcreteItem = { ...item, rarity: 'RARE' }
   const used = item.explicits.flatMap(
     (m) => initial.modifiers[m.modifierId]?.familyIds ?? [],
   )
@@ -88,10 +200,24 @@ export function eligibleStartModifiers(
     (m) =>
       (m.affixType === 'PREFIX' || m.affixType === 'SUFFIX') &&
       m.stats?.length &&
+      (!m.layer || m.layer === 'EXPLICIT') &&
       (m.requiredItemLevel ?? 1) <= item.itemLevel &&
       item.explicits.filter(
         (e) => initial.modifiers[e.modifierId]?.affixType === m.affixType,
-      ).length < 3 &&
-      !m.familyIds.some((f) => used.includes(f)),
+      ).length <
+        (isWorkbenchJewel(item.baseItemId)
+          ? jewelCapacity(rare, m.affixType)
+          : 3) &&
+      !m.familyIds.some((f) => used.includes(f)) &&
+      !startItemIssues(initial, {
+        ...rare,
+        explicits: [
+          ...rare.explicits,
+          {
+            modifierId: m.id,
+            values: Object.fromEntries(m.stats.map((s) => [s.id, s.min])),
+          },
+        ],
+      }).length,
   )
 }

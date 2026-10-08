@@ -9,11 +9,13 @@
 - 첫 행은 전체 폭의 거래소형 필터다. 기존 AND/NOT/IF/COUNT/WEIGHTED V1/V2, catalog 검색·판정·지원 경고는 유지한다. 일반 필터는 지원되는 base/level/rarity만 제공한다.
 - 두 번째 행은 왼쪽 equipment type/base/텍스트 편집기와 큰 ItemCard다. base 선택은 서버 초기 상태와 표시 텍스트를 함께 갱신한다. 붙여넣기는 기존 parser로 표시 구조를 얻고 Solar catalog mapping API로 검증한다. 늦은 응답·취소 요청은 입력을 덮어쓰지 않는다.
 - 기존 pasted mapping은 Solar Amulet만 지원한다. 다른 base의 서버 기본 텍스트는 서버 초기 상태에서 생성한 정확한 문자열에 한해서 확인할 수 있다. 그 외 붙여넣기는 표시와 원문을 보존하고 제작 시작을 차단한다. unknown base를 Solar로 대체하지 않는다.
-- modifier 편집은 기존 Solar catalog의 tier·level·family·affix 제한을 사용한다. 선택 후 수치는 명시적으로 catalog 최소값으로 시작하며 편집할 수 있다. 실제 게임 roll이나 확률을 생성한 것으로 표시하지 않는다.
+- modifier 편집은 제공되는 17개 base의 Initial definitions를 사용한다. 장비 Normal 0/0·Magic 1/1·Rare 3/3, family·ID 중복, layer·stat set·정수 범위를 검사한다. 주얼은 기존 `reviewedBasicJewel`와 `jewelCapacity`를 재사용하며 현재 slot 한도로 추가를 제한하고 Crafted cap 및 기존 cap-loss 상태를 구분한다. 선택 후 수치는 명시적으로 catalog 최소값으로 시작하며 편집할 수 있다. 실제 게임 roll이나 확률을 생성한 것으로 표시하지 않는다.
 - Start Crafting은 설정을 접고 현재 ItemCard를 최상위 루트로 보존한다. 아래에는 `No crafting paths yet.`만 표시한다. 경로·확률 API 호출이나 결과 노드를 추가하지 않는다. 재편집과 반복 시작은 설정 상태를 보존하고 기존 루트 1개를 교체한다.
 - 숫자 평가는 기존 Evaluate 버튼에서만 실행한다. 이전 family/tier 비교는 `Advanced family / tier comparison`에서 사용하며 시작 화면과 별개의 기존 Solar 입력을 유지한다.
 - 기존 omen 선택과 계산 시간 설정은 숫자 평가와 family 비교에서 계속 공유한다.
 - 700px 이하에서는 필터와 생성 폼·미리보기가 한 열로 표시된다. desktop 전용 바깥 여백 보정은 Craft Support 안에서만 적용한다.
+- dropdown으로 만든 상태의 정확한 생성 문자열을 다시 Check하면 검증된 편집 상태를 재사용한다. textarea를 직접 수정하거나 새로 붙여넣으면 이 신뢰가 해제되어 non-Solar 임의 텍스트 mapping을 허용하지 않는다. `Amulet`/`Amulets`는 기존 Solar mapper 계약의 정확한 alias만 허용하며 fuzzy base matching은 하지 않는다.
+- 이 편집기는 quality·특수 조건·fractured modifiers를 지원하지 않으며 시작을 차단하고 이유를 표시한다. catalog stat definitions가 없는 modifier와 비-EXPLICIT layer는 dropdown에서 제외한다. 사용 가능한 후보가 없으면 level·affix/Crafted capacity 안내를 표시한다.
 
 ## 검증 환경
 
@@ -22,6 +24,8 @@
 증거는 worktree 밖 `../goal-filter-trade-design-evidence/`에 저장한다. 후속 캡처는 `start-reference-*`, `start-after-*`, `start-tree-*`이고 검증 로그는 `start-final-*`다. 이미지와 개인 아이템 원문은 Git에 추가하지 않는다. Backend/Compose/Windows 스크립트는 변경하지 않아 해당 검사는 이번 변경에서 실행하지 않는다.
 
 ## 확인 결과
+
+후속 modifier editor 검증: Docker `npm ci`, lint, typecheck, format:check, 전체 60 files / 1777 tests, build 통과. 17개 base 모두 실제 브라우저에서 catalog modifier 추가 → Start → 재편집을 통과했고, 같은 상태의 기존 backend actions 검증도 모두 HTTP 200이었다. Ruby 2 prefix/2 suffix 추가 후 후보가 비워지는 한도, Ring 생성 텍스트 재확인, 390px jewel 키보드 시작/재편집과 가로 넘침 없음도 확인했다. 후속 증거는 `base-editor-17-dom.json`, `base-editor-17-server.json`, `base-editor-ring-1264.jpg`, `base-editor-ring-root.jpg`, `base-editor-ruby-390.jpg`, `base-editor-*-final.log`이다. 공통 validator는 재사용만 했으며 registry/backend/global CSS/i18n은 변경하지 않았다.
 
 Docker에서 `npm ci`, lint, typecheck, format:check, 전체 59 files / 1770 tests, build가 통과했다. 브라우저에서 base↔text 동기화, 실제 붙여넣기의 Solar 자동 선택, unknown base·미해석 행 보존과 시작 차단, modifier 추가, 시작/재편집/반복 시작의 단일 루트 유지, 검색 keyboard focus, 6종 그룹 전환, 접기·삭제 후 focus 복귀, 잘못된 숫자 차단을 확인했다. 실제 숫자 평가도 `NO_MATCH`와 `PARTIAL/BUDGET_EXHAUSTED` 응답을 확인했다. 390px에서 document scrollWidth는 375px(clientWidth 375px)이며 가로 넘침이 없다.
 
