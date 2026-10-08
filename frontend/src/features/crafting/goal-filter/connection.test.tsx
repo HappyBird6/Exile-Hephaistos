@@ -204,6 +204,7 @@ describe('production goal connection', () => {
   it('shows unsupported numeric probability and removes stale results on unfinished editing', async () => {
     mockFetch()
     setup()
+    fireEvent.focus(await screen.findByLabelText('Search stats'))
     fireEvent.click(
       await screen.findByRole('button', { name: 'Add Cold total' }),
     )
@@ -249,6 +250,7 @@ describe('production goal connection', () => {
       totalSequences: 4,
     })
     setup({ ...item, catalystQuality: null })
+    fireEvent.focus(await screen.findByLabelText('Search stats'))
     fireEvent.click(
       await screen.findByRole('button', { name: 'Add Cold total' }),
     )
@@ -268,6 +270,7 @@ describe('production goal connection', () => {
   it('keeps inputs and permits retry after service failure', async () => {
     mockFetch(true)
     setup()
+    fireEvent.focus(await screen.findByLabelText('Search stats'))
     fireEvent.click(
       await screen.findByRole('button', { name: 'Add Cold total' }),
     )

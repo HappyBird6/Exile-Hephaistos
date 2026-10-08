@@ -101,6 +101,7 @@ describe('goal filter contract editor', () => {
         />
       </QueryClientProvider>,
     )
+    fireEvent.focus(screen.getByLabelText('Search stats'))
     const add = await screen.findByRole('button', {
       name: 'Add total cold resistance',
     })
@@ -113,6 +114,7 @@ describe('goal filter contract editor', () => {
       screen.getByRole('button', { name: 'Delete total cold resistance' }),
     )
     expect(screen.getByLabelText('Search stats')).toHaveFocus()
+    fireEvent.focus(screen.getByLabelText('Search stats'))
     fireEvent.click(
       screen.getByRole('button', { name: 'Add total cold resistance' }),
     )
@@ -132,6 +134,61 @@ describe('goal filter contract editor', () => {
 })
 
 describe('goal filter async and numeric editing', () => {
+  it('opens search on demand, preserves disabled and collapsed rows, and restores focus after deletion', async () => {
+    const editor = createGoalFilterEditor(
+      emptyGoal(fixtureContext, fixture.catalogVersion),
+    )
+    const client = new QueryClient({
+      defaultOptions: { queries: { retry: false } },
+    })
+    const view = render(
+      <QueryClientProvider client={client}>
+        <GoalFilterPanel
+          editor={editor}
+          adapter={mockGoalFilterAdapter}
+          context={fixtureContext}
+          language="en"
+          bases={[]}
+        />
+      </QueryClientProvider>,
+    )
+    const search = screen.getByRole('searchbox', { name: 'Search stats' })
+    expect(search).toHaveAttribute('aria-expanded', 'false')
+    fireEvent.focus(search)
+    const add = await screen.findByRole('button', {
+      name: 'Add total cold resistance',
+    })
+    fireEvent.keyDown(search, { key: 'ArrowDown' })
+    expect(screen.getAllByRole('button', { name: /^Add / })[0]).toHaveFocus()
+    fireEvent.keyDown(add, { key: 'Escape' })
+    expect(search).toHaveFocus()
+    expect(search).toHaveAttribute('aria-expanded', 'false')
+    fireEvent.keyDown(search, { key: 'Enter' })
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Add total cold resistance' }),
+    )
+    expect(search).toHaveAttribute('aria-expanded', 'false')
+    expect(search).toHaveValue('')
+    fireEvent.click(screen.getAllByRole('checkbox', { name: 'Active' })[1]!)
+    expect(editor.getState().goal.groups[0]!.entries[0]!.disabled).toBe(true)
+    fireEvent.click(screen.getByRole('button', { name: 'Collapse' }))
+    expect(
+      screen.queryByRole('button', { name: 'Delete total cold resistance' }),
+    ).not.toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: 'Expand' }))
+    expect(editor.getState().goal.groups[0]!.entries[0]!.disabled).toBe(true)
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Delete total cold resistance' }),
+    )
+    expect(search).toHaveFocus()
+    fireEvent.click(screen.getByRole('button', { name: 'Delete Group 1' }))
+    expect(screen.getByRole('button', { name: /Add group/ })).toHaveFocus()
+    expect(editor.getState().goal.groups).toHaveLength(0)
+    fireEvent.click(screen.getByRole('button', { name: /Add group/ }))
+    expect(editor.getState().goal.groups).toHaveLength(1)
+    view.unmount()
+    client.clear()
+  })
   it('discards an old catalog response and aborts its context when base changes', async () => {
     const editor = createGoalFilterEditor(
       emptyGoal(fixtureContext, fixture.catalogVersion),
