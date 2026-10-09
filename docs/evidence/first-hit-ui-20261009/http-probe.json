@@ -1,0 +1,358 @@
+{
+  "type": "HTTP API + production frontend adapter probe; not a browser test",
+  "sourceBaseSha": "8e56fee71b73f15935466c7fc124bf097e07aa11",
+  "target": {
+    "id": "amulet:prefix:apprentice-s",
+    "name": "Apprentice's",
+    "text": "(3—7)% increased Spell Damage"
+  },
+  "provenance": {
+    "rulesetIdentity": "reviewed-equipment-20261009-v2-0abb79ac0a175290079d82ade22848946a47d6802e81a59bb6829ee03f2b53af",
+    "catalogDigest": "4300505361f8d98c1b7f69ee87c4e8c447a1bb7ab28fd6b9b21556260c7da8c7",
+    "modelVersion": "solar-basic-transition-v1",
+    "ruleVersion": "solar-workbench-abyss-essence-v16-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+    "ledgerVersion": "solar-uniform-assumptions-v10",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "sourceUrl": "https://poe2db.tw/us/Amulets#ModifiersCalc",
+    "retrievedAt": "2026-10-02T16:28:15.486Z",
+    "rawSha256": "945483629d385e81018be9d807b5262da8ac180b4d8d02db2e44a1bbc6133816",
+    "detailsSha256": "7dbc4c5ff9a687b7e6c66318260e937b958354c6575fa6e43b689deae5191598"
+  },
+  "complete": {
+    "purpose": "MAIN_FIRST_HIT",
+    "policy": {
+      "actions": [
+        "CHAOS"
+      ],
+      "mode": "REPEAT_CYCLE"
+    },
+    "points": [
+      {
+        "attempts": "100",
+        "status": "COMPLETE",
+        "lower": "≈44.78751%",
+        "upper": "≈44.78751%",
+        "unresolved": "0%",
+        "numeratorDigits": 433,
+        "denominatorDigits": 433
+      },
+      {
+        "attempts": "300",
+        "status": "COMPLETE",
+        "lower": "≈83.16892%",
+        "upper": "≈83.16892%",
+        "unresolved": "0%",
+        "numeratorDigits": 1298,
+        "denominatorDigits": 1298
+      },
+      {
+        "attempts": "500",
+        "status": "COMPLETE",
+        "lower": "≈94.86918%",
+        "upper": "≈94.86918%",
+        "unresolved": "0%",
+        "numeratorDigits": 2163,
+        "denominatorDigits": 2163
+      }
+    ],
+    "reason": "PROVEN_SINGLE_EXPLICIT_CHAOS_RENEWAL",
+    "blockers": [],
+    "recoveryIncludedInMain": false
+  },
+  "partial": {
+    "purpose": "MAIN_FIRST_HIT",
+    "policy": {
+      "actions": [
+        "CHAOS"
+      ],
+      "mode": "REPEAT_CYCLE"
+    },
+    "points": [
+      {
+        "attempts": "100",
+        "status": "PARTIAL",
+        "lower": "≈0.30306%",
+        "upper": "100%",
+        "unresolved": "≈99.69693%",
+        "numeratorDigits": 3,
+        "denominatorDigits": 6
+      },
+      {
+        "attempts": "300",
+        "status": "PARTIAL",
+        "lower": "≈0.30306%",
+        "upper": "100%",
+        "unresolved": "≈99.69693%",
+        "numeratorDigits": 3,
+        "denominatorDigits": 6
+      },
+      {
+        "attempts": "500",
+        "status": "PARTIAL",
+        "lower": "≈0.30306%",
+        "upper": "100%",
+        "unresolved": "≈99.69693%",
+        "numeratorDigits": 3,
+        "denominatorDigits": 6
+      }
+    ],
+    "reason": "FRACTION_COMPLEXITY_LIMIT",
+    "blockers": [
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      },
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      }
+    ],
+    "recoveryIncludedInMain": false
+  },
+  "unsupported": {
+    "purpose": "MAIN_FIRST_HIT",
+    "policy": {
+      "actions": [
+        "CHAOS"
+      ],
+      "mode": "REPEAT_CYCLE"
+    },
+    "points": [
+      {
+        "attempts": "100",
+        "status": "UNKNOWN",
+        "lower": "0%",
+        "upper": "100%",
+        "unresolved": "100%",
+        "numeratorDigits": 1,
+        "denominatorDigits": 1
+      },
+      {
+        "attempts": "300",
+        "status": "UNKNOWN",
+        "lower": "0%",
+        "upper": "100%",
+        "unresolved": "100%",
+        "numeratorDigits": 1,
+        "denominatorDigits": 1
+      },
+      {
+        "attempts": "500",
+        "status": "UNKNOWN",
+        "lower": "0%",
+        "upper": "100%",
+        "unresolved": "100%",
+        "numeratorDigits": 1,
+        "denominatorDigits": 1
+      }
+    ],
+    "reason": "TRANSITION_UNRESOLVED",
+    "blockers": [
+      {
+        "action": "CHAOS",
+        "status": "UNSUPPORTED",
+        "reason": "OMEN_MODEL_NOT_IMPLEMENTED"
+      }
+    ],
+    "recoveryIncludedInMain": false
+  },
+  "recovery": {
+    "purpose": "CONDITIONAL_RECOVERY",
+    "policy": {
+      "actions": [
+        "CHAOS"
+      ],
+      "mode": "SINGLE_PASS"
+    },
+    "points": [
+      {
+        "attempts": "100",
+        "status": "PARTIAL",
+        "lower": "≈0.11844%",
+        "upper": "≈59.196%",
+        "unresolved": "≈59.07755%",
+        "numeratorDigits": 2,
+        "denominatorDigits": 5
+      },
+      {
+        "attempts": "300",
+        "status": "PARTIAL",
+        "lower": "≈0.11844%",
+        "upper": "≈59.196%",
+        "unresolved": "≈59.07755%",
+        "numeratorDigits": 2,
+        "denominatorDigits": 5
+      },
+      {
+        "attempts": "500",
+        "status": "PARTIAL",
+        "lower": "≈0.11844%",
+        "upper": "≈59.196%",
+        "unresolved": "≈59.07755%",
+        "numeratorDigits": 2,
+        "denominatorDigits": 5
+      }
+    ],
+    "reason": "TRANSITION_UNRESOLVED",
+    "blockers": [
+      {
+        "action": "CHAOS",
+        "status": "PARTIAL",
+        "reason": "ELEMENTARY_OUTCOME_LIMIT"
+      }
+    ],
+    "recoveryIncludedInMain": false
+  }
+}

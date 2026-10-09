@@ -1,0 +1,54 @@
+.basic-paths {
+  border: 1px solid #625537;
+  padding: 1rem;
+  margin-block: 1rem;
+}
+.basic-paths summary {
+  cursor: pointer;
+}
+.basic-paths-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.basic-paths section,
+.basic-paths fieldset {
+  min-width: 0;
+}
+.basic-paths label {
+  display: block;
+  margin-block: 0.75rem;
+}
+.basic-paths select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+.basic-paths button {
+  margin: 0.3rem;
+}
+.basic-paths pre,
+.basic-paths code {
+  display: block;
+  max-width: 100%;
+  max-height: 24rem;
+  overflow: auto;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+.basic-paths-point {
+  padding: 0.5rem;
+  border-block-end: 1px solid #625537;
+}
+.basic-paths dd {
+  margin-inline-start: 1rem;
+}
+.basic-paths :focus-visible {
+  outline: 2px solid #dbb966;
+  outline-offset: 3px;
+}
+@media (max-width: 700px) {
+  .basic-paths-columns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

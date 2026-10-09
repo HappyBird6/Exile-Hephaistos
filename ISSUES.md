@@ -517,6 +517,8 @@ Backend441+integration6, Frontend1820, API539, Browser719가 통과했고228 scr
 - Java 21 Docker `check generateJooq bootJar`: **584 unit/ArchUnit + 7 integration PASS**. Frontend npm ci/lint/typecheck/format/test/build: **76 files / 1970 tests PASS**. Compose quiet 검사 PASS. 작은 독립 binary-path brute force, geometric 500회 oracle, 변화하는 상태/cycles/selfloops/이미 성공/도달 불가/부분 질량/자원 제한/중단 뒤 새 계산/실제 Solar 복구·부분 전이를 검증한다. 서버 checkpoint 이어 계산과 UI 연동, 원격 CI 및 독립 리뷰는 이 통과 범위에 포함하지 않는다. master 병합·배포·서버 재시작은 수행하지 않는다.
 - 이미 생성한 [GitHub issue #1](https://github.com/HappyBird6/Exile-Hephaistos/issues/1)은 복구목표 선정 및 checkpoint 중단·재개 계약의 보조 기록으로 유지한다. 프로젝트 이슈 관리의 주 기록은 이 Markdown이며 추가 GitHub issue를 만들지 않는다.
 
+- **실험 UI 연결 / 브라우저 검증 미완료**: CraftSupport의 검증된 concrete 시작 아이템 아래에 최소 계산 섹션을 추가했다. exact catalog tier 목표·16 actions·SINGLE_PASS/REPEAT_CYCLE, 100/300/500 조회점, 명시적 실패 아이템과 checkpoint/ID 조건의 별도 복구를 연결하며 본경로 확률에 합산하지 않는다. BigInt 표시와 COMPLETE/PARTIAL/UNKNOWN 질량, provenance/blocker, stale 응답 격리를 제공한다. Backend API/공식 변경은 없다. 실제 HTTP와 production Frontend adapter의 complete/partial/unsupported/recovery probe를 통과했으며 실제 브라우저·좁은 화면·keyboard 시각 QA는 현재 환경에 browser가 없어 남아 있다. 구현 계약·검증·독립 리뷰 안내는 [실험 UI 명세](docs/basic-currency-first-hit-ui.md)에 기록한다. master 병합·배포는 하지 않았다.
+
 ## Goal filter numeric addition model
 
 - Solar 단일 stat addition 수치 계산은 명시된 uniform-integer-roll-v1 모델 내 구현됨. 실제 게임 정수 roll 분포와 catalog weight의 서버 선택 확률 검증은 미확정이며 ledger/API/UI에서 분리 표시한다.

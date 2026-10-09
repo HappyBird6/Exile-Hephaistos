@@ -1,0 +1,27 @@
+{
+  "baseSha": "8e56fee71b73f15935466c7fc124bf097e07aa11",
+  "branch": "crafting/first-hit-ui-20261009",
+  "frontend": {
+    "environment": "Docker node:24-bookworm",
+    "npmCi": "PASS",
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "formatCheck": "PASS",
+    "fullRegression": {"command": "npm run test -- --run --maxWorkers=2", "files": 78, "tests": 1984, "failed": 0},
+    "afterFocusReview": {"command": "npm run test -- --run src/features/crafting/basic-paths --maxWorkers=2", "files": 2, "tests": 15, "failed": 0},
+    "productionBuild": "PASS; includes final action-removal focus implementation",
+    "firstFullRun": {"passed": 1977, "failed": 2, "details": "Existing CraftSupport catalog-wait assertions; identical assertions/timeouts passed on reduced worker count. No skip or timeout changes."}
+  },
+  "backend": {
+    "environment": "Docker Java 21",
+    "sourceChanges": false,
+    "command": "./gradlew --no-daemon test --tests '*BasicPath*' --tests '*BasicCurrency*' --tests '*ChaosRenewal*' --tests '*FirstHit*' bootJar",
+    "result": "PASS",
+    "scope": "Affected tests and bootJar only. No new full check/generateJooq/integration claim."
+  },
+  "httpProductionAdapterProbe": "PASS; see http-probe.json and reproducible http-probe.mjs",
+  "browser": {"result": "NOT_RUN", "reason": "computer-use inventory has zero browsers; createBrowserTab('iab') returned Browser is not available: iab", "remaining": ["happy", "partial", "unsupported", "conditional recovery", "large fraction", "stale responses", "375px layout", "keyboard visual QA"]},
+  "selfReview": "Completed; independent review remains pending",
+  "qaCleanup": "Own Backend/PostgreSQL/Redis containers, new anonymous DB volume and network removed. Test containers auto-removed. Existing services and volumes were not used.",
+  "masterSha": "891999d87d98a0f1f771177c0b734f8b645ba626"
+}

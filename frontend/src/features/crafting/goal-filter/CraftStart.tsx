@@ -11,6 +11,7 @@ import { ItemCard } from '../ItemCard'
 import type { ItemCardData } from '../itemCardData'
 import { toItemCard } from '../itemCardData'
 import { ConnectedGoalFilter } from './ConnectedGoalFilter'
+import { BasicPaths } from '../basic-paths/BasicPaths'
 import {
   startBases,
   startCard,
@@ -585,6 +586,19 @@ export function CraftStart({
           </div>
         </section>
       )}
+      <BasicPaths
+        active={active}
+        item={draft.item}
+        initial={selected?.initial}
+        valid={currentRules && !checking && !draft.issue && !stateIssues.length}
+        revision={JSON.stringify([
+          draft.text,
+          draft.started,
+          draft.editing,
+          draft.root,
+        ])}
+        activeOmens={activeOmens}
+      />
       <details className="craft-start-advanced">
         <summary>Advanced family / tier comparison</summary>
         {children}
