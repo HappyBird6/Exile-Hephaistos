@@ -11,7 +11,7 @@ class StavesTalismansWorkbenchTest {
   @Test
   void newSourceClassesKeepTheirOwnPoolsAndValidateCraftingAtAllReviewedLevels() {
     var config = new CraftingConfiguration();
-    var catalog = config.itemCatalog();
+    var catalog = config.itemCatalog(config.workbenchDefinitions());
     var service =
         config.workbenchService(
             catalog, config.workbenchSimulator(catalog, config.craftingEngine(catalog)));

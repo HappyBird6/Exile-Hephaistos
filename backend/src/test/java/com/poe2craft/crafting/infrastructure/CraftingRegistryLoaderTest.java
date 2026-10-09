@@ -12,6 +12,28 @@ import org.junit.jupiter.api.Test;
 
 class CraftingRegistryLoaderTest {
   @Test
+  void levelReferencesExpandWithoutChangingApiAndRejectConflictingDefinitions() throws Exception {
+    var scopes = data("supported-base-sets-v1");
+    var registry = data("registry-v2");
+    var output = read(registry, scopes);
+    assertFalse(output.toString().contains("minimumModifierLevelRef"));
+    for (var entry : output.get("entries")) {
+      if (entry.has("minimumModifierLevel")) {
+        assertEquals(
+            com.poe2craft.crafting.domain.WorkbenchCurrency.valueOf(entry.get("action").asText())
+                .minimumModifierLevel(),
+            entry.get("minimumModifierLevel").intValue());
+      }
+    }
+    var wrong = data("registry-v2");
+    ((ObjectNode) wrong.get("entries").get(0)).put("minimumModifierLevelRef", "GREATER_EXALTED");
+    assertThrows(IllegalArgumentException.class, () -> read(wrong, scopes));
+    var conflict = data("registry-v2");
+    ((ObjectNode) conflict.get("entries").get(0)).put("minimumModifierLevel", 0);
+    assertThrows(IllegalArgumentException.class, () -> read(conflict, scopes));
+  }
+
+  @Test
   void entryTyposAndNonIntegralSummaryCountsAreRejected() throws Exception {
     var scopes = data("supported-base-sets-v1");
     var typo = data("registry-v2");

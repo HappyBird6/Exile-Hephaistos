@@ -23,10 +23,10 @@
       "ruleSource": "https://poe2db.tw/us/Currency",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "minimumModifierLevel": 0,
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "orb-of-transmutation"
+      "supportedBaseSet": "orb-of-transmutation",
+      "minimumModifierLevelRef": "TRANSMUTATION"
     },
     {
       "id": "Orb_of_Augmentation",
@@ -44,10 +44,10 @@
       "ruleSource": "https://poe2db.tw/us/Currency",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "minimumModifierLevel": 0,
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "orb-of-transmutation"
+      "supportedBaseSet": "orb-of-transmutation",
+      "minimumModifierLevelRef": "AUGMENTATION"
     },
     {
       "id": "Orb_of_Annulment",
@@ -65,10 +65,10 @@
       "ruleSource": "https://poe2db.tw/us/Currency",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "minimumModifierLevel": 0,
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "orb-of-transmutation"
+      "supportedBaseSet": "orb-of-transmutation",
+      "minimumModifierLevelRef": "ANNULMENT"
     },
     {
       "id": "Orb_of_Alchemy",
@@ -104,10 +104,10 @@
       "ruleSource": "https://poe2db.tw/us/Currency",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "minimumModifierLevel": 0,
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "orb-of-transmutation"
+      "supportedBaseSet": "orb-of-transmutation",
+      "minimumModifierLevelRef": "REGAL"
     },
     {
       "id": "Exalted_Orb",
@@ -125,10 +125,10 @@
       "ruleSource": "https://poe2db.tw/us/Currency",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "minimumModifierLevel": 0,
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "orb-of-transmutation"
+      "supportedBaseSet": "orb-of-transmutation",
+      "minimumModifierLevelRef": "EXALTED"
     },
     {
       "id": "Chaos_Orb",
@@ -146,10 +146,10 @@
       "ruleSource": "https://poe2db.tw/us/Currency",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "minimumModifierLevel": 0,
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "orb-of-transmutation"
+      "supportedBaseSet": "orb-of-transmutation",
+      "minimumModifierLevelRef": "CHAOS"
     },
     {
       "id": "Vaal_Orb",
@@ -202,10 +202,10 @@
       "ruleSource": "https://poe2db.tw/us/Currency",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "minimumModifierLevel": 0,
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "divine-orb"
+      "supportedBaseSet": "divine-orb",
+      "minimumModifierLevelRef": "DIVINE"
     },
     {
       "id": "Greater_Orb_of_Transmutation",
@@ -223,10 +223,10 @@
       "ruleSource": "https://poe2db.tw/us/Currency",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "minimumModifierLevel": 44,
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "orb-of-transmutation"
+      "supportedBaseSet": "orb-of-transmutation",
+      "minimumModifierLevelRef": "GREATER_TRANSMUTATION"
     },
     {
       "id": "Perfect_Orb_of_Transmutation",
@@ -244,10 +244,10 @@
       "ruleSource": "https://poe2db.tw/us/Currency",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "minimumModifierLevel": 70,
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "orb-of-transmutation"
+      "supportedBaseSet": "orb-of-transmutation",
+      "minimumModifierLevelRef": "PERFECT_TRANSMUTATION"
     },
     {
       "id": "Greater_Orb_of_Augmentation",
@@ -265,10 +265,10 @@
       "ruleSource": "https://poe2db.tw/us/Currency",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "minimumModifierLevel": 44,
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "orb-of-transmutation"
+      "supportedBaseSet": "orb-of-transmutation",
+      "minimumModifierLevelRef": "GREATER_AUGMENTATION"
     },
     {
       "id": "Perfect_Orb_of_Augmentation",
@@ -286,10 +286,10 @@
       "ruleSource": "https://poe2db.tw/us/Currency",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "minimumModifierLevel": 70,
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "orb-of-transmutation"
+      "supportedBaseSet": "orb-of-transmutation",
+      "minimumModifierLevelRef": "PERFECT_AUGMENTATION"
     },
     {
       "id": "Greater_Regal_Orb",
@@ -307,10 +307,10 @@
       "ruleSource": "https://poe2db.tw/us/Currency",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "minimumModifierLevel": 35,
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "orb-of-transmutation"
+      "supportedBaseSet": "orb-of-transmutation",
+      "minimumModifierLevelRef": "GREATER_REGAL"
     },
     {
       "id": "Perfect_Regal_Orb",
@@ -328,10 +328,10 @@
       "ruleSource": "https://poe2db.tw/us/Currency",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "minimumModifierLevel": 50,
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "orb-of-transmutation"
+      "supportedBaseSet": "orb-of-transmutation",
+      "minimumModifierLevelRef": "PERFECT_REGAL"
     },
     {
       "id": "Greater_Exalted_Orb",
@@ -349,10 +349,10 @@
       "ruleSource": "https://poe2db.tw/us/Currency",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "minimumModifierLevel": 35,
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "orb-of-transmutation"
+      "supportedBaseSet": "orb-of-transmutation",
+      "minimumModifierLevelRef": "GREATER_EXALTED"
     },
     {
       "id": "Perfect_Exalted_Orb",
@@ -370,10 +370,10 @@
       "ruleSource": "https://poe2db.tw/us/Currency",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "minimumModifierLevel": 50,
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "orb-of-transmutation"
+      "supportedBaseSet": "orb-of-transmutation",
+      "minimumModifierLevelRef": "PERFECT_EXALTED"
     },
     {
       "id": "Greater_Chaos_Orb",
@@ -391,10 +391,10 @@
       "ruleSource": "https://poe2db.tw/us/Currency",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "minimumModifierLevel": 35,
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "orb-of-transmutation"
+      "supportedBaseSet": "orb-of-transmutation",
+      "minimumModifierLevelRef": "GREATER_CHAOS"
     },
     {
       "id": "Perfect_Chaos_Orb",
@@ -412,10 +412,10 @@
       "ruleSource": "https://poe2db.tw/us/Currency",
       "ruleVerifiedAt": "2026-10-01",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
-      "minimumModifierLevel": 50,
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "orb-of-transmutation"
+      "supportedBaseSet": "orb-of-transmutation",
+      "minimumModifierLevelRef": "PERFECT_CHAOS"
     },
     {
       "id": "Hinekoras_Lock",

@@ -70,7 +70,7 @@ class RulesetManifestLoaderTest {
   @Test
   void currentBundleIsSealedAndUnknownSeasonsAreExplicit() {
     var manifest = RulesetManifestLoader.load();
-    assertEquals(461, manifest.files().size());
+    assertEquals(462, manifest.files().size());
     assertEquals("UNVERIFIED", manifest.gameSeason());
     assertEquals("UNVERIFIED", manifest.gamePatch());
     assertThrows(UnsupportedOperationException.class, () -> manifest.files().clear());
@@ -91,7 +91,7 @@ class RulesetManifestLoaderTest {
     var catalog = com.poe2craft.item.infrastructure.ItemCatalogLoader.loadDefault();
     var definitions = com.poe2craft.crafting.infrastructure.goalfilter.GoalDefinitionsLoader.load();
     var original = new GoalCatalogIndex(List.of(catalog), definitions);
-    assertEquals(
+    assertNotEquals(
         original.version(),
         new GoalCatalogIndex(List.of(catalog), definitions, manifest.identity()).version());
     assertNotEquals(

@@ -41,7 +41,7 @@ class BaseRegistryParityTest {
   @Test
   void allExistingInitialsActionsAndSeededTracesRemainExact() throws Exception {
     var cfg = new CraftingConfiguration();
-    var catalog = cfg.itemCatalog();
+    var catalog = cfg.itemCatalog(cfg.workbenchDefinitions());
     var engine = cfg.craftingEngine(catalog);
     var service = cfg.workbenchService(catalog, cfg.workbenchSimulator(catalog, engine));
     var result = new TreeMap<String, Object>();

@@ -16,7 +16,7 @@ function visit(folder) {
   }
 }
 visit(path.join(resources, 'catalog'))
-for (const name of ['registry-v2.json', 'supported-base-sets-v1.json', 'goalfilter/definitions-v1.json', 'goalfilter/bases-v1.json']) files.push(path.join(resources, 'crafting', name))
+for (const name of ['registry-v2.json', 'workbench-definitions-v1.json', 'supported-base-sets-v1.json', 'goalfilter/definitions-v1.json', 'goalfilter/bases-v1.json']) files.push(path.join(resources, 'crafting', name))
 manifest.files = Object.fromEntries(files.sort().map(file => [path.relative(resources, file).replaceAll('\\', '/'), crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex')]))
 fs.writeFileSync(target, JSON.stringify(manifest, null, 2) + '\n')
 console.log(`Reviewed ruleset ${manifest.rulesetVersion}: ${files.length} resource digests updated. Review the diff before committing.`)

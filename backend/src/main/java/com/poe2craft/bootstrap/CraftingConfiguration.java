@@ -14,7 +14,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class CraftingConfiguration {
   @Bean
-  ItemCatalog itemCatalog() {
+  com.poe2craft.crafting.domain.WorkbenchDefinitions workbenchDefinitions() {
+    return com.poe2craft.crafting.infrastructure.WorkbenchDefinitionsLoader.initialize();
+  }
+
+  @Bean
+  ItemCatalog itemCatalog(com.poe2craft.crafting.domain.WorkbenchDefinitions definitions) {
     return ItemCatalogLoader.loadDefault();
   }
 

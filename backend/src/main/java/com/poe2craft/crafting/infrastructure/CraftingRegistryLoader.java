@@ -29,6 +29,7 @@ public final class CraftingRegistryLoader {
           "ruleVerifiedAt",
           "availabilityStatus",
           "minimumModifierLevel",
+          "minimumModifierLevelRef",
           "minimumLevelException",
           "serviceScope",
           "supportedBaseSet",
@@ -55,6 +56,7 @@ public final class CraftingRegistryLoader {
   private CraftingRegistryLoader() {}
 
   public static JsonNode load() {
+    WorkbenchDefinitionsLoader.initialize();
     try (var stream = com.poe2craft.support.SealedResources.open("/crafting/registry-v2.json");
         var scopes =
             com.poe2craft.support.SealedResources.open("/crafting/supported-base-sets-v1.json")) {
@@ -124,6 +126,18 @@ public final class CraftingRegistryLoader {
       if ((scope.equals("ACTIVE") || entry.hasNonNull("sourceSha256"))
           && !entry.path("sourceSha256").asText().matches("[0-9a-f]{64}"))
         throw new IllegalArgumentException("Invalid crafting source digest: " + id);
+      if (entry.has("minimumModifierLevelRef")) {
+        String reference = text(entry, "minimumModifierLevelRef");
+        if (entry.has("minimumModifierLevel") || !reference.equals(text(entry, "action")))
+          throw new IllegalArgumentException("Conflicting currency level definition: " + id);
+        var action = WorkbenchCurrency.valueOf(reference);
+        ((ObjectNode) entry).remove("minimumModifierLevelRef");
+        ((ObjectNode) entry).put("minimumModifierLevel", action.minimumModifierLevel());
+      } else if (entry.has("minimumModifierLevel")) {
+        var action = WorkbenchCurrency.valueOf(text(entry, "action"));
+        if (count(entry, "minimumModifierLevel") != action.minimumModifierLevel())
+          throw new IllegalArgumentException("Currency level differs from its definition: " + id);
+      }
       if (entry.has("supportedBaseSet")) {
         String set = text(entry, "supportedBaseSet");
         var members = sets.sets().get(set);

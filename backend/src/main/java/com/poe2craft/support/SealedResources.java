@@ -106,7 +106,8 @@ public final class SealedResources {
           "crafting/goalfilter/bases-v1.json",
           "crafting/goalfilter/definitions-v1.json",
           "crafting/registry-v2.json",
-          "crafting/supported-base-sets-v1.json");
+          "crafting/supported-base-sets-v1.json",
+          "crafting/workbench-definitions-v1.json");
 
   private static final class Bundle {
     private static final Map<String, String> FILES = files();

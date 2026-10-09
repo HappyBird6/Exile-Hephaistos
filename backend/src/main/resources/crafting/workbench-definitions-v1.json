@@ -1,0 +1,2107 @@
+{
+  "schemaVersion": 1,
+  "ruleVersion": "workbench-static-definitions-v1",
+  "currencies": [
+    {
+      "id": "ANCIENT_DILUTED_LIQUID_IRE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Ire"
+    },
+    {
+      "id": "ANCIENT_DILUTED_LIQUID_GUILT",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Guilt"
+    },
+    {
+      "id": "ANCIENT_DILUTED_LIQUID_GREED",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Greed"
+    },
+    {
+      "id": "ANCIENT_LIQUID_PARANOIA",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Ancient_Liquid_Paranoia"
+    },
+    {
+      "id": "ANCIENT_LIQUID_ENVY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Ancient_Liquid_Envy"
+    },
+    {
+      "id": "ANCIENT_LIQUID_DISGUST",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Ancient_Liquid_Disgust"
+    },
+    {
+      "id": "ANCIENT_LIQUID_DESPAIR",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Ancient_Liquid_Despair"
+    },
+    {
+      "id": "ANCIENT_CONCENTRATED_LIQUID_FEAR",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Fear"
+    },
+    {
+      "id": "ANCIENT_CONCENTRATED_LIQUID_SUFFERING",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Suffering"
+    },
+    {
+      "id": "ANCIENT_CONCENTRATED_LIQUID_ISOLATION",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Isolation"
+    },
+    {
+      "id": "ANCIENT_POTENT_LIQUID_MELANCHOLY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Ancient_Potent_Liquid_Melancholy"
+    },
+    {
+      "id": "ANCIENT_POTENT_LIQUID_FEROCITY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Ancient_Potent_Liquid_Ferocity"
+    },
+    {
+      "id": "ANCIENT_POTENT_LIQUID_CONTEMPT",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Ancient_Potent_Liquid_Contempt"
+    },
+    {
+      "id": "POTENT_LIQUID_MELANCHOLY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "sapphire:crafted:CraftedJewelExposureOnHitWhileRubyEmeraldSocketed"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Potent_Liquid_Melancholy"
+    },
+    {
+      "id": "POTENT_LIQUID_FEROCITY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "sapphire:crafted:CraftedJewelSuffixEffect",
+        "sapphire:crafted:CraftedJewelPrefixEffect"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Potent_Liquid_Ferocity"
+    },
+    {
+      "id": "POTENT_LIQUID_CONTEMPT",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "sapphire:crafted:CraftedJewelAdditionalSuffixAllowed",
+        "sapphire:crafted:CraftedJewelAdditionalPrefixAllowed"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Potent_Liquid_Contempt"
+    },
+    {
+      "id": "DILUTED_LIQUID_IRE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "sapphire:crafted:JewelEnergyShield"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Diluted_Liquid_Ire"
+    },
+    {
+      "id": "DILUTED_LIQUID_GUILT",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "sapphire:crafted:JewelColdDamage"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Diluted_Liquid_Guilt"
+    },
+    {
+      "id": "DILUTED_LIQUID_GREED",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "sapphire:crafted:JewelChaosDamage"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Diluted_Liquid_Greed"
+    },
+    {
+      "id": "LIQUID_PARANOIA",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "sapphire:crafted:JewelCastSpeed"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Liquid_Paranoia"
+    },
+    {
+      "id": "LIQUID_ENVY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "sapphire:crafted:JewelSpellDamage"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Liquid_Envy"
+    },
+    {
+      "id": "LIQUID_DISGUST",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "sapphire:crafted:JewelManaonKill"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Liquid_Disgust"
+    },
+    {
+      "id": "LIQUID_DESPAIR",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "sapphire:crafted:JewelSpellCriticalChance"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Liquid_Despair"
+    },
+    {
+      "id": "CONCENTRATED_LIQUID_FEAR",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "sapphire:crafted:JewelSpellCriticalDamage"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Concentrated_Liquid_Fear"
+    },
+    {
+      "id": "CONCENTRATED_LIQUID_SUFFERING",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "sapphire:crafted:JewelAreaofEffect"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Concentrated_Liquid_Suffering"
+    },
+    {
+      "id": "CONCENTRATED_LIQUID_ISOLATION",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "sapphire:crafted:JewelMaximumColdResistance"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Concentrated_Liquid_Isolation"
+    },
+    {
+      "id": "CATALYST_FLESH",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "REFINED_CATALYST_FLESH",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "CATALYST_NEURAL",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "REFINED_CATALYST_NEURAL",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "CATALYST_CARAPACE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "REFINED_CATALYST_CARAPACE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "CATALYST_UUL_NETOL",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "REFINED_CATALYST_UUL_NETOL",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "CATALYST_XOPH",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "REFINED_CATALYST_XOPH",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "CATALYST_TUL",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "REFINED_CATALYST_TUL",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "CATALYST_ESH",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "REFINED_CATALYST_ESH",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "CATALYST_CHAYULA",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "REFINED_CATALYST_CHAYULA",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "CATALYST_REAVER",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "REFINED_CATALYST_REAVER",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "CATALYST_SIBILANT",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "REFINED_CATALYST_SIBILANT",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "CATALYST_SKITTERING",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "REFINED_CATALYST_SKITTERING",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "CATALYST_ADAPTIVE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "REFINED_CATALYST_ADAPTIVE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "CATALYST_NECROTIC",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "REFINED_CATALYST_NECROTIC",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "PERFECT_ESSENCE_MIND",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "iron-ring:prefix:essence-increased-maximum-mana"
+      ],
+      "replacementEssenceSource": "https://poe2db.tw/us/Perfect_Essence_of_the_Mind",
+      "replacementSource": "https://poe2db.tw/us/Perfect_Essence_of_the_Mind"
+    },
+    {
+      "id": "PERFECT_ESSENCE_THAWING",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "rusted-greathelm:suffix:essence-cold-damage-recouped-as-life"
+      ],
+      "replacementEssenceSource": "https://poe2db.tw/us/Perfect_Essence_of_Thawing",
+      "replacementSource": "https://poe2db.tw/us/Perfect_Essence_of_Thawing"
+    },
+    {
+      "id": "PERFECT_ESSENCE_INSULATION",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "rawhide-belt:suffix:essence-fire-damage-recouped-as-life"
+      ],
+      "replacementEssenceSource": "https://poe2db.tw/us/Perfect_Essence_of_Insulation",
+      "replacementSource": "https://poe2db.tw/us/Perfect_Essence_of_Insulation"
+    },
+    {
+      "id": "PERFECT_ESSENCE_COMMAND",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "rattling-sceptre:suffix:essence-aura-magnitude"
+      ],
+      "replacementEssenceSource": "https://poe2db.tw/us/Perfect_Essence_of_Command",
+      "replacementSource": "https://poe2db.tw/us/Perfect_Essence_of_Command"
+    },
+    {
+      "id": "LESSER_ESSENCE_COMMAND",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "rattling-sceptre:prefix:agitative",
+      "essenceModifierIds": [
+        "rattling-sceptre:prefix:agitative"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "ESSENCE_COMMAND",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "rattling-sceptre:prefix:provocative",
+      "essenceModifierIds": [
+        "rattling-sceptre:prefix:provocative"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_ESSENCE_COMMAND",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "rattling-sceptre:prefix:motivating",
+      "essenceModifierIds": [
+        "rattling-sceptre:prefix:motivating"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "PERFECT_ESSENCE_BODY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "rusted-cuirass:prefix:essence-maximum-life-percent"
+      ],
+      "replacementEssenceSource": "https://poe2db.tw/us/Perfect_Essence_of_the_Body",
+      "replacementSource": "https://poe2db.tw/us/Perfect_Essence_of_the_Body"
+    },
+    {
+      "id": "PERFECT_ESSENCE_RUIN",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "rusted-cuirass:prefix:essence-physical-taken-as-chaos"
+      ],
+      "replacementEssenceSource": "https://poe2db.tw/us/Perfect_Essence_of_Ruin",
+      "replacementSource": "https://poe2db.tw/us/Perfect_Essence_of_Ruin"
+    },
+    {
+      "id": "PERFECT_ESSENCE_SEEKING",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "rusted-cuirass:suffix:essence-reduced-incoming-critical-damage"
+      ],
+      "replacementEssenceSource": "https://poe2db.tw/us/Perfect_Essence_of_Seeking",
+      "replacementSource": "https://poe2db.tw/us/Perfect_Essence_of_Seeking"
+    },
+    {
+      "id": "LESSER_ESSENCE_ABRASION",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "crude-bow:prefix:burnished",
+      "essenceModifierIds": [
+        "crude-bow:prefix:burnished"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "ESSENCE_ABRASION",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "crude-bow:prefix:gleaming",
+      "essenceModifierIds": [
+        "crude-bow:prefix:gleaming"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_ESSENCE_ABRASION",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "crude-bow:prefix:razor-sharp",
+      "essenceModifierIds": [
+        "crude-bow:prefix:razor-sharp"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "LESSER_ESSENCE_FLAMES",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "crude-bow:prefix:smouldering",
+      "essenceModifierIds": [
+        "crude-bow:prefix:smouldering"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "ESSENCE_FLAMES",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "crude-bow:prefix:flaming",
+      "essenceModifierIds": [
+        "crude-bow:prefix:flaming"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_ESSENCE_FLAMES",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "crude-bow:prefix:incinerating",
+      "essenceModifierIds": [
+        "crude-bow:prefix:incinerating"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "LESSER_ESSENCE_ICE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "crude-bow:prefix:chilled",
+      "essenceModifierIds": [
+        "crude-bow:prefix:chilled"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "ESSENCE_ICE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "crude-bow:prefix:freezing",
+      "essenceModifierIds": [
+        "crude-bow:prefix:freezing"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_ESSENCE_ICE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "crude-bow:prefix:glaciated",
+      "essenceModifierIds": [
+        "crude-bow:prefix:glaciated"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "LESSER_ESSENCE_ELECTRICITY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "crude-bow:prefix:buzzing",
+      "essenceModifierIds": [
+        "crude-bow:prefix:buzzing"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "ESSENCE_ELECTRICITY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "crude-bow:prefix:sparking",
+      "essenceModifierIds": [
+        "crude-bow:prefix:sparking"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_ESSENCE_ELECTRICITY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "crude-bow:prefix:shocking",
+      "essenceModifierIds": [
+        "crude-bow:prefix:shocking"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "LESSER_ESSENCE_BATTLE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "crude-bow:prefix:focused",
+      "essenceModifierIds": [
+        "crude-bow:prefix:focused"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "ESSENCE_BATTLE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "crude-bow:prefix:consistent",
+      "essenceModifierIds": [
+        "crude-bow:prefix:consistent"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "LESSER_ESSENCE_HASTE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "crude-bow:suffix:of-ease",
+      "essenceModifierIds": [
+        "crude-bow:suffix:of-ease"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "ESSENCE_HASTE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "crude-bow:suffix:of-mastery",
+      "essenceModifierIds": [
+        "crude-bow:suffix:of-mastery"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_ESSENCE_HASTE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "crude-bow:suffix:of-renown",
+      "essenceModifierIds": [
+        "crude-bow:suffix:of-renown"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "LESSER_ESSENCE_SEEKING",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "crude-bow:suffix:of-havoc",
+      "essenceModifierIds": [
+        "crude-bow:suffix:of-havoc"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "ESSENCE_SEEKING",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "crude-bow:suffix:of-disaster",
+      "essenceModifierIds": [
+        "crude-bow:suffix:of-disaster"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_ESSENCE_SEEKING",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "crude-bow:suffix:of-calamity",
+      "essenceModifierIds": [
+        "crude-bow:suffix:of-calamity"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "ARTIFICER",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "TRANSMUTATION",
+      "baseAction": "TRANSMUTATION",
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_TRANSMUTATION",
+      "baseAction": "TRANSMUTATION",
+      "minimumModifierLevel": 44,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "PERFECT_TRANSMUTATION",
+      "baseAction": "TRANSMUTATION",
+      "minimumModifierLevel": 70,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "AUGMENTATION",
+      "baseAction": "AUGMENTATION",
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_AUGMENTATION",
+      "baseAction": "AUGMENTATION",
+      "minimumModifierLevel": 44,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "PERFECT_AUGMENTATION",
+      "baseAction": "AUGMENTATION",
+      "minimumModifierLevel": 70,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "REGAL",
+      "baseAction": "REGAL",
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_REGAL",
+      "baseAction": "REGAL",
+      "minimumModifierLevel": 35,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "PERFECT_REGAL",
+      "baseAction": "REGAL",
+      "minimumModifierLevel": 50,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "EXALTED",
+      "baseAction": "EXALTED",
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_EXALTED",
+      "baseAction": "EXALTED",
+      "minimumModifierLevel": 35,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "PERFECT_EXALTED",
+      "baseAction": "EXALTED",
+      "minimumModifierLevel": 50,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "ANNULMENT",
+      "baseAction": "ANNULMENT",
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "CHAOS",
+      "baseAction": "CHAOS",
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_CHAOS",
+      "baseAction": "CHAOS",
+      "minimumModifierLevel": 35,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "PERFECT_CHAOS",
+      "baseAction": "CHAOS",
+      "minimumModifierLevel": 50,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "DIVINE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "ALCHEMY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "FRACTURING",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "ESSENCE_HYSTERIA",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "amulet:suffix:of-suturing"
+      ],
+      "replacementEssenceSource": "https://poe2db.tw/us/Essence_of_Hysteria",
+      "replacementSource": "https://poe2db.tw/us/Essence_of_Hysteria"
+    },
+    {
+      "id": "ESSENCE_HORROR",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "stocky-mitts:suffix:essence-socketed-augment-effect"
+      ],
+      "replacementEssenceSource": "https://poe2db.tw/us/Essence_of_Horror",
+      "replacementSource": "https://poe2db.tw/us/Essence_of_Horror"
+    },
+    {
+      "id": "PERFECT_ESSENCE_SORCERY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "attuned-wand:suffix:essence-spell-skill-level"
+      ],
+      "replacementEssenceSource": "https://poe2db.tw/us/Perfect_Essence_of_Sorcery",
+      "replacementSource": "https://poe2db.tw/us/Perfect_Essence_of_Sorcery"
+    },
+    {
+      "id": "PERFECT_ESSENCE_ALACRITY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "attuned-wand:suffix:essence-mana-cost-efficiency"
+      ],
+      "replacementEssenceSource": "https://poe2db.tw/us/Perfect_Essence_of_Alacrity",
+      "replacementSource": "https://poe2db.tw/us/Perfect_Essence_of_Alacrity"
+    },
+    {
+      "id": "PERFECT_ESSENCE_ABRASION",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "crude-bow:prefix:essence-extra-physical-damage"
+      ],
+      "replacementEssenceSource": "https://poe2db.tw/us/Perfect_Essence_of_Abrasion",
+      "replacementSource": "https://poe2db.tw/us/Perfect_Essence_of_Abrasion"
+    },
+    {
+      "id": "PERFECT_ESSENCE_FLAMES",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "crude-bow:prefix:essence-extra-fire-damage"
+      ],
+      "replacementEssenceSource": "https://poe2db.tw/us/Perfect_Essence_of_Flames",
+      "replacementSource": "https://poe2db.tw/us/Perfect_Essence_of_Flames"
+    },
+    {
+      "id": "PERFECT_ESSENCE_ICE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "crude-bow:prefix:essence-extra-cold-damage"
+      ],
+      "replacementEssenceSource": "https://poe2db.tw/us/Perfect_Essence_of_Ice",
+      "replacementSource": "https://poe2db.tw/us/Perfect_Essence_of_Ice"
+    },
+    {
+      "id": "PERFECT_ESSENCE_ELECTRICITY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "crude-bow:prefix:essence-extra-lightning-damage"
+      ],
+      "replacementEssenceSource": "https://poe2db.tw/us/Perfect_Essence_of_Electricity",
+      "replacementSource": "https://poe2db.tw/us/Perfect_Essence_of_Electricity"
+    },
+    {
+      "id": "PERFECT_ESSENCE_BATTLE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "crude-bow:suffix:essence-attack-skill-level"
+      ],
+      "replacementEssenceSource": "https://poe2db.tw/us/Perfect_Essence_of_Battle",
+      "replacementSource": "https://poe2db.tw/us/Perfect_Essence_of_Battle"
+    },
+    {
+      "id": "PERFECT_ESSENCE_HASTE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "crude-bow:suffix:essence-onslaught-on-kill"
+      ],
+      "replacementEssenceSource": "https://poe2db.tw/us/Perfect_Essence_of_Haste",
+      "replacementSource": "https://poe2db.tw/us/Perfect_Essence_of_Haste"
+    },
+    {
+      "id": "PERFECT_ESSENCE_GROUNDING",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "stocky-mitts:suffix:essence-lightning-recoup"
+      ],
+      "replacementEssenceSource": "https://poe2db.tw/us/Perfect_Essence_of_Grounding",
+      "replacementSource": "https://poe2db.tw/us/Perfect_Essence_of_Grounding"
+    },
+    {
+      "id": "PERFECT_ESSENCE_OPULENCE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "stocky-mitts:suffix:essence-gold-quantity"
+      ],
+      "replacementEssenceSource": "https://poe2db.tw/us/Perfect_Essence_of_Opulence",
+      "replacementSource": "https://poe2db.tw/us/Perfect_Essence_of_Opulence"
+    },
+    {
+      "id": "PERFECT_ESSENCE_INFINITE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "amulet:suffix:essence-percent-strength",
+        "amulet:suffix:essence-percent-dexterity",
+        "amulet:suffix:essence-percent-intelligence"
+      ],
+      "replacementEssenceSource": "https://poe2db.tw/us/Perfect_Essence_of_the_Infinite",
+      "replacementSource": "https://poe2db.tw/us/Perfect_Essence_of_the_Infinite"
+    },
+    {
+      "id": "PERFECT_ESSENCE_ENHANCEMENT",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "amulet:prefix:essence-global-defences"
+      ],
+      "replacementEssenceSource": "https://poe2db.tw/us/Perfect_Essence_of_Enhancement",
+      "replacementSource": "https://poe2db.tw/us/Perfect_Essence_of_Enhancement"
+    },
+    {
+      "id": "ESSENCE_BREACH",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "amulet:prefix:essence-maximum-quality"
+      ],
+      "replacementEssenceSource": "https://poe2db.tw/us/Essence_of_the_Breach",
+      "replacementSource": "https://poe2db.tw/us/Essence_of_the_Breach"
+    },
+    {
+      "id": "RUNIC_ALLOY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "amulet:prefix:alloy-maximum-runic-ward"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Runic_Alloy"
+    },
+    {
+      "id": "PRISMATIC_ALLOY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "stocky-mitts:prefix:alloy-elemental-penetration"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Prismatic_Alloy"
+    },
+    {
+      "id": "ADAPTIVE_ALLOY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "stocky-mitts:suffix:alloy-attack-speed-missing-ward"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Adaptive_Alloy"
+    },
+    {
+      "id": "SWIFT_ALLOY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "stocky-mitts:suffix:alloy-cast-speed"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Swift_Alloy"
+    },
+    {
+      "id": "SOVEREIGN_ALLOY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Sovereign_Alloy"
+    },
+    {
+      "id": "EXPANSIVE_ALLOY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "stocky-mitts:suffix:alloy-remnant-pickup-range"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Expansive_Alloy"
+    },
+    {
+      "id": "CYCLONIC_ALLOY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "stocky-mitts:suffix:alloy-damaging-ailment-duration"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Cyclonic_Alloy"
+    },
+    {
+      "id": "MYSTIC_ALLOY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "stocky-mitts:suffix:alloy-attack-area-of-effect"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Mystic_Alloy"
+    },
+    {
+      "id": "ESSENCE_ABYSS",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "amulet:prefix:essence-abyssal-mark",
+        "amulet:suffix:essence-abyssal-mark"
+      ],
+      "replacementEssenceSource": "https://poe2db.tw/us/Essence_of_the_Abyss",
+      "replacementSource": "https://poe2db.tw/us/Essence_of_the_Abyss"
+    },
+    {
+      "id": "LESSER_ESSENCE_SORCERY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "attuned-wand:prefix:adept-s",
+      "essenceModifierIds": [
+        "attuned-wand:prefix:adept-s"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "ESSENCE_SORCERY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "attuned-wand:prefix:professor-s",
+      "essenceModifierIds": [
+        "attuned-wand:prefix:professor-s"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_ESSENCE_SORCERY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "attuned-wand:prefix:incanter-s",
+      "essenceModifierIds": [
+        "attuned-wand:prefix:incanter-s"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "LESSER_ESSENCE_ALACRITY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "attuned-wand:suffix:of-nimbleness",
+      "essenceModifierIds": [
+        "attuned-wand:suffix:of-nimbleness"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "ESSENCE_ALACRITY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "attuned-wand:suffix:of-expertise",
+      "essenceModifierIds": [
+        "attuned-wand:suffix:of-expertise"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_ESSENCE_ALACRITY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "attuned-wand:suffix:of-legerdemain",
+      "essenceModifierIds": [
+        "attuned-wand:suffix:of-legerdemain"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "LESSER_ESSENCE_ENHANCEMENT",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "stocky-mitts:prefix:layered",
+      "essenceModifierIds": [
+        "stocky-mitts:prefix:layered"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "ESSENCE_ENHANCEMENT",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "stocky-mitts:prefix:buttressed",
+      "essenceModifierIds": [
+        "stocky-mitts:prefix:buttressed"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_ESSENCE_ENHANCEMENT",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "stocky-mitts:prefix:thickened",
+      "essenceModifierIds": [
+        "stocky-mitts:prefix:thickened"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_ESSENCE_BATTLE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "stocky-mitts:prefix:hunter-s",
+      "essenceModifierIds": [
+        "stocky-mitts:prefix:hunter-s"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "LESSER_ESSENCE_BODY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "amulet:prefix:healthy",
+      "essenceModifierIds": [
+        "amulet:prefix:healthy"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "ESSENCE_BODY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "amulet:prefix:robust",
+      "essenceModifierIds": [
+        "amulet:prefix:robust"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_ESSENCE_BODY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "amulet:prefix:rotund",
+      "essenceModifierIds": [
+        "amulet:prefix:rotund"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "LESSER_ESSENCE_MIND",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "amulet:prefix:azure",
+      "essenceModifierIds": [
+        "amulet:prefix:azure"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "ESSENCE_MIND",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "amulet:prefix:opalescent",
+      "essenceModifierIds": [
+        "amulet:prefix:opalescent"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_ESSENCE_MIND",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "amulet:prefix:gentian",
+      "essenceModifierIds": [
+        "amulet:prefix:gentian"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "LESSER_ESSENCE_RUIN",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "amulet:suffix:of-the-lost",
+      "essenceModifierIds": [
+        "amulet:suffix:of-the-lost"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "ESSENCE_RUIN",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "amulet:suffix:of-banishment",
+      "essenceModifierIds": [
+        "amulet:suffix:of-banishment"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_ESSENCE_RUIN",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "amulet:suffix:of-expulsion",
+      "essenceModifierIds": [
+        "amulet:suffix:of-expulsion"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "LESSER_ESSENCE_INSULATION",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "amulet:suffix:of-the-salamander",
+      "essenceModifierIds": [
+        "amulet:suffix:of-the-salamander"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "ESSENCE_INSULATION",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "amulet:suffix:of-the-kiln",
+      "essenceModifierIds": [
+        "amulet:suffix:of-the-kiln"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_ESSENCE_INSULATION",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "amulet:suffix:of-the-volcano",
+      "essenceModifierIds": [
+        "amulet:suffix:of-the-volcano"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "LESSER_ESSENCE_THAWING",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "amulet:suffix:of-the-penguin",
+      "essenceModifierIds": [
+        "amulet:suffix:of-the-penguin"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "ESSENCE_THAWING",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "amulet:suffix:of-the-yeti",
+      "essenceModifierIds": [
+        "amulet:suffix:of-the-yeti"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_ESSENCE_THAWING",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "amulet:suffix:of-the-polar-bear",
+      "essenceModifierIds": [
+        "amulet:suffix:of-the-polar-bear"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "LESSER_ESSENCE_GROUNDING",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "amulet:suffix:of-the-squall",
+      "essenceModifierIds": [
+        "amulet:suffix:of-the-squall"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "ESSENCE_GROUNDING",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "amulet:suffix:of-the-thunderhead",
+      "essenceModifierIds": [
+        "amulet:suffix:of-the-thunderhead"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_ESSENCE_GROUNDING",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "amulet:suffix:of-the-maelstrom",
+      "essenceModifierIds": [
+        "amulet:suffix:of-the-maelstrom"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "LESSER_ESSENCE_OPULENCE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "amulet:suffix:of-plunder",
+      "essenceModifierIds": [
+        "amulet:suffix:of-plunder"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "ESSENCE_OPULENCE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "amulet:suffix:of-raiding",
+      "essenceModifierIds": [
+        "amulet:suffix:of-raiding"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_ESSENCE_OPULENCE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": "amulet:suffix:of-archaeology",
+      "essenceModifierIds": [
+        "amulet:suffix:of-archaeology"
+      ],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "LESSER_ESSENCE_INFINITE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [
+        "amulet:suffix:of-the-wrestler",
+        "amulet:suffix:of-the-lynx",
+        "amulet:suffix:of-the-student"
+      ],
+      "essenceChoiceSource": "https://poe2db.tw/us/Lesser_Essence_of_the_Infinite",
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "ESSENCE_INFINITE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [
+        "amulet:suffix:of-the-lion",
+        "amulet:suffix:of-the-falcon",
+        "amulet:suffix:of-the-augur"
+      ],
+      "essenceChoiceSource": "https://poe2db.tw/us/Essence_of_the_Infinite",
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "GREATER_ESSENCE_INFINITE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [
+        "amulet:suffix:of-the-goliath",
+        "amulet:suffix:of-the-leopard",
+        "amulet:suffix:of-the-sage"
+      ],
+      "essenceChoiceSource": "https://poe2db.tw/us/Greater_Essence_of_the_Infinite",
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    }
+  ],
+  "omens": [
+    {
+      "key": "SINISTRAL_ALCHEMY",
+      "id": "Omen_of_Sinistral_Alchemy",
+      "trigger": "ALCHEMY",
+      "affix": "PREFIX",
+      "supportsTieredCurrency": false
+    },
+    {
+      "key": "DEXTRAL_ALCHEMY",
+      "id": "Omen_of_Dextral_Alchemy",
+      "trigger": "ALCHEMY",
+      "affix": "SUFFIX",
+      "supportsTieredCurrency": false
+    },
+    {
+      "key": "SINISTRAL_CORONATION",
+      "id": "Omen_of_Sinistral_Coronation",
+      "trigger": "REGAL",
+      "affix": "PREFIX",
+      "supportsTieredCurrency": true
+    },
+    {
+      "key": "DEXTRAL_CORONATION",
+      "id": "Omen_of_Dextral_Coronation",
+      "trigger": "REGAL",
+      "affix": "SUFFIX",
+      "supportsTieredCurrency": true
+    },
+    {
+      "key": "GREATER_ANNULMENT",
+      "id": "Omen_of_Greater_Annulment",
+      "trigger": "ANNULMENT",
+      "affix": null,
+      "supportsTieredCurrency": false
+    },
+    {
+      "key": "SINISTRAL_CRYSTALLISATION",
+      "id": "Omen_of_Sinistral_Crystallisation",
+      "trigger": "ESSENCE_HYSTERIA",
+      "affix": "PREFIX",
+      "supportsTieredCurrency": false
+    },
+    {
+      "key": "DEXTRAL_CRYSTALLISATION",
+      "id": "Omen_of_Dextral_Crystallisation",
+      "trigger": "ESSENCE_HYSTERIA",
+      "affix": "SUFFIX",
+      "supportsTieredCurrency": false
+    },
+    {
+      "key": "GREATER_EXALTATION",
+      "id": "Omen_of_Greater_Exaltation",
+      "trigger": "EXALTED",
+      "affix": null,
+      "supportsTieredCurrency": false
+    },
+    {
+      "key": "HOMOGENISING_EXALTATION",
+      "id": "Omen_of_Homogenising_Exaltation",
+      "trigger": "EXALTED",
+      "affix": null,
+      "supportsTieredCurrency": true
+    },
+    {
+      "key": "HOMOGENISING_CORONATION",
+      "id": "Omen_of_Homogenising_Coronation",
+      "trigger": "REGAL",
+      "affix": null,
+      "supportsTieredCurrency": true
+    },
+    {
+      "key": "SINISTRAL_EXALTATION",
+      "id": "Omen_of_Sinistral_Exaltation",
+      "trigger": "EXALTED",
+      "affix": "PREFIX",
+      "supportsTieredCurrency": true
+    },
+    {
+      "key": "DEXTRAL_EXALTATION",
+      "id": "Omen_of_Dextral_Exaltation",
+      "trigger": "EXALTED",
+      "affix": "SUFFIX",
+      "supportsTieredCurrency": true
+    },
+    {
+      "key": "SINISTRAL_ANNULMENT",
+      "id": "Omen_of_Sinistral_Annulment",
+      "trigger": "ANNULMENT",
+      "affix": "PREFIX",
+      "supportsTieredCurrency": false
+    },
+    {
+      "key": "DEXTRAL_ANNULMENT",
+      "id": "Omen_of_Dextral_Annulment",
+      "trigger": "ANNULMENT",
+      "affix": "SUFFIX",
+      "supportsTieredCurrency": false
+    },
+    {
+      "key": "SINISTRAL_ERASURE",
+      "id": "Omen_of_Sinistral_Erasure",
+      "trigger": "CHAOS",
+      "affix": "PREFIX",
+      "supportsTieredCurrency": true
+    },
+    {
+      "key": "DEXTRAL_ERASURE",
+      "id": "Omen_of_Dextral_Erasure",
+      "trigger": "CHAOS",
+      "affix": "SUFFIX",
+      "supportsTieredCurrency": true
+    },
+    {
+      "key": "WHITTLING",
+      "id": "Omen_of_Whittling",
+      "trigger": "CHAOS",
+      "affix": null,
+      "supportsTieredCurrency": true
+    },
+    {
+      "key": "BLESSED",
+      "id": "Omen_of_the_Blessed",
+      "trigger": "DIVINE",
+      "affix": null,
+      "supportsTieredCurrency": false
+    }
+  ]
+}
