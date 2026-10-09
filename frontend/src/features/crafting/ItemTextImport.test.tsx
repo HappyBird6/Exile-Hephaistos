@@ -60,7 +60,10 @@ function result(text = raw): Item {
 const json = (value: unknown, status = 200) =>
   new Response(JSON.stringify(value), {
     status,
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'X-Crafting-Ruleset': 'fixture-ruleset',
+      'Content-Type': 'application/json',
+    },
   })
 let client: QueryClient
 let fetchMock: ReturnType<typeof vi.fn<typeof fetch>>

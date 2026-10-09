@@ -106,7 +106,7 @@ describe('Workbench actual application', () => {
       })
     ).json()
     const films = recordCraft(
-      startFilm(emptyFilms(), root, 'saved'),
+      startFilm(emptyFilms(), root, 'saved', 'fixture-ruleset'),
       root,
       result,
       'unused',
@@ -392,6 +392,8 @@ describe('Workbench actual application', () => {
         'TRANSMUTATION',
         initialFixture.modifiers,
         new AbortController().signal,
+        [],
+        'fixture-ruleset',
       ),
     ).rejects.toThrow('verify')
   })

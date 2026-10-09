@@ -25,6 +25,7 @@ const before: ConcreteItem = {
   ],
 }
 const result: AppliedItem = {
+  rulesetIdentity: 'fixture-ruleset',
   ruleVersion: 'solar-workbench-hysteria-essence-v10',
   ledgerVersion: 'solar-uniform-assumptions-v4',
   snapshotId: before.snapshotId,
@@ -68,6 +69,8 @@ const apply = () =>
     'ESSENCE_HYSTERIA',
     definitions,
     new AbortController().signal,
+    [],
+    'fixture-ruleset',
   )
 
 it('accepts the canonical reordered replacement while preserving a fractured roll', async () => {

@@ -34,6 +34,7 @@ export function fixtureActions(state: Bucket): Availability[] {
   }))
 }
 export const initialFixture: Initial = {
+  rulesetIdentity: 'fixture-ruleset',
   ruleVersion: 'fixture-rules',
   metadata: {
     snapshotId: 'fixture-v1',
@@ -88,7 +89,10 @@ export const firstOutcomes: Outcome[] = [
 export const jsonResponse = (value: unknown, status = 200) =>
   new Response(JSON.stringify(value), {
     status,
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Crafting-Ruleset': 'fixture-ruleset',
+    },
   })
 export function fixtureFetch(
   input: RequestInfo | URL,
@@ -121,6 +125,7 @@ export function fixtureFetch(
     return Promise.resolve(
       jsonResponse({
         ruleVersion: 'solar-workbench-six-v1',
+        rulesetIdentity: 'fixture-ruleset',
         ledgerVersion: 'solar-uniform-assumptions-v1',
         snapshotId: request.state.snapshotId,
         action: request.action,

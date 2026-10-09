@@ -16,6 +16,8 @@ it.each(actual.captures)(
         'TRANSMUTATION',
         definitions as Record<string, Definition>,
         new AbortController().signal,
+        [],
+        'fixture-ruleset',
       ),
     ).resolves.toMatchObject({ applied: true, qualityLimit: null })
   },
@@ -28,10 +30,7 @@ it.each(actual.captures)(
       vi.fn().mockResolvedValue(
         jsonResponse({
           ...result,
-          qualityLimit: {
-            ruleVersion: 'quality-limit-v1',
-            maximumQuality: 20,
-          },
+          qualityLimit: { ruleVersion: 'quality-limit-v1', maximumQuality: 20 },
         }),
       ),
     )
@@ -41,6 +40,8 @@ it.each(actual.captures)(
         'TRANSMUTATION',
         definitions as Record<string, Definition>,
         new AbortController().signal,
+        [],
+        'fixture-ruleset',
       ),
     ).rejects.toThrow('verify')
   },

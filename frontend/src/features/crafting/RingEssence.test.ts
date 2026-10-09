@@ -30,6 +30,7 @@ it.each(actual.captures)(
       definitions,
       new AbortController().signal,
       ['Omen_of_the_Blessed'],
+      'fixture-ruleset',
     )
     expect(verified.applied).toBe(true)
     expect(craftProbabilityEvidence(verified).weighted).toBe(false)
@@ -55,6 +56,7 @@ it.each(actual.captures)(
         definitions,
         new AbortController().signal,
         ['Omen_of_the_Blessed'],
+        'fixture-ruleset',
       ),
     ).rejects.toThrow('numeric model')
   },
@@ -108,6 +110,7 @@ it.each([
       definitions,
       new AbortController().signal,
       ['Omen_of_the_Blessed'],
+      'fixture-ruleset',
     ),
   ).rejects.toThrow('verify')
 })
@@ -162,6 +165,8 @@ it('accepts actual Ring Divine while preserving the fixed-implicit projection', 
     'DIVINE',
     definitions,
     new AbortController().signal,
+    [],
+    'fixture-ruleset',
   )
   expect(r.applied).toBe(true)
   expect(r.state.implicits).toEqual(capture.before.implicits)
@@ -183,6 +188,7 @@ it.each([null, { ruleVersion: 'quality-limit-v1', maximumQuality: 40 }])(
         definitions,
         new AbortController().signal,
         ['Omen_of_the_Blessed'],
+        'fixture-ruleset',
       ),
     ).rejects.toThrow('verify')
   },
@@ -214,6 +220,8 @@ it.each([
       'DIVINE',
       definitions,
       new AbortController().signal,
+      [],
+      'fixture-ruleset',
     ),
   ).rejects.toThrow('verify')
 })

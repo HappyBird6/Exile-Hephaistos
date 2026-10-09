@@ -25,6 +25,7 @@ it.each(actual.captures)(
         definitions,
         new AbortController().signal,
         ['Omen_of_the_Blessed'],
+        'fixture-ruleset',
       ),
     ).resolves.toMatchObject({ applied: true })
   },
@@ -67,6 +68,7 @@ it.each(['missing', 'extra', 'out-of-range', 'source', 'missing-ledger'])(
         definitions,
         new AbortController().signal,
         ['Omen_of_the_Blessed'],
+        'fixture-ruleset',
       ),
     ).rejects.toThrow('Could not verify')
   },

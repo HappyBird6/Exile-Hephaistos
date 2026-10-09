@@ -75,7 +75,10 @@ const evaluation = {
 const response = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), {
     status,
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'X-Crafting-Ruleset': 'fixture-ruleset',
+      'Content-Type': 'application/json',
+    },
   })
 afterEach(() => vi.unstubAllGlobals())
 function setup(actual: ConcreteItem | null = item, onLegacyChange = vi.fn()) {
@@ -86,6 +89,7 @@ function setup(actual: ConcreteItem | null = item, onLegacyChange = vi.fn()) {
     <div onChange={onLegacyChange}>
       <QueryClientProvider client={client}>
         <ConnectedGoalFilter
+          rulesetIdentity="fixture-ruleset"
           item={actual}
           context={item}
           language="en"
@@ -179,6 +183,7 @@ describe('production goal connection', () => {
       ['Omen_of_Sinistral_Exaltation'],
       2000,
       signal,
+      'fixture-ruleset',
     )
     for (const [, init] of mock.mock.calls) {
       expect(JSON.parse(String(init?.body)).item).toEqual(item)

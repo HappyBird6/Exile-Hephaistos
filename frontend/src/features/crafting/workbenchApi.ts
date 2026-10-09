@@ -1,3 +1,5 @@
+import { rulesetHeaders, verifyRulesetResponse } from './rulesetIdentity'
+import { translate } from '../../shared/i18n/i18n'
 import { topBase, topBaseKey } from './topBases'
 import { basePolicy } from './baseRegistry'
 import reviewedEssenceTargets from './topBaseEssences.json'
@@ -764,17 +766,19 @@ export async function mapSolarText(
   text: string,
   signal: AbortSignal,
   definitions: Record<string, Definition>,
+  rulesetIdentity: string,
 ): Promise<MappingResult> {
   const response = await fetch('/api/v1/crafting/workbench/map-text', {
     method: 'POST',
     signal,
-    headers: { 'Content-Type': 'application/json' },
+    headers: rulesetHeaders(rulesetIdentity),
     body: JSON.stringify({ text }),
   })
   if (!response.ok)
     throw new Error(
       'Could not validate this item for crafting. The displayed text is preserved.',
     )
+  verifyRulesetResponse(response, rulesetIdentity)
   const v = (await response.json()) as MappingResult
   if (
     typeof v?.mapped !== 'boolean' ||
@@ -836,6 +840,7 @@ export interface RollAssumption {
   ratioTick?: number | null
 }
 export interface AppliedItem {
+  rulesetIdentity: string
   qualityLimit?: QualityLimit | null
   ruleVersion: string
   ledgerVersion: string
@@ -939,7 +944,8 @@ export async function applyCurrency(
   action: WorkbenchAction,
   definitions: Record<string, Definition>,
   signal: AbortSignal,
-  activeOmens: string[] = [],
+  activeOmens: string[],
+  rulesetIdentity: string,
 ): Promise<AppliedItem> {
   if (!supportsConcreteStateShape(state))
     throw new Error(
@@ -949,14 +955,17 @@ export async function applyCurrency(
   const response = await fetch('/api/v1/crafting/workbench/apply', {
     method: 'POST',
     signal,
-    headers: { 'Content-Type': 'application/json' },
+    headers: rulesetHeaders(rulesetIdentity),
     body: JSON.stringify({ state, action, activeOmens }),
   })
+  verifyRulesetResponse(response, rulesetIdentity)
   if (!response.ok)
     throw new Error(
       'Could not apply currency. Your item is unchanged. Please retry.',
     )
   const v = (await response.json()) as AppliedItem
+  if (v.rulesetIdentity !== rulesetIdentity)
+    throw new Error(translate('ruleset.request_changed'))
   const next = v?.state
   const baseAction = baseWorkbenchAction(action)
   const sameValues = (

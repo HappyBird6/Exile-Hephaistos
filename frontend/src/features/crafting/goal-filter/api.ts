@@ -1,3 +1,8 @@
+import {
+  rulesetHeaders,
+  rulesetHeader,
+  verifyRulesetResponse,
+} from '../rulesetIdentity'
 import type {
   Catalog,
   Context,
@@ -17,10 +22,14 @@ export class GoalFilterApiError extends Error {
 export function createHttpGoalFilterAdapter(
   baseUrl = '/api/v1/crafting/support/goal-filters',
 ): GoalFilterAdapter {
+  const identities = new Map<string, string>()
+  const key = (context: Context) =>
+    JSON.stringify([context.snapshotId, context.baseItemId, context.itemLevel])
   async function request<T>(
     path: string,
     signal: AbortSignal,
     body?: unknown,
+    rulesetIdentity?: string,
   ): Promise<T> {
     const response = await fetch(`${baseUrl}${path}`, {
       signal,
@@ -28,11 +37,21 @@ export function createHttpGoalFilterAdapter(
         ? {}
         : {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: rulesetHeaders(rulesetIdentity),
             body: JSON.stringify(body),
           }),
     })
-    return readGoalFilterResponse<T>(response)
+    if (body !== undefined && response.ok)
+      verifyRulesetResponse(response, rulesetIdentity!)
+    const value = await readGoalFilterResponse<T>(response)
+    if (body === undefined && path.startsWith('/catalog?') && response.ok) {
+      const identity = response.headers.get(rulesetHeader)
+      if (!identity)
+        throw new Error('Goal catalog ruleset identity is missing.')
+      const catalog = value as Catalog
+      identities.set(key(catalog.context), identity)
+    }
+    return value
   }
   return {
     id: baseUrl,
@@ -42,7 +61,12 @@ export function createHttpGoalFilterAdapter(
         signal,
       ),
     validate: (context: Context, goal: GoalFilter, signal) =>
-      request<Validation>('/validate', signal, { context, goal }),
+      request<Validation>(
+        '/validate',
+        signal,
+        { context, goal },
+        identities.get(key(context)),
+      ),
   }
 }
 

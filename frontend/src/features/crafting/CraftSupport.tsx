@@ -256,6 +256,7 @@ function FamilySupport({
         text,
         controller.signal,
         initial.data.modifiers,
+        initial.data.rulesetIdentity,
       )
       if (controller.signal.aborted) return
       if (
@@ -295,7 +296,12 @@ function FamilySupport({
     setError('')
     setAssessment(null)
     try {
-      const result = await assessGoal(state, goal, controller.signal)
+      const result = await assessGoal(
+        state,
+        goal,
+        controller.signal,
+        initial.data!.rulesetIdentity,
+      )
       if (!controller.signal.aborted) setAssessment(result)
     } catch (e) {
       if (!controller.signal.aborted)
@@ -316,7 +322,12 @@ function FamilySupport({
     setReport(null)
     setSelectedRoute(null)
     try {
-      const checked = await assessGoal(state, goal, controller.signal)
+      const checked = await assessGoal(
+        state,
+        goal,
+        controller.signal,
+        initial.data!.rulesetIdentity,
+      )
       if (controller.signal.aborted) return
       setAssessment(checked)
       if (!checked.valid || !checked.feasible || checked.achieved) return
@@ -326,6 +337,7 @@ function FamilySupport({
         activeOmens,
         maxMillis,
         controller.signal,
+        initial.data!.rulesetIdentity,
       )
       if (!controller.signal.aborted) setReport(result)
     } catch (e) {

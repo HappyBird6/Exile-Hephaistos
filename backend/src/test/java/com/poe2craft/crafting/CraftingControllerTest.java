@@ -37,6 +37,9 @@ class CraftingControllerTest {
     var root = StateBucket.from(SolarAmulet.initial(catalog));
     mvc.perform(
             post("/api/v1/crafting/transitions")
+                .header(
+                    "X-Crafting-Ruleset",
+                    com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(
                     mapper.writeValueAsBytes(Map.of("state", root, "action", "TRANSMUTATION"))))
@@ -45,6 +48,9 @@ class CraftingControllerTest {
         .andExpect(jsonPath("$.outcomes.length()").value(209));
     mvc.perform(
             post("/api/v1/crafting/transitions")
+                .header(
+                    "X-Crafting-Ruleset",
+                    com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsBytes(Map.of("state", root, "action", "EXALTED"))))
         .andExpect(status().isOk())
@@ -61,12 +67,18 @@ class CraftingControllerTest {
         .andExpect(status().isBadRequest());
     mvc.perform(
             post("/api/v1/crafting/transitions")
+                .header(
+                    "X-Crafting-Ruleset",
+                    com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{}"))
         .andExpect(status().isUnprocessableEntity())
         .andExpect(jsonPath("$.stackTrace").doesNotExist());
     mvc.perform(
             post("/api/v1/crafting/transitions")
+                .header(
+                    "X-Crafting-Ruleset",
+                    com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{"))
         .andExpect(status().isBadRequest())
@@ -90,6 +102,9 @@ class CraftingControllerTest {
             1000);
     mvc.perform(
             post("/api/v1/crafting/explore")
+                .header(
+                    "X-Crafting-Ruleset",
+                    com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsBytes(body)))
         .andExpect(status().isOk())
@@ -98,6 +113,9 @@ class CraftingControllerTest {
         .andExpect(jsonPath("$.edges").isEmpty());
     mvc.perform(
             post("/api/v1/crafting/explore")
+                .header(
+                    "X-Crafting-Ruleset",
+                    com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(
                     mapper.writeValueAsBytes(

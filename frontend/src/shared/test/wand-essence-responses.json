@@ -22,6 +22,7 @@
       },
       "result": {
         "status": 200,
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "wand-workbench-essence-v1",
         "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
@@ -79,6 +80,7 @@
         "consumedOmens": [],
         "remainingOmens": ["Omen_of_the_Blessed"],
         "qualityLimit": {
+          "rulesetIdentity": "fixture-ruleset",
           "ruleVersion": "quality-limit-v1",
           "maximumQuality": 20
         }
@@ -106,6 +108,7 @@
       },
       "result": {
         "status": 200,
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "wand-workbench-essence-v1",
         "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
@@ -163,6 +166,7 @@
         "consumedOmens": [],
         "remainingOmens": ["Omen_of_the_Blessed"],
         "qualityLimit": {
+          "rulesetIdentity": "fixture-ruleset",
           "ruleVersion": "quality-limit-v1",
           "maximumQuality": 20
         }
@@ -190,6 +194,7 @@
       },
       "result": {
         "status": 200,
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "wand-workbench-essence-v1",
         "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
@@ -247,6 +252,7 @@
         "consumedOmens": [],
         "remainingOmens": ["Omen_of_the_Blessed"],
         "qualityLimit": {
+          "rulesetIdentity": "fixture-ruleset",
           "ruleVersion": "quality-limit-v1",
           "maximumQuality": 20
         }
@@ -281,6 +287,7 @@
       },
       "result": {
         "status": 200,
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "wand-workbench-essence-v1",
         "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
@@ -347,6 +354,7 @@
         "consumedOmens": [],
         "remainingOmens": ["Omen_of_the_Blessed"],
         "qualityLimit": {
+          "rulesetIdentity": "fixture-ruleset",
           "ruleVersion": "quality-limit-v1",
           "maximumQuality": 20
         }
@@ -374,6 +382,7 @@
       },
       "result": {
         "status": 200,
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "wand-workbench-essence-v1",
         "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
@@ -431,6 +440,7 @@
         "consumedOmens": [],
         "remainingOmens": ["Omen_of_the_Blessed"],
         "qualityLimit": {
+          "rulesetIdentity": "fixture-ruleset",
           "ruleVersion": "quality-limit-v1",
           "maximumQuality": 20
         }
@@ -458,6 +468,7 @@
       },
       "result": {
         "status": 200,
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "wand-workbench-essence-v1",
         "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
@@ -515,6 +526,7 @@
         "consumedOmens": [],
         "remainingOmens": ["Omen_of_the_Blessed"],
         "qualityLimit": {
+          "rulesetIdentity": "fixture-ruleset",
           "ruleVersion": "quality-limit-v1",
           "maximumQuality": 20
         }
@@ -542,6 +554,7 @@
       },
       "result": {
         "status": 200,
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "wand-workbench-essence-v1",
         "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
@@ -599,6 +612,7 @@
         "consumedOmens": [],
         "remainingOmens": ["Omen_of_the_Blessed"],
         "qualityLimit": {
+          "rulesetIdentity": "fixture-ruleset",
           "ruleVersion": "quality-limit-v1",
           "maximumQuality": 20
         }
@@ -626,6 +640,7 @@
       },
       "result": {
         "status": 200,
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "wand-workbench-essence-v1",
         "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
@@ -683,6 +698,7 @@
         "consumedOmens": [],
         "remainingOmens": ["Omen_of_the_Blessed"],
         "qualityLimit": {
+          "rulesetIdentity": "fixture-ruleset",
           "ruleVersion": "quality-limit-v1",
           "maximumQuality": 20
         }
@@ -710,6 +726,7 @@
       },
       "result": {
         "status": 200,
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "wand-workbench-essence-v1",
         "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
@@ -767,6 +784,7 @@
         "consumedOmens": [],
         "remainingOmens": ["Omen_of_the_Blessed"],
         "qualityLimit": {
+          "rulesetIdentity": "fixture-ruleset",
           "ruleVersion": "quality-limit-v1",
           "maximumQuality": 20
         }
@@ -794,6 +812,7 @@
       },
       "result": {
         "status": 200,
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "wand-workbench-essence-v1",
         "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
@@ -851,6 +870,7 @@
         "consumedOmens": [],
         "remainingOmens": ["Omen_of_the_Blessed"],
         "qualityLimit": {
+          "rulesetIdentity": "fixture-ruleset",
           "ruleVersion": "quality-limit-v1",
           "maximumQuality": 20
         }
@@ -885,6 +905,7 @@
       },
       "result": {
         "status": 200,
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "wand-workbench-essence-v1",
         "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5+wand-perfect-20261003-662df7573407",
@@ -962,6 +983,7 @@
         "consumedOmens": [],
         "remainingOmens": ["Omen_of_the_Blessed"],
         "qualityLimit": {
+          "rulesetIdentity": "fixture-ruleset",
           "ruleVersion": "quality-limit-v1",
           "maximumQuality": 20
         }

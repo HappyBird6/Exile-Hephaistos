@@ -32,6 +32,7 @@ const before: ConcreteItem = {
   ],
 }
 const result: AppliedItem = {
+  rulesetIdentity: 'fixture-ruleset',
   ruleVersion: 'solar-workbench-perfect-infinite-v12',
   ledgerVersion: 'solar-uniform-assumptions-v6',
   snapshotId: before.snapshotId,
@@ -86,6 +87,7 @@ const apply = () =>
     definitions,
     new AbortController().signal,
     ['Omen_of_Dextral_Crystallisation', 'Omen_of_the_Blessed'],
+    'fixture-ruleset',
   )
 
 it('verifies the sourced three-result replacement with restricted removal and exact omen consumption', async () => {

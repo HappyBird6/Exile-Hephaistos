@@ -89,6 +89,9 @@ class GoalFilterIntegrationTest {
                             false)))));
     mvc.perform(
             post(root + "/evaluate")
+                .header(
+                    "X-Crafting-Ruleset",
+                    com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(json.writeValueAsString(Map.of("item", item, "goal", goal))))
         .andExpect(status().isOk())
@@ -96,6 +99,9 @@ class GoalFilterIntegrationTest {
         .andExpect(jsonPath("$.groups[0].entries[0].value").value(15));
     mvc.perform(
             post(root + "/recommend")
+                .header(
+                    "X-Crafting-Ruleset",
+                    com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(
                     json.writeValueAsString(

@@ -1,3 +1,4 @@
+import { rulesetHeaders, verifyRulesetResponse } from '../rulesetIdentity'
 import type { ConcreteItem } from '../workbenchApi'
 import { readGoalFilterResponse } from './api'
 import type { Catalog, GoalFilter, Issue, Recommendation } from './types'
@@ -24,6 +25,7 @@ export async function evaluateNumericItem(
   activeOmens: string[],
   maxMillis: number,
   signal: AbortSignal,
+  rulesetIdentity: string,
 ) {
   async function post<T>(path: string, body: unknown): Promise<T> {
     const response = await fetch(
@@ -31,10 +33,11 @@ export async function evaluateNumericItem(
       {
         method: 'POST',
         signal,
-        headers: { 'Content-Type': 'application/json' },
+        headers: rulesetHeaders(rulesetIdentity),
         body: JSON.stringify(body),
       },
     )
+    if (response.ok) verifyRulesetResponse(response, rulesetIdentity)
     return readGoalFilterResponse<T>(response)
   }
   const evaluation = await post<Evaluation>('evaluate', { item, goal })

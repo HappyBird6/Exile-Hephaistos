@@ -33,6 +33,7 @@ const before: ConcreteItem = {
   ],
 }
 const result: AppliedItem = {
+  rulesetIdentity: 'fixture-ruleset',
   ruleVersion: 'stocky-workbench-abyss-v20',
   ledgerVersion: 'stocky-unverified-numeric-assumptions-v11',
   snapshotId: before.snapshotId,
@@ -87,6 +88,7 @@ const apply = () =>
     definitions,
     new AbortController().signal,
     ['Omen_of_Sinistral_Crystallisation', 'Omen_of_the_Blessed'],
+    'fixture-ruleset',
   )
 
 it('accepts a guaranteed prefix replacement with exact preservation and matching omen consumption', async () => {
@@ -155,9 +157,13 @@ it('rejects an incomplete choice ledger and a Solar target substituted onto glov
   }
   vi.stubGlobal('fetch', () => Promise.resolve(jsonResponse(wrong)))
   await expect(
-    applyCurrency(before, result.action, both, new AbortController().signal, [
-      'Omen_of_Sinistral_Crystallisation',
-      'Omen_of_the_Blessed',
-    ]),
+    applyCurrency(
+      before,
+      result.action,
+      both,
+      new AbortController().signal,
+      ['Omen_of_Sinistral_Crystallisation', 'Omen_of_the_Blessed'],
+      'fixture-ruleset',
+    ),
   ).rejects.toThrow('Your item is unchanged')
 })

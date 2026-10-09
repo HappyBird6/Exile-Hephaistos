@@ -74,6 +74,7 @@
       },
       "result": {
         "status": 200,
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "belt-workbench-perfect-essence-v1",
         "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-rawhide-belt-normal-20261003-2ee4229e650b+belt-perfect-20261003-46792dfd05dc",
@@ -192,6 +193,7 @@
     }
   },
   "initial": {
+    "rulesetIdentity": "fixture-ruleset",
     "ruleVersion": "belt-workbench-perfect-essence-v1",
     "metadata": {
       "snapshotId": "poe2db-rawhide-belt-normal-20261003-2ee4229e650b+belt-perfect-20261003-46792dfd05dc",

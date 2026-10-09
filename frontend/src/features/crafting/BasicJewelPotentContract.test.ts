@@ -21,6 +21,7 @@ it.each(actual.captures.map((capture, index) => ({ ...capture, index })))(
         initial.modifiers as Record<string, Definition>,
         new AbortController().signal,
         activeOmens,
+        'fixture-ruleset',
       ),
     ).resolves.toEqual(result)
     expect(verifiedHistoryState(result.state as ConcreteItem, initial)).toBe(

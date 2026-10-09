@@ -110,6 +110,28 @@ class WorkbenchDefinitionsLoaderTest {
   }
 
   @Test
+  void knownButUnimplementedOmenTriggerCombinationsFailClosed() throws Exception {
+    var baseline = data();
+    for (int i = 0; i < baseline.get("omens").size(); i++) {
+      for (String trigger :
+          List.of(
+              "ALCHEMY", "REGAL", "ANNULMENT", "EXALTED", "CHAOS", "DIVINE", "ESSENCE_HYSTERIA")) {
+        if (baseline.get("omens").get(i).get("trigger").asText().equals(trigger)) continue;
+        var changed = baseline.deepCopy();
+        ((ObjectNode) changed.get("omens").get(i)).put("trigger", trigger);
+        assertThrows(IllegalArgumentException.class, () -> read(changed));
+      }
+    }
+    // Review reproducer: Greater Annulment must never match Divine and be consumed without an
+    // effect.
+    var changed = data();
+    for (var omen : changed.get("omens"))
+      if (omen.get("key").asText().equals("GREATER_ANNULMENT"))
+        ((ObjectNode) omen).put("trigger", "DIVINE");
+    assertThrows(IllegalArgumentException.class, () -> read(changed));
+  }
+
+  @Test
   void unknownTargetsAndWrongTargetLayersFailBeforeBootstrap() throws Exception {
     var known = new HashMap<>(WorkbenchDefinitionsLoader.readTargets());
     var bad = data();

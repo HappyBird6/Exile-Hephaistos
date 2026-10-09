@@ -16,7 +16,6 @@ import {
   verifiedHistoryState,
   historyStorageKey,
   historyStorageLimit,
-  upgradeCompatibleFilms,
   verifiedFrameEvidence,
 } from './workbenchHistory'
 
@@ -32,7 +31,7 @@ describe('linear crafting films', () => {
   it('persists detached craft evidence while legacy films remain readable without invented provenance', async () => {
     const result = await craft()
     const films = recordCraft(
-      startFilm(emptyFilms(), root, 'evidence'),
+      startFilm(emptyFilms(), root, 'evidence', 'fixture-ruleset'),
       root,
       result,
       'unused',
@@ -63,10 +62,10 @@ describe('linear crafting films', () => {
     expect(localStorage.getItem(historyStorageKey)).toBe(legacyBytes)
   })
 
-  it('keeps original evidence provenance when an explicitly compatible snapshot is upgraded', async () => {
+  it('keeps original evidence provenance without relabeling an explicitly compatible snapshot', async () => {
     const result = await craft()
     const films = recordCraft(
-      startFilm(emptyFilms(), root, 'evidence'),
+      startFilm(emptyFilms(), root, 'evidence', 'fixture-ruleset'),
       root,
       result,
       'unused',
@@ -77,9 +76,11 @@ describe('linear crafting films', () => {
       state: { ...initialFixture.state, snapshotId: 'new-snapshot' },
       compatibleSnapshotIds: [root.snapshotId],
     }
-    const upgraded = upgradeCompatibleFilms(films, initial)
+    const repository = new LocalFilmRepository(localStorage)
+    repository.save(films)
+    const upgraded = repository.load()
     const frame = currentFrame(upgraded)!
-    expect(frame.state.snapshotId).toBe('new-snapshot')
+    expect(frame.state.snapshotId).toBe(root.snapshotId)
     expect(frame.evidence?.snapshotId).toBe(root.snapshotId)
     expect(verifiedFrameEvidence(frame, initial)).toEqual(
       currentFrame(films)!.evidence,
@@ -88,7 +89,7 @@ describe('linear crafting films', () => {
 
   it('rejects malformed optional evidence without discarding frames or rewriting storage', async () => {
     const films = recordCraft(
-      startFilm(emptyFilms(), root, 'evidence'),
+      startFilm(emptyFilms(), root, 'evidence', 'fixture-ruleset'),
       root,
       await craft(),
       'unused',
@@ -126,10 +127,10 @@ describe('linear crafting films', () => {
       expect(localStorage.getItem(historyStorageKey)).toBe(bytes)
     }
   })
-  it('upgrades only an explicitly compatible valid snapshot without changing films, rolls, locks or stored bytes', async () => {
+  it('preserves explicitly compatible snapshots without changing films, rolls, locks or stored bytes', async () => {
     const result = await craft()
     const old = recordCraft(
-      startFilm(emptyFilms(), root, 'old'),
+      startFilm(emptyFilms(), root, 'old', 'fixture-ruleset'),
       root,
       result,
       'unused',
@@ -143,7 +144,7 @@ describe('linear crafting films', () => {
     const repository = new LocalFilmRepository(window.localStorage)
     repository.save(old)
     const bytes = window.localStorage.getItem(historyStorageKey)
-    const upgraded = upgradeCompatibleFilms(old, nextInitial)
+    const upgraded = repository.load()
     expect(window.localStorage.getItem(historyStorageKey)).toBe(bytes)
     expect(upgraded.active).toBe(old.active)
     expect(upgraded.cursor).toBe(old.cursor)
@@ -153,7 +154,7 @@ describe('linear crafting films', () => {
         ...old.films[0]!.frames[index],
         state: {
           ...old.films[0]!.frames[index]!.state,
-          snapshotId: 'expanded',
+          snapshotId: root.snapshotId,
         },
       })
       expect(verifiedHistoryState(frame.state, nextInitial)).toBe(true)
@@ -173,15 +174,21 @@ describe('linear crafting films', () => {
       explicits: [{ modifierId: 'p', values: { life: 999999 } }],
     }
     for (const state of [unknown, invalid]) {
-      const preserved = startFilm(emptyFilms(), state, 'preserve')
-      expect(upgradeCompatibleFilms(preserved, nextInitial)).toEqual(preserved)
+      const preserved = startFilm(
+        emptyFilms(),
+        state,
+        'preserve',
+        'fixture-ruleset',
+      )
+      repository.save(preserved)
+      expect(repository.load()).toEqual(preserved)
       expect(verifiedHistoryState(state, nextInitial)).toBe(false)
     }
   })
   it('browses one film and forks only on successful crafting while preserving original future', async () => {
     const result = await craft()
     const original = recordCraft(
-      startFilm(emptyFilms(), root, 'first'),
+      startFilm(emptyFilms(), root, 'first', 'fixture-ruleset'),
       root,
       result,
       'unused',
@@ -201,12 +208,17 @@ describe('linear crafting films', () => {
   })
   it('archives the prior film when starting another item and restores the selected step', async () => {
     const first = recordCraft(
-      startFilm(emptyFilms(), root, 'one'),
+      startFilm(emptyFilms(), root, 'one', 'fixture-ruleset'),
       root,
       await craft(),
       'unused',
     )
-    const second = startFilm(first, { ...root, itemLevel: 70 }, 'two')
+    const second = startFilm(
+      first,
+      { ...root, itemLevel: 70 },
+      'two',
+      'fixture-ruleset',
+    )
     const selected = viewFrame({ ...second, active: 'one' }, 0)
     const repository = new LocalFilmRepository(window.localStorage)
     repository.save(selected)
@@ -218,7 +230,7 @@ describe('linear crafting films', () => {
   })
   it('preserves existing bytes on quota failure and on invalid or oversized reads', () => {
     const repository = new LocalFilmRepository(window.localStorage)
-    const valid = startFilm(emptyFilms(), root, 'one')
+    const valid = startFilm(emptyFilms(), root, 'one', 'fixture-ruleset')
     repository.save(valid)
     const previous = window.localStorage.getItem(historyStorageKey)
     const failing = new LocalFilmRepository({
@@ -227,7 +239,9 @@ describe('linear crafting films', () => {
         throw new DOMException('Quota exceeded', 'QuotaExceededError')
       },
     })
-    expect(() => failing.save(startFilm(valid, root, 'two'))).toThrow('Quota')
+    expect(() =>
+      failing.save(startFilm(valid, root, 'two', 'fixture-ruleset')),
+    ).toThrow('Quota')
     expect(window.localStorage.getItem(historyStorageKey)).toBe(previous)
     expect(() =>
       new LocalFilmRepository({

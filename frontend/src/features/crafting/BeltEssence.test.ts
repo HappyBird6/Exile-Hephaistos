@@ -22,6 +22,7 @@ it.each(actual.captures)(
       definitions,
       new AbortController().signal,
       ['Omen_of_the_Blessed'],
+      'fixture-ruleset',
     )
     expect(verified.applied).toBe(true)
     expect(craftProbabilityEvidence(verified).weighted).toBe(false)
@@ -43,6 +44,7 @@ it.each(actual.captures)(
         definitions,
         new AbortController().signal,
         ['Omen_of_the_Blessed'],
+        'fixture-ruleset',
       ),
     ).rejects.toThrow('numeric model')
   },
@@ -96,6 +98,7 @@ it.each([
       definitions,
       new AbortController().signal,
       ['Omen_of_the_Blessed'],
+      'fixture-ruleset',
     ),
   ).rejects.toThrow('verify')
 })
@@ -146,9 +149,14 @@ it('refuses an applied Divine response for an explicit-only Belt projection', as
   forged.action = 'DIVINE'
   vi.stubGlobal('fetch', vi.fn().mockResolvedValue(jsonResponse(forged)))
   await expect(
-    applyCurrency(before, 'DIVINE', definitions, new AbortController().signal, [
-      'Omen_of_the_Blessed',
-    ]),
+    applyCurrency(
+      before,
+      'DIVINE',
+      definitions,
+      new AbortController().signal,
+      ['Omen_of_the_Blessed'],
+      'fixture-ruleset',
+    ),
   ).rejects.toThrow('verify')
 })
 it('refuses an invented quality maximum for Belt responses', async () => {
@@ -163,6 +171,7 @@ it('refuses an invented quality maximum for Belt responses', async () => {
       definitions,
       new AbortController().signal,
       ['Omen_of_the_Blessed'],
+      'fixture-ruleset',
     ),
   ).rejects.toThrow('verify')
 })

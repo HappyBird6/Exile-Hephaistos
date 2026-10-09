@@ -22,6 +22,7 @@
         "catalystQuality": null
       },
       "result": {
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
         "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-linen-belt-20261004-1f5834b2d035-d1ddf3dceeca",
@@ -147,6 +148,7 @@
         "catalystQuality": null
       },
       "result": {
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
         "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-wide-belt-20261004-94f1859e2ffe-8211b3db8199",
@@ -278,6 +280,7 @@
         "catalystQuality": null
       },
       "result": {
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
         "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-long-belt-20261004-2762a91fcae5-0a1f9cd713f3",
@@ -403,6 +406,7 @@
         "catalystQuality": null
       },
       "result": {
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
         "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-plate-belt-20261004-f354c4dfed2b-b1b06dd85d2a",
@@ -528,6 +532,7 @@
         "catalystQuality": null
       },
       "result": {
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
         "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-ornate-belt-20261004-a41aea8ff3ac-039babe08c84",
@@ -653,6 +658,7 @@
         "catalystQuality": null
       },
       "result": {
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
         "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-mail-belt-20261004-1eb507ea2130-c8b8c7b7ce95",
@@ -778,6 +784,7 @@
         "catalystQuality": null
       },
       "result": {
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
         "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-double-belt-20261004-e380035c9b3b-846e7be35a13",
@@ -903,6 +910,7 @@
         "catalystQuality": null
       },
       "result": {
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
         "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-heavy-belt-20261004-fca241a04a7e-6b45ec4ed2cc",
@@ -1028,6 +1036,7 @@
         "catalystQuality": null
       },
       "result": {
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
         "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-utility-belt-20261004-b4efcaedb3e1-4c2ba0b018b9",
@@ -1159,6 +1168,7 @@
         "catalystQuality": null
       },
       "result": {
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
         "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-fine-belt-20261004-39e208bb3831-bcc33ed41370",
@@ -1285,6 +1295,7 @@
         "catalystQuality": null
       },
       "result": {
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
         "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-invoking-belt-20261004-68fab7e8ec84-1fda8a247ae4",
@@ -1417,6 +1428,7 @@
         "catalystQuality": null
       },
       "result": {
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
         "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-sinew-belt-20261004-619c4da87b89-081a1ccfeae6",
@@ -1550,6 +1562,7 @@
         "catalystQuality": null
       },
       "result": {
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
         "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-forking-belt-20261004-a0a3872537bf-9c7714f1654f",

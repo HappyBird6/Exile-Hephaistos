@@ -27,6 +27,7 @@ const before: ConcreteItem = {
   ],
 }
 const result: AppliedItem = {
+  rulesetIdentity: 'fixture-ruleset',
   ruleVersion: 'stocky-workbench-horror-v21',
   ledgerVersion: 'stocky-unverified-numeric-assumptions-v11',
   snapshotId: before.snapshotId,
@@ -70,6 +71,8 @@ const apply = () =>
     'ESSENCE_HORROR',
     definitions,
     new AbortController().signal,
+    [],
+    'fixture-ruleset',
   )
 
 it('rejects percent unit mistakes and an applied Horror result on Solar', async () => {
@@ -95,6 +98,8 @@ it('rejects percent unit mistakes and an applied Horror result on Solar', async 
       result.action,
       definitions,
       new AbortController().signal,
+      [],
+      'fixture-ruleset',
     ),
   ).rejects.toThrow('Your item is unchanged')
 })
@@ -151,6 +156,7 @@ it('consumes only matching Crystallisation and rejects a substituted Solar targe
         definitions,
         new AbortController().signal,
         omens,
+        'fixture-ruleset',
       )
     ).consumedOmens,
   ).toEqual([omens[0]])
@@ -170,6 +176,7 @@ it('consumes only matching Crystallisation and rejects a substituted Solar targe
       both,
       new AbortController().signal,
       omens,
+      'fixture-ruleset',
     ),
   ).rejects.toThrow('Your item is unchanged')
   expect(before.explicits[0]?.fractured).toBe(true)

@@ -83,6 +83,7 @@ beforeEach(() => {
         if (failRecommendations) return jsonResponse({}, 503)
         const partial = partialRecommendations
         return jsonResponse({
+          rulesetIdentity: 'fixture-ruleset',
           ruleVersion: 'fixture-rule',
           ledgerVersion: 'fixture-ledger',
           transitionNamespace: 'fixture-cache',

@@ -17,6 +17,8 @@ it.each(actual)(
         'TRANSMUTATION',
         row.definitions as Record<string, Definition>,
         new AbortController().signal,
+        [],
+        'fixture-ruleset',
       ),
     ).resolves.toMatchObject({
       applied: true,
@@ -36,6 +38,8 @@ it.each(actual)('rejects an invented quality cap for $key', async (row) => {
       'TRANSMUTATION',
       row.definitions as Record<string, Definition>,
       new AbortController().signal,
+      [],
+      'fixture-ruleset',
     ),
   ).rejects.toThrow('Could not verify the applied item')
 })

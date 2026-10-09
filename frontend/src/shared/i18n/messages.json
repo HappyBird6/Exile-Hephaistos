@@ -386,7 +386,13 @@
     "server.helmets_uniform_candidates": "USER-APPROVED SIMULATOR MODEL: equal 1/N among eligible Helmet modifiers after family, side and level restrictions. Actual game spawn weights are unavailable; published DropChance is not a verified game weight.",
     "server.helmets_candidate_unit": "eligible per-base Helmet ordinary modifier",
     "base.weapon_property": "Base {property} (not computed)",
-    "notice.sceptre_skill_scope": "Spirit and the granted skill are source base facts. Combat effects, applied quality, sockets and pasted mapping are not simulated. Item-level gates use source modifier levels; lower-level game behavior is unverified."
+    "notice.sceptre_skill_scope": "Spirit and the granted skill are source base facts. Combat effects, applied quality, sockets and pasted mapping are not simulated. Item-level gates use source modifier levels; lower-level game behavior is unverified.",
+    "ruleset.legacy-unverified": "This saved craft has no verified ruleset identity. Execution is disabled. Start a new craft; the original record is preserved.",
+    "ruleset.mismatch": "This saved craft uses another ruleset. Execution is disabled. Start a new craft; the original record is preserved.",
+    "ruleset.inconsistent": "This saved craft contains inconsistent ruleset identities. Execution is disabled. The original record is preserved.",
+    "ruleset.saved_record": "Preserved craft record",
+    "ruleset.request_missing": "Ruleset identity is missing. Start a new craft using the current catalog. Saved records are preserved.",
+    "ruleset.request_changed": "The crafting ruleset changed. Reload the catalog and start a new craft. Saved records are preserved."
   },
   "ko": {
     "language": "언어",
@@ -775,7 +781,13 @@
     "server.helmets_uniform_candidates": "사용자가 승인한 시뮬레이터 모델: 계열·접두/접미·아이템 레벨 제한 후 적격 투구 옵션을 1/N로 선택합니다. 실제 게임 생성 가중치는 알려지지 않았으며 공개 DropChance는 검증된 게임 가중치가 아닙니다.",
     "server.helmets_candidate_unit": "베이스별 적격 투구 일반 옵션",
     "base.weapon_property": "기본 {property} (계산하지 않음)",
-    "notice.sceptre_skill_scope": "정신력과 부여된 스킬은 출처의 베이스 정보입니다. 전투 효과, 퀄리티 적용, 소켓, 붙여넣기 매핑은 시뮬레이션하지 않습니다. 레벨 제한은 출처 속성 레벨을 사용하며 낮은 레벨 게임 동작은 미검증입니다."
+    "notice.sceptre_skill_scope": "정신력과 부여된 스킬은 출처의 베이스 정보입니다. 전투 효과, 퀄리티 적용, 소켓, 붙여넣기 매핑은 시뮬레이션하지 않습니다. 레벨 제한은 출처 속성 레벨을 사용하며 낮은 레벨 게임 동작은 미검증입니다.",
+    "ruleset.legacy-unverified": "이 제작 기록에는 검증된 규칙 identity가 없습니다. 재실행할 수 없습니다. 새 제작을 시작하세요. 원본 기록은 보존됩니다.",
+    "ruleset.mismatch": "이 제작 기록은 다른 규칙을 사용합니다. 재실행할 수 없습니다. 새 제작을 시작하세요. 원본 기록은 보존됩니다.",
+    "ruleset.inconsistent": "이 제작 기록의 규칙 identity가 서로 일치하지 않습니다. 재실행할 수 없습니다. 원본 기록은 보존됩니다.",
+    "ruleset.saved_record": "보존된 제작 기록",
+    "ruleset.request_missing": "규칙 identity가 없습니다. 현재 catalog로 새 제작을 시작하세요. 저장 기록은 보존됩니다.",
+    "ruleset.request_changed": "제작 규칙이 변경되었습니다. catalog를 새로 불러와 새 제작을 시작하세요. 저장 기록은 보존됩니다."
   },
   "zh-CN": {
     "language": "语言",
@@ -1164,7 +1176,13 @@
     "server.helmets_uniform_candidates": "用户批准的模拟器模型：应用词缀组、前缀/后缀和物品等级限制后，以1/N选择符合条件的头盔词缀。实际游戏生成权重未知；公开DropChance不是已验证的游戏权重。",
     "server.helmets_candidate_unit": "每种基底符合条件的头盔普通词缀",
     "base.weapon_property": "基础 {property}（未计算）",
-    "notice.sceptre_skill_scope": "精神和授予技能是来源基底信息。不模拟战斗效果、施加品质、插槽及粘贴映射。等级限制使用来源词缀等级；低等级游戏行为未经验证。"
+    "notice.sceptre_skill_scope": "精神和授予技能是来源基底信息。不模拟战斗效果、施加品质、插槽及粘贴映射。等级限制使用来源词缀等级；低等级游戏行为未经验证。",
+    "ruleset.legacy-unverified": "此制作记录没有经过验证的规则标识，无法继续执行。请开始新的制作，原始记录会保留。",
+    "ruleset.mismatch": "此制作记录使用其他规则，无法继续执行。请开始新的制作，原始记录会保留。",
+    "ruleset.inconsistent": "此制作记录中的规则标识不一致，无法继续执行。原始记录会保留。",
+    "ruleset.saved_record": "保留的制作记录",
+    "ruleset.request_missing": "缺少规则标识。请使用当前目录开始新的制作，保存的记录会保留。",
+    "ruleset.request_changed": "制作规则已更改。请重新加载目录并开始新的制作，保存的记录会保留。"
   },
   "zh-TW": {
     "language": "語言",
@@ -1553,7 +1571,13 @@
     "server.helmets_uniform_candidates": "使用者批准的模擬器模型：套用詞綴組、前綴/後綴和物品等級限制後，以1/N選擇符合條件的頭盔詞綴。實際遊戲生成權重未知；公開DropChance不是已驗證的遊戲權重。",
     "server.helmets_candidate_unit": "各基底符合條件的頭盔普通詞綴",
     "base.weapon_property": "基礎 {property}（未計算）",
-    "notice.sceptre_skill_scope": "精魂與賦予技能是來源基底資料。不模擬戰鬥效果、施加品質、插槽及貼上對應。等級限制使用來源詞綴等級；低等級遊戲行為未經驗證。"
+    "notice.sceptre_skill_scope": "精魂與賦予技能是來源基底資料。不模擬戰鬥效果、施加品質、插槽及貼上對應。等級限制使用來源詞綴等級；低等級遊戲行為未經驗證。",
+    "ruleset.legacy-unverified": "此製作紀錄沒有經過驗證的規則識別碼，無法繼續執行。請開始新的製作，原始紀錄會保留。",
+    "ruleset.mismatch": "此製作紀錄使用其他規則，無法繼續執行。請開始新的製作，原始紀錄會保留。",
+    "ruleset.inconsistent": "此製作紀錄中的規則識別碼不一致，無法繼續執行。原始紀錄會保留。",
+    "ruleset.saved_record": "保留的製作紀錄",
+    "ruleset.request_missing": "缺少規則識別碼。請使用目前目錄開始新的製作，儲存的紀錄會保留。",
+    "ruleset.request_changed": "製作規則已變更。請重新載入目錄並開始新的製作，儲存的紀錄會保留。"
   },
   "ja": {
     "language": "言語",
@@ -1942,7 +1966,13 @@
     "server.helmets_uniform_candidates": "ユーザー承認のシミュレーターモデル：系統・接頭辞/接尾辞・アイテムレベル制限後の適格な兜モッドを1/Nで選択します。実際のゲーム生成重みは不明で、公開DropChanceは検証済みのゲーム重みではありません。",
     "server.helmets_candidate_unit": "ベースごとの適格な兜通常モッド",
     "base.weapon_property": "基本 {property}（未計算）",
-    "notice.sceptre_skill_scope": "スピリットと付与スキルは出典のベース情報です。戦闘効果、品質適用、ソケット、貼り付け対応はシミュレーションしません。レベル制限は出典モッドレベルを使用し、低レベル動作は未検証です。"
+    "notice.sceptre_skill_scope": "スピリットと付与スキルは出典のベース情報です。戦闘効果、品質適用、ソケット、貼り付け対応はシミュレーションしません。レベル制限は出典モッドレベルを使用し、低レベル動作は未検証です。",
+    "ruleset.legacy-unverified": "この制作記録には検証済みのルール識別子がありません。再実行できません。新しい制作を開始してください。元の記録は保持されます。",
+    "ruleset.mismatch": "この制作記録は別のルールを使用しています。再実行できません。新しい制作を開始してください。元の記録は保持されます。",
+    "ruleset.inconsistent": "この制作記録のルール識別子が一致していません。再実行できません。元の記録は保持されます。",
+    "ruleset.saved_record": "保持された制作記録",
+    "ruleset.request_missing": "ルール識別子がありません。現在のカタログで新しい制作を開始してください。保存された記録は保持されます。",
+    "ruleset.request_changed": "制作ルールが変更されました。カタログを再読み込みして新しい制作を開始してください。保存された記録は保持されます。"
   },
   "es": {
     "language": "Idioma",
@@ -2331,6 +2361,12 @@
     "server.helmets_uniform_candidates": "MODELO DE SIMULACIÓN APROBADO POR EL USUARIO: selección uniforme 1/N entre los modificadores de casco válidos tras aplicar las restricciones de familia, prefijo/sufijo y nivel de objeto. Los pesos reales del juego son desconocidos; el DropChance publicado no es un peso de juego verificado.",
     "server.helmets_candidate_unit": "modificador normal de casco válido para esta base",
     "base.weapon_property": "Base {property} (sin calcular)",
-    "notice.sceptre_skill_scope": "El espíritu y la habilidad otorgada son datos de la base según la fuente. No se simulan efectos de combate, calidad aplicada, engarces ni correspondencia de texto pegado. Los límites usan niveles de modificadores de la fuente; el comportamiento a niveles inferiores no está verificado."
+    "notice.sceptre_skill_scope": "El espíritu y la habilidad otorgada son datos de la base según la fuente. No se simulan efectos de combate, calidad aplicada, engarces ni correspondencia de texto pegado. Los límites usan niveles de modificadores de la fuente; el comportamiento a niveles inferiores no está verificado.",
+    "ruleset.legacy-unverified": "Esta creación guardada no tiene una identidad de reglas verificada. No se puede ejecutar. Inicia una nueva creación; el registro original se conserva.",
+    "ruleset.mismatch": "Esta creación guardada usa otras reglas. No se puede ejecutar. Inicia una nueva creación; el registro original se conserva.",
+    "ruleset.inconsistent": "Las identidades de reglas de esta creación guardada no coinciden. No se puede ejecutar. El registro original se conserva.",
+    "ruleset.saved_record": "Registro de creación conservado",
+    "ruleset.request_missing": "Falta la identidad de reglas. Inicia una nueva creación con el catálogo actual. Los registros guardados se conservan.",
+    "ruleset.request_changed": "Las reglas de creación han cambiado. Recarga el catálogo e inicia una nueva creación. Los registros guardados se conservan."
   }
 }

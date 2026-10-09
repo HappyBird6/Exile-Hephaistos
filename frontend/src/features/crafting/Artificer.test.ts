@@ -23,6 +23,7 @@ const initial = {
 }
 const root = concreteInitial(initial)
 const result = (before: ConcreteItem, applied = true): AppliedItem => ({
+  rulesetIdentity: 'fixture-ruleset',
   snapshotId: before.snapshotId,
   state: { ...before, augmentSockets: applied ? 1 : before.augmentSockets },
   action: 'ARTIFICER',
@@ -42,6 +43,8 @@ const apply = (before: ConcreteItem, r: AppliedItem) => {
     'ARTIFICER',
     initial.modifiers,
     new AbortController().signal,
+    [],
+    'fixture-ruleset',
   )
 }
 describe('ordinary Stocky Artificer boundary', () => {
@@ -98,6 +101,8 @@ describe('ordinary Stocky Artificer boundary', () => {
         'ANNULMENT',
         initial.modifiers,
         new AbortController().signal,
+        [],
+        'fixture-ruleset',
       ),
     ).rejects.toThrow('Augment Sockets')
   })
@@ -105,7 +110,7 @@ describe('ordinary Stocky Artificer boundary', () => {
     const repo = new LocalFilmRepository(localStorage),
       r = result(root)
     const original = recordCraft(
-      startFilm(emptyFilms(), root, 'source'),
+      startFilm(emptyFilms(), root, 'source', 'fixture-ruleset'),
       root,
       r,
       'unused',

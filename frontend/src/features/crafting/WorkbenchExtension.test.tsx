@@ -70,7 +70,7 @@ describe('Workbench extensions', () => {
       ],
     }
     new LocalFilmRepository(window.localStorage).save(
-      startFilm(emptyFilms(), state, 'preview'),
+      startFilm(emptyFilms(), state, 'preview', 'fixture-ruleset'),
     )
     client.setQueryData(['crafting', 'initial', 'solar', 82], {
       ...initialFixture,
@@ -152,6 +152,7 @@ describe('Workbench extensions', () => {
         : 'Omen_of_Sinistral_Exaltation'
       return Promise.resolve(
         jsonResponse({
+          rulesetIdentity: 'fixture-ruleset',
           ruleVersion: 'solar-workbench-affix-v2',
           ledgerVersion: 'solar-uniform-assumptions-v1',
           snapshotId: b.state.snapshotId,
@@ -203,6 +204,7 @@ describe('Workbench extensions', () => {
       client.setQueryData(
         ['crafting', 'workbench', useItemDraft.getState().baseRevision],
         {
+          rulesetIdentity: 'fixture-ruleset',
           ruleVersion: 'solar-workbench-affix-v2',
           ledgerVersion: 'solar-uniform-assumptions-v1',
           snapshotId: 'fixture-v1',
@@ -313,6 +315,7 @@ describe('Workbench extensions', () => {
         'text',
         new AbortController().signal,
         initialFixture.modifiers,
+        'fixture-ruleset',
       ),
     ).rejects.toThrow('verify')
   })

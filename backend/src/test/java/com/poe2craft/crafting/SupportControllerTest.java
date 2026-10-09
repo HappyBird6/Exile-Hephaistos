@@ -37,6 +37,9 @@ class SupportControllerTest {
                 List.of(new SupportGoals.Condition("IncreasedLife", 2)), List.of(), 0));
     mvc.perform(
             post("/api/v1/crafting/support/assess")
+                .header(
+                    "X-Crafting-Ruleset",
+                    com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(json.writeValueAsBytes(body)))
         .andExpect(status().isOk())
@@ -48,6 +51,9 @@ class SupportControllerTest {
   void malformedStateUsesProblemDetailsInsteadOfAZeroProbability() throws Exception {
     mvc.perform(
             post("/api/v1/crafting/support/assess")
+                .header(
+                    "X-Crafting-Ruleset",
+                    com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{}"))
         .andExpect(status().isUnprocessableEntity())

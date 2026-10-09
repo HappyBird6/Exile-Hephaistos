@@ -30,11 +30,15 @@ describe('lossless unsupported state boundary', () => {
           'TRANSMUTATION',
           initialFixture.modifiers,
           new AbortController().signal,
+          [],
+          'fixture-ruleset',
         ),
       ).rejects.toThrow('unsupported properties')
       expect(fetch).not.toHaveBeenCalled()
       const repository = new LocalFilmRepository(localStorage)
-      repository.save(startFilm(emptyFilms(), state, 'future'))
+      repository.save(
+        startFilm(emptyFilms(), state, 'future', 'fixture-ruleset'),
+      )
       const bytes = localStorage.getItem(historyStorageKey)
       const loaded = repository.load()
       expect(loaded.films[0]!.frames[0]!.state).toEqual(state)
@@ -59,7 +63,10 @@ describe('lossless unsupported state boundary', () => {
       )
       const result = await response.json()
       result.state.socketCount = 1
-      return new Response(JSON.stringify(result), { status: 200 })
+      return new Response(JSON.stringify(result), {
+        headers: { 'X-Crafting-Ruleset': 'fixture-ruleset' },
+        status: 200,
+      })
     })
     await expect(
       applyCurrency(
@@ -67,6 +74,8 @@ describe('lossless unsupported state boundary', () => {
         'TRANSMUTATION',
         initialFixture.modifiers,
         new AbortController().signal,
+        [],
+        'fixture-ruleset',
       ),
     ).rejects.toThrow()
   })

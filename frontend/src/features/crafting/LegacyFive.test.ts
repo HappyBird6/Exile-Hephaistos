@@ -23,6 +23,7 @@ function result(
   events: AppliedItem['events'],
 ): AppliedItem {
   return {
+    rulesetIdentity: 'fixture-ruleset',
     ruleVersion: 'legacy-five-v1',
     ledgerVersion: 'test-model',
     snapshotId: state.snapshotId,
@@ -42,7 +43,14 @@ async function apply(
   ids = r.consumedOmens,
 ) {
   vi.stubGlobal('fetch', () => Promise.resolve(jsonResponse(r)))
-  return applyCurrency(state, r.action, defs, new AbortController().signal, ids)
+  return applyCurrency(
+    state,
+    r.action,
+    defs,
+    new AbortController().signal,
+    ids,
+    'fixture-ruleset',
+  )
 }
 
 it('accepts maximum-prefix Alchemy and refuses a consumed wrong direction', async () => {

@@ -17,6 +17,7 @@ const additions = [
   { modifierId: 's', values: { strength: 6 } },
 ]
 const result: AppliedItem = {
+  rulesetIdentity: 'fixture-ruleset',
   ruleVersion: 'solar-workbench-double-exalt-v4',
   ledgerVersion: 'solar-uniform-assumptions-v2',
   snapshotId: before.snapshotId,
@@ -40,6 +41,7 @@ const apply = () =>
     initialFixture.modifiers,
     new AbortController().signal,
     [omen],
+    'fixture-ruleset',
   )
 
 it('accepts two verified additions with one consumed Greater Exaltation', async () => {

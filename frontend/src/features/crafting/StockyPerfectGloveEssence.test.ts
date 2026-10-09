@@ -50,6 +50,7 @@ describe.each([
       ],
     }
     const result: AppliedItem = {
+      rulesetIdentity: 'fixture-ruleset',
       action,
       applied: true,
       reason: '',
@@ -107,7 +108,14 @@ describe.each([
       ],
     }
     const apply = () =>
-      applyCurrency(before, action, definitions, new AbortController().signal)
+      applyCurrency(
+        before,
+        action,
+        definitions,
+        new AbortController().signal,
+        [],
+        'fixture-ruleset',
+      )
 
     it('accepts exact replacement and unverified source model without treating it as game probability', async () => {
       vi.stubGlobal('fetch', () => Promise.resolve(jsonResponse(result)))
@@ -172,6 +180,8 @@ describe.each([
             action,
             definitions,
             new AbortController().signal,
+            [],
+            'fixture-ruleset',
           ),
         ).rejects.toThrow('Your item is unchanged')
       }
@@ -193,6 +203,7 @@ describe.each([
             definitions,
             new AbortController().signal,
             omens,
+            'fixture-ruleset',
           )
         ).remainingOmens,
       ).toEqual([omens[1]])
@@ -211,6 +222,7 @@ describe.each([
           { ...definitions, [wrongId]: { ...definition, id: wrongId } },
           new AbortController().signal,
           omens,
+          'fixture-ruleset',
         ),
       ).rejects.toThrow('Your item is unchanged')
     })

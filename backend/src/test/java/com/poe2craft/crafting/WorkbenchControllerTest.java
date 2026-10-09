@@ -30,6 +30,46 @@ class WorkbenchControllerTest {
   @Autowired com.poe2craft.crafting.application.WorkbenchService service;
 
   @Test
+  void rulesetBoundaryPreservesReadsAndRejectsOlderAndMismatchedClients() throws Exception {
+    mvc.perform(get("/api/v1/crafting/workbench/initial"))
+        .andExpect(status().isOk())
+        .andExpect(
+            jsonPath("$.rulesetIdentity")
+                .value(com.poe2craft.crafting.presentation.RulesetBoundary.identity()));
+    var state = SolarAmulet.initial(catalog);
+    for (String endpoint : java.util.List.of("apply", "actions", "quality-display", "map-text")) {
+      var body =
+          mapper.writeValueAsBytes(Map.of("state", state, "action", "TRANSMUTATION", "text", ""));
+      mvc.perform(
+              post("/api/v1/crafting/workbench/" + endpoint)
+                  .contentType(MediaType.APPLICATION_JSON)
+                  .content(body))
+          .andExpect(status().isUnprocessableEntity())
+          .andExpect(jsonPath("$.code").value("RULESET_IDENTITY_REQUIRED"));
+      mvc.perform(
+              post("/api/v1/crafting/workbench/" + endpoint)
+                  .header("X-Crafting-Ruleset", "past-season")
+                  .contentType(MediaType.APPLICATION_JSON)
+                  .content(body))
+          .andExpect(status().isUnprocessableEntity())
+          .andExpect(jsonPath("$.code").value("RULESET_IDENTITY_MISMATCH"));
+    }
+    mvc.perform(
+            post("/api/v1/crafting/workbench/apply")
+                .header(
+                    "X-Crafting-Ruleset",
+                    com.poe2craft.crafting.presentation.RulesetBoundary.identity())
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(
+                    mapper.writeValueAsBytes(Map.of("state", state, "action", "TRANSMUTATION"))))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.applied").value(true))
+        .andExpect(
+            jsonPath("$.rulesetIdentity")
+                .value(com.poe2craft.crafting.presentation.RulesetBoundary.identity()));
+  }
+
+  @Test
   void legacyHomogenisingWorksAcrossNineBasesAndPreservesUnmatchedOmen() throws Exception {
     for (String base :
         java.util.List.of(
@@ -81,6 +121,9 @@ class WorkbenchControllerTest {
           java.util.Set.of("Omen_of_Homogenising_Coronation", "Omen_of_Homogenising_Exaltation");
       mvc.perform(
               post("/api/v1/crafting/workbench/apply")
+                  .header(
+                      "X-Crafting-Ruleset",
+                      com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                   .contentType(MediaType.APPLICATION_JSON)
                   .content(
                       mapper.writeValueAsBytes(
@@ -92,6 +135,9 @@ class WorkbenchControllerTest {
           .andExpect(jsonPath("$.remainingOmens[0]").value("Omen_of_Homogenising_Exaltation"));
       mvc.perform(
               post("/api/v1/crafting/workbench/apply")
+                  .header(
+                      "X-Crafting-Ruleset",
+                      com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                   .contentType(MediaType.APPLICATION_JSON)
                   .content(
                       mapper.writeValueAsBytes(
@@ -116,6 +162,9 @@ class WorkbenchControllerTest {
     state.set("catalystQuality", mapper.readTree("{\"type\":\"FLESH\",\"amount\":20}"));
     mvc.perform(
             post("/api/v1/crafting/workbench/quality-display")
+                .header(
+                    "X-Crafting-Ruleset",
+                    com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsBytes(Map.of("state", state))))
         .andExpect(status().isOk())
@@ -125,6 +174,9 @@ class WorkbenchControllerTest {
         .andExpect(jsonPath("$.modifiers[1].displayedValues.base_maximum_life").value(35));
     mvc.perform(
             post("/api/v1/crafting/workbench/apply")
+                .header(
+                    "X-Crafting-Ruleset",
+                    com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsBytes(Map.of("state", state, "action", "DIVINE"))))
         .andExpect(status().isOk())
@@ -139,6 +191,9 @@ class WorkbenchControllerTest {
       state.set("catalystQuality", mapper.readTree(bad));
       mvc.perform(
               post("/api/v1/crafting/workbench/quality-display")
+                  .header(
+                      "X-Crafting-Ruleset",
+                      com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                   .contentType(MediaType.APPLICATION_JSON)
                   .content(mapper.writeValueAsBytes(Map.of("state", state))))
           .andExpect(status().isUnprocessableEntity());
@@ -167,6 +222,9 @@ class WorkbenchControllerTest {
     var response =
         mvc.perform(
                 post("/api/v1/crafting/workbench/apply")
+                    .header(
+                        "X-Crafting-Ruleset",
+                        com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(
                         mapper.writeValueAsBytes(Map.of("state", legacy, "action", "FRACTURING"))))
@@ -185,6 +243,9 @@ class WorkbenchControllerTest {
     var divine =
         mvc.perform(
                 post("/api/v1/crafting/workbench/apply")
+                    .header(
+                        "X-Crafting-Ruleset",
+                        com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(mapper.writeValueAsBytes(Map.of("state", state, "action", "DIVINE"))))
             .andExpect(status().isOk())
@@ -211,6 +272,9 @@ class WorkbenchControllerTest {
   void applyReturnsConcreteRollsAndAssumptionsWithVersionedEvidence() throws Exception {
     mvc.perform(
             post("/api/v1/crafting/workbench/apply")
+                .header(
+                    "X-Crafting-Ruleset",
+                    com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(
                     mapper.writeValueAsBytes(
@@ -226,6 +290,9 @@ class WorkbenchControllerTest {
                     "solar-workbench-abyss-essence-v16-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2"));
     mvc.perform(
             post("/api/v1/crafting/workbench/apply")
+                .header(
+                    "X-Crafting-Ruleset",
+                    com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{}"))
         .andExpect(status().isUnprocessableEntity())
@@ -238,6 +305,9 @@ class WorkbenchControllerTest {
         "Item Class: Amulets\nRarity: Rare\nExample\nSolar Amulet\n--------\nItem Level: 82\n--------\n+15 to Spirit (implicit)\n--------\n+17 to maximum Life";
     mvc.perform(
             post("/api/v1/crafting/workbench/map-text")
+                .header(
+                    "X-Crafting-Ruleset",
+                    com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsBytes(Map.of("text", text))))
         .andExpect(status().isOk())
@@ -246,6 +316,9 @@ class WorkbenchControllerTest {
         .andExpect(jsonPath("$.state.explicits.length()").value(1));
     mvc.perform(
             post("/api/v1/crafting/workbench/map-text")
+                .header(
+                    "X-Crafting-Ruleset",
+                    com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(
                     mapper.writeValueAsBytes(Map.of("text", text + "\nGrants Skill: Unknown"))))
@@ -255,6 +328,9 @@ class WorkbenchControllerTest {
         .andExpect(jsonPath("$.issues").isNotEmpty());
     mvc.perform(
             post("/api/v1/crafting/workbench/actions")
+                .header(
+                    "X-Crafting-Ruleset",
+                    com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(
                     mapper.writeValueAsBytes(
@@ -278,6 +354,9 @@ class WorkbenchControllerTest {
     for (String route : java.util.List.of("apply", "actions"))
       mvc.perform(
               post("/api/v1/crafting/workbench/" + route)
+                  .header(
+                      "X-Crafting-Ruleset",
+                      com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                   .contentType(MediaType.APPLICATION_JSON)
                   .content(
                       mapper.writeValueAsBytes(Map.of("state", state, "action", "TRANSMUTATION"))))
@@ -294,6 +373,9 @@ class WorkbenchControllerTest {
         .put("socketBound", true);
     mvc.perform(
             post("/api/v1/crafting/workbench/apply")
+                .header(
+                    "X-Crafting-Ruleset",
+                    com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(
                     mapper.writeValueAsBytes(Map.of("state", state, "action", "TRANSMUTATION"))))
@@ -304,6 +386,9 @@ class WorkbenchControllerTest {
     state.putArray("modifierIds");
     mvc.perform(
             post("/api/v1/crafting/workbench/apply")
+                .header(
+                    "X-Crafting-Ruleset",
+                    com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(
                     mapper.writeValueAsBytes(Map.of("state", state, "action", "TRANSMUTATION"))))
@@ -324,6 +409,9 @@ class WorkbenchControllerTest {
     state.remove("augmentSockets");
     mvc.perform(
             post("/api/v1/crafting/workbench/apply")
+                .header(
+                    "X-Crafting-Ruleset",
+                    com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsBytes(Map.of("state", state, "action", "ARTIFICER"))))
         .andExpect(status().isOk())
@@ -331,6 +419,9 @@ class WorkbenchControllerTest {
     state.put("augmentSockets", 0);
     mvc.perform(
             post("/api/v1/crafting/workbench/apply")
+                .header(
+                    "X-Crafting-Ruleset",
+                    com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsBytes(Map.of("state", state, "action", "ARTIFICER"))))
         .andExpect(status().isOk())
@@ -352,6 +443,9 @@ class WorkbenchControllerTest {
       state.set("augmentSockets", value);
       mvc.perform(
               post("/api/v1/crafting/workbench/apply")
+                  .header(
+                      "X-Crafting-Ruleset",
+                      com.poe2craft.crafting.presentation.RulesetBoundary.identity())
                   .contentType(MediaType.APPLICATION_JSON)
                   .content(mapper.writeValueAsBytes(Map.of("state", state, "action", "ARTIFICER"))))
           .andExpect(status().isUnprocessableEntity());

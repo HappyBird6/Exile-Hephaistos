@@ -21,6 +21,7 @@
       "catalystQuality": null
     },
     "result": {
+      "rulesetIdentity": "fixture-ruleset",
       "ruleVersion": "quiver-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
       "ledgerVersion": "quiver-unverified-numeric-assumptions-v1",
       "snapshotId": "poe2db-visceral-quiver-20261005-0018282ecafe-414028865199",
@@ -146,6 +147,7 @@
       "catalystQuality": null
     },
     "result": {
+      "rulesetIdentity": "fixture-ruleset",
       "ruleVersion": "quiver-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
       "ledgerVersion": "quiver-unverified-numeric-assumptions-v1",
       "snapshotId": "poe2db-volant-quiver-20261005-1d805b58f11e-c626e4df69f9",
@@ -271,6 +273,7 @@
       "catalystQuality": null
     },
     "result": {
+      "rulesetIdentity": "fixture-ruleset",
       "ruleVersion": "quiver-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
       "ledgerVersion": "quiver-unverified-numeric-assumptions-v1",
       "snapshotId": "poe2db-penetrating-quiver-20261005-7a722e6674d0-455e403cb092",
@@ -396,6 +399,7 @@
       "catalystQuality": null
     },
     "result": {
+      "rulesetIdentity": "fixture-ruleset",
       "ruleVersion": "quiver-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
       "ledgerVersion": "quiver-unverified-numeric-assumptions-v1",
       "snapshotId": "poe2db-primed-quiver-20261005-81f0ceb5d0bf-6fafbf0f536d",
@@ -521,6 +525,7 @@
       "catalystQuality": null
     },
     "result": {
+      "rulesetIdentity": "fixture-ruleset",
       "ruleVersion": "quiver-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
       "ledgerVersion": "quiver-unverified-numeric-assumptions-v1",
       "snapshotId": "poe2db-serrated-quiver-20261005-6900f60bbf7b-3fb2de9c6166",
@@ -646,6 +651,7 @@
       "catalystQuality": null
     },
     "result": {
+      "rulesetIdentity": "fixture-ruleset",
       "ruleVersion": "quiver-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
       "ledgerVersion": "quiver-unverified-numeric-assumptions-v1",
       "snapshotId": "poe2db-toxic-quiver-20261005-cf5eb3881332-65dd83cfbe26",
@@ -778,6 +784,7 @@
       "catalystQuality": null
     },
     "result": {
+      "rulesetIdentity": "fixture-ruleset",
       "ruleVersion": "quiver-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
       "ledgerVersion": "quiver-unverified-numeric-assumptions-v1",
       "snapshotId": "poe2db-blunt-quiver-20261005-418e9093ca54-30fcfe77cdd0",
@@ -903,6 +910,7 @@
       "catalystQuality": null
     },
     "result": {
+      "rulesetIdentity": "fixture-ruleset",
       "ruleVersion": "quiver-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
       "ledgerVersion": "quiver-unverified-numeric-assumptions-v1",
       "snapshotId": "poe2db-two-point-quiver-20261005-38973ef2c97a-d7d4513d0d8d",
@@ -1028,6 +1036,7 @@
       "catalystQuality": null
     },
     "result": {
+      "rulesetIdentity": "fixture-ruleset",
       "ruleVersion": "quiver-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
       "ledgerVersion": "quiver-unverified-numeric-assumptions-v1",
       "snapshotId": "poe2db-sacral-quiver-20261005-274a0abc5238-f9a95658cfb2",
@@ -1161,6 +1170,7 @@
       "catalystQuality": null
     },
     "result": {
+      "rulesetIdentity": "fixture-ruleset",
       "ruleVersion": "quiver-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
       "ledgerVersion": "quiver-unverified-numeric-assumptions-v1",
       "snapshotId": "poe2db-fire-quiver-20261005-d5ad43b19c0c-d20fa24dd2a8",
@@ -1293,6 +1303,7 @@
       "catalystQuality": null
     },
     "result": {
+      "rulesetIdentity": "fixture-ruleset",
       "ruleVersion": "quiver-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
       "ledgerVersion": "quiver-unverified-numeric-assumptions-v1",
       "snapshotId": "poe2db-broadhead-quiver-20261005-be58842d27b7-180b1384d127",

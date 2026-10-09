@@ -22,6 +22,7 @@ it.each(actual.captures)(
       definitions,
       new AbortController().signal,
       ['Omen_of_the_Blessed'],
+      'fixture-ruleset',
     )
     expect(verified.applied).toBe(true)
     expect(craftProbabilityEvidence(verified).weighted).toBe(false)
@@ -43,6 +44,7 @@ it.each(actual.captures)(
         definitions,
         new AbortController().signal,
         ['Omen_of_the_Blessed'],
+        'fixture-ruleset',
       ),
     ).rejects.toThrow('numeric model')
   },
@@ -96,6 +98,7 @@ it.each([
       definitions,
       new AbortController().signal,
       ['Omen_of_the_Blessed'],
+      'fixture-ruleset',
     ),
   ).rejects.toThrow('verify')
 })

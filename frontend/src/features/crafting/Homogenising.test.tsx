@@ -66,6 +66,7 @@ const additions = [
   { modifierId: 'same', values: { life: 17 } },
 ]
 const result: AppliedItem = {
+  rulesetIdentity: 'fixture-ruleset',
   ruleVersion: 'homogenising-legacy-v1',
   ledgerVersion: 'fixture-model',
   snapshotId: before.snapshotId,
@@ -95,6 +96,7 @@ const apply = (
     definitions,
     new AbortController().signal,
     omens,
+    'fixture-ruleset',
   )
 }
 

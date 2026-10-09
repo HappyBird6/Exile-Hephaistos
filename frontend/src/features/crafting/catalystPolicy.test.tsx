@@ -61,6 +61,7 @@ it('rejects a catalyst response that silently changes canonical rolls', async ()
     vi.fn().mockResolvedValue(
       new Response(
         JSON.stringify({
+          rulesetIdentity: 'fixture-ruleset',
           ruleVersion: 'test',
           ledgerVersion: 'test',
           snapshotId: state.snapshotId,
@@ -73,6 +74,7 @@ it('rejects a catalyst response that silently changes canonical rolls', async ()
           consumedOmens: [],
           remainingOmens: [],
         }),
+        { headers: { 'X-Crafting-Ruleset': 'fixture-ruleset' } },
       ),
     ),
   )
@@ -83,6 +85,8 @@ it('rejects a catalyst response that silently changes canonical rolls', async ()
         'CATALYST_FLESH',
         initialFixture.modifiers,
         new AbortController().signal,
+        [],
+        'fixture-ruleset',
       ),
     ).rejects.toThrow('verify')
   } finally {

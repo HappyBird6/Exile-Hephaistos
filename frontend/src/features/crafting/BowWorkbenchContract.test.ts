@@ -36,6 +36,7 @@ it('accepts actual multi-stat Essence values when event JSON key order differs',
       definitions,
       new AbortController().signal,
       result.remainingOmens,
+      'fixture-ruleset',
     ),
   ).resolves.toMatchObject({ applied: true })
 })
@@ -60,6 +61,7 @@ it.each(['changed', 'extra', 'missing', 'out-of-range'])(
         definitions,
         new AbortController().signal,
         result.remainingOmens,
+        'fixture-ruleset',
       ),
     ).rejects.toThrow('Could not verify the coupled roll model')
   },
@@ -89,7 +91,14 @@ it('accepts an unchanged Fractured modifier with reordered JSON stat keys', asyn
   }
   vi.stubGlobal('fetch', vi.fn().mockResolvedValue(jsonResponse(response)))
   await expect(
-    applyCurrency(locked, 'DIVINE', definitions, new AbortController().signal),
+    applyCurrency(
+      locked,
+      'DIVINE',
+      definitions,
+      new AbortController().signal,
+      [],
+      'fixture-ruleset',
+    ),
   ).resolves.toMatchObject({ applied: false })
 })
 

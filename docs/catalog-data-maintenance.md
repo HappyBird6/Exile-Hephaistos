@@ -1,5 +1,28 @@
 # Catalog 데이터 유지보수
 
+## Film과 API 시즌 경계 (2026-10-09)
+
+`rulesetIdentity`는 현재 봉인된 content identity이며 검증된 게임 시즌 이름을 뜻하지 않는다. `ItemState`에는 추가하지 않는다. 초기 API 응답과 적용 결과, 새 film, root frame, 후속 frame/evidence에 저장한다. 모든 `/api/v1/crafting/` POST는 `X-Crafting-Ruleset`으로 이를 명시해야 한다. 초기 상태·registry·family·goal catalog GET은 이전 클라이언트도 조회할 수 있다. POST의 누락/빈 identity는 422 `RULESET_IDENTITY_REQUIRED`, 다른 identity는 422 `RULESET_IDENTITY_MISMATCH` Problem Details로 실행 전에 거부한다. implicit 최신값 기본 처리는 없다. 정상 response header와 initial/result body의 identity도 Frontend에서 검증한다.
+
+실제 호출 경로는 Workbench apply/map-text/actions/quality-display, Solar actions/transitions/explore, Support assess/recommend 및 goal validate/evaluate/recommend이다. Frontend는 initial에서 받은 identity를 상태의 출처와 함께 전달한다. 독립 goal adapter는 명시적으로 읽은 동일 context의 catalog response identity만 validate에 사용한다. 저장된 goal의 catalogVersion 검증은 그대로 유지한다. 실행 알고리즘, 확률, weight, 지원 범위는 바꾸지 않는다.
+
+저장 형식/키 `hephaistos.workbench.films.v1`은 유지하며 기존 records를 자동 migration하지 않는다. film 전체의 identity를 다음과 같이 분류한다.
+
+| 분류 | 기준 | 실행 |
+|---|---|---|
+| `current` | film/root/모든 frame와 craft evidence의 identity가 모두 현행과 같음 | 기존 catalog/state/evidence 검증을 추가로 만족해야 가능 |
+| `mismatch` | 완전하고 일관된 identity가 현행과 다름 | 차단 |
+| `legacy-unverified` | identity 일부 또는 전체 누락 | 차단; ruleVersion/ledgerVersion만으로 인증하지 않음 |
+| `inconsistent` | 잘못된 identity 값 또는 film/frame/evidence 사이 불일치 | 차단 |
+
+차단된 기록도 session 선택과 뒤/앞 이동, 저장된 frame JSON 열람을 제공한다. 현행 modifier label/quality/goal 의미로 재해석하거나 현행 snapshot/identity로 재라벨링하지 않는다. 최초 저장 변경 전에 원래 저장 bytes를 `.preserved` suffix key에 별도로 보존한다. quota 실패 시 기존 bytes를 덮어쓰지 않는다. 손상된 저장소 load 실패는 기존의 저장 차단 정책을 유지한다. 기존 film/frame 객체는 새 제작이나 선택 변경으로 삭제하지 않는다.
+
+정상 current film의 과거 지점에서 성공적인 적용을 하면 해당 state를 root로 하는 별도 새 film을 만들고 원래 미래를 보존한다. 과거 규칙 record를 새 규칙으로 변환하는 기능은 제공하지 않는다. 차단된 기록에서 새 베이스/명시적으로 검증한 입력으로 새 제작을 시작할 수 있다. 원본 record의 재실행·동일 identity를 주장하는 snapshot 호환 목록은 별개의 문제다. 과거 시즌 엔진, 변환 호환 선언, 자동 복구/추천 경로는 범위 밖이다.
+
+Omen 정적 정의를 편집할 때는 key별 구현된 trigger 효과 경계를 만족해야 한다. 예를 들어 `GREATER_ANNULMENT`의 `DIVINE` trigger는 manifest를 재봉인해도 거부한다. 정상 level/target/source 데이터 편집은 기존 typed 참조 검증을 유지한다. effect/trigger 알고리즘을 새로 지원할 때만 해당 코드 경계·테스트·engine version을 함께 검토한다. `WorkbenchDefinitionsLoaderTest`는 알려진 trigger 간 모든 잘못된 교차 조합을 검증한다.
+
+정책 검토 사항은 ISSUES.md WB-050에 기록한다. 저장된 JSON은 client-side 기록이며 신뢰 가능한 인증 토큰이 아니다. 이 identity 경계는 명시된 규칙 provenance를 대조하는 장치이고 과거 게임 규칙의 실행 호환 인증이 아니다.
+
 2026-10-09 · 기존 동작을 보존한 데이터 분리
 
 ## 데이터 출처와 경계
@@ -43,7 +66,7 @@ Backend의 `./gradlew.bat check generateJooq bootJar`로 formatter·unit·ArchUn
 
 ## 남은 작업
 
-inventory의 일부 `workbenchBases.ruleVersion`은 legacy simulator 계열 version이고 BaseRegistry의 variant wrapper version과 의미가 다르므로 동일성만으로 오류 처리하지 않는다. 이를 별도 이름의 version 필드로 명확히 하는 API 변경은 후속 부채다. film/root/request identity와 legacy 정책도 아직 남는다.
+inventory의 일부 `workbenchBases.ruleVersion`은 legacy simulator 계열 version이고 BaseRegistry의 variant wrapper version과 의미가 다르므로 동일성만으로 오류 처리하지 않는다. 이를 별도 이름의 version 필드로 명확히 하는 API 변경은 후속 부채다. film/root/request identity와 legacy 정책은 위 시즌 경계에서 구현했다.
 
 ## 화폐와 징조 정의 수정
 
@@ -71,8 +94,8 @@ manifest에서 소비 파일을 빼는 것도 실패해야 한다. `SealedResour
 
 업데이트 순서는 source 검토 → 범위/capability와 snapshot 수정 → engine/ledger 의미 version 검토 → 새 rulesetVersion 지정 → `node scripts/update-ruleset-manifest.mjs` → manifest diff 리뷰 → strict loader·order-sensitive·전체 검증이다. 이 스크립트는 파일 digest만 갱신하며 게임 효과나 version/provenance를 결정하지 않는다. 알고리즘이 바뀌면 해당 engine ruleVersion을 반드시 올린다. 과거 snapshot을 `compatibleSnapshotIds`에 추가하는 것은 모든 기존 modifier/state 의미가 보존된 additive extension임을 증명한 경우만 허용한다. target 배열과 extension 로드 순서를 정렬하지 않는다. `CatalogLoadOrderTest`와 `ReviewedEssencesLoaderTest`가 각각 Solar/Stocky extension·compatibleSnapshotIds·modifier 순서와 모든 Essence target 배열 순서를 별도로 검사한다.
 
-현재 film은 snapshot과 개별 craft의 ruleVersion/ledgerVersion을 기록하지만 최초 root를 포함한 film 전체에 ruleset identity를 갖고 있지 않다. 이 작업에서 과거 film을 새 시즌으로 자동 이관하거나 삭제하지 않는다. 미래 시즌 실행 지원을 열기 전에는 film/request ruleset ID, 현재 ruleset과의 mismatch 거부, 명시적인 legacy 호환/읽기 전용 정책을 추가해야 한다. manifest 재봉인만으로 과거 film 실행의 시즌 호환성을 보증하지 않는다. 기존 ItemState snapshot 검증·compatibleSnapshotIds 정책은 유지했다. 모든 과거 시즌 엔진이나 새 경로 탐색 서비스는 구현하지 않았다.
+기존 film은 snapshot과 개별 craft의 ruleVersion/ledgerVersion만 기록했다. 후속 WB-050은 최초 root를 포함한 film 전체의 ruleset identity 경계를 구현했다. 과거 film을 새 시즌으로 자동 이관하거나 삭제하지 않는다. manifest 재봉인만으로 과거 film 실행의 시즌 호환성을 보증하지 않는다. ItemState 자체의 snapshot 검증·compatibleSnapshotIds는 유지하지만 저장된 frame의 snapshot을 자동 재라벨링하지 않는다. 모든 과거 시즌 엔진이나 새 경로 탐색 서비스는 구현하지 않았다.
 
-화폐·징조 분리 bundle v2는 분리 전 getter/배열 값 그대로지만 추가 resource와 registry level ref를 identity에 반영한다. goal/catalog/cache identity도 변한다. 과거 호환 digest를 v2 값으로 갱신하지 않으며 기존 목표는 현재 catalogVersion으로 재검증해야 한다. 과거 film을 새 ruleset으로 자동 재라벨링하지 않는다. film/root/request의 ruleset mismatch와 버전 없는 legacy 기록 분류/읽기 전용 정책은 아직 구현되지 않았다. 실제 다음 시즌의 동작 변경을 적용하기 전에 이 경계를 완료해야 한다.
+화폐·징조 분리 bundle v2는 분리 전 getter/배열 값 그대로지만 추가 resource와 registry level ref를 identity에 반영한다. goal/catalog/cache identity도 변한다. 과거 호환 digest를 v2 값으로 갱신하지 않으며 기존 목표는 현재 catalogVersion으로 재검증해야 한다. 과거 film을 새 ruleset으로 자동 재라벨링하지 않는다. film/root/request의 ruleset mismatch와 버전 없는 legacy 기록 분류/읽기 전용 정책은 위 시즌 경계에 명시했다.
 
-후속 구현은 `workbenchHistory.ts`의 version1 저장 형식과 `CraftingPage.tsx`의 load/save 경계, `workbenchApi.ts`/`craftingApi.ts`, `WorkbenchController`와 기존 `CraftingController` 요청 경계에서 시작한다. 보수적인 정책 후보는 current/mismatch/legacy-unverified/inconsistent를 읽을 때 분류하되 저장 bytes를 변경하지 않는 것이다. ruleset identity는 물리적 ItemState 밖에 film/root/result/request로 전달하고, 누락·불일치는 실행뿐 아니라 actions/quality/goal 해석에서도 거부한다. 기존 snapshot 호환 업그레이드를 ruleset 재라벨링에 사용하지 않는다. 버전 없는 기록의 ruleVersion/ledgerVersion만으로 시즌을 추정하지 않는다. 현재 규칙으로 재사용을 제공한다면 명시적 새 film 생성과 현재 state 검증을 거쳐 원본 film/evidence를 보존한다. 이 정책은 다음 묶음에서 확정·구현·검증할 후보이며 현재 앱의 보장 사항이 아니다.
+구현 위치는 `workbenchHistory.ts`의 version1 저장 형식과 `CraftingPage.tsx`의 load/save 경계, `workbenchApi.ts`/`craftingApi.ts`, presentation의 `RulesetBoundary`/`RulesetResponse`다. 정적 test API fixture에 추가된 identity는 synthetic test envelope이며 과거 실제 기록의 호환 인증이 아니다. fixture의 기존 captured 값과 배열 순서는 기준 SHA와 별도 비교했다. 실제 시즌 규칙을 바꿀 때는 engine/ledger 의미 version·source review·manifest 갱신과 이 경계의 회귀 검사를 함께 수행한다.

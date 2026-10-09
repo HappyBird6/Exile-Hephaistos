@@ -336,6 +336,7 @@ describe('Crafting probability explorer', () => {
         initialFixture.state,
         'TRANSMUTATION',
         new AbortController().signal,
+        'fixture-ruleset',
       ),
     ).rejects.toThrow('verify')
   })

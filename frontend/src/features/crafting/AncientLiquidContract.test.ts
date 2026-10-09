@@ -21,11 +21,13 @@ it.each(actual.captures.map((capture, index) => ({ ...capture, index })))(
         initial.modifiers as Record<string, Definition>,
         new AbortController().signal,
         activeOmens,
+        'fixture-ruleset',
       ),
     ).resolves.toEqual(result)
     expect(
       verifiedFrameEvidence(
         {
+          rulesetIdentity: 'fixture-ruleset',
           state: result.state as ConcreteItem,
           action,
           evidence: result as unknown as AppliedItem,

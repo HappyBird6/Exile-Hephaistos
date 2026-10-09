@@ -89,6 +89,7 @@
       },
       "result": {
         "status": 200,
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "ring-workbench-perfect-essence-v1",
         "ledgerVersion": "ring-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-iron-ring-normal-20261003-504b72aa3d45+ring-perfect-20261003-f7ae1ed8c21a",
@@ -226,6 +227,7 @@
     }
   },
   "initial": {
+    "rulesetIdentity": "fixture-ruleset",
     "ruleVersion": "ring-workbench-perfect-essence-v1",
     "metadata": {
       "snapshotId": "poe2db-iron-ring-normal-20261003-504b72aa3d45+ring-perfect-20261003-f7ae1ed8c21a",
@@ -4881,6 +4883,7 @@
     },
     "result": {
       "status": 200,
+      "rulesetIdentity": "fixture-ruleset",
       "ruleVersion": "ring-workbench-perfect-essence-v1",
       "ledgerVersion": "ring-unverified-numeric-assumptions-v1",
       "snapshotId": "poe2db-iron-ring-normal-20261003-504b72aa3d45+ring-perfect-20261003-f7ae1ed8c21a",

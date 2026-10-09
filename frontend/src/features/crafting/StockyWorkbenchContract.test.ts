@@ -71,6 +71,7 @@ it('accepts a guaranteed glove essence result and rejects an invented implicit',
   const input = { ...root, rarity: 'MAGIC' as const }
   const values = { 'local_armour_+%': 30 }
   const result: AppliedItem = {
+    rulesetIdentity: 'fixture-ruleset',
     ruleVersion: 'fixture',
     ledgerVersion: 'fixture',
     snapshotId: root.snapshotId,
@@ -95,6 +96,8 @@ it('accepts a guaranteed glove essence result and rejects an invented implicit',
         result.action,
         definitions,
         new AbortController().signal,
+        [],
+        'fixture-ruleset',
       )
     ).state.implicits,
   ).toEqual([])
@@ -105,6 +108,8 @@ it('accepts a guaranteed glove essence result and rejects an invented implicit',
       result.action,
       definitions,
       new AbortController().signal,
+      [],
+      'fixture-ruleset',
     ),
   ).rejects.toThrow('unchanged')
 })
@@ -120,6 +125,7 @@ it('uses the source-proven glove Life target and rejects a Solar target on glove
   const input = { ...root, rarity: 'MAGIC' as const }
   const values = { base_maximum_life: 35 }
   const result: AppliedItem = {
+    rulesetIdentity: 'fixture-ruleset',
     ruleVersion: 'stocky-workbench-basic-essence-v18',
     ledgerVersion: 'fixture',
     snapshotId: root.snapshotId,
@@ -148,6 +154,8 @@ it('uses the source-proven glove Life target and rejects a Solar target on glove
         result.action,
         definitions,
         new AbortController().signal,
+        [],
+        'fixture-ruleset',
       )
     ).state.explicits[0]?.modifierId,
   ).toBe(id)
@@ -159,6 +167,8 @@ it('uses the source-proven glove Life target and rejects a Solar target on glove
       result.action,
       definitions,
       new AbortController().signal,
+      [],
+      'fixture-ruleset',
     ),
   ).rejects.toThrow('unchanged')
   expect(input.explicits).toEqual([])

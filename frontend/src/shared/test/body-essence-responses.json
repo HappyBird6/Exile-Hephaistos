@@ -29,6 +29,7 @@
       },
       "result": {
         "status": 200,
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "body-workbench-perfect-essence-v1",
         "ledgerVersion": "body-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-rusted-cuirass-normal-20261003-d7167bf9f969+body-perfect-20261003-7291b4e1d1cd",
@@ -106,6 +107,7 @@
         "consumedOmens": [],
         "remainingOmens": ["Omen_of_the_Blessed"],
         "qualityLimit": {
+          "rulesetIdentity": "fixture-ruleset",
           "ruleVersion": "quality-limit-v1",
           "maximumQuality": 20
         }
@@ -140,6 +142,7 @@
       },
       "result": {
         "status": 200,
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "body-workbench-perfect-essence-v1",
         "ledgerVersion": "body-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-rusted-cuirass-normal-20261003-d7167bf9f969+body-perfect-20261003-7291b4e1d1cd",
@@ -217,6 +220,7 @@
         "consumedOmens": [],
         "remainingOmens": ["Omen_of_the_Blessed"],
         "qualityLimit": {
+          "rulesetIdentity": "fixture-ruleset",
           "ruleVersion": "quality-limit-v1",
           "maximumQuality": 20
         }
@@ -251,6 +255,7 @@
       },
       "result": {
         "status": 200,
+        "rulesetIdentity": "fixture-ruleset",
         "ruleVersion": "body-workbench-perfect-essence-v1",
         "ledgerVersion": "body-unverified-numeric-assumptions-v1",
         "snapshotId": "poe2db-rusted-cuirass-normal-20261003-d7167bf9f969+body-perfect-20261003-7291b4e1d1cd",
@@ -328,6 +333,7 @@
         "consumedOmens": [],
         "remainingOmens": ["Omen_of_the_Blessed"],
         "qualityLimit": {
+          "rulesetIdentity": "fixture-ruleset",
           "ruleVersion": "quality-limit-v1",
           "maximumQuality": 20
         }
@@ -335,6 +341,7 @@
     }
   ],
   "initial": {
+    "rulesetIdentity": "fixture-ruleset",
     "ruleVersion": "body-workbench-perfect-essence-v1",
     "metadata": {
       "snapshotId": "poe2db-rusted-cuirass-normal-20261003-d7167bf9f969+body-perfect-20261003-7291b4e1d1cd",
@@ -3575,6 +3582,7 @@
       "poe2db-rusted-cuirass-normal-20261003-d7167bf9f969"
     ],
     "qualityLimit": {
+      "rulesetIdentity": "fixture-ruleset",
       "ruleVersion": "quality-limit-v1",
       "maximumQuality": 20
     },

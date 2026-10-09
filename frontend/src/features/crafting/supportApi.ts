@@ -1,3 +1,4 @@
+import { rulesetHeaders, verifyRulesetResponse } from './rulesetIdentity'
 import type { Bucket } from './craftingApi'
 import { baseWorkbenchAction } from './workbenchApi'
 import type { WorkbenchAction } from './workbenchApi'
@@ -81,11 +82,12 @@ export async function recommendGoal(
   activeOmens: string[],
   maxMillis: number,
   signal: AbortSignal,
+  rulesetIdentity: string,
 ): Promise<SupportReport> {
   const response = await fetch('/api/v1/crafting/support/recommend', {
     method: 'POST',
     signal,
-    headers: { 'Content-Type': 'application/json' },
+    headers: rulesetHeaders(rulesetIdentity),
     body: JSON.stringify({
       state,
       goal,
@@ -99,6 +101,7 @@ export async function recommendGoal(
         ? 'The Support state, goal or calculation budget was rejected. Your inputs are preserved.'
         : 'The recommendation service failed. Your inputs are preserved; please retry.',
     )
+  verifyRulesetResponse(response, rulesetIdentity)
   const value = (await response.json()) as SupportReport
   const invalid = () => {
     throw new Error(
@@ -232,17 +235,19 @@ export async function assessGoal(
   state: Bucket,
   goal: SupportGoal,
   signal: AbortSignal,
+  rulesetIdentity: string,
 ): Promise<GoalAssessment> {
   const response = await fetch('/api/v1/crafting/support/assess', {
     method: 'POST',
     signal,
-    headers: { 'Content-Type': 'application/json' },
+    headers: rulesetHeaders(rulesetIdentity),
     body: JSON.stringify({ state, goal }),
   })
   if (!response.ok)
     throw new Error(
       'Could not validate the Support state and goal. Your inputs are preserved.',
     )
+  verifyRulesetResponse(response, rulesetIdentity)
   const value = (await response.json()) as GoalAssessment
   if (
     !['READY', 'ACHIEVED', 'IMPOSSIBLE', 'INVALID_GOAL'].includes(

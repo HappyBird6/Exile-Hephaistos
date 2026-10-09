@@ -33,7 +33,10 @@ const reviewedInitial: Initial = {
 }
 async function reviewedFetch(input: RequestInfo | URL, init?: RequestInit) {
   if (String(input).includes('/initial'))
-    return new Response(JSON.stringify(reviewedInitial), { status: 200 })
+    return new Response(JSON.stringify(reviewedInitial), {
+      headers: { 'X-Crafting-Ruleset': 'fixture-ruleset' },
+      status: 200,
+    })
   return fixtureFetch(input, init)
 }
 
@@ -50,12 +53,20 @@ it('selects a typed Ring film from an active Solar film without losing either ro
   }
   const repo = new LocalFilmRepository(localStorage)
   repo.save(
-    startFilm(startFilm(emptyFilms(), ring, 'typed-ring'), root, 'solar'),
+    startFilm(
+      startFilm(emptyFilms(), ring, 'typed-ring', 'fixture-ruleset'),
+      root,
+      'solar',
+      'fixture-ruleset',
+    ),
   )
   vi.stubGlobal('fetch', (input: RequestInfo | URL, init?: RequestInit) =>
     String(input).includes('base=ring')
       ? Promise.resolve(
-          new Response(JSON.stringify(ringInitial), { status: 200 }),
+          new Response(JSON.stringify(ringInitial), {
+            headers: { 'X-Crafting-Ruleset': 'fixture-ruleset' },
+            status: 200,
+          }),
         )
       : reviewedFetch(input, init),
   )
@@ -147,8 +158,8 @@ it('preserves typed and legacy frames without rewriting storage and sends suppor
     catalystQuality: { type: 'FLESH' as const, amount: 20 },
   }
   const repo = new LocalFilmRepository(localStorage)
-  const legacy = startFilm(emptyFilms(), root, 'legacy')
-  repo.save(startFilm(legacy, state, 'typed'))
+  const legacy = startFilm(emptyFilms(), root, 'legacy', 'fixture-ruleset')
+  repo.save(startFilm(legacy, state, 'typed', 'fixture-ruleset'))
   const bytes = localStorage.getItem(historyStorageKey)
   const restored = repo.load()
   expect(currentFrame(restored)!.state).toEqual(state)
@@ -165,6 +176,8 @@ it('preserves typed and legacy frames without rewriting storage and sends suppor
       'TRANSMUTATION',
       reviewedInitial.modifiers,
       new AbortController().signal,
+      [],
+      'fixture-ruleset',
     ),
   ).rejects.toThrow('Request reached server')
   expect(fetch).toHaveBeenCalledOnce()

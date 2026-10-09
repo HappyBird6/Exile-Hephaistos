@@ -472,6 +472,8 @@ Backend441+integration6, Frontend1820, API539, Browser719가 통과했고228 scr
 
 ## WB-049 Catalog 유지보수 첫 묶음과 시즌 경계 (2026-10-09)
 
+후속 화폐160/징조18 정적 정의 경계는 `d212cc74fa979d74747fe2b2b5003e77039f29db`에서 완료됐다. film/root/request 후속 정책은 WB-050 및 `docs/catalog-data-maintenance.md`의 시즌 경계를 따른다. 아래 목록은 첫 묶음 당시 인계 이력이다.
+
 첫 안전 묶음은 goal direct stat14/pseudo6/선택 base17의 typed JSON, crafting 지원 base whitelist34 단일 출처, 공통 strict JSON reader, base policy/Essence manifest 참조 검증, explicit ruleset manifest다. BaseRegistry의 확장117행과 legacy17행은 Workbench134 지원과 구분한다. JSON은 capability를 자동 구현하지 않으며 Solar-only numeric, 미검토 raw-text mapping, 기존 quality/source/rounding 규칙을 보존한다. 기존 Blessed whitelist의 Elegant/Flexed Crossbow 중복 key2개는 제거했다. public registry oracle는 이 두 삭제와 additive ruleset metadata를 분리하여 이전 나머지 값·배열 순서를 검증한다.
 
 `schemaVersion`은 파일 형식, `rulesetVersion`은 내부 검토 bundle이다. 현재 gameSeason/gamePatch는 UNVERIFIED다. 461개 catalog/지원 resource digest와 engine/ledger version을 초기화에서 검사하고 내용 identity를 goal version/cache namespace에 반영한다. 과거 goal 호환 digest는 현행 정의 그대로일 때만 유효하다. JSON shape·중복 key·coercion·orphan override·unknown target·version mismatch를 거부하며 기존 simulator의 실제 modifier 검증은 유지한다. 변경 가이드는 [catalog 데이터 유지보수](docs/catalog-data-maintenance.md)에 있다.
@@ -484,6 +486,18 @@ Backend441+integration6, Frontend1820, API539, Browser719가 통과했고228 scr
 - 기존 film은 frame snapshot과 개별 evidence ruleVersion/ledgerVersion만 가진다. root/film/request의 ruleset ID, mismatch 거부, explicit legacy 읽기/실행 호환 정책은 아직 구현하지 않았다. future season 지원 전에 해결한다. manifest 재봉인만으로 과거 film 실행 호환성을 보증하지 않는다.
 
 기존 migration/DB/volume/local film/source 데이터는 보존한다. 새 Craft Support 경로 탐색이나 과거 시즌 실행 엔진은 이번 묶음에 포함하지 않았다. 검사·commit·원격 SHA는 완료 checkpoint 문서에서 구분한다.
+
+## WB-050 Film ruleset provenance와 보수적인 재실행 경계 (2026-10-09)
+
+새 제작은 initial에서 확인한 봉인 content identity를 film/root/frame/result/evidence에 기록하고 상태 해석 API 요청 header로 전달한다. 누락/불일치는 최신 identity로 보정하지 않고 422 Problem Details로 거부한다. GET 조회는 유지한다. 게임 시즌/패치 표기는 계속 UNVERIFIED이며 확률·weight·지원 범위는 변경하지 않았다.
+
+기존 저장 형식/records를 migration하거나 삭제하지 않는다. current/mismatch/legacy-unverified/inconsistent 분류 중 current만 추가 state 검증을 거쳐 실행 가능하다. 차단된 기록은 저장된 JSON을 그대로 열람하고 히스토리를 이동할 수 있다. 최초 수정 전 원본 bytes를 별도 `.preserved` key에 보존한다. 새 베이스 제작은 별도 film이며 과거 기록의 변환이나 호환 선언이 아니다. 정상 current 과거 지점 분기는 원래 미래를 보존한다.
+
+정책 리뷰 권고: version이 없는 과거 기록에는 안전한 실행 호환을 증명할 근거가 없으므로 읽기만 허용한다. identity를 임의 입력하거나 snapshot compatibility만으로 우회하는 복구 기능은 제공하지 않는다. 향후 explicit 변환을 요청하면 원본·새 film을 분리하고 변환 의미/근거를 별도로 검토해야 한다. 모든 과거 시즌 실행 엔진은 범위 밖이다. 이번 정책은 로컬 history 소비 경로에 영향이 크므로 master 반영 전 독립 검토를 권고하며, 구현자 자체 리뷰와 독립 리뷰를 구분한다.
+
+리뷰에서 제기된 Omen trigger fail-open은 key별 실제 구현 효과 경계를 검사하도록 수정했다. GREATER_ANNULMENT→DIVINE 및 18개 Omen의 모든 알려진 잘못된 trigger 교차 변이를 로더에서 거부한다. 정상 번들의 모든 currency/omen getter와 target 순서 oracle는 유지한다.
+
+검증: Docker Java21 `check generateJooq bootJar`에서 unit548/integration7 총555건 실패·오류·skip 0, Node24/npm11.16의 `npm ci`, lint/typecheck/format/test/build에서 75 files/1963 tests 통과. API smoke는 134 initial identity와 31개 정상/누락/불일치 동작을 확인했고 UI는 정상 제작·뒤/앞·과거 분기·reload 및 legacy/mismatch/inconsistent 원본 열람·실행 차단을 확인했다. 서버 불가 상태의 과거 base 기록 선택도 회귀 테스트로 검증했다. compose quiet 검사와 기존 fixture13개 identity 제외 parity도 통과했다. 첫 검사 환경의 contracts mount 누락 및 테스트 저장소 격리 오류는 수정 후 전체 재검증했다. Windows 실행 스크립트 변경이 없어 해당 Python 검사는 미실행이며 원격 CI와 독립 리뷰는 미실행이다. 자체 리뷰만 완료했다.
 
 ## Goal filter numeric addition model
 

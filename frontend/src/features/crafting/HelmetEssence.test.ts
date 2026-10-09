@@ -22,6 +22,7 @@ it.each(actual.captures)(
       definitions,
       new AbortController().signal,
       ['Omen_of_the_Blessed'],
+      'fixture-ruleset',
     )
     expect(verified.applied).toBe(true)
     expect(craftProbabilityEvidence(verified).weighted).toBe(false)
@@ -43,6 +44,7 @@ it.each(actual.captures)(
         definitions,
         new AbortController().signal,
         ['Omen_of_the_Blessed'],
+        'fixture-ruleset',
       ),
     ).rejects.toThrow('numeric model')
   },
@@ -96,6 +98,7 @@ it.each([
       definitions,
       new AbortController().signal,
       ['Omen_of_the_Blessed'],
+      'fixture-ruleset',
     ),
   ).rejects.toThrow('verify')
 })
@@ -150,6 +153,8 @@ it('accepts actual Helmet Divine while preserving the explicit-only projection',
     'DIVINE',
     definitions,
     new AbortController().signal,
+    [],
+    'fixture-ruleset',
   )
   expect(r.applied).toBe(true)
   expect(r.state.implicits).toEqual([])
@@ -171,6 +176,7 @@ it.each([null, { ruleVersion: 'quality-limit-v1', maximumQuality: 40 }])(
         definitions,
         new AbortController().signal,
         ['Omen_of_the_Blessed'],
+        'fixture-ruleset',
       ),
     ).rejects.toThrow('verify')
   },

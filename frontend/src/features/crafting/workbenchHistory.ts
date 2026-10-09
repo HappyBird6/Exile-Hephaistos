@@ -5,6 +5,7 @@ import { maximumQuality, qualityLimitMatches } from './qualityLimit'
 import type { Initial } from './craftingApi'
 import type { AppliedItem, ConcreteItem } from './workbenchApi'
 import { coupledModelsMatch, workbenchActionNames } from './workbenchApi'
+import { isRulesetIdentity } from './rulesetIdentity'
 
 export const historyStorageKey = 'hephaistos.workbench.films.v1'
 export const historyStorageLimit = 2_000_000
@@ -18,13 +19,44 @@ export type CraftEvidence = Pick<
   | 'assumptions'
   | 'consumedOmens'
   | 'qualityLimit'
+  | 'rulesetIdentity'
 >
 export type Frame = {
+  rulesetIdentity?: string
   state: ConcreteItem
   action: string | null
   evidence?: CraftEvidence
 }
-export type Film = { id: string; createdAt: string; frames: Frame[] }
+export type Film = {
+  id: string
+  createdAt: string
+  frames: Frame[]
+  rulesetIdentity?: string
+}
+export type FilmRulesetStatus =
+  'current' | 'mismatch' | 'legacy-unverified' | 'inconsistent'
+
+export function filmRulesetStatus(
+  film: Film,
+  identity: string,
+): FilmRulesetStatus {
+  const identities: unknown[] = [film.rulesetIdentity]
+  for (const [index, frame] of film.frames.entries()) {
+    identities.push(frame.rulesetIdentity)
+    if (index > 0 || frame.evidence)
+      identities.push(frame.evidence?.rulesetIdentity)
+  }
+  const present = identities.filter((value) => value !== undefined)
+  if (
+    present.some((value) => !isRulesetIdentity(value)) ||
+    new Set(present).size > 1
+  )
+    return 'inconsistent'
+  if (present.length !== identities.length) return 'legacy-unverified'
+  return isRulesetIdentity(identity) && film.rulesetIdentity === identity
+    ? 'current'
+    : 'mismatch'
+}
 export type Films = {
   version: 1
   films: Film[]
@@ -70,6 +102,7 @@ export class LocalFilmRepository implements FilmRepository {
             (frame) =>
               frame &&
               typeof frame.state === 'object' &&
+              frame.state !== null &&
               (frame.action === null || typeof frame.action === 'string'),
           ),
       ) ||
@@ -83,19 +116,34 @@ export class LocalFilmRepository implements FilmRepository {
     const raw = JSON.stringify(films)
     if (raw.length * 2 > historyStorageLimit)
       throw new Error('History storage limit reached.')
+    // Preserve the exact pre-boundary bytes before the first write, including selection changes.
+    const archiveKey = historyStorageKey + '.preserved'
+    const previous = this.storage.getItem(historyStorageKey)
+    if (previous !== null && this.storage.getItem(archiveKey) === null)
+      this.storage.setItem(archiveKey, previous)
     this.storage.setItem(historyStorageKey, raw)
   }
 }
 
-export function startFilm(films: Films, root: ConcreteItem, id: string): Films {
+export function startFilm(
+  films: Films,
+  root: ConcreteItem,
+  id: string,
+  rulesetIdentity: string,
+): Films {
+  if (!isRulesetIdentity(rulesetIdentity))
+    throw new Error('Ruleset identity is required.')
   return {
     version: 1,
     films: [
       ...films.films,
       {
         id,
+        rulesetIdentity,
         createdAt: new Date().toISOString(),
-        frames: [{ state: root, action: null }],
+        frames: [
+          { state: structuredClone(root), action: null, rulesetIdentity },
+        ],
       },
     ],
     active: id,
@@ -112,19 +160,28 @@ export function recordCraft(
   let next = films
   const film = currentFilm(next)
   if (
+    !isRulesetIdentity(result.rulesetIdentity) ||
+    (film && filmRulesetStatus(film, result.rulesetIdentity) !== 'current')
+  )
+    throw new Error(
+      'Saved ruleset is unverified or inconsistent. Start a new craft; the original record is preserved.',
+    )
+  if (
     !film ||
     next.cursor !== film.frames.length - 1 ||
     JSON.stringify(currentFrame(next)?.state) !== JSON.stringify(before)
   )
-    next = startFilm(next, before, id)
+    next = startFilm(next, before, id, result.rulesetIdentity)
   const active = currentFilm(next)!
   const frames = [
     ...active.frames,
     {
-      state: result.state,
+      state: structuredClone(result.state),
+      rulesetIdentity: result.rulesetIdentity,
       action: result.action,
       evidence: structuredClone({
         snapshotId: result.snapshotId,
+        rulesetIdentity: result.rulesetIdentity,
         action: result.action,
         ruleVersion: result.ruleVersion,
         ledgerVersion: result.ledgerVersion,
@@ -162,6 +219,8 @@ export function verifiedFrameEvidence(
     const e = frame.evidence
     if (
       !e ||
+      frame.rulesetIdentity !== initial.rulesetIdentity ||
+      e.rulesetIdentity !== initial.rulesetIdentity ||
       (e.qualityLimit !== undefined &&
         (e.qualityLimit === null
           ? maximumQuality(frame.state, initial.modifiers) !== null
@@ -318,29 +377,5 @@ export function verifiedHistoryState(
       : p <= capacity && s <= capacity
   } catch {
     return false
-  }
-}
-
-// Additive catalog updates may explicitly preserve earlier snapshots. Validate each concrete
-// frame before changing only its identity; unknown snapshots and invalid frames stay untouched.
-export function upgradeCompatibleFilms(films: Films, initial: Initial): Films {
-  return {
-    ...films,
-    films: films.films.map((film) => ({
-      ...film,
-      frames: film.frames.map((frame) =>
-        frame.state.snapshotId !== initial.metadata.snapshotId &&
-        initial.compatibleSnapshotIds?.includes(frame.state.snapshotId) &&
-        verifiedHistoryState(frame.state, initial)
-          ? {
-              ...frame,
-              state: {
-                ...frame.state,
-                snapshotId: initial.metadata.snapshotId,
-              },
-            }
-          : frame,
-      ),
-    })),
   }
 }

@@ -4,21 +4,34 @@ import {
   GoalFilterApiError,
   readGoalFilterResponse,
 } from './api'
-import { fixtureContext } from './mock'
+import { fixtureContext, mockGoalFilterAdapter } from './mock'
 import fixture from '../../../../../contracts/support-goal-filter-v1/fixtures.json'
 import type { GoalFilter } from './types'
 afterEach(() => vi.unstubAllGlobals())
 describe('goal filter HTTP adapter', () => {
   it('preserves wire request and AbortSignal', async () => {
     const signal = new AbortController().signal
+    const catalogResponse = await mockGoalFilterAdapter.catalog(
+      fixtureContext,
+      signal,
+    )
     const fetchMock = vi.fn().mockImplementation(
-      async () =>
-        new Response(JSON.stringify(fixture.apiExamples.validateResponse), {
-          status: 200,
-        }),
+      async (url: string) =>
+        new Response(
+          JSON.stringify(
+            url.includes('/catalog')
+              ? catalogResponse
+              : fixture.apiExamples.validateResponse,
+          ),
+          {
+            headers: { 'X-Crafting-Ruleset': 'fixture-ruleset' },
+            status: 200,
+          },
+        ),
     )
     vi.stubGlobal('fetch', fetchMock)
     const adapter = createHttpGoalFilterAdapter()
+    await adapter.catalog(fixtureContext, signal)
     await adapter.validate(
       fixtureContext,
       fixture.apiExamples.validateRequest.goal as GoalFilter,
@@ -33,16 +46,18 @@ describe('goal filter HTTP adapter', () => {
       }),
     )
     await adapter.catalog(fixtureContext, signal)
-    expect(fetchMock.mock.calls[1]![0]).toContain('itemLevel=82')
+    expect(fetchMock.mock.calls[0]![0]).toContain('itemLevel=82')
   })
   it('does not expose server exception messages', async () => {
     vi.stubGlobal(
       'fetch',
-      vi
-        .fn()
-        .mockImplementation(
-          async () => new Response('private stack trace', { status: 503 }),
-        ),
+      vi.fn().mockImplementation(
+        async () =>
+          new Response('private stack trace', {
+            headers: { 'X-Crafting-Ruleset': 'fixture-ruleset' },
+            status: 503,
+          }),
+      ),
     )
     await expect(
       createHttpGoalFilterAdapter().catalog(
@@ -65,7 +80,7 @@ describe('goal filter Problem Details', () => {
       await readGoalFilterResponse(
         new Response(
           JSON.stringify({ detail: 'unrelated detail', issues: [issue] }),
-          { status: 422 },
+          { headers: { 'X-Crafting-Ruleset': 'fixture-ruleset' }, status: 422 },
         ),
       )
       throw new Error('Expected failure')
@@ -78,7 +93,10 @@ describe('goal filter Problem Details', () => {
   it('handles non-JSON service errors with the same safe status message', async () => {
     await expect(
       readGoalFilterResponse(
-        new Response('<html>proxy failure</html>', { status: 503 }),
+        new Response('<html>proxy failure</html>', {
+          headers: { 'X-Crafting-Ruleset': 'fixture-ruleset' },
+          status: 503,
+        }),
       ),
     ).rejects.toMatchObject({
       status: 503,

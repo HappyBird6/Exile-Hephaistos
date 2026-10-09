@@ -124,16 +124,27 @@ public final class WorkbenchDefinitions {
               : o.key().name().startsWith("DEXTRAL_") ? AffixType.SUFFIX : null;
       if (o.affix() != expected || (o.supportsTieredCurrency() && !tiered.contains(o.key())))
         throw new IllegalArgumentException("Omen applicability is outside its reviewed boundary");
-      if (!Set.of(
-              WorkbenchCurrency.ALCHEMY,
-              WorkbenchCurrency.REGAL,
-              WorkbenchCurrency.ANNULMENT,
-              WorkbenchCurrency.EXALTED,
-              WorkbenchCurrency.CHAOS,
-              WorkbenchCurrency.DIVINE,
-              WorkbenchCurrency.ESSENCE_HYSTERIA)
-          .contains(o.trigger()))
-        throw new IllegalArgumentException("Unsupported omen trigger operation");
+      // Each effect is implemented on a specific operation, not every globally known trigger.
+      WorkbenchCurrency implementedTrigger =
+          switch (o.key()) {
+            case SINISTRAL_ALCHEMY, DEXTRAL_ALCHEMY -> WorkbenchCurrency.ALCHEMY;
+            case SINISTRAL_CORONATION, DEXTRAL_CORONATION, HOMOGENISING_CORONATION ->
+                WorkbenchCurrency.REGAL;
+            case GREATER_ANNULMENT, SINISTRAL_ANNULMENT, DEXTRAL_ANNULMENT ->
+                WorkbenchCurrency.ANNULMENT;
+            case SINISTRAL_CRYSTALLISATION, DEXTRAL_CRYSTALLISATION ->
+                WorkbenchCurrency.ESSENCE_HYSTERIA;
+            case GREATER_EXALTATION,
+                HOMOGENISING_EXALTATION,
+                SINISTRAL_EXALTATION,
+                DEXTRAL_EXALTATION ->
+                WorkbenchCurrency.EXALTED;
+            case SINISTRAL_ERASURE, DEXTRAL_ERASURE, WHITTLING -> WorkbenchCurrency.CHAOS;
+            case BLESSED -> WorkbenchCurrency.DIVINE;
+          };
+      if (o.trigger() != implementedTrigger)
+        throw new IllegalArgumentException(
+            "Omen trigger is outside its implemented effect boundary");
     }
     if (!document.omens().stream().map(Omen::key).toList().equals(List.of(WorkbenchOmen.values())))
       throw new IllegalArgumentException(

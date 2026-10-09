@@ -18,6 +18,7 @@ it.each(actual.captures.map((capture, index) => ({ ...capture, index })))(
         actual.definitions as Record<string, Definition>,
         new AbortController().signal,
         activeOmens,
+        'fixture-ruleset',
       ),
     ).resolves.toEqual(result)
   },

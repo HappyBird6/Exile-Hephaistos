@@ -27,6 +27,7 @@ const before: ConcreteItem = {
   ],
 }
 const result: AppliedItem = {
+  rulesetIdentity: 'fixture-ruleset',
   ruleVersion: 'stocky-workbench-hysteria-v19',
   ledgerVersion: 'stocky-unverified-numeric-assumptions-v11',
   snapshotId: before.snapshotId,
@@ -70,6 +71,8 @@ const apply = () =>
     'ESSENCE_HYSTERIA',
     definitions,
     new AbortController().signal,
+    [],
+    'fixture-ruleset',
   )
 
 it('accepts the canonical reordered replacement while preserving a fractured roll', async () => {
@@ -124,6 +127,7 @@ it('consumes only matching Crystallisation and rejects a substituted Solar targe
         definitions,
         new AbortController().signal,
         omens,
+        'fixture-ruleset',
       )
     ).consumedOmens,
   ).toEqual([omens[0]])
@@ -143,6 +147,7 @@ it('consumes only matching Crystallisation and rejects a substituted Solar targe
       both,
       new AbortController().signal,
       omens,
+      'fixture-ruleset',
     ),
   ).rejects.toThrow('Your item is unchanged')
   expect(before.explicits[0]?.fractured).toBe(true)

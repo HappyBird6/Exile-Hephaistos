@@ -1,3 +1,8 @@
+import {
+  isRulesetIdentity,
+  rulesetHeaders,
+  verifyRulesetResponse,
+} from './rulesetIdentity'
 import type { WorkbenchBaseKey } from './baseRegistry'
 import { topBase } from './topBases'
 export const actions = [
@@ -57,6 +62,7 @@ export interface Availability {
   reason: string
 }
 export interface Initial {
+  rulesetIdentity: string
   augmentSockets?: number | null | undefined
   compatibleSnapshotIds?: string[]
   ruleVersion: string
@@ -143,6 +149,7 @@ async function request(
   path: string,
   signal: AbortSignal,
   body?: unknown,
+  rulesetIdentity?: string,
 ): Promise<unknown> {
   const response = await fetch(`/api/v1/crafting/${path}`, {
     signal,
@@ -150,7 +157,7 @@ async function request(
       ? {}
       : {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: rulesetHeaders(rulesetIdentity),
           body: JSON.stringify(body),
         }),
   })
@@ -160,7 +167,14 @@ async function request(
         ? 'This item state or exploration request is not supported.'
         : 'Could not load crafting results. Please retry.',
     )
-  return response.json()
+  if (body !== undefined) verifyRulesetResponse(response, rulesetIdentity!)
+  const value: unknown = await response.json()
+  if (body === undefined && /^(workbench\/)?initial\?/.test(path)) {
+    if (!object(value) || !isRulesetIdentity(value.rulesetIdentity))
+      return invalid()
+    verifyRulesetResponse(response, value.rulesetIdentity)
+  }
+  return value
 }
 function invalid(): never {
   throw new Error('Could not verify the crafting response. Please retry.')
@@ -263,6 +277,7 @@ export async function loadInitial(
     v.state.snapshotId !== v.metadata.snapshotId ||
     typeof v.id !== 'string' ||
     typeof v.ruleVersion !== 'string' ||
+    !isRulesetIdentity(v.rulesetIdentity) ||
     (v.augmentSockets !== undefined &&
       v.augmentSockets !== null &&
       (base !== 'stocky' || v.augmentSockets !== 0)) ||
@@ -300,16 +315,23 @@ export async function loadInitial(
 export async function loadActions(
   state: Bucket,
   signal: AbortSignal,
+  rulesetIdentity: string,
 ): Promise<Availability[]> {
-  const v = await request('actions', signal, state)
+  const v = await request('actions', signal, state, rulesetIdentity)
   return availability(v) ? v : invalid()
 }
 export async function loadTransition(
   state: Bucket,
   selected: Action,
   signal: AbortSignal,
+  rulesetIdentity: string,
 ): Promise<Transition> {
-  const v = await request('transitions', signal, { state, action: selected })
+  const v = await request(
+    'transitions',
+    signal,
+    { state, action: selected },
+    rulesetIdentity,
+  )
   if (
     !object(v) ||
     typeof v.fromId !== 'string' ||
@@ -342,14 +364,20 @@ export async function explore(
   state: Bucket,
   plan: Action[],
   signal: AbortSignal,
+  rulesetIdentity: string,
 ): Promise<Exploration> {
-  const v = await request('explore', signal, {
-    state,
-    plan,
-    maxNodes: 2000,
-    maxEdges: 10000,
-    maxMillis: 1000,
-  })
+  const v = await request(
+    'explore',
+    signal,
+    {
+      state,
+      plan,
+      maxNodes: 2000,
+      maxEdges: 10000,
+      maxMillis: 1000,
+    },
+    rulesetIdentity,
+  )
   if (
     !object(v) ||
     !object(v.nodes) ||

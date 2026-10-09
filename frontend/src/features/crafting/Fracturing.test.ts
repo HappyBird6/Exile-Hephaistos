@@ -49,6 +49,7 @@ function result(
   action: AppliedItem['action'] = 'FRACTURING',
 ): AppliedItem {
   return {
+    rulesetIdentity: 'fixture-ruleset',
     ruleVersion: 'solar-workbench-fracture-v3',
     ledgerVersion: 'solar-uniform-assumptions-v1',
     snapshotId: rare.snapshotId,
@@ -73,7 +74,14 @@ function result(
   }
 }
 const apply = (state: ConcreteItem, action: AppliedItem['action']) =>
-  applyCurrency(state, action, initial.modifiers, new AbortController().signal)
+  applyCurrency(
+    state,
+    action,
+    initial.modifiers,
+    new AbortController().signal,
+    [],
+    'fixture-ruleset',
+  )
 describe('Fracturing contract and stored films', () => {
   it('accepts exactly one unchanged locked instance and restores it from history', async () => {
     vi.stubGlobal('fetch', () =>
@@ -82,7 +90,7 @@ describe('Fracturing contract and stored films', () => {
     const applied = await apply(rare, 'FRACTURING')
     expect(applied.state.explicits[0]?.fractured).toBe(true)
     const films = recordCraft(
-      startFilm(emptyFilms(), rare, 'root'),
+      startFilm(emptyFilms(), rare, 'root', 'fixture-ruleset'),
       rare,
       applied,
       'unused',

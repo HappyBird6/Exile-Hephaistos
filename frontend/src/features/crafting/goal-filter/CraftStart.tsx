@@ -188,6 +188,7 @@ export function CraftStart({
           text,
           controller.signal,
           entry.initial.modifiers,
+          entry.initial.rulesetIdentity,
         )
         if (controller.signal.aborted || version !== revision.current) return
         if (
@@ -284,6 +285,7 @@ export function CraftStart({
         <div id="craft-start-settings" hidden={!draft.editing}>
           {context && (
             <ConnectedGoalFilter
+              rulesetIdentity={selected?.initial.rulesetIdentity}
               item={draft.item}
               context={context}
               language="en"

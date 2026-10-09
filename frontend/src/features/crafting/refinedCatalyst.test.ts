@@ -38,6 +38,7 @@ const root: ConcreteItem = {
   conditions: [],
 }
 const initial = {
+  rulesetIdentity: 'fixture-ruleset',
   metadata: snapshot.metadata,
   state: { ...root, modifierIds: [] },
   modifiers: definitions,
@@ -46,6 +47,7 @@ const initial = {
   ruleVersion: 'sapphire',
 } as unknown as Initial
 const reply = (state: ConcreteItem, action: WorkbenchAction): AppliedItem => ({
+  rulesetIdentity: 'fixture-ruleset',
   ruleVersion: 'sapphire',
   ledgerVersion: 'sapphire',
   snapshotId: root.snapshotId,
@@ -93,17 +95,20 @@ it('accepts reviewed Sapphire removal and source-range reroll while preserving t
     }
     vi.stubGlobal(
       'fetch',
-      vi
-        .fn()
-        .mockResolvedValue(
-          new Response(JSON.stringify(result), { status: 200 }),
-        ),
+      vi.fn().mockResolvedValue(
+        new Response(JSON.stringify(result), {
+          headers: { 'X-Crafting-Ruleset': 'fixture-ruleset' },
+          status: 200,
+        }),
+      ),
     )
     const accepted = await applyCurrency(
       before,
       action,
       definitions,
       new AbortController().signal,
+      [],
+      'fixture-ruleset',
     )
     expect(accepted.state).toEqual(next)
     expect(verifiedHistoryState(next, initial)).toBe(true)
@@ -129,27 +134,31 @@ it('accepts all thirteen refined API results, repeated use and type replacement 
     const next = { ...state, catalystQuality: { type, amount: 20 } }
     vi.stubGlobal(
       'fetch',
-      vi
-        .fn()
-        .mockResolvedValue(
-          new Response(JSON.stringify(reply(next, action)), { status: 200 }),
-        ),
+      vi.fn().mockResolvedValue(
+        new Response(JSON.stringify(reply(next, action)), {
+          headers: { 'X-Crafting-Ruleset': 'fixture-ruleset' },
+          status: 200,
+        }),
+      ),
     )
     const result = await applyCurrency(
       state,
       action,
       definitions,
       new AbortController().signal,
+      [],
+      'fixture-ruleset',
     )
     expect(result.state.explicits).toEqual(root.explicits)
     expect(result.state.catalystQuality).toEqual({ type, amount: 20 })
     vi.stubGlobal(
       'fetch',
-      vi
-        .fn()
-        .mockResolvedValue(
-          new Response(JSON.stringify(reply(next, action)), { status: 200 }),
-        ),
+      vi.fn().mockResolvedValue(
+        new Response(JSON.stringify(reply(next, action)), {
+          headers: { 'X-Crafting-Ruleset': 'fixture-ruleset' },
+          status: 200,
+        }),
+      ),
     )
     expect(
       (
@@ -158,6 +167,8 @@ it('accepts all thirteen refined API results, repeated use and type replacement 
           action,
           definitions,
           new AbortController().signal,
+          [],
+          'fixture-ruleset',
         )
       ).state,
     ).toEqual(next)
@@ -171,11 +182,12 @@ it('rejects an ordinary catalyst falsely applied to Sapphire', async () => {
   )
   vi.stubGlobal(
     'fetch',
-    vi
-      .fn()
-      .mockResolvedValue(
-        new Response(JSON.stringify(response), { status: 200 }),
-      ),
+    vi.fn().mockResolvedValue(
+      new Response(JSON.stringify(response), {
+        headers: { 'X-Crafting-Ruleset': 'fixture-ruleset' },
+        status: 200,
+      }),
+    ),
   )
   await expect(
     applyCurrency(
@@ -183,6 +195,8 @@ it('rejects an ordinary catalyst falsely applied to Sapphire', async () => {
       'CATALYST_FLESH',
       definitions,
       new AbortController().signal,
+      [],
+      'fixture-ruleset',
     ),
   ).rejects.toThrow('catalyst policy')
 })
@@ -207,7 +221,7 @@ it('restores typed Jewel film and rejects Normal, special and out-of-scope start
     'REFINED_CATALYST_SKITTERING',
   )
   const films = recordCraft(
-    startFilm(emptyFilms(), root, 'sapphire'),
+    startFilm(emptyFilms(), root, 'sapphire', 'fixture-ruleset'),
     root,
     applied,
     'unused',

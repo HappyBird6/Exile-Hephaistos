@@ -16,12 +16,14 @@ import { startBases } from './startItem'
 const adapter = createHttpGoalFilterAdapter()
 export function ConnectedGoalFilter({
   item,
+  rulesetIdentity,
   context,
   activeOmens,
   maxMillis,
   compact = false,
 }: {
   item: ConcreteItem | null
+  rulesetIdentity?: string | undefined
   context: Context
   language: GoalFilterLanguage
   activeOmens: string[]
@@ -148,6 +150,11 @@ export function ConnectedGoalFilter({
       )}
       <ConnectedEditor
         initialCatalog={initialCatalog}
+        rulesetIdentity={
+          baseKey === 'support'
+            ? rulesetIdentity
+            : selected?.initial.rulesetIdentity
+        }
         item={actualItem}
         context={{
           snapshotId: actualContext.snapshotId,
@@ -173,6 +180,7 @@ export function ConnectedGoalFilter({
 function ConnectedEditor({
   initialCatalog,
   item,
+  rulesetIdentity,
   context,
   bases,
   language,
@@ -182,6 +190,7 @@ function ConnectedEditor({
 }: {
   initialCatalog: Catalog
   item: ConcreteItem | null
+  rulesetIdentity?: string | undefined
   context: Context
   bases: { id: string; label: string }[]
   language: GoalFilterLanguage
@@ -207,6 +216,7 @@ function ConnectedEditor({
     goal,
     activeOmens,
     maxMillis,
+    rulesetIdentity,
   })
   const current = submitted?.identity === identity && item !== null
   const result = useQuery({
@@ -219,6 +229,7 @@ function ConnectedEditor({
         activeOmens,
         maxMillis,
         signal,
+        rulesetIdentity!,
       ),
     retry: false,
   })

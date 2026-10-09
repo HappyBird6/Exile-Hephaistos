@@ -125,6 +125,7 @@ it('preserves unresolved missing-level and fracture boundaries and supports symm
 function result(): AppliedItem {
   const added = { modifierId: 'p3', values: mods[0]!.values }
   return {
+    rulesetIdentity: 'fixture-ruleset',
     ruleVersion: 'omen-composition-v1',
     ledgerVersion: 'fixture',
     snapshotId: before.snapshotId,
@@ -165,6 +166,7 @@ async function apply(value: AppliedItem) {
     defs,
     new AbortController().signal,
     [...pair, 'Omen_of_the_Blessed'],
+    'fixture-ruleset',
   )
 }
 it('accepts both consumed omens and rejects wrong side, tie probability, ledger and partial consumption', async () => {

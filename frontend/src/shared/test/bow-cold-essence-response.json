@@ -2,6 +2,7 @@
   "provenance": "Actual QA Docker API capture, 2026-10-03; PoE2DB source bounds, explicitly unverified shared-ratio numeric model.",
   "result": {
     "status": 200,
+    "rulesetIdentity": "fixture-ruleset",
     "ruleVersion": "bow-workbench-basic-essence-v1",
     "ledgerVersion": "bow-unverified-numeric-assumptions-v1",
     "snapshotId": "poe2db-crude-bow-normal-2026-10-03-417390c5ebe4",
@@ -54,6 +55,7 @@
     "consumedOmens": [],
     "remainingOmens": ["Omen_of_the_Blessed"],
     "qualityLimit": {
+      "rulesetIdentity": "fixture-ruleset",
       "ruleVersion": "quality-limit-v1",
       "maximumQuality": 20
     }

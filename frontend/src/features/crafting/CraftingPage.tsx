@@ -58,7 +58,7 @@ import {
   viewFrame,
   verifiedHistoryState,
   verifiedFrameEvidence,
-  upgradeCompatibleFilms,
+  filmRulesetStatus,
 } from './workbenchHistory'
 import type { Films } from './workbenchHistory'
 import {
@@ -255,14 +255,21 @@ export function CraftingPage() {
     queryKey: mappingKey,
     queryFn: skipToken,
   })
+  const activeFilm =
+    filmState.revision === draft.baseRevision
+      ? currentFilm(filmState.history)
+      : undefined
+  const rulesetStatus =
+    activeFilm && initial.data
+      ? filmRulesetStatus(activeFilm, initial.data.rulesetIdentity)
+      : undefined
   const restoredValid =
     storedFrame && initial.data
-      ? verifiedHistoryState(storedFrame.state, initial.data)
+      ? rulesetStatus === 'current' &&
+        verifiedHistoryState(storedFrame.state, initial.data)
       : false
   const restoredState =
-    restoredValid && initial.data && storedFrame
-      ? { ...storedFrame.state, snapshotId: initial.data.metadata.snapshotId }
-      : undefined
+    restoredValid && initial.data && storedFrame ? storedFrame.state : undefined
   const canCraft =
     (draft.source === 'base' || mapping.data?.mapped === true) &&
     (!storedFrame || restoredValid)
@@ -316,7 +323,7 @@ export function CraftingPage() {
         throw new Error('Unsupported starting quality')
       draft.setBase(level, base)
       saveFilms(
-        startFilm(filmState.history, root, filmId()),
+        startFilm(filmState.history, root, filmId(), data.rulesetIdentity),
         useItemDraft.getState().baseRevision,
       )
       setSelected(null)
@@ -328,15 +335,12 @@ export function CraftingPage() {
       if (request === placementRequest.current) placementPending.current = false
     }
   }
-  async function restoreFilm(id: string) {
-    if (applyingRequest.current) return
+  function restoreFilm(id: string) {
+    if (applyingRequest.current || placementPending.current) return
     const selectedFilm = filmState.history.films.find(
       (entry) => entry.id === id,
     )
     if (!selectedFilm) return
-    const request = ++placementRequest.current
-    const revision = useItemDraft.getState().baseRevision
-    placementPending.current = true
     const state = selectedFilm.frames.at(-1)!.state
     const base =
       topBaseKey(state.baseItemId) ??
@@ -368,38 +372,19 @@ export function CraftingPage() {
                           'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1'
                         ? 'bow'
                         : 'solar')
-    try {
-      const data = await client.fetchQuery({
-        queryKey: ['crafting', 'initial', base, state.itemLevel],
-        queryFn: ({ signal }) => loadInitial(state.itemLevel, signal, base),
-        staleTime: 60_000,
-      })
-      if (
-        request !== placementRequest.current ||
-        revision !== useItemDraft.getState().baseRevision
-      )
-        return
-      if (!verifiedHistoryState(state, data)) {
-        setAnnouncement(t('notice.saved_session'))
-        return
-      }
-      draft.setBase(state.itemLevel, base)
-      saveFilms(
-        {
-          ...filmState.history,
-          active: selectedFilm.id,
-          cursor: selectedFilm.frames.length - 1,
-        },
-        useItemDraft.getState().baseRevision,
-      )
-      setSelected(null)
-      setHeld(null)
-      setAnnouncement('')
-    } catch {
-      setAnnouncement(t('notice.session_catalog'))
-    } finally {
-      if (request === placementRequest.current) placementPending.current = false
-    }
+    // Reading a historical record must not depend on availability of its catalog or engine.
+    draft.setBase(state.itemLevel, base)
+    saveFilms(
+      {
+        ...filmState.history,
+        active: selectedFilm.id,
+        cursor: selectedFilm.frames.length - 1,
+      },
+      useItemDraft.getState().baseRevision,
+    )
+    setSelected(null)
+    setHeld(null)
+    setAnnouncement('')
   }
   function browse(cursor: number) {
     if (applyingRequest.current || placementPending.current) return
@@ -526,6 +511,10 @@ export function CraftingPage() {
       return
     }
     if (!canCraft) {
+      if (rulesetStatus && rulesetStatus !== 'current') {
+        setAnnouncement(t(`ruleset.${rulesetStatus}`))
+        return
+      }
       setAnnouncement(
         'The item has not changed. Pasted items are display-only. Select the Solar Amulet base to explore probabilities.',
       )
@@ -560,6 +549,7 @@ export function CraftingPage() {
         initial.data.modifiers,
         controller.signal,
         draft.activeOmens,
+        initial.data.rulesetIdentity,
       )
       if (
         controller.signal.aborted ||
@@ -573,15 +563,7 @@ export function CraftingPage() {
           filmState.revision === revision
             ? filmState.history
             : { ...filmState.history, active: null, cursor: 0 }
-        saveFilms(
-          recordCraft(
-            upgradeCompatibleFilms(history, initial.data),
-            state,
-            result,
-            filmId(),
-          ),
-          revision,
-        )
+        saveFilms(recordCraft(history, state, result, filmId()), revision)
         draft.setActiveOmens(result.remainingOmens)
         setAnnouncement(
           [
@@ -640,6 +622,7 @@ export function CraftingPage() {
         imported.data.text.originalText,
         controller.signal,
         initial.data.modifiers,
+        initial.data.rulesetIdentity,
       )
       if (
         controller.signal.aborted ||
@@ -657,7 +640,12 @@ export function CraftingPage() {
       client.setQueryData(mappingKey, result)
       if (result.mapped && result.state)
         saveFilms(
-          startFilm(filmState.history, result.state, filmId()),
+          startFilm(
+            filmState.history,
+            result.state,
+            filmId(),
+            initial.data.rulesetIdentity,
+          ),
           revision,
         )
       setAnnouncement(
@@ -762,7 +750,9 @@ export function CraftingPage() {
   }
   const matchingEssenceRows = essenceRows(search)
   const cursor = held ?? selected
-  const concrete = restoredState ?? workbench.data?.state ?? mapping.data?.state
+  const concrete = storedFrame
+    ? restoredState
+    : (workbench.data?.state ?? mapping.data?.state)
   const craftEvidence =
     storedFrame && initial.data
       ? verifiedFrameEvidence(storedFrame, initial.data)
@@ -1747,10 +1737,26 @@ export function CraftingPage() {
                 {filmState.error && (
                   <p role="alert">{uiText(filmState.error)}</p>
                 )}
-                {storedFrame && initial.data && !restoredValid && (
-                  <p role="alert">{t('notice.saved_catalog')}</p>
+                {storedFrame &&
+                  rulesetStatus &&
+                  rulesetStatus !== 'current' && (
+                    <section aria-label={t('ruleset.saved_record')}>
+                      <p role="alert">{t(`ruleset.${rulesetStatus}`)}</p>
+                    </section>
+                  )}
+                {storedFrame &&
+                  rulesetStatus === 'current' &&
+                  initial.data &&
+                  !restoredValid && (
+                    <p role="alert">{t('notice.saved_catalog')}</p>
+                  )}
+                {storedFrame && !restoredValid && (
+                  <details>
+                    <summary>{t('ruleset.saved_record')}</summary>
+                    <pre>{JSON.stringify(storedFrame, null, 2)}</pre>
+                  </details>
                 )}
-                {card ? (
+                {storedFrame && !restoredValid ? null : card ? (
                   <ItemCard
                     item={card}
                     showOriginalOrder={altHeld}

@@ -20,6 +20,7 @@ const input = concreteInitial(initialFixture)
 function fixture(): AppliedItem {
   const values = { life: 15, signed: -2 }
   return {
+    rulesetIdentity: 'fixture-ruleset',
     ruleVersion: 'contract-fixture',
     ledgerVersion: 'contract-fixture',
     snapshotId: input.snapshotId,
@@ -57,6 +58,8 @@ const apply = () =>
     'TRANSMUTATION',
     definitions,
     new AbortController().signal,
+    [],
+    'fixture-ruleset',
   )
 
 describe('coupled roll evidence contract', () => {

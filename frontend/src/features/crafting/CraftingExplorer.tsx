@@ -115,7 +115,8 @@ export function CraftingExplorer({
   const available = useQuery({
     queryKey: ['crafting', 'actions', position?.id],
     queryFn: position
-      ? ({ signal }) => loadActions(position.state, signal)
+      ? ({ signal }) =>
+          loadActions(position.state, signal, initial.data!.rulesetIdentity)
       : skipToken,
     initialData:
       position?.id === initial.data?.id ? initial.data?.actions : undefined,
@@ -126,7 +127,13 @@ export function CraftingExplorer({
     queryKey: ['crafting', 'transitions', position?.id, selected],
     queryFn:
       position && selected
-        ? ({ signal }) => loadTransition(position.state, selected, signal)
+        ? ({ signal }) =>
+            loadTransition(
+              position.state,
+              selected,
+              signal,
+              initial.data!.rulesetIdentity,
+            )
         : skipToken,
     staleTime: 60_000,
     retry: false,
@@ -135,7 +142,13 @@ export function CraftingExplorer({
     queryKey: ['crafting', 'explore', position?.id, search],
     queryFn:
       position && search && search.stateId === position.id
-        ? ({ signal }) => explore(position.state, search.plan, signal)
+        ? ({ signal }) =>
+            explore(
+              position.state,
+              search.plan,
+              signal,
+              initial.data!.rulesetIdentity,
+            )
         : skipToken,
     staleTime: Infinity,
     gcTime: 0,

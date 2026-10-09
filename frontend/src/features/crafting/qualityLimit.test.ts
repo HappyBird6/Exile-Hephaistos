@@ -55,13 +55,18 @@ describe('source-reviewed quality maximum, not applied quality', () => {
           ruleVersion: 'quality-limit-v1',
           maximumQuality: cap,
         }
-        return new Response(JSON.stringify(value), { status: 200 })
+        return new Response(JSON.stringify(value), {
+          headers: { 'X-Crafting-Ruleset': 'fixture-ruleset' },
+          status: 200,
+        })
       })
       const result = applyCurrency(
         state,
         'TRANSMUTATION',
         definitions,
         new AbortController().signal,
+        [],
+        'fixture-ruleset',
       )
       if (cap === 20)
         expect((await result).qualityLimit?.maximumQuality).toBe(20)
@@ -134,7 +139,11 @@ describe('source-reviewed quality maximum, not applied quality', () => {
   it.each([
     null,
     { ruleVersion: 'quality-limit-v1', maximumQuality: 20 },
-    { ruleVersion: 'unknown', maximumQuality: 40 },
+    {
+      rulesetIdentity: 'fixture-ruleset',
+      ruleVersion: 'unknown',
+      maximumQuality: 40,
+    },
     { ruleVersion: 'quality-limit-v1', maximumQuality: '40' },
   ])('rejects contradictory or unsupported cap evidence %j', (value) => {
     expect(qualityLimitMatches(value, withBreach, definitions)).toBe(false)
@@ -154,7 +163,7 @@ describe('source-reviewed quality maximum, not applied quality', () => {
       maximumQuality: 20,
     }
     const films = recordCraft(
-      startFilm(emptyFilms(), reviewedRoot, 'quality'),
+      startFilm(emptyFilms(), reviewedRoot, 'quality', 'fixture-ruleset'),
       reviewedRoot,
       result,
       'unused',
